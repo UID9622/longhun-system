@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 龍魂系统 Skill 启动器 v1.0
 # DNA:#龍芯⚡️2026-06-07-SKILL-LAUNCHER-FILE1-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
 

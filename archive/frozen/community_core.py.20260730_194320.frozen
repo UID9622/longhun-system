@@ -1,0 +1,659 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+龍魂万年历 · 开源社区核心
+DNA: #龍芯⚡️2026-06-27-LONGHUN-WANNIANLI-COMMUNITY-v1.0
+
+原则：本地存储、DNA追溯、来源链继承、方向路由、审核熔断、主权归中。
+"""
+
+import hashlib
+import json
+import os
+import shutil
+import uuid
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+COMMUNITY = ROOT / 'community'
+THEMES = COMMUNITY / 'themes'
+CALENDARS = COMMUNITY / 'calendars'
+EXTENSIONS = COMMUNITY / 'extensions'
+LOGS = COMMUNITY / 'logs'
+REVIEWS = COMMUNITY / 'reviews'
+INDEX = COMMUNITY / 'index.json'
+DIRECTIONS_FILE = COMMUNITY / 'directions.json'
+
+DEFAULT_ACTOR = 'UID9622'
+DEFAULT_DIRECTIONS = ['审计', '训练', '查阅', '维护', '研发', '合规']
+
+PRIVATE_FORBIDDEN_KEYWORDS = [
+    'private', '私密', '个人备注', 'calendar_notes',
+    '用户个人', '个人隐私', '手机号', '身份证', '身份证号', '地址'
+]
+
+# 社区元数据文件不检查关键词（它们本身由系统生成，不是用户隐私数据）
+COMMUNITY_META_FILES = {'metadata.json', 'preview.png'}
+
+
+
+def _now():
+    return datetime.now(timezone(timedelta(hours=8))).isoformat()
+
+
+def _today_hash():
+    return datetime.now(timezone(timedelta(hours=8))).strftime('%Y%m%d')
+
+
+def _hash8(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest().upper()[:8]
+
+
+def _load_json(path: Path):
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding='utf-8'))
+
+
+def _save_json(path: Path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
+
+
+def _append_jsonl(path: Path, record: dict[str, Any]):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, 'a', encoding='utf-8') as f:
+        f.write(json.dumps(record, ensure_ascii=False) + '\n')
+
+
+def _ensure_dirs():
+    for d in [THEMES, CALENDARS, EXTENSIONS, LOGS, REVIEWS]:
+        d.mkdir(parents=True, exist_ok=True)
+
+
+def _init_directions():
+    if DIRECTIONS_FILE.exists():
+        return _load_json(DIRECTIONS_FILE)
+    data = {
+        'dna': '#龍芯⚡️' + _today_hash() + '-万年历-方向配置-INIT-' + _hash8(b'longhun-directions-init'),
+        'directions': [{'id': d, 'name': d, 'reviewers': [], 'created_at': _now(), 'created_by': DEFAULT_ACTOR}
+                       for d in DEFAULT_DIRECTIONS],
+        'pending_approval': []
+    }
+    _save_json(DIRECTIONS_FILE, data)
+    return data
+
+
+def _load_index():
+    _ensure_dirs()
+    if not INDEX.exists():
+        index = {
+            'dna': '#龍芯⚡️' + _today_hash() + '-万年历-社区索引-INIT-' + _hash8(b'longhun-community-index'),
+            'version': '1.0',
+            'created_at': _now(),
+            'updated_at': _now(),
+            'themes': {},
+            'calendars': {},
+            'extensions': {}
+        }
+        _save_json(INDEX, index)
+        return index
+    return _load_json(INDEX)
+
+
+def _save_index(index):
+    index['updated_at'] = _now()
+    _save_json(INDEX, index)
+
+
+def _generate_dna(kind: str, name: str, data: bytes) -> str:
+    """生成DNA追溯码：#龍芯⚡️YYYYMMDD-万年历-[类型]-[名称]-[哈希8]"""
+    safe_name = name.replace(' ', '-').replace('/', '-')
+    h = _hash8(data + kind.encode('utf-8') + name.encode('utf-8'))
+    return f"#龍芯⚡️{_today_hash()}-万年历-{kind}-{safe_name}-{h}"
+
+
+def _safe_id(name: str) -> str:
+    return name.replace(' ', '_').replace('/', '_').replace('\\', '_')
+
+
+def _audit(action: str, user: str, dna: str, item_type: str, direction: str, status: str, detail: str = ''):
+    record = {
+        'timestamp': _now(),
+        'action': action,
+        'user': user,
+        'dna': dna,
+        'type': item_type,
+        'direction': direction,
+        'status': status,
+        'detail': detail
+    }
+    _append_jsonl(LOGS / 'upload_audit.jsonl' if action in ('上传', '审核通过', '审核驳回') else LOGS / 'download_audit.jsonl', record)
+
+
+def _check_forbidden_data(path: Path) -> tuple[bool, str]:
+    """检查是否包含禁止上传的私密数据（跳过社区系统生成的元数据文件）"""
+    if not path.exists():
+        return False, ''
+    text = ''
+    try:
+        if path.is_file():
+            if path.name not in COMMUNITY_META_FILES:
+                text = path.read_text(encoding='utf-8', errors='ignore').lower()
+        elif path.is_dir():
+            for f in path.rglob('*'):
+                if f.is_file() and f.name not in COMMUNITY_META_FILES and f.stat().st_size < 5 * 1024 * 1024:
+                    text += f.read_text(encoding='utf-8', errors='ignore').lower() + '\n'
+    except Exception:
+        pass
+    for kw in PRIVATE_FORBIDDEN_KEYWORDS:
+        if kw.lower() in text:
+            return True, f"检测到禁止关键词: {kw}"
+    # 检查是否包含用户个人备注JSON结构
+    if '"notes"' in text and '"user"' in text:
+        return True, "检测到疑似个人备注数据结构"
+    if 'calendar_notes.json' in text:
+        return True, "检测到个人日历备注文件引用"
+    return False, ''
+
+
+def _preview_png_bytes(theme_dir: Path) -> bytes:
+    """为主题生成一张简单的预览图（PNG）"""
+    try:
+        from PIL import Image, ImageDraw, ImageFont
+    except ImportError:
+        # 返回1x1透明PNG占位
+        return b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82'
+
+    css_path = theme_dir / 'theme.css'
+    # 解析颜色
+    colors = {
+        'bg': '#0a0a12', 'bgCard': '#12121f', 'blue': '#00d4ff',
+        'gold': '#ffd700', 'text': '#e8ecf1'
+    }
+    if css_path.exists():
+        text = css_path.read_text(encoding='utf-8')
+        for line in text.splitlines():
+            for key in colors:
+                css_key = '--' + key.replace('C', '-c').lower()
+                if css_key in line and ':' in line:
+                    val = line.split(':')[1].split(';')[0].strip()
+                    colors[key] = val
+
+    width, height = 320, 200
+    img = Image.new('RGB', (width, height), colors['bg'])
+    draw = ImageDraw.Draw(img)
+    try:
+        font = ImageFont.truetype(str(ROOT / 'assets' / 'LonghunFont-Regular.ttf'), 24)
+        small = ImageFont.truetype(str(ROOT / 'assets' / 'LonghunFont-Regular.ttf'), 14)
+    except Exception:
+        font = ImageFont.load_default()
+        small = font
+
+    # 绘制装饰
+    draw.rectangle([20, 20, width - 20, height - 20], outline=colors['blue'], width=2)
+    draw.text((width // 2, 60), '龍魂万年历', fill=colors['gold'], font=font, anchor='mm')
+    meta = _load_json(theme_dir / 'metadata.json')
+    draw.text((width // 2, 110), meta.get('name', theme_dir.name), fill=colors['text'], font=small, anchor='mm')
+    draw.text((width // 2, 140), meta.get('version', 'v1.0'), fill=colors['blue'], font=small, anchor='mm')
+    dna = meta.get('dna', '')
+    draw.text((width // 2, 165), dna[:28] + '...' if len(dna) > 28 else dna, fill=colors['text'], font=small, anchor='mm')
+
+    import io
+    buf = io.BytesIO()
+    img.save(buf, format='PNG')
+    return buf.getvalue()
+
+
+class CommunityCore:
+    def __init__(self):
+        _ensure_dirs()
+        self.index = _load_index()
+        self.directions_cfg = _init_directions()
+        self._directions_mtime = DIRECTIONS_FILE.stat().st_mtime if DIRECTIONS_FILE.exists() else 0
+
+    def _reload_directions(self):
+        """如果磁盘上的方向配置有更新，重新加载"""
+        if DIRECTIONS_FILE.exists():
+            mtime = DIRECTIONS_FILE.stat().st_mtime
+            if mtime > self._directions_mtime:
+                self.directions_cfg = _load_json(DIRECTIONS_FILE)
+                self._directions_mtime = mtime
+
+    # ---------- 方向管理 ----------
+    def list_directions(self):
+        self._reload_directions()
+        return {'ok': True, 'directions': self.directions_cfg.get('directions', [])}
+
+    def add_direction(self, name: str, actor: str = DEFAULT_ACTOR):
+        self._reload_directions()
+        directions = self.directions_cfg.get('directions', [])
+        if any(d['id'] == name for d in directions):
+            return {'ok': False, 'error': '方向已存在'}
+        directions.append({
+            'id': name, 'name': name, 'reviewers': [],
+            'created_at': _now(), 'created_by': actor
+        })
+        _save_json(DIRECTIONS_FILE, self.directions_cfg)
+        return {'ok': True, 'direction': directions[-1]}
+
+    def remove_direction(self, name: str, actor: str = DEFAULT_ACTOR):
+        self._reload_directions()
+        if actor != DEFAULT_ACTOR:
+            return {'ok': False, 'error': '仅创建者可删除方向'}
+        directions = self.directions_cfg.get('directions', [])
+        self.directions_cfg['directions'] = [d for d in directions if d['id'] != name]
+        _save_json(DIRECTIONS_FILE, self.directions_cfg)
+        return {'ok': True}
+
+    def authorize_direction_reviewer(self, direction_id: str, user: str, actor: str = DEFAULT_ACTOR):
+        self._reload_directions()
+        if actor != DEFAULT_ACTOR:
+            return {'ok': False, 'error': '仅创建者可授权方向审核人'}
+        for d in self.directions_cfg.get('directions', []):
+            if d['id'] == direction_id:
+                if user not in d.get('reviewers', []):
+                    d.setdefault('reviewers', []).append(user)
+                _save_json(DIRECTIONS_FILE, self.directions_cfg)
+                return {'ok': True, 'direction': d}
+        return {'ok': False, 'error': '方向不存在'}
+
+    def direction_review_queue(self, direction_id: str):
+        pending = []
+        for theme_id, theme in self.index.get('themes', {}).items():
+            if theme.get('direction') == direction_id and theme.get('review_status') == '待审核':
+                pending.append(theme)
+        return {'ok': True, 'queue': pending}
+
+    # ---------- 共享列表 ----------
+    def list_shared(self, status_filter: str | None = None):
+        themes = []
+        for tid, t in self.index.get('themes', {}).items():
+            if status_filter is None or t.get('review_status') == status_filter:
+                themes.append({
+                    'id': tid,
+                    'name': t.get('name'),
+                    'version': t.get('version'),
+                    'dna': t.get('dna'),
+                    'direction': t.get('direction'),
+                    'review_status': t.get('review_status'),
+                    'author': t.get('author'),
+                    'updated_at': t.get('updated_at')
+                })
+        calendars = [{'id': k, **v} for k, v in self.index.get('calendars', {}).items()]
+        extensions = [{'id': k, **v} for k, v in self.index.get('extensions', {}).items()]
+        return {'ok': True, 'themes': themes, 'calendars': calendars, 'extensions': extensions}
+
+    def view_shared(self, name: str):
+        tid = _safe_id(name)
+        theme = self.index.get('themes', {}).get(tid)
+        if not theme:
+            return {'ok': False, 'error': '主题不存在'}
+        theme_dir = THEMES / tid
+        metadata = _load_json(theme_dir / 'metadata.json')
+        reviews = []
+        for rpath in sorted(REVIEWS.glob('*.json')):
+            rec = _load_json(rpath)
+            if rec.get('dna') == metadata.get('dna') or rec.get('theme_id') == tid:
+                reviews.append(rec)
+        return {
+            'ok': True,
+            'theme': metadata,
+            'reviews': reviews,
+            'history': metadata.get('history', [])
+        }
+
+    def view_history(self, name: str):
+        res = self.view_shared(name)
+        if not res['ok']:
+            return res
+        return {'ok': True, 'history': res['theme'].get('history', []), 'theme': res['theme']}
+
+    # ---------- 上传 ----------
+    def upload_theme(self, name: str, source_dna: str | None = None, source_author: str | None = None,
+                     direction: str = '研发', description: str = '',
+                     actor: str = DEFAULT_ACTOR):
+        theme_id = _safe_id(name)
+        local_theme_dir = ROOT / 'themes' / theme_id
+        if not local_theme_dir.exists():
+            # 允许上传当前应用的主题目录（通过名称匹配）
+            for d in (ROOT / 'themes').iterdir():
+                if d.is_dir() and _safe_id(d.name) == theme_id:
+                    local_theme_dir = d
+                    break
+        if not local_theme_dir.exists():
+            return {'ok': False, 'error': f'本地主题不存在: {name}，路径: {local_theme_dir}'}
+
+        forbidden, reason = _check_forbidden_data(local_theme_dir)
+        if forbidden:
+            return {'ok': False, 'error': f'包含禁止数据，上传被驳回: {reason}'}
+
+        # 读取来源链
+        source_chain = None
+        if source_dna:
+            source_chain = {
+                'source_dna': source_dna,
+                'source_author': source_author or 'unknown'
+            }
+        else:
+            # 自动检测：如果本地是修改自社区主题的，询问或自动继承？
+            # 这里实现自动检测：如果本地主题 metadata 里有 source_dna 就继承
+            local_meta = _load_json(local_theme_dir / 'metadata.json')
+            if local_meta.get('source_dna'):
+                source_chain = {
+                    'source_dna': local_meta.get('source_dna'),
+                    'source_author': local_meta.get('source_author', 'unknown')
+                }
+
+        # 读取CSS用于DNA
+        css_path = local_theme_dir / 'theme.css'
+        css_bytes = css_path.read_bytes() if css_path.exists() else b''
+        dna = _generate_dna('主题', name, css_bytes + actor.encode('utf-8') + str(uuid.uuid4()).encode())
+
+        # 构建社区主题目录
+        community_theme_dir = THEMES / theme_id
+        community_theme_dir.mkdir(parents=True, exist_ok=True)
+
+        # 复制文件
+        for item in local_theme_dir.iterdir():
+            dest = community_theme_dir / item.name
+            if item.is_dir():
+                if dest.exists():
+                    shutil.rmtree(dest)
+                shutil.copytree(item, dest)
+            else:
+                shutil.copy2(item, dest)
+
+        version = '1.0'
+        existing = self.index.get('themes', {}).get(theme_id)
+        history = []
+        if existing:
+            version = existing.get('version', '1.0')
+            # 简单版本递增
+            try:
+                vnum = float(version.lstrip('v'))
+                version = f"{vnum + 0.1:.1f}"
+            except Exception:
+                version = version + '-rev'
+            history = existing.get('history', [])
+            history.append({
+                'version': existing.get('version'),
+                'dna': existing.get('dna'),
+                'timestamp': existing.get('updated_at'),
+                'author': existing.get('author')
+            })
+
+        metadata = {
+            'id': theme_id,
+            'name': name,
+            'version': version,
+            'dna': dna,
+            'source_dna': source_chain['source_dna'] if source_chain else None,
+            'source_author': source_chain['source_author'] if source_chain else None,
+            'author': actor,
+            'timestamp': _now(),
+            'updated_at': _now(),
+            'direction': direction,
+            'description': description,
+            'review_status': '待审核',
+            'history': history,
+            'files': [str(p.relative_to(community_theme_dir)) for p in community_theme_dir.rglob('*') if p.is_file()]
+        }
+        _save_json(community_theme_dir / 'metadata.json', metadata)
+
+        # 生成预览图
+        preview = _preview_png_bytes(community_theme_dir)
+        (community_theme_dir / 'preview.png').write_bytes(preview)
+
+        # 更新索引（待审核状态也放入索引，但 list_shared 默认只显示已通过；UI 会区分）
+        self.index.setdefault('themes', {})[theme_id] = metadata
+        _save_index(self.index)
+
+        # 生成审核记录
+        review_id = f"review-{_today_hash()}-{len(list(REVIEWS.glob('*.json')))+1:03d}"
+        review = {
+            'review_id': review_id,
+            'dna': dna,
+            'theme_id': theme_id,
+            'reviewer': None,
+            'decision': '待审核',
+            'reason': '',
+            'timestamp': _now()
+        }
+        _save_json(REVIEWS / f"{review_id}.json", review)
+
+        _audit('上传', actor, dna, '主题', direction, '待审核', f"review_id={review_id}")
+        return {
+            'ok': True,
+            'shared_id': theme_id,
+            'dna': dna,
+            'version': version,
+            'review_status': '待审核',
+            'review_id': review_id,
+            'source_chain': source_chain
+        }
+
+    # ---------- 下载 ----------
+    def download_theme(self, name: str, actor: str = DEFAULT_ACTOR):
+        theme_id = _safe_id(name)
+        theme = self.index.get('themes', {}).get(theme_id)
+        if not theme:
+            return {'ok': False, 'error': '主题不存在'}
+        if theme.get('review_status') != '已通过':
+            return {'ok': False, 'error': '主题尚未通过审核，无法下载'}
+        src = THEMES / theme_id
+        dest = ROOT / 'themes' / theme_id
+        if dest.exists():
+            shutil.rmtree(dest)
+        shutil.copytree(src, dest)
+        _audit('下载', actor, theme.get('dna'), '主题', theme.get('direction', ''), 'success')
+        return {'ok': True, 'theme_id': theme_id, 'dna': theme.get('dna')}
+
+    # ---------- 应用 ----------
+    def apply_theme(self, name: str):
+        theme_id = _safe_id(name)
+        local_dir = ROOT / 'themes' / theme_id
+        if not local_dir.exists():
+            return {'ok': False, 'error': '本地主题不存在，请先下载'}
+        cfg = _load_json(ROOT / 'config.json')
+        cfg['theme'] = theme_id
+        _save_json(ROOT / 'config.json', cfg)
+        return {'ok': True, 'theme': theme_id}
+
+    # ---------- 删除本地 ----------
+    def delete_local_theme(self, name: str):
+        theme_id = _safe_id(name)
+        local_dir = ROOT / 'themes' / theme_id
+        if not local_dir.exists():
+            return {'ok': False, 'error': '本地主题不存在'}
+        shutil.rmtree(local_dir)
+        return {'ok': True}
+
+    # ---------- 审核 ----------
+    def list_reviews(self, status: str | None = None):
+        reviews = []
+        for rpath in sorted(REVIEWS.glob('*.json')):
+            rec = _load_json(rpath)
+            if status is None or rec.get('decision') == status:
+                reviews.append(rec)
+        return {'ok': True, 'reviews': reviews}
+
+    def _can_review(self, review: dict[str, Any], actor: str) -> bool:
+        self._reload_directions()
+        # 创建者始终可以审核
+        if actor == DEFAULT_ACTOR:
+            return True
+        # 方向审核人可以审核
+        theme = self.index.get('themes', {}).get(review.get('theme_id'))
+        if theme:
+            direction_id = theme.get('direction')
+            for d in self.directions_cfg.get('directions', []):
+                if d['id'] == direction_id and actor in d.get('reviewers', []):
+                    return True
+        return False
+
+    def approve(self, shared_id: str, actor: str = DEFAULT_ACTOR):
+        theme_id = _safe_id(shared_id)
+        theme = self.index.get('themes', {}).get(theme_id)
+        if not theme:
+            return {'ok': False, 'error': '共享项不存在'}
+        # 查找对应待审核记录
+        review_path = None
+        review = None
+        for rpath in REVIEWS.glob('*.json'):
+            rec = _load_json(rpath)
+            if rec.get('theme_id') == theme_id and rec.get('decision') == '待审核':
+                review_path = rpath
+                review = rec
+                break
+        if not review:
+            return {'ok': False, 'error': '未找到待审核记录'}
+        if not self._can_review(review, actor):
+            return {'ok': False, 'error': '无审核权限'}
+
+        review['decision'] = '通过'
+        review['reviewer'] = actor
+        review['reason'] = '符合社区规则'
+        review['timestamp'] = _now()
+        _save_json(review_path, review)
+
+        theme['review_status'] = '已通过'
+        theme['updated_at'] = _now()
+        _save_json(THEMES / theme_id / 'metadata.json', theme)
+        _save_index(self.index)
+
+        _audit('审核通过', actor, theme.get('dna'), '主题', theme.get('direction', ''), '已通过')
+        return {'ok': True, 'theme_id': theme_id, 'dna': theme.get('dna')}
+
+    def reject(self, shared_id: str, reason: str, actor: str = DEFAULT_ACTOR):
+        theme_id = _safe_id(shared_id)
+        theme = self.index.get('themes', {}).get(theme_id)
+        if not theme:
+            return {'ok': False, 'error': '共享项不存在'}
+        review_path = None
+        review = None
+        for rpath in REVIEWS.glob('*.json'):
+            rec = _load_json(rpath)
+            if rec.get('theme_id') == theme_id and rec.get('decision') == '待审核':
+                review_path = rpath
+                review = rec
+                break
+        if not review:
+            return {'ok': False, 'error': '未找到待审核记录'}
+        if not self._can_review(review, actor):
+            return {'ok': False, 'error': '无审核权限'}
+
+        review['decision'] = '已驳回'
+        review['reviewer'] = actor
+        review['reason'] = reason
+        review['timestamp'] = _now()
+        _save_json(review_path, review)
+
+        theme['review_status'] = '已驳回'
+        theme['reject_reason'] = reason
+        theme['updated_at'] = _now()
+        _save_json(THEMES / theme_id / 'metadata.json', theme)
+        _save_index(self.index)
+
+        _audit('审核驳回', actor, theme.get('dna'), '主题', theme.get('direction', ''), '已驳回', reason)
+        return {'ok': True, 'theme_id': theme_id, 'reason': reason}
+
+    # ---------- 版本回退 ----------
+    def rollback_theme(self, name: str, version: str):
+        theme_id = _safe_id(name)
+        theme = self.index.get('themes', {}).get(theme_id)
+        if not theme:
+            return {'ok': False, 'error': '主题不存在'}
+        # 在历史中找目标版本
+        target = None
+        for h in theme.get('history', []):
+            if h.get('version') == version:
+                target = h
+                break
+        if not target:
+            return {'ok': False, 'error': f'未找到版本 {version}'}
+        # 创建新版本记录，复制旧版本DNA
+        new_version = theme['version'] + '-rollback'
+        try:
+            vnum = float(theme['version'].lstrip('v'))
+            new_version = f"{vnum + 0.1:.1f}"
+        except Exception:
+            pass
+        history = theme.get('history', [])
+        history.append({
+            'version': theme['version'],
+            'dna': theme['dna'],
+            'timestamp': theme.get('updated_at'),
+            'author': theme.get('author'),
+            'note': f"回退触发，目标版本 {version}"
+        })
+        theme['version'] = new_version
+        theme['dna'] = target['dna']
+        theme['source_dna'] = target.get('dna')
+        theme['source_author'] = 'rollback_system'
+        theme['updated_at'] = _now()
+        theme['history'] = history
+        theme['review_status'] = '待审核'
+        _save_json(THEMES / theme_id / 'metadata.json', theme)
+        _save_index(self.index)
+        return {'ok': True, 'theme_id': theme_id, 'version': new_version, 'dna': theme['dna']}
+
+    # ---------- 日历/扩展上传占位（基础结构） ----------
+    def upload_calendar(self, name: str, data: dict[str, Any], direction: str = '查阅', actor: str = DEFAULT_ACTOR):
+        cal_id = _safe_id(name)
+        cal_dir = CALENDARS / cal_id
+        cal_dir.mkdir(parents=True, exist_ok=True)
+        dna = _generate_dna('日历', name, json.dumps(data, ensure_ascii=False).encode('utf-8'))
+        meta = {
+            'id': cal_id, 'name': name, 'dna': dna, 'author': actor,
+            'direction': direction, 'review_status': '待审核', 'timestamp': _now()
+        }
+        _save_json(cal_dir / 'metadata.json', meta)
+        _save_json(cal_dir / 'data.json', data)
+        self.index.setdefault('calendars', {})[cal_id] = meta
+        _save_index(self.index)
+        _audit('上传', actor, dna, '日历', direction, '待审核')
+        return {'ok': True, 'shared_id': cal_id, 'dna': dna}
+
+    def upload_extension(self, name: str, code: str, direction: str = '研发', actor: str = DEFAULT_ACTOR):
+        ext_id = _safe_id(name)
+        ext_dir = EXTENSIONS / ext_id
+        ext_dir.mkdir(parents=True, exist_ok=True)
+        dna = _generate_dna('扩展', name, code.encode('utf-8'))
+        meta = {
+            'id': ext_id, 'name': name, 'dna': dna, 'author': actor,
+            'direction': direction, 'review_status': '待审核', 'timestamp': _now()
+        }
+        _save_json(ext_dir / 'metadata.json', meta)
+        (ext_dir / 'extension.js').write_text(code, encoding='utf-8')
+        self.index.setdefault('extensions', {})[ext_id] = meta
+        _save_index(self.index)
+        _audit('上传', actor, dna, '扩展', direction, '待审核')
+        return {'ok': True, 'shared_id': ext_id, 'dna': dna}
+
+    # ---------- 审计日志 ----------
+    def get_upload_logs(self, limit: int = 200):
+        path = LOGS / 'upload_audit.jsonl'
+        if not path.exists():
+            return []
+        lines = path.read_text(encoding='utf-8').strip().split('\n')
+        records = [json.loads(l) for l in lines if l.strip()]
+        return records[-limit:]
+
+    def get_download_logs(self, limit: int = 200):
+        path = LOGS / 'download_audit.jsonl'
+        if not path.exists():
+            return []
+        lines = path.read_text(encoding='utf-8').strip().split('\n')
+        records = [json.loads(l) for l in lines if l.strip()]
+        return records[-limit:]
+
+
+def main():
+    core = CommunityCore()
+    print('Directions:', core.list_directions())
+
+
+if __name__ == '__main__':
+    main()

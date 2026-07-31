@@ -9,6 +9,9 @@
 > 平台：本地
 > 审核状态：草稿
 
+> #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+> 📄 语义解析·中英双轨 | 龍魂系统 · 源头已验证
+
 **DNA**: `#龍芯⚡️2026-07-06-SEMANTIC-PARSER-v1.0-SEMPAR`
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬PARSE`
 

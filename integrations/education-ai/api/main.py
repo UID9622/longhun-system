@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·未济-FIX_DNA-v1.0
 # api/main.py
 # 龍魂 · FastAPI主服务 · 教育AI全栈入口
 

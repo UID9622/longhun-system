@@ -1,0 +1,52 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-23-184259-header-UID9622-42F3D76A
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+# 设置UID9622五大后台人格定时任务
+
+echo "⏰ 正在设置定时任务..."
+
+# 创建临时crontab文件
+TEMP_CRON=/tmp/crontab_uid9622_$$
+
+# 导出现有crontab（如果存在）
+crontab -l > "$TEMP_CRON" 2>/dev/null || echo "# UID9622自动化人格定时任务" > "$TEMP_CRON"
+
+# 添加定时任务（如果还没有）
+if ! grep -q "UID9622_Automation" "$TEMP_CRON" 2>/dev/null; then
+    cat >> "$TEMP_CRON" << 'EOF'
+
+# ========== UID9622五大后台人格定时任务 ==========
+
+# 雯雯·技术整理师 - 每日凌晨3点
+0 3 * * * /bin/bash $HOME/UID9622_Automation/scripts/wenwen_organize.sh >> $HOME/UID9622_Automation/logs/wenwen_cron.log 2>&1
+
+# 侦察兵·信息猎手 - 每日8点和20点
+0 8,20 * * * /bin/bash $HOME/UID9622_Automation/scripts/scout_collect.sh >> $HOME/UID9622_Automation/logs/scout_cron.log 2>&1
+
+# 上帝之眼·守护者 - 每小时检查
+0 * * * * /bin/bash $HOME/UID9622_Automation/scripts/guardian_check.sh >> $HOME/UID9622_Automation/logs/guardian_cron.log 2>&1
+
+# 文心·同步专家 - 每日6点和22点
+0 6,22 * * * /bin/bash $HOME/UID9622_Automation/scripts/wenxin_sync.sh >> $HOME/UID9622_Automation/logs/wenxin_cron.log 2>&1
+
+# 文心·同步专家 - 每周日凌晨全量同步
+0 0 * * 0 /bin/bash $HOME/UID9622_Automation/scripts/wenxin_sync.sh >> $HOME/UID9622_Automation/logs/wenxin_full_sync.log 2>&1
+
+# ========== UID9622定时任务结束 ==========
+EOF
+
+    # 应用新的crontab
+    crontab "$TEMP_CRON"
+    echo "✅ 定时任务已设置完成！"
+else
+    echo "⚠️ 定时任务已存在，无需重复设置"
+fi
+
+# 清理临时文件
+rm -f "$TEMP_CRON"
+
+echo "📋 查看任务: crontab -l"

@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
 """
 CNSH v2.1 命令行入口

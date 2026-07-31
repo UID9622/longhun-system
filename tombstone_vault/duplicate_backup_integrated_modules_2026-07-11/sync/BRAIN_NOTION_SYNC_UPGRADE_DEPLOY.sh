@@ -4,6 +4,7 @@
 #!/bin/bash
 # 🐉 龍魂脑干 · Notion 同步桥 v1.1 · 一键升级部署脚本
 # DNA: #龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-UPGRADE-DEPLOY
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
 

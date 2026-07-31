@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·未济-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # 1 道统层 Dao           : 曾仕强老师

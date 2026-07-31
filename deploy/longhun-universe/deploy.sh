@@ -2,6 +2,7 @@
 # 🐉 龍魂宇宙 · 华为云鲲鹏一键部署脚本
 # UID9622 | 龍芯北辰 | 2026-07-18
 # DNA: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
 

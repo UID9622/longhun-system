@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>龍魂·韬定律调度台 v2.2</title>
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --panel: #15171d;
+      --border: #2a2d38;
+      --text: #e0e0e0;
+      --muted: #8f94a3;
+      --hot: #ff4d4f;
+      --audit: #9254de;
+      --warm: #faad14;
+      --cold: #52c41a;
+      --frozen: #1890ff;
+      --running: #ff7a45;
+      --free: #595959;
+      --accent: #00d4aa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+    }
+    header {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    h1 { margin: 0; font-size: 1.35rem; color: var(--accent); }
+    .subtitle { color: var(--muted); font-size: 0.85rem; }
+    .status-bar {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--free); display: inline-block; }
+    .status-dot.ok { background: var(--cold); box-shadow: 0 0 6px var(--cold); }
+    .status-dot.err { background: var(--hot); box-shadow: 0 0 6px var(--hot); }
+    main { padding: 1.5rem; display: grid; grid-template-columns: 1fr 320px; gap: 1.5rem; }
+    @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .panel h2 { margin: 0 0 0.75rem; font-size: 1rem; color: var(--accent); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 0.5rem;
+    }
+    .slot {
+      aspect-ratio: 1;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: transform .1s, border-color .2s;
+      position: relative;
+    }
+    .slot:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .slot .addr { font-weight: 600; }
+    .slot .state { font-size: 0.6rem; opacity: .8; }
+    .slot.hot { background: rgba(255,77,79,.18); border-color: var(--hot); }
+    .slot.warm { background: rgba(250,173,20,.15); border-color: var(--warm); }
+    .slot.cold { background: rgba(82,196,26,.15); border-color: var(--cold); }
+    .slot.audit { background: rgba(146,84,222,.18); border-color: var(--audit); }
+    .slot.running { color: var(--running); }
+    .slot.degraded { color: var(--warm); }
+    .slot.frozen { color: var(--frozen); }
+    .slot.free { color: var(--muted); }
+    .legend { display: flex; flex-wrap: wrap; gap: 0.75rem; font-size: 0.75rem; margin-top: 0.75rem; }
+    .legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+    .badge { width: 10px; height: 10px; border-radius: 2px; }
+    label { display: block; font-size: 0.8rem; color: var(--muted); margin: 0.5rem 0 0.2rem; }
+    input[type="text"], textarea, select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.5rem 0.6rem;
+      border-radius: 6px;
+      font-family: inherit;
+    }
+    textarea { min-height: 80px; resize: vertical; }
+    .row { display: flex; gap: 0.5rem; }
+    .row > * { flex: 1; }
+    button {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      padding: 0.55rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.75rem;
+    }
+    button.secondary { background: var(--border); color: var(--text); }
+    button:hover { filter: brightness(1.1); }
+    .result {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      background: var(--bg);
+      border-radius: 6px;
+      font-size: 0.82rem;
+      white-space: pre-wrap;
+      word-break: break-all;
+      border: 1px solid var(--border);
+    }
+    .log-list {
+      max-height: 260px;
+      overflow: auto;
+      font-size: 0.75rem;
+      background: var(--bg);
+      border-radius: 6px;
+      padding: 0.5rem;
+      border: 1px solid var(--border);
+    }
+    .log-item { padding: 0.25rem 0; border-bottom: 1px solid var(--border); }
+    .log-item:last-child { border-bottom: none; }
+    .right-col { min-width: 300px; }
+    .hint { font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; }
+    .toast {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.4);
+      display: none;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>龍魂·韬定律调度台 <span class="subtitle">v2.2 · 64 卦执行位 · 实时审计链</span></h1>
+    </div>
+    <div class="status-bar">
+      <span><span id="health-dot" class="status-dot"></span> <span id="health-text">检测中…</span></span>
+      <span id="slot-summary">—</span>
+      <span id="audit-summary">—</span>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="panel">
+        <h2>🔥 64 卦执行位</h2>
+        <div id="slot-grid" class="grid"></div>
+        <div class="legend">
+          <span><span class="badge" style="background:var(--hot)"></span>热层</span>
+          <span><span class="badge" style="background:var(--warm)"></span>温层</span>
+          <span><span class="badge" style="background:var(--cold)"></span>冷层</span>
+          <span><span class="badge" style="background:var(--audit)"></span>审计</span>
+          <span><span class="badge" style="background:var(--running)"></span>运行</span>
+          <span><span class="badge" style="background:var(--frozen)"></span>冻结</span>
+          <span><span class="badge" style="background:var(--free)"></span>空闲</span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>🚀 任务调度</h2>
+        <label>API 基础地址（Unix socket 环境请通过 Nginx/launchd 转发，或填写代理地址）</label>
+        <input id="api-base" type="text" placeholder="留空使用同域 API，例如 http://127.0.0.1:8788" />
+        <label>请求串</label>
+        <textarea id="request-text" placeholder="例如：实时推理任务、批量归档任务、L0-GATE 伪造测试…"></textarea>
+        <div class="row">
+          <button onclick="submitSchedule()">提交调度</button>
+          <button class="secondary" onclick="loadSlots()">刷新卦位</button>
+        </div>
+        <div id="schedule-result" class="result" style="display:none"></div>
+      </div>
+    </section>
+
+    <section class="right-col">
+      <div class="panel">
+        <h2>📜 审计链</h2>
+        <div class="row">
+          <button onclick="loadAudit()">加载日志</button>
+          <button class="secondary" onclick="verifyAudit()">校验链</button>
+        </div>
+        <div id="audit-result" class="result" style="display:none"></div>
+        <div id="audit-list" class="log-list" style="margin-top:0.75rem"></div>
+      </div>
+
+      <div class="panel">
+        <h2>⚙️ 路由规则</h2>
+        <div id="config-list" class="log-list" style="max-height:200px">加载中…</div>
+      </div>
+
+      <div class="panel">
+        <h2>📡 实时状态</h2>
+        <div id="health-detail" class="result">检测中…</div>
+        <div class="hint">Unix socket 模式下，浏览器无法直接访问 /tmp/xxx.sock；请用 launchd/Nginx 反向代理到 127.0.0.1:8788，或在上方填写代理地址。</div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const apiBase = () => ($('api-base').value || '').replace(/\/$/, '');
+    const api = path => (apiBase() || '') + path;
+
+    function toast(msg) {
+      const t = $('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(() => t.style.display = 'none', 2500);
+    }
+
+    async function fetchJson(path, opts = {}) {
+      const url = api(path);
+      try {
+        const res = await fetch(url, opts);
+        if (!res.ok) throw new Error(await res.text());
+        return await res.json();
+      } catch (e) {
+        throw new Error(`${url} → ${e.message}`);
+      }
+    }
+
+    function stateClass(state) {
+      return state === 'running' ? 'running' :
+             state === 'degraded' ? 'degraded' :
+             state === 'frozen' ? 'frozen' : 'free';
+    }
+
+    async function loadSlots() {
+      try {
+        const data = await fetchJson('/slots');
+        const grid = $('slot-grid');
+        grid.innerHTML = '';
+        const order = ['乾','兑','离','震','巽','坎','艮','坤'];
+        order.forEach(gua => {
+          for (let i = 1; i <= 8; i++) {
+            const s = data.slots.find(x => x.exec_addr === `${gua}-${i}`) || {};
+            const el = document.createElement('div');
+            el.className = `slot ${s.layer || ''} ${stateClass(s.state)}`;
+            el.title = `${s.exec_addr}\n资源: ${s.bound_resource}\n状态: ${s.state}\n任务: ${s.task_hash || '无'}`;
+            el.innerHTML = `<span class="addr">${s.exec_addr}</span><span class="state">${s.state}</span>`;
+            el.onclick = () => freezeSlot(s.exec_addr);
+            grid.appendChild(el);
+          }
+        });
+        const used = data.slots.filter(s => s.state !== 'free').length;
+        $('slot-summary').textContent = `卦位占用 ${used}/64`;
+      } catch (e) {
+        toast(e.message);
+      }
+    }
+
+    async function freezeSlot(addr) {
+      if (!confirm(`冻结执行位 ${addr}？\n（P0 铁律：只解冻不删除）`)) return;
+      try {
+        const res = await fetchJson(`/slots/${addr}/freeze`, { method: 'POST' });
+        toast(`已冻结 ${res.addr}`);
+        loadSlots();
+      } catch (e) { toast(e.message); }
+    }
+
+    async function submitSchedule() {
+      const req = $('request-text').value.trim();
+      if (!req) { toast('请输入请求串'); return; }
+      try {
+        const res = await fetchJson('/schedule', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ request: req })
+        });
+        $('schedule-result').style.display = 'block';
+        $('schedule-result').textContent = JSON.stringify(res, null, 2);
+        loadSlots();
+        loadAudit();
+      } catch (e) { toast(e.message); }
+    }
+
+    async function loadAudit() {
+      try {
+        const data = await fetchJson('/audit/chain?limit=50');
+        const list = $('audit-list');
+        list.innerHTML = '';
+        data.entries.slice().reverse().forEach(e => {
+          const d = document.createElement('div');
+          d.className = 'log-item';
+          d.textContent = `${e.timestamp || '?'} [${e.layer || '?'}] ${e.route_priority || ''} ${e.record_hash ? e.record_hash.slice(0,20)+'…' : ''}`;
+          list.appendChild(d);
+        });
+        if (!data.entries.length) list.innerHTML = '<div class="log-item">暂无审计日志</div>';
+        $('audit-summary').textContent = `审计 ${data.total} 条`;
+      } catch (e) { toast(e.message); }
+    }
+
+    async function verifyAudit() {
+      try {
+        const res = await fetchJson('/audit/verify', { method: 'POST' });
+        $('audit-result').style.display = 'block';
+        $('audit-result').textContent = `完整性: ${res.intact ? '✅ 通过' : '❌ 断链'}\n断链数: ${res.breaks}\n总条数: ${res.total}`;
+      } catch (e) { toast(e.message); }
+    }
+
+    async function loadConfig() {
+      try {
+        const cfg = await fetchJson('/config');
+        const list = $('config-list');
+        list.innerHTML = '';
+        cfg.signal_rules.forEach(r => {
+          const d = document.createElement('div');
+          d.className = 'log-item';
+          d.textContent = `[${r.layer}] ${r.pattern}`;
+          list.appendChild(d);
+        });
+        const d = document.createElement('div');
+        d.className = 'log-item';
+        d.style.color = 'var(--muted)';
+        d.textContent = `默认兜底: ${cfg.default_layer}`;
+        list.appendChild(d);
+      } catch (e) { toast(e.message); }
+    }
+
+    async function loadHealth() {
+      try {
+        const h = await fetchJson('/health');
+        $('health-dot').className = 'status-dot ok';
+        $('health-text').textContent = 'API 正常';
+        $('health-detail').textContent = JSON.stringify(h, null, 2);
+      } catch (e) {
+        $('health-dot').className = 'status-dot err';
+        $('health-text').textContent = 'API 异常';
+        $('health-detail').textContent = e.message;
+      }
+    }
+
+    async function refreshAll() {
+      await loadHealth();
+      await loadSlots();
+      await loadAudit();
+      await loadConfig();
+    }
+
+    refreshAll();
+    setInterval(refreshAll, 10000);
+  </script>
+</body>
+</html>

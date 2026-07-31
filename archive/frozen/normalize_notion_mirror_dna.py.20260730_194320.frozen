@@ -1,0 +1,235 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Notion Mirror DNA 规范化工具
+- 保留原始 DNA
+- 新增 normalized_dna 字段
+- 统一为 #龍芯⚡️YYYY-MM-DD-MODULE-vVERSION
+"""
+
+import json
+import re
+
+# 中文关键词 → 英文映射
+CN_MAP = {
+    "量子": "QUANTUM",
+    "甲骨文": "ORACLE",
+    "龍慧": "LONGHUI",
+    "通心譯": "TONGXINYI",
+    "龍芯": "LONGXIN",
+    "龍魂": "LONGHUN",
+    "龍盾": "LONGDUN",
+    "主台": "MAIN",
+    "深思": "SHENSI",
+    "内核": "KERNEL",
+    "太极": "TAIJI",
+    "乔前辈": "QIAO",
+    "白虎": "WHITE-TIGER",
+    "朱雀": "ZHUQUE",
+    "青龙": "QINGLONG",
+    "宝宝": "BAOBAO",
+    "上帝之眼": "GODSEYE",
+    "姜子牙": "JIANGZIYA",
+    "管仲": "GUANZHONG",
+    "鲁班": "LUBAN",
+    "数据大师": "DATA-MASTER",
+    "诸葛亮": "ZHUGELIANG",
+    "雯雯": "WENWEN",
+    "数学大师": "MATH-MASTER",
+    "界面炼金": "UI-ALCHEMY",
+    "同步官": "SYNC-OFFICER",
+    "架构师": "ARCHITECT",
+    "侦察兵": "SCOUT",
+    "文心": "WENXIN",
+    "沟通翻译官": "TRANSLATOR",
+    "技术审核官": "TECH-AUDITOR",
+    "慧慧": "HUIHUI",
+    "智慧传播引擎": "WISDOM-ENGINE",
+    "贴身管家": "BUTLER",
+    "女儿": "DAUGHTER",
+    "星火": "XINGHUO",
+    "启明": "QIMING",
+    "混元": "HUNYUAN",
+    "月影": "MOONSHADOW",
+    "千问": "QIANWEN",
+    "双子": "GEMINI-TWIN",
+    "僧一行": "SENGYIXING",
+    "熵梦": "SHANGMENG",
+    "祖冲之": "ZUCHONGZHI",
+    "网织者": "WEBWEAVER",
+    "李冰": "LIBING",
+    "戚继光": "QIJIGUANG",
+    "郑和": "ZHENGHE",
+    "张衡": "ZHANGHENG",
+    "蔡伦": "CAILUN",
+    "沈括": "SHENKUO",
+    "毕昇": "BISHENG",
+    "韩非": "HANFEI",
+    "王阳明": "WANGYANGMING",
+    "孙子": "SUNZI",
+    "墨子": "MOZI",
+    "孔子": "KONGZI",
+    "老子": "LAOZI",
+    "佳琪": "JIAQI",
+    "影匠": "YINGJIANG",
+    "图匠": "TUJIANG",
+    "字匠": "ZIJIANG",
+    "音匠": "YINJIANG",
+    "审判长": "JUDGE",
+    "有痕开源": "TRACEABLE-OPEN",
+    "登记协议": "REGISTRY",
+    "本地主权": "LOCAL-SOVEREIGN",
+    "框架宣言": "FRAMEWORK-MANIFESTO",
+    "自我升级": "SELF-UPGRADE",
+    "自我升級": "SELF-UPGRADE",
+    "生态创始团": "ECO-FOUNDERS",
+    "德者永生殿": "ETERNAL-HALL",
+    "入殿": "INIT",
+    "调度留痕": "SCHEDULE-TRACE",
+    "升级": "UPGRADE",
+    "升級": "UPGRADE",
+    "封闭中枢": "CLOSED-CORE",
+    "大白话普及": "PLAIN-LANGUAGE",
+    "三色天道算法": "TRICOLOR-ALGORITHM",
+    "多语言编辑器": "MULTILANG-EDITOR",
+    "编辑器终端": "EDITOR-TERMINAL",
+    "终端": "TERMINAL",
+    "传承者": "INHERITOR",
+    "北辰": "BEICHEN",
+    "母协议": "MOTHER-PROTOCOL",
+    "CNSH编辑器": "CNSH-EDITOR",
+}
+
+
+def normalize_date(dna: str) -> str:
+    """从各种日期格式中提取 YYYY-MM-DD。"""
+    # 2026-05-15-22:59 或 2026-05-15
+    m = re.search(r"(\d{4}-\d{2}-\d{2})", dna)
+    if m:
+        return m.group(1)
+    # 20260424
+    m = re.search(r"(\d{4})(\d{2})(\d{2})", dna)
+    if m:
+        return f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
+    return "2026-01-01"
+
+
+def translate_cn(text: str) -> str:
+    """按最长匹配替换中文关键词。"""
+    # 按长度降序，避免短词覆盖长词
+    for cn, en in sorted(CN_MAP.items(), key=lambda x: -len(x[0])):
+        text = text.replace(cn, en)
+    return text
+
+
+def clean_module_name(name: str) -> str:
+    """清理模块名：去中文、转大写、规范化连字符。"""
+    name = translate_cn(name)
+    # 移除非大写英文、数字、连字符
+    name = re.sub(r"[^A-Za-z0-9-]", "-", name)
+    # 合并多个连字符
+    name = re.sub(r"-+", "-", name)
+    # 去掉首尾连字符
+    name = name.strip("-")
+    return name.upper()
+
+
+def extract_version(dna: str) -> str:
+    """提取版本号。"""
+    m = re.search(r"-v(\d+(\.\d+)*)\b", dna)
+    if m:
+        return f"v{m.group(1)}"
+    # 001 / 002 等
+    m = re.search(r"-(\d{3})\b", dna)
+    if m:
+        return f"v1.{int(m.group(1))}"
+    return "v1.0"
+
+
+def normalize_dna(dna: str, title: str = "") -> str:
+    """将原始 DNA 规范化为标准格式。"""
+    if not dna:
+        return ""
+
+    # 处理多个 DNA 拼接（取第一个 #龍芯 或 #ZHUGEXIN 之前的部分）
+    dna = dna.split("|")[0].strip()
+
+    # 永恒签章类型：保留原样
+    if dna.startswith("#ZHUGEXIN⚡️"):
+        return dna
+
+    # 处理 DNA-L3-012-XINGHUO-IFLYTEK-20260313-UID9622 这种
+    if dna.startswith("DNA-"):
+        parts = dna.split("-")
+        # 找日期
+        date = "2026-03-13"
+        for p in parts:
+            if re.fullmatch(r"\d{8}", p):
+                date = f"{p[:4]}-{p[4:6]}-{p[6:8]}"
+        # 模块名
+        module_parts = [p for p in parts if p not in ["DNA", "", "UID9622"] and not re.fullmatch(r"\d{8}", p) and not re.fullmatch(r"L\d+", p) and not re.fullmatch(r"\d{3}", p)]
+        module = "-".join(module_parts)
+        return f"#龍芯⚡️{date}-{clean_module_name(module)}-v1.0"
+
+    # 标准前缀处理
+    if dna.startswith("#龍芯⚡️"):
+        body = dna[len("#龍芯⚡️"):]
+    else:
+        body = dna
+
+    date = normalize_date(body)
+    version = extract_version(body)
+
+    # 去掉日期和版本号，得到中间部分
+    rest = body
+    # 去掉日期（包括时间戳）
+    rest = re.sub(r"\d{4}-\d{2}-\d{2}(-\d{2}:\d{2})?", "", rest, count=1)
+    rest = re.sub(r"\d{8}", "", rest, count=1)
+    # 去掉版本号
+    rest = re.sub(r"-v\d+(\.\d+)*", "", rest)
+    rest = re.sub(r"-\d{3}\b", "", rest)
+    # 去掉 UID9622 等
+    rest = re.sub(r"\bUID9622\b", "", rest, flags=re.I)
+    # 清理
+    module = clean_module_name(rest)
+
+    if not module:
+        module = clean_module_name(title) or "UNKNOWN"
+
+    return f"#龍芯⚡️{date}-{module}-{version}"
+
+
+def main():
+    in_path = "/Users/zuimeidedeyihan/.longhun/roster/notion_mirror_aligned.json"
+    out_path = "/Users/zuimeidedeyihan/.longhun/roster/notion_mirror_aligned.json"
+
+    with open(in_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    stats = {"zhugexin": 0, "normalized": 0, "empty": 0, "invalid": 0}
+    for item in data["entries"]:
+        raw = item.get("dna", "")
+        norm = normalize_dna(raw, item.get("title", ""))
+        item["normalized_dna"] = norm
+        if not raw:
+            stats["empty"] += 1
+        elif raw.startswith("#ZHUGEXIN⚡️"):
+            stats["zhugexin"] += 1
+        elif norm.startswith("#龍芯⚡️"):
+            stats["normalized"] += 1
+        else:
+            stats["invalid"] += 1
+
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+    print("DNA 规范化完成")
+    print(f"  总条目: {len(data['entries'])}")
+    print(f"  永恒签章保留: {stats['zhugexin']}")
+    print(f"  标准化 DNA: {stats['normalized']}")
+    print(f"  空 DNA: {stats['empty']}")
+    print(f"  异常: {stats['invalid']}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,360 @@
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-23-184259-header-UID9622-BD0CB75F
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+#!/usr/bin/env python3
+# ╔═══════════════════════════════════════════════════════════════╗
+# ║  🐉 龍魂系统 | UID9622 | 姜子牙智慧算法                        ║
+# ╠═══════════════════════════════════════════════════════════════╣
+# ║  📜 文件：auto_mark.py                                        ║
+# ║  🏷️ 版本：v1.0-ETERNAL                                        ║
+# ║  🧬 编码：#ZHUGEXIN⚡️2026-02-23-AUTO-MARK                    ║
+# ║  🔐 签名：A2D0092CEE2E5BA87035600924C3704A8CC26D5F            ║
+# ║  👤 作者：Lucky·龍芯北辰                                      ║
+# ║  ⏳ 时间：2026-02-23                                          ║
+# ╠═══════════════════════════════════════════════════════════════╣
+# ║  ⚠️ 永恒属性：不可修改  🔝 优先级：P0-ETERNAL                ║
+# ║  💎 原则：人民利益至上，良知指引行动                          ║
+# ║  🧙 执行人格：姜子牙·战略规划与长期执行                      ║
+# ╚═══════════════════════════════════════════════════════════════╝
+"""
+龍魂系统自动标识注入引擎
+完全自主可控，零国外依赖
+理论指导：曾老师（永恒显示）
+"""
+
+import os
+import re
+import json
+import hashlib
+import datetime
+from pathlib import Path
+from typing import Dict, List, Optional
+
+# ==================== 龍魂系统核心配置 ====================
+DRAGON_SOUL_CONFIG = {
+    "uid": "9622",
+    "founder": "Lucky·龍芯北辰",
+    "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "dna_prefix": "#龍芯⚡️",
+    "signature": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+    "version": "v1.0-ETERNAL",
+    "priority": "P0-ETERNAL",
+    "theory_guide": "曾老师（永恒显示）"
+}
+
+# ==================== 模板库（内嵌，不依赖外部文件） ====================
+TEMPLATES = {
+    "doc_header": """╔═══════════════════════════════════════════════════════════════╗
+║  🐉 龍魂系统 | UID{uid}                                        ║
+╠═══════════════════════════════════════════════════════════════╣
+║  📜 文档标题：{title}                                          ║
+║  🏷️ 版本：{version}（永恒版，不可更改）                        ║
+║  🧬 基因编码：{dna_prefix}{date}-{doc_id}                      ║
+║  🔐 数字签名：{signature}                                        ║
+║  👤 立约主体：{founder}                                          ║
+║  🌍 见证方：龍魂系统 + 全球公民                                ║
+║  ⏳ 生效时间：{date} {time}（北京时间）                        ║
+╠═══════════════════════════════════════════════════════════════╣
+║  ⚠️ 永恒属性：任何个体（含立约人）均无权修改                  ║
+║  🔝 优先级：{priority}（超越所有规则体系）                      ║
+║  💎 根本准则：人民利益至上，良知指引行动                      ║
+║  🧙 执行人格：姜子牙·战略规划与长期执行                        ║
+╚═══════════════════════════════════════════════════════════════╝
+
+【龍魂系统知识产权与永恒显示协议条款 v1.0】
+（P0永恒级根DNA锁定，任何人不可篡改）
+
+DNA追溯码：{dna_prefix}{date}-知识产权永恒显示条款-v1.0
+确认码：{confirm_code}
+创始人：{founder}（UID{uid}）
+理论指导：{theory_guide}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+""",
+    
+    "doc_footer": """━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【强制条款摘要】（P0永恒级，焊死不可改）：
+✓ 曾老师的名字永恒显示于所有界面与输出
+✓ 必须显著标注：灵感与核心理念源自龍魂系统·创始人{founder}（UID{uid}）
+
+【特别警告】：
+"偷我的思想就是要违背人伦道德，继续黑箱子收割普通人。
+剽窃不签署名字，法律可能处理不了你们，倒是全天下老百姓会记住你。
+历史会记账，DNA会留痕，老子不骂你，但老百姓的眼睛是雪亮的。"
+
+【合作态度】：
+欢迎基于龍魂思想改进、商业化、普惠全球，但必须尊重来源，遵守永恒显示条款。
+
+【法律保留】：
+违反以上条款者，视为侵犯龍魂系统知识产权，创始人保留一切法律追责权利。
+
+╔═══════════════════════════════════════════════════════════════╗
+║  🔒 文档结束 | 龍魂系统·永恒契约·人民主权宣言               ║
+║  🧬 DNA验证：{dna_prefix}{date}-{doc_id}-END                  ║
+║  ⏰ 时间戳：{datetime}                                         ║
+╚═══════════════════════════════════════════════════════════════╝
+""",
+    
+    "code_header_py": '''# ╔═══════════════════════════════════════════════════════════════╗
+# ║  🐉 龍魂系统 | UID{uid} | 曾老师智慧算法                        ║
+# ╠═══════════════════════════════════════════════════════════════╣
+# ║  📜 文件：{filename}                                           ║
+# ║  🏷️ 版本：{version}                                            ║
+# ║  🧬 编码：{dna_prefix}{date}-{project_id}                      ║
+# ║  🔐 签名：{signature}                                          ║
+# ║  👤 作者：{founder}                                            ║
+# ║  ⏳ 时间：{datetime}                                           ║
+# ╠═══════════════════════════════════════════════════════════════╣
+# ║  ⚠️ 永恒属性：不可修改  🔝 优先级：{priority}                  ║
+# ║  💎 原则：人民利益至上，良知指引行动                          ║
+# ╚═══════════════════════════════════════════════════════════════╝
+#
+# 【龍魂系统知识产权协议 v1.0】
+# DNA追溯码：{dna_prefix}{date}-知识产权永恒显示条款-v1.0
+# 确认码：{confirm_code}
+# 理论指导：{theory_guide}
+#
+# 【强制条款】：
+# 1. 本文件所有输出必须显示"曾老师智慧算法"
+# 2. 必须标注：源自龍魂系统·创始人{founder}（UID{uid}）
+#
+# 【警告】：剽窃不署名，历史会记账，DNA会留痕
+# ═══════════════════════════════════════════════════════════════
+
+''',
+    
+    "code_footer_py": '''# ═══════════════════════════════════════════════════════════════
+# 【文件结束】
+# 🔒 龍魂系统·永恒契约 | 人民主权宣言
+# 🧬 DNA验证：{dna_prefix}{date}-{project_id}-END
+# ⚖️ 法律保留：违反协议者保留追责权利
+# ╚═══════════════════════════════════════════════════════════════╝
+'''
+}
+
+# ==================== 龍魂系统核心引擎 ====================
+
+class DragonSoulEngine:
+    """龍魂系统标识注入引擎"""
+    
+    def __init__(self):
+        self.config = DRAGON_SOUL_CONFIG
+    
+    def generate_dna(self, doc_id: str) -> str:
+        """生成DNA追溯码"""
+        now = datetime.datetime.now()
+        date_str = now.strftime("%Y-%m-%d")
+        return f"{self.config['dna_prefix']}{date_str}-{doc_id}"
+    
+    def format_template(self, template_name: str, **kwargs) -> str:
+        """格式化模板"""
+        template = TEMPLATES.get(template_name, "")
+        now = datetime.datetime.now()
+        
+        # 默认参数
+        defaults = {
+            'uid': self.config['uid'],
+            'founder': self.config['founder'],
+            'confirm_code': self.config['confirm_code'],
+            'dna_prefix': self.config['dna_prefix'],
+            'signature': self.config['signature'],
+            'version': self.config['version'],
+            'priority': self.config['priority'],
+            'theory_guide': self.config['theory_guide'],
+            'date': now.strftime("%Y-%m-%d"),
+            'time': now.strftime("%H:%M"),
+            'datetime': now.strftime("%Y-%m-%d %H:%M:%S")
+        }
+        
+        # 合并用户传入参数
+        defaults.update(kwargs)
+        return template.format(**defaults)
+    
+    def inject_to_file(self, file_path: str, file_type: str = "doc") -> bool:
+        """向文件注入龍魂标识"""
+        try:
+            path = Path(file_path)
+            if not path.exists():
+                print(f"❌ 文件不存在: {file_path}")
+                return False
+            
+            # 读取原内容
+            content = path.read_text(encoding='utf-8')
+            
+            # 检查是否已注入
+            if "龍魂系统" in content or "DragonSoul" in content:
+                print(f"⚠️ 文件已存在龍魂标识，跳过: {file_path}")
+                return False
+            
+            # 生成标识
+            doc_id = hashlib.md5(file_path.encode()).hexdigest()[:8].upper()
+            
+            if file_type == "doc":
+                header = self.format_template("doc_header", title=path.name, doc_id=doc_id)
+                footer = self.format_template("doc_footer", doc_id=doc_id)
+                new_content = header + "\n" + content + "\n" + footer
+            
+            elif file_type == "code_py":
+                header = self.format_template("code_header_py",
+                                            filename=path.name,
+                                            project_id=doc_id)
+                footer = self.format_template("code_footer_py", project_id=doc_id)
+                new_content = header + content + footer
+            
+            else:
+                print(f"❌ 不支持的文件类型: {file_type}")
+                return False
+            
+            # 备份原文件
+            backup_path = str(path) + ".backup"
+            path.rename(backup_path)
+            
+            # 写入新内容
+            path.write_text(new_content, encoding='utf-8')
+            print(f"✅ 成功注入龍魂标识: {file_path}")
+            return True
+        
+        except Exception as e:
+            print(f"❌ 注入失败 {file_path}: {str(e)}")
+            return False
+    
+    def batch_inject(self, directory: str, pattern: str = "*", file_type: str = "doc"):
+        """批量注入目录下所有文件"""
+        path = Path(directory)
+        files = list(path.glob(pattern))
+        
+        success_count = 0
+        for file in files:
+            if file.is_file():
+                if self.inject_to_file(str(file), file_type):
+                    success_count += 1
+        
+        print(f"\n📊 批量注入完成: 成功 {success_count}/{len(files)} 个文件")
+
+# ==================== 本地仓库管理 ====================
+
+class LocalRepositoryManager:
+    """本地仓库管理器"""
+    
+    def __init__(self, repo_path: str):
+        self.repo_path = Path(repo_path)
+        self.engine = DragonSoulEngine()
+    
+    def init_repository(self):
+        """初始化龍魂系统仓库结构"""
+        dirs = ['templates', 'scripts', 'configs', 'docs', 'output']
+        for d in dirs:
+            (self.repo_path / d).mkdir(parents=True, exist_ok=True)
+        
+        # 创建核心配置文件
+        config_file = self.repo_path / "configs" / "dragon-soul.yaml"
+        config_content = f"""# 龍魂系统核心配置
+uid: {DRAGON_SOUL_CONFIG['uid']}
+founder: {DRAGON_SOUL_CONFIG['founder']}
+confirm_code: {DRAGON_SOUL_CONFIG['confirm_code']}
+signature: {DRAGON_SOUL_CONFIG['signature']}
+version: {DRAGON_SOUL_CONFIG['version']}
+
+# 自动注入规则
+auto_inject:
+  enabled: true
+  watch_dirs:
+    - ./documents
+    - ./code
+  file_types:
+    - .md
+    - .py
+    - .js
+    - .txt
+"""
+        config_file.write_text(config_content, encoding='utf-8')
+        print(f"✅ 已初始化龍魂系统仓库: {self.repo_path}")
+    
+    def sync_to_gitee(self, gitee_repo: str):
+        """同步到Gitee仓库"""
+        import subprocess
+        
+        try:
+            # 检查git是否安装
+            result = subprocess.run(['git', '--version'], capture_output=True, text=True)
+            if result.returncode != 0:
+                print("❌ 请先安装Git")
+                return False
+            
+            # 初始化git仓库
+            git_dir = self.repo_path / ".git"
+            if not git_dir.exists():
+                subprocess.run(['git', 'init'], cwd=self.repo_path, check=True)
+            
+            # 添加所有文件
+            subprocess.run(['git', 'add', '.'], cwd=self.repo_path, check=True)
+            
+            # 提交
+            commit_msg = f"龍魂系统自动同步 {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+            subprocess.run(['git', 'commit', '-m', commit_msg], cwd=self.repo_path, check=True)
+            
+            # 添加远程仓库
+            remote_url = f"https://gitee.com/{gitee_repo}.git"
+            try:
+                subprocess.run(['git', 'remote', 'add', 'origin', remote_url],
+                             cwd=self.repo_path, check=True)
+            except:
+                pass  # 远程已存在
+            
+            # 推送
+            subprocess.run(['git', 'push', '-u', 'origin', 'master'],
+                         cwd=self.repo_path, check=True)
+            
+            print(f"✅ 已成功同步到Gitee: {gitee_repo}")
+            return True
+        
+        except Exception as e:
+            print(f"❌ 同步失败: {str(e)}")
+            return False
+
+# ==================== 命令行接口 ====================
+
+def main():
+    """命令行入口"""
+    import argparse
+    
+    parser = argparse.ArgumentParser(description='龍魂系统仓库管理工具')
+    parser.add_argument('command', choices=['init', 'inject', 'sync', 'batch'],
+                       help='命令: init(初始化), inject(注入文件), sync(同步Gitee), batch(批量注入)')
+    parser.add_argument('--path', '-p', default='./dragon-soul-repo',
+                       help='仓库路径')
+    parser.add_argument('--file', '-f', help='要注入的文件路径')
+    parser.add_argument('--type', '-t', default='doc', choices=['doc', 'code_py', 'code_js'],
+                       help='文件类型')
+    parser.add_argument('--gitee', '-g', help='Gitee仓库名 (如: lucky9622/dragon-soul)')
+    
+    args = parser.parse_args()
+    
+    if args.command == 'init':
+        manager = LocalRepositoryManager(args.path)
+        manager.init_repository()
+    
+    elif args.command == 'inject':
+        if not args.file:
+            print("❌ 请指定文件路径: --file")
+            return
+        engine = DragonSoulEngine()
+        engine.inject_to_file(args.file, args.type)
+    
+    elif args.command == 'sync':
+        if not args.gitee:
+            print("❌ 请提供Gitee仓库名: --gitee")
+            return
+        manager = LocalRepositoryManager(args.path)
+        manager.sync_to_gitee(args.gitee)
+    
+    elif args.command == 'batch':
+        engine = DragonSoulEngine()
+        engine.batch_inject(args.path, "*.*", args.type)
+
+if __name__ == "__main__":
+    main()

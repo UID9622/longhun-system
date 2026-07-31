@@ -1,5 +1,4 @@
-{"_dna": "#龍芯⚡️2026-06-21-CONFIG-ROUTING_RULES-v1.0",
-
+{
   "ROUTE-001": {
     "name": "数学问题路由",
     "trigger": "task_type == 'math'",
@@ -59,6 +58,5 @@
     ],
     "execution_mode": "parallel",
     "priority": 5
-  },
-  "_dna": "2026-06-21-CONFIG-ROUTING_RULES-v1.0"
+  }
 }

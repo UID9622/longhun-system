@@ -1,0 +1,248 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+╔══════════════════════════════════════════════════════════════════╗
+║     龍魂内置规则库 / LongHun Built-in Rules (CNSH)              ║
+║                                                                  ║
+║  P1-2 规则引擎·内置规则库                                        ║
+║                                                                  ║
+║  DNA:#龍芯⚡️2026-06-03-BUILTIN-RULES-FILE1-v1.0                     ║
+║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                 ║
+║                                                                  ║
+║  理论指导: 曾仕强·道德经第六十六章 (古之善战者·先为不可胜)      ║
+║  责任: UID9622·不免责                                            ║
+║  状态: 🟢 MAIN·可公开                                            ║
+╚══════════════════════════════════════════════════════════════════╝
+
+内置规则库：龍魂系统的核心决策规则集合
+
+规则清单（4 条）：
+  1. RULE-AUDIT-001: 三色审计
+     - 根据 score 进行三色判定 (🟢≥80 / 🟡50-80 / 🔴<50)
+     - 用于通用的质量评估
+
+  2. RULE-VETO-001: 一票否决
+     - 高危操作必须明确确认
+     - 触发词：密钥、sudo、rm、push --force 等
+
+  3. RULE-FORMULA-001: 数字根判定
+     - 基于数字根的决策逻辑
+     - dr∈{3,9}→🔴 / dr=6→🟡 / 其他→🟢
+
+  4. RULE-FORMULA-002: 时间衰减
+     - 基于时间衰减公式的生命周期评估
+     - L = L₀ * T^(-α_τ)，判断内容是否过期
+
+设计原则：
+  ✅ 完全独立，无外部依赖
+  ✅ 每条规则自配送（包含 DNA、优先级、描述）
+  ✅ 支持 JSONL 持久化
+  ✅ 内置于系统启动流程
+"""
+
+from typing import List, Any
+from .rule_node import Rule, RuleType, RuleStatus, RulePriority
+
+
+def get_builtin_rules() -> List, Any[Rule]:
+    """
+    获取内置规则库
+
+    Returns:
+        Rule 对象列表，包含所有内置规则
+    """
+    return [
+        # ═══════════════════════════════════════════════════════════════
+        # 【规则1】三色审计规则
+        # ═══════════════════════════════════════════════════════════════
+        Rule(
+            rule_id="RULE-AUDIT-001",
+            name="three_color_audit",
+            rule_type=RuleType.AUDIT,
+            status=RuleStatus.ACTIVE,
+            condition="'score' in context",
+            action="three_color_judgment",
+            priority=RulePriority.HIGH,  # 优先级 21-40
+            dna="#龍芯⚡️2026-06-03-THREE-COLOR-AUDIT-v1.0",
+            layer="L1_SEASONAL",
+            description="三色审计规则：根据 score 进行三色判定。🟢通过(≥80) / 🟡待审(50-80) / 🔴阻断(<50)",
+            tags=["audit", "three-color", "core"],
+            dependencies=[],
+            audit_required=False,
+            confirm_required=False,
+            metadata={
+                "threshold_pass": 80,
+                "threshold_review": 50,
+                "category": "quality_audit"
+            }
+        ),
+
+        # ═══════════════════════════════════════════════════════════════
+        # 【规则2】一票否决规则
+        # ═══════════════════════════════════════════════════════════════
+        Rule(
+            rule_id="RULE-VETO-001",
+            name="veto_alert",
+            rule_type=RuleType.AUDIT,
+            status=RuleStatus.ACTIVE,
+            condition="context.get('operation') in ['密钥', 'sudo', 'rm', 'push --force', 'token', '私钥', '.env', '删除', '覆盖']",
+            action="veto_block",
+            priority=RulePriority.CRITICAL,  # 优先级 1-20（最高）
+            dna="#龍芯⚡️2026-06-03-VETO-ALERT-v1.0",
+            layer="L0_ETERNAL",
+            description="一票否决规则：高危操作必须明确确认。触发词：密钥、sudo、rm、push --force、token、私钥、.env 等。",
+            tags=["veto", "security", "high-risk", "core"],
+            dependencies=[],
+            audit_required=False,
+            confirm_required=True,
+            metadata={
+                "risk_level": "CRITICAL",
+                "requires_user_confirmation": True,
+                "veto_operations": [
+                    "密钥", "sudo", "rm", "push --force", "token",
+                    "私钥", ".env", "删除", "覆盖", "release", "上传"
+                ]
+            }
+        ),
+
+        # ═══════════════════════════════════════════════════════════════
+        # 【规则3】数字根判定规则
+        # ═══════════════════════════════════════════════════════════════
+        Rule(
+            rule_id="RULE-FORMULA-001",
+            name="digital_root_gate",
+            rule_type=RuleType.FORMULA,
+            status=RuleStatus.ACTIVE,
+            condition="'value' in context",
+            action="dr_gate_check",
+            priority=RulePriority.MEDIUM,  # 优先级 41-70
+            dna="#龍芯⚡️2026-06-03-DR-GATE-v1.0",
+            layer="L1_SEASONAL",
+            description="数字根判定规则：基于数字根 (Digital Root) 的决策逻辑。dr∈{3,9}→🔴 / dr=6→🟡 / 其他→🟢",
+            tags=["formula", "digital-root", "mathematics"],
+            dependencies=[],
+            audit_required=False,
+            confirm_required=False,
+            metadata={
+                "formula_type": "digital_root",
+                "red_roots": [3, 9],
+                "yellow_root": 6,
+                "green_roots": [1, 2, 4, 5, 7, 8],
+                "category": "mathematical_gate"
+            }
+        ),
+
+        # ═══════════════════════════════════════════════════════════════
+        # 【规则4】时间衰减规则
+        # ═══════════════════════════════════════════════════════════════
+        Rule(
+            rule_id="RULE-FORMULA-002",
+            name="time_decay",
+            rule_type=RuleType.FORMULA,
+            status=RuleStatus.ACTIVE,
+            condition="'age_days' in context",
+            action="time_decay_check",
+            priority=RulePriority.MEDIUM,  # 优先级 41-70
+            dna="#龍芯⚡️2026-06-03-TIME-DECAY-v1.0",
+            layer="L2_DECENNIAL",
+            description="时间衰减规则：基于时间衰减公式 L = L₀ * T^(-α_τ) 的生命周期评估。判断内容是否过期。",
+            tags=["formula", "time-decay", "lifecycle"],
+            dependencies=[],
+            audit_required=False,
+            confirm_required=False,
+            metadata={
+                "formula": "L = L0 * T^(-alpha_tau)",
+                "alpha_tau": {
+                    "L0_ETERNAL": 0,
+                    "L1_SEASONAL": 0.01,
+                    "L2_DECENNIAL": 0.1,
+                    "L3_GENERATIONAL": 1.0,
+                    "L4_INSTANT": float('inf')
+                },
+                "category": "temporal_evaluation"
+            }
+        ),
+    ]
+
+
+def register_all_builtin_rules(engine) -> tuple[Any, ...]:
+    """
+    批量注册所有内置规则
+
+    Args:
+        engine: RuleEngine 实例
+
+    Returns:
+        (success: bool, results: List[Any], Any[str])
+            success: 所有规则是否都注册成功
+            results: 注册结果消息列表
+    """
+    results = []
+    success_count = 0
+
+    for rule in get_builtin_rules():
+        success, msg = engine.register_rule(rule)
+        results.append(msg)
+        if success:
+            success_count += 1
+
+    all_success = success_count == len(get_builtin_rules())
+    return all_success, results
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 【模块自检】
+# ═══════════════════════════════════════════════════════════════════════════
+
+def selftest_builtin_rules() -> tuple[Any, ...]:
+    """
+    内置规则库自检
+
+    Returns:
+        (all_pass: bool, errors: List[Any], Any[str])
+    """
+    errors = []
+
+    try:
+        rules = get_builtin_rules()
+
+        # 检查1: 规则数量
+        if len(rules) != 4:
+            errors.append(f"规则数量错误: 期望 4 条，实际 {len(rules)} 条")
+
+        # 检查2: 规则ID唯一性
+        rule_ids = [r.rule_id for r in rules]
+        if len(rule_ids) != len(set(rule_ids)):
+            errors.append("规则ID 不唯一")
+
+        # 检查3: DNA 格式
+        for rule in rules:
+            if not rule.dna.startswith("#龍芯⚡️"):
+                errors.append(f"规则 {rule.rule_id} DNA 格式错误")
+            if not rule.rule_id.startswith("RULE-"):
+                errors.append(f"规则ID 格式错误: {rule.rule_id}")
+
+        # 检查4: 依赖关系（内置规则不应有依赖）
+        for rule in rules:
+            if rule.dependencies:
+                errors.append(f"内置规则 {rule.rule_id} 不应有依赖")
+
+    except Exception as e:
+        errors.append(f"自检失败: {str(e)}")
+
+    return len(errors) == 0, errors
+
+
+if __name__ == "__main__":
+    # 运行自检
+    all_pass, errors = selftest_builtin_rules()
+    if all_pass:
+        print("✅ 内置规则库自检通过")
+        rules = get_builtin_rules()
+        print(f"   共 {len(rules)} 条规则:")
+        for rule in rules:
+            print(f"   - {rule.rule_id}: {rule.name}")
+    else:
+        print("❌ 内置规则库自检失败:")
+        for error in errors:
+            print(f"  - {error}")

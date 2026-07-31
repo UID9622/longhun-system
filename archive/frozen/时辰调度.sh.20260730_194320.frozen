@@ -1,0 +1,71 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-24-UID9622-BRAIN-SHICHEN-SCHEDULER-v1.0
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$SCRIPT_DIR"
+
+mkdir -p logs
+
+# 支持手动指定时辰，否则自动计算
+SHICHEN="${1:-}"
+
+if [ -z "$SHICHEN" ]; then
+    SHICHEN=$(python3 - <<'PY'
+from datetime import datetime, timedelta
+now = datetime.now(timedelta(hours=8))
+h = now.hour
+for name, s, e in [
+    ("子时",23,1),("丑时",1,3),("寅时",3,5),("卯时",5,7),("辰时",7,9),
+    ("巳时",9,11),("午时",11,13),("未时",13,15),("申时",15,17),("酉时",17,19),
+    ("戌时",19,21),("亥时",21,23)
+]:
+    if (s < e and s <= h < e) or (s > e and (h >= s or h < e)):
+        print(name)
+        break
+PY
+)
+fi
+
+LOG="logs/shichen_scheduler.log"
+TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+
+echo "[$TIMESTAMP] 🕐 时辰调度启动：$SHICHEN" | tee -a "$LOG"
+echo "[$TIMESTAMP] DNA: #龍芯⚡️2026-06-24-UID9622-BRAIN-SHICHEN-SCHEDULER-v1.0" | tee -a "$LOG"
+
+# 读取该时辰的任务
+TASKS=$(python3 - "$SHICHEN" <<'PY'
+import json, sys
+name = sys.argv[1]
+with open('etc/shichen_tasks.json', encoding='utf-8') as f:
+    data = json.load(f)
+entry = data.get('任务映射', {}).get(name, {})
+print('\n'.join(entry.get('动作', [])))
+print('__MEANING__' + entry.get('寓意', '无'))
+PY
+)
+
+MEANING=$(echo "$TASKS" | grep '^__MEANING__' | sed 's/^__MEANING__//')
+ACTIONS=$(echo "$TASKS" | grep -v '^__MEANING__')
+
+echo "[$TIMESTAMP] 寓意：$MEANING" | tee -a "$LOG"
+
+# 执行动作
+while IFS= read -r action; do
+    [ -z "$action" ] && continue
+    echo "[$TIMESTAMP] ▶ 执行：$action" | tee -a "$LOG"
+    # 使用 eval 来支持带参数的命令
+    if eval "$action" >> "$LOG" 2>&1; then
+        echo "[$TIMESTAMP] ✅ 成功：$action" | tee -a "$LOG"
+    else
+        echo "[$TIMESTAMP] ⚠️ 失败或无需执行：$action" | tee -a "$LOG"
+    fi
+done <<< "$ACTIONS"
+
+echo "[$TIMESTAMP] 🏁 时辰调度结束：$SHICHEN" | tee -a "$LOG"
+echo "" | tee -a "$LOG"

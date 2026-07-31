@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # 1 道统层 Dao           : 曾仕强老师

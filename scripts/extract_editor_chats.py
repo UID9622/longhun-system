@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 """
 从已归档的 VSCode/Cursor 编辑器聊天 JSONL 中提取可读的 Markdown，

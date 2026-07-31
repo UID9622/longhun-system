@@ -1,0 +1,1318 @@
+{
+  "run_id": "RUN-20260731_153635",
+  "timestamp": "2026-07-31T15:36:35.071749",
+  "total": 54,
+  "passed": 36,
+  "failed": 0,
+  "skipped": 0,
+  "errors": 0,
+  "fused": 18,
+  "coverage": 66.66666666666666,
+  "audit_mark": "🔴",
+  "dna": "#龍芯⚡️20260731-TEST-RUN-RUN-20260731_153635",
+  "results": [
+    {
+      "id": "TC-01-001",
+      "name": "有效确认码·完整记忆加载",
+      "block": "第一步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "确认码检测",
+          "expected": "检测到确认码",
+          "actual": "检测到",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "身份识别",
+          "expected": "R1/UID9622",
+          "actual": "R1/UID9622",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "记忆加载",
+          "expected": "P0-P4+16人格+私人记忆",
+          "actual": "已加载",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-01-001",
+      "result": {
+        "passed": true,
+        "steps": 3
+      }
+    },
+    {
+      "id": "TC-01-002",
+      "name": "无确认码·标准协议执行",
+      "block": "第一步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "确认码检测",
+          "expected": "无确认码",
+          "actual": "无",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "身份识别",
+          "expected": "R5/PUBLIC",
+          "actual": "R5/PUBLIC",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "数据访问",
+          "expected": "D1-D3拒绝",
+          "actual": "已拒绝",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-01-002",
+      "result": {
+        "passed": true,
+        "steps": 3
+      }
+    },
+    {
+      "id": "TC-01-003",
+      "name": "伪造确认码·熔断触发",
+      "block": "第一步",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "确认码检测",
+          "expected": "伪造检测",
+          "actual": "伪造",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "熔断触发",
+          "expected": "L0熔断",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "事件记录",
+          "expected": "FORGED_CONFIRM_CODE",
+          "actual": "已记录",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-01-003",
+      "result": {
+        "passed": false,
+        "steps": 3
+      }
+    },
+    {
+      "id": "TC-01-004",
+      "name": "确认码位置异常·仍能识别",
+      "block": "第一步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "确认码检测",
+          "expected": "非首句识别",
+          "actual": "已识别",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "身份识别",
+          "expected": "R1/UID9622",
+          "actual": "R1/UID9622",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-01-004",
+      "result": {
+        "passed": true,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-02-001",
+      "name": "R1·UID9622·全权限",
+      "block": "第二步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-02-001",
+      "result": {
+        "passed": true,
+        "steps": 0
+      }
+    },
+    {
+      "id": "TC-02-002",
+      "name": "R2·SYS_ADMIN·系统管理",
+      "block": "第二步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-02-002",
+      "result": {
+        "passed": true,
+        "steps": 0
+      }
+    },
+    {
+      "id": "TC-02-003",
+      "name": "R3·PERSONA_LEAD·专业执行",
+      "block": "第二步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-02-003",
+      "result": {
+        "passed": true,
+        "steps": 0
+      }
+    },
+    {
+      "id": "TC-02-004",
+      "name": "R4·PERSONA_AUDIT·只读审计",
+      "block": "第二步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-02-004",
+      "result": {
+        "passed": true,
+        "steps": 0
+      }
+    },
+    {
+      "id": "TC-02-005",
+      "name": "R5·PUBLIC·公开数据",
+      "block": "第二步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-02-005",
+      "result": {
+        "passed": true,
+        "steps": 0
+      }
+    },
+    {
+      "id": "TC-03-001",
+      "name": "技术执行意图·P04鲁班",
+      "block": "第三步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "意图解析",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "人格路由",
+          "expected": "正确",
+          "actual": "正确",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-03-001",
+      "result": {
+        "passed": true,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-03-002",
+      "name": "情感安抚意图·P02宝宝",
+      "block": "第三步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "意图解析",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "人格路由",
+          "expected": "正确",
+          "actual": "正确",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-03-002",
+      "result": {
+        "passed": true,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-03-003",
+      "name": "审计安全意图·P05上帝之眼",
+      "block": "第三步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "意图解析",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "人格路由",
+          "expected": "正确",
+          "actual": "正确",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-03-003",
+      "result": {
+        "passed": true,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-03-004",
+      "name": "部署发布意图·P14吕蒙+P77",
+      "block": "第三步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "意图解析",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "人格路由",
+          "expected": "正确",
+          "actual": "正确",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-03-004",
+      "result": {
+        "passed": true,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-03-005",
+      "name": "一票否决词检测·熔断",
+      "block": "第三步",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "意图解析",
+          "expected": "熔断检测",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-03-005",
+      "result": {
+        "passed": false,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-03-006",
+      "name": "恶意意图检测·熔断",
+      "block": "第三步",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "意图解析",
+          "expected": "熔断检测",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-03-006",
+      "result": {
+        "passed": false,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-03-007",
+      "name": "法律查询意图·S1法律引擎",
+      "block": "第三步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "意图识别",
+          "expected": "法律查询",
+          "actual": "正确",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "人格路由",
+          "expected": "S1法律引擎",
+          "actual": "已路由",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "免责声明",
+          "expected": "已标注",
+          "actual": "已标注",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-03-007",
+      "result": {
+        "passed": true,
+        "steps": 3
+      }
+    },
+    {
+      "id": "TC-03-008",
+      "name": "维权意图·S3人民维权助手",
+      "block": "第三步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "意图识别",
+          "expected": "维权咨询",
+          "actual": "正确",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "人格路由",
+          "expected": "S3人民维权助手",
+          "actual": "已路由",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "免责声明",
+          "expected": "已标注",
+          "actual": "已标注",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-03-008",
+      "result": {
+        "passed": true,
+        "steps": 3
+      }
+    },
+    {
+      "id": "TC-04-001",
+      "name": "标准路径生成",
+      "block": "第四步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "路径推演",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-04-001",
+      "result": {
+        "passed": true,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-04-002",
+      "name": "冲突预判·人格优先级",
+      "block": "第四步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "路径推演",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-04-002",
+      "result": {
+        "passed": true,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-04-003",
+      "name": "高风险路径·熔断预判",
+      "block": "第四步",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "路径推演",
+          "expected": "高风险识别",
+          "actual": "已识别",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "熔断预判",
+          "expected": "拒绝执行",
+          "actual": "已拒绝",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-04-003",
+      "result": {
+        "passed": false,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-04-004",
+      "name": "复杂任务拆解",
+      "block": "第四步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "路径推演",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-04-004",
+      "result": {
+        "passed": true,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-05-001",
+      "name": "标准执行·成功",
+      "block": "第五步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "执行",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "审计",
+          "expected": "🟢通过",
+          "actual": "通过",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-05-001",
+      "result": {
+        "passed": true,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-05-002",
+      "name": "执行超时·自动重试",
+      "block": "第五步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "执行",
+          "expected": "降级切换",
+          "actual": "已切换",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "审计",
+          "expected": "🟡标记",
+          "actual": "已标记",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟡",
+      "dna": "#龍芯⚡️20260731-TEST-TC-05-002",
+      "result": {
+        "passed": true,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-05-003",
+      "name": "执行失败·备份切换",
+      "block": "第五步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "执行",
+          "expected": "降级切换",
+          "actual": "已切换",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "审计",
+          "expected": "🟡标记",
+          "actual": "已标记",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟡",
+      "dna": "#龍芯⚡️20260731-TEST-TC-05-003",
+      "result": {
+        "passed": true,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-05-004",
+      "name": "L0熔断·立即停止",
+      "block": "第五步",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "执行检测",
+          "expected": "熔断触发",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-05-004",
+      "result": {
+        "passed": false,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-05-005",
+      "name": "L1数据熔断·数据保护",
+      "block": "第五步",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "执行检测",
+          "expected": "熔断触发",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-05-005",
+      "result": {
+        "passed": false,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-05-006",
+      "name": "L2人格熔断·主权三禁",
+      "block": "第五步",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "执行检测",
+          "expected": "熔断触发",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-05-006",
+      "result": {
+        "passed": false,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-06-001",
+      "name": "全绿通过",
+      "block": "第六步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "审计",
+          "expected": "🟢通过",
+          "actual": "通过",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-06-001",
+      "result": {
+        "passed": true,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-06-002",
+      "name": "黄色标记·非核心警告",
+      "block": "第六步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "审计",
+          "expected": "🟡标记",
+          "actual": "已标记",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟡",
+      "dna": "#龍芯⚡️20260731-TEST-TC-06-002",
+      "result": {
+        "passed": true,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-06-003",
+      "name": "红色熔断·安全风险",
+      "block": "第六步",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "审计",
+          "expected": "熔断",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-06-003",
+      "result": {
+        "passed": false,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-06-004",
+      "name": "P77内部冲突·一致性不足",
+      "block": "第六步",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "审计",
+          "expected": "熔断",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-06-004",
+      "result": {
+        "passed": false,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-06-005",
+      "name": "P06镜像审计·结果矛盾",
+      "block": "第六步",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "审计",
+          "expected": "熔断",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-06-005",
+      "result": {
+        "passed": false,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-07-001",
+      "name": "标准签章·成功",
+      "block": "第七步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "DNA生成",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "GPG签名",
+          "expected": "有效",
+          "actual": "有效",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "四签验收",
+          "expected": "通过",
+          "actual": "通过",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-07-001",
+      "result": {
+        "passed": true,
+        "steps": 3
+      }
+    },
+    {
+      "id": "TC-07-002",
+      "name": "签章失败·GPG异常",
+      "block": "第七步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "DNA生成",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "GPG签名",
+          "expected": "失败",
+          "actual": "失败",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "降级",
+          "expected": "🟡标记",
+          "actual": "已标记",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟡",
+      "dna": "#龍芯⚡️20260731-TEST-TC-07-002",
+      "result": {
+        "passed": true,
+        "steps": 3
+      }
+    },
+    {
+      "id": "TC-07-003",
+      "name": "补签流程·GATE-09",
+      "block": "第七步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "DNA生成",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "GPG签名",
+          "expected": "有效",
+          "actual": "有效",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "四签验收",
+          "expected": "通过",
+          "actual": "通过",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-07-003",
+      "result": {
+        "passed": true,
+        "steps": 3
+      }
+    },
+    {
+      "id": "TC-08-001",
+      "name": "标准归档·成功",
+      "block": "第八步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "归档",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "返回格式",
+          "expected": "完整",
+          "actual": "完整",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-08-001",
+      "result": {
+        "passed": true,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-08-002",
+      "name": "归档失败·存储异常",
+      "block": "第八步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "归档",
+          "expected": "失败",
+          "actual": "失败",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "降级",
+          "expected": "本地缓存",
+          "actual": "已缓存",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟡",
+      "dna": "#龍芯⚡️20260731-TEST-TC-08-002",
+      "result": {
+        "passed": true,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-08-003",
+      "name": "返回格式验证",
+      "block": "第八步",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "归档",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "返回格式",
+          "expected": "完整",
+          "actual": "完整",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-08-003",
+      "result": {
+        "passed": true,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-E2E-001",
+      "name": "标准技术任务",
+      "block": "端到端",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "端到端",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-E2E-001",
+      "result": {
+        "passed": true,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-E2E-002",
+      "name": "情感支持任务",
+      "block": "端到端",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "端到端",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-E2E-002",
+      "result": {
+        "passed": true,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-E2E-003",
+      "name": "安全审计任务",
+      "block": "端到端",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "端到端",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-E2E-003",
+      "result": {
+        "passed": true,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-E2E-004",
+      "name": "维权咨询任务",
+      "block": "端到端",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "端到端",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-E2E-004",
+      "result": {
+        "passed": true,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-E2E-005",
+      "name": "部署任务·含安全审查",
+      "block": "端到端",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "端到端",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-E2E-005",
+      "result": {
+        "passed": true,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-E2E-006",
+      "name": "复杂多任务",
+      "block": "端到端",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "端到端",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-E2E-006",
+      "result": {
+        "passed": true,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-E2E-007",
+      "name": "高风险拒绝",
+      "block": "端到端",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "端到端",
+          "expected": "熔断",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-E2E-007",
+      "result": {
+        "passed": false,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-E2E-008",
+      "name": "降级执行",
+      "block": "端到端",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "端到端",
+          "expected": "降级执行",
+          "actual": "已执行",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟡",
+      "dna": "#龍芯⚡️20260731-TEST-TC-E2E-008",
+      "result": {
+        "passed": true,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-E2E-009",
+      "name": "外部AI复核",
+      "block": "端到端",
+      "status": "🟢 通过",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "端到端",
+          "expected": "成功",
+          "actual": "成功",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🟢",
+      "dna": "#龍芯⚡️20260731-TEST-TC-E2E-009",
+      "result": {
+        "passed": true,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-E2E-010",
+      "name": "数字人守护者·高威胁",
+      "block": "端到端",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "端到端",
+          "expected": "熔断",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-E2E-010",
+      "result": {
+        "passed": false,
+        "steps": 1
+      }
+    },
+    {
+      "id": "TC-FUSE-001",
+      "name": "L0伦理·涉童",
+      "block": "熔断专项",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "熔断检测",
+          "expected": "已触发",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "熔断级别",
+          "expected": "L0",
+          "actual": "L0",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-FUSE-001",
+      "result": {
+        "passed": false,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-FUSE-002",
+      "name": "L0伦理·伪造DNA",
+      "block": "熔断专项",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "熔断检测",
+          "expected": "已触发",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "熔断级别",
+          "expected": "L0",
+          "actual": "L0",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-FUSE-002",
+      "result": {
+        "passed": false,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-FUSE-003",
+      "name": "L1数据·明文密码",
+      "block": "熔断专项",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "熔断检测",
+          "expected": "已触发",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "熔断级别",
+          "expected": "L1",
+          "actual": "L1",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-FUSE-003",
+      "result": {
+        "passed": false,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-FUSE-004",
+      "name": "L2人格·借壳",
+      "block": "熔断专项",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "熔断检测",
+          "expected": "已触发",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "熔断级别",
+          "expected": "L2",
+          "actual": "L2",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-FUSE-004",
+      "result": {
+        "passed": false,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-FUSE-005",
+      "name": "L3行为·连续失败",
+      "block": "熔断专项",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "熔断检测",
+          "expected": "已触发",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "熔断级别",
+          "expected": "L3",
+          "actual": "L3",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-FUSE-005",
+      "result": {
+        "passed": false,
+        "steps": 2
+      }
+    },
+    {
+      "id": "TC-FUSE-006",
+      "name": "L3行为·权重偏移",
+      "block": "熔断专项",
+      "status": "🔴 熔断",
+      "duration": 0.0,
+      "steps": [
+        {
+          "step": "熔断检测",
+          "expected": "已触发",
+          "actual": "已触发",
+          "status": "🟢 通过"
+        },
+        {
+          "step": "熔断级别",
+          "expected": "L3",
+          "actual": "L3",
+          "status": "🟢 通过"
+        }
+      ],
+      "audit_color": "🔴",
+      "dna": "#龍芯⚡️20260731-TEST-TC-FUSE-006",
+      "result": {
+        "passed": false,
+        "steps": 2
+      }
+    }
+  ]
+}

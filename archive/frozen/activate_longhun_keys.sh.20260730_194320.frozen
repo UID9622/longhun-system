@@ -1,0 +1,33 @@
+#!/bin/bash
+# 龍魂密钥统一激活脚本 v2.0
+# DNA: #龍芯⚡️2026-06-29-KEY-ACTIVATOR-v2-UID9622
+set -e
+
+echo "🐉 龍魂密钥激活中..."
+
+# Git tokens
+if [ -f "$HOME/.uid9622/git-tokens.sh" ]; then
+    set -a
+    source "$HOME/.uid9622/git-tokens.sh"
+    set +a
+    echo "✅ Git Tokens 已加载"
+fi
+
+# 龍魂 secrets
+if [ -f "$HOME/.longhun/secrets.env" ]; then
+    set -a
+    source "$HOME/.longhun/secrets.env"
+    set +a
+    echo "✅ Notion / DB Secrets 已加载"
+fi
+
+# 护盾环境
+if [ -f "$HOME/longhun-system/.env.shield" ]; then
+    set -a
+    source "$HOME/longhun-system/.env.shield"
+    set +a
+    echo "✅ 护盾配置已加载"
+fi
+
+export LONGHUN_KEYS_ACTIVATED="1"
+echo "🐉 龍魂密钥激活完成"

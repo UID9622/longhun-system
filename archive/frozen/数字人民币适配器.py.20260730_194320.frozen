@@ -1,0 +1,446 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+╔══════════════════════════════════════════════════════════════╗
+║  龍魂数字人民币适配器  |  Dragon Soul e-CNY Adapter           ║
+║  DNA: #龍芯⚡️2026-06-21-CNSH-eCNY-ADAPTER-v1.0             ║
+║  平台: 数字人民币 (e-CNY / DC/EP) — 中国人民银行法定数字货币  ║
+║  君子协议: 本代码仅用于合法授权场景，遵循可控匿名与反洗钱原则    ║
+╚══════════════════════════════════════════════════════════════╝
+
+支持操作 (Supported Operations):
+  🟢 查询余额  — 查询e-CNY钱包余额
+  🟡 绑定钱包  — 绑定/解绑e-CNY钱包
+  🔴 充值      — 从银行账户向e-CNY钱包充值
+  🔴 支付      — 使用e-CNY完成付款
+  🟢 查询交易  — 查询e-CNY交易记录
+
+DNA授权点 (DNA Authorization Points):
+  • 每笔支付/充值前强制调用 eCNY合规检查器
+  • 大额交易触发双重DNA确认
+  • 跨境支付需央行审批标记
+
+生产对接说明:
+  数字人民币没有统一的公共开放API。实际接入需要通过以下持牌机构:
+  - 商业银行数字人民币商户API（如工商银行、建设银行、招商银行等）
+  - 支付宝 / 微信支付 的数字人民币子钱包接口
+  - 银联 / 网联 的数币通道
+  需先成为签约商户，获取 APPID、商户号、API证书与网关地址。
+"""
+
+import json
+import random
+import hashlib
+from datetime import datetime, timedelta
+from typing import Optional, Any
+
+from .平台适配器基类 import (
+    平台适配器基类, DNA令牌, 审计级别
+)
+from ..compliance_china.compliance_china.eCNY合规检查器 import eCNY合规检查器
+
+
+class 数字人民币适配器(平台适配器基类):
+    """
+    【数字人民币平台适配器】e-CNY Platform Adapter
+
+    统一封装 e-CNY 的钱包绑定、充值、支付、查询能力。
+    模拟模式下返回模拟数据；生产模式下调用持牌机构 API。
+    """
+
+    def __init__(self, 模式: str = "模拟"):
+        super().__init__(模式)
+        self._合规检查器 = eCNY合规检查器()
+        self._钱包信息: Optional, Any[dict] = None
+        self._余额: float = 0.00
+        self._交易记录: list[dict] = []
+        self._充值记录: list[dict] = []
+
+        if self.是否模拟模式():
+            # 模拟环境默认给一个四类钱包与初始余额
+            self._钱包信息 = {
+                "钱包编号": f"ECNY{random.randint(1000000000, 9999999999)}",
+                "钱包类型": "四类钱包",
+                "实名认证": False,
+                "绑定银行": "模拟银行",
+            }
+            self._余额 = 200.00
+            print(f"[{self.平台名称()}] 💴 模拟e-CNY环境已就绪")
+            print(f"[{self.平台名称()}]    钱包类型: {self._钱包信息['钱包类型']}")
+            print(f"[{self.平台名称()}]    初始余额: ¥{self._余额:.2f}")
+
+    def 平台名称(self) -> str:
+        """返回平台名称 / Return platform name"""
+        return "数字人民币"
+
+    def 获取授权范围(self) -> list[str]:
+        """获取授权范围 / Get authorization scope"""
+        return [
+            "数字人民币:查询余额",
+            "数字人民币:绑定钱包",
+            "数字人民币:充值",
+            "数字人民币:支付",
+            "数字人民币:查询交易",
+        ]
+
+    def 获取支持的操作(self) -> dict[str, 审计级别]:
+        """获取支持的操作及审计级别 / Get supported operations with audit levels"""
+        return {
+            "查询余额": 审计级别.绿色,
+            "绑定钱包": 审计级别.黄色,
+            "充值": 审计级别.红色,
+            "支付": 审计级别.红色,
+            "查询交易": 审计级别.绿色,
+        }
+
+    def 验证DNA令牌(self, DNA令牌实例: DNA令牌) -> bool:
+        """验证DNA令牌 / Validate DNA token"""
+        if DNA令牌实例.是否过期():
+            print(f"[{self.平台名称()}] ❌ DNA令牌已过期")
+            return False
+        if self.是否模拟模式():
+            return True
+        return self._验证生产令牌(DNA令牌实例)
+
+    def _验证生产令牌(self, DNA令牌实例: DNA令牌) -> bool:
+        """生产环境令牌验证 / Production token verification"""
+        return bool(self._生产密钥)
+
+    def 执行操作(self, 操作: str, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
+        """执行e-CNY操作 / Execute e-CNY operation"""
+        if not self.验证DNA令牌(DNA令牌实例):
+            return {"状态": "失败", "原因": "DNA令牌验证失败"}
+        if not self._验证操作权限(操作, DNA令牌实例):
+            return {"状态": "失败", "原因": "操作权限不足"}
+
+        操作映射 = {
+            "查询余额": self._查询余额,
+            "绑定钱包": self._绑定钱包,
+            "充值": self._充值,
+            "支付": self._支付,
+            "查询交易": self._查询交易,
+        }
+        if 操作 not in 操作映射:
+            return {"状态": "失败", "原因": f"不支持的操作: {操作}"}
+
+        return 操作映射[操作](参数, DNA令牌实例)
+
+    # ═══════════════════════════════════════════════════
+    # 具体操作实现 / Specific Operation Implementations
+    # ═══════════════════════════════════════════════════
+
+    def _查询余额(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
+        """🟢 查询余额 / Query balance"""
+        self._记录审计(
+            操作="查询余额",
+            级别=审计级别.绿色,
+            DNA哈希=DNA令牌实例.生成哈希(),
+            结果="✅ 余额查询成功",
+            详情={"钱包类型": self._钱包信息.get("钱包类型") if self._钱包信息 else None}
+        )
+        return {
+            "状态": "成功",
+            "操作": "查询余额",
+            "钱包": self._钱包info(),
+            "余额": round(self._余额, 2),
+            "时间戳": datetime.now().isoformat(),
+            "模拟数据": self.是否模拟模式(),
+        }
+
+    def _绑定钱包(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
+        """🟡 绑定钱包 / Bind wallet"""
+        钱包类型 = 参数.get("钱包类型", "四类钱包")
+        实名认证 = 参数.get("实名认证", False)
+        绑定银行 = 参数.get("绑定银行", "")
+
+        self._钱包信息 = {
+            "钱包编号": 参数.get("钱包编号", f"ECNY{random.randint(1000000000, 9999999999)}"),
+            "钱包类型": 钱包类型,
+            "实名认证": 实名认证,
+            "绑定银行": 绑定银行,
+        }
+
+        self._记录审计(
+            操作="绑定钱包",
+            级别=审计级别.黄色,
+            DNA哈希=DNA令牌实例.生成哈希(),
+            结果="✅ 钱包绑定成功",
+            详情={"钱包类型": 钱包类型, "实名认证": 实名认证}
+        )
+        return {
+            "状态": "成功",
+            "操作": "绑定钱包",
+            "钱包": self._钱包info(),
+            "时间戳": datetime.now().isoformat(),
+            "模拟数据": self.是否模拟模式(),
+        }
+
+    def _充值(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
+        """🔴 充值 / Top-up e-CNY wallet"""
+        金额 = float(参数.get("金额", 0))
+        if 金额 <= 0:
+            return {"状态": "失败", "原因": "充值金额必须大于0"}
+
+        # 构造交易数据并做合规检查
+        交易数据 = self._构建交易数据(金额, DNA令牌实例)
+        合规结果 = self._合规检查器.检查(交易数据)
+        if not 合规结果.检查通过:
+            self._记录审计(
+                操作="充值",
+                级别=审计级别.红色,
+                DNA哈希=DNA令牌实例.生成哈希(),
+                结果="❌ 合规检查未通过",
+                详情={"得分": 合规结果.综合得分, "风险": 合规结果.风险等级}
+            )
+            return {
+                "状态": "失败",
+                "原因": "e-CNY合规检查未通过",
+                "合规报告": 合规结果.to_dict(),
+            }
+
+        self._模拟延迟(300)
+        流水号 = self._生成流水号("TOP")
+        self._余额 += 金额
+
+        记录 = {
+            "流水号": 流水号,
+            "类型": "充值",
+            "金额": 金额,
+            "余额": round(self._余额, 2),
+            "时间": datetime.now().isoformat(),
+            "合规得分": 合规结果.综合得分,
+        }
+        self._充值记录.append(记录)
+
+        self._记录审计(
+            操作="充值",
+            级别=审计级别.红色,
+            DNA哈希=DNA令牌实例.生成哈希(),
+            结果="✅ 充值成功",
+            详情={"流水号": 流水号, "金额": 金额, "余额": self._余额}
+        )
+        return {
+            "状态": "成功",
+            "操作": "充值",
+            "流水号": 流水号,
+            "金额": 金额,
+            "余额": round(self._余额, 2),
+            "钱包": self._钱包info(),
+            "合规得分": 合规结果.综合得分,
+            "时间戳": datetime.now().isoformat(),
+            "模拟数据": self.是否模拟模式(),
+        }
+
+    def _支付(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
+        """🔴 支付 / e-CNY payment"""
+        金额 = float(参数.get("金额", 0))
+        商户 = 参数.get("商户", "模拟商户")
+        订单号 = 参数.get("订单号", f"ORD{datetime.now().strftime('%Y%m%d%H%M%S')}")
+        备注 = 参数.get("备注", "")
+
+        if 金额 <= 0:
+            return {"状态": "失败", "原因": "支付金额必须大于0"}
+        if 金额 > self._余额:
+            return {"状态": "失败", "原因": f"余额不足 (余额: ¥{self._余额:.2f}, 需: ¥{金额:.2f})"}
+
+        print(f"\n[{self.平台名称()}] 🔴🔴🔴 红色审计 — e-CNY支付 🔴🔴🔴")
+        print(f"[{self.平台名称()}]    商户: {商户}")
+        print(f"[{self.平台名称()}]    金额: ¥{金额:.2f}")
+        print(f"[{self.平台名称()}]    DNA哈希: {DNA令牌实例.生成哈希()}")
+
+        # 合规检查
+        交易数据 = self._构建交易数据(金额, DNA令牌实例, 商户=商户, 订单号=订单号)
+        合规结果 = self._合规检查器.检查(交易数据)
+        if not 合规结果.检查通过:
+            self._记录审计(
+                操作="支付",
+                级别=审计级别.红色,
+                DNA哈希=DNA令牌实例.生成哈希(),
+                结果="❌ 合规检查未通过",
+                详情={"得分": 合规结果.综合得分, "风险": 合规结果.风险等级}
+            )
+            return {
+                "状态": "失败",
+                "原因": "e-CNY合规检查未通过",
+                "合规报告": 合规结果.to_dict(),
+            }
+
+        self._模拟延迟(400)
+        流水号 = self._生成流水号("PAY")
+        self._余额 -= 金额
+
+        记录 = {
+            "流水号": 流水号,
+            "类型": "支付",
+            "商户": 商户,
+            "订单号": 订单号,
+            "金额": 金额,
+            "余额": round(self._余额, 2),
+            "备注": 备注,
+            "时间": datetime.now().isoformat(),
+            "合规得分": 合规结果.综合得分,
+        }
+        self._交易记录.append(记录)
+
+        self._记录审计(
+            操作="支付",
+            级别=审计级别.红色,
+            DNA哈希=DNA令牌实例.生成哈希(),
+            结果="✅ e-CNY支付成功",
+            详情={"流水号": 流水号, "商户": 商户, "金额": 金额, "余额": self._余额}
+        )
+        return {
+            "状态": "成功",
+            "操作": "支付",
+            "流水号": 流水号,
+            "商户": 商户,
+            "订单号": 订单号,
+            "金额": 金额,
+            "余额": round(self._余额, 2),
+            "合规得分": 合规结果.综合得分,
+            "时间戳": datetime.now().isoformat(),
+            "模拟数据": self.是否模拟模式(),
+        }
+
+    def _查询交易(self, 参数: dict[str, Any], DNA令牌实例: DNA令牌) -> dict[str, Any]:
+        """🟢 查询交易 / Query transactions"""
+        类型 = 参数.get("类型", "全部")
+        记录 = self._交易记录 + self._充值记录
+        if 类型 != "全部":
+            记录 = [r for r in 记录 if r.get("类型") == 类型]
+
+        self._记录审计(
+            操作="查询交易",
+            级别=审计级别.绿色,
+            DNA哈希=DNA令牌实例.生成哈希(),
+            结果="✅ 交易查询成功",
+            详情={"类型": 类型, "条数": len(记录)}
+        )
+        return {
+            "状态": "成功",
+            "操作": "查询交易",
+            "类型": 类型,
+            "条数": len(记录),
+            "记录": 记录,
+            "时间戳": datetime.now().isoformat(),
+            "模拟数据": self.是否模拟模式(),
+        }
+
+    # ═══════════════════════════════════════════════════
+    # 辅助方法 / Helper Methods
+    # ═══════════════════════════════════════════════════
+
+    def _钱包info(self) -> dict[str, Any]:
+        """返回钱包信息副本"""
+        return self._钱包信息.copy() if self._钱包信息 else {}
+
+    def _构建交易数据(self, 金额: float, DNA令牌实例: DNA令牌,
+                     商户: str = "", 订单号: str = "") -> dict[str, Any]:
+        """为eCNY合规检查器构造交易数据"""
+        钱包 = self._钱包信息 or {}
+        return {
+            "钱包类型": 钱包.get("钱包类型", "四类钱包"),
+            "实名认证": 钱包.get("实名认证", False),
+            "认证等级": "强实名" if 钱包.get("实名认证") else "未实名",
+            "交易金额": 金额,
+            "日累计金额": self._当日累计(),
+            "年累计金额": self._当年累计(),
+            "交易对方": 商户 or "e-CNY钱包充值",
+            "跨境交易": False,
+            "央行审批": False,
+            "可疑交易": False,
+            "可疑报告": False,
+            "KYC完成": 钱包.get("实名认证", False),
+            "身份核验": 钱包.get("实名认证", False),
+            "职业信息": False,
+            "交易目的": "日常消费" if 商户 else "钱包充值",
+            "反洗钱筛查": True,
+            "资金来源": "工资收入" if not 商户 else "e-CNY钱包",
+            "大额报告": 金额 >= 50000,
+            "匿名交易": not 钱包.get("实名认证", False),
+            "可追溯": 钱包.get("实名认证", False),
+        }
+
+    def _当日累计(self) -> float:
+        """计算当日累计交易金额"""
+        今天 = datetime.now().strftime("%Y-%m-%d")
+        return sum(
+            r.get("金额", 0) for r in self._交易记录 + self._充值记录
+            if r.get("时间", "").startswith(今天)
+        )
+
+    def _当年累计(self) -> float:
+        """计算当年累计交易金额"""
+        今年 = datetime.now().strftime("%Y")
+        return sum(
+            r.get("金额", 0) for r in self._交易记录 + self._充值记录
+            if r.get("时间", "").startswith(今年)
+        )
+
+    def _生成流水号(self, 前缀: str) -> str:
+        """生成交易流水号"""
+        随机部分 = hashlib.sha256(
+            f"{datetime.now().isoformat()}{random.random()}".encode()
+        ).hexdigest()[:8].upper()
+        return f"{前缀}{datetime.now().strftime('%Y%m%d%H%M%S')}{随机部分}"
+
+    def 获取余额(self) -> float:
+        """获取当前余额 / Get current balance"""
+        return self._余额
+
+    def 获取交易记录(self) -> list[dict]:
+        """获取交易记录 / Get transaction records"""
+        return self._交易记录.copy()
+
+    def 获取充值记录(self) -> list[dict]:
+        """获取充值记录 / Get top-up records"""
+        return self._充值记录.copy()
+
+
+# ═══════════════════════════════════════════════════
+# 演示代码 / Demo Code
+# ═══════════════════════════════════════════════════
+
+if __name__ == "__main__":
+    print("╔══════════════════════════════════════════════════════════════╗")
+    print("║  龍魂数字人民币适配器 — 功能演示                              ║")
+    print("║  Dragon Soul e-CNY Adapter — Feature Demo                    ║")
+    print("╚══════════════════════════════════════════════════════════════╝")
+
+    数字人民币 = 数字人民币适配器(模式="模拟")
+    令牌 = DNA令牌(
+        令牌字符串="ecny_demo_token_2026",
+        用户标识="ecny_user_001",
+        授权范围=[
+            "数字人民币:查询余额",
+            "数字人民币:绑定钱包",
+            "数字人民币:充值",
+            "数字人民币:支付",
+            "数字人民币:查询交易",
+        ],
+        过期时间=datetime.now() + timedelta(hours=2)
+    )
+
+    # 1. 查询余额
+    print("\n【演示1】查询余额")
+    print(json.dumps(数字人民币.执行操作("查询余额", {}, 令牌), ensure_ascii=False, indent=2))
+
+    # 2. 充值
+    print("\n【演示2】充值 ¥500")
+    print(json.dumps(数字人民币.执行操作("充值", {"金额": 500}, 令牌), ensure_ascii=False, indent=2))
+
+    # 3. 支付
+    print("\n【演示3】支付 ¥88.88")
+    print(json.dumps(数字人民币.执行操作("支付", {
+        "金额": 88.88,
+        "商户": "龍魂咖啡·陆家嘴店",
+        "订单号": "ORD20260621001",
+        "备注": "美式大杯"
+    }, 令牌), ensure_ascii=False, indent=2))
+
+    # 4. 查询交易
+    print("\n【演示4】查询全部交易")
+    print(json.dumps(数字人民币.执行操作("查询交易", {"类型": "全部"}, 令牌), ensure_ascii=False, indent=2))
+
+    数字人民币.打印审计统计()
+    print("\n✅ 数字人民币适配器演示完成 | e-CNY adapter demo completed")

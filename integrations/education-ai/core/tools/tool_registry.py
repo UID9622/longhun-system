@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·明夷-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # core/tools/tool_registry.py
 # 龍魂 · 工具注册中心 · Function Calling基础设施
 

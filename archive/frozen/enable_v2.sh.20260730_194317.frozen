@@ -1,0 +1,56 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-23-184259-header-UID9622-B33E5486
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+# 自动启用v2.0版本脚本
+SCRIPTS_DIR="$HOME/UID9622_Automation/scripts"
+BACKUP_DIR="$HOME/UID9622_Automation/backups"
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+
+# 步骤1: 备份v1.0脚本
+echo "💾 备份v1.0脚本..."
+mkdir -p "$BACKUP_DIR"
+cp "$SCRIPTS_DIR"/{wenwen_organize,scout_collect,guardian_check,baobao_build,wenxin_sync}.sh "$BACKUP_DIR/" 2>/dev/null
+
+# 步骤2: 重命名v1.0脚本（添加后缀）
+echo "🔄 重命名v1.0脚本..."
+for script in wenwen_organize scout_collect guardian_check baobao_build wenxin_sync; do
+    if [ -f "$SCRIPTS_DIR/${script}.sh" ] && [ ! -f "$SCRIPTS_DIR/${script}_v1.sh" ]; then
+        mv "$SCRIPTS_DIR/${script}.sh" "$SCRIPTS_DIR/${script}_v1.sh"
+    fi
+done
+
+# 步骤3: 启用v2.0脚本（移除v2后缀）
+echo "✅ 启用v2.0脚本..."
+for script in wenwen_organize scout_collect guardian_check baobao_build wenxin_sync; do
+    if [ -f "$SCRIPTS_DIR/${script}_v2.sh" ]; then
+        cp "$SCRIPTS_DIR/${script}_v2.sh" "$SCRIPTS_DIR/${script}.sh"
+    fi
+done
+
+# 步骤4: 赋予执行权限
+echo "🔐 赋予执行权限..."
+chmod +x "$SCRIPTS_DIR"/*.sh
+
+# 步骤5: 测试运行一次
+echo "🧪 测试运行一次..."
+if [ -f "$SCRIPTS_DIR/wenwen_organize.sh" ]; then
+    echo "测试雯雯·技术整理师..."
+    "$SCRIPTS_DIR/wenwen_organize.sh" > /dev/null 2>&1
+    echo "✅ 雯雯测试通过"
+fi
+
+echo ""
+echo "✅ v2.0版本启用完成！"
+echo ""
+echo "📋 当前激活版本："
+ls -lh "$SCRIPTS_DIR"/*.sh 2>/dev/null | grep -v "_v" | awk '{print "  - " $9}'
+echo ""
+echo "🧬 DNA格式已升级为："
+echo "  #ZHUGEXIN⚡️-YYYY-MM-DD-文档类型-序号"
+echo ""
+echo "📊 查看最新日志："
+echo "  ls -lht ~/UID9622_Automation/logs/*报告*.md | head -5"

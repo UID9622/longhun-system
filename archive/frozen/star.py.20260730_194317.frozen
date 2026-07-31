@@ -1,0 +1,362 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-23-184259-header-UID9622-C9A8451B
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+"""
+星辰记忆 STAR-MEMORY v0.1
+本地持久化上下文仓库 | 完全本地 | 显式读写 | 可审计 | 可追溯
+
+import os
+import json
+import yaml
+import hashlib
+import argparse
+from datetime import datetime
+from pathlib import Path
+from typing import List, Optional, Dict, Any
+import typer
+from rich.console import Console
+from rich.table import Table
+from rich.panel import Panel
+
+# ========== 配置 ==========
+APP_NAME = "star-memory"
+VERSION = "0.1.0"
+DNA_PREFIX = "#STAR⚡️"
+UID = "9622"
+
+# 默认路径
+DEFAULT_VAULT = Path.home() / ".star-memory" / "vault"
+DEFAULT_INDEX = Path.home() / ".star-memory" / "index.json"
+DEFAULT_AUDIT = Path.home() / ".star-memory" / "audit.log"
+DEFAULT_CONFIG = Path.home() / ".star-memory" / "config.yaml"
+
+console = Console()
+
+# ========== DNA追溯生成 ==========
+def generate_dna_trace(memory_id: str) -> str:
+    """生成DNA追溯码"""
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    content = f"{DNA_PREFIX}{memory_id}-{UID}-{timestamp}"
+    sha = hashlib.sha256(content.encode()).hexdigest()[:16]
+    return f"{DNA_PREFIX}{memory_id}-{UID}-{sha[:8].upper()}"
+
+def generate_id() -> str:
+    """生成唯一ID: STAR-YYYY-MM-DD-NNN"""
+    today = datetime.now().strftime("%Y-%m-%d")
+    vault_dir = DEFAULT_VAULT / datetime.now().strftime("%Y")
+    vault_dir.mkdir(parents=True, exist_ok=True)
+    
+    # 查找当日最大序号
+    existing = list(vault_dir.glob(f"STAR-{today}-*.json"))
+    max_num = 0
+    for f in existing:
+        try:
+            num = int(f.stem.split('-')[-1])
+            max_num = max(max_num, num)
+        except:
+            pass
+    
+    new_num = max_num + 1
+    return f"STAR-{today}-{new_num:03d}"
+
+# ========== 审计日志 ==========
+def audit_log(action: str, target: str, details: str = ""):
+    """追加审计日志"""
+    timestamp = datetime.now().isoformat()
+    log_entry = f"{timestamp} | {action:8} | {target:30} | {details}\n"
+    
+    DEFAULT_AUDIT.parent.mkdir(parents=True, exist_ok=True)
+    with open(DEFAULT_AUDIT, "a", encoding="utf-8") as f:
+        f.write(log_entry)
+
+# ========== 配置管理 ==========
+def load_config() -> Dict[str, Any]:
+    """加载配置,不存在则创建默认"""
+    if not DEFAULT_CONFIG.exists():
+        default_config = {
+            "auto_write": False,
+            "auto_read": False,
+            "require_confirm_inject": True,
+            "append_only": True,
+            "dna_trace_enabled": True,
+            "uid": UID
+        }
+        DEFAULT_CONFIG.parent.mkdir(parents=True, exist_ok=True)
+        with open(DEFAULT_CONFIG, "w", encoding="utf-8") as f:
+            yaml.dump(default_config, f, default_flow_style=False)
+        return default_config
+    
+    with open(DEFAULT_CONFIG, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+# ========== 核心操作 ==========
+def add_memory(title: str, content: str, mem_type: str = "concept", 
+               tags: List[str] = None, source: str = "") -> str:
+    """添加记忆"""
+    config = load_config()
+    
+    if config.get("auto_write"):
+        console.print("[red]错误: auto_write 必须为 false[/red]")
+        raise typer.Exit(1)
+    
+    memory_id = generate_id()
+    dna_trace = generate_dna_trace(memory_id)
+    
+    memory = {
+        "id": memory_id,
+        "type": mem_type,
+        "title": title,
+        "content": content,
+        "tags": tags or [],
+        "source": source,
+        "created_at": datetime.now().isoformat(),
+        "version": 1,
+        "dna_trace": dna_trace,
+        "uid": UID
+    }
+    
+    # 写入文件
+    year_dir = DEFAULT_VAULT / datetime.now().strftime("%Y")
+    year_dir.mkdir(parents=True, exist_ok=True)
+    file_path = year_dir / f"{memory_id}.json"
+    
+    with open(file_path, "w", encoding="utf-8") as f:
+        json.dump(memory, f, ensure_ascii=False, indent=2)
+    
+    # 更新索引
+    update_index(memory_id, file_path, memory)
+    
+    # 审计日志
+    audit_log("ADD", memory_id, f"title={title}, type={mem_type}")
+    
+    console.print(f"[green]✓ 记忆已创建: {memory_id}[/green]")
+    console.print(f"[dim]DNA追溯: {dna_trace}[/dim]")
+    
+    return memory_id
+
+def update_index(memory_id: str, file_path: Path, memory: dict):
+    """更新索引"""
+    index = {}
+    if DEFAULT_INDEX.exists():
+        with open(DEFAULT_INDEX, "r", encoding="utf-8") as f:
+            index = json.load(f)
+    
+    index[memory_id] = {
+        "path": str(file_path.relative_to(DEFAULT_VAULT.parent)),
+        "tags": memory.get("tags", []),
+        "type": memory.get("type", "concept"),
+        "title": memory.get("title", ""),
+        "created_at": memory.get("created_at", "")
+    }
+    
+    DEFAULT_INDEX.parent.mkdir(parents=True, exist_ok=True)
+    with open(DEFAULT_INDEX, "w", encoding="utf-8") as f:
+        json.dump(index, f, ensure_ascii=False, indent=2)
+
+def search_memories(tag: Optional[str] = None, 
+                   mem_type: Optional[str] = None,
+                   keyword: Optional[str] = None) -> List[dict]:
+    """搜索记忆"""
+    if not DEFAULT_INDEX.exists():
+        return []
+    
+    with open(DEFAULT_INDEX, "r", encoding="utf-8") as f:
+        index = json.load(f)
+    
+    results = []
+    for mid, meta in index.items():
+        # 标签过滤
+        if tag and tag not in meta.get("tags", []):
+            continue
+        # 类型过滤
+        if mem_type and meta.get("type") != mem_type:
+            continue
+        # 关键词过滤
+        if keyword:
+            title = meta.get("title", "").lower()
+            if keyword.lower() not in title:
+                continue
+        
+        results.append({
+            "id": mid,
+            **meta
+        })
+    
+    # 审计日志
+    filter_str = f"tag={tag}" if tag else f"type={mem_type}" if mem_type else f"keyword={keyword}"
+    audit_log("SEARCH", "*", filter_str)
+    
+    return results
+
+def inject_memory(memory_id: str, confirm: bool = True):
+    """显式注入记忆"""
+    config = load_config()
+    
+    if config.get("require_confirm_inject") and confirm:
+        console.print(f"[yellow]即将注入记忆: {memory_id}[/yellow]")
+        console.print("[dim]此操作仅输出到stdout,不会自动发送给任何API[/dim]")
+        if not typer.confirm("确认注入?"):
+            console.print("[red]已取消[/red]")
+            return
+    
+    # 查找文件
+    year = memory_id.split("-")[1]
+    file_path = DEFAULT_VAULT / year / f"{memory_id}.json"
+    
+    if not file_path.exists():
+        console.print(f"[red]错误: 记忆不存在 {memory_id}[/red]")
+        raise typer.Exit(1)
+    
+    with open(file_path, "r", encoding="utf-8") as f:
+        memory = json.load(f)
+    
+    # 审计日志
+    audit_log("INJECT", memory_id, f"dna={memory.get('dna_trace', 'N/A')}")
+    
+    # 输出注入载荷
+    console.print("\n" + "="*60)
+    console.print("[INJECTION PAYLOAD START]")
+    console.print(json.dumps(memory, ensure_ascii=False, indent=2))
+    console.print("[INJECTION PAYLOAD END]")
+    console.print("="*60 + "\n")
+    
+    console.print("[green]✓ 注入完成[/green]")
+    console.print("[dim]请手动复制以上内容到目标系统[/dim]")
+
+def show_audit(limit: int = 20):
+    """显示审计日志"""
+    if not DEFAULT_AUDIT.exists():
+        console.print("[yellow]暂无审计记录[/yellow]")
+        return
+    
+    with open(DEFAULT_AUDIT, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+    
+    table = Table(title="审计日志", show_header=True, header_style="bold magenta")
+    table.add_column("时间", style="dim")
+    table.add_column("操作", style="cyan")
+    table.add_column("目标", style="green")
+    table.add_column("详情", style="yellow")
+    
+    for line in lines[-limit:]:
+        parts = line.strip().split(" | ")
+        if len(parts) >= 3:
+            table.add_row(parts[0], parts[1].strip(), parts[2].strip(), 
+                         parts[3] if len(parts) > 3 else "")
+    
+    console.print(table)
+
+# ========== CLI ==========
+app = typer.Typer(help="星辰记忆 - 本地持久化上下文仓库")
+
+@app.command()
+def add(
+    title: str = typer.Option(..., "--title", "-t", help="记忆标题"),
+    content: str = typer.Option(..., "--content", "-c", help="记忆内容"),
+    mem_type: str = typer.Option("concept", "--type", help="类型: concept/fact/task"),
+    tags: str = typer.Option("", "--tags", help="标签,逗号分隔"),
+    source: str = typer.Option("", "--source", help="来源")
+):
+    """添加新记忆"""
+    tag_list = [t.strip() for t in tags.split(",") if t.strip()]
+    add_memory(title, content, mem_type, tag_list, source)
+
+@app.command()
+def search(
+    tag: Optional[str] = typer.Option(None, "--tag", help="按标签搜索"),
+    mem_type: Optional[str] = typer.Option(None, "--type", help="按类型搜索"),
+    keyword: Optional[str] = typer.Option(None, "--keyword", "-k", help="关键词搜索")
+):
+    """搜索记忆"""
+    results = search_memories(tag, mem_type, keyword)
+    
+    if not results:
+        console.print("[yellow]未找到匹配的记忆[/yellow]")
+        return
+    
+    table = Table(title=f"搜索结果 ({len(results)}条)")
+    table.add_column("ID", style="cyan")
+    table.add_column("标题", style="green")
+    table.add_column("类型", style="blue")
+    table.add_column("标签", style="magenta")
+    table.add_column("时间", style="dim")
+    
+    for r in results:
+        table.add_row(
+            r["id"],
+            r.get("title", "")[:30],
+            r.get("type", ""),
+            ", ".join(r.get("tags", []))[:20],
+            r.get("created_at", "")[:10]
+        )
+    
+    console.print(table)
+
+@app.command()
+def inject(
+    memory_id: str = typer.Argument(..., help="记忆ID"),
+    yes: bool = typer.Option(False, "--yes", "-y", help="跳过确认")
+):
+    """显式注入记忆到stdout"""
+    inject_memory(memory_id, confirm=not yes)
+
+@app.command()
+def audit(limit: int = typer.Option(20, "--limit", "-n", help="显示条数")):
+    """查看审计日志"""
+    show_audit(limit)
+
+@app.command()
+def init():
+    """初始化星辰记忆仓库"""
+    DEFAULT_VAULT.mkdir(parents=True, exist_ok=True)
+    load_config()  # 创建默认配置
+    
+    console.print(Panel.fit(
+        f"[bold green]星辰记忆 STAR-MEMORY v{VERSION}[/bold green]\n"
+        f"[dim]DNA追溯: {generate_dna_trace('INIT')}[/dim]\n"
+        f"[dim]UID: {UID} | 完全本地 | 显式读写 | 可审计[/dim]",
+        title="初始化完成",
+        border_style="green"
+    ))
+    
+    console.print(f"\n[dim]仓库路径: {DEFAULT_VAULT.parent}[/dim]")
+    console.print(f"[dim]配置文件: {DEFAULT_CONFIG}[/dim]")
+
+@app.command()
+def status():
+    """查看系统状态"""
+    config = load_config()
+    
+    stats = {
+        " memories": 0,
+        " vault_size": "0B"
+    }
+    
+    if DEFAULT_INDEX.exists():
+        with open(DEFAULT_INDEX, "r") as f:
+            stats["memories"] = len(json.load(f))
+    
+    if DEFAULT_VAULT.exists():
+        total_size = sum(f.stat().st_size for f in DEFAULT_VAULT.rglob("*") if f.is_file())
+        stats["vault_size"] = f"{total_size / 1024:.1f}KB"
+    
+    table = Table(title="系统状态")
+    table.add_column("项目", style="cyan")
+    table.add_column("值", style="green")
+    
+    table.add_row("版本", VERSION)
+    table.add_row("UID", UID)
+    table.add_row("记忆数量", str(stats["memories"]))
+    table.add_row("仓库大小", stats["vault_size"])
+    table.add_row("自动写入", "✓ ON" if config.get("auto_write") else "✗ OFF")
+    table.add_row("自动读取", "✓ ON" if config.get("auto_read") else "✗ OFF")
+    table.add_row("注入确认", "✓ 需要" if config.get("require_confirm_inject") else "✗ 不需要")
+    
+    console.print(table)
+
+if __name__ == "__main__":
+    app()

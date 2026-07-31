@@ -1,0 +1,198 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+龍魂系统 · 数据源配置管理器 v1.0
+UID9622 | 诸葛鑫·龍芯北辰
+功能：管理80个数据源配置，批量测试连通性，生成抓取计划
+"""
+
+import json
+import os
+import time
+from datetime import datetime
+from pathlib import Path
+
+DNA_ANCHOR = "#龍芯⚡️丙午·辛未·乙酉·卯时·讼-TRAIN-DATA-SOURCES-v1.0"
+CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+
+class DataSourceManager:
+    """数据源配置管理器"""
+
+    def __init__(self, config_file="./longhun_train_sources.json"):
+        self.config_file = config_file
+        with open(config_file, 'r', encoding='utf-8') as f:
+            self.data = json.load(f)
+
+        self.meta = self.data.get('meta', {})
+        self.categories = self.data.get('categories', {})
+        self.sources = self.data.get('sources', [])
+
+    def list_by_category(self, category_id=None):
+        """按分类列出数据源"""
+        if category_id:
+            filtered = [s for s in self.sources if s.get('category') == category_id]
+            cat_name = self.categories.get(category_id, {}).get('name', 'Unknown')
+            print(f"\n📂 [{category_id}] {cat_name} ({len(filtered)} 个)")
+        else:
+            filtered = self.sources
+            print(f"\n📂 全部数据源 ({len(filtered)} 个)")
+
+        for s in filtered:
+            status = "🟢" if s.get('fetch_enabled') else "🔴"
+            name = s['name']
+            domain = s['domain']
+            print(f"   {status} {s['id']} | {name:<20} | {domain:<25} | {s['priority']} | {s['fetch_strategy']}")
+
+    def list_by_priority(self, priority):
+        """按优先级列出"""
+        filtered = [s for s in self.sources if s.get('priority') == priority]
+        print(f"\n⭐ 优先级 {priority} ({len(filtered)} 个)")
+        for s in filtered:
+            status = "🟢" if s.get('fetch_enabled') else "🔴"
+            print(f"   {status} {s['id']} | {s['name']:<20} | {s['type']}")
+        return filtered
+
+    def test_connectivity(self, source_id=None, batch=False):
+        """测试数据源连通性"""
+        import urllib.request
+        import urllib.error
+
+        targets = [s for s in self.sources if s.get('fetch_enabled')] if batch else \
+                  [next((s for s in self.sources if s['id'] == source_id), None)]
+
+        if not targets or targets[0] is None:
+            print("❌ 未找到目标数据源")
+            return
+
+        print(f"\n🔌 连通性测试 ({len(targets)} 个)")
+        print("-" * 60)
+
+        results = []
+        for s in targets:
+            url = s.get('url', '')
+            name = s.get('name', '')
+            try:
+                req = urllib.request.Request(url, headers={'User-Agent': 'LongHunBot/1.0'})
+                with urllib.request.urlopen(req, timeout=10) as resp:
+                    status = resp.getcode()
+                    size = len(resp.read())
+                    print(f"   🟢 {s['id']} {name:<20} HTTP {status} | {size} bytes")
+                    results.append({"id": s['id'], "status": status, "ok": True})
+            except Exception as e:
+                print(f"   🔴 {s['id']} {name:<20} 失败: {str(e)[:40]}")
+                results.append({"id": s['id'], "status": 0, "ok": False, "error": str(e)})
+            time.sleep(1)
+
+        ok_count = sum(1 for r in results if r['ok'])
+        print(f"\n📊 结果: {ok_count}/{len(results)} 可连通")
+        return results
+
+    def generate_fetch_plan(self, priority_order=None):
+        """生成抓取计划"""
+        if priority_order is None:
+            priority_order = ["P0", "P1", "P2", "P3"]
+
+        plan = []
+        for p in priority_order:
+            sources = [s for s in self.sources if s.get('priority') == p and s.get('fetch_enabled')]
+            for s in sources:
+                plan.append({
+                    "order": len(plan) + 1,
+                    "source_id": s['id'],
+                    "name": s['name'],
+                    "url": s['url'],
+                    "strategy": s['fetch_strategy'],
+                    "category": s['category'],
+                    "priority": p
+                })
+
+        plan_file = f"./longhun/fetch_plan_{datetime.now().strftime('%Y%m%d')}.json"
+        os.makedirs(os.path.dirname(plan_file), exist_ok=True)
+        with open(plan_file, 'w', encoding='utf-8') as f:
+            json.dump({
+                "meta": {"dna": DNA_ANCHOR, "created": datetime.now().isoformat()},
+                "plan": plan
+            }, f, ensure_ascii=False, indent=2)
+
+        print(f"\n📋 抓取计划已生成: {plan_file}")
+        print(f"   共 {len(plan)} 个任务")
+        print(f"   优先级顺序: {' > '.join(priority_order)}")
+        return plan
+
+    def export_by_strategy(self):
+        """按策略导出分组"""
+        strategies = {}
+        for s in self.sources:
+            strat = s.get('fetch_strategy', 'unknown')
+            if strat not in strategies:
+                strategies[strat] = []
+            strategies[strat].append(s)
+
+        print("\n🔧 按抓取策略分组:")
+        for strat, items in strategies.items():
+            enabled = sum(1 for i in items if i.get('fetch_enabled'))
+            print(f"   {strat}: {len(items)} 个 (可抓取 {enabled} 个)")
+
+        return strategies
+
+    def stats(self):
+        """统计报告"""
+        print(f"\n{'='*60}")
+        print(f"🐉 龍魂数据源统计报告")
+        print(f"{'='*60}")
+        print(f"总数据源: {len(self.sources)}")
+        print(f"可抓取: {sum(1 for s in self.sources if s.get('fetch_enabled'))}")
+        print(f"暂不抓: {sum(1 for s in self.sources if not s.get('fetch_enabled'))}")
+
+        print(f"\n📂 按分类:")
+        for cat_id, cat_info in self.categories.items():
+            count = len([s for s in self.sources if s.get('category') == cat_id])
+            enabled = len([s for s in self.sources if s.get('category') == cat_id and s.get('fetch_enabled')])
+            print(f"   {cat_id} {cat_info['name']}: {count} 个 (可抓 {enabled})")
+
+        print(f"\n⭐ 按优先级:")
+        for p in ["P0", "P1", "P2", "P3"]:
+            count = len([s for s in self.sources if s.get('priority') == p])
+            enabled = len([s for s in self.sources if s.get('priority') == p and s.get('fetch_enabled')])
+            print(f"   {p}: {count} 个 (可抓 {enabled})")
+
+        print(f"\n🔧 按策略:")
+        self.export_by_strategy()
+
+
+def main():
+    import argparse
+    parser = argparse.ArgumentParser(description="龍魂数据源管理器")
+    parser.add_argument("--config", "-c", default="./longhun_train_sources.json")
+    parser.add_argument("--list", "-l", action="store_true", help="列出全部")
+    parser.add_argument("--category", "-cat", help="按分类列出，如 CN-02")
+    parser.add_argument("--priority", "-p", help="按优先级列出，如 P0")
+    parser.add_argument("--test", "-t", help="测试单个源连通性，如 CN-001")
+    parser.add_argument("--test-all", action="store_true", help="批量测试所有可抓取源")
+    parser.add_argument("--plan", action="store_true", help="生成抓取计划")
+    parser.add_argument("--stats", "-s", action="store_true", help="统计报告")
+
+    args = parser.parse_args()
+
+    manager = DataSourceManager(args.config)
+
+    if args.list:
+        manager.list_by_category()
+    elif args.category:
+        manager.list_by_category(args.category)
+    elif args.priority:
+        manager.list_by_priority(args.priority)
+    elif args.test:
+        manager.test_connectivity(args.test)
+    elif args.test_all:
+        manager.test_connectivity(batch=True)
+    elif args.plan:
+        manager.generate_fetch_plan()
+    elif args.stats:
+        manager.stats()
+    else:
+        parser.print_help()
+
+
+if __name__ == "__main__":
+    main()

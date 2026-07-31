@@ -1,7 +1,6 @@
-<!-- #龍芯⚡️20260624010825169-AUTO-DNA-E1C8CA07 自动注入·分层治理自愈引擎 · 来源可查 -->
 # 龍魂系统 · 对接关系矩阵
 
-**DNA**:#龍芯⚡️2026-06-16-RELATIONSHIP-MATRIX-FILE2-v1.0
+**DNA**:#龍芯⚡️2026-06-16-RELATIONSHIP-MATRIX-FILE1-v1.0
 
 本矩阵列出龍魂系统主要模块之间的对接关系，用于快速理解各板块如何互通。
 
@@ -9,28 +8,28 @@
 
 | 模块 | 类型 | 文件数 | 直接对接 |
 |------|------|--------|----------|
-| **control-panel** | API/UI | 9 | skills、docs |
-| **skills** | Skill 库 | 79 | control-panel、baobao-guardian |
-| **baobao-guardian** | 守护应用 | 3322 | skills、docs |
-| **extensions** | 浏览器扩展 | 37 | control-panel、skills |
-| **cnsh-core** | CNSH 核心 | 1665 | docs、integrated-modules |
-| **docs** | 知识库 | 795 | control-panel、cnsh-core |
-| **bin** | 工具脚本 | 19 | skills、docs |
-| **integrated-modules** | 集成模块 | 54 | cnsh-core、bin |
+| **control-panel** | API/UI | 17 | skills、docs |
+| **skills** | Skill 库 | 201 | control-panel、baobao-guardian |
+| **baobao-guardian** | 守护应用 | 35 | skills、docs |
+| **extensions** | 浏览器扩展 | 47 | control-panel、skills |
+| **cnsh/core** | CNSH 核心 | 1066 | docs、integrated_modules |
+| **docs** | 知识库 | 973 | control-panel、cnsh/core |
+| **bin** | 工具脚本 | 2646 | skills、docs |
+| **integrated_modules** | 集成模块 | 61 | cnsh/core、bin |
 
 ## 对接关系矩阵
 
 | 模块 | 
-| 模块 | control-panel | skills | baobao-guardian | extensions | cnsh-core | docs | bin | integrated-modules |
+| 模块 | control-panel | skills | baobao-guardian | extensions | cnsh/core | docs | bin | integrated_modules |
 |---|---|---|---|---|---|---|---|---|
 | **control-panel** | — | ✅ 对接 |  | ↩️ 被对接 |  | ✅ 对接 |  |  |
 | **skills** | ✅ 对接 | — | ✅ 对接 | ↩️ 被对接 |  |  | ↩️ 被对接 |  |
 | **baobao-guardian** |  | ✅ 对接 | — |  |  | ✅ 对接 |  |  |
 | **extensions** | ✅ 对接 | ✅ 对接 |  | — |  |  |  |  |
-| **cnsh-core** |  |  |  |  | — | ✅ 对接 |  | ✅ 对接 |
+| **cnsh/core** |  |  |  |  | — | ✅ 对接 |  | ✅ 对接 |
 | **docs** | ✅ 对接 |  | ↩️ 被对接 |  | ✅ 对接 | — | ↩️ 被对接 |  |
 | **bin** |  | ✅ 对接 |  |  |  | ✅ 对接 | — | ↩️ 被对接 |
-| **integrated-modules** |  |  |  |  | ✅ 对接 |  | ✅ 对接 | — |
+| **integrated_modules** |  |  |  |  | ✅ 对接 |  | ✅ 对接 | — |
 
 ## 说明
 

@@ -56,6 +56,15 @@ TRUST_REGISTRY = PROJECT_ROOT / "L7_数据层" / "trust_score_registry.json"
 STATE_FILE = PROJECT_ROOT / "STATE.md"
 MEMORY_FILE = MEMORY_DIR / "MEMORY.md"
 
+# ─── 反虚伪仲裁中心联动 ───
+_CNSH_V21_ROOT = PROJECT_ROOT / "cnsh" / "core" / "cnsh_v2.1"
+if str(_CNSH_V21_ROOT) not in sys.path:
+    sys.path.insert(0, str(_CNSH_V21_ROOT))
+try:
+    from cnsh_v21 import 反虚伪仲裁中心 as _anti_hypocrisy_center
+except Exception as _anti_err:
+    _anti_hypocrisy_center = None
+
 # ─── 常量 ───
 CST = timezone(timedelta(hours=8))
 DNA_PREFIX = "#龍芯⚡️"
@@ -1008,10 +1017,32 @@ def _generate_dna(content: str, module: str = "XUANJI") -> str:
 
 def genbu_stamp(fused_text: str, trace_path: List[Dict],
                 persona_votes: Dict, verify_result: Tuple,
-                trust_score: int, factors: Dict) -> Dict:
-    """玄武·烙印 — 生成带DNA签章的完整输出"""
+                trust_score: int, factors: Dict,
+                persona_name: str = "璇玑") -> Dict:
+    """玄武·烙印 — 生成带DNA签章的完整输出（增加反虚伪前置检查）"""
     now = datetime.now(CST)
     macro_ok, meso_ok, micro_ok = verify_result
+
+    # 反虚伪仲裁中心联动：输出前挂载检查
+    if _anti_hypocrisy_center is not None:
+        仲裁结果 = _anti_hypocrisy_center.检查(
+            文本=fused_text,
+            人格=persona_name,
+            语言="auto",
+            模式="同步",
+        )
+        if 仲裁结果.get("状态") == "熔断":
+            return {
+                "状态": "熔断",
+                "原因": f"反虚伪仲裁拦截: {仲裁结果.get('建议', '文本虚伪度过高')}",
+                "触发词": 仲裁结果.get("一级命中", []),
+                "虚伪度": 仲裁结果.get("虚伪度", 0),
+                "DNA": f"{DNA_PREFIX}{now.strftime('%Y-%m-%d')}-XUANJI-ANTI-HYPOCRISY-FUSE",
+                "引擎DNA": ENGINE_DNA,
+                "时间戳": now.strftime("%Y-%m-%dT%H:%M:%S+08:00"),
+            }
+        if 仲裁结果.get("状态") == "自动简化":
+            fused_text = 仲裁结果.get("简化后", fused_text)
 
     # 信任分调整
     score_delta = 0
@@ -1140,6 +1171,10 @@ class XuanjiEngine:
             (macro_ok, meso_ok, micro_ok),
             self.trust_score, factors
         )
+
+        # 反虚伪仲裁熔断：直接返回，不再走后续校验
+        if stamped.get("状态") == "熔断":
+            return stamped
 
         # 熔断判定
         melt_status, melt_reason = _meltdown_check(stamped)

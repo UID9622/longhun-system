@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # 加载鲲鹏环境变量
 if [ -f /opt/longhun-system/.env.kunpeng ]; then
@@ -14,11 +15,25 @@ fi
 # ╚═══════════════════════════════════════════════════════════════╝
 
 # ────────────────────────────────────────────────────────────────
+# 平台检测
+# ────────────────────────────────────────────────────────────────
+IS_MAC=false
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    IS_MAC=true
+fi
+
+# ────────────────────────────────────────────────────────────────
 # 配置区
 # ────────────────────────────────────────────────────────────────
-BASE_DIR="/opt/longhun-system"
-LOG_DIR="/var/log/longhun"
-PYTHON="/usr/bin/python3"
+if $IS_MAC; then
+    BASE_DIR="${HOME}/longhun-system"
+    LOG_DIR="${HOME}/Library/Logs/longhun"
+    PYTHON="$(which python3)"
+else
+    BASE_DIR="/opt/longhun-system"
+    LOG_DIR="/var/log/longhun"
+    PYTHON="/usr/bin/python3"
+fi
 ALARM_LOG="${LOG_DIR}/alarm.log"
 HEALTH_LOG="${LOG_DIR}/health.log"
 STATE_DIR="${LOG_DIR}/.alert_state"
@@ -77,7 +92,9 @@ add_alarm() {
 
 is_deduped() {
     local alert_key="$1"
-    local state_file="${STATE_DIR}/$(echo -n "${alert_key}" | md5sum | cut -d' ' -f1)"
+    local hash_cmd="md5sum"
+    $IS_MAC && hash_cmd="md5"
+    local state_file="${STATE_DIR}/$(echo -n "${alert_key}" | ${hash_cmd} | cut -d' ' -f1)"
     if [ -f "${state_file}" ]; then
         local last_ts=$(cat "${state_file}")
         local now_ts=$(date +%s)
@@ -231,75 +248,164 @@ EOF
 check_services() {
     echo "[CHECK] ${TS} 开始检查服务状态" >> "${HEALTH_LOG}"
 
-    for svc in "${SERVICES[@]}"; do
-        if systemctl is-active --quiet "${svc}"; then
-            echo "  ✅ ${svc} 运行正常" >> "${HEALTH_LOG}"
-        else
-            local msg="${svc} 服务异常，已自动重启"
-            add_alarm "critical" "${msg}"
-            systemctl restart "${svc}" 2>/dev/null
-            sleep 2
-            if systemctl is-active --quiet "${svc}"; then
-                add_alarm "warn" "${svc} 重启成功"
+    if $IS_MAC; then
+        # Mac: 使用 launchctl 检查 launchd 服务
+        for svc in "${SERVICES[@]}"; do
+            local label="com.longhun.${svc}"
+            if launchctl list "${label}" &>/dev/null; then
+                local pid=$(launchctl list "${label}" 2>/dev/null | awk 'NR>1{print $1}')
+                if [ -n "${pid}" ] && [ "${pid}" != "-" ] && [ "${pid}" != "0" ]; then
+                    echo "  ✅ ${svc} 运行正常 (PID:${pid})" >> "${HEALTH_LOG}"
+                else
+                    local msg="${svc} 服务未运行"
+                    add_alarm "critical" "${msg}"
+                fi
             else
-                add_alarm "critical" "${svc} 重启失败，需人工介入"
+                # launchd 服务不存在，跳过（Mac上可能未部署全部服务）
+                echo "  ⚠️ ${svc} 未注册为 launchd 服务（跳过）" >> "${HEALTH_LOG}"
             fi
-        fi
-    done
+        done
+    else
+        for svc in "${SERVICES[@]}"; do
+            if systemctl is-active --quiet "${svc}"; then
+                echo "  ✅ ${svc} 运行正常" >> "${HEALTH_LOG}"
+            else
+                local msg="${svc} 服务异常，已自动重启"
+                add_alarm "critical" "${msg}"
+                systemctl restart "${svc}" 2>/dev/null
+                sleep 2
+                if systemctl is-active --quiet "${svc}"; then
+                    add_alarm "warn" "${svc} 重启成功"
+                else
+                    add_alarm "critical" "${svc} 重启失败，需人工介入"
+                fi
+            fi
+        done
+    fi
 }
 
 # ────────────────────────────────────────────────────────────────
 # 2. 端口检查
 # ────────────────────────────────────────────────────────────────
 check_ports() {
-    for port in "${SERVICE_PORTS[@]}"; do
-        if ss -tlnp | grep -q ":${port} "; then
-            echo "  ✅ 端口 ${port} 正常" >> "${HEALTH_LOG}"
-        else
-            add_alarm "critical" "端口 ${port} 未监听"
-        fi
-    done
+    if $IS_MAC; then
+        for port in "${SERVICE_PORTS[@]}"; do
+            if lsof -iTCP:"${port}" -sTCP:LISTEN &>/dev/null; then
+                echo "  ✅ 端口 ${port} 正常" >> "${HEALTH_LOG}"
+            else
+                # Mac上端口监听较少是正常的
+                echo "  ⚠️ 端口 ${port} 未监听（Mac本地·正常）" >> "${HEALTH_LOG}"
+            fi
+        done
+    else
+        for port in "${SERVICE_PORTS[@]}"; do
+            if ss -tlnp | grep -q ":${port} "; then
+                echo "  ✅ 端口 ${port} 正常" >> "${HEALTH_LOG}"
+            else
+                add_alarm "critical" "端口 ${port} 未监听"
+            fi
+        done
+    fi
 }
 
 # ────────────────────────────────────────────────────────────────
 # 3. 资源检查
 # ────────────────────────────────────────────────────────────────
 check_resources() {
-    local cpu_usage=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'.' -f1)
-    [ -z "${cpu_usage}" ] && cpu_usage=0
-    echo "  📊 CPU: ${cpu_usage}%" >> "${HEALTH_LOG}"
+    echo "" >> "${HEALTH_LOG}"
+    echo "  === 资源检查 ===" >> "${HEALTH_LOG}"
 
-    if [ "${cpu_usage}" -gt "${CPU_THRESHOLD}" ]; then
-        local key="cpu_${cpu_usage}"
-        if ! is_deduped "${key}"; then
-            add_alarm "warn" "CPU ${cpu_usage}%（阈值 ${CPU_THRESHOLD}%）"
-            mark_sent "${key}"
+    if $IS_MAC; then
+        # Mac: 使用 top -l 1 和 vm_stat
+        local cpu_raw=$(top -l 1 2>/dev/null | grep "CPU usage" | awk '{print $3}' | cut -d'%' -f1 | tr -d ' ')
+        local cpu_usage=$(echo "${cpu_raw}" | cut -d'.' -f1)
+        [ -z "${cpu_usage}" ] && cpu_usage=0
+        echo "  📊 CPU: ${cpu_usage}%" >> "${HEALTH_LOG}"
+
+        if [ "${cpu_usage}" -gt "${CPU_THRESHOLD}" ]; then
+            local key="cpu_${cpu_usage}"
+            if ! is_deduped "${key}"; then
+                add_alarm "warn" "CPU ${cpu_usage}%（阈值 ${CPU_THRESHOLD}%）"
+                mark_sent "${key}"
+            fi
         fi
-    fi
 
-    local mem_usage=$(free | grep Mem | awk '{printf "%.0f", $3/$2 * 100}')
-    [ -z "${mem_usage}" ] && mem_usage=0
-    local mem_detail=$(free -h | grep Mem | awk '{print $3 "/" $2}')
-    echo "  📊 内存: ${mem_detail} (${mem_usage}%)" >> "${HEALTH_LOG}"
+        # Mac 内存：使用 vm_stat
+        local page_size=$(vm_stat 2>/dev/null | grep "page size" | awk '{print $8}')
+        [ -z "${page_size}" ] && page_size=16384
+        local free_pages=$(vm_stat 2>/dev/null | grep "Pages free" | awk '{print $3}' | tr -d '.')
+        local used_pages=$(vm_stat 2>/dev/null | grep "Pages active" | awk '{print $3}' | tr -d '.')
+        local wired_pages=$(vm_stat 2>/dev/null | grep "Pages wired" | awk '{print $4}' | tr -d '.')
+        local compressed_pages=$(vm_stat 2>/dev/null | grep "Pages occupied by compressor" | awk '{print $5}' | tr -d '.')
+        [ -z "${free_pages}" ] && free_pages=0
+        [ -z "${used_pages}" ] && used_pages=0
+        [ -z "${wired_pages}" ] && wired_pages=0
+        [ -z "${compressed_pages}" ] && compressed_pages=0
+        local total_mem=$(( (free_pages + used_pages + wired_pages + compressed_pages) * page_size / 1024 / 1024 ))
+        local used_mem=$(( (used_pages + wired_pages + compressed_pages) * page_size / 1024 / 1024 ))
+        local mem_usage=$(( used_mem * 100 / total_mem )) 2>/dev/null
+        [ -z "${mem_usage}" ] && mem_usage=0
+        echo "  📊 内存: ${used_mem}M/${total_mem}M (${mem_usage}%)" >> "${HEALTH_LOG}"
 
-    if [ "${mem_usage}" -gt "${MEM_THRESHOLD}" ]; then
-        local key="mem_${mem_usage}"
-        if ! is_deduped "${key}"; then
-            add_alarm "warn" "内存 ${mem_usage}%（阈值 ${MEM_THRESHOLD}%）"
-            mark_sent "${key}"
+        if [ "${mem_usage}" -gt "${MEM_THRESHOLD}" ]; then
+            local key="mem_${mem_usage}"
+            if ! is_deduped "${key}"; then
+                add_alarm "warn" "内存 ${mem_usage}%（阈值 ${MEM_THRESHOLD}%）"
+                mark_sent "${key}"
+            fi
         fi
-    fi
 
-    local disk_usage=$(df -h /data 2>/dev/null | tail -1 | awk '{print $5}' | cut -d'%' -f1)
-    [ -z "${disk_usage}" ] && disk_usage=0
-    local disk_detail=$(df -h /data 2>/dev/null | tail -1 | awk '{print $3 "/" $2}')
-    echo "  📊 磁盘: ${disk_detail} (${disk_usage}%)" >> "${HEALTH_LOG}"
+        # Mac 磁盘
+        local disk_usage=$(df -h / 2>/dev/null | tail -1 | awk '{print $5}' | cut -d'%' -f1)
+        [ -z "${disk_usage}" ] && disk_usage=0
+        local disk_detail=$(df -h / 2>/dev/null | tail -1 | awk '{print $3 "/" $2}')
+        echo "  📊 磁盘(/): ${disk_detail} (${disk_usage}%)" >> "${HEALTH_LOG}"
 
-    if [ "${disk_usage}" -gt "${DISK_THRESHOLD}" ]; then
-        local key="disk_${disk_usage}"
-        if ! is_deduped "${key}"; then
-            add_alarm "warn" "磁盘 ${disk_usage}%（阈值 ${DISK_THRESHOLD}%）"
-            mark_sent "${key}"
+        if [ "${disk_usage}" -gt "${DISK_THRESHOLD}" ]; then
+            local key="disk_${disk_usage}"
+            if ! is_deduped "${key}"; then
+                add_alarm "warn" "磁盘 ${disk_usage}%（阈值 ${DISK_THRESHOLD}%）"
+                mark_sent "${key}"
+            fi
+        fi
+    else
+        # Linux: 使用 top -bn1 和 free
+        local cpu_usage=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'.' -f1)
+        [ -z "${cpu_usage}" ] && cpu_usage=0
+        echo "  📊 CPU: ${cpu_usage}%" >> "${HEALTH_LOG}"
+
+        if [ "${cpu_usage}" -gt "${CPU_THRESHOLD}" ]; then
+            local key="cpu_${cpu_usage}"
+            if ! is_deduped "${key}"; then
+                add_alarm "warn" "CPU ${cpu_usage}%（阈值 ${CPU_THRESHOLD}%）"
+                mark_sent "${key}"
+            fi
+        fi
+
+        local mem_usage=$(free | grep Mem | awk '{printf "%.0f", $3/$2 * 100}')
+        [ -z "${mem_usage}" ] && mem_usage=0
+        local mem_detail=$(free -h | grep Mem | awk '{print $3 "/" $2}')
+        echo "  📊 内存: ${mem_detail} (${mem_usage}%)" >> "${HEALTH_LOG}"
+
+        if [ "${mem_usage}" -gt "${MEM_THRESHOLD}" ]; then
+            local key="mem_${mem_usage}"
+            if ! is_deduped "${key}"; then
+                add_alarm "warn" "内存 ${mem_usage}%（阈值 ${MEM_THRESHOLD}%）"
+                mark_sent "${key}"
+            fi
+        fi
+
+        local disk_usage=$(df -h /data 2>/dev/null | tail -1 | awk '{print $5}' | cut -d'%' -f1)
+        [ -z "${disk_usage}" ] && disk_usage=0
+        local disk_detail=$(df -h /data 2>/dev/null | tail -1 | awk '{print $3 "/" $2}')
+        echo "  📊 磁盘: ${disk_detail} (${disk_usage}%)" >> "${HEALTH_LOG}"
+
+        if [ "${disk_usage}" -gt "${DISK_THRESHOLD}" ]; then
+            local key="disk_${disk_usage}"
+            if ! is_deduped "${key}"; then
+                add_alarm "warn" "磁盘 ${disk_usage}%（阈值 ${DISK_THRESHOLD}%）"
+                mark_sent "${key}"
+            fi
         fi
     fi
 }
@@ -308,6 +414,10 @@ check_resources() {
 # 4. 数据盘检查
 # ────────────────────────────────────────────────────────────────
 check_mount() {
+    if $IS_MAC; then
+        echo "  ⚠️ 数据盘检查跳过（Mac 本地环境）" >> "${HEALTH_LOG}"
+        return
+    fi
     if mountpoint -q /data 2>/dev/null; then
         echo "  ✅ 数据盘 /data 挂载正常" >> "${HEALTH_LOG}"
     else
@@ -361,6 +471,10 @@ check_cnsh_search_modules() {
 # 7. SSL证书过期检查（新增 v1.3）
 # ────────────────────────────────────────────────────────────────
 check_ssl_certs() {
+    if $IS_MAC; then
+        echo "  ⚠️ SSL证书检查跳过（Mac 本地·证书在鲲鹏）" >> "${HEALTH_LOG}"
+        return
+    fi
     local cert_dirs=("/etc/letsencrypt/live/uid9622.cn" "/etc/letsencrypt/live/longhun888.com")
     for cert_dir in "${cert_dirs[@]}"; do
         local cert_file="${cert_dir}/cert.pem"

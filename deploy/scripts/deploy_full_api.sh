@@ -1,6 +1,7 @@
 #!/bin/bash
 # 龍魂全接口/数据库/API一键部署脚本
 # DNA: #龍芯⚡️丙午·辛未·FULL-API-DEPLOY-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 set -e
 
 echo "========================================"

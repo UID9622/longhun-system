@@ -1,0 +1,177 @@
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-23-184259-header-UID9622-AB5545BD
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+"""
+命令行入口：把大脑中枢的能力暴露成简单命令。
+DNA: #龍芯⚡️2026-06-24-UID9622-BRAIN-CLI-v1.0
+"""
+
+import argparse
+import sys
+from pathlib import Path
+from typing import List
+
+from . import __version__, __dna__, generate_dna, now_cn
+from .utils import setup_logging, write_report, append_trace
+from .inventory import run_scan
+from .reflection import run_reflect
+from .corrector import run_fix
+from .upgrader import run_upgrade
+from .persona_router import run_list_personas, run_dispatch
+from .standards import run_lint
+from .resource_library import run_scan_resources
+from .self_monitor import run_self_monitor
+from .innovation import run_innovate
+
+
+def _print_banner(logger):
+    logger.info("=" * 50)
+    logger.info(" UID9622 大脑中枢 · 自我反思·纠错·升级叠送")
+    logger.info(f" 版本: {__version__}  DNA: {__dna__}")
+    logger.info(f" 启动时间: {now_cn()}")
+    logger.info("=" * 50)
+
+
+def cmd_scan(args, logger):
+    report = run_scan()
+    path = write_report("inventory_report.json", report)
+    logger.info(f"扫描完成，发现 {report['子项目数']} 个子项目，报告已保存: {path}")
+    return report
+
+
+def cmd_reflect(args, logger):
+    scan_report = run_scan()
+    report = run_reflect(scan_report["子项目"])
+    path = write_report("reflection_report.json", report)
+    logger.info(f"反思完成，健康评分 {report['健康评分']}，状态: {report['健康状态']}")
+    for s in report.get("建议", []):
+        logger.info(f"  建议: {s}")
+    return report
+
+
+def cmd_fix(args, logger):
+    scan_report = run_scan()
+    report = run_fix(scan_report["子项目"])
+    path = write_report("corrector_report.json", report)
+    logger.info(f"纠错完成，模式={report['模式']}，共 {len(report['结果'])} 项")
+    return report
+
+
+def cmd_upgrade(args, logger):
+    report = run_upgrade(args.project, args.version)
+    path = write_report(f"upgrade_{args.project}.json", report)
+    logger.info(f"升级结果: {report['状态']}  DNA={report.get('升级DNA', 'N/A')}")
+    return report
+
+
+def cmd_persona(args, logger):
+    if args.list:
+        personas = run_list_personas()
+        logger.info(f"发现 {len(personas)} 个人格脚本")
+        for p in personas:
+            flag = "🟢" if p["启用"] else "🔴"
+            logger.info(f"  {flag} {p['名称']} ({p['脚本']})")
+        return personas
+    report = run_dispatch(args.persona_name, args.args)
+    path = write_report(f"persona_{args.persona_name}.json", report)
+    logger.info(f"人格调度结果: {report['状态']}")
+    return report
+
+
+def cmd_lint(args, logger):
+    report = run_lint()
+    path = write_report("standards_report.json", report)
+    logger.info(f"规范检查完成，发现 {report['问题数']} 个问题，报告: {path}")
+    return report
+
+
+def cmd_scan_resources(args, logger):
+    report = run_scan_resources()
+    path = write_report("resource_libraries_report.json", report)
+    logger.info(
+        f"本地资源库扫描完成：{report['资源库总数']} 个已找到，"
+        f"{report['缺失资源库数']} 个缺失，总大小 {report['总大小']}，报告: {path}"
+    )
+    if report["新鲜度告警"]:
+        logger.info(f"  新鲜度告警：{len(report['新鲜度告警'])} 个资源库偏旧或陈旧")
+    return report
+
+
+def cmd_self_monitor(args, logger):
+    report = run_self_monitor()
+    path = write_report("self_monitor_report.json", report)
+    logger.info(
+        f"自监控完成：{report['健康状态']}，"
+        f"磁盘使用率 {report['磁盘使用']['使用率']}，"
+        f"定时任务 {'已安装' if report['定时任务']['已安装'] else '未安装'}"
+    )
+    for issue in report.get("异常", []):
+        logger.info(f"  异常: {issue}")
+    return report
+
+
+def cmd_innovate(args, logger):
+    # 先确保最新报告存在
+    run_scan()
+    scan_report = run_scan()
+    run_reflect(scan_report["子项目"])
+    run_scan_resources()
+    run_self_monitor()
+    report = run_innovate()
+    path = write_report("innovation_report.json", report)
+    logger.info(f"左右互搏创新完成：红队 {len(report['红队观点'])} 条观点，蓝队 {len(report['蓝队提案'])} 条提案，报告: {path}")
+    return report
+
+
+def main(argv: List[str] = None):
+    parser = argparse.ArgumentParser(
+        prog="brain",
+        description="UID9622 大脑中枢：把乱七八糟的文件夹变成可自我进化的系统",
+    )
+    parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    sub.add_parser("scan", help="扫描文件夹，生成资产报告")
+    sub.add_parser("reflect", help="自我反思，生成健康评分与建议")
+    sub.add_parser("fix", help="执行安全纠错")
+    sub.add_parser("lint", help="检查命名与格式规范")
+    sub.add_parser("scan-resources", help="扫描本地资源库（Kimi/Claude/CNSH/DragonSoul 等）")
+    sub.add_parser("self-monitor", help="大脑中枢自监控")
+    sub.add_parser("innovate", help="左右互搏创新：红队挑刺，蓝队提案")
+
+    up = sub.add_parser("upgrade", help="对子项目执行升级")
+    up.add_argument("project", help="子项目目录名")
+    up.add_argument("--version", default=None, help="目标版本号")
+
+    ps = sub.add_parser("persona", help="查看或调度人格脚本")
+    ps.add_argument("--list", action="store_true", help="列出全部人格")
+    ps.add_argument("persona_name", nargs="?", default=None, help="要调度的人格名")
+    ps.add_argument("args", nargs="*", default=[], help="传递给人格脚本的参数")
+
+    args = parser.parse_args(argv)
+    logger = setup_logging("INFO")
+    _print_banner(logger)
+
+    append_trace({"事件": "CLI启动", "命令": args.command, "DNA": generate_dna("cli")})
+
+    handlers = {
+        "scan": cmd_scan,
+        "reflect": cmd_reflect,
+        "fix": cmd_fix,
+        "upgrade": cmd_upgrade,
+        "persona": cmd_persona,
+        "lint": cmd_lint,
+        "scan-resources": cmd_scan_resources,
+        "self-monitor": cmd_self_monitor,
+        "innovate": cmd_innovate,
+    }
+    result = handlers[args.command](args, logger)
+    logger.info("大脑中枢本次运行结束。")
+    return result
+
+
+if __name__ == "__main__":
+    main()

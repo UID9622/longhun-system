@@ -1,0 +1,116 @@
+#!/usr/bin/env python3
+"""UID9622 公式对准表 v1.6 向量检索器"""
+import json, os, re, sys, hashlib
+from datetime import datetime
+import numpy as np
+from collections import Counter
+from sklearn.metrics.pairwise import cosine_similarity
+
+VECTOR_PATH = os.path.expanduser('~/_work/formula_alignment_v1_6_vectors.json')
+
+def tokenize(text):
+    """中文按字切分，英/数/希腊字母按连续序列切分。"""
+    text = text.lower()
+    tokens = []
+    i = 0
+    n = len(text)
+    while i < n:
+        c = text[i]
+        if "\u4e00" <= c <= "\u9fa5":
+            tokens.append(c)
+            i += 1
+        elif re.match(r"[a-z0-9_αβγδεζηθικλμνξοπρστυφχψω]+", c):
+            m = re.match(r"[a-z0-9_αβγδεζηθικλμνξοπρστυφχψω]+", text[i:])
+            tokens.append(m.group(0))
+            i += m.end()
+        else:
+            i += 1
+    return tokens
+
+def build_query_vector(query, vocab, idf, ngram_range=(1,2)):
+    tokens = tokenize(query)
+    ngrams = []
+    for n in range(ngram_range[0], ngram_range[1]+1):
+        for i in range(len(tokens)-n+1):
+            ngrams.append(' '.join(tokens[i:i+n]))
+    counts = Counter(ngrams)
+    dim = len(idf)
+    vec = np.zeros(dim)
+    for term, cnt in counts.items():
+        if term in vocab:
+            idx = vocab[term]
+            vec[idx] = cnt * idf[idx]
+    norm = np.linalg.norm(vec)
+    if norm > 0:
+        vec = vec / norm
+    return vec
+
+def load():
+    with open(VECTOR_PATH, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    dim = data['vectorizer']['vocab_size']
+    vectors = []
+    for sec in data['sections']:
+        vec = np.zeros(dim)
+        for idx, val in sec['vector_sparse'].items():
+            vec[int(idx)] = val
+        vectors.append(vec)
+    return data, np.vstack(vectors)
+
+RAW_MD_PATH = os.path.expanduser('~/_work/formula_alignment_v1_6_raw.md')
+
+
+def load_raw_blocks():
+    if not os.path.exists(RAW_MD_PATH):
+        return {}
+    with open(RAW_MD_PATH, 'r', encoding='utf-8') as f:
+        text = f.read()
+    blocks = {}
+    # split by ## or ### headings
+    parts = re.split(r'\n(?=##+\s)', text)
+    for part in parts:
+        m = re.match(r'#+\s+(.+)\n', part)
+        if m:
+            title = m.group(1).strip()
+            blocks[title] = part.strip()
+    return blocks
+
+
+def generate_dna_for_block(title, idx):
+    ts = datetime.now().strftime('%Y%m%d%H%M%S%f')
+    h = hashlib.blake2b(f"{ts}-{idx}-{title}".encode(), digest_size=8).hexdigest()
+    return f"#龍芯⚡️{ts}-FORMULA-v1.6-B{idx:03d}-{h.upper()}"
+
+
+def search(query, top_k=5):
+    data, X = load()
+    vocab = data['vectorizer']['vocabulary']
+    idf = data['vectorizer']['idf']
+    qv = build_query_vector(query, vocab, idf)
+    sims = cosine_similarity([qv], X)[0]
+    top = sims.argsort()[-top_k:][::-1]
+    blocks = load_raw_blocks()
+    results = []
+    for i in top:
+        sec = data['sections'][i]
+        title = sec['title']
+        block_text = blocks.get(title) or title
+        sec_dnas = sec.get('dnas', [])
+        dna = sec_dnas[0] if sec_dnas else generate_dna_for_block(title, i)
+        results.append({
+            'index': int(sec['index']),
+            'title': title,
+            'block': block_text[:1200],
+            'formulas': sec.get('formulas', []),
+            'dnas': sec.get('dnas', []),
+            'block_dna': dna,
+            'score': float(sims[i]),
+        })
+    return results
+
+
+if __name__ == '__main__':
+    query = ' '.join(sys.argv[1:]) if len(sys.argv) > 1 else '三才主权指数'
+    print(f"Query: {query}")
+    for r in search(query):
+        print(f"  {r['score']:.4f} | {r['title']} | {r['block_dna']}")

@@ -1,0 +1,333 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-23-184259-header-UID9622-B9EBEAEA
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+###############################################
+# 龙魂人格军团·公共函数库
+###############################################
+#
+# DNA追溯码：#ZHUGEXIN⚡️-2026-02-15-lib-v1.0
+# 创建者：宝宝｜UID9622
+# 创建时间：北京时间 2026-02-15 02:00:00
+#
+# 大白话：这个文件里装的是所有脚本都要用的"工具函数"
+# 比如：生成时间戳、记日志、生成DNA码、检查磁盘等
+#
+###############################################
+
+set -o pipefail
+
+# =====================================================
+# 1. 时间和日志函数
+# =====================================================
+
+# 生成时间戳（用于日志和报告）
+generate_timestamp() {
+    date "+%Y-%m-%d %H:%M:%S"
+}
+
+# 生成文件名用的时间戳
+generate_filename_timestamp() {
+    date "+%Y%m%d_%H%M%S"
+}
+
+# 生成日期（仅年月日）
+generate_date() {
+    date "+%Y-%m-%d"
+}
+
+# 日志函数：普通信息
+log_info() {
+    local message="$1"
+    local timestamp=$(generate_timestamp)
+    echo "[${timestamp}] [INFO] ${message}" | tee -a "${LOG_FILE}"
+}
+
+# 日志函数：警告
+log_warn() {
+    local message="$1"
+    local timestamp=$(generate_timestamp)
+    echo "[${timestamp}] [WARN] ${message}" | tee -a "${LOG_FILE}" >&2
+}
+
+# 日志函数：错误
+log_error() {
+    local message="$1"
+    local timestamp=$(generate_timestamp)
+    echo "[${timestamp}] [ERROR] ${message}" | tee -a "${LOG_FILE}" >&2
+}
+
+# 日志函数：成功
+log_success() {
+    local message="$1"
+    local timestamp=$(generate_timestamp)
+    echo "[${timestamp}] [SUCCESS] ${message}" | tee -a "${LOG_FILE}"
+}
+
+# =====================================================
+# 2. DNA码和验证函数
+# =====================================================
+
+# 生成DNA码（格式：#ZHUGEXIN⚡️-YYYY-MM-DD-功能-时间戳）
+generate_dna_code() {
+    local feature="$1"
+    local date=$(generate_date)
+    local timestamp=$(generate_filename_timestamp)
+    echo "#ZHUGEXIN⚡️-${date}-${feature}-${timestamp}"
+}
+
+# 生成确认码
+generate_confirm_code() {
+    echo "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+}
+
+# =====================================================
+# 3. 磁盘监控和清理函数
+# =====================================================
+
+# 检查磁盘使用率（返回百分比）
+get_disk_usage() {
+    local path="${1:-.}"
+    df -h "$path" | awk 'NR==2 {print $5}' | sed 's/%//'
+}
+
+# 获取磁盘可用空间（GB）
+get_disk_available_gb() {
+    local path="${1:-.}"
+    df -g "$path" | awk 'NR==2 {print $4}'
+}
+
+# 检查磁盘是否即将满（超过80%）
+check_disk_warning() {
+    local path="${1:-.}"
+    local usage=$(get_disk_usage "$path")
+
+    if [ "$usage" -gt 80 ]; then
+        log_warn "磁盘使用率过高: ${usage}% (路径: $path)"
+        return 1
+    else
+        log_info "磁盘使用率正常: ${usage}% (路径: $path)"
+        return 0
+    fi
+}
+
+# 清理旧备份文件（保留最近N个）
+cleanup_old_backups() {
+    local backup_dir="$1"
+    local keep_count="${2:-5}"  # 默认保留5个
+
+    log_info "清理旧备份文件（保留最近 $keep_count 个）"
+
+    if [ ! -d "$backup_dir" ]; then
+        log_warn "备份目录不存在: $backup_dir"
+        return 1
+    fi
+
+    # 找到所有.tar.gz备份文件，按修改时间排序，删除多余的
+    local count=$(ls -1t "$backup_dir"/sync_backup_*.tar.gz 2>/dev/null | wc -l)
+
+    if [ "$count" -gt "$keep_count" ]; then
+        local delete_count=$((count - keep_count))
+        log_info "需要删除 $delete_count 个旧备份文件"
+
+        ls -1t "$backup_dir"/sync_backup_*.tar.gz 2>/dev/null | \
+        tail -n "$delete_count" | while read file; do
+            local size=$(du -h "$file" | awk '{print $1}')
+            log_info "删除旧备份: $(basename "$file") (大小: $size)"
+            rm -f "$file"
+        done
+
+        log_success "备份清理完成"
+        return 0
+    else
+        log_info "备份文件数量在限制内 ($count <= $keep_count)"
+        return 0
+    fi
+}
+
+# 获取目录大小（MB）
+get_directory_size_mb() {
+    local path="$1"
+    du -sm "$path" 2>/dev/null | awk '{print $1}'
+}
+
+# =====================================================
+# 4. 脚本执行和报告函数
+# =====================================================
+
+# 执行脚本并记录
+run_script() {
+    local script_path="$1"
+    local script_name=$(basename "$script_path" .sh)
+    local start_time=$(generate_timestamp)
+
+    log_info "===== 执行脚本: $script_name ====="
+    log_info "开始时间: $start_time"
+    log_info "脚本路径: $script_path"
+
+    if [ ! -f "$script_path" ]; then
+        log_error "脚本文件不存在: $script_path"
+        return 1
+    fi
+
+    # 执行脚本，捕捉返回值
+    bash "$script_path" >> "${LOG_FILE}" 2>&1
+    local exit_code=$?
+
+    local end_time=$(generate_timestamp)
+
+    if [ $exit_code -eq 0 ]; then
+        log_success "脚本执行成功: $script_name (返回值: $exit_code)"
+    else
+        log_error "脚本执行失败: $script_name (返回值: $exit_code)"
+    fi
+
+    log_info "结束时间: $end_time"
+    log_info "===== 脚本执行结束 ====="
+
+    return $exit_code
+}
+
+# 执行脚本并带参数
+run_script_with_args() {
+    local script_path="$1"
+    shift  # 移除第一个参数
+    local args="$@"  # 剩余参数
+    local script_name=$(basename "$script_path" .sh)
+    local start_time=$(generate_timestamp)
+
+    log_info "===== 执行脚本: $script_name (参数: $args) ====="
+    log_info "开始时间: $start_time"
+
+    if [ ! -f "$script_path" ]; then
+        log_error "脚本文件不存在: $script_path"
+        return 1
+    fi
+
+    bash "$script_path" $args >> "${LOG_FILE}" 2>&1
+    local exit_code=$?
+
+    local end_time=$(generate_timestamp)
+
+    if [ $exit_code -eq 0 ]; then
+        log_success "脚本执行成功: $script_name"
+    else
+        log_error "脚本执行失败: $script_name (返回值: $exit_code)"
+    fi
+
+    log_info "结束时间: $end_time"
+
+    return $exit_code
+}
+
+# =====================================================
+# 5. 报告生成函数
+# =====================================================
+
+# 生成报告头部
+generate_report_header() {
+    local report_file="$1"
+    local title="$2"
+    local dna_code="$3"
+
+    cat >> "$report_file" << EOF
+###############################################
+# 🐉 龍魂人格军团 - $title
+###############################################
+#
+# DNA追溯码：$dna_code
+# 创建者：宝宝｜UID9622
+# 创建时间：$(generate_timestamp)
+#
+###############################################
+
+EOF
+}
+
+# 生成报告尾部（带确认码）
+generate_report_footer() {
+    local report_file="$1"
+    local confirm_code=$(generate_confirm_code)
+
+    cat >> "$report_file" << EOF
+
+---
+
+DNA追溯码：#ZHUGEXIN⚡️-$(generate_date)-总调度-$(generate_filename_timestamp)
+确认码：$confirm_code
+生成时间：$(generate_timestamp)
+
+EOF
+}
+
+# =====================================================
+# 6. 验证和检查函数
+# =====================================================
+
+# 检查配置文件
+check_config_file() {
+    local config_file="$1"
+
+    if [ ! -f "$config_file" ]; then
+        log_error "配置文件不存在: $config_file"
+        return 1
+    fi
+
+    if [ ! -r "$config_file" ]; then
+        log_error "配置文件不可读: $config_file"
+        return 1
+    fi
+
+    log_info "配置文件验证通过: $config_file"
+    return 0
+}
+
+# 检查脚本是否存在且可执行
+check_script_executable() {
+    local script_path="$1"
+
+    if [ ! -f "$script_path" ]; then
+        log_error "脚本不存在: $script_path"
+        return 1
+    fi
+
+    if [ ! -x "$script_path" ]; then
+        log_warn "脚本不可执行，尝试添加执行权限: $script_path"
+        chmod +x "$script_path"
+    fi
+
+    return 0
+}
+
+# =====================================================
+# 7. 统计函数
+# =====================================================
+
+# 统计脚本执行结果
+count_script_results() {
+    local log_file="$1"
+
+    local success_count=$(grep -c "脚本执行成功" "$log_file" 2>/dev/null || echo "0")
+    local fail_count=$(grep -c "脚本执行失败" "$log_file" 2>/dev/null || echo "0")
+
+    echo "Success:$success_count:Fail:$fail_count"
+}
+
+# 获取脚本执行时间（从日志推算）
+get_script_execution_time() {
+    local log_file="$1"
+
+    # 这里可以改进，现在只是占位符
+    echo "详见日志文件"
+}
+
+###############################################
+# 文件末尾
+###############################################
+# DNA追溯码：#ZHUGEXIN⚡️-2026-02-15-lib-v1.0
+# 创建者：宝宝｜UID9622
+# 状态：✅ 官方v1.0版本
+###############################################

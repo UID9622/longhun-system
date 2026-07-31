@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·明夷-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """Voice generation service using Fish Audio UID9622 voice clone / edge-tts / longhun_senses / system TTS fallback."""
 
 import asyncio

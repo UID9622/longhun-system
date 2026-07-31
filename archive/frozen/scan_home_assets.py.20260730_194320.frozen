@@ -1,0 +1,356 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+龍魂资产扫描器 v1.0
+DNA: #龍芯⚡️2026-06-26-LONGHUN-HOME-ASSET-SCANNER-v1.0
+
+扫描 /Users/zuimeidedeyihan 下与中文编辑/CNSH/金融/数字人/数字身份/变量坑位相关的
+文件与目录，生成统一索引、重复检测、命名聚类与风险报告。
+"""
+import hashlib
+import json
+import os
+import re
+from collections import defaultdict
+from datetime import datetime
+from pathlib import Path
+
+OUT_DIR = Path("/Users/zuimeidedeyihan/_work/scan_assets")
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+CANDIDATE_ROOTS = [
+    Path("/Users/zuimeidedeyihan/longhun-system"),
+    Path("/Users/zuimeidedeyihan/longhun-archive"),
+    Path("/Users/zuimeidedeyihan/CNSH"),
+    Path("/Users/zuimeidedeyihan/cnsh-runtime"),
+    Path("/Users/zuimeidedeyihan/longhun-cloud"),
+    Path("/Users/zuimeidedeyihan/longhun-kimi-skills"),
+    Path("/Users/zuimeidedeyihan/longhun-lu"),
+    Path("/Users/zuimeidedeyihan/longhun-phase3"),
+    Path("/Users/zuimeidedeyihan/longhun-pub"),
+    Path("/Users/zuimeidedeyihan/longhun-backup-20260619-223537"),
+    Path("/Users/zuimeidedeyihan/longhun-al"),
+    Path("/Users/zuimeidedeyihan/龍魂系统"),
+    Path("/Users/zuimeidedeyihan/龍魂"),
+    Path("/Users/zuimeidedeyihan/龍魂待整理"),
+    Path("/Users/zuimeidedeyihan/UID9622_Workspace"),
+    Path("/Users/zuimeidedeyihan/UID9622_Automation"),
+    Path("/Users/zuimeidedeyihan/AlgoLab"),
+    Path("/Users/zuimeidedeyihan/_work"),
+    Path("/Users/zuimeidedeyihan/dragon_soul"),
+    Path("/Users/zuimeidedeyihan/DragonSoul"),
+    Path("/Users/zuimeidedeyihan/.longhun"),
+    Path("/Users/zuimeidedeyihan/.cnsh"),
+    # Downloads 只扫一层，避免太深太大；脚本中额外处理
+    Path("/Users/zuimeidedeyihan/Downloads"),
+]
+
+EXCLUDED_DIR_NAMES = {
+    ".git", "node_modules", ".venv", "venv", "__pycache__", ".tox", "build", "dist",
+    ".pytest_cache", ".mypy_cache", ".eggs", ".git_disabled_20260507_192559",
+    ".playwright-mcp", "Library", ".cache", ".local", ".npm", ".nvm", ".ollama",
+    ".longhorn", ".lmstudio", ".idlerc", ".matplotlib", ".keras", ".modelscope",
+    ".opennsfw2", ".oh-my-zsh", ".insightface", ".iterm2", ".gk", ".gnupg", ".grok",
+    ".github", ".kimi", ".kimi_openclaw", ".kimi-webbridge", ".kimi-code", ".claude",
+    ".agents", ".aitk", ".ai_manager", ".atomcode", ".azure", ".bash_sessions",
+    ".cache.d", ".cagent", ".chromium-browser-snapshots", ".cloudflared", ".cnsh_credentials",
+    ".codearts-doer-for-coding", ".codeartsdoer", ".codebuddy", ".codebuddycn",
+    ".config", ".copilot", ".docker", ".dragonsoul", ".edgeone", ".fastmcp", ".gh-config",
+    ".lmstudio-home-pointer", ".lucky_config", ".mcp-auth", ".net", ".npm-global",
+    ".npm-user-cache", ".obsidian-vault-venv-backup", ".offlineimaprc", ".opennsfw2",
+    ".pcr-stats.json", ".modelscope", ".keras", ".idlerc", ".matplotlib", ".iterm2",
+    ".insightface", ".gk", ".gnupg", ".grok", ".longhorn", ".lmstudio", ".ollama",
+    ".oh-my-zsh", ".opennsfw2", "Applications", "Desktop", "Documents", "Movies",
+    "Music", "Pictures", "Public", "nltk_data", "Noto_Sans_SC", "Obsidian",
+    "svg图层", "快捷命令", "火狐下载", "files", "logs", "longhun_memory_backup",
+}
+
+BINARY_EXTENSIONS = {
+    ".otf", ".ttf", ".woff", ".woff2", ".png", ".jpg", ".jpeg", ".gif", ".bmp",
+    ".ico", ".mp3", ".mp4", ".m4a", ".wav", ".avi", ".mov", ".zip", ".tar",
+    ".gz", ".bz2", ".xz", ".7z", ".rar", ".db", ".sqlite", ".sqlite3", ".bin",
+    ".exe", ".dll", ".so", ".dylib", ".pdf", ".doc", ".docx", ".xls", ".xlsx",
+    ".ppt", ".pptx", ".pyc", ".pyo", ".class", ".jar", ".war", ".ear",
+}
+
+KEYWORDS = {
+    "chinese_editor": [
+        "中文编辑", "chinese-editor", "cnsh_editor", "龍碼編輯器", "编辑器",
+        "editor_ui", "local_chinese_editor", "cnsh_runtime", "中文原生", "中文编程",
+        "CNSH语言", "中文脚本", "CNSH编辑器", "cnsh_editor_engine",
+    ],
+    "cnsh": [
+        "cnsh", "CNSH", "中文关键字", "编译器", "compiler", "lexer", "parser",
+        "runtime", "运行时", "tokenize", "ast", "语法", "关键字", "翻译器",
+    ],
+    "finance": [
+        "金融", "finance", "多币种", "multicurrency", "xpay", "e-CNY", "数字人民币",
+        "钱包", "wallet", "交易", "transaction", "汇率", "exchange", "行情",
+        "五行决策", "数字资产", "资产", "投资", "理财", "跨境支付",
+    ],
+    "digital_human": [
+        "数字人", "digital human", "digital-human", "十维呼吸", "人格管理",
+        "数字人主控", "航标灯", "存在性验证", "zeng-digital-human",
+    ],
+    "digital_identity": [
+        "数字身份", "digital identity", "digital-identity", "国家数字身份",
+        "主权认证", "身份认证", "实名认证", "魂灵ID", "魂灵 id",
+    ],
+    "pitfalls_variables": [
+        "变量", "variable", "硬编码", "坑位", "pitfalls", "TODO", "FIXME",
+        "临时", "hack", "未集成", "待整理", "orphan", "孤儿", "废弃", "过期",
+        "未使用", "死代码", "冗余",
+    ],
+}
+
+SECRET_PATTERNS = [
+    ("api_key", re.compile(r"(?i)(api[_-]?key|apikey)\s*[:=]\s*['\"]?([a-zA-Z0-9_\-]{8,})['\"]?")),
+    ("token", re.compile(r"(?i)(token|access_token|auth_token)\s*[:=]\s*['\"]?([a-zA-Z0-9_\-\.]{8,})['\"]?")),
+    ("password", re.compile(r"(?i)(password|passwd|pwd)\s*[:=]\s*['\"]([^'\"]{6,})['\"]")),
+    ("sk_key", re.compile(r"\b(sk-[a-zA-Z0-9]{20,})\b")),
+    ("bearer", re.compile(r"\b(Bearer\s+[a-zA-Z0-9_\-\.]{20,})\b")),
+]
+
+
+def is_text_file(path: Path) -> bool:
+    if path.suffix.lower() in BINARY_EXTENSIONS:
+        return False
+    try:
+        with open(path, "rb") as f:
+            chunk = f.read(2048)
+            if b"\0" in chunk:
+                return False
+            chunk.decode("utf-8", errors="strict")
+        return True
+    except Exception:
+        return False
+
+
+def read_head(path: Path, limit: int = 8192) -> str:
+    try:
+        with open(path, "r", encoding="utf-8", errors="ignore") as f:
+            return f.read(limit)
+    except Exception:
+        return ""
+
+
+def file_hash(path: Path) -> str:
+    h = hashlib.md5()
+    try:
+        with open(path, "rb") as f:
+            while True:
+                chunk = f.read(65536)
+                if not chunk:
+                    break
+                h.update(chunk)
+        return h.hexdigest()
+    except Exception:
+        return ""
+
+
+def match_keywords(text: str) -> dict[str, Any]:
+    text_lower = text.lower()
+    matched = {}
+    for category, words in KEYWORDS.items():
+        hits = []
+        for w in words:
+            if w.lower() in text_lower:
+                hits.append(w)
+        if hits:
+            matched[category] = hits
+    return matched
+
+
+def scan():
+    records = []
+    name_index = defaultdict(list)
+    hash_index = defaultdict(list)
+    secret_hits = []
+
+    total_files = 0
+    scanned_files = 0
+
+    for root in CANDIDATE_ROOTS:
+        if not root.exists():
+            print(f"⏭️  跳过不存在根目录: {root}")
+            continue
+        print(f"🔍 开始扫描: {root}")
+        for dirpath, dirnames, filenames in os.walk(root, topdown=True):
+            dirnames[:] = [d for d in dirnames if d not in EXCLUDED_DIR_NAMES and not d.startswith(".")]
+            current = Path(dirpath)
+            rel = current.relative_to("/Users/zuimeidedeyihan")
+
+            # 目录名匹配
+            dir_text = current.name
+            dir_matches = match_keywords(dir_text)
+            if dir_matches:
+                records.append({
+                    "path": str(rel),
+                    "type": "directory",
+                    "size": None,
+                    "mtime": None,
+                    "categories": dir_matches,
+                    "has_dna": False,
+                    "snippet": "",
+                    "content_hash": "",
+                })
+                name_index[current.name].append(str(rel))
+
+            for fname in filenames:
+                total_files += 1
+                fpath = current / fname
+                # 跳过超大文件
+                try:
+                    size = fpath.stat().st_size
+                except Exception:
+                    continue
+                if size > 10 * 1024 * 1024:  # 10MB
+                    continue
+
+                name_matches = match_keywords(fname)
+                text = ""
+                has_dna = False
+                fhash = ""
+                if name_matches or is_text_file(fpath):
+                    text = read_head(fpath, 8192)
+                    content_matches = match_keywords(text)
+                    all_matches = {**name_matches}
+                    for cat, hits in content_matches.items():
+                        all_matches[cat] = list(set(all_matches.get(cat, []) + hits))
+                    if all_matches:
+                        scanned_files += 1
+                        has_dna = bool(re.search(r"#龍芯⚡️|DNA[:：]|#CONFIRM|#ZHUGEXIN", text))
+                        fhash = file_hash(fpath)
+                        rel_path = str(fpath.relative_to("/Users/zuimeidedeyihan"))
+                        records.append({
+                            "path": rel_path,
+                            "type": "file",
+                            "size": size,
+                            "mtime": fpath.stat().st_mtime,
+                            "categories": all_matches,
+                            "has_dna": has_dna,
+                            "snippet": text[:300].replace("\n", " ").strip(),
+                            "content_hash": fhash,
+                        })
+                        name_index[fname].append(rel_path)
+                        if fhash:
+                            hash_index[fhash].append(rel_path)
+
+                        # 密钥扫描
+                        for secret_type, pat in SECRET_PATTERNS:
+                            for m in pat.finditer(text):
+                                value = m.group(2) if m.lastindex and m.lastindex >= 2 else m.group(1)
+                                masked = value[:3] + "***" + value[-3:] if len(value) > 8 else "***"
+                                secret_hits.append({
+                                    "path": rel_path,
+                                    "type": secret_type,
+                                    "masked": masked,
+                                    "line": text[: m.start()].count("\n") + 1,
+                                })
+
+    print(f"📊 总文件数: {total_files}, 命中并索引: {len(records)}")
+
+    # 重复 basename
+    duplicate_names = {k: v for k, v in name_index.items() if len(v) > 1 and k not in {"README.md", "__init__.py", "setup.py", "LICENSE", ".gitignore"}}
+    # 重复内容 hash
+    duplicate_hashes = {k: v for k, v in hash_index.items() if len(v) > 1}
+
+    # 命名聚类：去掉版本号/日期后聚类
+    cluster_map = defaultdict(list)
+    for r in records:
+        p = Path(r["path"])
+        base = re.sub(r"[_\-\.]?(v?\d+(\.\d+)*|20\d{6}|202\d|bak|backup|copy|副本|旧版|old|new)", "", p.stem, flags=re.IGNORECASE).strip("_-\. ")
+        if base:
+            cluster_map[base].append(r["path"])
+    clusters = {k: sorted(v) for k, v in cluster_map.items() if len(v) > 1}
+
+    # 保存索引
+    with open(OUT_DIR / "asset_index.json", "w", encoding="utf-8") as f:
+        json.dump(records, f, ensure_ascii=False, indent=2)
+    with open(OUT_DIR / "duplicate_names.json", "w", encoding="utf-8") as f:
+        json.dump(duplicate_names, f, ensure_ascii=False, indent=2)
+    with open(OUT_DIR / "duplicate_hashes.json", "w", encoding="utf-8") as f:
+        json.dump(duplicate_hashes, f, ensure_ascii=False, indent=2)
+    with open(OUT_DIR / "naming_clusters.json", "w", encoding="utf-8") as f:
+        json.dump(clusters, f, ensure_ascii=False, indent=2)
+    with open(OUT_DIR / "secret_hits.json", "w", encoding="utf-8") as f:
+        json.dump(secret_hits, f, ensure_ascii=False, indent=2)
+
+    # 生成 Markdown 报告
+    write_report(records, duplicate_names, duplicate_hashes, clusters, secret_hits)
+
+
+def write_report(records, duplicate_names, duplicate_hashes, clusters, secret_hits):
+    lines = []
+    lines.append("# 龍魂资产扫描报告\n")
+    lines.append(f"**生成时间**: {datetime.now().isoformat()}\n")
+    lines.append(f"**命中资产总数**: {len(records)}\n")
+    lines.append("## 分类统计\n")
+    cat_counts = defaultdict(int)
+    for r in records:
+        for cat in r["categories"]:
+            cat_counts[cat] += 1
+    for cat, cnt in sorted(cat_counts.items(), key=lambda x: -x[1]):
+        lines.append(f"- {cat}: {cnt}\n")
+
+    lines.append("\n## 重复文件名（可能重复/迁移版本）\n")
+    if duplicate_names:
+        for name, paths in sorted(duplicate_names.items(), key=lambda x: -len(x[1]))[:100]:
+            lines.append(f"### {name}\n")
+            for p in paths[:20]:
+                lines.append(f"- `{p}`\n")
+            if len(paths) > 20:
+                lines.append(f"- ... 还有 {len(paths)-20} 个\n")
+    else:
+        lines.append("未发现重复文件名。\n")
+
+    lines.append("\n## 重复内容（完全相同文件）\n")
+    if duplicate_hashes:
+        lines.append(f"发现 {len(duplicate_hashes)} 组内容重复文件。\n")
+        for h, paths in sorted(duplicate_hashes.items(), key=lambda x: -len(x[1]))[:50]:
+            lines.append(f"- hash `{h[:12]}...`: {len(paths)} 个文件\n")
+            for p in paths[:5]:
+                lines.append(f"  - `{p}`\n")
+    else:
+        lines.append("未发现内容完全重复文件。\n")
+
+    lines.append("\n## 命名聚类（去版本化后相似）\n")
+    if clusters:
+        lines.append(f"发现 {len(clusters)} 个命名聚类。\n")
+        for base, paths in sorted(clusters.items(), key=lambda x: -len(x[1]))[:100]:
+            lines.append(f"### {base}\n")
+            for p in paths[:15]:
+                lines.append(f"- `{p}`\n")
+            if len(paths) > 15:
+                lines.append(f"- ... 还有 {len(paths)-15} 个\n")
+    else:
+        lines.append("未发现命名聚类。\n")
+
+    lines.append("\n## 疑似硬编码密钥/凭证\n")
+    if secret_hits:
+        lines.append(f"⚠️ 发现 {len(secret_hits)} 处疑似暴露，请逐条核查。\n")
+        grouped = defaultdict(list)
+        for s in secret_hits:
+            grouped[s["path"]].append(s)
+        for path, hits in sorted(grouped.items())[:100]:
+            lines.append(f"### {path}\n")
+            for h in hits[:10]:
+                lines.append(f"- 类型 `{h['type']}` 行 {h['line']}: `{h['masked']}`\n")
+    else:
+        lines.append("未发现明显硬编码密钥。\n")
+
+    lines.append("\n## 无 DNA 追溯标记的文件（抽查）\n")
+    no_dna = [r for r in records if r["type"] == "file" and not r["has_dna"]]
+    lines.append(f"共 {len(no_dna)} 个命中文件未检测到 DNA 标记。\n")
+    for r in no_dna[:50]:
+        lines.append(f"- `{r['path']}`\n")
+
+    lines.append("\n---\n")
+    lines.append(f"**DNA**: `#龍芯⚡️{datetime.now().strftime('%Y-%m-%d-%H%M%S')}-HOME-ASSET-SCAN-REPORT-v1.0`\n")
+
+    (OUT_DIR / "report.md").write_text("".join(lines), encoding="utf-8")
+    print(f"📝 报告已保存: {OUT_DIR / 'report.md'}")
+
+
+if __name__ == "__main__":
+    scan()

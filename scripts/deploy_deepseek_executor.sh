@@ -2,6 +2,7 @@
 # 龍魂 DeepSeek 唯一监管加密执行者部署脚本（轻量包）
 # 用法： ./scripts/deploy_deepseek_executor.sh [ECS_IP] [SSH_KEY]
 # DNA: #龍芯⚡️20260628-DEEPSEEK-EXECUTOR-DEPLOY-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -euo pipefail
 

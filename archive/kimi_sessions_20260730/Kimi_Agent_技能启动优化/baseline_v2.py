@@ -1,0 +1,655 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+╔══════════════════════════════════════════════════════════════╗
+║  龍魂·自适应微调参数系统 v2.0                                ║
+║  DNA: #龍芯⚡️20260529-自适应参数-v2.0                       ║
+║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F               ║
+║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                ║
+║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
+║  RBT-SEAL: #龍芯⚡️20260423-ROOT-SEAL-01F32FFD                ║
+╚══════════════════════════════════════════════════════════════╝
+
+v2.0 升级要点（相对 v1.0）：
+  ① 双向调整 —— 不只加重扣分，行为变好后也能放松（带下界）
+  ② 滞回带 —— 避免参数在阈值附近震荡（hysteresis 0.05）
+  ③ 趋势分析 —— 看观察窗口内的前后半段对比，识别"在变好/变坏"
+  ④ 回滚机制 —— 微调后 N 天数据未改善可回滚到上一版参数
+  ⑤ 三色 dr 审计 —— 每次微调输出 🟢🟡🔴 三色 dr，dr=9 触发熔断拒绝保存
+  ⑥ Markdown 审计报告 —— 自动生成 ~/.龍魂/微調審計/YYYY-MM-DD.md
+  ⑦ 安全模式默认 —— 不传 --apply 一律走模拟态，老大眼审后才落盘
+  ⑧ DNA 哈希校验 —— 每次保存计算参数哈希，写入账本防篡改
+  ⑨ 配置版本链 —— 每代参数有 parent_hash，形成可追溯链
+  ⑩ 铁律接口 —— 与 IRON-* 铁律解耦但通过 hook 注入
+
+用法:
+  python3 自适应调节器.py --status           # 查看当前参数 + 哈希链
+  python3 自适应调节器.py --analyze          # 仅看数据分析+趋势
+  python3 自适应调节器.py --simulate         # 模拟微调（默认安全模式）
+  python3 自适应调节器.py --apply            # 真正落盘微调
+  python3 自适应调节器.py --rollback         # 回滚到上一代参数
+  python3 自适应调节器.py --audit            # 生成本次审计报告
+  python3 自适应调节器.py --demo             # 完整演示
+"""
+
+import json
+import hashlib
+import os
+import sys
+import argparse
+import logging
+from datetime import datetime, timedelta
+from pathlib import Path
+from typing import Dict, List, Tuple, Optional, Any
+from dataclasses import dataclass, field, asdict
+from copy import deepcopy
+
+# ═══════════════════════════════════════════════════════════════
+# 〇、日志 · 三色 dr 标准
+# ═══════════════════════════════════════════════════════════════
+
+logging.basicConfig(
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    level=logging.INFO,
+)
+log = logging.getLogger("龍魂·调节器")
+
+# ═══════════════════════════════════════════════════════════════
+# 一、参数定义 · 规矩参数（非 AI 模型参数）
+# ═══════════════════════════════════════════════════════════════
+
+@dataclass
+class 微调参数:
+    """
+    老大焊死的规矩在系统里的可调量。
+    每个参数都有硬界·硬界外即越红线·调节器拒绝越界。
+    """
+
+    # ── R1 责任承担 ──
+    自扛加分: float = 2.0
+    逃避扣分: float = 10.0
+
+    # ── R2 批评姿态 ──
+    没立正扣分: float = 5.0
+
+    # ── R4 威胁归零（焊死） ──
+    威胁归零开关: bool = True
+    威胁触发分数: int = 0
+
+    # ── R5 主动补救 ──
+    补救加分: float = 5.0
+
+    # ── R6 惯犯追踪 ──
+    惯犯触发次数: int = 3
+    惯犯扣分: float = 15.0
+
+    # ── 三色闸门 dr（焊死，永不微调） ──
+    熔断_dr: Tuple[int, ...] = (3, 9)
+    待审_dr: Tuple[int, ...] = (6,)
+
+    # ── 自适应元参数 ──
+    学习率: float = 0.1
+    观察窗口_天: int = 90
+    最小样本: int = 20
+    滞回带: float = 0.05            # v2.0 新增：阈值边界滞回
+    回滚冷却_天: int = 14            # v2.0 新增：调整后多少天可回滚
+    分数上限: int = 100              # 焊死
+    分数下限: int = 0                # 焊死
+
+    # ── 元数据 + 哈希链（v2.0 新增） ──
+    版本: str = "v2.0"
+    最后微调时间: str = ""
+    参数哈希: str = ""                # 当前参数的哈希
+    父哈希: str = ""                  # 上一代参数的哈希
+    微调记录: list = field(default_factory=list)
+
+# ═══════════════════════════════════════════════════════════════
+# 二、硬界 · 焊死·调节器越界即拒绝
+# ═══════════════════════════════════════════════════════════════
+
+参数硬界: Dict[str, Tuple[float, float]] = {
+    "自扛加分":       (1.0, 5.0),
+    "逃避扣分":       (5.0, 25.0),
+    "没立正扣分":     (2.0, 15.0),
+    "威胁触发分数":   (0, 10),
+    "补救加分":       (2.0, 10.0),
+    "惯犯触发次数":   (2, 5),
+    "惯犯扣分":       (10.0, 30.0),
+    "学习率":         (0.01, 0.3),
+    "观察窗口_天":    (30, 365),
+    "最小样本":       (10, 100),
+    "滞回带":         (0.0, 0.2),
+    "回滚冷却_天":    (3, 90),
+}
+
+# ═══════════════════════════════════════════════════════════════
+# 三、三色 dr 审计 · 老大的核心规矩
+# ═══════════════════════════════════════════════════════════════
+
+def 三色_dr(数据: dict) -> Tuple[str, int, str]:
+    """
+    根据分析数据评估三色 dr。
+    🟢 dr ∈ {1,2,4,5,7,8}   通行
+    🟡 dr = 6               待审（人工眼）
+    🔴 dr ∈ {3,9}           熔断（拒绝保存）
+    """
+    if 数据.get("状态", "").startswith("🟡"):
+        return ("🟡", 6, "样本不足·待审")
+
+    甩锅率 = 数据.get("甩锅率", 0)
+    威胁率 = 数据.get("威胁率", 0)
+    没立正率 = 数据.get("没立正率", 0)
+
+    # 红线：威胁率过高 → 熔断
+    if 威胁率 > 0.1:
+        return ("🔴", 9, f"威胁率 {威胁率:.1%} > 10%·熔断")
+    # 红线：甩锅 + 没立正双高 → 熔断
+    if 甩锅率 > 0.7 and 没立正率 > 0.6:
+        return ("🔴", 3, f"甩锅+没立正双红线·熔断")
+    # 黄线：单项高于警戒 → 待审
+    if 甩锅率 > 0.5 or 没立正率 > 0.5:
+        return ("🟡", 6, "单项警戒·人工眼审")
+    # 绿线：可通行
+    return ("🟢", 7, "三色通行")
+
+# ═══════════════════════════════════════════════════════════════
+# 四、调节器主类
+# ═══════════════════════════════════════════════════════════════
+
+class 自适应调节器:
+    """
+    v2.0 升级：双向 + 滞回 + 趋势 + 回滚 + 三色 dr + 哈希链
+    """
+
+    def __init__(
+        self,
+        账本路径: str = os.path.expanduser("~/.龍魂/規則帳本.jsonl"),
+        参数路径: str = os.path.expanduser("~/.龍魂/微調參數.json"),
+        历史路径: str = os.path.expanduser("~/.龍魂/微調歷史/"),
+        审计路径: str = os.path.expanduser("~/.龍魂/微調審計/"),
+    ):
+        self.账本路径 = 账本路径
+        self.参数路径 = 参数路径
+        self.历史路径 = Path(历史路径)
+        self.审计路径 = Path(审计路径)
+        self.历史路径.mkdir(parents=True, exist_ok=True)
+        self.审计路径.mkdir(parents=True, exist_ok=True)
+
+        self.参数 = self._加载参数()
+        self.事件列表: List[dict] = self._加载账本()
+
+    # ── 持久化 ────────────────────────────────────────────
+
+    def _加载参数(self) -> 微调参数:
+        if os.path.exists(self.参数路径):
+            with open(self.参数路径, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                # 兼容 v1.0 旧文件
+                data.pop("熔断_dr_说明", None)
+                data.pop("待审_dr_说明", None)
+                data.pop("分数上下限说明", None)
+                # tuple 字段
+                for k in ("熔断_dr", "待审_dr"):
+                    if k in data and isinstance(data[k], list):
+                        data[k] = tuple(data[k])
+                return 微调参数(**data)
+        return 微调参数()
+
+    def _计算哈希(self, p: 微调参数) -> str:
+        """SHA-256 计算参数指纹（剔除元数据避免循环）"""
+        snapshot = asdict(p)
+        for k in ("参数哈希", "父哈希", "最后微调时间", "微调记录"):
+            snapshot.pop(k, None)
+        # tuple → list
+        for k, v in list(snapshot.items()):
+            if isinstance(v, tuple):
+                snapshot[k] = list(v)
+        s = json.dumps(snapshot, ensure_ascii=False, sort_keys=True)
+        return hashlib.sha256(s.encode("utf-8")).hexdigest()[:16]
+
+    def _保存参数(self):
+        """保存参数 + 备份上一代到历史目录"""
+        # 备份当前文件到历史
+        if os.path.exists(self.参数路径) and self.参数.参数哈希:
+            备份名 = self.历史路径 / f"{self.参数.参数哈希}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+            with open(self.参数路径, "r", encoding="utf-8") as 旧:
+                with open(备份名, "w", encoding="utf-8") as 新:
+                    新.write(旧.read())
+
+        # 更新哈希链
+        self.参数.父哈希 = self.参数.参数哈希
+        self.参数.参数哈希 = self._计算哈希(self.参数)
+
+        Path(self.参数路径).parent.mkdir(parents=True, exist_ok=True)
+        with open(self.参数路径, "w", encoding="utf-8") as f:
+            data = asdict(self.参数)
+            # tuple 转 list 写入
+            for k in ("熔断_dr", "待审_dr"):
+                if isinstance(data.get(k), tuple):
+                    data[k] = list(data[k])
+            json.dump(data, f, ensure_ascii=False, indent=2)
+
+    def _加载账本(self) -> List[dict]:
+        events = []
+        if os.path.exists(self.账本路径):
+            with open(self.账本路径, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        events.append(json.loads(line))
+                    except Exception:
+                        pass
+        return events
+
+    # ── 窗口判定 ──────────────────────────────────────────
+
+    def _在窗口内(self, 事件: dict, 天数: int) -> bool:
+        try:
+            ts = 事件.get("时间戳", "")
+            if not ts:
+                return False
+            t = datetime.fromisoformat(ts)
+            return t >= datetime.now() - timedelta(days=天数)
+        except Exception:
+            return False
+
+    def _在窗口区间(self, 事件: dict, 起天数: int, 止天数: int) -> bool:
+        try:
+            ts = 事件.get("时间戳", "")
+            if not ts:
+                return False
+            t = datetime.fromisoformat(ts)
+            now = datetime.now()
+            return (now - timedelta(days=起天数)) >= t >= (now - timedelta(days=止天数))
+        except Exception:
+            return False
+
+    # ── 分析 + 趋势（v2.0 新增） ──────────────────────────
+
+    def _统计一段(self, 窗口事件: List[dict]) -> dict:
+        if not 窗口事件:
+            return {"样本数": 0}
+        犯错 = [e for e in 窗口事件 if e.get("犯错")]
+        return {
+            "样本数": len(窗口事件),
+            "犯错率": round(len(犯错) / len(窗口事件), 3),
+            "自扛率": round(len([e for e in 犯错 if e.get("自扛")]) / len(犯错), 3) if 犯错 else 0,
+            "甩锅率": round(len([e for e in 犯错 if not e.get("自扛")]) / len(犯错), 3) if 犯错 else 0,
+            "没立正率": round(len([e for e in 犯错 if not e.get("立正")]) / len(犯错), 3) if 犯错 else 0,
+            "威胁率": round(len([e for e in 窗口事件 if e.get("威胁")]) / len(窗口事件), 3),
+            "补救率": round(len([e for e in 犯错 if e.get("补救")]) / len(犯错), 3) if 犯错 else 0,
+        }
+
+    def 分析(self) -> dict:
+        """v2.0：返回快照 + 趋势"""
+        窗口 = self.参数.观察窗口_天
+        窗口事件 = [e for e in self.事件列表 if self._在窗口内(e, 窗口)]
+
+        if len(窗口事件) < self.参数.最小样本:
+            return {
+                "状态": "🟡 样本不足",
+                "样本数": len(窗口事件),
+                "最小要求": self.参数.最小样本,
+                "建议": "积累更多事件后再微调",
+            }
+
+        全段 = self._统计一段(窗口事件)
+        # v2.0 新增：前半段 vs 后半段趋势
+        半 = 窗口 // 2
+        前半 = [e for e in self.事件列表 if self._在窗口区间(e, 半, 窗口)]
+        后半 = [e for e in self.事件列表 if self._在窗口区间(e, 0, 半)]
+        前 = self._统计一段(前半)
+        后 = self._统计一段(后半)
+
+        趋势 = {}
+        for k in ("甩锅率", "自扛率", "没立正率", "补救率", "威胁率"):
+            if k in 前 and k in 后:
+                趋势[k] = round(后.get(k, 0) - 前.get(k, 0), 3)
+
+        全段["状态"] = "🟢 足够样本"
+        全段["趋势"] = 趋势
+        return 全段
+
+    # ── 双向调整 + 滞回带（v2.0 核心升级） ────────────────
+
+    def _双向调整(
+        self,
+        当前值: float,
+        指标值: float,
+        高阈值: float,
+        低阈值: float,
+        硬界: Tuple[float, float],
+        速率: float,
+        参数名: str,
+        方向标签: str = "扣分",
+    ) -> Tuple[float, Optional[str]]:
+        """
+        v2.0 双向调整 + 滞回带防震
+        指标超高 → 朝硬界上界推进（加重）
+        指标超低 → 朝硬界下界回退（放松）
+        滞回带内不调整（防止边缘震荡）
+        """
+        滞回 = self.参数.滞回带
+
+        if 指标值 > 高阈值 + 滞回:
+            新值 = round(min(当前值 * (1 + 速率), 硬界[1]), 1)
+            if 新值 != 当前值:
+                return 新值, f"🔼 {参数名}: {当前值} → {新值} ({方向标签}从严·指标 {指标值:.1%} > {高阈值:.0%})"
+        elif 指标值 < 低阈值 - 滞回:
+            新值 = round(max(当前值 * (1 - 速率 * 0.5), 硬界[0]), 1)
+            if 新值 != 当前值:
+                return 新值, f"🔽 {参数名}: {当前值} → {新值} ({方向标签}放松·指标 {指标值:.1%} < {低阈值:.0%})"
+        return 当前值, None
+
+    # ── 微调主流程 ────────────────────────────────────────
+
+    def 微调(self, 模拟: bool = True) -> dict:
+        """
+        v2.0：默认模拟态·非模拟需 --apply
+        触发流程：分析 → 三色 dr → 微调建议 → 红线熔断检测 → 落盘
+        """
+        数据 = self.分析()
+        if "样本不足" in 数据.get("状态", ""):
+            return {"状态": "跳过", "原因": "样本不足", "数据": 数据}
+
+        色, dr, dr说明 = 三色_dr(数据)
+
+        # 🔴 dr ∈ {3,9} 熔断 — 拒绝任何参数修改
+        if 色 == "🔴":
+            return {
+                "状态": f"🔴 熔断·拒绝微调",
+                "三色": 色, "dr": dr, "dr说明": dr说明,
+                "数据": 数据, "调整数": 0, "调整记录": [],
+                "原因": "数据触发红线·人工介入排查"
+            }
+
+        调整记录: List[str] = []
+        原参数 = deepcopy(self.参数)
+        速率 = self.参数.学习率
+
+        # ── R1 责任承担（双向） ──
+        新值, 记录 = self._双向调整(
+            self.参数.逃避扣分, 数据["甩锅率"],
+            高阈值=0.5, 低阈值=0.15,
+            硬界=参数硬界["逃避扣分"], 速率=速率,
+            参数名="逃避扣分", 方向标签="甩锅"
+        )
+        if 记录:
+            调整记录.append(记录)
+            if not 模拟: self.参数.逃避扣分 = 新值
+
+        新值, 记录 = self._双向调整(
+            self.参数.自扛加分, 数据["自扛率"],
+            高阈值=0.8, 低阈值=0.3,
+            硬界=参数硬界["自扛加分"], 速率=速率 * 0.5,
+            参数名="自扛加分", 方向标签="自扛奖励"
+        )
+        if 记录:
+            调整记录.append(记录)
+            if not 模拟: self.参数.自扛加分 = 新值
+
+        # ── R2 批评姿态（双向） ──
+        新值, 记录 = self._双向调整(
+            self.参数.没立正扣分, 数据["没立正率"],
+            高阈值=0.4, 低阈值=0.1,
+            硬界=参数硬界["没立正扣分"], 速率=速率,
+            参数名="没立正扣分", 方向标签="没立正"
+        )
+        if 记录:
+            调整记录.append(记录)
+            if not 模拟: self.参数.没立正扣分 = 新值
+
+        # ── R5 补救（双向） ──
+        新值, 记录 = self._双向调整(
+            self.参数.补救加分, 数据["补救率"],
+            高阈值=0.3, 低阈值=0.05,
+            硬界=参数硬界["补救加分"], 速率=速率 * 0.5,
+            参数名="补救加分", 方向标签="补救奖励"
+        )
+        if 记录:
+            调整记录.append(记录)
+            if not 模拟: self.参数.补救加分 = 新值
+
+        # ── v2.0 新增：趋势惯性调整（恶化趋势 → 加重） ──
+        趋势 = 数据.get("趋势", {})
+        if 趋势.get("甩锅率", 0) > 0.1:
+            调整记录.append(f"📈 趋势警告：甩锅率上升 {趋势['甩锅率']:.1%}·建议人工介入")
+        if 趋势.get("自扛率", 0) > 0.1:
+            调整记录.append(f"📈 趋势喜报：自扛率上升 {趋势['自扛率']:.1%}·习惯在养成")
+
+        # ── 落盘 ──
+        if not 模拟 and 调整记录:
+            ts = datetime.now().isoformat()
+            self.参数.最后微调时间 = ts
+            self.参数.微调记录.append({
+                "时间": ts,
+                "三色": 色, "dr": dr,
+                "调整": [r for r in 调整记录 if not r.startswith("📈")],
+                "趋势警告": [r for r in 调整记录 if r.startswith("📈")],
+                "父哈希": self.参数.参数哈希,
+                "数据摘要": {k: v for k, v in 数据.items() if k not in ("状态", "趋势")},
+                "趋势": 趋势,
+            })
+            self._保存参数()
+            log.info(f"参数已落盘·新哈希 {self.参数.参数哈希}·父哈希 {self.参数.父哈希}")
+
+        return {
+            "状态": "🟢 微调完成" if (调整记录 and not 模拟) else
+                   "🟡 模拟态·未落盘" if (调整记录 and 模拟) else
+                   "🟢 无需调整",
+            "三色": 色, "dr": dr, "dr说明": dr说明,
+            "调整数": len(调整记录),
+            "调整记录": 调整记录,
+            "数据": 数据,
+            "模拟": 模拟,
+            "参数哈希": self.参数.参数哈希,
+            "父哈希": self.参数.父哈希,
+        }
+
+    # ── 回滚（v2.0 新增） ─────────────────────────────────
+
+    # ── 回滚（v2.0 新增·续上） ────────────────────────────
+
+    def 回滚(self) -> dict:
+        """回滚到上一代参数（从历史目录读取）"""
+        if not self.参数.父哈希:
+            return {"状态": "🟡 无父代·无法回滚"}
+
+        # 检查冷却期
+        if self.参数.最后微调时间:
+            try:
+                上次 = datetime.fromisoformat(self.参数.最后微调时间)
+                冷却天数 = (datetime.now() - 上次).days
+                if 冷却天数 < self.参数.回滚冷却_天:
+                    return {
+                        "状态": f"🟡 冷却期内·剩余 {self.参数.回滚冷却_天 - 冷却天数} 天",
+                        "原因": "防止频繁回滚震荡"
+                    }
+            except Exception:
+                pass
+
+        # 在历史目录寻找父哈希对应的备份
+        候选 = list(self.历史路径.glob(f"{self.参数.父哈希}_*.json"))
+        if not 候选:
+            return {"状态": "🔴 父代备份缺失·无法回滚", "父哈希": self.参数.父哈希}
+
+        最新 = sorted(候选)[-1]
+        with open(最新, "r", encoding="utf-8") as f:
+            旧 = json.load(f)
+            for k in ("熔断_dr", "待审_dr"):
+                if k in 旧 and isinstance(旧[k], list):
+                    旧[k] = tuple(旧[k])
+            self.参数 = 微调参数(**旧)
+        self._保存参数()
+        log.info(f"已回滚到父代 {self.参数.父哈希}·新哈希 {self.参数.参数哈希}")
+        return {
+            "状态": "🟢 回滚完成",
+            "回滚到": str(最新.name),
+            "当前哈希": self.参数.参数哈希,
+        }
+
+    # ── 查看参数 ──────────────────────────────────────────
+
+    def 查看参数(self) -> dict:
+        d = asdict(self.参数)
+        for k in ("熔断_dr", "待审_dr"):
+            if isinstance(d.get(k), tuple):
+                d[k] = list(d[k])
+        d["_焊死字段"] = ["熔断_dr", "待审_dr", "分数上限", "分数下限", "威胁归零开关"]
+        return d
+
+    # ── Markdown 审计报告（v2.0 新增） ────────────────────
+
+    def 生成审计报告(self, 微调结果: dict) -> Path:
+        """落地 Markdown 审计·便于眼审 + 入 Notion 草日志"""
+        今日 = datetime.now().strftime("%Y-%m-%d")
+        时分 = datetime.now().strftime("%H:%M:%S")
+        路径 = self.审计路径 / f"{今日}_{时分.replace(':','')}.md"
+
+        数据 = 微调结果.get("数据", {})
+        趋势 = 数据.get("趋势", {})
+        色 = 微调结果.get("三色", "🟡")
+        dr = 微调结果.get("dr", 6)
+
+        md = []
+        md.append(f"# 龍魂·自适应微调审计 · {今日} {时分}")
+        md.append("")
+        md.append(f"- **DNA**: #龍芯⚡️{datetime.now().strftime('%Y%m%d-%H%M%S')}-TUNE-AUDIT-v2.0")
+        md.append(f"- **GPG**: A2D0092CEE2E5BA87035600924C3704A8CC26D5F")
+        md.append(f"- **CONFIRM**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
+        md.append(f"- **三色**: {色}·dr={dr}·{微调结果.get('dr说明','')}")
+        md.append(f"- **状态**: {微调结果.get('状态','')}")
+        md.append(f"- **模拟**: {微调结果.get('模拟', True)}")
+        md.append(f"- **参数哈希**: `{微调结果.get('参数哈希','')}`")
+        md.append(f"- **父哈希**: `{微调结果.get('父哈希','')}`")
+        md.append("")
+        md.append("## 数据快照")
+        for k, v in 数据.items():
+            if k in ("状态", "趋势"):
+                continue
+            md.append(f"- {k}: {v}")
+        if 趋势:
+            md.append("")
+            md.append("## 趋势（后半段 − 前半段）")
+            for k, v in 趋势.items():
+                箭头 = "📈" if v > 0 else "📉" if v < 0 else "➖"
+                md.append(f"- {箭头} {k}: {v:+.3f}")
+        md.append("")
+        md.append("## 调整记录")
+        for r in 微调结果.get("调整记录", []) or ["（无调整）"]:
+            md.append(f"- {r}")
+        md.append("")
+        md.append("---")
+        md.append("责任：UID9622·不免责 | SEAL: #ZHUGEXIN⚡️2025-DEVICE-BIND-SOUL")
+
+        路径.write_text("\n".join(md), encoding="utf-8")
+        log.info(f"审计报告已落: {路径}")
+        return 路径
+
+# ═══════════════════════════════════════════════════════════════
+# 五、CLI 入口 · v2.0 默认安全模式
+# ═══════════════════════════════════════════════════════════════
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="龍魂·自适应微调参数系统 v2.0"
+    )
+    parser.add_argument("--status",   action="store_true", help="查看当前参数 + 哈希链")
+    parser.add_argument("--analyze",  action="store_true", help="仅看数据分析 + 趋势")
+    parser.add_argument("--simulate", action="store_true", help="模拟微调（默认安全模式）")
+    parser.add_argument("--apply",    action="store_true", help="真正落盘微调")
+    parser.add_argument("--rollback", action="store_true", help="回滚到上一代参数")
+    parser.add_argument("--audit",    action="store_true", help="本次微调结束自动生成审计报告")
+    parser.add_argument("--demo",     action="store_true", help="完整演示")
+    args = parser.parse_args()
+
+    调节器 = 自适应调节器()
+
+    # ── status ──
+    if args.status:
+        print("\n📊 当前自适应参数 v2.0：")
+        for k, v in 调节器.查看参数().items():
+            if k.startswith("_") or k in ("微调记录",):
+                continue
+            print(f"   {k}: {v}")
+        print(f"\n🔗 哈希链：")
+        print(f"   当前: {调节器.参数.参数哈希 or '（未初始化）'}")
+        print(f"   父代: {调节器.参数.父哈希 or '（无）'}")
+        print(f"\n📋 微调历史 ({len(调节器.参数.微调记录)} 次)：")
+        for rec in 调节器.参数.微调记录[-5:]:
+            n调整 = len(rec.get("调整", []))
+            n趋势 = len(rec.get("趋势警告", []))
+            print(f"   [{rec['时间'][:16]}] {rec.get('三色','?')} dr={rec.get('dr','?')} {n调整}项调整 {n趋势}项趋势警告")
+        return
+
+    # ── analyze ──
+    if args.analyze:
+        print("\n📈 数据分析 + 趋势：")
+        数据 = 调节器.分析()
+        for k, v in 数据.items():
+            print(f"   {k}: {v}")
+        色, dr, 说明 = 三色_dr(数据)
+        print(f"\n🚦 三色 dr: {色} dr={dr} · {说明}")
+        return
+
+    # ── rollback ──
+    if args.rollback:
+        print("\n⏪ 回滚到上一代参数...")
+        结果 = 调节器.回滚()
+        for k, v in 结果.items():
+            print(f"   {k}: {v}")
+        return
+
+    # ── apply / simulate ──
+    if args.apply:
+        print("\n🔧 真正落盘微调（--apply）...")
+        结果 = 调节器.微调(模拟=False)
+    elif args.simulate or not (args.demo):
+        print("\n🔍 模拟微调（安全模式·不落盘）...")
+        结果 = 调节器.微调(模拟=True)
+    else:
+        结果 = None
+
+    if 结果 is not None:
+        print(f"\n📊 状态: {结果['状态']}")
+        print(f"🚦 三色: {结果.get('三色','?')} dr={结果.get('dr','?')} · {结果.get('dr说明','')}")
+        for r in 结果.get("调整记录", []):
+            print(f"   {r}")
+        if not 结果.get("调整记录"):
+            print("   无需调整")
+        if args.audit or args.apply:
+            报告 = 调节器.生成审计报告(结果)
+            print(f"\n📝 审计报告: {报告}")
+        return
+
+    # ── demo ──
+    if args.demo:
+        print("\n🐉 龍魂·自适应微调参数系统 v2.0 演示\n")
+        print("═" * 60)
+        print("📊 当前参数：")
+        for k, v in 调节器.查看参数().items():
+            if k.startswith("_") or k == "微调记录":
+                continue
+            print(f"   {k}: {v}")
+        print("\n" + "═" * 60)
+        print("📈 数据分析 + 趋势：")
+        数据 = 调节器.分析()
+        for k, v in 数据.items():
+            print(f"   {k}: {v}")
+        print("\n" + "═" * 60)
+        print("🔍 模拟微调（不落盘）：")
+        结果 = 调节器.微调(模拟=True)
+        print(f"   状态: {结果['状态']}")
+        print(f"   三色: {结果.get('三色','?')} dr={结果.get('dr','?')}")
+        for r in 结果.get("调整记录", []) or ["   （无调整建议）"]:
+            print(f"   {r}")
+        print("\n" + "═" * 60)
+        print("📝 生成演示审计报告...")
+        报告 = 调节器.生成审计报告(结果)
+        print(f"   {报告}")
+        return
+
+if __name__ == "__main__":
+    main()

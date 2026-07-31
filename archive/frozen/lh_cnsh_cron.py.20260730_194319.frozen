@@ -1,0 +1,508 @@
+#!/usr/bin/env python3
+#龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_cnsh_cron-INTEGRATION-SYSTEM
+# CREATOR: 诸葛鑫 (UID9622)
+# PROTOCOL: CC BY-NC-SA 4.0
+# -*- coding: utf-8 -*-
+# DNA: #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_cnsh_cron-INTEGRATION-SYSTEM
+
+"""🐉 龍魂引擎：lh_cnsh_cron
+路径：bin/lh_cnsh_cron.py
+TODO：请补充详细功能说明（不少于20字）。"""
+import os as _os
+import sys as _sys
+_module_dir = _os.path.dirname(_os.path.abspath(__file__))
+if _module_dir not in _sys.path:
+    _sys.path.insert(0, _module_dir)
+"""
+CNSH 定时任务 v1.0
+底座自动巡检 + 生态变量清洗 + 语义分层报告
+原则：
+  - 一世一双人：唯一合法 UID = UID9622
+  - 每次巡检先洗变量，再过生态监管
+  - 老百姓/开发者/监管者三种报告分层输出
+  - 非 UID9622 调用 → 告警 + 断联
+DNA: #龍芯⚡️2026-06-29-CNSH-SCHEDULER-UID9622
+"""
+
+import argparse
+import json
+import os
+import re
+import secrets
+import sys
+import threading
+import time
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+from typing import Any, Callable, Dict, List, Optional
+
+from CNSH_国密工具 import SM3, hmac_sm3, 生成随机密钥
+from CNSH_龍魂宝宝指令中枢 import CNSH_龍魂宝宝指令中枢
+from CNSH_生态监管协议 import CNSH_生态监管协议, 创作等级
+from CNSH_颜色不动点协议 import CNSH_颜色不动点协议
+
+
+# ============== 一世一双人：唯一合法主权 UID ==============
+合法UID = "UID9622"
+合法昵称 = "老大"
+
+
+class CNSH_定时任务:
+    """
+    龍魂底座自动巡检守护进程。
+    老百姓看结果，开发者看指标，监管者看合规。
+    """
+
+    def __init__(self, 工作目录: str = "./CNSH_定时数据"):
+        self.工作目录 = Path(工作目录).resolve()
+        self.工作目录.mkdir(parents=True, exist_ok=True)
+        (self.工作目录 / "巡检报告").mkdir(exist_ok=True)
+        (self.工作目录 / "日志").mkdir(exist_ok=True)
+
+        self.中枢 = CNSH_龍魂宝宝指令中枢()
+        self.监管 = CNSH_生态监管协议(工作目录=str(self.工作目录 / "监管数据"))
+        self.颜色协议 = CNSH_颜色不动点协议()
+        self._运行中 = False
+        self._线程: Optional[threading.Thread] = None
+        self._定时器: Optional[threading.Timer] = None
+        self._告警记录: List[Dict[str, Any]] = []
+        self._心跳计数 = 0
+        self._绑定密钥 = self._加载或生成绑定密钥()
+
+    # ============== 一世一双人：UID9622 绑定令牌 ==============
+    def _加载或生成绑定密钥(self) -> bytes:
+        密钥路径 = self.工作目录 / "uid9622.token"
+        if 密钥路径.exists():
+            return bytes.fromhex(密钥路径.read_text(encoding="utf-8").strip())
+        密钥 = 生成随机密钥()
+        密钥路径.write_text(密钥.hex(), encoding="utf-8")
+        return 密钥
+
+    def _生成绑定令牌(self, 时间戳: str) -> str:
+        """HMAC-SM3(UID9622 + 时间戳, 绑定密钥)"""
+        原料 = f"{合法UID}:{时间戳}".encode("utf-8")
+        return hmac_sm3(self._绑定密钥, 原料)
+
+    def _校验主权绑定(self) -> Dict[str, Any]:
+        """
+        一世一双人核心检查：
+        1. 绑定密钥存在
+        2. 能生成并自校验 HMAC 令牌
+        3. 监管库中没有非 UID9622 的越权创作者
+        """
+        时间戳 = datetime.now(timezone.utc).strftime("%Y%m%d")
+        预期令牌 = self._生成绑定令牌(时间戳)
+        实际令牌 = self._生成绑定令牌(时间戳)
+        令牌一致 = secrets.compare_digest(预期令牌, 实际令牌)
+
+        越权UID = [uid for uid in self.监管.创作者库 if uid != 合法UID]
+        if 越权UID:
+            for uid in 越权UID:
+                self._触发告警("越权创作者", f"检测到非 UID9622 创作者: {uid}")
+                if uid not in self.监管.断联列表:
+                    self.监管.断联列表.append(uid)
+            self.监管._保存()
+
+        return {
+            "绑定通过": 令牌一致 and len(越权UID) == 0,
+            "令牌一致": 令牌一致,
+            "越权UID": 越权UID,
+            "断联列表": self.监管.断联列表,
+        }
+
+    # ============== 生态变量清洗 ==============
+    def _洗变量(self, 作用域: Path) -> Dict[str, Any]:
+        """
+        扫描作用域内 .py / .json 文件，检查：
+        - DNA 标记缺失
+        - 繁体龍字被简化
+        - 抹痕关键词
+        """
+        风险文件 = []
+        抹痕关键词 = ["strip watermark", "remove dna", "delete author", "去掉水印", "删除DNA", "抹掉来源"]
+
+        for 路径 in 作用域.rglob("*"):
+            if not 路径.is_file():
+                continue
+            if 路径.suffix not in (".py", ".json", ".md"):
+                continue
+            try:
+                内容 = 路径.read_text(encoding="utf-8", errors="replace")
+            except Exception:
+                continue
+
+            问题 = []
+            if "#龍芯⚡️" not in 内容 and 路径.suffix in (".py", ".md"):
+                问题.append("缺失 #龍芯⚡️ DNA 标记")
+            if re.search(r"(?i)(龙芯|龙魂|龙字)", 内容):
+                问题.append("繁体龍字被简化")
+            for 词 in 抹痕关键词:
+                if 词.lower() in 内容.lower():
+                    问题.append(f"疑似抹痕关键词: {词}")
+                    break
+
+            if 问题:
+                风险文件.append({"路径": str(路径.relative_to(作用域)), "问题": 问题})
+                for p in 问题:
+                    self._触发告警("变量清洗", f"{路径.relative_to(作用域)}: {p}")
+
+        return {
+            "扫描文件数": len(list(作用域.rglob("*"))),
+            "风险文件数": len(风险文件),
+            "风险文件": 风险文件,
+        }
+
+    def _触发告警(self, 类型: str, 说明: str):
+        事件 = {
+            "警报ID": secrets.token_hex(8).upper(),
+            "类型": 类型,
+            "说明": 说明,
+            "时间": datetime.now(timezone.utc).isoformat(),
+        }
+        self._告警记录.append(事件)
+        self.监管._发警报(事件)
+
+    # ============== 巡检任务 ==============
+    def _每日自检(self) -> Dict[str, Any]:
+        结果 = self.中枢.每日自检()
+        底座状态 = {
+            "国密可用": self.中枢.国密工具 is not None,
+            "知识库存在": self.中枢.知识库.路径.exists(),
+            "通知配置存在": self.中枢.通知归档.smtp可用() or self.中枢.通知归档.notion可用(),
+        }
+        return {"任务": "每日自检", "中枢自检": 结果, "底座状态": 底座状态}
+
+    def _每周审计(self) -> Dict[str, Any]:
+        目录审计结果 = self.中枢.执行("宝宝，扫描当前目录")
+        流场健康 = self.中枢.流场健康度实例.计算()
+        return {
+            "任务": "每周审计",
+            "目录审计": 目录审计结果.get("执行结果", {}).get("目录审计", {}),
+            "流场健康": 流场健康,
+        }
+
+    def _生态心跳(self) -> Dict[str, Any]:
+        self._心跳计数 += 1
+        绑定 = self._校验主权绑定()
+        清洗 = self._洗变量(Path(self.中枢.工作目录))
+        return {
+            "任务": "生态心跳",
+            "心跳计数": self._心跳计数,
+            "主权绑定": 绑定,
+            "变量清洗": 清洗,
+        }
+
+    # ============== 生态监管登记 ==============
+    def _登记巡检创作(self, 报告哈希: str, 报告路径: str) -> Dict[str, Any]:
+        if 合法UID not in self.监管.创作者库:
+            self.监管.注册创作者(合法UID, 合法昵称, 专业认证=["龍魂系统创始人"])
+        self.监管.创作者库[合法UID].活跃度 += 1
+        self.监管.创作者库[合法UID].等级 = self.监管._计算等级(self.监管.创作者库[合法UID])
+        self.监管._保存()
+
+        六层 = {
+            "道统层": "龍魂系统 · CNSH 生态 · UID9622 主权",
+            "精神层": "底座自动巡检 · 为人民服务 · 只增不减",
+            "设备层": f"{os.uname().nodename if hasattr(os, 'uname') else 'localhost'} · Python{sys.version_info.major}.{sys.version_info.minor}",
+            "技术层": "Python3 · SM3/SM4 · HMAC-SM3 · CNSH",
+            "系统层": "CNSH_定时任务.py · CNSH_龍魂宝宝指令中枢",
+            "生命层": f"{合法UID} · {合法昵称}",
+        }
+        return self.监管.创作登记(合法UID, 报告哈希, "系统", 六层)
+
+    # ============== 语义分层报告 ==============
+    def _生成老百姓报告(self, 结果: Dict[str, Any]) -> str:
+        颜色状态 = 结果.get("颜色状态", {})
+        总体 = f"{颜色状态.get('emoji', '⚪')} {颜色状态.get('颜色名', '未知')}灯"
+        告警数 = len(self._告警记录)
+        断联数 = len(self.监管.断联列表)
+
+        行 = []
+        行.append("=" * 50)
+        行.append("龍魂系统每日体检报告 · 老百姓版")
+        行.append("=" * 50)
+        行.append(f"体检时间：{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')}")
+        行.append(f"总体状态：{总体}")
+        行.append("")
+        行.append("【身体咋样】")
+        三色 = 结果.get("三色摘要", {"🟢": 0, "🟡": 0, "🔴": 0})
+        行.append(f"  今天查了 {结果.get('任务数', 0)} 项，红绿灯情况：")
+        行.append(f"    绿灯 {三色['🟢']} 个 · 黄灯 {三色['🟡']} 个 · 红灯 {三色['🔴']} 个")
+        行.append("")
+        行.append("【有没有坏人】")
+        if 告警数 == 0 and 断联数 == 0:
+            行.append("  没有异常，没人乱动系统，放心。")
+        else:
+            行.append(f"  发现 {告警数} 条告警，{断联数} 个被断联。")
+            for a in self._告警记录[-3:]:
+                行.append(f"    · {a['类型']}: {a['说明']}")
+        行.append("")
+        行.append("【该咋办】")
+        主色 = 颜色状态.get("主色", "Y")
+        if 主色 == "G":
+            行.append("  系统挺稳，保持现状，继续为人民服务。")
+        elif 主色 == "Y":
+            行.append("  有点小毛病，建议看看黄灯项，补补 DNA 或配置。")
+        else:
+            行.append("  有红灯，建议马上人工复核，别拖着。")
+        行.append("")
+        行.append(f"DNA: #龍芯⚡️{datetime.now(timezone.utc).strftime('%Y-%m-%d')}-SCHEDULER-{合法UID}")
+        行.append("=" * 50)
+        return "\n".join(行)
+
+    def _生成开发者报告(self, 结果: Dict[str, Any]) -> str:
+        行 = []
+        行.append("=" * 60)
+        行.append("CNSH Scheduler Report · Developer")
+        行.append("=" * 60)
+        行.append(f"generated_at: {datetime.now(timezone.utc).isoformat()}")
+        行.append(f"tasks: {json.dumps(结果.get('任务详情', {}), ensure_ascii=False, indent=2)}")
+        行.append(f"alerts: {len(self._告警记录)}")
+        for a in self._告警记录:
+            行.append(f"  [{a['时间']}] {a['类型']}: {a['说明']}")
+        行.append(f"dna_integrity: {结果.get('DNA完整性', 'unknown')}")
+        行.append(f"sovereignty: {结果.get('主权绑定', {})}")
+        行.append("=" * 60)
+        return "\n".join(行)
+
+    def _生成监管者报告(self, 结果: Dict[str, Any]) -> str:
+        行 = []
+        行.append("╔" + "═" * 60 + "╗")
+        行.append("║" + " " * 14 + "CNSH 监管合规报告" + " " * 27 + "║")
+        行.append("╠" + "═" * 60 + "╣")
+        行.append(f"║ 报告时间: {datetime.now(timezone.utc).isoformat():<43} ║")
+        行.append(f"║ 合法 UID: {合法UID:<49} ║")
+        行.append(f"║ 主权绑定: {'通过' if 结果.get('主权绑定', {}).get('绑定通过') else '异常':<49} ║")
+        行.append(f"║ DNA 完整性: {结果.get('DNA完整性', 'unknown'):<47} ║")
+        行.append(f"║ 告警数量: {len(self._告警记录):<49} ║")
+        行.append(f"║ 断联数量: {len(self.监管.断联列表):<49} ║")
+        行.append("╠" + "═" * 60 + "╣")
+        行.append("║ 六层来源链:")
+        行[-1] += " " * (60 - len(行[-1]) - 1) + "║"
+        for k, v in (结果.get("六层来源链") or {}).items():
+            行.append(f"║   {k}: {v[:44]:<44} ║")
+        行.append("╚" + "═" * 60 + "╝")
+        return "\n".join(行)
+
+    def _汇总三色(self, 结果: Dict[str, Any]) -> Dict[str, int]:
+        摘要 = {"🟢": 0, "🟡": 0, "🔴": 0}
+
+        def _遍历(obj):
+            if isinstance(obj, dict):
+                if "三色摘要" in obj and isinstance(obj["三色摘要"], dict):
+                    for k in "🟢🟡🔴":
+                        摘要[k] += obj["三色摘要"].get(k, 0)
+                for v in obj.values():
+                    _遍历(v)
+            elif isinstance(obj, list):
+                for item in obj:
+                    _遍历(item)
+
+        _遍历(结果.get("任务详情", {}))
+        return 摘要
+
+    # ============== 主执行流程 ==============
+    def 执行全部任务(self) -> Dict[str, Any]:
+        开始时间 = datetime.now(timezone.utc)
+        self._告警记录 = []
+
+        # 前置：主权绑定 + 变量清洗
+        绑定结果 = self._校验主权绑定()
+        清洗结果 = self._洗变量(Path(self.中枢.工作目录))
+
+        if not 绑定结果["绑定通过"]:
+            self._触发告警("主权绑定失败", "UID9622 绑定校验未通过，进入只读保护")
+            return {
+                "ok": False,
+                "状态": "断联保护",
+                "原因": "主权绑定失败",
+                "告警": self._告警记录,
+            }
+
+        # 执行巡检
+        任务详情 = {
+            "每日自检": self._每日自检(),
+            "每周审计": self._每周审计(),
+            "生态心跳": self._生态心跳(),
+        }
+
+        三色 = self._汇总三色({"任务详情": 任务详情})
+        总体状态 = "🟢" if 三色["🔴"] == 0 and 三色["🟡"] == 0 else "🟡" if 三色["🔴"] == 0 else "🔴"
+
+        # 颜色不动点：把整体巡检状态落到颜色上
+        巡检颜色主色 = "G" if 总体状态 == "🟢" else "Y" if 总体状态 == "🟡" else "R"
+        巡检颜色色带 = ["K"] + [巡检颜色主色] * 6 + (["Y"] if 巡检颜色主色 == "R" else ["B"]) * 4 + ["K"]
+        颜色状态 = {
+            "主色": 巡检颜色主色,
+            "颜色名": {"G": "绿色", "Y": "黄色", "R": "红色"}.get(巡检颜色主色, "未知"),
+            "emoji": {"G": "🟢", "Y": "🟡", "R": "🔴"}.get(巡检颜色主色, "⚪"),
+            "含义": "系统健康" if 巡检颜色主色 == "G" else "需关注" if 巡检颜色主色 == "Y" else "存在红线/告警",
+            "色带": 巡检颜色色带,
+            "银色跑马灯": False,
+        }
+
+        结果 = {
+            "ok": True,
+            "状态": 总体状态,
+            "颜色状态": 颜色状态,
+            "任务数": len(任务详情),
+            "任务详情": 任务详情,
+            "三色摘要": 三色,
+            "主权绑定": 绑定结果,
+            "变量清洗": 清洗结果,
+            "告警": self._告警记录,
+            "DNA完整性": "完整" if 清洗结果["风险文件数"] == 0 else f"{清洗结果['风险文件数']} 个文件需补 DNA",
+        }
+
+        # 后置：登记创作
+        报告文本 = json.dumps(结果, sort_keys=True, ensure_ascii=False)
+        报告哈希 = SM3.hex_hash(报告文本)
+        登记 = self._登记巡检创作(报告哈希, "")
+        结果["创作登记"] = 登记
+        结果["六层来源链"] = {
+            "道统层": "龍魂系统 · CNSH 生态 · UID9622 主权",
+            "精神层": "底座自动巡检 · 为人民服务 · 只增不减",
+            "设备层": f"{os.uname().nodename if hasattr(os, 'uname') else 'localhost'}",
+            "技术层": "Python3 · SM3/SM4 · HMAC-SM3 · CNSH",
+            "系统层": "CNSH_定时任务.py · CNSH_龍魂宝宝指令中枢",
+            "生命层": f"{合法UID} · {合法昵称}",
+        }
+
+        # 保存三种报告
+        时间戳 = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        报告目录 = self.工作目录 / "巡检报告"
+        老百姓路径 = 报告目录 / f"巡检报告_老百姓_{时间戳}.txt"
+        开发者路径 = 报告目录 / f"巡检报告_开发者_{时间戳}.txt"
+        监管者路径 = 报告目录 / f"巡检报告_监管者_{时间戳}.txt"
+
+        老百姓路径.write_text(self._生成老百姓报告(结果), encoding="utf-8")
+        开发者路径.write_text(self._生成开发者报告(结果), encoding="utf-8")
+        监管者路径.write_text(self._生成监管者报告(结果), encoding="utf-8")
+
+        结果["报告路径"] = {
+            "老百姓": str(老百姓路径),
+            "开发者": str(开发者路径),
+            "监管者": str(监管者路径),
+        }
+        结果["耗时秒"] = round((datetime.now(timezone.utc) - 开始时间).total_seconds(), 2)
+
+        # 写入中枢知识库
+        try:
+            self.中枢.知识库.追加(
+                标题=f"定时巡检 {时间戳}",
+                文件路径=str(开发者路径),
+                核心概念=["定时任务", "生态监管", "底座巡检"],
+                DNA=结果["创作登记"].get("人物属性DNA", "") if 结果.get("创作登记") else "",
+                三色摘要=三色,
+                输入SM3哈希=报告哈希,
+                备注=f"总体状态 {总体状态}，告警 {len(self._告警记录)} 条",
+            )
+        except Exception as e:
+            self._触发告警("知识库归档失败", str(e))
+
+        self._保存日志(结果)
+        return 结果
+
+    def _保存日志(self, 结果: Dict[str, Any]):
+        日志路径 = self.工作目录 / "日志" / f"scheduler_{datetime.now(timezone.utc).strftime('%Y%m%d')}.jsonl"
+        日志路径.parent.mkdir(parents=True, exist_ok=True)
+        with open(日志路径, "a", encoding="utf-8") as f:
+            f.write(json.dumps({
+                "时间": datetime.now(timezone.utc).isoformat(),
+                "状态": 结果.get("状态"),
+                "三色摘要": 结果.get("三色摘要"),
+                "告警数": len(self._告警记录),
+                "报告路径": 结果.get("报告路径"),
+            }, ensure_ascii=False) + "\n")
+
+    # ============== 守护模式 ==============
+    def _下次触发时间(self, 小时: int, 分钟: int, 仅工作日: bool = False) -> float:
+        """返回距离下一个目标时间的秒数。"""
+        现在 = datetime.now(timezone.utc)
+        目标 = 现在.replace(hour=小时, minute=分钟, second=0, microsecond=0)
+        if 目标 <= 现在:
+            目标 += timedelta(days=1)
+        if 仅工作日:
+            while 目标.weekday() >= 5:  # 5=周六,6=周日
+                目标 += timedelta(days=1)
+        return (目标 - 现在).total_seconds()
+
+    def _调度循环(self):
+        while self._运行中:
+            if (self.工作目录 / "STOP").exists():
+                self._运行中 = False
+                break
+
+            # 每日自检：每天 8:57
+            下次每日 = self._下次触发时间(8, 57)
+            # 每周审计：周一 9:07
+            现在 = datetime.now(timezone.utc)
+            到周一 = (7 - 现在.weekday()) % 7
+            下周目标 = (现在 + timedelta(days=到周一)).replace(hour=9, minute=7, second=0, microsecond=0)
+            if 下周目标 <= 现在:
+                下周目标 += timedelta(days=7)
+            下次每周 = (下周目标 - 现在).total_seconds()
+
+            最小等待 = max(1, min(下次每日, 下次每周, 300))  # 每 5 分钟至少心跳一次
+            self._定时器 = threading.Timer(最小等待, self._tick)
+            self._定时器.start()
+            self._定时器.join()
+
+    def _tick(self):
+        if not self._运行中:
+            return
+        现在 = datetime.now(timezone.utc)
+        if 现在.hour == 8 and 现在.minute == 57:
+            self.执行全部任务()
+        elif 现在.weekday() == 0 and 现在.hour == 9 and 现在.minute == 7:
+            self.执行全部任务()
+        else:
+            # 生态心跳
+            self._生态心跳()
+
+    def 启动守护(self):
+        if self._运行中:
+            return {"状态": "已在运行"}
+        self._运行中 = True
+        self._线程 = threading.Thread(target=self._调度循环, daemon=True)
+        self._线程.start()
+        return {"状态": "守护已启动", "工作目录": str(self.工作目录), "停止方式": f"touch {self.工作目录}/STOP"}
+
+    def 停止守护(self):
+        self._运行中 = False
+        if self._定时器:
+            self._定时器.cancel()
+        if self._线程:
+            self._线程.join(timeout=2)
+        return {"状态": "已停止"}
+
+
+# ============== 入口 ==============
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="CNSH 定时任务 · 底座自动巡检")
+    parser.add_argument("--daemon", action="store_true", help="后台守护模式")
+    parser.add_argument("--stop", action="store_true", help="停止守护模式（创建 STOP 文件）")
+    parser.add_argument("--workdir", default="./CNSH_定时数据", help="工作目录")
+    args = parser.parse_args()
+
+    scheduler = CNSH_定时任务(工作目录=args.workdir)
+
+    if args.stop:
+        stop_file = Path(args.workdir) / "STOP"
+        stop_file.write_text("stop", encoding="utf-8")
+        print(f"已创建停止信号: {stop_file}")
+        sys.exit(0)
+
+    if args.daemon:
+        info = scheduler.启动守护()
+        print(json.dumps(info, ensure_ascii=False, indent=2))
+        try:
+            while scheduler._运行中:
+                time.sleep(1)
+        except KeyboardInterrupt:
+            scheduler.停止守护()
+            print("\n已停止守护")
+    else:
+        result = scheduler.执行全部任务()
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        print("\n" + Path(result["报告路径"]["老百姓"]).read_text(encoding="utf-8"))

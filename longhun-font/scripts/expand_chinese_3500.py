@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-EXPAND-CHINESE-3500-v1.0
 # 龍魂·LonghunFont 中文字元扩展脚本

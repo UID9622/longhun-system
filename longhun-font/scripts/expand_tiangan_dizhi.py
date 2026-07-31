@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-FRAGMENT-TIANGAN_DIZHI-v1.0
 """
 LonghunFont fragment generator: 天干地支 symbolic icons.

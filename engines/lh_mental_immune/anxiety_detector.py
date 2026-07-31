@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 """
 龍魂·精神体温计 — 焦虑检测引擎 v1.0

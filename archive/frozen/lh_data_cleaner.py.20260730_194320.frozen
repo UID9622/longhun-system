@@ -1,0 +1,376 @@
+#!/usr/bin/env python3
+"""
+龍魂·训练数据清洗引擎 v1.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·讼-LH-DATA-CLEANER-v1.0
+
+清洗流程:
+1. 去除HTML标签 → 纯文本
+2. 去除广告/导航/版权声明
+3. 提取正文（排除header/footer/sidebar）
+4. 去重（基于内容哈希）
+5. 质量过滤（长度/语言/乱码检测）
+6. 敏感信息过滤
+7. 格式标准化
+8. DNA绑定
+
+用法:
+    python3 lh_data_cleaner.py                           # 清洗所有已拉取内容
+    python3 lh_data_cleaner.py --input fetched/CN-001_*.jsonl  # 清洗指定文件
+    python3 lh_data_cleaner.py --dedup-only              # 仅去重
+    python3 lh_data_cleaner.py --stats                   # 查看清洗统计
+"""
+
+import json
+import os
+import re
+import hashlib
+import argparse
+from pathlib import Path
+from datetime import datetime, timezone, timedelta
+from collections import defaultdict
+from typing import Any
+
+CST = timezone(timedelta(hours=8))
+BASE_DIR = Path(__file__).parent
+FETCHED_DIR = BASE_DIR / "fetched"
+CLEANED_DIR = BASE_DIR / "cleaned"
+TRAIN_DIR = BASE_DIR / "train"
+LOGS_DIR = BASE_DIR / "logs"
+
+# 清洗统计
+CLEAN_STATS_FILE = BASE_DIR / "clean_stats.json"
+
+# === 质量阈值 ===
+MIN_TEXT_LENGTH = 100      # 最短文本长度
+MAX_TEXT_LENGTH = 10000    # 最长文本长度
+MIN_CHINESE_RATIO = 0.3    # 最低中文比例
+MAX_REPEAT_LINE_RATIO = 0.3  # 最大重复行比例
+
+# === 广告/导航关键词 ===
+AD_PATTERNS = [
+    r'(广告|推广|赞助|AD|Advertisement)',
+    r'(版权所有|Copyright\s*©|All Rights Reserved)',
+    r'(首页|导航|关于我们|联系我们|登录|注册|搜索)',
+    r'(分享到|收藏|点赞|评论|转发)',
+    r'(上一篇|下一篇|相关推荐|热门文章)',
+    r'(扫码|关注|二维码|公众号)',
+    r'(点击购买|立即购买|加入购物车)',
+    r'(\d{3,}-\d{3,}-\d{3,})',  # 电话号码
+]
+
+# === 敏感信息模式 ===
+SENSITIVE_PATTERNS = [
+    r'\b\d{15,19}\b',     # 身份证号/银行卡号
+    r'\b1[3-9]\d{9}\b',   # 手机号
+    r'\b[\w.-]+@[\w.-]+\.\w+\b',  # 邮箱
+]
+
+# 创建目录
+for d in [CLEANED_DIR, TRAIN_DIR, LOGS_DIR]:
+    d.mkdir(parents=True, exist_ok=True)
+
+
+class TextQuality:
+    """文本质量检测"""
+    @staticmethod
+    def chinese_ratio(text: str) -> float:
+        if not text:
+            return 0.0
+        chinese_chars = len(re.findall(r'[\u4e00-\u9fff]', text))
+        return chinese_chars / len(text) if len(text) > 0 else 0.0
+
+    @staticmethod
+    def is_garbled(text: str) -> bool:
+        """检测乱码"""
+        if not text:
+            return True
+        # 连续3个以上非ASCII/中文/常见标点字符
+        garbled = re.findall(r'[^\x00-\x7f\u4e00-\u9fff\u3000-\u303f\uff00-\uffef]{3,}', text)
+        return len(''.join(garbled)) > len(text) * 0.1
+
+    @staticmethod
+    def repeat_ratio(text: str) -> float:
+        """检测重复行比例"""
+        lines = [l.strip() for l in text.split('\n') if l.strip()]
+        if not lines:
+            return 1.0
+        unique_lines = len(set(lines))
+        return 1.0 - (unique_lines / len(lines))
+
+    @staticmethod
+    def quality_score(text: str) -> tuple[Any, ...]:
+        """综合质量评分"""
+        ch_ratio = TextQuality.chinese_ratio(text)
+        is_garb = TextQuality.is_garbled(text)
+        rep_ratio = TextQuality.repeat_ratio(text)
+
+        issues = []
+        if len(text) < MIN_TEXT_LENGTH:
+            issues.append(f"文本过短({len(text)}字)")
+        if len(text) > MAX_TEXT_LENGTH:
+            issues.append(f"文本过长({len(text)}字)")
+        if ch_ratio < MIN_CHINESE_RATIO:
+            issues.append(f"中文占比过低({ch_ratio:.1%})")
+        if is_garb:
+            issues.append("疑似乱码")
+        if rep_ratio > MAX_REPEAT_LINE_RATIO:
+            issues.append(f"重复行过多({rep_ratio:.1%})")
+
+        score = 1.0
+        if issues:
+            score = max(0.0, 1.0 - len(issues) * 0.25)
+
+        return score, issues
+
+
+class DataCleaner:
+    """数据清洗引擎"""
+
+    def __init__(self):
+        self.stats = self._load_stats()
+        self.seen_hashes = set()  # 去重哈希集
+        self._load_existing_hashes()
+
+    def _load_stats(self) -> dict[str, Any]:
+        if CLEAN_STATS_FILE.exists():
+            with open(CLEAN_STATS_FILE) as f:
+                return json.load(f)
+        return {"total_cleaned": 0, "total_filtered": 0, "sessions": []}
+
+    def _save_stats(self):
+        with open(CLEAN_STATS_FILE, 'w') as f:
+            json.dump(self.stats, f, ensure_ascii=False, indent=2)
+
+    def _load_existing_hashes(self):
+        """加载已有清洗数据的哈希"""
+        for f in sorted(CLEANED_DIR.glob("*.jsonl")):
+            try:
+                with open(f) as fh:
+                    for line in fh:
+                        item = json.loads(line.strip())
+                        h = item.get('metadata', {}).get('content_hash', '')
+                        if h:
+                            self.seen_hashes.add(h)
+            except Exception:
+                continue
+
+    def log(self, msg: str):
+        timestamp = datetime.now(CST).strftime("%Y-%m-%d %H:%M:%S")
+        print(f"[{timestamp}] {msg}")
+        with open(LOGS_DIR / f"clean_{datetime.now(CST).strftime('%Y%m%d')}.log", 'a') as f:
+            f.write(f"[{timestamp}] {msg}\n")
+
+    def clean_text(self, text: str) -> str:
+        """清洗单段文本"""
+        if not text:
+            return ""
+
+        # 1. 去除多余空白
+        text = re.sub(r'\s+', ' ', text)
+
+        # 2. 去除广告模式
+        for pattern in AD_PATTERNS:
+            text = re.sub(pattern, '', text)
+
+        # 3. 去除敏感信息
+        for pattern in SENSITIVE_PATTERNS:
+            text = re.sub(pattern, '[已过滤]', text)
+
+        # 4. 去除HTML实体
+        text = text.replace('&nbsp;', ' ').replace('&lt;', '<').replace('&gt;', '>')
+        text = text.replace('&amp;', '&').replace('&quot;', '"').replace('&#39;', "'")
+
+        # 5. 标准化
+        text = text.strip()
+
+        return text
+
+    def clean_article(self, article: dict[str, Any]) -> dict[str, Any]:
+        """清洗单篇文章"""
+        cleaned = article.copy()
+
+        # 清洗标题
+        if 'title' in cleaned:
+            cleaned['title'] = self.clean_text(cleaned['title'])
+
+        # 清洗正文
+        if 'content' in cleaned:
+            cleaned['content'] = self.clean_text(cleaned['content'])
+
+        # 质量检测
+        content = cleaned.get('content', '')
+        score, issues = TextQuality.quality_score(content)
+
+        cleaned['quality'] = {
+            'score': score,
+            'issues': issues,
+            'length': len(content),
+            'chinese_ratio': TextQuality.chinese_ratio(content),
+        }
+
+        return cleaned
+
+    def is_duplicate(self, article: dict[str, Any]) -> bool:
+        """检查是否重复"""
+        content = article.get('content', '')
+        h = hashlib.sha256(content.encode()).hexdigest()[:16]
+        if h in self.seen_hashes:
+            return True
+        self.seen_hashes.add(h)
+        return False
+
+    def clean_file(self, input_path: Path) -> tuple[Any, ...]:
+        """清洗单个文件"""
+        cleaned_articles = []
+        filtered_count = 0
+
+        with open(input_path) as f:
+            for line in f:
+                try:
+                    article = json.loads(line.strip())
+                except json.JSONDecodeError:
+                    filtered_count += 1
+                    continue
+
+                # 清洗
+                article = self.clean_article(article)
+
+                # 质量过滤
+                if article['quality']['score'] < 0.5:
+                    filtered_count += 1
+                    self.log(f"  过滤: {article.get('title', '无标题')[:50]} - {article['quality']['issues']}")
+                    continue
+
+                # 去重
+                if self.is_duplicate(article):
+                    filtered_count += 1
+                    continue
+
+                # 更新DNA
+                if 'metadata' in article:
+                    article['metadata']['cleaned_at'] = datetime.now(CST).isoformat()
+                    article['metadata']['cleaned_dna'] = f"#龍芯⚡️CLEAN-{article['metadata'].get('dna', 'UNKNOWN')[:32]}"
+
+                cleaned_articles.append(article)
+
+        return cleaned_articles, filtered_count
+
+    def run(self, input_pattern: str | None = None):
+        """执行清洗"""
+        self.log("🧹 龍魂数据清洗引擎启动")
+
+        if input_pattern:
+            input_files = list(BASE_DIR.glob(input_pattern))
+        else:
+            input_files = sorted(FETCHED_DIR.glob("*.jsonl"))
+
+        if not input_files:
+            self.log("没有找到待清洗文件")
+            return 0, 0
+
+        self.log(f"待清洗文件: {len(input_files)} 个")
+
+        total_cleaned = 0
+        total_filtered = 0
+
+        for input_path in input_files:
+            self.log(f"  清洗: {input_path.name}")
+            cleaned, filtered = self.clean_file(input_path)
+            total_cleaned += len(cleaned)
+            total_filtered += filtered
+
+            if cleaned:
+                # 保存清洗后数据
+                output_name = input_path.stem + "_cleaned.jsonl"
+                output_path = CLEANED_DIR / output_name
+                with open(output_path, 'w') as f:
+                    for article in cleaned:
+                        f.write(json.dumps(article, ensure_ascii=False) + '\n')
+                self.log(f"    → {output_name} ({len(cleaned)} 条)")
+
+        # 更新统计
+        self.stats["total_cleaned"] += total_cleaned
+        self.stats["total_filtered"] += total_filtered
+        self.stats["sessions"].append({
+            "time": datetime.now(CST).isoformat(),
+            "files": len(input_files),
+            "cleaned": total_cleaned,
+            "filtered": total_filtered,
+        })
+        self._save_stats()
+
+        self.log(f"✅ 清洗完成: {total_cleaned} 条保留, {total_filtered} 条过滤")
+        return total_cleaned, total_filtered
+
+    def dedup_all(self):
+        """全局去重"""
+        self.log("🔍 全局去重...")
+        all_hashes = set()
+        dup_count = 0
+
+        for f in sorted(CLEANED_DIR.glob("*_cleaned.jsonl")):
+            output_lines = []
+            with open(f) as fh:
+                for line in fh:
+                    item = json.loads(line.strip())
+                    content = item.get('content', '')
+                    h = hashlib.sha256(content.encode()).hexdigest()[:16]
+                    if h in all_hashes:
+                        dup_count += 1
+                    else:
+                        all_hashes.add(h)
+                        output_lines.append(json.dumps(item, ensure_ascii=False))
+
+            # 覆写去重后的文件
+            with open(f, 'w') as fh:
+                for line in output_lines:
+                    fh.write(line + '\n')
+
+        self.log(f"  全局去重完成: 移除 {dup_count} 条重复")
+        return dup_count
+
+    def stats_report(self):
+        """显示清洗统计"""
+        print(f"\n🐉 龍魂数据清洗统计")
+        print(f"{'='*50}")
+        print(f"累计清洗: {self.stats['total_cleaned']} 条")
+        print(f"累计过滤: {self.stats['total_filtered']} 条")
+        print(f"清洗会话: {len(self.stats['sessions'])} 次")
+
+        # 各源统计
+        source_stats = defaultdict(lambda: {"cleaned": 0, "filtered": 0})
+        for f in sorted(CLEANED_DIR.glob("*_cleaned.jsonl")):
+            source_id = f.stem.split('_')[0]
+            try:
+                with open(f) as fh:
+                    count = sum(1 for _ in fh)
+                source_stats[source_id]["cleaned"] += count
+            except Exception:
+                pass
+
+        if source_stats:
+            print(f"\n各源已清洗:")
+            for sid, stats in sorted(source_stats.items()):
+                print(f"  {sid}: {stats['cleaned']} 条")
+        print(f"{'='*50}\n")
+
+
+def main():
+    parser = argparse.ArgumentParser(description="龍魂训练数据清洗引擎")
+    parser.add_argument('--input', help='指定输入文件glob模式')
+    parser.add_argument('--dedup-only', action='store_true', help='仅全局去重')
+    parser.add_argument('--stats', action='store_true', help='查看清洗统计')
+
+    args = parser.parse_args()
+    cleaner = DataCleaner()
+
+    if args.stats:
+        cleaner.stats_report()
+    elif args.dedup_only:
+        cleaner.dedup_all()
+    else:
+        cleaner.run(input_pattern=args.input)
+
+
+if __name__ == "__main__":
+    main()

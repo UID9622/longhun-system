@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- 龍魂·韬定律审计链校验 - macOS launchd 定时任务示例 -->
+    <!-- DNA: #龍芯⚡️丙午·乙未·辛酉·姤-TAO-LAW-INTEGRATED-v2.2 -->
+    
+    <key>Label</key>
+    <string>com.longhun.tao.audit-verifier</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/python3</string>
+        <string>/usr/local/longhun/engines/tao_scheduler.py</string>
+        <string>--verify-chain</string>
+    </array>
+    
+    <!-- 每小时运行一次审计链完整性校验 -->
+    <key>StartInterval</key>
+    <integer>3600</integer>
+    
+    <!-- 错过调度点时合并执行，不追跑 -->
+    <key>KeepAlive</key>
+    <false/>
+    
+    <!-- 日志路径 -->
+    <key>StandardOutPath</key>
+    <string>/var/log/longhun/tao_audit_verifier.out</string>
+    <key>StandardErrorPath</key>
+    <string>/var/log/longhun/tao_audit_verifier.err</string>
+    
+    <!-- 工作目录 -->
+    <key>WorkingDirectory</key>
+    <string>/usr/local/longhun</string>
+    
+    <!-- 以 root 运行，确保可读取审计日志 -->
+    <key>UserName</key>
+    <string>root</string>
+</dict>
+</plist>

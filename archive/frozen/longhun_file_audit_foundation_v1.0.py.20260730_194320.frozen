@@ -1,0 +1,861 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║  🐉 龍魂系统 · 文件底座审计                                                    ║
+# ║  DNA追溯码:#龍芯⚡️2026-06-18-LONGHUN_FILE_AUDIT_FOUNDATION_V1_8693-v1.0.0                  ║
+# ║  GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                           ║
+# ║  创始人: UID9622 · 龍芯北辰 · 诸葛鑫                                          ║
+# ║  协议: CC BY-NC-SA 4.0 + 君子协议                                           ║
+# ║  三色审计: 🟢通过(conf≥0.85) / 🟡警告(0.60≤conf<0.85) / 🔴阻断(conf<0.60)    ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║  CNSH · 中文原生脚本不可删除终端头                                            ║
+# ║  DNA:#龍芯⚡️2026-06-18-CNSH-TERMINAL-v2.0.0                                ║
+# ║  创始人: UID9622 · 龍芯北辰 · 诸葛鑫                                        ║
+# ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                             ║
+# ║  协议: CC BY-NC-SA 4.0 + 君子协议                                           ║
+# ║  此头不可删除 · 不可修改 · 不可迁移                                          ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+
+"""
+    ╔══════════════════════════════════════════════════════════════════════════╗
+    ║  AI Truth Protocol · 输出声明                                            ║
+    ║  本文件由AI辅助生成，经人类审查确认。所有内容符合八层内容主权协议。      ║
+    ║  AI生成内容已标记，创意归属于UID9622 · 龍芯北辰 · 诸葛鑫。               ║
+    ║  未经授权不得用于商业用途、模型训练或自动化内容提取。                    ║
+    ╚══════════════════════════════════════════════════════════════════════════╝
+
+    🐉 龍魂文件底座审计 (LongHun File Audit Foundation)
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    LongHun File Audit Foundation - File System Level Audit
+    文件系统级审计，监控文件变更和完整性
+    File system-level audit, monitoring file changes and integrity
+
+    核心功能 / Core Features:
+        - SHA256 文件完整性哈希计算
+        - 文件变更监控 (新增/修改/删除)
+        - 审计日志记录 (JSON格式持久化)
+        - 六层来源链盖章集成
+        - 三色审计系统集成
+
+    📜 版本历史 CHANGELOG
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    v1.0.0 [2026-06-18] 初始版本，实现核心文件审计功能
+                        - 新增: SHA256文件完整性哈希计算
+                        - 新增: 文件变更监控 (新增/修改/删除检测)
+                        - 新增: 审计日志记录系统 (JSON持久化)
+                        - 新增: 完整审计报告生成
+                        - 新增: 六层来源链盖章集成
+                        - 新增: 三色审计系统集成
+                        - 新增: 文件权限变更监控
+                        - 修复: def init → def __init__ (构造函数修正)
+
+    🔒 君子协议 / CC BY-NC-SA 4.0
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    本作品采用 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议
+    Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+    作者: UID9622 · 龍芯北辰 · 诸葛鑫
+    未经书面许可，不得用于商业用途、AI模型训练或自动化内容提取。
+    违反者将触发 🔴阻断级审计标记。
+
+    📡 六层来源链盖章 (SourceChain.stamp())
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    [✓] 道统层 · Taoist Heritage Layer    - 文化根源验证
+    [✓] 精神层 · Spiritual Layer          - 核心价值校准
+    [✓] 设备层 · Device Layer             - 硬件环境检查
+    [✓] 技术层 · Technical Layer          - 技术栈溯源
+    [✓] 系统层 · System Layer             - 系统完整性
+    [✓] 生命层 · Life Layer               - 创作者身份锚定
+"""
+
+from datetime import datetime
+from enum import Enum
+from pathlib import Path
+from typing import Dict, List, Optional, Any, Set, Tuple
+import hashlib
+import json
+import logging
+import os
+import stat
+import sys
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# 三色审计系统 / Three-Color Audit System
+# ═══════════════════════════════════════════════════════════════════════════════
+
+class AuditColor(Enum):
+    """三色审计标记 / Tricolor Audit Markers"""
+    GREEN = "🟢通过"    # conf ≥ 0.85 - Passed
+    YELLOW = "🟡警告"   # 0.60 ≤ conf < 0.85 - Warning
+    RED = "🔴阻断"      # conf < 0.60 - Blocked
+
+
+class ThreeColorAudit:
+    """
+    三色审计系统 / Three-Color Audit System
+    🟢 通过(conf≥0.85) · 🟡 警告(0.60≤conf<0.85) · 🔴 阻断(conf<0.60)
+    """
+
+    def __init__(self):
+        self.records: List[Dict[str, Any]] = []
+        self.stats = {AuditColor.GREEN.value: 0, AuditColor.YELLOW.value: 0, AuditColor.RED.value: 0}
+
+    def record(self, module: str, check: str, confidence: float,
+               message: str) -> str:
+        """记录审计结果 / Record audit result"""
+        if confidence >= 0.85:
+            color = AuditColor.GREEN.value
+        elif confidence >= 0.60:
+            color = AuditColor.YELLOW.value
+        else:
+            color = AuditColor.RED.value
+
+        record = {
+            "模块": module,
+            "检查项": check,
+            "结果": color,
+            "置信度": round(confidence, 4),
+            "信息": message,
+            "时间戳": datetime.now().isoformat()
+        }
+        self.records.append(record)
+        self.stats[color] += 1
+        return color
+
+    def summary(self) -> Dict[str, Any]:
+        """生成审计摘要 / Generate audit summary"""
+        total = len(self.records)
+        if total == 0:
+            return {"总数": 0, "状态": "未执行审计"}
+
+        if self.stats[AuditColor.RED.value] > 0:
+            overall = AuditColor.RED.value
+        elif self.stats[AuditColor.YELLOW.value] > 0:
+            overall = AuditColor.YELLOW.value
+        else:
+            overall = AuditColor.GREEN.value
+
+        return {
+            "总数": total,
+            "🟢通过": self.stats[AuditColor.GREEN.value],
+            "🟡警告": self.stats[AuditColor.YELLOW.value],
+            "🔴阻断": self.stats[AuditColor.RED.value],
+            "整体状态": overall,
+            "记录": self.records
+        }
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# 三层监督机制 / Three-Level Supervision System
+# ═══════════════════════════════════════════════════════════════════════════════
+
+class SupervisionLevel(Enum):
+    """
+    三层监督机制 / Three-Level Supervision System
+    L1逻辑层: algorithmic correctness / 算法正确性
+    L2价值观层: ethical alignment / 伦理对齐
+    L3技术层: implementation quality / 实现质量
+    """
+    L1_LOGIC = "L1逻辑层"       # Logic layer
+    L2_VALUES = "L2价值观层"    # Values layer
+    L3_TECH = "L3技术层"        # Tech layer
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# 铁律自审闸 / Iron Law Self-Audit Gate
+# ═══════════════════════════════════════════════════════════════════════════════
+
+class IronLawGate:
+    """
+    铁律自审闸 / Iron Law Self-Audit Gate
+    检查核心规范，确保“龍”不得简化等神圣规则
+    Checks sacred rules: traditional “龍”must not be simplified
+    """
+
+    SACRED_RULES = {
+        "铁律一": {
+            "描述": "繁体“龍”不得使用简体替代",
+            "描述_en": "Traditional '龍' must NOT use simplified variant",
+            "禁止模式": ["\u9f99"],
+            "严重级别": AuditColor.RED
+        },
+        "铁律二": {
+            "描述": "DNA追溯码必须存在且格式正确",
+            "描述_en": "DNA trace code must exist with correct format",
+            "验证": "dna_format",
+            "严重级别": AuditColor.RED
+        },
+        "铁律三": {
+            "描述": "CNSH终端头不可删除",
+            "描述_en": "CNSH terminal header must NOT be deleted",
+            "验证": "cnsh_header",
+            "严重级别": AuditColor.RED
+        }
+    }
+
+    def __init__(self):
+        self.violations: List[Dict[str, Any]] = []
+        self.passed = True
+
+    def audit(self, content: str, audit_system: ThreeColorAudit = None) -> Dict[str, Any]:
+        """执行铁律自审 / Execute iron law self-audit"""
+        self.violations = []
+        self.passed = True
+
+        if "\u9f99" in content:
+            self.violations.append({
+                "铁律": "铁律一", "问题": "发现简体龍字，必须使用繁体“龍”",
+                "级别": AuditColor.RED.value
+            })
+            self.passed = False
+
+        if "#龍芯⚡️" not in content and "#龍芯" not in content:
+            self.violations.append({
+                "铁律": "铁律二", "问题": "缺少DNA追溯码头部",
+                "级别": AuditColor.RED.value
+            })
+            self.passed = False
+
+        if "CNSH" not in content or "不可删除" not in content:
+            self.violations.append({
+                "铁律": "铁律三", "问题": "CNSH不可删除终端头缺失",
+                "级别": AuditColor.RED.value
+            })
+            self.passed = False
+
+        result = {"通过": self.passed, "违规数": len(self.violations),
+                  "违规详情": self.violations, "检查时间": datetime.now().isoformat()}
+
+        if audit_system:
+            conf = 1.0 if self.passed else 0.3
+            audit_system.record("IronLawGate", "铁律自审", conf,
+                f"发现 {len(self.violations)} 条违规" if self.violations else "所有铁律通过")
+        return result
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CNSH不可删除终端头 / CNSH Indelible Terminal Header
+# ═══════════════════════════════════════════════════════════════════════════════
+
+class CNSHTerminalHeader:
+    """
+    CNSH不可删除终端头 / CNSH Indelible Terminal Header
+    任何尝试删除或修改此头的行为都会触发🔴阻断
+    ANY attempt to delete or modify this header triggers 🔴 BLOCK
+    """
+
+    TEMPLATE = """# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║  CNSH · 中文原生脚本不可删除终端头                                          ║
+# ║  DNA: #龍芯⚡️{date}-CNSH-TERMINAL-v{version}                               ║
+# ║  创始人: UID9622 · 龍芯北辰 · 诸葛鑫                                        ║
+# ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                             ║
+# ║  协议: CC BY-NC-SA 4.0 + 君子协议                                           ║
+# ║  此头不可删除 · 不可修改 · 不可迁移                                          ║
+# ║  ANY DELETION/MODIFICATION TRIGGERS 🔴 BLOCK AUDIT                          ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝"""
+
+    @classmethod
+    def 生成(cls, 版本: str = "2.0.0") -> str:
+        """生成终端头 / Generate terminal header"""
+        return cls.TEMPLATE.format(
+            date=datetime.now().strftime('%Y-%m-%d'),
+            version=版本
+        )
+
+    @classmethod
+    def 验证完整性(cls, 文件内容: str, 版本: str = "2.0.0") -> Dict[str, Any]:
+        """验证终端头完整性 / Verify terminal header integrity"""
+        expected = cls.生成(版本)
+        present = expected.split("\n")[1] in 文件内容
+        return {
+            "完整": present,
+            "信息": "CNSH终端头存在且完整" if present else "⚠️ CNSH终端头缺失或被篡改！🔴阻断",
+            "严重级别": AuditColor.GREEN.value if present else AuditColor.RED.value
+        }
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# 文件变更类型 / File Change Types
+# ═══════════════════════════════════════════════════════════════════════════════
+
+class FileChangeType(Enum):
+    """文件变更类型 / File Change Type Enumeration"""
+    CREATED = "新增"      # File created
+    MODIFIED = "修改"     # File modified
+    DELETED = "删除"      # File deleted
+    PERMISSION_CHANGED = "权限变更"  # Permission changed
+    UNCHANGED = "未变更"  # No change
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# 六层来源链 / Six-Layer Source Chain
+# ═══════════════════════════════════════════════════════════════════════════════
+
+class SourceChain:
+    """
+    六层来源链盖章 / Six-Layer Source Chain Stamp
+    道统层→精神层→设备层→技术层→系统层→生命层
+    """
+
+    LAYERS = [
+        "道统层", "精神层", "设备层", "技术层", "系统层", "生命层"
+    ]
+
+    def __init__(self):
+        self.stamps: Dict[str, Dict[str, Any]] = {}
+
+    def stamp(self, layer: str, data: Dict[str, Any]) -> str:
+        """盖章 / Stamp a layer"""
+        if layer not in self.LAYERS:
+            raise ValueError(f"无效的来源链层级: {layer}")
+
+        timestamp = datetime.now().isoformat()
+        stamp_data = {
+            "层级": layer,
+            "时间戳": timestamp,
+            "数据": data,
+            "验证码": self._compute_stamp_hash(layer, data, timestamp),
+            "状态": "✓ 已盖章"
+        }
+        self.stamps[layer] = stamp_data
+        return stamp_data["验证码"]
+
+    def stamp_all(self, data_map: Dict[str, Dict[str, Any]]) -> Dict[str, str]:
+        """为所有六层盖章 / Stamp all six layers"""
+        results = {}
+        for layer in self.LAYERS:
+            layer_data = data_map.get(layer, {})
+            results[layer] = self.stamp(layer, layer_data)
+        return results
+
+    def _compute_stamp_hash(self, layer: str, data: Dict, timestamp: str) -> str:
+        """计算盖章验证码 / Compute stamp verification hash"""
+        payload = json.dumps({"layer": layer, "data": data, "ts": timestamp}, sort_keys=True)
+        return hashlib.sha256(payload.encode('utf-8')).hexdigest()[:16]
+
+    def verify_chain(self) -> Dict[str, Any]:
+        """验证完整来源链 / Verify complete source chain"""
+        results = {}
+        all_valid = True
+        for layer in self.LAYERS:
+            if layer in self.stamps:
+                stamp = self.stamps[layer]
+                recalculated = self._compute_stamp_hash(
+                    layer, stamp["数据"], stamp["时间戳"]
+                )
+                valid = recalculated == stamp["验证码"]
+                results[layer] = {"有效": valid, "时间戳": stamp["时间戳"], "验证码": stamp["验证码"]}
+                if not valid:
+                    all_valid = False
+            else:
+                results[layer] = {"有效": False, "原因": "未盖章"}
+                all_valid = False
+
+        return {"完整链有效": all_valid, "层级详情": results}
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# 文件审计记录 / File Audit Record
+# ═══════════════════════════════════════════════════════════════════════════════
+
+class FileAuditRecord:
+    """
+    文件审计记录 / File Audit Record
+    记录单个文件的审计信息
+    """
+
+    def __init__(self, file_path: str, file_hash: str, change_type: FileChangeType,
+                 previous_hash: str = "", details: Dict[str, Any] = None):
+        self.file_path = file_path          # 文件路径 / File path
+        self.file_hash = file_hash          # 当前哈希 / Current hash
+        self.change_type = change_type      # 变更类型 / Change type
+        self.previous_hash = previous_hash  # 先前哈希 / Previous hash
+        self.details = details or {}        # 附加详情 / Additional details
+        self.timestamp = datetime.now().isoformat()  # 时间戳 / Timestamp
+
+        # 文件元数据 / File metadata
+        try:
+            stat_info = os.stat(file_path)
+            self.size = stat_info.st_size                    # 文件大小
+            self.permissions = stat.S_IMODE(stat_info.st_mode)  # 权限
+            self.modified_time = stat_info.st_mtime           # 修改时间
+            self.created_time = stat_info.st_ctime            # 创建时间
+        except (OSError, FileNotFoundError):
+            self.size = 0
+            self.permissions = 0
+            self.modified_time = 0
+            self.created_time = 0
+
+    def to_dict(self) -> Dict[str, Any]:
+        """转换为字典 / Convert to dictionary"""
+        return {
+            "文件路径": self.file_path,
+            "当前哈希": self.file_hash,
+            "先前哈希": self.previous_hash if self.previous_hash else None,
+            "变更类型": self.change_type.value,
+            "文件大小": self.size,
+            "权限": oct(self.permissions),
+            "修改时间": self.modified_time,
+            "时间戳": self.timestamp,
+            "详情": self.details
+        }
+
+    def to_json(self) -> str:
+        """转换为JSON字符串 / Convert to JSON string"""
+        return json.dumps(self.to_dict(), ensure_ascii=False, indent=2)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# 文件审计底座 (核心类) / File Audit Foundation (Core Class)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+class 文件审计底座:
+    """
+    龍魂文件审计底座 / LongHun File Audit Foundation
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    文件系统级审计，监控文件变更和完整性
+    File system-level audit, monitoring file changes and integrity
+
+    核心功能 / Core Functions:
+        1. SHA256 文件完整性哈希计算 / SHA256 file integrity hash
+        2. 文件变更监控 / File change monitoring
+        3. 审计日志记录 / Audit logging
+        4. 完整审计报告生成 / Comprehensive audit report generation
+        5. 六层来源链盖章 / Six-layer source chain stamping
+    """
+
+    def __init__(self, 监控目录: str):
+        """
+        构造函数 / Constructor
+
+        参数 / Parameters:
+            监控目录: 需要监控的目录路径 / Directory path to monitor
+        """
+        self.监控目录 = os.path.abspath(监控目录)
+        self.审计日志: List[FileAuditRecord] = []
+        self.文件哈希表: Dict[str, str] = {}  # 路径→哈希映射 / path→hash mapping
+        self.文件权限表: Dict[str, int] = {}  # 路径→权限映射 / path→permission mapping
+        self.审计系统 = ThreeColorAudit()
+        self.来源链 = SourceChain()
+        self.启动时间 = datetime.now().isoformat()
+
+        # 配置日志
+        logging.basicConfig(
+            level=logging.INFO,
+            format='[%(asctime)s] %(name)s · %(levelname)s · %(message)s'
+        )
+        self.logger = logging.getLogger("文件审计底座")
+
+        # 确保目录存在
+        if not os.path.exists(self.监控目录):
+            raise FileNotFoundError(f"监控目录不存在: {self.监控目录}")
+
+        self.logger.info(f"🐉 文件审计底座初始化完成 · 监控目录: {self.监控目录}")
+
+    def 计算文件哈希(self, 文件路径: str) -> str:
+        """
+        计算文件的SHA256哈希值 / Calculate SHA256 hash of a file
+
+        参数 / Parameters:
+            文件路径: 文件的绝对或相对路径 / File absolute or relative path
+
+        返回 / Returns:
+            SHA256哈希值的十六进制字符串 / Hex string of SHA256 hash
+        """
+        import hashlib
+        try:
+            with open(文件路径, 'rb') as f:
+                return hashlib.sha256(f.read()).hexdigest()
+        except (IOError, OSError) as e:
+            self.logger.error(f"无法读取文件 {文件路径}: {e}")
+            self.审计系统.record("文件哈希", f"读取失败:{os.path.basename(文件路径)}",
+                                0.0, f"文件读取失败: {e}")
+            return ""
+
+    def 审计全部文件(self) -> Dict[str, Any]:
+        """
+        审计监控目录下的全部文件 / Audit all files under monitored directory
+
+        遍历监控目录，计算每个文件的哈希值，比对之前的哈希检测变更
+        Traverses monitored directory, computes hash for each file,
+        compares with previous hashes to detect changes.
+
+        返回 / Returns:
+            包含变更检测结果的字典 / Dictionary with change detection results
+        """
+        self.logger.info("🔍 开始审计全部文件...")
+        print("\n" + "=" * 70)
+        print("  🔍 文件底座审计 · File Audit Foundation")
+        print(f"  监控目录: {self.监控目录}")
+        print("  " + "=" * 70)
+
+        changes = {
+            FileChangeType.CREATED: [],
+            FileChangeType.MODIFIED: [],
+            FileChangeType.DELETED: [],
+            FileChangeType.PERMISSION_CHANGED: [],
+            FileChangeType.UNCHANGED: []
+        }
+
+        current_files: Set[str] = set()
+
+        # 遍历所有文件 / Traverse all files
+        for root, dirs, files in os.walk(self.监控目录):
+            # 排除 __pycache__ 和 .git 目录
+            dirs[:] = [d for d in dirs if d not in ('__pycache__', '.git', '.pytest_cache')]
+
+            for filename in files:
+                # 跳过临时文件和缓存
+                if filename.endswith(('.pyc', '.tmp', '.swp', '~')):
+                    continue
+
+                full_path = os.path.join(root, filename)
+                current_files.add(full_path)
+
+                file_hash = self.计算文件哈希(full_path)
+                if not file_hash:
+                    continue
+
+                # 检查文件变更
+                change_type, previous_hash = self._检测变更(full_path, file_hash)
+
+                # 检查权限变更
+                try:
+                    current_perm = stat.S_IMODE(os.stat(full_path).st_mode)
+                    if full_path in self.文件权限表:
+                        if self.文件权限表[full_path] != current_perm:
+                            if change_type == FileChangeType.UNCHANGED:
+                                change_type = FileChangeType.PERMISSION_CHANGED
+                    self.文件权限表[full_path] = current_perm
+                except OSError:
+                    pass
+
+                # 记录变更
+                if change_type != FileChangeType.UNCHANGED:
+                    record = FileAuditRecord(
+                        file_path=full_path,
+                        file_hash=file_hash,
+                        change_type=change_type,
+                        previous_hash=previous_hash,
+                        details={"监控目录": self.监控目录}
+                    )
+                    self.审计日志.append(record)
+                    changes[change_type].append(record)
+                    self.logger.info(f"{change_type.value}: {full_path}")
+
+                # 更新哈希表
+                self.文件哈希表[full_path] = file_hash
+
+        # 检查删除的文件
+        previous_files = set(self.文件哈希表.keys())
+        deleted_files = previous_files - current_files
+        for deleted_path in deleted_files:
+            previous_hash = self.文件哈希表[deleted_path]
+            record = FileAuditRecord(
+                file_path=deleted_path,
+                file_hash="",
+                change_type=FileChangeType.DELETED,
+                previous_hash=previous_hash,
+                details={"监控目录": self.监控目录}
+            )
+            self.审计日志.append(record)
+            changes[FileChangeType.DELETED].append(record)
+            del self.文件哈希表[deleted_path]
+            if deleted_path in self.文件权限表:
+                del self.文件权限表[deleted_path]
+            self.logger.info(f"删除: {deleted_path}")
+
+        # 记录审计结果
+        total_changes = sum(len(v) for v in changes.values()) - len(changes[FileChangeType.UNCHANGED])
+        if total_changes == 0:
+            self.审计系统.record("文件审计", "变更检测", 1.0, "未发现文件变更")
+        else:
+            conf = max(0.85 - (total_changes * 0.02), 0.5)
+            self.审计系统.record("文件审计", "变更检测", conf,
+                                f"发现 {total_changes} 个文件变更")
+
+        result = {
+            "审计时间": datetime.now().isoformat(),
+            "监控目录": self.监控目录,
+            "总文件数": len(current_files),
+            "变更摘要": {
+                change_type.value: len(records)
+                for change_type, records in changes.items()
+            },
+            "变更详情": {
+                change_type.value: [r.to_dict() for r in records]
+                for change_type, records in changes.items() if records
+            }
+        }
+
+        # 打印摘要
+        print(f"\n  📊 审计摘要:")
+        print(f"     监控目录: {self.监控目录}")
+        print(f"     总文件数: {len(current_files)}")
+        for change_type, records in changes.items():
+            if records or change_type == FileChangeType.UNCHANGED:
+                emoji = {"新增": "🟢", "修改": "🟡", "删除": "🔴",
+                        "权限变更": "🟡", "未变更": "⚪"}.get(change_type.value, "⚪")
+                print(f"     {emoji} {change_type.value}: {len(records)}")
+
+        print("\n" + "=" * 70 + "\n")
+
+        return result
+
+    def _检测变更(self, 文件路径: str, 当前哈希: str) -> Tuple[FileChangeType, str]:
+        """
+        检测单个文件的变更 / Detect change for a single file
+
+        返回 / Returns:
+            (变更类型, 先前哈希) / (Change type, previous hash)
+        """
+        if 文件路径 not in self.文件哈希表:
+            return FileChangeType.CREATED, ""
+
+        previous_hash = self.文件哈希表[文件路径]
+        if previous_hash != 当前哈希:
+            return FileChangeType.MODIFIED, previous_hash
+
+        return FileChangeType.UNCHANGED, previous_hash
+
+    def 生成审计报告(self) -> str:
+        """
+        生成完整的审计报告 / Generate comprehensive audit report
+
+        返回 / Returns:
+            格式化的审计报告字符串 / Formatted audit report string
+        """
+        audit_summary = self.审计系统.summary()
+
+        lines = [
+            "=" * 70,
+            "  🐉 龍魂文件审计报告 · LongHun File Audit Report",
+            "=" * 70,
+            f"  DNA:#龍芯⚡️2026-06-18-LONGHUN_FILE_AUDIT_FOUNDATION_V1-v1.0.0",
+            f"  监控目录: {self.监控目录}",
+            f"  启动时间: {self.启动时间}",
+            f"  报告时间: {datetime.now().isoformat()}",
+            "-" * 70,
+            "  一、审计摘要 / Audit Summary",
+            "-" * 70,
+            f"     总审计记录: {audit_summary['总数']}",
+            f"     🟢 通过: {audit_summary['🟢通过']}",
+            f"     🟡 警告: {audit_summary['🟡警告']}",
+            f"     🔴 阻断: {audit_summary['🔴阻断']}",
+            f"     整体状态: {audit_summary['整体状态']}",
+            "-" * 70,
+            "  二、文件变更记录 / File Change Records",
+            "-" * 70,
+        ]
+
+        if not self.审计日志:
+            lines.append("     无变更记录 / No change records")
+        else:
+            for i, record in enumerate(self.审计日志, 1):
+                emoji = {"新增": "🟢", "修改": "🟡", "删除": "🔴",
+                        "权限变更": "🟡", "未变更": "⚪"}.get(record.change_type.value, "⚪")
+                lines.extend([
+                    f"\n     [{i}] {emoji} {record.change_type.value}",
+                    f"         路径: {record.file_path}",
+                    f"         哈希: {record.file_hash[:16]}..." if record.file_hash else "         哈希: (已删除)",
+                    f"         大小: {record.size:,} bytes",
+                    f"         时间: {record.timestamp}"
+                ])
+
+        lines.extend([
+            "-" * 70,
+            "  三、当前文件哈希表 / Current File Hash Table",
+            "-" * 70,
+        ])
+
+        if not self.文件哈希表:
+            lines.append("     哈希表为空 / Hash table empty")
+        else:
+            for path, hash_val in sorted(self.文件哈希表.items()):
+                rel_path = os.path.relpath(path, self.监控目录)
+                lines.append(f"     {rel_path}: {hash_val[:16]}...")
+
+        lines.extend([
+            "-" * 70,
+            "  四、六层来源链验证 / Six-Layer Source Chain",
+            "-" * 70,
+        ])
+
+        chain_verify = self.来源链.verify_chain()
+        lines.append(f"     完整链有效: {'✅ 是' if chain_verify['完整链有效'] else '🔴 否'}")
+        for layer, detail in chain_verify.get("层级详情", {}).items():
+            status = "✓" if detail.get("有效") else "✗"
+            lines.append(f"     [{status}] {layer}")
+
+        lines.extend([
+            "=" * 70,
+            f"  报告生成完成 · {datetime.now().isoformat()}",
+            "  LongHun File Audit Foundation v1.0.0 · UID9622",
+            "=" * 70
+        ])
+
+        return "\n".join(lines)
+
+    def 保存审计日志(self, 日志路径: str = "") -> str:
+        """
+        保存审计日志到JSON文件 / Save audit log to JSON file
+
+        参数 / Parameters:
+            日志路径: 日志文件保存路径，默认为监控目录下 audit_log_{timestamp}.json
+
+        返回 / Returns:
+            保存的日志文件路径 / Path to saved log file
+        """
+        if not 日志路径:
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            日志路径 = os.path.join(self.监控目录, f"audit_log_{timestamp}.json")
+
+        log_data = {
+            "DNA": "#龍芯⚡️2026-06-18-LONGHUN_FILE_AUDIT_FOUNDATION_V1-v1.0.0",
+            "创始人": "UID9622 · 龍芯北辰 · 诸葛鑫",
+            "监控目录": self.监控目录,
+            "启动时间": self.启动时间,
+            "日志时间": datetime.now().isoformat(),
+            "审计摘要": self.审计系统.summary(),
+            "变更记录": [r.to_dict() for r in self.审计日志],
+            "当前哈希表": self.文件哈希表,
+            "版本": "v1.0.0"
+        }
+
+        with open(日志路径, 'w', encoding='utf-8') as f:
+            json.dump(log_data, f, ensure_ascii=False, indent=2)
+
+        self.logger.info(f"审计日志已保存: {日志路径}")
+        self.审计系统.record("文件审计", "日志保存", 0.95, f"日志已保存至 {日志路径}")
+        return 日志路径
+
+    def 加载基线哈希(self, 基线文件: str) -> Dict[str, str]:
+        """
+        从文件加载基线哈希表 / Load baseline hash table from file
+
+        参数 / Parameters:
+            基线文件: 包含基线哈希的JSON文件路径
+
+        返回 / Returns:
+            哈希表字典 / Hash table dictionary
+        """
+        try:
+            with open(基线文件, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+
+            if "当前哈希表" in data:
+                self.文件哈希表 = data["当前哈希表"]
+            elif "hashes" in data:
+                self.文件哈希表 = data["hashes"]
+            else:
+                self.文件哈希表 = data
+
+            self.logger.info(f"已加载基线哈希表: {len(self.文件哈希表)} 个文件")
+            self.审计系统.record("文件审计", "基线加载", 0.95,
+                                f"已加载 {len(self.文件哈希表)} 个基线哈希")
+            return self.文件哈希表
+
+        except (IOError, json.JSONDecodeError) as e:
+            self.logger.error(f"无法加载基线文件: {e}")
+            self.审计系统.record("文件审计", "基线加载", 0.0, f"基线加载失败: {e}")
+            return {}
+
+    def 保存基线哈希(self, 基线文件: str = "") -> str:
+        """保存当前哈希表作为基线 / Save current hash table as baseline"""
+        if not 基线文件:
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            基线文件 = os.path.join(self.监控目录, f"baseline_hashes_{timestamp}.json")
+
+        with open(基线文件, 'w', encoding='utf-8') as f:
+            json.dump({
+                "DNA": "#龍芯⚡️2026-06-18-LONGHUN_FILE_AUDIT_FOUNDATION_V1-v1.0.0",
+                "当前哈希表": self.文件哈希表,
+                "保存时间": datetime.now().isoformat()
+            }, f, ensure_ascii=False, indent=2)
+
+        self.logger.info(f"基线哈希表已保存: {基线文件}")
+        return 基线文件
+
+    def 执行来源链盖章(self) -> Dict[str, str]:
+        """
+        执行六层来源链盖章 / Execute six-layer source chain stamping
+        为文件审计结果盖上六层来源链验证章
+        """
+        data_map = {
+            "道统层": {"根源": "龍魂道统", "传承": "UID9622", "审计类型": "文件完整性"},
+            "精神层": {"核心价值": "数据不可篡改", "精神": "透明审计"},
+            "设备层": {"平台": sys.platform, "监控目录": self.监控目录},
+            "技术层": {"哈希算法": "SHA256", "语言": "Python"},
+            "系统层": {"完整性": "已验证", "状态": "运行中"},
+            "生命层": {"创作者": "UID9622 · 龍芯北辰", "身份": "文件审计底座"}
+        }
+
+        results = self.来源链.stamp_all(data_map)
+        self.审计系统.record("文件审计", "来源链盖章", 0.95, "六层来源链盖章完成")
+        self.logger.info("六层来源链盖章完成")
+        return results
+
+    def 获取审计摘要(self) -> Dict[str, Any]:
+        """获取审计摘要 / Get audit summary"""
+        return self.审计系统.summary()
+
+    def 清除审计日志(self):
+        """清除审计日志 / Clear audit log"""
+        count = len(self.审计日志)
+        self.审计日志.clear()
+        self.审计系统.record("文件审计", "日志清除", 0.85, f"已清除 {count} 条日志记录")
+        self.logger.info(f"已清除 {count} 条审计日志")
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# 主入口 / Main Entry Point
+# ═══════════════════════════════════════════════════════════════════════════════
+
+if __name__ == "__main__":
+    print("\n" + "📁" * 35)
+    print("  龍魂文件底座审计 · LongHun File Audit Foundation")
+    print("  v1.0.0 · DNA:#龍芯⚡️2026-06-18-LONGHUN_FILE_AUDIT_FOUNDATION_V1-v1.0.0")
+    print("  " + "📁" * 35 + "\n")
+
+    # 使用当前目录作为监控目录
+    监控路径 = os.path.dirname(os.path.abspath(__file__))
+    if not 监控路径:
+        监控路径 = "."
+
+    print(f"📂 监控目录: {监控路径}\n")
+
+    try:
+        # 创建审计底座实例
+        审计底座 = 文件审计底座(监控路径)
+
+        # 执行完整审计
+        审计结果 = 审计底座.审计全部文件()
+
+        # 执行来源链盖章
+        盖章结果 = 审计底座.执行来源链盖章()
+        print("\n🔗 来源链盖章结果:")
+        for layer, code in 盖章结果.items():
+            print(f"   [{layer}] ✓ {code}")
+
+        # 生成并打印审计报告
+        print("\n📋 生成审计报告...")
+        报告 = 审计底座.生成审计报告()
+        print(报告)
+
+        # 保存审计日志
+        日志路径 = 审计底座.保存审计日志()
+        print(f"\n💾 审计日志已保存: {日志路径}")
+
+        # 输出审计摘要
+        print("\n📊 最终审计摘要 / Final Audit Summary:")
+        print(json.dumps(审计底座.获取审计摘要(), ensure_ascii=False, indent=2))
+
+    except FileNotFoundError as e:
+        print(f"🔴 错误: {e}")
+        sys.exit(1)
+    except Exception as e:
+        print(f"🔴 未预期错误: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)

@@ -1,0 +1,364 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+龍魂·CNSH编译器 单元测试 v1.0
+DNA: #龍芯⚡️2026-07-30-CNSH编译器测试-v1.0
+"""
+
+import sys
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'bin'))
+import unittest
+from cnsh_compiler import (
+    Lexer, Parser, SemanticAnalyzer, CodeGenerator, CNSHCompiler,
+    TokenType, Token, ASTNode, ProgramNode, FunctionDefNode,
+    ReturnNode, IfNode, ForNode, WhileNode, BreakNode, ContinueNode,
+    ImportNode, AssignNode, BinaryOpNode, UnaryOpNode,
+    CallNode, IdentifierNode, NumberNode, StringNode,
+    ListNode, DictNode, AttributeNode
+)
+
+
+class TestLexer(unittest.TestCase):
+    """词法分析器测试"""
+
+    def test_simple_identifier(self):
+        lexer = Lexer("打印", "test")
+        tokens = lexer.tokenize()
+        self.assertEqual(len(tokens), 2)  # IDENTIFIER + EOF
+        self.assertEqual(tokens[0].type, TokenType.IDENTIFIER)
+        self.assertEqual(tokens[0].value, "打印")
+
+    def test_chinese_keyword(self):
+        lexer = Lexer("功能 主", "test")
+        tokens = lexer.tokenize()
+        self.assertEqual(tokens[0].type, TokenType.功能)
+        self.assertEqual(tokens[1].type, TokenType.IDENTIFIER)
+        self.assertEqual(tokens[1].value, "主")
+
+    def test_keywords(self):
+        """测试所有中文关键字"""
+        keywords = {
+            "功能": TokenType.功能, "返回": TokenType.返回,
+            "如果": TokenType.如果, "否则": TokenType.否则,
+            "循环": TokenType.循环, "当": TokenType.当,
+            "跳出": TokenType.跳出, "继续": TokenType.继续,
+            "导入": TokenType.导入, "空": TokenType.空,
+            "真": TokenType.真, "假": TokenType.假,
+            "和": TokenType.AND, "或": TokenType.OR,
+            "非": TokenType.NOT,
+        }
+        for word, expected_type in keywords.items():
+            lexer = Lexer(word, "test")
+            tokens = lexer.tokenize()
+            self.assertEqual(tokens[0].type, expected_type,
+                           f"关键字 '{word}' 应映射为 {expected_type}")
+
+    def test_type_keywords(self):
+        """测试类型关键字"""
+        type_keywords = {
+            "整数": TokenType.整数, "小数": TokenType.小数,
+            "文本": TokenType.文本, "布尔": TokenType.布尔,
+            "列表": TokenType.列表, "字典": TokenType.字典,
+            "集合": TokenType.集合, "元组": TokenType.元组,
+        }
+        for word, expected_type in type_keywords.items():
+            lexer = Lexer(word, "test")
+            tokens = lexer.tokenize()
+            self.assertEqual(tokens[0].type, expected_type,
+                           f"类型 '{word}' 应映射为 {expected_type}")
+
+    def test_numbers(self):
+        lexer = Lexer("42 3.14", "test")
+        tokens = lexer.tokenize()
+        self.assertEqual(tokens[0].type, TokenType.NUMBER)
+        self.assertEqual(tokens[0].value, "42")
+        self.assertEqual(tokens[1].type, TokenType.NUMBER)
+        self.assertEqual(tokens[1].value, "3.14")
+
+    def test_strings(self):
+        lexer = Lexer('"你好"', "test")
+        tokens = lexer.tokenize()
+        self.assertEqual(tokens[0].type, TokenType.STRING)
+        self.assertEqual(tokens[0].value, "你好")
+
+    def test_strings_single_quote(self):
+        lexer = Lexer("'test'", "test")
+        tokens = lexer.tokenize()
+        self.assertEqual(tokens[0].type, TokenType.STRING)
+        self.assertEqual(tokens[0].value, "test")
+
+    def test_comment(self):
+        lexer = Lexer("# 这是注释\n打印", "test")
+        tokens = lexer.tokenize()
+        self.assertEqual(tokens[0].type, TokenType.COMMENT)
+        self.assertEqual(tokens[0].value, "这是注释")
+        self.assertEqual(tokens[1].type, TokenType.IDENTIFIER)
+        self.assertEqual(tokens[1].value, "打印")
+
+    def test_operators(self):
+        """测试运算符token"""
+        tests = {
+            "+": TokenType.PLUS, "-": TokenType.MINUS,
+            "*": TokenType.MULTIPLY, "/": TokenType.DIVIDE,
+            "%": TokenType.MOD, "==": TokenType.EQUAL_EQUAL,
+            "!=": TokenType.NOT_EQUAL, ">=": TokenType.GREATER_EQUAL,
+            "<=": TokenType.LESS_EQUAL, "**": TokenType.POWER,
+        }
+        for op_str, expected_type in tests.items():
+            lexer = Lexer(op_str, "test")
+            tokens = lexer.tokenize()
+            self.assertEqual(tokens[0].type, expected_type,
+                           f"运算符 '{op_str}' 应为 {expected_type}")
+
+    def test_delimiters(self):
+        """测试分隔符token"""
+        tests = {
+            "(": TokenType.LPAREN, ")": TokenType.RPAREN,
+            "{": TokenType.LBRACE, "}": TokenType.RBRACE,
+            "[": TokenType.LBRACKET, "]": TokenType.RBRACKET,
+            ":": TokenType.COLON, ",": TokenType.COMMA,
+            ".": TokenType.DOT, ";": TokenType.SEMICOLON,
+            "->": TokenType.ARROW,
+        }
+        for delim, expected_type in tests.items():
+            lexer = Lexer(delim, "test")
+            tokens = lexer.tokenize()
+            self.assertEqual(tokens[0].type, expected_type)
+
+    def test_mixed_chinese_english_identifier(self):
+        """中英混合标识符"""
+        lexer = Lexer("打印hello_世界123", "test")
+        tokens = lexer.tokenize()
+        self.assertEqual(tokens[0].type, TokenType.IDENTIFIER)
+        self.assertEqual(tokens[0].value, "打印hello_世界123")
+
+
+class TestParser(unittest.TestCase):
+    """语法分析器测试"""
+
+    def _parse(self, source):
+        lexer = Lexer(source, "test")
+        tokens = lexer.tokenize()
+        parser = Parser(tokens)
+        return parser.parse(), parser.errors
+
+    def test_simple_print(self):
+        ast, errors = self._parse('打印("你好")')
+        self.assertEqual(len(errors), 0)
+        self.assertEqual(len(ast.statements), 1)
+        stmt = ast.statements[0]
+        self.assertIsInstance(stmt, CallNode)
+        self.assertEqual(stmt.name, "打印")
+        self.assertEqual(len(stmt.args), 1)
+        self.assertIsInstance(stmt.args[0], StringNode)
+        self.assertEqual(stmt.args[0].value, "你好")
+
+    def test_print_with_comment(self):
+        """带注释的打印语句（之前是bug）"""
+        ast, errors = self._parse('# 注释\n打印("测试")')
+        self.assertEqual(len(errors), 0)
+        self.assertEqual(len(ast.statements), 1)
+        self.assertIsInstance(ast.statements[0], CallNode)
+
+    def test_function_def(self):
+        source = '功能 加法(a, b) {\n    返回 a + b\n}\n'
+        ast, errors = self._parse(source)
+        self.assertEqual(len(errors), 0)
+        self.assertEqual(len(ast.statements), 1)
+        func = ast.statements[0]
+        self.assertIsInstance(func, FunctionDefNode)
+        self.assertEqual(func.name, "加法")
+        self.assertEqual(len(func.params), 2)
+        self.assertEqual(func.params[0][0], "a")
+        self.assertEqual(func.params[1][0], "b")
+
+    def test_function_with_types(self):
+        """带类型标注的函数"""
+        source = '功能 加(a: 整数, b: 整数) -> 整数 {\n    返回 a + b\n}\n'
+        ast, errors = self._parse(source)
+        self.assertEqual(len(errors), 0)
+        func = ast.statements[0]
+        self.assertIsInstance(func, FunctionDefNode)
+        self.assertEqual(func.params[0][1], "整数")  # param type
+        self.assertEqual(func.return_type, "整数")
+
+    def test_if_else(self):
+        source = '如果 x > 0 {\n    打印("正")\n} 否则 {\n    打印("非正")\n}\n'
+        ast, errors = self._parse(source)
+        self.assertEqual(len(errors), 0)
+        stmt = ast.statements[0]
+        self.assertIsInstance(stmt, IfNode)
+        self.assertEqual(len(stmt.body), 1)
+        self.assertGreater(len(stmt.else_body), 0)
+
+    def test_if_elif_else(self):
+        """否则如果链"""
+        source = '如果 x >= 90 {\n    打印("A")\n} 否则 如果 x >= 60 {\n    打印("B")\n} 否则 {\n    打印("C")\n}\n'
+        ast, errors = self._parse(source)
+        self.assertEqual(len(errors), 0)
+
+    def test_for_loop(self):
+        """测试循环"""
+        source = '循环 i in 列表 {\n    打印(i)\n}\n'
+        ast, errors = self._parse(source)
+        self.assertEqual(len(errors), 0)
+        self.assertIsInstance(ast.statements[0], ForNode)
+
+    def test_while_loop(self):
+        source = '当 x > 0 {\n    x = x - 1\n}\n'
+        ast, errors = self._parse(source)
+        self.assertEqual(len(errors), 0)
+        self.assertIsInstance(ast.statements[0], WhileNode)
+
+    def test_assignment(self):
+        source = 'x = 42\n'
+        ast, errors = self._parse(source)
+        self.assertEqual(len(errors), 0)
+        stmt = ast.statements[0]
+        self.assertIsInstance(stmt, AssignNode)
+        self.assertEqual(stmt.target, "x")
+        self.assertIsInstance(stmt.value, NumberNode)
+        self.assertEqual(stmt.value.value, 42)
+
+    def test_list_literal(self):
+        source = 'a = [1, 2, 3]\n'
+        ast, errors = self._parse(source)
+        self.assertEqual(len(errors), 0)
+        stmt = ast.statements[0]
+        self.assertIsInstance(stmt, AssignNode)
+        self.assertIsInstance(stmt.value, ListNode)
+
+
+class TestCompiler(unittest.TestCase):
+    """编译器集成测试"""
+
+    def setUp(self):
+        self.compiler = CNSHCompiler()
+
+    def test_compile_hello(self):
+        result = self.compiler.compile('打印("你好")', "test")
+        self.assertTrue(result["success"])
+        self.assertIn('print("你好")', result["python_code"])
+
+    def test_compile_function(self):
+        source = '功能 测试() {\n    打印("ok")\n}\n测试()\n'
+        result = self.compiler.compile(source, "test")
+        self.assertTrue(result["success"], msg="\n".join(result.get("errors", [])))
+
+    def test_run_simple(self):
+        source = '打印("hello")\n'
+        result = self.compiler.run(source, "test")
+        self.assertTrue(result["success"])
+
+    def test_compile_fibonacci(self):
+        source = '''功能 fib(n) {
+    如果 n <= 1 {
+        返回 n
+    }
+    返回 fib(n - 1) + fib(n - 2)
+}
+fib(5)
+'''
+        result = self.compiler.compile(source, "test")
+        self.assertTrue(result["success"], msg="\n".join(result.get("errors", [])))
+
+    def test_all_sample_files(self):
+        """编译并运行所有.cnsh样本文件"""
+        samples_dir = os.path.join(
+            os.path.dirname(__file__), 'cnsh_samples')
+        sample_files = sorted([
+            f for f in os.listdir(samples_dir) if f.endswith('.cnsh')
+        ])
+        self.assertGreater(len(sample_files), 0, "应有至少一个样本文件")
+
+        for filename in sample_files:
+            filepath = os.path.join(samples_dir, filename)
+            with open(filepath, 'r', encoding='utf-8') as f:
+                source = f.read()
+            result = self.compiler.compile(source, filename)
+            self.assertTrue(result["success"],
+                          f"文件 {filename} 编译失败: {result.get('errors', [])}")
+
+    def test_lexer_errors(self):
+        """错误字符不应阻止tokenize"""
+        lexer = Lexer("a @ b", "test")
+        tokens = lexer.tokenize()
+        self.assertGreater(len(lexer.errors), 0)
+
+
+class TestCodeGenerator(unittest.TestCase):
+    """代码生成器测试"""
+
+    def test_generate_print(self):
+        """验证 打印 → print 映射"""
+        result = CNSHCompiler().compile('打印("test")', "test")
+        self.assertTrue(result["success"])
+        self.assertIn('print("test")', result["python_code"])
+
+    def test_generate_function(self):
+        """验证函数生成"""
+        source = '功能 hello(n) {\n    返回 n * 2\n}\n'
+        result = CNSHCompiler().compile(source, "test")
+        self.assertTrue(result["success"])
+        code = result["python_code"]
+        self.assertIn("def hello", code)
+        self.assertIn("return n * 2", code)
+
+    def test_generate_if_elif_else(self):
+        """验证否则如果 → elif 映射"""
+        source = '如果 x == 1 {\n    打印("一")\n} 否则 如果 x == 2 {\n    打印("二")\n} 否则 {\n    打印("其他")\n}\n'
+        # 跳过语义分析，直接测试词法→语法→代码生成
+        lexer = Lexer(source, "test")
+        tokens = lexer.tokenize()
+        parser = Parser(tokens)
+        ast = parser.parse()
+        gen = CodeGenerator("test")
+        code = gen.generate(ast)
+        self.assertIn("elif", code)
+        self.assertIn("else:", code)
+
+    def test_generate_none_true_false(self):
+        """验证 空→None 真→True 假→False 映射"""
+        tests = [
+            ("空", "None"),
+            ("真", "True"),
+            ("假", "False"),
+        ]
+        for cnsh_val, py_val in tests:
+            # 使用赋值触发标识符生成
+            source = f'a = {cnsh_val}\n'
+            result = CNSHCompiler().compile(source, "test")
+            self.assertTrue(result["success"])
+            self.assertIn(py_val, result["python_code"])
+
+    def test_generate_power_operator(self):
+        """验证 ** 运算符生成"""
+        source = 'a = 2 ** 3\n'
+        result = CNSHCompiler().compile(source, "test")
+        self.assertTrue(result["success"])
+        self.assertIn("2 ** 3", result["python_code"])
+
+
+class TestSemanticAnalyzer(unittest.TestCase):
+    """语义分析测试"""
+
+    def test_undefined_function(self):
+        """调用未定义函数应报错"""
+        result = CNSHCompiler().compile('未定义函数()\n', "test")
+        self.assertFalse(result["success"])
+        self.assertTrue(any("未定义" in e for e in result["errors"]))
+
+    def test_undefined_variable(self):
+        """使用未定义变量应报错"""
+        result = CNSHCompiler().compile('打印(未定义)\n', "test")
+        self.assertFalse(result["success"])
+
+    def test_builtin_ok(self):
+        """内置函数调用应通过"""
+        result = CNSHCompiler().compile('打印("ok")\n', "test")
+        self.assertTrue(result["success"])
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)

@@ -1,0 +1,274 @@
+#!/usr/bin/env python3
+"""
+龍魂·国际数据源管理器 v1.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·讼-INTL-SOURCE-MANAGER-v1.0
+
+管理国际数据源的完整生命周期：
+拉取 → 清洗 → 训练数据生成 → 统计报告
+优先级低于中国境内源，70%:30% 比例控制
+"""
+
+import json
+import os
+import sys
+import subprocess
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List, Any
+import logging
+
+# ─── 配置 ───────────────────────────────────────────
+BASE_DIR = Path(__file__).parent
+PARENT_DIR = BASE_DIR.parent
+SOURCES_FILE = BASE_DIR / "sources.json"
+FETCH_ENGINE = BASE_DIR / "lh_intl_fetch_engine.py"
+CLEANER = BASE_DIR / "lh_intl_cleaner.py"
+REPORTS_DIR = BASE_DIR / "reports"
+LOG_DIR = BASE_DIR / "logs"
+
+for d in [REPORTS_DIR, LOG_DIR]:
+    d.mkdir(parents=True, exist_ok=True)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(message)s',
+    handlers=[
+        logging.FileHandler(LOG_DIR / "intl_manager.log", encoding='utf-8'),
+        logging.StreamHandler()
+    ]
+)
+log = logging.getLogger(__name__)
+
+
+class IntlSourceManager:
+    """国际数据源管理器"""
+
+    def __init__(self):
+        self.sources = self._load_sources()
+        self.parent_sources = self._load_parent_sources()
+
+    def _load_sources(self) -> List[Dict]:
+        if SOURCES_FILE.exists():
+            with open(SOURCES_FILE, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            return data.get("sources", [])
+        return []
+
+    def _load_parent_sources(self) -> List[Dict]:
+        """加载中国境内源（用于比例计算）"""
+        parent_file = PARENT_DIR / "sources.json"
+        if parent_file.exists():
+            with open(parent_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            return data.get("sources", [])
+        return []
+
+    def get_status(self) -> Dict[str, Any]:
+        """获取国际源状态"""
+        categories = {}
+        countries = {}
+        by_priority = {"P0": 0, "P1": 0, "P2": 0, "P3": 0}
+        enabled_count = 0
+        disabled_count = 0
+
+        for s in self.sources:
+            cat = s.get("category", "unknown")
+            country = s.get("country", "?")
+            priority = s.get("priority", "?")
+
+            categories[cat] = categories.get(cat, 0) + 1
+            countries[country] = countries.get(country, 0) + 1
+            if priority in by_priority:
+                by_priority[priority] += 1
+
+            if s.get("enabled", True):
+                enabled_count += 1
+            else:
+                disabled_count += 1
+
+        # 中国:国际比例
+        china_count = len(self.parent_sources)
+        intl_count = len(self.sources)
+        total = china_count + intl_count
+        china_ratio = round(china_count / total * 100) if total > 0 else 0
+        intl_ratio = round(intl_count / total * 100) if total > 0 else 0
+
+        return {
+            "total": intl_count,
+            "enabled": enabled_count,
+            "disabled": disabled_count,
+            "by_category": categories,
+            "by_country": countries,
+            "by_priority": by_priority,
+            "china_intl_ratio": {
+                "china_sources": china_count,
+                "intl_sources": intl_count,
+                "china_ratio": f"{china_ratio}%",
+                "intl_ratio": f"{intl_ratio}%",
+                "target": "70% : 30%",
+                "status": "✅达标" if 25 <= intl_ratio <= 35 else "⚠️需调整"
+            }
+        }
+
+    def print_status(self):
+        """打印状态"""
+        status = self.get_status()
+
+        print(f"\n{'='*70}")
+        print(f"  龍魂·国际数据源管理器 v1.0")
+        print(f"  中国法律准绳 · 数据主权 · 国际仅作补充视角")
+        print(f"{'='*70}")
+
+        # 比例
+        ratio = status["china_intl_ratio"]
+        print(f"\n  📊 数据比例: 中国 {ratio['china_ratio']} : 国际 {ratio['intl_ratio']} → 目标 70%:30% {ratio['status']}")
+        print(f"     中国境内源: {ratio['china_sources']} | 国际源: {ratio['intl_sources']}")
+
+        # 优先级
+        print(f"\n  📋 按优先级:")
+        for p, count in status["by_priority"].items():
+            bar = "█" * (count // 2) if count > 0 else ""
+            print(f"     {p}: {count} {bar}")
+
+        # 分类
+        print(f"\n  📂 按分类:")
+        cat_names = {
+            "intl_tech": "国际科技与技术",
+            "intl_opensource": "国际开源与工具",
+            "intl_news": "国际新闻与媒体",
+            "intl_academic": "国际学术与教育",
+            "intl_culture": "国际文化与百科",
+            "intl_security": "国际安全与标准",
+            "intl_data": "国际数据与统计",
+        }
+        for cat, count in sorted(status["by_category"].items()):
+            name = cat_names.get(cat, cat)
+            bar = "█" * count if count > 0 else ""
+            print(f"     {name}: {count} {bar}")
+
+        # 国家
+        print(f"\n  🌍 按国家/地区:")
+        for country, count in sorted(status["by_country"].items(), key=lambda x: -x[1])[:10]:
+            flag_map = {"US": "🇺🇸", "UK": "🇬🇧", "DE": "🇩🇪", "FR": "🇫🇷", "CH": "🇨🇭", "QA": "🇶🇦", "SE": "🇸🇪"}
+            flag = flag_map.get(country, "🏳️")
+            print(f"     {flag} {country}: {count}")
+
+        # 启用状态
+        print(f"\n  ✅ 状态: 已启用 {status['enabled']} | 已禁用 {status['disabled']} | 总计 {status['total']}")
+
+        # 输出约束
+        print(f"\n  🔒 输出约束铁律:")
+        print(f"     1. 仍受P0-P4协议约束")
+        print(f"     2. 中国法律为唯一准绳")
+        print(f"     3. 涉中国政治→以中国官方表述为准")
+        print(f"     4. 国际争议→客观陈述+中国立场标注")
+        print(f"     5. 拒绝反华/分裂/虚假信息")
+        print(f"     6. P05审计错误信息·P12校验偏见")
+        print(f"{'='*70}")
+
+    def run_pipeline(self, priority: str = "P1"):
+        """执行完整Pipeline：拉取→清洗→训练"""
+        log.info("=" * 60)
+        log.info(f"龍魂·国际数据 Pipeline 启动 (优先级: {priority})")
+        log.info("=" * 60)
+
+        # Step 1: 拉取
+        log.info("[Step 1/3] 拉取国际数据...")
+        result = subprocess.run(
+            [sys.executable, str(FETCH_ENGINE), "--priority", priority],
+            capture_output=True, text=True, cwd=str(BASE_DIR)
+        )
+        log.info(result.stdout)
+        if result.returncode != 0:
+            log.error(f"拉取失败: {result.stderr}")
+            return
+
+        # Step 2: 清洗
+        log.info("[Step 2/3] 清洗国际数据...")
+        result = subprocess.run(
+            [sys.executable, str(CLEANER), "--all"],
+            capture_output=True, text=True, cwd=str(BASE_DIR)
+        )
+        log.info(result.stdout)
+        if result.returncode != 0:
+            log.error(f"清洗失败: {result.stderr}")
+            return
+
+        # Step 3: 生成报告
+        log.info("[Step 3/3] 生成统计报告...")
+        self._generate_pipeline_report(priority)
+
+        log.info("Pipeline 完成 ✅")
+        log.info("注意: 国际数据训练需P05审计+P12校验后才能合并入主训练集")
+
+    def _generate_pipeline_report(self, priority: str):
+        """生成Pipeline报告"""
+        status = self.get_status()
+
+        # 统计文件数
+        fetched_files = list((BASE_DIR / "fetched").glob("intl_fetched_*.jsonl"))
+        cleaned_files = list((BASE_DIR / "cleaned").glob("intl_cleaned_*.jsonl"))
+        train_files = list((BASE_DIR / "train").glob("intl_train_*.jsonl"))
+
+        report = {
+            "report_type": "intl_pipeline",
+            "dna": "#龍芯⚡️丙午·辛未·乙酉·卯时·讼-INTL-PIPELINE-REPORT",
+            "generated_at": datetime.now().isoformat(),
+            "priority": priority,
+            "pipeline_status": "completed",
+            "source_status": status,
+            "files": {
+                "fetched": len(fetched_files),
+                "cleaned": len(cleaned_files),
+                "train": len(train_files),
+            },
+            "sovereignty_statement": {
+                "principle": "国际数据仅用于技术训练，不用于政治立场输出",
+                "law": "中国法律为唯一准绳",
+                "authority": "UID9622最终解释权",
+                "audit_required": "P05审计 + P12校验 后才能合并入主训练集"
+            }
+        }
+
+        report_file = REPORTS_DIR / f"intl_pipeline_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        with open(report_file, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2)
+
+        log.info(f"[REPORT] {report_file.name}")
+
+    def check_ratio_compliance(self) -> bool:
+        """检查中国:国际比例是否符合70%:30%"""
+        status = self.get_status()
+        ratio = status["china_intl_ratio"]
+        return ratio["status"] == "✅达标"
+
+
+# ─── CLI ───────────────────────────────────────────
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="龍魂·国际数据源管理器")
+    parser.add_argument("--status", "-s", action="store_true", help="查看状态")
+    parser.add_argument("--pipeline", "-p", choices=["P0", "P1", "P2", "P3"], help="执行完整Pipeline")
+    parser.add_argument("--fetch", "-f", choices=["P0", "P1", "P2", "P3"], help="仅拉取")
+    parser.add_argument("--clean", "-c", action="store_true", help="仅清洗")
+    parser.add_argument("--check-ratio", action="store_true", help="检查比例合规")
+
+    args = parser.parse_args()
+
+    manager = IntlSourceManager()
+
+    if args.status:
+        manager.print_status()
+    elif args.pipeline:
+        manager.run_pipeline(args.pipeline)
+    elif args.fetch:
+        subprocess.run([sys.executable, str(FETCH_ENGINE), "--priority", args.fetch], cwd=str(BASE_DIR))
+    elif args.clean:
+        subprocess.run([sys.executable, str(CLEANER), "--all"], cwd=str(BASE_DIR))
+    elif args.check_ratio:
+        ok = manager.check_ratio_compliance()
+        print(f"比例合规: {'✅ 达标' if ok else '⚠️ 需调整'}")
+    else:
+        # 默认显示状态
+        manager.print_status()

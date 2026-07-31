@@ -1,0 +1,2 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·大有-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

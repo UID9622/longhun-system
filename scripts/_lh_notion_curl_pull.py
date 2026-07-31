@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·井-FIX_DNA-v1.0
 #!/usr/bin/env python3
 """龍魂 Notion 拉取器 · curl版 · 绕过requests库问题"""
 import subprocess, json, pathlib, time, re, sys

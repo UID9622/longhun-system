@@ -1,0 +1,163 @@
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-23-184259-header-UID9622-D0EF2C59
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+"""
+自我反思引擎：读日志、看Git、找问题、给评分。
+DNA: #龍芯⚡️2026-06-24-UID9622-BRAIN-REFLECT-v1.0
+"""
+
+import re
+import subprocess
+from pathlib import Path
+from typing import Any, Dict, List
+
+from . import generate_dna, now_cn, get_target_root
+from .utils import load_config
+from .shichen import get_current_shichen, suggest_action_by_shichen
+from .lihuo_index import calculate_lihuo_index
+
+
+class ReflectionEngine:
+    """对目标文件夹做健康检查与自我反思。"""
+
+    def __init__(self):
+        self.config = load_config().get("反思", {})
+        self.root = get_target_root()
+
+    def _run_shell(self, cmd: List[str], cwd: Path = None) -> str:
+        try:
+            result = subprocess.run(cmd, cwd=cwd or self.root, capture_output=True, text=True, timeout=30)
+            return result.stdout.strip() + ("\n" + result.stderr.strip() if result.stderr else "")
+        except Exception as e:
+            return f"[执行失败] {e}"
+
+    def _git_status(self) -> Dict[str, Any]:
+        if not (self.root / ".git").exists():
+            return {"启用": False, "状态": "未初始化Git仓库"}
+        return {
+            "启用": True,
+            "分支": self._run_shell(["git", "branch", "--show-current"]),
+            "未跟踪文件数": len(self._run_shell(["git", "ls-files", "--others", "--exclude-standard"]).splitlines()),
+            "已修改文件数": len(self._run_shell(["git", "diff", "--name-only"]).splitlines()),
+            "最近提交": self._run_shell(["git", "log", "-1", "--pretty=format:%h %s %ci"]),
+        }
+
+    def _is_sovereignty_refusal(self, line: str) -> bool:
+        """判断一条日志是否属于主权拒绝事件（外部云服务渗透被拦截）。"""
+        patterns = [
+            r"iCloud",
+            r"Mobile Documents",
+            r"Operation not permitted",
+            r"rsync.*error",
+            r"com~apple~CloudDocs",
+        ]
+        return any(re.search(p, line) for p in patterns)
+
+    def _scan_logs(self) -> Dict[str, Any]:
+        log_dir = self.root / "UID9622_Automation" / "logs"
+        if not log_dir.exists():
+            return {"日志目录": str(log_dir.relative_to(self.root)), "找到": False}
+        files = sorted(log_dir.glob("*.log"), key=lambda p: p.stat().st_mtime, reverse=True)[:5]
+        snippets = []
+        errors = 0
+        warnings = 0
+        sovereignty_refusals = []
+        for f in files:
+            try:
+                lines = f.read_text(encoding="utf-8", errors="ignore").splitlines()
+                tail = lines[-self.config.get("日志行数", 200):]
+                for line in tail:
+                    if re.search(r"\b(error|failed|exception|失败|错误)\b", line, re.I):
+                        errors += 1
+                        if self._is_sovereignty_refusal(line):
+                            sovereignty_refusals.append((f.name, line.strip()))
+                        else:
+                            snippets.append((f.name, line.strip()))
+                    elif re.search(r"\b(warn|warning|警告)\b", line, re.I):
+                        warnings += 1
+            except Exception:
+                pass
+        return {
+            "日志目录": str(log_dir.relative_to(self.root)),
+            "找到": True,
+            "最近文件": [f.name for f in files],
+            "错误数": errors,
+            "警告数": warnings,
+            "主权拒绝事件数": len(sovereignty_refusals),
+            "主权拒绝日志": sovereignty_refusals[:10],
+            "普通错误片段": snippets[:10],
+        }
+
+    def _check_standards(self, projects: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        issues = []
+        for p in projects:
+            if not p["DNA"]:
+                issues.append({"项目": p["路径"], "问题": "未发现DNA追溯码", "级别": "yellow"})
+            if not p["入口"] and p["文件数"] > 5:
+                issues.append({"项目": p["路径"], "问题": "文件较多但无明确入口", "级别": "yellow"})
+        return issues
+
+    def reflect(self, projects: List[Dict[str, Any]]) -> Dict[str, Any]:
+        git_info = self._git_status() if self.config.get("检查_git", True) else {"启用": False}
+        log_info = self._scan_logs() if self.config.get("检查日志", True) else {"启用": False}
+        standard_issues = self._check_standards(projects)
+        shichen_info = get_current_shichen()
+
+        # 主权拒绝事件不是真正的错误，是系统在拦截外部云服务
+        real_errors = 0
+        if isinstance(log_info, dict) and log_info.get("找到"):
+            real_errors = max(0, log_info.get("错误数", 0) - log_info.get("主权拒绝事件数", 0))
+
+        score = 100
+        score -= min(20, len(standard_issues) * 5)
+        if real_errors > 0:
+            score -= min(30, real_errors * 2)
+        if isinstance(git_info, dict) and git_info.get("未跟踪文件数", 0) > 20:
+            score -= 10
+        score = max(0, score)
+        health = "健康" if score >= self.config.get("健康评分阈值", 70) else "需要关注"
+
+        lihuo = calculate_lihuo_index(
+            error_count=real_errors,
+            warning_count=log_info.get("警告数", 0) if isinstance(log_info, dict) else 0,
+            health_score=score,
+        )
+
+        return {
+            "动作": "自我反思",
+            "健康评分": score,
+            "健康状态": health,
+            "当前时辰": shichen_info,
+            "离火运指数": lihuo,
+            "Git状态": git_info,
+            "日志检查": log_info,
+            "规范问题": standard_issues,
+            "建议": self._suggestions(standard_issues, log_info, git_info, shichen_info, score),
+        }
+
+    def _suggestions(self, issues, log_info, git_info, shichen_info, score) -> List[str]:
+        suggestions = []
+        suggestions.append(suggest_action_by_shichen(shichen_info["时辰"], score))
+        if issues:
+            suggestions.append(f"有 {len(issues)} 个规范问题，建议运行 `python brain.py fix` 处理。")
+        if isinstance(log_info, dict) and log_info.get("主权拒绝事件数", 0) > 0:
+            suggestions.append(
+                f"系统检测到 {log_info['主权拒绝事件数']} 起外部云服务渗透，已自动触发主权屏蔽协议。"
+            )
+        if isinstance(log_info, dict) and (log_info.get("错误数", 0) - log_info.get("主权拒绝事件数", 0)) > 0:
+            suggestions.append(f"日志中发现 {log_info['错误数'] - log_info['主权拒绝事件数']} 处非主权类错误，请检查对应文件。")
+        if isinstance(git_info, dict) and not git_info.get("启用", False):
+            suggestions.append("Git 仓库尚未初始化，可择良辰吉时执行第一次 `git commit` 以打上文化锚点。")
+        elif isinstance(git_info, dict) and git_info.get("未跟踪文件数", 0) > 0:
+            suggestions.append(f"Git 有 {git_info['未跟踪文件数']} 个未跟踪文件，建议整理后提交。")
+        if not suggestions:
+            suggestions.append("当前状态良好，继续保持反思与升级叠送。")
+        return suggestions
+
+
+def run_reflect(projects: List[Dict[str, Any]]) -> Dict[str, Any]:
+    engine = ReflectionEngine()
+    return engine.reflect(projects)

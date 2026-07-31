@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·中孚-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #龍芯⚡️2026-06-19-CNSH-dnatoken-DNA令牌生成器-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0

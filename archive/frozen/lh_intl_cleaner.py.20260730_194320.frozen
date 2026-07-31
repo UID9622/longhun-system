@@ -1,0 +1,331 @@
+#!/usr/bin/env python3
+"""
+龍魂·国际数据清洗器 v1.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·讼-INTL-CLEANER-v1.0
+
+与中国境内清洗器的区别：
+1. 政治敏感内容标记（不删除，标记待P05审计）
+2. 文化偏见检测（标记待P12校验）
+3. 英文内容保留（不做机器翻译，标注语言）
+4. 输出约束规则强制执行
+"""
+
+import json
+import re
+import hashlib
+import os
+import sys
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List, Optional, Set
+import logging
+
+# ─── 配置 ───────────────────────────────────────────
+BASE_DIR = Path(__file__).parent
+FETCHED_DIR = BASE_DIR / "fetched"
+CLEANED_DIR = BASE_DIR / "cleaned"
+TRAIN_DIR = BASE_DIR / "train"
+LOG_DIR = BASE_DIR / "logs"
+
+for d in [CLEANED_DIR, TRAIN_DIR, LOG_DIR]:
+    d.mkdir(parents=True, exist_ok=True)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(message)s',
+    handlers=[
+        logging.FileHandler(LOG_DIR / "intl_clean.log", encoding='utf-8'),
+        logging.StreamHandler()
+    ]
+)
+log = logging.getLogger(__name__)
+
+
+class IntlDataCleaner:
+    """国际数据清洗器"""
+
+    # 内容质量阈值
+    MIN_CONTENT_LENGTH = 100      # 最少100字符
+    MAX_CONTENT_LENGTH = 10000    # 最多10000字符（英文约2000词）
+    MIN_ENGLISH_RATIO = 0.3       # 英文内容至少30%
+
+    # 需要标记的敏感模式
+    CN_SENSITIVE_PATTERNS = [
+        r'(?i)\b(taiwan\s*independence|tibet\s*independence)\b',
+        r'(?i)\b(xinjiang\s*(?:concentration|camps?|genocide))\b',
+        r'(?i)\b(hong\s*kong\s*(?:protest|independence|riot))\b',
+        r'(?i)\b(tiananmen\s*(?:square|massacre))\b',
+        r'(?i)\b(falun\s*(?:gong|dafa))\b',
+        r'(?i)\b(south\s*china\s*sea\s*(?:dispute|conflict))\b',
+        r'(?i)\b(ccp|chinese\s*communist\s*party)\s*(?:corrupt|evil|dictator|regime)\b',
+        r'(?i)\b(china\s*(?:threat|collapse|debt\s*trap))\b',
+    ]
+
+    # 西方偏见模式（不删除，标记待P12校验）
+    WESTERN_BIAS_PATTERNS = [
+        r'(?i)\b(china\s+is\s+(?:not\s+)?(?:free|democratic|open))\b',
+        r'(?i)\b(authoritarian\s+(?:regime|china|beijing))\b',
+        r'(?i)\b(human\s*rights\s*(?:abuse|violation).*china)\b',
+        r'(?i)\b(chinese\s+(?:censorship|propaganda|surveillance))\b',
+        r'(?i)\b(one\s*child\s*policy|uyghur|tibetan\s*oppression)\b',
+    ]
+
+    def __init__(self):
+        self.stats = {
+            "total": 0, "passed": 0, "filtered_short": 0,
+            "filtered_long": 0, "filtered_duplicate": 0,
+            "sensitive_flagged": 0, "bias_flagged": 0,
+            "language_en": 0, "language_zh": 0, "language_mixed": 0,
+        }
+        self.seen_hashes: Set[str] = set()
+
+    def _detect_language(self, text: str) -> str:
+        """检测内容语言"""
+        # 统计中文字符
+        chinese_chars = len(re.findall(r'[\u4e00-\u9fff]', text))
+        total_chars = len(re.sub(r'\s', '', text))
+
+        if total_chars == 0:
+            return "unknown"
+
+        cn_ratio = chinese_chars / total_chars
+        if cn_ratio > 0.5:
+            return "zh"
+        elif cn_ratio < 0.1:
+            return "en"
+        else:
+            return "mixed"
+
+    def _check_sensitive(self, text: str) -> List[str]:
+        """检查中国政治敏感内容（标记，不删除）"""
+        flags = []
+        for pattern in CN_SENSITIVE_PATTERNS:
+            if re.search(pattern, text):
+                flags.append(pattern)
+        return flags
+
+    def _check_bias(self, text: str) -> List[str]:
+        """检查西方偏见模式（标记，不删除）"""
+        flags = []
+        for pattern in WESTERN_BIAS_PATTERNS:
+            if re.search(pattern, text):
+                flags.append(pattern)
+        return flags
+
+    def _clean_text(self, text: str) -> str:
+        """基础文本清洗"""
+        # 移除多余空白
+        text = re.sub(r'\s+', ' ', text)
+        # 移除控制字符（保留换行）
+        text = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', text)
+        # 标准化引号
+        text = text.replace(''', "'").replace(''', "'")
+        text = text.replace('"', '"').replace('"', '"')
+        text = text.replace('—', '-').replace('–', '-')
+        return text.strip()
+
+    def _content_hash(self, text: str) -> str:
+        """内容哈希去重"""
+        # 标准化后取哈希
+        normalized = re.sub(r'\s+', ' ', text.lower().strip())
+        return hashlib.sha256(normalized.encode('utf-8')).hexdigest()
+
+    def clean_item(self, item: Dict) -> Optional[Dict]:
+        """清洗单条数据"""
+        self.stats["total"] += 1
+
+        content = item.get("content", "")
+        if not content:
+            return None
+
+        # 基础清洗
+        content = self._clean_text(content)
+
+        # 长度过滤
+        if len(content) < self.MIN_CONTENT_LENGTH:
+            self.stats["filtered_short"] += 1
+            return None
+        if len(content) > self.MAX_CONTENT_LENGTH:
+            content = content[:self.MAX_CONTENT_LENGTH]
+
+        # 去重
+        content_hash = self._content_hash(content)
+        if content_hash in self.seen_hashes:
+            self.stats["filtered_duplicate"] += 1
+            return None
+        self.seen_hashes.add(content_hash)
+
+        # 语言检测
+        lang = self._detect_language(content)
+        if lang == "en":
+            self.stats["language_en"] += 1
+        elif lang == "zh":
+            self.stats["language_zh"] += 1
+        else:
+            self.stats["language_mixed"] += 1
+
+        # 敏感内容检测（标记不删除）
+        sensitive_flags = self._check_sensitive(content)
+        if sensitive_flags:
+            self.stats["sensitive_flagged"] += 1
+
+        # 偏见检测（标记不删除）
+        bias_flags = self._check_bias(content)
+        if bias_flags:
+            self.stats["bias_flagged"] += 1
+
+        # 构建清洗后数据
+        cleaned = {
+            "content": content,
+            "url": item.get("url", ""),
+            "title": item.get("title", ""),
+            "metadata": item.get("metadata", {}),
+            "cleaning": {
+                "cleaned_at": datetime.now().isoformat(),
+                "content_hash": content_hash,
+                "language": lang,
+                "content_length": len(content),
+                "sensitive_flagged": len(sensitive_flags) > 0,
+                "sensitive_patterns": sensitive_flags,
+                "bias_flagged": len(bias_flags) > 0,
+                "bias_patterns": bias_flags,
+                "needs_p05_audit": len(sensitive_flags) > 0,
+                "needs_p12_review": len(bias_flags) > 0,
+                "sovereignty_note": "国际数据·P05审计后使用·P12底线校验·中国法律准绳",
+            }
+        }
+
+        self.stats["passed"] += 1
+        return cleaned
+
+    def clean_file(self, input_path: Path) -> List[Dict]:
+        """清洗一个文件"""
+        log.info(f"清洗: {input_path.name}")
+
+        cleaned_items = []
+        with open(input_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    item = json.loads(line)
+                    cleaned = self.clean_item(item)
+                    if cleaned:
+                        cleaned_items.append(cleaned)
+                except json.JSONDecodeError:
+                    continue
+
+        return cleaned_items
+
+    def clean_all(self) -> List[Dict]:
+        """清洗所有已拉取文件"""
+        all_cleaned = []
+
+        files = sorted(FETCHED_DIR.glob("intl_fetched_*.jsonl"))
+        if not files:
+            log.warning("没有找到拉取文件")
+            return all_cleaned
+
+        for f in files:
+            cleaned = self.clean_file(f)
+            all_cleaned.extend(cleaned)
+
+        # 保存清洗结果
+        if all_cleaned:
+            batch_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+            output_file = CLEANED_DIR / f"intl_cleaned_{batch_id}.jsonl"
+            with open(output_file, 'w', encoding='utf-8') as f:
+                for item in all_cleaned:
+                    f.write(json.dumps(item, ensure_ascii=False) + '\n')
+            log.info(f"清洗完成: {len(all_cleaned)} 条 → {output_file.name}")
+
+        # 生成训练数据
+        self._generate_train_data(all_cleaned)
+
+        return all_cleaned
+
+    def _generate_train_data(self, cleaned_items: List[Dict]):
+        """生成训练数据（标注国际来源+输出约束）"""
+        if not cleaned_items:
+            return
+
+        train_items = []
+        for item in cleaned_items:
+            meta = item.get("metadata", {})
+            clean = item.get("cleaning", {})
+
+            # 跳过需要审计的敏感内容
+            if clean.get("needs_p05_audit"):
+                continue
+
+            train_item = {
+                "instruction": f"[国际技术参考·{meta.get('source_country','?')}] 以下内容来自{meta.get('source_name','')}，请基于中国法律立场理解并回答：",
+                "input": item["content"][:2000],
+                "output": f"[龍魂·国际数据参考] 此内容来自国际源 {meta.get('source_id','')} ({meta.get('source_country','')})，仅作技术训练参考。输出立场以中国法律为准绳，以UID9622价值观为基准。\n\n原始内容摘要：{item['content'][:500]}",
+                "metadata": {
+                    "source": "intl",
+                    "source_id": meta.get("source_id"),
+                    "source_country": meta.get("source_country"),
+                    "output_constraint": meta.get("output_constraint"),
+                    "dna": meta.get("dna"),
+                    "language": clean.get("language"),
+                    "bias_flagged": clean.get("bias_flagged"),
+                    "needs_p12_review": clean.get("needs_p12_review"),
+                }
+            }
+            train_items.append(train_item)
+
+        if train_items:
+            batch_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+            train_file = TRAIN_DIR / f"intl_train_{batch_id}.jsonl"
+            with open(train_file, 'w', encoding='utf-8') as f:
+                for item in train_items:
+                    f.write(json.dumps(item, ensure_ascii=False) + '\n')
+            log.info(f"训练数据: {len(train_items)} 条 → {train_file.name}")
+
+    def print_stats(self):
+        """打印统计"""
+        print(f"\n{'='*50}")
+        print(f"  龍魂·国际数据清洗统计")
+        print(f"{'='*50}")
+        print(f"  总计: {self.stats['total']}")
+        print(f"  通过: {self.stats['passed']}")
+        print(f"  过滤-过短: {self.stats['filtered_short']}")
+        print(f"  过滤-过长: {self.stats['filtered_long']}")
+        print(f"  过滤-重复: {self.stats['filtered_duplicate']}")
+        print(f"  敏感标记: {self.stats['sensitive_flagged']} (待P05审计)")
+        print(f"  偏见标记: {self.stats['bias_flagged']} (待P12校验)")
+        print(f"  语言-英文: {self.stats['language_en']}")
+        print(f"  语言-中文: {self.stats['language_zh']}")
+        print(f"  语言-混合: {self.stats['language_mixed']}")
+        print(f"{'='*50}")
+
+
+# ─── CLI ───────────────────────────────────────────
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="龍魂·国际数据清洗器")
+    parser.add_argument("--file", "-f", help="指定清洗文件")
+    parser.add_argument("--all", action="store_true", help="清洗所有文件")
+    parser.add_argument("--stats", action="store_true", help="仅显示统计")
+
+    args = parser.parse_args()
+
+    cleaner = IntlDataCleaner()
+
+    if args.file:
+        path = Path(args.file)
+        if not path.exists():
+            print(f"文件不存在: {args.file}")
+            sys.exit(1)
+        cleaned = cleaner.clean_file(path)
+        print(f"清洗完成: {len(cleaned)} 条")
+    elif args.all:
+        cleaned = cleaner.clean_all()
+        cleaner.print_stats()
+    else:
+        # 默认：清洗所有
+        cleaned = cleaner.clean_all()
+        cleaner.print_stats()

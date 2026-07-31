@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 🧮 龍魂数学公式套件统一运行器（Chroma 向量检索启用版）
 # DNA: #龍芯⚡️2026-07-06-MATH-SUITE-CHROMA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # 三色审计: 🟢 通过
 #

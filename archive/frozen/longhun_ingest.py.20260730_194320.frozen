@@ -1,0 +1,208 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+龍魂待整理知识库入库器
+把归档后的文件按类别写入 dragon_knowledge.db。
+DNA: #龍芯⚡️2026-06-28-LONGHUN-ARCHIVE-INGEST-v1.0
+"""
+import sqlite3, json, hashlib, os, re, html
+from datetime import datetime, timezone
+from pathlib import Path
+
+DB = "/Users/zuimeidedeyihan/_work/dragon_knowledge.db"
+INV = "/Users/zuimeidedeyihan/龍魂待整理/longhun_inventory.json"
+ROOT = "/Users/zuimeidedeyihan/龍魂待整理"
+
+DNA_RE = re.compile(
+    r"#[龍龙]芯[\u26a1\ufe0f]*\d{4}(?:[-_]\d{2}){0,2}[-_][A-Za-z0-9\u4e00-\u9fff\-_\/]+(?:[-_][vV]\d+(?:\.\d+)?)?|"
+    r"#ZHUGEXIN[\u26a1\ufe0f]*\d{4}[-_][\u4e00-\u9fffA-Za-z0-9\-_\/]+(?:[-_][vV]\d+(?:\.\d+)?)?|"
+    r"#CONFIRM[🌌🌀]?9622-ONLY-ONCE[🧬]?[A-Za-z0-9\-]+",
+    re.UNICODE,
+)
+
+
+def now_iso():
+    return datetime.now(timezone.utc).isoformat()
+
+
+def uid():
+    return hashlib.sha256(os.urandom(16)).hexdigest()[:12]
+
+
+def strip_html(raw: str) -> str:
+    text = re.sub(r"<script[^>]*>.*?</script>", "", raw, flags=re.S | re.I)
+    text = re.sub(r"<style[^>]*>.*?</style>", "", text, flags=re.S | re.I)
+    text = re.sub(r"<br\s*/?>", "\n", text, flags=re.I)
+    text = re.sub(r"</(p|div|h[1-6]|li|tr|table|section|article)>\s*", "\n", text, flags=re.I)
+    text = re.sub(r"<[^>]+>", "", text)
+    text = html.unescape(text)
+    lines = [ln.strip() for ln in text.splitlines()]
+    return "\n".join(ln for ln in lines if ln)
+
+
+def parse_sections(text: str, ext: str):
+    if ext in ('.html', '.htm'):
+        headings = list(re.finditer(r'<h([1-3])[^>]*>(.*?)</h\1>', text, re.S | re.I))
+        positions = [(int(m.group(1)), re.sub(r"<[^>]+>", "", m.group(2)).strip(), m.start(), m.end()) for m in headings]
+        plain = strip_html(text)
+    elif ext in ('.md', '.txt'):
+        headings = list(re.finditer(r'^(#{1,3})\s+(.+)$', text, re.M))
+        positions = [(len(m.group(1)), m.group(2).strip(), m.start(), m.end()) for m in headings]
+        plain = text
+    else:
+        return [], text
+
+    sections = []
+    if not positions:
+        sections.append({"level": 1, "title": "全文", "body": plain[:12000]})
+        return sections, plain
+
+    for i, (level, title, start, end) in enumerate(positions):
+        body_start = end
+        body_end = positions[i + 1][2] if i + 1 < len(positions) else len(text)
+        body = text[body_start:body_end]
+        if ext in ('.html', '.htm'):
+            body = strip_html(body)
+        else:
+            body = re.sub(r"^\s*\n", "", body, flags=re.M)
+            body = re.sub(r"\n+", "\n", body)
+        sections.append({"level": level, "title": title, "body": body[:12000]})
+    return sections, plain
+
+
+def ensure_tables(conn):
+    cur = conn.cursor()
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS longhun_archive_audit (
+            item_path TEXT PRIMARY KEY,
+            sha256 TEXT,
+            module_id TEXT,
+            entry_count INTEGER,
+            ingested_at TEXT
+        )
+    """)
+    conn.commit()
+
+
+def ingest():
+    inv = json.loads(Path(INV).read_text(encoding='utf-8'))
+    conn = sqlite3.connect(DB)
+    ensure_tables(conn)
+    cur = conn.cursor()
+    audit = []
+
+    for it in inv['items']:
+        p = Path(it['absolute'])
+        if not p.exists() or not p.is_file():
+            continue
+        ext = p.suffix.lower()
+        content_hash = it['sha256']
+
+        # Skip if already ingested with same hash
+        cur.execute("SELECT sha256 FROM longhun_archive_audit WHERE item_path=?", (str(it['path']),))
+        row = cur.fetchone()
+        if row and row[0] == content_hash:
+            continue
+
+        text = ''
+        if ext in ('.html', '.htm', '.md', '.txt', '.py', '.sh', '.js', '.json'):
+            try:
+                text = p.read_text(encoding='utf-8', errors='ignore')
+            except Exception:
+                pass
+
+        dnas = list(set(DNA_RE.findall(text)))
+        dna_main = dnas[0] if dnas else (it.get('dna_codes') or [None])[0] or ''
+        category = it['category']
+        title = it['title'] or p.name
+        rel_path = str(it['path'])
+
+        module_id = f"LHA-{category[:2]}-{p.stem[:30].upper()}-{uid()}"
+        summary = (text[:600] if text else f"{title} · {category} · {it['mime']}").replace('\n', ' ')
+
+        # Insert knowledge module
+        cur.execute("""
+            INSERT OR REPLACE INTO knowledge_modules
+            (module_id, source, name, version, description, dna_code, triggers, license, author, extracted_at, entry_count, metadata_json)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
+        """, (
+            module_id,
+            f"file://{it['absolute']}",
+            title,
+            (it.get('versions') or ['v1.0'])[0],
+            summary,
+            dna_main,
+            f"{category},UID9622,龍魂待整理",
+            "龍魂主权协议",
+            "龍芯北辰 | UID9622",
+            now_iso(),
+            0,
+            json.dumps({
+                'path': rel_path,
+                'category': category,
+                'size': it['size'],
+                'mime': it['mime'],
+                'sha256': content_hash,
+                'dna_codes': dnas,
+            }, ensure_ascii=False),
+        ))
+
+        # Insert code row for executable/scripts
+        if ext in ('.py', '.sh', '.js'):
+            code_id = f"CODE-{uid()}"
+            cur.execute("""
+                INSERT OR REPLACE INTO harvested_code
+                (code_id, file_name, file_path, file_extension, source_language, content_raw, content_hash,
+                 theory_guide, source_url_or_path, author, timestamp, dna_code, processing_status, created_at, updated_at)
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+            """, (
+                code_id, p.name, str(p), ext[1:], ext[1:] or 'text',
+                text[:50000], content_hash, category, f"file://{it['absolute']}",
+                "龍芯北辰 | UID9622", now_iso(), dna_main, "archived_ingested", now_iso(), now_iso(),
+            ))
+
+        # Insert sections for HTML/Markdown
+        entry_count = 0
+        if ext in ('.html', '.htm', '.md', '.txt'):
+            sections, _ = parse_sections(text, ext)
+            for sec in sections:
+                entry_id = f"ENT-{uid()}"
+                cur.execute("""
+                    INSERT OR REPLACE INTO knowledge_entries
+                    (entry_id, module_id, entry_type, title, category, subcategory, status, priority, summary, content_json, tags, dna_code, source_path, created_at)
+                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                """, (
+                    entry_id, module_id, 'section', sec['title'][:250], category,
+                    f"level-{sec['level']}", 'ingested', 'P1',
+                    sec['body'][:800].replace('\n', ' '),
+                    json.dumps({'level': sec['level'], 'body': sec['body']}, ensure_ascii=False),
+                    f"{category},UID9622,龍魂待整理",
+                    dna_main, f"file://{it['absolute']}", now_iso(),
+                ))
+                entry_count += 1
+
+        # Update module entry_count
+        cur.execute("UPDATE knowledge_modules SET entry_count=? WHERE module_id=?", (entry_count, module_id))
+
+        cur.execute("""
+            INSERT OR REPLACE INTO longhun_archive_audit
+            (item_path, sha256, module_id, entry_count, ingested_at)
+            VALUES (?,?,?,?,?)
+        """, (rel_path, content_hash, module_id, entry_count, now_iso()))
+        audit.append({'path': rel_path, 'module_id': module_id, 'entries': entry_count})
+
+    conn.commit()
+    conn.close()
+    summary_path = "/Users/zuimeidedeyihan/_work/longhun_ingest_summary.json"
+    Path(summary_path).write_text(json.dumps({
+        'ingested_at': now_iso(),
+        'dna': '#龍芯⚡️2026-06-28-LONGHUN-ARCHIVE-INGEST-v1.0',
+        'count': len(audit),
+        'items': audit,
+    }, ensure_ascii=False, indent=2), encoding='utf-8')
+    print(f"Ingested {len(audit)} archive items into {DB}")
+    print(f"Summary: {summary_path}")
+
+
+if __name__ == '__main__':
+    ingest()

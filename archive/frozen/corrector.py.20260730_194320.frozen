@@ -1,0 +1,186 @@
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-24-UID9622-BRAIN-CORRECTOR-v1.0
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+"""
+纠错引擎：只干安全的事，所有改动写进追溯链。
+DNA: #龍芯⚡️2026-06-24-UID9622-BRAIN-CORRECTOR-v1.0
+"""
+
+from pathlib import Path
+from typing import Any, Dict, List
+
+from . import generate_dna, now_cn, get_target_root
+from .utils import load_config, append_trace
+
+
+class Corrector:
+    """根据反思结果执行安全修复。"""
+
+    def __init__(self):
+        self.config = load_config().get("纠错", {})
+        self.dry_run = self.config.get("干运行", False)
+        self.need_confirm = self.config.get("需要确认", False)
+        self.allowed = set(self.config.get("允许自动修复", []))
+        self.root = get_target_root()
+
+    def _record(self, action: str, detail: Dict[str, Any], applied: bool):
+        append_trace({
+            "类型": "纠错",
+            "动作": action,
+            "详情": detail,
+            "已应用": applied,
+            "模式": "干运行" if self.dry_run else "实际执行",
+        })
+
+    def fix_empty_dirs(self) -> List[Dict[str, Any]]:
+        """为空目录创建 .gitkeep 占位，避免仓库结构丢失。"""
+        results = []
+        for entry in self.root.rglob("*"):
+            if not entry.is_dir():
+                continue
+            rel = str(entry.relative_to(self.root))
+            if any(
+                part.startswith(".") or part in {"__pycache__", "node_modules", "venv", ".venv"}
+                for part in entry.parts
+            ):
+                continue
+            if not any(p.is_file() for p in entry.iterdir()):
+                marker = entry / ".gitkeep"
+                detail = {"目录": rel}
+                if "空目录占位" in self.allowed and not self.dry_run:
+                    marker.write_text(f"# 占位文件\n# DNA: {generate_dna('gitkeep')}\n", encoding="utf-8")
+                    self._record("空目录占位", detail, True)
+                    results.append({"目录": rel, "操作": "创建.gitkeep", "状态": "已修复"})
+                else:
+                    self._record("空目录占位", detail, False)
+                    results.append({"目录": rel, "操作": "应创建.gitkeep", "状态": "干运行/未启用"})
+        return results
+
+    def ensure_config_templates(self, projects: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """为没有配置文件的子项目生成统一配置模板。"""
+        results = []
+        for p in projects:
+            path = self.root / p["路径"]
+            config_file = path / "uid9622_config.json"
+            if config_file.exists():
+                continue
+            detail = {"项目": p["路径"]}
+            template = {
+                "DNA": generate_dna("config-template"),
+                "项目名称": path.name,
+                "版本": "1.0.0",
+                "创建者": "UID9622",
+                "备注": f"由大脑中枢于 {now_cn()} 自动生成",
+            }
+            if "缺失配置模板" in self.allowed and not self.dry_run:
+                with open(config_file, "w", encoding="utf-8") as f:
+                    import json
+                    json.dump(template, f, ensure_ascii=False, indent=2)
+                self._record("缺失配置模板", detail, True)
+                results.append({"项目": p["路径"], "操作": "创建uid9622_config.json", "状态": "已修复"})
+            else:
+                self._record("缺失配置模板", detail, False)
+                results.append({"项目": p["路径"], "操作": "应创建uid9622_config.json", "状态": "干运行/未启用"})
+        return results
+
+    def _should_skip_path(self, path: Path) -> bool:
+        rel_parts = path.relative_to(self.root).parts
+        skip_names = {"__pycache__", "node_modules", "venv", ".venv", ".git", ".DS_Store"}
+        return any(part.startswith(".") and part != "." or part in skip_names for part in rel_parts)
+
+    def _has_our_header(self, text: str) -> bool:
+        """判断是否已经存在大脑中枢的统一文件头。"""
+        head = text[:800]
+        return all(c in head for c in ["DNA追溯码", "创建者", "版本", "状态"])
+
+    def _build_header(self, ext: str) -> str:
+        dna = generate_dna("header")
+        if ext == ".py":
+            return f"# -*- coding: utf-8 -*-\n# DNA追溯码: {dna}\n# 创建者: UID9622\n# 版本: 1.0.0\n# 状态: 🟢 已规范\n"
+        if ext == ".sh":
+            return f"# -*- coding: utf-8 -*-\n# DNA追溯码: {dna}\n# 创建者: UID9622\n# 版本: 1.0.0\n# 状态: 🟢 已规范\n"
+        if ext == ".js":
+            return f"// DNA追溯码: {dna}\n// 创建者: UID9622\n// 版本: 1.0.0\n// 状态: 🟢 已规范\n"
+        return ""
+
+    def _deduplicate_header(self, text: str, ext: str) -> str:
+        """只清理文件头顶部的重复统一文件头，不动代码内部。"""
+        lines = text.splitlines()
+        scan_limit = 30
+        marker = "DNA追溯码:"
+        indices = [i for i, line in enumerate(lines[:scan_limit]) if marker in line]
+        if len(indices) <= 1:
+            return text
+        block_len = 5 if ext in {".py", ".sh"} else 4
+        to_remove = set()
+        for idx in indices[1:]:
+            for j in range(idx, min(idx + block_len, len(lines))):
+                to_remove.add(j)
+            if idx + block_len < len(lines) and lines[idx + block_len].strip() == "":
+                to_remove.add(idx + block_len)
+        cleaned = [line for i, line in enumerate(lines) if i not in to_remove]
+        return "\n".join(cleaned)
+
+    def fix_headers(self) -> List[Dict[str, Any]]:
+        """为缺少统一文件头的代码文件补全头部注释，并清理重复头。"""
+        results = []
+        for ext in (".py", ".sh", ".js"):
+            for path in self.root.rglob(f"*{ext}"):
+                if self._should_skip_path(path):
+                    continue
+                try:
+                    text = path.read_text(encoding="utf-8", errors="ignore")
+                except Exception:
+                    continue
+                original_text = text
+                text = self._deduplicate_header(text, ext)
+                if self._has_our_header(text):
+                    if text != original_text:
+                        path.write_text(text, encoding="utf-8")
+                    continue
+                detail = {"文件": str(path.relative_to(self.root))}
+                header = self._build_header(ext)
+                if not header:
+                    continue
+                if "补全文件头" in self.allowed and not self.dry_run:
+                    lines = text.splitlines()
+                    new_lines = []
+                    if lines and lines[0].startswith("#!"):
+                        new_lines.append(lines[0])
+                        lines = lines[1:]
+                    if lines and lines[0].strip() == "# -*- coding: utf-8 -*-":
+                        lines = lines[1:]
+                    while lines and lines[0].strip() == "":
+                        lines = lines[1:]
+                    new_lines.extend(header.strip().splitlines())
+                    new_lines.extend(lines)
+                    new_text = "\n".join(new_lines)
+                    if original_text.endswith("\n"):
+                        new_text += "\n"
+                    path.write_text(new_text, encoding="utf-8")
+                    self._record("补全文件头", detail, True)
+                    results.append({"文件": str(path.relative_to(self.root)), "操作": "补全文件头", "状态": "已修复"})
+                else:
+                    self._record("补全文件头", detail, False)
+                    results.append({"文件": str(path.relative_to(self.root)), "操作": "应补全文件头", "状态": "干运行/未启用"})
+        return results
+
+    def run(self, projects: List[Dict[str, Any]]) -> Dict[str, Any]:
+        results = []
+        results.extend(self.fix_empty_dirs())
+        results.extend(self.ensure_config_templates(projects))
+        results.extend(self.fix_headers())
+        return {
+            "动作": "纠错",
+            "模式": "干运行" if self.dry_run else "实际执行",
+            "结果": results,
+            "提示": "危险操作已禁用，仅执行白名单内的安全修复。",
+        }
+
+
+def run_fix(projects: List[Dict[str, Any]]) -> Dict[str, Any]:
+    corrector = Corrector()
+    return corrector.run(projects)

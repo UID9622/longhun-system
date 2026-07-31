@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 """
 Claude 本地数据吸收脚本 — 将 ~/.claude 的配置、历史与创作迁移到龍魂体系。

@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·噬嗑-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
 # #龍芯⚡️2026-07-03-CORE-GNUPG-v1.0
 # 君子協議: 本文件受龍魂DNA追溯保護

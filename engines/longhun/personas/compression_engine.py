@@ -5,6 +5,7 @@
 # -*- coding: utf-8 -*-
 
 # DNA:#龍芯⚡️2026-06-24-LONGHUN-COMPRESSION-ENGINE-FILE1-v1.0-1
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # STATUS: ⚠️ DEPRECATED · 功能已由 engines/lh_fixed_point_memory_archive.py 统一接管
 # 保留原因: 历史字典实现参考，新压缩逻辑由 MemoryArchive.compress() 提供

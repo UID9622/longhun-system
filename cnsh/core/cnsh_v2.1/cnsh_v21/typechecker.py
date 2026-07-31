@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
 """
 CNSH v2.1 静态类型检查器
@@ -90,10 +91,14 @@ class TypeChecker:
             "输出": TypeRegistry.get("函数"),
             "输入": TypeRegistry.get("函数"),
             "长度": TypeRegistry.get("函数"),
+            "类型": TypeRegistry.get("函数"),
             "字符串": TypeRegistry.get("函数"),
             "整数": TypeRegistry.get("函数"),
             "小数": TypeRegistry.get("函数"),
             "浮点": TypeRegistry.get("函数"),
+            "列表": TypeRegistry.get("函数"),
+            "字典": TypeRegistry.get("函数"),
+            "范围": TypeRegistry.get("函数"),
             "打印": TypeRegistry.get("函数"),
             "龍": TypeRegistry.get("模块"),
             "真": TypeRegistry.get("布尔"),

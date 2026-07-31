@@ -1,0 +1,37 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-24-UID9622-BRAIN-CRON-INSTALL-v1.0
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+set -e
+
+BRAIN_DIR="/Users/zuimeidedeyihan/Downloads/UID9622乱七八糟的脑子/UID9622_大脑中枢"
+MARKER="# UID9622_大脑中枢_时辰调度_BEGIN"
+END_MARKER="# UID9622_大脑中枢_时辰调度_END"
+
+echo "🕐 安装 UID9622 大脑中枢时辰调度任务..."
+echo "DNA: #龍芯⚡️2026-06-24-UID9622-BRAIN-CRON-INSTALL-v1.0"
+
+# 获取现有 crontab，去掉旧的调度块
+CURRENT_CRON=$(crontab -l 2>/dev/null || true)
+FILTERED_CRON=$(echo "$CURRENT_CRON" | awk -v start="$MARKER" -v end="$END_MARKER" '
+    $0 == start { skip=1; next }
+    $0 == end { skip=0; next }
+    !skip { print }
+')
+
+NEW_BLOCK="$MARKER
+# 每个时辰自动执行对应任务（避开整点 herd）
+7 * * * * cd \"$BRAIN_DIR\" && bash 时辰调度.sh >> logs/cron.log 2>&1
+# 巳时（9:30）深度主权仪式：Git 初始化/提交文化锚点
+30 9 * * * cd \"$BRAIN_DIR\" && bash rituals/git_init_ritual.sh >> logs/cron.log 2>&1
+# 戌时（19:07）每日自愈
+7 19 * * * cd \"$BRAIN_DIR\" && bash 每日自愈.sh >> logs/cron.log 2>&1
+$END_MARKER"
+
+printf "%s\n%s\n" "$FILTERED_CRON" "$NEW_BLOCK" | crontab -
+
+echo "✅ 定时任务安装完成。当前 crontab："
+crontab -l | grep -A 10 "$MARKER"

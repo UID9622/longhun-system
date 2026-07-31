@@ -9,6 +9,9 @@
 > 平台：本地
 > 审核状态：草稿
 
+> #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+> 📄 八卦路由 | 龍魂系统 · 源头已验证
+
 **DNA**: `#龍芯⚡️2026-07-06-BAGUA-ROUTER-v1.0-B64GUA`
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬B64HEX`
 

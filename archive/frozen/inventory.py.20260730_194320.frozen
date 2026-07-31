@@ -1,0 +1,96 @@
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-23-184259-header-UID9622-78878B7E
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+"""
+资产扫描器：把乱七八糟的文件夹变成结构化目录。
+DNA: #龍芯⚡️2026-06-24-UID9622-BRAIN-INVENTORY-v1.0
+"""
+
+import os
+import re
+from pathlib import Path
+from typing import Any, Dict, List
+
+from . import generate_dna, now_cn, get_target_root
+from .utils import load_config
+
+
+class InventoryScanner:
+    """扫描目标根目录，识别子项目、DNA、文件类型、潜在问题。"""
+
+    def __init__(self):
+        self.config = load_config().get("扫描", {})
+        self.root = get_target_root()
+        self.exclude = set(self.config.get("排除目录", []))
+        self.interests = set(self.config.get("关注扩展", []))
+        self.max_depth = int(self.config.get("最大深度", 3))
+
+    def _should_skip(self, name: str) -> bool:
+        return name in self.exclude or name.startswith(".") and name != "."
+
+    def _detect_dna(self, text: str) -> List[str]:
+        return re.findall(r"#(?:龍芯|龙芯|ZHUGEXIN)[⚡️\u26A1]?[^\s]{10,80}", text)
+
+    def _classify_dir(self, path: Path) -> Dict[str, Any]:
+        files = [p for p in path.iterdir() if p.is_file()]
+        subdirs = [p for p in path.iterdir() if p.is_dir()]
+        dna_codes = []
+        has_main_entry = False
+        ext_counts: Dict[str, int] = {}
+        for f in files:
+            ext = f.suffix.lower()
+            ext_counts[ext] = ext_counts.get(ext, 0) + 1
+            if ext in self.interests:
+                try:
+                    content = f.read_text(encoding="utf-8", errors="ignore")[:2000]
+                    dna_codes.extend(self._detect_dna(content))
+                except Exception:
+                    pass
+            if f.name.lower() in {"main.py", "index.html", "README.md", "config.sh", "commander.sh"}:
+                has_main_entry = True
+        project_type = "未分类"
+        if ".py" in ext_counts and has_main_entry:
+            project_type = "Python系统"
+        elif ".js" in ext_counts and "index.html" in [f.name for f in files]:
+            project_type = "前端/编译器"
+        elif ".sh" in ext_counts and has_main_entry:
+            project_type = "Shell自动化"
+        elif ext_counts.get(".md", 0) > 3:
+            project_type = "文档集"
+        return {
+            "路径": str(path.relative_to(self.root)),
+            "类型": project_type,
+            "文件数": len(files),
+            "子目录数": len(subdirs),
+            "扩展统计": ext_counts,
+            "入口": has_main_entry,
+            "DNA": list(set(dna_codes))[:5],
+        }
+
+    def scan(self) -> Dict[str, Any]:
+        projects: List[Dict[str, Any]] = []
+        orphan_files: List[str] = []
+        for entry in sorted(self.root.iterdir()):
+            if not entry.is_dir():
+                if entry.suffix.lower() in self.interests or entry.name.endswith(".md"):
+                    orphan_files.append(str(entry.relative_to(self.root)))
+                continue
+            if self._should_skip(entry.name):
+                continue
+            projects.append(self._classify_dir(entry))
+        report = {
+            "动作": "资产扫描",
+            "扫描根目录": str(self.root),
+            "子项目数": len(projects),
+            "孤立的根文件": orphan_files,
+            "子项目": projects,
+        }
+        return report
+
+
+def run_scan() -> Dict[str, Any]:
+    scanner = InventoryScanner()
+    return scanner.scan()

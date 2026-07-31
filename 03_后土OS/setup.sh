@@ -1,6 +1,7 @@
 #!/bin/bash
 # 后土 OS — 工具链一键安装脚本
 # DNA: #龍芯⚡️丙午·丙申·甲寅·甲戌·坎-SETUP-TOOLCHAIN-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #
 # 用法: bash setup.sh
 # 自动安装 NASM + LLVM(ld.lld) + QEMU

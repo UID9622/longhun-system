@@ -2,6 +2,7 @@
 # ═══════════════════════════════════════════════════════════════
 # 龍魂·内网互联 — 一键启动全部节点
 # DNA: #龍芯⚡️丙午·辛未·乙酉·未时·䷾既济-INTERNAL-NET-STARTALL-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # #CONFIRM🌌9622-ONLY-ONCE🧬STA1-001A
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 #

@@ -1,0 +1,144 @@
+#!/bin/bash
+# 龍魂系统 · 全量定时任务安装器 v3.0
+# DNA: #龍芯⚡️丙午·辛未·乙酉·申时·豫-CRON-FULL-INSTALLER-v3.0
+#
+# 安装两种定时方式:
+#   1. crontab — macOS/Linux 通用
+#   2. launchd — macOS 专属（更可靠，支持唤醒）
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+FULL_FETCH="$SCRIPT_DIR/lh_cron_full_fetch.sh"
+
+echo "🐉 ╔══════════════════════════════════════╗"
+echo "🐉 ║  龍魂全量定时任务安装器 v3.0       ║"
+echo "🐉 ╚══════════════════════════════════════╝"
+echo ""
+
+# 检查脚本
+if [ ! -f "$FULL_FETCH" ]; then
+    echo "❌ 脚本不存在: $FULL_FETCH"
+    exit 1
+fi
+chmod +x "$FULL_FETCH"
+
+# === 1. Crontab 安装 ===
+echo "━━━ 1️⃣ Crontab 定时 ━━━"
+CRON_JOB="0 3 * * * cd $SCRIPT_DIR && bash $FULL_FETCH"
+
+if crontab -l 2>/dev/null | grep -q "lh_cron_full_fetch"; then
+    echo "   ⚠️ 已存在，更新中..."
+    (crontab -l 2>/dev/null | grep -v "lh_cron_full_fetch"; echo "$CRON_JOB") | crontab -
+else
+    (crontab -l 2>/dev/null; echo "$CRON_JOB") | crontab -
+fi
+echo "   ✅ Crontab 已安装: 每天 03:00"
+echo "   📋 crontab -l 查看"
+
+# === 2. Launchd 安装 (macOS only) ===
+if [[ "$(uname)" == "Darwin" ]]; then
+    echo ""
+    echo "━━━ 2️⃣ Launchd 守护 ━━━"
+
+    PLIST_NAME="com.longhun.full-fetch"
+    PLIST_PATH="$HOME/Library/LaunchAgents/${PLIST_NAME}.plist"
+
+    cat > "$PLIST_PATH" << PLISTEOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>${PLIST_NAME}</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>${FULL_FETCH}</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>${SCRIPT_DIR}</string>
+
+    <!-- 每天凌晨3点 -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>3</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <!-- 如果错过了3点，10分钟内补执行 -->
+    <key>StartInterval</key>
+    <integer>600</integer>
+
+    <key>StandardOutPath</key>
+    <string>${SCRIPT_DIR}/logs/launchd_stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>${SCRIPT_DIR}/logs/launchd_stderr.log</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>KeepAlive</key>
+    <false/>
+
+    <!-- 环境变量 -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin</string>
+        <key>HOME</key>
+        <string>$HOME</string>
+    </dict>
+</dict>
+</plist>
+PLISTEOF
+
+    # 卸载旧的（如果存在）
+    launchctl unload "$PLIST_PATH" 2>/dev/null || true
+
+    # 加载新的
+    launchctl load "$PLIST_PATH" 2>/dev/null
+
+    echo "   ✅ Launchd 已安装: 每天 03:00 + 错过后10分钟补执行"
+    echo "   📋 plist: $PLIST_PATH"
+    echo "   📋 状态: launchctl list | grep ${PLIST_NAME}"
+    echo "   📋 卸载: launchctl unload $PLIST_PATH && rm $PLIST_PATH"
+else
+    echo ""
+    echo "   ⚠️ 非 macOS，仅安装 crontab"
+fi
+
+# === 3. 立即测试一次 ===
+echo ""
+echo "━━━ 3️⃣ 首次测试 ━━━"
+echo "   是否立即执行一次全量登记+抓取？(y/n)"
+read -r answer
+if [ "$answer" = "y" ] || [ "$answer" = "Y" ]; then
+    echo "   🚀 开始首次全量执行..."
+    bash "$FULL_FETCH"
+    echo ""
+    echo "   ✅ 首次执行完成"
+    echo "   📝 日志: $SCRIPT_DIR/logs/full_fetch_$(date +%Y%m%d).log"
+else
+    echo "   ⏭️ 跳过，将在下次定时触发时自动执行"
+fi
+
+echo ""
+echo "═══════════════════════════════════════════"
+echo "🐉 安装完成！"
+echo ""
+echo "📊 定时计划:"
+echo "   每天 03:00 → Crontab + Launchd 双重保障"
+echo ""
+echo "📋 手动命令:"
+echo "   登记全部源:  python3 $SCRIPT_DIR/lh_register_all.py"
+echo "   全量抓取:    bash $FULL_FETCH"
+echo "   查看日志:    tail -f $SCRIPT_DIR/logs/full_fetch_\$(date +%Y%m%d).log"
+echo "   查看索引:    cat $SCRIPT_DIR/index-for-codebuddy.md"
+echo ""
+echo "🐉 DNA: #龍芯⚡️丙午·辛未·乙酉·申时·豫"

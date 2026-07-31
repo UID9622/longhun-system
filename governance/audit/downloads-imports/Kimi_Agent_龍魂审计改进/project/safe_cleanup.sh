@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # =============================================================================
 # DNA 标识: DRAGON-SOUL-SAFE-CLEANUP-v1.2.0

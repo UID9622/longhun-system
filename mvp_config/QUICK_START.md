@@ -1,7 +1,7 @@
 # 龍魂MVP快速启动指南
 
-**DNA**:#龍芯⚡️2026-06-04-SETUP-INTEGRATION-FILE2-v1.0
-**创建时间**: 2026-06-05 00:14:47
+**DNA**: #龍芯⚡️2026-06-04-SETUP-INTEGRATION-v1.0
+**创建时间**: 2026-07-31 22:01:28
 
 ## 🚀 快速开始（5分钟内）
 
@@ -126,4 +126,4 @@ chmod +x longhun_mvp_*.py
 
 **祝你使用愉快！🐉**
 
-DNA:#龍芯⚡️2026-06-04-SETUP-INTEGRATION-v1.0
+DNA: #龍芯⚡️2026-06-04-SETUP-INTEGRATION-v1.0

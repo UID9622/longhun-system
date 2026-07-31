@@ -1,5 +1,4 @@
-{"_dna": "#龍芯⚡️2026-06-21-CONFIG-TASK_ASSIGNMENTS-v1.0",
-
+{
   "P1-A": {
     "task_name": "Notion数据库初始化",
     "assigned_personas": [
@@ -80,6 +79,5 @@
     ],
     "status": "pending",
     "phase": "Phase 3"
-  },
-  "_dna": "2026-06-21-CONFIG-TASK_ASSIGNMENTS-v1.0"
+  }
 }

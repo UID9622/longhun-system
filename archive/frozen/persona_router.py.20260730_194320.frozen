@@ -1,0 +1,83 @@
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-23-184259-header-UID9622-7999D21B
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+"""
+人格路由：把任务派给已有的人格军团脚本。
+DNA: #龍芯⚡️2026-06-24-UID9622-BRAIN-PERSONA-v1.0
+"""
+
+import subprocess
+from pathlib import Path
+from typing import Any, Dict, List
+
+from . import generate_dna, now_cn, get_target_root
+from .utils import load_config
+
+
+class PersonaRouter:
+    """读取 UID9622_Automation 的人格配置并调度执行。"""
+
+    def __init__(self):
+        cfg = load_config().get("人格路由", {})
+        self.root = get_target_root()
+        self.config_file = self.root / cfg.get("配置文件", "UID9622_Automation/config.sh")
+        self.persona_dir = self.root / cfg.get("人格脚本目录", "UID9622_Automation/center-persona")
+        self.enabled = cfg.get("启用", True)
+
+    def _parse_config(self) -> Dict[str, str]:
+        mapping = {}
+        if not self.config_file.exists():
+            return mapping
+        text = self.config_file.read_text(encoding="utf-8", errors="ignore")
+        for line in text.splitlines():
+            line = line.strip()
+            if line.startswith("ENABLE_") and "=" in line:
+                key, val = line.split("=", 1)
+                mapping[key] = val.split("#")[0].strip()
+        return mapping
+
+    def list_personas(self) -> List[Dict[str, Any]]:
+        if not self.persona_dir.exists():
+            return []
+        personas = []
+        mapping = self._parse_config()
+        for script in sorted(self.persona_dir.glob("*.sh")):
+            var = f"ENABLE_{script.stem.upper()}"
+            personas.append({
+                "名称": script.stem,
+                "脚本": str(script.relative_to(self.root)),
+                "开关变量": var,
+                "启用": mapping.get(var, "0") == "1",
+            })
+        return personas
+
+    def dispatch(self, persona_name: str, args: List[str] = None) -> Dict[str, Any]:
+        if not self.enabled:
+            return {"状态": "跳过", "原因": "人格路由已禁用"}
+        script = self.persona_dir / f"{persona_name}.sh"
+        if not script.exists():
+            return {"状态": "失败", "原因": f"找不到人格脚本 {persona_name}"}
+        cmd = ["bash", str(script)] + (args or [])
+        try:
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+            return {
+                "状态": "成功" if result.returncode == 0 else "失败",
+                "人格": persona_name,
+                "返回码": result.returncode,
+                "输出": result.stdout[-2000:],
+                "错误": result.stderr[-1000:],
+                "DNA": generate_dna(f"persona-{persona_name}"),
+            }
+        except Exception as e:
+            return {"状态": "异常", "人格": persona_name, "错误": str(e)}
+
+
+def run_list_personas() -> List[Dict[str, Any]]:
+    return PersonaRouter().list_personas()
+
+
+def run_dispatch(persona_name: str, args: List[str] = None) -> Dict[str, Any]:
+    return PersonaRouter().dispatch(persona_name, args)

@@ -2,6 +2,7 @@
 # ============================================================================
 # deploy-frp-panel.sh — 龍魂主题 Nginx 面板部署 v3.0
 # DNA: #龍芯⚡️丙午·辛未·FRP-PANEL-v3.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #
 # 在 frps 公网服务器上执行，部署：
 #   - Nginx + 龍魂CSS主题 + v3.0 JS注入

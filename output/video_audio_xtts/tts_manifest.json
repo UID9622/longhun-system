@@ -1,0 +1,67 @@
+{
+  "dna": "#龍芯⚡️20260730-143903-XTTS-VOICE-BATCH",
+  "script": "articles/绝境方显英雄志-视频脚本-v1.0.md",
+  "reference": "/Users/zuimeidedeyihan/longhun-system/docs/reference_optimized.wav",
+  "scenes": 7,
+  "ok": 7,
+  "error": 0,
+  "total_elapsed_s": 241.0,
+  "results": [
+    {
+      "scene": 0,
+      "status": "ok",
+      "text_len": 14,
+      "file": "output/video_audio_xtts/scene_00.mp3",
+      "size_kb": 64.5,
+      "elapsed_s": 24.6
+    },
+    {
+      "scene": 1,
+      "status": "ok",
+      "text_len": 49,
+      "file": "output/video_audio_xtts/scene_01.mp3",
+      "size_kb": 216.8,
+      "elapsed_s": 6.8
+    },
+    {
+      "scene": 2,
+      "status": "ok",
+      "text_len": 443,
+      "file": "output/video_audio_xtts/scene_02.mp3",
+      "size_kb": 1567.5,
+      "elapsed_s": 53.3
+    },
+    {
+      "scene": 3,
+      "status": "ok",
+      "text_len": 435,
+      "file": "output/video_audio_xtts/scene_03.mp3",
+      "size_kb": 1546.5,
+      "elapsed_s": 71.3
+    },
+    {
+      "scene": 4,
+      "status": "ok",
+      "text_len": 298,
+      "file": "output/video_audio_xtts/scene_04.mp3",
+      "size_kb": 940.9,
+      "elapsed_s": 34.6
+    },
+    {
+      "scene": 5,
+      "status": "ok",
+      "text_len": 271,
+      "file": "output/video_audio_xtts/scene_05.mp3",
+      "size_kb": 904.5,
+      "elapsed_s": 30.5
+    },
+    {
+      "scene": 6,
+      "status": "ok",
+      "text_len": 153,
+      "file": "output/video_audio_xtts/scene_06.mp3",
+      "size_kb": 590.7,
+      "elapsed_s": 19.9
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 
 # 龍魂多币种·备份脚本
 # DNA:#龍芯⚡️2026-06-07-BACKUP-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 BACKUP_DIR="$HOME/.龍魂/backups"
 TIMESTAMP=$(date '+%Y%m%d_%H%M%S')

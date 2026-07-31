@@ -1,0 +1,27 @@
+[Unit]
+Description=龍魂·DNA记忆同步服务 (端口 8787) — 鲲鹏记忆中枢
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-system
+
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+Environment=PYTHONUNBUFFERED=1
+
+ExecStart=/usr/bin/python3 /opt/longhun-system/bin/lh_memory_sync_server.py --port 8787 --host 127.0.0.1
+
+Restart=always
+RestartSec=10
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=longhun-memory-sync
+
+MemoryMax=256M
+CPUQuota=50%
+
+[Install]
+WantedBy=multi-user.target

@@ -2,6 +2,7 @@
 # 龍魂 IDE 扩展 · 智能安装脚本
 # 三层降级: code CLI → CodeBuddy直装 → 手动指南
 # DNA: #龍芯⚡️丙午·辛未·VSCODE-EXT-INSTALL-v3.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
 

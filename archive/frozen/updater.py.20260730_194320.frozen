@@ -1,0 +1,159 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Notion 页面 DNA/摘要 回写模块（简洁版）
+- 有 DNA/摘要属性则更新属性
+- 无则追加 callout block 到页面末尾
+DNA: #龍芯⚡️2026-07-01-NOTION-UPDATER-v2.0
+"""
+import sys
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from core.utils import log, notion_api
+
+BASE = Path.home() / "longhun-system" / "notion_absorb"
+CONTENT_DIR = BASE / "page_contents"
+PROGRESS_FILE = BASE / "data" / "progress" / "update_progress.json"
+
+DNA_KEYS = ["DNA", "dna", "Short DNA", "short_dna", "DNA码", "DNA追溯"]
+SUMMARY_KEYS = ["摘要", "summary", "Summary", "描述", "Description", "description"]
+
+
+def load_progress():
+    if PROGRESS_FILE.exists():
+        return __import__('json').loads(PROGRESS_FILE.read_text(encoding="utf-8"))
+    return {"done": [], "content_updated": [], "skipped": [], "failed": []}
+
+
+def save_progress(progress):
+    PROGRESS_FILE.parent.mkdir(parents=True, exist_ok=True)
+    PROGRESS_FILE.write_text(__import__('json').dumps(progress, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def detect_schema(page_id):
+    resp = notion_api("GET", f"pages/{page_id}")
+    if not resp["ok"]:
+        return None
+    props = resp["data"].get("properties", {})
+    return {name: meta.get("type") for name, meta in props.items()}
+
+
+def build_property_payload(schema, dna, summary):
+    payload = {}
+    dna_key = next((k for k in DNA_KEYS if k in schema), None)
+    summary_key = next((k for k in SUMMARY_KEYS if k in schema), None)
+    
+    if dna_key:
+        t = schema[dna_key]
+        if t == "rich_text":
+            payload[dna_key] = {"rich_text": [{"text": {"content": dna}}]}
+        elif t == "title":
+            payload[dna_key] = {"title": [{"text": {"content": dna}}]}
+    if summary_key:
+        t = schema[summary_key]
+        if t == "rich_text":
+            payload[summary_key] = {"rich_text": [{"text": {"content": summary}}]}
+        elif t == "title":
+            payload[summary_key] = {"title": [{"text": {"content": summary}}]}
+    return payload, bool(dna_key or summary_key)
+
+
+def append_callout(page_id, dna, summary):
+    text = f"🧬 {dna}\n📋 摘要：{summary}"
+    payload = {
+        "children": [
+            {
+                "object": "block",
+                "type": "callout",
+                "callout": {
+                    "rich_text": [{"type": "text", "text": {"content": text}}],
+                    "icon": {"emoji": "🐉"},
+                    "color": "blue_background"
+                }
+            }
+        ]
+    }
+    return notion_api("PATCH", f"blocks/{page_id}/children", payload)
+
+
+def process_one(rec, progress, lock):
+    pid = rec["page_id"]
+    schema = detect_schema(pid)
+    if schema is None:
+        with lock:
+            progress["failed"].append(pid)
+            progress["failed"] = sorted(list(set(progress["failed"])))
+            save_progress(progress)
+        return "failed"
+    
+    payload, has_fields = build_property_payload(schema, rec["dna"], rec["summary"])
+    if has_fields:
+        resp = notion_api("PATCH", f"pages/{pid}", {"properties": payload})
+        if resp["ok"]:
+            with lock:
+                progress["done"].append(pid)
+                progress["done"] = sorted(list(set(progress["done"])))
+                progress["skipped"] = [x for x in progress["skipped"] if x != pid]
+                save_progress(progress)
+            return "done"
+        else:
+            with lock:
+                progress["failed"].append(pid)
+                progress["failed"] = sorted(list(set(progress["failed"])))
+                save_progress(progress)
+            return "failed"
+    
+    resp = append_callout(pid, rec["dna"], rec["summary"])
+    if resp["ok"]:
+        with lock:
+            progress["content_updated"].append(pid)
+            progress["content_updated"] = sorted(list(set(progress["content_updated"])))
+            progress["skipped"] = [x for x in progress["skipped"] if x != pid]
+            save_progress(progress)
+        return "content_updated"
+    else:
+        with lock:
+            progress["failed"].append(pid)
+            progress["failed"] = sorted(list(set(progress["failed"])))
+            save_progress(progress)
+        return "failed"
+
+
+def run(max_workers=3):
+    if not CONTENT_DIR.exists():
+        log("🔴 page_contents 目录不存在")
+        return
+    
+    files = [f for f in sorted(CONTENT_DIR.glob("*.json")) if not f.name.endswith('_blocks.json')]
+    progress = load_progress()
+    done_set = set(progress.get("done", []))
+    content_set = set(progress.get("content_updated", []))
+    fail_set = set(progress.get("failed", []))
+    
+    # 只处理 skipped 中的页面
+    skipped_set = set(progress.get("skipped", []))
+    todo = [f for f in files if __import__('json').loads(f.read_text(encoding="utf-8"))["page_id"] in skipped_set]
+    log(f"🟢 待更新页面: {len(todo)} / {len(files)}")
+    
+    lock = threading.Lock()
+    completed = len(files) - len(todo)
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        future_to_fpath = {executor.submit(process_one, __import__('json').loads(f.read_text(encoding="utf-8")), progress, lock): f for f in todo}
+        for future in as_completed(future_to_fpath):
+            completed += 1
+            fpath = future_to_fpath[future]
+            try:
+                future.result()
+            except Exception as e:
+                log(f"🔴 [{completed}/{len(files)}] 异常: {e}")
+            if completed % 50 == 0:
+                log(f"🟢 [{completed}/{len(files)}] done={len(progress['done'])} content={len(progress['content_updated'])} skipped={len(progress['skipped'])} failed={len(progress['failed'])}")
+    
+    log(f"🟢 更新完成：属性 {len(progress['done'])}，callout {len(progress['content_updated'])}，跳过 {len(progress['skipped'])}，失败 {len(progress['failed'])}")
+
+
+if __name__ == "__main__":
+    run()

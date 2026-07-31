@@ -9,6 +9,9 @@
 > 平台：本地
 > 审核状态：草稿
 
+> #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+> 📄 水军检测 | 龍魂系统 · 源头已验证
+
 **DNA**: `#龍芯⚡️2026-07-06-WATER-ARMY-DETECT-v1.0-8A2C3F7E`
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬B4-WATER-ARMY`
 

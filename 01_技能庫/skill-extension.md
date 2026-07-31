@@ -9,6 +9,9 @@
 > 平台：本地
 > 审核状态：草稿
 
+> #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+> 📄 技能扩展 | 龍魂系统 · 源头已验证
+
 **DNA**: `#龍芯⚡️2026-07-06-SKILL-EXTENSION-v1.0-LIFIRE`
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LISKL`
 
