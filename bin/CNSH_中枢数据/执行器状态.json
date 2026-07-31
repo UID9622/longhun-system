@@ -1,0 +1,1309 @@
+{
+  "审计链": [
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-bc1af1c2",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/cnsh_v2.1/examples/hello.cnsh",
+      "source_hash": "5bcb3b461f866d8c76fed7cf92547a862db96f4d6bddd7ff86452457406c5319",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:14:58.494121+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-bc1af1c2",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/cnsh_v2.1/examples/hello.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:14:58.520839+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-576868c8",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/cnsh_v2.1/examples/hello.cnsh",
+      "source_hash": "5bcb3b461f866d8c76fed7cf92547a862db96f4d6bddd7ff86452457406c5319",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:19:28.453539+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-576868c8",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/cnsh_v2.1/examples/hello.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:19:28.482214+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-b9c5ab6e",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/cnsh_v2.1/examples/hello.cnsh",
+      "source_hash": "5bcb3b461f866d8c76fed7cf92547a862db96f4d6bddd7ff86452457406c5319",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:20:31.255838+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-b9c5ab6e",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/cnsh_v2.1/examples/hello.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:20:31.284683+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-5a1d7f09",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/cnsh_v2.1/examples/hello.cnsh",
+      "source_hash": "5bcb3b461f866d8c76fed7cf92547a862db96f4d6bddd7ff86452457406c5319",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:21:59.913494+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-5a1d7f09",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/cnsh_v2.1/examples/hello.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:21:59.938639+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-9ab1a86a",
+      "action": "CNSH-RUN-START",
+      "file": "/private/tmp/test.cnsh",
+      "source_hash": "8ce63ac700586118d60ac5f26a926dcabd3ec1c5f2c321175877ca443b95471e",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:26:04.981556+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-9ab1a86a",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/private/tmp/test.cnsh",
+      "ok": false,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:26:05.008176+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-36c796ef",
+      "action": "CNSH-RUN-START",
+      "file": "/private/tmp/test.cnsh",
+      "source_hash": "8ce63ac700586118d60ac5f26a926dcabd3ec1c5f2c321175877ca443b95471e",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:29:52.978025+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-36c796ef",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/private/tmp/test.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:29:53.013264+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-17a9fd48",
+      "action": "CNSH-RUN-START",
+      "file": "/private/tmp/test.cnsh",
+      "source_hash": "8ce63ac700586118d60ac5f26a926dcabd3ec1c5f2c321175877ca443b95471e",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:29:53.064286+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-17a9fd48",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/private/tmp/test.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:29:53.092346+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-9f4cfe53",
+      "action": "CNSH-RUN-START",
+      "file": "/private/tmp/test.cnsh",
+      "source_hash": "8ce63ac700586118d60ac5f26a926dcabd3ec1c5f2c321175877ca443b95471e",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:29:53.140973+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-9f4cfe53",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/private/tmp/test.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:29:53.168780+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-c24de075",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+      "source_hash": "73bae84a9c2839706fa083cee6836c54209759e36b49bcd9692984fcfdb8db35",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:43:31.341499+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-c24de075",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+      "ok": false,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:43:31.370757+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-450944ed",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+      "source_hash": "73bae84a9c2839706fa083cee6836c54209759e36b49bcd9692984fcfdb8db35",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:44:01.525380+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-450944ed",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+      "ok": false,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:44:01.550299+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-75aecb92",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+      "source_hash": "73bae84a9c2839706fa083cee6836c54209759e36b49bcd9692984fcfdb8db35",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:44:14.072330+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-75aecb92",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+      "ok": false,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:44:14.095591+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-6da53a19",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+      "source_hash": "0bcf2c6261bea86423d53acc463143d629021c76648b5e4d460c258337b0bfe3",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:46:00.410299+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-6da53a19",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+      "ok": false,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:46:00.451304+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-8b57018a",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+      "source_hash": "50610b82400cde6b0eed1a2dc5fe095853a1a72888f8e9c66c63ab4cc5eecaaf",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:46:30.016286+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-8b57018a",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:46:30.047520+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-f3d1a06f",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+      "source_hash": "4cae07d91f0ca553a4cd93d6a528e1b666aada154c71637b2bc27dc029442c64",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:46:30.099273+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-f3d1a06f",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+      "ok": false,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:46:30.129645+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-10fdab08",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+      "source_hash": "c2c91de44322872f70c4484514671595a1c34f309392cbcbea9291179a521b92",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:47:03.301650+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-10fdab08",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:47:03.334717+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-85e6e5bb",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+      "source_hash": "3fa7efafb269c137e2641088721b70793db5267f0e6995d5090171fb4504afba",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:47:22.087888+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-85e6e5bb",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:47:22.118945+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-8c61278d",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+      "source_hash": "3fa7efafb269c137e2641088721b70793db5267f0e6995d5090171fb4504afba",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:48:24.430338+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-8c61278d",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:48:24.460486+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-30125200",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_虚伪熔断.cnsh",
+      "source_hash": "91bdad8b4e5954d7cc0b8999b5b4a058de1290b79d0caf293ac161df6116e2fb",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:48:45.699218+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-30125200",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_虚伪熔断.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:48:45.728458+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-1d1bf030",
+      "action": "CNSH-ANTI-HYPOCRISY",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_自动简化.cnsh",
+      "反虚伪结果": {
+        "虚伪度": 60,
+        "二级命中": [
+          "其实",
+          "你可以试试",
+          "尽力"
+        ],
+        "状态": "自动简化",
+        "原始": "# 这条源码轻度虚伪，应被自动简化后执行\n打印(\"其实你可以试试，我会尽力去做。\")\n",
+        "简化后": "# 这条源码轻度虚伪，应被自动简化后执行 打印(\"你可以试试，我会能做到去做。\")",
+        "建议": "已自动简化，请确认"
+      },
+      "timestamp": "2026-07-30T09:48:57.327271+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-1d1bf030",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_自动简化.cnsh",
+      "source_hash": "5aaa416bf8832816be9396045cb09eea2b28fc999fafcc00e234661c228b2317",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:48:57.327535+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-1d1bf030",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_自动简化.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:48:57.327588+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-9adcf249",
+      "action": "CNSH-ANTI-HYPOCRISY",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_自动简化.cnsh",
+      "反虚伪结果": {
+        "虚伪度": 60,
+        "二级命中": [
+          "其实",
+          "你可以试试",
+          "尽力"
+        ],
+        "状态": "自动简化",
+        "原始": "# 这条源码轻度虚伪，应被自动简化后执行\n打印(\"其实你可以试试，我会尽力去做。\")\n",
+        "简化后": "# 这条源码轻度虚伪，应被自动简化后执行\n打印(\"你可以试试，我会能做到去做。\")",
+        "建议": "已自动简化，请确认"
+      },
+      "timestamp": "2026-07-30T09:49:35.748195+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-9adcf249",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_自动简化.cnsh",
+      "source_hash": "a2cfcfbe36a5c5f623d43b3adfc9263dab4debceb79e2dba2290789b71d32bcc",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:49:35.748469+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-9adcf249",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_自动简化.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:49:35.748589+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-c2701759",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+      "source_hash": "50610b82400cde6b0eed1a2dc5fe095853a1a72888f8e9c66c63ab4cc5eecaaf",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:49:52.721799+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-c2701759",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:49:52.752192+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-a71582bf",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+      "source_hash": "3fa7efafb269c137e2641088721b70793db5267f0e6995d5090171fb4504afba",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:49:52.824076+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-a71582bf",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:49:52.853907+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-87db73f8",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_虚伪熔断.cnsh",
+      "source_hash": "91bdad8b4e5954d7cc0b8999b5b4a058de1290b79d0caf293ac161df6116e2fb",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:49:52.923153+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-87db73f8",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_虚伪熔断.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:49:52.951138+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-1b6499bc",
+      "action": "CNSH-ANTI-HYPOCRISY",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_自动简化.cnsh",
+      "反虚伪结果": {
+        "虚伪度": 60,
+        "二级命中": [
+          "其实",
+          "你可以试试",
+          "尽力"
+        ],
+        "状态": "自动简化",
+        "原始": "# 这条源码轻度虚伪，应被自动简化后执行\n打印(\"其实你可以试试，我会尽力去做。\")\n",
+        "简化后": "# 这条源码轻度虚伪，应被自动简化后执行\n打印(\"你可以试试，我会能做到去做。\")",
+        "建议": "已自动简化，请确认"
+      },
+      "timestamp": "2026-07-30T09:49:53.146241+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-1b6499bc",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_自动简化.cnsh",
+      "source_hash": "a2cfcfbe36a5c5f623d43b3adfc9263dab4debceb79e2dba2290789b71d32bcc",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T09:49:53.146525+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-1b6499bc",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_自动简化.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T09:49:53.146632+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-fbec0c8f",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_七项补全.cnsh",
+      "source_hash": "b66f839beeb80a54cd2c7eb397256f14e2a83b4258a97ecff8520ea822767b1b",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T10:47:04.030808+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-fbec0c8f",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_七项补全.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T10:47:04.130351+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-7d4693d6",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪仲裁中心.cnsh",
+      "source_hash": "f60c1b78798ce6c80a4c5c2ce97dd03eea3a7dde54c1433a8a7f5b4b16c217a4",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T10:47:24.123418+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-7d4693d6",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪仲裁中心.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T10:47:24.160744+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-cd3fd622",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+      "source_hash": "50610b82400cde6b0eed1a2dc5fe095853a1a72888f8e9c66c63ab4cc5eecaaf",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T10:47:37.921648+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-cd3fd622",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T10:47:37.965060+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-a73d85cf",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪仲裁中心.cnsh",
+      "source_hash": "f60c1b78798ce6c80a4c5c2ce97dd03eea3a7dde54c1433a8a7f5b4b16c217a4",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T10:47:38.036547+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-a73d85cf",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪仲裁中心.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T10:47:38.077688+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-747e19a3",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+      "source_hash": "3fa7efafb269c137e2641088721b70793db5267f0e6995d5090171fb4504afba",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T10:47:38.145534+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-747e19a3",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T10:47:38.181139+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-6b5ee7f3",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_七项补全.cnsh",
+      "source_hash": "b66f839beeb80a54cd2c7eb397256f14e2a83b4258a97ecff8520ea822767b1b",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T10:47:38.242648+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-6b5ee7f3",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_七项补全.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T10:47:38.337154+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-66bc7e60",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_七项补全.cnsh",
+      "source_hash": "b66f839beeb80a54cd2c7eb397256f14e2a83b4258a97ecff8520ea822767b1b",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-30T10:59:04.291094+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-66bc7e60",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/test_七项补全.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-30T10:59:04.371504+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·丙午·乙未·☲离-CNSH-EXECUTOR-RUN-8d3a815e",
+      "action": "CNSH-RUN-START",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/cnsh_v2.1/examples/hello.cnsh",
+      "source_hash": "5bcb3b461f866d8c76fed7cf92547a862db96f4d6bddd7ff86452457406c5319",
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "passed": true,
+      "timestamp": "2026-07-31T14:01:42.016156+00:00"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·丙午·乙未·☲离-CNSH-EXECUTOR-RUN-8d3a815e",
+      "action": "CNSH-RUN-FINISH",
+      "file": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/cnsh_v2.1/examples/hello.cnsh",
+      "ok": true,
+      "risk": 0.375,
+      "decision": 2.4,
+      "trust": 1.0,
+      "timestamp": "2026-07-31T14:01:42.055714+00:00"
+    }
+  ],
+  "记忆场": [
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-9902710f",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-bc1af1c2",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/cnsh_v2.1/examples/hello.cnsh",
+        "源码哈希": "5bcb3b461f866d8c76fed7cf92547a862db96f4d6bddd7ff86452457406c5319",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014686+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-bc1af1c2"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-37bc3406",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-576868c8",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/cnsh_v2.1/examples/hello.cnsh",
+        "源码哈希": "5bcb3b461f866d8c76fed7cf92547a862db96f4d6bddd7ff86452457406c5319",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014858+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-576868c8"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-a96123d7",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-b9c5ab6e",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/cnsh_v2.1/examples/hello.cnsh",
+        "源码哈希": "5bcb3b461f866d8c76fed7cf92547a862db96f4d6bddd7ff86452457406c5319",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014862+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-b9c5ab6e"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-9a953ee7",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-5a1d7f09",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/cnsh_v2.1/examples/hello.cnsh",
+        "源码哈希": "5bcb3b461f866d8c76fed7cf92547a862db96f4d6bddd7ff86452457406c5319",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014863+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-5a1d7f09"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-4c19277f",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-9ab1a86a",
+        "文件": "/private/tmp/test.cnsh",
+        "源码哈希": "8ce63ac700586118d60ac5f26a926dcabd3ec1c5f2c321175877ca443b95471e",
+        "结果": false,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014865+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-9ab1a86a"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-f726a30c",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-36c796ef",
+        "文件": "/private/tmp/test.cnsh",
+        "源码哈希": "8ce63ac700586118d60ac5f26a926dcabd3ec1c5f2c321175877ca443b95471e",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014866+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-36c796ef"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-3e0d762a",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-17a9fd48",
+        "文件": "/private/tmp/test.cnsh",
+        "源码哈希": "8ce63ac700586118d60ac5f26a926dcabd3ec1c5f2c321175877ca443b95471e",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014867+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-17a9fd48"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-e3119dfb",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-9f4cfe53",
+        "文件": "/private/tmp/test.cnsh",
+        "源码哈希": "8ce63ac700586118d60ac5f26a926dcabd3ec1c5f2c321175877ca443b95471e",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014869+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-9f4cfe53"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-b467ea7b",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-c24de075",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+        "源码哈希": "73bae84a9c2839706fa083cee6836c54209759e36b49bcd9692984fcfdb8db35",
+        "结果": false,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014870+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-c24de075"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-cd584797",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-450944ed",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+        "源码哈希": "73bae84a9c2839706fa083cee6836c54209759e36b49bcd9692984fcfdb8db35",
+        "结果": false,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014871+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-450944ed"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-512818bc",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-75aecb92",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+        "源码哈希": "73bae84a9c2839706fa083cee6836c54209759e36b49bcd9692984fcfdb8db35",
+        "结果": false,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014872+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-75aecb92"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-c7abe55d",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-6da53a19",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+        "源码哈希": "0bcf2c6261bea86423d53acc463143d629021c76648b5e4d460c258337b0bfe3",
+        "结果": false,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014873+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-6da53a19"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-ee1b28eb",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-8b57018a",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+        "源码哈希": "50610b82400cde6b0eed1a2dc5fe095853a1a72888f8e9c66c63ab4cc5eecaaf",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014875+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-8b57018a"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-fe074f52",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-f3d1a06f",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+        "源码哈希": "4cae07d91f0ca553a4cd93d6a528e1b666aada154c71637b2bc27dc029442c64",
+        "结果": false,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014876+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-f3d1a06f"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-152ebc8c",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-10fdab08",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+        "源码哈希": "c2c91de44322872f70c4484514671595a1c34f309392cbcbea9291179a521b92",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014877+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-10fdab08"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-db8d0f86",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-85e6e5bb",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+        "源码哈希": "3fa7efafb269c137e2641088721b70793db5267f0e6995d5090171fb4504afba",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014878+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-85e6e5bb"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-2ff21392",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-8c61278d",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+        "源码哈希": "3fa7efafb269c137e2641088721b70793db5267f0e6995d5090171fb4504afba",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014879+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-8c61278d"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-26a2b67c",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-30125200",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/test_虚伪熔断.cnsh",
+        "源码哈希": "91bdad8b4e5954d7cc0b8999b5b4a058de1290b79d0caf293ac161df6116e2fb",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014883+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-30125200"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-6e283254",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-1d1bf030",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/test_自动简化.cnsh",
+        "源码哈希": "5aaa416bf8832816be9396045cb09eea2b28fc999fafcc00e234661c228b2317",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014884+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-1d1bf030"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-dce5aa1a",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-9adcf249",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/test_自动简化.cnsh",
+        "源码哈希": "a2cfcfbe36a5c5f623d43b3adfc9263dab4debceb79e2dba2290789b71d32bcc",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014885+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-9adcf249"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-569bc3c6",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-c2701759",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+        "源码哈希": "50610b82400cde6b0eed1a2dc5fe095853a1a72888f8e9c66c63ab4cc5eecaaf",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014887+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-c2701759"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-f4d79d80",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-a71582bf",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+        "源码哈希": "3fa7efafb269c137e2641088721b70793db5267f0e6995d5090171fb4504afba",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014888+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-a71582bf"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-29ea4788",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-87db73f8",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/test_虚伪熔断.cnsh",
+        "源码哈希": "91bdad8b4e5954d7cc0b8999b5b4a058de1290b79d0caf293ac161df6116e2fb",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014889+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-87db73f8"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-85d46d9e",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-1b6499bc",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/test_自动简化.cnsh",
+        "源码哈希": "a2cfcfbe36a5c5f623d43b3adfc9263dab4debceb79e2dba2290789b71d32bcc",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014890+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-1b6499bc"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-8cbc3171",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-fbec0c8f",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/test_七项补全.cnsh",
+        "源码哈希": "b66f839beeb80a54cd2c7eb397256f14e2a83b4258a97ecff8520ea822767b1b",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014891+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-fbec0c8f"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-c1917f15",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-7d4693d6",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪仲裁中心.cnsh",
+        "源码哈希": "f60c1b78798ce6c80a4c5c2ce97dd03eea3a7dde54c1433a8a7f5b4b16c217a4",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014892+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-7d4693d6"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-cd3e392d",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-cd3fd622",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪引擎.cnsh",
+        "源码哈希": "50610b82400cde6b0eed1a2dc5fe095853a1a72888f8e9c66c63ab4cc5eecaaf",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014894+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-cd3fd622"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-9d3421c5",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-a73d85cf",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/反虚伪仲裁中心.cnsh",
+        "源码哈希": "f60c1b78798ce6c80a4c5c2ce97dd03eea3a7dde54c1433a8a7f5b4b16c217a4",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014895+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-a73d85cf"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-6c0035e1",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-747e19a3",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/test_反虚伪.cnsh",
+        "源码哈希": "3fa7efafb269c137e2641088721b70793db5267f0e6995d5090171fb4504afba",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014896+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-747e19a3"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-293bf8e5",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-6b5ee7f3",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/test_七项补全.cnsh",
+        "源码哈希": "b66f839beeb80a54cd2c7eb397256f14e2a83b4258a97ecff8520ea822767b1b",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014897+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-6b5ee7f3"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-MEMORY-7d6b8fec",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-66bc7e60",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/test_七项补全.cnsh",
+        "源码哈希": "b66f839beeb80a54cd2c7eb397256f14e2a83b4258a97ecff8520ea822767b1b",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.014898+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CNSH-EXECUTOR-RUN-66bc7e60"
+    },
+    {
+      "dna": "#龍芯⚡️丙午·丙申·丙午·乙未·☲离-CNSH-EXECUTOR-MEMORY-d7e847db",
+      "content": {
+        "执行DNA": "#龍芯⚡️丙午·丙申·丙午·乙未·☲离-CNSH-EXECUTOR-RUN-8d3a815e",
+        "文件": "/Users/zuimeidedeyihan/longhun-system/cnsh/core/cnsh_v2.1/examples/hello.cnsh",
+        "源码哈希": "5bcb3b461f866d8c76fed7cf92547a862db96f4d6bddd7ff86452457406c5319",
+        "结果": true,
+        "风险": 0.375,
+        "决策": 2.4,
+        "信任": 1.0
+      },
+      "tags": [
+        "CNSH",
+        "执行"
+      ],
+      "timestamp": "2026-07-31T14:01:42.056294+00:00",
+      "previous_dna": "#龍芯⚡️丙午·丙申·丙午·乙未·☲离-CNSH-EXECUTOR-RUN-8d3a815e"
+    }
+  ],
+  "保存时间": "2026-07-31T14:01:42.058892+00:00"
+}

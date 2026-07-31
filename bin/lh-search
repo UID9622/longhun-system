@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# DNA: #龍芯⚡️丙午·乙未·乙丑·小畜-LH-SEARCH-WRAPPER-v1.0
+# 创建者: 诸葛鑫 (UID9622)
+# 协议: CC BY-NC-SA 4.0
+# lh-search → lh --search 快捷入口
+exec python3 "$(dirname "$0")/lh.py" --search "$@"
