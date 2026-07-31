@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·小畜-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_LORA_TRAINER_DEEPSEEK_V40-v1.0-5872ced2
 # CREATOR: 诸葛鑫 (UID9622)

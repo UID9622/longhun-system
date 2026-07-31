@@ -1,6 +1,7 @@
 #!/bin/bash
 # 🐉 显示 P0 永恒锁协议
 # DNA: #龍芯⚡️2026-06-25-LONGHUN-SHOW-ETERNAL-LOCK-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 FILE="$ROOT/P0_ETERNAL_LOCK.md"

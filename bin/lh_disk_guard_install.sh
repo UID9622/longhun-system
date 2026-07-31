@@ -1,6 +1,7 @@
 #!/bin/bash
 # 🐉 龍魂磁盘守护 · 安装/管理脚本
 # DNA: #龍芯⚡️2026-07-12-DISK-GUARD-INSTALL-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
 

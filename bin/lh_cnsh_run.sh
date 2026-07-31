@@ -2,6 +2,7 @@
 # lh_cnsh_run.sh
 # 龍魂 · CNSH 全语言终端直跑
 # DNA: ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 FILE=$1
 LANG=${2:-auto}

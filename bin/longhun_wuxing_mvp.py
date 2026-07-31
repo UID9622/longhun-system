@@ -1,4 +1,5 @@
 # DNA: #龍芯⚡️2026-07-21-迁移-longhun_wuxing_mvp-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # 来源: 龍魂待整理/02-流场可视化/longhun_wuxing_mvp.py

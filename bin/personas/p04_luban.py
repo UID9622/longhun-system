@@ -70,6 +70,7 @@ class P04Luban:
             "dependency_check",   # 依赖检查
             "syntax_check",       # 语法自检
             "tech_stack_advise",  # 技术选型建议
+            "scaffold_project",   # 项目骨架生成 (v2.0·融合自P-AK-BUILDER)
         ]
 
     # ========================================================================
@@ -236,6 +237,36 @@ class P04Luban:
             "dna": self.dna,
         }
 
+    def scaffold_project(self, project_name: str, project_type: str = "cli") -> Dict[str, Any]:
+        """项目骨架生成 (v2.0·融合自P-AK-BUILDER)"""
+        import datetime as dt
+        safe_name = project_name.replace(" ", "_").lower()
+        target = self.system_root / "projects" / safe_name
+        target.mkdir(parents=True, exist_ok=True)
+        templates = {
+            "README.md": f"# {project_name}\n\n> 由 P04鲁班 骨架生成\n> DNA: {self.dna}\n> 时间: {dt.datetime.now().isoformat()}\n",
+            ".gitignore": "*.pyc\n__pycache__/\n.env\n*.log\n.pytest_cache/\n",
+            "requirements.txt": "# 用户自行补充依赖\n",
+        }
+        if project_type in ("cli", "api", "default"):
+            templates[f"{safe_name}.py"] = (
+                f'#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n'
+                f'"""\n{project_name}\nDNA: {self.dna}\n"""\n\n'
+                f'def main():\n    print("Hello from {project_name}!")\n\n'
+                f'if __name__ == "__main__":\n    main()\n'
+            )
+        created = {}
+        for name, content in templates.items():
+            fp = target / name
+            fp.write_text(content, encoding="utf-8")
+            created[name] = str(fp)
+        return {
+            "project": project_name, "type": project_type,
+            "path": str(target), "files_created": len(created),
+            "files": created, "verdict": f"🟢 骨架已生成 → {target}",
+            "persona": self.PERSONA_CODE, "dna": self.dna,
+        }
+
     # ========================================================================
     # 执行入口
     # ========================================================================
@@ -277,6 +308,12 @@ class P04Luban:
             result["capability_used"] = "tech_stack_advise"
             result["output"] = self.tech_stack_advise(
                 project_type=kwargs.get("project_type", task)
+            )
+        elif any(kw in task for kw in ["骨架", "脚手架", "新建项目", "scaffold"]):
+            result["capability_used"] = "scaffold_project"
+            result["output"] = self.scaffold_project(
+                project_name=kwargs.get("project_name", task),
+                project_type=kwargs.get("project_type", "cli"),
             )
         else:
             result["capability_used"] = "tech_assess"

@@ -5,6 +5,7 @@
 # -*- coding: utf-8 -*-
 # 龍魂支付统一接口 · 国密加密 · 三通道
 # DNA: #龍芯⚡️丙午·辛未·PAYMENT-API-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 """🐉 龍魂引擎：lh_payment_api
 路径：bin/lh_payment_api.py

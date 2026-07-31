@@ -1,6 +1,7 @@
 #!/bin/bash
 # 龍魂 · 鸿蒙生态后台狩猎脚本 v2
 # DNA: #龍芯⚡️丙午·乙未·丁巳·亥时·需-LH-HARMONY-HUNT-BG-v2.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 set -e
 PROJECT_ROOT="/Users/zuimeidedeyihan/longhun-system"
 DAOYIN="$PROJECT_ROOT/bin/lh_daoyin.py"

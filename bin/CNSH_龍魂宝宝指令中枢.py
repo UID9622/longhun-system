@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️丙午·丙申·癸酉·庚申·临-CNSH_龍魂宝宝指令中枢-v1.0-262b5399
 # CREATOR: 诸葛鑫 (UID9622)
@@ -29,12 +30,20 @@ DNA: #龍芯⚡️2026-06-29-CNSH-BAOBAO-CENTER-UID9622
 
 import json
 import re
-import secrets
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 
 from CNSH_国密工具 import SM3, SM4, 生成随机密钥, hmac_sm3
+from CNSH_透明语义治理内核 import (
+    生成DNA身份锚,
+    风险函数,
+    决策函数,
+    信任函数,
+    边界函数,
+    审计链,
+    记忆场,
+)
 from CNSH_代码审计引擎 import CNSH_代码审计引擎, 引擎配置
 from CNSH_目录审计 import CNSH_目录审计
 from CNSH_内容加工管道 import CNSH_内容加工管道
@@ -71,6 +80,8 @@ class CNSH_龍魂宝宝指令中枢:
         self.技能 = self._注册技能()
         self.奖励机制 = self._加载奖励机制()
         self.执行历史: List[Dict[str, Any]] = []
+        self.审计链 = 审计链()
+        self.记忆场 = 记忆场()
         self._初始化流场引擎()
         self._初始化底座引擎()
 
@@ -677,17 +688,53 @@ class CNSH_龍魂宝宝指令中枢:
         意图 = self._拆解意图(用户输入)
         命中技能 = self._路由技能(意图)
 
+        # v2.0 意图解析审计 + 记忆
+        输入哈希 = SM3.hex_hash(用户输入)
+        解析DNA = self._生成DNA("INTENT-PARSE", 输入哈希)
+        解析评分 = self._治理评分(命中技能, 风险数=0, 通过=True)
+        self._审计记录(
+            action="INTENT-PARSE",
+            dna=解析DNA,
+            risk=解析评分["风险"],
+            decision=解析评分["决策"],
+            passed=解析评分["决策"] >= 0.5,
+            metadata={"意图": 意图, "命中技能数": len(命中技能)},
+        )
+        self._记忆记录(
+            dna=解析DNA,
+            content={"输入": 用户输入, "意图": 意图, "命中技能": [s["技能名"] for s in 命中技能]},
+            tags=["中枢", "意图解析"],
+        )
+
         # 颜色不动点：任何输入先落一个颜色（ eyes first ）
         颜色状态报告 = self.颜色协议.生成报告(用户输入)
 
         合规审查 = self._合规审查(意图, 命中技能)
 
         if not 合规审查["通过"]:
+            阻断DNA = self._生成DNA("BLOCK", 输入哈希, 颜色状态报告["主色"])
+            阻断评分 = self._治理评分(命中技能, 风险数=len(合规审查["风险"]), 通过=False)
+            self._审计记录(
+                action="COMPLIANCE-BLOCK",
+                dna=阻断DNA,
+                risk=阻断评分["风险"],
+                decision=阻断评分["决策"],
+                passed=False,
+                metadata={"风险": 合规审查["风险"], "颜色": 颜色状态报告.get("主色")},
+            )
+            self._记忆记录(
+                dna=阻断DNA,
+                content={"输入": 用户输入, "状态": "合规阻断", "风险": 合规审查["风险"]},
+                tags=["中枢", "合规阻断"],
+            )
             return {
                 "状态": "合规阻断",
                 "说明": "请求触碰底线，已拦截。",
                 "风险": 合规审查["风险"],
-                "DNA": self._生成DNA("BLOCK", SM3.hex_hash(用户输入), 颜色状态报告["主色"]),
+                "DNA": 阻断DNA,
+                "风险评分": 阻断评分["风险"],
+                "决策评分": 阻断评分["决策"],
+                "信任评分": 阻断评分["信任"],
             }
 
         # 多模型颜色一致性：交叉验证，取最高风险
@@ -709,8 +756,21 @@ class CNSH_龍魂宝宝指令中枢:
         # 生态监管：颜色权限检查
         颜色权限 = self.生态监管.颜色权限检查(self.画像["UID"], 颜色状态报告["主色"])
 
+        # v2.0 颜色检查审计
+        颜色DNA = self._生成DNA("COLOR-CHECK", 输入哈希, 颜色状态报告["主色"])
+        颜色评分 = self._治理评分(命中技能, 风险数=1 if 颜色状态报告.get("红线") else 0, 通过=not 颜色状态报告.get("红线"))
+        self._审计记录(
+            action="COLOR-CHECK",
+            dna=颜色DNA,
+            risk=颜色评分["风险"],
+            decision=颜色评分["决策"],
+            passed=not 颜色状态报告.get("红线"),
+            metadata={"主色": 颜色状态报告.get("主色"), "颜色权限": 颜色权限},
+        )
+
         计划 = self._生成执行计划(意图, 命中技能, 合规审查["建议"])
-        DNA = self._生成DNA("EXECUTE", SM3.hex_hash(用户输入), 颜色状态报告["主色"])
+        DNA = self._生成DNA("EXECUTE", 输入哈希, 颜色状态报告["主色"])
+        执行评分 = self._治理评分(命中技能, 风险数=0, 通过=True)
 
         结果 = {
             "状态": "已唤醒",
@@ -724,13 +784,29 @@ class CNSH_龍魂宝宝指令中枢:
             "护盾联动": 护盾结果,
             "颜色权限": 颜色权限,
             "DNA": DNA,
-            "输入SM3哈希": SM3.hex_hash(用户输入),
+            "输入SM3哈希": 输入哈希,
+            "风险评分": 执行评分["风险"],
+            "决策评分": 执行评分["决策"],
+            "信任评分": 执行评分["信任"],
         }
 
         # 颜色红线熔断：如果颜色协议判定为红线，直接阻断
         if 颜色状态报告.get("红线"):
             结果["状态"] = "颜色红线阻断"
             结果["颜色熔断"] = True
+            self._审计记录(
+                action="COLOR-BLOCK",
+                dna=DNA,
+                risk=执行评分["风险"],
+                decision=0.0,
+                passed=False,
+                metadata={"主色": 颜色状态报告.get("主色"), "原因": 颜色状态报告.get("原因", [])},
+            )
+            self._记忆记录(
+                dna=DNA,
+                content={"输入": 用户输入, "状态": "颜色红线阻断", "颜色": 颜色状态报告.get("主色")},
+                tags=["中枢", "颜色阻断"],
+            )
             self.执行历史.append(结果)
             self._保存历史()
             return 结果
@@ -751,6 +827,37 @@ class CNSH_龍魂宝宝指令中枢:
             结果["执行结果"] = self._执行底座动作(意图, 命中技能)
             if 结果["状态"] == "已唤醒" or (流场结果 and 流场结果.get("动作") == "流场动作跳过"):
                 结果["状态"] = "已唤醒·底座已执行"
+
+        # v2.0 技能执行审计 + 结果审计 + 记忆固化
+        执行技能 = list(结果.get("执行结果", {}).keys()) if "执行结果" in 结果 else []
+        技能DNA = self._生成DNA("SKILL-EXEC", 输入哈希, 颜色状态报告["主色"])
+        self._审计记录(
+            action="SKILL-EXEC",
+            dna=技能DNA,
+            risk=执行评分["风险"],
+            decision=执行评分["决策"],
+            passed=True,
+            metadata={"执行技能": 执行技能, "流场结果": 流场结果.get("动作") if 流场结果 else None},
+        )
+        self._记忆记录(
+            dna=DNA,
+            content={
+                "输入": 用户输入,
+                "状态": 结果["状态"],
+                "命中技能": [s["技能名"] for s in 命中技能],
+                "执行技能": 执行技能,
+            },
+            tags=["中枢", "执行结果"],
+            previous_dna=解析DNA,
+        )
+        self._审计记录(
+            action="RESULT",
+            dna=DNA,
+            risk=执行评分["风险"],
+            decision=执行评分["决策"],
+            passed=结果["状态"].startswith("已唤醒"),
+            metadata={"最终状态": 结果["状态"], "命中技能数": len(命中技能)},
+        )
 
         self.执行历史.append(结果)
         self._保存历史()
@@ -807,12 +914,32 @@ class CNSH_龍魂宝宝指令中枢:
 
     # ============== 13. 工具方法 ==============
     def _生成DNA(self, 动作: str, 输入哈希: str, 颜色代码: Optional[str] = None) -> str:
-        时间戳 = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
-        熵 = secrets.token_hex(4).upper()
-        颜色段 = f"-COLOR{颜色代码}" if 颜色代码 else ""
-        原料 = f"{动作}-{输入哈希}-{时间戳}-{熵}-UID9622-BAOBAO-CENTER{颜色段}"
-        短哈希 = SM3.hex_hash(原料)[:16].upper()
-        return f"#龍芯⚡️{datetime.now(timezone.utc).strftime('%Y-%m-%d')}-{动作}{颜色段}-{短哈希}-ENTROPY{熵}-UID9622"
+        action = 动作 if 颜色代码 is None else f"{动作}-{颜色代码}"
+        return 生成DNA身份锚("CENTER", action, extra=输入哈希)
+
+    def _审计记录(self, action: str, dna: str, risk: float, decision: float, passed: bool, metadata: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        return self.审计链.追加({
+            "dna": dna,
+            "action": action,
+            "risk": round(float(risk), 4),
+            "decision": round(float(decision), 4),
+            "passed": bool(passed),
+            "metadata": metadata or {},
+        })
+
+    def _记忆记录(self, dna: str, content: Any, tags: Optional[List[str]] = None, previous_dna: Optional[str] = None) -> Dict[str, Any]:
+        return self.记忆场.写入(dna, content, tags=tags, previous_dna=previous_dna)
+
+    def _治理评分(self, 命中技能: List[Dict[str, Any]], 风险数: int, 通过: bool) -> Dict[str, float]:
+        能力 = max(1.0, float(len(命中技能)))
+        不确定度 = 1.0 / (1.0 + 能力) + 0.1 * 风险数
+        自主性 = 1.0 if 通过 else 0.5
+        风险 = 风险函数(能力, 不确定度, 自主性)
+        权限 = 1.0 if 通过 else 0.0
+        上下文 = min(1.0, 能力 / max(1.0, len(self.技能)))
+        决策 = 决策函数(权限, 上下文, 风险)
+        信任 = 信任函数(1.0, 1.0 if 通过 else 0.5, 1.0)
+        return {"风险": 风险, "决策": 决策, "信任": 信任}
 
     def _保存历史(self):
         路径 = self.工作目录 / "执行历史.json"

@@ -1,6 +1,7 @@
 #!/bin/bash
 # 🐉 显示龍魂协议库索引
 # DNA: #龍芯⚡️2026-06-25-LONGHUN-SHOW-PROTOCOL-LIBRARY-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 FILE="$ROOT/library/protocols/README.md"

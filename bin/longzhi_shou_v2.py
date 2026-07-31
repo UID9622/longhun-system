@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️丙午·丙申·癸酉·庚申·临-LONGZHI_SHOU_V2-v1.0-1a3b091f
 # CREATOR: 诸葛鑫 (UID9622)

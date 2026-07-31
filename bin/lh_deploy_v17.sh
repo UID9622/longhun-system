@@ -1,6 +1,7 @@
 #!/bin/bash
 # 龍魂 v1.7 一键部署脚本
 # DNA: #龍芯⚡️丙午·辛未·乙酉·辰时·讼-DEPLOY-v1.7
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 set -e
 
 PROJECT="/Users/zuimeidedeyihan/longhun-system"

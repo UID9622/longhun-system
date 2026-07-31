@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️丙午·乙未·丙申·戌时·☲离-ANTENNA-TRAINER-v1.0-a1b2c3d4
 # CREATOR: 诸葛鑫 (UID9622)

@@ -1,6 +1,7 @@
 #!/bin/bash
 # 道德经场景定锚器回归测试
 # DNA: #龍芯⚡️2026-07-19-DAODEJING-ANCHOR-VERIFY-v1.1
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
 

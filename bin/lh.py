@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·小畜-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️丙午·丙申·癸丑·申时·大有-lh-CONSOLE-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
@@ -18,6 +20,7 @@ import json, os, sys, time, shlex, subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "bin"))  # bin/ 优先，确保 lh_lifecycle 等模块可导入
 sys.path.insert(0, str(ROOT))
 
 # ===== 常量 =====
@@ -26,6 +29,18 @@ DNA = "#龍芯⚡️丙午·丙申·癸丑·申时·大有-lh-CONSOLE-v1.0"
 
 # ===== 功能模块定义（分组+描述）=====
 MODULES = {
+    "🧠 统一中枢 · 2,723引擎调度": {
+        "desc": "全项目引擎注册表·智能路由·状态全景·去重归集",
+        "items": [
+            {"id": "1", "label": "🧠 进入统一中枢控制台", "cmd": "python3 bin/lh_unified_brain.py", "desc": "交互式控制台·全引擎调度·一步到位"},
+            {"id": "2", "label": "📊 全系统状态面板", "cmd": "python3 bin/lh_unified_brain.py status", "desc": "2,723脚本·109万行代码·一键全景"},
+            {"id": "3", "label": "🔍 搜索引擎", "cmd": "python3 bin/lh_unified_brain.py find", "desc": "按关键词搜索任意引擎（lh brain find <关键词>）"},
+            {"id": "4", "label": "🧭 智能意图路由", "cmd": "python3 bin/lh_unified_brain.py route", "desc": "自然语言描述意图→自动匹配引擎（lh brain route <意图>）"},
+            {"id": "5", "label": "🏥 健康检查", "cmd": "python3 bin/lh_unified_brain.py health", "desc": "DNA签名率·冗余检测·API端口冲突"},
+            {"id": "6", "label": "🔄 冗余检测", "cmd": "python3 bin/lh_unified_brain.py dupes", "desc": "检测多版本重复脚本（675组）"},
+            {"id": "7", "label": "🔄 重新扫描注册表", "cmd": "python3 bin/lh_unified_brain.py scan", "desc": "强制重新扫描全项目注册引擎"},
+        ]
+    },
     "🚀 引擎 & 通道": {
         "desc": "AI引擎内核、飞书/微信/Web通道、语义路由",
         "items": [
@@ -39,18 +54,22 @@ MODULES = {
         ]
     },
     "🛡️ 安全 & 审计": {
-        "desc": "五色审计、防篡改、一票否决、熔断申诉",
+        "desc": "五色审计、防篡改、一票否决、熔断申诉、主权守护",
         "items": [
-            {"id": "1", "label": "全系统安全巡检", "cmd": "python3 bin/lh_full_system_audit.py", "desc": "一键触发全系统安全扫描"},
-            {"id": "2", "label": "三色代码审计", "cmd": "python3 bin/lh_code_audit_cli.py", "desc": "审计单个代码文件安全（交互式输入路径）"},
-            {"id": "3", "label": "防篡改扫描", "cmd": "python3 bin/lh_anti_tamper.py scan", "desc": "外部AI内容熔断检查（交互式输入文本）"},
-            {"id": "4", "label": "一票否决查询", "cmd": "python3 bin/lh_fuse_response.py --list", "desc": "查看所有熔断规则"},
-            {"id": "5", "label": "熔断申诉", "cmd": "python3 bin/lh_fuse_appeal.py --interactive", "desc": "对熔断判定提出申诉"},
-            {"id": "6", "label": "算法审计", "cmd": "python3 bin/lh_algorithm_audit.py", "desc": "审计算法公平性和偏差"},
-            {"id": "7", "label": "双重审计引擎", "cmd": "python3 bin/lh_dual_audit_engine.py", "desc": "并行审计提高覆盖"},
-            {"id": "8", "label": "🛡️ 上下文安全引擎", "cmd": "python3 bin/lh_safeai.py --inspect \"什么是SQL注入？怎么防范？\"", "desc": "意图分类+七因子审计+P0-P4分层熔断（safe-ai v1.0）"},
-            {"id": "9", "label": "⚖️ 公正总裁/审计员", "cmd": "python3 bin/lh_judge.py --content \"请裁决以下争议...\"", "desc": "调用鲲鹏 longhun-judge 模型做公正裁决与三色审计"},
-            {"id": "10", "label": "🔄 序列执行引擎", "cmd": "python3 bin/lh_seq.py", "desc": "SafeAI→KFPP→CSDN→公正总裁 流水线审计（交互式输入文本）"},
+            {"id": "1", "label": "🔴🐉 主权守护验证", "cmd": "python3 bin/lh_sovereignty_guard.py validate", "desc": "法律边界+一票否决+数据主权三合一验证"},
+            {"id": "2", "label": "🐉 主权守护状态", "cmd": "python3 bin/lh_sovereignty_guard.py status", "desc": "查看主权宪法·否决权·数据主权状态"},
+            {"id": "3", "label": "🐉 主权操作检查", "cmd": "python3 bin/lh_sovereignty_guard.py check \"操作描述\" --context '{}'", "desc": "检查任意操作是否符合法律边界+数据主权"},
+            {"id": "4", "label": "🔴 激活一票否决", "cmd": "python3 bin/lh_sovereignty_guard.py veto activate --reason \"维护\"", "desc": "冻结所有系统操作（仅UID9622可执行）"},
+            {"id": "5", "label": "全系统安全巡检", "cmd": "python3 bin/lh_full_system_audit.py", "desc": "一键触发全系统安全扫描"},
+            {"id": "6", "label": "三色代码审计", "cmd": "python3 bin/lh_code_audit_cli.py", "desc": "审计单个代码文件安全（交互式输入路径）"},
+            {"id": "7", "label": "防篡改扫描", "cmd": "python3 bin/lh_anti_tamper.py scan", "desc": "外部AI内容熔断检查（交互式输入文本）"},
+            {"id": "8", "label": "一票否决查询", "cmd": "python3 bin/lh_fuse_response.py --list", "desc": "查看所有熔断规则"},
+            {"id": "9", "label": "熔断申诉", "cmd": "python3 bin/lh_fuse_appeal.py --interactive", "desc": "对熔断判定提出申诉"},
+            {"id": "10", "label": "算法审计", "cmd": "python3 bin/lh_algorithm_audit.py", "desc": "审计算法公平性和偏差"},
+            {"id": "11", "label": "双重审计引擎", "cmd": "python3 bin/lh_dual_audit_engine.py", "desc": "并行审计提高覆盖"},
+            {"id": "12", "label": "🛡️ 上下文安全引擎", "cmd": "python3 bin/lh_safeai.py --inspect \"什么是SQL注入？怎么防范？\"", "desc": "意图分类+七因子审计+P0-P4分层熔断（safe-ai v1.0）"},
+            {"id": "13", "label": "⚖️ 公正总裁/审计员", "cmd": "python3 bin/lh_judge.py --content \"请裁决以下争议...\"", "desc": "调用鲲鹏 longhun-judge 模型做公正裁决与三色审计"},
+            {"id": "14", "label": "🔄 序列执行引擎", "cmd": "python3 bin/lh_seq.py", "desc": "SafeAI→KFPP→CSDN→公正总裁 流水线审计（交互式输入文本）"},
         ]
     },
     "🧠 人格 & AI": {
@@ -204,7 +223,7 @@ def print_header():
     print(f"  🐉  龍魂统一控制台 {VERSION}")
     print(f"  📍 UID9622 · 诸葛鑫 · Lucky")
     print(f"  🧬 {DNA}")
-    print(f"  📦 已注册能力: {len(ENGINE_CAPS)}项 · 人格: {len(PERSONAS)}个 · 命令: 103+")
+    print(f"  📦 已注册能力: {len(ENGINE_CAPS)}项 · 人格: {len(PERSONAS)}个 · 命令: 120+")
     print(f"{'='*min(w,100)}")
 
 def print_menu():
@@ -348,6 +367,63 @@ def _run_fixed_cmd(cmd: str):
     subprocess.run(args, cwd=str(ROOT), check=False)
 
 
+# ===== 子命令调度表（一行一个新功能）=====
+# 格式: flag_name → (script, emoji, description, [default_args], [smart_default])
+# smart_default: 当用户传自由文本时自动插入的子命令（如 search engine 需要 "search" 子命令）
+SUB_DISPATCH = {
+    'search':               ('lh_search_engine.py',           '🔍', '搜索引擎', [], 'search'),
+    'video':                ('lh_video_studio.py',            '🎬', '视频工坊'),
+    'pipeline_3d':           ('lh_3d_pipeline.py',             '🎨', '3D管线'),
+    'browser':              ('lh_browser_historian.py',       '📖', '浏览器史官'),
+    'cnsh':                 ('cnsh_compiler.py',              '🀄', 'CNSH编译器'),
+    'cnsh_runtime':         ('lh_cnsh_runtime.py',            '⚡', 'CNSH运行时', [], 'status'),
+    'cnsh_complete':        ('cnsh_complete.py',              '☯️', 'CNSH完整版', [], '--interactive'),
+    'cnsh_editor':          ('cnsh_editor.py',                '✏️', 'CNSH编辑器'),
+    'cnsh_translator':      ('lh_cnsh_translator.py',         '🌐', 'CNSH翻译', [], '--interactive'),
+    'cnsh_ui':              ('cnsh_ui.py',                    '🖥️', 'CNSH UI'),
+    'seven_dimension':      ('lh_seven_dimension_engine_v2.py','🌌', '七维推演引擎', [], '--interactive'),
+    'three_color':          ('lh_three_color_audit.py',       '🔴', '三色审计引擎', [], 'audit'),
+    'regulatory':           ('lh_regulatory_firewall.py',     '🔥', '监管防火墙'),
+    'governance':           ('governance_engine.py',           '⚖️', '治理降级引擎', [], '--interactive'),
+    'governance_check':     ('uid9622_governance.py',          '🏛️', '治理总控台'),
+    'entry_test':           ('lh_entry_test_runner.py',       '🧪', '入口测试执行器'),
+    'digital_twin':         ('lh_digital_twin.py',            '👥', '数字孪生体', [], '--status'),
+    'feed_baby':            ('lh_feed_baby.py',               '🍼', '投喂宝宝优化'),
+    'intent':               ('lh_intent_engine.py',           '🧿', '意念交流引擎', [], '--interactive'),
+    'dynamic_goal':         ('lh_dynamic_goal.py',            '🎯', '动态目标引擎', [], '--interactive'),
+    'capability':           ('lh_capability_scheduler.py',    '📋', '能力调度器', [], '--interactive'),
+    'universal_completion': ('universal_completion.py',       '🔮', '万能补全引擎', [], '--interactive'),
+    'mirror_index':         ('lh_mirror_index.py',            '🪞', '镜像指数扫描'),
+    'dna_validate':         ('dna_validate.py',               '🧬', 'DNA校验器'),
+    'triple_audit':         ('lh_triple_audit_gate.py',       '🚦', '三重审计闸'),
+    'weight':               ('lh_weight_algorithm.py',        '⚖️', '权重算法'),
+    'tongxinyi':            ('lh_tongxinyi_translator.py',    '💬', '通心译翻译'),
+    'san_cai':              ('san_cai_v2.py',                 '☯️', '三才算法', [], '--interactive'),
+    'ant_colony':           ('lh_ant_colony_daemon.py',       '🐜', '蚁群引擎'),
+    'update':               ('lh_engine_registry.py',         '🔄', '更新引擎索引', ['scan']),
+    'status':               ('lh_unified_brain.py',           '📊', '全系统状态', ['status']),
+}
+
+
+def _run_subcommand(script_name: str, extra_args: list = None, emoji: str = '🚀', label: str = '',
+                    smart_default: str = ''):
+    """统一子命令执行器
+    - 如果 extra_args 不为空且第一个参数不是 -(flags)，且定义了 smart_default → 自动插入默认子命令
+    """
+    script_path = ROOT / "bin" / script_name
+    print_header()
+    if label:
+        print(f"\n  {emoji} {label}")
+    args_list = [sys.executable, str(script_path)]
+
+    if extra_args:
+        # 智能插入：第一个参数不是 flag 且设有 smart_default
+        if smart_default and extra_args and not extra_args[0].startswith('-'):
+            args_list.append(smart_default)
+        args_list.extend(extra_args)
+    subprocess.run(args_list, cwd=str(ROOT), check=False)
+
+
 def _run_interactive_item(item: dict):
     """执行需要交互式用户输入的菜单项，杜绝 shell 拼接。"""
     label = item["label"]
@@ -467,6 +543,69 @@ def main():
                         help='公正总裁/审计员 (带参数=裁决内容 / 无参数=健康检查)')
     parser.add_argument('--seq', type=str, nargs='?', const='',
                         help='序列执行引擎 (带参数=审计文本 / 无参数=帮助)')
+    parser.add_argument('--sovereignty', type=str, nargs='*',
+                        help='主权守护引擎 (validate/status/check ""/veto activate/deactivate)')
+    parser.add_argument('--align', type=str, nargs='*',
+                        help='对齐闭环 (check/fix/status/daemon/dry-run)')
+    parser.add_argument('--run', nargs=argparse.REMAINDER, help='自然语言执行命令 (lh --run "健康检查" --dry-run)')
+    parser.add_argument('--complete', type=str, help='命令自动补全 (lh --complete "部")')
+    parser.add_argument('--repo', nargs=argparse.REMAINDER, help='开源项目模板生成 (lh --repo 或 lh --repo --dry-run 或 lh --repo -o ~/my-project)')
+    parser.add_argument('--dna', nargs=argparse.REMAINDER, help='DNA生成与管理 (lh --dna generate/lookup/inherit/family/verify/stats)')
+    parser.add_argument('--know', nargs=argparse.REMAINDER, help='本地知识引擎 (lh --know scan/search/convert/status)')
+    parser.add_argument('--agent', nargs=argparse.REMAINDER, help='智能体训练 (lh --agent process/interactive/train/status)')
+    parser.add_argument('--lu', nargs=argparse.REMAINDER, help='LU压缩引擎 (lh --lu compress/recall/align/index/shortcodes)')
+    parser.add_argument('--central', nargs=argparse.REMAINDER, help='UID9622中枢引擎 (lh --central status/task/command/verify/query)')
+    parser.add_argument('--brain', nargs=argparse.REMAINDER, help='统一中枢 (lh --brain status/find/run/health/dupes/route)')
+    # === 自触发编排引擎 ===
+    parser.add_argument('--trigger', metavar='QUERY', type=str, help='自触发编排 (lh --trigger "健康检查") — 说人话→自动找脚本→跑完自动停')
+    parser.add_argument('--watch', action='store_true', help='自触发守护模式 (lh --watch) — 后台监听触发')
+    parser.add_argument('--watch-daemon', dest='watch_daemon', action='store_true', help='后台守护 (lh --watch-daemon) — 双fork后台')
+    parser.add_argument('--ps', action='store_true', help='查看运行中的脚本 (lh --ps)')
+    parser.add_argument('--kill-all', dest='kill_all', action='store_true', help='强制终止所有运行中的脚本 (lh --kill-all)')
+    parser.add_argument('--batch', type=str, help='批量触发 (lh --batch "健康检查,同步鲲鹏,审计")')
+    # === 省电 API 服务 ===
+    parser.add_argument('--api', action='store_true', help='启动省电 API 服务 (lh --api) — 全球AI通过HTTP调用')
+    parser.add_argument('--api-port', type=int, default=9622, help='API端口 (默认 9622)')
+    parser.add_argument('--api-redis', type=str, default='', help='API Redis URL（异步模式）')
+    parser.add_argument('--api-key', type=str, default='', help='API认证密钥')
+    # === 盘点/省电/语音/启动全部 ===
+    parser.add_argument('--inventory', action='store_true', help='功能盘点器 (lh --inventory) — 生成 .inventory.json + 功能清单.md')
+    parser.add_argument('--energy', nargs=argparse.REMAINDER, help='省电监控器 (lh --energy 或 lh --energy --watch 仪表盘)')
+    parser.add_argument('--voice', nargs=argparse.REMAINDER, help='语音网关 (lh --voice 或 lh --voice --text 文本模式)')
+    parser.add_argument('--start-all', dest='start_all', action='store_true', help='一键启动全部服务 (lh --start-all)')
+    parser.add_argument('--compare', nargs=argparse.REMAINDER, help='模式对比器 (lh --compare 或 lh --compare --md/--html/--all)')
+    # === 调度表子命令（统一处理） ===
+    parser.add_argument('--search', nargs=argparse.REMAINDER, help='搜索引擎 (lh --search "关键词")')
+    parser.add_argument('--video', nargs=argparse.REMAINDER, help='视频工坊 (lh --video --script 稿.txt)')
+    parser.add_argument('--pipeline-3d', '--3d', dest='pipeline_3d', nargs=argparse.REMAINDER, help='3D管线 (lh --3d)')
+    parser.add_argument('--browser', nargs=argparse.REMAINDER, help='浏览器史官 (lh --browser collect/search/validate/status)')
+    parser.add_argument('--cnsh', nargs=argparse.REMAINDER, help='CNSH编译器 (lh --cnsh -i test.cnsh --run)')
+    parser.add_argument('--cnsh-runtime', dest='cnsh_runtime', nargs=argparse.REMAINDER, help='CNSH运行时 (lh --cnsh-runtime status)')
+    parser.add_argument('--cnsh-complete', dest='cnsh_complete', nargs=argparse.REMAINDER, help='CNSH完整版 (lh --cnsh-complete --interactive)')
+    parser.add_argument('--cnsh-editor', dest='cnsh_editor', nargs=argparse.REMAINDER, help='CNSH编辑器 (lh --cnsh-editor -f input.txt)')
+    parser.add_argument('--cnsh-translator', dest='cnsh_translator', nargs=argparse.REMAINDER, help='CNSH翻译 (lh --cnsh-translator -f test.py)')
+    parser.add_argument('--cnsh-ui', dest='cnsh_ui', nargs=argparse.REMAINDER, help='CNSH UI (lh --cnsh-ui)')
+    parser.add_argument('--seven-dimension', dest='seven_dimension', nargs=argparse.REMAINDER, help='七维推演 (lh --seven-dimension --interactive)')
+    parser.add_argument('--three-color', dest='three_color', nargs=argparse.REMAINDER, help='三色审计 (lh --three-color audit --object "...")')
+    parser.add_argument('--regulatory', nargs=argparse.REMAINDER, help='监管防火墙 (lh --regulatory --test)')
+    parser.add_argument('--governance', nargs=argparse.REMAINDER, help='治理引擎 (lh --governance --interactive)')
+    parser.add_argument('--governance-check', dest='governance_check', nargs=argparse.REMAINDER, help='治理总控 (lh --governance-check healthcheck)')
+    parser.add_argument('--entry-test', dest='entry_test', nargs=argparse.REMAINDER, help='入口测试 (lh --entry-test)')
+    parser.add_argument('--digital-twin', dest='digital_twin', nargs=argparse.REMAINDER, help='数字孪生 (lh --digital-twin --status)')
+    parser.add_argument('--feed-baby', dest='feed_baby', nargs=argparse.REMAINDER, help='投喂宝宝 (lh --feed-baby -c "内容")')
+    parser.add_argument('--intent', nargs=argparse.REMAINDER, help='意念引擎 (lh --intent --interactive)')
+    parser.add_argument('--dynamic-goal', dest='dynamic_goal', nargs=argparse.REMAINDER, help='动态目标 (lh --dynamic-goal --interactive)')
+    parser.add_argument('--capability', nargs=argparse.REMAINDER, help='能力调度 (lh --capability --interactive)')
+    parser.add_argument('--universal-completion', dest='universal_completion', nargs=argparse.REMAINDER, help='万能补全 (lh --universal-completion --interactive)')
+    parser.add_argument('--mirror-index', dest='mirror_index', nargs=argparse.REMAINDER, help='镜像指数 (lh --mirror-index)')
+    parser.add_argument('--dna-validate', dest='dna_validate', nargs=argparse.REMAINDER, help='DNA校验 (lh --dna-validate)')
+    parser.add_argument('--triple-audit', dest='triple_audit', nargs=argparse.REMAINDER, help='三重审计闸 (lh --triple-audit --all)')
+    parser.add_argument('--weight', nargs=argparse.REMAINDER, help='权重算法 (lh --weight --all)')
+    parser.add_argument('--tongxinyi', nargs=argparse.REMAINDER, help='通心译翻译 (lh --tongxinyi "文本")')
+    parser.add_argument('--san-cai', dest='san_cai', nargs=argparse.REMAINDER, help='三才算法 (lh --san-cai --interactive)')
+    parser.add_argument('--ant-colony', dest='ant_colony', nargs=argparse.REMAINDER, help='蚁群引擎 (lh --ant-colony dashboard)')
+    parser.add_argument('--status', nargs=argparse.REMAINDER, help='全系统状态 (lh --status)')
+    parser.add_argument('--update', nargs=argparse.REMAINDER, help='更新引擎索引 (lh --update 或 lh --update scan)')
     parser.add_argument('--quick', type=str, help='快速跳转到模块名')
 
     args = parser.parse_args()
@@ -496,7 +635,6 @@ def main():
         return
     if args.xuanji is not None:
         print_header()
-        import sys, subprocess
         xuanji_path = ROOT / "engines" / "lh_xuanji_engine.py"
         # 优先使用项目虚拟环境，确保 chromadb 等依赖可用
         venv_python = ROOT / ".venv" / "bin" / "python3"
@@ -513,7 +651,6 @@ def main():
         return
     if args.safeai is not None:
         print_header()
-        import sys, subprocess
         safeai_path = ROOT / "bin" / "lh_safeai.py"
         if args.safeai == '--status':
             print("\n  🛡️ 上下文安全引擎状态\n")
@@ -527,7 +664,6 @@ def main():
         return
     if args.judge is not None:
         print_header()
-        import sys, subprocess
         judge_path = ROOT / "bin" / "lh_judge.py"
         if args.judge == '--status':
             print("\n  ⚖️ 公正总裁/审计员 API 健康\n")
@@ -541,7 +677,6 @@ def main():
         return
     if args.seq is not None:
         print_header()
-        import sys, subprocess
         seq_path = ROOT / "bin" / "lh_seq.py"
         if args.seq == '':
             print("\n  🔄 序列执行引擎\n")
@@ -553,6 +688,238 @@ def main():
             sys.stdout.flush()
             subprocess.run(["python3", str(seq_path), "--text", query])
         return
+    if args.sovereignty is not None:
+        print_header()
+        sov_path = ROOT / "bin" / "lh_sovereignty_guard.py"
+        sov_args = args.sovereignty if args.sovereignty else []
+        if not sov_args or sov_args[0] == "validate":
+            subprocess.run(["python3", str(sov_path), "validate"])
+        elif sov_args[0] == "status":
+            subprocess.run(["python3", str(sov_path), "status"])
+        elif sov_args[0] == "check":
+            print(f"\n  🐉 主权检查: {' '.join(sov_args[1:])}\n")
+            subprocess.run(["python3", str(sov_path), "check"] + sov_args[1:])
+        elif sov_args[0] == "veto":
+            subprocess.run(["python3", str(sov_path), "veto"] + sov_args[1:])
+        else:
+            print(f"  未知主权子命令: {sov_args[0]}")
+            subprocess.run(["python3", str(sov_path), "--help"])
+        return
+    if args.align is not None:
+        print_header()
+        align_args = args.align if args.align else ["check"]
+        subcmd = align_args[0] if align_args else "check"
+        align_checker = ROOT / "bin" / "lh_align_checker.py"
+        align_daemon = ROOT / "bin" / "lh_auto_align_daemon.py"
+        if subcmd == "fix":
+            print("\n  🔧 对齐修复（自动补DNA+确认码+GPG）...\n")
+            subprocess.run(["python3", str(align_daemon)], cwd=str(ROOT))
+        elif subcmd == "daemon":
+            print("\n  🔄 对齐闭环守护（自动修复+归档+通知）...\n")
+            subprocess.run(["python3", str(align_daemon)], cwd=str(ROOT))
+        elif subcmd == "dry-run":
+            print("\n  👁️ 对齐扫描（仅查看·不修改）...\n")
+            subprocess.run(["python3", str(align_daemon), "--dry-run"], cwd=str(ROOT))
+        elif subcmd == "status":
+            print("\n  📊 对齐状态...\n")
+            subprocess.run(["python3", str(align_checker), "--json"], cwd=str(ROOT))
+        else:  # check or default
+            print("\n  🔍 对齐检查（扫描重复/缺失DNA/GPG）...\n")
+            subprocess.run(["python3", str(align_checker)], cwd=str(ROOT))
+        return
+    if args.brain is not None:
+        brain_path = ROOT / "bin" / "lh_unified_brain.py"
+        brain_args = list(args.brain) if args.brain else ["interactive"]
+        subprocess.run([sys.executable, str(brain_path)] + brain_args, cwd=str(ROOT))
+        return
+    if args.run is not None:
+        run_path = ROOT / "bin" / "lh_run.py"
+        run_args = list(args.run) if args.run else []
+        if not run_args:
+            query = input("  🚀 要做什么？").strip()
+            run_args = [query] if query else []
+        # 🔥 补全模式：--run --complete → 直接显示匹配列表，不执行
+        if run_args and run_args[0] == "--complete":
+            complete_arg = run_args[1] if len(run_args) > 1 else ""
+            subprocess.run(["python3", str(run_path), "--complete", complete_arg])
+            return
+        print_header()
+        if run_args:
+            print(f"\n  🚀 自然语言执行: {' '.join(run_args)}\n")
+            subprocess.run(["python3", str(run_path)] + run_args)
+        else:
+            subprocess.run(["python3", str(run_path), "--help"])
+        return
+    if args.complete:
+        run_path = ROOT / "bin" / "lh_run.py"
+        subprocess.run(["python3", str(run_path), "--complete", args.complete])
+        return
+    if args.repo is not None:
+        print_header()
+        repo_path = ROOT / "bin" / "lh_repo_template.py"
+        repo_args = list(args.repo) if args.repo else []
+        print(f"\n  🐉 开源项目模板生成器\n")
+        subprocess.run(["python3", str(repo_path)] + repo_args)
+        return
+    if args.dna is not None:
+        print_header()
+        dna_path = ROOT / "bin" / "lh_dna_generator.py"
+        dna_args = list(args.dna) if args.dna else []
+        print(f"\n  🧬 龍魂DNA生成器\n")
+        subprocess.run(["python3", str(dna_path)] + dna_args)
+        return
+    if args.know is not None:
+        print_header()
+        know_path = ROOT / "bin" / "lh_local_knowledge_engine.py"
+        know_args = list(args.know) if args.know else ["status"]
+        print(f"\n  📚 龍魂·本地知识引擎\n")
+        subprocess.run(["python3", str(know_path)] + know_args)
+        return
+    if args.agent is not None:
+        print_header()
+        agent_path = ROOT / "bin" / "lh_agent_trainer.py"
+        agent_args = list(args.agent) if args.agent else ["status"]
+        print(f"\n  🧠 龍魂·智能体训练框架\n")
+        subprocess.run(["python3", str(agent_path)] + agent_args)
+        return
+    if args.lu is not None:
+        print_header()
+        lu_path = ROOT / "bin" / "lh_lu_compressor.py"
+        lu_args = list(args.lu) if args.lu else ["shortcodes"]
+        print(f"\n  🐉 龍魂·LU压缩引擎\n")
+        subprocess.run(["python3", str(lu_path)] + lu_args)
+        return
+    if args.central is not None:
+        print_header()
+        central_path = ROOT / "bin" / "lh_uid9622_central.py"
+        central_args = list(args.central) if args.central else ["--status"]
+        # 简写映射: status→--status, tasks→--tasks, commands→--commands
+        shortcut_map = {"status": "--status", "tasks": "--tasks", "commands": "--commands"}
+        mapped = [shortcut_map.get(a, a) for a in central_args]
+        print(f"\n  🐉 UID9622 系统中枢引擎\n")
+        subprocess.run(["python3", str(central_path)] + mapped)
+        return
+
+    # === 自触发编排引擎 ===
+    if args.ps:
+        print_header()
+        print("\n  📊 运行中的脚本\n")
+        from lh_lifecycle import ps_list
+        ps_list()
+        return
+
+    if args.kill_all:
+        print_header()
+        print("\n  💀 强制终止所有运行中的脚本...\n")
+        from lh_lifecycle import stop_running
+        kill_count = stop_running()
+        print(f"\n  🛑 已终止 {kill_count} 个进程")
+        return
+
+    if args.watch or args.watch_daemon:
+        print_header()
+        print("\n  🐉 启动自触发守护模式...\n")
+        trigger_args = [sys.executable, str(ROOT / "bin" / "lh_auto_trigger.py"), "--watch"]
+        if args.watch_daemon:
+            trigger_args.append("--daemon")
+        subprocess.run(trigger_args, cwd=str(ROOT))
+        return
+
+    if args.trigger:
+        query = args.trigger
+        trigger_script = ROOT / "bin" / "lh_auto_trigger.py"
+        trigger_cmd = [sys.executable, str(trigger_script), query]
+        print_header()
+        print(f"\n  🎯 自触发: {query}\n")
+        subprocess.run(trigger_cmd, cwd=str(ROOT))
+        return
+
+    if args.batch:
+        batch_script = ROOT / "bin" / "lh_auto_trigger.py"
+        batch_cmd = [sys.executable, str(batch_script), "--batch", args.batch]
+        print_header()
+        print(f"\n  📦 批量触发: {args.batch}\n")
+        subprocess.run(batch_cmd, cwd=str(ROOT))
+        return
+
+    # === 省电 API 服务 ===
+    if args.api:
+        api_script = ROOT / "bin" / "lh_api_server.py"
+        api_cmd = [sys.executable, str(api_script), "--port", str(args.api_port)]
+        if args.api_redis:
+            api_cmd += ["--redis", args.api_redis]
+        if args.api_key:
+            api_cmd += ["--api-key", args.api_key]
+        print_header()
+        print(f"\n  🐉 启动省电 API 服务: http://0.0.0.0:{args.api_port}\n")
+        subprocess.run(api_cmd, cwd=str(ROOT))
+        return
+
+    # === 模式对比器 ===
+    if args.compare is not None:
+        print_header()
+        compare_args = list(args.compare) if args.compare else []
+        cmd = [sys.executable, str(ROOT / "bin" / "模式对比.py")] + compare_args
+        subprocess.run(cmd, cwd=str(ROOT))
+        return
+
+    # === 盘点器 ===
+    if args.inventory:
+        print_header()
+        print("\n  📋 龍魂功能盘点...\n")
+        subprocess.run([sys.executable, str(ROOT / "bin" / "lh_inventory.py")], cwd=str(ROOT))
+        return
+
+    # === 省电监控器 ===
+    if args.energy is not None:
+        print_header()
+        energy_args = list(args.energy) if args.energy else []
+        cmd = [sys.executable, str(ROOT / "bin" / "lh_energy_monitor.py")] + energy_args
+        subprocess.run(cmd, cwd=str(ROOT))
+        return
+
+    # === 语音网关 ===
+    if args.voice is not None:
+        print_header()
+        voice_args = list(args.voice) if args.voice else []
+        cmd = [sys.executable, str(ROOT / "bin" / "lh_voice_gateway.py")] + voice_args
+        subprocess.run(cmd, cwd=str(ROOT))
+        return
+
+    # === 一键启动全部服务 ===
+    if args.start_all:
+        print_header()
+        print("\n  🐉 启动所有龙魂服务...\n")
+        # 启动 API 服务
+        print("  📡 启动省电 API (端口 9622)...")
+        subprocess.Popen(
+            [sys.executable, str(ROOT / "bin" / "lh_api_server.py"), "--port", "9622"],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        )
+        # 启动省电监控（后台）
+        print("  ⚡ 启动省电监控...")
+        subprocess.Popen(
+            [sys.executable, str(ROOT / "bin" / "lh_energy_monitor.py"), "--log"],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        )
+        print("\n  ✅ 全部服务已启动")
+        print("     API: http://localhost:9622")
+        print("     API 文档: http://localhost:9622/docs")
+        print("     使用 'lh --energy' 查看省电报告\n")
+        return
+
+    # === 调度表子命令统一处理（30+ 引擎一行处理） ===
+    for flag, info in SUB_DISPATCH.items():
+        script, emoji, desc = info[0], info[1], info[2]
+        default_args = info[3] if len(info) > 3 else []
+        smart_default = info[4] if len(info) > 4 else ''
+        attr = flag.replace('-', '_')
+        val = getattr(args, attr, None)
+        if val is not None:
+            extra = list(val) if val else list(default_args)
+            _run_subcommand(script, extra, emoji, desc, smart_default)
+            return
+
     if args.health:
         print_header()
         print("\n  💓 引擎健康检查...\n")
@@ -577,6 +944,7 @@ def main():
     if args.quick:
         qmap = {
             'audit': '🛡️ 安全 & 审计', 'security': '🛡️ 安全 & 审计',
+            'sovereignty': '🛡️ 安全 & 审计',
             'engine': '🚀 引擎 & 通道', 'ai': '🚀 引擎 & 通道',
             'persona': '🧠 人格 & AI', 'personas': '🧠 人格 & AI',
             'dna': '🧬 DNA & 追溯',

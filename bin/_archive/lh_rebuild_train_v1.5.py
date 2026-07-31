@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·未济-FIX_DNA-v1.0
 #!/usr/bin/env python3
 """Rebuild v1.5 training data from source components"""
 import json, random, os

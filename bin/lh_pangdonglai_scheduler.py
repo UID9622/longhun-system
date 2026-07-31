@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # DNA: #龍芯⚡️乙巳·癸未·丁亥·☷坤-PANGDONGLAI-SCHEDULER-v1.0-b7c3e8f2
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 """

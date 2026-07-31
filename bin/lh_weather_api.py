@@ -5,6 +5,7 @@
 # -*- coding: utf-8 -*-
 # 龍魂天气/环境统一接口 · 缓存优先
 # DNA: #龍芯⚡️丙午·辛未·WEATHER-API-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 """🐉 龍魂引擎：lh_weather_api
 路径：bin/lh_weather_api.py

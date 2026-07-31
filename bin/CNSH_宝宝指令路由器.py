@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️2026-06-29-CNSH-BAOBAO-ROUTER-UID9622
 # CREATOR: 诸葛鑫 (UID9622)
@@ -24,13 +25,20 @@ DNA: #龍芯⚡️2026-06-29-CNSH-BAOBAO-ROUTER-UID9622
 
 import json
 import re
-import secrets
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 
 from CNSH_国密工具 import SM3
+from CNSH_透明语义治理内核 import (
+    生成DNA身份锚,
+    风险函数,
+    决策函数,
+    信任函数,
+    审计链,
+    记忆场,
+)
 
 
 @dataclass
@@ -43,6 +51,10 @@ class 路由结果:
     推荐回复口吻: str
     DNA: str
     输入SM3哈希: str
+    审计DNA: str
+    风险评分: float
+    决策评分: float
+    信任评分: float
 
 
 class CNSH_宝宝指令路由器:
@@ -110,13 +122,11 @@ class CNSH_宝宝指令路由器:
 
     def __init__(self):
         self.历史: List[Dict[str, Any]] = []
+        self.审计链 = 审计链()
+        self.记忆场 = 记忆场()
 
     def _生成DNA(self, 动作: str, 输入哈希: str) -> str:
-        时间戳 = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
-        熵 = secrets.token_hex(4).upper()
-        原料 = f"{动作}-{输入哈希}-{时间戳}-{熵}-UID9622-BAOBAO"
-        短哈希 = SM3.hex_hash(原料)[:16].upper()
-        return f"#龍芯⚡️{datetime.now(timezone.utc).strftime('%Y-%m-%d')}-{动作}-{短哈希}-ENTROPY{熵}-UID9622"
+        return 生成DNA身份锚("ROUTER", 动作, extra=输入哈希)
 
     def 解析(self, 用户输入: str) -> 路由结果:
         输入哈希 = SM3.hex_hash(用户输入)
@@ -150,7 +160,41 @@ class CNSH_宝宝指令路由器:
         else:
             口吻 = "混合版：先给老百姓话，再给专业落点"
 
-        DNA = self._生成DNA("BAOBAO-ROUTE", 输入哈希)
+        DNA = self._生成DNA("ROUTE", 输入哈希)
+
+        # v2.0 治理评分
+        能力 = max(1.0, float(len(命中模板)))
+        不确定度 = 1.0 / (1.0 + 能力)
+        自主性 = 1.0
+        风险评分 = 风险函数(能力, 不确定度, 自主性)
+        权限 = 1.0 if 唤醒 else 0.5
+        上下文 = min(1.0, 能力 / max(1.0, len(self.模板表)))
+        决策评分 = 决策函数(权限, 上下文, 风险评分)
+        信任评分 = 信任函数(1.0, 1.0, 1.0)  # 路由阶段默认可审计/可恢复/透明
+
+        审计DNA = 生成DNA身份锚("ROUTER", "AUDIT", extra=输入哈希)
+        self.审计链.追加({
+            "dna": 审计DNA,
+            "action": "ROUTE",
+            "risk": round(风险评分, 4),
+            "decision": round(决策评分, 4),
+            "passed": 决策评分 >= 0.5,
+            "metadata": {
+                "输入哈希": 输入哈希,
+                "命中模板数": len(命中模板),
+                "唤醒": 唤醒,
+            },
+        })
+        self.记忆场.写入(
+            dna=DNA,
+            content={
+                "输入": 用户输入,
+                "意图": 裸意图,
+                "命中模板": 命中模板,
+                "口吻": 口吻,
+            },
+            tags=["路由", "意图"],
+        )
 
         结果 = 路由结果(
             唤醒=唤醒,
@@ -161,6 +205,10 @@ class CNSH_宝宝指令路由器:
             推荐回复口吻=口吻,
             DNA=DNA,
             输入SM3哈希=输入哈希,
+            审计DNA=审计DNA,
+            风险评分=round(风险评分, 4),
+            决策评分=round(决策评分, 4),
+            信任评分=round(信任评分, 4),
         )
 
         self.历史.append({
@@ -197,6 +245,9 @@ class CNSH_宝宝指令路由器:
         for 计划 in 结果.执行计划:
             行.append(f"║   {计划[:48]:<48} ║")
         行.append(f"║ DNA: {结果.DNA:<47} ║")
+        行.append(f"║ 审计DNA: {结果.审计DNA:<43} ║")
+        行.append(f"║ 风险/决策/信任: {结果.风险评分:.2f} / {结果.决策评分:.2f} / {结果.信任评分:.2f}")
+        行[-1] += " " * (58 - len(行[-1]) - 1) + "║"
         行.append("╚" + "═" * 58 + "╝")
         return "\n".join(行)
 

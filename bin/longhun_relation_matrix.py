@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️YYYY-MM-DD-项目-版本
 # CREATOR: 诸葛鑫 (UID9622)

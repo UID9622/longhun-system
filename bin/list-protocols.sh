@@ -1,6 +1,7 @@
 #!/bin/bash
 # 🐉 列出龍魂协议库全部协议
 # DNA: #龍芯⚡️2026-06-25-LONGHUN-LIST-PROTOCOLS-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 INDEX="$ROOT/library/protocols/00_CANONICAL_INDEX.md"

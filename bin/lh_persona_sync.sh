@@ -1,6 +1,7 @@
 #!/bin/bash
 # 🔄 人格报表定时刷新 + 飞书推送
 # DNA: #龍芯⚡️2026-07-07-PERSONA-REPORT-SYNC-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 作用: 生成最新报表 → 写入 portal data → 可选推送到飞书群
 # 用法: bash bin/lh_persona_sync.sh [--push-feishu]
 

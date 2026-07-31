@@ -6,6 +6,7 @@
 #!/bin/bash
 # 启动龍魂人格 API 服务
 # DNA: #龍芯⚡️2026-06-09-START-PERSONA-API-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 echo "╔═══════════════════════════════════════════════════════════════╗"
 echo "║          龍魂人格 API 服务启动                               ║"

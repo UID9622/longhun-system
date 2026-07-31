@@ -1,6 +1,7 @@
 #!/bin/bash
 # 龍魂·子仓库同步脚本 v1.0
 # DNA: #龍芯⚡️丙午·乙未·丙申·酉时·☰乾-SUBREPO-SYNC-v1.0-c1d2e3f4
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
 BASE="/Users/zuimeidedeyihan/longhun-system/_work/repos"

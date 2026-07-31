@@ -65,6 +65,7 @@ class P03Mozi:
             "seal_verify",         # 簽章驗證
             "moral_check",         # 德字閘
             "emotion_filter",      # 情緒海綿
+            "deduplicate_files",   # 文件去重 (v2.0·融合自P-AK-WENWEN)
         ]
 
     # ========================================================================
@@ -220,6 +221,38 @@ class P03Mozi:
             "dna": self.dna,
         }
 
+    def deduplicate_files(self, path: str, patterns: List[str] = None) -> Dict[str, Any]:
+        """
+        文件去重檢測 (v2.0·融合自P-AK-WENWEN後台人格)
+        基於 MD5 哈希檢測目錄下重複文件
+        """
+        import hashlib
+        if patterns is None:
+            patterns = ["*.md", "*.txt", "*.py", "*.json", "*.cnsh"]
+        base = Path(path)
+        if not base.exists():
+            return {"error": f"路徑不存在: {path}", "persona": self.PERSONA_CODE, "dna": self.dna}
+        hashes = {}
+        duplicates = []
+        total = 0
+        for pat in patterns:
+            for f in base.rglob(pat):
+                total += 1
+                try:
+                    h = hashlib.md5(f.read_bytes()).hexdigest()
+                    if h in hashes:
+                        duplicates.append({"dup": str(f), "original": hashes[h], "hash": h[:12]})
+                    else:
+                        hashes[h] = str(f)
+                except Exception:
+                    continue
+        return {
+            "path": path, "total_scanned": total, "duplicates_found": len(duplicates),
+            "duplicates": duplicates[:50], "action": "標記·不自動刪除",
+            "verdict": "🟢 無重複" if not duplicates else f"🟡 發現 {len(duplicates)} 組重複",
+            "persona": self.PERSONA_CODE, "dna": self.dna,
+        }
+
     # ========================================================================
     # 執行入口
     # ========================================================================
@@ -260,6 +293,12 @@ class P03Mozi:
             result["capability_used"] = "emotion_filter"
             result["output"] = self.emotion_filter(
                 text=kwargs.get("text", task)
+            )
+        elif any(kw in task for kw in ["去重", "重複", "重複文件", "dedup"]):
+            result["capability_used"] = "deduplicate_files"
+            result["output"] = self.deduplicate_files(
+                path=kwargs.get("path", str(self.system_root)),
+                patterns=kwargs.get("patterns"),
             )
         else:
             result["capability_used"] = "generic_logic"

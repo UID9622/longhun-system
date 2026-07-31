@@ -5,6 +5,7 @@
 # -*- coding: utf-8 -*-
 # 龍魂视频DNA嵌入引擎 · 占位符 · 帧级追溯码
 # DNA: #龍芯⚡️丙午·辛未·VIDEO-DNA-EMBEDDER-PLACEHOLDER
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 """🐉 龍魂引擎：lh_video_dna_embedder
 路径：bin/lh_video_dna_embedder.py

@@ -5,6 +5,7 @@
 # -*- coding: utf-8 -*-
 # 龍魂大模型统一接口 · 国产模型路由
 # DNA: #龍芯⚡️丙午·辛未·LLM-ROUTER-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 """🐉 龍魂引擎：lh_llm_api
 路径：bin/lh_llm_api.py

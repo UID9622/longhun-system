@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️丙午·丙申·丙辰·巳时·需-AUTO-CANNON-v2.0
 # CREATOR: 诸葛鑫 (UID9622)

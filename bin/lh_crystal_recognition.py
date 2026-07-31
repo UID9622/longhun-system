@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️丙午·乙未·甲子·未时·需-CRYSTAL-RECOGNITION-v2.0
 # CREATOR: 诸葛鑫 (UID9622)

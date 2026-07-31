@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️丙午·丙申·丙辰·戌时·需-SERVER-CHECKER-v1-00000000
 # CREATOR: 诸葛鑫 (UID9622)

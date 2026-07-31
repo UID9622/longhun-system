@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️丙午·乙未·乙未·酉时·☷坤-CNSH-DICT-QUERY-v1.0
 # CREATOR: 诸葛鑫 (UID9622)

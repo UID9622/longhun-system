@@ -1,6 +1,7 @@
 #!/bin/bash
 # -*- coding: utf-8 -*-
 # DNA: #龍芯⚡️丙午-乙巳-2026-07-29-VOICE-CLONE-SETUP-v2.0-init
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 功能: 一键搭建 XTTS v2 真声克隆环境（venv + torch + coqui-tts）
 # 输出: .venv_tts/ → 可被 lh_voice_clone.py 调用
