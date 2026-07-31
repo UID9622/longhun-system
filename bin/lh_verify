@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+"""
+龍魂·主权验证器 v1.0
+DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-SOVEREIGNTY-VERIFY-v1.0
+创建者: 诸葛鑫（UID9622）
+协议: CC BY-NC-SA 4.0
+
+公开命令：任何人下载龍魂生成的媒体文件后，可自行验证主权标记。
+支持：视频（MP4/MOV/AVI/MKV）、图片（PNG/JPG/WebP）、音频（WAV）、字体（OTF/TTF）
+"""
+
+import sys
+import json
+from pathlib import Path
+
+# 确保可以导入项目模块
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+try:
+    from engines.lh_media_sovereignty_marker import MediaSovereigntyMarker
+except ImportError:
+    print("❌ 无法加载主权标记引擎，请确保在 longhun-system 目录下运行")
+    sys.exit(1)
+
+
+def verify(media_path: str) -> dict:
+    """验证单个文件的龍魂主权标记"""
+    try:
+        return MediaSovereigntyMarker.verify(media_path)
+    except Exception as e:
+        return {"error": str(e)}
+
+
+def format_result(result: dict) -> str:
+    """人可读输出"""
+    if "error" in result:
+        return f"❌ {result['error']}"
+
+    media_type = result.get("media_type", "unknown")
+    path = result.get("path", "")
+    lines = [f"📁 {path}", f"📋 类型: {media_type}"]
+
+    # 指纹 / DNA
+    fp = result.get("fingerprint")
+    dna = result.get("dna")
+    if fp:
+        lines.append(f"✅ 龍魂指纹: {fp}")
+        lines.append("   → 该文件携带龍魂主权标记，来源可追溯")
+    elif dna:
+        lines.append(f"✅ DNA: {dna}")
+    else:
+        lines.append("🔴 未检测到龍魂主权标记")
+        lines.append("   → 该文件可能是赝品或标记已损坏")
+        return "\n".join(lines)
+
+    # 额外信息
+    if "note" in result:
+        lines.append(f"ℹ️  {result['note']}")
+    if "has_pua_glyph" in result:
+        lines.append(f"🔤 龙纹原生水印: {'有' if result['has_pua_glyph'] else '无'}")
+    if "sha256" in result:
+        lines.append(f"🔒 SHA256: {result['sha256']}")
+
+    return "\n".join(lines)
+
+
+def main():
+    import argparse
+    parser = argparse.ArgumentParser(
+        description="龍魂·主权验证器 — 验证媒体文件的DNA主权标记",
+        epilog="任何人可验证，无需授权。指纹存在=真品，指纹缺失=赝品。"
+    )
+    parser.add_argument("files", nargs="+", help="要验证的媒体文件（支持多个）")
+    parser.add_argument("--json", action="store_true", help="JSON 输出（机器可读）")
+    parser.add_argument("--quiet", "-q", action="store_true", help="静默模式，只输出结果码")
+
+    args = parser.parse_args()
+
+    all_ok = True
+    for f in args.files:
+        path = Path(f)
+        if not path.exists():
+            if not args.quiet:
+                print(f"❌ 文件不存在: {f}")
+            all_ok = False
+            continue
+
+        result = verify(str(path))
+
+        if args.json:
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+        else:
+            print(format_result(result))
+            print()
+
+        if not result.get("fingerprint") and not result.get("dna"):
+            all_ok = False
+
+    sys.exit(0 if all_ok else 1)
+
+
+if __name__ == "__main__":
+    main()
