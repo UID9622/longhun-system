@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️丙午·乙未·甲寅·需-K3-DISTILL-v3.9
 # CREATOR: 诸葛鑫 (UID9622)

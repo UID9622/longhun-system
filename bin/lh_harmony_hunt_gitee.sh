@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·观-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # 龍魂鸿蒙狩猎 · Gitee镜像版 v2
 # GitHub不可达 → 走 Gitee mirrors

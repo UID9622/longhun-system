@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # DNA: #龍芯⚡️丙午·丙申·癸酉·乙卯·临-SEMANTIC-GUARD-AUDITOR-v∞-7D2493A7
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # CREATOR: UID9622
 # PROTOCOL: 龍魂君子协议 · CC BY-NC-SA 4.0 · L0 世界老百姓最高
 """Audit semantic guard rule files against rule_template_schema.json."""

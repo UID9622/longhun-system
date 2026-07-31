@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # DNA: #龍芯⚡️丙午·乙申·甲寅·庚午·大畜-DECISION-TRACER-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # 来源: 龍魂/核心/决策追溯引擎.py → 吸收对齐后嵌入 longhun-system

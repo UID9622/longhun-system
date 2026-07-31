@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·小畜-FIX_DNA-v1.0
 #!/usr/bin/env python3
 #龍芯⚡️丙午·辛未·乙酉·申时·观-LONGHUN-HARVEST-AUDIT-<hash8>
 # CREATOR: 诸葛鑫 (UID9622)

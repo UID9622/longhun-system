@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # 龍魂爬虫伦理检查器 v1.0
 # DNA: #龍芯⚡️丙午·乙未·甲辰-爬虫伦理-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 #

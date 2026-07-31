@@ -30,11 +30,11 @@ EXCLUDE_DIRS = {
     ".git", "__pycache__", ".venv", "venv", "node_modules",
     ".idea", ".vscode", "dist", "build", "egg-info",
 }
-# 排除的扫描子目录（第三方/历史遗留/大目录）
+# 排除的扫描子目录（第三方/历史遗留/大目录/备份归档）
 SKIP_SCAN_DIRS = {
     "L7_数据层", "engines/gpt_sovits", "tools/bin/legacy_bin",
     "L1_内核层", "L8_治理层", "03_知識圖譜", "02_執行記錄",
-    "05_系統報告", "协议文档", "CNSH_颜色历史",
+    "05_系統報告", "协议文档", "CNSH_颜色历史", "_work", "archive",
 }
 
 EXCLUDE_FILES = {"setup.py", "conftest.py", "__init__.py"}
@@ -44,7 +44,8 @@ FUNC_PATTERN = re.compile(r'^\s*def\s+(\w+)\s*\(', re.MULTILINE)
 CLASS_PATTERN = re.compile(r'^\s*class\s+(\w+)\s*[\(:]', re.MULTILINE)
 FUNC_BASH_PATTERN = re.compile(r'^\s*(?:function\s+)?(\w+)\s*\(\s*\)\s*\{?', re.MULTILINE)
 DNA_PATTERN = re.compile(r'DNA:\s*(#?[^\n]+)', re.MULTILINE)
-CONFIRM_PATTERN = re.compile(r'CONFIRM:\s*(#?[^\n]+)', re.MULTILINE)
+CONFIRM_MARK = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+CONFIRM_PATTERN = re.compile(r'CONFIRM:\s*(#?[^\n]+)|' + re.escape(CONFIRM_MARK), re.MULTILINE)
 IMPORT_PATTERN = re.compile(r'^\s*(?:from\s+(\S+)\s+)?import\s+(.+)$', re.MULTILINE)
 
 
@@ -61,7 +62,7 @@ def scan_files(target_dir):
     """扫描目录下所有 .py/.sh 文件"""
     results = []
     for root, dirs, files in os.walk(target_dir):
-        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS and not d.startswith('.')]
         if not should_scan_dir(root, target_dir):
             dirs[:] = []  # 不深入子目录
             continue
@@ -103,7 +104,7 @@ def scan_files(target_dir):
                 "has_confirm": bool(confirm),
                 "has_gpg": has_gpg,
                 "dna_text": dna.group(1).strip() if dna else "",
-                "confirm_text": confirm.group(1).strip() if confirm else "",
+                "confirm_text": (confirm.group(1).strip() if confirm.group(1) else CONFIRM_MARK) if confirm else "",
                 "line_count": len(content.splitlines()),
                 "imports": imports,
             })
@@ -264,8 +265,12 @@ def main():
                         help=f"目标目录 (默认: {DEFAULT_TARGET_DIR})")
     parser.add_argument("--report", type=str, help="输出JSON报告路径")
     parser.add_argument("--json", action="store_true", help="终端输出JSON格式（管道友好）")
+    parser.add_argument("--no-print", action="store_true", help="同--json·管道友好（lh_auto_align_daemon调用）")
     parser.add_argument("--quiet", action="store_true", help="静默模式·仅输出退出码(0=ok, 1=有问题)")
     args = parser.parse_args()
+    # --no-print 等价于 --json（daemon兼容）
+    if args.no_print:
+        args.json = True
 
     target_dir = Path(args.dir)
     if not target_dir.exists():

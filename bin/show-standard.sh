@@ -1,6 +1,7 @@
 #!/bin/bash
 # 🐉 显示龍魂产出标准
 # DNA: #龍芯⚡️2026-06-25-LONGHUN-SHOW-STANDARD-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 FILE="$ROOT/STANDARD.md"

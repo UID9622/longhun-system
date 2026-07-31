@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 根据 desktop/menu-registry.json 与各模块 desktop-menu.json 动态生成并编译桌面主开关 .app
 # DNA:#龍芯⚡️2026-06-17-LONGHUN-BUILD-DESKTOP-SWITCH-FILE1-FILE1-v1.1
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SOURCE="$ROOT/desktop/龍魂主开关.applescript"

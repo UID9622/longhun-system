@@ -2,6 +2,7 @@
 # 🐉 龍魂 · Git 仓库收拾脚本 v1.0
 # 按 Kimi 建议收拾方案执行
 # DNA: #龍芯⚡️2026-07-12-GIT-HISTORY-CLEANUP-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 set -euo pipefail
 
 GREEN='\033[0;32m'; YELLOW='\033[1;33m'; RED='\033[0;31m'; CYAN='\033[0;36m'; NC='\033[0m'

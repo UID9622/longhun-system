@@ -5,6 +5,7 @@
 # -*- coding: utf-8 -*-
 # 龍魂地图/位置统一接口 · 坐标国密加密
 # DNA: #龍芯⚡️丙午·辛未·MAP-API-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 """🐉 龍魂引擎：lh_map_api
 路径：bin/lh_map_api.py

@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_WATER_ARMY_DETECT-v1.0-5b186423
 # CREATOR: 诸葛鑫 (UID9622)

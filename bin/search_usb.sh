@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·观-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # 龍魂 USB 备份搜索引擎 — 本地一键搜索
 # 用法: ./bin/search_usb.sh "关键词"

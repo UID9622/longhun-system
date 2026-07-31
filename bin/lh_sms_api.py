@@ -5,6 +5,7 @@
 # -*- coding: utf-8 -*-
 # 龍魂短信推送统一接口 · 审计留痕
 # DNA: #龍芯⚡️丙午·辛未·SMS-API-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 """🐉 龍魂引擎：lh_sms_api
 路径：bin/lh_sms_api.py

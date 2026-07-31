@@ -5,6 +5,7 @@
 # 可选自动注册到服务器
 # UID9622 | 龍芯北辰
 # DNA: #龍芯⚡️丙午·辛未·乙酉·亥时·豫-DNA-GENERATOR-v2.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # ============================================
 set -euo pipefail
 

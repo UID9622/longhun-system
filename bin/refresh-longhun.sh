@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 龍魂系统一键刷新：重新盘点模块 + 重新生成桌面主开关
 # DNA:#龍芯⚡️2026-06-17-LONGHUN-REFRESH-FILE1-FILE1-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 cd "$(dirname "$0")/.."
 ROOT="$(pwd)"

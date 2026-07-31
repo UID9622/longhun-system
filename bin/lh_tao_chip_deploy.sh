@@ -4,6 +4,7 @@
 # LongHun · TAO Chip Scheduler Deploy Script
 # ═══════════════════════════════════════════════════════════════════════
 # DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-TAO-CHIP-DEPLOY-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # License: CN-SOVEREIGN-LICENSE-v1.0
 # ═══════════════════════════════════════════════════════════════════════

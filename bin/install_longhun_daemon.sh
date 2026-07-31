@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 龍魂 launchd 守护一键装载 · P13姜子牙装载 / P03雯雯复盘 / P05上帝之眼督
 # DNA:#龍芯⚡️2026-06-05-DAEMON-INSTALL-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 set -euo pipefail
 
 GMAIL="baofuahao@gmail.com"

@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️丙午·乙未·丙申·亥时·☰乾-MODEL-LORA-TRAINER-v4.1.3-RESTART
 # CREATOR: 诸葛鑫 (UID9622)

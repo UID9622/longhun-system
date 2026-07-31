@@ -5,6 +5,7 @@
 # cnsh-compiler-v2.py
 # 龍魂 · CNSH 全翻译编译器（骨架保留，表皮全换）
 # DNA: ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # UID: 9622
 
 """🐉 龍魂引擎：lh_cnsh_compiler

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # DNA: #龍芯⚡️丙午·乙申·甲寅·壬午·同人-MIGRATION-SCRIPT-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

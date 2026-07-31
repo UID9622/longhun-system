@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️丙午·辛未·AUDIO-PARSER-v1.0-SPEECH2TEXT
 # CREATOR: 诸葛鑫 (UID9622)

@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # 龍魂路径规划引擎 · REST API 服务
 # DNA: #龍芯⚡️丙午·癸未·丁未·离为火-路径规划-API-v4.1.5
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 锚定: 道德经第八十章【小国寡民，使有什伯之器而不用】——API 简洁即道
 
 import sys

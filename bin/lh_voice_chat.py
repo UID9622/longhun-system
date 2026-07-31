@@ -5,6 +5,7 @@
 # -*- coding: utf-8 -*-
 # 龍魂实时语音对话引擎 · 占位符 · TTS+ASR+LLM 流式pipeline
 # DNA: #龍芯⚡️丙午·辛未·VOICE-CHAT-PLACEHOLDER
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 """🐉 龍魂引擎：lh_voice_chat
 路径：bin/lh_voice_chat.py

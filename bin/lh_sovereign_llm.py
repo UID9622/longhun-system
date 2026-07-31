@@ -5,6 +5,7 @@
 # -*- coding: utf-8 -*-
 # ⚡ 龍魂·中国芯主权大模型推理引擎 v1.0
 # DNA: #龍芯⚡️丙午·辛未·乙酉·需-SOVEREIGN-LLM-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 格言: 数据不出机·芯片中国造·全宇宙最安全
 # 主权: UID9622 | 不依赖任何平台·不依赖任何人
 # 协议: LH-SOVEREIGN-LLM-ENGINE-2026-0714-v1.0

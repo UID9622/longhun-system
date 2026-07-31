@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️2026-06-29-CNSH-BASE-TYPES-UID9622
 # CREATOR: 诸葛鑫 (UID9622)
@@ -63,3 +64,43 @@ class 审计报告:
     修复审计DNA: Optional[str] = None
     修复区GPG签名: Optional[str] = None
     颜色状态: Optional[Dict[str, Any]] = None
+
+
+# ============== v2.0 透明语义治理类型 ==============
+@dataclass
+class DNA身份锚:
+    module: str
+    action: str
+    hash8: str
+    ganzhi: str
+    gua: str
+    full_string: str
+
+
+@dataclass
+class 治理决策:
+    permission: float
+    context: float
+    risk: float
+    score: float
+    passed: bool
+
+
+@dataclass
+class 审计条目:
+    timestamp: str
+    dna: str
+    action: str
+    risk: float
+    decision: float
+    passed: bool
+    metadata: Dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass
+class 记忆节点:
+    dna: str
+    content: str
+    tags: List[str] = field(default_factory=list)
+    timestamp: str = ""
+    previous_dna: Optional[str] = None

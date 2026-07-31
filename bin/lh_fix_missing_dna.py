@@ -34,16 +34,17 @@ DNA_GENERATOR = BASE_DIR / "bin" / "lh_dna_generator.py"
 CONFIRM_LINE = "# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 
-def generate_dna(action_tag: str = "补DNA", version: str = "v1.0") -> Optional[str]:
+def generate_dna(module_name: str = "自动补签", action_tag: str = "补DNA", version: str = "v1.0") -> Optional[str]:
     """调用本地DNA生成器，返回形如 '# DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-补DNA-v1.0' 的行。
-    生成器不可用或输出异常时返回 None（绝不手写DNA）。"""
+    生成器不可用或输出异常时返回 None（绝不手写DNA）。
+    v2.1: 修正参数格式，使用 doc 子命令 (--module/--action/--version)。"""
     if not DNA_GENERATOR.exists():
         print(f"⚠️ DNA生成器不存在: {DNA_GENERATOR}")
         return None
     try:
         result = subprocess.run(
-            [sys.executable, str(DNA_GENERATOR),
-             "--tag", action_tag, "--version", version],
+            [sys.executable, str(DNA_GENERATOR), "doc",
+             "--module", module_name, "--action", action_tag, "--version", version],
             capture_output=True, text=True, timeout=30,
         )
     except subprocess.TimeoutExpired:
@@ -82,7 +83,7 @@ def fix_dna(filepath: str) -> str:
     if "# DNA:" in content and "#龍芯" in content:
         return f"⏭️ 已存在DNA: {filepath}"
 
-    dna_line = generate_dna()
+    dna_line = generate_dna(module_name=p.stem)
     if dna_line is None:
         return f"🟡 DNA生成器不可用，跳过（需人工处理）: {filepath}"
 
