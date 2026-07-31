@@ -2,6 +2,7 @@
 # 🐉 龍魂 · Ubuntu 24.04 华为云服务端环境准备脚本
 # 适用: Ubuntu 24.04 x86_64
 # DNA: #龍芯⚡️2026-07-06-UBUNTU-PREPARE-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 归属: UID9622｜龍芯北辰｜CNSH
 
 set -euo pipefail

@@ -2,6 +2,7 @@
 # 🐉 龍魂 · rsync 搬迁同步脚本
 # 依赖: connect-kunpeng.sh 已有密钥配置
 # DNA: #龍芯⚡️2026-07-06-KUNPENG-SYNC-v2.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -euo pipefail
 

@@ -1,0 +1,189 @@
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-24-UID9622-BRAIN-INNOVATION-v1.0
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+"""
+左右互搏创新引擎：红队挑刺，蓝队破局。
+DNA: #龍芯⚡️2026-06-24-UID9622-BRAIN-INNOVATION-v1.0
+"""
+
+import json
+from pathlib import Path
+from typing import Any, Dict, List
+
+from . import generate_dna, now_cn, get_target_root
+from .utils import load_json
+
+
+class RedTeam:
+    """红队：专门找系统的弱点和矛盾。"""
+
+    def __init__(self, reports: Dict[str, Any]):
+        self.reports = reports
+        self.issues: List[Dict[str, Any]] = []
+
+    def _add(self, area: str, severity: str, point: str):
+        self.issues.append({"领域": area, "严重级别": severity, "观点": point})
+
+    def critique(self) -> List[Dict[str, Any]]:
+        inv = self.reports.get("inventory", {})
+        ref = self.reports.get("reflection", {})
+        res = self.reports.get("resources", {})
+        mon = self.reports.get("self_monitor", {})
+
+        if inv.get("孤立的根文件"):
+            self._add("资产结构", "中", f"根目录下有 {len(inv['孤立的根文件'])} 个孤立文件，未纳入子项目治理。")
+        for p in inv.get("子项目", []):
+            if not p.get("入口") and p.get("文件数", 0) > 5:
+                self._add("资产结构", "中", f"子项目 `{p['路径']}` 文件较多但无明确入口，文化主权落地不完整。")
+
+        if isinstance(ref.get("Git状态"), dict) and not ref["Git状态"].get("启用", False):
+            self._add("文化锚点", "高", "Git 仓库未初始化，整个系统缺少不可篡改的时间锚点。")
+
+        log_info = ref.get("日志检查", {})
+        if isinstance(log_info, dict) and log_info.get("主权拒绝事件数", 0) > 0:
+            self._add("主权安全", "高", f"检测到 {log_info['主权拒绝事件数']} 起外部云服务渗透尝试，本地闭环仍需加固。")
+
+        if ref.get("健康评分", 100) < 70:
+            self._add("系统健康", "高", f"健康评分仅 {ref['健康评分']}，系统处于亚健康状态。")
+
+        if res.get("缺失资源库数", 0) > 0:
+            self._add("记忆主权", "高", f"有 {res['缺失资源库数']} 个本地资源库找不到，记忆追溯链断裂。")
+
+        for issue in res.get("新鲜度告警", []):
+            self._add("记忆新鲜度", "中", f"资源库 `{issue['名称']}` 已 {issue['距今天数']} 天未更新，记忆可能陈旧。")
+
+        if isinstance(mon.get("磁盘使用"), dict):
+            usage = float(mon["磁盘使用"]["使用率"].rstrip("%"))
+            if usage > 80:
+                self._add("基础设施", "中", f"磁盘使用率 {usage}%，领土拥挤，需归档或扩容。")
+
+        if not mon.get("定时任务", {}).get("已安装", False):
+            self._add("自动化", "高", "系统级定时任务未安装，自动化未真正落地。")
+
+        if not self.issues:
+            self._add("整体", "低", "当前未发现明显短板，但应保持红蓝对抗，防止僵化。")
+        return self.issues
+
+
+class BlueTeam:
+    """蓝队：针对红队观点给出破局方案和创新提案。"""
+
+    def __init__(self, issues: List[Dict[str, Any]]):
+        self.issues = issues
+
+    def innovate(self) -> List[Dict[str, Any]]:
+        proposals = []
+        for issue in self.issues:
+            area = issue["领域"]
+            if area == "资产结构":
+                proposals.append({
+                    "对应问题": area,
+                    "创新方案": "入口生成器：为无入口子项目自动生成 `index.md` / `main.py` / `README.md` 三选一入口，并写入 DNA。",
+                    "预期效果": "每个子项目都有对外身份，文化主权可见。",
+                })
+            elif area == "文化锚点":
+                proposals.append({
+                    "对应问题": area,
+                    "创新方案": "自动择时 commit：结合十二时辰与系统健康评分，在「乾卦·巳时」自动执行首次 Git commit，打上文化锚点。",
+                    "预期效果": "代码库获得不可篡改的时间与主权锚点。",
+                })
+            elif area == "主权安全":
+                proposals.append({
+                    "对应问题": area,
+                    "创新方案": "主权网关 2.0：在文件路径、环境变量、脚本调用处扫描 iCloud/OneDrive/Dropbox 等外云路径，自动标记并阻断。",
+                    "预期效果": "外部云服务无法静默渗透，数据根留本地。",
+                })
+            elif area == "系统健康":
+                proposals.append({
+                    "对应问题": area,
+                    "创新方案": "自愈优先级路由：根据健康评分自动调整修复顺序，评分越低越激进，评分高时只做保养。",
+                    "预期效果": "系统能自己判断什么时候该静修、什么时候该手术。",
+                })
+            elif area == "记忆主权":
+                proposals.append({
+                    "对应问题": area,
+                    "创新方案": "记忆源补全协议：当检测到资源库缺失时，自动创建占位目录与采样脚本，并通知主控。",
+                    "预期效果": "追溯链不断裂，所有记忆源可查。",
+                })
+            elif area == "记忆新鲜度":
+                proposals.append({
+                    "对应问题": area,
+                    "创新方案": "记忆保鲜服务：对超过 7 天未更新的日志/记忆源做增量压缩归档，并生成新鲜度日报。",
+                    "预期效果": "记忆不过期，旧数据不丢，新数据优先。",
+                })
+            elif area == "基础设施":
+                proposals.append({
+                    "对应问题": area,
+                    "创新方案": "磁盘水位预警：当使用率超过 80% 时自动触发归档建议，超过 90% 时进入只读保护模式。",
+                    "预期效果": "防止领土拥挤导致系统崩溃。",
+                })
+            elif area == "自动化":
+                proposals.append({
+                    "对应问题": area,
+                    "创新方案": "守护进程化：把 brain.py 注册为 launchd/systemd 服务，离线也能按 cron 自愈。",
+                    "预期效果": "即使终端关闭，系统仍在运行。",
+                })
+        return proposals
+
+
+class InnovationEngine:
+    """左右互搏：红队挑刺 → 蓝队破局 → 生成创新报告。"""
+
+    def __init__(self):
+        self.root = get_target_root() / "UID9622_大脑中枢" / "reports"
+
+    def _load_latest(self, name: str) -> Dict[str, Any]:
+        path = self.root / name
+        if not path.exists():
+            return {}
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    def _aggregate_red(self, issues: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """按领域聚合红队观点，避免重复刷屏。"""
+        grouped: Dict[str, Dict[str, Any]] = {}
+        for issue in issues:
+            key = (issue["领域"], issue["严重级别"])
+            if key not in grouped:
+                grouped[key] = {"领域": issue["领域"], "严重级别": issue["严重级别"], "数量": 0, "样例": []}
+            grouped[key]["数量"] += 1
+            if len(grouped[key]["样例"]) < 3:
+                grouped[key]["样例"].append(issue["观点"])
+        return list(grouped.values())
+
+    def _unique_blue(self, proposals: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """蓝队提案按对应问题去重。"""
+        seen = set()
+        unique = []
+        for p in proposals:
+            key = p["对应问题"]
+            if key not in seen:
+                seen.add(key)
+                unique.append(p)
+        return unique
+
+    def run(self) -> Dict[str, Any]:
+        reports = {
+            "inventory": self._load_latest("inventory_report.json"),
+            "reflection": self._load_latest("reflection_report.json"),
+            "resources": self._load_latest("resource_libraries_report.json"),
+            "self_monitor": self._load_latest("self_monitor_report.json"),
+        }
+        red = RedTeam(reports).critique()
+        blue = BlueTeam(red).innovate()
+        return {
+            "动作": "左右互搏创新",
+            "扫描时间": now_cn(),
+            "红队观点原始数": len(red),
+            "红队观点": self._aggregate_red(red),
+            "蓝队提案": self._unique_blue(blue),
+            "结论": "通过红蓝对抗，系统持续发现短板并自我进化。",
+            "DNA": generate_dna("innovation"),
+        }
+
+
+def run_innovate() -> Dict[str, Any]:
+    return InnovationEngine().run()

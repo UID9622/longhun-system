@@ -1,60 +1,47 @@
 {
-  "_dna": "#龍芯⚡️2026-06-21-ACADEMIC-PAPERS-REGISTRY-v1.0",
-  "generated_at": "2026-06-21T21:48:01.760472+00:00",
-  "total": 30,
+  "_dna": "#龍芯⚡️2026-07-31-ACADEMIC-PAPERS-REGISTRY-v1.0",
+  "generated_at": "2026-07-31T21:57:19.589909",
+  "total": 22,
   "skipped": [
     "📚 龍魂知识库·论文 & 白皮书总部 v1 0 c2df953f773545308593bc65aa3c14ed.md"
   ],
   "papers": [
     {
-      "id": "PAPER-20260621-001",
-      "title": "CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版",
+      "id": "PAPER-20260731-001",
+      "title": "IEEE 论文专题索引",
       "type": "学术论文",
-      "language": "英文",
-      "source_path": "docs/dragon-soul-open-hub/academic/CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版 fab5940bb6d84936a6a1e56432aeb33a.md",
-      "filename": "CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版 fab5940bb6d84936a6a1e56432aeb33a.md",
+      "language": "中文",
+      "source_path": "docs/dragon-soul-open-hub/academic/IEEE_论文专题索引.md",
+      "filename": "IEEE_论文专题索引.md",
       "keywords": [
         "CNSH",
         "龍魂",
+        "洛书",
+        "易经",
+        "道德经",
+        "太极",
         "三才",
-        "IEEE",
-        "算法"
+        "五行"
       ],
       "formulas": [],
       "csdn": {
-        "status": "已发布",
-        "url": "https://blog.csdn.net/UID9622/article/details/162179298",
-        "published_at": "2026-06-22T04:29:39.880054",
+        "status": "未发布",
+        "url": "",
+        "published_at": "",
         "likes": 0,
         "collections": 0,
-        "comments": 0,
-        "draft_url": "https://editor.csdn.net/md?articleId=162179298",
-        "article_id": "162179298",
-        "updated_at": "2026-06-22T04:26:49.777164"
+        "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-001",
-      "created_at": "2026-05-24T15:57:32",
-      "升级记录": [
-        {
-          "时间": "2026-06-22T04:26:49.777164",
-          "说明": "增加 EU HLEG 七因子可信AI对齐、F11公式、参考文献"
-        }
-      ],
-      "状态变更记录": [
-        {
-          "时间": "2026-06-22T04:29:39.880054",
-          "状态": "已发布",
-          "说明": "根据CSDN内容管理页核对"
-        }
-      ]
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-001",
+      "created_at": "2026-07-26T00:58:17.843989"
     },
     {
-      "id": "PAPER-20260621-002",
+      "id": "PAPER-20260731-002",
       "title": "main.tex — 龍魂权重算法·太极易经数学大师联动系统 IEEE v2.0",
       "type": "学术论文",
       "language": "英文",
-      "source_path": "docs/dragon-soul-open-hub/academic/main tex — 龍魂权重算法·太极易经数学大师联动系统 IEEE v2 0 3197125a9c9f8088b13ad769afb8974c.md",
-      "filename": "main tex — 龍魂权重算法·太极易经数学大师联动系统 IEEE v2 0 3197125a9c9f8088b13ad769afb8974c.md",
+      "source_path": "docs/dragon-soul-open-hub/academic/main tex — 龙魂权重算法·太极易经数学大师联动系统 IEEE v2 0 3197125a9c9f8088b13ad769afb8974c.md",
+      "filename": "main tex — 龙魂权重算法·太极易经数学大师联动系统 IEEE v2 0 3197125a9c9f8088b13ad769afb8974c.md",
       "keywords": [
         "龍魂",
         "易经",
@@ -72,42 +59,18 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-002",
-      "created_at": "2026-06-21T13:38:04.194938"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-002",
+      "created_at": "2026-07-26T00:58:17.851878"
     },
     {
-      "id": "PAPER-20260621-003",
-      "title": "☯️ 太极演变算法：以文化与伦理主权为核心的人本智能（论文草案）",
-      "type": "学术论文",
-      "language": "英文",
-      "source_path": "docs/dragon-soul-open-hub/academic/☯️ 太极演变算法：以文化与伦理主权为核心的人本智能（论文草案） 3187125a9c9f809db023e7bb366916c9.md",
-      "filename": "☯️ 太极演变算法：以文化与伦理主权为核心的人本智能（论文草案） 3187125a9c9f809db023e7bb366916c9.md",
-      "keywords": [
-        "易经",
-        "太极",
-        "算法",
-        "伦理"
-      ],
-      "formulas": [],
-      "csdn": {
-        "status": "未发布",
-        "url": "",
-        "published_at": "",
-        "likes": 0,
-        "collections": 0,
-        "comments": 0
-      },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-003",
-      "created_at": "2026-06-21T13:38:41.073218"
-    },
-    {
-      "id": "PAPER-20260621-004",
+      "id": "PAPER-20260731-003",
       "title": "☯️ 道德经引擎逻辑总纲｜龍魂系统核心算法锚｜长长久久·守护人类",
       "type": "技术文档",
       "language": "中文",
-      "source_path": "docs/dragon-soul-open-hub/academic/☯️ 道德经引擎逻辑总纲｜龍魂系统核心算法锚｜长长久久·守护人类 928f97e092b3405b8375c30decc527d3.md",
-      "filename": "☯️ 道德经引擎逻辑总纲｜龍魂系统核心算法锚｜长长久久·守护人类 928f97e092b3405b8375c30decc527d3.md",
+      "source_path": "docs/dragon-soul-open-hub/academic/☯️ 道德经引擎逻辑总纲｜龙魂系统核心算法锚｜长长久久·守护人类 928f97e092b3405b8375c30decc527d3.md",
+      "filename": "☯️ 道德经引擎逻辑总纲｜龙魂系统核心算法锚｜长长久久·守护人类 928f97e092b3405b8375c30decc527d3.md",
       "keywords": [
+        "龍魂",
         "道德经",
         "算法",
         "伦理"
@@ -121,39 +84,11 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-004",
-      "created_at": "2026-06-21T13:38:04.198145"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-003",
+      "created_at": "2026-07-26T00:58:17.852381"
     },
     {
-      "id": "PAPER-20260621-005",
-      "title": "【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
-      "type": "技术文档",
-      "language": "英文",
-      "source_path": "docs/dragon-soul-open-hub/academic/【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版） 3664bb869a0841478008c6c111b9289d.md",
-      "filename": "【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版） 3664bb869a0841478008c6c111b9289d.md",
-      "keywords": [
-        "CNSH",
-        "龍魂",
-        "易经",
-        "道德经",
-        "量子",
-        "算法",
-        "数学"
-      ],
-      "formulas": [],
-      "csdn": {
-        "status": "未发布",
-        "url": "",
-        "published_at": "",
-        "likes": 0,
-        "collections": 0,
-        "comments": 0
-      },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-005",
-      "created_at": "2026-06-21T13:38:04.191737"
-    },
-    {
-      "id": "PAPER-20260621-006",
+      "id": "PAPER-20260731-004",
       "title": "中国人工智能治理白皮书",
       "type": "白皮书",
       "language": "中文",
@@ -176,65 +111,18 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-006",
-      "created_at": "2026-06-21T13:38:04.198272"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-004",
+      "created_at": "2026-07-26T00:58:17.852445"
     },
     {
-      "id": "PAPER-20260621-007",
-      "title": "中美民生数据对比｜用数据说话，不抹黑不吹捧",
-      "type": "技术文档",
-      "language": "中文",
-      "source_path": "docs/dragon-soul-open-hub/academic/中美民生数据对比｜用数据说话，不抹黑不吹捧 649faf6e6d5e4570936bdaced850a31e.md",
-      "filename": "中美民生数据对比｜用数据说话，不抹黑不吹捧 649faf6e6d5e4570936bdaced850a31e.md",
-      "keywords": [
-        "龍魂",
-        "易经",
-        "道德经",
-        "算法"
-      ],
-      "formulas": [],
-      "csdn": {
-        "status": "未发布",
-        "url": "",
-        "published_at": "",
-        "likes": 0,
-        "collections": 0,
-        "comments": 0
-      },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-007",
-      "created_at": "2026-06-21T13:38:04.193601"
-    },
-    {
-      "id": "PAPER-20260621-008",
-      "title": "以文化与伦理主权为核心的人本智能系统",
-      "type": "学术论文",
-      "language": "英文",
-      "source_path": "docs/dragon-soul-open-hub/academic/以文化与伦理主权为核心的人本智能系统 3187125a9c9f80788ce0f81c393c8706.md",
-      "filename": "以文化与伦理主权为核心的人本智能系统 3187125a9c9f80788ce0f81c393c8706.md",
-      "keywords": [
-        "易经",
-        "伦理"
-      ],
-      "formulas": [],
-      "csdn": {
-        "status": "未发布",
-        "url": "",
-        "published_at": "",
-        "likes": 0,
-        "collections": 0,
-        "comments": 0
-      },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-008",
-      "created_at": "2026-06-21T13:38:41.072362"
-    },
-    {
-      "id": "PAPER-20260621-009",
+      "id": "PAPER-20260731-005",
       "title": "北京智源研究院人工智能治理白皮书",
       "type": "白皮书",
       "language": "中文",
       "source_path": "docs/dragon-soul-open-hub/academic/北京智源研究院人工智能治理白皮书 01a982c912b6458bbd79575bdf4c8f02.md",
       "filename": "北京智源研究院人工智能治理白皮书 01a982c912b6458bbd79575bdf4c8f02.md",
       "keywords": [
+        "龍魂",
         "人工智能",
         "伦理"
       ],
@@ -247,11 +135,11 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-009",
-      "created_at": "2026-06-21T13:38:04.192513"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-005",
+      "created_at": "2026-07-26T00:58:17.852530"
     },
     {
-      "id": "PAPER-20260621-010",
+      "id": "PAPER-20260731-006",
       "title": "量子甲骨文 · Quantum Oracle Bone Script",
       "type": "技术文档",
       "language": "中文",
@@ -276,11 +164,11 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-010",
-      "created_at": "2026-06-21T13:38:04.197990"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-006",
+      "created_at": "2026-07-26T00:58:17.852601"
     },
     {
-      "id": "PAPER-20260621-011",
+      "id": "PAPER-20260731-007",
       "title": "🇨🇳 从《易经》到AI治理｜一个退伍军人眼中的技术尊严·CSDN首发",
       "type": "技术文档",
       "language": "中文",
@@ -298,34 +186,18 @@
       ],
       "formulas": [],
       "csdn": {
-        "status": "已发布",
-        "url": "https://blog.csdn.net/UID9622/article/details/162184966",
-        "published_at": "2026-06-22T04:29:39.880054",
+        "status": "未发布",
+        "url": "",
+        "published_at": "",
         "likes": 0,
         "collections": 0,
-        "comments": 0,
-        "draft_url": "https://editor.csdn.net/md?articleId=162184966",
-        "article_id": "162184966",
-        "updated_at": "2026-06-22T04:26:49.777164"
+        "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-011",
-      "created_at": "2026-06-21T13:38:04.192418",
-      "升级记录": [
-        {
-          "时间": "2026-06-22T04:26:49.777164",
-          "说明": "增加 EU HLEG 七因子可信AI对齐、F11公式、参考文献"
-        }
-      ],
-      "状态变更记录": [
-        {
-          "时间": "2026-06-22T04:29:39.880054",
-          "状态": "已发布",
-          "说明": "根据CSDN内容管理页核对"
-        }
-      ]
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-007",
+      "created_at": "2026-07-26T00:58:17.852684"
     },
     {
-      "id": "PAPER-20260621-012",
+      "id": "PAPER-20260731-008",
       "title": "🇨🇳 从《易经》到AI治理｜一个退伍军人眼中的技术尊严·CSDN首发",
       "type": "技术文档",
       "language": "中文",
@@ -350,14 +222,14 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-012",
-      "created_at": "2026-06-21T13:38:04.198482"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-008",
+      "created_at": "2026-07-26T00:58:17.852747"
     },
     {
-      "id": "PAPER-20260621-013",
+      "id": "PAPER-20260731-009",
       "title": "🌍 龍魂·世界入口论文｜自由造物·不伤人·虚拟即游戏",
       "type": "学术论文",
-      "language": "英文",
+      "language": "中文",
       "source_path": "docs/dragon-soul-open-hub/academic/🌍 龍魂·世界入口论文｜自由造物·不伤人·虚拟即游戏 1f9a58996f82415ca02e567c7cd16363.md",
       "filename": "🌍 龍魂·世界入口论文｜自由造物·不伤人·虚拟即游戏 1f9a58996f82415ca02e567c7cd16363.md",
       "keywords": [
@@ -379,102 +251,11 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-013",
-      "created_at": "2026-06-21T13:38:04.190592"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-009",
+      "created_at": "2026-07-26T00:58:17.852833"
     },
     {
-      "id": "PAPER-20260621-014",
-      "title": "🏆 CNSH-64: Complete Unified Paper — arXiv Final v3.0 | 完整投稿版",
-      "type": "学术论文",
-      "language": "英文",
-      "source_path": "docs/dragon-soul-open-hub/academic/🏆 CNSH-64 Complete Unified Paper — arXiv Final v3  3297125a9c9f8158a93df13b50453e36.md",
-      "filename": "🏆 CNSH-64 Complete Unified Paper — arXiv Final v3  3297125a9c9f8158a93df13b50453e36.md",
-      "keywords": [
-        "CNSH",
-        "龍魂",
-        "易经",
-        "IEEE",
-        "arXiv"
-      ],
-      "formulas": [],
-      "csdn": {
-        "status": "审核中",
-        "url": "https://blog.csdn.net/UID9622/article/details/162185012",
-        "published_at": "",
-        "likes": 0,
-        "collections": 0,
-        "comments": 0,
-        "draft_url": "https://editor.csdn.net/md?articleId=162185012",
-        "article_id": "162185012",
-        "updated_at": "2026-06-22T04:26:49.777164"
-      },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-014",
-      "created_at": "2026-06-21T13:38:04.196131",
-      "升级记录": [
-        {
-          "时间": "2026-06-22T04:26:49.777164",
-          "说明": "增加 EU HLEG 七因子可信AI对齐、F11公式、参考文献"
-        }
-      ],
-      "状态变更记录": [
-        {
-          "时间": "2026-06-22T04:29:39.880054",
-          "状态": "审核中",
-          "说明": "根据CSDN内容管理页核对"
-        }
-      ]
-    },
-    {
-      "id": "PAPER-20260621-015",
-      "title": "💰 字体版权费·数据统计白皮书｜你手机里每个字，都有人在收费 v1.1",
-      "type": "白皮书",
-      "language": "中文",
-      "source_path": "docs/dragon-soul-open-hub/academic/💰 字体版权费·数据统计白皮书｜你手机里每个字，都有人在收费 v1 1 8b5652c312034ef092f708d19365055c.md",
-      "filename": "💰 字体版权费·数据统计白皮书｜你手机里每个字，都有人在收费 v1 1 8b5652c312034ef092f708d19365055c.md",
-      "keywords": [
-        "龍魂",
-        "道德经",
-        "字体版权"
-      ],
-      "formulas": [],
-      "csdn": {
-        "status": "未发布",
-        "url": "",
-        "published_at": "",
-        "likes": 0,
-        "collections": 0,
-        "comments": 0
-      },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-015",
-      "created_at": "2026-06-21T13:38:04.197209"
-    },
-    {
-      "id": "PAPER-20260621-016",
-      "title": "📄 CNSH × 北辰协议 IEEE白皮书 v1.1｜三才算法补全版",
-      "type": "白皮书",
-      "language": "英文",
-      "source_path": "docs/dragon-soul-open-hub/academic/📄 CNSH × 北辰协议 IEEE白皮书 v1 1｜三才算法补全版 3187125a9c9f80a68158d9064f591f26.md",
-      "filename": "📄 CNSH × 北辰协议 IEEE白皮书 v1 1｜三才算法补全版 3187125a9c9f80a68158d9064f591f26.md",
-      "keywords": [
-        "CNSH",
-        "三才",
-        "IEEE",
-        "算法"
-      ],
-      "formulas": [],
-      "csdn": {
-        "status": "未发布",
-        "url": "",
-        "published_at": "",
-        "likes": 0,
-        "collections": 0,
-        "comments": 0
-      },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-016",
-      "created_at": "2026-06-21T13:38:04.195646"
-    },
-    {
-      "id": "PAPER-20260621-017",
+      "id": "PAPER-20260731-010",
       "title": "📄 Longhun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making | 龍魂深思熟虑对齐：基于文化锚点的AI伦理决策框架",
       "type": "学术论文",
       "language": "英文",
@@ -483,8 +264,6 @@
       "keywords": [
         "龍魂",
         "易经",
-        "甲骨文",
-        "数学",
         "伦理"
       ],
       "formulas": [],
@@ -496,11 +275,11 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-017",
-      "created_at": "2026-06-21T13:38:04.196579"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-010",
+      "created_at": "2026-07-26T00:58:17.852921"
     },
     {
-      "id": "PAPER-20260621-018",
+      "id": "PAPER-20260731-011",
       "title": "📄 个人数字创作全周期权益保护白皮书｜执行模板 v1.0 (1)",
       "type": "白皮书",
       "language": "中文",
@@ -512,7 +291,6 @@
         "AI治理",
         "易经",
         "道德经",
-        "算法",
         "区块链"
       ],
       "formulas": [],
@@ -524,11 +302,11 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-018",
-      "created_at": "2026-06-21T13:38:04.196765"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-011",
+      "created_at": "2026-07-26T00:58:17.852998"
     },
     {
-      "id": "PAPER-20260621-019",
+      "id": "PAPER-20260731-012",
       "title": "📄 个人数字创作全周期权益保护白皮书｜执行模板 v1.0",
       "type": "白皮书",
       "language": "中文",
@@ -540,7 +318,6 @@
         "AI治理",
         "易经",
         "道德经",
-        "算法",
         "区块链"
       ],
       "formulas": [],
@@ -552,11 +329,11 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-019",
-      "created_at": "2026-06-21T13:38:04.193819"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-012",
+      "created_at": "2026-07-26T00:58:17.853073"
     },
     {
-      "id": "PAPER-20260621-020",
+      "id": "PAPER-20260731-013",
       "title": "📚 白皮书与技术栈中心",
       "type": "白皮书",
       "language": "中文",
@@ -577,11 +354,11 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-020",
-      "created_at": "2026-06-21T13:38:04.199122"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-013",
+      "created_at": "2026-07-26T00:58:17.853167"
     },
     {
-      "id": "PAPER-20260621-022",
+      "id": "PAPER-20260731-015",
       "title": "📜 CNSH-64 论文诚实声明｜龍魂系统价值证明",
       "type": "学术论文",
       "language": "中文",
@@ -605,11 +382,11 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-022",
-      "created_at": "2026-06-21T13:27:03.557686"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-015",
+      "created_at": "2026-07-26T00:58:17.853353"
     },
     {
-      "id": "PAPER-20260621-023",
+      "id": "PAPER-20260731-016",
       "title": "📜 以人为本的底层逻辑：从中国共同条令修订看科技向善的创世哲学｜龍魂学术论文 v1.0",
       "type": "学术论文",
       "language": "中文",
@@ -631,11 +408,11 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-023",
-      "created_at": "2026-06-21T13:38:04.190799"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-016",
+      "created_at": "2026-07-26T00:58:17.853450"
     },
     {
-      "id": "PAPER-20260621-024",
+      "id": "PAPER-20260731-017",
       "title": "📜 洛书369·arXiv投稿就绪版 v2.0 | 学术织锦者升级",
       "type": "学术论文",
       "language": "英文",
@@ -660,19 +437,19 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-024",
-      "created_at": "2026-06-21T13:38:04.197536"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-017",
+      "created_at": "2026-07-26T00:58:17.853532"
     },
     {
-      "id": "PAPER-20260621-025",
+      "id": "PAPER-20260731-018",
       "title": "📜 洛书369与AI决策不变量·arXiv投稿就绪版 v1.0 | UID9622 × Claude",
       "type": "学术论文",
       "language": "英文",
       "source_path": "docs/dragon-soul-open-hub/academic/📜 洛书369与AI决策不变量·arXiv投稿就绪版 v1 0 UID9622 × Claude 004988a62d50431a9dfd84227254cfea.md",
       "filename": "📜 洛书369与AI决策不变量·arXiv投稿就绪版 v1 0 UID9622 × Claude 004988a62d50431a9dfd84227254cfea.md",
       "keywords": [
+        "龍魂",
         "洛书",
-        "量子",
         "arXiv"
       ],
       "formulas": [],
@@ -684,25 +461,25 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-025",
-      "created_at": "2026-06-21T13:38:04.195123"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-018",
+      "created_at": "2026-07-26T00:58:17.853699"
     },
     {
-      "id": "PAPER-20260621-026",
-      "title": "📜 洛书369与AI决策不变量——古典数学在现代人工智能中的形式化应用 | UID9622 × Claude",
+      "id": "PAPER-20260731-019",
+      "title": "📜 洛书369与AI决策不变量·统一版 v3.0",
       "type": "学术论文",
-      "language": "中文",
-      "source_path": "docs/dragon-soul-open-hub/academic/📜 洛书369与AI决策不变量——古典数学在现代人工智能中的形式化应用 UID9622 × Clau 3297125a9c9f81b5ab3fda0a0151b069.md",
-      "filename": "📜 洛书369与AI决策不变量——古典数学在现代人工智能中的形式化应用 UID9622 × Clau 3297125a9c9f81b5ab3fda0a0151b069.md",
+      "language": "英文",
+      "source_path": "docs/dragon-soul-open-hub/academic/📜 洛书369与AI决策不变量·统一版 v3.0.md",
+      "filename": "📜 洛书369与AI决策不变量·统一版 v3.0.md",
       "keywords": [
         "龍魂",
-        "人工智能",
         "洛书",
         "易经",
         "道德经",
         "太极",
         "五行",
-        "量子"
+        "arXiv",
+        "算法"
       ],
       "formulas": [],
       "csdn": {
@@ -713,11 +490,11 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-026",
-      "created_at": "2026-06-21T13:38:04.199032"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-019",
+      "created_at": "2026-07-26T00:58:17.853848"
     },
     {
-      "id": "PAPER-20260621-027",
+      "id": "PAPER-20260731-020",
       "title": "📜 白皮书完整版｜9章内容（Claude整理）",
       "type": "白皮书",
       "language": "中文",
@@ -739,11 +516,11 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-027",
-      "created_at": "2026-06-21T13:38:04.190993"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-020",
+      "created_at": "2026-07-26T00:58:17.853955"
     },
     {
-      "id": "PAPER-20260621-028",
+      "id": "PAPER-20260731-021",
       "title": "📦 白皮书文件包使用说明｜Claude操作指南",
       "type": "白皮书",
       "language": "中文",
@@ -762,11 +539,36 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-028",
-      "created_at": "2026-06-21T13:38:04.194092"
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-021",
+      "created_at": "2026-07-26T00:58:17.854050"
     },
     {
-      "id": "PAPER-20260621-029",
+      "id": "PAPER-20260731-022",
+      "title": "🔍 龍魂黎曼猜想观察框架：数字验证报告 v1.0",
+      "type": "技术文档",
+      "language": "中文",
+      "source_path": "docs/dragon-soul-open-hub/academic/🔍 龍魂黎曼猜想观察框架·数字验证报告 v1.0.md",
+      "filename": "🔍 龍魂黎曼猜想观察框架·数字验证报告 v1.0.md",
+      "keywords": [
+        "龍魂",
+        "黎曼猜想",
+        "Riemann",
+        "数学"
+      ],
+      "formulas": [],
+      "csdn": {
+        "status": "未发布",
+        "url": "",
+        "published_at": "",
+        "likes": 0,
+        "collections": 0,
+        "comments": 0
+      },
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-022",
+      "created_at": "2026-07-26T00:58:17.854139"
+    },
+    {
+      "id": "PAPER-20260731-023",
       "title": "🛡️ 净网行动·民间技术观察白皮书 v3.0",
       "type": "白皮书",
       "language": "中文",
@@ -785,107 +587,8 @@
         "collections": 0,
         "comments": 0
       },
-      "dna": "#龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-PAPER-20260621-029",
-      "created_at": "2026-06-21T13:38:04.196266"
-    },
-    {
-      "id": "PAPER-20260622-030",
-      "title": "📜 洛书369与AI决策不变量·统一版 v3.0",
-      "type": "学术论文",
-      "language": "中文",
-      "source_path": "docs/dragon-soul-open-hub/academic/📜 洛书369与AI决策不变量·统一版 v3.0.md",
-      "filename": "📜 洛书369与AI决策不变量·统一版 v3.0.md",
-      "keywords": [
-        "洛书",
-        "369",
-        "河图",
-        "数字根",
-        "易经",
-        "五行",
-        "AI治理",
-        "算法",
-        "数学",
-        "arXiv"
-      ],
-      "formulas": [
-        "F01",
-        "F06",
-        "F08",
-        "F11"
-      ],
-      "csdn": {
-        "status": "已发布",
-        "url": "https://blog.csdn.net/UID9622/article/details/162186655?sharetype=blogdetail&sharerId=162186655&sharerefer=PC&sharesource=UID9622",
-        "published_at": "2026-06-22T15:19:02.091000",
-        "likes": 0,
-        "collections": 0,
-        "comments": 0,
-        "draft_url": "https://editor.csdn.net/md?articleId=162186655",
-        "article_id": "162186655",
-        "updated_at": "2026-06-22T15:19:02.091000"
-      },
-      "dna": "#龍芯⚡️2026-06-22-洛书369-UNIFIED-v3.0",
-      "created_at": "2026-06-22T04:49:52.181344",
-      "upgraded_from": [
-        "PAPER-20260621-024",
-        "PAPER-20260621-025",
-        "PAPER-20260621-026"
-      ],
-      "状态变更记录": [
-        {
-          "时间": "2026-06-22T15:19:02.091000",
-          "状态": "已发布",
-          "说明": "通过CSDN Markdown编辑器发布，articleId=162186655"
-        }
-      ]
-    },
-    {
-      "id": "PAPER-20260622-031",
-      "title": "我没有证明黎曼猜想，但我观察到了一些有趣的现象",
-      "type": "技术博客",
-      "language": "中文",
-      "source_path": "docs/dragon-soul-open-hub/academic/csdn_drafts/我没有证明黎曼猜想_修正版_v1.2.md",
-      "filename": "我没有证明黎曼猜想_修正版_v1.2.md",
-      "keywords": [
-        "黎曼猜想",
-        "观察框架",
-        "不动点",
-        "加权函数",
-        "洛书"
-      ],
-      "formulas": [],
-      "csdn": {
-        "status": "审核中",
-        "url": "https://blog.csdn.net/UID9622/article/details/161796512",
-        "published_at": "",
-        "likes": 0,
-        "collections": 0,
-        "comments": 0,
-        "draft_url": "https://editor.csdn.net/md?articleId=161796512",
-        "article_id": "161796512",
-        "updated_at": "2026-06-21T21:48:01.760472+00:00"
-      },
-      "version": "v1.2.1",
-      "template_version": "《龍魂文档标准模板 v1.0》",
-      "dna": "#龍芯⚡️2026-06-22-RIEMANN-OBSERVATION-v1.2",
-      "created_at": "2026-06-21T21:48:01.760472+00:00",
-      "升级记录": [
-        {
-          "时间": "2026-06-21T21:48:01.760472+00:00",
-          "说明": "2026-06-22 数字验证修正：将“W(0.5+it) 系统性大于 W(0.45+it)”修正为“W(s) 在临界线已知零点处出现局部极小”，并补充 gamma 近似与完整 χ(s) 对比数据"
-        },
-        {
-          "时间": "2026-06-22T22:05:00.000000+00:00",
-          "说明": "按《龍魂文档标准模板 v1.0》补全元信息、摘要、关键词、引用、诚实局限、修改记录、分类标签；版本升级为 v1.2.1"
-        }
-      ],
-      "状态变更记录": [
-        {
-          "时间": "2026-06-21T21:48:01.760472+00:00",
-          "状态": "审核中",
-          "说明": "通过CSDN Markdown编辑器重新发布修正版，articleId=161796512，当前处于审核中"
-        }
-      ]
+      "dna": "#龍芯⚡️2026-07-31-ACADEMIC-REGISTRY-PAPER-20260731-023",
+      "created_at": "2026-07-26T00:58:17.854218"
     }
   ]
 }

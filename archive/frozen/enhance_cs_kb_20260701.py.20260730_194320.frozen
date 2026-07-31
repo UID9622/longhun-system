@@ -1,0 +1,1775 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Enhance 龍魂计算机科学知识库 (CS KB) and embed it into the 龍魂 algorithm system.
+DNA: #龍芯⚡️2026-07-01-LONGHUN-CS-KB-ENHANCE-v1.0
+"""
+
+import json
+import os
+import re
+import shutil
+import sqlite3
+import textwrap
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
+
+# ---------------------------------------------------------------------------
+# Paths & constants
+# ---------------------------------------------------------------------------
+ROOT = Path("/Users/zuimeidedeyihan")
+SRC_JSON = ROOT / ".kimi-code/skills/longhun-cs-kb/scripts/cs_kb_complete.json"
+SRC_RAW = ROOT / ".kimi-code/skills/longhun-cs-kb/scripts/kb_data_raw.py"
+SRC_SKILL = ROOT / ".kimi-code/skills/longhun-cs-kb/SKILL.md"
+SRC_NOTION = ROOT / ".kimi-code/skills/longhun-notion-portal/scripts/notion_portal.json"
+
+DATE_STR = datetime.now().strftime("%Y%m%d")
+BACKUP_DIR = ROOT / f"longhun-system/backups/cs-kb-enhanced-{DATE_STR}"
+DB_PATH = BACKUP_DIR / "cs_kb.db"
+ENHANCED_JSON = BACKUP_DIR / "cs_kb_complete_enhanced.json"
+TARGET_PY = ROOT / "longhun-system/cnsh-core/longhun_cs_kb.py"
+
+# Chinese key -> snake_case column name
+COLUMN_MAP = {
+    "知识卡片ID": "card_id",
+    "知识点名称": "name",
+    "分类": "category",
+    "子分类": "subcategory",
+    "描述": "description",
+    "核心公式": "core_formula",
+    "常见误区": "misconceptions",
+    "学习状态": "status",
+    "难度等级": "difficulty",
+    "学习优先级": "priority",
+    "语境触发": "context_trigger",
+    "人格路由": "persona_route",
+    "架构层级": "architecture_layer",
+    "是否核心": "is_core",
+    "是否进入系统": "is_in_system",
+    "dr·五行·宫位": "dr_wuxing_gong",
+    "α三义": "alpha_san yi",
+    "短DNA·身份码": "short_dna",
+    "IPA·缩写": "ipa_abbr",
+    "三色审计（知识点）": "tri_color_audit",
+    "关联知识点": "related_knowledge",
+    "来源/参考": "source_ref",
+    # New enhanced fields
+    "算法公式": "formula",
+    "路由回调参数": "routing_params",
+    "PY代码示例": "py_example",
+}
+
+# ---------------------------------------------------------------------------
+# Formula fallbacks for records with empty core_formula
+# ---------------------------------------------------------------------------
+EMPTY_FORMULA_FALLBACK = {
+    "16": "C = CommentLayer(plaintext) ⊕ PhoneticLayer(homophones) ⊕ BehaviorVector(actions); B = Σ(actionᵢ × paramᵢ × weightᵢ) × 三才加权",
+    "133": "V = {vᵢ ∈ ℝ³}; T = {(vᵢ,vⱼ,vₖ)}; χ = |V| - |E| + |F| (Euler characteristic)",
+    "137": "BSDF: fᵣ(l,v) = (1-metallic)·baseColor/π + metallic·DFG/(4(n·l)(n·v)); α = roughness²",
+    "145": "Image = Render(scene, camera, sampler, integrator, t)",
+    "147": "LOD(d) = maxᵢ { d > thresholdᵢ }; 精度 L(d) ∝ 1/d",
+    "17": "Pipeline: 输入 → 意图 → 路由 → 三才 → 沙盒 → 执行 → DNA → 输出",
+    "18": "Sandbox(scenario) → {plans, risk_map, audit_trail}",
+    "19": "Wake = Σᵢ Anchorᵢ × verify(identity, layerᵢ)",
+    "20": "Command(mission, memory, model) → {orders, strategy, dna}",
+    "21": "QA(content) → {score, color, report_html, dna}",
+    "22": "API(endpoint, payload) → {response, audit_log}",
+    "26": "Eval(cnsh_code, env) → (stdout, exit_code, dna)",
+    "27": "Gateway(req, token) → {route, audit, response}",
+    "28": "Sync(src, dst, categories) → {delta_plus, conflicts, dna}",
+    "29": "Load(rules_dir) → {rules, context_hash}",
+    "30": "Bridge(sources, query) → {comparison, differences}",
+    "69": "Roster(L0) = {曾老师} ⊂ CNSH文化主权层",
+    "70": "Roster(L1) = {诸葛, 老子, 孔子, 墨子, 孙子, 王阳明, 韩非}",
+    "71": "Roster(L2) = Core10 ∪ AI10",
+    "72": "RouteTable: keyword → P_id",
+    "73": "Trigger(cmd) → P_id",
+    "74": "Trigger(semantic_vec) → P_set",
+    "75": "Fuse(content) → {block, red_lines, evidence}",
+    "76": "ReplyFooter = timestamp + persona + source + rule + audit + DNA",
+}
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+def snake(name: str) -> str:
+    """Convert a Chinese or mixed key to a safe snake_case column name."""
+    return COLUMN_MAP.get(name, re.sub(r"[^0-9a-zA-Z_]+", "_", name).strip("_").lower())
+
+
+def indent(code: str, spaces: int = 4) -> str:
+    return textwrap.indent(code.strip(), " " * spaces)
+
+
+def extract_dr(dr_str: str) -> str:
+    m = re.search(r"DR\s*=\s*(\d+)", str(dr_str))
+    return f"DR={m.group(1)}" if m else ""
+
+
+# ---------------------------------------------------------------------------
+# Routing parameters
+# ---------------------------------------------------------------------------
+SYSTEM_KEYWORDS = [
+    "引擎", "系统", "服务", "网关", "解释器", "加载器", "桥", "同步器", "机器人",
+    "审计", "防御", "熔断", "沙盒", "记忆", "健康", "签名", "存储", "流場", "流场",
+    "小妖", "arkit", "五行计算器", "指挥塔", "质检", "双脑", "三路", "本地引擎",
+    "龍醒", "日历", "companyroot", "统一引擎", "铜墙铁壁", "mcp", "sse", "dna加密",
+    "伦理沙盒", "暗语加密",
+]
+
+
+def is_system_module(r: dict[str, Any]) -> bool:
+    name = r["知识点名称"].lower()
+    return any(k in name for k in SYSTEM_KEYWORDS)
+
+
+ROUTING_TEMPLATES = {
+    "三色审计引擎": '{"input": {"content": "str", "content_type": "str", "context": "dict", "source_dna": "str"}, "return": {"risk": "float", "color": "str", "trace": "list", "dna": "str"}}',
+    "龍魂本地引擎": '{"input": {"query": "str", "context": "dict", "source_dna": "str"}, "return": {"response": "str", "routing": "list", "audit": "dict", "dna": "str"}}',
+    "龍魂沙盒推演引擎": '{"input": {"scenario": "str", "constraints": "dict", "p0_anchor": "bool"}, "return": {"plans": "list", "risk_assessment": "dict", "audit": "dict", "dna": "str"}}',
+    "龍魂龍醒引擎": '{"input": {"mode": "str", "anchor_layers": "list", "identity_key": "str"}, "return": {"status": "str", "active_engines": "list", "dna": "str"}}',
+    "龍魂指挥塔": '{"input": {"mission": "str", "memory_snapshot": "dict", "model": "str"}, "return": {"orders": "list", "strategy": "str", "dna": "str"}}',
+    "龍魂质检机器人": '{"input": {"content": "str", "checklist": "list", "source_dna": "str"}, "return": {"score": "float", "color": "str", "report_html": "str", "dna": "str"}}',
+    "龍魂本地服务 :8765": '{"input": {"endpoint": "str", "payload": "dict", "headers": "dict"}, "return": {"status_code": "int", "data": "dict", "audit_log": "str"}}',
+    "星辰记忆系统": '{"input": {"query_vector": "list[float]", "top_k": "int", "level": "str"}, "return": {"matches": "list", "compressed_vector": "list[float]", "dna": "str"}}',
+    "ai-dna思考引擎": '{"input": {"intent": "str", "context": "dict", "attack_mode": "bool"}, "return": {"task_graph": "dict", "audit_result": "dict", "dna": "str"}}',
+    "cnsh中文编程解释器": '{"input": {"cnsh_code": "str", "bindings": "dict", "dry_run": "bool"}, "return": {"stdout": "str", "exit_code": "int", "dna": "str"}}',
+    "cnsh网关 :9622": '{"input": {"path": "str", "method": "str", "body": "dict", "token": "str"}, "return": {"response": "dict", "audit": "dict", "dna": "str"}}',
+    "双脑同步引擎": '{"input": {"source_db": "str", "target_db": "str", "categories": "list"}, "return": {"synced": "int", "conflicts": "list", "dna": "str"}}',
+    "规则库上下文加载器": '{"input": {"rules_dir": "str", "context": "dict", "override": "bool"}, "return": {"rules": "list", "context_hash": "str"}}',
+    "三路只读对接桥": '{"input": {"sources": "list[str]", "query": "dict"}, "return": {"comparison": "dict", "differences": "list"}}',
+    "龍魂五行计算器": '{"input": {"bazi": "dict", "mode": "str"}, "return": {"wuxing_scores": "dict", "balance": "float", "advice": "str", "dna": "str"}}',
+    "龍魂统一引擎": '{"input": {"user_input": "str", "context": "dict", "identity_key": "str"}, "return": {"output": "str", "audit": "dict", "dna": "str"}}',
+    "三才算法核心": '{"input": {"tian": "float", "di": "float", "ren": "float", "weights": "dict"}, "return": {"vector": "tuple[float,float,float]", "sancai_score": "float"}}',
+    "铜墙铁壁防御": '{"input": {"request": "dict", "permission_level": "int", "dna": "str"}, "return": {"allowed": "bool", "violations": "list", "action": "str"}}',
+    "mcp sse代理服务器": '{"input": {"tool_name": "str", "arguments": "dict", "bearer_token": "str"}, "return": {"result": "dict", "tool_call_id": "str"}}',
+    "dna加密主权存储系统": '{"input": {"payload": "dict", "privacy_level": "str", "key_id": "str"}, "return": {"stored_id": "str", "cipher_metadata": "dict"}}',
+    "dna日历notion同步器": '{"input": {"capsules": "list", "notion_token": "str"}, "return": {"created": "int", "duplicates": "int", "dna": "str"}}',
+    "自愈健康检测引擎": '{"input": {"services": "list", "disk_threshold": "float"}, "return": {"restarted": "list", "alerts": "list", "dna": "str"}}',
+    "龍魂印记·dna追溯签名系统": '{"input": {"payload": "dict", "level": "str", "gpg_key": "str"}, "return": {"dna": "str", "signature": "str"}}',
+    "伦理沙盒·温柔拒绝·熔断体系": '{"input": {"request": "dict", "red_lines": "list"}, "return": {"approved": "bool", "triggered_lines": "list", "gentle_refusal": "str"}}',
+    "小妖人格引擎": '{"input": {"task": "str", "persona_config": "dict", "context": "dict"}, "return": {"response": "str", "emotion_lock": "int", "dna": "str"}}',
+    "arkit五行沉浸算法": '{"input": {"phrase": "str", "wuxing": "str", "intensity": "float"}, "return": {"ar_scene": "dict", "audio_params": "dict", "dna": "str"}}',
+    "三才流場v7": '{"input": {"mode": "str", "particle_count": "int", "dna": "str"}, "return": {"frame_data": "list", "sancai_state": "dict"}}',
+    "三才流場 v8": '{"input": {"mode": "str", "rank_order": "list", "dna": "str"}, "return": {"frame_data": "list", "r_score": "float", "dna": "str"}}',
+    "龍魂暗语加密系统": '{"input": {"plaintext": "str", "cipher_layers": "int", "culture_seed": "str"}, "return": {"cipher_text": "str", "behavior_vector": "list[float]", "dna": "str"}}',
+    "cnsh原点能量场公式": '{"input": {"R": "float", "I": "float", "T": "float", "alpha": "float"}, "return": {"E": "float"}}',
+    "cnsh路由公式": '{"input": {"intent": "str", "context": "dict", "dna": "str"}, "return": {"persona": "str", "confidence": "float", "dna": "str"}}',
+    "cnsh三才校验公式": '{"input": {"heaven_score": "float", "earth_score": "float", "human_score": "float"}, "return": {"passed": "bool", "color": "str"}}',
+    "companyrootcheck协议": '{"input": {"company": "str", "roots": "dict"}, "return": {"status": "str", "missing_roots": "list", "dna": "str"}}',
+    "人格路由规则·指令触发": '{"input": {"command": "str", "context": "dict"}, "return": {"persona": "str", "trigger_rule": "str"}}',
+    "人格路由规则·语义触发·软触发": '{"input": {"text": "str", "emotion_tags": "list"}, "return": {"persona_set": "list", "trigger_rule": "str"}}',
+    "人格路由规则·自动熔断触发": '{"input": {"content": "str", "risk_threshold": "float"}, "return": {"blocked": "bool", "red_lines": "list", "evidence": "list"}}',
+    "人格路由·回复时间戳规范": '{"input": {"reply": "str", "persona": "str", "source": "str"}, "return": {"footers": "str"}}',
+    "ai跨会话记忆架构": '{"input": {"session_id": "str", "new_turn": "dict", "level": "str"}, "return": {"memory_delta": "dict", "prediction": "str"}}',
+    "小妖ar v1.9": '{"input": {"gesture": "str", "speech_text": "str", "scene": "dict"}, "return": {"ar_update": "dict", "utterance_params": "dict"}}',
+    "小妖ar v2.0-v2.2": '{"input": {"gesture": "str", "voice_cmd": "str", "scene": "dict"}, "return": {"multimodal_events": "list", "reply": "str"}}',
+    "龍芯家族花名册·l0层·曾老师·元知者最高阶": '{"input": {"level": "str", "query": "str"}, "return": {"roster": "list", "dna": "str"}}',
+    "龍芯家族花名册·l1层·七大元知者": '{"input": {"level": "str", "query": "str"}, "return": {"roster": "list", "dna": "str"}}',
+    "龍芯家族花名册·l2层·执行协调核心10位+ai马甲10家": '{"input": {"level": "str", "query": "str"}, "return": {"roster": "list", "dna": "str"}}',
+    "龍芯家族花名册·核心p编号路由表": '{"input": {"keyword": "str"}, "return": {"p_id": "str", "p_name": "str"}}',
+}
+
+
+def get_routing_params(r: dict[str, Any]) -> str:
+    if not is_system_module(r):
+        return ""
+    key = r["知识点名称"].lower().replace("🐲 ", "").replace("v2.0", "").replace("v3.0", "").replace("v1.0", "").replace("v1.1", "").replace("v1.9", "").replace("v2.0-v2.2", "").strip()
+    for k, v in ROUTING_TEMPLATES.items():
+        if k in key or key in k:
+            return v
+    # Generic fallback
+    return '{"input": {"payload": "dict", "context": "dict", "source_dna": "str"}, "return": {"result": "Any", "dna": "str"}}'
+
+
+# ---------------------------------------------------------------------------
+# Python example generators
+# ---------------------------------------------------------------------------
+def code_for_record(r: dict[str, Any]) -> str:
+    name = r["知识点名称"]
+    cid = r["知识卡片ID"]
+    title_key = name.lower()
+
+    # System modules ---------------------------------------------------------
+    if is_system_module(r):
+        return _system_stub(cid, name, r)
+
+    # AI / ML ---------------------------------------------------------------
+    if "线性回归" in name:
+        return _linear_regression(cid)
+    if "决策树" in name:
+        return _decision_tree(cid)
+    if "逻辑回归" in name:
+        return _logistic_regression(cid)
+    if "svm" in title_key:
+        return _svm(cid)
+    if "随机森林" in name:
+        return _random_forest(cid)
+    if "k-means" in title_key:
+        return _kmeans(cid)
+    if "k-nn" in title_key or "knn" in title_key:
+        return _knn(cid)
+    if "xgboost" in title_key:
+        return _xgboost(cid)
+    if "朴素贝叶斯" in name:
+        return _naive_bayes(cid)
+    if "pca" in title_key:
+        return _pca(cid)
+    if "rnn" in title_key or "lstm" in title_key:
+        return _rnn(cid)
+    if "bert" in title_key:
+        return _bert(cid)
+    if "mlp" in title_key:
+        return _mlp(cid)
+    if "cnn" in title_key:
+        return _cnn(cid)
+    if "transformer" in title_key:
+        return _transformer(cid)
+    if "梯度下降" in name:
+        return _gradient_descent(cid)
+    if "gan" in title_key:
+        return _gan(cid)
+    if "扩散模型" in name:
+        return _diffusion(cid)
+    if "gpt" in title_key:
+        return _gpt(cid)
+    if "贝叶斯优化" in name:
+        return _bayesian_optimization(cid)
+    if "强化学习" in name:
+        return _rl(cid)
+    if "迁移学习" in name:
+        return _transfer_learning(cid)
+    if "遗传算法" in name:
+        return _genetic_algorithm(cid)
+    if "adam" in title_key:
+        return _adam(cid)
+    if "信息熵" in name or "信息论" in name:
+        return _entropy(cid)
+    if "自动微分" in name:
+        return _autograd(cid)
+
+    # Rendering / graphics ---------------------------------------------------
+    if "建模" in name:
+        return _modeling(cid)
+    if "灯光" in name:
+        return _lighting(cid)
+    if name == "渲染":
+        return _rendering(cid)
+    if "贴图" in name:
+        return _texture(cid)
+    if "材质" in name:
+        return _material(cid)
+    if "光线追踪" in name:
+        return _ray_tracing(cid)
+    if "光栅化" in name:
+        return _rasterization(cid)
+    if "漫反射" in name:
+        return _diffuse(cid)
+    if "焦散" in name:
+        return _caustics(cid)
+    if "全局光照" in name:
+        return _gi(cid)
+    if "抗锯齿" in name:
+        return _aa(cid)
+    if "采样率" in name:
+        return _sampling_rate(cid)
+    if "渲染器" in name:
+        return _renderer(cid)
+    if "pbr" in title_key:
+        return _pbr(cid)
+    if "lod" in title_key:
+        return _lod(cid)
+    if "渲染几何" in name:
+        return _render_geometry(cid)
+
+    # CNSH / sovereignty algorithms ------------------------------------------
+    if "数字根" in name:
+        return _digital_root(cid)
+    if "洛书九宫" in name:
+        return _luoshu(cid)
+    if "数字根熔断" in name:
+        return _dr_fuse(cid)
+    if "不动点" in name:
+        return _fixed_point(cid)
+    if "f(x)=x" in name or "原点不变性" in name:
+        return _origin_invariance(cid)
+    if "逻辑漂移" in name:
+        return _logic_drift(cid)
+    if "太极递归" in name:
+        return _taiji_recursion(cid)
+    if "64卦" in name and "有限状态" in name:
+        return _gua_fsm(cid)
+    if "三才向量" in name:
+        return _sancai_vector(cid)
+    if "perlin" in title_key:
+        return _perlin(cid)
+    if "时间压缩" in name:
+        return _time_compress(cid)
+    if "l5五层时间" in title_key:
+        return _l5_time(cid)
+    if "七维度权重" in name:
+        return _soul_score(cid)
+    if "贡献值" in name:
+        return _contribution(cid)
+    if "量子" in name and "bra" in title_key:
+        return _quantum_bra(cid)
+    if "512维压缩" in name:
+        return _vector512(cid)
+    if "通心译翻译引擎" in name:
+        return _tongxinyi(cid)
+    if "通心译路径计算" in name:
+        return _tongxinyi_path(cid)
+    if "五行维度" in name:
+        return _wuxing_dim(cid)
+    if "天干地支" in name:
+        return _tiandi_dim(cid)
+    if "八卦维度" in name:
+        return _bagua_dim(cid)
+    if "河洛图维度" in name:
+        return _heluo_dim(cid)
+    if "companyroot" in title_key:
+        return _company_root(cid)
+    if "cnsh原点能量场" in title_key:
+        return _energy_field(cid)
+    if "cnsh路由" in title_key:
+        return _cnsh_route(cid)
+    if "cnsh三才校验" in title_key:
+        return _cnsh_sancai_check(cid)
+
+    # CS fundamentals -------------------------------------------------------
+    if "数据结构与算法" in name:
+        return _dsa(cid)
+    if "计算理论" in name:
+        return _theory(cid)
+    if "操作系统原理" in name:
+        return _os(cid)
+    if "计算机网络基础" in name:
+        return _network(cid)
+    if "数据库理论" in name:
+        return _db_theory(cid)
+    if "离散数学" in name:
+        return _discrete(cid)
+    if "线性代数" in name:
+        return _linear_algebra(cid)
+    if "概率统计" in name:
+        return _probability(cid)
+    if "数论基础" in name:
+        return _number_theory(cid)
+    if "python编程" in title_key:
+        return _python_basics(cid)
+    if "进程" in name and "线程" in name:
+        return _concurrency(cid)
+    if "tcp" in title_key:
+        return _tcp(cid)
+    if "acid" in title_key or "事务" in name:
+        return _acid(cid)
+    if "大o" in title_key or "复杂度" in name:
+        return _big_o(cid)
+    if "内存模型" in name or "堆 / 栈" in name:
+        return _memory_model(cid)
+    if "数值方法" in name:
+        return _numerical(cid)
+    if "傅里叶" in name:
+        return _fourier(cid)
+    if "采样定理" in name:
+        return _nyquist(cid)
+
+    # Swift topics -----------------------------------------------------------
+    if "swift" in title_key:
+        return _swift_generic(cid, name)
+
+    # Quantum abstract -------------------------------------------------------
+    if "量子计算" in name:
+        return _quantum_abstract(cid)
+
+    # Fallback ---------------------------------------------------------------
+    return _fallback(cid, name, r)
+
+
+# ---------------------------------------------------------------------------
+# Code templates (kept compact, stdlib only)
+# ---------------------------------------------------------------------------
+def _header(cid: str, name: str) -> str:
+    return f"# 知识点ID={cid} · {name}\n"
+
+
+def _linear_regression(cid: str) -> str:
+    return _header(cid, "线性回归") + '''
+def mat_mul(A, B):
+    return [[sum(a*b for a,b in zip(row, col)) for col in zip(*B)] for row in A]
+def transpose(A): return list(map(list, zip(*A)))
+def invert_2x2(M):
+    a,b,c,d = M[0][0], M[0][1], M[1][0], M[1][1]
+    det = a*d - b*c
+    return [[d/det, -b/det], [-c/det, a/det]]
+
+X = [[1, 1], [1, 2], [1, 3], [1, 4]]
+y = [[2], [3], [5], [7]]
+XtX = mat_mul(transpose(X), X)
+inv = invert_2x2(XtX)
+w = mat_mul(mat_mul(inv, transpose(X)), y)
+print("w,b =", w[1][0], w[0][0])
+'''
+
+
+def _decision_tree(cid: str) -> str:
+    return _header(cid, "决策树") + '''
+from math import log2
+from collections import Counter
+
+def entropy(labels):
+    n = len(labels); return -sum((c/n)*log2(c/n) for c in Counter(labels).values())
+
+def info_gain(data, labels, feature_idx):
+    base = entropy(labels)
+    vals = set(row[feature_idx] for row in data)
+    weighted = sum((sum(1 for r in data if r[feature_idx]==v)/len(data)) *
+                   entropy([labels[i] for i,r in enumerate(data) if r[feature_idx]==v]) for v in vals)
+    return base - weighted
+
+data = [["sunny","hot"],["sunny","mild"],["rain","cool"]]
+labels = ["no","yes","yes"]
+print("IG(feature0)=", info_gain(data, labels, 0))
+'''
+
+
+def _logistic_regression(cid: str) -> str:
+    return _header(cid, "逻辑回归") + '''
+import math
+
+def sigmoid(z): return 1/(1+math.exp(-z))
+def predict(x, w, b): return 1 if sigmoid(sum(xi*wi for xi,wi in zip(x,w))+b) >= 0.5 else 0
+
+w, b = [0.5, -0.3], 0.1
+samples = [[2.0, 1.0], [1.0, -1.0]]
+for x in samples:
+    print("x", x, "->", predict(x, w, b))
+'''
+
+
+def _svm(cid: str) -> str:
+    return _header(cid, "SVM") + '''
+def margin(x, y, w, b):
+    return y * (sum(xi*wi for xi,wi in zip(x,w)) + b)
+
+w, b = [1.0, -1.0], 0.0
+print("margin:", margin([2.0, 1.0], 1, w, b))
+print("goal: maximize 2/||w|| =", 2/(sum(wi**2 for wi in w)**0.5))
+'''
+
+
+def _random_forest(cid: str) -> str:
+    return _header(cid, "随机森林") + '''
+from random import choices, seed
+seed(42)
+
+def stump(data, labels):
+    return sum(labels)/len(labels)
+
+trees = []
+for _ in range(3):
+    idx = choices(range(4), k=4)
+    trees.append([([0,1,0,1][i], [0,1,1,0][i]) for i in idx])
+print("bagged sample count:", len(trees))
+'''
+
+
+def _kmeans(cid: str) -> str:
+    return _header(cid, "K-Means") + '''
+import math
+
+def dist(a,b): return math.sqrt(sum((x-y)**2 for x,y in zip(a,b)))
+
+def kmeans(points, k=2, iters=10):
+    cents = points[:k]
+    for _ in range(iters):
+        clusters = [[] for _ in range(k)]
+        for p in points:
+            clusters[min(range(k), key=lambda i: dist(p, cents[i]))].append(p)
+        cents = [[sum(coord)/len(cluster) for coord in zip(*cluster)] if cluster else cents[i]
+                 for i, cluster in enumerate(clusters)]
+    return cents
+
+points = [[0,0],[0,1],[5,5],[5,6]]
+print(kmeans(points))
+'''
+
+
+def _knn(cid: str) -> str:
+    return _header(cid, "K-NN") + '''
+import math
+from collections import Counter
+
+def knn(train, labels, x, k=3):
+    dists = [(math.sqrt(sum((a-b)**2 for a,b in zip(p,x))), lbl) for p,lbl in zip(train, labels)]
+    return Counter([lbl for _,lbl in sorted(dists)[:k]]).most_common(1)[0][0]
+
+train = [[0,0],[1,1],[5,5],[6,6]]
+labels = ["A","A","B","B"]
+print(knn(train, labels, [5.5,5.5]))
+'''
+
+
+def _xgboost(cid: str) -> str:
+    return _header(cid, "XGBoost") + '''
+def gradient_boosting(y, rounds=3, lr=0.3):
+    pred = [0.0]*len(y)
+    for _ in range(rounds):
+        residuals = [yi - pi for yi, pi in zip(y, pred)]
+        pred = [pi + lr*ri for pi, ri in zip(pred, residuals)]
+    return pred
+
+print(gradient_boosting([1.0, 2.0, 3.0]))
+'''
+
+
+def _naive_bayes(cid: str) -> str:
+    return _header(cid, "朴素贝叶斯") + '''
+from collections import Counter
+
+# Toy text classifier
+train = [("免费 优惠", "spam"), ("会议 明天", "ham"), ("中奖 免费", "spam")]
+vocab = Counter()
+cls = Counter()
+for text, label in train:
+    cls[label] += 1
+    for w in text.split():
+        vocab[(label,w)] += 1
+
+def predict(text):
+    words = text.split()
+    scores = {l: cls[l]/len(train) for l in cls}
+    for l in scores:
+        total = sum(vocab[(l,w)] for w,_ in vocab if (l,w) in vocab)
+        for w in words:
+            scores[l] *= (vocab[(l,w)] + 1)/(total + len(vocab))
+    return max(scores, key=scores.get)
+
+print(predict("免费 中奖"))
+'''
+
+
+def _pca(cid: str) -> str:
+    return _header(cid, "PCA") + '''
+import math
+
+def mean(v): return sum(v)/len(v)
+def cov_matrix(data):
+    m = [mean(col) for col in zip(*data)]
+    n = len(data)
+    return [[sum((r[i]-m[i])*(r[j]-m[j]) for r in data)/(n-1) for j in range(len(m))] for i in range(len(m))]
+
+def eig_2x2(M):
+    a,b,c,d=M[0][0],M[0][1],M[1][0],M[1][1]
+    tr, det = a+d, a*d-b*c
+    disc = math.sqrt(max(tr*tr/4 - det, 0))
+    return tr/2+disc, tr/2-disc
+
+data = [[1,2],[2,3],[3,5],[4,7]]
+print("eigenvalues:", eig_2x2(cov_matrix(data)))
+'''
+
+
+def _rnn(cid: str) -> str:
+    return _header(cid, "RNN/LSTM") + '''
+import math
+
+def tanh(x): return math.tanh(x)
+def rnn_step(x, h, Wx, Wh, b):
+    return tanh(sum(xi*w for xi,w in zip(x,Wx)) + sum(hi*w for hi,w in zip(h,Wh)) + b)
+
+x, h = [1.0, 0.5], [0.2]
+Wx, Wh, b = [0.1, -0.2], [0.5], 0.0
+print(rnn_step(x, h, Wx, Wh, b))
+'''
+
+
+def _bert(cid: str) -> str:
+    return _header(cid, "BERT") + '''
+# Minimal masked-token scoring demo (dot-product similarity)
+import math
+
+def dot(a,b): return sum(x*y for x,y in zip(a,b))
+def softmax(xs):
+    e = [math.exp(x-max(xs)) for x in xs]
+    s = sum(e); return [x/s for x in e]
+
+candidates = [["猫", [0.2,0.8]], ["狗", [0.3,0.7]], ["车", [0.9,0.1]]]
+context = [0.25, 0.75]
+scores = softmax([dot(context, vec) for _, vec in candidates])
+print([(w, round(s,3)) for (w,_), s in zip(candidates, scores)])
+'''
+
+
+def _mlp(cid: str) -> str:
+    return _header(cid, "MLP") + '''
+import math
+
+def relu(x): return max(0, x)
+def softmax(xs):
+    e = [math.exp(x-max(xs)) for x in xs]
+    s = sum(e); return [x/s for x in e]
+
+def forward(x, W1, b1, W2, b2):
+    hidden = [relu(sum(xi*w for xi,w in zip(x,row))+bi) for row,bi in zip(W1,b1)]
+    out = [sum(hi*w for hi,w in zip(hidden,row))+bi for row,bi in zip(W2,b2)]
+    return softmax(out)
+
+W1, b1 = [[0.1,-0.2],[0.3,0.4]], [0.0,0.0]
+W2, b2 = [[0.5,-0.1],[-0.3,0.2]], [0.1,-0.1]
+print(forward([1.0, 0.5], W1, b1, W2, b2))
+'''
+
+
+def _cnn(cid: str) -> str:
+    return _header(cid, "CNN") + '''
+def conv2d(image, kernel):
+    kh, kw = len(kernel), len(kernel[0])
+    h, w = len(image)-kh+1, len(image[0])-kw+1
+    return [[sum(image[i+di][j+dj]*kernel[di][dj] for di in range(kh) for dj in range(kw))
+             for j in range(w)] for i in range(h)]
+
+img = [[1,1,1,0],[0,1,1,1],[0,0,1,1],[0,0,1,1]]
+ker = [[1,0,-1],[1,0,-1],[1,0,-1]]
+for row in conv2d(img, ker): print(row)
+'''
+
+
+def _transformer(cid: str) -> str:
+    return _header(cid, "Transformer") + '''
+import math
+
+def dot(a,b): return sum(x*y for x,y in zip(a,b))
+def softmax(xs):
+    e = [math.exp(x-max(xs)) for x in xs]
+    s = sum(e); return [x/s for x in e]
+
+def attention(Q, K, V):
+    d = len(Q[0])**0.5
+    scores = [[dot(q,k)/d for k in K] for q in Q]
+    weights = [softmax(row) for row in scores]
+    return [[sum(wi*vi for wi,vi in zip(row, col)) for col in zip(*V)] for row in weights]
+
+Q=K=V=[[1.0,0.0],[0.0,1.0]]
+print(attention(Q,K,V))
+'''
+
+
+def _gradient_descent(cid: str) -> str:
+    return _header(cid, "梯度下降") + '''
+def f(x): return x*x
+def df(x): return 2*x
+
+x, lr = 5.0, 0.1
+for i in range(20):
+    x -= lr*df(x)
+print("minimum at x =", x)
+'''
+
+
+def _gan(cid: str) -> str:
+    return _header(cid, "GAN") + '''
+import math
+
+def sigmoid(x): return 1/(1+math.exp(-x))
+def generator(z, w): return z*w
+def discriminator(x, w): return sigmoid(x*w)
+
+for step in range(5):
+    z = 0.5
+    fake = generator(z, 0.8)
+    d_real = discriminator(1.0, 0.6)
+    d_fake = discriminator(fake, 0.6)
+    loss = -math.log(d_real) - math.log(1-d_fake)
+    print(f"step {step}: D(real)={d_real:.3f} D(fake)={d_fake:.3f} loss={loss:.3f}")
+'''
+
+
+def _diffusion(cid: str) -> str:
+    return _header(cid, "扩散模型") + '''
+import math, random
+
+def forward_diffusion(x0, t, beta=0.1):
+    alpha = 1 - beta
+    alpha_bar = alpha**t
+    noise = random.gauss(0, 1)
+    return math.sqrt(alpha_bar)*x0 + math.sqrt(1-alpha_bar)*noise
+
+x0 = 2.0
+for t in [1, 5, 10]:
+    print(f"t={t} x_t={forward_diffusion(x0, t):.3f}")
+'''
+
+
+def _gpt(cid: str) -> str:
+    return _header(cid, "GPT") + '''
+import random
+
+# simple bigram generator
+bigrams = {"我": ["爱", "在"], "爱": ["中国", "编程"], "在": ["学习"]}
+seq = ["我"]
+for _ in range(4):
+    seq.append(random.choice(bigrams.get(seq[-1], ["。"])))
+print("".join(seq))
+'''
+
+
+def _bayesian_optimization(cid: str) -> str:
+    return _header(cid, "贝叶斯优化") + '''
+import random
+
+def objective(x): return -(x-2)**2 + 5
+
+def noisy_eval(x):
+    return objective(x) + random.uniform(-0.1, 0.1)
+
+best = -1e9
+for _ in range(20):
+    x = random.uniform(-2, 5)
+    y = noisy_eval(x)
+    if y > best: best = y
+print("best observed:", best)
+'''
+
+
+def _rl(cid: str) -> str:
+    return _header(cid, "强化学习") + '''
+import random
+
+Q = {}
+alpha, gamma, eps = 0.5, 0.9, 0.2
+actions = [0, 1]
+
+def choose(s):
+    if random.random() < eps: return random.choice(actions)
+    return max(actions, key=lambda a: Q.get((s,a), 0))
+
+for _ in range(100):
+    s = random.choice([0,1])
+    a = choose(s)
+    r = 1 if (s==0 and a==1) or (s==1 and a==0) else 0
+    ns = random.choice([0,1])
+    Q[(s,a)] = Q.get((s,a),0) + alpha*(r + gamma*max(Q.get((ns,aa),0) for aa in actions) - Q.get((s,a),0))
+print(Q)
+'''
+
+
+def _transfer_learning(cid: str) -> str:
+    return _header(cid, "迁移学习") + '''
+# Simulate fine-tuning only the last layer
+base = {"layer1": [0.1, 0.2], "layer2": [0.3, 0.4]}
+head = [0.5, -0.5]
+
+def fine_tune(head, lr=0.1):
+    grad = [0.01, -0.02]
+    return [h - lr*g for h,g in zip(head, grad)]
+
+head = fine_tune(head)
+print("updated head:", head)
+'''
+
+
+def _genetic_algorithm(cid: str) -> str:
+    return _header(cid, "遗传算法") + '''
+import random
+
+def fitness(x): return -(x-3.14)**2
+population = [random.uniform(-5,5) for _ in range(10)]
+for gen in range(5):
+    population = sorted(population, key=fitness, reverse=True)
+    top = population[:4]
+    offspring = [(a+b)/2 + random.uniform(-0.1,0.1) for a,b in zip(top[::2], top[1::2])]
+    population = top + offspring
+print("best:", population[0], "fitness:", fitness(population[0]))
+'''
+
+
+def _adam(cid: str) -> str:
+    return _header(cid, "Adam") + '''
+import math
+
+w, m, v = 1.0, 0.0, 0.0
+beta1, beta2, eps, lr = 0.9, 0.999, 1e-8, 0.1
+for t in range(1, 11):
+    g = 2*w  # gradient of w^2
+    m = beta1*m + (1-beta1)*g
+    v = beta2*v + (1-beta2)*g*g
+    m_hat = m/(1-beta1**t)
+    v_hat = v/(1-beta2**t)
+    w -= lr*m_hat/(math.sqrt(v_hat)+eps)
+print("w =", w)
+'''
+
+
+def _entropy(cid: str) -> str:
+    return _header(cid, "信息熵") + '''
+import math
+from collections import Counter
+
+def entropy(data):
+    n = len(data)
+    return -sum((c/n)*math.log2(c/n) for c in Counter(data).values())
+
+print(entropy(["A","A","B","B","B"]))
+'''
+
+
+def _autograd(cid: str) -> str:
+    return _header(cid, "自动微分") + '''
+# Tiny computational graph: z = x*y + sin(x)
+import math
+
+x, y = 2.0, 3.0
+z = x*y + math.sin(x)
+dz_dx = y + math.cos(x)
+dz_dy = x
+print(f"z={z}, dz/dx={dz_dx}, dz/dy={dz_dy}")
+'''
+
+
+# Rendering ------------------------------------------------------------------
+def _modeling(cid: str) -> str:
+    return _header(cid, "建模") + '''
+verts = [(0,0,0),(1,0,0),(0,1,0)]
+faces = [(0,1,2)]
+v, e, f = len(verts), len(faces)*3, len(faces)
+print(f"vertices={v}, edges={e}, faces={f}, χ={v-e+f}")
+'''
+
+
+def _lighting(cid: str) -> str:
+    return _header(cid, "灯光") + '''
+import math
+
+def point_light(I0, d): return I0/(d*d)
+def lambert(N, L):
+    return max(0.0, sum(n*l for n,l in zip(N,L))/(math.sqrt(sum(n*n for n in N))*math.sqrt(sum(l*l for l in L))))
+
+print("intensity:", point_light(100, 2.0)*lambert((0,0,1),(0.3,0.3,1)))
+'''
+
+
+def _rendering(cid: str) -> str:
+    return _header(cid, "渲染") + '''
+# Simplified render pipeline: vertex -> screen space
+def project(v, focal=1.0):
+    x,y,z = v
+    return (focal*x/z, focal*y/z)
+
+triangle = [(1,0,2),(0,1,2),(-1,0,2)]
+print([project(v) for v in triangle])
+'''
+
+
+def _texture(cid: str) -> str:
+    return _header(cid, "贴图") + '''
+def sample(tex, u, v):
+    h, w = len(tex), len(tex[0])
+    i, j = int(v*(h-1)), int(u*(w-1))
+    return tex[i][j]
+
+tex = [[10,20],[30,40]]
+print(sample(tex, 0.5, 0.5))
+'''
+
+
+def _material(cid: str) -> str:
+    return _header(cid, "材质") + '''
+def brdf(base_color, metallic, roughness, n_dot_l, n_dot_v):
+    diffuse = base_color * (1-metallic) / 3.14159
+    specular = metallic / max(4*n_dot_l*n_dot_v, 0.001)
+    return diffuse + specular
+
+print(brdf(0.8, 0.0, 0.5, 0.7, 0.6))
+'''
+
+
+def _ray_tracing(cid: str) -> str:
+    return _header(cid, "光线追踪") + '''
+import math
+
+def sphere_intersect(ro, rd, center, radius):
+    oc = tuple(a-b for a,b in zip(ro,center))
+    b = 2*sum(oc*d for oc,d in zip(oc,rd))
+    c = sum(x*x for x in oc) - radius*radius
+    disc = b*b - 4*c
+    return disc >= 0
+
+print(sphere_intersect((0,0,0),(0,0,1),(0,0,5),1))
+'''
+
+
+def _rasterization(cid: str) -> str:
+    return _header(cid, "光栅化") + '''
+def viewport(v, width=100, height=100):
+    x,y = v
+    return (int((x+1)*0.5*width), int((1-y)*0.5*height))
+
+print(viewport((0.0,0.0)))
+'''
+
+
+def _diffuse(cid: str) -> str:
+    return _header(cid, "漫反射") + '''
+import math
+
+def lambert(N, L, Kd):
+    cos = sum(n*l for n,l in zip(N,L))/(math.sqrt(sum(n*n for n in N))*math.sqrt(sum(l*l for l in L)))
+    return Kd*max(0, cos)
+
+print(lambert((0,0,1),(0.5,0.5,1),0.8))
+'''
+
+
+def _caustics(cid: str) -> str:
+    return _header(cid, "焦散") + '''
+# Photon density estimate
+import math
+
+def caustic_intensity(photons, x, r):
+    inside = [p for p in photons if math.sqrt((p[0]-x[0])**2+(p[1]-x[1])**2) <= r]
+    return len(inside)/(math.pi*r*r)
+
+photons = [(0.1,0.1),(0.2,0.2),(5,5)]
+print(caustic_intensity(photons, (0,0), 0.5))
+'''
+
+
+def _gi(cid: str) -> str:
+    return _header(cid, "全局光照") + '''
+# Two-bounce indirect lighting toy
+direct = 1.0
+indirect = 0.3*direct  # one bounce
+indirect2 = 0.3*indirect
+print("total Lo:", direct + indirect + indirect2)
+'''
+
+
+def _aa(cid: str) -> str:
+    return _header(cid, "抗锯齿") + '''
+def msaa(samples):
+    return sum(samples)/len(samples)
+
+print(msaa([0.0, 1.0, 0.0, 1.0]))
+'''
+
+
+def _sampling_rate(cid: str) -> str:
+    return _header(cid, "采样率") + '''
+import math
+
+def noise(N): return 1.0/math.sqrt(N)
+for N in [1,4,16,64]: print(f"N={N:3d}  noise≈{noise(N):.3f}")
+'''
+
+
+def _renderer(cid: str) -> str:
+    return _header(cid, "渲染器") + '''
+class TinyRenderer:
+    def render(self, scene):
+        return f"rendered {len(scene['objects'])} objects"
+
+print(TinyRenderer().render({"objects": ["cube","sphere"]}))
+'''
+
+
+def _pbr(cid: str) -> str:
+    return _header(cid, "PBR") + '''
+# Simplified PBR reflection term
+def pbr_term(nl, nv, D, F, G):
+    return D*F*G / max(4*nl*nv, 0.001)
+
+print(pbr_term(0.7, 0.6, 0.5, 0.9, 0.8))
+'''
+
+
+def _lod(cid: str) -> str:
+    return _header(cid, "LOD") + '''
+def lod(distance, thresholds=[5,15,50]):
+    for i,t in enumerate(thresholds):
+        if distance < t: return i
+    return len(thresholds)
+
+for d in [2,10,30,60]: print(d, "-> LOD", lod(d))
+'''
+
+
+def _render_geometry(cid: str) -> str:
+    return _header(cid, "渲染几何") + '''
+def transform(v, A):
+    return tuple(sum(row[i]*v[i] for i in range(len(v))) for row in A)
+
+scale = [[2,0,0],[0,2,0],[0,0,2]]
+print(transform((1,1,1), scale))
+'''
+
+
+# CNSH / sovereignty ---------------------------------------------------------
+def _digital_root(cid: str) -> str:
+    return _header(cid, "数字根") + '''
+def digital_root(n):
+    return 1 + (n - 1) % 9 if n else 0
+
+print([digital_root(x) for x in [18, 369, 7, 100]])
+'''
+
+
+def _luoshu(cid: str) -> str:
+    return _header(cid, "洛书九宫") + '''
+M = [[4,9,2],[3,5,7],[8,1,6]]
+rows = [sum(r) for r in M]
+cols = [sum(r[i] for r in M) for i in range(3)]
+diag1 = sum(M[i][i] for i in range(3))
+diag2 = sum(M[i][2-i] for i in range(3))
+print("rows/cols/diags:", rows, cols, diag1, diag2)
+'''
+
+
+def _dr_fuse(cid: str) -> str:
+    return _header(cid, "数字根熔断") + '''
+def dr_fuse(dr):
+    if dr in {1,2,4,5,7,8}: return "🟢通过"
+    if dr == 6: return "🟡待审"
+    return "🔴熔断"
+
+for n in [1,3,6,9]: print(n, dr_fuse(n))
+'''
+
+
+def _fixed_point(cid: str) -> str:
+    return _header(cid, "不动点定理") + '''
+def f(x): return (x + 2/x)/2  # sqrt(2) fixed point
+x = 1.0
+for _ in range(10): x = f(x)
+print("fixed point sqrt(2) ≈", x)
+'''
+
+
+def _origin_invariance(cid: str) -> str:
+    return _header(cid, "f(x)=x原点不变性") + '''
+identity_root = {"身份":1.0, "使命":1.0, "价值":1.0, "边界":1.0}
+def f(root): return {k:v*0.95+0.05 for k,v in root.items()}
+new_root = f(identity_root)
+drift = sum(abs(new_root[k]-identity_root[k]) for k in identity_root)/sum(identity_root.values())
+print("drift:", drift)
+'''
+
+
+def _logic_drift(cid: str) -> str:
+    return _header(cid, "逻辑漂移侦测") + '''
+def ema_drift(d_prev, distance, alpha=0.3):
+    return alpha*d_prev + (1-alpha)*distance
+
+D = 0
+for d in [0.1,0.15,0.5,0.8]:
+    D = ema_drift(D, d)
+    print(f"distance={d} EMA={D:.3f}")
+'''
+
+
+def _taiji_recursion(cid: str) -> str:
+    return _header(cid, "太极递归") + '''
+def taiji(n):
+    if n == 0: return 1
+    return 2*taiji(n-1)
+
+print([taiji(i) for i in range(7)])
+'''
+
+
+def _gua_fsm(cid: str) -> str:
+    return _header(cid, "64卦FSM") + '''
+# 64 states, each line (yao) is a 0/1 input
+transition = lambda state, yao: (state ^ (1 << yao)) % 64
+state = 0
+for yao in [0,1,2]: state = transition(state, yao)
+print("final state:", state)
+'''
+
+
+def _sancai_vector(cid: str) -> str:
+    return _header(cid, "三才向量合成") + '''
+import math
+
+def sancai(tian, di, ren, w_t=0.3, w_d=0.2, w_r=0.5):
+    x = w_t*math.cos(tian) + w_d*math.cos(di) + w_r*math.cos(ren)
+    y = w_t*math.sin(tian) + w_d*math.sin(di) + w_r*math.sin(ren)
+    return x, y
+
+print(sancai(0.1, 0.5, 1.2))
+'''
+
+
+def _perlin(cid: str) -> str:
+    return _header(cid, "Perlin噪声") + '''
+import math, random
+
+def noise(x, y):
+    return random.uniform(-1,1)  # placeholder
+
+def perlin(x, y, octaves=3):
+    return sum(0.5**i * noise(x*2**i, y*2**i) for i in range(octaves))
+
+random.seed(0)
+print(perlin(1.1, 2.2))
+'''
+
+
+def _time_compress(cid: str) -> str:
+    return _header(cid, "时间压缩") + '''
+def energy(R, I, T, alpha):
+    return R * I * (T**(-alpha)) if T else 0
+
+print(energy(R=10, I=0.9, T=30, alpha=1.0))
+print(energy(R=10, I=0.9, T=30, alpha=0.01))
+'''
+
+
+def _l5_time(cid: str) -> str:
+    return _header(cid, "L5五层时间") + '''
+def retention(alpha, years):
+    return years**(-alpha) if years else 1
+
+levels = {"L0":0.0, "L1":0.01, "L2":0.1, "L3":1.0}
+for lvl, a in levels.items():
+    print(lvl, f"100yr retention={retention(a,100):.3f}")
+'''
+
+
+def _soul_score(cid: str) -> str:
+    return _header(cid, "SOUL评分") + '''
+weights = {"技":0.20,"语":0.15,"文":0.20,"数":0.15,"决":0.15,"知":0.10,"身":0.05}
+scores = {"技":0.8,"语":0.7,"文":0.9,"数":0.6,"决":0.8,"知":0.5,"身":0.9}
+soul = sum(weights[k]*scores[k] for k in weights)
+print("SOUL score:", round(soul,3))
+'''
+
+
+def _contribution(cid: str) -> str:
+    return _header(cid, "贡献值") + '''
+def contribution(count, quality, days, alpha=1.0):
+    return count * quality * ((days+1)**(-alpha))
+
+print(contribution(10, 0.9, 30))
+'''
+
+
+def _quantum_bra(cid: str) -> str:
+    return _header(cid, "量子Bra-Ket") + '''
+import math
+
+# Simple amplitude collapse to highest-amplitude persona
+amps = {"诸葛":0.5,"老子":0.3,"宝宝":0.2}
+norm = math.sqrt(sum(a*a for a in amps.values()))
+probs = {k:(a/norm)**2 for k,a in amps.items()}
+print("probabilities:", probs)
+print("collapse:", max(probs, key=probs.get))
+'''
+
+
+def _vector512(cid: str) -> str:
+    return _header(cid, "512维压缩向量") + '''
+import random
+
+def compress(raw, dim=512):
+    random.seed(sum(raw))
+    return [random.uniform(-1,1) for _ in range(dim)]
+
+v = compress([1,2,3])
+print("compressed dim:", len(v), "first5:", v[:5])
+'''
+
+
+def _tongxinyi(cid: str) -> str:
+    return _header(cid, "通心译翻译引擎") + '''
+# 6-dim path count
+dims = [6,9,8,64,5,120]
+total = 1
+for d in dims: total *= d
+print("total paths:", total)
+'''
+
+
+def _tongxinyi_path(cid: str) -> str:
+    return _header(cid, "通心译路径计算器") + '''
+import itertools
+
+def path_score(path): return sum(path)
+
+dims = [range(2), range(2), range(2), range(2), range(2), range(2)]
+best = max(itertools.product(*dims), key=path_score)
+print("best toy path:", best, "score:", path_score(best))
+'''
+
+
+def _wuxing_dim(cid: str) -> str:
+    return _header(cid, "五行维度") + '''
+# Sheng/Ke balance check
+wuxing = {"金":3,"木":5,"水":2,"火":4,"土":3}
+mean = sum(wuxing.values())/5
+var = sum((v-mean)**2 for v in wuxing.values())/5
+balance = 1 - var**0.5/mean
+print("balance:", round(balance,3))
+'''
+
+
+def _tiandi_dim(cid: str) -> str:
+    return _header(cid, "天干地支维度") + '''
+tiangan = list("甲乙丙丁戊己庚辛壬癸")
+dizhi = list("子丑寅卯辰巳午未申酉戌亥")
+print("combinations:", len(tiangan)*len(dizhi))
+print("example:", tiangan[0]+dizhi[0])
+'''
+
+
+def _bagua_dim(cid: str) -> str:
+    return _header(cid, "八卦维度") + '''
+bagua = ["乾","兑","离","震","巽","坎","艮","坤"]
+code = lambda i: format(i, '03b')
+for i,g in enumerate(bagua): print(g, code(i))
+'''
+
+
+def _heluo_dim(cid: str) -> str:
+    return _header(cid, "河洛图维度") + '''
+M = [[4,9,2],[3,5,7],[8,1,6]]
+print("center pivot =", M[1][1])
+'''
+
+
+def _company_root(cid: str) -> str:
+    return _header(cid, "CompanyRootCheck") + '''
+def root_check(roots):
+    required = ["公司根","政策根","来源根","时间根"]
+    missing = [r for r in required if not roots.get(r)]
+    return "可答" if not missing else "待核验"
+
+print(root_check({"公司根":"小米","政策根":"合规","来源根":"年报"}))
+'''
+
+
+def _energy_field(cid: str) -> str:
+    return _header(cid, "CNSH原点能量场") + '''
+def energy(R, I, T, alpha):
+    return R * I * (T**(-alpha))
+
+print("E =", energy(10, 0.9, 5, 0.5))
+'''
+
+
+def _cnsh_route(cid: str) -> str:
+    return _header(cid, "CNSH路由公式") + '''
+def route(intent, context, dna):
+    scores = {"P04":0.8 if "代码" in intent else 0.2,
+              "P01":0.9 if "战略" in intent else 0.1}
+    return max(scores, key=scores.get)
+
+print(route("写代码", {}, "dna"))
+'''
+
+
+def _cnsh_sancai_check(cid: str) -> str:
+    return _header(cid, "CNSH三才校验") + '''
+def sancai(heaven, earth, human):
+    passed = heaven and earth and human
+    return {"passed": passed, "color": "🟢" if passed else "🟡"}
+
+print(sancai(1, 1, 0))
+'''
+
+
+# CS fundamentals ------------------------------------------------------------
+def _dsa(cid: str) -> str:
+    return _header(cid, "数据结构与算法") + '''
+def quick_sort(a):
+    if len(a) <= 1: return a
+    p = a[0]
+    return quick_sort([x for x in a[1:] if x < p]) + [p] + quick_sort([x for x in a[1:] if x >= p])
+
+print(quick_sort([3,1,4,1,5,9,2,6]))
+'''
+
+
+def _theory(cid: str) -> str:
+    return _header(cid, "计算理论") + '''
+# Tiny DFA: accepts strings ending with '01'
+def dfa(s):
+    state = "A"
+    for ch in s:
+        if state == "A": state = "B" if ch == "0" else "A"
+        elif state == "B": state = "B" if ch == "0" else "C"
+        elif state == "C": state = "B" if ch == "0" else "A"
+    return state == "C"
+
+print(dfa("10101"), dfa("111"))
+'''
+
+
+def _os(cid: str) -> str:
+    return _header(cid, "操作系统") + '''
+# Round-robin scheduling toy
+def rr(tasks, quantum):
+    queue = list(tasks)
+    while queue:
+        t = queue.pop(0)
+        done = min(t, quantum)
+        print(f"run {done}, remaining {max(0,t-done)}")
+        if t > quantum: queue.append(t-quantum)
+
+rr([5,3,7], quantum=2)
+'''
+
+
+def _network(cid: str) -> str:
+    return _header(cid, "计算机网络") + '''
+# OSI-like encapsulation
+def encapsulate(data, layers):
+    for layer in layers:
+        data = f"[{layer} {data}]"
+    return data
+
+print(encapsulate("hello", ["应用","传输","网络","链路"]))
+'''
+
+
+def _db_theory(cid: str) -> str:
+    return _header(cid, "数据库理论") + '''
+# Minimal in-memory table + simple SELECT-WHERE
+users = [{"id":1,"name":"a"},{"id":2,"name":"b"}]
+result = [u for u in users if u["id"] > 1]
+print(result)
+'''
+
+
+def _discrete(cid: str) -> str:
+    return _header(cid, "离散数学") + '''
+import itertools
+
+def truth_table():
+    for p,q in itertools.product([0,1], repeat=2):
+        print(p, q, int(p and q), int(p or q), int(not p))
+
+truth_table()
+print("C(5,2)=", len(list(itertools.combinations(range(5),2))))
+'''
+
+
+def _linear_algebra(cid: str) -> str:
+    return _header(cid, "线性代数") + '''
+def mat_vec(A, v):
+    return [sum(row[i]*v[i] for i in range(len(v))) for row in A]
+
+A = [[2,1],[1,3]]
+x = [1,2]
+print("Ax =", mat_vec(A,x))
+'''
+
+
+def _probability(cid: str) -> str:
+    return _header(cid, "概率统计") + '''
+data = [1,2,2,3,4]
+mean = sum(data)/len(data)
+var = sum((x-mean)**2 for x in data)/len(data)
+print("mean", mean, "var", var)
+
+# Bayes P(A|B) = P(B|A)P(A)/P(B)
+pa, pb_a, pb = 0.3, 0.8, 0.5
+print("P(A|B)=", pb_a*pa/pb)
+'''
+
+
+def _number_theory(cid: str) -> str:
+    return _header(cid, "数论基础") + '''
+def gcd(a,b):
+    while b: a,b = b, a%b
+    return a
+
+def mod_exp(a,e,n):
+    return pow(a,e,n)
+
+print("gcd(48,18)=", gcd(48,18))
+print("2^10 mod 13=", mod_exp(2,10,13))
+'''
+
+
+def _python_basics(cid: str) -> str:
+    return _header(cid, "Python编程") + '''
+def decorator(fn):
+    def wrapper(*a, **k):
+        print("before")
+        return fn(*a, **k)
+    return wrapper
+
+@decorator
+def greet(n): return f"hi {n}"
+
+print(greet("UID9622"))
+print([x*x for x in range(5) if x % 2])
+'''
+
+
+def _concurrency(cid: str) -> str:
+    return _header(cid, "进程/线程/协程") + '''
+import threading
+
+counter = 0
+lock = threading.Lock()
+
+def worker():
+    global counter
+    with lock:
+        counter += 1
+
+threads = [threading.Thread(target=worker) for _ in range(10)]
+for t in threads: t.start()
+for t in threads: t.join()
+print("counter:", counter)
+'''
+
+
+def _tcp(cid: str) -> str:
+    return _header(cid, "TCP握手挥手") + '''
+# State-machine demo of 3-way handshake
+states = ["CLOSED", "SYN_SENT", "ESTABLISHED"]
+for s in states: print(s)
+'''
+
+
+def _acid(cid: str) -> str:
+    return _header(cid, "ACID") + '''
+# Atomic transfer between two accounts
+accounts = {"A":100, "B":50}
+def transfer(src, dst, amount):
+    if accounts[src] >= amount:
+        accounts[src] -= amount
+        accounts[dst] += amount
+        return True
+    return False
+
+print(transfer("A","B",30), accounts)
+'''
+
+
+def _big_o(cid: str) -> str:
+    return _header(cid, "大O") + '''
+import math
+n = 100
+print({"O(1)":1, "O(log n)":math.log2(n), "O(n)":n, "O(n log n)":n*math.log2(n), "O(n^2)":n**2})
+'''
+
+
+def _memory_model(cid: str) -> str:
+    return _header(cid, "内存模型") + '''
+# Demonstrate reference aliasing
+a = [1,2,3]
+b = a
+b.append(4)
+print("a is b:", a is b, "a:", a)
+print("id(a):", id(a), "id(b):", id(b))
+'''
+
+
+def _numerical(cid: str) -> str:
+    return _header(cid, "数值方法") + '''
+def newton(f, df, x0, eps=1e-6):
+    x = x0
+    while abs(f(x)) > eps:
+        x = x - f(x)/df(x)
+    return x
+
+print("sqrt(2) ≈", newton(lambda x:x*x-2, lambda x:2*x, 1.0))
+'''
+
+
+def _fourier(cid: str) -> str:
+    return _header(cid, "傅里叶变换") + '''
+import math, cmath
+
+def dft(x):
+    N = len(x)
+    return [sum(x[n]*cmath.exp(-2j*math.pi*k*n/N) for n in range(N)) for k in range(N)]
+
+print([round(abs(v),3) for v in dft([1,0,1,0])])
+'''
+
+
+def _nyquist(cid: str) -> str:
+    return _header(cid, "采样定理") + '''
+def nyquist_ok(fs, fmax):
+    return fs >= 2*fmax
+
+print("CD 44100Hz for 20kHz:", nyquist_ok(44100, 20000))
+'''
+
+
+# Swift topics ---------------------------------------------------------------
+def _swift_generic(cid: str, name: str) -> str:
+    topic = name.lower()
+    if "并发" in name or "async" in topic:
+        return _header(cid, name) + '''
+import asyncio
+
+async def fetch(n):
+    await asyncio.sleep(0.1)
+    return f"data{n}"
+
+async def main():
+    tasks = [fetch(i) for i in range(3)]
+    print(await asyncio.gather(*tasks))
+
+asyncio.run(main())
+'''
+    if "可选值" in name:
+        return _header(cid, name) + '''
+def safe_double(x):
+    if x is None:
+        return 0
+    return x * 2
+
+print(safe_double(5), safe_double(None))
+'''
+    if "codable" in topic or "struct" in topic:
+        return _header(cid, name) + '''
+import json
+from dataclasses import dataclass, asdict
+
+@dataclass
+class Model:
+    name: str
+    age: int
+
+m = Model("龍魂", 1)
+print(json.dumps(asdict(m), ensure_ascii=False))
+'''
+    if "性能" in name:
+        return _header(cid, name) + '''
+# Demonstrate copy-on-write style list slice
+big = list(range(10000))
+b = big[:]  # shallow copy, cheap reference
+b.append(1)
+print("len original:", len(big))
+'''
+    if "混编" in name or "c/c++" in topic:
+        return _header(cid, name) + '''
+# Python ctypes style call to a C-like function stub
+import ctypes
+
+# Conceptual; in real usage load a shared library
+print("Swift/ObjC bridging concept: expose C function via @_cdecl")
+'''
+    if "server" in topic or "vapor" in topic:
+        return _header(cid, name) + '''
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+class Handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"Swift on Server concept")
+
+print("Run: python -m http.server 8000")
+'''
+    if "可观测" in name:
+        return _header(cid, name) + '''
+import logging, time
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("swift-obs")
+logger.info("request", extra={"metadata": {"route": "/api"}})
+'''
+    if "embedded" in topic:
+        return _header(cid, name) + '''
+# Embedded Swift concept: no-runtime safe register access
+class Reg:
+    def __init__(self): self.val = 0
+    def write(self, v): self.val = v
+    def read(self): return self.val
+
+r = Reg(); r.write(42); print(r.read())
+'''
+    if "mmio" in topic:
+        return _header(cid, name) + '''
+class GPIO:
+    def __init__(self):
+        self.data = 0
+    def write(self, v):
+        self.data = v & 0xFFFFFFFF
+    def read(self):
+        return self.data
+
+gpio = GPIO()
+gpio.write(0b1010)
+print(gpio.read())
+'''
+    if "sql注入" in name:
+        return _header(cid, name) + '''
+user_id = "1 OR 1=1"  # malicious input
+# Safe parameterization
+query = "SELECT * FROM users WHERE id = ?"
+params = (user_id,)
+print("safe query:", query, params)
+'''
+    # default Swift language basics
+    return _header(cid, name) + '''
+# Swift-like value semantics in Python using dataclass copy
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Point:
+    x: float
+    y: float
+
+p1 = Point(1,2)
+p2 = Point(p1.x, p1.y)  # value copy
+print(p1 == p2, p1 is p2)
+'''
+
+
+# Quantum abstract -----------------------------------------------------------
+def _quantum_abstract(cid: str) -> str:
+    return _header(cid, "量子计算抽象层") + '''
+import math, random
+
+# Simulate a 2-state superposition
+alpha = [1/math.sqrt(2), 1/math.sqrt(2)]
+prob = [a*a for a in alpha]
+state = random.choices([0,1], weights=prob)[0]
+print("measured state:", state)
+'''
+
+
+# System module stubs --------------------------------------------------------
+def _system_stub(cid: str, name: str, r: dict[str, Any]) -> str:
+    func = re.sub(r"[^0-9a-zA-Z_\u4e00-\u9fff]+", "_", name).strip("_")
+    func = func[:50]
+    return _header(cid, name) + f'''
+def {func}(payload, context=None, source_dna=""):
+    """Stub for {name}."""
+    context = context or {{}}
+    return {{
+        "module": "{name}",
+        "payload": payload,
+        "context_keys": list(context.keys()),
+        "source_dna": source_dna,
+        "ok": True,
+    }}
+
+print({func}({{"input": "demo"}}, {{"session": "abc"}}, "#DNA"))
+'''
+
+
+# Fallback -------------------------------------------------------------------
+def _fallback(cid: str, name: str, r: dict[str, Any]) -> str:
+    return _header(cid, name) + f'''
+# Conceptual demo for {name}
+print("知识点 {cid}: {name}")
+print("核心:", {repr(r.get("核心公式", ""))[:80]})
+'''
+
+
+# ---------------------------------------------------------------------------
+# Main enhancement logic
+# ---------------------------------------------------------------------------
+def enhance_record(r: dict[str, Any]) -> dict[str, Any]:
+    enhanced = dict(r)
+
+    # 算法公式
+    formula = str(r.get("核心公式", "")).strip()
+    if not formula or len(formula) < 3:
+        formula = EMPTY_FORMULA_FALLBACK.get(r["知识卡片ID"], formula)
+    enhanced["算法公式"] = formula
+
+    # 路由回调参数
+    enhanced["路由回调参数"] = get_routing_params(r)
+
+    # PY代码示例
+    enhanced["PY代码示例"] = code_for_record(r).strip()
+
+    return enhanced
+
+
+def create_database(records: list[dict]) -> None:
+    BACKUP_DIR.mkdir(parents=True, exist_ok=True)
+    if DB_PATH.exists():
+        DB_PATH.unlink()
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+
+    # Build table with snake_case columns
+    columns = [f'"{snake(k)}" TEXT' for k in records[0].keys()]
+    cur.execute(f"CREATE TABLE cs_kb ({', '.join(columns)})")
+
+    # Indexes
+    cur.execute('CREATE INDEX idx_card_id ON cs_kb("card_id")')
+    cur.execute('CREATE INDEX idx_category ON cs_kb("category")')
+    cur.execute('CREATE INDEX idx_subcategory ON cs_kb("subcategory")')
+    cur.execute('CREATE INDEX idx_status ON cs_kb("status")')
+    cur.execute('CREATE INDEX idx_dr ON cs_kb("dr_wuxing_gong")')
+    cur.execute('CREATE INDEX idx_arch ON cs_kb("architecture_layer")')
+    cur.execute('CREATE INDEX idx_in_system ON cs_kb("is_in_system")')
+    cur.execute('CREATE INDEX idx_audit ON cs_kb("tri_color_audit")')
+
+    # FTS5 virtual table for full-text search
+    cur.execute('''
+        CREATE VIRTUAL TABLE cs_kb_fts USING fts5(
+            name, description, context_trigger,
+            content='cs_kb',
+            content_rowid='rowid'
+        )
+    ''')
+
+    # Insert records
+    keys = list(records[0].keys())
+    cols = [snake(k) for k in keys]
+    placeholders = ",".join("?" * len(keys))
+    insert_sql = f'INSERT INTO cs_kb ("{"\",\"".join(cols)}") VALUES ({placeholders})'
+
+    for rec in records:
+        row = [json.dumps(v, ensure_ascii=False) if isinstance(v, (list, dict)) else str(v) for v in rec.values()]
+        cur.execute(insert_sql, row)
+
+    # Populate FTS
+    cur.execute('''
+        INSERT INTO cs_kb_fts(rowid, name, description, context_trigger)
+        SELECT rowid, name, description, context_trigger FROM cs_kb
+    ''')
+
+    conn.commit()
+    conn.close()
+
+
+def main() -> None:
+    with open(SRC_JSON, "r", encoding="utf-8") as f:
+        records = json.load(f)
+
+    enhanced = [enhance_record(r) for r in records]
+
+    # Write enhanced JSON
+    BACKUP_DIR.mkdir(parents=True, exist_ok=True)
+    with open(ENHANCED_JSON, "w", encoding="utf-8") as f:
+        json.dump(enhanced, f, ensure_ascii=False, indent=2)
+
+    # Create SQLite DB
+    create_database(enhanced)
+
+    # Copy originals
+    shutil.copy2(SRC_JSON, BACKUP_DIR / "cs_kb_complete.json")
+    shutil.copy2(SRC_RAW, BACKUP_DIR / "kb_data_raw.py")
+    shutil.copy2(SRC_SKILL, BACKUP_DIR / "SKILL.md")
+    shutil.copy2(SRC_NOTION, BACKUP_DIR / "notion_portal.json")
+
+    # Stats
+    empty_formula = sum(1 for r in enhanced if not str(r.get("核心公式", "")).strip())
+    with_routing = sum(1 for r in enhanced if r.get("路由回调参数"))
+    print(f"Enhanced {len(enhanced)} records")
+    print(f"Original empty formulas filled: {empty_formula}")
+    print(f"Records with routing params: {with_routing}")
+    print(f"Backup dir: {BACKUP_DIR}")
+    print(f"DB: {DB_PATH}")
+    print(f"Enhanced JSON: {ENHANCED_JSON}")
+
+
+if __name__ == "__main__":
+    main()

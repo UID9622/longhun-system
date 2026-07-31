@@ -1,0 +1,127 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+龍魂官网华为云 ECS 部署脚本（Paramiko）
+DNA: #龍芯⚡️2026-06-28-LONGHUN888-REMOTE-DEPLOY-v1.0
+用法：
+  export ECS_PASSWORD='...'
+  python3 _work/remote_deploy.py
+"""
+import os, sys, time, paramiko
+from pathlib import Path
+
+HOST = "119.13.90.27"
+USER = "root"
+TARBALL = "/Users/zuimeidedeyihan/longhun888-community.tar.gz"
+REMOTE_TARBALL = "/tmp/longhun888-community.tar.gz"
+DOMAIN = "longhun888.com"
+APP_DIR = "/var/www/longhun888"
+
+
+def run(client, cmd, timeout=300):
+    print(f"$ {cmd[:120]}{'...' if len(cmd) > 120 else ''}")
+    stdin, stdout, stderr = client.exec_command(cmd, timeout=timeout)
+    out = stdout.read().decode('utf-8', errors='ignore')
+    err = stderr.read().decode('utf-8', errors='ignore')
+    rc = stdout.channel.recv_exit_status()
+    if rc != 0:
+        print("STDOUT:\n", out[-2000:])
+        print("STDERR:\n", err[-2000:])
+        raise RuntimeError(f"command failed with rc={rc}: {cmd}")
+    print(out[-800:])
+    return out
+
+
+def main():
+    password = os.environ.get("ECS_PASSWORD", "").strip()
+    if not password:
+        print("请设置环境变量 ECS_PASSWORD")
+        sys.exit(1)
+
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    print(f"🐉 连接 {HOST} ...")
+    client.connect(HOST, username=USER, password=password, timeout=30)
+    print("✅ SSH 已连接")
+
+    # 上传包
+    print("📦 上传部署包...")
+    sftp = client.open_sftp()
+    sftp.put(TARBALL, REMOTE_TARBALL)
+    sftp.close()
+    print("✅ 上传完成")
+
+    # 部署
+    deploy_cmd = f"""set -e
+export DEBIAN_FRONTEND=noninteractive
+
+# 解压
+sudo mkdir -p {APP_DIR}
+sudo rm -rf {APP_DIR}/*
+sudo tar -xzf {REMOTE_TARBALL} -C {APP_DIR}
+sudo chown -R root:root {APP_DIR}
+
+# 日志目录
+sudo mkdir -p /var/log/longhun888
+
+# 依赖
+sudo apt-get update -y
+sudo apt-get install -y python3-venv python3-pip nginx
+
+# 虚拟环境
+sudo python3 -m venv {APP_DIR}/.venv
+sudo {APP_DIR}/.venv/bin/pip install --upgrade pip
+sudo {APP_DIR}/.venv/bin/pip install -r {APP_DIR}/requirements.txt gunicorn
+
+# systemd 服务
+sudo cp {APP_DIR}/deploy/longhun888.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable longhun888
+
+# nginx
+sudo cp {APP_DIR}/deploy/nginx.conf /etc/nginx/sites-available/longhun888
+sudo rm -f /etc/nginx/sites-enabled/default
+sudo ln -sf /etc/nginx/sites-available/longhun888 /etc/nginx/sites-enabled/longhun888
+sudo mkdir -p /var/www/certbot
+sudo nginx -t && sudo systemctl reload nginx
+
+# 防火墙
+sudo ufw allow 'Nginx Full' || true
+sudo ufw allow OpenSSH || true
+
+# SSL 证书
+if ! [ -d /etc/letsencrypt/live/{DOMAIN} ]; then
+    sudo apt-get install -y certbot python3-certbot-nginx
+    sudo certbot --nginx -d {DOMAIN} -d www.{DOMAIN} --non-interactive --agree-tos -m admin@{DOMAIN} || {{
+        echo "⚠️ 证书申请失败"; exit 1
+    }}
+fi
+
+# 启动
+sudo systemctl restart longhun888
+sleep 2
+"""
+    print("🚀 执行远程部署...")
+    run(client, deploy_cmd, timeout=600)
+
+    # 验收
+    print("🔍 验收测试...")
+    health = run(client, "curl -s http://127.0.0.1:8888/api/health | head -c 200")
+    index = run(client, "curl -s -o /dev/null -w '%{http_code}' https://longhun888.com/index.html")
+    auth = run(client, "curl -s -o /dev/null -w '%{http_code}' https://longhun888.com/auth/")
+    archive = run(client, "curl -s -o /dev/null -w '%{http_code}' https://longhun888.com/archive/")
+    flow = run(client, "curl -s -o /dev/null -w '%{http_code}' https://longhun888.com/flow-field/")
+
+    client.close()
+
+    print("\n✅ 部署完成")
+    print("   公网访问: https://longhun888.com")
+    print(f"   /api/health: {health[:100]}")
+    print(f"   /index.html: {index}")
+    print(f"   /auth/: {auth}")
+    print(f"   /archive/: {archive}")
+    print(f"   /flow-field/: {flow}")
+
+
+if __name__ == "__main__":
+    main()

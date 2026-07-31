@@ -1,0 +1,122 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+龍魂万年历 · 开源社区验收测试
+DNA: #龍芯⚡️2026-06-27-LONGHUN-COMMUNITY-ACCEPTANCE-v1.0
+"""
+
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+CLI = ROOT / 'community_cli.py'
+
+def run(*args):
+    cmd = [sys.executable, str(CLI)] + list(args)
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+    try:
+        return json.loads(r.stdout) if r.stdout.strip() else {}
+    except Exception:
+        return {'raw': r.stdout, 'err': r.stderr, 'code': r.returncode}
+
+results = []
+
+def check(name, condition, detail=''):
+    ok = bool(condition)
+    results.append({'name': name, 'ok': ok, 'detail': detail})
+    print(f"{'✅' if ok else '❌'} {name} {detail}")
+    return ok
+
+print("🐉 龍魂万年历开源社区验收测试开始\n")
+
+# 1. 方向列表
+r = run('方向', '列表')
+check('lh 万年历 方向 列表', r.get('ok') and len(r.get('directions', [])) >= 6, f"方向数: {len(r.get('directions', []))}")
+
+TEST_DIRECTION = '验收测试方向'
+# 先清理可能残留的方向
+run('方向', '删除', TEST_DIRECTION)
+
+# 2. 方向添加
+r = run('方向', '添加', TEST_DIRECTION)
+check('lh 万年历 方向 添加 [方向名]', r.get('ok'), r)
+
+# 3. 方向授权
+r = run('方向', '授权', TEST_DIRECTION, 'reviewer_x')
+check('lh 万年历 方向 授权 [方向名] [用户]', r.get('ok'), r)
+
+# 4. 主题上传
+r = run('主题', '上传', 'dark', '--direction', '研发', '--desc', '验收测试上传')
+check('lh 万年历 主题 上传 [主题名]', r.get('ok') and r.get('dna', '').startswith('#龍芯⚡️'), r.get('dna'))
+dna1 = r.get('dna')
+sid1 = r.get('shared_id')
+
+# 5. 共享列表（待审核）
+r = run('共享', '列表', '--status', '待审核')
+check('lh 万年历 共享 列表（待审核）', r.get('ok') and any(t.get('id') == sid1 for t in r.get('themes', [])), f"待审核主题数: {len(r.get('themes', []))}")
+
+# 6. 共享查看
+r = run('共享', '查看', 'dark')
+check('lh 万年历 共享 查看 [主题名]', r.get('ok') and r.get('theme', {}).get('dna') == dna1, r.get('theme', {}).get('dna'))
+
+# 7. 共享历史（首次上传应无历史）
+r = run('共享', '历史', 'dark')
+check('lh 万年历 共享 历史 [主题名]', r.get('ok'), f"历史数: {len(r.get('history', []))}")
+
+# 8. 审核通过
+r = run('审核', '通过', 'dark')
+check('lh 万年历 审核 通过 [共享ID]', r.get('ok'), r)
+
+# 9. 审核后出现在已通过列表
+r = run('共享', '列表', '--status', '已通过')
+check('审核通过后出现在共享列表', r.get('ok') and any(t.get('id') == sid1 for t in r.get('themes', [])), f"已通过主题数: {len(r.get('themes', []))}")
+
+# 10. 主题下载
+r = run('主题', '下载', 'dark')
+check('lh 万年历 主题 下载 [主题名]', r.get('ok'), r)
+
+# 11. 主题应用
+r = run('主题', '应用', 'dark')
+check('lh 万年历 主题 应用 [主题名]', r.get('ok'), r)
+
+# 12. 上传新版本
+r = run('主题', '上传', 'dark', '--direction', '研发', '--desc', '验收测试v1.1')
+check('上传新版本', r.get('ok') and r.get('version') != '1.0', f"版本: {r.get('version')}")
+
+# 13. 历史版本
+r = run('共享', '历史', 'dark')
+check('lh 万年历 共享 历史 [主题名]（有历史）', r.get('ok') and len(r.get('history', [])) >= 1, f"历史数: {len(r.get('history', []))}")
+
+# 14. 回退版本
+r = run('共享', '回退', 'dark', '1.0')
+check('lh 万年历 共享 回退 [主题名] [版本号]', r.get('ok'), r)
+
+# 15. 审核驳回
+r = run('主题', '上传', 'light', '--direction', '查阅', '--desc', '将被驳回')
+run('审核', '驳回', 'light', '验收测试驳回')
+r = run('共享', '查看', 'light')
+check('lh 万年历 审核 驳回 [共享ID] [原因]', r.get('theme', {}).get('review_status') == '已驳回', r.get('theme', {}).get('reject_reason'))
+
+# 16. 来源链继承
+r = run('主题', '上传', 'longhun', '--direction', '研发', '--desc', '继承测试', '--source-dna', dna1, '--source-author', 'UID9622')
+check('来源链继承', r.get('ok') and r.get('source_chain', {}).get('source_dna') == dna1, r.get('source_chain'))
+
+# 17. 日志记录
+r = run('日志')
+check('所有操作记录到日志', '上传' in r.get('raw', '') and '下载' in r.get('raw', ''), '存在上传/下载日志')
+
+# 18. 未审核不显示在已通过列表
+r = run('共享', '列表', '--status', '已通过')
+check('未经审核的主题不在已通过列表显示', not any(t.get('id') == 'longhun' for t in r.get('themes', [])), f"已通过数: {len(r.get('themes', []))}")
+
+# 清理测试方向
+run('方向', '删除', TEST_DIRECTION)
+
+# 汇总
+print("\n━━━━━━━━━━━━━━━━━━━━")
+print(f"验收项: {len(results)}  通过: {sum(1 for x in results if x['ok'])}  失败: {sum(1 for x in results if not x['ok'])}")
+all_ok = all(x['ok'] for x in results)
+print(f"总体结果: {'✅ 全部通过' if all_ok else '❌ 存在失败'}")
+sys.exit(0 if all_ok else 1)

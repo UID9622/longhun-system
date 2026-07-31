@@ -1,0 +1,255 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+龍魂万年历 · 开源社区 CLI
+DNA: #龍芯⚡️2026-06-27-LONGHUN-WANNIANLI-COMMUNITY-CLI-v1.0
+
+用法：python3 community_cli.py <子命令> [参数...]
+"""
+
+import json
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT))
+from community_core import CommunityCore, DEFAULT_ACTOR
+
+
+def _actor():
+    return DEFAULT_ACTOR
+
+
+def _print_json(obj):
+    print(json.dumps(obj, ensure_ascii=False, indent=2))
+
+
+def _help():
+    print("""
+🐉 龍魂万年历 · 开源社区 CLI
+
+社区查看:
+  社区                          打开社区页面（浏览器）
+  共享 列表                     列出所有共享主题
+  共享 查看 [主题名]            查看主题详情、来源链、审核状态
+  共享 历史 [主题名]            查看主题历史版本
+  共享 回退 [主题名] [版本号]   回退到指定版本
+
+主题操作:
+  主题 上传 [主题名] [--direction 方向] [--desc 描述]
+  主题 下载 [主题名]
+  主题 应用 [主题名]
+  主题 删除 [主题名]
+
+方向管理:
+  方向 列表
+  方向 添加 [方向名]
+  方向 删除 [方向名]
+  方向 审核 [方向名]
+  方向 授权 [方向名] [用户]
+
+审核管理:
+  审核 列表
+  审核 通过 [共享ID]
+  审核 驳回 [共享ID] [原因]
+  审核 历史
+""")
+
+
+def _open_community():
+    # 启动服务并在浏览器打开 community 视图
+    import subprocess
+    import time
+    import urllib.request
+    PORT = 9527
+    BASE = f'http://127.0.0.1:{PORT}/'
+    try:
+        urllib.request.urlopen(BASE, timeout=0.5)
+    except Exception:
+        subprocess.Popen(
+            [sys.executable, str(ROOT / 'server.py')],
+            cwd=str(ROOT),
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            start_new_session=True
+        )
+        for _ in range(20):
+            time.sleep(0.1)
+            try:
+                urllib.request.urlopen(BASE, timeout=0.5)
+                break
+            except Exception:
+                pass
+    import webbrowser
+    payload = json.dumps({'view': 'community', 'params': {}}, ensure_ascii=False, separators=(',', ':'))
+    import urllib.parse
+    url = BASE + '#' + urllib.parse.quote(payload, safe='')
+    webbrowser.open(url)
+    print(f'🐉 龍魂万年历社区已打开: {url}')
+    return 0
+
+
+def main(argv=None):
+    if argv is None:
+        argv = sys.argv[1:]
+    if not argv:
+        _help()
+        return 0
+
+    core = CommunityCore()
+    cmd = argv[0]
+    args = argv[1:]
+
+    try:
+        if cmd in ('社区', 'community'):
+            return _open_community()
+
+        if cmd in ('共享', 'share'):
+            sub = args[0] if args else '列表'
+            if sub in ('列表', 'list'):
+                status = None
+                if '--status' in args:
+                    idx = args.index('--status')
+                    status = args[idx + 1] if idx + 1 < len(args) else None
+                _print_json(core.list_shared(status_filter=status))
+            elif sub in ('查看', 'view'):
+                if len(args) < 2:
+                    print('❌ 缺少主题名')
+                    return 1
+                _print_json(core.view_shared(args[1]))
+            elif sub in ('历史', 'history'):
+                if len(args) < 2:
+                    print('❌ 缺少主题名')
+                    return 1
+                _print_json(core.view_history(args[1]))
+            elif sub in ('回退', 'rollback'):
+                if len(args) < 3:
+                    print('❌ 用法: 共享 回退 [主题名] [版本号]')
+                    return 1
+                _print_json(core.rollback_theme(args[1], args[2]))
+            else:
+                print(f'❌ 未知子命令: {sub}')
+                return 1
+            return 0
+
+        if cmd in ('主题', 'theme'):
+            sub = args[0] if args else None
+            if sub in ('上传', 'upload'):
+                if len(args) < 2:
+                    print('❌ 缺少主题名')
+                    return 1
+                name = args[1]
+                direction = '研发'
+                desc = ''
+                source_dna = None
+                source_author = None
+                i = 2
+                while i < len(args):
+                    if args[i] == '--direction' and i + 1 < len(args):
+                        direction = args[i + 1]
+                        i += 2
+                    elif args[i] == '--desc' and i + 1 < len(args):
+                        desc = args[i + 1]
+                        i += 2
+                    elif args[i] == '--source-dna' and i + 1 < len(args):
+                        source_dna = args[i + 1]
+                        i += 2
+                    elif args[i] == '--source-author' and i + 1 < len(args):
+                        source_author = args[i + 1]
+                        i += 2
+                    else:
+                        i += 1
+                _print_json(core.upload_theme(name, source_dna=source_dna, source_author=source_author,
+                                              direction=direction, description=desc, actor=_actor()))
+            elif sub in ('下载', 'download'):
+                if len(args) < 2:
+                    print('❌ 缺少主题名')
+                    return 1
+                _print_json(core.download_theme(args[1], actor=_actor()))
+            elif sub in ('应用', 'apply'):
+                if len(args) < 2:
+                    print('❌ 缺少主题名')
+                    return 1
+                _print_json(core.apply_theme(args[1]))
+            elif sub in ('删除', 'delete'):
+                if len(args) < 2:
+                    print('❌ 缺少主题名')
+                    return 1
+                _print_json(core.delete_local_theme(args[1]))
+            else:
+                print(f'❌ 未知子命令: {sub}')
+                return 1
+            return 0
+
+        if cmd in ('方向', 'direction'):
+            sub = args[0] if args else '列表'
+            if sub in ('列表', 'list'):
+                _print_json(core.list_directions())
+            elif sub in ('添加', 'add'):
+                if len(args) < 2:
+                    print('❌ 缺少方向名')
+                    return 1
+                _print_json(core.add_direction(args[1], actor=_actor()))
+            elif sub in ('删除', 'remove', 'delete'):
+                if len(args) < 2:
+                    print('❌ 缺少方向名')
+                    return 1
+                _print_json(core.remove_direction(args[1], actor=_actor()))
+            elif sub in ('审核', 'queue'):
+                if len(args) < 2:
+                    print('❌ 缺少方向名')
+                    return 1
+                _print_json(core.direction_review_queue(args[1]))
+            elif sub in ('授权', 'authorize'):
+                if len(args) < 3:
+                    print('❌ 用法: 方向 授权 [方向名] [用户]')
+                    return 1
+                _print_json(core.authorize_direction_reviewer(args[1], args[2], actor=_actor()))
+            else:
+                print(f'❌ 未知子命令: {sub}')
+                return 1
+            return 0
+
+        if cmd in ('审核', 'review'):
+            sub = args[0] if args else '列表'
+            if sub in ('列表', 'list'):
+                _print_json(core.list_reviews(status='待审核'))
+            elif sub in ('通过', 'approve'):
+                if len(args) < 2:
+                    print('❌ 缺少共享ID')
+                    return 1
+                _print_json(core.approve(args[1], actor=_actor()))
+            elif sub in ('驳回', 'reject'):
+                if len(args) < 3:
+                    print('❌ 用法: 审核 驳回 [共享ID] [原因]')
+                    return 1
+                _print_json(core.reject(args[1], ' '.join(args[2:]), actor=_actor()))
+            elif sub in ('历史', 'history'):
+                _print_json(core.list_reviews())
+            else:
+                print(f'❌ 未知子命令: {sub}')
+                return 1
+            return 0
+
+        if cmd in ('日志', 'logs'):
+            print('上传日志:')
+            for r in core.get_upload_logs():
+                print(json.dumps(r, ensure_ascii=False))
+            print('下载日志:')
+            for r in core.get_download_logs():
+                print(json.dumps(r, ensure_ascii=False))
+            return 0
+
+        print(f'❌ 未知命令: {cmd}')
+        _help()
+        return 1
+
+    except Exception as e:
+        print(f'❌ 执行错误: {e}')
+        import traceback
+        traceback.print_exc()
+        return 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())

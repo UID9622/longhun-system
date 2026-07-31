@@ -1,0 +1,30 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-24-UID9622-BRAIN-STARTER-v1.0
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+# UID9622 大脑中枢 · 一键启动
+# DNA: #龍芯⚡️2026-06-24-UID9622-BRAIN-STARTER-v1.0
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$SCRIPT_DIR"
+
+echo "🧠 启动 UID9622 大脑中枢..."
+echo "DNA: #龍芯⚡️2026-06-24-UID9622-BRAIN-STARTER-v1.0"
+echo ""
+
+# 默认执行：扫描 + 反思 + 纠错 + 规范检查 + 资源库扫描 + 自监控 + 左右互搏创新
+python3 brain.py scan
+python3 brain.py reflect
+python3 brain.py fix
+python3 brain.py lint
+python3 brain.py scan-resources
+python3 brain.py self-monitor
+python3 brain.py innovate
+
+echo ""
+echo "✅ 全部流程执行完毕。详细报告见 reports/ 目录。"

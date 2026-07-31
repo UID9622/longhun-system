@@ -12,6 +12,7 @@
 
 # 🐉 龍魂 Telegram 哨兵机器人启动脚本
 # DNA: #龍芯⚇️2026-05-30-SENTINEL-START-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # UID9622 · 诸葛鑫 · 龍芯北辰
 
 set -e

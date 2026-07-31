@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·未济-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # 龍魂·浏览器史官 — 自检脚本 v2.0
 # 验证: manifest / 文件 / 图标 / 权限 / CSP / 底座痕迹

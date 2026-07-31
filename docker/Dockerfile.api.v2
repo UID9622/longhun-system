@@ -1,0 +1,51 @@
+# 龍魂省电API · 生产容器镜像
+# DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-DOCKER-API-v2.0-b2c3d4e5
+# 基于 bin/lh_api_server.py (FastAPI, port 9622)
+
+FROM python:3.11-slim
+
+LABEL maintainer="UID9622"
+LABEL description="龍魂省电API v2.0 · FastAPI · Port 9622"
+LABEL dna="#龍芯⚡️2026-07-31-DOCKER-API-v2.0"
+
+# 系统依赖
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# 分层安装 Python 依赖（利用 Docker 缓存）
+RUN pip install --no-cache-dir fastapi uvicorn redis rq sqlalchemy
+
+# 复制应用代码（最小化）
+COPY bin/lh.py /app/bin/lh.py
+COPY bin/lh_run.py /app/bin/lh_run.py
+COPY bin/lh_lifecycle.py /app/bin/lh_lifecycle.py
+COPY bin/lh_auto_trigger.py /app/bin/lh_auto_trigger.py
+COPY bin/lh_api_server.py /app/bin/lh_api_server.py
+COPY bin/lh_gpg_sign.py /app/bin/lh_gpg_sign.py
+COPY bin/lh_dna_generator.py /app/bin/lh_dna_generator.py
+COPY bin/lh_update_index.py /app/bin/lh_update_index.py
+COPY bin/lh_health_check.py /app/bin/lh_health_check.py
+COPY bin/lh_auto_align_daemon.py /app/bin/lh_auto_align_daemon.py
+COPY bin/lh_align_checker.py /app/bin/lh_align_checker.py
+COPY .codebuddy/COMMAND_INDEX.md /app/.codebuddy/COMMAND_INDEX.md
+COPY CONSOLE.md /app/CONSOLE.md
+COPY STATE.md /app/STATE.md
+
+# 数据目录
+RUN mkdir -p /app/data /app/logs /app/.longhun/audit
+
+ENV LONGHUN_API_HOST=0.0.0.0
+ENV LONGHUN_API_PORT=9622
+ENV PYTHONUNBUFFERED=1
+ENV TZ=Asia/Shanghai
+
+# 健康检查
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:9622/health || exit 1
+
+EXPOSE 9622
+
+CMD ["python", "-m", "uvicorn", "bin.lh_api_server:app", "--host", "0.0.0.0", "--port", "9622", "--workers", "2", "--log-level", "info"]

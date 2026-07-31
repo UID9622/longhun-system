@@ -1,0 +1,511 @@
+#!/usr/bin/env python3
+"""
+龍魂·训练数据源管理器 v2.0 (四层降级融合版)
+DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·讼-LH-SOURCE-MANAGER-v2.0
+
+功能:
+- 管理80个数据源的启用/禁用
+- 连通性测试（批量/单个）
+- 抓取计划生成
+- 按优先级批量执行拉取→清洗→训练
+- 生成训练JSONL数据
+- 导出统计报告
+- 与 lh_lora_trainer.py 联动自动训练
+
+用法:
+    python3 lh_source_manager.py --pipeline P0      # P0优先级全流程
+    python3 lh_source_manager.py --pipeline all      # 所有已启用源全流程
+    python3 lh_source_manager.py --list              # 列出所有源状态
+    python3 lh_source_manager.py --test CN-001       # 测试单个源连通性
+    python3 lh_source_manager.py --test-all          # 批量连通性测试
+    python3 lh_source_manager.py --plan              # 生成抓取计划
+    python3 lh_source_manager.py --enable CN-026     # 启用指定源
+    python3 lh_source_manager.py --disable CN-026    # 禁用指定源
+    python3 lh_source_manager.py --train             # 生成训练数据→自动训练
+    python3 lh_source_manager.py --report            # 生成统计报告
+"""
+
+import json
+import os
+import sys
+import subprocess
+import time
+import argparse
+from pathlib import Path
+from datetime import datetime, timezone, timedelta
+from urllib.request import Request, urlopen
+from urllib.error import URLError, HTTPError
+
+CST = timezone(timedelta(hours=8))
+BASE_DIR = Path(__file__).parent
+SOURCES_FILE = BASE_DIR / "sources.json"
+CLEANED_DIR = BASE_DIR / "cleaned"
+TRAIN_DIR = BASE_DIR / "train"
+LOGS_DIR = BASE_DIR / "logs"
+REPORTS_DIR = BASE_DIR / "reports"
+SYSTEM_TRAIN_DIR = Path(__file__).parent.parent.parent / "models" / "longhun-v1.0" / "lora_output" / "data"
+
+# 创建目录
+for d in [TRAIN_DIR, REPORTS_DIR, LOGS_DIR]:
+    d.mkdir(parents=True, exist_ok=True)
+
+
+class SourceManager:
+    """数据源管理器"""
+
+    def __init__(self):
+        with open(SOURCES_FILE) as f:
+            self.config = json.load(f)
+        self.sources = self.config["sources"]
+        self.categories = self.config["categories"]
+
+    def log(self, msg: str):
+        timestamp = datetime.now(CST).strftime("%Y-%m-%d %H:%M:%S")
+        print(f"[{timestamp}] {msg}")
+        with open(LOGS_DIR / f"manager_{datetime.now(CST).strftime('%Y%m%d')}.log", 'a') as f:
+            f.write(f"[{timestamp}] {msg}\n")
+
+    def list_sources(self, category: str | None = None, priority: str | None = None):
+        """列出数据源状态"""
+        sources = self.sources
+        if category:
+            sources = [s for s in sources if s['category'] == category]
+        if priority:
+            sources = [s for s in sources if s.get('priority') == priority]
+
+        print(f"\n{'='*80}")
+        print(f"🐉 龍魂训练数据源清单")
+        print(f"{'='*80}")
+        print(f"{'ID':<10} {'名称':<20} {'分类':<12} {'优先级':<6} {'启用':<6} {'策略':<15} {'规模':<8}")
+        print(f"{'-'*80}")
+
+        for s in sources:
+            cat_name = self.categories.get(s['category'], {}).get('name', s['category'])
+            enabled = '✅' if s.get('fetch_enabled', False) else '❌'
+            print(f"{s['id']:<10} {s['name']:<20} {cat_name:<12} {s.get('priority','?'):<6} {enabled:<6} {s.get('fetch_strategy','?'):<15} {s.get('data_scale','?'):<8}")
+
+        total_enabled = sum(1 for s in sources if s.get('fetch_enabled', False))
+        print(f"{'-'*80}")
+        print(f"  共 {len(sources)} 个源 | 已启用: {total_enabled} | 已禁用: {len(sources)-total_enabled}")
+        print(f"{'='*80}\n")
+
+    def toggle_source(self, source_id: str, enable: bool):
+        """启用/禁用数据源"""
+        for s in self.sources:
+            if s['id'] == source_id:
+                s['fetch_enabled'] = enable
+                status = "启用" if enable else "禁用"
+                self.log(f"{source_id} {s['name']}: 已{status}")
+                with open(SOURCES_FILE, 'w') as f:
+                    json.dump(self.config, f, ensure_ascii=False, indent=2)
+                return True
+        self.log(f"未找到源: {source_id}", "ERROR")
+        return False
+
+    def run_pipeline(self, priority: str | None = None):
+        """执行全流程：拉取 → 清洗 → 生成训练数据"""
+        self.log(f"🚀 开始全流程 Pipeline (优先级: {priority or '全部已启用'})")
+
+        # Step 1: 拉取
+        self.log("=" * 50)
+        self.log("Step 1/3: 数据拉取")
+        fetch_cmd = [sys.executable, str(BASE_DIR / "lh_fetch_engine.py")]
+        if priority and priority != "all":
+            fetch_cmd.extend(["--priority", priority])
+        elif priority == "all":
+            fetch_cmd.append("--all")
+
+        result = subprocess.run(fetch_cmd, capture_output=True, text=True)
+        self.log(result.stdout[-500:] if len(result.stdout) > 500 else result.stdout)
+
+        # Step 2: 清洗
+        self.log("=" * 50)
+        self.log("Step 2/3: 数据清洗")
+        clean_cmd = [sys.executable, str(BASE_DIR / "lh_data_cleaner.py")]
+        result = subprocess.run(clean_cmd, capture_output=True, text=True)
+        self.log(result.stdout[-500:] if len(result.stdout) > 500 else result.stdout)
+
+        # Step 3: 生成训练数据
+        self.log("=" * 50)
+        self.log("Step 3/3: 生成训练数据")
+        self.generate_train_data()
+
+    def generate_train_data(self):
+        """从清洗后数据生成训练JSONL"""
+        cleaned_files = sorted(CLEANED_DIR.glob("*_cleaned.jsonl"))
+        if not cleaned_files:
+            self.log("没有清洗后的数据")
+            return
+
+        train_samples = []
+        SYSTEM_PROMPT = "你是龍魂AI，基于Qwen2.5-1.5B用龍魂系统自有语料和公开中国网站数据LoRA微调。DNA: #龍芯⚡️"
+
+        for cf in cleaned_files:
+            source_id = cf.stem.split('_')[0]
+            source = next((s for s in self.sources if s['id'] == source_id), None)
+            source_name = source['name'] if source else source_id
+
+            with open(cf) as f:
+                for line in f:
+                    try:
+                        item = json.loads(line.strip())
+                    except json.JSONDecodeError:
+                        continue
+
+                    title = item.get('title', '')
+                    content = item.get('content', '')
+
+                    if not content or len(content) < 50:
+                        continue
+
+                    # 生成Q&A对
+                    q1 = f"关于{source_name}的内容，请介绍：{title}"
+                    a1 = f"来自{source_name}的内容：{title}。{content[:500]}"
+
+                    train_samples.append({
+                        "messages": [
+                            {"role": "user", "content": f"{SYSTEM_PROMPT}\n\n用户问题：{q1}"},
+                            {"role": "assistant", "content": a1}
+                        ]
+                    })
+
+                    # 每篇文章最多3个Q&A
+                    if len(content) > 300:
+                        q2 = f"{source_name}上关于{title}的关键信息是什么？"
+                        a2 = f"{title}的关键信息：{content[200:600]}"
+                        train_samples.append({
+                            "messages": [
+                                {"role": "user", "content": f"{SYSTEM_PROMPT}\n\n用户问题：{q2}"},
+                                {"role": "assistant", "content": a2}
+                            ]
+                        })
+
+        if not train_samples:
+            self.log("未生成训练样本")
+            return
+
+        # 保存训练数据
+        train_path = TRAIN_DIR / f"train_{datetime.now(CST).strftime('%Y%m%d_%H%M%S')}.jsonl"
+        with open(train_path, 'w') as f:
+            for sample in train_samples:
+                f.write(json.dumps(sample, ensure_ascii=False) + '\n')
+
+        self.log(f"✅ 生成训练数据: {len(train_samples)} 条 → {train_path}")
+
+        # 同步到系统训练目录
+        self._sync_to_system_train(train_samples)
+
+        return train_path
+
+    def _sync_to_system_train(self, train_samples: list[Any]):
+        """同步训练数据到系统训练目录并启动训练"""
+        if not SYSTEM_TRAIN_DIR.exists():
+            self.log(f"系统训练目录不存在: {SYSTEM_TRAIN_DIR}")
+            return
+
+        # 读取现有训练数据
+        existing = []
+        existing_train = SYSTEM_TRAIN_DIR / "train.jsonl"
+        if existing_train.exists():
+            with open(existing_train) as f:
+                for line in f:
+                    try:
+                        existing.append(json.loads(line.strip()))
+                    except json.JSONDecodeError:
+                        continue
+
+        # 合并去重
+        existing_hashes = set()
+        for item in existing:
+            msgs = item.get('messages', [])
+            for m in msgs:
+                existing_hashes.add(hashlib.md5(m.get('content','').encode()).hexdigest())
+
+        import hashlib
+        new_count = 0
+        for sample in train_samples:
+            msgs = sample.get('messages', [])
+            for m in msgs:
+                h = hashlib.md5(m.get('content','').encode()).hexdigest()
+                if h not in existing_hashes:
+                    existing.append(sample)
+                    existing_hashes.add(h)
+                    new_count += 1
+                    break
+
+        # 保存合并后的训练数据
+        with open(existing_train, 'w') as f:
+            for sample in existing:
+                f.write(json.dumps(sample, ensure_ascii=False) + '\n')
+
+        # 分割验证集 (90/10)
+        split = int(len(existing) * 0.9)
+        valid_samples = existing[split:]
+        train_final = existing[:split]
+
+        with open(existing_train, 'w') as f:
+            for sample in train_final:
+                f.write(json.dumps(sample, ensure_ascii=False) + '\n')
+
+        valid_path = SYSTEM_TRAIN_DIR / "valid.jsonl"
+        with open(valid_path, 'w') as f:
+            for sample in valid_samples:
+                f.write(json.dumps(sample, ensure_ascii=False) + '\n')
+
+        self.log(f"📊 同步到系统训练目录:")
+        self.log(f"   训练集: {len(train_final)} 条")
+        self.log(f"   验证集: {len(valid_samples)} 条")
+        self.log(f"   新增: {new_count} 条")
+
+    def auto_train(self):
+        """生成训练数据后自动启动LoRA训练"""
+        self.log("🧠 生成训练数据...")
+        train_path = self.generate_train_data()
+
+        if not train_path:
+            self.log("没有训练数据，跳过训练")
+            return
+
+        self.log("🏋️ 启动LoRA训练...")
+        trainer_path = Path(__file__).parent.parent.parent / "bin" / "lh_lora_trainer.py"
+        if trainer_path.exists():
+            subprocess.run([sys.executable, str(trainer_path), "train"])
+        else:
+            self.log(f"训练器不存在: {trainer_path}", "ERROR")
+
+    # ============================================================
+    #  v2.0 新增：连通性测试 + 抓取计划生成（融合自 longhun_data_manager_v1.0）
+    # ============================================================
+
+    def test_connectivity(self, source_id: str | None = None, batch: bool = False):
+        """测试数据源连通性"""
+        targets = []
+        if batch:
+            targets = [s for s in self.sources if s.get('fetch_enabled')]
+        elif source_id:
+            target = next((s for s in self.sources if s['id'] == source_id), None)
+            targets = [target] if target else []
+
+        if not targets or targets[0] is None:
+            self.log("❌ 未找到目标数据源")
+            return
+
+        self.log(f"🔌 连通性测试 ({len(targets)} 个)")
+        self.log("-" * 60)
+
+        results = []
+        for s in targets:
+            url = s.get('url', '')
+            name = s.get('name', '')
+            try:
+                req = Request(url, headers={'User-Agent': 'LonghunBot/1.0'})
+                with urlopen(req, timeout=10) as resp:
+                    status = resp.getcode()
+                    size = len(resp.read())
+                    self.log(f"  🟢 {s['id']} {name:<20} HTTP {status} | {size} bytes")
+                    results.append({"id": s['id'], "status": status, "ok": True})
+            except Exception as e:
+                self.log(f"  🔴 {s['id']} {name:<20} 失败: {str(e)[:40]}")
+                results.append({"id": s['id'], "status": 0, "ok": False, "error": str(e)})
+            if batch and s != targets[-1]:
+                time.sleep(1)
+
+        ok_count = sum(1 for r in results if r.get('ok'))
+        self.log(f"📊 结果: {ok_count}/{len(results)} 可连通")
+        return results
+
+    def generate_fetch_plan(self, priority_order: list[Any] = None):
+        """生成抓取计划"""
+        if priority_order is None:
+            priority_order = ["P0", "P1", "P2", "P3"]
+
+        plan = []
+        for p in priority_order:
+            sources = [s for s in self.sources if s.get('priority') == p and s.get('fetch_enabled')]
+            for s in sources:
+                plan.append({
+                    "order": len(plan) + 1,
+                    "source_id": s['id'],
+                    "name": s['name'],
+                    "url": s['url'],
+                    "strategy": s['fetch_strategy'],
+                    "category": s['category'],
+                    "priority": p
+                })
+
+        plan_file = REPORTS_DIR / f"plan_{datetime.now(CST).strftime('%Y%m%d')}.json"
+        with open(plan_file, 'w', encoding='utf-8') as f:
+            json.dump({
+                "meta": {
+                    "dna": "#龍芯⚡️丙午·辛未·乙酉·卯时·讼-FETCH-PLAN-v2.0",
+                    "created": datetime.now(CST).isoformat()
+                },
+                "plan": plan
+            }, f, ensure_ascii=False, indent=2)
+
+        self.log(f"📋 抓取计划已生成: {plan_file.name}")
+        self.log(f"   共 {len(plan)} 个任务")
+        self.log(f"   优先级顺序: {' > '.join(priority_order)}")
+        return plan
+
+    def export_by_strategy(self):
+        """按策略导出分组"""
+        strategies = {}
+        for s in self.sources:
+            strat = s.get('fetch_strategy', 'unknown')
+            if strat not in strategies:
+                strategies[strat] = []
+            strategies[strat].append(s)
+
+        self.log("🔧 按抓取策略分组:")
+        for strat, items in strategies.items():
+            enabled = sum(1 for i in items if i.get('fetch_enabled'))
+            self.log(f"  {strat}: {len(items)} 个 (可抓取 {enabled} 个)")
+        return strategies
+
+    def stats(self):
+        """v2.0: 增强统计报告"""
+        self.log(f"\n{'='*60}")
+        self.log(f"🐉 龍魂数据源统计报告 v2.0")
+        self.log(f"{'='*60}")
+        self.log(f"总数据源: {len(self.sources)}")
+        self.log(f"可抓取: {sum(1 for s in self.sources if s.get('fetch_enabled'))}")
+        self.log(f"暂不抓: {sum(1 for s in self.sources if not s.get('fetch_enabled'))}")
+
+        self.log(f"\n📂 按分类:")
+        for cat_id, cat_info in self.categories.items():
+            count = len([s for s in self.sources if s.get('category') == cat_id])
+            enabled = len([s for s in self.sources if s.get('category') == cat_id and s.get('fetch_enabled')])
+            self.log(f"  {cat_id} {cat_info['name']}: {count} 个 (可抓 {enabled})")
+
+        self.log(f"\n⭐ 按优先级:")
+        for p in ["P0", "P1", "P2", "P3"]:
+            count = len([s for s in self.sources if s.get('priority') == p])
+            enabled = len([s for s in self.sources if s.get('priority') == p and s.get('fetch_enabled')])
+            self.log(f"  {p}: {count} 个 (可抓 {enabled})")
+
+        self.log(f"\n🔧 按策略:")
+        self.export_by_strategy()
+        self.log(f"{'='*60}\n")
+
+    def generate_report(self):
+        """生成统计报告"""
+        now = datetime.now(CST)
+        report_lines = [
+            f"# 龍魂训练数据源统计报告",
+            f"",
+            f"> DNA: #龍芯⚡️{now.strftime('%Y%m%d%H%M%S')}-SOURCE-REPORT",
+            f"> 生成时间: {now.strftime('%Y-%m-%d %H:%M:%S')} CST",
+            f"",
+            f"## 源状态总览",
+            f"",
+            f"| 分类 | 总数 | 已启用 | 已禁用 |",
+            f"|:---|---:|---:|---:|",
+        ]
+
+        for cat_id, cat_info in self.categories.items():
+            sources_in_cat = [s for s in self.sources if s['category'] == cat_id]
+            enabled = sum(1 for s in sources_in_cat if s.get('fetch_enabled', False))
+            disabled = len(sources_in_cat) - enabled
+            report_lines.append(f"| {cat_info['name']} | {len(sources_in_cat)} | {enabled} | {disabled} |")
+
+        total_enabled = sum(1 for s in self.sources if s.get('fetch_enabled', False))
+        total_disabled = len(self.sources) - total_enabled
+        report_lines.append(f"| **总计** | **{len(self.sources)}** | **{total_enabled}** | **{total_disabled}** |")
+
+        report_lines.extend([
+            f"",
+            f"## 已拉取数据统计",
+            f"",
+        ])
+
+        # 统计已拉取/已清洗数据
+        fetched_files = list(BASE_DIR.glob("fetched/*.jsonl"))
+        cleaned_files = list(BASE_DIR.glob("cleaned/*_cleaned.jsonl"))
+        train_files = list(BASE_DIR.glob("train/*.jsonl"))
+
+        fetched_count = 0
+        for f in fetched_files:
+            with open(f) as fh:
+                fetched_count += sum(1 for _ in fh)
+
+        cleaned_count = 0
+        for f in cleaned_files:
+            with open(f) as fh:
+                cleaned_count += sum(1 for _ in fh)
+
+        train_count = 0
+        for f in train_files:
+            with open(f) as fh:
+                train_count += sum(1 for _ in fh)
+
+        report_lines.extend([
+            f"| 指标 | 数量 |",
+            f"|:---|---:|",
+            f"| 已拉取文件 | {len(fetched_files)} |",
+            f"| 已拉取文章 | {fetched_count} |",
+            f"| 已清洗文件 | {len(cleaned_files)} |",
+            f"| 已清洗文章 | {cleaned_count} |",
+            f"| 训练数据文件 | {len(train_files)} |",
+            f"| 训练样本数 | {train_count} |",
+            f"",
+            f"---",
+            f"> 龍魂数据源管理系统 v1.0",
+            f"> DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·讼-SOURCE-MANAGER-v1.0",
+        ])
+
+        report_path = REPORTS_DIR / f"report_{now.strftime('%Y%m%d_%H%M%S')}.md"
+        with open(report_path, 'w') as f:
+            f.write('\n'.join(report_lines))
+
+        self.log(f"📊 报告已生成: {report_path}")
+        return report_path
+
+
+def main():
+    parser = argparse.ArgumentParser(description="龍魂训练数据源管理器 v2.0")
+    parser.add_argument('--pipeline', choices=['P0', 'P1', 'P2', 'P3', 'all'], help='执行全流程')
+    parser.add_argument('--list', action='store_true', help='列出所有源')
+    parser.add_argument('--category', help='按分类筛选')
+    parser.add_argument('--priority', choices=['P0', 'P1', 'P2', 'P3'], help='按优先级筛选')
+    parser.add_argument('--test', help='测试单个源连通性 (如 CN-001)')
+    parser.add_argument('--test-all', action='store_true', help='批量连通性测试所有可用源')
+    parser.add_argument('--plan', action='store_true', help='生成抓取计划')
+    parser.add_argument('--stats', action='store_true', help='增强统计报告')
+    parser.add_argument('--enable', help='启用指定源')
+    parser.add_argument('--disable', help='禁用指定源')
+    parser.add_argument('--train', action='store_true', help='生成训练数据并自动训练')
+    parser.add_argument('--report', action='store_true', help='生成统计报告')
+
+    args = parser.parse_args()
+    mgr = SourceManager()
+
+    if args.list:
+        mgr.list_sources(category=args.category, priority=args.priority)
+    elif args.test:
+        mgr.test_connectivity(source_id=args.test)
+    elif args.test_all:
+        mgr.test_connectivity(batch=True)
+    elif args.plan:
+        mgr.generate_fetch_plan()
+    elif args.stats:
+        mgr.stats()
+    elif args.enable:
+        mgr.toggle_source(args.enable, True)
+        mgr.list_sources()
+    elif args.disable:
+        mgr.toggle_source(args.disable, False)
+        mgr.list_sources()
+    elif args.pipeline:
+        mgr.run_pipeline(priority=args.pipeline)
+    elif args.train:
+        mgr.auto_train()
+    elif args.report:
+        mgr.generate_report()
+    else:
+        # 默认显示增强统计
+        mgr.stats()
+
+
+if __name__ == "__main__":
+    main()

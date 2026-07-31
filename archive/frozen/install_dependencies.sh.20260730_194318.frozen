@@ -1,0 +1,23 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-23-184259-header-UID9622-9E31A503
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+# 依赖安装脚本
+echo "=========================================="
+echo "安装 PDF 解析库"
+echo "=========================================="
+
+# 安装 PyPDF2
+echo "安装 PyPDF2..."
+python3 -m pip install --user PyPDF2
+
+# 安装 pdfplumber
+echo "安装 pdfplumber..."
+python3 -m pip install --user pdfplumber
+
+echo "=========================================="
+echo "安装完成！"
+echo "=========================================="

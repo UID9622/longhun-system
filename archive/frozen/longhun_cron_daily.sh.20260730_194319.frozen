@@ -1,0 +1,78 @@
+#!/bin/bash
+# 龍魂系统 · Mac自动定时抓取任务
+# UID9622 | 诸葛鑫·龍芯北辰
+# 功能：每天自动抓取P0+P1数据源，日志归档，DNA签章
+
+# ============ 配置 ============
+WORK_DIR="$HOME/longhun-data"
+LOG_DIR="$WORK_DIR/logs"
+DATA_DIR="$WORK_DIR/crawled_data"
+PYTHON_CMD="python3"
+ENGINE="$WORK_DIR/longhun_data_engine_v1.0.py"
+MANAGER="$WORK_DIR/longhun_data_manager_v1.0.py"
+
+# DNA锚定
+DNA_ANCHOR="#龍芯⚡️丙午·辛未·乙酉·卯时·讼-TRAIN-DATA-SOURCES-v1.0"
+CONFIRM="#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+
+# 时间戳
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+DATE=$(date +%Y%m%d)
+
+# ============ 日志函数 ============
+log() {
+    echo "[$(date '+%H:%M:%S')] $1" | tee -a "$LOG_DIR/auto_cron_$DATE.log"
+}
+
+# ============ 主流程 ============
+log "🐉 龍魂自动抓取任务启动"
+log "🐉 $DNA_ANCHOR"
+log "🐉 $CONFIRM"
+
+cd "$WORK_DIR"
+
+# 1. 检查环境
+if [ ! -f "$ENGINE" ]; then
+    log "❌ 引擎文件不存在: $ENGINE"
+    exit 1
+fi
+
+if ! command -v $PYTHON_CMD &> /dev/null; then
+    log "❌ Python3 未安装"
+    exit 1
+fi
+
+log "✅ 环境检查通过"
+
+# 2. 执行抓取（P0+P1优先级，每天自动跑）
+log "🔧 开始抓取 P0+P1 优先级..."
+$PYTHON_CMD "$ENGINE" --priority P0 P1 >> "$LOG_DIR/auto_cron_$DATE.log" 2>&1
+
+FETCH_STATUS=$?
+if [ $FETCH_STATUS -eq 0 ]; then
+    log "✅ 抓取完成"
+else
+    log "⚠️ 抓取退出码: $FETCH_STATUS"
+fi
+
+# 3. 统计今日抓取
+RESULT_FILE=$(ls -t "$DATA_DIR"/crawl_results_*.json 2>/dev/null | head -1)
+if [ -f "$RESULT_FILE" ]; then
+    TOTAL=$(python3 -c "import json; d=json.load(open('$RESULT_FILE')); print(len(d.get('results', {})))")
+    SUCCESS=$(python3 -c "import json; d=json.load(open('$RESULT_FILE')); print(sum(1 for r in d.get('results',{}).values() if r.get('status')=='success'))")
+    log "📊 今日结果: 总计 $TOTAL | 成功 $SUCCESS"
+fi
+
+# 4. 清理旧日志（保留30天）
+find "$LOG_DIR" -name "auto_cron_*.log" -mtime +30 -delete 2>/dev/null
+log "🧹 旧日志清理完成（保留30天）"
+
+# 5. Bark推送（可选，需要配置Bark Key）
+BARK_KEY=""  # 填入你的Bark Key
+if [ -n "$BARK_KEY" ]; then
+    curl -s "https://api.day.app/$BARK_KEY/龍魂抓取完成/今日成功:$SUCCESS/总计:$TOTAL" > /dev/null
+    log "📱 Bark推送已发送"
+fi
+
+log "🐉 任务结束 | $(date)"
+log "═══════════════════════════════════════"

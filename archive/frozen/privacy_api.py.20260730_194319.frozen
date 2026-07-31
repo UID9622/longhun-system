@@ -1,0 +1,189 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+🌌 龍魂隐私接入API v1.0
+DNA: #龍芯⚡️丙午·乙申·己酉·亥时·需-PRIVACY-API-v1.0
+UID9622 | 端口: 19630
+"""
+
+import json
+import os
+import sys
+
+# 确保能导入同目录模块
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+try:
+    from fastapi import FastAPI, HTTPException
+    from pydantic import BaseModel
+except ImportError:
+    print("需要安装 fastapi uvicorn pydantic")
+    sys.exit(1)
+
+from longhun_privacy import (
+    PrivacyCoreRules,
+    DragonSoulAccessControl,
+    PrivacyEnforcer,
+    PrivacyCircuitBreaker,
+)
+
+app = FastAPI(
+    title="龍魂隐私接入API",
+    description="P0++ 隐私接入规则 · 三层防护 · 熔断机制",
+    version="1.0"
+)
+
+rules = PrivacyCoreRules()
+enforcer = PrivacyEnforcer(rules)
+breaker = PrivacyCircuitBreaker()
+
+
+# ── Models ──
+
+class VerifyRequest(BaseModel):
+    name: str = "测试实体"
+    country: str = "中国"
+    entity_type: str = "科技公司"
+    approval: str = ""
+    certificate: str = ""
+
+
+class EnforceRequest(BaseModel):
+    entity: str = ""
+    data_type: str = "对话内容"
+    purpose: str = "学术研究"
+    authorized: bool = False
+    user_signature: str = ""
+    scope: str = ""
+
+
+class AuditRequest(BaseModel):
+    name: str = "测试实体"
+    has_code_audit: bool = True
+    has_encryption: bool = True
+    has_network: bool = True
+    has_access_policy: bool = True
+
+
+# ── Endpoints ──
+
+@app.get("/health")
+def health():
+    return {
+        "status": "ok",
+        "service": "龍魂隐私接入系统 v1.0",
+        "port": 19630,
+        "dna": "#龍芯⚡️丙午·乙申·己酉·亥时·需-PRIVACY-API-v1.0",
+        "system_status": breaker.get_status(),
+    }
+
+
+@app.post("/verify")
+def verify_access(req: VerifyRequest):
+    """接入资格审查：黑名单→白名单→国家审批 三层防护"""
+    entity = {
+        "name": req.name,
+        "country": req.country,
+        "type": req.entity_type,
+        "approval": req.approval or "网信办",
+        "certificate": req.certificate or "ISO27001",
+        "technical_documents": {
+            "code_audit_report": "已提供",
+            "encryption_scheme": "AES-256+SM4",
+            "network_architecture": "已提供",
+            "access_control_policy": "已提供",
+        },
+    }
+    access = DragonSoulAccessControl(rules)
+    result = access.verify_access(entity)
+
+    # 记录违规
+    if not result["allowed"]:
+        breaker.detect_violation(
+            {"user_authorized": False, "purpose": req.entity_type}
+        )
+
+    return result
+
+
+@app.post("/enforce")
+def enforce_privacy(req: EnforceRequest):
+    """隐私强制执行"""
+    authorization = None
+    if req.authorized:
+        authorization = {
+            "user_signature": req.user_signature or "已签名",
+            "timestamp": "2026-07-17",
+            "scope": req.scope or "仅研究",
+        }
+
+    request_data = {
+        "entity": req.entity,
+        "data_type": req.data_type,
+        "purpose": req.purpose,
+        "authorization": authorization,
+    }
+    result = enforcer.enforce_privacy(request_data)
+
+    if not result["allowed"]:
+        breaker.violation_log.append(
+            {"timestamp": "2026-07-17", "violation": result["reason"]}
+        )
+
+    return result
+
+
+@app.post("/audit")
+def technical_audit(req: AuditRequest):
+    """技术审计"""
+    entity = {
+        "name": req.name,
+        "technical_documents": {
+            "code_audit_report": "已提供" if req.has_code_audit else "",
+            "encryption_scheme": "AES-256+SM4" if req.has_encryption else "",
+            "network_architecture": "已提供" if req.has_network else "",
+            "access_control_policy": "已提供" if req.has_access_policy else "",
+        },
+    }
+    access = DragonSoulAccessControl(rules)
+    passed = access._technical_audit(entity)
+    return {
+        "entity": req.name,
+        "audit_passed": passed,
+        "result": "✅ 通过" if passed else "❌ 未通过",
+    }
+
+
+@app.get("/status")
+def system_status():
+    """系统状态 + 违规日志"""
+    return {
+        "status": breaker.get_status(),
+        "violation_log": breaker.violation_log[-5:],
+        "total_violations": len(breaker.violation_log),
+    }
+
+
+@app.post("/circuit-breaker/test")
+def test_circuit_breaker():
+    """测试熔断器"""
+    violations = breaker.detect_violation(
+        {
+            "user_authorized": False,
+            "cross_border": True,
+            "approved": False,
+        }
+    )
+    return {
+        "triggered": len(violations) > 0,
+        "violations": violations,
+        "current_status": breaker.get_status(),
+    }
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    port = int(os.environ.get("PRIVACY_PORT", "19630"))
+    host = os.environ.get("PRIVACY_HOST", "127.0.0.1")
+    uvicorn.run(app, host=host, port=port)

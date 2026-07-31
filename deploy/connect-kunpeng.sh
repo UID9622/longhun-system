@@ -2,6 +2,7 @@
 # 🐉 龍魂 · 鲲鹏服务器 mgmt 连接脚本
 # 支持: 密码登录 (首次) → 自动装密钥 → 后续免密
 # DNA: #龍芯⚡️2026-07-06-KUNPENG-CONNECT-v2.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG: 9622-ONLY
 
 set -euo pipefail

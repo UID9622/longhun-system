@@ -1,0 +1,145 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+构建 Notion 统一知识库索引并编入全局索引/Git
+DNA: #龍芯⚡️2026-07-01-NOTION-BUILD-INDEX-v1.0
+"""
+import hashlib
+import json
+import os
+import sqlite3
+import subprocess
+import sys
+from pathlib import Path
+from datetime import datetime, timezone
+
+sys.stdout.reconfigure(line_buffering=True)
+
+HOME = Path.home()
+OUT_DIR = HOME / "longhun-system" / "notion_absorb"
+CONTENT_DIR = OUT_DIR / "page_contents"
+KG_DIR = HOME / "longhun-system" / "knowledge" / "notion-absorbed"
+KG_DIR.mkdir(parents=True, exist_ok=True)
+DNA_PREFIX = "#龍芯⚡️"
+
+
+def log(msg):
+    print(f"[{datetime.now(timezone.utc).isoformat()}] {msg}", flush=True)
+
+
+def generate_dna(tag):
+    ts = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S%f")
+    h = hashlib.sha256(f"{tag}:{ts}".encode()).hexdigest()[:8].upper()
+    return f"{DNA_PREFIX}{ts}-{tag}-{h}"
+
+
+def build_index():
+    scan = json.loads((OUT_DIR / "data" / "workspace_scan.json").read_text(encoding="utf-8"))
+    pages = {p["id"]: p for p in scan.get("pages", [])}
+    dbs = {d["id"]: d for d in scan.get("databases", [])}
+    
+    db_path = OUT_DIR / "data" / "notion_knowledge.db"
+    conn = sqlite3.connect(str(db_path))
+    cur = conn.cursor()
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS notion_knowledge (
+            id TEXT PRIMARY KEY,
+            object_type TEXT,
+            title TEXT,
+            url TEXT,
+            dna TEXT,
+            summary TEXT,
+            content_preview TEXT,
+            parent_id TEXT,
+            fetched_at TEXT,
+            indexed_at TEXT
+        )
+    """)
+    conn.commit()
+    
+    md_lines = [f"# Notion 统一知识库索引\n", f"**DNA**: `{generate_dna('NOTION-KG-INDEX')}`\n", f"**生成时间**: {datetime.now(timezone.utc).isoformat()}\n", "\n"]
+    md_lines.append("| 类型 | 标题 | DNA | 摘要 | URL |\n")
+    md_lines.append("|------|------|-----|------|-----|\n")
+    
+    inserted = 0
+    for fpath in sorted(CONTENT_DIR.glob("*.json")):
+        rec = json.loads(fpath.read_text(encoding="utf-8"))
+        pid = rec["page_id"]
+        page_info = pages.get(pid, {})
+        parent = page_info.get("parent", {})
+        parent_id = parent.get("page_id") or parent.get("database_id") or ""
+        
+        cur.execute("""
+            INSERT OR REPLACE INTO notion_knowledge
+            (id, object_type, title, url, dna, summary, content_preview, parent_id, fetched_at, indexed_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            pid, "page", rec.get("title", ""), rec.get("url", ""), rec.get("dna", ""),
+            rec.get("summary", ""), rec.get("text_preview", ""), parent_id,
+            rec.get("fetched_at", ""), datetime.now(timezone.utc).isoformat()
+        ))
+        
+        title = rec.get("title", "")[:60]
+        summary = rec.get("summary", "")[:120]
+        md_lines.append(f"| 页面 | {title} | `{rec.get('dna','')}` | {summary} | [链接]({rec.get('url','')}) |\n")
+        inserted += 1
+    
+    # 补充数据库条目
+    for db_id, db_info in dbs.items():
+        dna = generate_dna(f"NOTION-DB-{db_id}")
+        cur.execute("""
+            INSERT OR REPLACE INTO notion_knowledge
+            (id, object_type, title, url, dna, summary, content_preview, parent_id, fetched_at, indexed_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            db_id, "database", db_info.get("title", ""), db_info.get("url", ""), dna,
+            f"Notion 数据库: {db_info.get('title','')}", "", "", "", datetime.now(timezone.utc).isoformat()
+        ))
+        md_lines.append(f"| 数据库 | {db_info.get('title','')[:60]} | `{dna}` | Notion 数据库 | [链接]({db_info.get('url','')}) |\n")
+        inserted += 1
+    
+    conn.commit()
+    conn.close()
+    
+    md_path = KG_DIR / "index.md"
+    md_path.write_text("".join(md_lines), encoding="utf-8")
+    log(f"🟢 知识库索引构建完成：{inserted} 条记录")
+    log(f"🟢 SQLite: {db_path}")
+    log(f"🟢 Markdown: {md_path}")
+    
+    # 编入全局索引
+    try:
+        sys.path.insert(0, str(HOME / ".longhun" / "scripts"))
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("global_index_service", HOME / ".longhun" / "scripts" / "global_index_service.py")
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        cfg = mod.Config(mod.CONFIG_PATH)
+        db = mod.Database(Path(cfg["db_path"]))
+        rules = mod.ExclusionRules(cfg)
+        extractor = mod.MediaExtractor(cfg)
+        indexer = mod.Indexer(cfg, db, rules, extractor)
+        for p in [md_path, db_path]:
+            indexer.index_file(Path(p), str(HOME / "longhun-system"), event_type="created")
+        indexer.flush()
+        log("🟢 已编入全局索引")
+    except Exception as e:
+        log(f"🟡 编入全局索引失败: {e}")
+
+
+def git_commit():
+    try:
+        subprocess.run(["git", "-C", str(HOME / "longhun-system"), "add", "notion_absorb/", "knowledge/notion-absorbed/"], check=True)
+        subprocess.run([
+            "git", "-C", str(HOME / "longhun-system"), "commit", "--no-gpg-sign", "-m",
+            f"feat(notion): 全量吸收 Notion 工作空间并构建知识库索引\n\n- 全量扫描 Notion 页面/数据库\n- 获取页面内容并生成 DNA/摘要\n- 批量更新可写属性\n- 构建 SQLite + Markdown 知识库索引\n\nDNA: {generate_dna('NOTION-ABSORB-COMMIT')}"
+        ], check=True)
+        log("🟢 Git 提交完成")
+    except subprocess.CalledProcessError as e:
+        log(f"🟡 Git 提交失败或无可提交变更: {e}")
+
+
+if __name__ == "__main__":
+    build_index()
+    git_commit()
+    log("🟢 全部完成")

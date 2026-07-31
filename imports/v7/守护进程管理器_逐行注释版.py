@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # 【第1行】指定用python3解释器执行此脚本

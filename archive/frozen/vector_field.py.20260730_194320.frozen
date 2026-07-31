@@ -1,0 +1,133 @@
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-24-UID9622-FLOW-FIELD-VECTOR-v1.0
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+"""
+流场函数库：把数学场变成视觉动势。
+DNA: #龍芯⚡️2026-06-24-UID9622-FLOW-FIELD-VECTOR-v1.0
+"""
+
+import math
+from typing import Tuple
+
+try:
+    import noise
+    HAS_NOISE = True
+except Exception:
+    HAS_NOISE = False
+
+
+def _perlin(x: float, y: float, scale: float, seed_offset: float = 0.0) -> float:
+    if HAS_NOISE:
+        return noise.pnoise2(x * scale + seed_offset, y * scale + seed_offset, octaves=2)
+    # fallback simple pseudo-noise
+    return math.sin(x * scale) * math.cos(y * scale)
+
+
+def perlin_flow(x: float, y: float, w: float, h: float, scale: float, seed: float = 0.0) -> Tuple[float, float]:
+    """Perlin 噪声流场：平滑、有机、留有大片呼吸。"""
+    n1 = _perlin(x, y, scale, seed)
+    n2 = _perlin(x, y, scale * 2.2, seed + 31.4)
+    angle = (n1 * 0.7 + n2 * 0.3) * math.pi * 2.4
+    return math.cos(angle), math.sin(angle)
+
+
+def sine_perlin(x: float, y: float, w: float, h: float, scale: float, seed: float = 0.0) -> Tuple[float, float]:
+    """正弦 + Perlin 水纹场。"""
+    base = math.sin(x * scale * 0.5 + seed)
+    pert = _perlin(x, y, scale * 1.5, seed)
+    angle = (base + pert) * math.pi
+    return math.cos(angle), math.sin(angle)
+
+
+def magnetic_dipole(x: float, y: float, w: float, h: float, scale: float, seed: float = 0.0) -> Tuple[float, float]:
+    """磁偶极子场：两极吸引，磁力线不可交叉。"""
+    north = (w * 0.33, h * 0.5)
+    south = (w * 0.67, h * 0.5)
+    dx_n = x - north[0]
+    dy_n = y - north[1]
+    dx_s = x - south[0]
+    dy_s = y - south[1]
+    d_n2 = dx_n * dx_n + dy_n * dy_n + 1e-6
+    d_s2 = dx_s * dx_s + dy_s * dy_s + 1e-6
+    # electric dipole-like field
+    fx = dx_s / d_s2 - dx_n / d_n2
+    fy = dy_s / d_s2 - dy_n / d_n2
+    # slight convergent toward both poles
+    fx += (north[0] - x) / (d_n2 * 0.02)
+    fy += (south[0] - x) / (d_s2 * 0.02)
+    length = math.hypot(fx, fy)
+    return fx / length, fy / length
+
+
+def curl_noise(x: float, y: float, w: float, h: float, scale: float, seed: float = 0.0) -> Tuple[float, float]:
+    """Curl noise：无散场，适合星云漩涡，大小漩涡嵌套。"""
+    eps = 2.0
+    n = _perlin(x, y, scale, seed)
+    nx = _perlin(x + eps, y, scale, seed)
+    ny = _perlin(x, y + eps, scale, seed)
+    dx = (nx - n) / eps
+    dy = (ny - n) / eps
+    length = math.hypot(dy, dx)
+    if length == 0:
+        return 1.0, 0.0
+    return dy / length, -dx / length
+
+
+def turbulent_up(x: float, y: float, w: float, h: float, scale: float, seed: float = 0.0) -> Tuple[float, float]:
+    """向上湍流火焰场：根部向上，顶部飘散。"""
+    base_angle = math.pi / 2  # up
+    turb = _perlin(x, y, scale, seed) * 0.9
+    swirl = math.sin(x * scale * 3.0 + seed) * 0.35
+    # 越高越散开
+    lift = (h - y) / h
+    angle = base_angle + turb * (1 + lift) + swirl * (1 + lift * 0.5)
+    return math.cos(angle), math.sin(angle)
+
+
+def calligraphy_flow(x: float, y: float, w: float, h: float, scale: float, seed: float = 0.0) -> Tuple[float, float]:
+    """书法笔触流：低频 Perlin 引导长笔触。"""
+    angle = _perlin(x, y, scale, seed) * math.pi * 1.2
+    # add slight downward gravity for calligraphy weight
+    dx = math.cos(angle)
+    dy = math.sin(angle) + 0.15
+    length = math.hypot(dx, dy)
+    return dx / length, dy / length
+
+
+def taiji_vortex(x: float, y: float, w: float, h: float, scale: float, seed: float = 0.0) -> Tuple[float, float]:
+    """太极漩涡：中心旋转 + 外圈反向。"""
+    cx, cy = w / 2, h / 2
+    dx = x - cx
+    dy = y - cy
+    r = math.hypot(dx, dy) + 1e-6
+    # tangential direction
+    tx = -dy / r
+    ty = dx / r
+    # radial breathing
+    breath = _perlin(x, y, scale, seed) * 0.5
+    rx = dx / r * breath
+    ry = dy / r * breath
+    fx = tx + rx
+    fy = ty + ry
+    length = math.hypot(fx, fy)
+    return fx / length, fy / length
+
+
+FIELD_FUNCTIONS = {
+    "perlin_flow": perlin_flow,
+    "sine_perlin": sine_perlin,
+    "magnetic_dipole": magnetic_dipole,
+    "curl_noise": curl_noise,
+    "turbulent_up": turbulent_up,
+    "calligraphy_flow": calligraphy_flow,
+    "taiji_vortex": taiji_vortex,
+}
+
+
+def get_field(name: str):
+    if name not in FIELD_FUNCTIONS:
+        raise ValueError(f"未知场函数：{name}。可用：{', '.join(FIELD_FUNCTIONS.keys())}")
+    return FIELD_FUNCTIONS[name]

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 🐉 龍魂第二大脑 · 本地 API 启动脚本
 # DNA: #龍芯⚡️2026-07-06-SECOND-BRAIN-API-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # 三色审计: 🟢 通过
 # 用法: bash scripts/run_second_brain_api.sh [port]

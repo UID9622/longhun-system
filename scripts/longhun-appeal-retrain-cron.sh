@@ -2,6 +2,7 @@
 # ═══════════════════════════════════════════════════════
 # 龍魂AI初审模型 · 定期自动重训练脚本 v1.0
 # DNA: #龍芯⚡️丙午·辛未·APPEAL-RETRAIN-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #
 # 触发条件：
 #   1. 人格链有更新（persona-chain-latest.json 修改时间变化）

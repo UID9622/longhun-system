@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-RELEASE-v1.0

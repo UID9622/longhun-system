@@ -1,0 +1,396 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+龍魂技能冲突扫描器 v1.0
+扫描 ~/.kimi-code/skills/ 与 ~/.agents/skills/ 下的 SKILL.md，
+提取触发关键词，计算重叠关系，输出审计报告。
+DNA: #龍芯⚡️20260629212911-SKILL-CONFLICT-AUDIT-8C7F2E1A
+"""
+import os
+import re
+import json
+from pathlib import Path
+from collections import defaultdict, Counter
+import yaml
+
+HOME = Path.home()
+SKILL_DIRS = [
+    HOME / ".kimi-code" / "skills",
+    HOME / ".agents" / "skills",
+]
+REGISTRY_PATHS = [
+    HOME / ".kimi-code" / "skills" / "registry" / "registry.json",
+    HOME / ".kimi-code" / "skills" / "registry" / "registry-v5.1.json",
+    HOME / ".kimi-code" / "skills" / "registry" / "registry-v5.2.json",
+]
+OUTPUT_PATH = HOME / "_work" / "skill_conflict_audit_report.md"
+
+def extract_frontmatter(text):
+    """提取 YAML front matter 和正文。"""
+    if text.startswith("---"):
+        parts = text.split("---", 2)
+        if len(parts) >= 3:
+            try:
+                return yaml.safe_load(parts[1]) or {}, parts[2]
+            except Exception:
+                return {}, text
+    return {}, text
+
+def extract_text_keywords(text, min_len=2):
+    """从正文中提取中文、英文、数字混合的关键词。"""
+    # 中文词汇（2-8字）
+    zh = re.findall(r"[\u4e00-\u9fff]{2,8}", text)
+    # CNSH / azure / longhun 等标识
+    ids = re.findall(r"[A-Za-z][A-Za-z0-9_-]{1,15}", text)
+    words = [w for w in zh if len(w) >= min_len] + ids
+    # 去重并小写英文
+    seen = set()
+    out = []
+    for w in words:
+        key = w.lower() if w.isascii() else w
+        if key not in seen and not key.isdigit():
+            seen.add(key)
+            out.append(w)
+    return out
+
+STOPWORDS_EN = {
+    "the", "a", "an", "is", "are", "was", "were", "be", "been", "being",
+    "have", "has", "had", "do", "does", "did", "will", "would", "could",
+    "should", "may", "might", "must", "can", "shall", "to", "of", "in",
+    "for", "on", "with", "at", "by", "from", "as", "and", "or", "not",
+    "but", "if", "then", "else", "when", "where", "why", "how", "what",
+    "who", "which", "this", "that", "these", "those", "i", "you", "he",
+    "she", "it", "we", "they", "them", "their", "there", "here", "my",
+    "your", "his", "her", "its", "our", "us", "me", "him", "them", "all",
+    "any", "some", "many", "much", "more", "most", "other", "another",
+    "such", "only", "own", "same", "so", "than", "too", "very", "just",
+    "now", "also", "back", "after", "use", "used", "using", "uses", "get",
+    "gets", "got", "make", "makes", "made", "need", "needs", "needed",
+    "way", "ways", "one", "two", "three", "first", "second", "new", "old",
+    "good", "best", "bad", "long", "last", "great", "little", "own", "up",
+    "down", "out", "off", "over", "under", "again", "further", "then",
+    "once", "here", "why", "how", "all", "each", "few", "more", "most",
+    "other", "some", "such", "no", "nor", "not", "only", "own", "same",
+    "so", "than", "too", "very", "can", "will", "just", "don", "should",
+    "now", "about", "into", "through", "during", "before", "after",
+    "above", "below", "between", "both", "each", "few", "more", "most",
+    "several", "via", "within", "without", "against", "among", "towards",
+    "across", "around", "behind", "beyond", "except", "inside", "outside",
+    "until", "upon", "toward", "throughout", "despite", "regarding",
+    "concerning", "including", "following", "according", "due", "addition",
+    "additionally", "however", "therefore", "thus", "hence", "moreover",
+    "furthermore", "nevertheless", "nonetheless", "otherwise", "meanwhile",
+    "subsequently", "consequently", "accordingly", "specifically",
+    "particularly", "especially", "generally", "usually", "often",
+    "sometimes", "always", "never", "already", "yet", "still", "even",
+    "only", "just", "quite", "rather", "almost", "nearly", "approximately",
+    "exactly", "basically", "essentially", "effectively", "actually",
+    "certainly", "definitely", "probably", "possibly", "perhaps", "maybe",
+    "likely", "sure", "well", "ok", "yes", "no", "help", "helps", "helped",
+    "see", "sees", "saw", "seen", "look", "looks", "looked", "find",
+    "finds", "found", "take", "takes", "took", "taken", "give", "gives",
+    "gave", "given", "come", "comes", "came", "coming", "go", "goes",
+    "went", "gone", "going", "know", "knows", "knew", "known", "think",
+    "thinks", "thought", "say", "says", "said", "tell", "tells", "told",
+    "ask", "asks", "asked", "work", "works", "worked", "working", "call",
+    "calls", "called", "calling", "try", "tries", "tried", "trying",
+    "want", "wants", "wanted", "like", "likes", "liked", "show", "shows",
+    "showed", "shown", "run", "runs", "ran", "running", "set", "sets",
+    "put", "puts", "place", "places", "placed", "end", "ends", "ended",
+    "open", "opens", "opened", "close", "closes", "closed", "keep",
+    "keeps", "kept", "let", "lets", "start", "starts", "started",
+    "started", "turn", "turns", "turned", "move", "moves", "moved",
+    "live", "lives", "lived", "play", "plays", "played", "write",
+    "writes", "wrote", "written", "read", "reads", "change", "changes",
+    "changed", "changing", "follow", "follows", "followed", "following",
+    "stop", "stops", "stopped", "create", "creates", "created", "creating",
+    "add", "adds", "added", "adding", "remove", "removes", "removed",
+    "removing", "delete", "deletes", "deleted", "deleting", "update",
+    "updates", "updated", "updating", "check", "checks", "checked",
+    "checking", "enable", "enables", "enabled", "enabling", "disable",
+    "disables", "disabled", "disabling", "configure", "configures",
+    "configured", "configuring", "install", "installs", "installed",
+    "installing", "build", "builds", "built", "building", "deploy",
+    "deploys", "deployed", "deploying", "test", "tests", "tested",
+    "testing", "fix", "fixes", "fixed", "fixing", "list", "lists",
+    "listed", "listing", "query", "queries", "queried", "querying",
+    "generate", "generates", "generated", "generating", "manage",
+    "manages", "managed", "managing", "monitor", "monitors", "monitored",
+    "monitoring", "support", "supports", "supported", "supporting",
+    "provide", "provides", "provided", "providing", "handle", "handles",
+    "handled", "handling", "process", "processes", "processed",
+    "processing", "apply", "applies", "applied", "applying", "ensure",
+    "ensures", "ensured", "ensuring", "verify", "verifies", "verified",
+    "verifying", "validate", "validates", "validated", "validating",
+    "return", "returns", "returned", "returning", "require", "requires",
+    "required", "requiring", "recommend", "recommends", "recommended",
+    "recommending", "consider", "considers", "considered", "considering",
+}
+
+STOPWORDS_ZH = {
+    "的", "了", "在", "是", "我", "有", "和", "就", "不", "人", "都", "一",
+    "一个", "上", "也", "很", "到", "说", "要", "去", "你", "会", "着", "没有",
+    "看", "好", "自己", "这", "那", "这些", "那些", "之", "与", "及", "等",
+    "或", "但", "而", "因", "为", "以", "被", "让", "向", "从", "将", "把",
+    "使", "给", "对", "关于", "根据", "通过", "进行", "完成", "实现", "使用",
+    "需要", "可以", "应该", "能够", "已经", "正在", "曾经", "将要", "如果",
+    "然后", "因此", "所以", "但是", "不过", "虽然", "尽管", "以及", "并且",
+    "或者", "还是", "要么", "比如", "例如", "例如说", "等等", "之类", "前后",
+    "左右", "上下", "内外", "之间", "其中", "这里", "那里", "哪里", "什么",
+    "怎么", "为什么", "如何", "谁", "哪", "个", "种", "类", "些", "者", "家",
+    "员", "性", "化", "学", "中", "大", "小", "多", "少", "高", "低", "长",
+    "短", "来", "过", "下", "前", "后", "里", "外", "内", "间", "边", "面",
+    "头", "部", "身", "体", "心", "意", "情", "事", "物", "时", "地", "方",
+}
+
+def clean_keyword(kw):
+    """清洗关键词：小写、去首尾空白、去除标点。"""
+    kw = str(kw).strip().lower()
+    kw = re.sub(r"[\s\[\]{}()<>\"'`,.!?;:/\\|@#$%^&*~+=-]+", "", kw)
+    return kw
+
+def is_meaningful(kw):
+    """判断关键词是否有意义。"""
+    if not kw or len(kw) < 2:
+        return False
+    if kw.isdigit():
+        return False
+    if kw in STOPWORDS_EN or kw in STOPWORDS_ZH:
+        return False
+    # 过滤单字中文（除非是繁体龍等保留字）
+    if re.fullmatch(r"[\u4e00-\u9fff]", kw) and kw not in {"龍", "國", "華", "道", "法"}:
+        return False
+    return True
+
+def get_keywords(skill_dir):
+    """递归查找 SKILL.md，提取信息。技能ID = 相对目录路径。"""
+    skills = []
+    seen_ids = set()
+    for base in SKILL_DIRS:
+        if not base.exists():
+            continue
+        for skill_md in base.rglob("SKILL.md"):
+            rel = skill_md.relative_to(base)
+            # 技能ID：相对目录路径，例如 microsoft-foundry/models/deploy-model/preset
+            skill_id = str(rel.parent)
+            if skill_id in seen_ids:
+                continue
+            seen_ids.add(skill_id)
+            
+            text = skill_md.read_text(encoding="utf-8", errors="ignore")
+            fm, body = extract_frontmatter(text)
+            
+            name = fm.get("name") or skill_id
+            description = fm.get("description", "")
+            if isinstance(description, str):
+                desc_text = description
+            elif isinstance(description, dict):
+                desc_text = str(description)
+            else:
+                desc_text = ""
+            
+            # 收集显式触发词
+            triggers = set()
+            meta = fm.get("metadata", {}) or {}
+            if "trigger" in meta and "keywords" in meta["trigger"]:
+                for kw in meta["trigger"]["keywords"]:
+                    ck = clean_keyword(kw)
+                    if is_meaningful(ck):
+                        triggers.add(ck)
+            if "triggers" in meta:
+                for kw in meta["triggers"]:
+                    ck = clean_keyword(kw)
+                    if is_meaningful(ck):
+                        triggers.add(ck)
+            if "keywords" in fm:
+                for kw in fm["keywords"]:
+                    ck = clean_keyword(kw)
+                    if is_meaningful(ck):
+                        triggers.add(ck)
+            
+            # 正文触发词：从 description + 正文前 1500 字提取
+            sample = desc_text + "\n" + body[:1500]
+            body_kws = [k for k in extract_text_keywords(sample) if is_meaningful(k.lower() if k.isascii() else k)]
+            
+            skills.append({
+                "id": skill_id,
+                "name": name,
+                "scope": "user" if ".kimi-code" in str(base) else "extra",
+                "path": str(skill_md),
+                "explicit_keywords": sorted(triggers),
+                "body_keywords": body_kws,
+                "description": desc_text[:200].replace("\n", " "),
+            })
+    return skills
+
+def load_registry_names():
+    """加载 registry 中登记的技能名、ID、中文名。"""
+    registered = set()
+    for p in REGISTRY_PATHS:
+        if not p.exists():
+            continue
+        try:
+            data = json.loads(p.read_text(encoding="utf-8"))
+            for section in ["本地技能", "云端技能", "协议", "extra 技能", "local_skills", "cloud_skills", "protocols", "extra_skills"]:
+                for key, val in data.get(section, {}).items():
+                    if isinstance(val, dict):
+                        registered.add(clean_keyword(val.get("id", "")))
+                        registered.add(clean_keyword(val.get("名称", "")))
+                        registered.add(clean_keyword(val.get("name", "")))
+                        registered.add(clean_keyword(key))
+                    else:
+                        registered.add(clean_keyword(key))
+        except Exception as e:
+            print(f"[WARN] registry parse failed: {p} - {e}")
+    return registered
+
+def normalize(kw):
+    return kw.lower() if kw.isascii() else kw
+
+def compute_overlap(skills):
+    """计算技能间关键词重叠。显式关键词权重高，正文关键词权重低。"""
+    overlaps = []
+    n = len(skills)
+    for i in range(n):
+        for j in range(i + 1, n):
+            a = skills[i]
+            b = skills[j]
+            if a["id"] == b["id"]:
+                continue
+            explicit_a = set(a["explicit_keywords"])
+            explicit_b = set(b["explicit_keywords"])
+            body_a = set(normalize(k) for k in a["body_keywords"])
+            body_b = set(normalize(k) for k in b["body_keywords"])
+            
+            shared_explicit = explicit_a & explicit_b
+            shared_body = body_a & body_b
+            
+            # 显式关键词重叠权重 20，正文关键词重叠权重 1
+            score = len(shared_explicit) * 20 + len(shared_body)
+            # 只保留有显式重叠或正文重叠超过 3 个的
+            if len(shared_explicit) > 0 or len(shared_body) >= 3:
+                overlaps.append({
+                    "a": a["id"],
+                    "b": b["id"],
+                    "score": score,
+                    "shared_explicit": sorted(shared_explicit),
+                    "shared_body": sorted(shared_body)[:15],
+                })
+    overlaps.sort(key=lambda x: x["score"], reverse=True)
+    return overlaps
+
+def find_exclusive_keywords(skills):
+    """找出每个技能独占的显式关键词。"""
+    all_explicit = Counter()
+    for s in skills:
+        for kw in s["explicit_keywords"]:
+            all_explicit[kw] += 1
+    
+    exclusive = {}
+    for s in skills:
+        excl = [kw for kw in s["explicit_keywords"] if all_explicit[kw] == 1]
+        if excl:
+            exclusive[s["id"]] = excl
+    return exclusive
+
+def main():
+    skills = get_keywords(SKILL_DIRS)
+    registered_names = load_registry_names()
+    overlaps = compute_overlap(skills)
+    exclusive = find_exclusive_keywords(skills)
+    
+    # 统计
+    scope_count = Counter(s["scope"] for s in skills)
+    unregistered = [s for s in skills if clean_keyword(s["name"]) not in registered_names and clean_keyword(s["id"]) not in registered_names]
+    
+    lines = []
+    lines.append("# 龍魂技能冲突扫描报告")
+    lines.append(f"\n> DNA: `#龍芯⚡️20260629212911-SKILL-CONFLICT-AUDIT-8C7F2E1A`")
+    lines.append(f"> 扫描时间：2026-06-29T21:29:11Z")
+    lines.append(f"> 扫描路径：`{'`, `'.join(str(d) for d in SKILL_DIRS)}`")
+    lines.append("")
+    
+    lines.append("## 一、总体统计")
+    lines.append(f"- 技能总数：**{len(skills)}**")
+    for scope, cnt in sorted(scope_count.items()):
+        lines.append(f"- {scope} 作用域：{cnt} 个")
+    lines.append(f"- Registry 登记数（所有版本合并）：{len(registered_names)} 个")
+    lines.append(f"- 未在 Registry 登记的技能：{len(unregistered)} 个")
+    lines.append("")
+    
+    lines.append("## 二、高冲突技能对（按重叠分排序）")
+    lines.append("")
+    if not overlaps:
+        lines.append("未发现关键词重叠。")
+    else:
+        lines.append("| 排名 | 技能 A | 技能 B | 冲突分 | 显式共有词 | 正文共有词（部分） |")
+        lines.append("|---|---|---|---|---|---|")
+        for idx, o in enumerate(overlaps[:30], 1):
+            a_link = f"`{o['a']}`"
+            b_link = f"`{o['b']}`"
+            ex = ", ".join(o["shared_explicit"]) or "-"
+            bd = ", ".join(o["shared_body"]) or "-"
+            lines.append(f"| {idx} | {a_link} | {b_link} | {o['score']} | {ex} | {bd} |")
+    lines.append("")
+    
+    lines.append("## 三、按领域分组的重叠")
+    cnsh_set = {s["id"] for s in skills if "cnsh" in s["id"].lower() or "CNSH" in s["name"]}
+    governance_set = {s["id"] for s in skills if any(x in s["id"].lower() for x in ["governance", "iron", "sovereignty", "dragon-soul"])}
+    audit_set = {s["id"] for s in skills if any(x in s["id"].lower() for x in ["audit", "dna", "review"])}
+    
+    groups = [
+        ("CNSH / 中文编程", cnsh_set),
+        ("治理 / 铁律 / 主权", governance_set),
+        ("审计 / DNA / 复盘", audit_set),
+    ]
+    for gname, gset in groups:
+        lines.append(f"### {gname}")
+        members = [s for s in skills if s["id"] in gset]
+        if not members:
+            lines.append("- 无相关技能。\n")
+            continue
+        for m in members:
+            lines.append(f"- `{m['id']}`：{m['description']}")
+        g_overlaps = [o for o in overlaps if o["a"] in gset and o["b"] in gset]
+        if g_overlaps:
+            lines.append("\n组内高冲突对：")
+            for o in g_overlaps[:5]:
+                lines.append(f"- `{o['a']}` ↔ `{o['b']}`：{', '.join(o['shared_explicit']) or ', '.join(o['shared_body'][:5])}")
+        lines.append("")
+    
+    lines.append("## 四、每个技能的独占关键词（可作为路由锚点）")
+    lines.append("")
+    if not exclusive:
+        lines.append("未发现独占关键词。")
+    else:
+        lines.append("| 技能 | 独占关键词 |")
+        lines.append("|---|---|")
+        for sid in sorted(exclusive.keys()):
+            kws = ", ".join(f"`{k}`" for k in exclusive[sid])
+            lines.append(f"| `{sid}` | {kws} |")
+    lines.append("")
+    
+    lines.append("## 五、未在 Registry 登记的技能")
+    lines.append("")
+    if not unregistered:
+        lines.append("所有技能均已登记。")
+    else:
+        lines.append("| 技能 ID | 名称 | 作用域 |")
+        lines.append("|---|---|---|")
+        for s in unregistered:
+            lines.append(f"| `{s['id']}` | {s['name']} | {s['scope']} |")
+    lines.append("")
+    
+    lines.append("## 六、建议行动")
+    lines.append("1. 合并或拆分 CNSH 线：规范、运行时、副驾驶、语义库需明确分工。")
+    lines.append("2. 为每个冲突域设定『独占关键词』，避免一句话触发多个技能。")
+    lines.append("3. 更新 `registry-v5.2.json`，把未登记的技能纳入，保持文件与注册表同步。")
+    lines.append("4. 考虑将 `skills-backup-20260622-193949` 中已废弃的旧版技能移除或归档。")
+    lines.append("")
+    
+    OUTPUT_PATH.write_text("\n".join(lines), encoding="utf-8")
+    print(f"报告已生成：{OUTPUT_PATH}")
+    print(f"技能总数：{len(skills)}，高冲突对：{len(overlaps)}，未登记：{len(unregistered)}")
+
+if __name__ == "__main__":
+    main()

@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·同人-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # ============================================================
 # 龍魂 · 语义编码器 · Ollama Embedding 桥接
 # DNA：#龍芯⚡️丙午·乙未·丙申·未时·☲离-SEMANTIC-ENCODER-v1.0-a1b2c3d4

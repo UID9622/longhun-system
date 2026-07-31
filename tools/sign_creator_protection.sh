@@ -1,6 +1,7 @@
 #!/bin/bash
 # 龍魂创作者保护协议 · GPG 签名助手
 # DNA: #龍芯⚡️2026-06-21-SIGN-CREATOR-PROTECTION-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -euo pipefail
 

@@ -1,0 +1,170 @@
+import os
+import re
+import json
+import yaml
+from pathlib import Path
+from collections import defaultdict
+
+ROOT = Path('/Users/zuimeidedeyihan')
+OUT = ROOT / '_work' / 'inventory_skills.json'
+
+SEARCH_PATHS = [
+    (ROOT / '.kimi-code' / 'skills', 'kimi'),
+    (ROOT / '.agents' / 'skills', 'agents'),
+    (ROOT / 'longhun-system' / '01_技能库', 'longhun'),
+    (ROOT / 'longhun-system' / 'cnsh-core' / 'cnsh-v2.1' / 'plugins' / 'kimi-cnsh-copilot', 'longhun'),
+]
+
+DNA_RE = re.compile(r'#龍芯⚡️[^\s\]]+')
+
+def parse_frontmatter(text: str):
+    if not text.startswith('---'):
+        return {}, text
+    parts = text.split('---', 2)
+    if len(parts) < 3:
+        return {}, text
+    try:
+        fm = yaml.safe_load(parts[1]) or {}
+    except Exception:
+        fm = {}
+    return fm, parts[2]
+
+def extract_dna(fm, body):
+    candidates = []
+    meta = fm.get('metadata') or {}
+    dna = meta.get('dna') or fm.get('dna')
+    if isinstance(dna, list):
+        candidates.extend(dna)
+    elif dna:
+        candidates.append(str(dna))
+    for m in DNA_RE.finditer(body):
+        candidates.append(m.group(0))
+    seen = set()
+    result = []
+    for c in candidates:
+        c = c.strip().strip('`').strip('"').strip("'")
+        if c and c not in seen:
+            seen.add(c)
+            result.append(c)
+    return result
+
+def clean_description(desc):
+    if not desc:
+        return ''
+    desc = str(desc).replace('\n', ' ').replace('\r', ' ')
+    desc = re.sub(r'\s+', ' ', desc).strip()
+    return desc[:240]
+
+def infer_scope(path: Path):
+    p = str(path)
+    if '.kimi-code/skills' in p:
+        return 'kimi'
+    if '.agents/skills' in p:
+        return 'agents'
+    if 'longhun-system' in p:
+        return 'longhun'
+    return 'unknown'
+
+def infer_category(fm, scope):
+    meta = fm.get('metadata') or {}
+    cat = meta.get('category') or fm.get('category') or meta.get('type')
+    if cat:
+        return str(cat)
+    return scope
+
+def infer_version(fm):
+    meta = fm.get('metadata') or {}
+    ver = meta.get('version') or fm.get('version')
+    return str(ver) if ver else ''
+
+def infer_name(fm, path: Path):
+    meta = fm.get('metadata') or {}
+    name = fm.get('name') or meta.get('name') or meta.get('id') or meta.get('display_name') or fm.get('display_name')
+    if name:
+        return str(name)
+    return path.parent.name
+
+def process_file(path: Path):
+    try:
+        text = path.read_text(encoding='utf-8', errors='ignore')
+    except Exception as e:
+        return None
+    fm, body = parse_frontmatter(text)
+    name = infer_name(fm, path)
+    desc = clean_description(fm.get('description') or (fm.get('metadata') or {}).get('description') or '')
+    dnas = extract_dna(fm, body)
+    scope = infer_scope(path)
+    category = infer_category(fm, scope)
+    version = infer_version(fm)
+    rel = str(path.relative_to(ROOT))
+    return {
+        'path': rel,
+        'absolute_path': str(path),
+        'name': name,
+        'description': desc,
+        'dna': dnas[0] if dnas else '',
+        'dna_all': dnas,
+        'category': category,
+        'version': version,
+        'scope': scope,
+    }
+
+items = []
+for base, default_scope in SEARCH_PATHS:
+    if not base.exists():
+        continue
+    if base.name == 'kimi-cnsh-copilot' and base.is_dir():
+        files = [base / 'SKILL.md']
+    else:
+        files = sorted(base.rglob('SKILL.md'))
+    for f in files:
+        item = process_file(f)
+        if item:
+            items.append(item)
+
+name_groups = defaultdict(list)
+for item in items:
+    name_groups[item['name']].append(item['path'])
+
+priority = {'kimi': 0, 'longhun': 1, 'agents': 2}
+def scope_of_path(p):
+    for it in items:
+        if it['path'] == p:
+            return priority.get(it['scope'], 99)
+    return 99
+
+primary_by_name = {name: min(paths, key=scope_of_path) for name, paths in name_groups.items() if len(paths) > 1}
+
+for item in items:
+    name = item['name']
+    if name in primary_by_name:
+        primary = primary_by_name[name]
+        if item['path'] == primary:
+            item['notes'] = 'primary copy'
+        else:
+            item['notes'] = f'duplicate of {primary}'
+    else:
+        item['notes'] = 'unique'
+
+stats = {
+    'total': len(items),
+    'by_scope': defaultdict(int),
+    'with_dna': sum(1 for it in items if it['dna']),
+    'without_dna': sum(1 for it in items if not it['dna']),
+    'duplicates': sum(1 for it in items if it['notes'].startswith('duplicate')),
+}
+for it in items:
+    stats['by_scope'][it['scope']] += 1
+stats['by_scope'] = dict(stats['by_scope'])
+
+output = {
+    'generated_at': '',
+    'generator': 'build_inventory.py',
+    'stats': stats,
+    'skills': items,
+}
+
+OUT.parent.mkdir(parents=True, exist_ok=True)
+OUT.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding='utf-8')
+print(f'Wrote {len(items)} skills to {OUT}')
+print(json.dumps(stats, ensure_ascii=False, indent=2))

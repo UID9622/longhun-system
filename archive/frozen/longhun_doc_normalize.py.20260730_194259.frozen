@@ -1,0 +1,244 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+龍魂文档规范化工具
+- 繁体转简体（保留龍魂·龍芯品牌繁体龍字）
+- DNA 追溯码统一为 #龍芯⚡️YYYY-MM-DD-MODULE-vVERSION
+- 并列语法统一为中间点 ·
+"""
+
+import re
+import sys
+from datetime import datetime, timezone
+from zhconv import convert
+
+# ---------- 配置 ----------
+BRAND_MAP = {
+    "龍魂": "__LONGHUN__",
+    "龍芯": "__LONGXIN__",
+}
+
+DNA_PATTERN = re.compile(r"#龍[魂跡審芯]⚡️[^\s\n`）】»>,.;，。；\]\)\"\'\{\}]+")
+
+# ---------- 繁简转换 ----------
+
+def protect_brands(text: str) -> str:
+    """转换前保护品牌词和 DNA 码，避免龍字被简化。"""
+    # 保护 DNA 码（含 #龍魂 #龍跡 #龍審 #龍芯）
+    protected_dnas = []
+    def save_dna(m):
+        protected_dnas.append(m.group())
+        return f"__DNA_{len(protected_dnas)-1}__"
+    text = DNA_PATTERN.sub(save_dna, text)
+    # 保护品牌词
+    for brand, token in BRAND_MAP.items():
+        text = text.replace(brand, token)
+    return text, protected_dnas
+
+
+def restore_brands(text: str) -> str:
+    for brand, token in BRAND_MAP.items():
+        text = text.replace(token, brand)
+    return text
+
+
+def traditional_to_simplified(text: str) -> str:
+    text, protected_dnas = protect_brands(text)
+    text = convert(text, "zh-cn")
+    text = restore_brands(text)
+    # 把简体品牌词还原为繁体龍字
+    text = text.replace("龙魂", "龍魂").replace("龙芯", "龍芯")
+    # 特例：繁体龍字·甲骨文编码等表述
+    text = text.replace("繁体龙", "繁体龍")
+    # 恢复 DNA 占位符（后续再统一处理）
+    for i, dna in enumerate(protected_dnas):
+        text = text.replace(f"__DNA_{i}__", dna)
+    return text
+
+
+# ---------- DNA 统一 ----------
+
+PROJECT_DATE = "2026-07-02"
+
+
+def strip_version(body: str):
+    """拆分模块主体与末尾版本号。返回 (body_without_version, version_or_None)。"""
+    m = re.search(r"-(v\d+(?:\.\d+)*)$", body)
+    if m:
+        return body[:m.start()], m.group(1)
+    return body, None
+
+
+def extract_date_and_rest(body: str):
+    """从 DNA body 提取日期与剩余模块名。
+    支持 YYYY-MM-DD-... 或 10 位 Unix 时间戳开头。
+    返回 (date, rest)。
+    """
+    parts = body.split("-")
+    if (
+        len(parts) >= 3
+        and re.fullmatch(r"\d{4}", parts[0])
+        and re.fullmatch(r"\d{2}", parts[1])
+        and re.fullmatch(r"\d{2}", parts[2])
+    ):
+        return f"{parts[0]}-{parts[1]}-{parts[2]}", "-".join(parts[3:])
+    if parts and re.fullmatch(r"\d{10}", parts[0]):
+        # 示例时间戳可能与文档日期不一致，统一使用项目日期
+        return PROJECT_DATE, "-".join(parts[1:])
+    return PROJECT_DATE, body
+
+
+def normalize_system_dna(dna: str) -> str:
+    """统一 #龍芯⚡️ 开头的 DNA。"""
+    body = dna.replace("#龍芯⚡️", "")
+    body, version = strip_version(body)
+    if not version:
+        version = "v1.1"
+    date, rest = extract_date_and_rest(body)
+
+    # 根文档 DNA
+    if "LONGHUN-COMMUNITY-FEEDBACK-BOT-REQ" in rest or "LONGHUN-FEEDBACK-BOT-REQ" in rest:
+        return f"#龍芯⚡️{date}-DOC-FEEDBACK-BOT-REQ-{version}"
+
+    # 章节 DNA
+    m = re.search(r"CH(\d{2})", rest)
+    if m:
+        ch = m.group(1)
+        rest = re.sub(r"^CH\d{2}-", "", rest)
+        rest = re.sub(r"-ADDED$", "", rest)
+        rest = re.sub(r"-IMPLEMENTATION$", "", rest)
+        return f"#龍芯⚡️{date}-DOC-CH{ch}-{rest}-{version}"
+
+    # 其他文档级 DNA 统一加 DOC 前缀
+    rest = re.sub(r"-ADDED$", "", rest)
+    return f"#龍芯⚡️{date}-DOC-{rest}-{version}"
+
+
+def normalize_feedback_dna(dna: str) -> str:
+    """统一 #龍魂⚡️ 开头的反馈级 DNA。"""
+    body = dna.replace("#龍魂⚡️", "")
+    body, _ = strip_version(body)
+    date, _ = extract_date_and_rest(body)
+    m = re.search(r"(FB\d{5,})", body)
+    fb_id = m.group(1) if m else "FB00000"
+    return f"#龍芯⚡️{date}-FB-{fb_id}-v1"
+
+
+def normalize_op_dna(dna: str) -> str:
+    """统一 #龍跡⚡️ 开头的操作级 DNA。"""
+    body = dna.replace("#龍跡⚡️", "")
+    body, _ = strip_version(body)
+    date, rest = extract_date_and_rest(body)
+    return f"#龍芯⚡️{date}-OP-{rest}-v1"
+
+
+def normalize_audit_dna(dna: str) -> str:
+    """统一 #龍審⚡️ 开头的审计级 DNA。"""
+    body = dna.replace("#龍審⚡️", "")
+    body, version = strip_version(body)
+    if not version:
+        version = "v1.1"
+    date, rest = extract_date_and_rest(body)
+    return f"#龍芯⚡️{date}-AUDIT-{rest}-{version}"
+
+
+def unify_dna(text: str) -> str:
+    def repl(m):
+        dna = m.group()
+        if "#龍魂⚡️" in dna:
+            return normalize_feedback_dna(dna)
+        if "#龍跡⚡️" in dna:
+            return normalize_op_dna(dna)
+        if "#龍審⚡️" in dna:
+            return normalize_audit_dna(dna)
+        if "#龍芯⚡️" in dna:
+            return normalize_system_dna(dna)
+        return dna
+    return DNA_PATTERN.sub(repl, text)
+
+
+def normalize_dna_templates(text: str) -> str:
+    """统一 DNA 格式说明模板中的前缀与占位符（3.3 节等）。"""
+    # 反馈级模板（简体占位符）
+    text = text.replace(
+        "#龍魂⚡️{YYYY-MM-DD-HH-MM-SS}-{反馈ID}-{用户哈希}",
+        "#龍芯⚡️{YYYY-MM-DD}-FB-{反馈ID}-v{版本号}"
+    )
+    # 操作级模板
+    text = text.replace(
+        "#龍跡⚡️{时间戳}-{操作类型}-{操作人}-{关联反馈ID}",
+        "#龍芯⚡️{YYYY-MM-DD}-OP-{操作类型}-{操作人}-{关联反馈ID}-v{版本号}"
+    )
+    text = text.replace(
+        "#龙迹⚡️{时间戳}-{操作类型}-{操作人}-{关联反馈ID}",
+        "#龍芯⚡️{YYYY-MM-DD}-OP-{操作类型}-{操作人}-{关联反馈ID}-v{版本号}"
+    )
+    # 审计级模板
+    text = text.replace(
+        "#龍審⚡️{日期}-{审计项}-{结果}-{审计人}",
+        "#龍芯⚡️{YYYY-MM-DD}-AUDIT-{审计项}-v{版本号}"
+    )
+    text = text.replace(
+        "#龙审⚡️{日期}-{审计项}-{结果}-{审计人}",
+        "#龍芯⚡️{YYYY-MM-DD}-AUDIT-{审计项}-v{版本号}"
+    )
+    # 系统级模板
+    text = text.replace(
+        "#龍芯⚡️{YYYY-MM-DD}-{项目}-{模块}-{UID}",
+        "#龍芯⚡️{YYYY-MM-DD}-DOC-{模块名}-v{版本号}"
+    )
+    return text
+
+
+# ---------- 并列语法 ----------
+
+def unify_parallel(text: str) -> str:
+    """把相邻中文字符之间的顿号、斜杠统一为中间点 ·。"""
+    # 迭代替换，直到没有变化
+    prev = None
+    while prev != text:
+        prev = text
+        # 中文字符之间的顿号或斜杠 → ·
+        text = re.sub(r"([\u4e00-\u9fa5])\s*[、/]\s*([\u4e00-\u9fa5])", r"\1·\2", text)
+        # 中文与英文/数字之间的顿号或斜杠 → ·
+        text = re.sub(r"([\u4e00-\u9fa5])\s*[、/]\s*([A-Za-z0-9])", r"\1·\2", text)
+        text = re.sub(r"([A-Za-z0-9])\s*[、/]\s*([\u4e00-\u9fa5])", r"\1·\2", text)
+        # 英文/数字与中文之间的 + 号（如"启动技能 + 搜索"）→ ·
+        text = re.sub(r"([\u4e00-\u9fa5])\s*\+\s*([\u4e00-\u9fa5])", r"\1·\2", text)
+        text = re.sub(r"([A-Za-z0-9])\s*\+\s*([\u4e00-\u9fa5])", r"\1·\2", text)
+    return text
+
+
+# ---------- 主流程 ----------
+
+def normalize_file(path: str, out_path: str | None = None) -> str:
+    with open(path, "r", encoding="utf-8") as f:
+        text = f.read()
+
+    text = traditional_to_simplified(text)
+    text = unify_dna(text)
+    text = unify_parallel(text)
+
+    # 统一中间点格式：去掉 " · " 两侧空格
+    text = text.replace(" · ", "·")
+
+    # 处理 3.3 节等 DNA 格式说明模板（含 { }，未被 DNA_PATTERN 捕获）
+    text = normalize_dna_templates(text)
+
+    # 清理因占位符残留可能导致的异常（理论上不应出现）
+    text = re.sub(r"__DNA_\d+__", "", text)
+
+    target = out_path or path
+    with open(target, "w", encoding="utf-8") as f:
+        f.write(text)
+    return target
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("用法: python3 longhun_doc_normalize.py <输入文件> [输出文件]")
+        sys.exit(1)
+    in_file = sys.argv[1]
+    out_file = sys.argv[2] if len(sys.argv) > 2 else None
+    target = normalize_file(in_file, out_file)
+    print(f"已规范化: {target}")

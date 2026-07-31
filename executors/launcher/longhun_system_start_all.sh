@@ -4,6 +4,7 @@
 # 功能: 自动启动龍魂系统的所有必要服务
 # 用法: bash longhun_system_start_all.sh
 # DNA:#龍芯⚡️2026-06-07-LONGHUN-START-ALL-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # ═══════════════════════════════════════════════════════════════
 
 set -e

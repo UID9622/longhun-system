@@ -1,0 +1,68 @@
+# 龍魂 · 省电 API · 容器编排
+# DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-DOCKER-COMPOSE-API-v2.0
+# 一键部署: docker compose -f docker/docker-compose.api.yml up -d
+
+version: '3.8'
+
+services:
+  # ===== Redis 消息队列 =====
+  redis:
+    image: redis:7-alpine
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # ===== 省电 API 服务（多实例） =====
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.api.v2
+    restart: always
+    ports:
+      - "9622:9622"
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - DATABASE_URL=sqlite:///app/data/usage.db
+      - LH_API_KEY=${LH_API_KEY:-}
+      - LH_API_TIMEOUT=300
+      - PYTHONUNBUFFERED=1
+      - TZ=Asia/Shanghai
+    depends_on:
+      redis:
+        condition: service_healthy
+    volumes:
+      - api_data:/app/data
+      - api_logs:/app/logs
+
+  # ===== RQ Worker（消费异步任务） =====
+  worker:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.api.v2
+    restart: always
+    command: ["python3", "-u", "bin/lh_worker.py"]
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - DATABASE_URL=sqlite:///app/data/usage.db
+      - PYTHONUNBUFFERED=1
+      - TZ=Asia/Shanghai
+    depends_on:
+      redis:
+        condition: service_healthy
+    volumes:
+      - api_data:/app/data
+      - api_logs:/app/logs
+    deploy:
+      replicas: 2  # 两个 worker 并行消费
+
+volumes:
+  redis_data:
+  api_data:
+  api_logs:

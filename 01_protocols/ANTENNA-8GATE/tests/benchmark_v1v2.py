@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·大有-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # ============================================================
 # 龍魂 · ANTENNA-8GATE v1 vs v2 全面基准测试
 # DNA：#龍芯⚡️丙午·乙未·丙申·未时·☲离-BENCHMARK-V1V2-SEMANTIC-a1b2c3d4

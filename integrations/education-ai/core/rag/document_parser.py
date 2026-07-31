@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·未济-FIX_DNA-v1.0
 # core/rag/document_parser.py
 # 龍魂 · 文档解析引擎 · 支持多格式教育资料
 

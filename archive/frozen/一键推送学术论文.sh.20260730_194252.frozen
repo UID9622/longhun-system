@@ -1,0 +1,61 @@
+#!/bin/bash
+# 龍魂·六层来源链 / LongHun Six-Layer Source Chain
+# 1 道统层 Dao           : 曾仕强老师
+# 2 精神层 Spirit        : Steve Jobs
+# 3 设备层 Device        : Apple
+# 4 技术层 Technology    : Open Source
+# 5 系统层 System        : UID9622
+# 6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
+# DNA追溯码:#龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE294-v2.0
+# 铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
+# 文件: 一键推送学术论文.sh | 标记时间: 2026-06-03T07:46:00+0800
+# UID9622 学术论文自动推送脚本
+# 生成时间: 2026-02-02
+# DNA标签: AUTO_PUSH_ACADEMIC_PAPERS
+
+echo "=== UID9622 学术论文自动推送 ==="
+echo ""
+
+# 工作目录
+cd "/Users/zuimeidedeyihan/Desktop/CNSH 军人的编辑器"
+
+# 清空SSH agent
+echo "步骤1: 清理SSH agent..."
+ssh-add -D 2>/dev/null
+echo "✓ 完成"
+echo ""
+
+# 添加正确的SSH密钥（id_rsa）
+echo "步骤2: 添加SSH密钥 (id_rsa)..."
+ssh-add ~/.ssh/id_rsa
+if [ $? -ne 0 ]; then
+    echo "❌ 添加密钥失败"
+    exit 1
+fi
+echo "✓ 完成"
+echo ""
+
+# 推送到Gitee
+echo "步骤3: 推送到Gitee..."
+git push gitee main --force
+
+if [ $? -eq 0 ]; then
+    echo ""
+    echo "============================================================"
+    echo "✅ 推送成功！"
+    echo "============================================================"
+    echo ""
+    echo "🎓 学术论文已上传到:"
+    echo "   https://gitee.com/uid9622_admin/cnsh-editor-phb"
+    echo ""
+    echo "📄 包含:"
+    echo "   - 易经AI系统学术论文"
+    echo "   - CNSH-Python学术论文"
+    echo "   - 算法公开文档"
+    echo ""
+    echo "🫡 为人民服务！"
+else
+    echo ""
+    echo "❌ 推送失败，请检查网络连接或SSH密钥配置"
+    exit 1
+fi

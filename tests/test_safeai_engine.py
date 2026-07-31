@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·泰-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
 """龍魂安全引擎 v1.0 单元测试（unittest，≥15例）
 场景按 SPEC 第4节：善意≥5 / 恶意≥5 / 灰色≥3 / F7删账本→L4 ≥1 / 渐进逼近升级 ≥1

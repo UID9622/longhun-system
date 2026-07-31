@@ -1,0 +1,211 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+全量获取 Notion 页面内容并生成本地摘要/DNA（并发限速版）
+DNA: #龍芯⚡️2026-07-01-NOTION-FETCH-ALL-v1.1
+"""
+import hashlib
+import json
+import os
+import subprocess
+import sys
+import threading
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from pathlib import Path
+from datetime import datetime, timezone
+
+sys.stdout.reconfigure(line_buffering=True)
+
+HOME = Path.home()
+OUT_DIR = HOME / "longhun-system" / "notion_absorb"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+DNA_PREFIX = "#龍芯⚡️"
+
+TOKEN = os.environ.get("NOTION_TOKEN") or os.environ.get("LONGHUN_NOTION_TOKEN")
+if not TOKEN:
+    print("🔴 未找到 NOTION_TOKEN", flush=True)
+    sys.exit(1)
+
+HEADERS = [
+    "-H", f"Authorization: Bearer {TOKEN}",
+    "-H", "Notion-Version: 2022-06-28",
+    "-H", "Content-Type: application/json",
+]
+
+rate_lock = threading.Lock()
+last_request_time = [0.0]
+MIN_INTERVAL = 0.35  # 每秒约 3 个请求
+
+
+def log(msg):
+    print(f"[{datetime.now(timezone.utc).isoformat()}] {msg}", flush=True)
+
+
+def rate_limited_notion_api(method, endpoint, payload=None):
+    with rate_lock:
+        elapsed = time.time() - last_request_time[0]
+        if elapsed < MIN_INTERVAL:
+            time.sleep(MIN_INTERVAL - elapsed)
+        last_request_time[0] = time.time()
+    
+    url = f"https://api.notion.com/v1/{endpoint}"
+    args = ["curl", "-s", "-S", "-L", "--max-time", "60", "-X", method] + HEADERS
+    data_file = None
+    try:
+        if payload is not None:
+            data_file = Path(f"/tmp/.notion_fetch_{threading.current_thread().ident}_{os.getpid()}.json")
+            data_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+            args += ["-d", f"@{data_file}"]
+        args.append(url)
+        proc = subprocess.run(args, capture_output=True, text=True, timeout=65)
+        if proc.returncode != 0:
+            return {"ok": False, "error": proc.stderr[:500]}
+        return {"ok": True, "data": json.loads(proc.stdout)}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+    finally:
+        if data_file and data_file.exists():
+            data_file.unlink()
+
+
+def generate_dna(tag):
+    ts = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S%f")
+    h = hashlib.sha256(f"{tag}:{ts}".encode()).hexdigest()[:8].upper()
+    return f"{DNA_PREFIX}{ts}-{tag}-{h}"
+
+
+def fetch_all_blocks(page_id):
+    blocks = []
+    cursor = None
+    while True:
+        endpoint = f"blocks/{page_id}/children?page_size=100"
+        if cursor:
+            endpoint += f"&start_cursor={cursor}"
+        resp = rate_limited_notion_api("GET", endpoint)
+        if not resp["ok"]:
+            return blocks, resp.get("error")
+        data = resp["data"]
+        blocks.extend(data.get("results", []))
+        cursor = data.get("next_cursor")
+        if not cursor:
+            break
+    return blocks, None
+
+
+def extract_text(blocks):
+    texts = []
+    for b in blocks:
+        t = b.get("type", "")
+        if t in ["paragraph", "heading_1", "heading_2", "heading_3", "bulleted_list_item", "numbered_list_item", "quote", "callout", "toggle"]:
+            rich = b.get(t, {}).get("rich_text", [])
+            txt = "".join(r.get("plain_text", "") for r in rich)
+            if txt.strip():
+                texts.append(txt)
+        elif t == "child_page":
+            texts.append(f"[子页面: {b.get('child_page', {}).get('title', '')}]")
+        elif t == "child_database":
+            texts.append("[子数据库]")
+    return "\n".join(texts)
+
+
+def summarize(text, max_chars=800):
+    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+    return " ".join(lines[:20])[:max_chars]
+
+
+def load_progress():
+    p = OUT_DIR / "_fetch_progress.json"
+    if p.exists():
+        return json.loads(p.read_text(encoding="utf-8"))
+    return {"done": [], "failed": []}
+
+
+def save_progress(progress):
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    p = OUT_DIR / "_fetch_progress.json"
+    p.write_text(json.dumps(progress, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def process_one_page(page, content_dir, progress_lock, progress, done_set, failed_set):
+    pid = page["id"]
+    title = page.get("title", "")
+    if pid in done_set:
+        return None
+    
+    blocks, err = fetch_all_blocks(pid)
+    if err:
+        with progress_lock:
+            failed_set.add(pid)
+            progress["failed"] = sorted(list(failed_set))
+            save_progress(progress)
+        return (pid, False, err)
+    
+    text = extract_text(blocks)
+    summary = summarize(text)
+    dna = generate_dna(f"NOTION-{pid}")
+    record = {
+        "page_id": pid,
+        "title": title,
+        "url": page.get("url"),
+        "dna": dna,
+        "summary": summary,
+        "text_preview": text[:3000],
+        "block_count": len(blocks),
+        "fetched_at": datetime.now(timezone.utc).isoformat(),
+    }
+    (content_dir / f"{pid}.json").write_text(json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")
+    with progress_lock:
+        done_set.add(pid)
+        progress["done"] = sorted(list(done_set))
+        save_progress(progress)
+    return (pid, True, None)
+
+
+def main():
+    scan_path = OUT_DIR / "workspace_scan.json"
+    if not scan_path.exists():
+        log("🔴 workspace_scan.json 不存在")
+        return
+    scan = json.loads(scan_path.read_text(encoding="utf-8"))
+    pages = scan.get("pages", [])
+    log(f"🟢 开始获取 {len(pages)} 个页面的内容（并发限速）")
+
+    progress = load_progress()
+    done_set = set(progress.get("done", []))
+    failed_set = set(progress.get("failed", []))
+    progress_lock = threading.Lock()
+
+    content_dir = OUT_DIR / "page_contents"
+    content_dir.mkdir(exist_ok=True)
+
+    # 过滤掉已处理的页面
+    todo_pages = [p for p in pages if p["id"] not in done_set]
+    log(f"🟢 待处理页面: {len(todo_pages)}")
+
+    completed = len(done_set)
+    with ThreadPoolExecutor(max_workers=3) as executor:
+        future_to_page = {
+            executor.submit(process_one_page, p, content_dir, progress_lock, progress, done_set, failed_set): p
+            for p in todo_pages
+        }
+        for future in as_completed(future_to_page):
+            page = future_to_page[future]
+            completed += 1
+            try:
+                result = future.result()
+                if result:
+                    pid, ok, err = result
+                    if ok:
+                        if completed % 50 == 0:
+                            log(f"🟢 [{completed}/{len(pages)}] 最新完成: {page.get('title','')[:40] or '(无标题)'}")
+                    else:
+                        log(f"🔴 [{completed}/{len(pages)}] 失败 {pid}: {err}")
+            except Exception as e:
+                log(f"🔴 [{completed}/{len(pages)}] 异常: {e}")
+
+    log(f"🟢 内容获取完成：成功 {len(done_set)}，失败 {len(failed_set)}")
+
+
+if __name__ == "__main__":
+    main()

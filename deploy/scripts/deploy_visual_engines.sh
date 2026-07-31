@@ -1,6 +1,7 @@
 #!/bin/bash
 # 龍魂视觉引擎群 · 鲲鹏一键部署
 # DNA: #龍芯⚡️丙午·癸未·丁未-视觉引擎群部署-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 set -e

@@ -2,6 +2,7 @@
 # 🐉 龍魂 · systemd 服务 + Nginx 部署配置脚本
 # 用途: 在 openEuler 上部署 systemd 守护服务 + Nginx 反向代理
 # DNA: #龍芯⚡️2026-07-06-KUNPENG-SYSTEMD-SETUP-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -euo pipefail
 

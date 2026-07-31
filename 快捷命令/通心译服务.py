@@ -1,1 +1,0 @@
-../bin/lh_tongxinyi_backend.py

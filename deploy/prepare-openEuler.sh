@@ -5,6 +5,7 @@
 # 执行方式: 将此脚本上传到服务器后以 root 执行
 #          ssh root@mgmt-ip 'bash -s' < prepare-openEuler.sh
 # DNA: #龍芯⚡️2026-07-06-KUNPENG-OPENEULER-PREPARE-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -euo pipefail
 

@@ -1,5 +1,4 @@
-{"_dna": "#龍芯⚡️2026-06-21-CONFIG-NOTION_IMPORT_TEMPLATE-v1.0",
-
+{
   "databases": [
     {
       "name": "🧠 人格内核花名册",
@@ -139,6 +138,5 @@
       "name": "⚖️ 冲突仲裁决策表",
       "rows": []
     }
-  ],
-  "_dna": "2026-06-21-CONFIG-NOTION_IMPORT_TEMPLATE-v1.0"
+  ]
 }

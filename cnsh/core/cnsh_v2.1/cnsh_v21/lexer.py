@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
 """
 CNSH v2.1 词法分析器 (Lexer)
@@ -216,40 +217,12 @@ class Lexer:
             self.tokens.append(Token(kind, name, start_line, start_col, self.file))
 
     def _emit_cjk_tokens(self, text: str, start_line: int, start_col: int):
-        """对连续中文文本做最长关键字匹配切分。
-        从右向左贪心匹配最长关键字，连续的非关键字 CJK 字符合并为一个标识符。
+        """对连续 CJK 标识符文本做关键字/标识符判定。
+        连续文本作为一个整体：若整体命中关键字则输出关键字，否则输出标识符。
+        这样可避免关键字前缀把复合名称（如 写入文件、全局变量）拆开。
         """
-        pos = 0
-        col = start_col
-        while pos < len(text):
-            matched = False
-            # 从最长可能长度开始向下匹配（最多8字，覆盖"数字根熔断"等复合词）
-            max_len = min(len(text) - pos, 8)
-            for length in range(max_len, 0, -1):
-                candidate = text[pos:pos + length]
-                if candidate in KEYWORDS:
-                    kind = KEYWORDS[candidate]
-                    self.tokens.append(Token(kind, candidate, start_line, col, self.file))
-                    pos += length
-                    col += length
-                    matched = True
-                    break
-            if not matched:
-                # 连续非关键字 CJK 合并为一个标识符
-                ident = ""
-                while pos < len(text):
-                    ch = text[pos]
-                    # 检查以当前 pos 开头的任意长度子串是否为关键字
-                    is_kw = False
-                    max_check = min(len(text) - pos, 8)
-                    for length in range(1, max_check + 1):
-                        if text[pos:pos + length] in KEYWORDS:
-                            is_kw = True
-                            break
-                    if is_kw:
-                        break
-                    ident += ch
-                    pos += 1
-                if ident:
-                    self.tokens.append(Token("IDENTIFIER", ident, start_line, col, self.file))
-                    col += len(ident)
+        if text in KEYWORDS:
+            kind = KEYWORDS[text]
+            self.tokens.append(Token(kind, text, start_line, start_col, self.file))
+        else:
+            self.tokens.append(Token("IDENTIFIER", text, start_line, start_col, self.file))

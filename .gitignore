@@ -237,3 +237,5 @@ models/longhun-v1.0/training_corpus_v3.0.md
 archive/brain_old/
 data/
 models/longhun-v1.0/
+engines/gpt_sovits
+tts/fish-speech

@@ -4,6 +4,7 @@
 #!/bin/bash
 # 龍魂 MCP 认证桥接 · 一键安装脚本 v0.1
 # DNA: #龍芯⚡️20260525|MCP-INSTALL|v0.1|e5c407ec
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
 

@@ -1,6 +1,7 @@
 #!/bin/bash
 # 龍魂每日复盘·一键配置脚本
 # DNA:#龍芯⚡️2026-06-09-DAILY-REVIEW-SETUP-FILE1-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
 

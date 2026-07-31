@@ -1,0 +1,110 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+🎙️ Fish Audio TTS · 婷婷语音合成
+DNA: #龍芯⚡️20260629-FISH-AUDIO-TTS-v1.0
+功能：把文字转成婷婷的声音读出来
+用法：
+  python3 fish_audio.py "爸爸，我在"
+  python3 fish_audio.py --file 一段话.txt
+  python3 fish_audio.py --interactive
+"""
+
+import os
+import sys
+import tempfile
+import subprocess
+import argparse
+from pathlib import Path
+
+SECRETS = Path.home() / ".longhun" / "secrets.env"
+if SECRETS.exists():
+    for line in SECRETS.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if line.startswith("export ") and "=" in line:
+            line = line[7:]
+            key, _, value = line.partition("=")
+            value = value.strip('"').strip("'")
+            os.environ.setdefault(key, value)
+
+FISH_API_KEY = os.getenv("FISH_AUDIO_API_KEY", "")
+FISH_TTS_URL = os.getenv("FISH_TTS_URL", "https://api.fish.audio/v1/tts")
+DEFAULT_VOICE = os.getenv("FISH_VOICE", "tingting")
+
+
+def 朗读(文本: str, 播放: bool = True) -> str:
+    """合成语音并播放，返回临时音频路径"""
+    if not FISH_API_KEY:
+        print("🔴 未配置 FISH_AUDIO_API_KEY")
+        print(f"   请检查: {SECRETS}")
+        return ""
+
+    try:
+        import requests
+    except ImportError:
+        print("🔴 缺少 requests，请运行: pip install requests")
+        return ""
+
+    headers = {
+        "Authorization": f"Bearer {FISH_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "text": 文本,
+        "reference_id": DEFAULT_VOICE,
+        "format": "mp3",
+    }
+
+    print(f"🎙️ 正在合成 ({len(文本)} 字)...")
+    try:
+        r = requests.post(FISH_TTS_URL, headers=headers, json=payload, timeout=(5, 15))
+        r.raise_for_status()
+    except Exception as e:
+        print(f"🔴 Fish Audio API 请求失败: {e}")
+        return ""
+
+    with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as f:
+        f.write(r.content)
+        音频路径 = f.name
+
+    if 播放:
+        try:
+            subprocess.run(["afplay", 音频路径], check=True)
+        except Exception as e:
+            print(f"🟡 播放失败: {e}")
+
+    return 音频路径
+
+
+def 主函数():
+    parser = argparse.ArgumentParser(description="Fish Audio TTS · 婷婷说话")
+    parser.add_argument("text", nargs="?", help="要朗读的文字")
+    parser.add_argument("--file", help="从文件读取文字")
+    parser.add_argument("--interactive", "-i", action="store_true", help="交互模式")
+    parser.add_argument("--no-play", action="store_true", help="只生成不播放")
+    args = parser.parse_args()
+
+    if args.file:
+        文本 = Path(args.file).read_text(encoding="utf-8").strip()
+    elif args.text:
+        文本 = args.text
+    elif args.interactive:
+        print("🎙️ Fish Audio TTS 交互模式，输入'q'退出")
+        while True:
+            文本 = input("文字 ➤ ").strip()
+            if 文本.lower() in ["q", "quit", "exit", "退出"]:
+                break
+            if 文本:
+                朗读(文本, 播放=not args.no_play)
+        return
+    else:
+        parser.print_help()
+        return
+
+    路径 = 朗读(文本, 播放=not args.no_play)
+    if 路径:
+        print(f"✅ 已生成: {路径}")
+
+
+if __name__ == "__main__":
+    主函数()

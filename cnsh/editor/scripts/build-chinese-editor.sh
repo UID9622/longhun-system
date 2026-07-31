@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 编译龍码中文编辑器桌面 App
 # DNA:#龍芯⚡️2026-06-18-LONGHUN-BUILD-CHINESE-EDITOR-FILE1-FILE1-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SOURCE="$ROOT/editor/launcher.applescript"

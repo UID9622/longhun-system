@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·噬嗑-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️丙午·丙申·癸酉·庚申·临-太极递归与五行图论-v1.0-f55e8318
 # CREATOR: 诸葛鑫 (UID9622)

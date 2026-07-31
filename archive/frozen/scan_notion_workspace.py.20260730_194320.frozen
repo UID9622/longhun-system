@@ -1,0 +1,125 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Notion 工作空间全量扫描
+DNA: #龍芯⚡️2026-07-01-NOTION-ABSORB-SCAN-v1.0
+"""
+import json
+import os
+import subprocess
+import sys
+import time
+from pathlib import Path
+from datetime import datetime, timezone
+
+# 无缓冲输出
+sys.stdout.reconfigure(line_buffering=True)
+
+HOME = Path.home()
+OUT_DIR = HOME / "longhun-system" / "notion_absorb"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+DNA = "#龍芯⚡️2026-07-01-NOTION-ABSORB-SCAN-v1.0"
+
+TOKEN = os.environ.get("NOTION_TOKEN") or os.environ.get("LONGHUN_NOTION_TOKEN")
+if not TOKEN:
+    print("🔴 未找到 NOTION_TOKEN 环境变量")
+    sys.exit(1)
+
+HEADERS = [
+    "-H", f"Authorization: Bearer {TOKEN}",
+    "-H", "Notion-Version: 2022-06-28",
+    "-H", "Content-Type: application/json",
+]
+
+
+def log(msg):
+    print(f"[{datetime.now(timezone.utc).isoformat()}] {msg}", flush=True)
+
+
+def notion_api(method, endpoint, payload=None):
+    url = f"https://api.notion.com/v1/{endpoint}"
+    args = ["curl", "-s", "-S", "-L", "--max-time", "60", "-X", method] + HEADERS
+    data_file = None
+    try:
+        if payload is not None:
+            data_file = Path(f"/tmp/.notion_absorb_{os.getpid()}.json")
+            data_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+            args += ["-d", f"@{data_file}"]
+        args.append(url)
+        proc = subprocess.run(args, capture_output=True, text=True, timeout=65)
+        if proc.returncode != 0:
+            return {"ok": False, "error": proc.stderr[:500]}
+        return {"ok": True, "data": json.loads(proc.stdout)}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+    finally:
+        if data_file and data_file.exists():
+            data_file.unlink()
+
+
+def get_title(obj):
+    if obj.get("object") == "database":
+        title_parts = obj.get("title", [])
+        return "".join(t.get("plain_text", "") for t in title_parts)
+    if obj.get("object") == "page":
+        props = obj.get("properties", {})
+        for key in ["title", "Name", "Title"]:
+            if key in props:
+                title_obj = props[key]
+                if "title" in title_obj:
+                    return "".join(t.get("plain_text", "") for t in title_obj["title"])
+    return ""
+
+
+def scan_all():
+    all_results = []
+    next_cursor = None
+    page = 0
+    max_pages = 10000
+    while page < max_pages:
+        page += 1
+        payload = {"query": "", "page_size": 20}
+        if next_cursor:
+            payload["start_cursor"] = next_cursor
+        resp = notion_api("POST", "search", payload)
+        if not resp["ok"]:
+            log(f"🔴 page {page} failed: {resp.get('error')}")
+            break
+        data = resp["data"]
+        # 检查 API 错误
+        if "results" not in data:
+            log(f"🔴 page {page} unexpected response: {json.dumps(data, ensure_ascii=False)[:200]}")
+            break
+        results = data.get("results", [])
+        all_results.extend(results)
+        log(f"🟢 page {page}: {len(results)} results, total {len(all_results)}")
+        tmp_path = OUT_DIR / f"_scan_partial_{page:04d}.json"
+        tmp_path.write_text(json.dumps({"page": page, "results": results}, ensure_ascii=False), encoding="utf-8")
+        next_cursor = data.get("next_cursor")
+        if not next_cursor:
+            log("🟢 无更多分页，扫描完成")
+            break
+        time.sleep(0.5)
+
+    pages = [r for r in all_results if r.get("object") == "page"]
+    databases = [r for r in all_results if r.get("object") == "database"]
+
+    summary = {
+        "dna": DNA,
+        "scanned_at": datetime.now(timezone.utc).isoformat(),
+        "total": len(all_results),
+        "pages_count": len(pages),
+        "databases_count": len(databases),
+        "pages": [{"id": r["id"], "title": get_title(r), "url": r.get("url"), "parent": r.get("parent")} for r in pages],
+        "databases": [{"id": r["id"], "title": get_title(r), "url": r.get("url")} for r in databases],
+    }
+
+    out_path = OUT_DIR / "workspace_scan.json"
+    out_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    log(f"🟢 扫描完成：{len(pages)} 页面，{len(databases)} 数据库")
+    log(f"🟢 结果保存：{out_path}")
+    return summary
+
+
+if __name__ == "__main__":
+    scan_all()

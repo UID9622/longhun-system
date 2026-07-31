@@ -9,6 +9,9 @@
 > 平台：本地
 > 审核状态：草稿
 
+> #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+> 📄 plist验证器 | 龍魂系统 · 源头已验证
+
 **DNA**: `#龍芯⚡️2026-07-06-PLIST-VALIDATOR-v1.0-PLSTVL`
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬PLIST`
 

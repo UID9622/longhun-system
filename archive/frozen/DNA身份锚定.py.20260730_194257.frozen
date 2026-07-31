@@ -1,0 +1,644 @@
+#龍芯⚡️2026-06-19-CNSH-dnatoken-DNA身份锚定-v1.0
+"""
+通心译 | TongXinYi: DNA Identity Anchor
+龍魂体系·DNA身份锚定 — 国密SM3哈希 + SM2椭圆曲线签名 + 六十四卦 + 甲骨文编码
+
+SM3: 国密密码杂凑算法，输出256位哈希值
+SM2: 国密椭圆曲线公钥密码算法，基于secp256k1同源曲线
+六十四卦: 周易编码系统，用于身份特征映射
+甲骨文: 商代文字编码，用于生物特征盐值混淆
+"""
+# 🟢 君子协议 | JunZi Protocol: CC BY-NC-SA 4.0
+# 🟡 AI Truth Protocol: All outputs must be verifiable and traceable
+# 🔴 DNA Trace: #龍芯⚡️2026-06-19-CNSH-dnatoken-DNA身份锚定-v1.0
+
+import hashlib
+import json
+import os
+import secrets
+import struct
+from datetime import datetime
+from typing import Dict, List, Optional, Tuple, Any
+
+__版本__ = "v1.0"
+__dna__ = "#龍芯⚡️2026-06-19-CNSH-dnatoken-DNA身份锚定-v1.0"
+
+
+# ═══════════════════════════════════════════════════════════════
+# 六十四卦名表 | 64 Hexagram Names
+# ═══════════════════════════════════════════════════════════════
+卦名表 = [
+    "乾为天", "坤为地", "水雷屯", "山水蒙", "水天需", "天水讼", "地水师", "水地比",
+    "风天小畜", "天泽履", "地天泰", "天地否", "天火同人", "火天大有", "地山谦", "雷地豫",
+    "泽雷随", "山风蛊", "地泽临", "风地观", "火雷噬嗑", "山火贲", "山地剥", "地雷复",
+    "天雷无妄", "山天大畜", "山雷颐", "泽风大过", "坎为水", "离为火", "泽山咸", "雷风恒",
+    "天山遁", "雷天大壮", "火地晋", "地火明夷", "风火家人", "火泽睽", "水山蹇", "雷水解",
+    "山泽损", "风雷益", "泽天夬", "天风姤", "泽地萃", "地风升", "泽水困", "水风井",
+    "泽火革", "火风鼎", "震为雷", "艮为山", "风山渐", "雷归妹", "雷火丰", "火山旅",
+    "巽为风", "兑为泽", "风水涣", "水泽节", "风泽中孚", "雷山小过", "水火既济", "火水未济"
+]
+
+# 吉凶评断 | Fortune Assessment
+卦吉凶表 = {
+    "乾为天": "大吉", "坤为地": "大吉", "水雷屯": "凶", "山水蒙": "凶",
+    "水天需": "吉", "天水讼": "凶", "地水师": "凶", "水地比": "吉",
+    "风天小畜": "平", "天泽履": "吉", "地天泰": "大吉", "天地否": "凶",
+    "天火同人": "吉", "火天大有": "大吉", "地山谦": "吉", "雷地豫": "平",
+    "泽雷随": "吉", "山风蛊": "凶", "地泽临": "吉", "风地观": "平",
+    "火雷噬嗑": "凶", "山火贲": "平", "山地剥": "凶", "地雷复": "吉",
+    "天雷无妄": "凶", "山天大畜": "吉", "山雷颐": "吉", "泽风大过": "凶",
+    "坎为水": "凶", "离为火": "吉", "泽山咸": "吉", "雷风恒": "吉",
+    "天山遁": "平", "雷天大壮": "吉", "火地晋": "吉", "地火明夷": "凶",
+    "风火家人": "吉", "火泽睽": "凶", "水山蹇": "凶", "雷水解": "吉",
+    "山泽损": "凶", "风雷益": "大吉", "泽天夬": "吉", "天风姤": "凶",
+    "泽地萃": "吉", "地风升": "吉", "泽水困": "凶", "水风井": "平",
+    "泽火革": "吉", "火风鼎": "大吉", "震为雷": "吉", "艮为山": "平",
+    "风山渐": "吉", "雷归妹": "凶", "雷火丰": "吉", "火山旅": "凶",
+    "巽为风": "吉", "兑为泽": "吉", "风水涣": "平", "水泽节": "吉",
+    "风泽中孚": "吉", "雷山小过": "凶", "水火既济": "吉", "火水未济": "凶"
+}
+
+# ═══════════════════════════════════════════════════════════════
+# 甲骨文对照表 | Oracle Bone Script Mapping
+# ═══════════════════════════════════════════════════════════════
+甲骨文对照 = {
+    '0': '〇', '1': '壹', '2': '贰', '3': '参', '4': '肆',
+    '5': '伍', '6': '陆', '7': '柒', '8': '捌', '9': '玖',
+    'a': '日', 'b': '月', 'c': '山', 'd': '水', 'e': '火', 'f': '木',
+}
+
+# ═══════════════════════════════════════════════════════════════
+# SM3 国密哈希算法 (纯Python实现)
+# ═══════════════════════════════════════════════════════════════
+class SM3哈希器:
+    """
+    通心译 | TongXinYi: SM3 Cryptographic Hash Algorithm
+    中国国家密码管理局发布的密码杂凑算法，输出256位(32字节)哈希值
+    """
+
+    # SM3初始向量IV (256位，8个32位字)
+    IV = [
+        0x7380166F, 0x4914B2B9, 0x172442D7, 0xDA8A0600,
+        0xA96F30BC, 0x163138AA, 0xE38DEE4D, 0xB0FB0E4E
+    ]
+
+    # SM3常量T_j
+    @staticmethod
+    def _Tj(索引):
+        """🔴 SM3常量T_j | SM3 constant T_j"""
+        if 0 <= 索引 <= 15:
+            return 0x79CC4519
+        else:
+            return 0x7A879D8A
+
+    @staticmethod
+    def _左移(值, 位数):
+        """🔴 循环左移 | Circular left shift"""
+        位数 %= 32
+        return ((值 << 位数) & 0xFFFFFFFF) | (值 >> (32 - 位数))
+
+    @staticmethod
+    def _FF(索引, X, Y, Z):
+        """🔴 SM3布尔函数FF | Boolean function FF"""
+        if 0 <= 索引 <= 15:
+            return X ^ Y ^ Z
+        else:
+            return (X & Y) | (X & Z) | (Y & Z)
+
+    @staticmethod
+    def _GG(索引, X, Y, Z):
+        """🔴 SM3布尔函数GG | Boolean function GG"""
+        if 0 <= 索引 <= 15:
+            return X ^ Y ^ Z
+        else:
+            return (X & Y) | ((~X) & Z)
+
+    @staticmethod
+    def _P0(X):
+        """🔴 压缩函数P0 | Permutation P0"""
+        return X ^ SM3哈希器._左移(X, 9) ^ SM3哈希器._左移(X, 17)
+
+    @staticmethod
+    def _P1(X):
+        """🔴 消息扩展函数P1 | Permutation P1"""
+        return X ^ SM3哈希器._左移(X, 15) ^ SM3哈希器._左移(X, 23)
+
+    @classmethod
+    def 哈希(cls, 消息: bytes) -> bytes:
+        """
+        🟢 计算SM3哈希值 | Compute SM3 hash
+        :param 消息: 输入字节串
+        :return: 32字节(256位)哈希值
+        """
+        # 消息填充
+        位长度 = len(消息) * 8
+        填充消息 = bytearray(消息)
+        填充消息.append(0x80)
+
+        # 填充至长度 ≡ 448 (mod 512) 位
+        while (len(填充消息) * 8) % 512 != 448:
+            填充消息.append(0x00)
+
+        # 添加64位原始长度（大端序）
+        填充消息.extend(struct.pack('>Q', 位长度))
+
+        # 初始向量
+        寄存器 = list(cls.IV)
+
+        # 分组处理（每组512位 = 64字节）
+        for 组索引 in range(0, len(填充消息), 64):
+            组 = 填充消息[组索引:组索引 + 64]
+
+            # 消息扩展
+            W = [0] * 68
+            W_扩展 = [0] * 64
+
+            # 将组拆分为16个32位字
+            for i in range(16):
+                W[i] = struct.unpack('>I', 组[i * 4:(i + 1) * 4])[0]
+
+            # 扩展至W[16..67]
+            for j in range(16, 68):
+                W[j] = cls._P1(W[j - 16] ^ W[j - 9] ^ cls._左移(W[j - 3], 15)) ^ cls._左移(W[j - 13], 7) ^ W[j - 6]
+
+            # 计算W'[0..63]
+            for j in range(64):
+                W_扩展[j] = W[j] ^ W[j + 4]
+
+            # 压缩函数
+            A, B, C, D, E, F, G, H = 寄存器
+
+            for j in range(64):
+                T_j = cls._Tj(j)
+                SS1 = cls._左移((cls._左移(A, 12) + E + cls._左移(T_j, j % 32)) & 0xFFFFFFFF, 7)
+                SS2 = SS1 ^ cls._左移(A, 12)
+                TT1 = (cls._FF(j, A, B, C) + D + SS2 + W_扩展[j]) & 0xFFFFFFFF
+                TT2 = (cls._GG(j, E, F, G) + H + SS1 + W[j]) & 0xFFFFFFFF
+                D = C
+                C = cls._左移(B, 9)
+                B = A
+                A = TT1
+                H = G
+                G = cls._左移(F, 19)
+                F = E
+                E = cls._P0(TT2)
+
+            # 更新寄存器
+            寄存器[0] ^= A
+            寄存器[1] ^= B
+            寄存器[2] ^= C
+            寄存器[3] ^= D
+            寄存器[4] ^= E
+            寄存器[5] ^= F
+            寄存器[6] ^= G
+            寄存器[7] ^= H
+
+        # 输出256位哈希值
+        结果 = b''.join(struct.pack('>I', v) for v in 寄存器)
+        return 结果
+
+    @classmethod
+    def 哈希十六进制(cls, 消息: bytes) -> str:
+        """🟢 计算SM3哈希值并返回十六进制字符串 | Compute SM3 hash as hex string"""
+        return cls.哈希(消息).hex()
+
+
+# ═══════════════════════════════════════════════════════════════
+# SM2 国密椭圆曲线算法 (纯Python实现)
+# ═══════════════════════════════════════════════════════════════
+class SM2签名器:
+    """
+    通心译 | TongXinYi: SM2 Elliptic Curve Cryptography
+    国密SM2基于素域Fp上的椭圆曲线，使用推荐曲线参数
+    本实现为纯Python降级版本，兼容gmssl接口
+    """
+
+    # SM2推荐曲线参数 (Fp-256)
+    # p = 2^256 - 2^224 - 2^96 + 2^64 - 1
+    P = 0xFFFFFFFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000FFFFFFFFFFFFFFFF
+    # a, b 为曲线参数 y^2 = x^3 + ax + b
+    A = 0xFFFFFFFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000FFFFFFFFFFFFFFFC
+    B = 0x28E9FA9E9D9F5E344D5A9E4BCF6509A7F39789F515AB8F92DDBCBD414D940E93
+    # 基点G的x坐标
+    G_X = 0x32C4AE2C1F1981195F9904466A39C9948FE30BBFF2660BE1715A4589334C74C7
+    # 基点G的y坐标
+    G_Y = 0xBC3736A2F4F6779C59BDCEE36B692153D0A9877CC62A474002DF32E52139F0A0
+    # 基点阶n
+    N = 0xFFFFFFFEFFFFFFFFFFFFFFFFFFFFFFFF7203DF6B21C6052B53BBF40939D54123
+    # 余因子h
+    H = 1
+
+    def __init__(自身):
+        自身.曲线参数 = {
+            'p': SM2签名器.P,
+            'a': SM2签名器.A,
+            'b': SM2签名器.B,
+            'n': SM2签名器.N,
+            'h': SM2签名器.H,
+            'Gx': SM2签名器.G_X,
+            'Gy': SM2签名器.G_Y
+        }
+        自身.私钥 = None
+        自身.公钥 = None
+        print(f"[SM2签名器] 🐉 SM2椭圆曲线密码算法已初始化 (纯Python实现)")
+
+    # ═══════════════════════════════════════════════════════════════
+    # 椭圆曲线运算 | Elliptic Curve Operations
+    # ═══════════════════════════════════════════════════════════════
+
+    @staticmethod
+    def _模逆(值, 模):
+        """🔴 模逆元 | Modular multiplicative inverse"""
+        return pow(值, 模 - 2, 模)
+
+    @staticmethod
+    def _点加(P1, P2, 模, 参数A):
+        """🔴 椭圆曲线点加法 | Point addition on elliptic curve"""
+        if P1 is None:
+            return P2
+        if P2 is None:
+            return P1
+
+        x1, y1 = P1
+        x2, y2 = P2
+
+        if x1 == x2 and y1 != y2:
+            return None  # P + (-P) = O
+
+        if x1 == x2 and y1 == y2:
+            # 点倍运算 (P == Q)
+            if y1 == 0:
+                return None
+            斜率 = ((3 * x1 * x1 + 参数A) * SM2签名器._模逆(2 * y1, 模)) % 模
+        else:
+            # 点加运算 (P != Q)
+            斜率 = ((y2 - y1) * SM2签名器._模逆((x2 - x1) % 模, 模)) % 模
+
+        x3 = (斜率 * 斜率 - x1 - x2) % 模
+        y3 = (斜率 * (x1 - x3) - y1) % 模
+
+        return (x3, y3)
+
+    @classmethod
+    def _标量乘(cls, 标量, 点, 模, 参数A):
+        """🔴 椭圆曲线标量乘法 | Scalar multiplication"""
+        结果 = None
+        当前 = 点
+        标量值 = 标量 % cls.N
+
+        while 标量值 > 0:
+            if 标量值 & 1:
+                结果 = cls._点加(结果, 当前, 模, 参数A)
+            当前 = cls._点加(当前, 当前, 模, 参数A)
+            标量值 >>= 1
+
+        return 结果
+
+    # ═══════════════════════════════════════════════════════════════
+    # 密钥生成 | Key Generation
+    # ═══════════════════════════════════════════════════════════════
+
+    def 生成密钥对(自身) -> Tuple[int, Tuple[int, int]]:
+        """
+        🟢 生成SM2密钥对 | Generate SM2 key pair
+        :return: (私钥, (公钥x, 公钥y))
+        """
+        私钥 = secrets.randbelow(自身.N - 1) + 1
+        基点 = (SM2签名器.G_X, SM2签名器.G_Y)
+        公钥 = SM2签名器._标量乘(私钥, 基点, SM2签名器.P, SM2签名器.A)
+
+        自身.私钥 = 私钥
+        自身.公钥 = 公钥
+        print(f"[SM2] 🟢 密钥对已生成 | 公钥指纹: {hex(公钥[0])[:16]}...")
+        return 私钥, 公钥
+
+    def 获取公钥指纹(自身) -> str:
+        """🟡 获取公钥指纹 | Get public key fingerprint"""
+        if 自身.公钥 is None:
+            return "未生成"
+        公钥字节 = 自身._公钥到字节(自身.公钥)
+        # 使用SM3计算公钥指纹
+        return SM3哈希器.哈希(公钥字节).hex()[:32]
+
+    @staticmethod
+    def _公钥到字节(公钥):
+        """🔴 公钥转字节串 | Convert public key to bytes"""
+        x, y = 公钥
+        # 未压缩格式: 0x04 + x + y
+        return b'\x04' + x.to_bytes(32, 'big') + y.to_bytes(32, 'big')
+
+    @staticmethod
+    def _整数到字节(值, 长度=32):
+        """🔴 整数转定长字节 | Integer to fixed-length bytes"""
+        return 值.to_bytes(长度, 'big')
+
+    # ═══════════════════════════════════════════════════════════════
+    # 签名与验证 | Sign and Verify
+    # ═══════════════════════════════════════════════════════════════
+
+    def 签名(自身, 消息: bytes) -> str:
+        """
+        🟢 SM2签名 | SM2 Sign
+        :param 消息: 待签名消息
+        :return: 十六进制签名字符串 (r||s)
+        """
+        if 自身.私钥 is None:
+            raise ValueError("未生成私钥，请先调用生成密钥对()")
+
+        # 计算Z值 (用户哈希值)
+        Z = SM3哈希器.哈希(b"\x00" * 32 + 自身._公钥到字节(自身.公钥))
+        # 计算消息哈希
+        e = int.from_bytes(SM3哈希器.哈希(Z + 消息), 'big')
+
+        while True:
+            # 生成随机数k
+            k = secrets.randbelow(自身.N - 1) + 1
+            基点 = (SM2签名器.G_X, SM2签名器.G_Y)
+            (x1, y1) = SM2签名器._标量乘(k, 基点, SM2签名器.P, SM2签名器.A)
+
+            r = (e + x1) % SM2签名器.N
+            if r == 0 or r + k == SM2签名器.N:
+                continue
+
+            s = (SM2签名器._模逆(1 + 自身.私钥, SM2签名器.N) * (k - r * 自身.私钥)) % SM2签名器.N
+            if s == 0:
+                continue
+
+            break
+
+        # 返回十六进制签名 r||s
+        签名结果 = SM2签名器._整数到字节(r) + SM2签名器._整数到字节(s)
+        return 签名结果.hex()
+
+    def 验证(自身, 消息: bytes, 签名十六进制: str, 公钥=None) -> bool:
+        """
+        🟡 SM2验证 | SM2 Verify
+        :param 消息: 待验证消息
+        :param 签名十六进制: 十六进制签名 (r||s)
+        :param 公钥: 可选的外部公钥
+        :return: 验证是否通过
+        """
+        try:
+            验证公钥 = 公钥 if 公钥 else 自身.公钥
+            if 验证公钥 is None:
+                return False
+
+            签名字节 = bytes.fromhex(签名十六进制)
+            r = int.from_bytes(签名字节[:32], 'big')
+            s = int.from_bytes(签名字节[32:], 'big')
+
+            if r < 1 or r >= SM2签名器.N or s < 1 or s >= SM2签名器.N:
+                return False
+
+            # 计算Z值
+            Z = SM3哈希器.哈希(b"\x00" * 32 + 自身._公钥到字节(验证公钥))
+            e = int.from_bytes(SM3哈希器.哈希(Z + 消息), 'big')
+
+            t = (r + s) % SM2签名器.N
+            if t == 0:
+                return False
+
+            基点 = (SM2签名器.G_X, SM2签名器.G_Y)
+            点1 = SM2签名器._标量乘(s, 基点, SM2签名器.P, SM2签名器.A)
+            点2 = SM2签名器._标量乘(t, 验证公钥, SM2签名器.P, SM2签名器.A)
+            点结果 = SM2签名器._点加(点1, 点2, SM2签名器.P, SM2签名器.A)
+
+            if 点结果 is None:
+                return False
+
+            x1, y1 = 点结果
+            R = (e + x1) % SM2签名器.N
+
+            return R == r
+        except Exception as 错误:
+            print(f"[SM2] 🔴 验证异常: {错误}")
+            return False
+
+
+# ═══════════════════════════════════════════════════════════════
+# DNA身份锚定器 | DNA Identity Anchor
+# ═══════════════════════════════════════════════════════════════
+class DNA身份锚定器:
+    """
+    通心译 | TongXinYi: DNA Identity Anchor
+    龍魂永世身份系统核心 — 将生物特征、六十四卦、甲骨文融合为唯一身份标识
+    """
+
+    def __init__(自身):
+        自身.SM3 = SM3哈希器
+        自身.SM2 = SM2签名器()
+        自身._初始化六十四卦映射()
+        print(f"[DNA身份锚定器] 🐉 DNA身份锚定系统已初始化 | {__dna__}")
+
+    def _初始化六十四卦映射(自身):
+        """🔴 初始化六十四卦与哈希值的映射 | Initialize hexagram mapping"""
+        自身.卦映射 = {}
+        for i, 卦名 in enumerate(卦名表):
+            # 每个卦名对应一个索引范围
+            自身.卦映射[卦名] = {
+                '索引': i,
+                '二进制': format(i, '06b'),
+                '吉凶': 卦吉凶表.get(卦名, '平')
+            }
+
+    # ═══════════════════════════════════════════════════════════════
+    # 核心身份哈希 | Core Identity Hash
+    # ═══════════════════════════════════════════════════════════════
+
+    def 生成身份哈希(自身, 生物特征种子: str, 盐值: str | None = None) -> Dict[str, Any]:
+        """
+        🟢 生成DNA身份哈希 | Generate DNA identity hash
+        :param 生物特征种子: 用户生物特征摘要（如指纹特征码）
+        :param 盐值: 可选额外盐值
+        :return: 包含identity_hash、卦象、甲骨文编码的字典
+        """
+        # 生成随机盐值（若未提供）
+        if 盐值 is None:
+            盐值 = secrets.token_hex(16)
+
+        # 构造身份源数据
+        源数据 = f"{生物特征种子}::{盐值}::龍魂永世身份"
+        源字节 = 源数据.encode('utf-8')
+
+        # 使用SM3计算哈希
+        身份哈希 = 自身.SM3.哈希十六进制(源字节)
+
+        # 六十四卦编码
+        卦象 = 自身._哈希转卦象(身份哈希)
+
+        # 甲骨文编码
+        甲骨文码 = 自身._哈希转甲骨文(身份哈希)
+
+        # 五行特征计算
+        五行特征 = 自身._计算五行特征(身份哈希)
+
+        return {
+            'identity_hash': 身份哈希,
+            'salt': 盐值,
+            'hexagram_audit': 卦象,
+            'oracle_code': 甲骨文码,
+            'wuxing_sig': 五行特征,
+            'source_seed': 生物特征种子[:8] + "..."  # 只显示部分
+        }
+
+    def _哈希转卦象(自身, 哈希十六进制: str) -> str:
+        """
+        🔴 将哈希值转换为六十四卦 | Convert hash to I Ching hexagram
+        取哈希前3字节的模64作为卦索引
+        """
+        # 取哈希前8个十六进制字符(4字节)转为整数
+        前段 = int(哈希十六进制[:8], 16)
+        卦索引 = 前段 % 64
+        卦名 = 卦名表[卦索引]
+        吉凶 = 卦吉凶表.get(卦名, '平')
+        return f"{卦名}-{吉凶}"
+
+    def _哈希转甲骨文(自身, 哈希十六进制: str) -> str:
+        """
+        🔴 将哈希转为甲骨文编码 | Convert hash to oracle bone script
+        将十六进制字符映射为甲骨文字符
+        """
+        结果 = []
+        for 字符 in 哈希十六进制[:16]:  # 取前16字符
+            对应字 = 甲骨文对照.get(字符.lower(), 字符)
+            结果.append(对应字)
+        return ''.join(结果)
+
+    def _计算五行特征(自身, 哈希十六进制: str) -> Dict[str, float]:
+        """
+        🔴 计算五行(金木水火土)特征分布 | Calculate Wuxing (Five Elements) signature
+        基于哈希值的均匀分布特性，映射到五行能量值
+        """
+        五行 = ["金", "木", "水", "火", "土"]
+        特征 = {}
+
+        # 将哈希均分为5段，每段计算一个五行值
+        段长 = len(哈希十六进制) // 5
+        for i, 行名 in enumerate(五行):
+            段 = 哈希十六进制[i * 段长:(i + 1) * 段长]
+            # 计算段的数值并归一化到0-1
+            数值 = int(段, 16) / (16 ** len(段))
+            特征[行名] = round(数值, 4)
+
+        return 特征
+
+    # ═══════════════════════════════════════════════════════════════
+    # SM2密钥管理 | SM2 Key Management
+    # ═══════════════════════════════════════════════════════════════
+
+    def 生成身份密钥对(自身) -> Dict[str, Any]:
+        """
+        🟢 为身份生成SM2密钥对 | Generate SM2 key pair for identity
+        :return: 包含公钥、私钥指纹的字典
+        """
+        私钥, 公钥 = 自身.SM2.生成密钥对()
+        公钥指纹 = 自身.SM2.获取公钥指纹()
+
+        return {
+            'private_key': hex(私钥),
+            'public_key': {
+                'x': hex(公钥[0]),
+                'y': hex(公钥[1])
+            },
+            'fingerprint': 公钥指纹
+        }
+
+    def 设置密钥(自身, 私钥十六进制: str, 公钥字典: Dict[str, Any]):
+        """🟡 设置现有密钥 | Set existing key pair"""
+        自身.SM2.私钥 = int(私钥十六进制, 16)
+        自身.SM2.公钥 = (int(公钥字典['x'], 16), int(公钥字典['y'], 16))
+
+    def 签名身份(自身, 身份数据: bytes) -> str:
+        """🟢 使用SM2签名身份数据 | Sign identity data with SM2"""
+        return 自身.SM2.签名(身份数据)
+
+    def 验证身份签名(自身, 身份数据: bytes, 签名: str, 公钥=None) -> bool:
+        """🟡 验证SM2身份签名 | Verify SM2 identity signature"""
+        return 自身.SM2.验证(身份数据, 签名, 公钥)
+
+    # ═══════════════════════════════════════════════════════════════
+    # DNA头部生成 | DNA Header Generation
+    # ═══════════════════════════════════════════════════════════════
+
+    def 生成DNA头部(自身, 平台: str = "CNSH", 动作: str = "身份锚定") -> str:
+        """
+        🟢 生成DNA追溯头部 | Generate DNA trace header
+        :param 平台: 平台标识
+        :param 动作: 动作描述
+        :return: DNA头部字符串
+        """
+        时间戳 = datetime.now().strftime("%Y-%m-%d")
+        return f"#龍芯⚡️{时间戳}-{平台}-{动作}"
+
+    # ═══════════════════════════════════════════════════════════════
+    # 隐私保护: 范围限定哈希 | Privacy: Scoped Hash
+    # ═══════════════════════════════════════════════════════════════
+
+    def 生成范围哈希(自身, 身份哈希: str, 平台名: str) -> str:
+        """
+        🟢 生成平台限定哈希 — 平台只能看到跟自己相关的授权
+        | Generate platform-scoped hash for privacy protection
+        不同平台得到不同的派生哈希，无法反推原始身份
+        """
+        派生数据 = f"{身份哈希}::{平台名}::龍魂派生"
+        return 自身.SM3.哈希十六进制(派生数据.encode('utf-8'))
+
+
+# ═══════════════════════════════════════════════════════════════
+# 独立执行演示 | Standalone Execution Demo
+# ═══════════════════════════════════════════════════════════════
+if __name__ == "__main__":
+    print("=" * 70)
+    print("🐉 DNA身份锚定 · 独立执行演示")
+    print(f"🧬 {__dna__}")
+    print("=" * 70)
+
+    # 创建身份锚定器
+    锚定器 = DNA身份锚定器()
+
+    print("\n--- 1. 生成DNA身份哈希 ---")
+    身份 = 锚定器.生成身份哈希(
+        生物特征种子="指纹特征码_AABBCCDDEEFF00112233445566778899",
+        盐值=None
+    )
+    print(f"身份哈希: {身份['identity_hash']}")
+    print(f"卦象审计: {身份['hexagram_audit']}")
+    print(f"甲骨文码: {身份['oracle_code']}")
+    print(f"五行特征: {json.dumps(身份['wuxing_sig'], ensure_ascii=False)}")
+
+    print("\n--- 2. SM3哈希测试 ---")
+    测试消息 = "龍魂体系·国密SM3测试".encode('utf-8')
+    SM3结果 = SM3哈希器.哈希十六进制(测试消息)
+    print(f"SM3('{测试消息.decode()}') = {SM3结果}")
+
+    print("\n--- 3. SM2密钥生成与签名 ---")
+    密钥信息 = 锚定器.生成身份密钥对()
+    print(f"公钥指纹: {密钥信息['fingerprint']}")
+
+    测试数据 = "龍魂DNA令牌签名测试".encode('utf-8')
+    签名 = 锚定器.签名身份(测试数据)
+    print(f"签名结果: {签名[:32]}...")
+
+    验证结果 = 锚定器.验证身份签名(测试数据, 签名)
+    print(f"签名验证: {'✅ 通过' if 验证结果 else '❌ 失败'}")
+
+    print("\n--- 4. DNA头部生成 ---")
+    DNA头 = 锚定器.生成DNA头部("CNSH", "令牌签发")
+    print(f"DNA头部: {DNA头}")
+
+    print("\n--- 5. 隐私保护: 平台限定哈希 ---")
+    淘宝哈希 = 锚定器.生成范围哈希(身份['identity_hash'], "淘宝")
+    滴滴哈希 = 锚定器.生成范围哈希(身份['identity_hash'], "滴滴")
+    print(f"淘宝限定哈希: {淘宝哈希[:32]}...")
+    print(f"滴滴限定哈希: {滴滴哈希[:32]}...")
+    print(f"两哈希相同? {'是' if 淘宝哈希 == 滴滴哈希 else '否'} (应为否，保护隐私)")
+
+    print("\n--- 6. 六十四卦全览 ---")
+    print(f"卦名总数: {len(卦名表)}")
+    吉卦 = sum(1 for g in 卦吉凶表.values() if '吉' in g)
+    凶卦 = sum(1 for g in 卦吉凶表.values() if '凶' in g)
+    print(f"吉卦: {吉卦} | 凶卦: {凶卦} | 平卦: {64 - 吉卦 - 凶卦}")
+
+    print("\n" + "=" * 70)
+    print("✅ DNA身份锚定系统演示完成")
+    print("=" * 70)

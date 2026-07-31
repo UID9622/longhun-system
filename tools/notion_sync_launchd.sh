@@ -1,6 +1,7 @@
 #!/bin/bash
 # 龍魂 Notion 同步 LaunchAgent 包装脚本
 # DNA: #龍芯⚡️2026-07-05-NOTION-SYNC-LAUNCHD-WRAPPER-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #
 # 注意：NOTION_TOKEN 由 notion_sync.py 自动从 ~/.longhun/secrets.env 读取，
 # 不需要在此 source 整个 .bashrc，避免 banner/npmrc 噪音。

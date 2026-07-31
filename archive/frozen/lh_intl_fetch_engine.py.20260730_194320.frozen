@@ -1,0 +1,440 @@
+#!/usr/bin/env python3
+"""
+龍魂·国际训练数据拉取引擎 v1.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·讼-INTL-FETCH-ENGINE-v1.0
+原则: 中国法律准绳 · 数据主权 · 国际仅作补充视角
+
+与中国境内引擎的区别：
+1. 请求频率更低 (0.5次/秒 vs 1次/秒)
+2. 输出约束检查 (每篇文章标注 output_constraint)
+3. 主权声明注入 (每批数据附带 sovereignty_statement)
+4. 来源国标注 (country 字段)
+5. 政治敏感过滤 (涉中国政治内容自动标记待审)
+"""
+
+import json
+import time
+import random
+import hashlib
+import os
+import sys
+from datetime import datetime
+from pathlib import Path
+from urllib.parse import urlparse
+from typing import Optional, Dict, Any, List
+import logging
+
+# 添加父目录到路径
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+try:
+    import requests
+    from bs4 import BeautifulSoup
+except ImportError:
+    print("需要安装 requests 和 beautifulsoup4: pip3 install requests beautifulsoup4")
+    sys.exit(1)
+
+# ─── 配置 ───────────────────────────────────────────
+BASE_DIR = Path(__file__).parent
+FETCHED_DIR = BASE_DIR / "fetched"
+LOG_DIR = BASE_DIR / "logs"
+REPORTS_DIR = BASE_DIR / "reports"
+SOURCES_FILE = BASE_DIR / "sources.json"
+PARENT_SOURCES_FILE = BASE_DIR.parent / "sources.json"
+
+# 国际特殊配置
+INTL_USER_AGENT = "LonghunBot/1.0 (IntlTrainingData; UID9622; +https://docs.longhun888.com)"
+INTL_DELAY_MIN = 2.0      # 国际最低延迟 2秒
+INTL_DELAY_MAX = 4.0      # 国际最高延迟 4秒
+INTL_TIMEOUT = 45         # 国际超时 45秒
+INTL_RATE_LIMIT = 0.5     # 国际频率 0.5次/秒
+
+# 中国政治敏感关键词（触发标记而非拒绝）
+CN_SENSITIVE_KEYWORDS = [
+    "taiwan independence", "tibet independence", "xinjiang",
+    "hong kong protest", "tiananmen", "falun gong",
+    "china threat", "chinese communist party criticism"
+]
+
+# ─── 日志 ───────────────────────────────────────────
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+FETCHED_DIR.mkdir(parents=True, exist_ok=True)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(message)s',
+    handlers=[
+        logging.FileHandler(LOG_DIR / "intl_fetch.log", encoding='utf-8'),
+        logging.StreamHandler()
+    ]
+)
+log = logging.getLogger(__name__)
+
+
+class IntlFetchEngine:
+    """国际训练数据拉取引擎"""
+
+    def __init__(self, sources_path: Path = SOURCES_FILE):
+        self.sources_path = sources_path
+        self.sources = self._load_sources()
+        self.session = requests.Session()
+        self.session.headers.update({
+            "User-Agent": INTL_USER_AGENT,
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+            "Accept-Encoding": "gzip, deflate",
+        })
+        self.fetch_stats = {"total": 0, "success": 0, "failed": 0, "blocked": 0, "sensitive_flagged": 0}
+
+    def _load_sources(self) -> List[Dict]:
+        """加载源配置"""
+        if not self.sources_path.exists():
+            log.error(f"源配置文件不存在: {self.sources_path}")
+            return []
+        with open(self.sources_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return data.get("sources", [])
+
+    def _check_robots_txt(self, url: str) -> bool:
+        """检查 robots.txt（国际版：更宽松，但标记不符合的）"""
+        try:
+            parsed = urlparse(url)
+            robots_url = f"{parsed.scheme}://{parsed.netloc}/robots.txt"
+            resp = self.session.get(robots_url, timeout=15)
+            if resp.status_code == 200:
+                if "Disallow: /" in resp.text:
+                    log.warning(f"[ROBOTS] {parsed.netloc} 全站禁止爬取，标记为 blocked")
+                    return False
+                if "User-agent: LonghunBot" in resp.text and "Disallow" in resp.text:
+                    log.warning(f"[ROBOTS] {parsed.netloc} 禁止 LonghunBot，标记为 blocked")
+                    return False
+            return True
+        except Exception as e:
+            log.warning(f"[ROBOTS] 检查失败 {url}: {e}，默认放行")
+            return True
+
+    def _check_sensitive_content(self, text: str) -> bool:
+        """检查是否包含中国政治敏感内容"""
+        text_lower = text.lower()
+        for kw in CN_SENSITIVE_KEYWORDS:
+            if kw in text_lower:
+                return True
+        return False
+
+    def _generate_dna(self, source_id: str, url: str, content: str) -> str:
+        """生成国际数据DNA追溯码"""
+        ts = datetime.now().strftime("%Y%m%d%H%M%S")
+        content_hash = hashlib.sha256(content.encode('utf-8')).hexdigest()[:8]
+        return f"#龍芯⚡️INTL-{source_id}-{ts}-{content_hash}"
+
+    def _generate_metadata(self, source: Dict[str, Any], url: str, content: str, status: str) -> Dict[str, Any]:
+        """生成带输出约束的元数据"""
+        return {
+            "dna": self._generate_dna(source["id"], url, content),
+            "source_id": source["id"],
+            "source_name": source["name"],
+            "source_country": source.get("country", "UNKNOWN"),
+            "source_category": source.get("category", "unknown"),
+            "url": url,
+            "fetched_at": datetime.now().isoformat(),
+            "fetch_status": status,
+            "output_constraint": source.get("output_constraint", "tech_only"),
+            "sovereignty_note": "国际数据·仅作技术训练参考·输出受P0-P4协议约束·中国法律准绳",
+            "content_hash": hashlib.sha256(content.encode('utf-8')).hexdigest(),
+            "content_length": len(content),
+            "sensitive_flagged": self._check_sensitive_content(content),
+        }
+
+    def _apply_output_constraint_filter(self, text: str, constraint: str) -> str:
+        """根据 output_constraint 过滤内容"""
+        if constraint == "tech_only":
+            # 技术类：保留技术内容，移除政治/社会评论
+            pass  # 在清洗阶段处理
+        elif constraint == "news_only_no_politics":
+            # 新闻类：标记政治内容待人工审核
+            if self._check_sensitive_content(text):
+                return "[PENDING_MANUAL_REVIEW] " + text[:200]
+        elif constraint == "academic_only":
+            # 学术类：纯学术内容
+            pass
+        return text
+
+    def fetch_by_strategy(self, source: Dict[str, Any]) -> List[Dict]:
+        """根据策略拉取"""
+        strategy = source.get("fetch_strategy", "scrape")
+        domain = source["domain"]
+        results = []
+
+        # robots.txt 检查
+        if not self._check_robots_txt(f"https://{domain}"):
+            self.fetch_stats["blocked"] += 1
+            log.warning(f"[BLOCKED] {source['id']} {source['name']} ({domain}) - robots.txt 禁止")
+            return results
+
+        try:
+            if strategy == "rss":
+                results = self._fetch_rss(source)
+            elif strategy == "api":
+                results = self._fetch_api(source)
+            elif strategy == "scrape":
+                results = self._fetch_scrape(source)
+            else:
+                log.warning(f"[SKIP] {source['id']} 未知策略: {strategy}")
+        except Exception as e:
+            log.error(f"[ERROR] {source['id']} {source['name']}: {e}")
+            self.fetch_stats["failed"] += 1
+
+        return results
+
+    def _fetch_rss(self, source: Dict[str, Any]) -> List[Dict]:
+        """RSS/Atom 拉取"""
+        results = []
+        domain = source["domain"]
+        rss_urls = [
+            f"https://{domain}/rss",
+            f"https://{domain}/feed",
+            f"https://{domain}/atom.xml",
+            f"https://{domain}/rss.xml",
+            f"https://blog.{domain}/rss",
+        ]
+
+        for rss_url in rss_urls:
+            try:
+                time.sleep(random.uniform(INTL_DELAY_MIN, INTL_DELAY_MAX))
+                resp = self.session.get(rss_url, timeout=INTL_TIMEOUT)
+                if resp.status_code != 200:
+                    continue
+
+                soup = BeautifulSoup(resp.content, 'xml' if 'xml' in resp.headers.get('content-type', '') else 'html.parser')
+
+                # RSS 2.0
+                items = soup.find_all('item')
+                if not items:
+                    # Atom
+                    items = soup.find_all('entry')
+
+                for item in items[:10]:  # 每次最多10条
+                    title = item.find('title')
+                    link = item.find('link')
+                    desc = item.find('description') or item.find('summary') or item.find('content')
+
+                    title_text = title.get_text(strip=True) if title else ""
+                    link_url = link.get('href') if link and link.get('href') else (link.get_text(strip=True) if link else "")
+                    desc_text = desc.get_text(strip=True) if desc else ""
+
+                    if not title_text or not link_url:
+                        continue
+
+                    content = f"Title: {title_text}\n\n{desc_text}"
+                    content = self._apply_output_constraint_filter(content, source.get("output_constraint", "tech_only"))
+
+                    results.append({
+                        "content": content,
+                        "url": link_url,
+                        "title": title_text,
+                        "metadata": self._generate_metadata(source, link_url, content, "success")
+                    })
+                    self.fetch_stats["success"] += 1
+
+                if results:
+                    log.info(f"[RSS] {source['id']} {source['name']}: {len(results)} 条")
+                    break
+            except Exception as e:
+                log.debug(f"[RSS] {rss_url} 失败: {e}")
+                continue
+
+        if not results:
+            log.info(f"[RSS-EMPTY] {source['id']} {source['name']}: 无RSS内容")
+        return results
+
+    def _fetch_api(self, source: Dict[str, Any]) -> List[Dict]:
+        """API 拉取（占位，具体API按源配置）"""
+        log.info(f"[API-SKIP] {source['id']} {source['name']}: API拉取需单独配置，暂时跳过")
+        return []
+
+    def _fetch_scrape(self, source: Dict[str, Any]) -> List[Dict]:
+        """页面爬取"""
+        results = []
+        domain = source["domain"]
+        urls = [f"https://{domain}", f"https://{domain}/blog", f"https://{domain}/docs"]
+
+        for url in urls:
+            try:
+                time.sleep(random.uniform(INTL_DELAY_MIN, INTL_DELAY_MAX))
+                resp = self.session.get(url, timeout=INTL_TIMEOUT, allow_redirects=True)
+
+                if resp.status_code != 200:
+                    continue
+
+                soup = BeautifulSoup(resp.content, 'html.parser')
+
+                # 移除脚本和样式
+                for tag in soup(['script', 'style', 'nav', 'footer', 'header']):
+                    tag.decompose()
+
+                # 提取正文
+                body = soup.find('body')
+                if not body:
+                    continue
+
+                text = body.get_text(separator='\n', strip=True)
+                # 清理多余空白
+                lines = [line.strip() for line in text.split('\n') if line.strip()]
+                text = '\n'.join(lines)
+
+                if len(text) < 100:
+                    continue
+
+                text = self._apply_output_constraint_filter(text, source.get("output_constraint", "tech_only"))
+
+                results.append({
+                    "content": text[:10000],  # 限制单页1万字
+                    "url": url,
+                    "title": soup.title.string if soup.title else domain,
+                    "metadata": self._generate_metadata(source, url, text[:10000], "success")
+                })
+                self.fetch_stats["success"] += 1
+                break  # 只取第一个成功的URL
+            except Exception as e:
+                log.debug(f"[SCRAPE] {url} 失败: {e}")
+                continue
+
+        if not results:
+            log.info(f"[SCRAPE-EMPTY] {source['id']} {source['name']}: 无内容")
+        return results
+
+    def save_results(self, results: List[Dict], batch_id: str | None = None):
+        """保存拉取结果"""
+        if not results:
+            return
+
+        if batch_id is None:
+            batch_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+        output_file = FETCHED_DIR / f"intl_fetched_{batch_id}.jsonl"
+        with open(output_file, 'w', encoding='utf-8') as f:
+            for item in results:
+                f.write(json.dumps(item, ensure_ascii=False) + '\n')
+
+        log.info(f"[SAVED] {len(results)} 条 → {output_file.name}")
+
+    def run(self, priority_filter: str | None = None, enabled_only: bool = True):
+        """执行拉取"""
+        log.info("=" * 60)
+        log.info("龍魂·国际训练数据拉取引擎 v1.0 启动")
+        log.info(f"中国法律准绳 · 数据主权 · 国际仅作补充视角")
+        log.info("=" * 60)
+
+        targets = self.sources
+        if enabled_only:
+            targets = [s for s in targets if s.get("enabled", True)]
+        if priority_filter:
+            targets = [s for s in targets if s.get("priority") == priority_filter]
+
+        log.info(f"目标: {len(targets)} 个国际源")
+
+        all_results = []
+        for i, source in enumerate(targets):
+            log.info(f"[{i+1}/{len(targets)}] {source['id']} {source['name']} ({source.get('country','?')}) [{source.get('priority','?')}]")
+            self.fetch_stats["total"] += 1
+
+            results = self.fetch_by_strategy(source)
+            all_results.extend(results)
+
+        # 保存
+        self.save_results(all_results)
+
+        # 统计
+        log.info("=" * 60)
+        log.info(f"拉取完成: 总{self.fetch_stats['total']} 成功{self.fetch_stats['success']} "
+                 f"失败{self.fetch_stats['failed']} 阻止{self.fetch_stats['blocked']} "
+                 f"敏感标记{self.fetch_stats['sensitive_flagged']}")
+        log.info(f"总内容: {len(all_results)} 条")
+
+        # 生成报告
+        self._generate_report(all_results)
+
+        return all_results
+
+    def _generate_report(self, results: List[Dict]):
+        """生成拉取报告"""
+        report = {
+            "report_type": "intl_fetch",
+            "dna": "#龍芯⚡️丙午·辛未·乙酉·卯时·讼-INTL-FETCH-REPORT",
+            "generated_at": datetime.now().isoformat(),
+            "stats": self.fetch_stats,
+            "total_results": len(results),
+            "by_country": {},
+            "by_category": {},
+            "by_constraint": {},
+            "sensitive_flagged": 0,
+            "sovereignty_statement": {
+                "principle": "国际数据仅用于技术训练，不用于政治立场输出",
+                "law": "中国法律为唯一准绳",
+                "authority": "UID9622最终解释权"
+            }
+        }
+
+        for item in results:
+            meta = item.get("metadata", {})
+            country = meta.get("source_country", "UNKNOWN")
+            cat = meta.get("source_category", "unknown")
+            constraint = meta.get("output_constraint", "unknown")
+
+            report["by_country"][country] = report["by_country"].get(country, 0) + 1
+            report["by_category"][cat] = report["by_category"].get(cat, 0) + 1
+            report["by_constraint"][constraint] = report["by_constraint"].get(constraint, 0) + 1
+
+            if meta.get("sensitive_flagged"):
+                report["sensitive_flagged"] += 1
+
+        report_file = REPORTS_DIR / f"intl_fetch_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        with open(report_file, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2)
+
+        log.info(f"[REPORT] {report_file.name}")
+
+
+# ─── CLI ───────────────────────────────────────────
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="龍魂·国际训练数据拉取引擎")
+    parser.add_argument("--priority", "-p", choices=["P0", "P1", "P2", "P3"], help="按优先级筛选")
+    parser.add_argument("--all", action="store_true", help="包含禁用的源")
+    parser.add_argument("--source", "-s", help="指定单个源ID (如 INTL-001)")
+    parser.add_argument("--list", action="store_true", help="列出所有国际源状态")
+
+    args = parser.parse_args()
+
+    engine = IntlFetchEngine()
+
+    if args.list:
+        print(f"\n{'='*70}")
+        print(f"  龍魂·国际训练数据源状态")
+        print(f"  中国法律准绳 · 数据主权 · 国际仅作补充视角")
+        print(f"{'='*70}")
+        print(f"{'ID':<12} {'名称':<25} {'国家':<6} {'优先级':<6} {'状态':<6} {'策略':<10} {'约束':<20}")
+        print(f"{'-'*70}")
+        for s in engine.sources:
+            status = "✅启用" if s.get("enabled", True) else "❌禁用"
+            print(f"{s['id']:<12} {s['name']:<25} {s.get('country','?'):<6} {s.get('priority','?'):<6} {status:<6} {s.get('fetch_strategy','?'):<10} {s.get('output_constraint','?'):<20}")
+        print(f"{'='*70}")
+        enabled = sum(1 for s in engine.sources if s.get("enabled", True))
+        print(f"总计: {len(engine.sources)} 个国际源 | 已启用: {enabled} | 已禁用: {len(engine.sources)-enabled}")
+        sys.exit(0)
+
+    if args.source:
+        source = next((s for s in engine.sources if s["id"] == args.source), None)
+        if not source:
+            print(f"未找到源: {args.source}")
+            sys.exit(1)
+        results = engine.fetch_by_strategy(source)
+        engine.save_results(results, f"single_{args.source}")
+        print(f"完成: {len(results)} 条")
+    else:
+        results = engine.run(
+            priority_filter=args.priority,
+            enabled_only=not args.all
+        )
+        print(f"\n拉取完成: {len(results)} 条")

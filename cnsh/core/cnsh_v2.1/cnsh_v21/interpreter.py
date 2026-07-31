@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 """
@@ -82,13 +83,19 @@ class Interpreter:
     def _load_stdlib(self):
         for name, module in STDLIB.items():
             self.globals.define(name, module)
-        # 内置函数
+        # 内置函数（中文别名）
         self.globals.define("输出", print)
+        self.globals.define("打印", print)
         self.globals.define("输入", input)
         self.globals.define("长度", len)
+        self.globals.define("类型", type)
         self.globals.define("字符串", str)
         self.globals.define("整数", int)
+        self.globals.define("浮点", float)
         self.globals.define("小数", float)
+        self.globals.define("列表", list)
+        self.globals.define("字典", dict)
+        self.globals.define("范围", range)
 
     def run(self, program: ast.Program) -> Any:
         for stmt in program.statements:
@@ -148,10 +155,12 @@ class Interpreter:
 
     def _exec_ImportStmt(self, node: ast.ImportStmt) -> Any:
         if node.module == "龍":
-            return self.globals.get("龍")
+            obj = self.globals.get("龍")
+            self.env.define(node.alias or "龍", obj)
+            return obj
         if node.is_from:
             return self._exec_import_from(node.module, node.names)
-        return self._exec_import_path(node.module.split("."))
+        return self._exec_import_path(node.module.split("."), alias=node.alias)
 
     def _exec_PersonaBasisDecl(self, node: ast.PersonaBasisDecl) -> Any:
         fields: Dict[str, Any] = {}
@@ -187,7 +196,7 @@ class Interpreter:
         self.env.define(node.name, engine)
         return engine
 
-    def _exec_import_path(self, module_path: List[str]) -> Any:
+    def _exec_import_path(self, module_path: List[str], alias: Optional[str] = None) -> Any:
         path = ".".join(module_path)
         if not module_path:
             raise CNSHRuntimeError("导入路径为空")
@@ -200,16 +209,16 @@ class Interpreter:
                     obj = obj[part]
                 else:
                     raise CNSHRuntimeError(f"无法导入模块路径: {path}")
+            self.env.define(alias or module_path[-1], obj)
             return obj
         if module_path[0] in ("Python", "python", "外部"):
-            return self._import_python_module(module_path)
+            return self._import_python_module(module_path, alias=alias)
         import importlib
         try:
             mod = importlib.import_module(path)
         except Exception as exc:
             raise CNSHRuntimeError(f"导入失败: {path}: {exc}")
-        alias = module_path[-1]
-        self.env.define(alias, mod)
+        self.env.define(alias or module_path[-1], mod)
         return mod
 
     def _exec_import_from(self, module: str, names: List[str]) -> Any:
@@ -224,17 +233,16 @@ class Interpreter:
             self.env.define(name, getattr(mod, name))
         return mod
 
-    def _import_python_module(self, module_path: List[str]):
+    def _import_python_module(self, module_path: List[str], alias: Optional[str] = None):
         """Python FFI：导入 Python 模块并注册到当前环境。"""
         import importlib
         # module_path e.g. ['Python', 'math'] or ['外部', 'os', 'path']
         py_path = ".".join(module_path[1:])
-        alias = module_path[-1]
         try:
             mod = importlib.import_module(py_path)
         except Exception as exc:
             raise CNSHRuntimeError(f"Python FFI 导入失败: {py_path}: {exc}")
-        self.env.define(alias, mod)
+        self.env.define(alias or module_path[-1], mod)
         return mod
 
     def _exec_IfStmt(self, node: ast.IfStmt) -> Any:

@@ -1,0 +1,711 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+四来源/五来源对齐报告生成器
+为 UID9622 核对多个记忆/审计来源中的关键事件、DNA 追溯码、确认码是否一致。
+"""
+
+import json
+import os
+import re
+import sqlite3
+from collections import Counter, defaultdict
+from datetime import datetime, timezone
+
+REPORT_DNA = "#龍芯⚡️2026-07-04-SOURCE-ALIGNMENT-v1.0"
+CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+MODULE_ID = "MOD-SOURCE-ALIGNMENT-20260704"
+
+
+def now_iso():
+    return datetime.now(timezone.utc).isoformat()
+
+
+def clean_code(code):
+    """去掉 DNA/确认码末尾的标点、引号、换行、中文符号等杂质。"""
+    code = code.strip()
+    # 去掉末尾常见的 Markdown/JSON 残留符号
+    code = re.sub(r'[\`\'"\,\.\;\:\]\}\)\n\r\s]+$', '', code)
+    # 若末尾还有非合法字符，剥到只剩字母/数字/连字符/下划线/点/中文
+    code = re.sub(r'[^\w\-\.\u4e00-\u9fff]+$', '', code)
+    return code
+
+
+def is_placeholder(code):
+    """过滤掉示例/占位符，如 #龍芯⚡️... / #龍芯⚇️... / #龍芯⚡️ 等。"""
+    if re.search(r'#龍芯[⚡⚇️](\.{3,}|…)', code):
+        return True
+    # 仅有前缀、无有效内容
+    if re.match(r'^#龍芯[⚡⚇️][^A-Za-z0-9]*$', code):
+        return True
+    return False
+
+
+def truncate_to_valid(code):
+    """把 loosely 抓到的码截断到合法前缀；不合法则返回空串。"""
+    code = clean_code(code)
+    # DNA 合法字符：前缀后的字母/数字/连字符/点/中点/中文
+    dna_valid = re.compile(r'^#龍芯[⚡⚇️][\uFE00-\uFE0F]?[\w\-\.\u00B7\u4e00-\u9fff]+')
+    # 确认码合法字符：前缀后的字母/数字/连字符
+    confirm_valid = re.compile(r'^#CONFIRM🌌9622-ONLY-ONCE🧬[\w\-]+')
+    m = confirm_valid.match(code)
+    if m:
+        return m.group(0)
+    m = dna_valid.match(code)
+    if m:
+        return m.group(0)
+    return ""
+
+
+def extract_codes(text):
+    raw_dnas = [truncate_to_valid(m) for m in re.findall(r'#龍芯[⚡⚇️][^\s#]*', text)]
+    raw_confirms = [truncate_to_valid(m) for m in re.findall(r'#CONFIRM🌌9622-ONLY-ONCE🧬[^\s#]*', text)]
+    dnas = [d for d in raw_dnas if d and not is_placeholder(d)]
+    confirms = [c for c in raw_confirms if c]
+    return dnas, confirms
+
+
+def ts_to_iso(ts):
+    if not ts:
+        return ""
+    if isinstance(ts, (int, float)):
+        if ts > 1e12:
+            ts = ts / 1000.0
+        try:
+            return datetime.fromtimestamp(ts, tz=timezone.utc).isoformat()
+        except Exception:
+            return str(ts)
+    return str(ts)
+
+
+def shorten(s, n=120):
+    if not s:
+        return ""
+    s = s.replace("\n", " ")
+    return s if len(s) <= n else s[: n - 1] + "…"
+
+
+
+if __name__ == "__main__":
+    # ---------- 逐个读取数据源 ----------
+    sources = {}
+    all_events = []
+    source_dnas = defaultdict(list)
+    source_confirms = defaultdict(list)
+
+
+    def add_event(source, time, etype, desc, dnas=None, confirms=None):
+        dnas = dnas or []
+        confirms = confirms or []
+        ev = {
+            "source": source,
+            "time": time,
+            "type": etype,
+            "desc": desc,
+            "dnas": dnas,
+            "confirms": confirms,
+        }
+        all_events.append(ev)
+        source_dnas[source].extend(dnas)
+        source_confirms[source].extend(confirms)
+
+
+    # 1. Kimi 当前会话
+    wire_path = "/Users/zuimeidedeyihan/.kimi-code/sessions/wd_zuimeidedeyihan_adb5f2965830/session_542fe0d6-27f2-4c31-8e02-14e826341679/agents/main/wire.jsonl"
+    idx_path = "/Users/zuimeidedeyihan/.kimi-code/sessions/wd_zuimeidedeyihan_adb5f2965830/session_542fe0d6-27f2-4c31-8e02-14e826341679/session_index.jsonl"
+
+    try:
+        with open(wire_path, "r", encoding="utf-8") as f:
+            wire_lines = f.readlines()
+        seen = set()
+        for line in wire_lines[-200:]:
+            try:
+                entry = json.loads(line)
+            except Exception:
+                continue
+            text = json.dumps(entry, ensure_ascii=False)
+            dnas, confirms = extract_codes(text)
+            typ = entry.get("type") or entry.get("role") or "event"
+            content = ""
+            for k in ("content", "message", "text"):
+                if isinstance(entry.get(k), str):
+                    content = entry[k]
+                    break
+            # 只保留带码或关键类型的记录
+            if dnas or confirms or typ in ("turn.prompt", "context.append_message"):
+                ts = ts_to_iso(entry.get("timestamp") or entry.get("ts") or entry.get("time"))
+                key = (ts, typ, content[:80])
+                if key not in seen:
+                    seen.add(key)
+                    add_event("Kimi 当前会话", ts, typ, content, dnas, confirms)
+        sources["Kimi 当前会话"] = {
+            "路径": "Kimi 会话主文件 wire.jsonl",
+            "状态": "已读取",
+            "总行数": len(wire_lines),
+            "采样": 200,
+            "事件数": len(source_dnas["Kimi 当前会话"]) + len(source_confirms["Kimi 当前会话"]),
+            "DNA 数": len(source_dnas["Kimi 当前会话"]),
+            "确认码数": len(source_confirms["Kimi 当前会话"]),
+        }
+    except Exception as e:
+        sources["Kimi 当前会话"] = {"状态": f"读取失败：{e}"}
+
+    # session_index.jsonl（通常不存在，单独记录）
+    try:
+        with open(idx_path, "r", encoding="utf-8") as f:
+            idx_lines = f.readlines()
+        for line in idx_lines[-20:]:
+            try:
+                entry = json.loads(line)
+            except Exception:
+                continue
+            text = json.dumps(entry, ensure_ascii=False)
+            dnas, confirms = extract_codes(text)
+            if dnas or confirms:
+                ts = ts_to_iso(entry.get("timestamp") or entry.get("ts"))
+                add_event("Kimi 会话索引", ts, "index", "会话索引记录", dnas, confirms)
+        sources["Kimi 会话索引"] = {
+            "路径": "session_index.jsonl",
+            "状态": "已读取",
+            "总行数": len(idx_lines),
+            "事件数": len(source_dnas["Kimi 会话索引"]) + len(source_confirms["Kimi 会话索引"]),
+        }
+    except Exception:
+        sources["Kimi 会话索引"] = {"状态": "未找到或为空"}
+
+
+    # 2. Claude 历史
+    try:
+        with open("/Users/zuimeidedeyihan/.claude/history.jsonl", "r", encoding="utf-8") as f:
+            claude_lines = f.readlines()
+        for line in claude_lines[-50:]:
+            try:
+                entry = json.loads(line)
+            except Exception:
+                continue
+            text = json.dumps(entry, ensure_ascii=False)
+            dnas, confirms = extract_codes(text)
+            ts = ts_to_iso(entry.get("timestamp") or entry.get("created_at") or entry.get("ts"))
+            topic = ""
+            if isinstance(entry, dict):
+                msg = entry.get("message") or entry.get("text") or entry.get("content", "")
+                if isinstance(msg, str):
+                    topic = msg
+                elif isinstance(msg, list) and msg:
+                    topic = str(msg[0])
+            add_event("Claude 历史", ts, "对话", topic, dnas, confirms)
+        sources["Claude 历史"] = {
+            "路径": "history.jsonl",
+            "状态": "已读取",
+            "总行数": len(claude_lines),
+            "采样": 50,
+            "事件数": len(source_dnas["Claude 历史"]) + len(source_confirms["Claude 历史"]),
+            "DNA 数": len(source_dnas["Claude 历史"]),
+            "确认码数": len(source_confirms["Claude 历史"]),
+        }
+    except Exception as e:
+        sources["Claude 历史"] = {"状态": f"读取失败：{e}"}
+
+
+    # 3. CNSH 审计
+    try:
+        with open("/Users/zuimeidedeyihan/.cnsh/logs/audit.log", "r", encoding="utf-8") as f:
+            cnsh_lines = f.readlines()
+        for line in cnsh_lines:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                entry = json.loads(line)
+            except Exception:
+                continue
+            text = json.dumps(entry, ensure_ascii=False)
+            dnas, confirms = extract_codes(text)
+            ts = entry.get("timestamp", "")
+            cmd = entry.get("command", "")
+            reason = entry.get("reason", "")
+            add_event("CNSH 审计", ts, "命令审计", f"命令：{cmd}，判定：{reason}", dnas, confirms)
+        sources["CNSH 审计"] = {
+            "路径": "audit.log",
+            "状态": "已读取",
+            "总行数": len(cnsh_lines),
+            "事件数": len(source_dnas["CNSH 审计"]) + len(source_confirms["CNSH 审计"]),
+            "DNA 数": len(source_dnas["CNSH 审计"]),
+            "确认码数": len(source_confirms["CNSH 审计"]),
+        }
+    except Exception as e:
+        sources["CNSH 审计"] = {"状态": f"读取失败：{e}"}
+
+
+    # 4. UID9622 守护日志
+    try:
+        with open("/Users/zuimeidedeyihan/.uid9622/daemon.log", "rb") as f:
+            raw = f.read().decode("utf-8", errors="ignore")
+        lines = raw.strip().split("\n")
+        for line in lines[-50:]:
+            m = re.match(r"(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2},\d+)\s+\[INFO\]\s+(.*)", line)
+            if not m:
+                continue
+            ts_raw, msg = m.group(1), m.group(2)
+            ts_iso = ts_raw.replace(",", ".").replace(" ", "T")
+            dnas, confirms = extract_codes(line)
+            add_event("UID9622 守护", ts_iso, "守护任务", msg, dnas, confirms)
+        sources["UID9622 守护"] = {
+            "路径": "daemon.log",
+            "状态": "已读取",
+            "总行数": len(lines),
+            "采样": 50,
+            "事件数": len(source_dnas["UID9622 守护"]) + len(source_confirms["UID9622 守护"]),
+            "DNA 数": len(source_dnas["UID9622 守护"]),
+            "确认码数": len(source_confirms["UID9622 守护"]),
+        }
+    except Exception as e:
+        sources["UID9622 守护"] = {"状态": f"读取失败：{e}"}
+
+
+    # 5. DragonSoul DNA 追溯
+    try:
+        conn = sqlite3.connect("/Users/zuimeidedeyihan/.dragonsoul/dna_trace.db")
+        c = conn.cursor()
+        c.execute(
+            """
+            SELECT dna_code, timestamp, operator, operation_type, operation_detail, audit_result
+            FROM dna_records ORDER BY ROWID DESC LIMIT 30
+            """
+        )
+        rows = c.fetchall()
+        for dna_code, ts, operator, op_type, detail, audit in rows:
+            dnas = [clean_code(dna_code)] if dna_code else []
+            add_event(
+                "DragonSoul DNA",
+                ts,
+                op_type or "DNA 记录",
+                f"操作者：{operator}，详情：{detail}，审计：{audit}",
+                dnas,
+                [],
+            )
+        sources["DragonSoul DNA"] = {
+            "路径": "dna_trace.db",
+            "状态": "已读取",
+            "事件数": len(source_dnas["DragonSoul DNA"]) + len(source_confirms["DragonSoul DNA"]),
+            "DNA 数": len(source_dnas["DragonSoul DNA"]),
+            "确认码数": len(source_confirms["DragonSoul DNA"]),
+        }
+    except Exception as e:
+        sources["DragonSoul DNA"] = {"状态": f"读取失败：{e}"}
+
+
+    # 6. 链式哈希
+    try:
+        with open("/Users/zuimeidedeyihan/chain_hash.jsonl", "r", encoding="utf-8") as f:
+            chain_lines = f.readlines()
+        for line in chain_lines[-30:]:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                entry = json.loads(line)
+            except Exception:
+                continue
+            text = json.dumps(entry, ensure_ascii=False)
+            dnas, confirms = extract_codes(text)
+            ts = entry.get("timestamp") or entry.get("created_at", "")
+            action = entry.get("action", "") or "chain_hash"
+            detail = entry.get("detail", "") or entry.get("input", "") or entry.get("note", "")
+            add_event("链式哈希", ts, action, detail, dnas, confirms)
+        sources["链式哈希"] = {
+            "路径": "chain_hash.jsonl",
+            "状态": "已读取",
+            "总行数": len(chain_lines),
+            "采样": 30,
+            "事件数": len(source_dnas["链式哈希"]) + len(source_confirms["链式哈希"]),
+            "DNA 数": len(source_dnas["链式哈希"]),
+            "确认码数": len(source_confirms["链式哈希"]),
+        }
+    except Exception as e:
+        sources["链式哈希"] = {"状态": f"读取失败：{e}"}
+
+
+    # 7. 收割审计
+    try:
+        with open("/Users/zuimeidedeyihan/dragon_soul/audit/harvester_audit.jsonl", "r", encoding="utf-8") as f:
+            harv_lines = f.readlines()
+        for line in harv_lines[-30:]:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                entry = json.loads(line)
+            except Exception:
+                continue
+            text = json.dumps(entry, ensure_ascii=False)
+            dnas, confirms = extract_codes(text)
+            ts = entry.get("timestamp", "")
+            module = entry.get("module", "") or entry.get("file_name", "")
+            status = entry.get("processing_status", "") or entry.get("action", "")
+            shield = entry.get("shield_level", "")
+            add_event("收割审计", ts, status, f"模块：{module}，盾牌：{shield}", dnas, confirms)
+        sources["收割审计"] = {
+            "路径": "harvester_audit.jsonl",
+            "状态": "已读取",
+            "总行数": len(harv_lines),
+            "采样": 30,
+            "事件数": len(source_dnas["收割审计"]) + len(source_confirms["收割审计"]),
+            "DNA 数": len(source_dnas["收割审计"]),
+            "确认码数": len(source_confirms["收割审计"]),
+        }
+    except Exception as e:
+        sources["收割审计"] = {"状态": f"读取失败：{e}"}
+
+
+    # 8. Notion 扫描
+    for path, name in [
+        ("/tmp/notion_core_scan_partial.json", "Notion 核心扫描"),
+        ("/tmp/notion_full_scan_partial.json", "Notion 完整扫描"),
+    ]:
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            text = json.dumps(data, ensure_ascii=False)
+            dnas, confirms = extract_codes(text)
+            desc = f"扫描页数 {data.get('scanned', 0)} / 预期 {data.get('total_expected', 0)}"
+            add_event(name, "", "扫描", desc, dnas, confirms)
+            sources[name] = {
+                "路径": os.path.basename(path),
+                "状态": "已读取",
+                "事件数": len(source_dnas[name]) + len(source_confirms[name]),
+                "DNA 数": len(source_dnas[name]),
+                "确认码数": len(source_confirms[name]),
+            }
+        except Exception as e:
+            sources[name] = {"状态": f"读取失败：{e}"}
+
+
+    # 9. 龍魂知识库（最近 7 天）
+    try:
+        conn = sqlite3.connect("/Users/zuimeidedeyihan/_work/dragon_knowledge.db")
+        c = conn.cursor()
+        c.execute(
+            """
+            SELECT entry_id, module_id, entry_type, title, dna_code, created_at
+            FROM knowledge_entries
+            WHERE created_at >= datetime('now', '-7 days')
+            ORDER BY created_at DESC
+            """
+        )
+        kb_rows = c.fetchall()
+        for entry_id, module_id, entry_type, title, dna_code, created_at in kb_rows:
+            dnas = [clean_code(dna_code)] if dna_code and dna_code != "—" else []
+            add_event("龍魂知识库", created_at, entry_type, f"模块：{module_id}，标题：{title}", dnas, [])
+        sources["龍魂知识库"] = {
+            "路径": "dragon_knowledge.db",
+            "状态": "已读取",
+            "事件数": len(source_dnas["龍魂知识库"]) + len(source_confirms["龍魂知识库"]),
+            "DNA 数": len(source_dnas["龍魂知识库"]),
+            "确认码数": len(source_confirms["龍魂知识库"]),
+        }
+    except Exception as e:
+        sources["龍魂知识库"] = {"状态": f"读取失败：{e}"}
+
+
+    # ---------- 统计分析 ----------
+    all_dnas = []
+    all_confirms = []
+    for ev in all_events:
+        all_dnas.extend(ev["dnas"])
+        all_confirms.extend(ev["confirms"])
+
+    dna_counter = Counter(all_dnas)
+    confirm_counter = Counter(all_confirms)
+
+    # 跨源一致性：统计每个 DNA 在哪些源出现
+    dna_sources = defaultdict(set)
+    confirm_sources = defaultdict(set)
+    for ev in all_events:
+        for dna in ev["dnas"]:
+            dna_sources[dna].add(ev["source"])
+        for conf in ev["confirms"]:
+            confirm_sources[conf].add(ev["source"])
+
+    # 时间线：按时间字符串排序（不完美，但够用）
+    def sort_key(ev):
+        t = ev["time"] or ""
+        # 把 Z/+00:00 去掉后再比
+        return t.replace("Z", "+00:00")
+
+    recent_events = [ev for ev in all_events if ev["dnas"] or ev["confirms"]]
+    recent_events.sort(key=sort_key, reverse=True)
+
+    # 时间线优先展示审计/动作类来源，避免被批量入库的龍魂知识库条目淹没
+    audit_sources = {
+        "Kimi 当前会话", "Claude 历史", "CNSH 审计", "UID9622 守护",
+        "DragonSoul DNA", "链式哈希", "收割审计", "Notion 核心扫描", "Notion 完整扫描"
+    }
+    audit_events = [ev for ev in recent_events if ev["source"] in audit_sources]
+    kb_events = [ev for ev in recent_events if ev["source"] == "龍魂知识库"]
+    # 审计源最多 25 条，知识库最多 5 条示例，其余在汇总中说明
+    timeline_events = audit_events[:25] + kb_events[:5]
+    # 按时间再排一次序
+    timeline_events.sort(key=sort_key, reverse=True)
+    kb_remaining = max(0, len(kb_events) - 5)
+
+
+    # ---------- 生成 Markdown 报告 ----------
+    md_lines = []
+    md_lines.append("# UID9622 四来源/五来源对齐报告")
+    md_lines.append("")
+    md_lines.append(f"- **报告 DNA**：`{REPORT_DNA}`")
+    md_lines.append(f"- **确认码**：`{CONFIRM_CODE}`")
+    md_lines.append(f"- **生成时间**：{now_iso()}")
+    md_lines.append(f"- **核对模块**：{MODULE_ID}")
+    md_lines.append("")
+
+    md_lines.append("## 一、核对的数据源清单")
+    md_lines.append("")
+    md_lines.append("> 注：「DNA 数」包含从各来源字段中提取到的所有 `#龍芯...` 及误写入 DNA 字段的确认码；龍魂知识库因批量导入，数量占比较大。")
+    md_lines.append("")
+    md_lines.append("| 序号 | 来源 | 状态 | 说明 | DNA 数 | 确认码数 |")
+    md_lines.append("|---|---|---|---|---|---|")
+    order = [
+        "Kimi 当前会话",
+        "Kimi 会话索引",
+        "Claude 历史",
+        "CNSH 审计",
+        "UID9622 守护",
+        "DragonSoul DNA",
+        "链式哈希",
+        "收割审计",
+        "Notion 核心扫描",
+        "Notion 完整扫描",
+        "龍魂知识库",
+    ]
+    for i, name in enumerate(order, 1):
+        info = sources.get(name, {})
+        status = info.get("状态", "未知")
+        desc = info.get("路径", "-")
+        dna_n = info.get("DNA 数", "-")
+        conf_n = info.get("确认码数", "-")
+        md_lines.append(f"| {i} | {name} | {status} | {desc} | {dna_n} | {conf_n} |")
+    md_lines.append("")
+
+    md_lines.append("## 二、最近关键事件时间线（按时间倒序）")
+    md_lines.append("")
+    md_lines.append("| 时间 | 来源 | 类型 | 简述 | DNA/确认码 |")
+    md_lines.append("|---|---|---|---|---|")
+    for ev in timeline_events:
+        codes = " ".join([f"`{c}`" for c in ev["dnas"] + ev["confirms"]])
+        md_lines.append(
+            f"| {ev['time'] or '-'} | {ev['source']} | {ev['type']} | {shorten(ev['desc'])} | {shorten(codes, 80)} |"
+        )
+    if kb_remaining > 0:
+        md_lines.append(f"| ... | 龍魂知识库 | 批量入库 | 另有 {kb_remaining} 条近 7 天知识库条目未在时间线展开 | ... |")
+    md_lines.append("")
+
+    md_lines.append("## 三、四/五来源一致性检查结果")
+    md_lines.append("")
+    md_lines.append("### 3.1 核心确认码跨源出现情况")
+    md_lines.append("")
+    md_lines.append("| 确认码 | 出现次数 | 出现在哪些源 | 一致性 |")
+    md_lines.append("|---|---|---|---|")
+    for conf, cnt in confirm_counter.most_common(10):
+        srcs = "、".join(sorted(confirm_sources[conf]))
+        # 去掉脏字符
+        conf_clean = clean_code(conf)
+        consistent = "✅ 一致" if len(confirm_sources[conf]) >= 2 else "⚠️ 单源"
+        md_lines.append(f"| `{conf_clean}` | {cnt} | {srcs} | {consistent} |")
+    md_lines.append("")
+
+    md_lines.append("### 3.2 高频 DNA 跨源出现情况")
+    md_lines.append("")
+    md_lines.append("| DNA 码 | 出现次数 | 出现在哪些源 | 一致性 |")
+    md_lines.append("|---|---|---|---|")
+    shown = 0
+    for dna, cnt in dna_counter.most_common():
+        if dna.startswith("#CONFIRM"):
+            continue
+        srcs = "、".join(sorted(dna_sources[dna]))
+        dna_clean = clean_code(dna)
+        if dna_clean in ("-", ""):
+            continue
+        consistent = "✅ 一致" if len(dna_sources[dna]) >= 2 else "⚠️ 单源"
+        md_lines.append(f"| `{dna_clean}` | {cnt} | {srcs} | {consistent} |")
+        shown += 1
+        if shown >= 15:
+            break
+    md_lines.append("")
+
+    md_lines.append("### 3.3 各来源一致性总览")
+    md_lines.append("")
+    md_lines.append("| 来源 | 是否有 DNA | 是否有确认码 | 备注 |")
+    md_lines.append("|---|---|---|---|")
+    for name in order:
+        has_dna = "✅" if len(source_dnas[name]) > 0 else "❌"
+        has_conf = "✅" if len(source_confirms[name]) > 0 else "❌"
+        note = ""
+        if name == "Kimi 当前会话":
+            note = "当前会话活跃，含本报告生成事件"
+        elif name == "Claude 历史":
+            note = "仅 1 条确认码命中，近期 DNA 码未同步写入"
+        elif name == "CNSH 审计":
+            note = "仅 5 条旧记录，无 DNA/确认码"
+        elif name == "UID9622 守护":
+            note = "仅记录人格任务，无 DNA/确认码"
+        elif name == "DragonSoul DNA":
+            note = "独立 DNA 追溯库，记录完整但数量少"
+        elif name == "链式哈希":
+            note = "链式哈希与 DNA 绑定，最近含跨平台对齐记录"
+        elif name == "收割审计":
+            note = "大量盾牌检查记录，DNA 完整"
+        elif name.startswith("Notion"):
+            note = "扫描到既有 DNA/确认码，但时间戳信息缺失"
+        elif name == "龍魂知识库":
+            note = "近 7 天大量入库，是主要 DNA 汇聚地"
+        md_lines.append(f"| {name} | {has_dna} | {has_conf} | {note} |")
+    md_lines.append("")
+
+    md_lines.append("## 四、DNA 码出现频率统计")
+    md_lines.append("")
+    real_dna_counter = Counter({k: v for k, v in dna_counter.items() if not k.startswith("#CONFIRM")})
+    confirm_as_dna_count = sum(v for k, v in dna_counter.items() if k.startswith("#CONFIRM"))
+    md_lines.append(f"- 所有来源合计提取到 **{len(all_dnas)}** 个 DNA 字段出现次数，涉及 **{len(dna_counter)}** 个不同码。")
+    md_lines.append(f"- 其中真正的 DNA 码 **{len(real_dna_counter)}** 个，另有 **{confirm_as_dna_count}** 次确认码被误写入 DNA 字段（主要在龍魂知识库）。")
+    md_lines.append(f"- 确认码独立字段合计 **{len(all_confirms)}** 次出现，涉及 **{len(confirm_counter)}** 个不同确认码。")
+    md_lines.append("")
+    md_lines.append("### 4.1 高频 DNA 码 Top 10")
+    md_lines.append("")
+    md_lines.append("| 排名 | DNA 码 | 次数 |")
+    md_lines.append("|---|---|---|")
+    idx = 1
+    for dna, cnt in dna_counter.most_common():
+        if dna.startswith("#CONFIRM"):
+            continue
+        dna_clean = clean_code(dna)
+        if dna_clean in ("-", ""):
+            continue
+        md_lines.append(f"| {idx} | `{dna_clean}` | {cnt} |")
+        idx += 1
+        if idx > 10:
+            break
+    md_lines.append("")
+
+    md_lines.append("### 4.2 高频确认码 Top 5")
+    md_lines.append("")
+    md_lines.append("| 排名 | 确认码 | 次数 |")
+    md_lines.append("|---|---|---|")
+    for idx, (conf, cnt) in enumerate(confirm_counter.most_common(5), 1):
+        md_lines.append(f"| {idx} | `{clean_code(conf)}` | {cnt} |")
+    md_lines.append("")
+
+    md_lines.append("## 五、发现的问题或遗漏")
+    md_lines.append("")
+    issues = []
+    if not source_dnas["Claude 历史"]:
+        issues.append("1. **Claude 历史缺少 DNA 码**：最近 50 条 Claude 记录里没有出现 `#龍芯⚡️/⚇️` 格式的 DNA 码，只有 1 条确认码命中。需要确认 Claude 侧是否未写入 DNA 追溯，或格式不一致。")
+    if not source_dnas["CNSH 审计"]:
+        issues.append("2. **CNSH 审计日志陈旧且空码**：audit.log 只有 5 条 2026-04-04 的旧记录，没有 DNA/确认码，近三个月无新增审计。")
+    if not source_dnas["UID9622 守护"]:
+        issues.append("3. **UID9622 守护日志无 DNA/确认码**：守护进程只记录任务执行和五大人格状态，没有把 DNA 码写入日志。")
+    if len(source_confirms["链式哈希"]) < 5:
+        issues.append("4. **链式哈希确认码偏少**：近 30 条链式哈希记录中只有少数带确认码，大部分哈希记录缺少 UID9622 确认环节。")
+    if "未找到或为空" in str(sources.get("Kimi 会话索引", {}).get("状态", "")):
+        issues.append("5. **Kimi session_index.jsonl 不存在**：本次只读取到 wire.jsonl，会话索引文件缺失，无法做会话级索引对齐。")
+    # Notion 无时间戳
+    issues.append("6. **Notion 扫描结果缺少时间戳**：两个 Notion 扫描文件都没有明确的时间字段，无法按时间线对齐事件。")
+    # 知识库大量数据
+    issues.append("7. **龍魂知识库数据量过大**：近 7 天有 2000+ 条记录，可能包含批量导入，部分 `dna_code` 字段为空或为 `—`，需要清洗。")
+    # 确认码误存为 DNA
+    confirm_in_dna = [d for d in dna_counter if d.startswith("#CONFIRM")]
+    if confirm_in_dna:
+        issues.append(f"8. **确认码被误存入 DNA 字段**：龍魂知识库中 `dna_code` 字段出现了 {len(confirm_in_dna)} 个确认码（如 `{clean_code(confirm_in_dna[0])}`），共 {sum(dna_counter[d] for d in confirm_in_dna)} 次，应拆分到确认码字段。")
+    # 跨源一致性问题
+    multi_src_dnas = [d for d, srcs in dna_sources.items() if len(srcs) >= 2 and not d.startswith("#CONFIRM")]
+    issues.append(f"9. **跨源一致的 DNA 较少**：在 {len(dna_counter)} 个不同 DNA 中，只有 {len(multi_src_dnas)} 个在 2 个及以上来源同时出现，多数 DNA 仍孤立存在。")
+
+    for issue in issues:
+        md_lines.append(issue)
+    md_lines.append("")
+
+    md_lines.append("## 六、下一步建议")
+    md_lines.append("")
+    md_lines.append("1. **给 Claude 侧加 DNA 写入**：在 Claude 保存历史时，把当前操作的 `#龍芯⚡️...` DNA 码一起写入 history.jsonl，方便后续对齐。")
+    md_lines.append("2. **重启 CNSH 审计日志写入**：audit.log 停留在 4 月初，需要确认 CNSH 命令审计是否仍在运行，或路径已变更。")
+    md_lines.append("3. **UID9622 守护日志增加 DNA 字段**：守护进程执行任务时，把任务对应的 DNA 码写入 daemon.log。")
+    md_lines.append("4. **链式哈希统一加确认码**：每条链式哈希记录都应绑定 `#CONFIRM🌌9622-ONLY-ONCE🧬...`，而不是只在少数记录里出现。")
+    md_lines.append("5. **补齐 Kimi session_index.jsonl**：建议生成或恢复会话索引文件，让会话级对齐有依据。")
+    md_lines.append("6. **Notion 扫描补充时间戳**：在后续扫描结果中增加 `scanned_at` 或 `created_at` 字段。")
+    md_lines.append("7. **清洗龍魂知识库空 DNA 记录**：把 `dna_code` 为空或 `—` 的近 7 天条目补全或标注来源。")
+    md_lines.append("8. **建立定期对齐任务**：建议每天自动生成一次本报告，持续追踪多源一致性。")
+    md_lines.append("")
+
+    md_lines.append("---")
+    md_lines.append("")
+    md_lines.append("*本报告由龍魂系统自动生成，DNA 可追溯，确认码一次有效。*")
+
+    report_text = "\n".join(md_lines)
+
+    # ---------- 写入文件 ----------
+    desktop_path = "/Users/zuimeidedeyihan/Desktop/四来源对齐报告.md"
+    longhun_path = "/Users/zuimeidedeyihan/longhun-system/四来源对齐报告.md"
+    os.makedirs(os.path.dirname(desktop_path), exist_ok=True)
+    os.makedirs(os.path.dirname(longhun_path), exist_ok=True)
+
+    with open(desktop_path, "w", encoding="utf-8") as f:
+        f.write(report_text)
+    with open(longhun_path, "w", encoding="utf-8") as f:
+        f.write(report_text)
+
+    # ---------- 写入知识库 ----------
+    try:
+        conn = sqlite3.connect("/Users/zuimeidedeyihan/_work/dragon_knowledge.db")
+        c = conn.cursor()
+        c.execute("PRAGMA table_info(knowledge_entries)")
+        cols = [col[1] for col in c.fetchall()]
+
+        entry_id = f"KE-SOURCE-ALIGN-{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}"
+        now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+        read_sources = [s for s in sources.values() if "已读取" in s.get("状态", "")]
+        values = {
+            "entry_id": entry_id,
+            "module_id": MODULE_ID,
+            "entry_type": "report",
+            "title": "四来源/五来源对齐报告",
+            "category": "审计",
+            "subcategory": "来源对齐",
+            "status": "completed",
+            "priority": "high",
+            "summary": f"核对 {len(read_sources)} 个来源，提取 {len(dna_counter)} 个唯一 DNA、{len(confirm_counter)} 个唯一确认码。",
+            "content_json": json.dumps(
+                {
+                    "report_dna": REPORT_DNA,
+                    "confirm_code": CONFIRM_CODE,
+                    "source_count": len(read_sources),
+                    "dna_count": len(dna_counter),
+                    "confirm_count": len(confirm_counter),
+                    "event_count": len(all_events),
+                },
+                ensure_ascii=False,
+            ),
+            "tags": "source-alignment,DNA,audit,UID9622",
+            "dna_code": REPORT_DNA,
+            "source_path": f"{desktop_path},{longhun_path}",
+            "created_at": now,
+        }
+        available = {k: v for k, v in values.items() if k in cols}
+        cols_sql = ", ".join(available.keys())
+        placeholders = ", ".join(["?"] * len(available))
+        c.execute(f"INSERT INTO knowledge_entries ({cols_sql}) VALUES ({placeholders})", list(available.values()))
+        conn.commit()
+        kb_status = "已写入 knowledge_entries 表"
+    except Exception as e:
+        kb_status = f"写入知识库失败：{e}"
+
+    # ---------- 输出摘要 ----------
+    print("=== 报告生成完成 ===")
+    print(f"桌面文件：{desktop_path}")
+    print(f"龍魂系统文件：{longhun_path}")
+    print(f"知识库状态：{kb_status}")
+    print(f"来源数：{len(sources)}")
+    print(f"事件数：{len(all_events)}")
+    print(f"唯一 DNA 数：{len(dna_counter)}")
+    print(f"唯一确认码数：{len(confirm_counter)}")
+    print(f"跨源 DNA 数（≥2 源）：{len([d for d, s in dna_sources.items() if len(s) >= 2])}")

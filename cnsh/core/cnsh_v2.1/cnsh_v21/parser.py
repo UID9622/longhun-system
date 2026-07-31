@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
 """
 CNSH v2.1 语法分析器 (Parser)
@@ -31,6 +32,13 @@ from .errors import CNSHParseError
 
 class Parser:
     """递归下降语法分析器"""
+
+    # 可作为类型注解的 token 类型（含中文类型名关键字）
+    _TYPE_ANNOTATION_TOKENS = {
+        "STRING_TYPE", "INTEGER_TYPE", "FLOAT_TYPE", "BOOLEAN_TYPE",
+        "LIST_TYPE", "ARRAY_TYPE", "MAP_TYPE", "VECTOR_TYPE", "BINARY_TYPE",
+        "CLASS", "OBJECT", "INSTANCE", "IDENTIFIER",
+    }
 
     def __init__(self, tokens: List[Token]):
         # 预先过滤注释，但保留 DNA 注释可能不需要解析
@@ -196,7 +204,7 @@ class Parser:
 
     def _module_decl(self) -> ModuleDecl:
         start = self._advance()  # MODULE
-        name = self._expect("IDENTIFIER", "模块声明需要名称").value
+        name = self._expect_identifier_like("模块声明需要名称")
         weight = self._optional_weight()
         self._expect("LBRACE", "模块体需要 '{'")
         body = self._block_body()
@@ -204,14 +212,14 @@ class Parser:
 
     def _persona_basis_decl(self) -> PersonaBasisDecl:
         start = self._advance()  # PERSONA_BASIS
-        name = self._expect("IDENTIFIER", "人格基态需要名称").value
+        name = self._expect_identifier_like("人格基态需要名称")
         self._expect("LBRACE", "人格基态体需要 '{'")
         fields = self._key_value_body()
         return PersonaBasisDecl(name=name, fields=fields, line=start.line, column=start.column)
 
     def _system_decl(self) -> SystemDecl:
         start = self._advance()  # SYSTEM
-        name = self._expect("IDENTIFIER", "系统需要名称").value
+        name = self._expect_identifier_like("系统需要名称")
         self._expect("LBRACE", "系统体需要 '{'")
         fields = self._key_value_body()
         return SystemDecl(name=name, fields=fields, line=start.line, column=start.column)
@@ -235,14 +243,14 @@ class Parser:
 
     def _function_decl(self, decorators: Optional[List[Decorator]] = None) -> ASTNode:
         start = self._advance()  # FUNCTION or DEF
-        name = self._expect("IDENTIFIER", "函数声明需要名称").value
+        name = self._expect_identifier_like("函数声明需要名称")
         self._expect("LPAREN", "函数参数需要 '('")
         params = self._parameter_list()
         self._expect("RPAREN", "函数参数需要 ')'")
         return_type_ann: Optional[str] = None
         if self._check("ARROW"):
             self._advance()
-            return_type_ann = self._expect("IDENTIFIER", "函数返回类型").value
+            return_type_ann = self._parse_type_annotation("函数返回类型")
         weight = self._optional_weight()
         self._expect("LBRACE", "函数体需要 '{'")
         body = self._block_body()
@@ -269,7 +277,7 @@ class Parser:
 
     def _struct_decl(self) -> StructDecl:
         start = self._advance()  # STRUCT
-        name = self._expect("IDENTIFIER", "结构体需要名称").value
+        name = self._expect_identifier_like("结构体需要名称")
         self._expect("LBRACE", "结构体体需要 '{'")
         fields: List[Parameter] = []
         while not self._check("RBRACE") and not self._check("EOF"):
@@ -278,7 +286,7 @@ class Parser:
             type_ann: Optional[str] = None
             if self._check("COLON"):
                 self._advance()
-                type_ann = self._expect("IDENTIFIER", "结构体字段类型").value
+                type_ann = self._parse_type_annotation("结构体字段类型")
             fields.append(Parameter(name=field_name, type_annotation=type_ann))
             if self._check("COMMA"):
                 self._advance()
@@ -288,11 +296,11 @@ class Parser:
 
     def _var_decl(self, is_const: bool) -> VarDecl:
         start = self._advance()  # VAR or CONST
-        name = self._expect("IDENTIFIER", "变量声明需要名称").value
+        name = self._expect_identifier_like("变量声明需要名称")
         type_ann: Optional[str] = None
         if self._check("COLON"):
             self._advance()
-            type_ann = self._expect("IDENTIFIER", "变量类型").value
+            type_ann = self._parse_type_annotation("变量类型")
         init: Optional[ASTNode] = None
         if self._check("ASSIGN"):
             self._advance()
@@ -338,7 +346,7 @@ class Parser:
     def _for_stmt(self) -> ForStmt:
         start = self._advance()  # FOR
         # 语法：对于 变量 在 表达式 { ... }
-        var_name = self._expect("IDENTIFIER", "对于循环需要循环变量").value
+        var_name = self._expect_identifier_like("对于循环需要循环变量")
         if self._peek().value not in ("在", "in"):
             tok = self._peek()
             raise CNSHParseError("对于循环需要 '在' 或 'in'", tok.line, tok.column, tok.file)
@@ -388,15 +396,11 @@ class Parser:
             return params
         while True:
             self._skip_newlines()
-            if self._peek().type in ("IDENTIFIER", "SELF", "SUPER"):
-                name = self._advance().value
-            else:
-                tok = self._peek()
-                raise CNSHParseError(f"参数需要名称，但得到 {tok.type}({tok.value!r})", tok.line, tok.column, tok.file)
+            name = self._expect_identifier_like("参数需要名称")
             type_ann: Optional[str] = None
             if self._check("COLON"):
                 self._advance()
-                type_ann = self._expect("IDENTIFIER", "参数类型").value
+                type_ann = self._parse_type_annotation("参数类型")
             params.append(Parameter(name=name, type_annotation=type_ann))
             self._skip_newlines()
             if self._check("COMMA"):
@@ -414,18 +418,35 @@ class Parser:
             raise CNSHParseError("权重符号后需要数字", self._peek().line, self._peek().column)
         return None
 
+    def _parse_type_annotation(self, message: str = "需要类型") -> str:
+        """解析类型注解，支持中文类型关键字与普通标识符。"""
+        tok = self._peek()
+        if tok.type in self._TYPE_ANNOTATION_TOKENS:
+            return self._advance().value
+        raise CNSHParseError(
+            f"{message}，但得到 {tok.type}({tok.value!r})",
+            tok.line, tok.column, tok.file,
+        )
+
+    def _expect_identifier_like(self, message: str) -> str:
+        """解析类标识符的名称（允许关键字作为自定义名称，如 类、全局 等）。"""
+        tok = self._peek()
+        if tok.type == "IDENTIFIER" or tok.value.isidentifier():
+            return self._advance().value
+        raise CNSHParseError(f"{message}，但得到 {tok.type}({tok.value!r})", tok.line, tok.column, tok.file)
+
     # ---------- 类 / 装饰器 / 异步 / 上下文管理器 / 异常 / 导入 ----------
 
     def _method_decl(self, decorators: Optional[List[Decorator]] = None) -> MethodDecl:
         start = self._advance()  # FUNCTION or DEF
-        name = self._expect("IDENTIFIER", "方法需要名称").value
+        name = self._expect_identifier_like("方法需要名称")
         self._expect("LPAREN", "方法参数需要 '('")
         params = self._parameter_list()
         self._expect("RPAREN", "方法参数需要 ')'")
         return_type_ann: Optional[str] = None
         if self._check("ARROW"):
             self._advance()
-            return_type_ann = self._expect("IDENTIFIER", "方法返回类型").value
+            return_type_ann = self._parse_type_annotation("方法返回类型")
         self._expect("LBRACE", "方法体需要 '{'")
         body = self._block_body()
         return MethodDecl(
@@ -492,11 +513,11 @@ class Parser:
 
     def _class_decl(self, decorators: Optional[List[Decorator]] = None) -> ASTNode:
         start = self._advance()  # CLASS
-        name = self._expect("IDENTIFIER", "类声明需要名称").value
+        name = self._expect_identifier_like("类声明需要名称")
         base: Optional[str] = None
         if self._check("LPAREN"):
             self._advance()
-            if self._peek().type in ("IDENTIFIER", "ENUM"):
+            if self._peek().type in ("IDENTIFIER", "ENUM") or self._peek().value.isidentifier():
                 base = self._advance().value
             else:
                 tok = self._peek()
@@ -573,8 +594,10 @@ class Parser:
     def _field_decl(self) -> DataClassField:
         start = self._advance()  # IDENTIFIER
         name = start.value
+        if not name.isidentifier():
+            raise CNSHParseError(f"字段需要名称，但得到 {start.type}({start.value!r})", start.line, start.column, start.file)
         self._expect("COLON", "字段声明需要 ':'")
-        type_ann = self._expect("IDENTIFIER", "字段需要类型").value
+        type_ann = self._parse_type_annotation("字段需要类型")
         default: Optional[ASTNode] = None
         if self._check("ASSIGN"):
             self._advance()
@@ -668,14 +691,14 @@ class Parser:
 
     def _async_function_decl(self, decorators: Optional[List[Decorator]] = None) -> MethodDecl:
         start = self._advance()  # FUNCTION or DEF
-        name = self._expect("IDENTIFIER", "异步函数需要名称").value
+        name = self._expect_identifier_like("异步函数需要名称")
         self._expect("LPAREN", "异步函数参数需要 '('")
         params = self._parameter_list()
         self._expect("RPAREN", "异步函数参数需要 ')'")
         return_type_ann: Optional[str] = None
         if self._check("ARROW"):
             self._advance()
-            return_type_ann = self._expect("IDENTIFIER", "异步函数返回类型").value
+            return_type_ann = self._parse_type_annotation("异步函数返回类型")
         self._expect("LBRACE", "异步函数体需要 '{'")
         body = self._block_body()
         return MethodDecl(
@@ -691,7 +714,7 @@ class Parser:
 
     def _async_for_stmt(self) -> AsyncForStmt:
         start = self._advance()  # FOR
-        var_name = self._expect("IDENTIFIER", "异步对于循环需要循环变量").value
+        var_name = self._expect_identifier_like("异步对于循环需要循环变量")
         if self._peek().value not in ("在", "in"):
             raise CNSHParseError("异步对于循环需要 '在' 或 'in'", self._peek().line, self._peek().column)
         self._advance()
@@ -772,24 +795,24 @@ class Parser:
             alias: Optional[str] = None
             if self._check("AS"):
                 self._advance()
-                alias = self._expect("IDENTIFIER", "作为需要别名").value
+                alias = self._expect_identifier_like("作为需要别名")
             self._statement_end()
             return ImportStmt(module=module, alias=alias, line=start.line, column=start.column)
         # FROM ... IMPORT ...
         module = self._parse_dotted_name()
         self._expect("IMPORT", "从导入语句需要 导入")
-        names: List[str] = [self._expect("IDENTIFIER", "导入名称").value]
+        names: List[str] = [self._expect_identifier_like("导入名称")]
         while self._check("COMMA"):
             self._advance()
-            names.append(self._expect("IDENTIFIER", "导入名称").value)
+            names.append(self._expect_identifier_like("导入名称"))
         self._statement_end()
         return ImportStmt(module=module, names=names, is_from=True, line=start.line, column=start.column)
 
     def _parse_dotted_name(self) -> str:
-        name = self._expect("IDENTIFIER", "需要模块名").value
+        name = self._expect_identifier_like("需要模块名")
         while self._check("DOT"):
             self._advance()
-            name = f"{name}.{self._expect('IDENTIFIER', '模块路径需要名称').value}"
+            name = f"{name}.{self._expect_identifier_like('模块路径需要名称')}"
         return name
 
     # ---------- 表达式（优先级 climbing） ----------
@@ -875,7 +898,13 @@ class Parser:
                 node = CallExpr(callee=node, args=args, line=node.line, column=node.column)
             elif self._check("DOT"):
                 self._advance()
-                member = self._expect("IDENTIFIER", "成员访问需要名称").value
+                member_tok = self._peek()
+                if member_tok.type != "IDENTIFIER" and not member_tok.value.isidentifier():
+                    raise CNSHParseError(
+                        f"成员访问需要名称，但得到 {member_tok.type}({member_tok.value!r})",
+                        member_tok.line, member_tok.column, member_tok.file,
+                    )
+                member = self._advance().value
                 node = MemberExpr(object=node, member=member, line=node.line, column=node.column)
             elif self._check("LBRACKET"):
                 self._advance()
@@ -927,10 +956,7 @@ class Parser:
         if tok.type == "NULL":
             self._advance()
             return LiteralExpr(value=None, line=tok.line, column=tok.column)
-        if tok.type == "IDENTIFIER":
-            self._advance()
-            return IdentifierExpr(name=tok.value, line=tok.line, column=tok.column)
-        if tok.type in ("SELF", "SUPER", "FIELD", "PRINT", "CALL", "NEW", "DELETE_KW", "NOW_FN", "LEN_FN", "TO_STR_FN", "TO_INT_FN"):
+        if tok.type == "IDENTIFIER" or tok.value.isidentifier():
             self._advance()
             return IdentifierExpr(name=tok.value, line=tok.line, column=tok.column)
         if tok.type == "LPAREN":
@@ -1253,11 +1279,11 @@ class Parser:
     def _global_decl(self) -> VarDecl:
         """全局 变量名 = 初始值"""
         start = self._advance()  # GLOBAL
-        name = self._expect("IDENTIFIER", "全局变量需要名称").value
+        name = self._expect_identifier_like("全局变量需要名称")
         type_ann: Optional[str] = None
         if self._check("COLON"):
             self._advance()
-            type_ann = self._expect("IDENTIFIER", "全局变量类型").value
+            type_ann = self._parse_type_annotation("全局变量类型")
         init: Optional[ASTNode] = None
         if self._check("ASSIGN"):
             self._advance()

@@ -2,6 +2,7 @@
 # ============================================================================
 # longhun-data-miner.sh — 龍魂本地数据挖掘 v1.0
 # DNA: #龍芯⚡️丙午·辛未·DATA-MINER-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #
 # 扫描：浏览器对话 → 本地AI应用 → 终端历史 → 龍魂系统自身
 # 输出：data-miner/ 目录 + persona-chain/data-index.json

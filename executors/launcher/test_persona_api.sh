@@ -5,6 +5,7 @@
 
 # 龍魂人格 API 测试脚本
 # DNA: #龍芯⚇️2026-06-09-PERSONA-API-TEST-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
 

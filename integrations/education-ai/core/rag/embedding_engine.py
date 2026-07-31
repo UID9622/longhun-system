@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·乙未·乙丑·未济-FIX_DNA-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # core/rag/embedding_engine.py
 # 龍魂 · 向量嵌入引擎 · 语义检索
 

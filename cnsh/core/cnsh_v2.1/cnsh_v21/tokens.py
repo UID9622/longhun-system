@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
 """
 CNSH v2.1 Token 定义
@@ -279,10 +280,12 @@ KEYWORDS = {
     "字符串": "STRING_TYPE",
     "整数": "INTEGER_TYPE",
     "浮点数": "FLOAT_TYPE",
+    "浮点": "FLOAT_TYPE",
     "布尔": "BOOLEAN_TYPE",
     "列表": "LIST_TYPE",
     "数组": "ARRAY_TYPE",
     "映射": "MAP_TYPE",
+    "字典": "MAP_TYPE",
     "向量": "VECTOR_TYPE",
     "二进制": "BINARY_TYPE",
     # ── 声明关键字 ──

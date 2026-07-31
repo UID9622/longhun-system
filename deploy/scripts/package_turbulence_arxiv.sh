@@ -1,6 +1,7 @@
 #!/bin/bash
 # 龍魂湍流治理框架 · arXiv 一键打包脚本
 # DNA: #龍芯⚡️丙午·乙未·辛酉·井-TURBULENCE-PACKAGE-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
 

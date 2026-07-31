@@ -1,0 +1,304 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-23-184259-header-UID9622-6870C322
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+###############################################
+# 龙魂人格军团·诊断工具
+###############################################
+#
+# DNA追溯码：#ZHUGEXIN⚡️-2026-02-15-diagnostic-v1.0
+# 创建者：宝宝｜UID9622
+# 创建时间：北京时间 2026-02-15 02:40:00
+#
+# 大白话：这个脚本检查系統的健康状态，
+# 包括磁盘、权限、文件完整性、配置等。
+#
+###############################################
+
+set -o pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONFIG_FILE="${SCRIPT_DIR}/config.sh"
+LIB_FILE="${SCRIPT_DIR}/lib.sh"
+
+# 加载配置和函数库
+if [ -f "$CONFIG_FILE" ] && [ -f "$LIB_FILE" ]; then
+    source "$CONFIG_FILE"
+    source "$LIB_FILE"
+else
+    echo "❌ 错误：找不到配置文件或函数库"
+    exit 1
+fi
+
+# 颜色定义
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+# =====================================================
+# 诊断报告
+# =====================================================
+
+DIAGNOSTIC_FILE="/tmp/diagnostic_$(date +%Y%m%d_%H%M%S).txt"
+
+log_diag() {
+    echo "$1" | tee -a "$DIAGNOSTIC_FILE"
+}
+
+# =====================================================
+# 诊断函数
+# =====================================================
+
+check_system_health() {
+    log_diag ""
+    log_diag "═══════════════════════════════════════════════════"
+    log_diag "🐉 龍魂人格军团 - 系統诊断报告"
+    log_diag "═══════════════════════════════════════════════════"
+    log_diag ""
+    log_diag "诊断时间：$(date '+%Y-%m-%d %H:%M:%S')"
+    log_diag ""
+
+    # 1. 检查文件和目录
+    log_diag "📁 [1/6] 检查文件和目录"
+    log_diag "───────────────────────────────────────────────────"
+
+    local files=(
+        "$CONFIG_FILE:config.sh"
+        "$LIB_FILE:lib.sh"
+        "${SCRIPT_DIR}/commander.sh:commander.sh"
+        "${LOGS_DIR}:logs/"
+        "${REPORTS_DIR}:reports/"
+    )
+
+    for item in "${files[@]}"; do
+        local path="${item%:*}"
+        local name="${item#*:}"
+
+        if [ -e "$path" ]; then
+            if [ -d "$path" ]; then
+                log_diag "  ✅ 目录存在：$name"
+            else
+                local perms=$(stat -f %A "$path" 2>/dev/null || echo "?")
+                log_diag "  ✅ 文件存在：$name (权限: $perms)"
+            fi
+        else
+            log_diag "  ❌ 缺失：$name"
+        fi
+    done
+
+    # 2. 检查脚本权限
+    log_diag ""
+    log_diag "🔐 [2/6] 检查脚本权限"
+    log_diag "───────────────────────────────────────────────────"
+
+    local scripts=(
+        "${SCRIPT_DIR}/commander.sh"
+        "${SCRIPT_DIR}/config.sh"
+        "${SCRIPT_DIR}/lib.sh"
+    )
+
+    for script in "${scripts[@]}"; do
+        if [ -f "$script" ]; then
+            if [ -x "$script" ]; then
+                log_diag "  ✅ 可执行：$(basename $script)"
+            else
+                log_diag "  ❌ 不可执行：$(basename $script)"
+            fi
+        else
+            log_diag "  ❌ 文件不存在：$(basename $script)"
+        fi
+    done
+
+    # 3. 检查磁盘空间
+    log_diag ""
+    log_diag "💾 [3/6] 检查磁盘空间"
+    log_diag "───────────────────────────────────────────────────"
+
+    local home_usage=$(get_disk_usage "$HOME")
+    local home_available=$(get_disk_available_gb "$HOME")
+
+    log_diag "  主目录 ($HOME)："
+    log_diag "    • 使用率：${home_usage}%"
+    log_diag "    • 可用空间：${home_available} GB"
+
+    if [ "$home_usage" -gt "$DISK_ERROR_THRESHOLD" ]; then
+        log_diag "    ❌ [错误] 磁盘空间严重不足！"
+    elif [ "$home_usage" -gt "$DISK_WARNING_THRESHOLD" ]; then
+        log_diag "    ⚠️ [警告] 磁盘空间即将用尽"
+    else
+        log_diag "    ✅ 磁盘空间正常"
+    fi
+
+    # 4. 检查备份目录大小
+    log_diag ""
+    log_diag "📦 [4/6] 检查备份目录"
+    log_diag "───────────────────────────────────────────────────"
+
+    if [ -d "$BACKUPS_DIR" ]; then
+        local backup_size=$(get_directory_size_mb "$BACKUPS_DIR")
+        local backup_count=$(ls -1 "$BACKUPS_DIR"/sync_backup_*.tar.gz 2>/dev/null | wc -l)
+
+        log_diag "  备份目录：$BACKUPS_DIR"
+        log_diag "    • 总大小：${backup_size} MB"
+        log_diag "    • 备份文件数：$backup_count"
+
+        if [ "$backup_count" -gt 0 ]; then
+            log_diag "    • 最大备份："
+            ls -1h "$BACKUPS_DIR"/sync_backup_*.tar.gz 2>/dev/null | while read file; do
+                local size=$(du -h "$file" | awk '{print $1}')
+                log_diag "      - $(basename "$file"): $size"
+            done | head -3
+        else
+            log_diag "    ℹ️ 暂无备份文件"
+        fi
+
+        if [ "$backup_size" -gt $((BACKUP_SIZE_WARNING_MB * 10)) ]; then
+            log_diag "    ⚠️ [警告] 备份文件过大，建议清理"
+        else
+            log_diag "    ✅ 备份大小正常"
+        fi
+    else
+        log_diag "  ❌ 备份目录不存在"
+    fi
+
+    # 5. 检查日志文件
+    log_diag ""
+    log_diag "📋 [5/6] 检查日志文件"
+    log_diag "───────────────────────────────────────────────────"
+
+    if [ -d "$LOGS_DIR" ]; then
+        local log_count=$(ls -1 "$LOGS_DIR"/*.log 2>/dev/null | wc -l)
+        local logs_size=$(get_directory_size_mb "$LOGS_DIR")
+
+        log_diag "  日志目录：$LOGS_DIR"
+        log_diag "    • 日志文件数：$log_count"
+        log_diag "    • 总大小：${logs_size} MB"
+
+        if [ "$log_count" -gt 0 ]; then
+            log_diag "    • 最新日志："
+            ls -1t "$LOGS_DIR"/*.log 2>/dev/null | head -3 | while read file; do
+                local size=$(du -h "$file" | awk '{print $1}')
+                local mtime=$(stat -f %Sm -t '%Y-%m-%d %H:%M:%S' "$file")
+                log_diag "      - $(basename "$file"): $size ($mtime)"
+            done
+        fi
+
+        if [ "$logs_size" -gt "$LOG_MAX_SIZE_MB" ]; then
+            log_diag "    ⚠️ [警告] 日志文件过大"
+        else
+            log_diag "    ✅ 日志大小正常"
+        fi
+    else
+        log_diag "  ❌ 日志目录不存在"
+    fi
+
+    # 6. 检查配置
+    log_diag ""
+    log_diag "⚙️ [6/6] 检查配置"
+    log_diag "───────────────────────────────────────────────────"
+
+    log_diag "  人格开关设置："
+    log_diag "    • 雯雯·技术整理师：${ENABLE_WENWEN:-未定义} $([ "${ENABLE_WENWEN}" = "1" ] && echo '✅' || echo '❌')"
+    log_diag "    • 上帝之眼·守护者：${ENABLE_EYE:-未定义} $([ "${ENABLE_EYE}" = "1" ] && echo '✅' || echo '❌')"
+    log_diag "    • 宝宝·构建师：${ENABLE_BAOBAO:-未定义} $([ "${ENABLE_BAOBAO}" = "1" ] && echo '✅' || echo '❌')"
+    log_diag "    • 侦察兵·信息猎手：${ENABLE_SCOUT:-未定义} $([ "${ENABLE_SCOUT}" = "1" ] && echo '✅' || echo '❌')"
+    log_diag "    • 文心·同步专家：${ENABLE_WENXIN:-未定义} $([ "${ENABLE_WENXIN}" = "1" ] && echo '✅' || echo '❌')"
+
+    log_diag ""
+    log_diag "  系統配置："
+    log_diag "    • 磁盘警告阈值：${DISK_WARNING_THRESHOLD}%"
+    log_diag "    • 磁盘错误阈值：${DISK_ERROR_THRESHOLD}%"
+    log_diag "    • 备份保留数量：${BACKUP_RETAIN_COUNT}"
+    log_diag "    • 自动清理备份：${AUTO_CLEANUP_BACKUPS} $([ "${AUTO_CLEANUP_BACKUPS}" = "1" ] && echo '✅' || echo '❌')"
+}
+
+show_recommendations() {
+    log_diag ""
+    log_diag "═══════════════════════════════════════════════════"
+    log_diag "💡 建议和优化"
+    log_diag "═══════════════════════════════════════════════════"
+    log_diag ""
+
+    # 检查磁盘使用
+    local home_usage=$(get_disk_usage "$HOME")
+    if [ "$home_usage" -gt "$DISK_ERROR_THRESHOLD" ]; then
+        log_diag "🔴 [紧急] 磁盘空间严重不足"
+        log_diag "   建议行动："
+        log_diag "   1. 立即删除旧备份文件"
+        log_diag "   2. 清理临时文件"
+        log_diag "   3. 考虑移动备份到外置存储"
+        log_diag ""
+    elif [ "$home_usage" -gt "$DISK_WARNING_THRESHOLD" ]; then
+        log_diag "🟡 [警告] 磁盘使用率较高（${home_usage}%）"
+        log_diag "   建议行动："
+        log_diag "   1. 清理多余的备份文件"
+        log_diag "   2. 定期清理日志"
+        log_diag ""
+    fi
+
+    # 检查备份
+    if [ -d "$BACKUPS_DIR" ]; then
+        local backup_size=$(get_directory_size_mb "$BACKUPS_DIR")
+        if [ "$backup_size" -gt $((BACKUP_SIZE_WARNING_MB * 5)) ]; then
+            log_diag "📦 备份文件较大（${backup_size}MB）"
+            log_diag "   建议行动："
+            log_diag "   1. 检查并删除过期备份"
+            log_diag "   2. 考虑压缩或转移备份"
+            log_diag ""
+        fi
+    fi
+
+    # 检查日志
+    if [ -d "$LOGS_DIR" ]; then
+        local logs_size=$(get_directory_size_mb "$LOGS_DIR")
+        if [ "$logs_size" -gt "$LOG_MAX_SIZE_MB" ]; then
+            log_diag "📋 日志文件较大（${logs_size}MB）"
+            log_diag "   建议行动："
+            log_diag "   1. 删除30天前的日志"
+            log_diag "   2. 考虑日志轮转"
+            log_diag ""
+        fi
+    fi
+
+    log_diag "✅ 诊断完成。详细报告已保存到："
+    log_diag "   $DIAGNOSTIC_FILE"
+}
+
+# =====================================================
+# 主程序
+# =====================================================
+
+main() {
+    echo ""
+    echo "🐉 龍魂人格军团 - 系統诊断工具启动"
+    echo ""
+
+    # 执行诊断
+    check_system_health
+    show_recommendations
+
+    # 显示报告位置
+    echo ""
+    echo "📄 完整诊断报告："
+    cat "$DIAGNOSTIC_FILE"
+
+    echo ""
+    echo "✅ 诊断完成"
+    echo "📁 报告已保存到：$DIAGNOSTIC_FILE"
+    echo ""
+}
+
+main "$@"
+
+###############################################
+# 文件末尾
+###############################################
+# DNA追溯码：#ZHUGEXIN⚡️-2026-02-15-diagnostic-v1.0
+# 创建者：宝宝｜UID9622
+# 状态：✅ 官方v1.0版本
+###############################################

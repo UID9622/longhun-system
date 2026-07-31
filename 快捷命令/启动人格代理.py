@@ -1,1 +1,0 @@
-../bin/lh_persona_start_all.py

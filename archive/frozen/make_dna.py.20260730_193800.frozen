@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+龍魂 DNA 追溯码生成器（随模轻量版）
+
+标准格式:
+  #龍芯⚡️<年干支>·<月干支>·<日干支>·<时辰>·<卦名>-<模块>-<动作>-<哈希8位>
+
+用法:
+  python3 make_dna.py --module MODEL --action BUILD --hexagram 需 [--text 任意内容]
+  python3 make_dna.py --auto    # 自动取当前时间生成
+
+依赖: 仅标准库(hashlib/datetime/argparse)。
+注意: 农历干支精确推算请使用 L1_内核层/longhun_core_engine.py 的权威算法；
+      本轻量版用公历近似映射干支，仅用于本地快速标注，不替代权威实现。
+"""
+import hashlib
+import argparse
+from datetime import datetime
+
+GAN = "甲乙丙丁戊己庚辛壬癸"
+ZHI = "子丑寅卯辰巳午未申酉戌亥"
+HEAVENLY = {0:"甲",1:"乙",2:"丙",3:"丁",4:"戊",5:"己",6:"庚",7:"辛",8:"壬",9:"癸"}
+EARTHLY = {0:"子",1:"丑",2:"寅",3:"卯",4:"辰",5:"巳",6:"午",7:"未",8:"申",9:"酉",10:"戌",11:"亥"}
+SHICHEN = ["子时","丑时","寅时","卯时","辰时","巳时","午时","未时","申时","酉时","戌时","亥时"]
+
+
+def _approx_ganzhi(year: int, month: int, day: int):
+    """公历近似干支（非权威农历，仅供快速标注）。"""
+    # 年干支
+    y_gan = GAN[(year - 4) % 10]
+    y_zhi = ZHI[(year - 4) % 12]
+    # 月干支（以寅月为正月近似）
+    m_gan = GAN[(year % 10 * 2 + month) % 10] if False else GAN[( (year % 10) + month ) % 10]
+    m_zhi = ZHI[(month + 1) % 12]
+    # 日干支（基准 2026-01-01 = 丙午 近似）
+    base = datetime(2026, 1, 1)
+    delta = (datetime(year, month, day) - base).days
+    d_gan = GAN[(2 + delta) % 10]  # 2026-01-01 近似丙
+    d_zhi = ZHI[(3 + delta) % 12]  # 近似午
+    return f"{y_gan}{y_zhi}", f"{m_gan}{m_zhi}", f"{d_gan}{d_zhi}"
+
+
+def make_dna(module: str, action: str, hexagram: str, text: str = "") -> str:
+    now = datetime.now()
+    y, m, d = _approx_ganzhi(now.year, now.month, now.day)
+    # 时辰: 每2小时一柱，23-1为子时
+    hour = now.hour
+    sc_idx = (hour + 1) // 2 % 12
+    sc = SHICHEN[sc_idx]
+    payload = f"{module}-{action}-{hexagram}-{text}-{now.isoformat()}"
+    h8 = hashlib.sha256(payload.encode("utf-8")).hexdigest()[:8].upper()
+    return f"#龍芯⚡️{y}·{m}·{d}·{sc}·{hexagram}-LONGHUN-{module.upper()}-{action.upper()}-{h8}"
+
+
+def main():
+    ap = argparse.ArgumentParser(description="龍魂 DNA 追溯码生成器（轻量版）")
+    ap.add_argument("--module", default="MODEL", help="模块名")
+    ap.add_argument("--action", default="BUILD", help="动作")
+    ap.add_argument("--hexagram", default="需", help="卦名")
+    ap.add_argument("--text", default="", help="附加内容（参与哈希）")
+    ap.add_argument("--auto", action="store_true", help="自动取当前时间")
+    a = ap.parse_args()
+    print(make_dna(a.module, a.action, a.hexagram, a.text))
+
+
+if __name__ == "__main__":
+    main()

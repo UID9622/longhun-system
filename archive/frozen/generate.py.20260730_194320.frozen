@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-24-UID9622-FLOW-FIELD-CLI-v1.0
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+"""
+流场生成 CLI：按预设名生成算法美学图像。
+DNA: #龍芯⚡️2026-06-24-UID9622-FLOW-FIELD-CLI-v1.0
+
+用法：
+    .venv/bin/python generate.py --preset 风场 --seed 0
+    .venv/bin/python generate.py --all
+"""
+
+import argparse
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT))
+
+from core.presets import list_presets, get_preset
+from core.particle import simulate
+from core.renderer import render
+
+
+def main():
+    parser = argparse.ArgumentParser(description="UID9622_算法美学_流场 生成器")
+    parser.add_argument("--preset", default="风场", help="预设名称")
+    parser.add_argument("--seed", type=int, default=0, help="随机种子")
+    parser.add_argument("--all", action="store_true", help="生成所有预设")
+    parser.add_argument("--output", default="outputs", help="输出目录")
+    args = parser.parse_args()
+
+    out_dir = ROOT / args.output
+
+    if args.all:
+        presets = list_presets()
+        for name in presets:
+            print(f"[生成] {name} ...")
+            preset = get_preset(name)
+            particles = simulate(preset, seed=args.seed)
+            path = render(particles, preset, args.seed, out_dir)
+            print(f"  -> {path}")
+    else:
+        preset = get_preset(args.preset)
+        print(f"[生成] {args.preset} ...")
+        particles = simulate(preset, seed=args.seed)
+        path = render(particles, preset, args.seed, out_dir)
+        print(f"  -> {path}")
+
+
+if __name__ == "__main__":
+    main()

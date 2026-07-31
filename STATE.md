@@ -36,6 +36,7 @@
 | **电商信任数学引擎** | ✅ `lh_ecom_trust_engine.py`·12/12全绿 |
 | 🔐 **GPG 数字指纹** | ✅ **已公开发布**·`portal/pgp/`·RSA-4096·2025-12-17 |
 | ✍️ **GPG自动签名** 🔥 | ✅ **v1.0**·`bin/lh_gpg_sign.py`·1574签名文件·GATE-11签名闸·发布即签 |
+| 🐉 **主权守护引擎** 🔥 | ✅ **v1.0**·`bin/lh_sovereignty_guard.py`·法律边界+一票否决+数据主权·系统在协议在 |
 | 📋 **命令索引** 🔥 | ✅ **MEMORY.md §4**·命令大全·端口·部署·训练·运维·一步到位 |
 | 🔒 **安全加固 v1.1** | ✅ **shell=False全替换·自然路由白名单·KFPP目录700·24测试全过·8文件GPG重签** |
 | 🧬 **跨模块路由总线** 🔥 | ✅ `lh_cross_module_router.py`·10条回调链·12/12测试 |
@@ -66,6 +67,9 @@
 | 🧬 **媒体主权标记引擎** 🔥 | ✅ `engines/lh_media_sovereignty_marker.py`·字体/图像/音频闭环验证通过·视频v1.0部分支持 |
 | 📜 **媒体主权标记协议** 🔥 | ✅ `01_protocols/LH-MEDIA-SOVEREIGNTY-MARK-v1.0.md`·P0·六层来源链 |
 | 🎬 **视频解说稿自动生成引擎** 🆕 | ✅ `bin/lh_video_commentary_engine.py`·v1.0·主题/脚本/文章→解说稿+配音+视频·dry-run·人格路由·DNA签章·全路径验证通过 |
+| 🧬 **对齐统一入口** 🔥 | ✅ `bin/lh_align.py`·道生一·统一入口·check/fix/status/history/clean-old |
+| 🧪 **代码对齐闭环** | 🟡 DNA✅·确认码45残留·重复31K·相似30对（无自动修复·标记为已知） |
+| 🤖 **Claude桥** | 🔴 已死·403 Forbidden·全量Ollama兜底 |
 | 🌌 **璇玑引擎·多源记忆接入** 🆕 | ✅ `engines/lh_xuanji_engine.py`·local/notion/log 三源聚合·每条记忆带 source/timestamp·`--memory-source` 参数已可用 |
 | 🗑️ **_archive/ 归档清理** 🆕 | ✅ 16GB 旧归档已备份至 `~/longhun-system-backup_archive_20260730.tar.gz`·本地 `_archive/` 已删除·释放空间·消除 Dependabot torch/transformers critical 告警源 |
 | 🎯 **不动点记忆归档引擎** 🆕 | ✅ `engines/lh_fixed_point_memory_archive.py`·v1.0·统一压缩/不动点/归档三条线·一次哈希复用·不到不动点不入库·轻量字典压缩·GOLD/GREEN归档·YELLOW缓冲·RED/BLACK隔离 |

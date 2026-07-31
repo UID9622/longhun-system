@@ -1,0 +1,128 @@
+# -*- coding: utf-8 -*-
+# DNA追溯码: #龍芯⚡️2026-06-24-UID9622-BRAIN-RESOURCE-LIB-v1.0
+# 创建者: UID9622
+# 版本: 1.0.0
+# 状态: 🟢 已规范
+
+"""
+本地资源库扫描器：扫描 Kimi / Claude / CNSH / DragonSoul 等本地记忆与日志。
+DNA: #龍芯⚡️2026-06-24-UID9622-BRAIN-RESOURCE-LIB-v1.0
+"""
+
+import json
+import re
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+from typing import Any, Dict, List
+
+from . import generate_dna, now_cn, get_target_root
+from .utils import load_json
+
+
+def _expand_and_glob(pattern: str) -> List[Path]:
+    """展开 ~ 并支持通配符。"""
+    expanded = Path(pattern).expanduser()
+    if '*' in str(expanded):
+        return sorted(Path.home().glob(str(expanded.relative_to(Path.home()))))
+    return [expanded] if expanded.exists() else []
+
+
+def _human_size(size_bytes: int) -> str:
+    for unit in ["B", "KB", "MB", "GB"]:
+        if size_bytes < 1024:
+            return f"{size_bytes:.1f} {unit}"
+        size_bytes /= 1024
+    return f"{size_bytes:.1f} TB"
+
+
+def _days_ago(mtime: float) -> float:
+    return (datetime.now().timestamp() - mtime) / 86400
+
+
+def _count_lines(path: Path, max_lines: int = 10000) -> int:
+    try:
+        count = 0
+        with open(path, "rb") as f:
+            for _ in f:
+                count += 1
+                if count >= max_lines:
+                    break
+        return count
+    except Exception:
+        return -1
+
+
+def _scan_content(path: Path, keywords: List[str], max_bytes: int = 50000) -> Dict[str, Any]:
+    try:
+        text = path.read_text(encoding="utf-8", errors="ignore")[:max_bytes]
+    except Exception:
+        return {"关键词命中": {}, "DNA样例": []}
+    hits = {}
+    for kw in keywords:
+        hits[kw] = len(re.findall(re.escape(kw), text))
+    dna_samples = list(set(re.findall(r"#(?:龍芯|龙芯|ZHUGEXIN)[⚡️\u26A1]?[^\s]{10,80}", text)))[:5]
+    return {"关键词命中": hits, "DNA样例": dna_samples}
+
+
+class ResourceLibraryScanner:
+    """扫描本地资源库的健康、新鲜度和 DNA 含量。"""
+
+    def __init__(self):
+        cfg_path = get_target_root() / "UID9622_大脑中枢" / "etc" / "resource_libraries.json"
+        self.config = load_json(cfg_path)
+        self.warn_days = self.config.get("freshness", {}).get("告警天数", 7)
+        self.danger_days = self.config.get("freshness", {}).get("危险天数", 30)
+
+    def _freshness_level(self, days: float) -> str:
+        if days <= self.warn_days:
+            return "🟢 新鲜"
+        if days <= self.danger_days:
+            return "🟡 偏旧"
+        return "🔴 陈旧"
+
+    def scan(self) -> Dict[str, Any]:
+        entries = []
+        total_size = 0
+        missing = []
+        for lib in self.config.get("库", []):
+            paths = _expand_and_glob(lib["路径"])
+            if not paths:
+                missing.append({"id": lib["id"], "名称": lib["名称"], "路径": lib["路径"]})
+                continue
+            for p in paths:
+                stat = p.stat()
+                size = stat.st_size
+                total_size += size
+                days = _days_ago(stat.st_mtime)
+                entry = {
+                    "id": lib["id"],
+                    "名称": lib["名称"],
+                    "路径": str(p),
+                    "大小": _human_size(size),
+                    "大小字节": size,
+                    "最后修改": datetime.fromtimestamp(stat.st_mtime, tz=timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S"),
+                    "距今天数": round(days, 1),
+                    "新鲜度": self._freshness_level(days),
+                    "类型": lib["类型"],
+                }
+                if not lib.get("仅元数据", False):
+                    entry["行数"] = _count_lines(p)
+                    entry.update(_scan_content(p, lib.get("DNA关键词", [])))
+                entries.append(entry)
+
+        freshness_issues = [e for e in entries if "偏旧" in e["新鲜度"] or "陈旧" in e["新鲜度"]]
+        return {
+            "动作": "本地资源库扫描",
+            "扫描时间": now_cn(),
+            "资源库总数": len(entries),
+            "缺失资源库数": len(missing),
+            "总大小": _human_size(total_size),
+            "总大小字节": total_size,
+            "资源库": entries,
+            "缺失资源库": missing,
+            "新鲜度告警": freshness_issues,
+        }
+
+
+def run_scan_resources() -> Dict[str, Any]:
+    return ResourceLibraryScanner().scan()

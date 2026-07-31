@@ -1,0 +1,64 @@
+{
+  "test_run": "#龍芯⚡️20260731-TEST-RUN-RUN-20260731_153635",
+  "total": 54,
+  "passed": 36,
+  "failed": 0,
+  "fused": 18,
+  "coverage": 66.66666666666666,
+  "audit_mark": "🔴",
+  "timestamp": "2026-07-31T15:36:35.071749",
+  "summary": {
+    "block_summary": {
+      "第一步": {
+        "total": 4,
+        "passed": 3,
+        "fused": 1
+      },
+      "第二步": {
+        "total": 5,
+        "passed": 5,
+        "fused": 0
+      },
+      "第三步": {
+        "total": 8,
+        "passed": 6,
+        "fused": 2
+      },
+      "第四步": {
+        "total": 4,
+        "passed": 3,
+        "fused": 1
+      },
+      "第五步": {
+        "total": 6,
+        "passed": 3,
+        "fused": 3
+      },
+      "第六步": {
+        "total": 5,
+        "passed": 2,
+        "fused": 3
+      },
+      "第七步": {
+        "total": 3,
+        "passed": 3,
+        "fused": 0
+      },
+      "第八步": {
+        "total": 3,
+        "passed": 3,
+        "fused": 0
+      },
+      "端到端": {
+        "total": 10,
+        "passed": 8,
+        "fused": 2
+      },
+      "熔断专项": {
+        "total": 6,
+        "passed": 0,
+        "fused": 6
+      }
+    }
+  }
+}

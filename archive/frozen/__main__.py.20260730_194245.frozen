@@ -1,0 +1,13 @@
+# #龍芯⚡️20260624010825163-AUTO-DNA-D6118BE4 自动注入·分层治理自愈引擎 · 来源可查
+import argparse
+
+from certifi import contents, where
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-c", "--contents", action="store_true")
+args = parser.parse_args()
+
+if args.contents:
+    print(contents())
+else:
+    print(where())

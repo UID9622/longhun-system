@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+import sys
+import torch
+from pathlib import Path
+
+class LLAVAImageGenerator:
+    def __init__(self):
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        print(f"设备: {self.device}")
+    
+    def generate_image(self, text):
+        print(f"生成图像: {text}")
+        # 模拟生成
+        import numpy as np
+        from PIL import Image
+        
+        width, height = 512, 512
+        image_array = np.random.randint(0, 255, (height, width, 3), dtype=np.uint8)
+        
+        output_path = f"outputs/generated_{torch.randint(0, 1000, (1,)).item()}.png"
+        image = Image.fromarray(image_array)
+        image.save(output_path)
+        return output_path
+
+def main():
+    text = sys.argv[1] if len(sys.argv) > 1 else "A cat playing with a ball of yarn"
+    gen = LLAVAImageGenerator()
+    path = gen.generate_image(text)
+    print(f"图像已保存: {path}")
+
+if __name__ == "__main__":
+    main()

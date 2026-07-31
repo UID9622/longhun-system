@@ -1,0 +1,531 @@
+#龍芯⚡️2026-06-19-CNSH-dnatoken-DNA令牌生成器-FILE1-v1.0
+"""
+通心译 | TongXinYi: DNA Token Generator
+龍魂体系·DNA令牌生成器 — 核心令牌生成 + 验证 + 撤销
+
+功能:
+- 生成带DNA追溯头的国密令牌
+- SM2签名 + SM3哈希 + 六十四卦审计
+- 令牌验证（签名验证 + 过期检查 + 撤销检查）
+- 令牌撤销与过期清理
+- 隐私保护: 平台限定哈希，无法反推真实身份
+"""
+# 🟢 君子协议 | JunZi Protocol: CC BY-NC-SA 4.0
+# 🟡 AI Truth Protocol: All outputs must be verifiable and traceable
+# 🔴 DNA Trace: #龍芯⚡️2026-06-19-CNSH-dnatoken-DNA令牌生成器-v1.0
+
+import json
+import os
+import secrets
+import uuid
+from datetime import datetime, timedelta, timezone
+from typing import Dict, List, Optional, Tuple, Any
+
+__版本__ = "v1.0"
+__dna__ = "#龍芯⚡️2026-06-19-CNSH-dnatoken-DNA令牌生成器-v1.0"
+
+
+# ═══════════════════════════════════════════════════════════════
+# 导入子模块 | Import Submodules
+# ═══════════════════════════════════════════════════════════════
+from .DNA身份锚定 import (
+    DNA身份锚定器, SM3哈希器, SM2签名器,
+    卦名表, 卦吉凶表, 甲骨文对照
+)
+from .DNA令牌存储 import DNA令牌存储管理器
+
+
+# ═══════════════════════════════════════════════════════════════
+# DNA令牌生成器 | DNA Token Generator
+# ═══════════════════════════════════════════════════════════════
+class DNA令牌生成器:
+    """
+    通心译 | TongXinYi: DNA Token Generator
+    龍魂DNA令牌核心生成器 — 生成、验证、撤销完整的国密令牌
+
+    令牌结构:
+    {
+        "dna_header": "#龍芯⚡️{时间戳}-{平台}-{动作}",
+        "identity_hash": "SM3(生物特征+64卦+甲骨文)",
+        "wuxing_sig": {"金": 0.8, "木": 0.6, "水": 0.7, "火": 0.5, "土": 0.9},
+        "hexagram_audit": "雷天大壮-吉",
+        "scope": ["淘宝:购物", "滴滴:打车", "美团:外卖"],
+        "platform_key": "平台公钥指纹",
+        "expiry": "2026-06-20T23:59:59+08:00",
+        "issued_at": "2026-06-19T10:00:00+08:00",
+        "token_id": "UUID",
+        "signature": "SM2签名"
+    }
+    """
+
+    # 预定义授权范围模板 | Predefined scope templates
+    授权范围模板 = {
+        '购物': ['淘宝:购物', '京东:购物', '拼多多:购物'],
+        '出行': ['滴滴:打车', '高德:导航', '携程:订票'],
+        '餐饮': ['美团:外卖', '饿了么:外卖', '大众点评:点评'],
+        '支付': ['支付宝:支付', '微信支付:支付', '银联:支付'],
+        '社交': ['微信:聊天', 'QQ:聊天', '微博:发帖'],
+        '娱乐': ['抖音:观看', 'B站:观看', '网易云:听歌'],
+        '全部': []  # 动态填充所有
+    }
+
+    def __init__(自身, 数据库路径: str | None = None, 加密密钥路径: str | None = None):
+        """
+        初始化DNA令牌生成器
+        :param 数据库路径: 令牌存储数据库路径
+        :param 加密密钥路径: SM4加密密钥路径
+        """
+        自身.身份锚定 = DNA身份锚定器()
+        自身.存储管理 = DNA令牌存储管理器(数据库路径, 加密密钥路径)
+        自身.SM2 = 自身.身份锚定.SM2
+
+        # 初始化密钥（若未生成）
+        if 自身.SM2.私钥 is None:
+            自身.SM2.生成密钥对()
+
+        print(f"[DNA令牌生成器] 🐉 DNA令牌核心系统已初始化 | {__dna__}")
+
+    # ═══════════════════════════════════════════════════════════════
+    # 核心: 生成令牌 | Core: Generate Token
+    # ═══════════════════════════════════════════════════════════════
+
+    def 生成令牌(自身,
+              用户身份: str,
+              授权范围: List[str],
+              有效期小时: int = 24,
+              生物特征种子: str = None,
+              平台标识: str = "CNSH",
+              动作描述: str = "令牌签发") -> Dict[str, Any]:
+        """
+        🟢 生成DNA令牌 | Generate DNA Token
+        :param 用户身份: 用户身份标识（如用户名或身份证摘要）
+        :param 授权范围: 授权范围列表，如 ['淘宝:购物', '滴滴:打车']
+        :param 有效期小时: 令牌有效期（小时），默认24小时
+        :param 生物特征种子: 可选生物特征种子
+        :param 平台标识: 平台标识，默认CNSH
+        :param 动作描述: 动作描述
+        :return: 完整的DNA令牌字典
+        """
+        print(f"[令牌生成] 🟢 正在为用户 '{用户身份}' 生成DNA令牌...")
+
+        # 生成唯一令牌ID
+        令牌ID = str(uuid.uuid4())
+
+        # 当前时间
+        签发时间 = datetime.now(timezone(timedelta(hours=8)))
+        过期时间 = 签发时间 + timedelta(hours=有效期小时)
+
+        # DNA头部
+        DNA头部 = 自身.身份锚定.生成DNA头部(平台标识, 动作描述)
+
+        # 生成身份哈希
+        if 生物特征种子 is None:
+            生物特征种子 = f"用户种子_{用户身份}_{secrets.token_hex(8)}"
+
+        身份信息 = 自身.身份锚定.生成身份哈希(生物特征种子)
+
+        # 平台公钥指纹
+        公钥指纹 = 自身.SM2.获取公钥指纹()
+
+        # 构造令牌主体（待签名部分）
+        令牌主体 = {
+            'dna_header': DNA头部,
+            'identity_hash': 身份信息['identity_hash'],
+            'wuxing_sig': 身份信息['wuxing_sig'],
+            'hexagram_audit': 身份信息['hexagram_audit'],
+            'scope': 授权范围,
+            'platform_key': 公钥指纹,
+            'expiry': 过期时间.isoformat(),
+            'issued_at': 签发时间.isoformat(),
+            'token_id': 令牌ID,
+            'user_identity': 用户身份
+        }
+
+        # SM2签名
+        签名数据 = json.dumps(令牌主体, sort_keys=True, ensure_ascii=False).encode('utf-8')
+        签名 = 自身.SM2.签名(签名数据)
+
+        # 完整令牌
+        完整令牌 = dict(令牌主体)
+        完整令牌['signature'] = 签名
+
+        # 存储到数据库
+        存储结果 = 自身.存储管理.存储令牌(完整令牌)
+
+        if 存储结果:
+            print(f"[令牌生成] 🟢 DNA令牌生成成功 | ID: {令牌ID[:20]}...")
+            print(f"[令牌生成] 📋 授权范围: {授权范围}")
+            print(f"[令牌生成] ⏰ 有效期至: {过期时间.strftime('%Y-%m-%d %H:%M')}")
+            print(f"[令牌生成] ☯ 卦象: {身份信息['hexagram_audit']}")
+        else:
+            print(f"[令牌生成] 🟡 令牌已生成但存储失败")
+
+        return 完整令牌
+
+    def 生成令牌字符串(自身,
+                  用户身份: str,
+                  授权范围: List[str],
+                  有效期小时: int = 24,
+                  生物特征种子: str = None) -> str:
+        """
+        🟢 生成DNA令牌并返回序列化字符串 | Generate and serialize token
+        :return: Base64编码的令牌字符串
+        """
+        import base64
+        令牌 = 自身.生成令牌(用户身份, 授权范围, 有效期小时, 生物特征种子)
+        令牌JSON = json.dumps(令牌, ensure_ascii=False)
+        return base64.b64encode(令牌JSON.encode('utf-8')).decode('utf-8')
+
+    # ═══════════════════════════════════════════════════════════════
+    # 核心: 验证令牌 | Core: Verify Token
+    # ═══════════════════════════════════════════════════════════════
+
+    def 验证令牌(自身, 令牌输入) -> Dict[str, Any]:
+        """
+        🟡 验证DNA令牌 | Verify DNA Token
+        检查: 格式合法性 → SM2签名 → 过期时间 → 撤销状态
+        :param 令牌输入: 令牌字典或Base64字符串
+        :return: 验证结果字典 {'valid': bool, 'reason': str, 'token': dict}
+        """
+        # 解析令牌
+        令牌 = 自身._解析令牌(令牌输入)
+        if 令牌 is None:
+            return {'valid': False, 'reason': '令牌格式无效', 'token': None}
+
+        令牌ID = 令牌.get('token_id', '')
+
+        # 1. 检查必需字段
+        必需字段 = ['dna_header', 'identity_hash', 'signature', 'expiry', 'token_id']
+        for 字段 in 必需字段:
+            if 字段 not in 令牌 or not 令牌[字段]:
+                return {'valid': False, 'reason': f'缺少必需字段: {字段}', 'token': 令牌}
+
+        # 2. 验证SM2签名
+        try:
+            验证主体 = dict(令牌)
+            签名 = 验证主体.pop('signature')
+            签名数据 = json.dumps(验证主体, sort_keys=True, ensure_ascii=False).encode('utf-8')
+
+            签名有效 = 自身.SM2.验证(签名数据, 签名)
+            if not 签名有效:
+                return {'valid': False, 'reason': 'SM2签名验证失败', 'token': 令牌}
+        except Exception as 错误:
+            return {'valid': False, 'reason': f'签名验证异常: {错误}', 'token': 令牌}
+
+        # 3. 检查过期时间
+        try:
+            过期时间 = datetime.fromisoformat(令牌['expiry'])
+            现在 = datetime.now(timezone(timedelta(hours=8)))
+            if 现在 > 过期时间:
+                return {'valid': False, 'reason': '令牌已过期', 'token': 令牌}
+        except Exception:
+            return {'valid': False, 'reason': '过期时间格式无效', 'token': 令牌}
+
+        # 4. 检查撤销状态（查数据库）
+        数据库令牌 = 自身.存储管理.查询令牌(令牌ID)
+        if 数据库令牌 and 数据库令牌.get('status') != '有效':
+            return {'valid': False, 'reason': f'令牌已被{数据库令牌["status"]}', 'token': 令牌}
+
+        # 5. 验证DNA头部格式
+        if not 令牌['dna_header'].startswith('#龍芯⚡️'):
+            return {'valid': False, 'reason': 'DNA头部格式无效', 'token': 令牌}
+
+        # 全部通过
+        print(f"[令牌验证] 🟢 令牌验证通过 | ID: {令牌ID[:20]}...")
+        return {
+            'valid': True,
+            'reason': '验证通过',
+            'token': 令牌,
+            'identity_hash': 令牌.get('identity_hash'),
+            'scope': 令牌.get('scope', []),
+            'hexagram_audit': 令牌.get('hexagram_audit')
+        }
+
+    def 快速验证(自身, 令牌输入) -> bool:
+        """
+        🟡 快速验证令牌（只返回布尔值）| Quick verify token
+        :return: 是否有效
+        """
+        结果 = 自身.验证令牌(令牌输入)
+        return 结果.get('valid', False)
+
+    # ═══════════════════════════════════════════════════════════════
+    # 核心: 撤销令牌 | Core: Revoke Token
+    # ═══════════════════════════════════════════════════════════════
+
+    def 撤销令牌(自身, 令牌ID: str, 原因: str = "用户主动撤销") -> bool:
+        """
+        🔴 撤销指定令牌 | Revoke a token
+        :param 令牌ID: 要撤销的令牌UUID
+        :param 原因: 撤销原因
+        :return: 撤销是否成功
+        """
+        print(f"[令牌撤销] 🔴 正在撤销令牌: {令牌ID[:20]}...")
+        结果 = 自身.存储管理.撤销令牌(令牌ID, 原因)
+        return 结果
+
+    def 列出有效令牌(自身, 用户身份: str | None = None) -> List[Dict]:
+        """
+        🟢 列出有效令牌 | List active tokens
+        :param 用户身份: 可选，指定用户
+        :return: 有效令牌列表
+        """
+        if 用户身份:
+            令牌列表 = 自身.存储管理.查询用户令牌(用户身份, 包含过期=False)
+            print(f"[令牌列表] 🟢 用户 '{用户身份}' 有 {len(令牌列表)} 个有效令牌")
+        else:
+            # 获取所有有效令牌（通过统计）
+            统计 = 自身.存储管理.获取统计()
+            print(f"[令牌列表] 🟢 系统共有 {统计.get('有效令牌', 0)} 个有效令牌")
+            令牌列表 = []
+
+        return 令牌列表
+
+    # ═══════════════════════════════════════════════════════════════
+    # 隐私保护: 范围验证 | Privacy: Scope Verification
+    # ═══════════════════════════════════════════════════════════════
+
+    def 验证平台授权(自身, 令牌输入, 平台名: str, 操作: str) -> Dict[str, Any]:
+        """
+        🟡 验证平台特定授权 — 平台只能看到跟自己相关的授权
+        | Verify platform-specific authorization
+        :param 令牌输入: 令牌
+        :param 平台名: 平台名称，如 '淘宝', '滴滴'
+        :param 操作: 操作名称，如 '购物', '打车'
+        :return: 验证结果
+        """
+        # 先完整验证令牌
+        验证结果 = 自身.验证令牌(令牌输入)
+        if not 验证结果.get('valid'):
+            return 验证结果
+
+        令牌 = 验证结果['token']
+        授权范围 = 令牌.get('scope', [])
+
+        # 检查平台特定授权
+        平台授权 = f"{平台名}:{操作}"
+        通配授权 = f"{平台名}:*"
+
+        if 平台授权 in 授权范围 or 通配授权 in 授权范围:
+            # 生成平台限定哈希（平台无法获取真实身份）
+            限定哈希 = 自身.身份锚定.生成范围哈希(
+                令牌.get('identity_hash', ''),
+                平台名
+            )
+
+            print(f"[平台授权] 🟢 平台 '{平台名}' 授权验证通过")
+            return {
+                'valid': True,
+                'reason': '平台授权验证通过',
+                'platform': 平台名,
+                'operation': 操作,
+                'scoped_hash': 限定哈希,  # 平台只能看到限定哈希
+                'scope': [s for s in 授权范围 if s.startswith(平台名)]  # 只返回平台相关授权
+            }
+        else:
+            print(f"[平台授权] 🔴 平台 '{平台名}' 无 '{操作}' 授权")
+            return {
+                'valid': False,
+                'reason': f'平台 {平台名} 未被授权执行 {操作}',
+                'platform': 平台名
+            }
+
+    # ═══════════════════════════════════════════════════════════════
+    # 维护操作 | Maintenance Operations
+    # ═══════════════════════════════════════════════════════════════
+
+    def 清理过期令牌(自身) -> int:
+        """🟡 清理所有过期令牌 | Clean up expired tokens"""
+        清理数 = 自身.存储管理.清理过期令牌()
+        return 清理数
+
+    def 获取统计(自身) -> Dict[str, Any]:
+        """🟡 获取系统统计 | Get system statistics"""
+        存储统计 = 自身.存储管理.获取统计()
+        存储统计['dna_version'] = __dna__
+        存储统计['generator_version'] = __版本__
+        return 存储统计
+
+    # ═══════════════════════════════════════════════════════════════
+    # 便捷方法 | Convenience Methods
+    # ═══════════════════════════════════════════════════════════════
+
+    def 从模板生成(自身,
+              用户身份: str,
+              模板名: str = '全部',
+              有效期小时: int = 24) -> Dict[str, Any]:
+        """
+        🟢 从预设模板生成令牌 | Generate token from template
+        :param 模板名: 模板名称（购物/出行/餐饮/支付/社交/娱乐/全部）
+        """
+        if 模板名 == '全部':
+            # 合并所有授权
+            所有范围 = []
+            for 类别, 范围 in 自身.授权范围模板.items():
+                if 类别 != '全部':
+                    所有范围.extend(范围)
+            授权范围 = 所有范围
+        else:
+            授权范围 = 自身.授权范围模板.get(模板名, [])
+
+        if not 授权范围:
+            print(f"[令牌生成] 🟡 未知模板 '{模板名}'，使用默认空授权")
+            授权范围 = []
+
+        return 自身.生成令牌(用户身份, 授权范围, 有效期小时)
+
+    # ═══════════════════════════════════════════════════════════════
+    # 内部工具 | Internal Utilities
+    # ═══════════════════════════════════════════════════════════════
+
+    def _解析令牌(自身, 令牌输入):
+        """🔴 解析令牌输入（支持字典和Base64字符串）| Parse token input"""
+        if isinstance(令牌输入, dict):
+            return 令牌输入
+        elif isinstance(令牌输入, str):
+            try:
+                import base64
+                # 尝试Base64解码
+                JSON字符串 = base64.b64decode(令牌输入).decode('utf-8')
+                return json.loads(JSON字符串)
+            except Exception:
+                # 尝试直接JSON解析
+                try:
+                    return json.loads(令牌输入)
+                except Exception:
+                    return None
+        return None
+
+
+# ═══════════════════════════════════════════════════════════════
+# 独立执行演示 | Standalone Execution Demo
+# ═══════════════════════════════════════════════════════════════
+if __name__ == "__main__":
+    import tempfile
+
+    print("=" * 70)
+    print("🐉 DNA令牌生成器 · 独立执行演示")
+    print(f"🧬 {__dna__}")
+    print("=" * 70)
+
+    # 使用临时目录
+    临时目录 = tempfile.mkdtemp(prefix="cns_token_gen_")
+    数据库路径 = os.path.join(临时目录, "tokens.db")
+    密钥路径 = os.path.join(临时目录, "key.bin")
+
+    print(f"\n临时测试目录: {临时目录}")
+
+    # 创建令牌生成器
+    生成器 = DNA令牌生成器(数据库路径, 密钥路径)
+
+    print("\n" + "=" * 70)
+    print("--- 1. 生成DNA令牌 ---")
+    print("=" * 70)
+
+    令牌 = 生成器.生成令牌(
+        用户身份="用户_张三",
+        授权范围=['淘宝:购物', '滴滴:打车', '美团:外卖'],
+        有效期小时=24,
+        生物特征种子="指纹特征_AABBCCDD00112233"
+    )
+
+    print(f"\n令牌结构:")
+    print(f"  DNA头部: {令牌['dna_header']}")
+    print(f"  身份哈希: {令牌['identity_hash'][:32]}...")
+    print(f"  卦象审计: {令牌['hexagram_audit']}")
+    print(f"  授权范围: {令牌['scope']}")
+    print(f"  公钥指纹: {令牌['platform_key'][:24]}...")
+    print(f"  签发时间: {令牌['issued_at']}")
+    print(f"  过期时间: {令牌['expiry']}")
+    print(f"  令牌ID: {令牌['token_id'][:24]}...")
+    print(f"  签名: {令牌['signature'][:32]}...")
+
+    print("\n" + "=" * 70)
+    print("--- 2. 令牌序列化 ---")
+    print("=" * 70)
+
+    序列化令牌 = 生成器.生成令牌字符串(
+        用户身份="用户_李四",
+        授权范围=['支付宝:支付', '微信:聊天'],
+        有效期小时=12
+    )
+    print(f"序列化令牌长度: {len(序列化令牌)} 字符")
+    print(f"前80字符: {序列化令牌[:80]}...")
+
+    print("\n" + "=" * 70)
+    print("--- 3. 验证令牌 ---")
+    print("=" * 70)
+
+    验证结果 = 生成器.验证令牌(令牌)
+    print(f"验证结果: {'✅ 有效' if 验证结果['valid'] else '❌ 无效'}")
+    print(f"验证原因: {验证结果['reason']}")
+    if 验证结果['valid']:
+        print(f"授权范围: {验证结果['scope']}")
+        print(f"卦象: {验证结果['hexagram_audit']}")
+
+    # 验证序列化令牌
+    序列验证 = 生成器.验证令牌(序列化令牌)
+    print(f"\n序列化令牌验证: {'✅ 有效' if 序列验证['valid'] else '❌ 无效'}")
+
+    print("\n" + "=" * 70)
+    print("--- 4. 平台授权验证（隐私保护）---")
+    print("=" * 70)
+
+    淘宝验证 = 生成器.验证平台授权(令牌, '淘宝', '购物')
+    print(f"淘宝购物授权: {'✅ 通过' if 淘宝验证['valid'] else '❌ 拒绝'}")
+    if 淘宝验证['valid']:
+        print(f"  平台限定哈希: {淘宝验证['scoped_hash'][:32]}...")
+        print(f"  可见授权: {淘宝验证['scope']}")
+
+    京东验证 = 生成器.验证平台授权(令牌, '京东', '购物')
+    print(f"\n京东购物授权: {'✅ 通过' if 京东验证['valid'] else '❌ 拒绝'}")
+    if not 京东验证['valid']:
+        print(f"  原因: {京东验证['reason']}")
+
+    print("\n" + "=" * 70)
+    print("--- 5. 撤销令牌 ---")
+    print("=" * 70)
+
+    撤销结果 = 生成器.撤销令牌(令牌['token_id'], '演示撤销')
+    print(f"撤销结果: {'✅ 成功' if 撤销结果 else '❌ 失败'}")
+
+    # 验证已撤销的令牌
+    撤销验证 = 生成器.验证令牌(令牌)
+    print(f"撤销后验证: {'✅ 有效' if 撤销验证['valid'] else '❌ 无效'}")
+    print(f"原因: {撤销验证['reason']}")
+
+    print("\n" + "=" * 70)
+    print("--- 6. 模板生成令牌 ---")
+    print("=" * 70)
+
+    出行令牌 = 生成器.从模板生成('用户_王五', '出行', 有效期小时=6)
+    print(f"出行模板令牌授权: {出行令牌['scope']}")
+
+    餐饮令牌 = 生成器.从模板生成('用户_赵六', '餐饮', 有效期小时=3)
+    print(f"餐饮模板令牌授权: {餐饮令牌['scope']}")
+
+    print("\n" + "=" * 70)
+    print("--- 7. 列出有效令牌 ---")
+    print("=" * 70)
+
+    有效令牌 = 生成器.列出有效令牌('用户_张三')
+    print(f"用户_张三有效令牌: {len(有效令牌)} 个")
+
+    全部有效 = 生成器.列出有效令牌()
+    print(f"系统全部有效令牌查询完成")
+
+    print("\n" + "=" * 70)
+    print("--- 8. 系统统计 ---")
+    print("=" * 70)
+
+    统计 = 生成器.获取统计()
+    for 键, 值 in 统计.items():
+        print(f"  {键}: {值}")
+
+    # 清理临时文件
+    import shutil
+    shutil.rmtree(临时目录, ignore_errors=True)
+
+    print("\n" + "=" * 70)
+    print("✅ DNA令牌生成器系统演示完成")
+    print("=" * 70)

@@ -1,0 +1,448 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+龍魂关键词批量自运行归集
+- 推荐关键词 -> 直接检索 -> 归档 -> Notion 汇总 -> DNA 留痕
+- 不等待人工确认
+"""
+import hashlib
+import json
+import os
+import shutil
+import subprocess
+import sys
+import tarfile
+from datetime import datetime, timezone
+from pathlib import Path
+
+HOME = Path.home()
+OBSERVER = HOME / ".龍魂" / "functions" / "observer_core.sh"
+CHAIN_HASH = HOME / "chain_hash.jsonl"
+ARCHIVE_ROOT = HOME / ".龍魂" / "archive"
+STAGING_ROOT = ARCHIVE_ROOT / "staging"
+
+DNA_PREFIX = "#龍芯⚡️"
+
+# 推荐关键词清单（按优先级排序）
+KEYWORDS = ["铁律", "钓鱼台", "花名册", "CNSH", "龍芯", "通心译", "三色审计"]
+
+# 限定检索根目录，避免扫到系统噪音
+ROOTS = [
+    HOME / "龍魂待整理",
+    HOME / "longhun-archive",
+    HOME / "cnsh_l4_龍魂系统备份_20260601",
+    HOME / "longhun-system",
+    HOME / ".longhun",
+    HOME / ".kimi-code" / "skills",
+    HOME / "_work",
+    HOME / "Desktop" / "文章",
+]
+
+NOTION_DB = "cba73d49-cbe4-41e0-b4d3-6f52cb4e636f"
+
+
+def now_iso():
+    return datetime.now(timezone.utc).isoformat()
+
+
+def now_compact():
+    return datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+
+
+def md5_hex(s: str) -> str:
+    return hashlib.md5(s.encode("utf-8")).hexdigest()[:12]
+
+
+def sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        while True:
+            chunk = f.read(1024 * 1024)
+            if not chunk:
+                break
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def log_dna(action: str, detail: str):
+    ts = now_iso()
+    compact = ts.replace("-", "").replace(":", "").replace("+", "")
+    dna = f"{DNA_PREFIX}{compact}-{action.upper()}-{md5_hex(action + detail + ts)}"
+    entry = {"timestamp": ts, "action": action, "detail": detail, "dna": dna}
+    CHAIN_HASH.parent.mkdir(parents=True, exist_ok=True)
+    with open(CHAIN_HASH, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    return dna
+
+
+def observer(trigger: str, path: str, confidence: str = "high"):
+    try:
+        subprocess.run(
+            ["bash", str(OBSERVER), trigger, path, confidence],
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
+    except Exception:
+        pass
+
+
+def find_paths(keyword: str) -> list[Any]:
+    roots = [str(r) for r in ROOTS if r.exists()]
+    args = ["mdfind"]
+    for r in roots:
+        args += ["-onlyin", r]
+    args += ["-name", keyword]
+    try:
+        res = subprocess.run(args, capture_output=True, text=True, timeout=180)
+        lines = [Path(p.strip()) for p in res.stdout.strip().splitlines() if p.strip()]
+    except Exception as e:
+        print(f"[{keyword}] mdfind 失败: {e}", file=sys.stderr)
+        lines = []
+    # 去重稳定顺序
+    seen = set()
+    out = []
+    for p in lines:
+        rp = p.resolve()
+        if rp not in seen:
+            seen.add(rp)
+            out.append(p)
+    return out
+
+
+def safe_name(name: str) -> str:
+    safe = name.replace("/", "∕").replace("\\", "＼").replace("\x00", "")
+    safe = "".join(ch for ch in safe if ord(ch) >= 32 or ch in "\t\n")
+    if len(safe.encode("utf-8")) > 200:
+        safe = safe[:60] + "…"
+    return safe or "unnamed"
+
+
+def collect_files(paths: list[Any]) -> list[Any]:
+    files = []
+    for root in paths:
+        if root.is_file():
+            files.append({"src": root, "root_label": root.name})
+        elif root.is_dir():
+            for p in root.rglob("*"):
+                if p.is_file():
+                    files.append({"src": p, "root_label": root.name})
+    return files
+
+
+def archive_keyword(keyword: str) -> dict[str, Any]:
+    ts = now_compact()
+    coll_name = f"{keyword}_全量归集_{ts}"
+    print(f"\n>>> 开始归集关键词: {keyword} -> {coll_name}")
+
+    start_dna = log_dna("KEYWORD-COLLECT-START", f"开始关键词 {keyword} 全量归集")
+    observer(f"{keyword}搜索开始", str(HOME), "high")
+
+    paths = find_paths(keyword)
+    search_dna = log_dna(f"KEYWORD-{keyword}-PATHS", f"找到 {len(paths)} 个含「{keyword}」的路径")
+    observer(f"{keyword}路径发现:{len(paths)}个", str(HOME), "high")
+
+    raw_files = collect_files(paths)
+    observer(f"{keyword}原始文件:{len(raw_files)}个", str(HOME), "high")
+
+    hash_to_files = {}
+    file_records = []
+    total_size = 0
+    for idx, item in enumerate(raw_files, 1):
+        src = item["src"]
+        try:
+            h = sha256_file(src)
+            size = src.stat().st_size
+            mtime = datetime.fromtimestamp(src.stat().st_mtime, tz=timezone.utc).isoformat()
+            total_size += size
+            rec = {"index": idx, "src": str(src), "root_label": item["root_label"], "size": size, "mtime": mtime, "sha256": h}
+            file_records.append(rec)
+            hash_to_files.setdefault(h, []).append(rec)
+        except Exception:
+            pass
+
+    unique_hashes = list(hash_to_files.keys())
+    dedup_dna = log_dna(f"KEYWORD-{keyword}-DEDUP", f"原始{len(file_records)}个文件, 去重后{len(unique_hashes)}个, 总大小{total_size}字节")
+    observer(f"{keyword}去重完成:原始{len(file_records)}唯一{len(unique_hashes)}", str(HOME), "high")
+
+    # 复制唯一文件
+    staging_dir = STAGING_ROOT / coll_name
+    files_dir = staging_dir / "files"
+    files_dir.mkdir(parents=True, exist_ok=True)
+
+    copy_records = []
+    name_counter = {}
+    for h in unique_hashes:
+        rep = hash_to_files[h][0]
+        src_path = Path(rep["src"])
+        orig_name = src_path.name
+        safe = safe_name(orig_name)
+        name_counter[safe] = name_counter.get(safe, 0) + 1
+        if name_counter[safe] > 1:
+            base, ext = os.path.splitext(safe)
+            dst_name = f"{base}_{name_counter[safe]:03d}{ext}"
+        else:
+            dst_name = safe
+        dst_path = files_dir / dst_name
+        shutil.copy2(src_path, dst_path)
+        copy_records.append({
+            "sha256": h,
+            "stored": str(dst_path.relative_to(staging_dir)),
+            "original_name": orig_name,
+            "sources": [r["src"] for r in hash_to_files[h]],
+            "size": rep["size"],
+        })
+
+    copy_dna = log_dna(f"KEYWORD-{keyword}-COPY", f"复制 {len(copy_records)} 个唯一文件到 {staging_dir}")
+    observer(f"{keyword}复制完成:{len(copy_records)}个唯一文件", str(staging_dir), "high")
+
+    # manifest / summary / csv
+    manifest = {
+        "collection_name": coll_name,
+        "keyword": keyword,
+        "created_at": now_iso(),
+        "source_paths": [str(p) for p in paths],
+        "raw_file_count": len(file_records),
+        "unique_file_count": len(unique_hashes),
+        "total_raw_bytes": total_size,
+        "archive_path": str(ARCHIVE_ROOT / f"{coll_name}.tar.gz"),
+        "dna_start": start_dna,
+        "dna_search": search_dna,
+        "dna_dedup": dedup_dna,
+        "dna_copy": copy_dna,
+        "files": copy_records,
+    }
+    manifest_path = staging_dir / "manifest.json"
+    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    summary_lines = [
+        f"# {coll_name}",
+        f"- 关键词: {keyword}",
+        f"- 创建时间: {manifest['created_at']}",
+        f"- 来源路径数: {len(paths)}",
+        f"- 原始文件数: {len(file_records)}",
+        f"- 去重后文件数: {len(unique_hashes)}",
+        f"- 原始总字节: {total_size}",
+        f"- 归档路径: {manifest['archive_path']}",
+        "",
+        "## DNA",
+        f"- 开始: {start_dna}",
+        f"- 搜索: {search_dna}",
+        f"- 去重: {dedup_dna}",
+        f"- 复制: {copy_dna}",
+        "",
+        "## 文件清单（去重后）",
+        "",
+        "| 序号 | 原始文件名 | 大小 | SHA-256 | 来源数 | 存储路径 |",
+        "|------|-----------|------|---------|--------|----------|",
+    ]
+    for i, rec in enumerate(copy_records, 1):
+        summary_lines.append(
+            f"| {i} | {rec['original_name']} | {rec['size']} | `{rec['sha256'][:16]}` | {len(rec['sources'])} | {rec['stored']} |"
+        )
+    (staging_dir / "summary.md").write_text("\n".join(summary_lines), encoding="utf-8")
+
+    import csv
+    csv_path = staging_dir / "manifest.csv"
+    with open(csv_path, "w", newline="", encoding="utf-8-sig") as f:
+        writer = csv.writer(f)
+        writer.writerow(["index", "sha256", "original_name", "size", "source_count", "stored_path", "sources"])
+        for i, rec in enumerate(copy_records, 1):
+            writer.writerow([i, rec["sha256"], rec["original_name"], rec["size"], len(rec["sources"]), rec["stored"], "; ".join(rec["sources"])])
+
+    index_dna = log_dna(f"KEYWORD-{keyword}-INDEX", "生成 manifest / summary / csv")
+    observer(f"{keyword}索引生成完成", str(staging_dir), "high")
+
+    # 压缩
+    archive_path = ARCHIVE_ROOT / f"{coll_name}.tar.gz"
+    subprocess.run(["tar", "-czf", str(archive_path), "-C", str(staging_dir.parent), coll_name], check=True, timeout=300)
+    archive_size = archive_path.stat().st_size
+    archive_dna = log_dna(f"KEYWORD-{keyword}-ARCHIVED", f"归档 {archive_path} ({archive_size} 字节)")
+    observer(f"{keyword}归档完成:{archive_size}字节", str(archive_path), "high")
+
+    # 清理 staging
+    shutil.rmtree(staging_dir, ignore_errors=True)
+
+    print(f"[{keyword}] 完成: 原始{len(file_records)} -> 唯一{len(unique_hashes)} -> 归档{archive_size} 字节")
+
+    return {
+        "keyword": keyword,
+        "collection_name": coll_name,
+        "archive_path": str(archive_path),
+        "archive_size": archive_size,
+        "raw_files": len(file_records),
+        "unique_files": len(unique_hashes),
+        "total_raw_bytes": total_size,
+        "source_paths_count": len(paths),
+        "dna": archive_dna,
+    }
+
+
+def notion_create_page(payload: dict[str, Any]) -> dict[str, Any]:
+    payload_path = ARCHIVE_ROOT / f"批量关键词归集_{now_compact()}_notion_payload.json"
+    payload_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    token = os.environ.get("NOTION_TOKEN", "")
+    if not token:
+        print("ERR: 无 NOTION_TOKEN", file=sys.stderr)
+        return {}
+    try:
+        res = subprocess.run(
+            [
+                "curl", "-s", "-m", "30", "-X", "POST", "https://api.notion.com/v1/pages",
+                "-H", f"Authorization: Bearer {token}",
+                "-H", "Notion-Version: 2022-06-28",
+                "-H", "Content-Type: application/json",
+                "--data-binary", f"@{payload_path}",
+            ],
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
+        data = json.loads(res.stdout)
+        return data
+    except Exception as e:
+        print(f"Notion API 调用失败: {e}", file=sys.stderr)
+        return {}
+
+
+def main():
+    ARCHIVE_ROOT.mkdir(parents=True, exist_ok=True)
+    STAGING_ROOT.mkdir(parents=True, exist_ok=True)
+
+    batch_dna = log_dna("KEYWORD-BATCH-START", f"批量关键词归集开始: {KEYWORDS}")
+    observer("批量关键词归集开始", str(HOME), "high")
+
+    results = []
+    for kw in KEYWORDS:
+        try:
+            res = archive_keyword(kw)
+            results.append(res)
+        except Exception as e:
+            err = f"{kw} 归集失败: {e}"
+            print(err, file=sys.stderr)
+            log_dna(f"KEYWORD-{kw}-ERROR", err)
+            results.append({"keyword": kw, "error": str(e)})
+
+    # 总批 manifest
+    batch_ts = now_compact()
+    batch_name = f"批量关键词归集_{batch_ts}"
+    master = {
+        "batch_name": batch_name,
+        "created_at": now_iso(),
+        "keywords": KEYWORDS,
+        "results": results,
+        "dna": batch_dna,
+    }
+    master_path = ARCHIVE_ROOT / f"{batch_name}_master.json"
+    master_path.write_text(json.dumps(master, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # 总批 summary
+    summary_lines = [
+        f"# {batch_name}",
+        f"- 关键词数: {len(KEYWORDS)}",
+        f"- 执行时间: {master['created_at']}",
+        f"- 总批 DNA: {batch_dna}",
+        "",
+        "## 各关键词归集结果",
+        "",
+        "| 关键词 | 来源路径 | 原始文件 | 唯一文件 | 归档大小 | 归档路径 | DNA |",
+        "|--------|----------|----------|----------|----------|----------|-----|",
+    ]
+    total_raw = 0
+    total_unique = 0
+    total_archive = 0
+    for r in results:
+        if "error" in r:
+            summary_lines.append(f"| {r['keyword']} | - | - | - | - | 失败: {r['error'][:30]} | - |")
+        else:
+            total_raw += r["raw_files"]
+            total_unique += r["unique_files"]
+            total_archive += r["archive_size"]
+            ap = r["archive_path"]
+            summary_lines.append(
+                f"| {r['keyword']} | {r['source_paths_count']} | {r['raw_files']} | {r['unique_files']} | {r['archive_size']} | `{ap}` | {r['dna'][:40]} |"
+            )
+    summary_lines += [
+        "",
+        f"**合计**: 原始文件 {total_raw}，去重后唯一 {total_unique}，归档总大小 {total_archive} 字节",
+    ]
+    master_summary_path = ARCHIVE_ROOT / f"{batch_name}_summary.md"
+    master_summary_path.write_text("\n".join(summary_lines), encoding="utf-8")
+
+    # Notion 汇总页
+    children = [
+        {"object":"block","type":"paragraph","paragraph":{"rich_text":[{"type":"text","text":{"content":"本次批量归集由 Kimi 自运行完成，未等待人工确认。"}}]}},
+        {"object":"block","type":"heading_2","heading_2":{"rich_text":[{"type":"text","text":{"content":"总览"}}]}},
+        {"object":"block","type":"bulleted_list_item","bulleted_list_item":{"rich_text":[{"type":"text","text":{"content":f"关键词数：{len(KEYWORDS)}"}}]}},
+        {"object":"block","type":"bulleted_list_item","bulleted_list_item":{"rich_text":[{"type":"text","text":{"content":f"原始文件总数：{total_raw}"}}]}},
+        {"object":"block","type":"bulleted_list_item","bulleted_list_item":{"rich_text":[{"type":"text","text":{"content":f"去重后唯一文件：{total_unique}"}}]}},
+        {"object":"block","type":"bulleted_list_item","bulleted_list_item":{"rich_text":[{"type":"text","text":{"content":f"归档总大小：{total_archive} 字节"}}]}},
+        {"object":"block","type":"bulleted_list_item","bulleted_list_item":{"rich_text":[{"type":"text","text":{"content":f"总批 DNA：{batch_dna}"}}]}},
+        {"object":"block","type":"heading_2","heading_2":{"rich_text":[{"type":"text","text":{"content":"各关键词结果"}}]}},
+    ]
+    for r in results:
+        if "error" in r:
+            txt = f"{r['keyword']}: 失败 - {r['error']}"
+        else:
+            txt = f"{r['keyword']}: 来源{r['source_paths_count']} 原始{r['raw_files']} 唯一{r['unique_files']} 归档{r['archive_size']} 字节 | {r['archive_path']}"
+        parts = [txt[i:i+1900] for i in range(0, len(txt), 1900)]
+        rt = [{"type":"text","text":{"content": p}} for p in parts]
+        children.append({"object":"block","type":"bulleted_list_item","bulleted_list_item":{"rich_text": rt}})
+
+    def rich(text):
+        return {"rich_text": [{"text": {"content": text}}]}
+
+    notion_payload = {
+        "parent": {"database_id": NOTION_DB},
+        "properties": {
+            "一句话DNA（压缩·任何AI都能问）": {"title": [{"text": {"content": f"#DNA-{batch_ts[:8]}-批量关键词归集·{len(KEYWORDS)}词·{total_unique}文件"}}]},
+            "操作类型": {"select": {"name": "入档"}},
+            "状态": {"status": {"name": "通过"}},
+            "对外公开": {"checkbox": True},
+            "任务卡编号": rich(f"批量关键词归集#{batch_ts}"),
+            "DNA标签": {"multi_select": [{"name": "草日志"}, {"name": "三层归位"}, {"name": "铁律守岗"}]},
+            "三层归位": {"multi_select": [{"name": "🅱️ 铁律（内部守岗）"}]},
+            "谁说话谁签名": {"multi_select": [{"name": "🌙 Kimi"}]},
+            "🌙 Kimi 怎么评": rich(f"自运行完成 {len(KEYWORDS)} 个关键词归集：原始{total_raw}、唯一{total_unique}、归档{total_archive}字节"),
+            "真实结果证据": rich(f"本地归档清单见页面内容\n总批文件：{master_path}\n总批摘要：{master_summary_path}\nDNA链：~/chain_hash.jsonl"),
+            "输出到哪": rich(f"{ARCHIVE_ROOT} | {batch_dna}"),
+            "怎么算完成": rich("1) 推荐关键词 2) 自动检索 3) 遍历哈希去重 4) 逐个归档 5) Notion汇总页"),
+            "用了什么本地资源": rich(f"{len(KEYWORDS)} 个关键词在 {len(ROOTS)} 个龍魂根目录下检索"),
+            "🎨 风险等级": {"select": {"name": "🟢 安全稳定"}},
+            "老大终判": {"select": {"name": "🕐 待复盘"}},
+            "🌱 演化阶段": {"select": {"name": "本地化阶段"}},
+            "🎯 本次按需分配 AI": {"multi_select": [{"name": "🌙 Kimi（长文/中文）"}]},
+        },
+        "children": children,
+    }
+
+    notion_res = notion_create_page(notion_payload)
+    page_id = notion_res.get("id") if isinstance(notion_res, dict) else None
+    if page_id:
+        log_dna("KEYWORD-BATCH-NOTION-UPDATED", f"Notion 汇总页 {page_id}")
+        observer("批量关键词归集Notion汇总页已创建", f"page={page_id}", "high")
+    else:
+        log_dna("KEYWORD-BATCH-NOTION-FAILED", f"Notion 创建失败: {notion_res}")
+        observer("批量关键词归集Notion汇总页创建失败", str(HOME), "high")
+
+    final_dna = log_dna("KEYWORD-BATCH-DONE", f"批量关键词归集完成: {len(results)} 个关键词")
+    observer("批量关键词归集完成", str(ARCHIVE_ROOT), "high")
+
+    print(json.dumps({
+        "batch_name": batch_name,
+        "results": results,
+        "total_raw_files": total_raw,
+        "total_unique_files": total_unique,
+        "total_archive_bytes": total_archive,
+        "master_path": str(master_path),
+        "summary_path": str(master_summary_path),
+        "notion_page_id": page_id,
+        "final_dna": final_dna,
+    }, ensure_ascii=False, indent=2))
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        KEYWORDS = sys.argv[1:]
+    main()
