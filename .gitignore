@@ -236,6 +236,9 @@ v409_use_v408_golden
 models/longhun-v1.0/training_corpus_v3.0.md
 archive/brain_old/
 data/
+11_DATA/
 models/longhun-v1.0/
-engines/gpt_sovits
+05_ENGINES/gpt_sovits
+11_DATA/knowledge_pull/cache/engines/gpt_sovits
+11_DATA/training/home_absorb/workspace/Desktop/桌面项目箱/打包待命/龙魂万年历-生态入口包
 tts/fish-speech
