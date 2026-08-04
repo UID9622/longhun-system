@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.longhun.digital-flow-field</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/zuimeidedeyihan/longhun-system/05_ENGINES/digital_flow_field/.venv/bin/streamlit</string>
+        <string>run</string>
+        <string>/Users/zuimeidedeyihan/longhun-system/05_ENGINES/digital_flow_field/app.py</string>
+        <string>--server.port=8501</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/05_ENGINES/digital_flow_field</string>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/05_ENGINES/digital_flow_field/logs/launchd.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/05_ENGINES/digital_flow_field/logs/launchd.error.log</string>
+</dict>
+</plist>
