@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -15,8 +17,10 @@ import os
 import re
 import json
 import time
+import shutil
 import hashlib
 import argparse
+import unicodedata
 import urllib.parse
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -37,7 +41,7 @@ except ImportError:
 CACHE_DIR = Path.home() / ".longhun/cache/search_engine"
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-DEFAULT_USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+DEFAULT_USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
 DEFAULT_TIMEOUT = 10
 DEFAULT_RETRY = 2
 DEFAULT_DELAY = 0.5
@@ -52,6 +56,190 @@ EXTRACTOR_MAP = {
     'csdn': lambda soup: soup.find('div', id='content_views') or soup.find('article'),
     'raw': lambda soup: soup,
 }
+
+# ---------- 终端样式 ----------
+_ANSI = {
+    "reset": "\033[0m",
+    "bold": "\033[1m",
+    "dim": "\033[2m",
+    "cyan": "\033[36m",
+    "green": "\033[32m",
+    "yellow": "\033[33m",
+    "blue": "\033[34m",
+    "magenta": "\033[35m",
+    "red": "\033[31m",
+    "white": "\033[37m",
+}
+
+
+def _c(text: str, *codes: str) -> str:
+    """给文本加 ANSI 颜色/样式。"""
+    if not codes:
+        return text
+    return "".join(_ANSI[c] for c in codes) + text + _ANSI["reset"]
+
+
+def _strip_ansi(text: str) -> str:
+    """移除 ANSI 转义序列。"""
+    return re.sub(r"\x1b\[[0-9;]*m", "", text)
+
+
+def _term_width() -> int:
+    """获取终端宽度，失败时默认 100。"""
+    return shutil.get_terminal_size((100, 24)).columns
+
+
+def _display_width(text: str) -> int:
+    """计算文本显示宽度（忽略 ANSI、中文按 2 字符计）。"""
+    text = _strip_ansi(text)
+    w = 0
+    for ch in text:
+        if unicodedata.east_asian_width(ch) in ("F", "W", "A"):
+            w += 2
+        else:
+            w += 1
+    return w
+
+
+def _truncate(text: str, width: int) -> str:
+    """按显示宽度截断，保留 ANSI 转义序列。"""
+    if width <= 0:
+        return ""
+    display_len = 0
+    out = []
+    in_ansi = False
+    for ch in text:
+        if ch == "\x1b":
+            in_ansi = True
+            out.append(ch)
+            continue
+        if in_ansi:
+            out.append(ch)
+            if ch.isalpha():
+                in_ansi = False
+            continue
+        ch_w = 2 if unicodedata.east_asian_width(ch) in ("F", "W", "A") else 1
+        if display_len + ch_w > width:
+            break
+        out.append(ch)
+        display_len += ch_w
+    return "".join(out)
+
+
+def _pad(text: str, width: int, align: str = "left") -> str:
+    """按显示宽度填充对齐，保留 ANSI 转义序列。"""
+    pad = width - _display_width(text)
+    if pad <= 0:
+        return text
+    spaces = " " * pad
+    if align == "right":
+        return spaces + text
+    return text + spaces
+
+
+# 各样式格式化函数
+def format_default(query, results, use_cache):
+    lines = []
+    w = _term_width()
+    sep = "=" * min(60, w)
+    lines.append("")
+    lines.append(sep)
+    lines.append(_c(f"  🐉 龍魂搜索 · {query}", "bold", "cyan"))
+    lines.append(_c(f"  后端: bing | 缓存: {'是' if use_cache else '否'} | 结果: {len(results)}条", "dim"))
+    lines.append(_c("  DNA: #龍芯⚡️丙午·乙未·癸酉·戌时·☰乾-SEARCH-ENGINE-v2.0-9F8E7D6C", "dim"))
+    lines.append(sep)
+    for i, res in enumerate(results, 1):
+        title = res.get('title', '无标题')
+        link = res.get('link', '#')
+        snippet = res.get('snippet', '')
+        lines.append("")
+        lines.append(f"  {_c(str(i)+'.', 'bold', 'green')} {_c(title, 'bold', 'white')}")
+        lines.append(_c(f"     {link}", "dim", "cyan"))
+        if snippet:
+            lines.append(_c(f"     {_truncate(snippet, w - 7)}", "dim"))
+    return "\n".join(lines)
+
+
+def format_compact(query, results, use_cache):
+    lines = []
+    lines.append(_c(f"🐉 龍魂搜索 · {query} · {len(results)}条", "bold", "cyan"))
+    for i, res in enumerate(results, 1):
+        title = res.get('title', '无标题')
+        link = res.get('link', '#')
+        snippet = res.get('snippet', '')[:60]
+        parts = [f"{_c(str(i), 'green')}. {_c(title, 'bold')}", _c(link, 'dim', 'cyan')]
+        if snippet:
+            parts.append(_c(snippet, 'dim'))
+        lines.append(" | ".join(parts))
+    return "\n".join(lines)
+
+
+def format_table(query, results, use_cache):
+    lines = []
+    w = _term_width()
+    lines.append(_c(f"🐉 龍魂搜索 · {query} · {len(results)}条", "bold", "cyan"))
+    # 列宽分配
+    num_w = max(3, len(str(len(results))))
+    gap = 2
+    avail = max(20, w - num_w - gap * 3 - 2)
+    title_w = int(avail * 0.35)
+    url_w = int(avail * 0.35)
+    snip_w = avail - title_w - url_w
+    header = f"{'#':>{num_w}}  {_pad('标题', title_w)} {_pad('链接', url_w)} {_pad('摘要', snip_w)}"
+    header_plain = _strip_ansi(header)
+    lines.append(_c(header, "bold", "blue"))
+    lines.append("-" * min(w, _display_width(header_plain) + 2))
+    for i, res in enumerate(results, 1):
+        title = _truncate(res.get('title', '无标题'), title_w)
+        link = _truncate(res.get('link', '#'), url_w)
+        snip = _truncate(res.get('snippet', ''), snip_w)
+        line = f"{i:>{num_w}}  {_pad(title, title_w)} {_pad(link, url_w)} {_pad(snip, snip_w)}"
+        lines.append(line)
+    return "\n".join(lines)
+
+
+def format_card(query, results, use_cache):
+    lines = []
+    w = _term_width()
+    inner = min(60, w - 4)
+    top = "┌" + "─" * inner + "┐"
+    mid = "├" + "─" * inner + "┤"
+    bot = "└" + "─" * inner + "┘"
+    lines.append("")
+    lines.append(_c(top, "cyan"))
+    header_text = f"🐉 龍魂搜索 · {query}"
+    lines.append(_c(f"│{_pad(header_text, inner, align='center')}│", "cyan"))
+    cache_text = f"缓存:{'是' if use_cache else '否'} | 结果:{len(results)}条"
+    lines.append(_c(f"│{_pad(cache_text, inner, align='center')}│", "dim", "cyan"))
+    lines.append(_c(bot, "cyan"))
+    for i, res in enumerate(results, 1):
+        title = res.get('title', '无标题')
+        link = res.get('link', '#')
+        snippet = res.get('snippet', '')
+        lines.append("")
+        lines.append(_c(top, "cyan"))
+        title_prefix = f"{_c(str(i)+'.', 'bold', 'green')} "
+        title_content = _c(title, 'bold', 'white')
+        title_full = title_prefix + title_content
+        title_padded = _pad(title_full, inner - 2)
+        lines.append(_c(f"│ {title_padded}│", "cyan"))
+        # 链接和摘要简单处理：可能超长，直接截断
+        link_line = _truncate(link, inner - 2)
+        lines.append(_c(f"│ {_pad(link_line, inner - 2)}│", "dim", "cyan"))
+        if snippet:
+            snip_line = _truncate(snippet, inner - 2)
+            lines.append(_c(f"│ {_pad(snip_line, inner - 2)}│", "dim"))
+        lines.append(_c(bot, "cyan"))
+    return "\n".join(lines)
+
+
+def format_minimal(query, results, use_cache):
+    lines = []
+    for i, res in enumerate(results, 1):
+        lines.append(f"{i}. {res.get('title', '无标题')}")
+        lines.append(f"   {res.get('link', '#')}")
+    return "\n".join(lines)
+
 
 # ---------- 辅助函数 ----------
 def safe_url_encode(text):
@@ -122,7 +310,6 @@ def search_bing(query, n=10):
     url = f"https://www.bing.com/search?q={safe_url_encode(query)}&count={n}"
     headers = {
         'User-Agent': DEFAULT_USER_AGENT,
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
     }
     try:
@@ -234,41 +421,41 @@ def cli_search(args):
         df.to_csv(sys.stdout, index=False)
         return
 
+    # 终端样式选择
+    style = getattr(args, 'style', 'default')
+    no_color = getattr(args, 'no_color', False) or style == 'plain'
+    formatter = globals().get(f'format_{style}', format_default)
+
+    def _print(text="", end="\n"):
+        if no_color:
+            text = _strip_ansi(text)
+        print(text, end=end)
+
     # 终端友好输出
-    print("\n" + "=" * 60)
-    print(f"  🐉 龍魂搜索 · {query}")
-    print(f"  后端: bing | 缓存: {'是' if use_cache else '否'} | 结果: {len(results)}条")
-    print(f"  DNA: #龍芯⚡️丙午·乙未·癸酉·戌时·☰乾-SEARCH-ENGINE-v2.0-9F8E7D6C")
-    print("=" * 60)
-    for i, res in enumerate(results, 1):
-        title = res.get('title', '无标题')
-        link = res.get('link', '#')
-        snippet = res.get('snippet', '')
-        print(f"\n  {i}. {title}")
-        print(f"     {link}")
-        if snippet:
-            print(f"     {snippet[:150]}")
+    _print(formatter(query, results, use_cache), end="")
 
     # 深度提取
     if deep > 0:
-        print("\n" + "─" * 60)
-        print(f"  📄 深度提取 (前 {min(deep, len(results))} 页)")
-        print("─" * 60)
+        _print()
+        _print("─" * 60)
+        _print(_c(f"  📄 深度提取 (前 {min(deep, len(results))} 页)", "bold", "yellow"))
+        _print("─" * 60)
         extractor_strategy = args.extractor or 'default'
         for idx, res in enumerate(results[:deep], 1):
             url = res.get('link')
             if not url:
                 continue
-            print(f"\n  标题: {res.get('title', '')}")
+            _print()
+            _print(f"  标题: {res.get('title', '')}")
             try:
                 html = fetch_page(url, user_agent=args.user_agent, timeout=args.timeout,
                                   retry=args.retry, delay=args.delay)
                 text = extract_content(html, strategy=extractor_strategy, max_chars=args.max_chars or 2000)
                 lines = text.split('\n')
                 preview = '\n'.join(line.strip() for line in lines if line.strip())[:300]
-                print(f"  预览: {preview}...")
+                _print(f"  预览: {preview}...")
             except Exception as e:
-                print(f"  ❌ 提取失败: {e}")
+                _print(f"  ❌ 提取失败: {e}")
 
 # ---------- HTTP API ----------
 class SearchHandler(BaseHTTPRequestHandler):
@@ -339,6 +526,8 @@ def main():
     search_parser.add_argument('--n', type=int, default=10, help='返回结果数')
     search_parser.add_argument('--deep', type=int, default=0, help='深度提取前N个页面的正文')
     search_parser.add_argument('--output', choices=['text', 'json', 'csv'], default='text', help='输出格式')
+    search_parser.add_argument('--style', choices=['default', 'compact', 'table', 'card', 'minimal', 'plain'], default='default', help='终端显示样式')
+    search_parser.add_argument('--no-color', action='store_true', help='禁用 ANSI 颜色')
     search_parser.add_argument('--user-agent', type=str, default=DEFAULT_USER_AGENT, help='自定义User-Agent')
     search_parser.add_argument('--header', action='append', help='自定义请求头，格式 "Key: Value"')
     search_parser.add_argument('--timeout', type=int, default=DEFAULT_TIMEOUT, help='请求超时秒数')

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂人格路由 API 测试脚本
 # DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-TEST-PERSONA-ROUTE-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

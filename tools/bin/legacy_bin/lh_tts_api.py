@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 # 龍魂TTS统一接口 · 本地优先·云端备用
 # DNA: #龍芯⚡️丙午·辛未·TTS-API-v1.0

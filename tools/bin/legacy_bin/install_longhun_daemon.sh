@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂 launchd 守护一键装载 · P13姜子牙装载 / P03雯雯复盘 / P05上帝之眼督
 # DNA:#龍芯⚡️2026-06-05-DAEMON-INSTALL-v1.0
 set -euo pipefail

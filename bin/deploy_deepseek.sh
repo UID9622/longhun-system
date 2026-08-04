@@ -1,4 +1,5 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # DeepSeek-V3 一键部署（鲲鹏/Ubuntu适配）
 # DNA: #龍芯⚡️丙午·乙未·甲辰-DeepSeek部署-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

@@ -1,4 +1,5 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 # 龍魂爬虫伦理检查器 v1.0
 # DNA: #龍芯⚡️丙午·乙未·甲辰-爬虫伦理-v1.0

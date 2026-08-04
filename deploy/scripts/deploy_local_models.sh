@@ -1,4 +1,5 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂本地开源模型 · 一键部署脚本
 # deploy_local_models.sh
 # DNA: #龍芯⚡️丙午·辛未·DEPLOY-LOCAL-MODELS-v1.0

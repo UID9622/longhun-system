@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 主动观察引擎 v2.0 (Active Observation Engine)

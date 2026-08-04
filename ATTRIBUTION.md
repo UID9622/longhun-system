@@ -1,5 +1,6 @@
-<!--#龍芯⚡️2026-06-21-DOC-ATTRIBUTION-v1.0 -->
-<!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
+<!--#龍芯⚡️2026-08-04-DOC-ATTRIBUTION-v1.1-LAYERED -->
+<!-- 分层许可: 本文档属核心思想层 CC BY-NC-SA 4.0 · 工程代码 MulanPSL v2 -->
+<!-- 详见 01_protocols/LH-LAYERED-LICENSE-v1.0.md -->
 
 # ATTRIBUTION — 引用 / 复用 / 二创
 

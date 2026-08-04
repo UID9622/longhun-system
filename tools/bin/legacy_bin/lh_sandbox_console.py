@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
 🎛️ 龍魂 · 沙盒推演系统控制台 v4.0 · 统一入口

@@ -1,0 +1,29 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+FROM python:3.11-slim
+
+# CNSH 环境变量
+ENV CNSH_UID="UID9622"
+ENV CNSH_CREATOR="龍魂体系"
+ENV CNSH_VERSION="v2.0.0"
+ENV CNSH_ENCODING="UTF-8"
+ENV CNSH_AUDIT_STATUS="🟢"
+
+# 安装依赖
+RUN apt-get update && apt-get install -y \
+    git \
+    vim \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# 复制 CNSH 文件
+COPY cnsh_*.sh /usr/local/bin/
+COPY cnsh_*.py /usr/local/bin/
+RUN chmod +x /usr/local/bin/cnsh_*.sh
+
+# 设置工作目录
+WORKDIR /workspace
+
+# 默认命令
+CMD ["/bin/bash"]

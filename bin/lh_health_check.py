@@ -1,439 +1,285 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·乙未·丙申·亥时·☵坎-HEALTH-CHECK-v1.0-3e8a1f2b
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# 创建者: 诸葛鑫（UID9622）
-# 协议: CC BY-NC-SA 4.0
-# 职能: 龍魂系统综合健康检查 · 一键检测API+模型路由+审计+服务+数据库
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# -*- coding: utf-8 -*-
 """
-龍魂·综合健康检查 v1.0
-────────────────────────────
-检测项目（12项）:
-  1. 知识中枢API (:8766)        — 健康/响应时间
-  2. 审计日志状态               — 总数/待审核/已审核/异常
-  3. 模型路由                   — Ollama在线/本地模型列表/配置状态
-  4. 系统资源                   — CPU/内存/磁盘/启动时间
-  5. 网络联通                   — 鲲鹏SSH/域名解析/SSL证书
-  6. 人格矩阵                   — 16核心+1安全+3子系统完整性
-  7. GPG签名                    — 密钥存在性/公钥可访问
-  8. 训练数据                   — 条数/版本/最后更新时间
-  9. 文件完整性                 — 关键文件存在性
-  10. DNA一致性                 — STATE.md vs 实际文件
-  11. 德本审计                  — 离火运五条自检
-  12. 一键报告                  — 汇总JSON + 终端输出
-
+🐉 龍魂 · 健康检查引擎 v1.0
+DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-HEALTH-CHECK-v1.0-UID9622
+创建者: 诸葛鑫（UID9622）
+协议: CC BY-NC-SA 4.0
+功能:
+  - 一次性巡检：验证所有引擎健康状态
+  - 持续监控：按间隔循环巡检+告警联动
+  - 历史趋势：记录每次巡检结果到JSONL
+  - 自动告警：红>0 → 🔴error告警 / 黄>3 → 🟡warn告警
 用法:
-  python3 bin/lh_health_check.py              # 终端输出
-  python3 bin/lh_health_check.py --json       # JSON输出
-  python3 bin/lh_health_check.py --component api,audit,model  # 指定组件
+  lh 健康检查                  一次性巡检
+  lh 健康检查 --alert          巡检+告警
+  lh 健康检查 --interval 60    持续监控(每60秒)
+  lh 健康检查 --history 10     查看最近10次历史
+联动: lh_engine_verify.py（数据源）/ lh_alert_engine.py（告警推送）
 """
-import os, sys, json, time, subprocess, socket, ssl
+
+import os
+import sys
+import json
+import time
+import argparse
 from pathlib import Path
-from datetime import datetime, timezone, timedelta, date
-from collections import OrderedDict
-import urllib.request
-import urllib.error
+from datetime import datetime
+from typing import Dict, List, Optional
 
-CST = timezone(timedelta(hours=8))
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+# 确保能 import 同目录引擎
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-# ── 三色标记 ──
-GREEN = "\033[92m"; YELLOW = "\033[93m"; RED = "\033[91m"
-BOLD = "\033[1m"; RESET = "\033[0m"
+# ── 历史记录路径 ──
+HISTORY_FILE = Path.home() / ".longhun" / "health_history.jsonl"
+STATE_FILE = Path.home() / ".longhun" / "health_state.json"
+HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
 
-def color(s, c): return f"{c}{s}{RESET}" if sys.stdout.isatty() else s
-def g(s): return color(s, GREEN)
-def y(s): return color(s, YELLOW)
-def r(s): return color(s, RED)
-def b(s): return color(s, BOLD)
+# ── 告警阈值 ──
+ALERT_RED_THRESHOLD = 0      # 有任何红色就告警
+ALERT_YELLOW_THRESHOLD = 3   # 黄色超过此数告警
+MAX_HISTORY_LINES = 1000      # 最多保留1000条历史
 
 
-class HealthChecker:
-    def __init__(self, components=None):
-        self.results = OrderedDict()
-        self.start_time = time.time()
-        self.components = components  # None = all
-
-    def _should_check(self, name):
-        if self.components is None: return True
-        return name in self.components
-
-    # ═══════════════════════════════════════════
-    # 1. 知识中枢API
-    # ═══════════════════════════════════════════
-    def check_api(self):
-        if not self._should_check("api"): return
-        t0 = time.time()
-        try:
-            req = urllib.request.Request("http://127.0.0.1:8766/v1/li/health", method="GET")
-            with urllib.request.urlopen(req, timeout=5) as resp:
-                data = json.loads(resp.read())
-            elapsed = round((time.time() - t0) * 1000)
-            self.results["api"] = {
-                "status": "green", "running": True, "response_ms": elapsed,
-                "version": data.get("version", "?"), "service": data.get("service", "?"),
-                "detail": f"端口8766·响应{elapsed}ms"
-            }
-        except urllib.error.URLError as e:
-            self.results["api"] = {
-                "status": "red", "running": False, "response_ms": 0,
-                "detail": f"无法连接: {e.reason}"
-            }
-        except Exception as e:
-            self.results["api"] = {"status": "red", "running": False, "detail": str(e)[:80]}
-
-    # ═══════════════════════════════════════════
-    # 2. 审计日志
-    # ═══════════════════════════════════════════
-    def check_audit(self):
-        if not self._should_check("audit"): return
-        audit_path = PROJECT_ROOT / "logs" / "ai_audit.jsonl"
-        if not audit_path.exists():
-            self.results["audit"] = {"status": "red", "detail": "审计日志文件不存在"}
-            return
-
-        total = 0; pending = 0; reviewed = 0; flagged = 0
-        try:
-            with open(audit_path) as f:
-                for line in f:
-                    if not line.strip(): continue
-                    try:
-                        rec = json.loads(line)
-                        total += 1; s = rec.get("review_status", "")
-                        if s == "pending": pending += 1
-                        elif s in ("reviewed", "reviewed_batch", "approved"): reviewed += 1
-                        elif s == "flagged": flagged += 1
-                    except: pass
-        except Exception as e:
-            self.results["audit"] = {"status": "red", "detail": f"读取失败: {e}"}
-            return
-
-        status = "red" if pending > 1000 else ("yellow" if pending > 0 or flagged > 0 else "green")
-        self.results["audit"] = {
-            "status": status, "total": total, "pending": pending,
-            "reviewed": reviewed, "flagged": flagged,
-            "detail": f"共{total}条·待审{pending}·已审{reviewed}·标记{flagged}"
+def run_check(do_alert: bool = False) -> Dict:
+    """
+    执行一次健康巡检。
+    返回巡检记录dict。
+    """
+    try:
+        from lh_engine_verify import ENGINES, check_engine
+    except ImportError as e:
+        return {
+            "timestamp": time.time(),
+            "iso": datetime.now().isoformat(),
+            "error": f"引擎验证模块不可用: {e}",
+            "total": 0, "green": 0, "yellow": 0, "red": 0,
+            "details": [],
         }
 
-    # ═══════════════════════════════════════════
-    # 3. 模型路由
-    # ═══════════════════════════════════════════
-    def check_model_routing(self):
-        if not self._should_check("model"): return
+    details = []
+    for name, config in ENGINES.items():
+        r = check_engine(name, config)
+        details.append(r)
 
-        # Ollama
-        ollama_ok = False; models = []
+    total = len(details)
+    green = sum(1 for d in details if d["status"] == "🟢")
+    yellow = sum(1 for d in details if d["status"] == "🟡")
+    red = sum(1 for d in details if d["status"] == "🔴")
+
+    record = {
+        "timestamp": time.time(),
+        "iso": datetime.now().isoformat(),
+        "total": total,
+        "green": green,
+        "yellow": yellow,
+        "red": red,
+        "health_pct": round(green / total * 100, 1) if total > 0 else 0,
+        "details": details,
+    }
+
+    # 追加历史
+    with open(HISTORY_FILE, "a") as f:
+        f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+    # 裁剪历史（保留最近N条）
+    _trim_history()
+
+    # 输出
+    _print_check_result(record)
+
+    # 联动告警
+    if do_alert:
+        _trigger_alert_if_needed(record)
+
+    # 保存当前状态
+    _save_state(record)
+
+    return record
+
+
+def _print_check_result(record: Dict):
+    """终端友好输出"""
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"\n╔══════════════════════════════════════════════════╗")
+    print(f"║  🩺 龍魂 · 健康检查  {now}     ║")
+    print(f"╠══════════════════════════════════════════════════╣")
+
+    bar_len = 30
+    filled = int(bar_len * record["health_pct"] / 100)
+    bar = "█" * filled + "░" * (bar_len - filled)
+    color = "🟢" if record["health_pct"] >= 80 else "🟡" if record["health_pct"] >= 50 else "🔴"
+    print(f"  {color} 健康度: [{bar}] {record['health_pct']}%")
+    print(f"  🟢 {record['green']:2d}   🟡 {record['yellow']:2d}   🔴 {record['red']:2d}   📊 总计 {record['total']}")
+
+    # 只显示异常项
+    problems = [d for d in record.get("details", []) if d["status"] != "🟢"]
+    if problems:
+        print(f"  ─────────────────────────────────────────────")
+        for p in problems:
+            err = p.get("error", "")
+            print(f"  {p['status']} {p['name']:<16s} {err}")
+    else:
+        print(f"  ✅ 所有引擎正常")
+
+    print(f"╚══════════════════════════════════════════════════╝")
+
+
+def _trigger_alert_if_needed(record: Dict):
+    """根据巡检结果触发告警"""
+    red = record.get("red", 0)
+    yellow = record.get("yellow", 0)
+
+    try:
+        from lh_alert_engine import send_alert
+    except ImportError:
+        print("  ⚠️ 告警引擎不可用，跳过告警推送")
+        return
+
+    if red > ALERT_RED_THRESHOLD:
+        red_engines = [d["name"] for d in record.get("details", [])
+                       if d["status"] == "🔴"]
+        title = f"🔴 龍魂健康告警: {red}个服务不可用"
+        body = f"不可用服务: {', '.join(red_engines)}\n"
+        body += f"健康度: {record['health_pct']}%\n"
+        body += f"时间: {record['iso']}"
+        sent = send_alert(title, body, "error")
+        if sent:
+            print(f"  🚨 已发送告警: {', '.join(sent)}")
+
+    elif yellow > ALERT_YELLOW_THRESHOLD:
+        title = f"🟡 龍魂健康警告: {yellow}个服务异常"
+        body = f"健康度: {record['health_pct']}%\n时间: {record['iso']}"
+        sent = send_alert(title, body, "warn")
+        if sent:
+            print(f"  ⚠️ 已发送警告: {', '.join(sent)}")
+
+
+def _trim_history():
+    """裁剪历史文件到最近N条"""
+    try:
+        lines = []
+        with open(HISTORY_FILE, "r") as f:
+            lines = f.readlines()
+        if len(lines) > MAX_HISTORY_LINES:
+            with open(HISTORY_FILE, "w") as f:
+                f.writelines(lines[-MAX_HISTORY_LINES:])
+    except (IOError, OSError):
+        pass
+
+
+def _save_state(record: Dict):
+    """保存当前状态快照"""
+    state = {
+        "last_check": record["iso"],
+        "health_pct": record["health_pct"],
+        "green": record["green"],
+        "yellow": record["yellow"],
+        "red": record["red"],
+        "total": record["total"],
+    }
+    try:
+        with open(STATE_FILE, "w") as f:
+            json.dump(state, f, ensure_ascii=False, indent=2)
+    except IOError:
+        pass
+
+
+def show_history(n: int = 10):
+    """查看最近N次巡检历史"""
+    if not HISTORY_FILE.exists():
+        print("📋 暂无巡检历史")
+        return
+
+    lines = []
+    with open(HISTORY_FILE, "r") as f:
+        lines = f.readlines()
+
+    recent = lines[-n:]
+
+    print(f"╔══════════════════════════════════════════════════╗")
+    print(f"║  📈 龍魂 · 最近 {len(recent)} 次健康检查历史                ║")
+    print(f"╠══════════════════════════════════════════════════╣")
+    print(f"  {'时间':<20s} {'🟢':>4s} {'🟡':>4s} {'🔴':>4s} {'健康度':>8s}")
+    print(f"  {'─'*48}")
+
+    for line in recent:
         try:
-            proc = subprocess.run(["ollama", "list"], capture_output=True, text=True, timeout=10)
-            if proc.returncode == 0:
-                ollama_ok = True
-                for line in proc.stdout.strip().split("\n")[1:]:
-                    parts = line.split()
-                    if len(parts) >= 2: models.append(parts[0])
-        except: pass
+            r = json.loads(line)
+            ts = r.get("iso", "")[:19].replace("T", " ")
+            print(f"  {ts:<20s} {r['green']:>4d} {r['yellow']:>4d} {r['red']:>4d} {r.get('health_pct',0):>7.1f}%")
+        except (json.JSONDecodeError, KeyError):
+            continue
 
-        # Settings配置
-        config_ok = False; config_detail = ""
-        settings_path = os.path.expanduser("~/Library/Application Support/CodeBuddy CN/User/settings.json")
-        if os.path.exists(settings_path):
-            try:
-                with open(settings_path) as f:
-                    s = json.load(f)
-                lm = {k.replace("longhun-model.", ""): v for k, v in s.items() if k.startswith("longhun-model")}
-                config_ok = bool(lm.get("localModelPath"))
-                config_detail = f"default={lm.get('defaultModel','?')} local={lm.get('localModelPath','?')[:30]}"
-            except: pass
+    print(f"╚══════════════════════════════════════════════════╝")
+    print(f"  完整历史: {HISTORY_FILE}")
 
-        status = "green" if ollama_ok and config_ok else ("yellow" if ollama_ok else "red")
-        self.results["model_routing"] = {
-            "status": status, "ollama_running": ollama_ok,
-            "local_models": models, "config_set": config_ok,
-            "detail": f"Ollama{'在线' if ollama_ok else '离线'}·{len(models)}模型·配置{'✅' if config_ok else '❌'} {config_detail}"
-        }
 
-    # ═══════════════════════════════════════════
-    # 4. 系统资源
-    # ═══════════════════════════════════════════
-    def check_system(self):
-        if not self._should_check("system"): return
-        import shutil
-
-        disk = shutil.disk_usage(PROJECT_ROOT)
-        disk_pct = round(disk.used / disk.total * 100, 1)
-        disk_gb_free = round(disk.free / 1024**3, 1)
-
-        # CPU (macOS)
+def show_current_state():
+    """显示当前状态快照"""
+    if STATE_FILE.exists():
         try:
-            m = subprocess.run(["sysctl", "-n", "machdep.cpu.brand_string"], capture_output=True, text=True)
-            cpu_name = m.stdout.strip()
-        except: cpu_name = "?"
-
-        # 内存
-        try:
-            vm = subprocess.run(["vm_stat"], capture_output=True, text=True, timeout=5)
-            mem_info = {}
-            for line in vm.stdout.split("\n"):
-                if ":" in line and "page" in line.lower():
-                    k, v = line.split(":", 1)
-                    try: mem_info[k.strip()] = int(v.strip().rstrip("."))
-                    except: pass
-            # macOS 页大小 16384 (ARM) 或 4096 (Intel)
-            page_size = 16384
-            free_pages = mem_info.get("Pages free", 0) + mem_info.get("Pages speculative", 0)
-            used_pages = mem_info.get("Pages active", 0) + mem_info.get("Pages wired down", 0)
-            mem_used_gb = round(used_pages * page_size / 1024**3, 1)
-            mem_free_gb = round(free_pages * page_size / 1024**3, 1)
-        except: mem_used_gb = 0; mem_free_gb = 0
-
-        status = "red" if disk_pct > 90 else ("yellow" if disk_pct > 80 else "green")
-        self.results["system"] = {
-            "status": status, "cpu": cpu_name,
-            "disk_used_pct": disk_pct, "disk_free_gb": disk_gb_free,
-            "mem_used_gb": mem_used_gb, "mem_free_gb": mem_free_gb,
-            "detail": f"磁盘{disk_gb_free}GB可用({disk_pct}%)·{cpu_name}"
-        }
-
-    # ═══════════════════════════════════════════
-    # 5. 网络联通
-    # ═══════════════════════════════════════════
-    def check_network(self):
-        if not self._should_check("network"): return
-        items = {}
-
-        # 域名解析
-        try:
-            addr = socket.getaddrinfo("uid9622.cn", 443, socket.AF_INET, socket.SOCK_STREAM)
-            items["dns"] = {"ok": True, "ip": addr[0][4][0]}
-        except: items["dns"] = {"ok": False, "ip": None}
-
-        # SSL证书
-        try:
-            ctx = ssl.create_default_context()
-            with socket.create_connection(("uid9622.cn", 443), timeout=5) as sock:
-                with ctx.wrap_socket(sock, server_hostname="uid9622.cn") as ssock:
-                    cert = ssock.getpeercert()
-                    not_after = cert.get("notAfter", "")
-                    items["ssl"] = {"ok": True, "expires": not_after}
-        except: items["ssl"] = {"ok": False, "expires": None}
-
-        # 鲲鹏SSH端口
-        try:
-            with socket.create_connection(("119.13.90.27", 22), timeout=5):
-                items["kunpeng"] = {"ok": True, "ip": "119.13.90.27:22"}
-        except: items["kunpeng"] = {"ok": False, "ip": None}
-
-        all_ok = all(v["ok"] for v in items.values())
-        self.results["network"] = {
-            "status": "green" if all_ok else ("yellow" if items.get("dns",{}).get("ok") else "red"),
-            "checks": items,
-            "detail": "·".join(f"{k}={'✅' if v['ok'] else '❌'}" for k, v in items.items())
-        }
-
-    # ═══════════════════════════════════════════
-    # 6. 人格矩阵
-    # ═══════════════════════════════════════════
-    def check_personas(self):
-        if not self._should_check("personas"): return
-        personas_dir = PROJECT_ROOT / "personas"
-        if not personas_dir.exists():
-            self.results["personas"] = {"status": "red", "detail": "personas/目录不存在"}
-            return
-
-        md_files = list(personas_dir.glob("*.md"))
-        py_files = list((PROJECT_ROOT / "bin" / "personas").glob("*.py")) if (PROJECT_ROOT / "bin" / "personas").exists() else []
-
-        self.results["personas"] = {
-            "status": "green" if len(md_files) >= 16 else "yellow",
-            "md_count": len(md_files), "py_count": len(py_files),
-            "detail": f"定义{len(md_files)}份·执行器{len(py_files)}个"
-        }
-
-    # ═══════════════════════════════════════════
-    # 7. GPG签名
-    # ═══════════════════════════════════════════
-    def check_gpg(self):
-        if not self._should_check("gpg"): return
-        gpg_ok = False
-        try:
-            proc = subprocess.run(["gpg", "--list-keys", "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"],
-                                  capture_output=True, text=True, timeout=5)
-            gpg_ok = proc.returncode == 0
-        except: pass
-
-        # 公钥页面
-        try:
-            req = urllib.request.Request("https://uid9622.cn/pgp/", method="HEAD")
-            urllib.request.urlopen(req, timeout=5)
-            pgp_page_ok = True
-        except: pgp_page_ok = False
-
-        self.results["gpg"] = {
-            "status": "green" if gpg_ok else "yellow",
-            "key_present": gpg_ok, "pgp_page_ok": pgp_page_ok,
-            "fingerprint": "A2D0 092C EE2E 5BA8 7035 6009 24C3 704A 8CC2 6D5F",
-            "detail": f"本地密钥{'✅' if gpg_ok else '❌'}·公网{'✅' if pgp_page_ok else '❌'}"
-        }
-
-    # ═══════════════════════════════════════════
-    # 8. 训练数据
-    # ═══════════════════════════════════════════
-    def check_training(self):
-        if not self._should_check("training"): return
-        data_dir = PROJECT_ROOT / "data"
-        count = 0; last_mod = None
-        if data_dir.exists():
-            for f in data_dir.glob("*.jsonl"):
-                try:
-                    with open(f) as fh:
-                        for _ in fh: count += 1
-                except: pass
-                mt = os.path.getmtime(f)
-                if last_mod is None or mt > last_mod: last_mod = mt
-
-        status = "green" if count > 1000 else ("yellow" if count > 0 else "red")
-        self.results["training"] = {
-            "status": status, "count": count,
-            "last_modified": datetime.fromtimestamp(last_mod, CST).isoformat() if last_mod else None,
-            "detail": f"训练数据{count}条·{datetime.fromtimestamp(last_mod, CST).strftime('%m-%d %H:%M') if last_mod else '无'}"
-        }
-
-    # ═══════════════════════════════════════════
-    # 9. 文件完整性
-    # ═══════════════════════════════════════════
-    def check_files(self):
-        if not self._should_check("files"): return
-        critical = [
-            "CONSTITUTION.md", "P0_ETERNAL_LOCK.md", "STATE.md",
-            ".codebuddy/longhun_neural_net.json",
-            ".codebuddy/rules/longhun-codebuddy-alignment-v2.md",
-            "01_protocols/LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md",
-            "bin/lh_memory_load.py", "bin/lh_deben_audit.py",
-            "bin/lh_knowledge_hub_api.py",
-        ]
-        missing = [f for f in critical if not (PROJECT_ROOT / f).exists()]
-        self.results["files"] = {
-            "status": "red" if missing else "green",
-            "checked": len(critical), "missing": missing,
-            "detail": f"关键文件{len(critical)}个·{'全部存在✅' if not missing else '缺失'+str(len(missing))+'个❌'}"
-        }
-
-    # ═══════════════════════════════════════════
-    # 10. DNA一致性
-    # ═══════════════════════════════════════════
-    def check_dna(self):
-        if not self._should_check("dna"): return
-        mismatches = []
-        state_path = PROJECT_ROOT / "STATE.md"
-        if state_path.exists():
-            with open(state_path) as f:
-                state_content = f.read()
-        else:
-            mismatches.append("STATE.md 不存在")
-
-        self.results["dna"] = {
-            "status": "red" if mismatches else "green",
-            "mismatches": mismatches,
-            "detail": "DNA一致✅" if not mismatches else "; ".join(mismatches[:3])
-        }
-
-    # ═══════════════════════════════════════════
-    # 11. 德本审计
-    # ═══════════════════════════════════════════
-    def check_deben(self):
-        if not self._should_check("deben"): return
-        deben_script = PROJECT_ROOT / "bin" / "lh_deben_audit.py"
-        if not deben_script.exists():
-            self.results["deben"] = {"status": "red", "detail": "德本审计脚本缺失"}
-            return
-
-        try:
-            proc = subprocess.run([sys.executable, str(deben_script), "scan"],
-                                  capture_output=True, text=True, timeout=15,
-                                  cwd=str(PROJECT_ROOT))
-            output = proc.stdout[-500:] if len(proc.stdout) > 500 else proc.stdout
-            ok = proc.returncode == 0 and "PASS" in output.upper()
-            self.results["deben"] = {
-                "status": "green" if ok else "yellow",
-                "detail": "离火运五条通过✅" if ok else output.strip()[-100:]
-            }
-        except Exception as e:
-            self.results["deben"] = {"status": "yellow", "detail": f"执行异常: {e}"}
-
-    # ═══════════════════════════════════════════
-    # 汇总
-    # ═══════════════════════════════════════════
-    def run_all(self):
-        checks = [
-            self.check_api, self.check_audit, self.check_model_routing,
-            self.check_system, self.check_network, self.check_personas,
-            self.check_gpg, self.check_training, self.check_files,
-            self.check_dna, self.check_deben,
-        ]
-        for check in checks:
-            try:
-                check()
-            except Exception as e:
-                name = check.__name__.replace("check_", "")
-                self.results[name] = {"status": "red", "detail": f"检查异常: {e}"}
-
-        elapsed = round(time.time() - self.start_time, 2)
-        greens = sum(1 for v in self.results.values() if v["status"] == "green")
-        yellows = sum(1 for v in self.results.values() if v["status"] == "yellow")
-        reds = sum(1 for v in self.results.values() if v["status"] == "red")
-
-        self.results["_summary"] = {
-            "elapsed_sec": elapsed, "total_checks": len(self.results) - 1,
-            "green": greens, "yellow": yellows, "red": reds,
-            "overall": "green" if reds == 0 else ("yellow" if reds <= 2 else "red"),
-            "timestamp": datetime.now(CST).isoformat(),
-            "dna": "#龍芯⚡️丙午·乙未·丙申·亥时·☵坎-HEALTH-CHECK-v1.0-3e8a1f2b",
-        }
-        return self.results
-
-    def print_report(self):
-        summary = self.results.pop("_summary", {})
-        emoji = {"green": "🟢", "yellow": "🟡", "red": "🔴"}
-
-        print(f"\n{'='*60}")
-        print(f"{b('🐉 龍魂·综合健康检查 v1.0')}")
-        print(f"{'='*60}")
-        print(f"  时间: {summary.get('timestamp','?')}")
-        print(f"  耗时: {summary.get('elapsed_sec','?')}秒")
-        print(f"  DNA:  {summary.get('dna','?')}")
-        print(f"  {'='*60}")
-
-        # 逐项打印
-        for name, data in self.results.items():
-            icon = emoji.get(data["status"], "⚪")
-            print(f"  {icon} {b(name):20s}  {data.get('detail','?')}")
-
-        # 底部汇总
-        print(f"  {'='*60}")
-        overall = summary.get("overall", "red")
-        print(f"  {emoji[overall]} {b('汇总')}: {summary['green']}绿 {summary['yellow']}黄 {summary['red']}红 / 共{summary['total_checks']}项")
-
-        return 0 if overall == "green" else 1
+            with open(STATE_FILE, "r") as f:
+                state = json.load(f)
+            print(f"📊 最近一次巡检: {state['last_check']}")
+            print(f"   🟢{state['green']} 🟡{state['yellow']} 🔴{state['red']}  健康度: {state['health_pct']}%")
+        except (json.JSONDecodeError, KeyError, IOError):
+            print("⚠️ 状态文件损坏，将重新巡检")
+            run_check(do_alert=False)
+    else:
+        print("📊 暂无状态快照，执行首次巡检...")
+        run_check(do_alert=False)
 
 
 def main():
-    import argparse
-    parser = argparse.ArgumentParser(description="龍魂综合健康检查")
-    parser.add_argument("--json", action="store_true", help="JSON输出")
-    parser.add_argument("--component", "-c", default=None, help="指定组件: api,audit,model,system,network,personas,gpg,training,files,dna,deben (逗号分隔)")
+    parser = argparse.ArgumentParser(
+        description="🐉 龍魂·健康检查引擎 — 定期巡检+告警联动",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+示例:
+  lh 健康检查                  一次性全量巡检
+  lh 健康检查 --alert          巡检+自动告警
+  lh 健康检查 --interval 60    每60秒持续监控
+  lh 健康检查 --history 10     查看最近10次记录
+  lh 健康检查 --state          查看当前状态快照
+        """
+    )
+    parser.add_argument("--alert", action="store_true",
+                        help="巡检后自动告警")
+    parser.add_argument("--interval", type=int, metavar="SECONDS",
+                        help="持续监控间隔（秒）")
+    parser.add_argument("--history", type=int, nargs="?", const=10,
+                        metavar="N", help="查看最近N次历史（默认10）")
+    parser.add_argument("--state", action="store_true",
+                        help="查看当前状态快照")
+    parser.add_argument("--quiet", action="store_true",
+                        help="安静模式（仅输出告警）")
+
     args = parser.parse_args()
 
-    components = set(args.component.split(",")) if args.component else None
-    checker = HealthChecker(components=components)
-    checker.run_all()
+    if args.state:
+        show_current_state()
+        return
 
-    if args.json:
-        summary = checker.results.pop("_summary", {})
-        checker.results["_summary"] = summary
-        print(json.dumps(checker.results, ensure_ascii=False, indent=2))
-        return 0 if summary.get("overall") == "green" else 1
+    if args.history is not None:
+        show_history(args.history)
+        return
+
+    if args.interval:
+        print(f"🔄 持续监控模式启动（间隔 {args.interval}s）")
+        print(f"   按 Ctrl+C 停止")
+        print()
+        try:
+            while True:
+                run_check(do_alert=args.alert)
+                time.sleep(args.interval)
+        except KeyboardInterrupt:
+            print("\n👋 监控已停止")
     else:
-        return checker.print_report()
+        run_check(do_alert=args.alert)
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()

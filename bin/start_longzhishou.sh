@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍智守本地控制接口 · 启动脚本 v2.0
 # Flask 服务，监听 127.0.0.1:5001，接收飞书 Webhook 回调
 # DNA: #龍芯⚡️2026-07-06-LONGZHISHOU-START-v1.0

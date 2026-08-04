@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """龍魂 · 全量API校验脚本 v1.0
 逐个测试已配置的API Key是否可用，输出终端彩色报告
 DNA: #龍芯⚡️丙午·辛未·API-VALIDATE-ALL-v1.0

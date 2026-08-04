@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # DNA:#龍芯⚡️2026-06-05-SELF-CHECK-v1.0  责任:UID9622·不免责
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 import subprocess, sqlite3, json, time, hashlib, sys

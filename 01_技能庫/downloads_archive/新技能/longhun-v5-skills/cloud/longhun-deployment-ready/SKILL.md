@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
 name: longhun-deployment-ready
 description: "龍魂部署就绪系统 - 全链路部署自动化框架，提供27项部署就绪检查、分阶段自动部署执行、环境/配置验证和故障排查能力"

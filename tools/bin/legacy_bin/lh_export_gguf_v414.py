@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """龍魂 v4.1.4 MLX merged → GGUF 导出器（轻量·无需llama.cpp）
 DNA: #龍芯⚡️丙午·癸未·丁亥·☲离-EXPORT-GGUF-v4.1.4
 用法: python3 bin/lh_export_gguf_v414.py

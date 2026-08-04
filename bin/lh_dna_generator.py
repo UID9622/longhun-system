@@ -1,1256 +1,1216 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
-🐉 龍魂·DNA追溯码生成器 v2.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-DNA生成器-v2.0
+龍魂·DNA追溯码生成引擎 v2.0
+统一入口·全功能·自动化标注
+DNA: #龍芯⚡️丙午·丙申·己酉·䷐随-DNA-GENERATOR-v2.0-AUTO-COMPLETE-7d3f1a2b
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
-CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
-双维度DNA体系：
-  A）文档/模块DNA — 文件·代码·协议·引擎的追溯码（v∞干支卦格式）
-  B）人物DNA — 一世一双人·身份绑定·族谱继承（v1.0格式）
+v2.0 新增:
+  - 五行判定（天干→五行映射）
+  - 数字根计算（3/6/9不动点）
+  - ROOT_CARD 生成（完整数学根审计卡）
+  - stats 子命令（按日/月/类型统计）
+  - info 子命令（DNA详情+ROOT_CARD）
+  - validate 子命令（格式校验）
+  - search 子命令（注册表关键词搜索）
+  - batch 子命令（CSV/JSON批量生成）
+  - --output-format json/md
+  - --template 抬头模板联动（1-6）
+  - API模式（import调用）
 
-DNA格式（v∞推荐）:
-  #龍芯⚡️<年柱>·<月柱>·<日柱>·<时辰>·<卦象符号><卦名>-<模块>-<动作>-<版本>-<哈希8>
-
-示例（文档/模块）:
-  #龍芯⚡️丙午·乙未·甲辰·申时·䷜坎-安全检查-引擎-v1.0-A3B9C2D1
-  #龍芯⚡️丙午·乙未·甲辰·午时·䷀乾-BENCHMARK-ALLOC-v2.1-1A2B3C4D
-
-示例（人物）:
-  #龍芯⚡️丙午·乙未·甲辰·离为火-龙芯1990-v1.0-ABCD1234
-
-核心功能：
-  1. 文档/模块DNA — 基于内容哈希+干支四柱+梅花易数起卦
-  2. 人物DNA — 一世一双人·实名绑定·族谱继承
-  3. 精确干支计算 — 年柱(公元4年基准)·月柱(五虎遁)·日柱(序数公式)·时辰(十二时辰)
-  4. 六十四卦映射 — 模块→卦德·梅花易数起卦·384爻辞
-  5. HMAC双签名 — 内容签名+GPG签名·防篡改验证链
-  6. DNA注册表 — SQLite永久记录·审计日志·抗删除
-  7. 族谱系统 — 继承链·深度限制·后代追溯
+用法:
+  python3 lh_dna_generator.py --title "示例标题" --category doc --action 写入 --actor UID9622
+  python3 lh_dna_generator.py generate --title "xxx" --category code --action 创建 --actor P04
+  python3 lh_dna_generator.py stats [--days 7]
+  python3 lh_dna_generator.py search "关键词"
+  python3 lh_dna_generator.py validate "#龍芯⚡️..."
+  python3 lh_dna_generator.py info <dna_string>
+  python3 lh_dna_generator.py batch --csv input.csv --output registry/
+  python3 lh_dna_generator.py --template 4 --title "对话记录" --category persona
+  python3 lh_dna_generator.py --output-format json --title "测试"
 """
 
 import os
 import sys
 import json
-import hashlib
-import hmac
-import time
-import sqlite3
 import argparse
-import re
-import uuid
-import getpass
-from pathlib import Path
+import hashlib
+import time
 from datetime import datetime, timedelta
-from typing import Dict, List, Optional, Tuple, Any, Set
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, field, asdict
 from enum import Enum
 
-# ═══════════════════════════════════════════════════════════
-# 一、配置
-# ═══════════════════════════════════════════════════════════
+# ============================================================
+# 固定锚点（焊死·不可修改）
+# ============================================================
 
-BASE_DIR = Path.home() / ".longhun/dna"
-BASE_DIR.mkdir(parents=True, exist_ok=True)
-DB_PATH = BASE_DIR / "dna_registry.db"
-CONFIG_PATH = BASE_DIR / "dna_config.json"
-
-# DNA v∞ 格式正则
-DNA_VINF_PATTERN = re.compile(
-    r'^#龍芯⚡️[\u4e00-\u9fa5]+·[\u4e00-\u9fa5]+·[\u4e00-\u9fa5]+·[\u4e00-\u9fa5]+·[\u4e00-\u9fa5䷀-䷿]+-[A-Za-z0-9]+-[A-Z]+-v[\d.]+-[A-F0-9]{8}$'
-)
-# DNA v1.0 格式正则（人物DNA）
-DNA_PERSON_PATTERN = re.compile(
-    r'^#龍芯⚡️[\u4e00-\u9fa5]+·[\u4e00-\u9fa5]+·[\u4e00-\u9fa5]+·[\u4e00-\u9fa5]+-[A-Za-z0-9]+-v[\d.]+-[A-F0-9]{8}$'
-)
-
+ENGINE_VERSION = "v2.0"
+DNA_ENGINE = "#龍芯⚡️丙午·丙申·己酉·䷐随-DNA-GENERATOR-v2.0-AUTO-COMPLETE"
+CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 GPG_KEY = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
-HMAC_SECRET = "LONGHUN_DNA_SALT_V2_9622"
+OUR_BASE = Path(__file__).resolve().parent.parent  # longhun-dna-generator/
 
-DEFAULT_CONFIG = {
-    "version": "2.0",
-    "dna_prefix": "#龍芯⚡️",
-    "hash_length": 8,
-    "hash_algorithm": "sha256",
-    "max_inheritance_depth": 5,
-    "require_real_name": True,
-    "auto_gpg_sign": False,
+# ============================================================
+# 天干地支基表（焊死·梅花易数时卦法）
+# ============================================================
+
+TIAN_GAN = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"]
+DI_ZHI = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
+SHENG_XIAO = ["鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"]
+SHI_CHEN = DI_ZHI  # 时辰与地支一一对应
+
+# ============================================================
+# 五行映射（焊死）
+# 天干五行: 甲乙木·丙丁火·戊己土·庚辛金·壬癸水
+# 地支五行: 寅卯木·巳午火·申酉金·亥子水·辰戌丑未土
+# ============================================================
+
+TIAN_GAN_WUXING = {
+    "甲": "木", "乙": "木",
+    "丙": "火", "丁": "火",
+    "戊": "土", "己": "土",
+    "庚": "金", "辛": "金",
+    "壬": "水", "癸": "水",
+}
+
+DI_ZHI_WUXING = {
+    "寅": "木", "卯": "木",
+    "巳": "火", "午": "火",
+    "申": "金", "酉": "金",
+    "亥": "水", "子": "水",
+    "辰": "土", "戌": "土", "丑": "土", "未": "土",
+}
+
+# 五行生克关系
+WUXING_SHENG = {"木": "火", "火": "土", "土": "金", "金": "水", "水": "木"}  # 生
+WUXING_KE = {"木": "土", "土": "水", "水": "火", "火": "金", "金": "木"}  # 克
+
+# 五行→三色倾向
+WUXING_TENDENCY = {
+    "木": "🟢",  # 木主生发·通
+    "火": "🟡",  # 火主炎上·待核
+    "土": "🟢",  # 土主承载·稳
+    "金": "🔴",  # 金主肃杀·红线高
+    "水": "🟡",  # 水主润下·待核
 }
 
 # ============================================================
-# 二、干支四柱精确计算（v∞引擎）
+# 八卦映射（完整64卦·梅花易数起卦法）
 # ============================================================
 
-十天干 = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"]
-十二地支 = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
-十二时辰名 = ["子时", "丑时", "寅时", "卯时", "辰时", "巳时",
-              "午时", "未时", "申时", "酉时", "戌时", "亥时"]
-
-# 八卦基础
-八卦名 = ["乾", "兑", "离", "震", "巽", "坎", "艮", "坤"]
-八卦象 = {"乾": "☰", "兑": "☱", "离": "☲", "震": "☳", "巽": "☴", "坎": "☵", "艮": "☶", "坤": "☷"}
-八卦德 = {"乾": "天·健", "兑": "泽·悦", "离": "火·明", "震": "雷·动",
-          "巽": "风·入", "坎": "水·流", "艮": "山·止", "坤": "地·藏"}
-八卦五行 = {"乾": "金", "兑": "金", "离": "火", "震": "木", "巽": "木", "坎": "水", "艮": "土", "坤": "土"}
-
-# 64卦表：上卦(0-7)×8 + 下卦(0-7)
-六十四卦表 = {
-    0:  "䷀乾为天", 1:  "䷫天风姤", 2:  "䷌天火同人", 3:  "䷉天泽履",
-    4:  "䷈风天小畜", 5:  "䷍火天大有", 6:  "䷊地天泰", 7:  "䷋天地否",
-    8:  "䷠天山遯", 9:  "䷞泽山咸", 10: "䷢火地晋", 11: "䷎地山谦",
-    12: "䷽雷山小过", 13: "䷵雷泽归妹", 14: "䷼风泽中孚", 15: "䷻水泽节",
-    16: "䷤风火家人", 17: "䷰泽火革", 18: "䷝离为火", 19: "䷶雷火丰",
-    20: "䷣地火明夷", 21: "䷔火雷噬嗑", 22: "䷀乾为天", 23: "䷕山火贲",
-    24: "䷩风雷益", 25: "䷐泽雷随", 26: "䷔火雷噬嗑", 27: "䷲震为雷",
-    28: "䷟雷风恒", 29: "䷧雷水解", 30: "䷵雷泽归妹", 31: "䷽雷山小过",
-    32: "䷓风地观", 33: "䷑山风蛊", 34: "䷱火风鼎", 35: "䷟雷风恒",
-    36: "䷸巽为风", 37: "䷼风泽中孚", 38: "䷺风水涣", 39: "䷴风山渐",
-    40: "䷅天水讼", 41: "䷮泽水困", 42: "䷿火水未济", 43: "䷧雷水解",
-    44: "䷺风水涣", 45: "䷜坎为水", 46: "䷃山水蒙", 47: "䷦水山蹇",
-    48: "䷠天山遯", 49: "䷞泽山咸", 50: "䷃山水蒙", 51: "䷽雷山小过",
-    52: "䷴风山渐", 53: "䷦水山蹇", 54: "䷳艮为山", 55: "䷎地山谦",
-    56: "䷇水地比", 57: "䷬泽地萃", 58: "䷢火地晋", 59: "䷏雷地豫",
-    60: "䷓风地观", 61: "䷇水地比", 62: "䷖山地剥", 63: "䷁坤为地",
+TRIGRAM_MAP = {
+    1: {"name": "乾", "element": "天", "symbol": "☰"},
+    2: {"name": "兑", "element": "泽", "symbol": "☱"},
+    3: {"name": "离", "element": "火", "symbol": "☲"},
+    4: {"name": "震", "element": "雷", "symbol": "☳"},
+    5: {"name": "巽", "element": "风", "symbol": "☴"},
+    6: {"name": "坎", "element": "水", "symbol": "☵"},
+    7: {"name": "艮", "element": "山", "symbol": "☶"},
+    8: {"name": "坤", "element": "地", "symbol": "☷"},
 }
 
-# 模块→卦德映射（按关键词长度降序匹配）
-模块宫映射: Dict[str, str] = {
-    "CODEBUDDY": "乾", "ALIGNMENT": "乾", "CONSTITUTION": "乾",
-    "GOVERNANCE": "乾", "PROTOCOL": "乾", "WHITE": "乾", "RULES": "乾",
-    "REGISTER-MAIL": "坎", "DUALVIEW": "离", "DASHBOARD": "离",
-    "SOVEREIGNTY": "艮", "PRIVACY": "艮",
-    "INTEGRATION": "离", "PERSONA": "巽", "PHEROMONE": "巽",
-    "SCHEDULE": "巽", "SOLDIER": "震", "MELTDOWN": "震",
-    "SECURITY": "震", "CRAWLER": "坎", "STREAM": "坎",
-    "ARCHIVE": "坤", "BACKUP": "坤", "MEMORY": "坤",
-    "SCOUT": "坎", "NOTIFY": "坎", "MAIL": "坎",
-    "GUARD": "震", "MINOR": "震", "ALARM": "震", "DNA": "震",
-    "QUEEN": "巽", "WORKER": "巽", "ROUTE": "巽",
-    "TRUST": "兑", "ECOM": "兑", "ECO": "兑", "REGISTER": "兑",
-    "NAMING": "乾", "MATH": "离", "AUDIT": "离", "TEST": "离",
-    "MODEL": "巽", "DEPLOY": "巽", "TRAIN": "巽",
-    "DATA": "坤", "SYNC": "坎", "TAIJI": "坎", "STATE": "离",
-    "ENGINE": "坎", "RISK": "乾", "RULE": "乾", "GATE": "艮",
-    "SKILL": "兑", "FEED": "坤", "SEARCH": "离", "API": "离",
-    "WEB": "离", "PORTAL": "离", "AUTH": "乾", "SIGN": "乾",
+HEXAGRAM_DATA = {
+    1: {"name": "乾为天", "meaning": "刚健不息", "phase": "执行", "symbol": "䷀"},
+    2: {"name": "坤为地", "meaning": "厚德载物", "phase": "观察", "symbol": "䷁"},
+    3: {"name": "屯", "meaning": "初生艰难", "phase": "调整", "symbol": "䷂"},
+    4: {"name": "蒙", "meaning": "启蒙发蒙", "phase": "观察", "symbol": "䷃"},
+    5: {"name": "需", "meaning": "等待时机", "phase": "观察", "symbol": "䷄"},
+    6: {"name": "讼", "meaning": "争讼纷争", "phase": "调整", "symbol": "䷅"},
+    7: {"name": "师", "meaning": "统帅之师", "phase": "执行", "symbol": "䷆"},
+    8: {"name": "比", "meaning": "亲和比附", "phase": "执行", "symbol": "䷇"},
+    9: {"name": "小畜", "meaning": "小有积蓄", "phase": "调整", "symbol": "䷈"},
+    10: {"name": "履", "meaning": "履行责任", "phase": "执行", "symbol": "䷉"},
+    11: {"name": "泰", "meaning": "天地交泰", "phase": "执行", "symbol": "䷊"},
+    12: {"name": "否", "meaning": "天地否塞", "phase": "观察", "symbol": "䷋"},
+    13: {"name": "同人", "meaning": "志同道合", "phase": "执行", "symbol": "䷌"},
+    14: {"name": "大有", "meaning": "大有收获", "phase": "执行", "symbol": "䷍"},
+    15: {"name": "谦", "meaning": "谦逊有礼", "phase": "调整", "symbol": "䷎"},
+    16: {"name": "豫", "meaning": "愉悦安乐", "phase": "执行", "symbol": "䷏"},
+    17: {"name": "随", "meaning": "随顺而行", "phase": "执行", "symbol": "䷐"},
+    18: {"name": "蛊", "meaning": "反腐革新", "phase": "调整", "symbol": "䷑"},
+    19: {"name": "临", "meaning": "居高临下", "phase": "执行", "symbol": "䷒"},
+    20: {"name": "观", "meaning": "观察审视", "phase": "观察", "symbol": "䷓"},
+    21: {"name": "噬嗑", "meaning": "咬合决断", "phase": "执行", "symbol": "䷔"},
+    22: {"name": "贲", "meaning": "装饰文饰", "phase": "调整", "symbol": "䷕"},
+    23: {"name": "剥", "meaning": "剥落衰败", "phase": "观察", "symbol": "䷖"},
+    24: {"name": "复", "meaning": "回复复归", "phase": "调整", "symbol": "䷗"},
+    25: {"name": "无妄", "meaning": "不妄为", "phase": "观察", "symbol": "䷘"},
+    26: {"name": "大畜", "meaning": "大积蓄", "phase": "调整", "symbol": "䷙"},
+    27: {"name": "颐", "meaning": "颐养", "phase": "观察", "symbol": "䷚"},
+    28: {"name": "大过", "meaning": "大过度", "phase": "调整", "symbol": "䷛"},
+    29: {"name": "坎为水", "meaning": "险陷重重", "phase": "观察", "symbol": "䷜"},
+    30: {"name": "离为火", "meaning": "依附光明", "phase": "执行", "symbol": "䷝"},
+    31: {"name": "咸", "meaning": "感应", "phase": "执行", "symbol": "䷞"},
+    32: {"name": "恒", "meaning": "恒久", "phase": "调整", "symbol": "䷟"},
+    33: {"name": "遁", "meaning": "退避", "phase": "观察", "symbol": "䷠"},
+    34: {"name": "大壮", "meaning": "大强壮", "phase": "执行", "symbol": "䷡"},
+    35: {"name": "晋", "meaning": "前进", "phase": "执行", "symbol": "䷢"},
+    36: {"name": "明夷", "meaning": "光明受伤", "phase": "观察", "symbol": "䷣"},
+    37: {"name": "家人", "meaning": "家庭", "phase": "执行", "symbol": "䷤"},
+    38: {"name": "睽", "meaning": "乖离", "phase": "调整", "symbol": "䷥"},
+    39: {"name": "蹇", "meaning": "艰难", "phase": "观察", "symbol": "䷦"},
+    40: {"name": "解", "meaning": "解除", "phase": "执行", "symbol": "䷧"},
+    41: {"name": "损", "meaning": "减损", "phase": "调整", "symbol": "䷨"},
+    42: {"name": "益", "meaning": "增益", "phase": "执行", "symbol": "䷩"},
+    43: {"name": "夬", "meaning": "决断", "phase": "执行", "symbol": "䷪"},
+    44: {"name": "姤", "meaning": "遭遇", "phase": "调整", "symbol": "䷫"},
+    45: {"name": "萃", "meaning": "聚集", "phase": "执行", "symbol": "䷬"},
+    46: {"name": "升", "meaning": "上升", "phase": "执行", "symbol": "䷭"},
+    47: {"name": "困", "meaning": "困顿", "phase": "观察", "symbol": "䷮"},
+    48: {"name": "井", "meaning": "水井", "phase": "调整", "symbol": "䷯"},
+    49: {"name": "革", "meaning": "变革", "phase": "执行", "symbol": "䷰"},
+    50: {"name": "鼎", "meaning": "鼎新", "phase": "执行", "symbol": "䷱"},
+    51: {"name": "震为雷", "meaning": "震动警醒", "phase": "执行", "symbol": "䷲"},
+    52: {"name": "艮为山", "meaning": "止于当止", "phase": "观察", "symbol": "䷳"},
+    53: {"name": "渐", "meaning": "渐进", "phase": "调整", "symbol": "䷴"},
+    54: {"name": "归妹", "meaning": "归嫁", "phase": "调整", "symbol": "䷵"},
+    55: {"name": "丰", "meaning": "丰盛", "phase": "执行", "symbol": "䷶"},
+    56: {"name": "旅", "meaning": "旅行", "phase": "执行", "symbol": "䷷"},
+    57: {"name": "巽为风", "meaning": "柔顺渗透", "phase": "调整", "symbol": "䷸"},
+    58: {"name": "兑为泽", "meaning": "喜悦交流", "phase": "执行", "symbol": "䷹"},
+    59: {"name": "涣", "meaning": "涣散", "phase": "调整", "symbol": "䷺"},
+    60: {"name": "节", "meaning": "节制", "phase": "调整", "symbol": "䷻"},
+    61: {"name": "中孚", "meaning": "诚信", "phase": "执行", "symbol": "䷼"},
+    62: {"name": "小过", "meaning": "小过度", "phase": "调整", "symbol": "䷽"},
+    63: {"name": "既济", "meaning": "已完成", "phase": "观察", "symbol": "䷾"},
+    64: {"name": "未济", "meaning": "未完成", "phase": "执行", "symbol": "䷿"},
 }
-_模块宫排序列表 = sorted(模块宫映射.keys(), key=len, reverse=True)
+
+# ============================================================
+# 六套抬头模板索引
+# ============================================================
+
+TEMPLATE_INDEX = {
+    1: {"name": "学术博弈论分析型", "emoji": "📊", "phase": "🟡", "use": "论文/建模/推演"},
+    2: {"name": "工程落地执行型", "emoji": "🔧", "phase": "🟢", "use": "脚本/部署/API"},
+    3: {"name": "协议/原则声明型", "emoji": "📜", "phase": "🟢", "use": "宪法/条款/政策"},
+    4: {"name": "人格对话/协作记录型", "emoji": "💬", "phase": "🟢", "use": "对话/推演/辅导"},
+    5: {"name": "复盘/总结型", "emoji": "📝", "phase": "🟡", "use": "回顾/改进/记错本"},
+    6: {"name": "快速笔记/想法型", "emoji": "💡", "phase": "🟡", "use": "灵感/备忘/待整理"},
+}
+
+# 类型到模板的自动映射
+CATEGORY_TEMPLATE_MAP = {
+    "paper": 1, "academic": 1, "推演": 1, "博弈": 1,
+    "code": 2, "script": 2, "deploy": 2, "api": 2, "工程": 2,
+    "protocol": 3, "agreement": 3, "policy": 3, "协议": 3,
+    "persona": 4, "dialogue": 4, "collab": 4, "对话": 4,
+    "review": 5, "复盘": 5, "总结": 5,
+    "note": 6, "idea": 6, "memo": 6, "笔记": 6,
+}
+
+# ============================================================
+# 颜色
+# ============================================================
+
+class Colors:
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    RED = '\033[91m'
+    BLUE = '\033[94m'
+    CYAN = '\033[96m'
+    BOLD = '\033[1m'
+    RESET = '\033[0m'
 
 
-class 干支引擎:
-    """精确干支四柱计算（v∞标准）"""
-
-    @staticmethod
-    def 年干支(year: int = None) -> str:
-        """年柱：公元4年为甲子年基准"""
-        if year is None:
-            year = datetime.now().year
-        base = year - 4
-        gan = 十天干[base % 10]
-        zhi = 十二地支[base % 12]
-        return gan + zhi
-
-    @staticmethod
-    def 月干支(year: int = None, month: int = None) -> Tuple[str, str]:
-        """
-        月柱（五虎遁法）：
-        甲己之年丙作首，乙庚之岁戊为头，
-        丙辛必定寻庚起，丁壬壬位顺行流，
-        若问戊癸何方发，甲寅之上好追求。
-        """
-        if year is None: year = datetime.now().year
-        if month is None: month = datetime.now().month
-
-        # 月支映射：寅月=2月... (立春后算寅月)
-        月支映射 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0]
-        月支_idx = 月支映射[month - 1]
-
-        # 年干决定寅月天干
-        年干 = 十天干.index(干支引擎.年干支(year)[0])
-        寅月干映射 = [2, 4, 6, 8, 0, 2, 4, 6, 8, 0]
-        寅月干 = 寅月干映射[年干]
-
-        offset = (月支_idx - 2) % 12
-        月干 = (寅月干 + offset) % 10
-
-        return 十天干[月干] + 十二地支[月支_idx], 十二地支[月支_idx]
-
-    @staticmethod
-    def 日干支(year: int = None, month: int = None, day: int = None) -> str:
-        """
-        日柱（精确序数公式）：
-        基数 = (年尾+7)*5 + 15 + (年尾+19)/4 取整
-        日干支序 = (基数 + 第N天) % 60
-        """
-        if year is None: year = datetime.now().year
-        if month is None: month = datetime.now().month
-        if day is None: day = datetime.now().day
-
-        yy = year % 100
-        base = (yy + 7) * 5 + 15 + (yy + 19) // 4
-        base %= 60
-
-        is_leap = (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
-        月天数 = [31, 29 if is_leap else 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-        day_of_year = sum(月天数[:month - 1]) + day
-
-        seq = (base + day_of_year) % 60
-        gan = 十天干[(seq - 1) % 10]
-        zhi = 十二地支[(seq - 1) % 12]
-        return gan + zhi
-
-    @staticmethod
-    def 时辰(hour: int = None) -> str:
-        """时柱：23-1子时, 1-3丑时, ..."""
-        if hour is None:
-            hour = datetime.now().hour
-        idx = ((hour + 1) // 2) % 12
-        return 十二时辰名[idx]
-
-    @staticmethod
-    def 当前四柱(ts: datetime = None) -> Tuple[str, str, str, str]:
-        """返回 (年柱, 月柱, 日柱, 时辰)"""
-        if ts is None:
-            ts = datetime.now()
-        nian = 干支引擎.年干支(ts.year)
-        yue, _ = 干支引擎.月干支(ts.year, ts.month)
-        ri = 干支引擎.日干支(ts.year, ts.month, ts.day)
-        shi = 干支引擎.时辰(ts.hour)
-        return nian, yue, ri, shi
-
-    @staticmethod
-    def 梅花起卦(content: str = "", ts: datetime = None) -> str:
-        """
-        梅花易数起卦：
-        - 有内容 → SHA256首2字节确定上下卦
-        - 无内容 → 时间戳起卦
-        返回卦象符号+卦名，如 '䷜坎为水'
-        """
-        if ts is None:
-            ts = datetime.now()
-        if content:
-            h = hashlib.sha256(content.encode()).digest()
-            upper = h[0] % 8
-            lower = h[1] % 8
-        else:
-            t = int(ts.timestamp())
-            upper = t % 8
-            lower = (t // 60) % 8
-        return 六十四卦表[upper * 8 + lower]
-
-    @staticmethod
-    def 模块起卦(module: str) -> str:
-        """模块名→卦德匹配，按关键词长度降序"""
-        m = module.upper()
-        for kw in _模块宫排序列表:
-            if kw in m:
-                gua_name = 模块宫映射[kw]
-                gua_idx = 八卦名.index(gua_name)
-                return 六十四卦表[gua_idx * 8 + gua_idx]  # 纯卦
-        return 六十四卦表[5 * 8 + 5]  # 默认坎为水
+def cprint(text: str, color: str = Colors.RESET):
+    print(f"{color}{text}{Colors.RESET}")
 
 
-# ═══════════════════════════════════════════════════════════
-# 三、数据结构
-# ═══════════════════════════════════════════════════════════
+# ============================================================
+# 核心: 时间工具
+# ============================================================
 
-class DNA类型(Enum):
-    文档 = "📄 文档DNA"
-    模块 = "🧩 模块DNA"
-    人物 = "👤 人物DNA"
-    引擎 = "⚙️ 引擎DNA"
-    协议 = "📜 协议DNA"
+def get_ganzhi(now: datetime = None) -> Dict[str, str]:
+    """计算天干地支四柱·梅花易数起卦"""
+    if now is None:
+        now = datetime.now()
+
+    # 天干地支计算基表（固定偏移）
+    TIAN_GAN_BASE = {
+        2020: 6, 2021: 7, 2022: 8, 2023: 9, 2024: 0, 2025: 1, 2026: 2,
+        2027: 3, 2028: 4, 2029: 5, 2030: 6,
+    }
+    DI_ZHI_BASE = {
+        2020: 0, 2021: 1, 2022: 2, 2023: 3, 2024: 4, 2025: 5, 2026: 6,
+        2027: 7, 2028: 8, 2029: 9, 2030: 10,
+    }
+    # 简化算法: 年干 = (year - 4) % 10, 年支 = (year - 4) % 12
+    year_g = (now.year - 4) % 10
+    year_z = (now.year - 4) % 12
+
+    # 月柱（简化: month_index 1月=寅... 按节气近似）
+    month_z = (now.month + 1) % 12  # 1月→寅(2), 8月→酉(9)
+    month_g = (year_g * 2 + now.month) % 10
+
+    # 日柱（简化: 以1900-01-01为基准）
+    base_date = datetime(1900, 1, 1)
+    days_diff = (now - base_date).days
+    day_g = (days_diff + 9) % 10
+    day_z = (days_diff + 11) % 12
+
+    # 时辰
+    hour = now.hour
+    shi_index = (hour + 1) // 2 % 12 if hour < 23 else 0
+    shi_g = (day_g * 2 + shi_index) % 10
+
+    return {
+        "year": f"{TIAN_GAN[year_g]}{DI_ZHI[year_z]}",
+        "month": f"{TIAN_GAN[month_g]}{DI_ZHI[month_z]}",
+        "day": f"{TIAN_GAN[day_g]}{DI_ZHI[day_z]}",
+        "hour": f"{TIAN_GAN[shi_g]}{DI_ZHI[shi_index]}",
+        "raw": {
+            "year_g": year_g, "year_z": year_z,
+            "month_g": month_g, "month_z": month_z,
+            "day_g": day_g, "day_z": day_z,
+            "shi_g": shi_g, "shi_index": shi_index,
+        }
+    }
 
 
-class DNA状态(Enum):
-    活跃 = "🟢 活跃"
-    已继承 = "🟡 已继承"
-    已冻结 = "🔴 已冻结"
-    已撤销 = "⚫ 已撤销"
+def get_hexagram(day_z: int, shi_index: int) -> int:
+    """梅花易数: 上卦=日支, 下卦=时支 → 64卦索引"""
+    upper = (day_z % 8) + 1  # 上卦
+    lower = (shi_index % 8) + 1  # 下卦
+    return (upper - 1) * 8 + lower  # 1-64
 
+
+def _digital_root(n: int) -> int:
+    """数字根: 各位求和直到单位数"""
+    while n > 9:
+        n = sum(int(d) for d in str(n))
+    return n
+
+
+def digital_root(date_str: str) -> int:
+    """从日期字符串计算数字根 (YYYY-MM-DD)"""
+    return _digital_root(int(date_str.replace("-", "")))
+
+
+def is_369_anchor(n: int) -> bool:
+    """是否为369不动点"""
+    return n in (3, 6, 9)
+
+
+# ============================================================
+# 核心: 五行判定
+# ============================================================
 
 @dataclass
-class DNA元数据:
-    """DNA附加元数据"""
-    创建者: str = "UID9622"
-    来源: str = "本地生成"
-    优先级: str = "P0"
-    描述: str = ""
-    标签: List[str] = field(default_factory=list)
-    关联文件: str = ""
-    关联引擎: str = ""
+class WuxingReport:
+    """五行判定报告"""
+    year_wuxing: str  # 年天干五行
+    month_wuxing: str  # 月天干五行
+    day_wuxing: str  # 日天干五行
+    hour_wuxing: str  # 时天干五行
+    dominant: str  # 主导五行（出现最多的）
+    tendency: str  # 三色倾向
+    sheng: List[str]  # 生什么
+    ke: List[str]  # 克什么
+    summary: str  # 一句话总结
 
+
+def calc_wuxing(ganzhi: Dict) -> WuxingReport:
+    """从干支四柱计算五行"""
+    tg_year = ganzhi["year"][0]
+    tg_month = ganzhi["month"][0]
+    tg_day = ganzhi["day"][0]
+    tg_hour = ganzhi["hour"][0]
+
+    year_wx = TIAN_GAN_WUXING.get(tg_year, "?")
+    month_wx = TIAN_GAN_WUXING.get(tg_month, "?")
+    day_wx = TIAN_GAN_WUXING.get(tg_day, "?")
+    hour_wx = TIAN_GAN_WUXING.get(tg_hour, "?")
+
+    # 找主导五行
+    wxs = [year_wx, month_wx, day_wx, hour_wx]
+    wx_count = {}
+    for w in wxs:
+        wx_count[w] = wx_count.get(w, 0) + 1
+    dominant = max(wx_count, key=wx_count.get)
+    tendency = WUXING_TENDENCY.get(dominant, "🟡")
+
+    sheng = WUXING_SHENG.get(dominant, "?")
+    ke = WUXING_KE.get(dominant, "?")
+    sheng_list = [sheng] if sheng != "?" else []
+    ke_list = [ke] if ke != "?" else []
+
+    summaries = {
+        "木": "万物生发·通", "火": "炎上光明·待核",
+        "土": "厚德载物·稳", "金": "肃杀决断·审",
+        "水": "润下流动·观",
+    }
+
+    return WuxingReport(
+        year_wuxing=year_wx, month_wuxing=month_wx,
+        day_wuxing=day_wx, hour_wuxing=hour_wx,
+        dominant=dominant, tendency=tendency,
+        sheng=sheng_list, ke=ke_list,
+        summary=summaries.get(dominant, "未知"),
+    )
+
+
+# ============================================================
+# 核心: DNA生成
+# ============================================================
 
 @dataclass
-class DNA记录:
-    """文档/模块DNA记录"""
-    dna: str
-    类型: DNA类型
-    模块名: str
-    动作: str
-    版本: str
-    哈希值: str
-    干支四柱: str          # 年·月·日·时
-    卦象: str              # 卦象符号+卦名
-    内容指纹: str           # SHA256 of content
-    hmac签名: str           # HMAC-SHA256
-    元数据: DNA元数据 = field(default_factory=DNA元数据)
-    创建时间: str = ""
-    状态: DNA状态 = DNA状态.活跃
-    父DNA: Optional[str] = None
+class DNAPayload:
+    """完整DNA载荷"""
+    dna_string: str
+    compact_dna: str  # 紧凑版 #龍芯⚡️xxx
+    ganzhi: Dict
+    hexagram_num: int
+    hexagram_name: str
+    hexagram_phase: str
+    hexagram_symbol: str
+    wuxing: WuxingReport
+    root_card: Dict
+    title_hash: str
+    category: str
+    action: str
+    actor: str
+    template_id: int  # 推荐抬头模板
+    timestamp: str
+    digital_root: int  # 数字根
+    is_369: bool  # 是否369不动点
 
 
-@dataclass
-class DNAPerson:
-    """人物DNA — 一世一双人"""
-    dna: str
-    real_name: str
-    id_type: str
-    id_number: str
-    born_date: str
-    gender: str
-    birthplace: str
-    current_location: str
-    parent_dna: Optional[str] = None
-    children_dna: List[str] = field(default_factory=list)
-    created_at: str = ""
-    updated_at: str = ""
-    status: str = "active"
-    gpg_fingerprint: Optional[str] = None
-    dna_signature: Optional[str] = None
-    notes: str = ""
+def generate(title: str, category: str, action: str, actor: str,
+             date_str: str = None, hours: int = None) -> DNAPayload:
+    """主入口: 生成完整DNA"""
+    now = datetime.now()
+    if date_str:
+        now = datetime.strptime(date_str, "%Y-%m-%d")
+    if hours is not None:
+        now = now.replace(hour=hours % 24)
 
-    def to_dict(self) -> Dict:
-        return asdict(self)
+    # 干支四柱·64卦
+    ganzhi = get_ganzhi(now)
+    h_num = get_hexagram(ganzhi["raw"]["day_z"], ganzhi["raw"]["shi_index"])
+    hexa = HEXAGRAM_DATA.get(h_num, HEXAGRAM_DATA[1])
 
+    # 五行
+    wuxing = calc_wuxing(ganzhi)
 
-@dataclass
-class DNAInheritance:
-    """人物DNA继承记录"""
-    id: int = 0
-    from_dna: str = ""
-    to_dna: str = ""
-    relation: str = ""
-    inheritance_time: str = ""
-    reason: str = "自然传承"
-    witness_dna: Optional[str] = None
-    notes: str = ""
+    # 数字根
+    dr = digital_root(now.strftime("%Y-%m-%d"))
 
+    # 标题哈希
+    title_hash = hashlib.sha256(title.encode()).hexdigest()[:8]
 
-# ═══════════════════════════════════════════════════════════
-# 四、DNA生成器（文档/模块维度）
-# ═══════════════════════════════════════════════════════════
+    # DNA字符串
+    timetag = f"{ganzhi['year']}·{ganzhi['month']}·{ganzhi['day']}·{ganzhi['hour']}·{hexa['symbol']}{hexa['name']}"
+    dna_string = f"#龍芯⚡️{timetag}-{category.upper()}-{action.upper()}-{title_hash}"
+    compact_dna = f"#龍芯⚡️{ganzhi['year']}·{ganzhi['month']}·{ganzhi['day']}·{ganzhi['hour']}·{hexa['symbol']}{hexa['name']}"
 
-class 文档DNA生成器:
-    """文档/模块DNA生成器 — v∞干支卦格式"""
+    # 推荐抬头模板
+    template_id = CATEGORY_TEMPLATE_MAP.get(category.lower(), 2) if category else 2
 
-    def __init__(self):
-        self.registry = DNA注册表()
+    # ROOT_CARD
+    root_card = {
+        "dr": dr,
+        "is_369": is_369_anchor(dr),
+        "wuxing_dominant": wuxing.dominant,
+        "wuxing_tendency": wuxing.tendency,
+        "hexagram": f"{hexa['symbol']}{hexa['name']}",
+        "hexagram_num": h_num,
+        "phase": hexa["phase"],
+        "title_hash": title_hash,
+        "template_id": template_id,
+    }
 
-    @staticmethod
-    def _生成哈希(seed: str, length: int = 8) -> str:
-        return hashlib.sha256(seed.encode()).hexdigest()[:length].upper()
-
-    @staticmethod
-    def _HMAC签名(dna: str, content: str = "") -> str:
-        """HMAC-SHA256 双重签名"""
-        secret = f"{HMAC_SECRET}{GPG_KEY[:16]}"
-        payload = f"{dna}{content}" if content else dna
-        return hmac.new(secret.encode(), payload.encode(), hashlib.sha256).hexdigest()[:16]
-
-    @staticmethod
-    def _内容指纹(content: str) -> str:
-        """生成内容SHA256指纹"""
-        return hashlib.sha256(content.encode()).hexdigest()[:16]
-
-    def 生成文档DNA(
-        self,
-        模块名: str,
-        动作: str = "DOC",
-        版本: str = "1.0",
-        内容: str = "",
-        元数据: Optional[DNA元数据] = None,
-        类型: DNA类型 = DNA类型.文档
-    ) -> DNA记录:
-        """生成文档/模块DNA（v∞格式）"""
-        ts = datetime.now()
-        nian, yue, ri, shi = 干支引擎.当前四柱(ts)
-        卦象 = 干支引擎.梅花起卦(content, ts) if content else 干支引擎.模块起卦(模块名)
-
-        # 组装DNA主体
-        干支 = f"{nian}·{yue}·{ri}·{shi}"
-        种子 = f"{模块名}{动作}{版本}{ts.isoformat()}{uuid.uuid4().hex}"
-        哈希 = self._生成哈希(种子)
-
-        dna = f"#龍芯⚡️{干支}·{卦象}-{模块名}-{动作}-v{版本}-{哈希}"
-
-        # 内容指纹
-        fingerprint = self._内容指纹(content) if content else ""
-
-        # HMAC签名
-        signature = self._HMAC签名(dna, content)
-
-        if 元数据 is None:
-            元数据 = DNA元数据(创建者="UID9622", 来源="自动生成")
-
-        record = DNA记录(
-            dna=dna,
-            类型=类型,
-            模块名=模块名,
-            动作=动作,
-            版本=版本,
-            哈希值=哈希,
-            干支四柱=干支,
-            卦象=卦象,
-            内容指纹=fingerprint,
-            hmac签名=signature,
-            元数据=元数据,
-            创建时间=ts.isoformat(),
-            状态=DNA状态.活跃,
-        )
-
-        self.registry.注册文档DNA(record)
-        return record
-
-    def 批量生成(self, 条目列表: List[Dict]) -> List[DNA记录]:
-        """批量生成DNA"""
-        results = []
-        for item in 条目列表:
-            模块名 = item.get("模块名", item.get("module", "UNKNOWN"))
-            动作 = item.get("动作", item.get("action", "DOC"))
-            版本 = item.get("版本", item.get("version", "1.0"))
-            内容 = item.get("内容", item.get("content", ""))
-            类型标识 = item.get("类型", "文档")
-            类型映射 = {"文档": DNA类型.文档, "模块": DNA类型.模块,
-                       "引擎": DNA类型.引擎, "协议": DNA类型.协议}
-            类型 = 类型映射.get(类型标识, DNA类型.文档)
-            results.append(self.生成文档DNA(模块名, 动作, 版本, 内容, 类型=类型))
-        return results
-
-    def 验证(self, dna: str, 内容: str = "") -> Tuple[bool, str]:
-        """验证DNA：格式→注册→HMAC签名三重验证"""
-        # 1. 格式验证
-        if not DNA_VINF_PATTERN.match(dna) and not DNA_PERSON_PATTERN.match(dna):
-            return False, "格式不匹配v∞或v1.0正则"
-
-        # 2. 注册表验证
-        record = self.registry.查文档DNA(dna)
-        if not record:
-            return False, "DNA未在注册表中找到"
-
-        # 3. HMAC签名验证
-        if 内容:
-            expected_sig = self._HMAC签名(dna, 内容)
-            if record.hmac签名 != expected_sig:
-                return False, f"HMAC签名不匹配"
-
-        return True, "验证通过"
-
-    def 查询(self, dna: str) -> Optional[DNA记录]:
-        return self.registry.查文档DNA(dna)
-
-    def 按模块查询(self, 模块名: str) -> List[DNA记录]:
-        return self.registry.查文档DNA按模块(模块名)
-
-    def 按类型统计(self) -> Dict:
-        return self.registry.文档DNA统计()
+    return DNAPayload(
+        dna_string=dna_string,
+        compact_dna=compact_dna,
+        ganzhi=ganzhi,
+        hexagram_num=h_num,
+        hexagram_name=hexa["name"],
+        hexagram_phase=hexa["phase"],
+        hexagram_symbol=hexa["symbol"],
+        wuxing=wuxing,
+        root_card=root_card,
+        title_hash=title_hash,
+        category=category,
+        action=action,
+        actor=actor,
+        template_id=template_id,
+        timestamp=now.isoformat(),
+        digital_root=dr,
+        is_369=is_369_anchor(dr),
+    )
 
 
-# ═══════════════════════════════════════════════════════════
-# 五、DNA生成器（人物维度）— 保留v1.0兼容
-# ═══════════════════════════════════════════════════════════
+# ============================================================
+# 子命令: info — 解析已有DNA
+# ============================================================
 
-class 人物DNA生成器:
-    """人物DNA生成器 — 一世一双人"""
-
-    def __init__(self):
-        self.registry = DNA注册表()
-
-    @staticmethod
-    def _生成人物DNA字符串(实名: str, 身份证号: str, 出生日期: str) -> str:
-        ts = datetime.now()
-        nian, yue, ri, shi = 干支引擎.当前四柱(ts)
-        卦象 = 干支引擎.梅花起卦(f"{实名}{身份证号}", ts)
-        人标识 = f"{实名[:2]}{出生日期[:4]}"
-        哈希 = hashlib.sha256(f"{实名}{身份证号}{ts.isoformat()}{uuid.uuid4().hex}".encode()).hexdigest()[:8].upper()
-        return f"#龍芯⚡️{nian}·{yue}·{ri}·{卦象}-{人标识}-v1.0-{哈希}"
-
-    def 生成(self, real_name: str, id_type: str, id_number: str,
-            born_date: str, gender: str, birthplace: str,
-            current_location: str, parent_dna: str = None,
-            gpg_fingerprint: str = None) -> DNAPerson:
-        existing = self.registry.查人物DNA(real_name, id_number)
-        if existing:
-            raise ValueError(f"❌ {real_name} 已注册DNA: {existing.dna}")
-
-        if parent_dna:
-            parent = self.registry.查人物DNA_by_dna(parent_dna)
-            if not parent: raise ValueError(f"❌ 父DNA不存在: {parent_dna}")
-            if parent.status != "active": raise ValueError(f"❌ 父DNA状态异常")
-            depth = self.registry.继承深度(parent_dna)
-            if depth >= DEFAULT_CONFIG["max_inheritance_depth"]:
-                raise ValueError(f"❌ 继承深度已达上限")
-
-        dna = self._生成人物DNA字符串(real_name, id_number, born_date)
-
-        signature = hmac.new(
-            f"{real_name}{id_number}LONGHUN_DNA_SALT".encode(),
-            dna.encode(), hashlib.sha256
-        ).hexdigest()[:16]
-
-        person = DNAPerson(
-            dna=dna, real_name=real_name, id_type=id_type,
-            id_number=id_number, born_date=born_date, gender=gender,
-            birthplace=birthplace, current_location=current_location,
-            parent_dna=parent_dna, gpg_fingerprint=gpg_fingerprint,
-            dna_signature=signature,
-            created_at=datetime.now().isoformat(),
-            updated_at=datetime.now().isoformat(),
-            status="active", notes="一世一双人，DNA不可转让。"
-        )
-
-        self.registry.注册人物DNA(person)
-        if parent_dna:
-            self.registry.添加继承(parent_dna, dna, "父子/母女", "自然传承")
-        return person
-
-    def 验证(self, dna: str, real_name: str, id_number: str) -> bool:
-        person = self.registry.查人物DNA_by_dna(dna)
-        if not person: return False
-        if person.real_name != real_name or person.id_number != id_number:
-            return False
-        expected = hmac.new(
-            f"{real_name}{id_number}LONGHUN_DNA_SALT".encode(),
-            dna.encode(), hashlib.sha256
-        ).hexdigest()[:16]
-        return person.dna_signature == expected
-
-    def 查询(self, dna: str) -> Optional[DNAPerson]:
-        return self.registry.查人物DNA_by_dna(dna)
-
-    def 按身份证查询(self, id_number: str) -> Optional[DNAPerson]:
-        return self.registry.查人物DNA_by_id(id_number)
-
-    def 统计(self) -> Dict:
-        return self.registry.人物DNA统计()
-
-
-# ═══════════════════════════════════════════════════════════
-# 六、DNA注册表（SQLite · 双维度）
-# ═══════════════════════════════════════════════════════════
-
-class DNA注册表:
-    """DNA注册表 — SQLite持久化 · 审计日志 · 防篡改"""
-
-    def __init__(self, db_path: Path = None):
-        self.db_path = db_path or DB_PATH
-        self._建表()
-
-    def _建表(self):
-        conn = sqlite3.connect(str(self.db_path))
-        # 文档/模块DNA表
-        conn.execute("""
-            CREATE TABLE IF NOT EXISTS doc_dna (
-                dna TEXT PRIMARY KEY,
-                类型 TEXT NOT NULL,
-                模块名 TEXT NOT NULL,
-                动作 TEXT NOT NULL,
-                版本 TEXT NOT NULL,
-                哈希值 TEXT NOT NULL,
-                干支四柱 TEXT NOT NULL,
-                卦象 TEXT NOT NULL,
-                内容指纹 TEXT,
-                hmac签名 TEXT NOT NULL,
-                元数据 JSON,
-                创建时间 TEXT NOT NULL,
-                状态 TEXT DEFAULT '活跃',
-                父DNA TEXT
-            )
-        """)
-        # 人物DNA表
-        conn.execute("""
-            CREATE TABLE IF NOT EXISTS person_dna (
-                dna TEXT PRIMARY KEY,
-                real_name TEXT NOT NULL,
-                id_type TEXT NOT NULL,
-                id_number TEXT NOT NULL UNIQUE,
-                born_date TEXT NOT NULL,
-                gender TEXT NOT NULL,
-                birthplace TEXT,
-                current_location TEXT,
-                parent_dna TEXT,
-                created_at TEXT NOT NULL,
-                updated_at TEXT NOT NULL,
-                status TEXT DEFAULT 'active',
-                gpg_fingerprint TEXT,
-                dna_signature TEXT,
-                notes TEXT
-            )
-        """)
-        # 继承表
-        conn.execute("""
-            CREATE TABLE IF NOT EXISTS inheritance (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                from_dna TEXT NOT NULL,
-                to_dna TEXT NOT NULL,
-                relation TEXT NOT NULL,
-                inheritance_time TEXT NOT NULL,
-                reason TEXT DEFAULT '自然传承',
-                witness_dna TEXT,
-                notes TEXT
-            )
-        """)
-        # 统一审计日志
-        conn.execute("""
-            CREATE TABLE IF NOT EXISTS audit_log (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                操作 TEXT NOT NULL,
-                维度 TEXT NOT NULL,
-                dna TEXT,
-                详情 TEXT,
-                操作者 TEXT,
-                时间 TEXT NOT NULL
-            )
-        """)
-        conn.commit()
-        conn.close()
-
-    def _审计(self, 操作: str, 维度: str, dna: str, 详情: str = ""):
-        conn = sqlite3.connect(str(self.db_path))
-        conn.execute(
-            "INSERT INTO audit_log (操作, 维度, dna, 详情, 操作者, 时间) VALUES (?,?,?,?,?,?)",
-            (操作, 维度, dna, 详情, "system", datetime.now().isoformat())
-        )
-        conn.commit()
-        conn.close()
-
-    # --- 文档DNA CRUD ---
-    def 注册文档DNA(self, record: DNA记录):
-        conn = sqlite3.connect(str(self.db_path))
-        try:
-            conn.execute("""
-                INSERT INTO doc_dna (dna, 类型, 模块名, 动作, 版本, 哈希值, 干支四柱, 卦象,
-                                     内容指纹, hmac签名, 元数据, 创建时间, 状态, 父DNA)
-                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-            """, (
-                record.dna, record.类型.value, record.模块名, record.动作,
-                record.版本, record.哈希值, record.干支四柱, record.卦象,
-                record.内容指纹, record.hmac签名,
-                json.dumps(asdict(record.元数据), ensure_ascii=False),
-                record.创建时间, record.状态.value, record.父DNA
-            ))
-            conn.commit()
-            self._审计("注册", "文档", record.dna, f"模块:{record.模块名} 动作:{record.动作}")
-        except sqlite3.IntegrityError as e:
-            raise ValueError(f"DNA注册失败（可能已存在）: {e}")
-        finally:
-            conn.close()
-
-    def 查文档DNA(self, dna: str) -> Optional[DNA记录]:
-        conn = sqlite3.connect(str(self.db_path))
-        cur = conn.execute("SELECT * FROM doc_dna WHERE dna = ?", (dna,))
-        row = cur.fetchone()
-        conn.close()
-        if row:
-            return self._行转文档DNA(row)
+def dna_info(dna_string: str) -> Optional[Dict]:
+    """解析DNA字符串，返回详情+ROOT_CARD"""
+    import re
+    # #龍芯⚡️丙午·丙申·己酉·䷐随-CODE-ACTION-HASH
+    pattern = r"#龍芯⚡️(\w+·\w+·\w+)·(\w+)·(䷀|䷁|䷂|䷃|䷄|䷅|䷆|䷇|䷈|䷉|䷊|䷋|䷌|䷍|䷎|䷏|䷐|䷑|䷒|䷓|䷔|䷕|䷖|䷗|䷘|䷙|䷚|䷛|䷜|䷝|䷞|䷟|䷠|䷡|䷢|䷣|䷤|䷥|䷦|䷧|䷨|䷩|䷪|䷫|䷬|䷭|䷮|䷯|䷰|䷱|䷲|䷳|䷴|䷵|䷶|䷷|䷸|䷹|䷺|䷻|䷼|䷽|䷾|䷿)(\w+)-(\w+)-(\w+)-(\w+)"
+    m = re.match(pattern, dna_string)
+    if not m:
         return None
 
-    def 查文档DNA按模块(self, 模块名: str) -> List[DNA记录]:
-        conn = sqlite3.connect(str(self.db_path))
-        cur = conn.execute("SELECT * FROM doc_dna WHERE 模块名 = ? ORDER BY 创建时间 DESC", (模块名,))
-        rows = cur.fetchall()
-        conn.close()
-        return [self._行转文档DNA(row) for row in rows]
+    timetag = m.group(1)
+    shichen = m.group(2)
+    hexa_char = m.group(3)
+    hexa_name = m.group(4)
+    category = m.group(5)
+    action = m.group(6)
+    title_hash = m.group(7)
 
-    def 查文档DNA历史(self, limit: int = 20) -> List[DNA记录]:
-        conn = sqlite3.connect(str(self.db_path))
-        cur = conn.execute("SELECT * FROM doc_dna ORDER BY 创建时间 DESC LIMIT ?", (limit,))
-        rows = cur.fetchall()
-        conn.close()
-        return [self._行转文档DNA(row) for row in rows]
+    # 找卦象
+    hex_num = None
+    hex_data = None
+    for k, v in HEXAGRAM_DATA.items():
+        if v["symbol"] == hexa_char:
+            hex_num = k
+            hex_data = v
+            break
 
-    def 文档DNA统计(self) -> Dict:
-        conn = sqlite3.connect(str(self.db_path))
-        cur = conn.execute("SELECT COUNT(*) FROM doc_dna")
-        total = cur.fetchone()[0]
-        cur = conn.execute("SELECT 类型, COUNT(*) FROM doc_dna GROUP BY 类型")
-        类型分布 = {row[0]: row[1] for row in cur.fetchall()}
-        cur = conn.execute("SELECT COUNT(DISTINCT 模块名) FROM doc_dna")
-        modules = cur.fetchone()[0]
-        conn.close()
-        return {"总数": total, "模块数": modules, "类型分布": 类型分布}
+    if not hex_data:
+        return None
 
-    def _行转文档DNA(self, row) -> DNA记录:
-        元数据_dict = json.loads(row[9]) if row[9] else {}
-        return DNA记录(
-            dna=row[0],
-            类型=next((t for t in DNA类型 if t.value == row[1]), DNA类型.文档),
-            模块名=row[2],
-            动作=row[3],
-            版本=row[4],
-            哈希值=row[5],
-            干支四柱=row[6],
-            卦象=row[7],
-            内容指纹=row[8] or "",
-            hmac签名=row[9],
-            元数据=DNA元数据(**元数据_dict) if 元数据_dict else DNA元数据(),
-            创建时间=row[10],
-            状态=next((s for s in DNA状态 if s.value == row[11]), DNA状态.活跃),
-            父DNA=row[12],
-        )
+    # 解析干支到五行
+    parts = timetag.split("·")
+    wxs = []
+    for part in parts:
+        if len(part) >= 1 and part[0] in TIAN_GAN_WUXING:
+            wxs.append(TIAN_GAN_WUXING[part[0]])
 
-    # --- 人物DNA CRUD (v1.0兼容) ---
-    def 注册人物DNA(self, person: DNAPerson):
-        conn = sqlite3.connect(str(self.db_path))
-        try:
-            conn.execute("""
-                INSERT INTO person_dna (dna, real_name, id_type, id_number, born_date, gender,
-                    birthplace, current_location, parent_dna, created_at, updated_at, status,
-                    gpg_fingerprint, dna_signature, notes)
-                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-            """, (person.dna, person.real_name, person.id_type, person.id_number,
-                  person.born_date, person.gender, person.birthplace, person.current_location,
-                  person.parent_dna, person.created_at, person.updated_at, person.status,
-                  person.gpg_fingerprint, person.dna_signature, person.notes))
-            conn.commit()
-            self._审计("注册", "人物", person.dna, person.real_name)
-        except sqlite3.IntegrityError as e:
-            raise ValueError(f"人物DNA注册失败: {e}")
-        finally:
-            conn.close()
+    dominant = max(set(wxs), key=wxs.count) if wxs else "?"
+    tendency = WUXING_TENDENCY.get(dominant, "🟡")
 
-    def 查人物DNA_by_dna(self, dna: str) -> Optional[DNAPerson]:
-        conn = sqlite3.connect(str(self.db_path))
-        cur = conn.execute("SELECT * FROM person_dna WHERE dna = ?", (dna,))
-        row = cur.fetchone()
-        conn.close()
-        return self._行转人物DNA(row) if row else None
-
-    def 查人物DNA_by_id(self, id_number: str) -> Optional[DNAPerson]:
-        conn = sqlite3.connect(str(self.db_path))
-        cur = conn.execute("SELECT * FROM person_dna WHERE id_number = ?", (id_number,))
-        row = cur.fetchone()
-        conn.close()
-        return self._行转人物DNA(row) if row else None
-
-    def 查人物DNA(self, real_name: str, id_number: str) -> Optional[DNAPerson]:
-        conn = sqlite3.connect(str(self.db_path))
-        cur = conn.execute("SELECT * FROM person_dna WHERE real_name=? AND id_number=?",
-                          (real_name, id_number))
-        row = cur.fetchone()
-        conn.close()
-        return self._行转人物DNA(row) if row else None
-
-    def _行转人物DNA(self, row) -> DNAPerson:
-        return DNAPerson(
-            dna=row[0], real_name=row[1], id_type=row[2], id_number=row[3],
-            born_date=row[4], gender=row[5], birthplace=row[6] or "",
-            current_location=row[7] or "", parent_dna=row[8], created_at=row[9],
-            updated_at=row[10], status=row[11], gpg_fingerprint=row[12],
-            dna_signature=row[13], notes=row[14] or ""
-        )
-
-    def 添加继承(self, from_dna: str, to_dna: str, relation: str, reason: str = "自然传承"):
-        conn = sqlite3.connect(str(self.db_path))
-        now = datetime.now().isoformat()
-        try:
-            conn.execute("""
-                INSERT INTO inheritance (from_dna, to_dna, relation, inheritance_time, reason)
-                VALUES (?,?,?,?,?)
-            """, (from_dna, to_dna, relation, now, reason))
-            conn.execute("UPDATE person_dna SET status='inherited', updated_at=? WHERE dna=?",
-                        (now, from_dna))
-            conn.execute("UPDATE person_dna SET parent_dna=?, updated_at=? WHERE dna=?",
-                        (from_dna, now, to_dna))
-            conn.commit()
-            self._审计("继承", "人物", from_dna, f"{from_dna[:20]}→{to_dna[:20]}")
-        except Exception as e:
-            raise ValueError(f"继承失败: {e}")
-        finally:
-            conn.close()
-
-    def 继承深度(self, dna: str) -> int:
-        depth, cur = 0, dna
-        conn = sqlite3.connect(str(self.db_path))
-        while cur:
-            row = conn.execute("SELECT parent_dna FROM person_dna WHERE dna=?", (cur,)).fetchone()
-            if row and row[0]: depth += 1; cur = row[0]
-            else: cur = None
-        conn.close()
-        return depth
-
-    def 继承链(self, dna: str) -> List[str]:
-        chain = []
-        cur = dna
-        conn = sqlite3.connect(str(self.db_path))
-        while cur:
-            chain.append(cur)
-            row = conn.execute("SELECT parent_dna FROM person_dna WHERE dna=?", (cur,)).fetchone()
-            cur = row[0] if row and row[0] else None
-        conn.close()
-        return chain[::-1]
-
-    def 后代(self, dna: str) -> List[DNAPerson]:
-        conn = sqlite3.connect(str(self.db_path))
-        cur = conn.execute("SELECT * FROM person_dna WHERE parent_dna=?", (dna,))
-        rows = cur.fetchall()
-        conn.close()
-        return [self._行转人物DNA(row) for row in rows]
-
-    def 族谱(self, root_dna: str, max_depth: int = 5) -> Dict:
-        root = self.查人物DNA_by_dna(root_dna)
-        if not root: return {"error": "DNA不存在"}
-        return {"root": {"dna": root.dna, "name": root.real_name, "status": root.status},
-                "tree": self._建族谱树(root_dna, 0, max_depth)}
-
-    def _建族谱树(self, dna: str, depth: int, max_depth: int) -> List[Dict]:
-        if depth >= max_depth: return []
-        result = []
-        for child in self.后代(dna):
-            result.append({"dna": child.dna, "name": child.real_name,
-                          "born": child.born_date, "status": child.status,
-                          "children": self._建族谱树(child.dna, depth + 1, max_depth)})
-        return result
-
-    def 人物DNA统计(self) -> Dict:
-        conn = sqlite3.connect(str(self.db_path))
-        total = conn.execute("SELECT COUNT(*) FROM person_dna").fetchone()[0]
-        active = conn.execute("SELECT COUNT(*) FROM person_dna WHERE status='active'").fetchone()[0]
-        inherits = conn.execute("SELECT COUNT(*) FROM inheritance").fetchone()[0]
-        audit = conn.execute("SELECT COUNT(*) FROM audit_log").fetchone()[0]
-        conn.close()
-        return {"总人数": total, "活跃": active, "继承记录": inherits, "审计日志": audit}
-
-    def 统一统计(self) -> Dict:
-        doc = self.文档DNA统计()
-        per = self.人物DNA统计()
-        conn = sqlite3.connect(str(self.db_path))
-        total_audit = conn.execute("SELECT COUNT(*) FROM audit_log").fetchone()[0]
-        conn.close()
-        return {"文档DNA": doc, "人物DNA": per, "审计日志总数": total_audit}
+    return {
+        "dna_string": dna_string,
+        "timetag": timetag,
+        "shichen": shichen,
+        "hexagram_symbol": hexa_char,
+        "hexagram_name": hex_data["name"] if hex_data else hex_data.get("name","?"),
+        "hexagram_num": hex_num,
+        "hexagram_phase": hex_data["phase"] if hex_data else "?",
+        "hexagram_meaning": hex_data["meaning"] if hex_data else "?",
+        "category": category,
+        "action": action,
+        "title_hash": title_hash,
+        "wuxing_dominant": dominant,
+        "wuxing_tendency": tendency,
+        "root_card": {
+            "hexagram": f"{hexa_char}{hex_data['name'] if hex_data else '?'}",
+            "wuxing_dominant": dominant,
+            "wuxing_tendency": tendency,
+            "phase": hex_data["phase"] if hex_data else "?",
+            "action": action,
+            "title_hash": title_hash,
+        },
+    }
 
 
-# ═══════════════════════════════════════════════════════════
-# 七、DNA族谱（人物维度）
-# ═══════════════════════════════════════════════════════════
+# ============================================================
+# 子命令: validate — 格式校验
+# ============================================================
 
-class DNA族谱:
-    """DNA族谱生成器"""
+def validate_dna(dna_string: str) -> Dict:
+    """验证DNA格式，返回错误列表"""
+    errors = []
+    warnings = []
 
-    def __init__(self):
-        self.registry = DNA注册表()
+    if not dna_string.startswith("#龍芯⚡️"):
+        errors.append("缺少前缀 #龍芯⚡️")
 
-    def 生成族谱树(self, root_dna: str, max_depth: int = 5) -> Dict:
-        return self.registry.族谱(root_dna, max_depth)
+    # 必须有六段: 前缀·干支四柱·时辰·卦名-类别-动作-哈希
+    parts = dna_string.split("-")
+    if len(parts) < 4:
+        errors.append("DNA格式不完整（至少4段）")
+        return {"valid": False, "errors": errors, "warnings": warnings}
 
-    def 文本族谱(self, root_dna: str) -> str:
-        root = self.registry.查人物DNA_by_dna(root_dna)
-        if not root: return "❌ DNA不存在"
-        lines = ["📜 龍魂族谱", f"├─ {root.real_name} ({root.dna[:25]}...)"]
-        self._文本构建(root_dna, "", lines)
+    # 检查哈希长度
+    last = parts[-1]
+    if len(last) != 8:
+        errors.append(f"哈希长度应为8，当前{len(last)}: {last}")
+
+    # 检查是否有卦象符号
+    hexa_found = False
+    for h in HEXAGRAM_DATA.values():
+        if h["symbol"] in dna_string:
+            hexa_found = True
+            break
+    if not hexa_found:
+        errors.append("未找到有效64卦符号")
+
+    return {
+        "valid": len(errors) == 0,
+        "errors": errors,
+        "warnings": warnings,
+    }
+
+
+# ============================================================
+# 子命令: search — 关键词搜索
+# ============================================================
+
+def search_registry(keyword: str, registry_dir: Path = None) -> List[Dict]:
+    """搜索DNA注册表"""
+    if registry_dir is None:
+        registry_dir = OUR_BASE / "registry"
+
+    results = []
+    archive_dir = registry_dir / "archive"
+
+    for dir_path in [registry_dir, archive_dir]:
+        if not dir_path.exists():
+            continue
+        for f in dir_path.glob("*.json"):
+            try:
+                data = json.loads(f.read_text())
+                # 兼容新旧格式
+                if isinstance(data, list):
+                    items = data
+                elif isinstance(data, dict):
+                    items = [v for k, v in data.items() if isinstance(v, dict)]
+                else:
+                    continue
+                for item in items:
+                    text = json.dumps(item, ensure_ascii=False).lower()
+                    if keyword.lower() in text:
+                        results.append({
+                            "file": f.name,
+                            "dna": item.get("dna_string", item.get("dna", "?")),
+                            "title": item.get("title", item.get("dna", "?")),
+                            "timestamp": item.get("timestamp", item.get("created_iso", "?")),
+                        })
+            except (json.JSONDecodeError, KeyError):
+                continue
+
+    return results
+
+
+# ============================================================
+# 子命令: stats — 统计视图
+# ============================================================
+
+def dna_stats(days: int = 7, registry_dir: Path = None) -> Dict:
+    """DNA统计"""
+    if registry_dir is None:
+        registry_dir = OUR_BASE / "registry"
+
+    now = datetime.now()
+    cutoff = now - timedelta(days=days)
+
+    total = 0
+    types_count = {}
+    actors_count = {}
+    daily_count = {}
+    by_day = {}
+
+    for dir_path in [registry_dir, registry_dir / "archive"]:
+        if not dir_path.exists():
+            continue
+        for f in dir_path.glob("*.json"):
+            try:
+                data = json.loads(f.read_text())
+                # 兼容新旧格式
+                if isinstance(data, list):
+                    items = data
+                elif isinstance(data, dict):
+                    items = [v for k, v in data.items() if isinstance(v, dict)]
+                else:
+                    continue
+                for item in items:
+                    total += 1
+                    cat = item.get("category", "other")
+                    types_count[cat] = types_count.get(cat, 0) + 1
+                    actor = item.get("actor", "unknown")
+                    actors_count[actor] = actors_count.get(actor, 0) + 1
+
+                    ts = item.get("timestamp", item.get("created_iso", ""))
+                    if ts:
+                        day = ts[:10]
+                        by_day[day] = by_day.get(day, 0) + 1
+                        try:
+                            dt = datetime.fromisoformat(ts)
+                            if dt >= cutoff:
+                                daily_count[day] = daily_count.get(day, 0) + 1
+                        except:
+                            pass
+            except:
+                continue
+
+    return {
+        "total": total,
+        "period_days": days,
+        "recent_count": sum(daily_count.values()),
+        "by_type": dict(sorted(types_count.items(), key=lambda x: -x[1])),
+        "by_actor": dict(sorted(actors_count.items(), key=lambda x: -x[1])),
+        "by_day": dict(sorted(by_day.items())),
+        "daily": dict(sorted(daily_count.items())),
+        "avg_per_day": round(total / max(1, len(by_day)), 1) if by_day else 0,
+    }
+
+
+# ============================================================
+# 子命令: batch — 批量生成
+# ============================================================
+
+def batch_generate(csv_path: str = None, json_path: str = None,
+                   entries: List[Dict] = None, output_dir: Path = None) -> List[DNAPayload]:
+    """批量生成DNA"""
+    payloads = []
+
+    if csv_path:
+        import csv
+        with open(csv_path, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                payloads.append(generate(
+                    title=row.get("title", "untitled"),
+                    category=row.get("category", "doc"),
+                    action=row.get("action", "create"),
+                    actor=row.get("actor", "UID9622"),
+                ))
+    elif json_path:
+        with open(json_path, 'r', encoding='utf-8') as f:
+            items = json.load(f)
+            for item in items:
+                payloads.append(generate(
+                    title=item.get("title", "untitled"),
+                    category=item.get("category", "doc"),
+                    action=item.get("action", "create"),
+                    actor=item.get("actor", "UID9622"),
+                ))
+    elif entries:
+        for entry in entries:
+            payloads.append(generate(
+                title=entry.get("title", "untitled"),
+                category=entry.get("category", "doc"),
+                action=entry.get("action", "create"),
+                actor=entry.get("actor", "UID9622"),
+            ))
+
+    return payloads
+
+
+# ============================================================
+# 输出格式化
+# ============================================================
+
+def format_output(payload: DNAPayload, fmt: str = "text") -> str:
+    """格式化输出"""
+    if fmt == "json":
+        out = {
+            "dna_string": payload.dna_string,
+            "compact_dna": payload.compact_dna,
+            "ganzhi": payload.ganzhi,
+            "hexagram": {
+                "number": payload.hexagram_num,
+                "name": payload.hexagram_name,
+                "phase": payload.hexagram_phase,
+                "symbol": payload.hexagram_symbol,
+            },
+            "wuxing": {
+                "year": payload.wuxing.year_wuxing,
+                "month": payload.wuxing.month_wuxing,
+                "day": payload.wuxing.day_wuxing,
+                "hour": payload.wuxing.hour_wuxing,
+                "dominant": payload.wuxing.dominant,
+                "tendency": payload.wuxing.tendency,
+                "summary": payload.wuxing.summary,
+            },
+            "digital_root": payload.digital_root,
+            "is_369": payload.is_369,
+            "root_card": payload.root_card,
+            "category": payload.category,
+            "action": payload.action,
+            "actor": payload.actor,
+            "template_id": payload.template_id,
+            "timestamp": payload.timestamp,
+        }
+        return json.dumps(out, ensure_ascii=False, indent=2)
+    elif fmt == "md":
+        lines = []
+        lines.append(f"# 龍魂DNA生成报告")
+        lines.append("")
+        lines.append(f"## 🧬 DNA")
+        lines.append(f"```")
+        lines.append(payload.dna_string)
+        lines.append(f"```")
+        lines.append("")
+        lines.append(f"| 属性 | 值 |")
+        lines.append(f"|------|-----|")
+        lines.append(f"| 干支 | {payload.ganzhi['year']}·{payload.ganzhi['month']}·{payload.ganzhi['day']}·{payload.ganzhi['hour']} |")
+        lines.append(f"| 卦象 | {payload.hexagram_symbol}{payload.hexagram_name} (#{payload.hexagram_num}) |")
+        lines.append(f"| 卦意 | {payload.hexagram_phase} |")
+        lines.append(f"| 主导五行 | {payload.wuxing.dominant} |")
+        lines.append(f"| 五行倾向 | {payload.wuxing.tendency} {payload.wuxing.summary} |")
+        lines.append(f"| 数字根 | {payload.digital_root} {'⭐369不动点' if payload.is_369 else ''} |")
+        lines.append(f"| 推荐模板 | #{payload.template_id} {TEMPLATE_INDEX.get(payload.template_id,{}).get('name','?')} |")
+        lines.append("")
+        lines.append("## 🃏 ROOT_CARD")
+        lines.append("```")
+        for k, v in payload.root_card.items():
+            lines.append(f"{k}: {v}")
+        lines.append("```")
+        return "\n".join(lines)
+    else:  # text (default)
+        lines = []
+        lines.append(f"{'='*60}")
+        lines.append(f"🧬 {payload.dna_string}")
+        lines.append(f"{'='*60}")
+        lines.append(f"  干支: {payload.ganzhi['year']}·{payload.ganzhi['month']}·{payload.ganzhi['day']}·{payload.ganzhi['hour']}")
+        lines.append(f"  卦象: {payload.hexagram_symbol}{payload.hexagram_name} #{payload.hexagram_num}")
+        lines.append(f"  卦意: {payload.hexagram_phase}")
+        lines.append(f"  五行: {payload.wuxing.dominant} {payload.wuxing.tendency} ({payload.wuxing.summary})")
+        lines.append(f"  年{payload.wuxing.year_wuxing}月{payload.wuxing.month_wuxing}日{payload.wuxing.day_wuxing}时{payload.wuxing.hour_wuxing}")
+        lines.append(f"  数字根: {payload.digital_root}{' ⭐369' if payload.is_369 else ''}")
+        lines.append(f"  推荐模板: #{payload.template_id} {TEMPLATE_INDEX.get(payload.template_id,{}).get('name','?')}")
+        lines.append(f"{'─'*60}")
+        lines.append(f"  🃏 ROOT_CARD: dr={payload.root_card['dr']} wx={payload.wuxing.dominant} hexagram={payload.root_card['hexagram']} phase={payload.root_card['phase']}")
+        lines.append(f"{'='*60}")
         return "\n".join(lines)
 
-    def _文本构建(self, dna: str, prefix: str, lines: List[str]):
-        for i, child in enumerate(self.registry.后代(dna)):
-            is_last = (i == len(self.registry.后代(dna)) - 1)
-            lp = prefix + ("└─ " if is_last else "├─ ")
-            cp = prefix + ("   " if is_last else "│  ")
-            lines.append(f"{lp}{child.real_name} ({child.dna[:25]}...)")
-            self._文本构建(child.dna, cp, lines)
+
+# ============================================================
+# 注册表操作
+# ============================================================
+
+def save_to_registry(payload: DNAPayload, registry_dir: Path = None):
+    """保存DNA到注册表"""
+    if registry_dir is None:
+        registry_dir = OUR_BASE / "registry"
+    registry_dir.mkdir(parents=True, exist_ok=True)
+    archive_dir = registry_dir / "archive"
+    archive_dir.mkdir(parents=True, exist_ok=True)
+
+    # 当前注册表
+    registry_file = registry_dir / "dna_registry.json"
+    registry = []
+    if registry_file.exists():
+        try:
+            raw = json.loads(registry_file.read_text())
+            if isinstance(raw, list):
+                registry = raw
+            elif isinstance(raw, dict):
+                # 兼容旧格式（dict→list转换）
+                registry = [v for k, v in raw.items() if isinstance(v, dict)]
+        except json.JSONDecodeError:
+            pass
+
+    # 追加
+    entry = {
+        "dna_string": payload.dna_string,
+        "compact_dna": payload.compact_dna,
+        "ganzhi": {k: v for k, v in payload.ganzhi.items() if k != "raw"},
+        "hexagram": payload.hexagram_name,
+        "hexagram_num": payload.hexagram_num,
+        "wuxing": payload.wuxing.dominant,
+        "wuxing_tendency": payload.wuxing.tendency,
+        "digital_root": payload.digital_root,
+        "is_369": payload.is_369,
+        "category": payload.category,
+        "action": payload.action,
+        "actor": payload.actor,
+        "title": payload.dna_string.split("-")[1] if len(payload.dna_string.split("-")) > 1 else "",
+        "timestamp": payload.timestamp,
+    }
+    registry.append(entry)
+    registry_file.write_text(json.dumps(registry, ensure_ascii=False, indent=2))
+
+    # 更新计数器
+    counter_file = registry_dir / "counter.json"
+    counter = {"total": 0, "daily": {}}
+    if counter_file.exists():
+        try:
+            raw = json.loads(counter_file.read_text())
+            # 兼容旧格式: {"2026-08-03": {"seq": 2}, "total": N}
+            if isinstance(raw, dict):
+                counter["total"] = raw.get("total", 0)
+                counter["daily"] = raw.get("daily", {})
+        except:
+            pass
+    counter["total"] = counter.get("total", 0) + 1
+    today = datetime.now().strftime("%Y-%m-%d")
+    counter.setdefault("daily", {})
+    counter["daily"][today] = counter["daily"].get(today, 0) + 1
+    counter_file.write_text(json.dumps(counter, ensure_ascii=False, indent=2))
 
 
-# ═══════════════════════════════════════════════════════════
-# 八、DNA查询与验证工具
-# ═══════════════════════════════════════════════════════════
+# ============================================================
+# 存档操作
+# ============================================================
 
-class DNA查询器:
-    """统一DNA查询入口"""
+def archive_dna(dna_string: str, reason: str = "manual", registry_dir: Path = None):
+    """将DNA从活跃注册表移至存档"""
+    if registry_dir is None:
+        registry_dir = OUR_BASE / "registry"
 
-    def __init__(self):
-        self.registry = DNA注册表()
+    registry_file = registry_dir / "dna_registry.json"
+    if not registry_file.exists():
+        return {"error": "注册表不存在"}
 
-    def 查(self, dna: str) -> Optional[Dict]:
-        """自动判断文档/人物DNA并返回"""
-        文档 = self.registry.查文档DNA(dna)
-        if 文档:
-            return {"维度": "文档", "记录": asdict(文档)}
-        人物 = self.registry.查人物DNA_by_dna(dna)
-        if 人物:
-            d = asdict(人物)
-            d["维度"] = "人物"
-            return d
-        return None
+    raw = json.loads(registry_file.read_text())
+    if isinstance(raw, list):
+        registry = raw
+    elif isinstance(raw, dict):
+        registry = [v for k, v in raw.items() if isinstance(v, dict)]
+    else:
+        return {"error": "注册表格式不支持"}
 
-    def 搜索(self, 关键词: str) -> List[Dict]:
-        """模糊搜索：模块名/姓名/描述"""
-        conn = sqlite3.connect(str(self.registry.db_path))
-        results = []
-        cur = conn.execute("SELECT dna FROM doc_dna WHERE 模块名 LIKE ? OR 元数据 LIKE ?",
-                          (f"%{关键词}%", f"%{关键词}%"))
-        for (dna,) in cur.fetchall():
-            r = self.registry.查文档DNA(dna)
-            if r: results.append({"维度": "文档", "dna": dna, "模块": r.模块名, "时间": r.创建时间})
-        cur = conn.execute("SELECT dna FROM person_dna WHERE real_name LIKE ? OR notes LIKE ?",
-                          (f"%{关键词}%", f"%{关键词}%"))
-        for (dna,) in cur.fetchall():
-            p = self.registry.查人物DNA_by_dna(dna)
-            if p: results.append({"维度": "人物", "dna": dna, "姓名": p.real_name, "时间": p.created_at})
-        conn.close()
-        return results
+    found = None
+    new_registry = []
+    for entry in registry:
+        if entry.get("dna_string") == dna_string or entry.get("dna") == dna_string:
+            found = entry
+        else:
+            new_registry.append(entry)
 
+    if not found:
+        return {"error": "DNA未找到"}
 
-# ═══════════════════════════════════════════════════════════
-# 九、向后兼容层 + CLI入口
-  # ═══════════════════════════════════════════════════════════
+    # 写回新注册表
+    registry_file.write_text(json.dumps(new_registry, ensure_ascii=False, indent=2))
 
+    # 写存档
+    archive_dir = registry_dir / "archive"
+    archive_dir.mkdir(exist_ok=True)
+    archive_file = archive_dir / f"{dna_string.split('-')[-1][:8]}.json"
+    found["archived_at"] = datetime.now().isoformat()
+    found["archive_reason"] = reason
+    archive_file.write_text(json.dumps(found, ensure_ascii=False, indent=2))
 
-
-
-# ═══════════════════════════════════════════════════════════
-# 十、向后兼容层（v1.0 API → v2.0 内部）
-# ═══════════════════════════════════════════════════════════
-
-def generate_dna(action_tag: str, version: str = "1.0",
-                 module: str = "", content: str = "") -> str:
-    """
-    v1.0兼容API — 被 lh_k3_distill_v39.py / lh_fix_missing_dna.py 等导入
-    返回完整DNA字符串
-    """
-    mod = module or action_tag.upper().replace(" ", "-")
-    gen = 文档DNA生成器()
-    record = gen.生成文档DNA(模块名=mod, 动作=action_tag, 版本=version, 内容=content)
-    return record.dna
+    return {"archived": True, "file": str(archive_file)}
 
 
-def compute_full_dna(module: str, version: str = "1.0",
-                     action: str = "DOC", content: str = "") -> str:
-    """
-    v2.0便利函数 — 返回完整DNA字符串（含干支卦象+哈希）
-    被 lh_dna_api.py 导入
-    """
-    return generate_dna(action_tag=action, version=version,
-                        module=module, content=content)
-
+# ============================================================
+# CLI入口
+# ============================================================
 
 def main():
-    # 兼容旧CLI: python3 lh_dna_generator.py <action_tag> <version>
-    if len(sys.argv) >= 3 and sys.argv[1] not in (
-        "doc", "person", "lookup", "verify", "inherit", "family",
-        "stats", "history", "search", "interactive", "-h", "--help"
-    ):
-        action_tag = sys.argv[1]
-        version = sys.argv[2]
-        print(f"# DNA: {generate_dna(action_tag, version)}")
-        return
-
-    # v2.0 CLI: 正常子命令解析
     parser = argparse.ArgumentParser(
-        description="🐉 龍魂·DNA追溯码生成器 v2.0",
+        description=f"🐉 龍魂·DNA追溯码生成引擎 {ENGINE_VERSION}",
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-双维度DNA体系：A) 文档/模块DNA（v∞干支卦） B) 人物DNA（v1.0·一世一双人）
+        epilog=f"""
+示例:
+  %(prog)s --title "示例" --category doc --action 写入 --actor UID9622
+  %(prog)s generate --title "示例" --category code --action 创建 --actor P04
+  %(prog)s stats --days 7
+  %(prog)s search "关键词"
+  %(prog)s validate "#龍芯⚡️..."
+  %(prog)s info "#龍芯⚡️..."
+  %(prog)s batch --csv input.csv
+  %(prog)s --template 4 --title "对话" --category persona
+  %(prog)s --output-format json --title "测试"
+  %(prog)s --version
 
-文档/模块DNA示例:
-  # 生成模块DNA
-  python3 bin/lh_dna_generator.py doc --module 安全检查 --action 引擎 --version 1.0
-
-  # 带内容绑定
-  python3 bin/lh_dna_generator.py doc --module 审计规则 --content "P0铁律：为人民服务"
-
-  # 批量生成
-  python3 bin/lh_dna_generator.py doc --batch batch.json
-
-  # 查询文档DNA
-  python3 bin/lh_dna_generator.py lookup --dna "#龍芯⚡️丙午·..."
-
-  # 验证
-  python3 bin/lh_dna_generator.py verify --dna "#龍芯⚡️..." --content "原始内容"
-
-人物DNA示例:
-  # 生成人物DNA
-  python3 bin/lh_dna_generator.py person --name 张三 --id-number 110101199001011234 --born 1990-01-01 --gender 男
-
-  # 继承
-  python3 bin/lh_dna_generator.py inherit --from-dna "父DNA" --to-dna "子DNA" --relation 父子
-
-  # 族谱
-  python3 bin/lh_dna_generator.py family --dna "祖先DNA"
-
-统一操作:
-  # 统计
-  python3 bin/lh_dna_generator.py stats
-
-  # 搜索
-  python3 bin/lh_dna_generator.py search "关键词"
-
-  # 历史
-  python3 bin/lh_dna_generator.py history --limit 20
-
-  # 交互模式
-  python3 bin/lh_dna_generator.py --interactive
-
-旧版兼容:
-  python3 bin/lh_dna_generator.py ACTION v1.0
+DNA格式: #龍芯⚡️<干支四柱>·<时辰>·<卦><卦名>-<类别>-<动作>-<哈希8>
         """
     )
 
-    subparsers = parser.add_subparsers(dest="command", help="子命令")
+    # 主参数
+    parser.add_argument("--title", "-t", type=str, help="标题（文件名/文档名/任务名）")
+    parser.add_argument("--category", "-c", type=str, default="doc",
+                        help="类别: doc/code/script/persona/paper/protocol/deploy/review/note/...")
+    parser.add_argument("--action", "-a", type=str, default="创建",
+                        help="动作: 创建/修改/归档/审查/部署/签章/...")
+    parser.add_argument("--actor", type=str, default="UID9622",
+                        help="执行者: UID9622/P04/P05/P01/...")
 
-    # === doc: 文档/模块DNA ===
-    doc_parser = subparsers.add_parser("doc", help="生成文档/模块DNA")
-    doc_parser.add_argument("--module", "-m", required=True, help="模块名")
-    doc_parser.add_argument("--action", "-a", default="DOC", help="动作（DOC/ENGINE/PROTOCOL/CODE）")
-    doc_parser.add_argument("--version", "-v", default="1.0", help="版本号")
-    doc_parser.add_argument("--content", "-c", default="", help="绑定内容（生成内容指纹）")
-    doc_parser.add_argument("--type", "-t", default="文档",
-                           choices=["文档","模块","引擎","协议"], help="DNA类型")
-    doc_parser.add_argument("--desc", "-d", default="", help="描述")
-    doc_parser.add_argument("--batch", "-b", help="批量JSON文件路径")
-    doc_parser.add_argument("--json", action="store_true", help="JSON输出")
+    # 输出选项
+    parser.add_argument("--output-format", "-f", type=str, default="text",
+                        choices=["text", "json", "md"], help="输出格式")
+    parser.add_argument("--output-file", "-o", type=str, help="保存到文件")
+    parser.add_argument("--registry-dir", type=str, help="注册表目录")
 
-    # === person: 人物DNA ===
-    person_parser = subparsers.add_parser("person", help="生成人物DNA")
-    person_parser.add_argument("--name", required=True, help="真实姓名")
-    person_parser.add_argument("--id-type", default="身份证", help="证件类型")
-    person_parser.add_argument("--id-number", required=True, help="证件号码")
-    person_parser.add_argument("--born", required=True, help="出生日期 YYYY-MM-DD")
-    person_parser.add_argument("--gender", required=True, choices=["男","女"], help="性别")
-    person_parser.add_argument("--birthplace", default="中国", help="出生地")
-    person_parser.add_argument("--location", default="中国", help="当前所在地")
-    person_parser.add_argument("--parent", help="父DNA")
-    person_parser.add_argument("--gpg", help="GPG指纹")
+    # 模板联动
+    parser.add_argument("--template", type=int, choices=[1, 2, 3, 4, 5, 6],
+                        help="强制指定抬头模板（1-6），留空则自动匹配")
 
-    # === lookup ===
-    lookup_parser = subparsers.add_parser("lookup", help="查询DNA（自动判断类型）")
-    lookup_parser.add_argument("--dna", required=True, help="DNA追溯码")
+    # 时间覆盖（用于测试/历史日期）
+    parser.add_argument("--date", type=str, help="覆盖日期 YYYY-MM-DD（默认今天）")
+    parser.add_argument("--hour", type=int, help="覆盖时辰 (0-23)")
 
-    # === verify ===
-    verify_parser = subparsers.add_parser("verify", help="验证DNA")
-    verify_parser.add_argument("--dna", required=True, help="DNA追溯码")
-    verify_parser.add_argument("--content", default="", help="原始内容（文档DNA用）")
-    verify_parser.add_argument("--name", help="真实姓名（人物DNA用）")
-    verify_parser.add_argument("--id-number", help="证件号码（人物DNA用）")
+    # 子命令
+    subparsers = parser.add_subparsers(dest="subcommand", help="子命令")
 
-    # === inherit ===
-    inherit_parser = subparsers.add_parser("inherit", help="继承DNA")
-    inherit_parser.add_argument("--from-dna", required=True)
-    inherit_parser.add_argument("--to-dna", required=True)
-    inherit_parser.add_argument("--relation", required=True, help="父子/母女")
-    inherit_parser.add_argument("--reason", default="自然传承")
+    # generate
+    sp_gen = subparsers.add_parser("generate", help="生成DNA")
+    sp_gen.add_argument("--title", "-t", type=str, required=True)
+    sp_gen.add_argument("--category", "-c", type=str, default="doc")
+    sp_gen.add_argument("--action", "-a", type=str, default="创建")
+    sp_gen.add_argument("--actor", type=str, default="UID9622")
+    sp_gen.add_argument("--format", "-f", choices=["text", "json", "md"], default="text")
+    sp_gen.add_argument("--template", type=int, choices=[1, 2, 3, 4, 5, 6])
 
-    # === family ===
-    family_parser = subparsers.add_parser("family", help="查看族谱")
-    family_parser.add_argument("--dna", required=True)
-    family_parser.add_argument("--depth", type=int, default=5)
-    family_parser.add_argument("--text", action="store_true", help="文本格式")
+    # stats
+    sp_stats = subparsers.add_parser("stats", help="DNA统计")
+    sp_stats.add_argument("--days", "-d", type=int, default=7)
 
-    # === stats ===
-    subparsers.add_parser("stats", help="统一统计")
+    # info
+    sp_info = subparsers.add_parser("info", help="解析DNA详情")
+    sp_info.add_argument("dna_string", type=str)
 
-    # === history ===
-    history_parser = subparsers.add_parser("history", help="文档DNA历史")
-    history_parser.add_argument("--limit", type=int, default=20)
+    # validate
+    sp_val = subparsers.add_parser("validate", help="验证DNA格式")
+    sp_val.add_argument("dna_string", type=str)
 
-    # === search ===
-    search_parser = subparsers.add_parser("search", help="模糊搜索")
-    search_parser.add_argument("keyword", help="搜索关键词")
+    # search
+    sp_search = subparsers.add_parser("search", help="搜索注册表")
+    sp_search.add_argument("keyword", type=str)
 
-    # === interactive ===
-    subparsers.add_parser("interactive", help="交互模式")
+    # batch
+    sp_batch = subparsers.add_parser("batch", help="批量生成")
+    sp_batch.add_argument("--csv", type=str, help="CSV输入")
+    sp_batch.add_argument("--json", type=str, help="JSON输入")
+
+    # archive
+    sp_archive = subparsers.add_parser("archive", help="归档DNA")
+    sp_archive.add_argument("dna_string", type=str)
+    sp_archive.add_argument("--reason", type=str, default="manual")
+
+    # 版本
+    parser.add_argument("--version", "-v", action="store_true", help="版本信息")
 
     args = parser.parse_args()
-    doc_gen = 文档DNA生成器()
-    person_gen = 人物DNA生成器()
-    registry = DNA注册表()
-    family_tree = DNA族谱()
-    querier = DNA查询器()
 
-    # --- 交互模式 ---
-    if args.command == "interactive":
-        print("\n" + "=" * 60)
-        print("🐉 DNA追溯码生成器 v2.0 - 交互模式")
-        print("=" * 60)
-        print("文档DNA:  模块名 | 动作 | 版本 | [内容]")
-        print("人物DNA:  person | 姓名 | 身份证 | 出生 | 性别")
-        print("查询:     lookup DNA码")
-        print("退出:     exit")
-        print("=" * 60)
-        while True:
-            try:
-                输入 = input("\n📥 > ").strip()
-                if not 输入: continue
-                if 输入.lower() in ['exit', 'quit']: break
-                if 输入 == 'stats':
-                    s = registry.统一统计()
-                    print(json.dumps(s, ensure_ascii=False, indent=2)); continue
-
-                parts = [p.strip() for p in 输入.split("|")]
-                if parts[0].lower() == "lookup" and len(parts) > 1:
-                    r = querier.查(parts[1])
-                    if r: print(json.dumps(r, ensure_ascii=False, indent=2))
-                    else: print(f"❌ 未找到: {parts[1]}")
-                elif parts[0].lower() == "person" and len(parts) >= 5:
-                    person = person_gen.生成(parts[1], "身份证", parts[2], parts[3], parts[4], "中国", "中国")
-                    print(f"✅ 人物DNA: {person.dna}")
-                elif len(parts) >= 3:
-                    content = parts[3] if len(parts) > 3 else ""
-                    r = doc_gen.生成文档DNA(parts[0], parts[1], parts[2], content)
-                    print(f"✅ 文档DNA: {r.dna}")
-                    print(f"   模块: {r.模块名} | 动作: {r.动作} | 版本: v{r.版本}")
-                    print(f"   干支: {r.干支四柱} | 卦象: {r.卦象}")
-                else:
-                    print("❌ 格式: 模块|动作|版本|[内容] 或 person|姓名|身份证|出生|性别")
-            except KeyboardInterrupt: break
-            except Exception as e: print(f"❌ {e}")
+    # --version
+    if args.version:
+        cprint(f"🐉 龍魂·DNA追溯码生成引擎 {ENGINE_VERSION}", Colors.CYAN)
+        cprint(f"   DNA: {DNA_ENGINE}", Colors.BLUE)
+        cprint(f"   确认码: {CONFIRM_CODE}", Colors.YELLOW)
+        cprint(f"   GPG: {GPG_KEY}", Colors.RED)
+        cprint(f"   天干地支基表: 焊死·不可修改", Colors.GREEN)
+        cprint(f"   64卦数据库: 完整·梅花易数起卦法", Colors.GREEN)
+        cprint(f"   五行映射: 天干→五行·地支→五行·生克关系", Colors.GREEN)
+        cprint(f"   数字根: 3/6/9不动点检测", Colors.GREEN)
+        cprint(f"   模板联动: 6套抬头模板·自动类别匹配", Colors.GREEN)
         return
 
-    # --- doc ---
-    if args.command == "doc":
-        if args.batch:
-            with open(args.batch, 'r', encoding='utf-8') as f:
-                items = json.load(f)
-            results = doc_gen.批量生成(items)
+    # 确定registry目录
+    registry_dir = Path(args.registry_dir) if args.registry_dir else OUR_BASE / "registry"
+
+    # 子命令路由
+    if args.subcommand == "stats":
+        stats = dna_stats(args.days, registry_dir)
+        cprint(f"\n📊 DNA统计 (最近{args.days}天)", Colors.CYAN)
+        cprint(f"  总计: {stats['total']} 条", Colors.BOLD)
+        cprint(f"  日均: {stats['avg_per_day']} 条", Colors.BOLD)
+        cprint(f"\n  按类别:", Colors.YELLOW)
+        for typ, count in list(stats["by_type"].items())[:10]:
+            cprint(f"    {typ}: {count}", Colors.GREEN)
+        cprint(f"\n  按执行者:", Colors.YELLOW)
+        for actor, count in list(stats["by_actor"].items())[:10]:
+            cprint(f"    {actor}: {count}", Colors.GREEN)
+        return
+
+    if args.subcommand == "info":
+        result = dna_info(args.dna_string)
+        if result:
+            cprint(f"\n🧬 DNA详情", Colors.CYAN)
+            for k, v in result.items():
+                if k != "root_card":
+                    cprint(f"  {k}: {v}", Colors.GREEN)
+            cprint(f"\n🃏 ROOT_CARD", Colors.CYAN)
+            for k, v in result.get("root_card", {}).items():
+                cprint(f"  {k}: {v}", Colors.GREEN)
+        else:
+            cprint(f"❌ 无法解析DNA: {args.dna_string}", Colors.RED)
+        return
+
+    if args.subcommand == "validate":
+        result = validate_dna(args.dna_string)
+        if result["valid"]:
+            cprint(f"✅ DNA格式有效", Colors.GREEN)
+        else:
+            cprint(f"❌ DNA格式无效", Colors.RED)
+            for e in result["errors"]:
+                cprint(f"  - {e}", Colors.RED)
+        for w in result["warnings"]:
+            cprint(f"  ⚠️ {w}", Colors.YELLOW)
+        return
+
+    if args.subcommand == "search":
+        results = search_registry(args.keyword, registry_dir)
+        if results:
+            cprint(f"\n🔍 搜索 '{args.keyword}': {len(results)} 条结果", Colors.CYAN)
             for r in results:
-                print(f"✅ {r.dna}")
-            print(f"\n📊 共生成 {len(results)} 条DNA")
-            return
-
-        类型映射 = {"文档": DNA类型.文档, "模块": DNA类型.模块, "引擎": DNA类型.引擎, "协议": DNA类型.协议}
-        元数据 = DNA元数据(创建者="UID9622", 描述=args.desc, 来源="CLI生成")
-
-        r = doc_gen.生成文档DNA(
-            模块名=args.module, 动作=args.action, 版本=args.version,
-            内容=args.content, 元数据=元数据, 类型=类型映射[args.type]
-        )
-
-        if args.json:
-            print(json.dumps(asdict(r), ensure_ascii=False, indent=2))
+                cprint(f"  📄 {r['file']}", Colors.GREEN)
+                cprint(f"     {r['dna']}", Colors.BLUE)
+                cprint(f"     标题: {r['title']} | 时间: {r['timestamp']}", Colors.YELLOW)
         else:
-            print(f"\n✅ DNA生成成功!")
-            print(f"🧬 DNA:       {r.dna}")
-            print(f"📦 模块:       {r.模块名}")
-            print(f"⚡ 动作:       {r.动作}")
-            print(f"📌 版本:       v{r.版本}")
-            print(f"🗓️  干支四柱:   {r.干支四柱}")
-            print(f"☯️  卦象:       {r.卦象}")
-            print(f"🔑 哈希:       {r.哈希值}")
-            if r.内容指纹:
-                print(f"📎 内容指纹:   {r.内容指纹}")
-            print(f"🔐 HMAC:       {r.hmac签名[:12]}...")
-            print(f"📋 类型:       {r.类型.value}")
-            print(f"🕐 创建时间:   {r.创建时间}")
+            cprint(f"🔍 无结果: '{args.keyword}'", Colors.YELLOW)
+        return
 
-    # --- person ---
-    elif args.command == "person":
-        try:
-            person = person_gen.生成(
-                real_name=args.name, id_type=args.id_type, id_number=args.id_number,
-                born_date=args.born, gender=args.gender, birthplace=args.birthplace,
-                current_location=args.location, parent_dna=args.parent,
-                gpg_fingerprint=args.gpg
-            )
-            print(f"\n✅ 人物DNA生成成功!")
-            print(f"🧬 DNA:  {person.dna}")
-            print(f"📛 姓名: {person.real_name}")
-            print(f"📌 状态: {person.status}")
-            print(f"🔑 签名: {person.dna_signature[:16]}...")
-            if person.parent_dna: print(f"📜 继承自: {person.parent_dna[:25]}...")
-            print(f"\n⚡ 一世一双人，DNA不可转让，不可借用。")
-            print(f"📖 所有记忆归此DNA，只能后人继承。")
-        except Exception as e:
-            print(f"❌ {e}")
+    if args.subcommand == "batch":
+        entries = []
+        if args.csv:
+            import csv
+            with open(args.csv, 'r', encoding='utf-8') as f:
+                entries = list(csv.DictReader(f))
+        elif args.json:
+            entries = json.loads(open(args.json, 'r', encoding='utf-8').read())
 
-    # --- lookup ---
-    elif args.command == "lookup":
-        r = querier.查(args.dna)
-        if r:
-            if r.get("维度") == "文档":
-                rec = r["记录"]
-                print(f"\n🧬 文档DNA")
-                print(f"   DNA:     {rec['dna']}")
-                print(f"   模块:    {rec['模块名']}")
-                print(f"   动作:    {rec['动作']}")
-                print(f"   版本:    v{rec['版本']}")
-                print(f"   干支:    {rec['干支四柱']}")
-                print(f"   卦象:    {rec['卦象']}")
-                print(f"   时间:    {rec['创建时间']}")
-                if rec.get('内容指纹'):
-                    print(f"   指纹:    {rec['内容指纹']}")
-            else:
-                print(f"\n👤 人物DNA")
-                for k, v in r.items():
-                    if k != "dna_signature":
-                        print(f"   {k}: {v}")
-                if r.get("dna_signature"):
-                    print(f"   签名:    {r['dna_signature'][:16]}...")
+        payloads = batch_generate(entries=entries)
+        cprint(f"\n📦 批量生成: {len(payloads)} 条DNA", Colors.CYAN)
+        for i, p in enumerate(payloads):
+            cprint(f"\n  [{i+1}] {p.dna_string}", Colors.GREEN)
+            save_to_registry(p, registry_dir)
+        return
+
+    if args.subcommand == "archive":
+        result = archive_dna(args.dna_string, args.reason, registry_dir)
+        if "error" in result:
+            cprint(f"❌ {result['error']}", Colors.RED)
         else:
-            print(f"❌ 未找到DNA: {args.dna}")
+            cprint(f"✅ 已归档: {result['file']}", Colors.GREEN)
+        return
 
-    # --- verify ---
-    elif args.command == "verify":
-        if args.name and args.id_number:
-            valid = person_gen.验证(args.dna, args.name, args.id_number)
-            print(f"{'✅' if valid else '❌'} 人物DNA验证{'通过' if valid else '失败'}")
-        else:
-            valid, msg = doc_gen.验证(args.dna, args.content)
-            print(f"{'✅' if valid else '❌'} {msg}")
-
-    # --- inherit ---
-    elif args.command == "inherit":
-        try:
-            registry.添加继承(args.from_dna, args.to_dna, args.relation, args.reason)
-            print(f"✅ 继承成功! {args.from_dna[:20]}... → {args.to_dna[:20]}...")
-        except Exception as e:
-            print(f"❌ {e}")
-
-    # --- family ---
-    elif args.command == "family":
-        if args.text:
-            print(family_tree.文本族谱(args.dna))
-        else:
-            tree = family_tree.生成族谱树(args.dna, args.depth)
-            print(json.dumps(tree, ensure_ascii=False, indent=2))
-
-    # --- stats ---
-    elif args.command == "stats":
-        s = registry.统一统计()
-        print("\n📊 龍魂DNA统一统计")
-        print("=" * 50)
-        print(f"\n📄 文档/模块DNA:")
-        print(f"   总数: {s['文档DNA']['总数']}")
-        print(f"   模块: {s['文档DNA']['模块数']} 个")
-        print(f"   类型: {s['文档DNA']['类型分布']}")
-        print(f"\n👤 人物DNA:")
-        print(f"   总数: {s['人物DNA']['总人数']}")
-        print(f"   活跃: {s['人物DNA']['活跃']}")
-        print(f"   继承: {s['人物DNA']['继承记录']} 条")
-        print(f"\n📋 审计日志: {s['审计日志总数']} 条")
-
-    # --- history ---
-    elif args.command == "history":
-        records = registry.查文档DNA历史(limit=args.limit)
-        print(f"\n📋 文档DNA历史（最新{len(records)}条）")
-        print("-" * 70)
-        for r in records:
-            print(f"  {r.dna}")
-            print(f"    模块:{r.模块名} | 动作:{r.动作} | 版本:v{r.版本} | {r.创建时间[:16]}")
-            print()
-
-    # --- search ---
-    elif args.command == "search":
-        results = querier.搜索(args.keyword)
-        print(f"\n🔍 搜索「{args.keyword}」: {len(results)} 条结果")
-        print("-" * 60)
-        for r in results:
-            dim = "📄" if r["维度"] == "文档" else "👤"
-            info = r.get("模块", r.get("姓名", "未知"))
-            print(f"  {dim} {r['dna'][:40]}... → {info} ({r['时间'][:16]})")
-
+    # 默认: 生成DNA
+    title = args.title
+    if args.subcommand == "generate":
+        title = args.title
+        category = args.category
+        action = args.action
+        actor = args.actor
+        fmt = args.format
+        tmpl = args.template
     else:
+        category = args.category
+        action = args.action
+        actor = args.actor
+        fmt = args.output_format
+        tmpl = args.template
+
+    if not title:
+        cprint("❌ 需要 --title", Colors.RED)
         parser.print_help()
+        return
+
+    # 模板覆盖
+    if tmpl:
+        pass  # 使用用户指定模板
+    else:
+        tmpl = CATEGORY_TEMPLATE_MAP.get(category.lower(), 2)
+
+    payload = generate(
+        title=title, category=category, action=action, actor=actor,
+        date_str=args.date, hours=args.hour,
+    )
+    # 强制覆盖模板
+    if tmpl:
+        payload.template_id = tmpl
+        payload.root_card["template_id"] = tmpl
+
+    # 保存
+    save_to_registry(payload, registry_dir)
+
+    # 输出
+    output = format_output(payload, fmt)
+    if args.output_file:
+        Path(args.output_file).write_text(output)
+        cprint(f"✅ 已保存到 {args.output_file}", Colors.GREEN)
+    else:
+        print(output)
+
+    return payload
+
+
+# ============================================================
+# API模式: import调用
+# ============================================================
+
+def quick_dna(title: str, category: str = "doc", action: str = "创建",
+              actor: str = "UID9622") -> Dict:
+    """API调用入口: 快速生成DNA并返回字典"""
+    payload = generate(title=title, category=category, action=action, actor=actor)
+    save_to_registry(payload)
+    return {
+        "dna_string": payload.dna_string,
+        "compact_dna": payload.compact_dna,
+        "template_id": payload.template_id,
+        "root_card": payload.root_card,
+        "wuxing": payload.wuxing.dominant,
+        "digital_root": payload.digital_root,
+    }
+
+
+def embed_dna_in_file(filepath: str, title: str = None, category: str = "doc",
+                      action: str = "创建", actor: str = "UID9622") -> str:
+    """在文件头部嵌入DNA注释"""
+    payload = generate(
+        title=title or Path(filepath).stem,
+        category=category, action=action, actor=actor,
+    )
+    dna_line = f"DNA: {payload.dna_string}\n"
+
+    try:
+        content = Path(filepath).read_text(encoding='utf-8')
+        if "# " in content or "/*" in content:
+            # 在第一个注释行后插入
+            lines = content.split("\n")
+            for i, line in enumerate(lines):
+                if line.strip().startswith(("# ", "/*", "#!/", "//")):
+                    continue
+                # 插入DNA
+                lines.insert(i, dna_line.strip())
+                break
+            Path(filepath).write_text("\n".join(lines), encoding='utf-8')
+        else:
+            Path(filepath).write_text(dna_line + "\n" + content, encoding='utf-8')
+
+        save_to_registry(payload)
+        return payload.dna_string
+    except Exception as e:
+        return f"ERROR: {e}"
+
+
+# ============================================================
+# 自检
+# ============================================================
+
+def self_test():
+    """自检: 生成100条DNA验证唯一性+频率"""
+    payloads = []
+    for i in range(100):
+        p = generate(
+            title=f"自检文件-{i:03d}",
+            category=["doc", "code", "script", "persona", "paper"][i % 5],
+            action=["创建", "修改", "归档", "审查"][i % 4],
+            actor=["UID9622", "P04", "P01", "P05"][i % 4],
+        )
+        payloads.append(p)
+
+    # 唯一性检查
+    dnas = [p.dna_string for p in payloads]
+    unique = set(dnas)
+    unique_rate = len(unique) / len(dnas)
+
+    # 哈希碰撞检查
+    hashes = [p.title_hash for p in payloads]
+    hash_collisions = len(hashes) - len(set(hashes))
+
+    return {
+        "total": len(payloads),
+        "unique": len(unique),
+        "unique_rate": unique_rate,
+        "hash_collisions": hash_collisions,
+        "passed": unique_rate == 1.0 and hash_collisions == 0,
+        "wuxing_distribution": list({p.wuxing.dominant for p in payloads}),
+    }
 
 
 if __name__ == "__main__":
+    import sys
+    if "--test" in sys.argv:
+        result = self_test()
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        sys.exit(0 if result["passed"] else 1)
+
     main()

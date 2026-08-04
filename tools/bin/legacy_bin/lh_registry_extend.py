@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """龍魂注册表扩展 v1.3 — 将 L6/L8/L9 层纳入依赖图
 DNA: #龍芯⚡️丙午·乙未·甲寅·申时·师-REGISTRY-EXTEND-v1.3
 """

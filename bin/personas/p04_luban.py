@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 #龍芯⚡️丙午·丙申·丙辰·亥时·需-P04-LUBAN-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0

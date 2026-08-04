@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ============================================================
 # 龍魂 · ANTENNA-8GATE 五行调度器 v2.0
 # DNA: #龍芯⚡️丙午·乙未·乙未·申时·☰乾-WUXING-SCHEDULER-V2-a1b2c3d4

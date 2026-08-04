@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 P05 上帝之眼 · 元控制器/審計執行器

@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·未成年守护引擎 — 数学建模增补 v1.0
 
 DNA: `#龍芯⚡️丙午·乙未·丙申·申时·☳震-MINOR-GUARD-MATH-V1.0-P0-37006732`

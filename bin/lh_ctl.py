@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂引擎主控（lh-ctl）v1.0
@@ -213,6 +215,10 @@ def _build_args(name: str, kwargs: Dict[str, Any]) -> List[str]:
             args += ["--deep", str(kwargs["deep"])]
         if kwargs.get("output"):
             args += ["--output", kwargs["output"]]
+        if kwargs.get("style"):
+            args += ["--style", kwargs["style"]]
+        if kwargs.get("no_color"):
+            args.append("--no-color")
     elif name == "video":
         if kwargs.get("script"):
             args += ["--script", kwargs["script"]]
@@ -342,11 +348,13 @@ def cli(ctx, version):
 @click.option("--n", type=int, default=10, help="返回结果数")
 @click.option("--deep", type=int, default=0, help="深度提取前N个页面")
 @click.option("--output", type=click.Choice(["text", "json", "csv"]), default="text")
-def search(query, n, deep, output):
+@click.option("--style", type=click.Choice(["default", "compact", "table", "card", "minimal", "plain"]), default="default", help="终端显示样式")
+@click.option("--no-color", is_flag=True, help="禁用 ANSI 颜色")
+def search(query, n, deep, output, style, no_color):
     """龍魂搜索引擎。"""
     cfg = load_config()
     _ensure_dirs(cfg)
-    sys.exit(_run_engine("search", cfg, query=query, n=n, deep=deep, output=output))
+    sys.exit(_run_engine("search", cfg, query=query, n=n, deep=deep, output=output, style=style, no_color=no_color))
 
 
 @cli.command()

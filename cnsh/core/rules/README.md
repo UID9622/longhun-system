@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂规则引擎 (LongHun Rule Engine)
 
 **DNA**:#龍芯⚡️2026-06-03-RULE-ENGINE-README-FILE1-v1.0

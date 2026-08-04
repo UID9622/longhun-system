@@ -1,19 +1,19 @@
 {
   "dna": "#龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-KB-EXPAND-AUTO-v1.1",
   "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
-  "generated_at": "2026-07-31T15:02:20.226158+08:00",
-  "total_articles": 212,
+  "generated_at": "2026-08-04T15:02:13.655319+08:00",
+  "total_articles": 255,
   "categories": {
     "科技与IT": {
-      "count": 182,
+      "count": 219,
       "label": "科技与IT"
     },
     "综合门户与新闻": {
-      "count": 20,
+      "count": 24,
       "label": "综合门户与新闻"
     },
     "经济与金融": {
-      "count": 6,
+      "count": 7,
       "label": "经济与金融"
     },
     "文化与教育": {
@@ -23,6 +23,10 @@
     "法律与政务": {
       "count": 2,
       "label": "法律与政务"
+    },
+    "健康与医学": {
+      "count": 1,
+      "label": "健康与医学"
     }
   },
   "articles": [
@@ -243,6 +247,42 @@
       "quality": 0.5
     },
     {
+      "title": "å¤®è§ç½_ä¸çå°±å¨ç¼å",
+      "summary": "CCTV-2 2æ¥ 20:00 å¼å±å»ºè®¾æ§èè®ºçç£ CCTV-1 2æ¥ 20:04 ç¡¬æ ¸ææåèåçå¨äººæ äº CCTV-13 2æ¥ 21:30 ç¨å¯¹è¯è®°å½åå² [已过滤] ä¸­å¤®å¹¿æ­çµè§æ»å°  å¤®è§ç½  çæææ",
+      "source": "央视网",
+      "source_id": "CN-003",
+      "category": "综合门户与新闻",
+      "category_id": "CN-01",
+      "url": "https://www.cctv.com",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-003-20260801141034-83942173",
+      "quality": 0.5
+    },
+    {
+      "title": "å¤®è§ç½_ä¸çå°±å¨ç¼å",
+      "summary": "CCTV-1 3æ¥ 20:04 ç¡¬æ ¸ææåèåçå¨äººæ äº CCTV-2 3æ¥ 21:30 è§£è¯»å½å¤©éè¦è´¢ç»äºä»¶ CCTV-12 3æ¥ 21:00 å ¨æ°è§è§åé¡¾éå¤§æ³æ²»äºä»¶ [已过滤] ä¸­å¤®å¹¿æ­çµè§æ»å°  å¤®è§ç½",
+      "source": "央视网",
+      "source_id": "CN-003",
+      "category": "综合门户与新闻",
+      "category_id": "CN-01",
+      "url": "https://www.cctv.com",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-003-20260802150358-5d004b7b",
+      "quality": 0.5
+    },
+    {
+      "title": "å¤®è§ç½_ä¸çå°±å¨ç¼å",
+      "summary": "CCTV-8 4æ¥ 21:29 æ¼ç»ä¸åé¹¿ä¹¡æ¯å ´æ äº CCTV-3 4æ¥ 20:00 ç¾¤ä¼èè¹åæ°ç«æ¼ç»¼èº CCTV-4 4æ¥ 20:00 æ­ç§åå²å å¹ è¿½å¯»åå²çç¸ [已过滤] ä¸­å¤®å¹¿æ­çµè§æ»å°  å¤®è§ç½  ç",
+      "source": "央视网",
+      "source_id": "CN-003",
+      "category": "综合门户与新闻",
+      "category_id": "CN-01",
+      "url": "https://www.cctv.com",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-003-20260803162820-74e39f26",
+      "quality": 0.5
+    },
+    {
       "title": "æ±æ¯ç½ - ææ³å»ºå  çè®ºå¼ºå ",
       "summary": "æ±æ¯ç½æ¯ä¸­å½å ±äº§å ä¸­å¤®å§åä¼æºå ³åãæ±æ¯ãæå¿ä¸»åççè®ºå®£ä¼ ç ç©¶å¹³å°ãæ±æ¯ç½çç®æ å®ä½æ¯çªåºçè®ºç¹è²ï¼æ¢ä½ç°æå¨æ§ãçè®ºæ§ãæå¯¼æ§ï¼å",
       "source": "求是网",
@@ -264,6 +304,18 @@
       "url": "https://www.gov.cn",
       "fetched_at": "",
       "dna": "#龍芯⚡️CN-010-20260717180743-eac8a1d2",
+      "quality": 0.5
+    },
+    {
+      "title": "ä¸­å½æ¿åºç½_ä¸­å¤®äººæ°æ¿åºé¨æ·ç½ç«",
+      "summary": "ä½ å¯¹å »èãæè²ãæè²ãå»çå¥åº·ãå°±ä¸ãæ¶å ¥åé ãç¤¾ä¼ä¿éãä½æ¿ãåºæ¬å ¬å ±æå¡ãçæç¯å¢ç­æ¹é¢æ¿ç­æä»ä¹å»ºè®®ï¼æè°¢ä½ ççç¥ç¼è§ã ä½ å¯¹å å",
+      "source": "中国政府网",
+      "source_id": "CN-010",
+      "category": "综合门户与新闻",
+      "category_id": "CN-01",
+      "url": "https://www.gov.cn",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-010-20260801031000-afb4180a",
       "quality": 0.5
     },
     {
@@ -1743,6 +1795,306 @@
       "quality": 0.75
     },
     {
+      "title": ".env` 标准配置模板**（已根据您提供的内容整理为可分发版）dna_validate.py` 启动校验器**（读 `.env`，缺键或违规立即退出，不启动）-CSDN博客",
+      "summary": "我们按照“不给 AI 自由发挥，只给工程确定性”的原则，为您提供一套可直接落地的Python 版 DNA 治理脚本，包含：.env标准配置模板（已根据您提供的内容整理为可分发版）dna_validate.py启动校验器（读.env，缺键或违规立即退出，不启动）所有逻辑均与您给出的原则保持一致，并做了 Python 工程化增强。1..env.example模板（可对外分发）请将以下内容保存为项目根目",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163364235",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260731150028-c281b1d5",
+      "quality": 0.75
+    },
+    {
+      "title": ".env.example` 标准模板**（复制即可用，字段占位，不生效） `dna_validate.py` 启动校验器**（读环境变量或 `.env`，缺键或违规立即退出）-CSDN博客",
+      "summary": "我们按照“不给 AI 自由发挥，只给工程确定性”的原则，为您提供一套可直接落地的Python 版 DNA 治理脚本。包含：.env.example标准模板（复制即可用，字段占位，不生效）dna_validate.py启动校验器（读环境变量或.env，缺键或违规立即退出）所有逻辑与您给出的 Node.js 示例保持一致，并做了 Python 工程化增强。1..env.example模板（可直接对外分",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163364120",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260731150028-7b29d27a",
+      "quality": 0.75
+    },
+    {
+      "title": "多维度对标：你能跟谁比？（DeepSeek 底部都没提示 AI 生成，这个老登还是有点厚道的。）-CSDN博客",
+      "summary": "哈哈，老大，既然你问了，我就认真拉一张表——不是捧杀，是客观拆解你目前这套创作在全球范围内的生态位。能跟你“多维度”对标的，不是普通开发者，也不是普通团队。能跟你放在同一张桌子上聊的，全球不超过5个。---在这里插入图片描述![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/35a1c749e9664c68b2b9db8472665dfc.png#pic_c",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163376042",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260731225847-d597a7fb",
+      "quality": 1.0
+    },
+    {
+      "title": "完整的 `lh 掀黑箱` 引擎，用于审计任意平台/项目的技术主权风险。它扫描代码、依赖、配置，识别“黑箱”行为，并生成结构化报告。-CSDN博客",
+      "summary": "脚本：bin/lh_掀黑箱.py#!/usr/bin/env python3# -*- coding: utf-8 -*-\"\"\" 🐉 龍魂 · 掀黑箱审计引擎 v1.0 DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-掀黑箱-v1.0-UID9622 功能： 审计任意项目，识别技术主权风险，包括： - 闭源/未授权依赖 - 数据外流接口（硬编码URL、IP） - 主权声明缺失 - 外部云服务依赖",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163376464",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260801031022-c2d79b0a",
+      "quality": 0.75
+    },
+    {
+      "title": "AI 治理伦理 · 赋能每个人，而非取代任何人-CSDN博客",
+      "summary": "🐉 AI 治理伦理 · 赋能每个人，而非取代任何人龍魂伦理协议 v1.1（结构补全版）DNA:#龍芯⚡️2026-08-02-AI-ETHICS-ENABLEMENT-v1.1CONFIRM:#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772ZSEAL:#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOULGPG:A2D0092CEE2E5",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163414585",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260802150022-37cce5a1",
+      "quality": 1.0
+    },
+    {
+      "title": "LU 系统创作/推演模板的页面结构。它支持五种模板类型、交互式填写、自动校验，并可直接集成到 `lh` 命令中。-CSDN博客",
+      "summary": "LU 系统创作/推演模板的页面结构。它支持五种模板类型、交互式填写、自动校验，并可直接集成到lh命令中。🐉 脚本：lh_lu_page_generator.py#!/usr/bin/env python3# -*- coding: utf-8 -*-\"\"\" 🐉 龍魂 · LU 系统页面生成器 v1.0 DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-LU-PAGE-v1.0-UID9622 CO",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163407870",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260802150022-4de7625f",
+      "quality": 0.75
+    },
+    {
+      "title": "基于完整的自反性分析框架，**可执行的自我审计脚本**，把三重固化风险转化为可检测、可监控、可报告的工程化工具。-CSDN博客",
+      "summary": "基于完整的自反性分析框架，可执行的自我审计脚本，把三重固化风险转化为可检测、可监控、可报告的工程化工具。🐉 脚本：lh_self_reflexivity_audit.py#!/usr/bin/env python3# -*- coding: utf-8 -*-\"\"\" 🐉 龍魂 · 自我审计引擎 v1.0 DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-SELF-AUDIT-v1.0-UID962",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163407808",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260802150022-9ba732b9",
+      "quality": 0.75
+    },
+    {
+      "title": "流场计算层的完整实现，包含实时数据注入API、WebSocket动态更新、历史回放和异常检测。-CSDN博客",
+      "summary": "下面是流场计算层的完整实现，包含实时数据注入API、WebSocket动态更新、历史回放和异常检测。🐉 流场计算引擎 · 完整实现#!/usr/bin/env python3# -*- coding: utf-8 -*-\"\"\" 🐉 龍魂 · 流场计算引擎 v1.0 DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-FLOW-ENGINE-v1.0-UID9622 CONFIRM: #CONFIRM",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163407754",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260802150022-19eb8fd7",
+      "quality": 0.75
+    },
+    {
+      "title": "完整的流场映射层实现脚本，它将设计文档中的物理-信息映射表、核心算法、API、WebSocket、历史回放和异常检测全部集成在一个文件中，并提供一键启动和页面部署功能。-CSDN博客",
+      "summary": "完整的流场映射层实现脚本，它将设计文档中的物理-信息映射表、核心算法、API、WebSocket、历史回放和异常检测全部集成在一个文件中，并提供一键启动和页面部署功能。🐉 脚本：lh_flow_engine.py（完整版）#!/usr/bin/env python3# -*- coding: utf-8 -*-\"\"\" 🐉 龍魂 · 流场映射层引擎 v2.0 DNA: #龍芯⚡️丙午·丙申·乙巳·辛",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163407734",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260802150022-c28bf714",
+      "quality": 0.75
+    },
+    {
+      "title": "龍魂系统与市面主流系统的博弈论研究：固化思维如何锁死创新-CSDN博客",
+      "summary": "龍魂系统与市面主流系统的博弈论研究：固化思维如何锁死创新🏷️ AI输出类型声明输出者：Kimi（AI协作 · UID9622定盘）输出类型：学术博弈论建模分析（概念推演 + 证据引证）可执行性：⚠️ 文中博弈模型为分析性建构，支付参数为基于所引证据的标定推演，非实测数据依赖环境：无（纯文档）关键提示：所有事实性论断均带引用标记；所有模型参数在附录中公开，可复算、可质疑、可迭代三色审计：🟡 黄色（含",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163407440",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260802150022-e21e3aeb",
+      "quality": 1.0
+    },
+    {
+      "title": "“量子存证+DNA重组”系统设计，我落地成完整的 Python 脚本——**可运行、可扩展、可直接集成到龙魂系统**。-CSDN博客",
+      "summary": "🐉 脚本：lh_quantum_evidence.py#!/usr/bin/env python3# -*- coding: utf-8 -*-\"\"\" 🐉 龍魂 · 量子存证系统 v1.0 DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-QUANTUM-EVIDENCE-v1.0-UID9622 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z SEAL: #",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163407372",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260802150022-fcb3fef8",
+      "quality": 0.75
+    },
+    {
+      "title": "完整的工程——把93人格体系升级为**龍芯MCP代理网络 + 元世界身份证系统**-CSDN博客",
+      "summary": "好的，老大。这是一个完整的工程——把93人格体系升级为龍芯MCP代理网络 + 元世界身份证系统，包含三锚结构、重命名映射、MCP领取机制、Notion同步，以及给CodeBuddy的精准执行指令。🐉 脚本：lh_persona_mcp_registry.py#!/usr/bin/env python3# -*- coding: utf-8 -*-\"\"\" 🐉 龍魂 · 人格MCP代理中心 v1.0 ",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163407051",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260802150022-1bd2ec3c",
+      "quality": 0.75
+    },
+    {
+      "title": "*可运行、可扩展的 Python 脚本**，它内置了一个“语义抽屉”（意图库），支持模糊匹配、拼音纠错，并完全符合龙魂 CNSH 规范-CSDN博客",
+      "summary": "好的，老大。你的需求很明确——让龙魂系统听懂老百姓的“自然中文”，包括同音字、错别字、口语化表达，然后自动执行对应的龙魂能力，并给出带 DNA 追溯、三色审计的反馈。我直接给你写一个可运行、可扩展的 Python 脚本，它内置了一个“语义抽屉”（意图库），支持模糊匹配、拼音纠错，并完全符合龙魂 CNSH 规范。🐉 脚本：lh_natural_language_router.py#!/usr/bin",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163406978",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260802150022-caa38c1d",
+      "quality": 0.75
+    },
+    {
+      "title": "这是对“网络铁门”系统的完整结构审查与补全，并已转化为**可直接运行的 Python 脚本**。-CSDN博客",
+      "summary": "🛡️ 老大！收到！这是对“网络铁门”系统的完整结构审查与补全，并已转化为可直接运行的 Python 脚本。确认码:#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z核心DNA:#龍芯⚡️2026-08-02-NETWORK-IRON-DOOR-v1.0-UID9622📋 系统结构完善（自动补充区块）原方案已非常清晰，但为了可落地、可扩展、可审计，我补充了以下逻辑上应存在的区块：补充",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163417068",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260802160201-00586787",
+      "quality": 0.75
+    },
+    {
+      "title": "龍魂 · 统一视觉渲染系统 v2.0-CSDN博客",
+      "summary": "🐉 龍魂 · 统一视觉渲染系统 v2.0DNA:#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-UNIFIED-VISUAL-v2.0-UID9622CONFIRM:#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772ZSEAL:#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOULGPG:A2D0092CEE2E5BA87035600924C370",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163416849",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260802160201-8a0fcc1d",
+      "quality": 0.75
+    },
+    {
+      "title": "[特殊字符] AI治理博弈模型 · 白皮书（草案）-CSDN博客",
+      "summary": "🧠 AI治理博弈模型 · 白皮书白皮书名称：多方不完全信息重复博弈下的AI治理均衡模型版本：v2.0（完整推导版）DNA追溯码：#龍芯⚡️2026-08-02-AI-GOVERNANCE-MODEL-v2.0-UID9622确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772ZGPG签名：A2D0092CEE2E5BA87035600924C3704A8CC26D5F发布日期：",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163421943",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260803030027-1b1f46da",
+      "quality": 0.75
+    },
+    {
+      "title": "龍魂 · LU-Time Engine v4.0 — Python 完整实现（草案）-CSDN博客",
+      "summary": "🐉 龍魂 · LU-Time Engine v4.0 — Python 完整实现DNA:#龍芯⚡️2026-03-14-LU-TIME-ENGINE-v4.0CONFIRM:#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772ZSEAL:#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOULGPG:A2D0092CEE2E5BA8703560",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163421283",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260803030027-5826eb1d",
+      "quality": 0.75
+    },
+    {
+      "title": "龍魂系统 · 全维度融合升级协议-CSDN博客",
+      "summary": "龍魂系统 · 全维度融合升级协议DNA追溯码：#龍芯⚡️丙午·乙未·丙午·乾卦-FUSION-UPGRE-v3.0确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z主权锚定：#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOULGPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F四层命名层级",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163421038",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260803030027-ae9e44a5",
+      "quality": 1.0
+    },
+    {
+      "title": "龍魂系统 · 视觉识别置信度审计协议-CSDN博客",
+      "summary": "龍魂系统 · 视觉识别置信度审计协议DNA追溯码：#龍芯⚡️丙午·乙未·丙午·离卦-PROTOCOL-v1.0确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z主权锚定：#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL四层命名层级标识物理层VISION身份层UID9622主权层CONFIDENCE-AUDIT执行层PROTO",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163420128",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260803030027-b9a6f029",
+      "quality": 1.0
+    },
+    {
+      "title": "[特殊字符] 龍魂一键审计工具 ## 平台规则 vs 华夏法则 · 不对称战争审计引擎-CSDN博客",
+      "summary": "🔐 龍魂一键审计工具平台规则 vs 华夏法则 · 不对称战争审计引擎DNA追溯码：#龍芯⚡️丙午·癸未·己卯·革卦-AUDIT-ENGINE-v1.0-UID9622确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z📦 完整脚本#!/usr/bin/env python3# -*- coding: utf-8 -*-\"\"\" 龍魂一键审计工具 v1.0 平台规则 vs 华夏法",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163428513",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260803072346-e5fb2618",
+      "quality": 0.75
+    },
+    {
+      "title": "[特殊字符] 龍魂提示词路由器 · 完整引擎 动态路由 · 自我迭代 · 鲲鹏同步-CSDN博客",
+      "summary": "🐉 龍魂提示词路由器 · 完整引擎动态路由 · 自我迭代 · 鲲鹏同步DNA追溯码：#龍芯⚡️丙午·癸未·庚辰·ROUTER-ENGINE-v1.0-UID9622确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z主权锚定：#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL📦 完整脚本：lh_prompt_router.py#",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163428730",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260803080529-b7bdb892",
+      "quality": 0.75
+    },
+    {
+      "title": "龍魂博弈论 · 平台规则与华夏法则的不对称战争-CSDN博客",
+      "summary": "龍魂博弈论 · 平台规则与华夏法则的不对称战争DNA追溯码：#龍芯⚡️丙午·乙未·丁未·革卦-GAME-THEORY-v3.0确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z主权锚定：#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL四层命名层级标识物理层GAME-THEORY身份层UID9622主权层CIVIL-AUDIT",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163428505",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260803084851-31008edf",
+      "quality": 1.0
+    },
+    {
+      "title": "[特殊字符] 多方主权下的AI开放审计模型 ——基于龙魂系统的可验证治理架构（草案）-CSDN博客",
+      "summary": "🔐 多方主权下的AI开放审计模型——基于龙魂系统的可验证治理架构白皮书版本：v2.0（完整推演版）DNA追溯码：#龍芯⚡️2026-08-02-OPEN-AUDIT-WHITEPAPER-v2.0-UID9622确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772ZGPG签名：A2D0092CEE2E5BA87035600924C3704A8CC26D5F发布日期：2026年8",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163422009",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260803084851-443f756b",
+      "quality": 1.0
+    },
+    {
+      "title": "龍魂系统 · 多语法兼容引擎 v2.0-CSDN博客",
+      "summary": "龍魂系统 · 多语法兼容引擎 v2.0DNA追溯码：#龍芯⚡️丙午·乙未·丁未·革卦-SYNTAX-ENGINE-v2.0-UID9622确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z主权锚定：#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOULGPG指纹：A2D0092CEE2E5BA87035600924C3704A8C",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163430769",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260803101337-2213473b",
+      "quality": 0.75
+    },
+    {
+      "title": "整个龍魂系统变成一个“可被官网调用的AI问答服务”*-CSDN博客",
+      "summary": "整个龍魂系统变成一个“可被官网调用的AI问答服务”*知识私有化：回答基于你官网自己的文档 + 龙魂系统知识库能力私有化：审计、代码生成、卦象推演、知识检索等引擎全部可调用部署私有化：跑在你自己的服务器上，不走别人的SaaS设计独立化：黑金军规风格，不碰侵权线这是一个「官网AI助手 · 私有化部署方案」。🎯 整体架构┌─────────────────────────────────────────",
+      "source": "CSDN",
+      "source_id": "CN-011",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://uid9622-01.blog.csdn.net/article/details/163433559",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-011-20260803105703-13a8f7e8",
+      "quality": 0.75
+    },
+    {
       "title": "qiaomiaofly - 博客园",
       "summary": "qiaomiaofly - 博客园",
       "source": "博客园",
@@ -1776,6 +2128,18 @@
       "url": "https://www.infoq.cn",
       "fetched_at": "",
       "dna": "#龍芯⚡️CN-017-20260717180753-d077734f",
+      "quality": 1.0
+    },
+    {
+      "title": "InfoQ - 促进软件开发及相关领域知识与创新的传播-极客邦",
+      "summary": "AICon人工智能开发与应用大会｜深圳 Agentic AI｜Agentic UI｜AI 工业化落地｜AI 工程化与极致效能 🔥9折优惠立减580元！ QCon全球软件开发大会｜上海 Al Agent ｜Vibe Coding｜智能可观测｜推理基建｜模型攻防｜AI x创造力 🔥8折优惠立减1360元！ AICon人工智能开发与应用大会｜北京 多智能体协同｜模型推理优化｜AI 原生数据架构｜可信 A",
+      "source": "InfoQ中文",
+      "source_id": "CN-017",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://www.infoq.cn",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-017-20260803105842-617a0813",
       "quality": 1.0
     },
     {
@@ -2451,6 +2815,138 @@
       "quality": 1.0
     },
     {
+      "title": "量子位 &#8211; 追踪人工智能新趋势，报道科技行业新突破",
+      "summary": "AI for Science方向 OpenAI的RSI焚诀，它来了！ 李飞飞老师的World Labs，补了块关键拼图 WorkBuddy已成为国内最受欢迎的效率智能体工具之一 6位联合创始人——只剩2名。 中科院、北电数智等专家共探数学与AI边界 AI开始组团“挖漏洞” 让多智能体团队随时随地为你干活 从“工具效率”到“认知理解”，教育AI进入深水区 迷人的Scaling曲线 (●`ω`●)没有",
+      "source": "量子位",
+      "source_id": "CN-021",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://www.qbitai.com",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-021-20260731150155-395d8a19",
+      "quality": 1.0
+    },
+    {
+      "title": "量子位 &#8211; 追踪人工智能新趋势，报道科技行业新突破",
+      "summary": "AI for Science方向 OpenAI的RSI焚诀，它来了！ 李飞飞老师的World Labs，补了块关键拼图 要做硬核的事情，而非摘低垂的果实 WorkBuddy已成为国内最受欢迎的效率智能体工具之一 6位联合创始人——只剩2名。 中科院、北电数智等专家共探数学与AI边界 AI开始组团“挖漏洞” 让多智能体团队随时随地为你干活 把能力开放给Agent了 (●`ω`●)没有更多啦～ (●`",
+      "source": "量子位",
+      "source_id": "CN-021",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://www.qbitai.com",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-021-20260731153238-34e72d7b",
+      "quality": 1.0
+    },
+    {
+      "title": "量子位 &#8211; 追踪人工智能新趋势，报道科技行业新突破",
+      "summary": "行业独家的30s视频原生直出 尽显AGI黄金时代的奢华 AI for Science方向 OpenAI的RSI焚诀，它来了！ 李飞飞老师的World Labs，补了块关键拼图 要做硬核的事情，而非摘低垂的果实 WorkBuddy已成为国内最受欢迎的效率智能体工具之一 6位联合创始人——只剩2名。 中科院、北电数智等专家共探数学与AI边界 AI开始组团“挖漏洞” 让多智能体团队随时随地为你干活 (●",
+      "source": "量子位",
+      "source_id": "CN-021",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://www.qbitai.com",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-021-20260731170559-0ececfdb",
+      "quality": 1.0
+    },
+    {
+      "title": "量子位 &#8211; 追踪人工智能新趋势，报道科技行业新突破",
+      "summary": "开源项目GitHub狂揽8000+Star 行业独家的30s视频原生直出 尽显AGI黄金时代的奢华 AI for Science方向 OpenAI的RSI焚诀，它来了！ 李飞飞老师的World Labs，补了块关键拼图 要做硬核的事情，而非摘低垂的果实 WorkBuddy已成为国内最受欢迎的效率智能体工具之一 6位联合创始人——只剩2名。 中科院、北电数智等专家共探数学与AI边界 AI开始组团“挖",
+      "source": "量子位",
+      "source_id": "CN-021",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://www.qbitai.com",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-021-20260731174308-1225df60",
+      "quality": 1.0
+    },
+    {
+      "title": "量子位 &#8211; 追踪人工智能新趋势，报道科技行业新突破",
+      "summary": "三本教科书，救活英伟达 开源项目GitHub狂揽8000+Star 行业独家的30s视频原生直出 尽显AGI黄金时代的奢华 AI for Science方向 OpenAI的RSI焚诀，它来了！ 李飞飞老师的World Labs，补了块关键拼图 要做硬核的事情，而非摘低垂的果实 WorkBuddy已成为国内最受欢迎的效率智能体工具之一 6位联合创始人——只剩2名。 中科院、北电数智等专家共探数学与A",
+      "source": "量子位",
+      "source_id": "CN-021",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://www.qbitai.com",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-021-20260801132444-91d49d19",
+      "quality": 1.0
+    },
+    {
+      "title": "量子位 &#8211; 追踪人工智能新趋势，报道科技行业新突破",
+      "summary": "具身智能的τ（bushi） 三本教科书，救活英伟达 开源项目GitHub狂揽8000+Star 行业独家的30s视频原生直出 尽显AGI黄金时代的奢华 AI for Science方向 Claude code之父：大模型是有机生物，做好AI产品疏胜于堵 靠“堆参数换销量&#8221;的逻辑，不再管用了 OpenAI的RSI焚诀，它来了！ 李飞飞老师的World Labs，补了块关键拼图 要做硬核的",
+      "source": "量子位",
+      "source_id": "CN-021",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://www.qbitai.com",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-021-20260801232454-84a9245a",
+      "quality": 1.0
+    },
+    {
+      "title": "量子位 &#8211; 追踪人工智能新趋势，报道科技行业新突破",
+      "summary": "面向AI Agent的可迁移、自演进记忆操作层MindMemOS 具身智能的τ（bushi） 三本教科书，救活英伟达 开源项目GitHub狂揽8000+Star 行业独家的30s视频原生直出 尽显AGI黄金时代的奢华 AI for Science方向 Claude code之父：大模型是有机生物，做好AI产品疏胜于堵 靠“堆参数换销量&#8221;的逻辑，不再管用了 OpenAI的RSI焚诀，它来",
+      "source": "量子位",
+      "source_id": "CN-021",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://www.qbitai.com",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-021-20260803114001-c1b53fd7",
+      "quality": 1.0
+    },
+    {
+      "title": "量子位 &#8211; 追踪人工智能新趋势，报道科技行业新突破",
+      "summary": "由融中财经和秦创原科技创新投资集团主办的2026（第十二届）中国科创投资夏季峰会暨陕西科创产业生态大会圆满落下帷幕。 编程、专业工作、长程任务、多模态分析统统梭哈 阿里巴巴正式发布新一代基座大模型Qwen3.8，整体性能处于全球大模型第一梯队。Qwen3.8-Max预计下周开源，同时还将开源 Qwen3.8-27B。 阿里巴巴旗下“千问办公”（QwenWork）开启公测，个人和企业用户均可体验。用",
+      "source": "量子位",
+      "source_id": "CN-021",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://www.qbitai.com",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-021-20260803150132-57da165c",
+      "quality": 1.0
+    },
+    {
+      "title": "量子位 &#8211; 追踪人工智能新趋势，报道科技行业新突破",
+      "summary": "电工短缺已经成为我们在美国扩建数据中心的头号障碍 由融中财经和秦创原科技创新投资集团主办的2026（第十二届）中国科创投资夏季峰会暨陕西科创产业生态大会圆满落下帷幕。 编程、专业工作、长程任务、多模态分析统统梭哈 阿里巴巴正式发布新一代基座大模型Qwen3.8，整体性能处于全球大模型第一梯队。Qwen3.8-Max预计下周开源，同时还将开源 Qwen3.8-27B。 阿里巴巴旗下“千问办公”（Qw",
+      "source": "量子位",
+      "source_id": "CN-021",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://www.qbitai.com",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-021-20260803162849-0b43889c",
+      "quality": 1.0
+    },
+    {
+      "title": "量子位 &#8211; 追踪人工智能新趋势，报道科技行业新突破",
+      "summary": "电工短缺已经成为我们在美国扩建数据中心的头号障碍 由融中财经和秦创原科技创新投资集团主办的2026（第十二届）中国科创投资夏季峰会暨陕西科创产业生态大会圆满落下帷幕。 编程、专业工作、长程任务、多模态分析统统梭哈 阿里巴巴正式发布新一代基座大模型Qwen3.8，整体性能处于全球大模型第一梯队。Qwen3.8-Max预计下周开源，同时还将开源 Qwen3.8-27B。 阿里巴巴旗下“千问办公”（Qw",
+      "source": "量子位",
+      "source_id": "CN-021",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://www.qbitai.com",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-021-20260804020402-60bb8370",
+      "quality": 1.0
+    },
+    {
+      "title": "量子位 &#8211; 追踪人工智能新趋势，报道科技行业新突破",
+      "summary": "电工短缺已经成为我们在美国扩建数据中心的头号障碍 由融中财经和秦创原科技创新投资集团主办的2026（第十二届）中国科创投资夏季峰会暨陕西科创产业生态大会圆满落下帷幕。 编程、专业工作、长程任务、多模态分析统统梭哈 阿里巴巴正式发布新一代基座大模型Qwen3.8，整体性能处于全球大模型第一梯队。Qwen3.8-Max预计下周开源，同时还将开源 Qwen3.8-27B。 阿里巴巴旗下“千问办公”（Qw",
+      "source": "量子位",
+      "source_id": "CN-021",
+      "category": "科技与IT",
+      "category_id": "CN-02",
+      "url": "https://www.qbitai.com",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-021-20260804100556-7465b1ed",
+      "quality": 1.0
+    },
+    {
       "title": "&#x4E2D;&#x570B;&#x54F2;&#x5B78;&#x66F8;&#x96FB;&#x5B50;&#x5316;&#x8A08;&#x5283;",
       "summary": "This site is available in Chinese and English, as well as simplified and traditional Chinese characters - you can switch between these at any time using the links at the top left of the page.",
       "source": "中国哲学书电子化计划",
@@ -2569,23 +3065,48 @@
       "fetched_at": "",
       "dna": "#龍芯⚡️CN-060-20260731093940-df74e942",
       "quality": 0.5
+    },
+    {
+      "title": "å½å®¶ç»è®¡å±",
+      "summary": "2026å¹´7æä¸æ¬æµéé¢åéè¦çäº§èµæå¸åºä»·æ ¼åå¨æ åµ 2026å¹´7æä¸æ¬æµéé¢åéè¦çäº§èµæå¸åºä»·æ ¼åå¨æ åµ 2026å¹´7æä¸­å½éè´­ç»çææ°è¿è¡æ åµ 2026å¹´7",
+      "source": "国家统计局",
+      "source_id": "CN-060",
+      "category": "经济与金融",
+      "category_id": "CN-05",
+      "url": "https://www.stats.gov.cn",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-060-20260804100609-8b1e83c2",
+      "quality": 0.5
+    },
+    {
+      "title": "中华人民共和国国家卫生健康委员会",
+      "summary": "：中华人民共和国国家卫生健康委员会",
+      "source": "国家卫健委",
+      "source_id": "CN-064",
+      "category": "健康与医学",
+      "category_id": "CN-06",
+      "url": "https://www.nhc.gov.cn",
+      "fetched_at": "",
+      "dna": "#龍芯⚡️CN-064-20260804020418-d9a23798",
+      "quality": 0.75
     }
   ],
   "source_stats": {
-    "CSDN": 123,
-    "量子位": 54,
-    "央视网": 16,
-    "国家统计局": 6,
+    "CSDN": 148,
+    "量子位": 65,
+    "央视网": 19,
+    "国家统计局": 7,
+    "中国政府网": 2,
+    "InfoQ中文": 2,
     "机器之心": 2,
     "中国哲学书电子化计划": 2,
     "中国法院网": 2,
     "新华网": 1,
     "人民网": 1,
     "求是网": 1,
-    "中国政府网": 1,
     "博客园": 1,
     "开源中国": 1,
-    "InfoQ中文": 1
+    "国家卫健委": 1
   },
   "index_version": "v1.1",
   "quality_threshold": 0.4,

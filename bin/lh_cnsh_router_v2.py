@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # DNA: #龍芯⚡️丙午·乙未·乙丑·未济-FIX_DNA-v1.0
 #!/usr/bin/env python3
 #龍芯⚡️2026-07-12-CNSH-Router-v2.0-c3fda6f3

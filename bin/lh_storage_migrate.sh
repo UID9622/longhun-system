@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · 存储分离迁移脚本 v1.0
 # 将冷数据迁移到移动硬盘，活跃数据保留本地，代码同步到服务器
 # DNA: #龍芯⚡️2026-07-12-STORAGE-MIGRATE-v1.0

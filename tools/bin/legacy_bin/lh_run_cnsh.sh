@@ -1,4 +1,6 @@
 #!/bin/bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ═══════════════════════════════════════════════════════════════════════════════
 # 龍魂体系 · CNSH 中文原生脚本运行入口
 # DNA:#龍芯⚡️2026-06-16-CNSH-RUNNER-FILE1-v1.0

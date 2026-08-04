@@ -1,0 +1,18 @@
+[Unit]
+Description=龍魂·天线八闸 API :8769
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/longhun/longhun-system
+ExecStart=/var/www/longhun/longhun-system/venv/bin/python3 bin/lh_antenna_8gate_api.py --port 8769 --host 0.0.0.0
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/longhun/antenna-8gate.log
+StandardError=append:/var/log/longhun/antenna-8gate-error.log
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

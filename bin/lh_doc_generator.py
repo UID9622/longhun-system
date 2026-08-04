@@ -1,689 +1,397 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
-🐉 龍魂·系统文档生成器 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰-文档生成-v1.0
-CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-
-定位：系统说明页的标准结构生成器
-负责人格：🤖 宝宝
-职责：文档标准化、自动生成、批量处理
-
-核心功能：
-  1. 标准文档模板 — 包含所有必要信息
-  2. 交互式输入 — 逐步引导填写
-  3. 批量生成 — 从JSON批量创建
-  4. 文档版本管理 — 自动更新版本号
-  5. 导出多种格式 — Markdown/JSON/HTML
-  6. 关联链接自动生成 — 智能推荐
-  7. DNA自动生成 — 符合规范
-  8. 负责人格推荐 — 根据功能自动匹配
+🐉 龍魂 · 文档生成器 v1.0
+DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-DOC-GENERATOR-v1.0-UID9622
+创建者: 诸葛鑫（UID9622）
+协议: CC BY-NC-SA 4.0
+功能: 自动生成/更新系统文档（README.md / ARCHITECTURE.md / DIRECTORY_INDEX.md）
+用法: lh 文档生成 [--all] [--readme] [--architecture] [--index]
 """
 
-import json
-import uuid
-import hashlib
-import datetime
-import re
 import os
+import sys
+import json
+import time
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Any
-from dataclasses import dataclass, field, asdict
-from enum import Enum
-import argparse
+from datetime import datetime
+from typing import Dict, List
 
-# ============================================================
-# 一、数据结构
-# ============================================================
-
-@dataclass
-class 文档信息:
-    """文档信息"""
-    系统名称: str
-    DNA追溯码: str
-    确认码: str
-    版本: str
-    最后更新: str
-    系统定位: str
-    核心功能: List[str]
-    使用方式: str
-    负责人格: str
-    相关链接: List[Dict[str, str]]
-    创建时间: str = ""
-    标签: List[str] = field(default_factory=list)
-    依赖系统: List[str] = field(default_factory=list)
-    注意事项: List[str] = field(default_factory=list)
-
-@dataclass
-class 文档生成配置:
-    """文档生成配置"""
-    输出格式: str = "markdown"  # markdown, json, html
-    输出路径: str = "./docs"
-    自动版本: bool = True
-    包含示例: bool = True
-    包含关联: bool = True
-    模板风格: str = "standard"  # standard, minimal, detailed
+# ── 路径 ──
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DOCS_DIR = PROJECT_ROOT / "docs"
+DOCS_DIR.mkdir(parents=True, exist_ok=True)
 
 
-# ============================================================
-# 二、人格推荐器
-# ============================================================
-
-class 人格推荐器:
-    """根据功能自动推荐负责人格"""
-
-    人格映射 = {
-        "安全": "上帝之眼",
-        "审计": "上帝之眼",
-        "监控": "上帝之眼",
-        "检测": "上帝之眼",
-        "记忆": "宝宝",
-        "模板": "宝宝",
-        "文档": "宝宝",
-        "协调": "宝宝",
-        "决策": "诸葛亮",
-        "推演": "诸葛亮",
-        "战略": "诸葛亮",
-        "分析": "诸葛亮",
-        "执行": "鲁班",
-        "技术": "鲁班",
-        "开发": "鲁班",
-        "优化": "雯雯",
-        "整理": "雯雯",
-        "归档": "雯雯",
-        "治理": "文心",
-        "原则": "文心",
-        "哲学": "文心",
-        "计算": "数学大师",
-        "数据": "数学大师",
-        "财务": "管仲",
-    }
-
-    @classmethod
-    def 推荐(cls, 功能列表: List[str]) -> str:
-        """根据功能列表推荐人格"""
-        人格投票 = {}
-
-        for 功能 in 功能列表:
-            for 关键词, 人格 in cls.人格映射.items():
-                if 关键词 in 功能:
-                    人格投票[人格] = 人格投票.get(人格, 0) + 1
-
-        if not 人格投票:
-            return "宝宝"  # 默认
-
-        return max(人格投票, key=人格投票.get)
+def get_git_info() -> Dict:
+    """获取Git基本信息"""
+    import subprocess
+    info = {"branch": "unknown", "last_commit": "unknown", "commits": "?"}
+    try:
+        r = subprocess.run(["git", "branch", "--show-current"],
+                           capture_output=True, text=True, cwd=PROJECT_ROOT)
+        info["branch"] = r.stdout.strip() or "unknown"
+    except Exception:
+        pass
+    try:
+        r = subprocess.run(["git", "log", "-1", "--format=%h %s"],
+                           capture_output=True, text=True, cwd=PROJECT_ROOT)
+        info["last_commit"] = r.stdout.strip() or "unknown"
+    except Exception:
+        pass
+    try:
+        r = subprocess.run(["git", "rev-list", "--count", "HEAD"],
+                           capture_output=True, text=True, cwd=PROJECT_ROOT)
+        info["commits"] = r.stdout.strip() or "?"
+    except Exception:
+        pass
+    return info
 
 
-# ============================================================
-# 三、DNA生成器
-# ============================================================
-
-class DNA生成器:
-    """自动生成符合规范的DNA追溯码"""
-
-    @classmethod
-    def 生成(cls, 系统名称: str = "", 系统类型: str = "") -> str:
-        """生成DNA追溯码"""
-        today = datetime.datetime.now().strftime("%Y-%m-%d")
-        前缀 = "#龍芯⚡️"
-        today_str = today
-
-        # 从系统名称提取标识
-        if 系统名称:
-            标识 = 系统名称[:8].replace(" ", "-")
-        elif 系统类型:
-            标识 = 系统类型[:8].replace(" ", "-")
-        else:
-            标识 = "DOC"
-
-        后缀 = uuid.uuid4().hex[:6].upper()
-        return f"{前缀}{today_str}-{标识}-{后缀}"
+def count_py_files() -> int:
+    """统计bin/下Python文件数"""
+    bin_dir = PROJECT_ROOT / "bin"
+    return len(list(bin_dir.glob("*.py"))) if bin_dir.exists() else 0
 
 
-# ============================================================
-# 四、确认码生成器
-# ============================================================
-
-class 确认码生成器:
-    """生成确认码"""
-
-    @classmethod
-    def 生成(cls) -> str:
-        """生成确认码"""
-        后缀 = uuid.uuid4().hex[:6].upper()
-        return f"#CONFIRM🌌9622-{后缀}"
+def count_skills() -> int:
+    """统计技能数"""
+    skills_dir = PROJECT_ROOT / "01_技能庫"
+    return len(list(skills_dir.glob("*.md"))) + len(list(skills_dir.glob("*.py"))) if skills_dir.exists() else 0
 
 
-# ============================================================
-# 五、文档生成器
-# ============================================================
+def generate_readme():
+    """生成 docs/README.md"""
+    git = get_git_info()
+    py_count = count_py_files()
+    skill_count = count_skills()
+    now = datetime.now().strftime("%Y-%m-%d %H:%M")
 
-class 文档生成器:
-    """标准文档生成器"""
+    content = f"""# 🐉 龍魂系统 · 项目总览
 
-    def __init__(self, 配置: Optional[文档生成配置] = None):
-        self.配置 = 配置 or 文档生成配置()
-        self.输出目录 = Path(self.配置.输出路径)
-        self.输出目录.mkdir(parents=True, exist_ok=True)
+> DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-README-v1.0
+> 创建者: 诸葛鑫（UID9622）
+> 协议: CC BY-NC-SA 4.0
+> 自动生成时间: {now}
 
-    def 生成(self, 信息: 文档信息) -> Dict:
-        """生成完整文档"""
-        # 自动补充缺失信息
-        信息 = self._补全信息(信息)
+---
 
-        # 根据格式生成
-        if self.配置.输出格式 == "markdown":
-            内容 = self._生成Markdown(信息)
-        elif self.配置.输出格式 == "json":
-            内容 = self._生成JSON(信息)
-        elif self.配置.输出格式 == "html":
-            内容 = self._生成HTML(信息)
-        else:
-            内容 = self._生成Markdown(信息)
+## 一句话
 
-        # 保存文件
-        文件路径 = self._保存文件(信息.系统名称, 内容)
+**龍魂**是一个以中华哲学为底座、以AI自治为核心的个人系统基础设施。
+覆盖：人格矩阵(20人格)·审计体系(三色+十闸)·安全(四级熔断)·部署(鲲鹏+Mac双栈)·知识中枢·搜索引擎·流场融合。
 
-        return {
-            "状态": "成功",
-            "信息": asdict(信息),
-            "内容": 内容,
-            "文件路径": str(文件路径),
-            "格式": self.配置.输出格式
-        }
+## 快速开始
 
-    def _补全信息(self, 信息: 文档信息) -> 文档信息:
-        """补全缺失信息"""
-        # 补全DNA
-        if not 信息.DNA追溯码:
-            信息.DNA追溯码 = DNA生成器.生成(信息.系统名称)
+```bash
+# 查看系统状态
+lh --status
 
-        # 补全确认码
-        if not 信息.确认码:
-            信息.确认码 = 确认码生成器.生成()
+# 启用所有服务
+bash bin/start_all.sh
 
-        # 补全版本
-        if not 信息.版本:
-            信息.版本 = "v1.0"
+# 查看所有端口
+lh 端口状态
 
-        # 补全最后更新
-        if not 信息.最后更新:
-            信息.最后更新 = datetime.datetime.now().strftime("%Y-%m-%d")
+# 健康巡检
+lh 健康检查
+```
 
-        # 补全负责人格
-        if not 信息.负责人格:
-            信息.负责人格 = 人格推荐器.推荐(信息.核心功能)
+## 系统规模
 
-        # 补全创建时间
-        if not 信息.创建时间:
-            信息.创建时间 = datetime.datetime.now().isoformat()
+| 维度 | 数量 |
+|:---|:---:|
+| Python引擎 | {py_count}+ |
+| 技能 | {skill_count}+ |
+| 人格 | 20 (16核心+1安全+3子系统) |
+| 协议文档 | 200+ |
+| Mac launchd服务 | 52 |
+| 鲲鹏 systemd服务 | 37 |
 
-        return 信息
+## 核心架构
 
-    def _生成Markdown(self, 信息: 文档信息) -> str:
-        """生成Markdown格式"""
-        行 = []
+```
+L0 物理层 → Mac(本地) + 鲲鹏(119.13.90.27)
+L1 守护层 → P72龙盾·P05审计·P77黑天使
+L2 路由层 → P00文心·P13姜子牙·八卦路由
+L3 执行层 → P04鲁班·P14吕蒙·P07管仲
+L4 数据层 → SQLite·JSONL·知识中枢
+L5 API层  → FastAPI多端口·流场融合
+L6 网关层 → 搜索:9631·天线:8769·安全:8848
+L7 展示层 → portal/·dashboard/·统一控制台:8999
+```
 
-        # 标题
-        行.append(f"# {信息.系统名称}")
-        行.append("")
-        行.append(f"**DNA追溯码**：{信息.DNA追溯码}")
-        行.append(f"**确认码**：{信息.确认码}")
-        行.append(f"**版本**：{信息.版本}")
-        行.append(f"**最后更新**：{信息.最后更新}")
-        行.append("")
-        行.append("---")
-        行.append("")
-        if 信息.标签:
-            行.append(f"**标签**：{', '.join(信息.标签)}")
-            行.append("")
-        行.append("## 系统定位")
-        行.append("")
-        行.append(信息.系统定位)
-        行.append("")
-        行.append("## 核心功能")
-        行.append("")
-        for idx, 功能 in enumerate(信息.核心功能, 1):
-            行.append(f"{idx}. {功能}")
-        行.append("")
-        行.append("## 使用方式")
-        行.append("")
-        行.append(信息.使用方式)
-        行.append("")
-        行.append("## 负责人格")
-        行.append("")
-        行.append(f"👤 {信息.负责人格}")
-        行.append("")
+## 关键端口
 
-        if 信息.依赖系统:
-            行.append("## 依赖系统")
-            行.append("")
-            for 依赖 in 信息.依赖系统:
-                行.append(f"- {依赖}")
-            行.append("")
+| 端口 | 服务 |
+|:---:|:---|
+| 8766 | 知识中枢 |
+| 8769 | 天线八闸 |
+| 8771 | 审计引擎 |
+| 8777 | 流场融合桥接 |
+| 8799 | 主权验证 |
+| 8848 | 安全网关 |
+| 8999 | 统一控制台 |
+| 9631 | 搜索网关 |
+| 11434 | Ollama推理 |
 
-        if 信息.注意事项:
-            行.append("## 注意事项")
-            行.append("")
-            for 注意 in 信息.注意事项:
-                行.append(f"- {注意}")
-            行.append("")
+## 常用命令
 
-        if 信息.相关链接:
-            行.append("## 相关链接")
-            行.append("")
-            for 链接 in 信息.相关链接:
-                行.append(f"- {链接.get('名称', '链接')}: {链接.get('URL', '')}")
-            行.append("")
+```bash
+lh                    # 交互控制台
+lh --status           # 系统状态
+lh 端口状态            # Mac端口矩阵
+lh 鲲鹏状态            # 鲲鹏服务器状态
+lh 引擎验证            # 全量引擎健康验证
+lh 健康检查            # 巡检+告警
+lh 控制台 --web        # 启动Web仪表盘
+lh 流场注入 --all      # 31引擎全量注入
+```
 
-        行.append("---")
-        行.append("")
-        行.append(f"*创建时间：{信息.创建时间}*")
+## 文档索引
 
-        return "\n".join(行)
+- `docs/ARCHITECTURE.md` — 系统架构详解
+- `docs/DIRECTORY_INDEX.md` — 完整目录导航
+- `.codebuddy/COMMAND_INDEX.md` — 命令总目（毫秒级速查）
+- `.codebuddy/memory/MEMORY.md` — 长期记忆
+- `STATE.md` — 当前状态·唯一实时入口
 
-    def _生成JSON(self, 信息: 文档信息) -> str:
-        """生成JSON格式"""
-        return json.dumps(asdict(信息), ensure_ascii=False, indent=2)
+## Git信息
 
-    def _生成HTML(self, 信息: 文档信息) -> str:
-        """生成HTML格式"""
-        html = f"""<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{信息.系统名称}</title>
-    <style>
-        body {{ font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.8; }}
-        h1 {{ color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }}
-        h2 {{ color: #34495e; margin-top: 30px; }}
-        .dna {{ background: #f8f9fa; padding: 10px 15px; border-radius: 5px; font-family: monospace; }}
-        .tag {{ display: inline-block; background: #e8f4f8; padding: 2px 10px; border-radius: 12px; margin: 2px; font-size: 14px; }}
-        .meta {{ color: #7f8c8d; font-size: 14px; }}
-        .function {{ padding: 5px 0; }}
-        .persona {{ font-size: 18px; color: #2c3e50; }}
-        hr {{ border: none; border-top: 1px solid #ecf0f1; margin: 30px 0; }}
-    </style>
-</head>
-<body>
-    <h1>🐉 {信息.系统名称}</h1>
-    <div class="meta">
-        <p><strong>DNA追溯码：</strong><span class="dna">{信息.DNA追溯码}</span></p>
-        <p><strong>确认码：</strong><span class="dna">{信息.确认码}</span></p>
-        <p><strong>版本：</strong>{信息.版本} | <strong>最后更新：</strong>{信息.最后更新}</p>
-        <p>"""
-        if 信息.标签:
-            html += "标签："
-            for 标签 in 信息.标签:
-                html += f'<span class="tag">{标签}</span> '
-        html += f"""</p>
-    </div>
+- 分支: `{git['branch']}`
+- 最新提交: `{git['last_commit']}`
+- 总提交数: `{git['commits']}`
 
-    <hr>
+---
 
-    <h2>🎯 系统定位</h2>
-    <p>{信息.系统定位}</p>
-
-    <h2>⚡ 核心功能</h2>
-    <ul>
+> #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+> GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 """
-        for 功能 in 信息.核心功能:
-            html += f'        <li class="function">{功能}</li>\n'
-        html += f"""    </ul>
+    path = DOCS_DIR / "README.md"
+    path.write_text(content)
+    print(f"✅ docs/README.md 已生成")
 
-    <h2>📖 使用方式</h2>
-    <p>{信息.使用方式}</p>
 
-    <h2>👤 负责人格</h2>
-    <p class="persona">{信息.负责人格}</p>
+def generate_architecture():
+    """生成 docs/ARCHITECTURE.md"""
+    now = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+    content = f"""# 🐉 龍魂系统 · 架构文档
+
+> DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-ARCHITECTURE-v1.0
+> 创建者: 诸葛鑫（UID9622）
+> 协议: CC BY-NC-SA 4.0
+> 自动生成时间: {now}
+
+---
+
+## 1. 总览
+
+龍魂系统采用**九层洛书架构**，双栈部署（Mac本地 + 鲲鹏云端），以流场融合桥接实现跨栈统一调度。
+
+## 2. 九层架构
+
+### L0 · 物理层
+- **Mac本地**: macOS (Apple Silicon), launchd守护进程管理
+- **鲲鹏云端**: 华为云 TaiShan 200 (ARM64), systemd服务管理
+- **SSH隧道**: 5条持久化隧道，实现双栈互联
+
+### L1 · 守护层
+- **P72龙盾**: 四级熔断（∞伦理/L1数据/L2人格/L3行为）
+- **P05上帝之眼**: 三色审计·十道闸口
+- **P77黑天使军团**: 红蓝对抗·安全渗透（仅自用）
+
+### L2 · 路由层
+- **P00文心**: 意图解析(10%)，自动分发到执行人格
+- **P13姜子牙**: 封神榜权限分配·IPA路由
+- **八卦路由**: 乾·坤·震·巽·坎·离·艮·兑 64卦路由
+
+### L3 · 执行层
+- **P04鲁班**: 技术执行·代码生成·架构搭建
+- **P14吕蒙**: 部署执行·快速成长
+- **P07管仲**: 资源调度·成本核算·ROI分析
+- **P02宝宝**: 情感温度引擎·30%情感隔离
+- **P03雯雯**: 结构归档·四签验证
+
+### L4 · 数据层
+- **知识中枢** (:8766): 统一知识检索
+- **记忆服务** (:8779): 长期记忆持久化
+- **审计日志**: JSONL append-only
+
+### L5 · API层
+- 多FastAPI服务端口
+- **流场融合桥接** (:8777): 全引擎统一注入·翻译矩阵
+- **天线八闸** (:8769): 外部信号接收
+- **量子卦象API** (:9000): 64卦希尔伯特空间
+
+### L6 · 网关层
+- **搜索网关** (:9631): Bing搜索·缓存·来源审计
+- **安全网关** (:8848): 请求过滤·入侵检测
+- **主权验证** (:8799): 数据主权确认
+
+### L7 · 展示层
+- **portal/**: 前端门户
+- **dashboard/**: 实时仪表盘
+- **统一控制台** (:8999): Web监控面板
+
+### L8 · 治理层
+- 协议体系 (200+文档)
+- 德本审计五问
+- GPG签章·DNA追溯
+
+### L9 · 进化层
+- 自愈引擎
+- 自适应微调
+- 知识自举·数据造血
+
+## 3. 技术栈
+
+| 层 | 技术 |
+|:---|:---|
+| 语言 | Python 3 / CNSH / Bash |
+| AI推理 | Ollama (本地) + 混元/DeepSeek (云端) |
+| 前端 | 纯HTML·暗色龍魂金主题 |
+| 数据库 | SQLite / JSONL |
+| 安全 | GPG / AES-256 / SM2 / SHA-256 |
+| 部署 | launchd (Mac) + systemd (鲲鹏) |
+
+## 4. 数据流
+
+```
+用户意图 → P00解析 → 人格路由 → 引擎执行
+    → P05审计(三色) → P15签章(GPG) → P03归档
+    → 流场融合桥接(:8777) → 各引擎注入
+    → 健康检查巡检 → 告警推送(Bark/飞书)
+```
+
+## 5. 安全边界
+
+- D1(绝密)数据永不入云
+- D2(机密)端侧国密加密后入云
+- 本地优先·能本地不上云
+- 跨境API走P77出口审查
+- 四级熔断自动降级
+
+---
+
+> #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
+    path = DOCS_DIR / "ARCHITECTURE.md"
+    path.write_text(content)
+    print(f"✅ docs/ARCHITECTURE.md 已生成")
 
-        if 信息.依赖系统:
-            html += f"""    <h2>🔗 依赖系统</h2>
-    <ul>
+
+def generate_index():
+    """生成 docs/DIRECTORY_INDEX.md"""
+    now = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+    content = f"""# 🐉 龍魂系统 · 目录导航
+
+> DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-DIRECTORY-INDEX-v1.0
+> 自动生成: {now}
+
+---
+
+## 目录结构
+
+```
+longhun-system/
+├── 01_protocols/      # 协议文档（200+）
+│   ├── LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md  # 20人格治理白皮书
+│   ├── LH-DEBEN-AUDIT-v1.0.md                     # 德本审计协议
+│   ├── LH-M261-PREQUEL-COVENANT-v1.0.md           # 全权授权令
+│   └── ...
+├── 01_技能庫/          # 技能定义（45+）
+├── bin/                # 可执行脚本（200+）
+│   ├── lh              # 统一命令入口 (Shell wrapper)
+│   ├── lh.py           # Python主入口
+│   ├── lh_engine_verify.py     # 业务引擎验证
+│   ├── lh_alert_engine.py      # 告警引擎
+│   ├── lh_unified_console.py   # 统一控制台
+│   ├── lh_permission_manager.py # 权限管理
+│   ├── lh_health_check.py      # 健康检查
+│   └── ...
+├── deploy/             # 部署脚本
+│   ├── scripts/DEPLOY.md       # 鲲鹏十步法
+│   ├── scripts/health_check.sh # 鲲鹏健康检查
+│   └── ...
+├── docs/               # 系统文档
+│   ├── README.md               # 项目总览
+│   ├── ARCHITECTURE.md         # 架构文档
+│   └── DIRECTORY_INDEX.md      # 本文件
+├── portal/             # 前端门户
+├── dashboard/          # 仪表盘
+├── engines/            # 引擎实现
+├── apps/               # 应用
+├── audit/              # 审计日志
+├── papers/             # 学术论文
+├── reports/            # 报告
+├── web/                # Web应用
+├── .codebuddy/         # CodeBuddy配置
+│   ├── COMMAND_INDEX.md         # 命令总目
+│   ├── memory/MEMORY.md         # 长期记忆
+│   ├── longhun_neural_net.json  # 系统拓扑
+│   └── rules/                   # 对齐规则
+├── STATE.md            # 当前状态·唯一实时入口
+├── CONSTITUTION.md     # 系统宪法
+├── GOVERNANCE.md       # 治理文档
+├── AGENTS.md           # AI操作手册
+└── P0_ETERNAL_LOCK.md  # 永恒锁
+```
+
+## 关键入口
+
+| 需要什么 | 去哪里 |
+|:---|:---|
+| 所有命令速查 | `.codebuddy/COMMAND_INDEX.md` |
+| 系统实时状态 | `STATE.md` |
+| 长期记忆 | `.codebuddy/memory/MEMORY.md` |
+| 人格矩阵 | `01_protocols/LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md` |
+| 部署指南 | `deploy/scripts/DEPLOY.md` |
+| 系统拓扑 | `.codebuddy/longhun_neural_net.json` |
+| AI操作铁律 | `AGENTS.md` |
+| 德本审计 | `01_protocols/LH-DEBEN-AUDIT-v1.0.md` |
+
+---
+
+> #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
-            for 依赖 in 信息.依赖系统:
-                html += f'        <li>{依赖}</li>\n'
-            html += f"""    </ul>
-"""
-
-        if 信息.注意事项:
-            html += f"""    <h2>⚠️ 注意事项</h2>
-    <ul>
-"""
-            for 注意 in 信息.注意事项:
-                html += f'        <li>{注意}</li>\n'
-            html += f"""    </ul>
-"""
-
-        if 信息.相关链接:
-            html += f"""    <h2>🔗 相关链接</h2>
-    <ul>
-"""
-            for 链接 in 信息.相关链接:
-                html += f'        <li><a href="{链接.get("URL", "")}">{链接.get("名称", "链接")}</a></li>\n'
-            html += f"""    </ul>
-"""
-
-        html += f"""
-    <hr>
-    <p class="meta">创建时间：{信息.创建时间}</p>
-</body>
-</html>"""
-        return html
-
-    def _保存文件(self, 系统名称: str, 内容: str) -> Path:
-        """保存文件"""
-        safe_name = 系统名称.replace(" ", "_").replace("/", "_")
-        ext = {
-            "markdown": "md",
-            "json": "json",
-            "html": "html"
-        }.get(self.配置.输出格式, "md")
-
-        文件名 = f"{safe_name}.{ext}"
-        文件路径 = self.输出目录 / 文件名
-
-        # 处理重名
-        counter = 1
-        while 文件路径.exists():
-            文件名 = f"{safe_name}_{counter}.{ext}"
-            文件路径 = self.输出目录 / 文件名
-            counter += 1
-
-        with open(文件路径, 'w', encoding='utf-8') as f:
-            f.write(内容)
-
-        return 文件路径
+    path = DOCS_DIR / "DIRECTORY_INDEX.md"
+    path.write_text(content)
+    print(f"✅ docs/DIRECTORY_INDEX.md 已生成")
 
 
-# ============================================================
-# 六、批量生成器
-# ============================================================
+def generate_all():
+    """生成全部文档"""
+    print("🐉 龍魂 · 文档生成器")
+    print("=" * 50)
+    generate_readme()
+    generate_architecture()
+    generate_index()
+    print("=" * 50)
+    print("✅ 全部文档已生成到 docs/ 目录")
 
-class 批量生成器:
-    """从JSON批量生成文档"""
-
-    def __init__(self):
-        self.生成器 = 文档生成器()
-
-    def 从JSON(self, json_路径: str) -> List[Dict]:
-        """从JSON文件批量生成"""
-        with open(json_路径, 'r', encoding='utf-8') as f:
-            数据 = json.load(f)
-
-        结果列表 = []
-
-        if isinstance(数据, list):
-            for 项 in 数据:
-                信息 = 文档信息(
-                    系统名称=项.get("系统名称", "未命名系统"),
-                    DNA追溯码=项.get("DNA追溯码", ""),
-                    确认码=项.get("确认码", ""),
-                    版本=项.get("版本", ""),
-                    最后更新=项.get("最后更新", ""),
-                    系统定位=项.get("系统定位", ""),
-                    核心功能=项.get("核心功能", []),
-                    使用方式=项.get("使用方式", ""),
-                    负责人格=项.get("负责人格", ""),
-                    相关链接=项.get("相关链接", []),
-                    创建时间=项.get("创建时间", ""),
-                    标签=项.get("标签", []),
-                    依赖系统=项.get("依赖系统", []),
-                    注意事项=项.get("注意事项", [])
-                )
-                结果 = self.生成器.生成(信息)
-                结果列表.append(结果)
-        else:
-            # 单个对象
-            信息 = 文档信息(
-                系统名称=数据.get("系统名称", "未命名系统"),
-                DNA追溯码=数据.get("DNA追溯码", ""),
-                确认码=数据.get("确认码", ""),
-                版本=数据.get("版本", ""),
-                最后更新=数据.get("最后更新", ""),
-                系统定位=数据.get("系统定位", ""),
-                核心功能=数据.get("核心功能", []),
-                使用方式=数据.get("使用方式", ""),
-                负责人格=数据.get("负责人格", ""),
-                相关链接=数据.get("相关链接", []),
-                创建时间=数据.get("创建时间", ""),
-                标签=数据.get("标签", []),
-                依赖系统=数据.get("依赖系统", []),
-                注意事项=数据.get("注意事项", [])
-            )
-            结果 = self.生成器.生成(信息)
-            结果列表.append(结果)
-
-        return 结果列表
-
-
-# ============================================================
-# 七、交互式输入
-# ============================================================
-
-class 交互式输入:
-    """交互式引导输入"""
-
-    @classmethod
-    def 引导(cls) -> 文档信息:
-        """引导用户输入"""
-        print("\n" + "=" * 60)
-        print("🐉 龙魂·系统文档生成器 - 交互模式")
-        print("=" * 60)
-
-        # 系统名称
-        名称 = input("📌 系统名称: ").strip()
-        while not 名称:
-            名称 = input("❌ 系统名称不能为空，请重新输入: ").strip()
-
-        # 系统定位
-        定位 = input("📝 系统定位（一句话描述）: ").strip()
-        while not 定位:
-            定位 = input("❌ 系统定位不能为空: ").strip()
-
-        # 核心功能
-        print("\n📋 核心功能（每行一个，输入空行结束）:")
-        功能列表 = []
-        while True:
-            功能 = input("  - ").strip()
-            if not 功能:
-                break
-            功能列表.append(功能)
-        if not 功能列表:
-            功能列表 = ["待补充"]
-
-        # 使用方式
-        使用方式 = input("\n📖 使用方式: ").strip()
-        while not 使用方式:
-            使用方式 = input("❌ 使用方式不能为空: ").strip()
-
-        # 负责人格（可选）
-        负责人格 = input("\n👤 负责人格（回车自动推荐）: ").strip()
-        if not 负责人格:
-            负责人格 = 人格推荐器.推荐(功能列表)
-            print(f"   🤖 自动推荐: {负责人格}")
-
-        # 标签
-        标签输入 = input("\n🏷️ 标签（用逗号分隔，可选）: ").strip()
-        标签 = [t.strip() for t in 标签输入.split(',') if t.strip()] if 标签输入 else []
-
-        # 确认
-        print("\n" + "=" * 60)
-        print("📋 文档信息确认:")
-        print(f"  名称: {名称}")
-        print(f"  定位: {定位}")
-        print(f"  功能: {len(功能列表)} 项")
-        print(f"  人格: {负责人格}")
-        if 标签:
-            print(f"  标签: {', '.join(标签)}")
-
-        确认 = input("\n✅ 确认生成? (y/n): ").strip().lower()
-        if 确认 != 'y':
-            print("❌ 已取消")
-            return None
-
-        return 文档信息(
-            系统名称=名称,
-            DNA追溯码="",
-            确认码="",
-            版本="",
-            最后更新="",
-            系统定位=定位,
-            核心功能=功能列表,
-            使用方式=使用方式,
-            负责人格=负责人格,
-            相关链接=[],
-            创建时间="",
-            标签=标签,
-            依赖系统=[],
-            注意事项=[]
-        )
-
-
-# ============================================================
-# 八、命令行入口
-# ============================================================
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="🐉 龍魂·系统文档生成器",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-示例:
-  # 交互式生成
-  python3 lh_doc_generator.py --interactive
-
-  # 从参数生成
-  python3 lh_doc_generator.py --name "安全检查引擎" --desc "安全风险评估" --func "检查设备" "评估风险" --usage "python3 script.py"
-
-  # 从JSON批量生成
-  python3 lh_doc_generator.py --batch docs.json
-
-  # 指定输出格式
-  python3 lh_doc_generator.py --name "测试文档" --desc "描述" --func "功能1" --output-format html
-
-  # 查看示例
-  python3 lh_doc_generator.py --example
-        """
-    )
-
-    parser.add_argument("--name", type=str, help="系统名称")
-    parser.add_argument("--desc", type=str, help="系统定位描述")
-    parser.add_argument("--func", nargs="+", help="核心功能列表")
-    parser.add_argument("--usage", type=str, help="使用方式")
-    parser.add_argument("--persona", type=str, help="负责人格")
-    parser.add_argument("--tags", type=str, help="标签（逗号分隔）")
-    parser.add_argument("--output-format", "-f", type=str, choices=["markdown", "json", "html"], default="markdown", help="输出格式")
-    parser.add_argument("--output-dir", "-o", type=str, default="./docs", help="输出目录")
-    parser.add_argument("--batch", "-b", type=str, help="批量生成JSON文件路径")
-    parser.add_argument("--interactive", "-i", action="store_true", help="交互模式")
-    parser.add_argument("--example", "-e", action="store_true", help="显示示例")
-    parser.add_argument("--json-output", action="store_true", help="以JSON格式输出结果")
-
+    import argparse
+    parser = argparse.ArgumentParser(description="🐉 龍魂·文档生成器")
+    parser.add_argument("--all", action="store_true", help="生成全部文档")
+    parser.add_argument("--readme", action="store_true", help="只生成 README.md")
+    parser.add_argument("--architecture", action="store_true", help="只生成 ARCHITECTURE.md")
+    parser.add_argument("--index", action="store_true", help="只生成 DIRECTORY_INDEX.md")
     args = parser.parse_args()
 
-    # 显示示例
-    if args.example:
-        print("""
-📋 示例文档:
-
-# 安全检查引擎
-
-**DNA追溯码**：#龍芯⚡️2026-07-30-安全检查-1A2B3C4D
-**确认码**：#CONFIRM🌌9622-1A2B3C4D
-**版本**：v1.0
-**最后更新**：2026-07-30
-
----
-
-## 系统定位
-
-对设备、系统、数据访问进行安全风险评估，给出防护建议和执行动作。
-
-## 核心功能
-
-1. 扫描目标设备信息
-2. 隐私泄露风险评估
-3. 账号安全检查
-4. 系统越界检测
-
-## 使用方式
-
-python3 lh_security_auditor.py --check "设备名" --info '{...}'
-
----
-
-*负责人格：上帝之眼*
-
-JSON批量生成示例:
-{
-  "系统名称": "安全检查引擎",
-  "系统定位": "安全风险评估",
-  "核心功能": ["功能1", "功能2"],
-  "使用方式": "python3 script.py"
-}
-        """)
-        return
-
-    # 交互模式
-    if args.interactive:
-        信息 = 交互式输入.引导()
-        if not 信息:
-            return
-        配置 = 文档生成配置(输出格式=args.output_format, 输出路径=args.output_dir)
-        生成器 = 文档生成器(配置)
-        结果 = 生成器.生成(信息)
-        print(f"\n✅ 文档已生成: {结果['文件路径']}")
-        return
-
-    # 批量模式
-    if args.batch:
-        批量 = 批量生成器()
-        结果列表 = 批量.从JSON(args.batch)
-        print(f"\n✅ 批量生成完成: {len(结果列表)} 个文档")
-        for 结果 in 结果列表:
-            print(f"  - {结果['文件路径']}")
-        return
-
-    # 从参数生成
-    if args.name and args.desc and args.func:
-        信息 = 文档信息(
-            系统名称=args.name,
-            DNA追溯码="",
-            确认码="",
-            版本="",
-            最后更新="",
-            系统定位=args.desc,
-            核心功能=args.func,
-            使用方式=args.usage or "待补充",
-            负责人格=args.persona or "",
-            相关链接=[],
-            创建时间="",
-            标签=[t.strip() for t in args.tags.split(',')] if args.tags else [],
-            依赖系统=[],
-            注意事项=[]
-        )
-
-        配置 = 文档生成配置(
-            输出格式=args.output_format,
-            输出路径=args.output_dir
-        )
-        生成器 = 文档生成器(配置)
-        结果 = 生成器.生成(信息)
-
-        if args.json_output:
-            print(json.dumps(结果, ensure_ascii=False, indent=2))
-        else:
-            print(f"\n✅ 文档已生成: {结果['文件路径']}")
-            print(f"📋 DNA: {结果['信息']['DNA追溯码']}")
-            print(f"👤 负责人: {结果['信息']['负责人格']}")
-        return
-
-    # 无参数时显示帮助
-    parser.print_help()
+    if args.all or (not args.readme and not args.architecture and not args.index):
+        generate_all()
+    else:
+        if args.readme:
+            generate_readme()
+        if args.architecture:
+            generate_architecture()
+        if args.index:
+            generate_index()
 
 
 if __name__ == "__main__":

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ============================================================
 # 龍魂 · 视频工坊 / 引擎主控仪表盘 · 鲲鹏服务器一键部署
 # DNA: #龍芯⚡️丙午·辛未·DEPLOY-VIDEO-STUDIO-KUNPENG-v1.1

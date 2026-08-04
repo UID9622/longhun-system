@@ -1,4 +1,5 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
 # 龍魂系统·每周备份脚本 v1.0
 # DNA:#龍芯⚡️2026-06-07-WEEKLY-BACKUP-v1.0

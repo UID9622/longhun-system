@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 编译龍码中文编辑器桌面 App
 # DNA:#龍芯⚡️2026-06-18-LONGHUN-BUILD-CHINESE-EDITOR-FILE1-v1.0
 

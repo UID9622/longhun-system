@@ -1,0 +1,100 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+{
+  "seed": 9622,
+  "run_date": "2026-08-02",
+  "n": 1000000,
+  "numpy_available": true,
+  "primes_count": 78498,
+  "fallback_used": false,
+  "dr_assertion_passed": true,
+  "freq": {
+    "1": 13063,
+    "2": 13099,
+    "4": 13070,
+    "5": 13068,
+    "7": 13098,
+    "8": 13099
+  },
+  "wuxing_distribution": {
+    "水": 13063,
+    "火": 26197,
+    "木": 13099,
+    "金": 13070,
+    "土": 13068
+  },
+  "eigenvalues": [
+    1.0,
+    -0.095617,
+    -0.095617,
+    -0.099547,
+    -0.099547,
+    -0.16381
+  ],
+  "principal_eigenvalue": 1.0,
+  "stationary_distribution": [
+    0.166419,
+    0.166862,
+    0.166508,
+    0.16647,
+    0.166862,
+    0.166878
+  ],
+  "chi_square": 0.117011,
+  "chi_verdict": "接受 H0（均匀）",
+  "goldbach_fails": 0,
+  "goldbach_max_verified": 999999,
+  "goldbach_total_checked": 499997,
+  "sum_primes": 37550402023,
+  "audit_root": 4,
+  "audit_wuxing": "金",
+  "audit_tricolor": "🟢",
+  "audit_details": [
+    {
+      "pass": true,
+      "msg": "dr(Σp)=4 与 dr(Σdr(p))=4 一致性"
+    },
+    {
+      "pass": true,
+      "msg": "dr(Σp)=4 与 dr(加权数字根和)=4 一致性"
+    },
+    {
+      "pass": true,
+      "msg": "审计根值 dr=4 ∈ [1,9] 合法性"
+    }
+  ],
+  "ganzhi": {
+    "year": "丙午",
+    "month": "乙未",
+    "day": "戊申",
+    "calendar": "未",
+    "day_index": 44
+  },
+  "hexagram": "泽地萃",
+  "dna": "#龍芯⚡️丙午·乙未·戊申·泽地萃-MATH-SOLVE-v2.0",
+  "root_card_path": "/Users/zuimeidedeyihan/longhun-system/reports/ROOT_CARD_math_solve.txt",
+  "benchmark": {
+    "10000": {
+      "sieve_time_s": 0.0045,
+      "sieve_mem_b": 57714,
+      "goldbach_time_s": 0.0158,
+      "goldbach_mem_b": 184
+    },
+    "100000": {
+      "sieve_time_s": 0.0427,
+      "sieve_mem_b": 490530,
+      "goldbach_time_s": 0.1872,
+      "goldbach_mem_b": 184
+    },
+    "1000000": {
+      "sieve_time_s": 0.3901,
+      "sieve_mem_b": 4143170,
+      "goldbach_time_s": 2.1218,
+      "goldbach_mem_b": 184
+    }
+  },
+  "total_time_s": 2.9958,
+  "success": true,
+  "timestamp": "2026-08-02T06:27:43.123453"
+}

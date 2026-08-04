@@ -1,4 +1,6 @@
 #!/bin/bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂系統開機啟動檢查腳本
 # ═══════════════════════════════════════════════════════════════
 # DNA:#龍芯⚡️2026-06-07-LONGHUN-STARTUP-CHECK-v1.0

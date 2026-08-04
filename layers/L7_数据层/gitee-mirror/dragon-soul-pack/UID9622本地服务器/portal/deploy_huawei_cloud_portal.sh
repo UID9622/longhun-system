@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂统一门户 longhun888.com · 华为云/鲲鹏一键部署
 # DNA: #龍芯⚡️2026-07-04-LONGHUN888-PORTAL-DEPLOY-v1.0
 set -euo pipefail

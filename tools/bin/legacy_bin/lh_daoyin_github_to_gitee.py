@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """龍魂道引器 · GitHub→Gitee 批量搬运
 6个仓库：GitHub clone → Gitee push → 元数据归档
 铁律：A-028 龍魂道引 · 来源可查 · 入链不可覆

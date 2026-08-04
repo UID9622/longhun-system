@@ -1,0 +1,874 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>龍魂 · 掀黑箱审计报告</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 1000px; margin: 40px auto; padding: 20px; background: #f8f9fa; }
+        h1, h2, h3 { color: #1a1a2e; border-bottom: 2px solid #e9ecef; padding-bottom: 8px; }
+        .risk-critical { color: #e63946; font-weight: bold; }
+        .risk-high { color: #e67e22; font-weight: bold; }
+        .risk-medium { color: #f1c40f; font-weight: bold; }
+        .risk-low { color: #2ecc71; font-weight: bold; }
+        .finding { background: white; padding: 12px 16px; margin: 8px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.06); }
+        .evidence { color: #6c757d; font-size: 0.9em; }
+        .summary { display: flex; gap: 20px; flex-wrap: wrap; margin: 20px 0; }
+        .summary-item { background: white; padding: 16px 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); flex: 1; min-width: 80px; text-align: center; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; color: white; }
+        .badge-critical { background: #e63946; }
+        .badge-high { background: #e67e22; }
+        .badge-medium { background: #f1c40f; }
+        .badge-low { background: #2ecc71; }
+        .footer { margin-top: 40px; border-top: 2px solid #e9ecef; padding-top: 20px; font-size: 0.9em; color: #6c757d; text-align: center; }
+        .dna { font-family: monospace; background: #1a1a2e; color: #ffd60a; padding: 4px 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>🐉 龍魂 · 掀黑箱审计报告</h1>
+    <p>目标: /Users/zuimeidedeyihan/longhun-system/bin | 时间: 2026-07-31T23:24:35.128545 | 文件数: 966</p>
+
+    <h2>📊 风险摘要</h2>
+    <div class="summary">
+        <div class="summary-item"><span class="badge badge-critical">严重</span> <strong>133</strong></div>
+        <div class="summary-item"><span class="badge badge-high">高危</span> <strong>1</strong></div>
+        <div class="summary-item"><span class="badge badge-medium">中危</span> <strong>2</strong></div>
+        <div class="summary-item"><span class="badge badge-low">低危</span> <strong>0</strong></div>
+    </div>
+
+    <h2>🔍 详细发现</h2>
+    
+    <div class="finding">
+        <strong>🟠 高危 sovereignty_missing</strong>
+        <p>项目缺少LICENSE或主权声明文件，无法确定授权归属。</p>
+        <div class="evidence">📎 未找到 LICENSE 文件</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🟡 中危 compliance_missing</strong>
+        <p>缺少 CONTRIBUTING、CODE_OF_CONDUCT 等治理文件。</p>
+        <div class="evidence">📎 缺失文件: contributing, code_of_conduct, security, changelog, governance</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🟡 中危 domestic_incompatible</strong>
+        <p>项目未标注支持鲲鹏、龙芯等国产平台，可能无法在信创环境运行。</p>
+        <div class="evidence">📎 未在 README 中标注国产平台支持</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: http://www.apple.com/DTDs/PropertyList-1.0.dtd"></p>
+        <div class="evidence">📎 文件: lh_trace_install.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1{endpoint}"])</p>
+        <div class="evidence">📎 文件: lh_notion_full_sync.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://pangu.huaweicloud.com/v1",</p>
+        <div class="evidence">📎 文件: lh_ant_colony_router.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://wenshu.court.gov.cn/",</p>
+        <div class="evidence">📎 文件: lh_five_harms_validator.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://gitee.com/projects/new'},'session':S})</p>
+        <div class="evidence">📎 文件: lh_gitee_new_repo.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.anthropic.com/v1"</p>
+        <div class="evidence">📎 文件: lh_claude_bridge.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_lora_trainer_v411_bind.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1/search",</p>
+        <div class="evidence">📎 文件: lh_notion_hub_sync.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_lora_trainer_v411.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://bad-server.com/503")</p>
+        <div class="evidence">📎 文件: lh_summary_crawler.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://blog.csdn.net/UID9622?type=blog（主号），https://uid9622-01.blog.csdn.net（新号）。"),</p>
+        <div class="evidence">📎 文件: lh_rejection_train.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://gitee.com/openharmony/kernel_linux_5.10",</p>
+        <div class="evidence">📎 文件: lh_daoyin_gitee_batch.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: http://www.w3.org/2000/svg"</p>
+        <div class="evidence">📎 文件: lh_audit_as_a_service.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://qr.alipay.com/_mock_{订单号}"</p>
+        <div class="evidence">📎 文件: 龍魂审计定价引擎_v2.0.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1/databases",</p>
+        <div class="evidence">📎 文件: lh_mvp_setup_integration.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_lora_trainer_v410.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.github.com/repos/UID9622/longhun-system",</p>
+        <div class="evidence">📎 文件: lh_threshold_trigger.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.deepseek.com/v1"</p>
+        <div class="evidence">📎 文件: lh_deepseek_fixer.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1{endpoint}"</p>
+        <div class="evidence">📎 文件: lh_notion_deep_scan_3dbs.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: http://www.apple.com/DTDs/PropertyList-1.0.dtd"></p>
+        <div class="evidence">📎 文件: install_longhun_daemon.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://gitee.com/mirrors/ncnn|IPA-02,IPA-15"</p>
+        <div class="evidence">📎 文件: lh_harmony_hunt_gitee.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://uid9622-01.blog.csdn.net/article/details/163131519</p>
+        <div class="evidence">📎 文件: lh_soft_culture_api.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.github.com/repos/UID9622/longhun-system",</p>
+        <div class="evidence">📎 文件: lh_global_monitor.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_lora_trainer_v414.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1"</p>
+        <div class="evidence">📎 文件: lh_notion_archive.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1"</p>
+        <div class="evidence">📎 文件: lh_notion_capacity_scan.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://google.com",</p>
+        <div class="evidence">📎 文件: longhun_click_auditor.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/UID9622/longhun-system"</p>
+        <div class="evidence">📎 文件: lh_core_template.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_lora_trainer_v39.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1"</p>
+        <div class="evidence">📎 文件: lh_notion_reorganizer.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1"</p>
+        <div class="evidence">📎 文件: lh_notion_explore.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/langchain-ai/multi-agent-template",</p>
+        <div class="evidence">📎 文件: lh_gap_detector.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://gitee.com/openharmony/kernel_linux_5.10",</p>
+        <div class="evidence">📎 文件: lh_daoyin_gitee_v2_absorb.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.anthropic.com/v1",</p>
+        <div class="evidence">📎 文件: lh_ai_gateway.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: http://www.apple.com/DTDs/PropertyList-1.0.dtd"></p>
+        <div class="evidence">📎 文件: lh_ecosystem_deploy.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://uid9622.blog.csdn.net",</p>
+        <div class="evidence">📎 文件: lh_csdn_ref.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_lora_trainer_v392.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://blog.csdn.net/UID9622?type=blog（主号），https://uid9622-01.blog.csdn.net（新号）。监管审计系列17篇已发布。"</p>
+        <div class="evidence">📎 文件: lh_notion_to_train_v1.5.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1/blocks/{page_id}/children"</p>
+        <div class="evidence">📎 文件: lh_notion_push_artifacts.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://hf-mirror.com</p>
+        <div class="evidence">📎 文件: lh_lora_trainer_deepseek_v40.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_lora_trainer.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.deepseek.com/v1/chat/completions",</p>
+        <div class="evidence">📎 文件: lh_sovereign_llm.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_train_v42.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/UID9622/longhun-system",</p>
+        <div class="evidence">📎 文件: lh_repo_template.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.deepseek.com/v1/chat/completions",</p>
+        <div class="evidence">📎 文件: lh_api_validate_all.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/langchain-ai/multi-agent-template",</p>
+        <div class="evidence">📎 文件: lh_auto_learner.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: http://www.apple.com/DTDs/PropertyList-1.0.dtd"></p>
+        <div class="evidence">📎 文件: setup_daily_review_auto.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://csdn.net/article/xxx"</p>
+        <div class="evidence">📎 文件: lh_platform_block_logger.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://blog.csdn.net/UID9622",</p>
+        <div class="evidence">📎 文件: lh_web_health_check.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://gitee.com/{GITEE_OWNER}/{name}",</p>
+        <div class="evidence">📎 文件: lh_daoyin_github_to_gitee.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://blog.csdn.net/{CSDN_USERNAME}"</p>
+        <div class="evidence">📎 文件: lh_csdn_full_scraper.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_train_v43.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.deepseek.com/v1',</p>
+        <div class="evidence">📎 文件: lh_llm_api.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://www.gushiwen.cn/guwen/book_"</p>
+        <div class="evidence">📎 文件: lh_knowledge_crawler.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://open.feishu.cn/open-apis/bot/v2/hook/xxx"</p>
+        <div class="evidence">📎 文件: lh_feishu_deploy.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/uid9622/longhun-system/tree/main/{engine.get('path',</p>
+        <div class="evidence">📎 文件: lh_notion_engine_status_syncer.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1/pages",</p>
+        <div class="evidence">📎 文件: audit_engine.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://rpm.nodesource.com/setup_20.x</p>
+        <div class="evidence">📎 文件: deploy_longhun_openeuler.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://www.bing.com/search?q={safe_url_encode(query)}&count={n}"</p>
+        <div class="evidence">📎 文件: lh_search_engine.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://platform.deepseek.com'},</p>
+        <div class="evidence">📎 文件: lh_key_checker.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://www.google.com</p>
+        <div class="evidence">📎 文件: longhun_system_startup_check.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_train_v40.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_train_v43_v2.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://xxx.com/article</p>
+        <div class="evidence">📎 文件: lh_dna_verifier.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://python.org</p>
+        <div class="evidence">📎 文件: install.ps1</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1{endpoint}"</p>
+        <div class="evidence">📎 文件: lh_notion_fill_executor.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: http://www.apple.com/DTDs/PropertyList-1.0.dtd"></p>
+        <div class="evidence">📎 文件: lh_cache_cleaner.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_train_v38_direct.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1/pages",</p>
+        <div class="evidence">📎 文件: lh_cnsh_notify_archive.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://python.org</p>
+        <div class="evidence">📎 文件: install.bat</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://gitee.com/api/v5"</p>
+        <div class="evidence">📎 文件: lh_gitee_verify_batch.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://openai.com/policies/usage-policies",</p>
+        <div class="evidence">📎 文件: lh_vendor_hunter.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://open.feishu.cn/open-apis/bot/v2/hook/FAKE",</p>
+        <div class="evidence">📎 文件: 龍智守_本地控制接口_v2.0.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1"</p>
+        <div class="evidence">📎 文件: lh_notion_reorganize.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.longhun-system.com/v1/usage"</p>
+        <div class="evidence">📎 文件: lh_data_privacy_v2.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_lora_trainer_v391.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_lora_trainer_v418.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://service.account.weibo.com/report",</p>
+        <div class="evidence">📎 文件: lh_water_army_report_generator.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://gitee.com/uid9622_admin/LonghunFont")</p>
+        <div class="evidence">📎 文件: lh_font_manager.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://hf-mirror.com"</p>
+        <div class="evidence">📎 文件: lh_download_v40_bases.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_train_v41.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_train_v43_v3.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://www.googletagmanager.com/gtag/js?id=UA-XXX",</p>
+        <div class="evidence">📎 文件: lh_privacy_scanner.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: http://www.apple.com/DTDs/PropertyList-1.0.dtd"></p>
+        <div class="evidence">📎 文件: 守护进程管理器_逐行注释版.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1/pages/{page_id}'</p>
+        <div class="evidence">📎 文件: lh_auto_sync.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://qr.alipay.com/_mock_{订单号}"</p>
+        <div class="evidence">📎 文件: lh_audit_pricing_v2.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1/users/me",</p>
+        <div class="evidence">📎 文件: lh_server_checker.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_lora_trainer_v403.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://www.pangdonglai.com",</p>
+        <div class="evidence">📎 文件: lh_five_harms_api.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://www.bing.com/search?q={urllib.parse.quote(query)}&count={min(n,</p>
+        <div class="evidence">📎 文件: lh_search_engine.py.bak.v1</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_lora_trainer_v417.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: http://www.apple.com/DTDs/PropertyList-1.0.dtd"></p>
+        <div class="evidence">📎 文件: lh_commander.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://hf-mirror.com</p>
+        <div class="evidence">📎 文件: lh_lora_trainer_v4.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/UID9622/longhun-system")</p>
+        <div class="evidence">📎 文件: lh_terminal.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_train_v42_v2.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1/pages/{page_id}"</p>
+        <div class="evidence">📎 文件: lh_notion_term_extractor.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1/databases"</p>
+        <div class="evidence">📎 文件: lh_notion_engine_db_setup.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1{endpoint}"</p>
+        <div class="evidence">📎 文件: lh_notion_quick_scan.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1/pages",</p>
+        <div class="evidence">📎 文件: CNSH_通知归档.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://myaccount.google.com/security"</p>
+        <div class="evidence">📎 文件: setup_daily_review.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://test.com"},</p>
+        <div class="evidence">📎 文件: lh_guanlan_api.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1/pages",</p>
+        <div class="evidence">📎 文件: cnsh_gateway.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: http://www.apple.com/DTDs/PropertyList-1.0.dtd"></p>
+        <div class="evidence">📎 文件: install-autostart.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://qr.alipay.com/_mock_{订单['订单号']}"</p>
+        <div class="evidence">📎 文件: 龍魂审计定价引擎_v1.0.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://www.daodejing.org/{i}.html',</p>
+        <div class="evidence">📎 文件: crawl_daodejing.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_lora_trainer_v412.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/owner/repo</p>
+        <div class="evidence">📎 文件: lh_daoyin.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/uid9622/longhun-system)\n")</p>
+        <div class="evidence">📎 文件: lh_linear_regression_auditor.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://open.feishu.cn/open-apis/bot/v2/hook/FAKE",</p>
+        <div class="evidence">📎 文件: longzhi_shou_v2.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://hwcloudcli.obs.cn-north-1.myhuaweicloud.com/install.sh</p>
+        <div class="evidence">📎 文件: 龍魂_华为云部署脚本_v1.0.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://obs.cn-north-4.myhuaweicloud.com",</p>
+        <div class="evidence">📎 文件: lh_obs_immutable_backup.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/{owner}/{repo}.git",</p>
+        <div class="evidence">📎 文件: lh_ingest_unified_sources.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.notion.com/v1/databases/{NOTION_DB_ID}/query",</p>
+        <div class="evidence">📎 文件: lh_memory_api.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/Tencent/ncnn|IPA-02,IPA-15"</p>
+        <div class="evidence">📎 文件: lh_harmony_hunt_bg.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://api.moonshot.cn/v1")</p>
+        <div class="evidence">📎 文件: lh_k3_distill_v39.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com/ggerganov/llama.cpp.git</p>
+        <div class="evidence">📎 文件: lh_lora_trainer_v402.py</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com"</p>
+        <div class="evidence">📎 文件: lh_network/02_auto_proxy.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://download.pytorch.org/whl/cpu</p>
+        <div class="evidence">📎 文件: lh_network/04_kunpeng_offline.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://hf-mirror.com"</p>
+        <div class="evidence">📎 文件: lh_network/03_model_download_mirror.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://ipinfo.io/ip</p>
+        <div class="evidence">📎 文件: lh_network/01_hk_proxy_setup.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 data_exfiltration</strong>
+        <p>发现外部API调用: https://github.com")</p>
+        <div class="evidence">📎 文件: lh_network/05_network_fix_all.sh</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 backdoor_suspect</strong>
+        <p>检测到可疑的加密通信或隐蔽通道，需人工核查。</p>
+        <div class="evidence">📎 在 lh_base_trace_collector.py 中发现疑似隐蔽通信代码: cryptography\.hazmat</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 backdoor_suspect</strong>
+        <p>检测到可疑的加密通信或隐蔽通道，需人工核查。</p>
+        <div class="evidence">📎 在 lh_notify_gateway.py 中发现疑似隐蔽通信代码: cryptography\.hazmat</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 backdoor_suspect</strong>
+        <p>检测到可疑的加密通信或隐蔽通道，需人工核查。</p>
+        <div class="evidence">📎 在 lh_whistleblower_shield.py 中发现疑似隐蔽通信代码: cryptography\.hazmat</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 backdoor_suspect</strong>
+        <p>检测到可疑的加密通信或隐蔽通道，需人工核查。</p>
+        <div class="evidence">📎 在 lh_掀黑箱.py 中发现疑似隐蔽通信代码: subprocess.*hidden</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 backdoor_suspect</strong>
+        <p>检测到可疑的加密通信或隐蔽通道，需人工核查。</p>
+        <div class="evidence">📎 在 lh_browser_historian.py 中发现疑似隐蔽通信代码: cryptography\.hazmat</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 backdoor_suspect</strong>
+        <p>检测到可疑的加密通信或隐蔽通道，需人工核查。</p>
+        <div class="evidence">📎 在 lh_feishu_deploy.sh 中发现疑似隐蔽通信代码: cryptography\.hazmat</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 backdoor_suspect</strong>
+        <p>检测到可疑的加密通信或隐蔽通道，需人工核查。</p>
+        <div class="evidence">📎 在 lh_guardian_v2.py 中发现疑似隐蔽通信代码: cryptography\.hazmat</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 backdoor_suspect</strong>
+        <p>检测到可疑的加密通信或隐蔽通道，需人工核查。</p>
+        <div class="evidence">📎 在 lh_compute_separation_deploy.sh 中发现疑似隐蔽通信代码: cryptography\.hazmat</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 backdoor_suspect</strong>
+        <p>检测到可疑的加密通信或隐蔽通道，需人工核查。</p>
+        <div class="evidence">📎 在 uid9622_governance.py 中发现疑似隐蔽通信代码: cryptography\.hazmat</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 backdoor_suspect</strong>
+        <p>检测到可疑的加密通信或隐蔽通道，需人工核查。</p>
+        <div class="evidence">📎 在 sovereign_privacy.py 中发现疑似隐蔽通信代码: cryptography\.hazmat</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 backdoor_suspect</strong>
+        <p>检测到可疑的加密通信或隐蔽通道，需人工核查。</p>
+        <div class="evidence">📎 在 identity/lh_identity_keygen.py 中发现疑似隐蔽通信代码: cryptography\.hazmat</div>
+    </div>
+    
+    <div class="finding">
+        <strong>🔴 严重 backdoor_suspect</strong>
+        <p>检测到可疑的加密通信或隐蔽通道，需人工核查。</p>
+        <div class="evidence">📎 在 identity/lh_identity_core.py 中发现疑似隐蔽通信代码: cryptography\.hazmat</div>
+    </div>
+    
+
+    <h2>📜 主权声明</h2>
+    <ul>
+        <li>LICENSE: ❌ 缺失</li>
+        <li>README: ✅ 存在</li>
+        <li>主权声明: ✅ 已声明</li>
+    </ul>
+
+    <div class="footer">
+        DNA: <span class="dna">#龍芯⚡️20260731232436-掀黑箱-UID9622</span>
+        <br>© 龍魂系统 · 君子协议
+    </div>
+</body>
+</html>
+    

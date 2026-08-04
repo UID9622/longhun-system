@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
 name: longhun-review
 description: 龍魂每日復盤引擎，三色審計體系，支持郵件發送和日曆記錄，包含歷史趨勢追蹤和改進建議生成，覆蓋文件/安全/心跳/測試/日誌/評估/API/備份八大審計項

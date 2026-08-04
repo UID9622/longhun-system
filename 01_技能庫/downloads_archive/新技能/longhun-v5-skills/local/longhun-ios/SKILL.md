@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
 name: longhun-ios
 description: iOS端本地数据治理技能，CoreData本地存储+AES-256端侧加密+Secure Enclave硬件保护，数据根留中国，禁用iCloud同步，与华为鸿蒙端格式互通

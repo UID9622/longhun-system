@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ============================================================
 # 龍魂 · ANTENNA-8GATE 节能引擎
 # DNA: #龍芯⚡️丙午·乙未·乙未·申时·☰乾-ENERGY-SAVER-v1.0-a1b2c3d4

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · Ubuntu 24.04 华为云服务端环境准备脚本
 # 适用: Ubuntu 24.04 x86_64
 # DNA: #龍芯⚡️2026-07-06-UBUNTU-PREPARE-v1.0

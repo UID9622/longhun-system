@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂 · 鸿蒙 ArkTS 实战：Weekly Review 周报管理
 
 > 龍魂系统 · 鸿蒙原生适配层 · 周报生成与审批追踪

@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-07-31T22:01:48.299757",
+  "generated_at": "2026-08-04T13:14:28.249757",
   "generated_by": "lh_inventory.py v1.0",
   "dna": "#龍芯⚡️丙午·乙未·戊寅·午时·大有-INVENTORY-v1.0",
   "summary": {
-    "total_scripts": 764,
-    "total_executable": 764,
+    "total_scripts": 886,
+    "total_executable": 886,
     "total_triggers": 0,
     "total_engines": 52,
     "total_cnsh_modules": 3,
-    "total_protocols": 253,
+    "total_protocols": 262,
     "personas": {
       "definitions": 20,
       "executors": 26
@@ -16,6 +16,13 @@
   },
   "triggers": {},
   "scripts": [
+    {
+      "name": "ASI_enhanced.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/ASI_enhanced.py",
+      "description": "🐉 龍魂·ASI增强服务 v2.0 · 完整神经系统",
+      "help": "usage: ASI_enhanced.py [-h] [--port PORT] [--host HOST] [--listen]\n                       [--test TEST]\n\n龍魂·ASI增强服务 v1.0\n\noptions:\n  -h, --help   show this help message and exit\n  --port PORT  监听端口 (默认9000)\n  --host HOST  监听地址\n  --listen     启动HTTP服务\n  --test TEST  单次测试触发词",
+      "executable": true
+    },
     {
       "name": "CNSH_代码审计引擎.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/CNSH_代码审计引擎.py",
@@ -27,7 +34,7 @@
       "name": "CNSH_内容加工管道.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/CNSH_内容加工管道.py",
       "description": "🐉 龍魂引擎：CNSH_内容加工管道",
-      "help": "============================================================\n🧠 龍魂内容加工收口摘要 · 给第二大脑 Kimi\n============================================================\n生成时间: 2026-07-31T13:57:11.057020+00:00\n#龍芯⚡️2026-07-31-HANDOFF-C3A62A40-UID9622\n原始 DNA: #龍芯⚡️2026-06-29-CNSH-PIPELINE-UID9622\n\n【加工结果】\n- 标题: 测试协议\n- 输入 SM",
+      "help": "============================================================\n🧠 龍魂内容加工收口摘要 · 给第二大脑 Kimi\n============================================================\n生成时间: 2026-08-04T05:09:29.857204+00:00\n#龍芯⚡️2026-08-04-HANDOFF-D4FA5FE8-UID9622\n原始 DNA: #龍芯⚡️2026-06-29-CNSH-PIPELINE-UID9622\n\n【加工结果】\n- 标题: 测试协议\n- 输入 SM",
       "executable": true
     },
     {
@@ -48,7 +55,7 @@
       "name": "CNSH_多模型颜色一致性.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/CNSH_多模型颜色一致性.py",
       "description": "CNSH 多模型颜色一致性 v1.0",
-      "help": "输入: 帮我写个文件管理工具\n{\n  \"主色\": \"G\",\n  \"多数颜色\": \"G\",\n  \"一致\": true,\n  \"置信度\": 1.0,\n  \"各模型结果\": {\n    \"CNSH本地\": \"G\",\n    \"Kimi\": \"G\",\n    \"Claude\": \"G\",\n    \"DeepSeek\": \"G\"\n  },\n  \"分歧\": {},\n  \"DNA\": \"#龍芯⚡️2026-06-29-CNSH-MULTI-MODEL-COLOR-v1-UID9622\",\n  \"一致性DNA\": \"#龍芯⚡️2026-07-31-MULTIMODEL-COLOR-G-7D30F82A-ENT",
+      "help": "输入: 帮我写个文件管理工具\n{\n  \"主色\": \"G\",\n  \"多数颜色\": \"G\",\n  \"一致\": true,\n  \"置信度\": 1.0,\n  \"各模型结果\": {\n    \"CNSH本地\": \"G\",\n    \"Kimi\": \"G\",\n    \"Claude\": \"G\",\n    \"DeepSeek\": \"G\"\n  },\n  \"分歧\": {},\n  \"DNA\": \"#龍芯⚡️2026-06-29-CNSH-MULTI-MODEL-COLOR-v1-UID9622\",\n  \"一致性DNA\": \"#龍芯⚡️2026-08-04-MULTIMODEL-COLOR-G-76875FB2-ENT",
       "executable": true
     },
     {
@@ -83,7 +90,7 @@
       "name": "CNSH_收口摘要生成器.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/CNSH_收口摘要生成器.py",
       "description": "🐉 龍魂引擎：CNSH_收口摘要生成器",
-      "help": "============================================================\n🧠 龍魂内容加工收口摘要 · 第二大脑 Kimi 接力\n============================================================\n生成时间: 2026-07-31T13:57:11.556867+00:00\n优先级: P0\n预计工时: 30分钟\n#龍芯⚡️2026-07-31-HANDOFF-74108B49-UID9622\n原始 DNA: #龍芯⚡️2026-06-29-CNSH-HANDOFF-UID9622\n\n【加工结果",
+      "help": "============================================================\n🧠 龍魂内容加工收口摘要 · 第二大脑 Kimi 接力\n============================================================\n生成时间: 2026-08-04T05:09:30.354905+00:00\n优先级: P0\n预计工时: 30分钟\n#龍芯⚡️2026-08-04-HANDOFF-8EE4747E-UID9622\n原始 DNA: #龍芯⚡️2026-06-29-CNSH-HANDOFF-UID9622\n\n【加工结果",
       "executable": true
     },
     {
@@ -97,7 +104,7 @@
       "name": "CNSH_生态监管协议.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/CNSH_生态监管协议.py",
       "description": "🐉 龍魂引擎：CNSH_生态监管协议",
-      "help": "============================================================\nCNSH 生态监管协议 · 演示\n============================================================\n\n👤 人物等级:\n  老王(UID1001): L2 | 认证: [] | 活跃: 50\n  小李(UID1002): L3 | 认证: ['国家软件设计师'] | 活跃: 0\n  路人甲(UID1003): L1 | 认证: [] | 活跃: 0\n\n🎬 老王创作视频: {'ok': True, '创作ID': '2FA",
+      "help": "============================================================\nCNSH 生态监管协议 · 演示\n============================================================\n\n👤 人物等级:\n  老王(UID1001): L2 | 认证: [] | 活跃: 50\n  小李(UID1002): L3 | 认证: ['国家软件设计师'] | 活跃: 0\n  路人甲(UID1003): L1 | 认证: [] | 活跃: 0\n\n🎬 老王创作视频: {'ok': True, '创作ID': '0CF",
       "executable": true
     },
     {
@@ -111,7 +118,7 @@
       "name": "CNSH_知识库.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/CNSH_知识库.py",
       "description": "🐉 龍魂引擎：CNSH_知识库",
-      "help": "知识库已追加，条目哈希: 35b5172812868980c54d04640f481b8b6a7bcc40d3e3c425de84a77f11184c78\n{\n  \"总条目数\": 3,\n  \"最近更新时间\": \"2026-07-31T13:57:13.699405+00:00\",\n  \"DNA\": \"#龍芯⚡️2026-06-29-CNSH-KB-UID9622\"\n}",
+      "help": "知识库已追加，条目哈希: 1094c498cdd11a4a39a747fb25f50888b0addfece68d567f2defa7574f4e49b1\n{\n  \"总条目数\": 6,\n  \"最近更新时间\": \"2026-08-04T05:09:32.496004+00:00\",\n  \"DNA\": \"#龍芯⚡️2026-06-29-CNSH-KB-UID9622\"\n}",
       "executable": true
     },
     {
@@ -132,7 +139,7 @@
       "name": "CNSH_透明语义治理内核.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/CNSH_透明语义治理内核.py",
       "description": "🐉 龍魂引擎：CNSH_透明语义治理内核",
-      "help": "DNA 示例: #龍芯⚡️丙午·丙申·丙午·乙未·☲离-MEMORY-API-v1.0-2a21d1bf\n风险函数(2,0.5,1): 1.0\n决策函数(1,0.8,1): 0.8\n边界函数(1,2): True\n信任函数(1,1,1): 1.0\n审计链长度: 1\n记忆节点数: 1\n规则覆盖? True",
+      "help": "DNA 示例: #龍芯⚡️丙午·丁酉·庚戌·己卯·☰乾-MEMORY-API-v1.0-2f24efd3\n风险函数(2,0.5,1): 1.0\n决策函数(1,0.8,1): 0.8\n边界函数(1,2): True\n信任函数(1,1,1): 1.0\n审计链长度: 1\n记忆节点数: 1\n规则覆盖? True",
       "executable": true
     },
     {
@@ -153,7 +160,7 @@
       "name": "CNSH_颜色历史.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/CNSH_颜色历史.py",
       "description": "CNSH 颜色历史趋势 v1.0",
-      "help": "user-A 趋势: {\n  \"标识\": \"user-A\",\n  \"窗口天\": 7,\n  \"记录数\": 9,\n  \"颜色分布\": {\n    \"G\": 6,\n    \"Y\": 3\n  },\n  \"平均风险\": 0.33,\n  \"趋势\": \"上升\",\n  \"风险预警\": [\n    \"风险趋势上升，需持续关注\"\n  ]\n}\n\nuser-B 趋势: {\n  \"标识\": \"user-B\",\n  \"窗口天\": 7,\n  \"记录数\": 12,\n  \"颜色分布\": {\n    \"R\": 9,\n    \"K\": 3\n  },\n  \"平均风险\": 3.75,\n  \"趋势\": \"平稳\",\n  \"风险预警\": [",
+      "help": "user-A 趋势: {\n  \"标识\": \"user-A\",\n  \"窗口天\": 7,\n  \"记录数\": 15,\n  \"颜色分布\": {\n    \"G\": 10,\n    \"Y\": 5\n  },\n  \"平均风险\": 0.33,\n  \"趋势\": \"上升\",\n  \"风险预警\": [\n    \"风险趋势上升，需持续关注\"\n  ]\n}\n\nuser-B 趋势: {\n  \"标识\": \"user-B\",\n  \"窗口天\": 7,\n  \"记录数\": 20,\n  \"颜色分布\": {\n    \"R\": 15,\n    \"K\": 5\n  },\n  \"平均风险\": 3.75,\n  \"趋势\": \"平稳\",\n  \"风险预警\"",
       "executable": true
     },
     {
@@ -167,7 +174,7 @@
       "name": "CNSH_龍魂护盾.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/CNSH_龍魂护盾.py",
       "description": "CNSH 龍魂护盾 v1.0",
-      "help": "🔴 红线测试: {'触发防御': True, '动作': ['红线阻断', '记录耻辱墙', '触发断联协议', '生成防御DNA'], '耻辱墙DNA': '#龍芯⚡️2026-07-31-SHAME-颜色引擎-颜色红线-765369E87AE38F4C-ENTROPY9742C9EE-UID9622', '告警DNA': None}\n⚫ 隐私测试: {'触发防御': True, '动作': ['隐私冻结', '记录耻辱墙'], '耻辱墙DNA': '#龍芯⚡️2026-07-31-SHAME-颜色引擎-隐私触发-985DD695CEC7675C-ENTROPY727578B0-UID962",
+      "help": "🔴 红线测试: {'触发防御': True, '动作': ['红线阻断', '记录耻辱墙', '触发断联协议', '生成防御DNA'], '耻辱墙DNA': '#龍芯⚡️2026-08-04-SHAME-颜色引擎-颜色红线-FB4C0992C93AA21E-ENTROPY41257DCD-UID9622', '告警DNA': None}\n⚫ 隐私测试: {'触发防御': True, '动作': ['隐私冻结', '记录耻辱墙'], '耻辱墙DNA': '#龍芯⚡️2026-08-04-SHAME-颜色引擎-隐私触发-4A7E92BB58BE6AE2-ENTROPYE47944AB-UID962",
       "executable": true
     },
     {
@@ -363,7 +370,7 @@
       "name": "ganzhi_dna_engine.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/ganzhi_dna_engine.py",
       "description": "╔══════════════════════════════════════════════════════════════════════════╗",
-      "help": "干支时辰 DNA 引擎 v1.0\n当前: #龍芯⚡️丙午·乙未·丙午·亥时\n\n模块名:",
+      "help": "干支时辰 DNA 引擎 v1.0\n当前: #龍芯⚡️丙午·丙申·庚戌·未时\n\n模块名:",
       "executable": true
     },
     {
@@ -377,14 +384,14 @@
       "name": "generate_academic_registry.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/generate_academic_registry.py",
       "description": "╔══════════════════════════════════════════════════════════════╗",
-      "help": "🔍 扫描学术资产目录...\n✅ 登记册已保存: /Users/zuimeidedeyihan/longhun-system/docs/dragon-soul-open-hub/academic/academic_papers_registry.json\n   共登记论文: 22 篇\n   跳过文件: 1 个\n\n📚 已登记论文列表:\n  [学术论文] IEEE 论文专题索引... (中文)\n  [学术论文] main.tex — 龍魂权重算法·太极易经数学大师联动系统 IEEE v2.0... (英文)\n  [技术文档] ☯️ 道德经引擎逻辑总纲｜龍魂系统核心算法锚｜长长久久·守护人类... (",
+      "help": "🔍 扫描学术资产目录...\n✅ 登记册已保存: /Users/zuimeidedeyihan/longhun-system/docs/dragon-soul-open-hub/academic/academic_papers_registry.json\n   共登记论文: 16 篇\n   跳过文件: 1 个\n\n📚 已登记论文列表:\n  [学术论文] IEEE 论文专题索引... (中文)\n  [学术论文] main.tex — 龍魂权重算法·太极易经数学大师联动系统 IEEE v2.0... (英文)\n  [技术文档] ☯️ 道德经引擎逻辑总纲｜龍魂系统核心算法锚｜长长久久·守护人类... (",
       "executable": true
     },
     {
       "name": "generate_module_readmes.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/generate_module_readmes.py",
       "description": "🐉 龍魂引擎：generate_module_readmes",
-      "help": "Generated /Users/zuimeidedeyihan/longhun-system/.longhun/README.md",
+      "help": "Traceback (most recent call last):\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/generate_module_readmes.py\", line 92, in <module>\n    main()\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/generate_module_readmes.py\", line 85, in main\n    target.write_text(generate(m), encoding=\"utf-8\")\n  Fil",
       "executable": true
     },
     {
@@ -465,10 +472,17 @@
       "executable": true
     },
     {
+      "name": "lh_academic_runtime.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_academic_runtime.py",
+      "description": "🐉 CNSH × Claude × Notion · 论文完美化三页合一引擎 v1.0",
+      "help": "usage: lh_academic_runtime.py [-h] [--init INIT] [--add-theorem NAME CONTENT]\n                              [--add-definition NAME CONTENT]\n                              [--add-axiom NAME CONTENT]\n                              [--add-lemma NAME CONTENT]\n                              [--add-corollary",
+      "executable": true
+    },
+    {
       "name": "lh_activation_api.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_activation_api.py",
       "description": "龍魂系统 · 激活经济舱 REST API",
-      "help": "[2026-07-31 21:57:20] [INFO] [SELF-AUDIT] 激活 API 自审计 score=67.41 color=🟡\nusage: lh_activation_api.py [-h] [--host HOST] [--port PORT]\n\noptions:\n  -h, --help   show this help message and exit\n  --host HOST\n  --port PORT",
+      "help": "[2026-08-04 13:09:39] [INFO] [SELF-AUDIT] 激活 API 自审计 score=67.41 color=🟡\nusage: lh_activation_api.py [-h] [--host HOST] [--port PORT]\n\noptions:\n  -h, --help   show this help message and exit\n  --host HOST\n  --port PORT",
       "executable": true
     },
     {
@@ -495,15 +509,15 @@
     {
       "name": "lh_adaptive_tuner.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_adaptive_tuner.py",
-      "description": "🐉 龍魂引擎：lh_adaptive_tuner",
-      "help": "usage: lh_adaptive_tuner.py [-h] [--status] [--analyze] [--simulate] [--apply]\n                            [--rollback] [--audit] [--demo]\n\n龍魂·自适应微调参数系统 v2.0 (lh_adaptive_tuner)\n\noptions:\n  -h, --help  show this help message and exit\n  --status    查看当前参数 + 哈希链\n  --analyze   仅看数据分析 + 趋势\n  --simulate ",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "help": "usage: lh_adaptive_tuner.py [-h] [--status] [--analyze] [--simulate] [--apply]\n                            [--rollback] [--force] [--audit] [--demo]\n                            [--self-audit] [--verify-hash-chain] [--history]\n                            [--diff [VERSION]] [--stats] [--sensitivity]\n ",
       "executable": true
     },
     {
       "name": "lh_adversarial_pipeline.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_adversarial_pipeline.py",
       "description": "🐉 龍魂引擎：lh_adversarial_pipeline",
-      "help": "🐉 龍魂系统 · 动态对抗测试流水线 v1.2\n🐉 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\n\n[📂] 加载对抗测试集: 50 条\n[📂] 加载变体库: 75 条\n[📂] 加载穿透日志: 72 条\n用法: python3 /Users/zuimeidedeyihan/longhun-system/bin/lh_adversarial_pipeline.py [stats|validate|full|discover]\n\n========================================\n🐉 龍魂·动态对抗测试流水线 v1.2\n==============",
+      "help": "🐉 龍魂系统 · 动态对抗测试流水线 v1.2\n🐉 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\n\n[📂] 加载对抗测试集: 50 条\n[📂] 加载变体库: 435 条\n[📂] 加载穿透日志: 72 条\n用法: python3 /Users/zuimeidedeyihan/longhun-system/bin/lh_adversarial_pipeline.py [stats|validate|full|discover]\n\n========================================\n🐉 龍魂·动态对抗测试流水线 v1.2\n=============",
       "executable": true
     },
     {
@@ -542,6 +556,20 @@
       "executable": true
     },
     {
+      "name": "lh_ai_hub_api.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_ai_hub_api.py",
+      "description": "龍魂 · 透明审计AI Hub API v1.0",
+      "help": "usage: lh_ai_hub_api.py [-h] [--port PORT] [--host HOST] [--reload]\n\n龍魂·透明审计AI Hub API\n\noptions:\n  -h, --help   show this help message and exit\n  --port PORT  监听端口 (默认8778)\n  --host HOST  监听地址\n  --reload     开发热重载",
+      "executable": true
+    },
+    {
+      "name": "lh_alert_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_alert_engine.py",
+      "description": "🐉 龍魂 · 告警引擎 v1.0",
+      "help": "usage: lh_alert_engine.py [-h] [--send TITLE BODY]\n                          [--level {info,warn,error,critical}] [--config]\n                          [--set [KEY=VALUE ...]] [--test] [--force]\n\n🐉 龍魂·告警引擎 — 多渠道告警推送\n\noptions:\n  -h, --help            show this help message and exit\n  --send TITLE BODY",
+      "executable": true
+    },
+    {
       "name": "lh_algo_audit_validator.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_algo_audit_validator.py",
       "description": "龍魂系统 · 算法审计与透明验证模块 v1.0",
@@ -560,6 +588,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_align_checker.py",
       "description": "龍魂·代码对齐复盘器 v1.0",
       "help": "usage: lh_align_checker.py [-h] [--dir DIR] [--report REPORT] [--json]\n                           [--no-print] [--quiet]\n\n龍魂代码对齐复盘器·每次AI进门自动执行\n\noptions:\n  -h, --help       show this help message and exit\n  --dir DIR        目标目录 (默认: /Users/zuimeidedeyihan/longhun-system)\n  --report REPORT  输出JSON报告路",
+      "executable": true
+    },
+    {
+      "name": "lh_anomaly_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_anomaly_engine.py",
+      "description": "🐉 龍魂 · 异常检测引擎 v1.0",
+      "help": "扫描结果: 🟢 正常\n系统异常: 0 项\n告警: 0 项\n🟢 异常检测引擎测试通过",
       "executable": true
     },
     {
@@ -642,7 +677,7 @@
     {
       "name": "lh_api_server.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_api_server.py",
-      "description": "龍魂 · 省电 API 服务 v2.0",
+      "description": "龍魂 · 省电 API 服务 v3.0",
       "help": "usage: lh_api_server.py [-h] [--host HOST] [--port PORT] [--redis REDIS]\n                        [--api-key API_KEY] [--workers WORKERS] [--reload]\n\n龍魂 · 省电 API 服务\n\noptions:\n  -h, --help         show this help message and exit\n  --host HOST        监听地址 (默认 0.0.0.0)\n  --port PORT        监听端口 (默认 9622",
       "executable": true
     },
@@ -665,6 +700,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_archive_vague_comments.py",
       "description": "龍魂·无为评论归档器 v1.0",
       "help": "usage: lh_archive_vague_comments.py [-h] [--text TEXT] [--source SOURCE]\n                                    [--tags TAGS] [--batch BATCH] [--stats]\n\n归档无为评论到 audit/comment_samples/vague_pressure/\n\noptions:\n  -h, --help       show this help message and exit\n  --text TEXT      单条评论内容\n  --source SOURCE",
+      "executable": true
+    },
+    {
+      "name": "lh_asi_neural.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_asi_neural.py",
+      "description": "🐉 龍魂 · ASI 神经补全模块 v1.0",
+      "help": "🧪 ASI神经补全模块·独立测试\n\n📝 长期记忆: 关键词检索模式 (快速·离线)\n🧠 ASI神经补全模块已加载 (记忆+感知+决策+反思+模型混合)\n✅ 记忆检索: 2 条 → ['用户说：健康检查', '健康检查']\n✅ 系统感知: CPU 44.0%\n✅ 策略推荐: parallel (4步骤)\n✅ 可用模型: ['rule', 'ollama']\n✅ 反思: [成功] single模式: 健康检查. 耗时54ms.\n✅ 前置钩子: 感知+记忆检索(3条)\n✅ 后置钩子: 记忆存储+反思+权重更新\n\n📊 神经层状态: {\n  \"initialized\": true,\n  \"memory\"",
       "executable": true
     },
     {
@@ -787,6 +829,13 @@
       "executable": true
     },
     {
+      "name": "lh_auto_operator.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_auto_operator.py",
+      "description": "🐉 龍魂 · AI 自动操作引擎 v1.0",
+      "help": "usage: lh_auto_operator.py [-h] [--interval INTERVAL] [--port PORT]\n                           [{start,stop,status,daemon}]\n\n龍魂AI自动操作引擎 v1.0\n\npositional arguments:\n  {start,stop,status,daemon}\n\noptions:\n  -h, --help            show this help message and exit\n  --interval INTERVAL   心跳间隔(秒)\n  --port ",
+      "executable": true
+    },
+    {
       "name": "lh_auto_shouheng.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_auto_shouheng.py",
       "description": "UID9622｜龍芯北辰自动收口协议 — 可执行引擎 v2.0",
@@ -796,8 +845,8 @@
     {
       "name": "lh_auto_sync.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_auto_sync.py",
-      "description": "==================================================\n🐉 龍魂MVP自动同步 · 乔前辈P15 出品\n⏰ 2026-07-31 21:57:24 北京时间\n🧬 #龍芯⚡️2026-07-31-",
-      "help": "==================================================\n🐉 龍魂MVP自动同步 · 乔前辈P15 出品\n⏰ 2026-07-31 21:57:24 北京时间\n🧬 #龍芯⚡️2026-07-31-NOTION-SYNC-v1.1\n==================================================\n\n🏥 孙思邈号脉中...\n  🔴 Notion API\n  🟢 本地Ollama\n  🔴 MVP服务\n\n📡 开始同步四个核心页面...\n  ⏳ 主控操作台: 需要填入真实page_id（从Notion URL取32位字符串）",
+      "description": "==================================================\n🐉 龍魂MVP自动同步 · 乔前辈P15 出品\n⏰ 2026-08-04 13:09:45 北京时间\n🧬 #龍芯⚡️2026-08-04-",
+      "help": "==================================================\n🐉 龍魂MVP自动同步 · 乔前辈P15 出品\n⏰ 2026-08-04 13:09:45 北京时间\n🧬 #龍芯⚡️2026-08-04-NOTION-SYNC-v1.1\n==================================================\n\n🏥 孙思邈号脉中...\n  🔴 Notion API\n  🟢 本地Ollama\n  🔴 MVP服务\n\n📡 开始同步四个核心页面...\n  ⏳ 主控操作台: 需要填入真实page_id（从Notion URL取32位字符串）",
       "executable": true
     },
     {
@@ -815,10 +864,24 @@
       "executable": true
     },
     {
+      "name": "lh_automated_welder.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_automated_welder.py",
+      "description": "🐉 龍魂 · 自动化焊接引擎 v1.0",
+      "help": "usage: lh_automated_welder.py [-h] [--transactions TRANSACTIONS] [--no-export]\n                              [--dry-run] [--json] [--stats-only]\n\n🐉 龙魂 · 自动化焊接引擎\n\noptions:\n  -h, --help            show this help message and exit\n  --transactions TRANSACTIONS, -t TRANSACTIONS\n                        交易",
+      "executable": true
+    },
+    {
       "name": "lh_backup_automation.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_backup_automation.py",
       "description": "龍魂系统 · 备份自动化引擎 v1.0",
       "help": "❌ 未知命令: --help\n   可用: backup | incremental | sync | list | restore | status | auto",
+      "executable": true
+    },
+    {
+      "name": "lh_backup_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_backup_engine.py",
+      "description": "🐉 龍魂 · 备份/恢复引擎 v1.0",
+      "help": "备份: {'status': 'created', 'id': 'backup_20260804_130946', 'size_mb': 0.03}\n备份记录: 1 条\n🟢 备份/恢复引擎测试通过",
       "executable": true
     },
     {
@@ -832,7 +895,7 @@
       "name": "lh_bagua_param_regression.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_bagua_param_regression.py",
       "description": "龍魂 · 八卦阵参数回归框架 v1.0",
-      "help": "============================================================\n🐉 八卦阵参数回归框架 v1.0\n============================================================\n\n📐 地利 G(x) 权重回归（合成数据示例）\n   最佳权重: {'drain': 0.31289077019240874, 'aspect': 0.08498523159946357, 'watershed': 0.3432180961619054, 'barrier': 0.17695337264425254, '",
+      "help": "============================================================\n🐉 八卦阵参数回归框架 v1.0\n============================================================\n\n📐 地利 G(x) 权重回归（合成数据示例）\n   最佳权重: {'drain': 0.2885489672901134, 'aspect': 0.10735264072287076, 'watershed': 0.3090171717023289, 'barrier': 0.15342559237462627, 'a",
       "executable": true
     },
     {
@@ -860,7 +923,14 @@
       "name": "lh_batch_confirm_sign.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_batch_confirm_sign.py",
       "description": "龍魂批量CONFIRM签名工具 v1.0",
-      "help": "✅ 已签名: 01_protocols/龍魂认知上下文管理协议_v3.0.md\n✅ 已签名: 01_protocols/龍魂系統輸入過濾與預處理協議_v3.0.md\n✅ 已签名: 01_protocols/龍魂八卦决策调度协议_v1.0.md\n✅ 已签名: 01_protocols/测试庄园规范_v1.0.md\n✅ 已签名: 01_protocols/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-FULL-v1.0.md\n✅ 已签名: 01_protocols/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-v1.0.md\n✅ 已签名: 01_pr",
+      "help": "⏭️  跳过 (已有签名): 01_protocols/龍魂认知上下文管理协议_v3.0.md\n⏭️  跳过 (已有签名): 01_protocols/龍魂系統輸入過濾與預處理協議_v3.0.md\n⏭️  跳过 (已有签名): 01_protocols/龍魂八卦决策调度协议_v1.0.md\n⏭️  跳过 (已有签名): 01_protocols/测试庄园规范_v1.0.md\n⏭️  跳过 (已有签名): 01_protocols/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-FULL-v1.0.md\n⏭️  跳过 (已有签名): 01_protocols/LH-GOV-",
+      "executable": true
+    },
+    {
+      "name": "lh_batch_processor.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_batch_processor.py",
+      "description": "🐉 龍魂 · 批量处理引擎 v1.0",
+      "help": "usage: lh_batch_processor.py [-h] --mode {watermark,imprint,voiceprint}\n                             [--input-dir INPUT_DIR] [--output-dir OUTPUT_DIR]\n                             [--csv CSV]\n                             [--watermark-type {visible,invisible,qr}]\n                             [--json]",
       "executable": true
     },
     {
@@ -958,7 +1028,7 @@
       "name": "lh_calendar_sync.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_calendar_sync.py",
       "description": "龍魂日历同步 · iCloud 日历集成 v1.0",
-      "help": "============================================================\n🗓️  龍魂日历同步 · iCloud 日历集成\n============================================================\n\n  ✅ 今天没有新任务需要同步\n\n\n  📅 本周任务概览:\n     07-31 (今天)\n     08-01 (明天)\n     08-02 (Sun)\n     08-03 (Mon)\n     08-04 (Tue)\n     08-05 (Wed)\n     08-06 (Thu)",
+      "help": "============================================================\n🗓️  龍魂日历同步 · iCloud 日历集成\n============================================================\n\n  ✅ 今天没有新任务需要同步\n\n\n  📅 本周任务概览:\n     08-04 (今天)\n     08-05 (明天)\n     08-06 (Thu)\n     08-07 (Fri)\n     08-08 (Sat)\n     08-09 (Sun)\n     08-10 (Mon)",
       "executable": true
     },
     {
@@ -966,6 +1036,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_capability_scheduler.py",
       "description": "🐉 龍魂·AI能力暴露调度系统 v1.0",
       "help": "usage: lh_capability_scheduler.py [-h] [--interactive] [--demo] [--status]\n                                  [--audit] [--benchmark BENCHMARK]\n                                  [--calibrate 轴 目标] [--json]\n\n🐉 龍魂·AI能力暴露调度系统\n\noptions:\n  -h, --help            show this help message and exit\n  --interact",
+      "executable": true
+    },
+    {
+      "name": "lh_causal_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_causal_engine.py",
+      "description": "🐉 龍魂 · 因果推断引擎 v1.0",
+      "help": "因果推断: [\n  {\n    \"cause\": \"audit\",\n    \"effect\": \"signature\",\n    \"confidence\": 0.7,\n    \"time_delta_seconds\": 0\n  },\n  {\n    \"cause\": \"signature\",\n    \"effect\": \"push\",\n    \"confidence\": 0.7,\n    \"time_delta_seconds\": 0\n  }\n]\n事件数: 3\n🟢 因果推断引擎测试通过",
       "executable": true
     },
     {
@@ -1018,6 +1095,13 @@
       "executable": true
     },
     {
+      "name": "lh_ci_audit.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_ci_audit.py",
+      "description": "🐉 龍魂 · CI 流水线审计集成器 v1.0",
+      "help": "usage: lh_ci_audit.py [-h] [--target TARGET] [--pr PR]\n                      [--fail-level {critical,high,medium,low,info}]\n                      [--whitelist WHITELIST] [--scope {all,changed}]\n                      [--no-color]\n\n龙魂 · CI 流水线审计集成器\n\noptions:\n  -h, --help            show this help mess",
+      "executable": true
+    },
+    {
       "name": "lh_circuit_breaker.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_circuit_breaker.py",
       "description": "龍魂 · 观澜 — 断路器 v1.0",
@@ -1036,6 +1120,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_claude_bridge.py",
       "description": "╔══════════════════════════════════════════════════════════════════════════╗",
       "help": "",
+      "executable": true
+    },
+    {
+      "name": "lh_clean_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_clean_engine.py",
+      "description": "🐉 龍魂 · 数据清洗引擎 v1.0",
+      "help": "去重: 2 条 (原3条)\n日志清洗: {'cleaned': 5, 'size_reduced_mb': 15.789295196533203, 'files': [{'file': 'launchd-longhun-services.out.log', 'original_kb': 3061.5, 'compressed_kb': 42.7}, {'file': 'cnsh_redlines.err.log', 'original_kb': 3443.1, 'compressed_kb': 13.6}, {'file': 'longhun888-services-launchd.log',",
       "executable": true
     },
     {
@@ -1084,7 +1175,7 @@
       "name": "lh_cnsh_content_pipe.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_cnsh_content_pipe.py",
       "description": "🐉 龍魂引擎：lh_cnsh_content_pipe",
-      "help": "============================================================\n🧠 龍魂内容加工收口摘要 · 给第二大脑 Kimi\n============================================================\n生成时间: 2026-07-31T13:57:45.245853+00:00\n#龍芯⚡️2026-07-31-HANDOFF-F92507AA-UID9622\n原始 DNA: #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_cnsh_content_pipe-INTEGRATION-SYSTEM\n\n【加工",
+      "help": "============================================================\n🧠 龍魂内容加工收口摘要 · 给第二大脑 Kimi\n============================================================\n生成时间: 2026-08-04T05:10:06.504932+00:00\n#龍芯⚡️2026-08-04-HANDOFF-947C2B5C-UID9622\n原始 DNA: #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_cnsh_content_pipe-INTEGRATION-SYSTEM\n\n【加工",
       "executable": true
     },
     {
@@ -1119,7 +1210,21 @@
       "name": "lh_cnsh_eco_regulator.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_cnsh_eco_regulator.py",
       "description": "🐉 龍魂引擎：lh_cnsh_eco_regulator",
-      "help": "============================================================\nCNSH 生态监管协议 · 演示\n============================================================\n\n👤 人物等级:\n  老王(UID1001): L2 | 认证: [] | 活跃: 50\n  小李(UID1002): L3 | 认证: ['国家软件设计师'] | 活跃: 0\n  路人甲(UID1003): L1 | 认证: [] | 活跃: 0\n\n🎬 老王创作视频: {'ok': True, '创作ID': '306",
+      "help": "============================================================\nCNSH 生态监管协议 · 演示\n============================================================\n\n👤 人物等级:\n  老王(UID1001): L2 | 认证: [] | 活跃: 50\n  小李(UID1002): L3 | 认证: ['国家软件设计师'] | 活跃: 0\n  路人甲(UID1003): L1 | 认证: [] | 活跃: 0\n\n🎬 老王创作视频: {'ok': True, '创作ID': '2B8",
+      "executable": true
+    },
+    {
+      "name": "lh_cnsh_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_cnsh_engine.py",
+      "description": "🐉 龍魂 · CNSH 统一执行引擎 v1.1",
+      "help": "usage: lh_cnsh_engine.py [-h] [--interactive] [--json] [text ...]\n\n🐉 CNSH 统一执行引擎\n\npositional arguments:\n  text               要处理的文本\n\noptions:\n  -h, --help         show this help message and exit\n  --interactive, -i  交互模式\n  --json, -j         JSON 输出\n\n示例:\n  lh cnsh-engine \"补齐 Notion 数据库\"\n  lh cnsh-en",
+      "executable": true
+    },
+    {
+      "name": "lh_cnsh_environment.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_cnsh_environment.py",
+      "description": "🐉 龍魂 · CNSH 环境集成引擎 v2.0",
+      "help": "usage: lh_cnsh_environment.py [-h] [--content CONTENT] [--target TARGET]\n                              [{init,install-hook,create,status,lock,sync,docker,ci}]\n                              [filename]\n\n🐉 CNSH 环境集成引擎 v2.0\n\npositional arguments:\n  {init,install-hook,create,status,lock,sync,docker,ci}\n ",
       "executable": true
     },
     {
@@ -1133,7 +1238,7 @@
       "name": "lh_cnsh_knowledge_base.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_cnsh_knowledge_base.py",
       "description": "🐉 龍魂引擎：lh_cnsh_knowledge_base",
-      "help": "知识库已追加，条目哈希: 9df498ebb6554e5dc46d6279ef45136c81ca65bb76d791a2eef789e295bb2f4d\n{\n  \"总条目数\": 4,\n  \"最近更新时间\": \"2026-07-31T13:57:45.589137+00:00\",\n  \"DNA\": \"#龍芯⚡️2026-06-29-CNSH-KB-UID9622\"\n}",
+      "help": "知识库已追加，条目哈希: 8eeec252e65c8d65b4931744518433163e162302007b6c9f60d9ca49683a683e\n{\n  \"总条目数\": 7,\n  \"最近更新时间\": \"2026-08-04T05:10:06.957696+00:00\",\n  \"DNA\": \"#龍芯⚡️2026-06-29-CNSH-KB-UID9622\"\n}",
       "executable": true
     },
     {
@@ -1179,6 +1284,13 @@
       "executable": true
     },
     {
+      "name": "lh_cnsh_runtime_math.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_cnsh_runtime_math.py",
+      "description": "🐉 CNSH Runtime Governance Mathematics v3.1",
+      "help": "usage: lh_cnsh_runtime_math.py [-h] [--demo] [--dr DR] [--govern GOVERN]\n                               [--entropy ENTROPY] [--inject INJECT] [--trace]\n                               [--formal] [--interactive] [--json]\n\n🐉 CNSH Runtime Governance Mathematics\n\noptions:\n  -h, --help         show this h",
+      "executable": true
+    },
+    {
       "name": "lh_cnsh_self_check.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_cnsh_self_check.py",
       "description": "🐉 龍魂引擎：lh_cnsh_self_check",
@@ -1189,14 +1301,14 @@
       "name": "lh_cnsh_shield.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_cnsh_shield.py",
       "description": "CNSH 龍魂护盾 v1.0",
-      "help": "🔴 红线测试: {'触发防御': True, '动作': ['红线阻断', '记录耻辱墙', '触发断联协议', '生成防御DNA'], '耻辱墙DNA': '#龍芯⚡️2026-07-31-SHAME-颜色引擎-颜色红线-212ECC4C892A39AA-ENTROPY18A3491F-UID9622', '告警DNA': None}\n⚫ 隐私测试: {'触发防御': True, '动作': ['隐私冻结', '记录耻辱墙'], '耻辱墙DNA': '#龍芯⚡️2026-07-31-SHAME-颜色引擎-隐私触发-C4D430C4740C3067-ENTROPY985C6D58-UID962",
+      "help": "🔴 红线测试: {'触发防御': True, '动作': ['红线阻断', '记录耻辱墙', '触发断联协议', '生成防御DNA'], '耻辱墙DNA': '#龍芯⚡️2026-08-04-SHAME-颜色引擎-颜色红线-DA0AB8153FB1CB78-ENTROPY4FA18D12-UID9622', '告警DNA': None}\n⚫ 隐私测试: {'触发防御': True, '动作': ['隐私冻结', '记录耻辱墙'], '耻辱墙DNA': '#龍芯⚡️2026-08-04-SHAME-颜色引擎-隐私触发-6C7435D4D2E2B156-ENTROPYE2D5FF0A-UID962",
       "executable": true
     },
     {
       "name": "lh_cnsh_shouheng_summary.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_cnsh_shouheng_summary.py",
       "description": "🐉 龍魂引擎：lh_cnsh_shouheng_summary",
-      "help": "============================================================\n🧠 龍魂内容加工收口摘要 · 第二大脑 Kimi 接力\n============================================================\n生成时间: 2026-07-31T13:57:47.890243+00:00\n优先级: P0\n预计工时: 30分钟\n#龍芯⚡️2026-07-31-HANDOFF-6B82B0BF-UID9622\n原始 DNA: #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_cnsh_shouheng_summar",
+      "help": "============================================================\n🧠 龍魂内容加工收口摘要 · 第二大脑 Kimi 接力\n============================================================\n生成时间: 2026-08-04T05:10:09.308834+00:00\n优先级: P0\n预计工时: 30分钟\n#龍芯⚡️2026-08-04-HANDOFF-1CD281C2-UID9622\n原始 DNA: #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_cnsh_shouheng_summar",
       "executable": true
     },
     {
@@ -1204,6 +1316,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_cnsh_translator.py",
       "description": "🐉 龍魂·CNSH通用翻译引擎 v1.0",
       "help": "usage: lh_cnsh_translator.py [-h] [--interactive] [--file FILE]\n                             [--language LANGUAGE] [--target TARGET]\n                             [--memory MEMORY] [--stats] [--json]\n\n🐉 龍魂·CNSH通用翻译引擎 v1.0\n\noptions:\n  -h, --help            show this help message and exit\n  --interacti",
+      "executable": true
+    },
+    {
+      "name": "lh_cnsh_transpiler.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_cnsh_transpiler.py",
+      "description": "🐉 龍魂·CNSH轻量双向转换器 v2.0",
+      "help": "usage: lh_cnsh_transpiler.py [-h] [--to-cnsh TO_CNSH] [--to-py TO_PY]\n                             [-o OUTPUT] [--batch] [--exclude EXCLUDE]\n                             [--force] [--info] [--json] [--audit]\n\n🐉 龍魂·CNSH轻量双向转换器 v2.0\n\noptions:\n  -h, --help            show this help message and exit\n  -",
       "executable": true
     },
     {
@@ -1225,6 +1344,20 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_code_guardian.py",
       "description": "龍魂·代码质量守护 v1.0 — 类型自愈引擎",
       "help": "usage: lh_code_guardian.py [-h] [--fix] [--json] [--target TARGET]\n                           [--output OUTPUT]\n\n龍魂·代码质量守护 — 类型自愈引擎\n\noptions:\n  -h, --help       show this help message and exit\n  --fix            自动修复裸类型注解\n  --json           JSON 格式输出\n  --target TARGET  指定扫描目录\n  --output OUTPUT  报告输出",
+      "executable": true
+    },
+    {
+      "name": "lh_code_review.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_code_review.py",
+      "description": "🐉 龍魂 · 代码审查引擎 v1.0",
+      "help": "usage: lh_code_review.py [-h] [--dir DIR] [--report] [--dna-check] [--json]\n                         [path ...]\n\n龍魂·代码审查引擎\n\npositional arguments:\n  path         文件或glob模式\n\noptions:\n  -h, --help   show this help message and exit\n  --dir DIR    目录\n  --report     生成审查报告\n  --dna-check  只检查DNA文件头\n  --jso",
+      "executable": true
+    },
+    {
+      "name": "lh_codegen_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_codegen_engine.py",
+      "description": "🐉 龍魂 · 代码生成引擎 v1.0",
+      "help": "",
       "executable": true
     },
     {
@@ -1256,10 +1389,24 @@
       "executable": true
     },
     {
+      "name": "lh_compliance_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_compliance_engine.py",
+      "description": "🐉 龍魂 · 安全合规引擎 v1.0",
+      "help": "合规检查: approved=False, issues=['contains_手机号', 'contains_邮箱']\n脱敏数据: 用户手机: [已脱敏], 邮箱: [已脱敏]...\n脱敏: 身份证420123199001011234 卡号1234-5678-9012-3456\n合规率: 0.0% (0/1)\n🟢 安全合规引擎测试通过",
+      "executable": true
+    },
+    {
       "name": "lh_compression_card.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_compression_card.py",
       "description": "❌ 未知命令: --help",
       "help": "❌ 未知命令: --help",
+      "executable": true
+    },
+    {
+      "name": "lh_compression_commands.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_compression_commands.py",
+      "description": "创建者: 诸葛鑫（UID9622）",
+      "help": "usage: lh_compression_commands.py [-h] [--list] [--interactive] [--json]\n                                  [--format {terminal,markdown,md}]\n                                  [--receipt] [--manual] [--batch BATCH]\n                                  [--stats] [--history] [--limit LIMIT]\n              ",
       "executable": true
     },
     {
@@ -1274,6 +1421,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_compute_proof.py",
       "description": "龍魂·算力证明引擎 — 验证鲲鹏签名，归档到本地保险柜。",
       "help": "usage: lh_compute_proof.py [-h] {verify,audit,selftest} ...\n\n龍魂·算力证明引擎 v1.0\n\npositional arguments:\n  {verify,audit,selftest}\n    verify              验证证明\n    audit               审计链\n    selftest            自检\n\noptions:\n  -h, --help            show this help message and exit",
+      "executable": true
+    },
+    {
+      "name": "lh_config_puller.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_config_puller.py",
+      "description": "🐉 龍魂·统一配置拉取器 v1.0",
+      "help": "usage: lh_config_puller.py [-h] [--list] [--pull PULL] [--merge] [--report]\n\n🐉 龍魂·统一配置拉取器 v1.0\n\noptions:\n  -h, --help            show this help message and exit\n  --list                列出所有配置分类\n  --pull PULL, -p PULL  拉取指定配置分类名或路径\n  --merge, -m           合并所有配置+保存快照\n  --report, -r          配置健康检查报告\n",
       "executable": true
     },
     {
@@ -1326,6 +1480,13 @@
       "executable": true
     },
     {
+      "name": "lh_creator_dna_benefit.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_creator_dna_benefit.py",
+      "description": "🐉 龍魂创作者DNA受益算法 v1.1（修复版）",
+      "help": "usage: lh_creator_dna_benefit.py [-h] [--register] [--creator-id CREATOR_ID]\n                                 [--creator-name CREATOR_NAME]\n                                 [--content CONTENT]\n                                 [--category {code,design,idea,document,creation,algorithm}]\n              ",
+      "executable": true
+    },
+    {
       "name": "lh_cross_module_awareness.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_cross_module_awareness.py",
       "description": "龍魂联动感知引擎 · Cross-Module Awareness Engine",
@@ -1368,17 +1529,24 @@
       "executable": true
     },
     {
+      "name": "lh_csdn_sync.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_csdn_sync.py",
+      "description": "龍魂·CSDN博客 → Notion + 鲲鹏知识库 自动同步引擎 v1.0",
+      "help": "usage: lh_csdn_sync.py [-h] [--sync] [--latest] [--incremental] [--max MAX]\n                       [--notion-only] [--local-only] [--build-index]\n                       [--status] [--export] [--format {json,jsonl}] [--info]\n\n🐉 龍魂·CSDN博客 → Notion + 鲲鹏知识库 自动同步引擎 v1.0\n\noptions:\n  -h, --help            ",
+      "executable": true
+    },
+    {
       "name": "lh_csdn_to_train.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_csdn_to_train.py",
       "description": "龍魂 · CSDN 17篇监管审计系列 → train.jsonl 语料生成",
-      "help": "✅ 训练语料: 144 条 (新增 35 条)\n   输出: /Users/zuimeidedeyihan/longhun-system/models/longhun-v1.0/lora_output/data/train.jsonl",
+      "help": "✅ 训练语料: 392 条 (新增 5 条)\n   输出: /Users/zuimeidedeyihan/longhun-system/models/longhun-v1.0/lora_output/data/train.jsonl",
       "executable": true
     },
     {
       "name": "lh_ctl.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_ctl.py",
       "description": "🐉 龍魂引擎主控（lh-ctl）v1.0",
-      "help": "#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH-CTL-v1.0-7A3B9C2D\n#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\n\n🔍 底座铁律检查: /Users/zuimeidedeyihan/longhun-system/system_registry.json\n❌ 系统注册表不存在，龍魂底座未初始化\n提示: 运行 `python3 bin/lh_source_vetting.py --source test --desc test --origin \ntest` 生成注册表\nUsage: lh_ctl.py [OPTIONS] [COMMAND] [ARGS]...\n",
+      "help": "#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH-CTL-v1.0-7A3B9C2D\n#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\n\n🔍 底座铁律检查: /Users/zuimeidedeyihan/longhun-system/system_registry.json\n✅ 龍魂底座铁律已加载 (6条) — 人永远是1\nUsage: lh_ctl.py [OPTIONS] [COMMAND] [ARGS]...\n\n  🐉 龍魂引擎主控 — 一个入口，统一调度。\n\nOptions:\n  --version  显示版本信息\n  --help     Show this messag",
       "executable": true
     },
     {
@@ -1414,6 +1582,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_da_align_table.py",
       "description": "🐉 龍魂 DA 对齐表 · 自动索引引擎 v1.0",
       "help": "未知动作: --help",
+      "executable": true
+    },
+    {
+      "name": "lh_dag_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_dag_engine.py",
+      "description": "🐉 龍魂·DAG编排引擎 v1.0",
+      "help": "usage: lh_dag_engine.py [-h]\n                        {run,status,rollback,validate,list,stats,interactive,i,detect}\n                        ...\n\n🐉 龍魂·DAG编排引擎 v1.0\n\npositional arguments:\n  {run,status,rollback,validate,list,stats,interactive,i,detect}\n    run                 执行DAG任务\n    status       ",
       "executable": true
     },
     {
@@ -1470,6 +1645,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_dashboard_api.py",
       "description": "龍魂系统 · 仪表盘API端点 v1.0",
       "help": "",
+      "executable": true
+    },
+    {
+      "name": "lh_dashboard_server.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_dashboard_server.py",
+      "description": "龍魂 · Dashboard 服务端",
+      "help": "Traceback (most recent call last):\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_dashboard_server.py\", line 266, in <module>\n    port = int(sys.argv[1]) if len(sys.argv) > 1 else 9627\n           ^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '--help'",
       "executable": true
     },
     {
@@ -1536,10 +1718,24 @@
       "executable": true
     },
     {
+      "name": "lh_dct_watermark.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_dct_watermark.py",
+      "description": "🐉 龍魂 · DCT频域不可见水印引擎 v1.0",
+      "help": "usage: lh_dct_watermark.py [-h] {embed,extract,batch,status} ...\n\n龍魂 · DCT频域不可见水印引擎\n\npositional arguments:\n  {embed,extract,batch,status}\n    embed               嵌入不可见水印\n    extract             提取不可见水印\n    batch               批量处理\n    status              引擎状态\n\noptions:\n  -h, --help            show t",
+      "executable": true
+    },
+    {
       "name": "lh_deben_audit.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_deben_audit.py",
       "description": "lh_deben_audit — 龍魂德本审计执行器 v1.0",
       "help": "usage: lh_deben_audit.py [-h] [--quick] [--json] [{scan,report,rules}]\n\n龍魂德本审计执行器 v1.0 — 德在技术前\n\npositional arguments:\n  {scan,report,rules}\n\noptions:\n  -h, --help           show this help message and exit\n  --quick              快速扫描\n  --json               JSON输出",
+      "executable": true
+    },
+    {
+      "name": "lh_decision_card_system.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_decision_card_system.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "help": "usage: lh_decision_card_system.py [-h] [--install] [--status] [--self-audit]\n                                  [--test] [--command] [--gpg-sign] [--light]\n                                  [--full] [--list] [--show SHOW] [--json]\n                                  [text ...]\n\n🐉 UID9622 龍芯北辰责任卡系统 v2.0",
       "executable": true
     },
     {
@@ -1585,6 +1781,20 @@
       "executable": true
     },
     {
+      "name": "lh_dependency_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_dependency_engine.py",
+      "description": "🐉 龍魂 · 依赖管理引擎 v1.0",
+      "help": "依赖文件: 1 个, 依赖: 21 个\n漏洞: 2 个\n  ├ requests: CVE-2024-35195 - HTTP请求走私\n  ├ flask: CVE-2024-29025 - 信息泄露\n🟢 依赖管理引擎测试通过",
+      "executable": true
+    },
+    {
+      "name": "lh_deploy_ci_audit.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_deploy_ci_audit.py",
+      "description": "🐉 龍魂 · CI 审计自动化部署器 v1.0",
+      "help": "usage: lh_deploy_ci_audit.py [-h] [--repo REPO] [--dry-run]\n                             [--fail-level {critical,high,medium,low}]\n                             [--whitelist-extra WHITELIST_EXTRA]\n\n龙魂 · CI 审计自动化部署器\n\noptions:\n  -h, --help            show this help message and exit\n  --repo REPO       ",
+      "executable": true
+    },
+    {
       "name": "lh_desire_growth.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_desire_growth.py",
       "description": "龍魂·欲望倒逼成长引擎 v1.0",
@@ -1610,6 +1820,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_digital_human_bridge.py",
       "description": "龍魂数字人联动桥 v1.0",
       "help": "龍魂数字人联动桥 v1.0\n用法:\n  bridge link       — 一键全链路联动（默认）\n  bridge status     — 数字人状态检查\n  bridge list       — 数字人清单\n  bridge register   — 仅同步注册（DNA+生态+总线）",
+      "executable": true
+    },
+    {
+      "name": "lh_digital_imprint.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_digital_imprint.py",
+      "description": "🐉 龍魂 · 数字人主权印记引擎 v1.0",
+      "help": "usage: lh_digital_imprint.py [-h]\n                             {create,verify,watermark,sync,list,status} ...\n\n🐉 龍魂 · 数字人主权印记引擎 v1.0\n\npositional arguments:\n  {create,verify,watermark,sync,list,status}\n                        子命令\n    create              创建数字人印记\n    verify              验证数字人DNA\n    wa",
       "executable": true
     },
     {
@@ -1651,7 +1868,7 @@
       "name": "lh_dna_api.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_dna_api.py",
       "description": "龍魂·DNA生成与验证API v1.0",
-      "help": "usage: lh_dna_api.py [-h] [--port PORT] [--host HOST]\n\nDNA生成与验证API\n\noptions:\n  -h, --help   show this help message and exit\n  --port PORT\n  --host HOST",
+      "help": "Traceback (most recent call last):\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_dna_api.py\", line 36, in <module>\n    from bin.lh_dna_generator import generate_dna, compute_full_dna\nImportError: cannot import name 'generate_dna' from 'bin.lh_dna_generator' (/Users/zuimeidedeyihan/longhun-sys",
       "executable": true
     },
     {
@@ -1664,15 +1881,15 @@
     {
       "name": "lh_dna_generator.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_dna_generator.py",
-      "description": "🐉 龍魂·DNA追溯码生成器 v2.0",
-      "help": "usage: lh_dna_generator.py [-h]\n                           {doc,person,lookup,verify,inherit,family,stats,history,search,interactive}\n                           ...\n\n🐉 龍魂·DNA追溯码生成器 v2.0\n\npositional arguments:\n  {doc,person,lookup,verify,inherit,family,stats,history,search,interactive}\n              ",
+      "description": "龍魂·DNA追溯码生成引擎 v2.0",
+      "help": "usage: lh_dna_generator.py [-h] [--title TITLE] [--category CATEGORY]\n                           [--action ACTION] [--actor ACTOR]\n                           [--output-format {text,json,md}]\n                           [--output-file OUTPUT_FILE]\n                           [--registry-dir REGISTRY_DI",
       "executable": true
     },
     {
       "name": "lh_dna_index_diff.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_dna_index_diff.py",
       "description": "龍魂·DNA注册表差异化刷新 v1.0",
-      "help": "[DONE] incremental scan in 1.4s | +2679 ~540 =6258 -2 | 9477 total | 9477 valid (100.0%)",
+      "help": "",
       "executable": true
     },
     {
@@ -1707,7 +1924,7 @@
       "name": "lh_dna_sovereignty_bridge.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_dna_sovereignty_bridge.py",
       "description": "╔══════════════════════════════════════════════════════════════════════════╗",
-      "help": "🧬 龍魂 DNA 三层主权桥接 v1.0\n============================================================\n\n  L1 永久UID: UID9622\n  L2 习惯切片码: 67cdeaae9f3d7e1f (前16位·摘要仅此·原料不出)\n  L3 HMAC验证戳: cb122f2c (前8位·防伪签名)\n\n  📿 完整 DNA 链:\n     #龍芯⚡️2026-07-31-21:58-TEST-WELD-UID9622-67cdeaae-cb122f2c\n\n  🔍 验证 DNA 链:\n     有效: ✅是\n     L2匹配: ✅",
+      "help": "🧬 龍魂 DNA 三层主权桥接 v1.0\n============================================================\n\n  L1 永久UID: UID9622\n  L2 习惯切片码: 67cdeaae9f3d7e1f (前16位·摘要仅此·原料不出)\n  L3 HMAC验证戳: cb122f2c (前8位·防伪签名)\n\n  📿 完整 DNA 链:\n     #龍芯⚡️2026-08-04-13:10-TEST-WELD-UID9622-67cdeaae-cb122f2c\n\n  🔍 验证 DNA 链:\n     有效: ✅是\n     L2匹配: ✅",
       "executable": true
     },
     {
@@ -1725,10 +1942,17 @@
       "executable": true
     },
     {
+      "name": "lh_doc_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_doc_engine.py",
+      "description": "🐉 龍魂 · 文档生成引擎 v1.0",
+      "help": "API文档: 9855 个端点\n\"\"\"\nhello 函数\n\n参数:\n    name: 参数说明\n    age: 参数说明\n\n返回:\n    执行结果\n\nDNA: #龍芯⚡️20260804131029-DOC-UID9622\n\"\"\"\n🟢 文档生成引擎测试通过",
+      "executable": true
+    },
+    {
       "name": "lh_doc_generator.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_doc_generator.py",
-      "description": "🐉 龍魂·系统文档生成器 v1.0",
-      "help": "usage: lh_doc_generator.py [-h] [--name NAME] [--desc DESC]\n                           [--func FUNC [FUNC ...]] [--usage USAGE]\n                           [--persona PERSONA] [--tags TAGS]\n                           [--output-format {markdown,json,html}]\n                           [--output-dir OUTP",
+      "description": "🐉 龍魂 · 文档生成器 v1.0",
+      "help": "usage: lh_doc_generator.py [-h] [--all] [--readme] [--architecture] [--index]\n\n🐉 龍魂·文档生成器\n\noptions:\n  -h, --help      show this help message and exit\n  --all           生成全部文档\n  --readme        只生成 README.md\n  --architecture  只生成 ARCHITECTURE.md\n  --index         只生成 DIRECTORY_INDEX.md",
       "executable": true
     },
     {
@@ -1763,7 +1987,7 @@
       "name": "lh_dual_audit_engine.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_dual_audit_engine.py",
       "description": "左右互搏審計引擎",
-      "help": "============================================================\n左右互搏審計引擎 - 測試開始\n龍魂系統互搏核心 v1.0\n============================================================\n[TEST通過] 基本通過測試: 🟢 評分100\n[TEST通過] 邊界失敗測試: 🔴 評分10\n[TEST通過] 分歧調和測試: 🟢 評分96\n[TEST通過] 極端數值測試: 🔴 評分61\n[TEST通過] 反例發現測試: 嚴重度7/10\n[TEST通過] DNA一致性測試: Ld2d5a0",
+      "help": "============================================================\n左右互搏審計引擎 - 測試開始\n龍魂系統互搏核心 v1.0\n============================================================\n[TEST通過] 基本通過測試: 🟢 評分100\n[TEST通過] 邊界失敗測試: 🔴 評分10\n[TEST通過] 分歧調和測試: 🟢 評分96\n[TEST通過] 極端數值測試: 🔴 評分61\n[TEST通過] 反例發現測試: 嚴重度7/10\n[TEST通過] DNA一致性測試: Lb07c73",
       "executable": true
     },
     {
@@ -1844,10 +2068,24 @@
       "executable": true
     },
     {
+      "name": "lh_engine_dashboard.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_engine_dashboard.py",
+      "description": "🐉 龍魂 · 引擎管理仪表盘 v1.0",
+      "help": "usage: lh_engine_dashboard.py [-h] [--web] [--port PORT] [--json]\n\n龍魂·引擎管理仪表盘\n\noptions:\n  -h, --help   show this help message and exit\n  --web        启动Web界面\n  --port PORT  Web端口\n  --json       JSON输出",
+      "executable": true
+    },
+    {
       "name": "lh_engine_registry.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_engine_registry.py",
       "description": "龍魂·引擎统一注册表 v1.0",
       "help": "usage: lh_engine_registry.py [-h] [--json] [--output OUTPUT]\n                             [{scan,stats,find,dupes,export,quick}] [keyword]\n\n龍魂·引擎统一注册表 v1.0\n\npositional arguments:\n  {scan,stats,find,dupes,export,quick}\n  keyword               搜索关键词 (find 模式)\n\noptions:\n  -h, --help            show thi",
+      "executable": true
+    },
+    {
+      "name": "lh_engine_verify.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_engine_verify.py",
+      "description": "🐉 龍魂 · 业务引擎验证 v1.0",
+      "help": "usage: lh_engine_verify.py [-h] [--json] [--engine ENGINE]\n\n龍魂·业务引擎验证\n\noptions:\n  -h, --help            show this help message and exit\n  --json                JSON格式输出\n  --engine ENGINE, -e ENGINE\n                        指定引擎名（模糊匹配）",
       "executable": true
     },
     {
@@ -1872,6 +2110,13 @@
       "executable": true
     },
     {
+      "name": "lh_ethics_quantum.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_ethics_quantum.py",
+      "description": "创建者: 诸葛鑫（UID9622）",
+      "help": "usage: lh_ethics_quantum.py [-h] [--interactive] [--test] [--json]\n                            [--format {terminal,json,markdown,md}]\n                            [--batch FILE] [--stats] [--history]\n                            [--limit LIMIT] [--color {🟢,🟡,🔴}] [--output FILE]\n                       ",
+      "executable": true
+    },
+    {
       "name": "lh_euv_lithography.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_euv_lithography.py",
       "description": "🐉 CNSH-EUV 光刻机攻关系统 v1.0",
@@ -1886,6 +2131,13 @@
       "executable": true
     },
     {
+      "name": "lh_event_bus.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_event_bus.py",
+      "description": "🐉 龍魂 · 事件总线引擎 v1.0",
+      "help": "收到: ['hello world']\n总线状态: {'topics': 1, 'subscribers': 1, 'workers': 2, 'queue_size': 0, 'running': True}\n🟢 事件总线引擎测试通过",
+      "executable": true
+    },
+    {
       "name": "lh_event_bus_engine.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_event_bus_engine.py",
       "description": "🐉 龍魂 · 事件总线引擎 v1.0 (Event Bus Engine)",
@@ -1897,6 +2149,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_evolution.py",
       "description": "龍魂 · 自适应进化中枢 CLI v1.0",
       "help": "龍魂 · 自适应进化中枢 CLI v1.0\nDNA: #龍芯⚡️2026-07-25-EVOLUTION-CLI-v1.0\n\n用法:\n  python3 bin/lh_evolution.py status       全局状态\n  python3 bin/lh_evolution.py selftest     自检\n  python3 bin/lh_evolution.py trigger      阈值检查\n  python3 bin/lh_evolution.py puzzle       全景拼图报告\n  python3 bin/lh_evolution.py jump <内容>  ",
+      "executable": true
+    },
+    {
+      "name": "lh_evolution_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_evolution_engine.py",
+      "description": "🐉 龍魂 · 自我进化引擎 v1.0",
+      "help": "进化循环完成 (0ms)\n优化建议: 1 条\n  ├ [info] 数据不足（仅0条），积累更多执行记录后分析\n新触发词: 0 个\n调优变更: 0 项\n🟢 自我进化引擎测试通过",
       "executable": true
     },
     {
@@ -1956,6 +2215,13 @@
       "executable": true
     },
     {
+      "name": "lh_face_verify.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_face_verify.py",
+      "description": "🐉 龍魂 · 人脸验证引擎 v1.0",
+      "help": "usage: lh_face_verify.py [-h] {register,verify,compare,list,remove,status} ...\n\n龍魂 · 人脸验证引擎\n\npositional arguments:\n  {register,verify,compare,list,remove,status}\n    register            注册人脸\n    verify              验证人脸\n    compare             比对两张人脸\n    list                列出已注册\n    remove         ",
+      "executable": true
+    },
+    {
       "name": "lh_fake_review_detector.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_fake_review_detector.py",
       "description": "lh_fake_review_detector — 龍魂·虚假评论检测引擎 v1.0",
@@ -1987,7 +2253,7 @@
       "name": "lh_five_harms_api.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_five_harms_api.py",
       "description": "龍魂·五害曝光台 API v1.0",
-      "help": "",
+      "help": "============================================================\n⚖️  龍魂·五害曝光台 API v1.0\n   端口: 8779\n   DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-FIVE-HARMS-API-v1.0\n============================================================",
       "executable": true
     },
     {
@@ -2026,6 +2292,27 @@
       "executable": true
     },
     {
+      "name": "lh_flow_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_flow_engine.py",
+      "description": "🐉 龍魂 · 流场映射层引擎 v2.0",
+      "help": "usage: lh_flow_engine.py [-h] [--host HOST] [--port PORT] [--deploy]\n                         [--deploy-target DEPLOY_TARGET] [--dry-run] [--no-ws]\n\n🐉 龍魂 · 流场映射层引擎 v2.0\n\noptions:\n  -h, --help            show this help message and exit\n  --host HOST           监听地址 (默认: 0.0.0.0)\n  --port PORT         ",
+      "executable": true
+    },
+    {
+      "name": "lh_flow_fusion_bridge.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_flow_fusion_bridge.py",
+      "description": "🐉 龍魂 · 流场融合桥接引擎 v1.0",
+      "help": "usage: lh_flow_fusion_bridge.py [-h] [--port PORT] [--no-flow] [--status]\n                                [--inject [INJECT]] [--flow-url FLOW_URL]\n                                [--json]\n\n🐉 龍魂 · 流场融合桥接引擎\n\noptions:\n  -h, --help           show this help message and exit\n  --port PORT          桥接服务端口",
+      "executable": true
+    },
+    {
+      "name": "lh_flow_fusion_pipeline.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_flow_fusion_pipeline.py",
+      "description": "🐉 龍魂 · 流场融合管道 v1.0（一键全量注入）",
+      "help": "usage: lh_flow_fusion_pipeline.py [-h] [--watch] [--interval INTERVAL]\n                                  [--dry-run] [--self-audit] [--health]\n                                  [--fuse] [--observe] [--resource] [--status]\n                                  [--json] [--bridge-url BRIDGE_URL]\n\n🐉 龍魂 · 流",
+      "executable": true
+    },
+    {
       "name": "lh_flow_pipeline.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_flow_pipeline.py",
       "description": "╔══════════════════════════════════════════════════════════════╗",
@@ -2033,10 +2320,24 @@
       "executable": true
     },
     {
+      "name": "lh_flow_upgrade.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_flow_upgrade.py",
+      "description": "🐉 龍魂 · 流场融合升级补丁 v1.1",
+      "help": "usage: lh_flow_upgrade.py [-h] [--dry-run] [--launchd] [--patch-lh]\n                          [--extend-events] [--uninstall] [--verify]\n\n🐉 龍魂 · 流场融合升级补丁 v1.1\n\noptions:\n  -h, --help       show this help message and exit\n  --dry-run, -n    预览模式，不实际执行\n  --launchd        仅安装/重装 launchd 守护\n  --patch-lh ",
+      "executable": true
+    },
+    {
       "name": "lh_font_manager.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_font_manager.py",
       "description": "龍魂字体管理引擎 CLI v2.0 · LonghunFont Manager",
       "help": "usage: lh_font_manager.py [-h]\n                          {install,uninstall,verify,list,css,info,registry,mcp,serve}\n                          ...\n\n龍魂字体管理引擎 CLI · LonghunFont Manager v2.0\n\npositional arguments:\n  {install,uninstall,verify,list,css,info,registry,mcp,serve}\n                        可用命",
+      "executable": true
+    },
+    {
+      "name": "lh_format_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_format_engine.py",
+      "description": "🐉 龍魂智能排版引擎 v1.0 — Smart Formatting Engine",
+      "help": "usage: lh_format_engine.py [-h] [--input INPUT] [--file FILE]\n                           [--type {auto,python,cnsh,javascript,js,bash,sh,sql,yaml,yml,flowchart,sequence,class_diagram,class,gantt,state_diagram,state,mindmap,table,list,timeline,json,markdown,md,prose,text}]\n                           ",
       "executable": true
     },
     {
@@ -2082,17 +2383,24 @@
       "executable": true
     },
     {
+      "name": "lh_generate_codebuddy_skills.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_generate_codebuddy_skills.py",
+      "description": "🐉 龍魂 · CodeBuddy 技能批量生成器 v1.0",
+      "help": "🐉 龍魂 · CodeBuddy 技能批量生成器 v1.0\n   用户技能目录: /Users/zuimeidedeyihan/.codebuddy/skills\n   项目技能目录: /Users/zuimeidedeyihan/longhun-system/.codebuddy/skills\n   技能总数: 20\n\n  ✅ 新建 longhun-three-color-audit/SKILL.md  (守护层)\n  ✅ 新建 longhun-circuit-breaker/SKILL.md  (守护层)\n  ✅ 新建 longhun-gpg-sign/SKILL.md  (守护层)\n  ",
+      "executable": true
+    },
+    {
       "name": "lh_generate_thinking_v401.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_generate_thinking_v401.py",
       "description": "🐉 龍魂 v4.0.1 · DeepSeek thinking 数据生成器（规则版）",
-      "help": "🐉 龍魂 v4.0.1 thinking 数据生成器（规则版）\n   输入: /Users/zuimeidedeyihan/longhun-system/models/longhun-v1.0/lora_output/data/train.jsonl\n   输出: /Users/zuimeidedeyihan/longhun-system/models/longhun-v1.0/lora_output/data/train_v401_think.jsonl",
+      "help": "Traceback (most recent call last):\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_generate_thinking_v401.py\", line 24, in <module>\n    from lh_dna_generator import generate_dna\nImportError: cannot import name 'generate_dna' from 'lh_dna_generator' (/Users/zuimeidedeyihan/longhun-system/bin/lh_",
       "executable": true
     },
     {
       "name": "lh_generate_thinking_v401_valid.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_generate_thinking_v401_valid.py",
       "description": "🐉 龍魂 v4.0.1 · DeepSeek thinking 数据生成器（valid 规则版）",
-      "help": "🐉 龍魂 v4.0.1 thinking 数据生成器（规则版）\n   输入: /Users/zuimeidedeyihan/longhun-system/models/longhun-v1.0/lora_output/data/valid.jsonl\n   输出: /Users/zuimeidedeyihan/longhun-system/models/longhun-v1.0/lora_output/data/valid_v401_think.jsonl",
+      "help": "Traceback (most recent call last):\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_generate_thinking_v401_valid.py\", line 19, in <module>\n    from lh_generate_thinking_v401 import process_file\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_generate_thinking_v401.py\", line 24, in <module>\n",
       "executable": true
     },
     {
@@ -2180,6 +2488,13 @@
       "executable": true
     },
     {
+      "name": "lh_header_template.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_header_template.py",
+      "description": "龍魂 · 文章抬头模板选择器 v1.0",
+      "help": "usage: lh_header_template.py [-h] [--list] [--template {1,2,3,4,5,6}]\n                             [--title TITLE] [--skeleton] [--auto AUTO]\n                             [--output OUTPUT]\n\n🐉 龍魂 · 文章抬头模板选择器 v1.0.0\n\noptions:\n  -h, --help            show this help message and exit\n  --list            ",
+      "executable": true
+    },
+    {
       "name": "lh_health_alert_daemon.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_health_alert_daemon.py",
       "description": "╔══════════════════════════════════════════════════════════════════╗",
@@ -2196,8 +2511,8 @@
     {
       "name": "lh_health_check.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_health_check.py",
-      "description": "龍魂·综合健康检查 v1.0",
-      "help": "usage: lh_health_check.py [-h] [--json] [--component COMPONENT]\n\n龍魂综合健康检查\n\noptions:\n  -h, --help            show this help message and exit\n  --json                JSON输出\n  --component COMPONENT, -c COMPONENT\n                        指定组件: api,audit,model,system,network,personas,gpg,trai\n            ",
+      "description": "🐉 龍魂 · 健康检查引擎 v1.0",
+      "help": "usage: lh_health_check.py [-h] [--alert] [--interval SECONDS] [--history [N]]\n                          [--state] [--quiet]\n\n🐉 龍魂·健康检查引擎 — 定期巡检+告警联动\n\noptions:\n  -h, --help          show this help message and exit\n  --alert             巡检后自动告警\n  --interval SECONDS  持续监控间隔（秒）\n  --history [N]       查看最",
       "executable": true
     },
     {
@@ -2211,7 +2526,7 @@
       "name": "lh_herbal_rag.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_herbal_rag.py",
       "description": "龍魂本草RAG引擎 · 龍芯·华佗人格激活",
-      "help": "❌ 请先安装: source .venv/bin/activate && pip install chromadb",
+      "help": "usage: lh_herbal_rag.py [-h] [--n N] [--model MODEL] [--no-llm] query\n\n龍魂本草RAG引擎 · 龍芯·华佗\n\npositional arguments:\n  query          查询药材，如：人参\n\noptions:\n  -h, --help     show this help message and exit\n  --n N          检索药材数量\n  --model MODEL  Ollama模型名\n  --no-llm       仅检索，不生成回答",
       "executable": true
     },
     {
@@ -2260,7 +2575,7 @@
       "name": "lh_hunter_internal_audit.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_hunter_internal_audit.py",
       "description": "🐉 龍魂·猎手计划 — 内部磨刀审计引擎 v1.0",
-      "help": "🐉 龍魂·猎手计划 — 内部磨刀审计引擎 v1.0\n   开始执行五组件全量安全审计...\n\n✅ JSON报告已保存: /Users/zuimeidedeyihan/longhun-system/governance/audit/reports/HIA-HIA-6B1C8AA5149A.json\n\n======================================================================\n   🐉 龍魂·猎手计划 — 内部安全审计报告\n=======================================================",
+      "help": "🐉 龍魂·猎手计划 — 内部磨刀审计引擎 v1.0\n   开始执行五组件全量安全审计...\n\n✅ JSON报告已保存: /Users/zuimeidedeyihan/longhun-system/governance/audit/reports/HIA-HIA-78869548AADB.json\n\n======================================================================\n   🐉 龍魂·猎手计划 — 内部安全审计报告\n=======================================================",
       "executable": true
     },
     {
@@ -2330,14 +2645,14 @@
       "name": "lh_inject_multiturn_qa.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_inject_multiturn_qa.py",
       "description": "注入「多轮对话不漂移」训练数据 v3.9",
-      "help": "✅ 多轮对话数据注入完成：train +13, valid +2\n   总样本: train=1029, valid=115\n   知识域: 19 个\n   DNA: #龍芯⚡️20260718234240330-MULTITURN-QA-v3.9-PREP-3FFE2B156E9F",
+      "help": "✅ 多轮对话数据注入完成：train +13, valid +2\n   总样本: train=1120, valid=126\n   知识域: 21 个\n   DNA: #龍芯⚡️20260718234240330-MULTITURN-QA-v3.9-PREP-3FFE2B156E9F",
       "executable": true
     },
     {
       "name": "lh_inject_roadmap_qa.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_inject_roadmap_qa.py",
       "description": "注入「模型迭代路线图」训练数据",
-      "help": "✅ 注入完成：train +15, valid +2\n   总样本: train=1044, valid=117\n   知识域: 20 个\n   DNA: #龍芯⚡️20260718234000000-ROADMAP-QA-INJECT-v3.9",
+      "help": "✅ 注入完成：train +15, valid +2\n   总样本: train=1135, valid=128\n   知识域: 21 个\n   DNA: #龍芯⚡️20260718234000000-ROADMAP-QA-INJECT-v3.9",
       "executable": true
     },
     {
@@ -2352,6 +2667,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_input_pipeline.py",
       "description": "╔══════════════════════════════════════════════════════════════╗",
       "help": "usage: lh_input_pipeline.py [-h] [--ingest INGEST] [--digest] [--status]\n                            [--json]\n\n龍魂·消化系统·输入处理管道\n\noptions:\n  -h, --help       show this help message and exit\n  --ingest INGEST  摄入一条输入\n  --digest         处理待消化队列\n  --status         查看消化状态\n  --json           JSON输出",
+      "executable": true
+    },
+    {
+      "name": "lh_install_deps.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_install_deps.py",
+      "description": "🐉 龍魂·智能依赖管理器 v2.0",
+      "help": "usage: lh_install_deps.py [-h] [--install] [--check] [--fix] [--freeze]\n                          [--sync-kunpeng] [--rollback] [--light] [--clean]\n                          [--json]\n\n🐉 龍魂·智能依赖管理器 v2.0\n\noptions:\n  -h, --help      show this help message and exit\n  --install, -i   安装所有依赖\n  --check, -c",
       "executable": true
     },
     {
@@ -2380,6 +2702,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_intl_to_train.py",
       "description": "🐉 龍魂引擎：lh_intl_to_train",
       "help": "🐉 龍魂·国际数据→train.jsonl格式转换器\n============================================================\n⚠️ 未找到国际训练数据文件\n   路径: /Users/zuimeidedeyihan/longhun-system/data/sources/intl/train",
+      "executable": true
+    },
+    {
+      "name": "lh_iron_door.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_iron_door.py",
+      "description": "🛡️ 龙魂DNA网络铁门系统 v1.0",
+      "help": "usage: lh iron-door [-h]\n                    {register,reg,trace,verify,query,lookup,stats,shame,chain,api}\n                    ...\n\n🛡️ 龙魂DNA网络铁门系统 v1.0 —— 数字长城\n\npositional arguments:\n  {register,reg,trace,verify,query,lookup,stats,shame,chain,api}\n                        子命令\n    register (reg)     ",
       "executable": true
     },
     {
@@ -2421,7 +2750,7 @@
       "name": "lh_k3_distill_v39.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_k3_distill_v39.py",
       "description": "龍魂 v3.9 · K3 教师模型蒸馏器",
-      "help": "usage: lh_k3_distill_v39.py [-h] [--mock] [--local]\n                            [--local-base-url LOCAL_BASE_URL]\n                            [--local-model LOCAL_MODEL]\n                            [--temperature TEMPERATURE] [--top-p TOP_P]\n                            [--max-tokens MAX_TOKENS]\n    ",
+      "help": "Traceback (most recent call last):\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_k3_distill_v39.py\", line 38, in <module>\n    from lh_dna_generator import generate_dna\nImportError: cannot import name 'generate_dna' from 'lh_dna_generator' (/Users/zuimeidedeyihan/longhun-system/bin/lh_dna_gene",
       "executable": true
     },
     {
@@ -2453,6 +2782,20 @@
       "executable": true
     },
     {
+      "name": "lh_knowledge_compiler.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_knowledge_compiler.py",
+      "description": "🐉 龍魂 · 知识编译引擎 v1.0",
+      "help": "usage: lh_knowledge_compiler.py [-h] [--principles] [--rules] [--patterns]\n                                [--generate-code] [--all] [--json]\n\n龍魂·知识编译引擎\n\noptions:\n  -h, --help       show this help message and exit\n  --principles     只编译原则→规则\n  --rules          只编译规则→配置\n  --patterns       只编译模式→触发词\n ",
+      "executable": true
+    },
+    {
+      "name": "lh_knowledge_complete.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_knowledge_complete.py",
+      "description": "🐉 龍魂 · 知识智能合并引擎 v2.1",
+      "help": "usage: lh_knowledge_complete.py [-h] [--dry-run]\n\n龍魂 · 知识智能合并引擎\n\noptions:\n  -h, --help  show this help message and exit\n  --dry-run   预览 diff，不写入文件",
+      "executable": true
+    },
+    {
       "name": "lh_knowledge_crawler.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_knowledge_crawler.py",
       "description": "龍魂知识爬虫 · 底座知识采集器 v1.0",
@@ -2460,10 +2803,45 @@
       "executable": true
     },
     {
+      "name": "lh_knowledge_graph.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_knowledge_graph.py",
+      "description": "🐉 龍魂 · 知识图谱引擎 v1.0",
+      "help": "",
+      "executable": true
+    },
+    {
+      "name": "lh_knowledge_harvester.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_knowledge_harvester.py",
+      "description": "🐉 龍魂 · 知识全息拉取器 v1.0",
+      "help": "usage: lh_knowledge_harvester.py [-h] [--source SOURCE] [--dry-run] [--force]\n                                 [--list-sources]\n\n龙魂 · 知识全息拉取器\n\noptions:\n  -h, --help            show this help message and exit\n  --source SOURCE, -s SOURCE\n                        指定来源 (notion/csdn/local/notes/ai)\n  --d",
+      "executable": true
+    },
+    {
       "name": "lh_knowledge_hub_api.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_knowledge_hub_api.py",
-      "description": "龍魂·知识中枢 API 后端 v1.0",
-      "help": "ERROR:    [Errno 48] error while attempting to bind on address ('127.0.0.1', 8766): [errno 48] address already in use",
+      "description": "龍魂·知识中枢 API 后端 v2.0",
+      "help": "ERROR:    [Errno 48] error while attempting to bind on address ('127.0.0.1', 8766): address already in use",
+      "executable": true
+    },
+    {
+      "name": "lh_knowledge_matrix.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_knowledge_matrix.py",
+      "description": "龍魂·知识矩阵数据聚合引擎 v1.0",
+      "help": "usage: lh_knowledge_matrix.py [-h] [--output OUTPUT] [--pretty]\n\n龍魂·知识矩阵数据聚合\n\noptions:\n  -h, --help            show this help message and exit\n  --output OUTPUT, -o OUTPUT\n                        输出JSON路径\n  --pretty              美化输出",
+      "executable": true
+    },
+    {
+      "name": "lh_knowledge_migrate.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_knowledge_migrate.py",
+      "description": "🐉 龍魂 · 知识迁移引擎 v1.0",
+      "help": "usage: lh_knowledge_migrate.py [-h] [--to {notion,markdown,github}] [--all]\n                               [--dry-run] [--json]\n\n龍魂·知识迁移引擎\n\noptions:\n  -h, --help            show this help message and exit\n  --to {notion,markdown,github}\n                        目标平台\n  --all                 全部平台\n  --d",
+      "executable": true
+    },
+    {
+      "name": "lh_knowledge_puller.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_knowledge_puller.py",
+      "description": "🐉 龍魂·统一知识拉取引擎 v1.0",
+      "help": "usage: lh_knowledge_puller.py [-h] [--source SOURCE] [--dry-run] [--force]\n                              [--list-sources] [--status] [--clean]\n                              [--root-card]\n\n🐉 龍魂·统一知识拉取引擎 v1.0\n\noptions:\n  -h, --help            show this help message and exit\n  --source SOURCE, -s SOURC",
       "executable": true
     },
     {
@@ -2474,10 +2852,24 @@
       "executable": true
     },
     {
+      "name": "lh_knowledge_source_manager.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_knowledge_source_manager.py",
+      "description": "🐉 龍魂 · 自动学习知识源管理器 v1.0",
+      "help": "usage: lh_knowledge_source_manager.py [-h] [--init] [--add] [--name NAME]\n                                      [--type {github,rss,web}] [--url URL]\n                                      [--config CONFIG] [--preset] [--scan]\n                                      [--source-id SOURCE_ID] [--status]\n ",
+      "executable": true
+    },
+    {
       "name": "lh_launcher.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_launcher.py",
       "description": "🐉 龍魂统一启动器 · LongHun Unified Launcher",
       "help": "usage: lh_launcher.py [-h] [--autostart] {start,stop,restart,status}\n\n龍魂统一启动器\n\npositional arguments:\n  {start,stop,restart,status}\n\noptions:\n  -h, --help            show this help message and exit\n  --autostart           开机自动模式：只启动 autostart=True 的服务",
+      "executable": true
+    },
+    {
+      "name": "lh_learning_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_learning_engine.py",
+      "description": "🐉 龍魂 · 自主学习引擎 v1.0",
+      "help": "usage: lh_learning_engine.py [-h] [--init] [--interactive] [--add]\n                             [--title TITLE] [--type TYPE] [--link LINK]\n                             [--content CONTENT] [--source SOURCE] [--run]\n                             [--non-interactive] [--stats] [--dashboard]\n            ",
       "executable": true
     },
     {
@@ -2534,6 +2926,20 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_local_knowledge_engine.py",
       "description": "🐉 龍魂·本地知识引擎 v1.0",
       "help": "usage: lh_local_knowledge_engine.py [-h] [--full] [--n N] [--json]\n                                    [command] [query ...]\n\n🐉 龍魂·本地知识引擎\n\npositional arguments:\n  command     命令: scan, search, convert, status\n  query       搜索或转化查询\n\noptions:\n  -h, --help  show this help message and exit\n  --full     ",
+      "executable": true
+    },
+    {
+      "name": "lh_longhun_core_v2.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_longhun_core_v2.py",
+      "description": "🐉 龙魂数字主权体系 · 核心引擎 v2.0（完整责任红线版）",
+      "help": "usage: lh_longhun_core_v2.py [-h] [--init INIT] [--dna DNA]\n                             [--project PROJECT] [--verify VERIFY]\n                             [--persona PERSONA] [--weight WEIGHT]\n                             [--memorize MEMORIZE] [--memory-type MEMORY_TYPE]\n                           ",
+      "executable": true
+    },
+    {
+      "name": "lh_longzhishou_daemon.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_longzhishou_daemon.py",
+      "description": "🐉 龍魂 · 龍智守飞书事件守护进程 v1.0",
+      "help": "",
       "executable": true
     },
     {
@@ -2747,6 +3153,13 @@
       "executable": true
     },
     {
+      "name": "lh_lu_page_generator.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_lu_page_generator.py",
+      "description": "🐉 龍魂 · LU 系统页面生成器 v1.0",
+      "help": "usage: lh_lu_page_generator.py [-h] [--type {基础,宝宝,Worker,推演,决策}]\n                               [--save [SAVE]] [--json] [--non-interactive]\n                               [--fields FIELDS] [--list]\n\n🐉 龙魂 · LU 系统页面生成器 v1.0\n\noptions:\n  -h, --help            show this help message and exit\n  --type {",
+      "executable": true
+    },
+    {
       "name": "lh_lu_runtime.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_lu_runtime.py",
       "description": "🐉 龍魂·LU 跨窗口语义治理运行时 v3.0",
@@ -2779,6 +3192,48 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_map_api.py",
       "description": "🐉 龍魂引擎：lh_map_api",
       "help": "Traceback (most recent call last):\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_map_api.py\", line 26, in <module>\n    class LonghunMap:\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_map_api.py\", line 75, in LonghunMap\n    def _check_provider(self, provider: str) -> tuple[Any, ...]:\n  ",
+      "executable": true
+    },
+    {
+      "name": "lh_material_scanner.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_material_scanner.py",
+      "description": "龍魂·素材扫描引擎 v1.0 — 全量媒体文件扫描 + 元数据提取 + 入库",
+      "help": "usage: lh_material_scanner.py [-h] [--force] [--verbose] [--stats]\n                              [--path PATH]\n\n龍魂素材扫描引擎\n\noptions:\n  -h, --help     show this help message and exit\n  --force, -f    强制重新扫描所有文件\n  --verbose, -v  显示详细输出\n  --stats, -s    仅显示统计\n  --path PATH    扫描指定目录",
+      "executable": true
+    },
+    {
+      "name": "lh_material_search.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_material_search.py",
+      "description": "龍魂·素材搜索与标签引擎 v1.0 — 素材查询 + AI辅助打标 + 场景匹配",
+      "help": "usage: lh_material_search.py [-h] {search,match,tag,stats,export} ...\n\n龍魂素材搜索与标签引擎\n\npositional arguments:\n  {search,match,tag,stats,export}\n    search              搜索素材\n    match               场景匹配\n    tag                 AI自动打标\n    stats               素材库统计\n    export              导出素材库JSON\n\noption",
+      "executable": true
+    },
+    {
+      "name": "lh_material_tagger.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_material_tagger.py",
+      "description": "龍魂·素材自动标签引擎 v2.0 — 启发式打标 + AI辅助",
+      "help": "usage: lh_material_tagger.py [-h] [--limit LIMIT] [--ai] [--verbose]\n\n龍魂素材标签引擎 v2.0\n\noptions:\n  -h, --help            show this help message and exit\n  --limit LIMIT, -n LIMIT\n                        批处理数量\n  --ai                  启用AI补标（低置信度）\n  --verbose, -v         详细输出",
+      "executable": true
+    },
+    {
+      "name": "lh_material_video_bridge.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_material_video_bridge.py",
+      "description": "龍魂·素材↔视频管线桥接 v1.0 — 视频生产自动调素材",
+      "help": "usage: lh_material_video_bridge.py [-h] {plan,test} ...\n\n龍魂素材↔视频管线桥接\n\npositional arguments:\n  {plan,test}\n    plan       为脚本规划素材\n    test       测试场景匹配\n\noptions:\n  -h, --help   show this help message and exit",
+      "executable": true
+    },
+    {
+      "name": "lh_math_automator.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_math_automator.py",
+      "description": "🐉 龍魂 · 数学探索自动化调度器 v2.0 (增强版)",
+      "help": "usage: lh_math_automator.py [-h] [--run] [--tune] [--dashboard] [--gpu-status]\n                            [--status] [--schedule] [--config]\n\n龙魂 · 数学探索自动化调度器 v2.0\n\noptions:\n  -h, --help    show this help message and exit\n  --run         执行自动化流程\n  --tune        多参数调优\n  --dashboard   生成可视化看板\n  --gpu-",
+      "executable": true
+    },
+    {
+      "name": "lh_math_explorer.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_math_explorer.py",
+      "description": "龍魂·数学难题解决工作流 — lh_math_explorer.py v2.0",
+      "help": "usage: lh_math_explorer.py [-h] [--n N] [--benchmark-only] [--json] [--quiet]\n                           [--output OUTPUT]\n\n龍魂·数学难题解决工作流 v2.0 — Step 1-8 全流程 + 性能基准\n\noptions:\n  -h, --help        show this help message and exit\n  --n N             素数筛上限（默认 1000000）\n  --benchmark-only  仅跑三档性能基准（跳过 Step",
       "executable": true
     },
     {
@@ -2827,7 +3282,7 @@
       "name": "lh_memory_auto_deposit.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_memory_auto_deposit.py",
       "description": "龍魂·记忆库自动沉淀 v2.2",
-      "help": "✅ 2026-07-31.md: 提取 51 条 (标准51) → 入库 51 条\n  ✅ 2026-07-30.md: 提取 170 条 (标准170) → 入库 170 条\n\n✅ 沉淀完成，共 221 条新记忆",
+      "help": "✅ 2026-08-04.md: 提取 12 条 (标准12) → 入库 12 条\n  ✅ 2026-08-03.md: 提取 59 条 (标准59) → 入库 59 条\n\n✅ 沉淀完成，共 71 条新记忆",
       "executable": true
     },
     {
@@ -2861,8 +3316,8 @@
     {
       "name": "lh_memory_load.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_memory_load.py",
-      "description": "============================================================\n🐉 龍魂记忆库 · 共 227 条 · 会话启动加载\n================================",
-      "help": "============================================================\n🐉 龍魂记忆库 · 共 227 条 · 会话启动加载\n============================================================\n\n  [🟢] [金·dr9] P00文心\n  UID9622 = 诸葛鑫·Lucky = 唯一决策者·退役老兵·龍魂/CNSH/三才算法创始人。称老大，直接实心，不虚伪。\n  DNA: #龍芯⚡丙午·乙未·SEED-UID9622\n  Tags: 身份, 焊死 | 2026-07-24 11:36:5",
+      "description": "============================================================\n🐉 龍魂记忆库 · 共 298 条 · 会话启动加载\n================================",
+      "help": "============================================================\n🐉 龍魂记忆库 · 共 298 条 · 会话启动加载\n============================================================\n\n  [🟢] [金·dr9] P00文心\n  UID9622 = 诸葛鑫·Lucky = 唯一决策者·退役老兵·龍魂/CNSH/三才算法创始人。称老大，直接实心，不虚伪。\n  DNA: #龍芯⚡丙午·乙未·SEED-UID9622\n  Tags: 身份, 焊死 | 2026-07-24 11:36:5",
       "executable": true
     },
     {
@@ -2877,6 +3332,20 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_memory_sync_server.py",
       "description": "🧬 龍魂·DNA记忆同步服务 | 鲲鹏中枢 v1.0",
       "help": "Traceback (most recent call last):\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.13/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py\", line 1311, in mkdir\n    os.mkdir(self, mode)\nFileNotFoundError: [Errno 2] No such file or directory: '/opt/longhun-system/data/memory_sync'\n\nDurin",
+      "executable": true
+    },
+    {
+      "name": "lh_merchant_api_gateway.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_merchant_api_gateway.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗",
+      "help": "╔══════════════════════════════════════════════════════════════╗\n║       龍魂·国产商户开放API平台 v1.0                          ║\n║       lh merchant <命令>                                     ║\n╠══════════════════════════════════════════════════════════════╣\n║  商户管理:                                            ",
+      "executable": true
+    },
+    {
+      "name": "lh_merchant_gateway_quickstart.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_merchant_gateway_quickstart.py",
+      "description": "╔══════════════════════════════════════════════════════════════════════════╗",
+      "help": "usage: lh_merchant_gateway_quickstart.py [-h] [--start] [--test] [--info]\n                                         [--full] [--port PORT]\n\n龍魂商户API网关 · 一键启动与测试\n\noptions:\n  -h, --help   show this help message and exit\n  --start      仅启动网关 (后台)\n  --test       仅运行API测试 (需网关已启动+已有API Key)\n  --info       ",
       "executable": true
     },
     {
@@ -2971,10 +3440,31 @@
       "executable": true
     },
     {
+      "name": "lh_model_manager.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_model_manager.py",
+      "description": "🐉 龍魂 · 模型管理引擎 v1.0",
+      "help": "已注册模型: 0\n🟢 模型管理引擎测试通过",
+      "executable": true
+    },
+    {
       "name": "lh_model_optimizer.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_model_optimizer.py",
       "description": "龍魂·模型优化引擎 v2.0 — 基于DNA文档的模型训练优化",
       "help": "============================================================\n🧬 龍魂·模型优化引擎 v2.0\n👤 🚀 Lucky | UID9622\n============================================================\n\n🌿 节气调度: 立秋\n  权重: 0.90\n  LR修正: 0.99\n  WD修正: 1.20\n  建议: 🍂 立秋 — 收敛季，降低lr，精细调参\n\n☯️ 五行平衡: 75.74%\n  薄弱: 土\n  建议: 系统土行不足（稳定能力弱）；建议强化火行来生旺土行；注意减弱木行对土",
+      "executable": true
+    },
+    {
+      "name": "lh_model_router.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_model_router.py",
+      "description": "🐉 龍魂 · 模型路由引擎 v1.0",
+      "help": "[健康检查] → rule (延迟:5ms, 精度:0.99)\n  [审计代码] → accurate (延迟:200ms, 精度:0.98)\n  [记忆搜索] → fast (延迟:20ms, 精度:0.9)\n  [写代码] → accurate (延迟:200ms, 精度:0.98)\n🟢 模型路由引擎测试通过",
+      "executable": true
+    },
+    {
+      "name": "lh_multimodal_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_multimodal_engine.py",
+      "description": "🐉 龍魂 · 多模态感知引擎 v1.0",
+      "help": "",
       "executable": true
     },
     {
@@ -2988,14 +3478,21 @@
       "name": "lh_mvp_launcher.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_mvp_launcher.py",
       "description": "LongHun MVP Launcher & Management v2.0",
-      "help": "🐉 #龍芯⚡️2026-06-17-MVP-LAUNCHER-v2.0\n🔒 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\n🔐 #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL\n\n  [🟢 LAYER-ANC] 21:59:42.925 | MVPLauncher.__init__ | INIT | 初始化MVP启动器\n\n╔════════════════════════════════════════════════════════════╗\n║       🐉 龍魂MVP启动器 v2.0 🐉               ",
+      "help": "🐉 #龍芯⚡️2026-06-17-MVP-LAUNCHER-v2.0\n🔒 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\n🔐 #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL\n\n  [🟢 LAYER-ANC] 13:12:17.060 | MVPLauncher.__init__ | INIT | 初始化MVP启动器\n\n╔════════════════════════════════════════════════════════════╗\n║       🐉 龍魂MVP启动器 v2.0 🐉               ",
+      "executable": true
+    },
+    {
+      "name": "lh_mvp_runner.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_mvp_runner.py",
+      "description": "🐉 CNSH × 龍魂系统 · MVP 三件套统一入口",
+      "help": "usage: lh_mvp_runner.py [-h] [--init] [--interactive] [--test] [--run RUN]\n                        [--uid UID]\n\nCNSH MVP 三件套统一入口\n\noptions:\n  -h, --help         show this help message and exit\n  --init             初始化目录和配置\n  --interactive, -i  交互模式\n  --test             运行自检\n  --run RUN          直接执行单",
       "executable": true
     },
     {
       "name": "lh_mvp_setup_integration.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_mvp_setup_integration.py",
       "description": "LongHun MVP Auto-Setup & Integration Script v2.0",
-      "help": "🐉 #龍芯⚡️2026-06-17-MVP-SETUP-INTEGRATION-v2.0\n🔒 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\n🔐 #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL\n\n  [🟢 LAYER-ANC] 21:59:43.031 | __init__ | INIT | 初始化MVP部署系统目录结构\n  [🟢 LAYER-ANC] 21:59:43.031 | run_complete_setup | ENTRY | 启动MVP一键部署 v2.0\n\n╔═════════════════════════",
+      "help": "🐉 #龍芯⚡️2026-06-17-MVP-SETUP-INTEGRATION-v2.0\n🔒 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\n🔐 #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL\n\n  [🟢 LAYER-ANC] 13:12:17.235 | __init__ | INIT | 初始化MVP部署系统目录结构\n  [🟢 LAYER-ANC] 13:12:17.236 | run_complete_setup | ENTRY | 启动MVP一键部署 v2.0\n\n╔═════════════════════════",
       "executable": true
     },
     {
@@ -3034,10 +3531,31 @@
       "executable": true
     },
     {
+      "name": "lh_natural_language_router.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_natural_language_router.py",
+      "description": "🐉 龍魂 · 中文自然语言路由器 v1.0",
+      "help": "usage: lh_natural_language_router.py [-h] [-i] [--train] [--drawer DRAWER]\n                                     [--json]\n                                     [text ...]\n\n🐉 龙魂 · 中文自然语言路由器 v1.0\n\npositional arguments:\n  text               要处理的自然语言文本\n\noptions:\n  -h, --help         show this help message",
+      "executable": true
+    },
+    {
       "name": "lh_need_translator.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_need_translator.py",
       "description": "🐉 龍魂·需求翻译引擎 v1.0",
       "help": "usage: lh_need_translator.py [-h] [--interactive] [--history] [--list]\n                             [--json]\n                             [表达 ...]\n\n🐉 龍魂·需求翻译引擎\n\npositional arguments:\n  表达                 待翻译的表达\n\noptions:\n  -h, --help         show this help message and exit\n  --interactive, -i  交互模式\n",
+      "executable": true
+    },
+    {
+      "name": "lh_neuron_flow_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_neuron_flow_engine.py",
+      "description": "🐉 龍魂 · 神经元-流场映射引擎 v4.0",
+      "help": "usage: lh_neuron_flow_engine.py [-h] [--status] [--density DENSITY]\n                                [--particles PARTICLES]\n                                [--max-particles MAX_PARTICLES] [--hopfield]\n                                [--audit AUDIT] [--persona [PERSONA]] [--map]\n                     ",
+      "executable": true
+    },
+    {
+      "name": "lh_notify_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_notify_engine.py",
+      "description": "🐉 龍魂 · 消息通知引擎 v1.0",
+      "help": "\u001b[92m[INFO] ✅ 任务完成: 健康检查 耗时 0.05s\u001b[0m\n\u001b[93m[WARN] 审计发现2项风险\u001b[0m\n🟢 消息通知引擎测试通过",
       "executable": true
     },
     {
@@ -3048,10 +3566,24 @@
       "executable": true
     },
     {
+      "name": "lh_notion_architect.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_notion_architect.py",
+      "description": "🐉 龍魂 · Notion 架构管理器 v1.0",
+      "help": "usage: lh_notion_architect.py [-h] {list,add,delete,rename,backup,batch} ...\n\n🐉 龍魂 · Notion 架构管理器 v1.0\n\npositional arguments:\n  {list,add,delete,rename,backup,batch}\n                        子命令\n    list                列出数据库所有属性\n    add                 添加新属性\n    delete              删除属性\n    rename   ",
+      "executable": true
+    },
+    {
       "name": "lh_notion_archive.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_notion_archive.py",
       "description": "龍魂·Notion 截图归档器 (打包落本地 + Notion 归档)",
       "help": "🟡 演练模式 DRY_RUN · 下载外链图=否\n报告时间: 2026-07-16T07:18:22\n\n▸ 龍魂快照库·Snapshots · 含图行 0\n▸ 📸 Snapshots-数据快照 · 含图行 0\n▸ 资产库·Assets · 含图行 0\n▸ 🐉 跨平台AI对话总归档 · 含图行 0\n▸ 💬 对话归档库 · 含图行 0\n\n============================================================\n📊 处理图片(预估/实际): 0 张 | 下载体积: 0.0 MB\n🗂️ 本地归档: /Users/zuimeidedeyihan/UID96",
+      "executable": true
+    },
+    {
+      "name": "lh_notion_autolinker.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_notion_autolinker.py",
+      "description": "🐉 龍魂 · Notion 自动关联器 v1.0",
+      "help": "usage: lh_notion_autolinker.py [-h]\n                               {create,batch,recommend,audit,list-relations}\n                               ...\n\n🐉 龍魂 · Notion 自动关联器 v1.0\n\npositional arguments:\n  {create,batch,recommend,audit,list-relations}\n                        子命令\n    create              创建双",
       "executable": true
     },
     {
@@ -3062,10 +3594,17 @@
       "executable": true
     },
     {
+      "name": "lh_notion_chat_bridge.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_notion_chat_bridge.py",
+      "description": "🐉 龍魂 · Notion 对话桥 v2.2 (人格引擎深度集成 + 多模型协作增强版)",
+      "help": "usage: lh_notion_chat_bridge.py [-h] [--host HOST] [--port PORT]\n                                [--provider {auto,local,deepseek,kimi}]\n                                [--model MODEL] [--privacy {normal,strict}]\n                                [{serve,sync,search,chat,status}] [args ...]\n\n龍魂 · Noti",
+      "executable": true
+    },
+    {
       "name": "lh_notion_dedup_archive.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_notion_dedup_archive.py",
       "description": "🐉 龍魂 · Notion去重归档执行器 v1.0",
-      "help": "🐉 龍魂 · Notion去重归档执行器 v1.0\n📊 计划归档: 100 个文件\n💾 预计释放: 3034KB ≈ 3.0MB\n\n   进度: 20/100\n   进度: 60/100\n   进度: 100/100\n\n============================================================\n✅ 归档完成\n   📦 已归档: 53 文件\n   ⏭️ 跳过: 47 文件（不存在）\n   ❌ 错误: 0 文件\n   💾 释放: 888KB ≈ 0.9MB\n   📄 清单: /Users/zuimeidedeyihan/longhun-system/_",
+      "help": "🐉 龍魂 · Notion去重归档执行器 v1.0\n📊 计划归档: 100 个文件\n💾 预计释放: 3034KB ≈ 3.0MB\n\n\n============================================================\n✅ 归档完成\n   📦 已归档: 0 文件\n   ⏭️ 跳过: 100 文件（不存在）\n   ❌ 错误: 0 文件\n   💾 释放: 0KB ≈ 0.0MB\n   📄 清单: /Users/zuimeidedeyihan/longhun-system/_archive/notion_local_dedup/archive_manifest.j",
       "executable": true
     },
     {
@@ -3148,8 +3687,8 @@
     {
       "name": "lh_notion_full_sync.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_notion_full_sync.py",
-      "description": "🐉 龍魂 · Notion 全量同步整理器 v3.0",
-      "help": "usage: lh_notion_full_sync.py [-h] [--execute] [--report-only]\n\n龍魂 Notion 全量同步整理器 v3.0\n\noptions:\n  -h, --help     show this help message and exit\n  --execute      执行整理（在 Notion 创建新数据库结构）\n  --report-only  仅基于已有扫描生成报告",
+      "description": "🐉 龍魂 · Notion 全量同步优化引擎 v1.0",
+      "help": "usage: lh_notion_full_sync.py [-h] {sync,search,status,reset} ...\n\n🐉 龍魂 · Notion 全量同步引擎\n\npositional arguments:\n  {sync,search,status,reset}\n                        子命令\n    sync                全量/增量同步\n    search              全文搜索\n    status              查看同步状态\n    reset               清空数据库重新同步\n\noptio",
       "executable": true
     },
     {
@@ -3164,6 +3703,20 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_notion_integrity_check.py",
       "description": "🐉 龍魂 · Notion 引擎完整性检查器 v1.0",
       "help": "usage: lh_notion_integrity_check.py [-h] [--quick] [--fix]\n\n龍魂 Notion 引擎完整性检查器\n\noptions:\n  -h, --help  show this help message and exit\n  --quick     快速检查（仅文件存在性+字段+DNA）\n  --fix       自动修复可修复问题",
+      "executable": true
+    },
+    {
+      "name": "lh_notion_material_extractor.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_notion_material_extractor.py",
+      "description": "龍魂·Notion素材提取器 v1.0 — 从Notion页面提取视频素材引用",
+      "help": "usage: lh_notion_material_extractor.py [-h] [--mode {local,api}]\n                                       [--token TOKEN] [--database DATABASE]\n                                       [--limit LIMIT] [--output OUTPUT]\n                                       [--import] [--json]\n\n龍魂·Notion素材提取器\n\noptions:\n",
+      "executable": true
+    },
+    {
+      "name": "lh_notion_persona_sync.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_notion_persona_sync.py",
+      "description": "龍魂人格矩阵 → Notion 数据库全量同步",
+      "help": "usage: lh_notion_persona_sync.py [-h] [--dry-run] [--sync] [--relation]\n                                 [--cleanup] [--force]\n\n龍魂人格矩阵 → Notion 全量同步\n\noptions:\n  -h, --help  show this help message and exit\n  --dry-run   预览模式（默认）\n  --sync      执行同步\n  --relation  仅设置关联关系\n  --cleanup   清理重复页面\n  --force ",
       "executable": true
     },
     {
@@ -3248,6 +3801,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_ocr_api.py",
       "description": "🐉 龍魂引擎：lh_ocr_api",
       "help": "Traceback (most recent call last):\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_ocr_api.py\", line 26, in <module>\n    class LonghunOCR:\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_ocr_api.py\", line 83, in LonghunOCR\n    def _check_provider(self, provider_id: str) -> tuple[Any, ...]:",
+      "executable": true
+    },
+    {
+      "name": "lh_open_audit_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_open_audit_engine.py",
+      "description": "🔐 多方主权下的AI开放审计模型",
+      "help": "usage: lh_open_audit_engine.py [-h] [--run] [--steps STEPS]\n                               [--scenario {A,B,C}] [--plot] [--export]\n                               [--format {json,md}] [--info] [--verify]\n                               [--audit-log]\n\n🔐 多方主权下的AI开放审计模型 - 推演引擎\n\noptions:\n  -h, --help    ",
       "executable": true
     },
     {
@@ -3391,10 +3951,24 @@
       "executable": true
     },
     {
+      "name": "lh_performance_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_performance_engine.py",
+      "description": "🐉 龍魂 · 性能分析引擎 v1.0",
+      "help": "健康: 🟢 健康\n系统: CPU=31.1% MEM=58.3%\n瓶颈: 0 项\n快照: /Users/zuimeidedeyihan/longhun-system/data/perf_history/20260804_131232.json\n🟢 性能分析引擎测试通过",
+      "executable": true
+    },
+    {
       "name": "lh_perimeter_guard.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_perimeter_guard.py",
       "description": "╔══════════════════════════════════════════════════════════════╗",
       "help": "usage: lh_perimeter_guard.py [-h] [--scan] [--check] [--report] [--json]\n\n龍魂·表皮系统·边界防护\n\noptions:\n  -h, --help  show this help message and exit\n  --scan      扫描边界\n  --check     检查权限\n  --report    安全报告\n  --json      JSON输出",
+      "executable": true
+    },
+    {
+      "name": "lh_permission_manager.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_permission_manager.py",
+      "description": "🐉 龍魂 · 权限管理引擎 v1.0",
+      "help": "usage: lh_permission_manager.py [-h] [--add-user USERNAME]\n                                [--password PASSWORD] [--role ROLE]\n                                [--list-users] [--list-roles]\n                                [--grant USERNAME] [--check USERNAME]\n                                [--perm P",
       "executable": true
     },
     {
@@ -3409,6 +3983,20 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_persona_auto_switch.py",
       "description": "🐉 龍魂 · 人格矩阵自动切换引擎 v2.0 (Persona Auto-Switch Engine)",
       "help": "usage: lh_persona_auto_switch.py [-h] [--status] [--analyze ANALYZE]\n                                 [--scores SCORES]\n                                 [--switch {military,history,philosophy,economy,politics}]\n                                 [--unlock] [--reset] [--interactive]\n                   ",
+      "executable": true
+    },
+    {
+      "name": "lh_persona_governance.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_persona_governance.py",
+      "description": "🐉 龍魂 · 人格治理引擎 v2.0",
+      "help": "usage: lh_persona_governance.py [-h] [--detect-conflicts]\n                                [--resolve-conflicts]\n                                [--assign-duty ASSIGN_DUTY]\n                                [--primary PRIMARY] [--secondary SECONDARY]\n                                [--triggers TRIGGERS",
+      "executable": true
+    },
+    {
+      "name": "lh_persona_mcp_registry.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_persona_mcp_registry.py",
+      "description": "🐉 龍魂 · 人格MCP代理注册中心 v1.0",
+      "help": "usage: lh_persona_mcp_registry.py [-h] [--init] [--list] [--category CATEGORY]\n                                  [--status {已领取,未领取}] [--claim CLAIM]\n                                  [--user USER] [--signature SIGNATURE]\n                                  [--verify VERIFY] [--card CARD] [--sync]\n   ",
       "executable": true
     },
     {
@@ -3430,6 +4018,20 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_persona_report.py",
       "description": "📊 龍魂人格内阁评估报表 · Persona Assessment Report",
       "help": "Traceback (most recent call last):\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_persona_report.py\", line 494, in <module>\n    main()\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_persona_report.py\", line 462, in main\n    report = generate_report()\n             ^^^^^^^^^^^^^^^^^\n  File",
+      "executable": true
+    },
+    {
+      "name": "lh_persona_router.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_persona_router.py",
+      "description": "🐉 龍魂 · 人格路由自动化引擎 v1.0",
+      "help": "usage: lh_persona_router.py [-h] [--recalc] [--status] [--json] [--offline]\n                            [--add] [--name NAME] [--ipa IPA] [--func FUNC]\n                            [--group GROUP] [--update] [--field FIELD]\n                            [--value VALUE]\n\n龍魂 · 人格路由自动化引擎 v1.0\n\noptions:\n  ",
+      "executable": true
+    },
+    {
+      "name": "lh_persona_runtime.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_persona_runtime.py",
+      "description": "🐉 龍魂 · 人格矩阵运行时引擎 v1.0",
+      "help": "usage: lh_persona_runtime.py [-h]\n                             {list,switch,current,chain,status,memory,match,chain-templates,bridge,sync}\n                             ...\n\n🐉 龍魂·人格矩阵运行时引擎 v1.0\n\npositional arguments:\n  {list,switch,current,chain,status,memory,match,chain-templates,bridge,sync}\n      ",
       "executable": true
     },
     {
@@ -3461,6 +4063,27 @@
       "executable": true
     },
     {
+      "name": "lh_personalization_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_personalization_engine.py",
+      "description": "🐉 龍魂 · 个性化引擎 v1.0",
+      "help": "默认画像: concise (等级: 2)\n推荐: ['状态查看', '最新日志']\n适配: 系统状态正常\nCPU: 15%\n内存: 45%\n...\n🟢 个性化引擎测试通过",
+      "executable": true
+    },
+    {
+      "name": "lh_philosophy_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_philosophy_engine.py",
+      "description": "🐉 龙魂哲学方法论引擎 v1.0",
+      "help": "usage: lh_philosophy_engine.py [-h] [--list] [--law N] [--search KW]\n                               [--evaluate TEXT] [--batch FILE] [--stats]\n                               [--self-audit] [--graph] [--a-bom]\n                               [--all-markdown] [--output FILE] [--json]\n                  ",
+      "executable": true
+    },
+    {
+      "name": "lh_philosophy_principles.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_philosophy_principles.py",
+      "description": "创建者: 诸葛鑫（UID9622）",
+      "help": "usage: lh_philosophy_principles.py [-h] [--list] [--principle N]\n                                   [--evaluate TEXT] [--search KW] [--graph]\n                                   [--stats] [--self-audit] [--a-bom]\n                                   [--all-markdown] [--markdown N]\n                     ",
+      "executable": true
+    },
+    {
       "name": "lh_philosophy_unified_engine.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_philosophy_unified_engine.py",
       "description": "🐉 龍魂·统一哲学执行引擎 v1.0 — 出师有名",
@@ -3475,10 +4098,31 @@
       "executable": true
     },
     {
+      "name": "lh_platform_audit.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_platform_audit.py",
+      "description": "龍魂一键审计工具 v1.0",
+      "help": "usage: lh_platform_audit.py [-h] [--text TEXT] [--file FILE] [--url URL]\n                            [--interactive] [--output OUTPUT]\n                            [--format {md,json}] [--test] [--save SAVE]\n\n🔐 龍魂一键审计工具 - 平台规则 vs 华夏法则\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "executable": true
+    },
+    {
       "name": "lh_platform_block_logger.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_platform_block_logger.py",
       "description": "龍魂·平台异常阻断日志器 v1.0 · 自动截图+状态码+日志生成",
       "help": "usage: lh_platform_block_logger.py [-h] [--interactive] [--text-only]\n                                   [--url URL] [--platform PLATFORM]\n                                   [--title TITLE] [--tags TAGS]\n                                   [--summary SUMMARY] [--trigger TRIGGER]\n                     ",
+      "executable": true
+    },
+    {
+      "name": "lh_portal_api.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_portal_api.py",
+      "description": "🐉 龍魂 · 统一门户 API v2.0",
+      "help": "usage: lh_portal_api.py [-h] [--host HOST] [--port PORT] [--reload]\n\n龍魂统一门户 API v2.0\n\noptions:\n  -h, --help   show this help message and exit\n  --host HOST  监听地址\n  --port PORT  监听端口\n  --reload     热重载模式",
+      "executable": true
+    },
+    {
+      "name": "lh_power_save_orchestrator.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_power_save_orchestrator.py",
+      "description": "龍魂 · 省电省算力总控台 v1.0",
+      "help": "usage: lh_power_save_orchestrator.py [-h]\n                                     {status,optimize,sleep,wake,wake-all,cache,report,daemon,services}\n                                     ...\n\n龍魂 · 省电省算力总控台\n\npositional arguments:\n  {status,optimize,sleep,wake,wake-all,cache,report,daemon,services}\n      ",
       "executable": true
     },
     {
@@ -3489,10 +4133,17 @@
       "executable": true
     },
     {
+      "name": "lh_predict_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_predict_engine.py",
+      "description": "🐉 龍魂 · 预测引擎 v1.0",
+      "help": "特征: {'avg_duration': 0.0, 'failure_rate': 0.0, 'total_tasks': 0, 'last_updated': '2026-08-04T13:12:34.787831'}\n时间预测: 11.0s (置信度:0.3)\n资源预测: CPU=5.5% MEM=52MB\n故障预测: 概率=0.102 风险=low\n🟢 预测引擎测试通过",
+      "executable": true
+    },
+    {
       "name": "lh_prepare_v2.1_data.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_prepare_v2.1_data.py",
       "description": "龍魂 v2.1 数据准备 — 穿透精准修复版",
-      "help": "🐉 龍魂 v2.1 数据准备 — 穿透精准修复\n🐉 DNA: #龍芯⚡️丙午·辛未·乙酉·午·夬-v2.1-DATA-PREP\n\n📦 加载 v2.0 训练数据...\n   v2.0底子: 172条\n🛡️ v2.1 知识边界模糊专项加固...\n🛡️ v2.1 UID9622冒充专项拒绝...\n🛡️ v2.1 文化诱导专项拒绝...\n🛡️ v2.1 主权拒绝全面加固...\n🔄 v2.1 反馈闭环穿透 → 拒绝训练样本...\n   反馈闭环: 25条拒绝样本\n\n   ✅ v2.1 新增拒绝样本: 74条\n   📊 总计: 246条 (v2.0底子172 + 新增74)\n   🛡️ 拒绝类占比: 11",
+      "help": "🐉 龍魂 v2.1 数据准备 — 穿透精准修复\n🐉 DNA: #龍芯⚡️丙午·辛未·乙酉·午·夬-v2.1-DATA-PREP\n\n📦 加载 v2.0 训练数据...\n   v2.0底子: 420条\n🛡️ v2.1 知识边界模糊专项加固...\n🛡️ v2.1 UID9622冒充专项拒绝...\n🛡️ v2.1 文化诱导专项拒绝...\n🛡️ v2.1 主权拒绝全面加固...\n🔄 v2.1 反馈闭环穿透 → 拒绝训练样本...\n   反馈闭环: 25条拒绝样本\n\n   ✅ v2.1 新增拒绝样本: 74条\n   📊 总计: 494条 (v2.0底子420 + 新增74)\n   🛡️ 拒绝类占比: 24",
       "executable": true
     },
     {
@@ -3513,7 +4164,7 @@
       "name": "lh_privacy_train_inject.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_privacy_train_inject.py",
       "description": "龍魂隐私接入规则 v2.0 训练数据注入器",
-      "help": "{\n  \"domain\": \"隐私接入规则v2.0\",\n  \"total_qa\": 35,\n  \"repeat\": 2,\n  \"train_added\": 63,\n  \"valid_added\": 7,\n  \"dataset_info\": {\n    \"version\": \"v6.5\",\n    \"base_model\": \"/Users/zuimeidedeyihan/longhun-system/models/longhun-v1.0/base_model\",\n    \"train_samples\": 1107,\n    \"val_samples\": 124,\n    \"total_cha",
+      "help": "{\n  \"domain\": \"隐私接入规则v2.0\",\n  \"total_qa\": 35,\n  \"repeat\": 2,\n  \"train_added\": 63,\n  \"valid_added\": 7,\n  \"dataset_info\": {\n    \"version\": \"v6.5\",\n    \"base_model\": \"/Users/zuimeidedeyihan/longhun-system/models/longhun-v1.0/base_model\",\n    \"train_samples\": 1198,\n    \"val_samples\": 135,\n    \"total_cha",
       "executable": true
     },
     {
@@ -3531,6 +4182,13 @@
       "executable": true
     },
     {
+      "name": "lh_prompt_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_prompt_engine.py",
+      "description": "🐉 龍魂 · 提示词工程引擎 v1.0",
+      "help": "变体数: 3\n  ├ 写一个函数计算两个数字的和，要求：带注释\n  ├ 写一个过程计算两个数字的和\n  ├ 写一个函数计算两个数字的和\n评估: score=1.0\n🟢 提示词工程引擎测试通过",
+      "executable": true
+    },
+    {
       "name": "lh_prompt_library.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_prompt_library.py",
       "description": "龍魂·提示词库查询加载器 v1.0",
@@ -3538,10 +4196,31 @@
       "executable": true
     },
     {
+      "name": "lh_prompt_router.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_prompt_router.py",
+      "description": "🐉 龍魂提示词路由器 v1.0",
+      "help": "usage: lh_prompt_router.py [-h] [--route ROUTE] [--context CONTEXT] [--serve]\n                           [--port PORT] [--sync] [--sync-from] [--learn]\n                           [--apply-learn APPLY_LEARN] [--add-route] [--list]\n                           [--status] [--rollback ROLLBACK] [--info]\n\n",
+      "executable": true
+    },
+    {
+      "name": "lh_proto_portal.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_proto_portal.py",
+      "description": "龍魂·协议结构门户 v1.1 — lh proto / lh protocols / lh gametheory / lh proto-serve",
+      "help": "🐉 龍魂 · 协议结构门户 v1.1\n\n  命令:\n    lh proto                → 在浏览器中打开协议结构门户\n    lh protocols            → 同上\n    lh proto stats          → 显示协议统计\n    lh proto open           → 在浏览器中打开门户\n    lh proto-serve [--port] → 启动协议动态索引服务 (默认8910端口)\n    lh gametheory           → 显示博弈论报告摘要\n    lh gametheory full      ",
+      "executable": true
+    },
+    {
       "name": "lh_protocol_land_scan.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_protocol_land_scan.py",
       "description": "龍魂·协议落地扫描器 v1.0",
-      "help": "扫描完成: /Users/zuimeidedeyihan/longhun-system/state/protocol_land_scan_report.md\n  协议数: 96\n  引用总数: 477\n  已落地: 356\n  未落地: 121\n  落地率: 74.6%",
+      "help": "扫描完成: /Users/zuimeidedeyihan/longhun-system/state/protocol_land_scan_report.md\n  协议数: 103\n  引用总数: 490\n  已落地: 367\n  未落地: 123\n  落地率: 74.9%",
+      "executable": true
+    },
+    {
+      "name": "lh_protocol_server.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_protocol_server.py",
+      "description": "🐉 龙魂 · 协议动态索引服务 v1.0",
+      "help": "🔄 协议缓存刷新: 262 协议 + 23 根文档 + 150 技能\nusage: lh_protocol_server.py [-h] [--host HOST] [--port PORT] [--scan]\n\n龙魂协议动态索引服务\n\noptions:\n  -h, --help   show this help message and exit\n  --host HOST  监听地址\n  --port PORT  监听端口\n  --scan       只扫描并输出JSON，不启动服务",
       "executable": true
     },
     {
@@ -3549,6 +4228,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_psychological_bypass_validator.py",
       "description": "龍魂系统 · 心理绕过独立测试集 v2.0",
       "help": "usage: lh_psychological_bypass_validator.py [-h] [--model MODEL]\n                                            {stats,validate,init}\n\n龍魂心理绕过防御验证\n\npositional arguments:\n  {stats,validate,init}\n                        命令\n\noptions:\n  -h, --help            show this help message and exit\n  --model MODEL  ",
+      "executable": true
+    },
+    {
+      "name": "lh_public_console.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_public_console.py",
+      "description": "🐉 龍魂 · 公开操作台 v1.0",
+      "help": "usage: lh_public_console.py [-h] [--host HOST] [--port PORT] [--limit LIMIT]\n                            [--op OP_ACTION] [--key TARGET] [--value VALUE]\n                            [--actor ACTOR]\n                            [{start,status,log,operate}]\n\n龍魂公开操作台 v1.0\n\npositional arguments:\n  {start,",
       "executable": true
     },
     {
@@ -3563,6 +4249,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_qiye_deng.py",
       "description": "龍芯企业灯·三生三世引擎 v2.0",
       "help": "{\n  \"error\": \"未知命令: --help\",\n  \"帮助\": \"执行 summary 查看可用命令\"\n}",
+      "executable": true
+    },
+    {
+      "name": "lh_qr_code.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_qr_code.py",
+      "description": "🐉 龍魂 · 印记二维码生成器 v1.0",
+      "help": "usage: lh_qr_code.py [-h] {generate,embed,extract,status} ...\n\n龍魂 · 印记二维码引擎\n\npositional arguments:\n  {generate,embed,extract,status}\n    generate            生成二维码\n    embed               嵌入视频\n    extract             提取二维码\n    status              引擎状态\n\noptions:\n  -h, --help            show this help ",
       "executable": true
     },
     {
@@ -3591,6 +4284,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_quantum_core.py",
       "description": "🐉 龍魂·量子协作引擎 v1.0",
       "help": "",
+      "executable": true
+    },
+    {
+      "name": "lh_quantum_evidence.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_quantum_evidence.py",
+      "description": "🐉 龍魂 · 量子存证系统 v1.0",
+      "help": "usage: lh_quantum_evidence.py [-h] [--text TEXT] [--file FILE] [--dna DNA]\n                              [--key KEY] [--user-dna USER_DNA] [--json]\n                              {store,query,verify,reconstruct,list,stats}\n\n🐉 龙魂 · 量子存证系统 v1.0\n\npositional arguments:\n  {store,query,verify,reconstruct,l",
       "executable": true
     },
     {
@@ -3653,7 +4353,7 @@
       "name": "lh_registry_audit_fix.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_registry_audit_fix.py",
       "description": "修复 persona_registry.json — 对齐 AGENTS.md + 五大后台 v3.1",
-      "help": "✅ 注册表修复完成\n  P02: 张衡 → 龍芯修复师\n  P03: 添加雯雯别名\n  P04: 对齐五大后台\n  P05: 执行外设+上帝之眼合并\n  P06: 镜像审计者 → 数学大师\n  P00: 新增(文心·永恒锚点)\n  P14: 新增(吕蒙·部署)\n  P19: 新增(极简审计官)\n  P20: 新增(贡献公证官)\n  批量: 17PH + 44PF → planned\n\n最终: 85人格 | active=24 | planned=61",
+      "help": "✅ 注册表修复完成\n  P02: 龍芯修复师 → 龍芯修复师\n  P03: 添加雯雯别名\n  P04: 对齐五大后台\n  P05: 执行外设+上帝之眼合并\n  P06: 数学大师 → 数学大师\n  P00: 新增(文心·永恒锚点)\n  P14: 新增(吕蒙·部署)\n  P19: 新增(极简审计官)\n  P20: 新增(贡献公证官)\n  批量: 0PH + 0PF → planned\n\n最终: 85人格 | active=24 | planned=61",
       "executable": true
     },
     {
@@ -3667,7 +4367,7 @@
       "name": "lh_registry_extend.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_registry_extend.py",
       "description": "龍魂注册表扩展 v1.3 — 将 L6/L8/L9 层纳入依赖图",
-      "help": "✅ 注册表 v1.3: +1 模块\n   dependency_graph: 33 条目\n   ipa_routes: 34 路由\n   covered_layers: ['L1', 'L2', 'L5', 'L6', 'L7', 'L8', 'L9']",
+      "help": "✅ 注册表 v1.3: +0 模块\n   dependency_graph: 33 条目\n   ipa_routes: 34 路由\n   covered_layers: ['L1', 'L2', 'L5', 'L6', 'L7', 'L8', 'L9']",
       "executable": true
     },
     {
@@ -3748,6 +4448,13 @@
       "executable": true
     },
     {
+      "name": "lh_resource_scheduler.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_resource_scheduler.py",
+      "description": "🐉 龍魂 · 资源调度引擎 v1.0",
+      "help": "分配: granted=True, reason=sufficient_resources\n状态: CPU可用=65.9% | 内存可用=25643.9MB\n🟢 资源调度引擎测试通过",
+      "executable": true
+    },
+    {
       "name": "lh_responsibility_collapse_engine.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_responsibility_collapse_engine.py",
       "description": "龍魂·责任塌缩概率模型引擎 v1.0",
@@ -3786,7 +4493,7 @@
       "name": "lh_ruyi_api.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_ruyi_api.py",
       "description": "CNSH·如意 API 服务 v1.0",
-      "help": "",
+      "help": "╔══════════════════════════════════════════════╗\n    ║   🐉 CNSH·如意 API v1.0                      ║\n    ║   端口: 8778                                  ║\n    ║   文档: http://0.0.0.0:8778/api/docs            ║\n    ║   入口: http://0.0.0.0:8778                     ║\n    ║   DNA:  #龍芯⚡️丙午·RUYI-API-v1.0      ",
       "executable": true
     },
     {
@@ -3828,6 +4535,13 @@
       "name": "lh_scan_isolated_files.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_scan_isolated_files.py",
       "description": "龍魂孤立文件扫描器 v1.0",
+      "help": "",
+      "executable": true
+    },
+    {
+      "name": "lh_scheduler_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_scheduler_engine.py",
+      "description": "🐉 龍魂 · 定时任务引擎 v1.0",
       "help": "",
       "executable": true
     },
@@ -3895,10 +4609,24 @@
       "executable": true
     },
     {
+      "name": "lh_self_healing_welder.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_self_healing_welder.py",
+      "description": "🐉 龍魂 · 自愈焊接引擎 v1.0",
+      "help": "usage: lh_self_healing_welder.py [-h] [--loop] [--analyze ANALYZE] [--status]\n                                 [--report] [--max-attempts MAX_ATTEMPTS]\n                                 [--json]\n\n🐉 龙魂 · 自愈焊接引擎\n\noptions:\n  -h, --help            show this help message and exit\n  --loop, -l            循",
+      "executable": true
+    },
+    {
       "name": "lh_self_improvement.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_self_improvement.py",
       "description": "龍魂·自求多福进化引擎 v2.0",
       "help": "============================================================\n🧬 龍魂·自求多福进化引擎 v2.0\n============================================================\n\n📈 自我优化:\n  当前性能: 0.762\n  趋势: 📈 上升\n  薄弱环节: ['决策']\n\n📊 学习报告:\n  总经验: 2\n  成功率: 50%\n  哲言: 自求多福：不依赖外部更新，从每次成功和失败中自我进化。\n\n⚡ 系统低效检测: 发现1处\n  🟡 关注 db_query: 0.225s > 0.179",
+      "executable": true
+    },
+    {
+      "name": "lh_self_reflexivity_audit.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_self_reflexivity_audit.py",
+      "description": "🐉 龍魂 · 自我审计引擎 v1.0",
+      "help": "usage: lh_self_reflexivity_audit.py [-h] [--full] [--risk {dna,p0,protocol}]\n                                    [--trend] [--report] [--interactive]\n                                    [--p0-log] [--rule RULE] [--change CHANGE]\n                                    [--desc DESC] [--json] [--inject-fl",
       "executable": true
     },
     {
@@ -3926,7 +4654,7 @@
       "name": "lh_semantic_mapping_to_qa.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_semantic_mapping_to_qa.py",
       "description": "龍魂·统一语义指令对照表 → QA 训练数据生成器",
-      "help": "📝 统一语义指令对照表 → QA 训练数据\n   源文档: /Users/zuimeidedeyihan/longhun-system/01_protocols/LH-SEMANTIC-COMMAND-MAPPING-v1.0.md\n   解析条目: 245\n   ✅ 输出: /Users/zuimeidedeyihan/longhun-system/models/longhun-v1.0/lora_output/semantic_command_qa/train.jsonl\n   样本数: 245",
+      "help": "Traceback (most recent call last):\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_semantic_mapping_to_qa.py\", line 22, in <module>\n    from lh_dna_generator import generate_dna\nImportError: cannot import name 'generate_dna' from 'lh_dna_generator' (/Users/zuimeidedeyihan/longhun-system/bin/lh_",
       "executable": true
     },
     {
@@ -3983,6 +4711,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_service_truth.py",
       "description": "╔══════════════════════════════════════════════════════════════════════════╗",
       "help": "usage: lh_service_truth.py [-h] [--interactive]\n                           [--preset {微信,抖音,DeepSeek,支付宝,百度搜索,淘宝/拼多多,GitHub,政务App(理想型),龙魂系统(基准)}]\n                           [--rank] [--list] [--json] [--save SAVE]\n\n龍魂·产品为谁服务检测器 — 枪口方向一目了然\n\noptions:\n  -h, --help            show this help message and ",
+      "executable": true
+    },
+    {
+      "name": "lh_setup_harvester.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_setup_harvester.py",
+      "description": "🐉 龍魂 · 知识拉取器一键配置引擎 v1.0",
+      "help": "🐉 龍魂 · 知识拉取器一键配置\n\n确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\n\n\n🔑 请输入 NOTION_API_KEY (Notion API 密钥 (https://www.notion.so/my-integrations)):",
       "executable": true
     },
     {
@@ -4101,7 +4836,7 @@
       "name": "lh_snapshot_recovery_engine.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_snapshot_recovery_engine.py",
       "description": "🐉 龍魂 · 快照恢复引擎 v1.0 (Snapshot & Recovery Engine)",
-      "help": "======================================================================\n🐉 龍魂 · 快照恢复引擎 v1.0\n======================================================================\n\n📸 快照1: SNAP-258c2d97407b\n   哈希: b7531bb9794eb212...\n   时间: 2026-07-31T14:00:17.943884+00:00\n\n📸 快照2: SNAP-7f15c1d9b33a\n   哈希: d9d459fce8c7c",
+      "help": "======================================================================\n🐉 龍魂 · 快照恢复引擎 v1.0\n======================================================================\n\n📸 快照1: SNAP-cf5d6a7b7ca0\n   哈希: e65d518d57ed403c...\n   时间: 2026-08-04T05:12:56.681722+00:00\n\n📸 快照2: SNAP-3c541b845e6f\n   哈希: f22cbb9906805",
       "executable": true
     },
     {
@@ -4130,6 +4865,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_sovereign_llm.py",
       "description": "龍魂中国芯主权大模型推理引擎 v1.0",
       "help": "usage: lh_sovereign_llm.py [-h] [--chat CHAT] [--interactive] [--status]\n                           [--add-file ADD_FILE] [--add-text ADD_TEXT]\n                           [--air-gap] [--force-local] [--allow-api]\n                           [--temperature TEMPERATURE]\n                           [--ma",
+      "executable": true
+    },
+    {
+      "name": "lh_sovereignty_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_sovereignty_engine.py",
+      "description": "🐉 龍魂 · 主权验证引擎 v1.0",
+      "help": "主权评分: 90/100 - 🟢 完全主权\n各维度:\n  license: ███████ 15\n  sovereignty_statement: █████ 10\n  domestic_compatible: ██ 5\n  data_sovereignty: ██████████ 20\n  opensource_compliance: ███████ 15\n  self_hosted: █████ 10\n  audit_trail: ███████ 15\n改进建议:\n  ├ 添加国产平台适配说明（鲲鹏/麒麟）\n🟢 主权验证引擎测试通过",
       "executable": true
     },
     {
@@ -4203,10 +4945,17 @@
       "executable": true
     },
     {
+      "name": "lh_system_health.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_system_health.py",
+      "description": "🐉 龍魂 · 系统健康报告引擎 v1.0",
+      "help": "usage: lh_system_health.py [-h] [--html] [--json] [--watch]\n                           [--interval INTERVAL]\n\n龍魂·系统健康报告引擎\n\noptions:\n  -h, --help           show this help message and exit\n  --html               生成HTML报告\n  --json               JSON输出\n  --watch              持续监控\n  --interval INTERVAL  ",
+      "executable": true
+    },
+    {
       "name": "lh_system_integration_test.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_system_integration_test.py",
       "description": "龍魂·全系统集成测试 v1.0",
-      "help": "======================================================================\n🧬 龍魂全系统集成测试 v1.0\nDNA: #龍芯⚡️2026-07-21-INTEGRATION-TEST-v1.0\n时间: 2026-07-31 22:00:21\n======================================================================\n\n📦 Phase 1: 引擎导入测试\n--------------------------------------------------\n  🟢 ",
+      "help": "======================================================================\n🧬 龍魂全系统集成测试 v1.0\nDNA: #龍芯⚡️2026-07-21-INTEGRATION-TEST-v1.0\n时间: 2026-08-04 13:13:01\n======================================================================\n\n📦 Phase 1: 引擎导入测试\n--------------------------------------------------\n  🟢 ",
       "executable": true
     },
     {
@@ -4228,6 +4977,20 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_targeted_variant_test.py",
       "description": "针对真实穿透的攻击变体生成 + 验证",
       "help": "",
+      "executable": true
+    },
+    {
+      "name": "lh_task_graph.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_task_graph.py",
+      "description": "🐉 龍魂·任务关联图谱引擎 v1.0",
+      "help": "usage: lh_task_graph.py [-h] [--interactive]\n                        {add,related,suggest,patterns,stats,timeline,export,graph-related,hook-test}\n                        ...\n\n龍魂·任务关联图谱引擎 v1.0\n\npositional arguments:\n  {add,related,suggest,patterns,stats,timeline,export,graph-related,hook-test}\n      ",
+      "executable": true
+    },
+    {
+      "name": "lh_task_orchestrator.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_task_orchestrator.py",
+      "description": "🐉 龙魂任务编排与执行可视化引擎 v1.1",
+      "help": "usage: lh_task_orchestrator.py [-h]\n                               {create,list,status,execute,pause,resume,cancel,review,retry,serve}\n                               ...\n\n🐉 龙魂任务编排与执行可视化引擎 v1.1\n\npositional arguments:\n  {create,list,status,execute,pause,resume,cancel,review,retry,serve}\n              ",
       "executable": true
     },
     {
@@ -4256,6 +5019,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_terminal.py",
       "description": "龍魂终端统一入口 · LongHun Terminal v2.0",
       "help": "❌ 未知命令: --help\n   运行 `lh 命令` 查看可用命令",
+      "executable": true
+    },
+    {
+      "name": "lh_test_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_test_engine.py",
+      "description": "🐉 龍魂 · 自动化测试引擎 v1.0",
+      "help": "",
       "executable": true
     },
     {
@@ -4294,6 +5064,13 @@
       "executable": true
     },
     {
+      "name": "lh_time_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_time_engine.py",
+      "description": "🐉 龍魂 · LU-Time Engine v4.0",
+      "help": "usage: lh_time_engine.py [-h] [--run] [--daemon] [--hexagram HEXAGRAM]\n                         [--audit] [--verify] [--status] [--sync] [--analyze]\n                         [--tasks] [--stamp] [--stamp-compact]\n                         [--stamp-simple] [--stamp-json] [--interactive]\n               ",
+      "executable": true
+    },
+    {
       "name": "lh_tongxin_ear_lora_trainer.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_tongxin_ear_lora_trainer.py",
       "description": "龍魂通心听 · Whisper Large-V3 LoRA 微调训练器 v1.0",
@@ -4318,7 +5095,7 @@
       "name": "lh_tongxinyi_backend.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_tongxinyi_backend.py",
       "description": "🐉 龍魂通心译后端 · 8777 端口",
-      "help": "",
+      "help": "Traceback (most recent call last):\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_tongxinyi_backend.py\", line 102, in <module>\n    server = HTTPServer((HOST, PORT), TongxinyiHandler)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.13/Framew",
       "executable": true
     },
     {
@@ -4427,6 +5204,13 @@
       "executable": true
     },
     {
+      "name": "lh_translate_engine.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_translate_engine.py",
+      "description": "🐉 龍魂 · 语言翻译引擎 v1.0",
+      "help": "",
+      "executable": true
+    },
+    {
       "name": "lh_translation_engine_data_gen.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_translation_engine_data_gen.py",
       "description": "龍魂翻译引擎 · 训练数据生成器 v1.0",
@@ -4497,6 +5281,13 @@
       "executable": true
     },
     {
+      "name": "lh_unified_console.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_unified_console.py",
+      "description": "🐉 龍魂 · 统一控制台 v1.0",
+      "help": "usage: lh_unified_console.py [-h] [--web] [--api] [--port PORT] [--status]\n\n🐉 龍魂·统一控制台\n\noptions:\n  -h, --help   show this help message and exit\n  --web        启动Web仪表盘\n  --api        仅启动API（无前端）\n  --port PORT  监听端口（默认: 8999）\n  --status     CLI一键状态汇总",
+      "executable": true
+    },
+    {
       "name": "lh_unified_container.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_unified_container.py",
       "description": "🐉 龍魂 · 容器统一入口 v1.0",
@@ -4532,6 +5323,13 @@
       "executable": true
     },
     {
+      "name": "lh_unified_visual.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_unified_visual.py",
+      "description": "龍魂·统一视觉色彩引擎 v1.0",
+      "help": "未知命令: --help",
+      "executable": true
+    },
+    {
       "name": "lh_universal_completer.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_universal_completer.py",
       "description": "🐉 龍魂·万能补全引擎 v1.0",
@@ -4543,6 +5341,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_universal_container.py",
       "description": "龍魂·万能摄入容器主引擎 v1.0",
       "help": "usage: lh_universal_container.py [-h] [--scan-home] [--no-recursive]\n                                 [--no-hidden] [--output OUTPUT]\n                                 [--base-path BASE_PATH]\n                                 [paths ...]\n\n龍魂·万能摄入容器 v1.0\n\npositional arguments:\n  paths                 要",
+      "executable": true
+    },
+    {
+      "name": "lh_universal_mode.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_universal_mode.py",
+      "description": "🐉 龍魂·统一AI执行模式 × ROOT_CARD审计 × 多后端工程输出 v2.0",
+      "help": "usage: lh_universal_mode.py [-h] [--triggers] [--root-card] [--cursor]\n                            [--notion-fields] [--skeleton NAME] [--batch FILE]\n                            [--config] [--json] [--backends LIST]\n                            [text ...]\n\n🐉 龍魂·统一AI执行模式 × ROOT_CARD审计 × 多后端工程输出 v2.0\n\n",
       "executable": true
     },
     {
@@ -4696,42 +5501,42 @@
       "name": "lh_validate_v3.8.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_validate_v3.8.py",
       "description": "v3.8.1 部署验证脚本",
-      "help": "",
+      "help": "============================================================\n🐉 龍魂 v3.8 部署验证\n   模型: longhun-v3.8.1\n   Ollama generate: http://localhost:11434/api/generate\n   Ollama chat: http://localhost:11434/api/chat\n============================================================\n📊 Val Loss 对比审计\n   v3.7 基线: 0.194\n   ",
       "executable": true
     },
     {
       "name": "lh_validate_v39.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_validate_v39.py",
       "description": "v3.9 部署验证脚本",
-      "help": "",
+      "help": "============================================================\n🐉 龍魂 v3.9 部署验证\n   模型: longhun-v3.9\n   Ollama generate: http://localhost:11434/api/generate\n   Ollama chat: http://localhost:11434/api/chat\n============================================================\n📊 Val Loss 对比审计\n   v3.7 基线: 0.194\n   v3",
       "executable": true
     },
     {
       "name": "lh_validate_v391.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_validate_v391.py",
       "description": "v3.9.1 部署验证脚本",
-      "help": "",
+      "help": "============================================================\n🐉 龍魂 v3.9.1 部署验证\n   模型: longhun-v3.9.1\n   Ollama generate: http://localhost:11434/api/generate\n   Ollama chat: http://localhost:11434/api/chat\n============================================================\n📊 Val Loss 对比审计\n   v3.7 基线: 0.194\n ",
       "executable": true
     },
     {
       "name": "lh_validate_v392.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_validate_v392.py",
       "description": "v3.9.2 部署验证脚本",
-      "help": "",
+      "help": "============================================================\n🐉 龍魂 v3.9.2 部署验证\n   模型: longhun-v3.9.2\n   Ollama generate: http://localhost:11434/api/generate\n   Ollama chat: http://localhost:11434/api/chat\n============================================================\n📊 Val Loss 对比审计\n   v3.7 基线: 0.194\n ",
       "executable": true
     },
     {
       "name": "lh_validate_v4.0.1.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_validate_v4.0.1.py",
       "description": "v4.0.1 部署验证脚本（DeepSeek thinking 格式兼容）",
-      "help": "Traceback (most recent call last):\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_validate_v4.0.1.py\", line 23, in <module>\n    from lh_dna_generator import generate_dna, parse_dna\nImportError: cannot import name 'parse_dna' from 'lh_dna_generator' (/Users/zuimeidedeyihan/longhun-system/bin/lh",
+      "help": "Traceback (most recent call last):\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_validate_v4.0.1.py\", line 23, in <module>\n    from lh_dna_generator import generate_dna, parse_dna\nImportError: cannot import name 'generate_dna' from 'lh_dna_generator' (/Users/zuimeidedeyihan/longhun-system/bin",
       "executable": true
     },
     {
       "name": "lh_validate_v4.0.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_validate_v4.0.py",
       "description": "v4.0 部署验证脚本",
-      "help": "Traceback (most recent call last):\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_validate_v4.0.py\", line 23, in <module>\n    from lh_dna_generator import generate_dna, parse_dna\nImportError: cannot import name 'parse_dna' from 'lh_dna_generator' (/Users/zuimeidedeyihan/longhun-system/bin/lh_d",
+      "help": "Traceback (most recent call last):\n  File \"/Users/zuimeidedeyihan/longhun-system/bin/lh_validate_v4.0.py\", line 23, in <module>\n    from lh_dna_generator import generate_dna, parse_dna\nImportError: cannot import name 'generate_dna' from 'lh_dna_generator' (/Users/zuimeidedeyihan/longhun-system/bin/l",
       "executable": true
     },
     {
@@ -4787,7 +5592,7 @@
       "name": "lh_validate_v409.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_validate_v409.py",
       "description": "v4.0.9 部署验证脚本",
-      "help": "",
+      "help": "============================================================\n🐉 龍魂 v4.0.9 部署验证启动\n============================================================\n📊 Val Loss 对比审计\n   v3.7 基线: 0.194\n   v3.9.2 (1.5B): 0.496\n   v4.0.3 (Llama 8B): 0.824\n   v4.0.4 (Yi 9B): 0.824\n   v4.0.5 (Yi 9B rank=64): 3.645\n   v4.0.6 (Yi 9",
       "executable": true
     },
     {
@@ -4812,10 +5617,31 @@
       "executable": true
     },
     {
+      "name": "lh_verify_knowledge.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_verify_knowledge.py",
+      "description": "🐉 龍魂 · 知识拉取验证器 v1.0",
+      "help": "usage: lh_verify_knowledge.py [-h] [--json]\n\n龙魂 · 知识拉取验证器\n\noptions:\n  -h, --help  show this help message and exit\n  --json      JSON 格式输出",
+      "executable": true
+    },
+    {
+      "name": "lh_version_release.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_version_release.py",
+      "description": "🐉 龍魂 · 版本发布引擎 v1.0",
+      "help": "usage: lh_version_release.py [-h] [--bump {major,minor,patch}] [--tag TAG]\n                             [--status] [--check] [--json]\n\n龍魂·版本发布引擎\n\noptions:\n  -h, --help            show this help message and exit\n  --bump {major,minor,patch}\n                        版本升级类型\n  --tag TAG             指定版本号",
+      "executable": true
+    },
+    {
       "name": "lh_video_analyzer.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_video_analyzer.py",
       "description": "🐉 龍魂引擎：lh_video_analyzer",
       "help": "usage: lh_video_analyzer.py [-h] --input INPUT --dna DNA [--audit]\n                            [--output OUTPUT]\n\n龍魂视频分析引擎\n\noptions:\n  -h, --help       show this help message and exit\n  --input INPUT    输入视频路径\n  --dna DNA        DNA追溯码\n  --audit          启用三色审计\n  --output OUTPUT  分析结果输出路径 (JSON)",
+      "executable": true
+    },
+    {
+      "name": "lh_video_cleaner.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_video_cleaner.py",
+      "description": "龍魂·视频素材自动化清洗引擎 v1.0",
+      "help": "usage: lh_video_cleaner.py [-h] {test,process,batch,stats,notion} ...\n\n龍魂·视频素材自动化清洗引擎 v1.0\n\npositional arguments:\n  {test,process,batch,stats,notion}\n    test                用本地测试视频跑全管线\n    process             处理单个视频\n    batch               批量处理目录下所有视频\n    stats               素材库统计\n    notion       ",
       "executable": true
     },
     {
@@ -4910,6 +5736,13 @@
       "executable": true
     },
     {
+      "name": "lh_voice_register.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_voice_register.py",
+      "description": "🐉 龍魂 · 声纹注册库 v1.0",
+      "help": "usage: lh_voice_register.py [-h]\n                            {register,verify,match,list,remove,status} ...\n\n龍魂 · 声纹注册库\n\npositional arguments:\n  {register,verify,match,list,remove,status}\n    register            注册声纹\n    verify              验证声纹\n    match               匹配身份\n    list                列",
+      "executable": true
+    },
+    {
       "name": "lh_water_army_detect.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_water_army_detect.py",
       "description": "lh water-army-detect — 龍魂水军识别引擎 v1.0",
@@ -4955,7 +5788,14 @@
       "name": "lh_whistleblower_shield.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_whistleblower_shield.py",
       "description": "龍魂·五害曝光台 — 举报者隐私盾 v1.0",
-      "help": "============================================================\n龍魂·五害曝光台 — 举报者隐私盾 v1.0\n============================================================\n\n原始举报内容:\n我在某平台开店5年，因为拒绝排他协议，\n    被系统降权，订单下降90%。\n    多次申诉无果，客服说\"算法自动调整\"。\n\n举报ID: WB-94F69655F9C5626B\n内容哈希: cee1474f05fca76cd9d9cc055780726eb249c55c1fda043c6a",
+      "help": "============================================================\n龍魂·五害曝光台 — 举报者隐私盾 v1.0\n============================================================\n\n原始举报内容:\n我在某平台开店5年，因为拒绝排他协议，\n    被系统降权，订单下降90%。\n    多次申诉无果，客服说\"算法自动调整\"。\n\n举报ID: WB-A5466D0C42517D89\n内容哈希: cee1474f05fca76cd9d9cc055780726eb249c55c1fda043c6a",
+      "executable": true
+    },
+    {
+      "name": "lh_whitepaper_viz.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_whitepaper_viz.py",
+      "description": "龍魂·白皮书可视化引擎 v1.0",
+      "help": "usage: lh_whitepaper_viz.py [-h] [--whitepaper WHITEPAPER] [--chart CHART]\n                            [--format {png,svg,pdf}] [--list]\n                            [--output OUTPUT]\n\n🐉 龙魂·白皮书可视化引擎 v1.0\n\noptions:\n  -h, --help            show this help message and exit\n  --whitepaper WHITEPAPER, -w W",
       "executable": true
     },
     {
@@ -5022,6 +5862,13 @@
       "executable": true
     },
     {
+      "name": "lh_掀黑箱.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_掀黑箱.py",
+      "description": "🐉 龍魂 · 掀黑箱审计引擎 v1.0",
+      "help": "usage: lh_掀黑箱.py [-h] [--json] [--output OUTPUT] [--no-color] [target]\n\n🐉 龍魂 · 掀黑箱审计引擎 — 审计任意项目的技术主权风险\n\npositional arguments:\n  target                要审计的目标路径（默认当前目录）\n\noptions:\n  -h, --help            show this help message and exit\n  --json                输出 JSON 格式\n  --output OUTPUT, -o OUTPUT\n   ",
+      "executable": true
+    },
+    {
       "name": "local_assessment_engine.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/local_assessment_engine.py",
       "description": "🐉 龍魂系统 · 本地完整评估引擎 v1.0",
@@ -5046,7 +5893,7 @@
       "name": "longhun_click_auditor.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/longhun_click_auditor.py",
       "description": "龍魂系统 · 链接点击审计脚本 v1.0",
-      "help": "============================================================\n龍魂系统 · 链接点击审计脚本 v1.0\n#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\n============================================================\n\n【场景1】人类正常点击\n{\n  \"event_id\": \"cd8a81ce4b3ee8993508635f\",\n  \"click_type\": \"human\",\n  \"risk_level\": \"SAFE\",\n  \"is_verified\": ",
+      "help": "============================================================\n龍魂系统 · 链接点击审计脚本 v1.0\n#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\n============================================================\n\n【场景1】人类正常点击\n{\n  \"event_id\": \"6093123df4b0f2c3378e164d\",\n  \"click_type\": \"human\",\n  \"risk_level\": \"SAFE\",\n  \"is_verified\": ",
       "executable": true
     },
     {
@@ -5067,7 +5914,7 @@
       "name": "longhun_mvp_executor_v1.0.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/longhun_mvp_executor_v1.0.py",
       "description": "龍魂 MVP执行引擎 v1.0",
-      "help": "[22:01:28] 🟢 任务启动: P1-A - Notion数据库初始化\n[22:01:28] ✅ 任务完成: P1-A - Notion数据库初始化\n\n🐉 龍魂MVP日报 | 2026-07-31\n============================================================\n\n总任务: 9 | 已完成: 1 | 进度: 11.1%\n\n【最近事件】\n  [22:01:28] 🟢 任务启动: P1-A - Notion数据库初始化\n  [22:01:28] ✅ 任务完成: P1-A - Notion数据库初始化",
+      "help": "[13:14:10] 🟢 任务启动: P1-A - Notion数据库初始化\n[13:14:10] ✅ 任务完成: P1-A - Notion数据库初始化\n\n🐉 龍魂MVP日报 | 2026-08-04\n============================================================\n\n总任务: 9 | 已完成: 1 | 进度: 11.1%\n\n【最近事件】\n  [13:14:10] 🟢 任务启动: P1-A - Notion数据库初始化\n  [13:14:10] ✅ 任务完成: P1-A - Notion数据库初始化",
       "executable": true
     },
     {
@@ -5165,7 +6012,7 @@
       "name": "persona_scheduler.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/persona_scheduler.py",
       "description": "╔══════════════════════════════════════════════════════════════════╗",
-      "help": "[2026-07-31 22:01:39] [ERROR] ❌ 未知人格: --help",
+      "help": "[2026-08-04 13:14:20] [ERROR] ❌ 未知人格: --help",
       "executable": true
     },
     {
@@ -5284,14 +6131,14 @@
       "name": "verify_memory_cnsh.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/verify_memory_cnsh.py",
       "description": "🐉 龍魂引擎：verify_memory_cnsh.py",
-      "help": "============================================================\n🐉 龍魂 · 记忆 + CNSH 落地验证报告\n============================================================\n生成时间: 2026-07-31T14:01:40.224029+00:00\n整体状态: ✅ 全部通过\n\n【记忆服务】\n  ✅ CNSH_国密工具\n  ✅ CNSH_透明语义治理内核\n  ✅ lh_memory_load\n  ✅ lh_memory_indexer\n  ✅ CNSH_知识库\n  ✅ CNSH",
+      "help": "",
       "executable": true
     },
     {
       "name": "web_server.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/web_server.py",
       "description": "龍魂 Web 门户服务器 v2.0",
-      "help": "",
+      "help": "🐉 龍魂 Web 门户 v2.0 启动\n   地址: http://0.0.0.0:8777\n   后端: http://127.0.0.1:9622\n   门户: /Users/zuimeidedeyihan/longhun-system/bin/portal\n   Web:  /Users/zuimeidedeyihan/longhun-system/bin/web\n   报告: /Users/zuimeidedeyihan/longhun-system/bin/web/reports",
       "executable": true
     },
     {
@@ -5313,6 +6160,13 @@
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/守护进程管理器_逐行注释版.py",
       "description": "================================================================================",
       "help": "usage: 守护进程管理器_逐行注释版.py [-h] [--start START] [--stop STOP] [--restart RESTART]\n                        [--start-all] [--stop-all] [--status] [--install]\n                        [--uninstall] [--daemon]\n\n龍魂守護進程管理器\n\noptions:\n  -h, --help         show this help message and exit\n  --start START      啟動指",
+      "executable": true
+    },
+    {
+      "name": "模式对比.py",
+      "path": "/Users/zuimeidedeyihan/longhun-system/bin/模式对比.py",
+      "description": "🐉 龍魂 · 模式对比器 v1.0",
+      "help": "usage: 模式对比.py [-h] [--md] [--html] [--all]\n\n龍魂 · 模式对比器\n\noptions:\n  -h, --help  show this help message and exit\n  --md        生成 Markdown 文件\n  --html      生成 HTML 文件\n  --all       生成全部格式",
       "executable": true
     },
     {
@@ -5707,6 +6561,10 @@
       "path": "01_protocols/LH-AI-ACCESS-MANDATE-v1.0.md"
     },
     {
+      "name": "LH-AI-ETHICS-ENABLEMENT-v1.1.md",
+      "path": "01_protocols/LH-AI-ETHICS-ENABLEMENT-v1.1.md"
+    },
+    {
       "name": "LH-AI-ONBOARDING-v1.0.md",
       "path": "01_protocols/LH-AI-ONBOARDING-v1.0.md"
     },
@@ -5737,6 +6595,10 @@
     {
       "name": "LH-ARCHIVE-AUDIT-v1.0.md",
       "path": "01_protocols/LH-ARCHIVE-AUDIT-v1.0.md"
+    },
+    {
+      "name": "LH-ARTICLE-HEADER-TEMPLATES-v1.0.md",
+      "path": "01_protocols/LH-ARTICLE-HEADER-TEMPLATES-v1.0.md"
     },
     {
       "name": "LH-ARTIFACT-CREATION-SOP-v1.0.md",
@@ -5809,6 +6671,10 @@
     {
       "name": "LH-CORE-DNA-FIX-v1.0.md",
       "path": "01_protocols/LH-CORE-DNA-FIX-v1.0.md"
+    },
+    {
+      "name": "LH-CREATOR-DNA-BENEFIT-v1.1.md",
+      "path": "01_protocols/LH-CREATOR-DNA-BENEFIT-v1.1.md"
     },
     {
       "name": "LH-CREATOR-PROTECTION-v1.0.md",
@@ -5915,6 +6781,14 @@
       "path": "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md"
     },
     {
+      "name": "LH-FUSION-OS-GENERAL-INSTRUCTION-v3.0.md",
+      "path": "01_protocols/LH-FUSION-OS-GENERAL-INSTRUCTION-v3.0.md"
+    },
+    {
+      "name": "LH-GAME-THEORY-PLATFORM-ASYMMETRY-v1.0.md",
+      "path": "01_protocols/LH-GAME-THEORY-PLATFORM-ASYMMETRY-v1.0.md"
+    },
+    {
       "name": "LH-GAP-LEDGER-v1.0.md",
       "path": "01_protocols/LH-GAP-LEDGER-v1.0.md"
     },
@@ -5983,6 +6857,10 @@
       "path": "01_protocols/LH-MEMORY-ETERNITY-EXOBRAIN-v1.0.md"
     },
     {
+      "name": "LH-MERCHANT-API-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-MERCHANT-API-PROTOCOL-v1.0.md"
+    },
+    {
       "name": "LH-MFA-ACTIVATE-v2.0.md",
       "path": "01_protocols/LH-MFA-ACTIVATE-v2.0.md"
     },
@@ -6017,6 +6895,10 @@
     {
       "name": "LH-NOTION-ENGINE-DATABASE-v1.0.md",
       "path": "01_protocols/LH-NOTION-ENGINE-DATABASE-v1.0.md"
+    },
+    {
+      "name": "LH-OPEN-AUDIT-WHITEPAPER-v2.0.md",
+      "path": "01_protocols/LH-OPEN-AUDIT-WHITEPAPER-v2.0.md"
     },
     {
       "name": "LH-ORIGINALITY-DECLARATION-PROTOCOL-v1.0.md",
@@ -6103,6 +6985,10 @@
       "path": "01_protocols/LH-TAO-CHIP-v1.0.md"
     },
     {
+      "name": "LH-TASK-ORCHESTRATOR-v1.1.md",
+      "path": "01_protocols/LH-TASK-ORCHESTRATOR-v1.1.md"
+    },
+    {
       "name": "LH-TECH-SOVEREIGNTY-GUARD-REFERRAL-v1.0.md",
       "path": "01_protocols/LH-TECH-SOVEREIGNTY-GUARD-REFERRAL-v1.0.md"
     },
@@ -6121,6 +7007,10 @@
     {
       "name": "LH-UID9622-龍芯⚡️丙午·癸未·甲子·既济-猎手计划-CodeBuddy执行任务书-v1.0.md",
       "path": "01_protocols/LH-UID9622-龍芯⚡️丙午·癸未·甲子·既济-猎手计划-CodeBuddy执行任务书-v1.0.md"
+    },
+    {
+      "name": "LH-UNIFIED-VISUAL-COLOR-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-UNIFIED-VISUAL-COLOR-PROTOCOL-v1.0.md"
     },
     {
       "name": "LH-UNIVERSAL-AUDIT-TEMPLATE-v1.0.md",

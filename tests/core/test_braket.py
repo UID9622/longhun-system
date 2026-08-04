@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂测试 · Bra-Ket 量子人格引擎测试
 # DNA: #龍芯⚡️2026-07-07-TEST-BRAKET-v1.0
 # 人格: P02张衡(酉矩阵验证) + P01诸葛亮(策略坍缩) + P06镜像审计者(攻击)

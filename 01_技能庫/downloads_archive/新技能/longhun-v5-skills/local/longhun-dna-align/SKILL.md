@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
 name: longhun-dna-align
 description: "龍魂DNA對齊審計系統 v5.2 — 全系統DNA掃描·對齊率計算·重複檢測·自動修復·完整性驗證。當需要掃描文件DNA標記、計算對齊率、發現重複DNA、修復缺失DNA、生成審計報告時觸發。核心數據: 752文件·對齊率6.3%·705無DNA·24重複。"

@@ -1,4 +1,6 @@
 #!/bin/bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ══════════════════════════════════════════════
 # 龍魂系统 · 目录结构初始化脚本
 # UID9622 · 诸葛鑫 · #龍芯⚡️20260422-SH-INIT01

@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 通心译 v2.0 + 龍魂标签 + CNSH 变量知识库
 
 DNA: #龍芯⚡️20260701024143064405-tongxinyi-v2-overview-5BB684BC

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️2026-06-22-LONGHUN-LAUNCHER-v1.0
@@ -87,7 +89,7 @@ SERVICES: List[Service] = [
         id="longhun-brain",
         name="龍魂脑干",
         port=9625,
-        script="cnsh/core/brain/longhun_brain.py",
+        script="bin/longhun_brain.py",
         workdir=ROOT,
         health_path="/health",
         autostart=True,
@@ -110,6 +112,7 @@ SERVICES: List[Service] = [
         port=9622,
         script="control-panel/main.py",
         workdir=ROOT / "control-panel",
+        health_path="/api/health",
         dependencies=["longhun-brain"],
         autostart=True,
         startup_delay=5.0,

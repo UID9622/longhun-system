@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂协议焊死文档 v1.0
 # P0 焊死底座 · 全球统一不可改
 # UID9622 | 龍芯北辰 | 2026-07-18

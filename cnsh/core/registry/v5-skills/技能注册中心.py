@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 #龍芯⚡️2026-06-19-LONGHUN-SKILL-REGISTRY-v5.0
 """
 通心译 | TongXinYi: LongHun Skill Registry Center

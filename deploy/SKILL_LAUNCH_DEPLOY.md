@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂技能启动 · 集成部署指南 v1.0
 
 > DNA: #龍芯⚡️丙午·乙未·壬戌·豫-SKILL-LAUNCH-DEPLOY-v1.0

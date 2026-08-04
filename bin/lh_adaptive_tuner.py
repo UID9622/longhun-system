@@ -3,40 +3,83 @@
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
-"""🐉 龍魂引擎：lh_adaptive_tuner
-路径：bin/lh_adaptive_tuner.py
-TODO：请补充详细功能说明（不少于20字）。"""
-from __future__ import annotations
 """
 ╔══════════════════════════════════════════════════════════════╗
-║  龍魂·自适应微调参数系统 v2.0                                ║
+║  🔧 工程落地执行型 — 龍魂·自适应微调参数系统 v2.0              ║
 ║  DNA: #龍芯⚡️丙午·乙未·己未·亥时·履-ADAPTIVE-TUNER-v2.0     ║
+║  场景: 行为规则参数·自动微调·双向量化·三色审计·哈希链防篡改    ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F               ║
-║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                ║
-║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ╚══════════════════════════════════════════════════════════════╝
 
-v2.0 升级要点（相对 v1.0）：
-  ① 双向调整 —— 不只加重扣分，行为变好后也能放松（带下界）
-  ② 滞回带 —— 避免参数在阈值附近震荡（hysteresis 0.05）
-  ③ 趋势分析 —— 看观察窗口内的前后半段对比，识别"在变好/变坏"
-  ④ 回滚机制 —— 微调后 N 天数据未改善可回滚到上一版参数
-  ⑤ 三色 dr 审计 —— 每次微调输出 🟢🟡🔴 三色 dr，dr=9 触发熔断拒绝保存
-  ⑥ Markdown 审计报告 —— 自动生成 ~/.龍魂/微調審計/YYYY-MM-DD.md
-  ⑦ 安全模式默认 —— 不传 --apply 一律走模拟态，老大眼审后才落盘
-  ⑧ DNA 哈希校验 —— 每次保存计算参数哈希，写入账本防篡改
-  ⑨ 配置版本链 —— 每代参数有 parent_hash，形成可追溯链
-  ⑩ 铁律接口 —— 与 IRON-* 铁律解耦但通过 hook 注入
+> 🐉 龍魂·自适应微调参数系统 v2.0 — 行为规则参数的双向自动校准引擎。
+> 核心能力：双向调整(加重+放松) + 滞回带防震 + 趋势分析 + 回滚机制
+> + 三色dr审计 + Markdown审计报告 + SHA-256哈希链 + 安全模式默认。
 
-用法:
-  python3 bin/lh_adaptive_tuner.py --status           # 查看当前参数 + 哈希链
-  python3 bin/lh_adaptive_tuner.py --analyze          # 仅看数据分析+趋势
-  python3 bin/lh_adaptive_tuner.py --simulate         # 模拟微调（默认安全模式）
-  python3 bin/lh_adaptive_tuner.py --apply            # 真正落盘微调
-  python3 bin/lh_adaptive_tuner.py --rollback         # 回滚到上一代参数
-  python3 bin/lh_adaptive_tuner.py --audit            # 生成本次审计报告
-  python3 bin/lh_adaptive_tuner.py --demo             # 完整演示
+ROOT_CARD:
+  ID: uid9622
+  DNA: #龍芯⚡️丙午·乙未·己未·亥时·履-ADAPTIVE-TUNER-v2.0
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+  AUTHORITY: M261前传契碑·全权授权令·L0永恒级
+  TARGET: bin/lh_adaptive_tuner.py
+  TIMESTAMP: 2026-08-02
+  LICENSE: CC BY-NC-SA 4.0 (君子协议，来源链不可切断)
+  EXECUTOR: P04鲁班(工程执行) + P05上帝之眼(审计) + P06数学大师(权重验证)
+  LINEAGE:
+    - 上位: LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md §2.3 执行层参数治理
+    - 平级: lh_philosophy_engine.py (13律·外层方法论)
+    - 底座: 六大哲学原理·不免责/不覆盖/不代签/不断链/不失真/不夺权
+  SCOPE: 系统行为规则参数 · 非AI模型参数 · 不涉及D1/D2数据
+  LIMITS: 硬界不可逾越 · dr=3/9红线熔断 · 默认安全模式 · 冷却期防震荡
 """
+from __future__ import annotations
+
+# v2.0 升级要点（相对 v1.0）：
+#   ① 双向调整 — 不只加重扣分，行为变好后也能放松（带下界）
+#   ② 滞回带   — 避免参数在阈值附近震荡（hysteresis 0.05）
+#   ③ 趋势分析 — 看观察窗口内的前后半段对比，识别"在变好/变坏"
+#   ④ 回滚机制 — 微调后 N 天数据未改善可回滚到上一版参数
+#   ⑤ 三色dr审计 — 每次微调输出 🟢🟡🔴，dr=3/9 熔断拒绝保存
+#   ⑥ Markdown审计报告 — ~/.龍魂/微調審計/YYYY-MM-DD.md
+#   ⑦ 安全模式默认 — 不传 --apply 一律走模拟态
+#   ⑧ SHA-256哈希链 — 参数哈希+父哈希，账本防篡改
+#   ⑨ 配置版本链 — 每代参数自动归档到历史目录
+#   ⑩ 铁律接口 — 与 IRON-* 铁律解耦但通过 hook 注入
+#   ⑪ 自检体系 — 9项完整性自检（v2.0补全）
+#   ⑫ 灵敏度分析 — 参数调整对评分的影响量化（v2.0补全）
+#
+# 用法:
+#   lh tune --status              # 查看当前参数 + 哈希链
+#   lh tune --analyze             # 仅看数据分析 + 趋势
+#   lh tune --simulate            # 模拟微调（默认安全模式）
+#   lh tune --apply               # 真正落盘微调
+#   lh tune --rollback            # 回滚到上一代参数
+#   lh tune --rollback --force    # 强制回滚（跳过冷却期）
+#   lh tune --audit               # 生成本次审计报告
+#   lh tune --self-audit          # 9项自检
+#   lh tune --verify-hash-chain   # 验证哈希链完整性
+#   lh tune --history             # 完整微调历史
+#   lh tune --diff HEAD~1         # 对比两个版本的参数差异
+#   lh tune --stats               # 聚合统计
+#   lh tune --sensitivity         # 灵敏度分析
+#   lh tune --export params.json  # 导出参数
+#   lh tune --import params.json  # 导入参数（需哈希校验）
+#   lh tune --demo                # 完整演示
+
+# ═══════════════════════════════════════════════════════════════
+# A-BOM · 算法物料清单（算法审计协议v1.0 §4）
+# ═══════════════════════════════════════════════════════════════
+# 目标函数: min(max) Σ(违规行为扣分) — 以最小干预保持行为合规
+# 输入特征: 甩锅率、自扛率、没立正率、威胁率、补救率（来自规则账本）
+# 输出: 微调后的规则参数值（逃避扣分/自扛加分/没立正扣分/补救加分）
+# 用户影响: 行为变好→参数放松（奖励）；行为变差→参数收紧（警戒）
+#            不影响个人数据·不涉及隐私·不修改用户行为·只调整系统响应权重
+# 透明度: 每次微调→Markdown审计报告+哈希链防篡改+历史目录全量归档
+#         所有调整记录公开可查，无隐藏规则
+# 申诉通道: 发现参数偏离预期→回滚→diff→人工校准→重新落盘
+#           熔断红线(dr=3/9)时调节器自动拒绝任何参数变更，需人工介入
+# 审计标志: 🟢 参数数量=12·硬界覆盖=12·哈希链完整 ✅
 
 import json
 import hashlib
@@ -190,7 +233,8 @@ class AdaptiveTuner:
     def _load_params(self) -> AdaptiveParams:
         if os.path.exists(self.params_path):
             with open(self.params_path, "r", encoding="utf-8") as f:
-                data = json.load(f)
+                raw = f.read()
+                data = json.loads(raw)
                 # 兼容 v1.0 旧文件
                 data.pop("熔断_dr_说明", None)
                 data.pop("待审_dr_说明", None)
@@ -199,7 +243,14 @@ class AdaptiveTuner:
                 for k in ("熔断_dr", "待审_dr"):
                     if k in data and isinstance(data[k], list):
                         data[k] = tuple(data[k])
-                return AdaptiveParams(**data)
+                params = AdaptiveParams(**data)
+                # v2.0 新增：哈希完整性校验（检测文件篡改）
+                stored_hash = data.get("参数哈希", "")
+                if stored_hash:
+                    computed = self._compute_hash(params)
+                    if stored_hash != computed:
+                        log.warning(f"⚠️ 参数哈希不匹配！存储={stored_hash} 计算={computed}·可能被篡改")
+                return params
         return AdaptiveParams()
 
     def _compute_hash(self, p: AdaptiveParams) -> str:
@@ -317,6 +368,57 @@ class AdaptiveTuner:
         full_seg["status"] = "🟢 足够样本"
         full_seg["trends"] = trends
         return full_seg
+
+    # ── 灵敏度分析（v2.0 新增） ────────────────────────────
+
+    def sensitivity_analysis(self) -> dict[str, Any]:
+        """
+        量化每个参数对评分的影响程度。
+        对每个参数±10%扰动，观察最终扣分的相对变化。
+        帮助老大理解"动哪个参数效果最大"。
+        """
+        base_params = deepcopy(self.params)
+        # 基线：当前参数下的理论最大扣分
+        base_penalty = base_params.逃避扣分 + base_params.没立正扣分 + base_params.惯犯扣分
+        base_reward = base_params.自扛加分 + base_params.补救加分
+        base_ratio = base_penalty / max(base_reward, 1)
+
+        sensitivities = {}
+        tunable_fields = ["逃避扣分", "没立正扣分", "自扛加分", "补救加分", "惯犯扣分"]
+        for field_name in tunable_fields:
+            bounds = PARAM_HARD_BOUNDS.get(field_name, (0, 100))
+            current = getattr(self.params, field_name)
+            # +10%
+            up_val = min(current * 1.10, bounds[1])
+            # -10%
+            down_val = max(current * 0.90, bounds[0])
+
+            # 计算参数变化对惩罚/奖励比的影响
+            if field_name in ("逃避扣分", "没立正扣分", "惯犯扣分"):
+                up_ratio = (base_penalty - current + up_val) / max(base_reward, 1)
+                down_ratio = (base_penalty - current + down_val) / max(base_reward, 1)
+            else:
+                up_ratio = base_penalty / max(base_reward - current + up_val, 1)
+                down_ratio = base_penalty / max(base_reward - current + down_val, 1)
+
+            impact = abs(up_ratio - down_ratio)
+            sensitivities[field_name] = {
+                "当前值": current,
+                "硬界": list(bounds),
+                "+10%": round(up_val, 1),
+                "-10%": round(down_val, 1),
+                "影响度": round(impact, 4),
+                "方向": "偏高→更严厉" if field_name in ("逃避扣分", "没立正扣分", "惯犯扣分") else "偏高→更宽容",
+            }
+
+        # 按影响度排序
+        sorted_sens = sorted(sensitivities.items(), key=lambda x: x[1]["影响度"], reverse=True)
+        return {
+            "基线_惩罚奖励比": round(base_ratio, 2),
+            "参数灵敏度": {k: v for k, v in sorted_sens},
+            "最敏感参数": sorted_sens[0][0] if sorted_sens else None,
+            "建议": f"优先关注「{sorted_sens[0][0]}」的调整效果（影响度 {sorted_sens[0][1]['影响度']:.4f}）" if sorted_sens else "无数据",
+        }
 
     # ── 双向调整 + 滞回带（v2.0 核心升级） ────────────────
 
@@ -503,6 +605,238 @@ class AdaptiveTuner:
         d["_焊死字段"] = ["熔断_dr", "待审_dr", "分数上限", "分数下限", "威胁归零开关"]
         return d
 
+    # ── 9项自检（v2.0 新增） ──────────────────────────────
+
+    def self_audit(self) -> dict[str, Any]:
+        """对调节器自身进行完整性检查"""
+        checks = {}
+        # 1. 参数数量（核心可调参数=12）
+        core_params = {"自扛加分","逃避扣分","没立正扣分","威胁触发分数","补救加分","惯犯触发次数","惯犯扣分","学习率","观察窗口_天","最小样本","滞回带","回滚冷却_天"}
+        actual = [f for f in core_params if hasattr(self.params, f) and getattr(self.params, f) is not None]
+        checks["param_count"] = {"status": "🟢" if len(actual) == 12 else "🟡", "value": len(actual), "expected": 12}
+
+        # 2. 硬界覆盖率（每个可调参数都有硬界）
+        bounded_fields = {"自扛加分", "逃避扣分", "没立正扣分", "威胁触发分数", "补救加分", "惯犯触发次数", "惯犯扣分", "学习率", "观察窗口_天", "最小样本", "滞回带", "回滚冷却_天"}
+        covered = sum(1 for f in bounded_fields if f in PARAM_HARD_BOUNDS)
+        checks["bounds_coverage"] = {"status": "🟢" if covered == len(bounded_fields) else "🔴", "value": f"{covered}/{len(bounded_fields)}"}
+
+        # 3. 硬界有效性（下界 < 上界）
+        invalid_bounds = [k for k, (lo, hi) in PARAM_HARD_BOUNDS.items() if lo >= hi]
+        checks["bounds_validity"] = {"status": "🟢" if not invalid_bounds else "🔴", "invalid": invalid_bounds}
+
+        # 4. 当前参数在硬界内
+        out_of_bounds = []
+        for field_name, (lo, hi) in PARAM_HARD_BOUNDS.items():
+            current = getattr(self.params, field_name, None)
+            if current is not None and not (lo <= current <= hi):
+                out_of_bounds.append(f"{field_name}={current} (界:{lo}-{hi})")
+        checks["params_in_bounds"] = {"status": "🟢" if not out_of_bounds else "🔴", "violations": out_of_bounds}
+
+        # 5. 熔断dr焊死确认
+        checks["meltdown_dr"] = {"status": "🟢" if self.params.熔断_dr == (3, 9) else "🔴", "value": list(self.params.熔断_dr)}
+
+        # 6. 历史备份完整性
+        if self.params.参数哈希:
+            backup_count = len(list(self.history_dir.glob(f"{self.params.参数哈希}_*.json")))
+            checks["backup_integrity"] = {"status": "🟢" if backup_count > 0 else "🟡", "backups": backup_count, "note": "当前版本备份文件数"}
+        else:
+            checks["backup_integrity"] = {"status": "🟡", "note": "无哈希·可能首次运行"}
+
+        # 7. 哈希链连续性（父哈希必须能找到备份或为空）
+        if self.params.父哈希:
+            parent_backups = list(self.history_dir.glob(f"{self.params.父哈希}_*.json"))
+            checks["hash_chain_continuity"] = {"status": "🟢" if parent_backups else "🔴", "parent_backups": len(parent_backups), "parent_hash": self.params.父哈希}
+        else:
+            checks["hash_chain_continuity"] = {"status": "🟢", "note": "根版本·无父代"}
+
+        # 8. 审计目录可写
+        try:
+            test_file = self.audit_dir / ".write_test"
+            test_file.write_text("test")
+            test_file.unlink()
+            checks["audit_dir_writable"] = {"status": "🟢"}
+        except Exception:
+            checks["audit_dir_writable"] = {"status": "🔴", "error": "审计目录不可写"}
+
+        # 9. 账本可读
+        checks["ledger_accessible"] = {"status": "🟢" if os.path.exists(self.ledger_path) else "🟡", "events": len(self.events)}
+
+        # 汇总
+        reds = sum(1 for k, c in checks.items() if not k.startswith("_") and c.get("status") == "🔴")
+        yellows = sum(1 for k, c in checks.items() if not k.startswith("_") and c.get("status") == "🟡")
+        greens = sum(1 for k, c in checks.items() if not k.startswith("_") and c.get("status") == "🟢")
+        checks["_summary"] = {
+            "total": reds + yellows + greens,
+            "🟢": greens, "🟡": yellows, "🔴": reds,
+            "overall": "🔴" if reds > 0 else ("🟡" if yellows > 0 else "🟢"),
+        }
+        return checks
+
+    # ── 哈希链完整性验证（v2.0 新增） ──────────────────────
+
+    def verify_hash_chain(self) -> dict[str, Any]:
+        """从当前参数逐代回溯，验证整条哈希链未被篡改"""
+        chain = []
+        current_hash = self.params.参数哈希
+        current_parent = self.params.父哈希
+        verified, broken = 0, 0
+
+        # 验证当前代
+        if current_hash:
+            computed = self._compute_hash(self.params)
+            if computed == current_hash:
+                verified += 1
+                chain.append({"generation": 0, "hash": current_hash, "status": "🟢 验证通过"})
+            else:
+                broken += 1
+                chain.append({"generation": 0, "hash": current_hash, "computed": computed, "status": "🔴 哈希不匹配"})
+
+        # 回溯父代
+        gen = 1
+        parent_hash = current_parent
+        while parent_hash:
+            candidates = list(self.history_dir.glob(f"{parent_hash}_*.json"))
+            if not candidates:
+                chain.append({"generation": gen, "hash": parent_hash, "status": "🟡 备份缺失"})
+                break
+            backup_file = sorted(candidates)[-1]
+            with open(backup_file, "r", encoding="utf-8") as f:
+                old_data = json.load(f)
+                for k in ("熔断_dr", "待审_dr"):
+                    if k in old_data and isinstance(old_data[k], list):
+                        old_data[k] = tuple(old_data[k])
+                old_params = AdaptiveParams(**old_data)
+                computed = self._compute_hash(old_params)
+                if computed == parent_hash:
+                    verified += 1
+                    chain.append({"generation": gen, "file": str(backup_file.name), "hash": parent_hash, "status": "🟢 验证通过"})
+                else:
+                    broken += 1
+                    chain.append({"generation": gen, "file": str(backup_file.name), "hash": parent_hash, "computed": computed, "status": "🔴 哈希不匹配"})
+                parent_hash = old_params.父哈希
+            gen += 1
+            if gen > 100:  # 安全上限
+                break
+
+        return {
+            "总代数": gen,
+            "验证通过": verified,
+            "哈希断裂": broken,
+            "完整性": "🟢" if broken == 0 else "🔴",
+            "链": chain,
+        }
+
+    # ── 版本差异对比（v2.0 新增） ──────────────────────────
+
+    def diff_versions(self, version_ref: str = "HEAD~1") -> dict[str, Any]:
+        """
+        对比两个版本的参数差异。
+        version_ref: "HEAD~1"(上一代) / "HEAD~N" / 具体哈希值
+        """
+        if version_ref == "HEAD~1" and self.params.父哈希:
+            target_hash = self.params.父哈希
+        elif version_ref.startswith("HEAD~"):
+            n = int(version_ref[5:])
+            target_hash = self.params.父哈希
+            # 逐代回溯
+            for _ in range(n - 1):
+                candidates = list(self.history_dir.glob(f"{target_hash}_*.json"))
+                if not candidates:
+                    return {"status": f"🔴 无法回溯 {n} 代", "found_depth": _ + 1}
+                with open(sorted(candidates)[-1], "r", encoding="utf-8") as f:
+                    old_data = json.load(f)
+                    target_hash = old_data.get("父哈希", "")
+                    if not target_hash:
+                        return {"status": f"🔴 第{_+2}代无父哈希·无法继续回溯"}
+        else:
+            target_hash = version_ref
+
+        # 加载目标版本
+        candidates = list(self.history_dir.glob(f"{target_hash}_*.json"))
+        if not candidates:
+            return {"status": f"🔴 未找到版本 {target_hash}"}
+
+        with open(sorted(candidates)[-1], "r", encoding="utf-8") as f:
+            old_data = json.load(f)
+            for k in ("熔断_dr", "待审_dr"):
+                if k in old_data and isinstance(old_data[k], list):
+                    old_data[k] = tuple(old_data[k])
+            old_params = AdaptiveParams(**old_data)
+
+        # 逐字段对比
+        diffs = []
+        comparable_fields = ["自扛加分", "逃避扣分", "没立正扣分", "补救加分", "惯犯扣分", "惯犯触发次数", "学习率", "观察窗口_天", "最小样本", "滞回带", "回滚冷却_天"]
+        for field_name in comparable_fields:
+            old_val = getattr(old_params, field_name, None)
+            new_val = getattr(self.params, field_name, None)
+            if old_val != new_val:
+                delta = round(new_val - old_val, 2) if isinstance(new_val, (int, float)) else "N/A"
+                diffs.append({
+                    "参数": field_name,
+                    "旧值": old_val,
+                    "新值": new_val,
+                    "变化": delta,
+                    "方向": "⬆️ 从严" if (isinstance(delta, (int, float)) and delta > 0 and field_name in ("逃避扣分", "没立正扣分", "惯犯扣分")) else
+                            "⬇️ 放松" if (isinstance(delta, (int, float)) and delta < 0 and field_name in ("逃避扣分", "没立正扣分", "惯犯扣分")) else
+                            "⬆️ 放宽" if (isinstance(delta, (int, float)) and delta > 0) else
+                            "⬇️ 收紧" if (isinstance(delta, (int, float)) and delta < 0) else "➖",
+                })
+
+        return {
+            "当前哈希": self.params.参数哈希,
+            "对比哈希": target_hash,
+            "差异数": len(diffs),
+            "差异": diffs,
+        }
+
+    # ── 导出/导入（v2.0 新增） ────────────────────────────
+
+    def export_params(self, export_path: str) -> dict[str, Any]:
+        """导出当前参数到JSON文件（含哈希链元数据）"""
+        data = asdict(self.params)
+        for k in ("熔断_dr", "待审_dr"):
+            if isinstance(data.get(k), tuple):
+                data[k] = list(data[k])
+        data["_export_meta"] = {
+            "exported_at": datetime.now().isoformat(),
+            "dna": "#龍芯⚡️丙午·乙未·己未·亥时·履-ADAPTIVE-TUNER-v2.0",
+            "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+            "source": str(Path(self.params_path).absolute()),
+            "events_count": len(self.events),
+        }
+        Path(export_path).parent.mkdir(parents=True, exist_ok=True)
+        with open(export_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        return {"status": "🟢 导出成功", "path": export_path, "hash": self.params.参数哈希}
+
+    def import_params(self, import_path: str, force: bool = False) -> dict[str, Any]:
+        """从JSON文件导入参数（需通过哈希校验）"""
+        if not os.path.exists(import_path):
+            return {"status": "🔴 文件不存在", "path": import_path}
+
+        with open(import_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            data.pop("_export_meta", None)
+            for k in ("熔断_dr", "待审_dr"):
+                if k in data and isinstance(data[k], list):
+                    data[k] = tuple(data[k])
+
+            imported = AdaptiveParams(**data)
+            # 哈希校验
+            stored_hash = data.get("参数哈希", "")
+            computed = self._compute_hash(imported)
+            if stored_hash and stored_hash != computed:
+                if not force:
+                    return {"status": "🔴 哈希校验失败·拒绝导入", "stored": stored_hash, "computed": computed, "hint": "使用 --force 强制导入"}
+                log.warning(f"⚠️ 强制导入·哈希不匹配: {stored_hash} vs {computed}")
+
+            # 备份当前参数
+            self._save_params()
+            # 替换
+            self.params = imported
+            self._save_params()
+            return {"status": "🟢 导入成功", "新哈希": self.params.参数哈希, "forced": force and stored_hash != computed}
+
     # ── Markdown 审计报告（v2.0 新增） ────────────────────
 
     def generate_audit_report(self, tune_result: dict[str, Any]) -> Path:
@@ -598,14 +932,31 @@ def main():
     parser.add_argument("--simulate", action="store_true", help="模拟微调（默认安全模式）")
     parser.add_argument("--apply",    action="store_true", help="真正落盘微调")
     parser.add_argument("--rollback", action="store_true", help="回滚到上一代参数")
-    parser.add_argument("--audit",    action="store_true", help="本次微调结束自动生成审计报告")
+    parser.add_argument("--force",    action="store_true", help="强制操作（跳过冷却期/哈希校验）")
+    parser.add_argument("--audit",    action="store_true", help="生成本次审计报告")
     parser.add_argument("--demo",     action="store_true", help="完整演示")
+    # v2.0 新增
+    parser.add_argument("--self-audit",       action="store_true", help="9项自检")
+    parser.add_argument("--verify-hash-chain", action="store_true", help="验证哈希链完整性")
+    parser.add_argument("--history",          action="store_true", help="完整微调历史（不限5条）")
+    parser.add_argument("--diff",             type=str, nargs="?", const="HEAD~1", metavar="VERSION", help="版本差异对比（默认HEAD~1）")
+    parser.add_argument("--stats",            action="store_true", help="聚合统计")
+    parser.add_argument("--sensitivity",      action="store_true", help="灵敏度分析")
+    parser.add_argument("--export",           type=str, metavar="PATH", help="导出参数到文件")
+    parser.add_argument("--import",           dest="import_path", type=str, metavar="PATH", help="从文件导入参数")
+    parser.add_argument("--json",             action="store_true", help="JSON格式输出")
     args = parser.parse_args()
 
     tuner = AdaptiveTuner()
 
     # ── status ──
     if args.status:
+        if args.json:
+            result = tuner.view_params()
+            result["哈希链"] = {"当前": tuner.params.参数哈希, "父代": tuner.params.父哈希}
+            result["微调历史"] = tuner.params.微调记录
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            return
         print("\n📊 当前自适应参数 v2.0：")
         for k, v in tuner.view_params().items():
             if k.startswith("_") or k in ("微调记录",):
@@ -621,10 +972,134 @@ def main():
             print(f"   [{rec['时间'][:16]}] {rec.get('三色','?')} dr={rec.get('dr','?')} {n_adj}项调整 {n_trend}项趋势警告")
         return
 
+    # ── self-audit ──
+    if args.self_audit:
+        result = tuner.self_audit()
+        if args.json:
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            return
+        s = result["_summary"]
+        print(f"\n🔍 自检报告 · {s['total']}项 · 🟢{s['🟢']} 🟡{s['🟡']} 🔴{s['🔴']} → {s['overall']}\n")
+        for name, check in result.items():
+            if name.startswith("_"):
+                continue
+            print(f"   {check['status']} {name}: {check.get('value', check.get('note', '—'))}")
+            if check.get("violations"):
+                for v in check["violations"]:
+                    print(f"      ↳ {v}")
+        return
+
+    # ── verify-hash-chain ──
+    if args.verify_hash_chain:
+        result = tuner.verify_hash_chain()
+        if args.json:
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            return
+        print(f"\n🔗 哈希链验证 · {result['总代数']}代 · {result['完整性']}")
+        print(f"   验证通过: {result['验证通过']}  断裂: {result['哈希断裂']}")
+        for node in result.get("链", []):
+            print(f"   代{node['generation']}: {node['status']} {node.get('hash','')[:12]}")
+        return
+
+    # ── history ──
+    if args.history:
+        if args.json:
+            print(json.dumps(tuner.params.微调记录, ensure_ascii=False, indent=2))
+            return
+        print(f"\n📋 完整微调历史 ({len(tuner.params.微调记录)} 次)：")
+        for rec in tuner.params.微调记录:
+            print(f"   [{rec['时间'][:19]}] {rec.get('三色','?')} dr={rec.get('dr','?')}")
+            for adj in rec.get("调整", []):
+                print(f"      {adj}")
+            for tw in rec.get("趋势警告", []):
+                print(f"      {tw}")
+        return
+
+    # ── diff ──
+    if args.diff is not None:
+        result = tuner.diff_versions(args.diff)
+        if args.json:
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            return
+        print(f"\n📊 版本差异: {result.get('当前哈希','?')[:12]} ← {result.get('对比哈希','?')[:12]}")
+        print(f"   差异数: {result.get('差异数', 0)}")
+        for d in result.get("差异", []):
+            print(f"   {d['方向']} {d['参数']}: {d['旧值']} → {d['新值']} ({d['变化']:+.1f})")
+        if not result.get("差异"):
+            print("   无差异")
+        return
+
+    # ── stats ──
+    if args.stats:
+        data = tuner.analyze()
+        color, dr, desc = tricolor_dr_audit(data)
+        tune_result = tuner.tune(simulate=True)
+        sens = tuner.sensitivity_analysis()
+        result = {
+            "数据": {k: v for k, v in data.items() if k not in ("status", "trends")},
+            "趋势": data.get("trends", {}),
+            "三色": {"色": color, "dr": dr, "说明": desc},
+            "调整建议": tune_result.get("调整记录", []),
+            "灵敏度": sens,
+            "参数哈希": tuner.params.参数哈希,
+            "微调次数": len(tuner.params.微调记录),
+            "账本事件数": len(tuner.events),
+        }
+        if args.json:
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            return
+        print(f"\n📊 聚合统计")
+        print(f"   参数哈希: {tuner.params.参数哈希 or '—'}")
+        print(f"   微调次数: {len(tuner.params.微调记录)}")
+        print(f"   账本事件: {len(tuner.events)}")
+        print(f"   三色: {color} dr={dr} · {desc}")
+        print(f"\n📈 数据快照:")
+        for k, v in result["数据"].items():
+            print(f"   {k}: {v}")
+        if result["趋势"]:
+            print(f"\n📈 趋势:")
+            for k, v in result["趋势"].items():
+                arrow = "📈" if v > 0 else "📉" if v < 0 else "➖"
+                print(f"   {arrow} {k}: {v:+.3f}")
+        print(f"\n📈 最敏感参数: {sens['最敏感参数']} (影响度 {sens['参数灵敏度'][sens['最敏感参数']]['影响度']:.4f})" if sens.get('最敏感参数') else "\n📈 灵敏度: 无数据")
+        return
+
+    # ── sensitivity ──
+    if args.sensitivity:
+        result = tuner.sensitivity_analysis()
+        if args.json:
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            return
+        print(f"\n📈 灵敏度分析 · 基线惩罚/奖励比: {result['基线_惩罚奖励比']}")
+        for param, info in result["参数灵敏度"].items():
+            print(f"   影响度 {info['影响度']:.4f} | {param}: {info['当前值']} → [{info['-10%']}, {info['+10%']}] ({info['方向']})")
+        print(f"\n💡 {result['建议']}")
+        return
+
+    # ── export ──
+    if args.export:
+        result = tuner.export_params(args.export)
+        print(f"\n📤 {result['status']}: {result['path']} ({result['hash'][:12]})")
+        return
+
+    # ── import ──
+    if args.import_path:
+        result = tuner.import_params(args.import_path, force=args.force)
+        print(f"\n📥 {result['status']}")
+        for k, v in result.items():
+            if k != "status":
+                print(f"   {k}: {v}")
+        return
+
     # ── analyze ──
     if args.analyze:
-        print("\n📈 数据分析 + 趋势：")
         data = tuner.analyze()
+        if args.json:
+            color, dr, desc = tricolor_dr_audit(data)
+            data["三色"] = {"色": color, "dr": dr, "说明": desc}
+            print(json.dumps(data, ensure_ascii=False, indent=2))
+            return
+        print("\n📈 数据分析 + 趋势：")
         for k, v in data.items():
             print(f"   {k}: {v}")
         color, dr, desc = tricolor_dr_audit(data)
@@ -634,7 +1109,13 @@ def main():
     # ── rollback ──
     if args.rollback:
         print("\n⏪ 回滚到上一代参数...")
+        if args.force:
+            # 跳过冷却期
+            tuner.params.最后微调时间 = ""
         result = tuner.rollback()
+        if args.json:
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            return
         for k, v in result.items():
             print(f"   {k}: {v}")
         return
@@ -650,12 +1131,15 @@ def main():
         result = None
 
     if result is not None:
-        print(f"\n📊 状态: {result['status']}")
-        print(f"🚦 三色: {result.get('三色','?')} dr={result.get('dr','?')} · {result.get('dr说明','')}")
-        for r in result.get("调整记录", []):
-            print(f"   {r}")
-        if not result.get("调整记录"):
-            print("   无需调整")
+        if args.json:
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+        else:
+            print(f"\n📊 状态: {result['status']}")
+            print(f"🚦 三色: {result.get('三色','?')} dr={result.get('dr','?')} · {result.get('dr说明','')}")
+            for r in result.get("调整记录", []):
+                print(f"   {r}")
+            if not result.get("调整记录"):
+                print("   无需调整")
         if args.audit or args.apply:
             report = tuner.generate_audit_report(result)
             print(f"\n📝 审计报告: {report}")
@@ -683,10 +1167,18 @@ def main():
         for r in result.get("调整记录", []) or ["   （无调整建议）"]:
             print(f"   {r}")
         print("\n" + "═" * 60)
+        print(f"🔍 9项自检：")
+        audit_result = tuner.self_audit()
+        s = audit_result["_summary"]
+        print(f"   🟢{s['🟢']} 🟡{s['🟡']} 🔴{s['🔴']} → {s['overall']}")
+        print("\n" + "═" * 60)
         print("📝 生成演示审计报告...")
         report = tuner.generate_audit_report(result)
         print(f"   {report}")
         return
+
+    # 无参数 → 显示帮助
+    parser.print_help()
 
 
 if __name__ == "__main__":

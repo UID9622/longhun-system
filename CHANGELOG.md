@@ -1,38 +1,145 @@
-# 龍魂系统变更日志
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# 龍魂系统 · 变更日志
 
-DNA: #龍芯⚡️2026-07-04-LONGHUN-CHANGELOG-v1.2
+> DNA: `#龍芯⚡️20260731-CHANGELOG-v2.0-UID9622`
+> 协议: CC BY-NC-SA 4.0 + 君子协议
 
-## 2026-07-04
+本文档记录龍魂系统所有重要变更。
 
-- 矩阵视觉真实化升级：3D 知识矩阵节点从抽象球体替换为中国文化符号——主权层玉印（玺）、治理层竹简（简）、机制层玉璧（璧）、基础层青铜器（鼎）、北辰根太极（☯）。
-- 新增「文化视觉」无障碍模式，节点使用 Canvas 程序化纹理（印文、编绳、同心圆、饕餮纹、阴阳鱼），并缓慢自转；保留「简化几何」兜底模式。
-- 修复章节卷轴覆盖层 DOM 嵌套错误：将 `#chapter-overlay` 从 `#detail` 内部移出为 body 直接子元素，确保全屏居中显示。
-- 优化图例显示：文化模式下图例展示「玺/简/璧/鼎/☯」符号，简化模式下展示几何符号。
-- 验证通过：默认文化视觉、简化几何模式、色盲模式切换正常；章节覆盖层打开、朗读、跳转独立页功能正常。
-- 本次升级 DNA：#龍芯⚡️2026-07-04-LONGHUN-MATRIX-CULTURAL-VISUALS-v1.0
-
-## 2026-06-28
-
-- 主干自我迭代系统 v1.0 部署签章。
-- 集成 `lh-self-update`：检测 `formula_alignment_v1_6_raw.md` SHA256 变化，自动重建 512 维 TF-IDF 向量、刷新 KG 索引、保留 5 份滚动备份、支持 `--rollback`。
-- `lh` 命令注册表新增：全局索引、公式对准表、notion 同步、主干自我迭代。
-- 体检脚本纳入主干自我迭代检查项。
-- 通心译门 v1.1 升级：引入五行向量与人性偏移评分，新增 `tongxinyi_wuxing_dict.json`。
-- 本次部署 DNA：#龍芯⚡️2026-06-28-SELF-UPDATE-INTEGRATION-DEPLOY-v1.0
-
-## 2026-06-22
-
-- 修复每日复盘六项黄灯项：文件完整性、系统心跳、测试、操作日志、API服务、备份状态。
-- 修复 longhun-daemon 健康检查 daemon_state.json PID 记录。
-- 修复 macOS 日历写入 AppleScript 语法错误。
-- 新增基础回归测试 `tests/test_longhun_basic.py`。
-- 优化自动化评估脚本，改用项目真实路径与 CNSH 终端 CLI。
-
-## 2026-06-21
-
-- 完成 longhun-daemon 真实服务挂载与四阶段启动。
-- DNA 对齐率达 99.6%，重复 DNA 清零。
+格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)。
 
 ---
 
-君子协议：本文件受龍魂 DNA 追溯保护。
+## [v5.0.0] — 2026-07-31 · 开源发布
+
+### 新增
+- 全项目开源发布（CC BY-NC-SA 4.0 + 君子协议）
+- 完整开源文档体系（README/CONTRIBUTING/CODE_OF_CONDUCT/SECURITY/GOVERNANCE/ROADMAP/CHANGELOG）
+- 君子协议完整中英文版（GENTLEMANS_PROTOCOL.md）
+- 隐私政策（PRIVACY_POLICY.md）
+- 服务条款（TERMS_OF_SERVICE.md）
+- API文档与OpenAPI 3.0规范
+- 多系统安装脚本（Linux/macOS/Windows/Docker）
+- 术语表（GLOSSARY.md）
+- 常见问题（FAQ.md）
+- 生态项目（ECOSYSTEM.md）
+- 开发者文档（DEVELOPMENT.md）
+- 文档导航索引（DOCUMENTATION_INDEX.md）
+- 系统架构文档（ARCHITECTURE.md）Mermaid图表
+- GPG自动签名焊死（GATE-11·全项目1574+签名文件）
+- 全量对齐规则 v2.2（16层·20人格路由）
+- llms.txt 大语言模型上下文文件
+
+### 变更
+- LICENSE 升级为 CC BY-NC-SA 4.0 + 君子协议补充
+- README.md 大幅增强（特性·架构·路线图·贡献）
+- CODE_OF_CONDUCT.md 融入君子协议
+- SECURITY.md 完善漏洞报告流程
+
+### 引擎
+- CNSH AgentOS v2.0（本地主权AI执行生态）
+- 智能体训练框架 v1.0（五引擎·SQLite经验库）
+- 省电API服务 v2.0（同步/异步·99.98%省电率）
+- 量子协作引擎 v1.0（Bra-Ket·8人格叠加）
+- 七维推演引擎 v2.0（䷚颐·学习循环）
+- 搜索引擎 :9631（Bing→缓存→审计）
+- 三色审计引擎 v2.0（加权多因子·四级熔断）
+- 主权守护引擎 v1.0
+- 内容自动分类引擎 v1.0
+- 意念交流引擎 v3.0
+
+---
+
+## [v4.2] — 2026-07-13
+
+### 新增
+- 龍魂操作台 MVP v1.1 — 10项Skill·底座能力统一API
+- CNSH MCP Server 上线 — 13工具完整语法链
+- lh_deepseek_fixer v5.1（DeepSeek自动修复引擎）
+- 人格治理白皮书 v1.4
+
+### 变更
+- 行为准则 v2.1 · 龍魂原生版·审计校准
+- 全项目 pyproject.toml 统一
+
+---
+
+## [v4.1] — 2026-07-06
+
+### 新增
+- v4.1.1-bind 最佳绑定模型（Val 0.9659·DNA捆绑·fused）
+- 浏览器史官 v2.1（四道防线·设备金库·AES-256）
+- 知识卡片上线 CSDN（lh_knowledge_ 系列）
+- 创作者保护协议 · 不可篡改条款（焊死·永不可改）
+
+### 变更
+- 隐私白皮书 v1.0 发布
+- 数据哲学与隐私保护协议 v2.1
+
+---
+
+## [v4.0] — 2026-06-21
+
+### 新增
+- v4.0 底座模型（Llama-3.1-8B·Val 1.218）
+- v4.1.0 中文精修模型
+- 移动端监控 — 15层体系，AES-256-GCM加密
+- 浏览器史官 v1.0
+- lh_run.py 一体化命令引擎
+
+### 变更
+- 算力瘦身（192→核心引擎优化）
+- 系统拓扑统一管理（longhun_neural_net.json）
+
+---
+
+## [v3.1] — 2026-06
+
+### 新增
+- 10项技能完整集成（API < 100ms）
+- 三色审计引擎 v1.0
+- 视频工坊 v1.0
+
+---
+
+## [v3.0] — 2026-05
+
+### 新增
+- 20人格体系建立（P00-P72）
+- CNSH 语言编译器（四阶段·中文关键字→Python）
+- 人格治理白皮书 v1.0
+- 系统宪法 CONSTITUTION.md
+
+---
+
+## [v2.0] — 2026-04
+
+### 新增
+- lh 统一命令入口
+- 记忆系统 v1.0
+- 通心译翻译引擎
+- 部署到鲲鹏服务器
+
+---
+
+## [v1.0] — 2026-03
+
+### 新增
+- 项目初始化
+- CNSH 语言设计
+- DNA 追溯码格式定义
+- 协议框架搭建
+
+---
+
+## 版本号规则
+
+- **主版本号**：重大架构变更、不兼容的API修改
+- **次版本号**：新功能、向后兼容的改进
+- **修订号**：Bug修复、文档更新
+
+---
+
+> 🐉 龍魂系统 · 每一步都留下痕迹

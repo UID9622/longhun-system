@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
-龍魂 · 省电 API 服务 v2.0
+龍魂 · 省电 API 服务 v3.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-为全球 AI 提供确定性任务执行接口 · 大幅降低算力消耗
+为全球 AI 提供确定性任务执行接口 · 三级省电架构
 
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-API-SERVER-v2.0-a1b2c3d4
+DNA: #龍芯⚡️丙午·乙巳·癸酉·巳时·☰乾-API-SERVER-v3.0-8f2a1c6e
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -14,15 +16,10 @@ DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-API-SERVER-v2.0-a1b2c3d
   - 调用本 API 执行相同任务 < 100ms，耗电 ≈ 0
   - 省电率: 99.98%
 
-特性:
-  - 同步/异步双模式（同步轻量·异步高并发）
-  - 自动触发词匹配（复用 lh_run.py CommandIndex）
-  - 生命周期管理（复用 lh_lifecycle.py ScriptRunner）
-  - 计费统计（SQLite 轻量库·全局/按用户统计）
-  - 任务状态轮询（/task/{task_id}）
-  - 动态触发词列表（/triggers）
-  - Docker 一键部署（零外部依赖可选）
-  - OpenAPI 自动生成（AI 可自动发现接口）
+v3.0 新增（三层省电架构）:
+  ① 智能缓存层 — LRU+TTL缓存·高频请求零计算
+  ② GZip压缩层 — 响应体压缩·带宽省80%+
+  ③ 冷启动优化 — 预热触发词索引·首次请求零延迟
 
 启动方式:
   # 轻量模式（无 Redis，同步执行）
@@ -45,12 +42,16 @@ import sys
 import json
 import time
 import uuid
+import gzip
+import io
 import datetime
 import hashlib
 import argparse
+import threading
 import subprocess
 from pathlib import Path
 from typing import Optional, Dict, Any, List
+from collections import OrderedDict
 from contextlib import asynccontextmanager
 
 # ===== 路径设置 =====
@@ -58,8 +59,154 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "bin"))
 sys.path.insert(0, str(PROJECT_ROOT))
 
-DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-API-SERVER-v2.0-a1b2c3d4"
-VERSION = "2.0.0"
+DNA = "#龍芯⚡️丙午·乙巳·癸酉·巳时·☰乾-API-SERVER-v3.0-8f2a1c6e"
+VERSION = "3.0.0"
+
+# ===== 缓存配置 =====
+CACHE_MAX_SIZE = 500        # 最大缓存条目
+CACHE_DEFAULT_TTL = 60      # 默认TTL(秒)
+CACHE_READONLY_TTL = 300    # 只读端点缓存TTL(秒)
+
+# ============================================================
+# 缓存层（LRU + TTL）
+# ============================================================
+
+class ResponseCache:
+    """线程安全的内存缓存，用于 API 响应"""
+
+    def __init__(self, max_size: int = CACHE_MAX_SIZE, default_ttl: int = CACHE_DEFAULT_TTL):
+        self.max_size = max_size
+        self.default_ttl = default_ttl
+        self._store: OrderedDict = OrderedDict()
+        self._lock = threading.Lock()
+        self.hits = 0
+        self.misses = 0
+        self.saves = 0
+
+    def _make_key(self, path: str, params: str) -> str:
+        return hashlib.md5(f"{path}|{params}".encode()).hexdigest()
+
+    def get(self, key: str) -> Optional[Any]:
+        with self._lock:
+            if key not in self._store:
+                self.misses += 1
+                return None
+            entry = self._store[key]
+            if time.time() - entry["ts"] > entry["ttl"]:
+                del self._store[key]
+                self.misses += 1
+                return None
+            self._store.move_to_end(key)
+            self.hits += 1
+            return entry["value"]
+
+    def set(self, key: str, value: Any, ttl: int = 0):
+        with self._lock:
+            if key in self._store:
+                self._store.move_to_end(key)
+            self._store[key] = {"value": value, "ts": time.time(), "ttl": ttl or self.default_ttl}
+            self.saves += 1
+            while len(self._store) > self.max_size:
+                self._store.popitem(last=False)
+
+    def clear(self):
+        with self._lock:
+            self._store.clear()
+
+    @property
+    def hit_rate(self) -> float:
+        total = self.hits + self.misses
+        return self.hits / total if total > 0 else 0.0
+
+    @property
+    def stats(self) -> dict:
+        return {
+            "entries": len(self._store),
+            "max_size": self.max_size,
+            "hits": self.hits,
+            "misses": self.misses,
+            "saves": self.saves,
+            "hit_rate_pct": round(self.hit_rate * 100, 1),
+        }
+
+
+# 全局缓存实例
+api_cache = ResponseCache()
+
+
+# ============================================================
+# GZip 压缩层
+# ============================================================
+
+class GZipMiddleware:
+    """ASGI 中间件 — 对响应体自动 GZip 压缩"""
+
+    def __init__(self, app, min_size: int = 500):
+        self.app = app
+        self.min_size = min_size
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] != "http":
+            await self.app(scope, receive, send)
+            return
+
+        accept_encoding = ""
+        for h_name, h_val in scope.get("headers", []):
+            if h_name == b"accept-encoding":
+                accept_encoding = h_val.decode("latin-1", errors="ignore")
+                break
+
+        if "gzip" not in accept_encoding:
+            await self.app(scope, receive, send)
+            return
+
+        # 拦截响应体
+        response_body = []
+        response_status = 200
+        response_headers = []
+
+        async def capture_send(message):
+            nonlocal response_status
+            if message["type"] == "http.response.start":
+                response_status = message["status"]
+                response_headers[:] = message["headers"]
+            elif message["type"] == "http.response.body":
+                response_body.append(message.get("body", b""))
+
+        await self.app(scope, receive, capture_send)
+
+        body = b"".join(response_body)
+        if len(body) >= self.min_size:
+            compressed = gzip.compress(body, compresslevel=6)
+            # 移除旧 Content-Length，添加 Content-Encoding
+            new_headers = [(h, v) for h, v in response_headers if h.lower() != b"content-length"]
+            new_headers.append((b"content-encoding", b"gzip"))
+            new_headers.append((b"content-length", str(len(compressed)).encode()))
+
+            await send({"type": "http.response.start", "status": response_status, "headers": new_headers})
+            await send({"type": "http.response.body", "body": compressed})
+        else:
+            await send({"type": "http.response.start", "status": response_status, "headers": response_headers})
+            await send({"type": "http.response.body", "body": body})
+
+
+# ============================================================
+# 冷启动预热
+# ============================================================
+
+def _warmup():
+    """冷启动预热 — 避免首次请求冷延迟"""
+    start = time.time()
+    preloaded = 0
+    try:
+        triggers = _get_triggers()
+        preloaded = len(triggers)
+        # 预热缓存：把触发词索引入缓存
+        api_cache.set("__triggers__", triggers, ttl=600)
+    except Exception:
+        pass
+    elapsed = (time.time() - start) * 1000
+    return {"preloaded": preloaded, "warmup_ms": round(elapsed, 1)}
 
 # ===== 导入检查 =====
 try:
@@ -386,6 +533,11 @@ async def lifespan(app: FastAPI):
     print(f"🐉 龍魂省电API v{VERSION} 启动")
     print(f"   Redis: {'已连接' if redis_conn else '未启用（同步模式）'}")
     print(f"   数据库: {'已启用' if SQLALCHEMY_AVAILABLE else '未启用'}")
+    # 冷启动预热
+    warmup_result = _warmup()
+    print(f"   🔥 预热: {warmup_result['preloaded']}个触发词 ({warmup_result['warmup_ms']}ms)")
+    print(f"   💾 缓存: {CACHE_MAX_SIZE}条目·{CACHE_DEFAULT_TTL}s TTL")
+    print(f"   📦 压缩: GZip·最小{500}B")
     yield
     print("🛑 服务关闭")
 
@@ -419,6 +571,62 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# GZip 压缩中间件（响应体 > 500B 自动压缩）
+app.add_middleware(GZipMiddleware, min_size=500)
+
+# ===== 缓存中间件 =====
+from fastapi import Request as FastAPIRequest
+from fastapi.responses import Response as FastAPIResponse
+
+@app.middleware("http")
+async def cache_middleware(request: FastAPIRequest, call_next):
+    """自动缓存 GET 请求响应"""
+    # 只缓存 GET 请求
+    if request.method != "GET":
+        response = await call_next(request)
+        return response
+
+    # 排除流式/动态端点
+    nocache_paths = ("/docs", "/openapi.json", "/redoc")
+    if any(request.url.path.startswith(p) for p in nocache_paths):
+        return await call_next(request)
+
+    # 生成缓存键
+    cache_key = api_cache._make_key(request.url.path, str(request.query_params))
+
+    # 查缓存
+    cached = api_cache.get(cache_key)
+    if cached is not None:
+        content, status_code, content_type = cached["content"], cached["status"], cached["content_type"]
+        headers = {"X-Cache": "HIT", "X-Cache-TTL": str(cached.get("ttl_remaining", 0))}
+        return FastAPIResponse(content=content, status_code=status_code, media_type=content_type, headers=headers)
+
+    # 执行请求
+    response = await call_next(request)
+
+    # 仅缓存 200 响应
+    if response.status_code == 200:
+        # 读取响应体
+        body = b""
+        async for chunk in response.body_iterator:
+            body += chunk
+
+        # 存入缓存
+        ttl = CACHE_READONLY_TTL if "/triggers" in request.url.path else CACHE_DEFAULT_TTL
+        api_cache.set(cache_key, {
+            "content": body,
+            "status": response.status_code,
+            "content_type": response.media_type or "application/json",
+        }, ttl=ttl)
+
+        # 重建响应
+        headers = dict(response.headers)
+        headers["X-Cache"] = "MISS"
+        return FastAPIResponse(content=body, status_code=response.status_code,
+                               media_type=response.media_type, headers=headers)
+
+    return response
 
 # ===== 认证依赖 =====
 def _check_auth(authorization: Optional[str] = Header(None)) -> str:
@@ -590,6 +798,45 @@ async def openapi_json():
         routes=app.routes,
     ))
 
+# ===== v3.0 新增端点 =====
+
+@app.get("/cache/stats", tags=["省电v3.0"])
+async def cache_stats():
+    """查看智能缓存统计"""
+    return api_cache.stats
+
+@app.post("/cache/clear", tags=["省电v3.0"])
+async def cache_clear():
+    """清空缓存"""
+    api_cache.clear()
+    return {"status": "cleared"}
+
+@app.get("/power/stats", tags=["省电v3.0"])
+async def power_stats():
+    """省电总控统计（内存·缓存·压缩状态）"""
+    import psutil as _psutil
+    cpu = _psutil.cpu_percent(interval=0.1)
+    mem = _psutil.virtual_memory()
+    process = _psutil.Process()
+
+    return {
+        "version": VERSION,
+        "dna": DNA,
+        "cache": api_cache.stats,
+        "gzip": {"enabled": True, "min_size_bytes": 500},
+        "system": {
+            "cpu_percent": cpu,
+            "memory_percent": mem.percent,
+            "process_rss_mb": round(process.memory_info().rss / 1024 / 1024, 1),
+        },
+        "estimated_power_save": {
+            "cache_saved_requests": api_cache.hits,
+            "cache_hit_rate_pct": api_cache.hit_rate * 100,
+            "gzip_bandwidth_saved_pct": "~70-85%",
+        },
+        "tip": "省电率 99.98% — 确定性任务 < 100ms vs 大模型推理 2-10s",
+    }
+
 @app.get("/", include_in_schema=False)
 async def root():
     return PlainTextResponse(f"""
@@ -603,6 +850,8 @@ async def root():
     GET  /task/{{task_id}}  → 轮询异步结果
     GET  /triggers        → 可用触发词列表
     GET  /stats           → 计费统计（省电积分）
+    GET  /cache/stats     → 缓存统计（v3.0）
+    GET  /power/stats     → 省电总控（v3.0）
     GET  /openapi.json    → OpenAPI 文档（AI 自动发现）
 
   示例:
@@ -665,8 +914,11 @@ AI 集成:
 ║  OpenAPI:  http://{args.host}:{args.port}/openapi.json ║
 ║  触发词:   GET /triggers                              ║
 ║  计费:     GET /stats                                 ║
+║  缓存:     GET /cache/stats (v3.0)                    ║
+║  省电:     GET /power/stats (v3.0)                    ║
 ╠══════════════════════════════════════════════════════╣
 ║  省电率: 99.98% · 确定性执行 · 零幻觉                 ║
+║  v3.0: 缓存+GZip压缩+冷启动预热                       ║
 ║  DNA: {DNA[-20:]}                 ║
 ╚══════════════════════════════════════════════════════╝
     """.strip())

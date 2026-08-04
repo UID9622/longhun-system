@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ⛔ 精简版（不再维护） — 完整版见 `LH-GOV-GRASSROOTS-REALITY-PROTOCOL-FULL-v1.0.md`
 
 > **本文件为精简版，保留作入口索引。完整内容见同目录下FULL版本。**

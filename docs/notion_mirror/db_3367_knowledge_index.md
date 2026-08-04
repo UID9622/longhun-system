@@ -1,3 +1,4 @@
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂知識庫索引（Notion DB 3367）
 
 - 數據庫 ID：`3367125a-9c9f-808a-9692-f0c6752e92fa`

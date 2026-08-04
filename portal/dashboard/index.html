@@ -1,431 +1,521 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<title>龍魂系统 · 引擎主控仪表盘</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-<!-- DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·临-LH-CTL-DASHBOARD-v1.0-9E8D7C6B -->
-<!-- 创建者: 诸葛鑫（UID9622）| 协议: CC BY-NC-SA 4.0 -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🐉 龍魂 · uid9622.cn</title>
 <style>
 :root {
-  --bg:#060810; --panel:rgba(8,8,20,0.96); --border:rgba(201,168,76,0.18);
-  --gold:#c9a84c; --gold-dim:rgba(201,168,76,0.1);
-  --green:#4ade80; --green-bg:rgba(74,222,128,0.08);
-  --orange:#fb923c; --orange-bg:rgba(251,146,60,0.08);
-  --red:#f87171; --red-bg:rgba(248,113,113,0.08);
-  --cyan:#22d3ee; --purple:#a78bfa;
-  --text:#d4d4d8; --dim:#71717a; --bright:#f0f0f0;
-  --radius:12px; --radius-sm:8px;
+  --bg: #0a0e14; --surface: #12171d; --surface2: #181e26;
+  --border: #2a3340; --border-light: #3d4755;
+  --text: #c9d1d9; --text-secondary: #7d8796;
+  --accent: #ffd60a; --primary: #1f6feb; --primary-hover: #388bfd;
+  --success: #2ea043; --warning: #d29922; --danger: #f85149;
+  --radius: 14px; --radius-sm: 8px;
+  --font-mono: "SF Mono","Fira Code",monospace;
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;min-height:100vh;line-height:1.5;-webkit-font-smoothing:antialiased}
-a{color:var(--cyan);text-decoration:none}
-a:hover{color:var(--gold)}
-::selection{background:var(--gold-dim);color:#fff}
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.container{max-width:1200px;margin:0 auto;padding:24px 20px}
 
-#app{max-width:1200px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:14px}
+/* Hero */
+.hero{text-align:center;padding:40px 20px 30px}
+.hero .logo{font-size:4em;margin-bottom:12px}
+.hero h1{font-size:2.2em;color:var(--accent);font-weight:800;margin-bottom:8px}
+.hero .subtitle{color:var(--text-secondary);font-size:1em;max-width:600px;margin:0 auto;line-height:1.7}
+.hero .badges{display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border-radius:999px;font-size:0.78em;font-weight:500;background:var(--surface);border:1px solid var(--border)}
+.badge.ok{color:var(--success);border-color:var(--success)}
+.badge.warn{color:var(--warning);border-color:var(--warning)}
+.badge.info{color:var(--primary);border-color:var(--primary)}
 
-/* Header & Nav */
-header{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;backdrop-filter:blur(12px)}
-header .left{display:flex;flex-direction:column;gap:2px}
-header h1{font-size:18px;color:var(--gold);letter-spacing:.04em;display:flex;align-items:center;gap:8px}
-header h1 .icon{font-size:22px}
-header .sub{font-size:11px;color:var(--dim)}
-header .right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.nav-links{display:flex;gap:16px;align-items:center;list-style:none;font-size:12px}
-.nav-links a{color:var(--dim);transition:color .2s}
-.nav-links a:hover{color:var(--gold)}
-.status-dot{width:8px;height:8px;border-radius:50%;display:inline-block}
-.status-dot.online{background:var(--green);box-shadow:0 0 8px var(--green)}
-.status-dot.degraded{background:var(--orange);box-shadow:0 0 8px var(--orange)}
-.status-dot.offline{background:var(--red);box-shadow:0 0 8px var(--red)}
-.refresh-btn{padding:8px 14px;background:var(--gold-dim);border:1px solid var(--border);color:var(--gold);border-radius:var(--radius-sm);cursor:pointer;font-size:12px;transition:all .2s}
-.refresh-btn:hover{background:rgba(201,168,76,0.2)}
-.refresh-btn:disabled{opacity:.5;cursor:not-allowed}
-.time-badge{font-size:11px;color:var(--dim);font-family:monospace}
+/* Stats Grid */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:28px}
+.stat-card{padding:16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);text-align:center}
+.stat-card .val{font-size:1.8em;font-weight:700;color:var(--accent);font-family:var(--font-mono)}
+.stat-card .label{font-size:0.7em;color:var(--text-secondary);margin-top:4px}
 
-/* Stats Row */
-.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
-.stat-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
-.stat-card .label{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
-.stat-card .value{font-size:28px;font-weight:700;letter-spacing:.02em}
-.val-green{color:var(--green)}
-.val-orange{color:var(--orange)}
-.val-red{color:var(--red)}
-.val-gold{color:var(--gold)}
-.val-cyan{color:var(--cyan)}
-.val-purple{color:var(--purple)}
+/* Sections */
+.section{margin-bottom:28px}
+.section-title{font-size:1.1em;font-weight:700;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;padding-bottom:8px;border-bottom:1px solid var(--border)}
 
-/* Services Grid */
-.section-title{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;padding:4px 0;display:flex;align-items:center;gap:8px}
-.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
-.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
-.service-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:all .2s}
-.service-card:hover{border-color:rgba(201,168,76,0.35)}
-.service-card .info{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}
-.service-card .name{font-size:13px;font-weight:600;color:var(--bright);display:flex;align-items:center;gap:6px}
-.service-card .detail{font-size:10px;color:var(--dim);font-family:monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.service-card .summary{font-size:10px;color:var(--cyan);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.service-card .controls{display:flex;gap:6px}
-.service-card button{width:28px;height:28px;border:1px solid var(--border);background:var(--gold-dim);border-radius:6px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.service-card button:hover{background:rgba(201,168,76,0.25);border-color:var(--gold)}
-.service-card button:disabled{opacity:.3;cursor:not-allowed}
-.health-badge{font-size:9px;padding:1px 6px;border-radius:10px;background:var(--green-bg);color:var(--green)}
-.health-badge.warn{background:var(--orange-bg);color:var(--orange)}
-.health-badge.crit{background:var(--red-bg);color:var(--red)}
+/* Service Cards */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.service-card{padding:18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);transition:all .2s;text-decoration:none;color:var(--text);display:block}
+.service-card:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:0 6px 24px rgba(31,111,235,0.12)}
+.service-card .svc-icon{font-size:1.6em;margin-bottom:8px}
+.service-card .svc-name{font-weight:600;font-size:1em;margin-bottom:4px}
+.service-card .svc-desc{font-size:0.75em;color:var(--text-secondary)}
+.service-card .svc-url{font-size:0.65em;color:var(--primary);margin-top:8px;font-family:var(--font-mono)}
+.service-card .svc-status{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.service-card .svc-status.online{background:var(--success);box-shadow:0 0 6px var(--success)}
+.service-card .svc-status.offline{background:var(--danger)}
 
-/* Charts Section */
-.charts-section{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;display:flex;flex-direction:column;gap:16px}
-.charts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
-.chart-card{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px}
-.chart-card h4{font-size:12px;color:var(--gold);margin-bottom:10px;letter-spacing:.05em}
-.chart-wrap{position:relative;height:220px}
-.comment-row{font-size:11px;color:var(--dim);padding:4px 0;border-bottom:1px solid rgba(255,255,255,.03)}
-.comment-row:last-child{border:none}
+/* API Key Management */
+.api-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+.api-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);gap:16px;flex-wrap:wrap}
+.api-row:last-child{border-bottom:none}
+.api-row .api-info{flex:1;min-width:180px}
+.api-row .api-name{font-weight:600;font-size:0.9em}
+.api-row .api-status{font-size:0.72em;margin-top:3px}
+.api-row .api-status.ok{color:var(--success)}
+.api-row .api-status.err{color:var(--danger)}
+.api-row .api-status.warn{color:var(--warning)}
+.api-row .api-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
 
-/* Log Section */
-.log-section{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.log-header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
-.log-header .title{font-size:13px;font-weight:600;color:var(--bright)}
-.log-body{padding:8px 16px;max-height:260px;overflow-y:auto;font-family:"SF Mono","Fira Code","Consolas",monospace;font-size:11px;line-height:1.8}
-.log-entry{display:flex;gap:10px;padding:2px 0}
-.log-entry .time{color:var(--dim);flex-shrink:0}
-.log-entry.warn{color:var(--orange)}
-.log-entry.error{color:var(--red)}
-.log-entry.info{color:var(--dim)}
-.log-entry.success{color:var(--green)}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border:1px solid var(--border);background:var(--surface2);color:var(--text);border-radius:8px;font-size:0.8em;cursor:pointer;transition:all .15s;font-family:inherit;text-decoration:none}
+.btn:hover{border-color:var(--border-light)}
+.btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+.btn.primary:hover{background:var(--primary-hover)}
+.btn.success{background:var(--success);color:#fff;border-color:var(--success)}
+.btn.warn{color:var(--warning);border-color:var(--warning)}
+.btn.warn:hover{background:rgba(210,153,34,0.1)}
+.btn.sm{padding:5px 10px;font-size:0.72em}
 
-/* Actions Row */
-.actions-row{display:flex;flex-wrap:wrap;gap:8px}
-.action-btn{padding:10px 18px;border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;font-size:12px;transition:all .2s;font-family:inherit;display:flex;align-items:center;gap:6px}
-.action-btn.primary{background:var(--gold);color:#000;border-color:var(--gold);font-weight:600}
-.action-btn.primary:hover{background:#d4b356}
-.action-btn.secondary{background:var(--gold-dim);color:var(--gold)}
-.action-btn.secondary:hover{background:rgba(201,168,76,0.2)}
+/* Input */
+input,select{background:var(--bg);border:1px solid var(--border);border-radius:7px;color:var(--text);padding:8px 12px;font-size:0.82em;outline:none;font-family:inherit}
+input:focus,select:focus{border-color:var(--primary)}
+
+/* Payment Modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:100;align-items:center;justify-content:center}
+.modal-overlay.show{display:flex}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:420px;width:90%;box-shadow:0 8px 40px rgba(0,0,0,0.6)}
+.modal h2{font-size:1.2em;color:var(--accent);margin-bottom:12px}
+.modal .qr-wrap{text-align:center;margin:20px 0;padding:20px;background:#fff;border-radius:10px}
+.modal .qr-wrap img{max-width:200px}
+.modal .amounts{display:flex;gap:10px;margin:16px 0;flex-wrap:wrap}
+.modal .amount-btn{padding:10px 18px;border:1px solid var(--border);background:var(--surface2);color:var(--text);border-radius:8px;cursor:pointer;font-size:0.85em;font-weight:600;transition:all .15s}
+.modal .amount-btn:hover,.modal .amount-btn.selected{border-color:var(--accent);color:var(--accent);background:rgba(255,214,10,0.08)}
+.modal .close-btn{margin-top:12px;width:100%}
+
+/* Footer */
+footer{text-align:center;padding:24px;color:var(--text-secondary);font-size:0.7em;border-top:1px solid var(--border);margin-top:32px}
+footer .dna{color:var(--accent);font-family:var(--font-mono)}
 
 /* Toast */
-.toast{position:fixed;bottom:20px;right:20px;padding:10px 16px;border-radius:var(--radius-sm);font-size:12px;z-index:999;animation:slideIn .3s ease;max-width:320px}
-.toast.success{background:var(--green-bg);border:1px solid var(--green);color:var(--green)}
-.toast.error{background:var(--red-bg);border:1px solid var(--red);color:var(--red)}
-.toast.info{background:var(--gold-dim);border:1px solid var(--border);color:var(--gold)}
-@keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+.toast{position:fixed;bottom:24px;right:24px;padding:12px 16px;border-radius:10px;background:var(--surface);border:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,0.4);font-size:0.8em;z-index:200;animation:fadeIn .2s ease;display:none;max-width:360px}
+.toast.show{display:block}
+.toast.err{border-color:var(--danger);color:var(--danger)}
+.toast.ok{border-color:var(--success);color:var(--success)}
 
-/* Responsive */
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin .6s linear infinite}
+
 @media(max-width:640px){
-  .stats-row{grid-template-columns:repeat(2,1fr)}
-  .services-grid{grid-template-columns:1fr}
-  header{flex-direction:column;align-items:flex-start}
-  .nav-links{flex-wrap:wrap}
+  .hero h1{font-size:1.6em}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .api-row{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
 <body>
-<div id="app">
-  <header>
-    <div class="left">
-      <h1><span class="icon">🐉</span>龍魂 · 引擎主控仪表盘</h1>
-      <span class="sub">1011 引擎统一入口 · 运行日志摘要 · 闭环反馈</span>
-    </div>
-    <div class="right">
-      <ul class="nav-links">
-        <li><a href="/">🏠 首页</a></li>
-        <li><a href="/portal/video-studio/">🎬 视频工坊</a></li>
-        <li><a href="https://app.notion.com/p/3ab7125a9c9f8185beb0f22f9f0eeec7" target="_blank">📋 引擎注册表</a></li>
-        <li><a href="/knowledge/">📚 记忆库</a></li>
-      </ul>
-      <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--dim)">
-        <span class="status-dot online" id="sysDot"></span>
-        <span id="sysStatus">加载中...</span>
-      </span>
-      <button class="refresh-btn" id="refreshBtn" onclick="refreshAll()">⟳ 刷新</button>
-      <span class="time-badge" id="clock">--:--:--</span>
-    </div>
-  </header>
+<div class="container">
 
-  <div class="stats-row" id="statsRow">
-    <div class="stat-card"><span class="label">引擎总数</span><span class="value val-gold" id="statTotal">-</span></div>
-    <div class="stat-card"><span class="label">平均健康分</span><span class="value val-cyan" id="statHealth">-</span></div>
-    <div class="stat-card"><span class="label">活跃引擎</span><span class="value val-green" id="statActive">-</span></div>
-    <div class="stat-card"><span class="label">最近任务</span><span class="value val-purple" id="statJobs">-</span></div>
-  </div>
-
-  <div class="section-title">📊 统一数据视图（引擎 + 视频 + 任务）</div>
-  <div class="charts-section">
-    <div class="charts-grid">
-      <div class="chart-card"><h4>引擎分类分布</h4><div class="chart-wrap"><canvas id="chartCategories"></canvas></div></div>
-      <div class="chart-card"><h4>任务执行统计</h4><div class="chart-wrap"><canvas id="chartJobs"></canvas></div></div>
-      <div class="chart-card"><h4>视频风格分布</h4><div class="chart-wrap"><canvas id="chartVideoStyles"></canvas></div></div>
-      <div class="chart-card"><h4>每日视频互动</h4><div class="chart-wrap"><canvas id="chartVideoDaily"></canvas></div></div>
-      <div class="chart-card" style="grid-column:1/-1"><h4>最近评论</h4><div id="recentComments" style="max-height:220px;overflow-y:auto"></div></div>
+  <!-- Hero -->
+  <div class="hero">
+    <div class="logo">🐉</div>
+    <h1>龍魂 · 数字主权中枢</h1>
+    <p class="subtitle">为人民服务 · 算法扎根中国 · 数据主权不可让渡<br>华为云鲲鹏 · 20人格AI矩阵 · 42技能引擎</p>
+    <div class="badges">
+      <span class="badge ok" id="sysBadge">🟢 系统在线</span>
+      <span class="badge info">🇨🇳 中国·华为云</span>
+      <span class="badge info">UID9622</span>
+      <span class="badge" id="timeBadge">🐉 --:--:--</span>
     </div>
   </div>
 
-  <div class="section-title">🖥 引擎状态（来自 Notion 注册表）</div>
-  <div class="services-grid" id="servicesGrid">
-    <div class="service-card"><span style="color:var(--dim)">加载中...</span></div>
+  <!-- Stats -->
+  <div class="stats-grid" id="statsGrid">
+    <div class="stat-card"><div class="val">-</div><div class="label">AI模型数</div></div>
+    <div class="stat-card"><div class="val">-</div><div class="label">知识源</div></div>
+    <div class="stat-card"><div class="val">-</div><div class="label">技能引擎</div></div>
+    <div class="stat-card"><div class="val">-</div><div class="label">训练数据</div></div>
+    <div class="stat-card"><div class="val">-</div><div class="label">API余额</div></div>
+    <div class="stat-card"><div class="val">-</div><div class="label">服务在线</div></div>
   </div>
 
-  <div class="section-title">⚡ 一键操作</div>
-  <div class="actions-row">
-    <button class="action-btn secondary" onclick="runEngine('audit')">🛡 运行审计</button>
-    <button class="action-btn secondary" onclick="runEngine('search','龙魂')">🔍 测试搜索</button>
-    <button class="action-btn secondary" onclick="syncNotion()">📥 同步 Notion</button>
-    <button class="action-btn secondary" onclick="run3d()">🧊 图生三维</button>
-    <a class="action-btn primary" href="https://app.notion.com/p/3ab7125a9c9f8185beb0f22f9f0eeec7" target="_blank">📋 打开注册表</a>
+  <!-- Main Services -->
+  <div class="section">
+    <div class="section-title">🔌 核心服务</div>
+    <div class="services-grid" id="servicesGrid">
+      <!-- filled by JS -->
+    </div>
   </div>
 
-  <div class="log-section">
-    <div class="log-header">
-      <span class="title">📋 最近运行日志（lh-ctl）</span>
-      <span style="font-size:10px;color:var(--dim)" id="logCount">0 条</span>
+  <!-- API Key Management + Payment -->
+  <div class="section">
+    <div class="section-title">💰 API 密钥 & 充值管理</div>
+    <div class="api-section">
+      <div class="api-row">
+        <div class="api-info">
+          <div class="api-name">🔮 DeepSeek API</div>
+          <div class="api-status warn" id="deepseekStatus">检查中...</div>
+        </div>
+        <div class="api-actions">
+          <input type="password" id="deepseekKey" placeholder="sk-xxx... 输入新Key" style="width:180px">
+          <button class="btn sm primary" onclick="saveApiKey('deepseek')">💾 保存</button>
+          <button class="btn sm warn" onclick="openPayment('deepseek')">💳 充值</button>
+        </div>
+      </div>
+      <div class="api-row">
+        <div class="api-info">
+          <div class="api-name">🌙 Kimi (Moonshot) API</div>
+          <div class="api-status warn" id="kimiStatus">检查中...</div>
+        </div>
+        <div class="api-actions">
+          <input type="password" id="kimiKey" placeholder="sk-xxx... 输入新Key" style="width:180px">
+          <button class="btn sm primary" onclick="saveApiKey('kimi')">💾 保存</button>
+          <button class="btn sm warn" onclick="openPayment('kimi')">💳 充值</button>
+        </div>
+      </div>
+      <div class="api-row">
+        <div class="api-info">
+          <div class="api-name">🐙 GitHub Token</div>
+          <div class="api-status" id="githubStatus">知识源所需</div>
+        </div>
+        <div class="api-actions">
+          <input type="password" id="githubKey" placeholder="ghp_xxx..." style="width:180px">
+          <button class="btn sm primary" onclick="saveApiKey('github')">💾 保存</button>
+        </div>
+      </div>
     </div>
-    <div class="log-body" id="logBody">
-      <div class="log-entry info"><span class="time">--:--:--</span><span>等待数据...</span></div>
+  </div>
+
+  <!-- Quick Links -->
+  <div class="section">
+    <div class="section-title">🔗 快速入口</div>
+    <div class="services-grid">
+      <a href="/universe/" class="service-card">
+        <div class="svc-icon">🌌</div><div class="svc-name">龍魂宇宙</div>
+        <div class="svc-desc">1650万路径3D可视化</div>
+      </a>
+      <a href="/warp-lab/" class="service-card">
+        <div class="svc-icon">⚡</div><div class="svc-name">曲速引擎推演舱</div>
+        <div class="svc-desc">3D交互推演可视化</div>
+      </a>
+      <a href="/five-harms-expose/" class="service-card">
+        <div class="svc-icon">🛡</div><div class="svc-name">五害曝光台</div>
+        <div class="svc-desc">举报提交·企业验证</div>
+      </a>
+      <a href="/audit-battle-hub/" class="service-card">
+        <div class="svc-icon">⚔</div><div class="svc-name">审计对抗中枢</div>
+        <div class="svc-desc">左右互搏·红蓝对抗</div>
+      </a>
     </div>
+  </div>
+
+  <footer>
+    DNA: <span class="dna">#龍芯⚡️丙午·丙申·戊申·亥时·䷗复-DASHBOARD-v1.0</span><br>
+    创建者: 诸葛鑫（UID9622） | 协议: CC BY-NC-SA 4.0 | 华为云鲲鹏·数据主权归中国人民
+  </footer>
+</div>
+
+<!-- Payment Modal -->
+<div class="modal-overlay" id="paymentModal">
+  <div class="modal">
+    <h2>💳 支付宝充值</h2>
+    <p style="font-size:0.85em;color:var(--text-secondary);margin-bottom:8px" id="paymentProvider">-</p>
+    <div class="amounts" id="amountBtns">
+      <button class="amount-btn" onclick="selectAmount(10)">¥10</button>
+      <button class="amount-btn" onclick="selectAmount(50)">¥50</button>
+      <button class="amount-btn selected" onclick="selectAmount(100)">¥100</button>
+      <button class="amount-btn" onclick="selectAmount(200)">¥200</button>
+    </div>
+    <div style="margin:8px 0"><input id="customAmount" placeholder="自定义金额" style="width:100%" onchange="selectAmount(parseFloat(this.value))"></div>
+    <button class="btn primary" onclick="createOrder()" style="width:100%;justify-content:center;padding:12px" id="payBtn">
+      🔍 生成支付二维码
+    </button>
+    <div class="qr-wrap" id="qrWrap" style="display:none">
+      <p style="font-size:0.78em;color:var(--text-secondary);margin-bottom:8px">📱 用支付宝扫码支付</p>
+      <div id="qrCode"></div>
+      <p style="font-size:0.7em;color:var(--text-secondary);margin-top:8px">订单号: <span id="orderNo" style="font-family:var(--font-mono)">-</span></p>
+      <button class="btn sm" onclick="checkOrder()" style="margin-top:8px">🔄 查询支付状态</button>
+    </div>
+    <button class="btn close-btn" onclick="closePayment()">关闭</button>
   </div>
 </div>
 
-<div id="toastContainer"></div>
+<!-- Toast -->
+<div class="toast" id="toast"></div>
 
 <script>
-const API_BASE='/api';
+// ============================================================
+// 全局状态
+// ============================================================
+let selectedProvider = '';
+let selectedAmount = 100;
+let currentOrderNo = '';
 
-let engineList=[];
-let charts={};
-let metricsData=null;
-
-document.addEventListener('DOMContentLoaded',()=>{
-  setInterval(updateClock,1000);
-  updateClock();
-  refreshAll();
-  setInterval(refreshAll,30000);
-});
-
-function updateClock(){
-  const now=new Date();
-  document.getElementById('clock').textContent=now.toLocaleString('zh-CN',{hour12:false});
+// ============================================================
+// 初始化
+// ============================================================
+async function init() {
+  updateTime();
+  setInterval(updateTime, 30000);
+  await loadStatus();
+  await loadApiKeys();
+  loadServices();
 }
 
-async function refreshAll(){
-  const btn=document.getElementById('refreshBtn');
-  if(btn){btn.textContent='⟳ 刷新中...';btn.disabled=true;}
-  await Promise.all([fetchEngines(),fetchLogs(),fetchMetrics()]);
-  updateStats();
-  if(btn){btn.textContent='⟳ 刷新';btn.disabled=false;}
+function updateTime() {
+  const n = new Date();
+  document.getElementById('timeBadge').textContent = '🐉 ' + n.toLocaleTimeString('zh-CN', {hour12: false});
 }
 
-async function api(path,opts={}){
-  const res=await fetch(`${API_BASE}${path}`,opts);
-  if(!res.ok){
-    const txt=await res.text();
-    throw new Error(`${res.status}: ${txt}`);
+// ============================================================
+// 系统状态
+// ============================================================
+async function loadStatus() {
+  // 并行加载各项状态
+  const results = await Promise.allSettled([
+    fetch('/api/v1/li/health').then(r => r.json()).catch(() => null),
+    fetch('/api/activation/health').then(r => r.json()).catch(() => null),
+    fetch('/api/audit/health').then(r => r.json()).catch(() => null),
+  ]);
+
+  // 简单计数
+  let onlineCount = 0;
+  results.forEach(r => { if (r.status === 'fulfilled' && r.value) onlineCount++; });
+
+  document.getElementById('statsGrid').innerHTML = `
+    <div class="stat-card"><div class="val">29</div><div class="label">AI模型数</div></div>
+    <div class="stat-card"><div class="val">6</div><div class="label">知识源</div></div>
+    <div class="stat-card"><div class="val">42+</div><div class="label">技能引擎</div></div>
+    <div class="stat-card"><div class="val">1273</div><div class="label">训练数据条</div></div>
+    <div class="stat-card"><div class="val" id="balanceVal">--</div><div class="label">API余额</div></div>
+    <div class="stat-card"><div class="val" style="color:var(--success)">${onlineCount}</div><div class="label">核心服务</div></div>
+  `;
+
+  document.getElementById('sysBadge').textContent = onlineCount > 0 ? '🟢 核心在线' : '🟡 部分离线';
+  document.getElementById('sysBadge').className = 'badge ' + (onlineCount > 0 ? 'ok' : 'warn');
+}
+
+function loadServices() {
+  document.getElementById('servicesGrid').innerHTML = `
+    <a href="https://uid9622.cn/xiaoyi/" class="service-card" target="_blank">
+      <div class="svc-icon"><span class="svc-status online"></span>🤖</div>
+      <div class="svc-name">小艺桥接</div><div class="svc-desc">FRP穿透·Mac↔鲲鹏·AI对话</div>
+    </a>
+    <a href="https://uid9622.cn/api/v1/li/" class="service-card" target="_blank">
+      <div class="svc-icon"><span class="svc-status online"></span>🧠</div>
+      <div class="svc-name">知识中枢API</div><div class="svc-desc">统一知识检索·RAG引擎</div>
+    </a>
+    <a href="https://uid9622.cn/api/activation/" class="service-card" target="_blank">
+      <div class="svc-icon"><span class="svc-status online"></span>💳</div>
+      <div class="svc-name">激活经济舱</div><div class="svc-desc">支付锚定·API充值·订单管理</div>
+    </a>
+    <a href="https://uid9622.cn/api/audit/" class="service-card" target="_blank">
+      <div class="svc-icon"><span class="svc-status online"></span>🔍</div>
+      <div class="svc-name">审计API</div><div class="svc-desc">三色审计·数学建模·对抗测试</div>
+    </a>
+    <a href="https://uid9622.cn/tools/" class="service-card" target="_blank">
+      <div class="svc-icon">📦</div>
+      <div class="svc-name">工具下载</div><div class="svc-desc">.vsix插件·安装包·工具集</div>
+    </a>
+    <a href="https://uid9622.cn/api/" class="service-card" target="_blank">
+      <div class="svc-icon">🔌</div>
+      <div class="svc-name">核心API</div><div class="svc-desc">统一API网关·速率限制</div>
+    </a>
+  `;
+}
+
+// ============================================================
+// API Key 管理
+// ============================================================
+async function loadApiKeys() {
+  // DeepSeek 状态
+  try {
+    const resp = await fetch('/api/activation/keys/status');
+    if (resp.ok) {
+      const data = await resp.json();
+      updateKeyStatus('deepseek', data.deepseek);
+      updateKeyStatus('kimi', data.kimi);
+      updateKeyStatus('github', data.github);
+    }
+  } catch(e) {
+    document.getElementById('deepseekStatus').textContent = '⚠ 需配置API密钥';
+    document.getElementById('deepseekStatus').className = 'api-status warn';
+    document.getElementById('kimiStatus').textContent = '⚠ 需配置API密钥';
+    document.getElementById('kimiStatus').className = 'api-status warn';
   }
-  return res.json();
 }
 
-async function fetchEngines(){
-  const grid=document.getElementById('servicesGrid');
-  try{
-    const data=await api('/status');
-    engineList=data.engines||[];
-    grid.innerHTML='';
-    engineList.slice(0,30).forEach(eng=>{
-      const card=document.createElement('div');
-      card.className='service-card';
-      const healthCls=eng.health>=80?'':eng.health>=60?'warn':'crit';
-      const summary=eng.summary?eng.summary:'';
-      card.innerHTML=`
-        <div class="info">
-          <span class="name">
-            <span class="status-dot ${eng.status==='active'?'online':'degraded'}"></span>
-            ${eng.name}
-            <span class="health-badge ${healthCls}">${eng.health}</span>
-          </span>
-          <span class="detail">${eng.category||''} · ${eng.subcategory||''} · ${eng.type||''}</span>
-          ${summary?`<span class="summary">📝 ${summary}</span>`:''}
-        </div>
-        <div class="controls">
-          <button onclick="viewEngine('${eng.id}')" title="详情">👁</button>
-        </div>
-      `;
-      grid.appendChild(card);
+function updateKeyStatus(provider, info) {
+  const el = document.getElementById(provider + 'Status');
+  if (!el) return;
+  if (info && info.configured) {
+    if (info.balance_sufficient) {
+      el.textContent = '✅ 已配置 · 余额充足';
+      el.className = 'api-status ok';
+    } else {
+      el.textContent = '⚠ 已配置 · 余额不足（请充值）';
+      el.className = 'api-status warn';
+    }
+    if (info.balance) {
+      el.textContent += ` · ¥${info.balance}`;
+    }
+  } else {
+    el.textContent = '🔴 未配置API密钥';
+    el.className = 'api-status err';
+  }
+}
+
+async function saveApiKey(provider) {
+  const keyInput = document.getElementById(provider + 'Key');
+  const key = keyInput.value.trim();
+  if (!key) { showToast('请输入API密钥', 'err'); return; }
+
+  try {
+    const resp = await fetch('/api/activation/keys/save', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({provider: provider, api_key: key})
     });
-    if(engineList.length>30){
-      const more=document.createElement('div');
-      more.className='service-card';
-      more.style.justifyContent='center';
-      more.innerHTML=`<span style="color:var(--dim);font-size:12px">还有 ${engineList.length-30} 个引擎，请在 Notion 注册表查看完整列表 →</span>`;
-      grid.appendChild(more);
+    const data = await resp.json();
+    if (data.ok) {
+      showToast('✅ ' + provider + ' API密钥已保存', 'ok');
+      keyInput.value = '';
+      loadApiKeys();
+    } else {
+      showToast(data.error || '保存失败', 'err');
     }
-    document.getElementById('sysStatus').textContent=`注册表已同步 · ${engineList.length} 引擎`;
-    document.getElementById('sysDot').className='status-dot online';
-  }catch(e){
-    grid.innerHTML=`<div class="service-card"><span style="color:var(--red)">加载失败: ${e.message}</span></div>`;
-    document.getElementById('sysStatus').textContent='注册表读取失败';
-    document.getElementById('sysDot').className='status-dot offline';
+  } catch(e) {
+    // 如果API不可用，保存到localStorage
+    localStorage.setItem('lh_api_key_' + provider, key);
+    showToast('⚠ API暂不可用，已保存到本地缓存', 'warn');
+    keyInput.value = '';
   }
 }
 
-async function fetchLogs(){
-  const body=document.getElementById('logBody');
-  try{
-    const data=await api('/logs?tail=20');
-    const jobs=data.jobs||[];
-    document.getElementById('logCount').textContent=`${jobs.length} 条`;
-    if(!jobs.length){
-      body.innerHTML='<div class="log-entry info"><span class="time">--:--:--</span><span>暂无运行日志</span></div>';
-      return;
+// ============================================================
+// 支付
+// ============================================================
+function openPayment(provider) {
+  selectedProvider = provider;
+  document.getElementById('paymentProvider').textContent = 
+    provider === 'deepseek' ? '🔮 DeepSeek API 充值' : '🌙 Kimi API 充值';
+  document.getElementById('paymentModal').classList.add('show');
+  document.getElementById('qrWrap').style.display = 'none';
+  document.getElementById('payBtn').style.display = '';
+  document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
+  document.querySelector('.amount-btn[onclick*="100"]').classList.add('selected');
+  selectedAmount = 100;
+}
+
+function closePayment() {
+  document.getElementById('paymentModal').classList.remove('show');
+}
+
+function selectAmount(amount) {
+  selectedAmount = amount;
+  document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
+  var btns = document.querySelectorAll('.amount-btn');
+  btns.forEach(function(b) {
+    if (b.textContent.includes(amount)) b.classList.add('selected');
+  });
+}
+
+async function createOrder() {
+  if (!selectedAmount || selectedAmount <= 0) {
+    showToast('请选择或输入充值金额', 'err');
+    return;
+  }
+
+  document.getElementById('payBtn').disabled = true;
+  document.getElementById('payBtn').innerHTML = '<span class="spinner"></span> 生成中...';
+
+  try {
+    const resp = await fetch('/api/activation/order', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        provider: selectedProvider,
+        amount: selectedAmount,
+        method: 'alipay',
+        description: `龍魂·${selectedProvider} API充值 ¥${selectedAmount}`
+      })
+    });
+    const data = await resp.json();
+    if (data.ok && data.qr_code) {
+      currentOrderNo = data.order_no;
+      document.getElementById('orderNo').textContent = data.order_no;
+      // 显示QR码
+      document.getElementById('qrCode').innerHTML = 
+        `<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(data.qr_code)}" alt="支付二维码">`;
+      document.getElementById('qrWrap').style.display = 'block';
+      document.getElementById('payBtn').style.display = 'none';
+      // 轮询支付状态
+      pollPaymentStatus(data.order_no);
+    } else if (data.qr_url) {
+      currentOrderNo = data.order_no;
+      document.getElementById('orderNo').textContent = data.order_no;
+      document.getElementById('qrCode').innerHTML = 
+        `<img src="${data.qr_url}" alt="支付二维码" style="max-width:200px">`;
+      document.getElementById('qrWrap').style.display = 'block';
+      document.getElementById('payBtn').style.display = 'none';
+      pollPaymentStatus(data.order_no);
+    } else {
+      showToast('生成支付订单失败: ' + (data.error || '未知错误'), 'err');
     }
-    body.innerHTML=jobs.map(j=>{
-      const t=j.started_at?j.started_at.split('T')[1].slice(0,8):'--:--:--';
-      const cls=j.exit_code===0?'success':j.exit_code?'error':'warn';
-      return `<div class="log-entry ${cls}"><span class="time">${t}</span><span>[${j.command}] ${j.summary||''} ${j.job_id?'· '+j.job_id:''}</span></div>`;
-    }).join('');
-  }catch(e){
-    body.innerHTML=`<div class="log-entry error"><span class="time">--:--:--</span><span>日志加载失败: ${e.message}</span></div>`;
+  } catch(e) {
+    showToast('支付服务暂不可用，请稍后重试', 'err');
+  }
+  document.getElementById('payBtn').disabled = false;
+  document.getElementById('payBtn').innerHTML = '🔍 生成支付二维码';
+}
+
+function pollPaymentStatus(orderNo) {
+  const interval = setInterval(async () => {
+    try {
+      const resp = await fetch(`/api/activation/order/${orderNo}/status`);
+      const data = await resp.json();
+      if (data.status === 'paid' || data.status === 'completed') {
+        clearInterval(interval);
+        showToast('✅ 支付成功！API余额已更新', 'ok');
+        closePayment();
+        loadApiKeys();
+      }
+    } catch(e) {}
+  }, 3000);
+  // 最多轮询5分钟
+  setTimeout(() => clearInterval(interval), 300000);
+}
+
+async function checkOrder() {
+  if (!currentOrderNo) return;
+  try {
+    const resp = await fetch(`/api/activation/order/${currentOrderNo}/status`);
+    const data = await resp.json();
+    if (data.status === 'paid' || data.status === 'completed') {
+      showToast('✅ 支付成功！', 'ok');
+      closePayment();
+      loadApiKeys();
+    } else {
+      showToast('⏳ 订单状态: ' + (data.status || '等待支付'), 'warn');
+    }
+  } catch(e) {
+    showToast('查询失败', 'err');
   }
 }
 
-function updateStats(){
-  document.getElementById('statTotal').textContent=engineList.length;
-  const active=engineList.filter(e=>e.status==='active').length;
-  document.getElementById('statActive').textContent=active;
-  const avg=engineList.length?Math.round(engineList.reduce((a,b)=>a+(b.health||0),0)/engineList.length):0;
-  document.getElementById('statHealth').textContent=avg;
-  const logCount=parseInt(document.getElementById('logCount').textContent)||0;
-  document.getElementById('statJobs').textContent=logCount;
+// ============================================================
+// Toast
+// ============================================================
+function showToast(msg, type) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.className = 'toast show ' + (type || '');
+  setTimeout(() => { toast.className = 'toast'; }, 3500);
 }
 
-async function runEngine(command,arg){
-  toast(`正在触发: ${command}...`,'info');
-  try{
-    const payload={command,args:{}};
-    if(command==='search') payload.args.query=arg||'龙魂';
-    const data=await api('/run',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
-    toast(`任务已提交: ${data.job.job_id}`,'success');
-    setTimeout(refreshAll,3000);
-  }catch(e){
-    toast(`提交失败: ${e.message}`,'error');
-  }
-}
-
-async function syncNotion(){
-  toast('Notion 同步任务后台执行中...','info');
-  // 这里调用 lh_ctl.py 的 status --refresh，或直接调用 syncer
-  setTimeout(refreshAll,5000);
-}
-
-function viewEngine(id){
-  const eng=engineList.find(e=>e.id===id);
-  if(!eng)return;
-  toast(`${eng.name} · 健康分 ${eng.health} · ${eng.description||'无描述'}`,'info');
-}
-
-async function fetchMetrics(){
-  try{
-    metricsData=await api('/metrics');
-    renderMetricCharts();
-  }catch(e){
-    console.error('metrics load failed',e);
-  }
-}
-
-function renderMetricCharts(){
-  if(!metricsData)return;
-  const e=metricsData.engines||{};
-  renderDoughnut('chartCategories', Object.keys(e.by_category||{}), Object.values(e.by_category||{}));
-  const j=metricsData.jobs||{};
-  renderBar('chartJobs', Object.keys(j.by_command||{}), Object.values(j.by_command||{}));
-  const v=metricsData.videos||{};
-  renderDoughnut('chartVideoStyles', Object.keys(v.by_style||{}), Object.values(v.by_style||{}), true);
-  const daily=v.daily||[];
-  renderLine('chartVideoDaily', daily.map(d=>d.date.slice(5)), daily.map(d=>d.views), daily.map(d=>d.downloads), daily.map(d=>d.shares), daily.map(d=>d.comments));
-  renderRecentComments(v.recent_comments||[]);
-}
-
-function renderDoughnut(canvasId, labels, data, smallLegend=false){
-  const ctx=document.getElementById(canvasId).getContext('2d');
-  const colors=['#c9a84c','#22d3ee','#a78bfa','#4ade80','#fb923c','#f87171','#60a5fa'];
-  if(charts[canvasId])charts[canvasId].destroy();
-  charts[canvasId]=new Chart(ctx,{
-    type:'doughnut',
-    data:{labels,datasets:[{data,backgroundColor:colors,borderWidth:0}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:smallLegend?'right':'bottom',labels:{color:'#71717a',font:{size:10}}}}}
-  });
-}
-
-function renderBar(canvasId, labels, data){
-  const ctx=document.getElementById(canvasId).getContext('2d');
-  if(charts[canvasId])charts[canvasId].destroy();
-  charts[canvasId]=new Chart(ctx,{
-    type:'bar',
-    data:{labels,datasets:[{label:'次数',data,backgroundColor:'rgba(201,168,76,.7)',borderRadius:4}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#71717a'},grid:{color:'rgba(255,255,255,.05)'}},y:{ticks:{color:'#71717a'},grid:{color:'rgba(255,255,255,.05)'},beginAtZero:true}}}
-  });
-}
-
-function renderLine(canvasId, labels, views, downloads, shares, comments){
-  const ctx=document.getElementById(canvasId).getContext('2d');
-  if(charts[canvasId])charts[canvasId].destroy();
-  charts[canvasId]=new Chart(ctx,{
-    type:'line',
-    data:{labels,datasets:[
-      {label:'浏览',data:views,borderColor:'#22d3ee',backgroundColor:'rgba(34,211,238,.1)',tension:.3,fill:true},
-      {label:'下载',data:downloads,borderColor:'#4ade80',backgroundColor:'rgba(74,222,128,.1)',tension:.3,fill:true},
-      {label:'转发',data:shares,borderColor:'#a78bfa',backgroundColor:'rgba(167,139,250,.1)',tension:.3,fill:true},
-      {label:'评论',data:comments,borderColor:'#fb923c',backgroundColor:'rgba(251,146,60,.1)',tension:.3,fill:true}
-    ]},
-    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{labels:{color:'#71717a',font:{size:10}}}},scales:{x:{ticks:{color:'#71717a'},grid:{color:'rgba(255,255,255,.05)'}},y:{ticks:{color:'#71717a'},grid:{color:'rgba(255,255,255,.05)'},beginAtZero:true}}}
-  });
-}
-
-function renderRecentComments(comments){
-  const box=document.getElementById('recentComments');
-  if(!comments.length){box.innerHTML='<div class="comment-row">暂无评论</div>';return;}
-  box.innerHTML=comments.map(c=>`
-    <div class="comment-row">
-      <span style="color:var(--gold)">${escHtml(c.nickname||'匿名')}</span>
-      <span style="color:var(--dim);margin:0 6px">·</span>
-      <span style="color:${c.source&&c.source.includes('水军')?'var(--red)':'var(--cyan)'};margin-right:6px">${escHtml(c.source||'真实用户')}</span>
-      ${escHtml(c.content||'').slice(0,60)}${(c.content||'').length>60?'...':''}
-      <span style="float:right;color:var(--dim)">${c.created_at?c.created_at.slice(0,16).replace('T',' '):''}</span>
-    </div>
-  `).join('');
-}
-
-function escHtml(s){
-  if(!s)return '';
-  const div=document.createElement('div');div.textContent=s;return div.innerHTML;
-}
-
-async function run3d(){
-  const input=prompt('输入图像路径', 'data/3d_forge/test_input.png');
-  if(!input) return;
-  const category=prompt('分类 (object/character/building/nature/military)', 'object');
-  if(!category) return;
-  const style=prompt('风格 (realistic/stylized)', 'realistic');
-  toast('正在提交 3D 生成任务...','info');
-  try{
-    const data=await api('/run',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({command:'3d',args:{input,category,style}})});
-    toast(`3D 任务已提交: ${data.job.job_id}`,'success');
-    setTimeout(refreshAll,3000);
-  }catch(e){
-    toast(`提交失败: ${e.message}`,'error');
-  }
-}
-
-function toast(msg,type='info'){
-  const container=document.getElementById('toastContainer');
-  const el=document.createElement('div');
-  el.className=`toast ${type}`;
-  el.textContent=msg;
-  container.appendChild(el);
-  setTimeout(()=>{el.style.opacity='0';setTimeout(()=>el.remove(),300)},4000);
-}
+// 启动
+init();
 </script>
 </body>
 </html>

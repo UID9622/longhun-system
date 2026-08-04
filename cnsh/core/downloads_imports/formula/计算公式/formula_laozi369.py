@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """#龍芯⚡️2026-06-29-LAOZI-369-ALGO-v1.0
 《道德经》·369·核心算法模块

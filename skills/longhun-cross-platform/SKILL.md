@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
 name: longhun-cross-platform
 description: 龍魂跨平台互通技能 — iOS与华为鸿蒙设备间本地网络直连数据同步，使用国密SM4加密信封 + ECDH密钥协商 + 版本向量一致性保证

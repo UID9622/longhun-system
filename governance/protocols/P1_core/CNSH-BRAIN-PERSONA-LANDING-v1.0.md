@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CNSH神经脑区→人格映射 · 落地协议 v1.0
 
 > 🧬 DNA: `#龙芯⚡️丙午·丙申·丙辰·未时·需-CNSH-BRAIN-PERSONA-LANDING-v1.0`

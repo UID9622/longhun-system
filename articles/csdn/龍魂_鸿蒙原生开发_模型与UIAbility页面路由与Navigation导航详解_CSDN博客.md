@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂 · 鸿蒙原生开发：模型与UIAbility页面路由与Navigation导航详解
 
 > 龍魂系统 · 鸿蒙原生适配层 · 从数据模型到页面路由的完整链路

@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
 name: longhun-cloud-kimi
 description: "龍魂Kimi集成 v5.0 — Kimi API接入+断路器+故障转移+本地备份推理。4个集成模式全部正常工作，故障自动转移，API响应低于100ms。API端点: http://api:8443/kimi/。当需要Kimi AI调用、故障转移、本地推理备份、API监控时触发。"

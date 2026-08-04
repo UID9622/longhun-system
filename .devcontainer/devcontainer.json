@@ -1,0 +1,50 @@
+{
+  "name": "龍魂 Dragon-Soul 开发环境",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "postCreateCommand": "pip install --upgrade pip && pip install -e '.[all]' && pre-commit install && echo '🐉 龍魂开发环境就绪'",
+  "postStartCommand": "echo '🐉 龍魂 · 生态底座 · 开发环境已启动' && python3 bin/lh_time_engine.py --stamp 2>/dev/null || true",
+  "forwardPorts": [8766, 8770, 8771, 8776, 8777, 8779, 9631],
+  "portsAttributes": {
+    "8766": { "label": "知识中枢" },
+    "8770": { "label": "API服务" },
+    "8771": { "label": "统一记忆" },
+    "8776": { "label": "流场映射" },
+    "8777": { "label": "流场桥接" },
+    "8779": { "label": "Notion桥" },
+    "9631": { "label": "搜索引擎" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "ms-azuretools.vscode-docker",
+        "yzhang.markdown-all-in-one",
+        "redhat.vscode-yaml",
+        "tamasfe.even-better-toml"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.testing.pytestEnabled": true,
+        "python.testing.pytestArgs": ["tests/"],
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "explicit"
+        },
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff"
+        }
+      }
+    }
+  },
+  "remoteUser": "vscode",
+  "containerEnv": {
+    "LONGHUN_ENV": "devcontainer",
+    "PYTHONUNBUFFERED": "1",
+    "TZ": "Asia/Shanghai"
+  }
+}

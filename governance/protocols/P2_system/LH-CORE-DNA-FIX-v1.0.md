@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ## 📑 快速导航
 
 - 核心DNA | 功能卡片 | 技术规格 | 使用指南 | 系统集成 | CNSH编号体系
@@ -121,7 +124,7 @@
 | 内存占用 | 67 MB | 包含完整卦辞库 |
 | 准确率 | 82% | 基于实际测试反馈 |
 | 文化DNA | 永久绑定 | Lucky-UID9622签名 |
-| 开源协议 | 木兰PSL v2 | 商业友好型 |
+| 开源协议 | 分层许可 | 思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2 |
 
 ---
 
@@ -1648,7 +1651,7 @@ git push origin feature/your-feature
 贡献代码即表示你同意：
 
 - ✅ 保留原创者（Lucky | UID9622）署名
-- ✅ 遵守木兰开源协议
+- ✅ 遵守分层许可协议（思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2）
 - ✅ 不得用于违法或不道德目的
 - ✅ 理解并尊重中华文化
 
@@ -1656,11 +1659,15 @@ git push origin feature/your-feature
 
 ## 📜 许可证信息
 
-### 木兰开源协议 v2.0
+### 分层许可
 
 **© 2025 Lucky | UID9622. All Rights Reserved.**
 
-本算法基于木兰宽松许可证, 第2版开源。
+本算法采用分层双许可证模型：
+- **核心思想/哲学框架**：CC BY-NC-SA 4.0（非商业·署名·相同方式共享）
+- **工程实现代码**：木兰宽松许可证 v2 (MulanPSL v2)（允许商业使用·署名·专利授权）
+
+详见 `01_protocols/LH-LAYERED-LICENSE-v1.0.md`。
 
 **您可以：**
 
@@ -1807,7 +1814,7 @@ git push origin feature/your-feature
 
 ✅ **贡献指南** - 社区协作规范
 
-✅ **许可证** - 木兰协议v2.0
+✅ **许可证** - 分层许可证（核心思想层 CC BY-NC-SA 4.0 / 工程实现层 MulanPSL v2）
 
 ✅ **社区支持** - 官方渠道和学习资源
 

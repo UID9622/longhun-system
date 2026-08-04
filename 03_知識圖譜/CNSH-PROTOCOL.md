@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂·CNSH 语言完整规范 v2.3
 
 > **CNSH = 中文母语关键字 + Python/C系列语法兼容层 + 龍魂专属符号 + DNA强制追溯 + 三色审计强制 + 权重指向焊死 + 全平台目标编译器**

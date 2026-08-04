@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · 华为云 Ollama 服务端一键安装
 # DNA: #龍芯⚡️丙午·丙申·乙卯·辰时·乾-REMOTE-OLLAMA-v1.0
 #

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️丙午·乙未·壬辰·午时·需-AI-GATEWAY-v1.0
@@ -132,6 +134,15 @@ MODEL_CONFIGS = {
         "max_tokens": 4096,
         "auth_header": "Authorization",
         "auth_prefix": "Bearer ",
+    },
+    "hunyuan": {
+        "api_key_env": "HUNYUAN_SECRET_KEY",
+        "base_url": "https://hunyuan.tencentcloudapi.com",
+        "endpoint": "",
+        "model": "hunyuan-lite",
+        "max_tokens": 4096,
+        "auth_header": "Authorization",
+        "auth_prefix": "",
     },
 }
 

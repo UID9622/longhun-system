@@ -1,0 +1,163 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# 龍魂体系 · 全栈开发环境编排
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-DOCKER-COMPOSE-FULL-v1.0-UID9622
+# 用途: 开发者一条命令跑起全套龍魂环境
+#
+# 用法:
+#   docker compose -f docker/docker-compose.full.yml up -d
+#   docker compose -f docker/docker-compose.full.yml logs -f api
+#   docker compose -f docker/docker-compose.full.yml down
+
+services:
+  # ═══════════════════════════════════════
+  # 核心 API 服务 — FastAPI :8770
+  # ═══════════════════════════════════════
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: longhun-api
+    image: longhun/api:v2.5
+    restart: unless-stopped
+    ports:
+      - "8770:8770"
+    volumes:
+      - ..:/app:ro
+      - longhun_logs:/app/logs
+      - longhun_data:/app/data
+    environment:
+      - PYTHONUNBUFFERED=1
+      - TZ=Asia/Shanghai
+      - LONGHUN_ENV=docker
+    command: ["python3", "bin/lh_api_server.py", "--host", "0.0.0.0", "--port", "8770"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8770/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ═══════════════════════════════════════
+  # 知识中枢 — :8766
+  # ═══════════════════════════════════════
+  knowledge:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: longhun-knowledge
+    image: longhun/knowledge:v2.5
+    restart: unless-stopped
+    ports:
+      - "8766:8766"
+    volumes:
+      - ..:/app:ro
+      - longhun_knowledge_data:/app/data/knowledge
+    environment:
+      - PYTHONUNBUFFERED=1
+      - TZ=Asia/Shanghai
+    command: ["python3", "bin/lh_knowledge_hub_api.py", "--host", "0.0.0.0", "--port", "8766"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8766/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ═══════════════════════════════════════
+  # 搜索引擎 — :9631
+  # ═══════════════════════════════════════
+  search:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: longhun-search
+    image: longhun/search:v2.5
+    restart: unless-stopped
+    ports:
+      - "9631:9631"
+    volumes:
+      - ..:/app:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - TZ=Asia/Shanghai
+    command: ["python3", "bin/lh_search.py", "--host", "0.0.0.0", "--port", "9631"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9631/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ═══════════════════════════════════════
+  # Redis — 缓存/消息队列
+  # ═══════════════════════════════════════
+  redis:
+    image: redis:7-alpine
+    container_name: longhun-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - longhun_redis_data:/data
+    command: ["redis-server", "--appendonly", "yes", "--maxmemory", "256mb", "--maxmemory-policy", "allkeys-lru"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ═══════════════════════════════════════
+  # Web 仪表盘 — Nginx + portal 静态站点
+  # ═══════════════════════════════════════
+  web:
+    image: nginx:alpine
+    container_name: longhun-web
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ../portal:/usr/share/nginx/html:ro
+      - ./nginx.default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - api
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+# ═══════════════════════════════════════
+# 命名卷 — 持久化
+# ═══════════════════════════════════════
+volumes:
+  longhun_logs:
+    name: longhun_logs
+  longhun_data:
+    name: longhun_data
+  longhun_knowledge_data:
+    name: longhun_knowledge_data
+  longhun_redis_data:
+    name: longhun_redis_data

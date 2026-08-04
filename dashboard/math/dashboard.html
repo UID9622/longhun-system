@@ -1,0 +1,56 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🐉 龙魂 · 数学探索看板</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0d1117;color:#c9d1d9;padding:20px}
+.container{max-width:1200px;margin:0 auto}
+h1{color:#f0f6fc;margin-bottom:8px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:16px 0}
+.stat-card{background:#161b22;border-radius:10px;padding:14px;border:1px solid #30363d;text-align:center}
+.stat-card .val{font-size:1.6em;font-weight:700;color:#f0c040}
+.stat-card .lbl{color:#8b949e;font-size:.8em}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0}
+@media(max-width:768px){.row{grid-template-columns:1fr}}
+.chart{background:#161b22;border-radius:10px;padding:16px;border:1px solid #30363d}
+.foot{margin-top:16px;padding-top:12px;border-top:1px solid #30363d;color:#8b949e;font-size:.75em;text-align:center}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🐉 龙魂 · 数学探索历史看板</h1>
+<p style="color:#8b949e;font-size:.85em">更新时间: 2026-08-02 06:27:43 | DNA: #龍芯⚡️UID9622</p>
+<div class="stats">
+<div class="stat-card"><div class="val">2</div><div class="lbl">运行次数</div></div>
+<div class="stat-card"><div class="val">0.000</div><div class="lbl">最新 χ²</div></div>
+<div class="stat-card"><div class="val">0</div><div class="lbl">最新素数</div></div>
+<div class="stat-card"><div class="val">0.0s</div><div class="lbl">最新耗时</div></div>
+</div>
+<div class="row">
+<div class="chart"><canvas id="c1"></canvas></div>
+<div class="chart"><canvas id="c2"></canvas></div>
+</div>
+<div class="row">
+<div class="chart"><canvas id="c3"></canvas></div>
+<div class="chart"><canvas id="c4"></canvas></div>
+</div>
+<div class="foot">
+确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+</div>
+</div>
+<script>
+const d={"timestamps": ["2026-08-02T06:27:29.065239", "2026-08-02T06:27:43.123453"], "chi2": [0, 0], "prime_counts": [0, 0], "durations": [0, 0], "count": 2};
+const labels=Array.from({length:d.count},(_,i)=>i+1);
+new Chart(document.getElementById('c1'),{type:'line',data:{labels,datasets:[{label:'χ² 值',data:d.chi2,borderColor:'#f0c040',backgroundColor:'rgba(240,192,64,0.1)',fill:true,tension:.3}]},options:{responsive:true,plugins:{title:{display:true,text:'χ² 趋势',color:'#c9d1d9'}}}});
+new Chart(document.getElementById('c2'),{type:'line',data:{labels,datasets:[{label:'素数个数',data:d.prime_counts,borderColor:'#3dd68c',backgroundColor:'rgba(61,214,140,0.1)',fill:true,tension:.3}]},options:{responsive:true,plugins:{title:{display:true,text:'素数趋势',color:'#c9d1d9'}}}});
+new Chart(document.getElementById('c3'),{type:'bar',data:{labels,datasets:[{label:'耗时(s)',data:d.durations,backgroundColor:'rgba(74,138,244,0.7)'}]},options:{responsive:true,plugins:{title:{display:true,text:'耗时趋势',color:'#c9d1d9'}}}});
+new Chart(document.getElementById('c4'),{type:'doughnut',data:{labels:['χ²<5','5≤χ²<11','χ²≥11'],datasets:[{data:[d.chi2.filter(c=>c<5).length,d.chi2.filter(c=>c>=5&&c<11).length,d.chi2.filter(c=>c>=11).length],backgroundColor:['#2ea043','#d29922','#f05454']}]},options:{responsive:true,plugins:{title:{display:true,text:'χ² 分布',color:'#c9d1d9'}}}});
+</script>
+</body>
+</html>

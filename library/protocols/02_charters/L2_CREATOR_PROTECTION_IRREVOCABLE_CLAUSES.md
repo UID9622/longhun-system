@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 > 注意：本文件是《L2_CREATOR_PROTECTION_CHARTER.md》的固化补充。  
 > 宪章主体可随版本迭代补充说明，但以下条款为 **🔴 焊死 · 永不可改**。
 

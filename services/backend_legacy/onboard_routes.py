@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 龍魂·AI 入口引导 API — 鲲鹏统一入口
 DNA: #龍芯⚡️2026-07-30-ONBOARD-ROUTES-v1.1-ALIGN-8B3C5D2E

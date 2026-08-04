@@ -1,4 +1,6 @@
 #!/bin/bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ╔═══════════════════════════════════════════════════════════════╗
 # ║  🐉 龍魂·AutoFlow 后端服务 重启脚本                           ║
 # ║  DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·讼-AUTOFLOW-RESTART        ║

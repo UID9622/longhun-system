@@ -1,0 +1,50 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# 🐉 龍魂·知识拉取来源配置 v1.0
+# DNA: #龍芯⚡️丙午·丙申·戊申·申时·䷗复-KNOWLEDGE-SOURCES-v1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）
+# 协议: CC BY-NC-SA 4.0
+#
+# 编辑此文件自定义知识来源和扫描范围
+# 执行 lh knowledge-pull 自动读取此配置
+
+local:
+  enabled: true
+  paths:
+    - 01_protocols/
+    - bin/
+    - docs/
+    - papers/
+    - portal/
+    - deploy/
+    - config/
+    - engines/
+  description: "本地协议·脚本·文档·论文"
+
+notion:
+  enabled: true
+  databases:
+    - THEORY_DB
+    - AXIOM_DB
+    - FORMULA_DB
+    - TRACE_DB
+    - AUDIT_DB
+  description: "Notion知识库(需NOTION_TOKEN环境变量)"
+
+kunpeng:
+  enabled: true
+  host: 119.13.90.27
+  path: /opt/longhun/knowledge/
+  description: "鲲鹏服务器知识库"
+
+csdn:
+  enabled: true
+  blog_id: UID9622
+  max_articles: 100
+  description: "CSDN博客·UID9622原创"
+
+git:
+  enabled: true
+  repos:
+    - https://github.com/UID9622/longhun-system.git
+  description: "Git关联仓库"

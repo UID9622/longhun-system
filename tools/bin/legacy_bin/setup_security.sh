@@ -1,4 +1,6 @@
 #!/bin/bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ╔══════════════════════════════════════════════════════════════════════╗
 # ║  龍魂·安全协议安装脚本                                            ║
 # ║  DNA: #龍芯⚡️2026-07-06-SECURITY-SETUP-v1.0                      ║

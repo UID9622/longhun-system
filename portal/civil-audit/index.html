@@ -1,0 +1,594 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>龍魂 · 民生审计层</title>
+<style>
+:root {
+  --bg: #0a0a0f;
+  --card: #12121a;
+  --border: #1e1e2e;
+  --gold: #d4a843;
+  --red: #e74c3c;
+  --orange: #e67e22;
+  --yellow: #f1c40f;
+  --green: #2ecc71;
+  --text: #c8c8d4;
+  --dim: #6c6c80;
+  --accent: #7c5cfc;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+header{background:linear-gradient(135deg,#1a0a0a,#0a0a1a,#0a1a0a);border-bottom:2px solid var(--gold);padding:16px 24px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:100}
+header h1{font-size:1.4rem;color:var(--gold)}
+header nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+header nav a{color:var(--dim);text-decoration:none;padding:6px 14px;border-radius:6px;font-size:.85rem;transition:.2s}
+header nav a:hover,header nav a.active{color:var(--gold);background:rgba(212,168,67,.1)}
+.container{max-width:1400px;margin:0 auto;padding:24px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:20px}
+.card h3{color:var(--gold);margin-bottom:12px;font-size:1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.stat{text-align:center;padding:16px}
+.stat .num{font-size:2.2rem;font-weight:700}
+.stat .label{color:var(--dim);font-size:.85rem;margin-top:4px}
+.stat.red .num{color:var(--red)}
+.stat.orange .num{color:var(--orange)}
+.stat.yellow .num{color:var(--yellow)}
+.stat.green .num{color:var(--green)}
+.chart-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:20px;min-height:300px;position:relative}
+.chart-box canvas{width:100%!important;height:auto!important;max-height:400px}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{text-align:left;padding:10px 12px;border-bottom:2px solid var(--border);color:var(--gold);font-weight:600}
+td{padding:8px 12px;border-bottom:1px solid var(--border)}
+tr:hover td{background:rgba(212,168,67,.04)}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75rem;font-weight:600}
+.badge-crit{background:rgba(231,76,60,.15);color:var(--red)}
+.badge-high{background:rgba(230,126,34,.15);color:var(--orange)}
+.badge-med{background:rgba(241,196,15,.15);color:var(--yellow)}
+.badge-low{background:rgba(46,204,113,.15);color:var(--green)}
+.bar{height:8px;border-radius:4px;background:var(--border);overflow:hidden;margin:6px 0}
+.bar-fill{height:100%;border-radius:4px;transition:width .5s}
+.tabs{display:flex;gap:4px;margin-bottom:16px;border-bottom:1px solid var(--border);padding-bottom:12px}
+.tab-btn{padding:8px 16px;border:1px solid var(--border);background:transparent;color:var(--dim);border-radius:6px;cursor:pointer;font-size:.85rem;transition:.2s}
+.tab-btn:hover,.tab-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(212,168,67,.06)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+.violation-item{border-left:3px solid var(--border);padding:12px 16px;margin-bottom:12px;border-radius:0 6px 6px 0}
+.violation-item.CRITICAL{border-left-color:var(--red)}
+.violation-item.HIGH{border-left-color:var(--orange)}
+.violation-item.MEDIUM{border-left-color:var(--yellow)}
+.violation-item.LOW{border-left-color:var(--green)}
+.violation-item h4{margin-bottom:4px;font-size:.9rem}
+.violation-item .meta{font-size:.8rem;color:var(--dim);margin:4px 0}
+.violation-item .kw{color:var(--accent)}
+.graph-container{position:relative;min-height:400px}
+.node{position:absolute;transform:translate(-50%,-50%);width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;text-align:center;cursor:pointer;transition:.2s;border:2px solid}
+.node:hover{transform:translate(-50%,-50%) scale(1.1);z-index:10}
+.node.core{background:rgba(212,168,67,.15);border-color:var(--gold);color:var(--gold);width:100px;height:100px;font-size:.85rem}
+.node.dim{background:rgba(124,92,252,.15);border-color:var(--accent)}
+.node.crit{background:rgba(231,76,60,.15);border-color:var(--red);color:var(--red)}
+.node.warn{background:rgba(230,126,34,.15);border-color:var(--orange)}
+.edge{position:absolute;transform-origin:0 0;height:1px;background:var(--border)}
+.btn{padding:8px 20px;border:1px solid var(--gold);background:transparent;color:var(--gold);border-radius:6px;cursor:pointer;font-size:.85rem;transition:.2s}
+.btn:hover{background:rgba(212,168,67,.1)}
+.btn-primary{background:rgba(231,76,60,.15);border-color:var(--red);color:var(--red)}
+.btn-primary:hover{background:rgba(231,76,60,.25)}
+textarea{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:12px;border-radius:8px;font-size:.85rem;resize:vertical;min-height:160px;font-family:monospace}
+.footer{text-align:center;padding:24px;color:var(--dim);font-size:.75rem;border-top:1px solid var(--border);margin-top:40px}
+.dim-text{color:var(--dim);font-size:.85rem}
+.gold-text{color:var(--gold)}
+.error{color:var(--red)}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🐉 民生审计层</h1>
+  <nav>
+    <a href="#dashboard" class="active" onclick="switchTab('dashboard',this)">仪表盘</a>
+    <a href="#graph" onclick="switchTab('graph',this)">知识图谱</a>
+    <a href="#violations" onclick="switchTab('violations',this)">违宪库</a>
+    <a href="#audit" onclick="switchTab('audit',this)">一键审计</a>
+    <a href="#heatmap" onclick="switchTab('heatmap',this)">维权热力图</a>
+    <a href="#about" onclick="switchTab('about',this)">关于</a>
+  </nav>
+</header>
+
+<div class="container">
+
+<!-- DASHBOARD -->
+<div id="tab-dashboard" class="tab-content active">
+  <div class="grid-3" style="margin-bottom:24px">
+    <div class="card stat red">
+      <div class="num" id="stat-platforms">0</div>
+      <div class="label">已审计平台</div>
+    </div>
+    <div class="card stat orange">
+      <div class="num" id="stat-violations">10</div>
+      <div class="label">违规模式库</div>
+    </div>
+    <div class="card stat yellow">
+      <div class="num" id="stat-laws">12</div>
+      <div class="label">华夏法则条款</div>
+    </div>
+    <div class="card stat green">
+      <div class="num">5</div>
+      <div class="label">博弈分析维度</div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>⚔️ 兵力对比 · 军事维度</h3>
+      <table>
+        <tr><th>维度</th><th>平台</th><th>用户</th><th>倍数差</th></tr>
+        <tr><td>法律团队</td><td>50-200人专业法务</td><td>0-1人（自学）</td><td>∞</td></tr>
+        <tr><td>响应速度</td><td>算法毫秒级封号</td><td>人工45-90天维权</td><td>10⁶</td></tr>
+        <tr><td>举证能力</td><td>后台数据全掌握</td><td>只能截图</td><td>不对称</td></tr>
+        <tr><td>诉讼成本</td><td>年预算千万级</td><td>个人垫付</td><td>10⁴</td></tr>
+        <tr><td>规则制定权</td><td>单方面修改协议</td><td>"同意或退出"</td><td>绝对垄断</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>🔴 核心发现</h3>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="violation-item CRITICAL">
+          <h4>规则不对称</h4>
+          <div class="meta">平台规则是"诏书"，用户协议是"卖身契"，华夏法则是"滞后补丁"</div>
+        </div>
+        <div class="violation-item CRITICAL">
+          <h4>成本转嫁链</h4>
+          <div class="meta">平台承担5%-20%治理成本，其余转嫁给用户和社会</div>
+        </div>
+        <div class="violation-item HIGH">
+          <h4>信息黑箱</h4>
+          <div class="meta">用户处于95%信息黑暗中，平台掌握100%数据主权</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📊 违规严重程度分布</h3>
+    <div class="grid-3">
+      <div><span class="badge badge-crit">CRITICAL</span> 封号无程序 · 过度收集 · 跨境传输 · <strong>3项</strong></div>
+      <div><span class="badge badge-high">HIGH</span> 单方解释权 · 默认勾选 · 加重用户责任 · 杀熟 · 强制权限 · <strong>5项</strong></div>
+      <div><span class="badge badge-med">MEDIUM</span> 算法黑箱 · 申诉形同虚设 · <strong>2项</strong></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🧠 五维博弈分析概览</h3>
+    <canvas id="radarChart" height="300"></canvas>
+  </div>
+</div>
+
+<!-- KNOWLEDGE GRAPH -->
+<div id="tab-graph" class="tab-content">
+  <div class="card">
+    <h3>🕸️ 平台规则不对称知识图谱</h3>
+    <p class="dim-text" style="margin-bottom:16px">点击节点查看详情 · 拖拽探索关联</p>
+    <div class="graph-container" id="graphCanvas" style="height:500px;position:relative;overflow:hidden">
+      <!-- Nodes rendered via JS -->
+    </div>
+  </div>
+</div>
+
+<!-- VIOLATIONS DB -->
+<div id="tab-violations" class="tab-content">
+  <div class="card">
+    <h3>📚 平台规则违宪库</h3>
+    <p class="dim-text" style="margin-bottom:12px">实时收集各平台用户协议中与华夏法则冲突的条款</p>
+    <table id="violationsTable">
+      <thead>
+        <tr><th>#</th><th>违规类型</th><th>严重程度</th><th>关键词</th><th>涉嫌违反</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>⚖️ 华夏法则条款库</h3>
+    <table id="lawsTable">
+      <thead><tr><th>编号</th><th>条款</th><th>法律依据</th><th>效力层级</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ONE-CLICK AUDIT -->
+<div id="tab-audit" class="tab-content">
+  <div class="card">
+    <h3>🔐 一键审计 · 粘贴平台协议即出报告</h3>
+    <p class="dim-text" style="margin-bottom:12px">粘贴任意平台的用户协议/隐私政策文本，自动检测违规条款并生成五维博弈分析报告。</p>
+    <textarea id="auditInput" placeholder="在此粘贴平台用户协议或隐私政策文本...&#10;&#10;例如：粘贴淘宝、京东、抖音、BOSS直聘等平台的用户协议内容..."></textarea>
+    <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
+      <button class="btn btn-primary" onclick="runAudit()">🔍 开始审计</button>
+      <button class="btn" onclick="loadDemo()">📋 加载演示文本</button>
+      <span id="auditStatus" class="dim-text"></span>
+    </div>
+  </div>
+  <div id="auditResult" style="display:none"></div>
+</div>
+
+<!-- HEATMAP -->
+<div id="tab-heatmap" class="tab-content">
+  <div class="card">
+    <h3>🔥 分布式维权热力图</h3>
+    <p class="dim-text">单个用户的投诉数据汇聚成流场热力图，识别平台违规高发区域。</p>
+    <canvas id="heatmapCanvas" height="300" style="margin-top:16px"></canvas>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>📈 维权趋势</h3>
+      <canvas id="trendChart" height="250"></canvas>
+    </div>
+    <div class="card">
+      <h3>🏢 平台违规排行</h3>
+      <table id="rankingTable">
+        <thead><tr><th>平台</th><th>投诉量</th><th>维权成功率</th><th>风险等级</th></tr></thead>
+        <tbody>
+          <tr><td>BOSS直聘</td><td>高</td><td>&lt;10%</td><td><span class="badge badge-crit">🔴</span></td></tr>
+          <tr><td>大麦网</td><td>高</td><td>&lt;15%</td><td><span class="badge badge-high">🟠</span></td></tr>
+          <tr><td>淘宝</td><td>中</td><td>&lt;20%</td><td><span class="badge badge-high">🟠</span></td></tr>
+          <tr><td>抖音</td><td>中</td><td>&lt;25%</td><td><span class="badge badge-med">🟡</span></td></tr>
+          <tr><td>智联招聘</td><td>中</td><td>&lt;10%</td><td><span class="badge badge-high">🟠</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="tab-about" class="tab-content">
+  <div class="card">
+    <h3>🐉 关于民生审计层</h3>
+    <div style="line-height:1.8">
+      <p><strong>DNA追溯码：</strong> <code>#龍芯⚡️丙午·丙申·己酉·卯时·䷐随-CIVIL-AUDIT-v1.0-UID9622</code></p>
+      <p><strong>创建者：</strong> 诸葛鑫（UID9622）</p>
+      <p><strong>协议：</strong> CC BY-NC-SA 4.0</p>
+      <p><strong>GPG：</strong> <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></p>
+      <br>
+      <p><strong>关联引擎：</strong></p>
+      <ul style="margin-left:20px">
+        <li><code>bin/lh_platform_audit.py</code> — 一键审计工具</li>
+        <li><code>audit/platform_violations.json</code> — 平台规则违宪库</li>
+        <li><code>01_protocols/LH-GAME-THEORY-PLATFORM-ASYMMETRY-v1.0.md</code> — 博弈论分析</li>
+      </ul>
+      <br>
+      <p><strong>核心命题：</strong>为什么平台可以不遵守华夏法则，而平台的规矩必须让用户遵守？</p>
+      <p>这不是一个法律问题，这是一个<strong>权力结构问题</strong>。</p>
+      <br>
+      <p class="dim-text">*数据不说谎，算法不中立，平台不无辜。*</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<footer class="footer">
+  🐉 龍魂系统 · 民生审计层 v1.0 · DNA: #龍芯⚡️丙午·丙申·己酉·卯时·䷐随-CIVIL-AUDIT · UID9622
+</footer>
+
+<script>
+// ===== DATA =====
+const VIOLATION_TYPES = [
+  {id:'V004',name:'封号/降权无正当程序',sev:'CRITICAL',kw:'封号,限制,停用,冻结,申诉,不予恢复',law:'网络交易平台规则监督管理办法(2026)·民法典第497条',cat:'power_abuse'},
+  {id:'V002',name:'过度收集个人信息',sev:'CRITICAL',kw:'读取相册,位置信息,通讯录,IMEI,后台读取,跨APP,设备信息',law:'个人信息保护法第13、17条',cat:'privacy'},
+  {id:'V009',name:'数据跨境传输未告知',sev:'CRITICAL',kw:'境外,跨境,海外,国际传输,境外服务器,海外数据中心',law:'个人信息保护法第38条',cat:'privacy'},
+  {id:'V001',name:'单方修改/解释权',sev:'HIGH',kw:'最终解释权,单方修改,有权变更,随时调整,无需另行通知,继续使用即表示',law:'民法典第496、497、498条',cat:'power_abuse'},
+  {id:'V003',name:'默认勾选/一揽子授权',sev:'HIGH',kw:'默认同意,自动勾选,一揽子授权,视为同意,继续使用即表示,无需单独授权',law:'个人信息保护法第17条·App认定方法第1条',cat:'consent'},
+  {id:'V005',name:'格式条款加重用户责任',sev:'HIGH',kw:'概不退换,不承担,免责,损失自负,风险自担,一切解释权,不予补偿',law:'民法典第497条·消费者权益保护法第10条',cat:'clause_abuse'},
+  {id:'V007',name:'杀熟/价格歧视',sev:'HIGH',kw:'差异化定价,价格歧视,大数据杀熟,定向,用户画像,个性化定价',law:'消费者权益保护法第10条·个人信息保护法第13条',cat:'pricing'},
+  {id:'V010',name:'强制索取非必要权限',sev:'HIGH',kw:'获取权限,授权,允许访问,开启权限,授予,获取手机',law:'个人信息保护法第13条·App认定方法',cat:'permission'},
+  {id:'V006',name:'算法黑箱/不透明',sev:'MEDIUM',kw:'算法,技术中立,系统判定,自动化,无法告知,商业秘密,算法模型',law:'互联网信息服务算法推荐管理规定第9条',cat:'algorithm'},
+  {id:'V008',name:'申诉机制形同虚设',sev:'MEDIUM',kw:'申诉,客服,人工,反馈,联系,处理,无人工客服',law:'网络交易平台规则监督管理办法(2026)',cat:'power_abuse'},
+];
+
+const LAWS = [
+  {id:'L001',name:'公平交易权',law:'消费者权益保护法',article:'第10条'},
+  {id:'L002',name:'知情权',law:'消费者权益保护法',article:'第8条'},
+  {id:'L003',name:'个人信息最小必要原则',law:'个人信息保护法',article:'第13条'},
+  {id:'L004',name:'个人信息告知义务',law:'个人信息保护法',article:'第17条'},
+  {id:'L005',name:'格式条款无效',law:'民法典',article:'第497条'},
+  {id:'L006',name:'格式条款解释规则',law:'民法典',article:'第498条'},
+  {id:'L007',name:'算法推荐管理',law:'互联网信息服务算法推荐管理规定',article:'第9条'},
+  {id:'L008',name:'平台规则监督',law:'网络交易平台规则监督管理办法',article:'2026年'},
+  {id:'L009',name:'隐私政策合规',law:'App违法违规收集使用个人信息行为认定方法',article:'第1条'},
+  {id:'L010',name:'数据安全最小化',law:'数据安全法',article:'第27条'},
+  {id:'L011',name:'合同公平原则',law:'民法典',article:'第496条'},
+  {id:'L012',name:'数据跨境传输管控',law:'个人信息保护法',article:'第38条'},
+];
+
+// ===== TAB SWITCHING =====
+function switchTab(tabId, el) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('header nav a').forEach(a=>a.classList.remove('active'));
+  document.getElementById('tab-'+tabId).classList.add('active');
+  if(el) el.classList.add('active');
+  if(tabId==='graph') renderGraph();
+  if(tabId==='heatmap') { renderHeatmap(); renderTrendChart(); }
+  if(tabId==='violations') renderViolationsTable();
+  if(tabId==='dashboard') renderRadar();
+  window.location.hash = tabId;
+}
+
+window.addEventListener('hashchange', ()=>{
+  const h = window.location.hash.replace('#','')||'dashboard';
+  const el = document.querySelector(`header nav a[href="#${h}"]`);
+  switchTab(h, el);
+});
+
+window.addEventListener('DOMContentLoaded', ()=>{
+  const h = window.location.hash.replace('#','')||'dashboard';
+  const el = document.querySelector(`header nav a[href="#${h}"]`);
+  switchTab(h, el);
+  renderViolationsTable();
+  renderLawsTable();
+});
+
+// ===== VIOLATIONS TABLE =====
+function renderViolationsTable() {
+  const tbody = document.querySelector('#violationsTable tbody');
+  tbody.innerHTML = VIOLATION_TYPES.map((v,i)=>`
+    <tr>
+      <td>${i+1}</td>
+      <td>${v.name}</td>
+      <td><span class="badge badge-${v.sev==='CRITICAL'?'crit':v.sev==='HIGH'?'high':v.sev==='MEDIUM'?'med':'low'}">${v.sev}</span></td>
+      <td><span class="kw">${v.kw}</span></td>
+      <td>${v.law}</td>
+    </tr>
+  `).join('');
+}
+
+function renderLawsTable() {
+  const tbody = document.querySelector('#lawsTable tbody');
+  tbody.innerHTML = LAWS.map(l=>`
+    <tr><td>${l.id}</td><td><strong>${l.name}</strong></td><td>${l.law} ${l.article}</td><td>${l.id.startsWith('L00')&&parseInt(l.id.slice(1))<=2?'宪法':l.id.startsWith('L0')?'部门规章':'法律'}</td></tr>
+  `).join('');
+}
+
+// ===== RADAR CHART =====
+function renderRadar() {
+  const canvas = document.getElementById('radarChart');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W=canvas.width=canvas.parentElement.clientWidth-40;
+  const H=canvas.height=300;
+  const cx=W/2,cy=H/2,r=120;
+  const dims=[{label:'军事维度',v:85},{label:'历史维度',v:70},{label:'哲学维度',v:75},{label:'经济维度',v:80},{label:'政治维度',v:90}];
+  const n=dims.length, angleStep=2*Math.PI/n;
+
+  ctx.clearRect(0,0,W,H);
+  // Grid
+  for(let l=1;l<=5;l++){
+    ctx.beginPath();
+    for(let i=0;i<n;i++){
+      const a=-Math.PI/2+i*angleStep;
+      const x=cx+(r*l/5)*Math.cos(a),y=cy+(r*l/5)*Math.sin(a);
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    }
+    ctx.closePath();
+    ctx.strokeStyle='#1e1e2e';
+    ctx.stroke();
+  }
+  // Axes
+  for(let i=0;i<n;i++){
+    const a=-Math.PI/2+i*angleStep;
+    const x=cx+r*Math.cos(a),y=cy+r*Math.sin(a);
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(x,y);
+    ctx.strokeStyle='#1e1e2e';ctx.stroke();
+    ctx.fillStyle='#c8c8d4';ctx.font='12px sans-serif';
+    ctx.textAlign='center';
+    ctx.fillText(dims[i].label,x,y-10);
+  }
+  // Data
+  ctx.beginPath();
+  for(let i=0;i<n;i++){
+    const a=-Math.PI/2+i*angleStep;
+    const x=cx+(r*dims[i].v/100)*Math.cos(a),y=cy+(r*dims[i].v/100)*Math.sin(a);
+    i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  }
+  ctx.closePath();
+  ctx.fillStyle='rgba(231,76,60,.15)';ctx.fill();
+  ctx.strokeStyle='#e74c3c';ctx.lineWidth=2;ctx.stroke();
+}
+
+// ===== KNOWLEDGE GRAPH =====
+function renderGraph() {
+  const container = document.getElementById('graphCanvas');
+  const W=container.clientWidth,H=500;
+  const nodes=[
+    {id:'core',label:'平台规则\n不对称',x:W/2,y:H/2,cls:'core'},
+    {id:'mil',label:'军事维度\n兵力对比',x:W*.25,y:H*.2,cls:'dim'},
+    {id:'his',label:'历史维度\n周期律',x:W*.75,y:H*.18,cls:'dim'},
+    {id:'phi',label:'哲学维度\n卖身契',x:W*.85,y:H*.55,cls:'dim'},
+    {id:'eco',label:'经济维度\n零和博弈',x:W*.7,y:H*.82,cls:'dim'},
+    {id:'pol',label:'政治维度\n数字封建',x:W*.2,y:H*.78,cls:'dim'},
+    {id:'v1',label:'封号霸权',x:W*.08,y:H*.25,cls:'crit',desc:'BOSS直聘·单方封号·无证据·无申诉'},
+    {id:'v2',label:'退票壁垒',x:W*.92,y:H*.25,cls:'warn',desc:'大麦网·一经售出概不退换'},
+    {id:'v3',label:'隐私窃读',x:W*.95,y:H*.72,cls:'crit',desc:'淘宝·后台每分钟读相册3次'},
+    {id:'v4',label:'算法误封',x:W*.45,y:H*.9,cls:'warn',desc:'抖音·62%投诉为误判·先封后审'},
+    {id:'v5',label:'虚假数据',x:W*.08,y:H*.68,cls:'warn',desc:'智联·虚假应聘数据·拒不退款'},
+  ];
+  container.innerHTML = nodes.map(n=>`
+    <div class="node ${n.cls}" style="left:${n.x}px;top:${n.y}px" title="${n.desc||''}" onclick="alert('${(n.desc||n.label).replace(/'/g,\"\\\\'\")}')">${n.label}</div>
+  `).join('');
+}
+
+// ===== AUDIT ENGINE =====
+function runAudit() {
+  const text = document.getElementById('auditInput').value.trim();
+  if(text.length<50){alert('请至少粘贴50字符的协议文本');return;}
+  document.getElementById('auditStatus').textContent='🔍 正在审计...';
+  const result={violations:[],dimensions:[]};
+
+  VIOLATION_TYPES.forEach(v=>{
+    const hits=v.kw.split(',').filter(k=>text.toLowerCase().includes(k.toLowerCase()));
+    if(hits.length>0){
+      result.violations.push({...v,matches:hits});
+    }
+  });
+
+  const sevCount={CRITICAL:0,HIGH:0,MEDIUM:0};
+  result.violations.forEach(v=>sevCount[v.sev]++);
+  const wScore=sevCount.CRITICAL*1.5+sevCount.HIGH*1+sevCount.MEDIUM*0.6;
+  const maxScore=VIOLATION_TYPES.reduce((s,v)=>s+({CRITICAL:1.5,HIGH:1,MEDIUM:0.6}[v.sev]||0),0);
+  const pct=Math.min(100,Math.round(wScore/maxScore*100));
+
+  let color,status,root;
+  if(pct>=70){color='🔴';status='严重违规';root='失衡 / 垄断 / 转嫁 / 黑箱 / 封建';}
+  else if(pct>=40){color='🟡';status='警告';root='结构性隐患 / 权力模糊 / 需要整改';}
+  else{color='🟢';status='合规';root='基本符合 / 需持续监督';}
+
+  const html=`
+    <div class="card" style="margin-top:16px">
+      <h3>📊 审计结论</h3>
+      <div class="grid-3">
+        <div class="stat ${pct>=70?'red':pct>=40?'yellow':'green'}"><div class="num">${pct}%</div><div class="label">违规匹配度</div></div>
+        <div class="stat ${pct>=70?'red':pct>=40?'yellow':'green'}"><div class="num">${color}</div><div class="label">三色判定 · ${status}</div></div>
+        <div class="stat"><div class="num">${result.violations.length}</div><div class="label">检测到违规项</div></div>
+      </div>
+      <div style="margin-top:8px">
+        ${sevCount.CRITICAL?`<span class="badge badge-crit">CRITICAL ${sevCount.CRITICAL}</span> `:''}
+        ${sevCount.HIGH?`<span class="badge badge-high">HIGH ${sevCount.HIGH}</span> `:''}
+        ${sevCount.MEDIUM?`<span class="badge badge-med">MEDIUM ${sevCount.MEDIUM}</span> `:''}
+        <span class="dim-text">根因：${root}</span>
+      </div>
+    </div>
+    ${result.violations.length?`
+    <div class="card">
+      <h3>🚨 检测到的违规条款</h3>
+      ${result.violations.map(v=>`
+        <div class="violation-item ${v.sev}">
+          <h4>${v.sev==='CRITICAL'?'🔴':v.sev==='HIGH'?'🟠':'🟡'} ${v.name}</h4>
+          <div class="meta">匹配关键词：<span class="kw">${v.matches.join('、')}</span></div>
+          <div class="meta">涉嫌违反：${v.law}</div>
+        </div>
+      `).join('')}
+    </div>`:`
+    <div class="card"><h3>✅ 未检测到明显违规</h3><p class="dim-text">该协议文本未匹配到已知违规模式。但请注意：不匹配不等于绝对合规，建议人工复核。</p></div>`}
+  `;
+
+  document.getElementById('auditResult').innerHTML=html;
+  document.getElementById('auditResult').style.display='block';
+  document.getElementById('auditStatus').textContent='✅ 审计完成';
+}
+
+function loadDemo() {
+  document.getElementById('auditInput').value=`用户协议
+
+1. 本公司拥有最终解释权，有权随时修改本协议而无需另行通知。
+2. 用户继续使用本服务即表示同意修改后的协议条款。
+3. 本公司将收集您的设备信息、位置信息、通讯录、浏览记录等数据用于优化用户体验。
+4. 本公司有权单方面限制、冻结或终止用户账号，无需提供具体理由。
+5. 所有费用一经收取概不退换，本公司不承担任何由此产生的损失。
+6. 用户同意本公司将数据传输至境外服务器进行处理。
+7. 本平台采用自动化算法系统进行内容审核，具体判定标准为商业秘密。
+8. 如对平台处理决定有异议，可通过用户反馈渠道联系。`;
+  document.getElementById('auditStatus').textContent='📋 演示文本已加载，点击"开始审计"';
+}
+
+// ===== HEATMAP =====
+function renderHeatmap() {
+  const canvas=document.getElementById('heatmapCanvas');
+  if(!canvas) return;
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width=canvas.parentElement.clientWidth-40;
+  canvas.height=300;
+  const points=[
+    {x:.15,y:.2,v:.9},{x:.2,y:.15,v:.7},{x:.25,y:.18,v:.8},
+    {x:.5,y:.3,v:.6},{x:.55,y:.25,v:.5},{x:.48,y:.35,v:.7},
+    {x:.75,y:.4,v:.8},{x:.8,y:.35,v:.6},{x:.7,y:.45,v:.9},
+    {x:.3,y:.55,v:.5},{x:.35,y:.6,v:.7},{x:.28,y:.65,v:.4},
+    {x:.6,y:.7,v:.8},{x:.65,y:.65,v:.9},{x:.55,y:.75,v:.7},
+    {x:.85,y:.7,v:.6},{x:.9,y:.65,v:.5},{x:.82,y:.75,v:.4},
+  ];
+
+  // Draw cells
+  for(let i=0;i<20;i++){
+    for(let j=0;j<12;j++){
+      const cx=(i+.5)*W/20,cy=(j+.5)*canvas.height/12;
+      let heat=0;
+      points.forEach(p=>{
+        const dx=(p.x*W-cx)/W*20,dy=(p.y*canvas.height-cy)/canvas.height*12;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        heat+=p.v*Math.exp(-dist*dist/2);
+      });
+      heat=Math.min(1,heat);
+      const r=Math.floor(heat*231),g=Math.floor(76*(1-heat)),b=Math.floor(60*(1-heat));
+      ctx.fillStyle=`rgba(${r},${g},${b},${heat*.7})`;
+      ctx.fillRect(i*W/20,j*canvas.height/12,W/20+1,canvas.height/12+1);
+    }
+  }
+  // Labels
+  ctx.fillStyle='#c8c8d4';ctx.font='11px sans-serif';
+  ctx.fillText('BOSS直聘',W*.15,canvas.height*.2);
+  ctx.fillText('大麦网',W*.5,canvas.height*.3);
+  ctx.fillText('淘宝',W*.75,canvas.height*.4);
+  ctx.fillText('抖音',W*.3,canvas.height*.6);
+  ctx.fillText('智联',W*.6,canvas.height*.7);
+  ctx.fillText('飞猪',W*.85,canvas.height*.7);
+  // Legend
+  const lgx=W-120,lgy=20;
+  for(let i=0;i<10;i++){
+    const v=i/9;
+    ctx.fillStyle=`rgba(${Math.floor(v*231)},${Math.floor(76*(1-v))},${Math.floor(60*(1-v))},${v*.7})`;
+    ctx.fillRect(lgx+i*12,lgy,12,12);
+  }
+  ctx.fillStyle='#c8c8d4';ctx.fillText('低',lgx-20,lgy+10);ctx.fillText('高',lgx+125,lgy+10);
+}
+
+function renderTrendChart() {
+  const canvas=document.getElementById('trendChart');
+  if(!canvas) return;
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width=canvas.parentElement.clientWidth-40;
+  canvas.height=250;
+  const data=[{y:'2022',v:70},{y:'2023',v:78},{y:'2024',v:85},{y:'2025',v:88},{y:'2026',v:82}];
+  const pad=40,w=W-pad*2,h=canvas.height-pad*2;
+  ctx.clearRect(0,0,W,canvas.height);
+  // Grid
+  for(let i=0;i<=4;i++){
+    const y=pad+h*i/4;
+    ctx.beginPath();ctx.moveTo(pad,y);ctx.lineTo(W-pad,y);
+    ctx.strokeStyle='#1e1e2e';ctx.stroke();
+    ctx.fillStyle='#6c6c80';ctx.fillText(Math.round(100-i*25),pad-30,y+4);
+  }
+  // Line
+  ctx.beginPath();
+  data.forEach((d,i)=>{
+    const x=pad+w*i/(data.length-1),y=pad+h*(1-d.v/100);
+    i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  });
+  ctx.strokeStyle='#e74c3c';ctx.lineWidth=2;ctx.stroke();
+  // Area
+  ctx.lineTo(pad+w,pad+h);ctx.lineTo(pad,pad+h);ctx.closePath();
+  ctx.fillStyle='rgba(231,76,60,.08)';ctx.fill();
+  // Points
+  data.forEach((d,i)=>{
+    const x=pad+w*i/(data.length-1),y=pad+h*(1-d.v/100);
+    ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);
+    ctx.fillStyle='#e74c3c';ctx.fill();
+    ctx.fillStyle='#c8c8d4';ctx.fillText(d.y,x-12,y-10);
+  });
+  ctx.fillStyle='#c8c8d4';ctx.font='11px sans-serif';
+  ctx.fillText('维权投诉热度指数 (0-100)',pad,pad-10);
+}
+
+// Init with hash
+window.addEventListener('DOMContentLoaded', ()=>{
+  const h = window.location.hash.replace('#','')||'dashboard';
+  const el = document.querySelector(`header nav a[href="#${h}"]`);
+  switchTab(h, el);
+  renderViolationsTable();
+  renderLawsTable();
+});
+</script>
+</body>
+</html>

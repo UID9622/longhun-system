@@ -1,556 +1,796 @@
 #!/usr/bin/env python3
-#龍芯⚡️2026-07-14-NOTION-FULL-SYNC-v3.0
-# CREATOR: 诸葛鑫 (UID9622)
-# PROTOCOL: CC BY-NC-SA 4.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
-🐉 龍魂 · Notion 全量同步整理器 v3.0
+🐉 龍魂 · Notion 全量同步优化引擎 v1.0
+DNA: #龍芯⚡️丙午·丙申·乙巳·壬午·☴巽-NOTION-FULL-SYNC-v1.0-UID9622
+创建者: 诸葛鑫（UID9622）
+协议: CC BY-NC-SA 4.0
 
-一键执行：
-  扫描全部内容 → 分析分类 → 生成整理报告 → 创建/更新数据库 → 推送内容
+优化点：
+  - 分页超时自动恢复 + 退避重试
+  - 内容哈希去重（增量同步，只拉变化的）
+  - 断点续传（中断后从上次位置继续）
+  - 进度实时显示（百分比 + ETA）
+  - 跳过已归档页面
+  - 批量提交（每50页一次，减少IO）
+  - 全文搜索（FTS5）
 
 用法：
-  python3 bin/lh_notion_full_sync.py              # 扫描+报告
-  python3 bin/lh_notion_full_sync.py --execute    # 扫描+报告+执行整理
-  python3 bin/lh_notion_full_sync.py --report-only  # 仅基于已有扫描生成报告
+  python3 bin/lh_notion_full_sync.py sync              # 全量同步
+  python3 bin/lh_notion_full_sync.py sync --max 500     # 快速同步500页
+  python3 bin/lh_notion_full_sync.py sync --incremental # 增量同步（只拉变化的）
+  python3 bin/lh_notion_full_sync.py search "关键词"    # 全文搜索
+  python3 bin/lh_notion_full_sync.py status             # 查看同步状态
 
-DNA: #龍芯⚡️2026-07-14-NOTION-FULL-SYNC-v3.0
+环境变量：
+  NOTION_TOKEN_BACKUP 或 NOTION_TOKEN — Notion API 密钥
 """
-import json, os, subprocess, sys, time, argparse
+
+import os
+import sys
+import time
+import json
+import hashlib
+import sqlite3
+import urllib.request
+import urllib.error
 from pathlib import Path
-from datetime import datetime, timedelta, timezone
-from typing import Any
+from datetime import datetime, timezone
+from typing import Dict, List, Optional, Callable, Set
 
-CST = timezone(timedelta(hours=8))
-HOME = Path.home()
-ROOT = HOME / "longhun-system"
-DATA_DIR = ROOT / "data" / "notion_scan"
-SCAN_FILE = DATA_DIR / "scan_raw.json"
-REPORT_FILE = DATA_DIR / "reorganize_report.md"
-PLAN_FILE = DATA_DIR / "reorganize_plan.json"
+# ─── 常量 ───────────────────────────────────────
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+NOTION_BASE = "https://api.notion.com/v1"
+NOTION_TOKEN = os.environ.get("NOTION_TOKEN_BACKUP") or os.environ.get("NOTION_TOKEN")
+NOTION_VERSION = "2022-06-28"
+SYNC_DB = PROJECT_ROOT / "data" / "notion_full_sync.db"
+STATE_FILE = PROJECT_ROOT / "data" / "notion_full_sync_state.json"
+LOG_DIR = PROJECT_ROOT / "logs"
+LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-# ── 凭证 ──
-def get_token():
-    t = os.environ.get("NOTION_TOKEN", "")
-    if not t:
-        sys.path.insert(0, str(ROOT / "bin"))
-        from lh_secrets_loader import load_all
-        load_all(export_to_os=True)
-        t = os.environ.get("NOTION_TOKEN", "")
-    if not t:
-        print("❌ NOTION_TOKEN 未设置"); sys.exit(1)
-    return t
+PAGE_SIZE = 100  # Notion API 每页最多100
+BATCH_DELAY = 0.34  # 请求间隔（避免429限流，每秒≈3请求）
+COMMIT_INTERVAL = 50  # 每50页提交一次数据库
+MAX_RETRIES = 3
 
-NOW = lambda: datetime.now(CST).strftime("%Y-%m-%dT%H:%M:%S+08:00")
-NOW_TS = lambda: datetime.now(CST).strftime("%Y%m%d-%H%M%S")
+DNA_PREFIX = "#龍芯⚡️"
+SYNC_DNA = f"{DNA_PREFIX}丙午·丙申·乙巳·壬午·☴巽-NOTION-FULL-SYNC-v1.0-UID9622"
 
-# ═══════════════════════════════════════════════
-# 1. Notion API
-# ═══════════════════════════════════════════════
-class NotionAPI:
+NOTION_HEADERS = {
+    "Authorization": f"Bearer {NOTION_TOKEN}",
+    "Notion-Version": NOTION_VERSION,
+    "Content-Type": "application/json",
+}
+
+
+# ─── 数据库 ───────────────────────────────────────
+
+def init_db():
+    """初始化 SQLite 数据库（含 FTS5 全文索引）"""
+    conn = sqlite3.connect(str(SYNC_DB))
+    conn.execute("PRAGMA journal_mode=WAL")
+    conn.execute("PRAGMA synchronous=NORMAL")
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS pages (
+            id TEXT PRIMARY KEY,
+            title TEXT NOT NULL DEFAULT '',
+            content TEXT DEFAULT '',
+            url TEXT DEFAULT '',
+            object_type TEXT DEFAULT 'page',
+            parent_type TEXT DEFAULT '',
+            parent_id TEXT DEFAULT '',
+            database_id TEXT DEFAULT '',
+            last_edited TEXT DEFAULT '',
+            created_time TEXT DEFAULT '',
+            archived INTEGER DEFAULT 0,
+            content_hash TEXT DEFAULT '',
+            synced_at TEXT DEFAULT '',
+            sync_dna TEXT DEFAULT ''
+        )
+    """)
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_title ON pages(title)")
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_synced ON pages(synced_at)")
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_hash ON pages(content_hash)")
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_parent ON pages(parent_id)")
+
+    # FTS5 全文索引
+    conn.execute("""
+        CREATE VIRTUAL TABLE IF NOT EXISTS pages_fts USING fts5(
+            title, content, content=pages, content_rowid=rowid
+        )
+    """)
+
+    # 同步日志
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS sync_log (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            started_at TEXT,
+            finished_at TEXT,
+            pages_total INTEGER DEFAULT 0,
+            pages_added INTEGER DEFAULT 0,
+            pages_updated INTEGER DEFAULT 0,
+            pages_skipped INTEGER DEFAULT 0,
+            pages_removed INTEGER DEFAULT 0,
+            errors INTEGER DEFAULT 0,
+            api_calls INTEGER DEFAULT 0,
+            sync_type TEXT DEFAULT 'full',
+            dna TEXT DEFAULT ''
+        )
+    """)
+
+    # 断点续传状态
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS sync_checkpoint (
+            id INTEGER PRIMARY KEY CHECK (id=1),
+            last_cursor TEXT DEFAULT '',
+            last_page_index INTEGER DEFAULT 0,
+            total_found INTEGER DEFAULT 0,
+            updated_at TEXT DEFAULT ''
+        )
+    """)
+    conn.execute("INSERT OR IGNORE INTO sync_checkpoint (id) VALUES (1)")
+
+    conn.commit()
+    conn.close()
+
+
+def get_db() -> sqlite3.Connection:
+    """获取数据库连接"""
+    conn = sqlite3.connect(str(SYNC_DB))
+    conn.execute("PRAGMA journal_mode=WAL")
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+def rebuild_fts():
+    """重建全文索引"""
+    conn = get_db()
+    conn.execute("INSERT INTO pages_fts(pages_fts) VALUES('rebuild')")
+    conn.commit()
+    conn.close()
+
+
+# ─── Notion API 客户端 ──────────────────────────
+
+class NotionSyncClient:
+    """Notion API 同步客户端（stdlib urllib，零外部依赖）"""
+
     def __init__(self):
-        self.token = get_token()
+        if not NOTION_TOKEN:
+            raise RuntimeError(
+                "NOTION_TOKEN 未设置。请设置环境变量:\n"
+                "  export NOTION_TOKEN_BACKUP='ntn_...'"
+            )
+        self.headers = NOTION_HEADERS
         self.calls = 0
 
-    def call(self, endpoint, method="GET", payload=None):
-        cmd = [
-            "curl", "-s", "-S", "--max-time", "30",
-            "-H", f"Authorization: Bearer {self.token}",
-            "-H", "Notion-Version: 2022-06-28",
-            "-H", "Content-Type: application/json",
-        ]
-        if method != "GET":
-            cmd.extend(["-X", method])
-        if payload:
-            cmd.extend(["-d", json.dumps(payload, ensure_ascii=False)])
-        cmd.extend(["-w", r"\nHTTP_CODE:%{http_code}",
-                     f"https://api.notion.com/v1{endpoint}"])
-        try:
-            p = subprocess.run(cmd, capture_output=True, timeout=35)
-            o = p.stdout.decode("utf-8", "replace")
-            if "HTTP_CODE:" not in o:
+    def _api_call(
+        self, method: str, path: str, data: dict = None, timeout: int = 15
+    ) -> Optional[dict]:
+        """统一 API 调用（带重试和退避）"""
+        for attempt in range(MAX_RETRIES):
+            try:
+                url = f"{NOTION_BASE}{path}"
+                req_data = json.dumps(data).encode() if data else None
+                req = urllib.request.Request(
+                    url, data=req_data, headers=self.headers, method=method
+                )
+                with urllib.request.urlopen(req, timeout=timeout) as resp:
+                    self.calls += 1
+                    return json.loads(resp.read().decode())
+            except urllib.error.HTTPError as e:
+                body = e.read().decode()[:300]
+                if e.code == 429:
+                    wait = 2 ** attempt + 1
+                    print(f"   ⏳ 限流，等待 {wait}s...")
+                    time.sleep(wait)
+                    continue
+                if e.code >= 500:
+                    time.sleep(2 ** attempt)
+                    continue
+                print(f"   ⚠️ HTTP {e.code}: {body[:100]}")
                 return None
-            body, code = o.rsplit("HTTP_CODE:", 1)
-            code = int(code.strip())
-            if code >= 400:
-                if code == 429:
-                    time.sleep(3)
-                    return self.call(endpoint, method, payload)
+            except Exception as e:
+                if attempt < MAX_RETRIES - 1:
+                    time.sleep(1)
+                    continue
+                print(f"   ⚠️ API 请求失败: {e}")
                 return None
-            self.calls += 1
-            return json.loads(body.strip()) if body.strip() else {}
-        except:
-            return None
+        return None
 
-    def search_all(self):
-        results, cursor = [], None
+    def search_all(
+        self,
+        progress_callback: Callable = None,
+        max_pages: int = 0,
+        resume_cursor: str = "",
+    ) -> tuple:
+        """搜索所有页面和数据库（分页遍历）"""
+        results = []
+        cursor = resume_cursor if resume_cursor else None
+        page_num = 0
+
         while True:
-            payload = {"page_size": 100}
-            if cursor: payload["start_cursor"] = cursor
-            resp = self.call("/search", "POST", payload)
-            if not resp: break
-            results.extend(resp.get("results", []))
-            if not resp.get("has_more"): break
+            page_num += 1
+            payload = {"page_size": PAGE_SIZE}
+            if cursor:
+                payload["start_cursor"] = cursor
+
+            resp = self._api_call("POST", "/search", payload)
+            if not resp:
+                print(f"   ⚠️ 第{page_num}页请求失败，已有 {len(results)} 项")
+                break
+
+            items = resp.get("results", [])
+            results.extend(items)
+            has_more = resp.get("has_more", False)
             cursor = resp.get("next_cursor")
-            time.sleep(0.3)
+
+            if progress_callback:
+                progress_callback(len(results))
+
+            if max_pages and len(results) >= max_pages:
+                print(f"   🛑 已达上限 {max_pages} 项，停止搜索")
+                break
+            if not has_more or not cursor:
+                break
+
+            time.sleep(BATCH_DELAY)
+
+        return results, cursor
+
+    def query_database(self, database_id: str) -> List[dict]:
+        """查询数据库所有条目"""
+        results = []
+        cursor = None
+
+        while True:
+            payload = {"page_size": PAGE_SIZE}
+            if cursor:
+                payload["start_cursor"] = cursor
+
+            resp = self._api_call("POST", f"/databases/{database_id}/query", payload)
+            if not resp:
+                break
+
+            items = resp.get("results", [])
+            results.extend(items)
+
+            if not resp.get("has_more"):
+                break
+            cursor = resp.get("next_cursor")
+            time.sleep(BATCH_DELAY)
+
         return results
 
-    def query_db_all(self, db_id):
-        results, cursor = [], None
-        while True:
-            payload = {"page_size": 100}
-            if cursor: payload["start_cursor"] = cursor
-            resp = self.call(f"/databases/{db_id}/query", "POST", payload)
-            if not resp: break
-            results.extend(resp.get("results", []))
-            if not resp.get("has_more"): break
-            cursor = resp.get("next_cursor")
-            time.sleep(0.3)
-        return results
+    def get_page_blocks(self, page_id: str) -> List[dict]:
+        """获取页面所有块内容"""
+        blocks = []
+        cursor = None
 
-    def get_db(self, db_id):
-        return self.call(f"/databases/{db_id}")
-
-    def get_page_blocks(self, page_id, max_blocks=500):
-        blocks, cursor = [], None
         while True:
-            ep = f"/blocks/{page_id}/children?page_size=100"
-            if cursor: ep += f"&start_cursor={cursor}"
-            resp = self.call(ep)
-            if not resp: break
-            results = resp.get("results", [])
-            blocks.extend(results)
-            if not resp.get("has_more") or len(blocks) >= max_blocks: break
+            path = f"/blocks/{page_id}/children?page_size=100"
+            if cursor:
+                path += f"&start_cursor={cursor}"
+
+            resp = self._api_call("GET", path, timeout=10)
+            if not resp:
+                break
+
+            items = resp.get("results", [])
+            blocks.extend(items)
+
+            if not resp.get("has_more"):
+                break
             cursor = resp.get("next_cursor")
-            time.sleep(0.3)
+            time.sleep(BATCH_DELAY / 2)
+
         return blocks
 
-    def create_database(self, parent_page_id, title, properties):
-        return self.call("/databases", "POST", {
-            "parent": {"type": "page_id", "page_id": parent_page_id},
-            "title": [{"type": "text", "text": {"content": title}}],
-            "properties": properties,
-        })
 
-    def create_page_in_db(self, db_id, properties, children=None):
-        payload = {
-            "parent": {"database_id": db_id},
-            "properties": properties,
-        }
-        if children:
-            payload["children"] = children[:100]
-        return self.call("/pages", "POST", payload)
+# ─── 内容提取 ────────────────────────────────────
 
-    def update_page(self, page_id, properties):
-        return self.call(f"/pages/{page_id}", "PATCH", {"properties": properties})
+def extract_title(page: dict) -> str:
+    """从 Notion 页面属性中提取标题"""
+    props = page.get("properties", {})
+    for prop in props.values():
+        if isinstance(prop, dict) and prop.get("type") == "title":
+            texts = prop.get("title", [])
+            return "".join(t.get("plain_text", "") for t in texts)
+    # 尝试从其他属性提取
+    for prop in props.values():
+        if isinstance(prop, dict):
+            ptype = prop.get("type", "")
+            if ptype == "rich_text":
+                texts = prop.get("rich_text", [])
+                return "".join(t.get("plain_text", "") for t in texts)
+    return "(无标题)"
 
 
-# ═══════════════════════════════════════════════
-# 2. 扫描器
-# ═══════════════════════════════════════════════
-class Scanner:
-    def __init__(self, api: NotionAPI):
-        self.api = api
+def blocks_to_text(blocks: List[dict]) -> str:
+    """将 Notion 块列表提取为纯文本"""
+    texts = []
+    for block in blocks:
+        btype = block.get("type", "")
+        block_data = block.get(btype, {})
 
-    @staticmethod
-    def ext_title(obj):
-        for v in (obj.get("properties") or {}).values():
-            if isinstance(v, dict) and v.get("type") == "title":
-                return "".join(t.get("plain_text", "") for t in v.get("title", []))
-        return "未命名"
+        if btype in ("paragraph", "heading_1", "heading_2", "heading_3",
+                     "bulleted_list_item", "numbered_list_item", "to_do", "toggle",
+                     "quote", "callout"):
+            rich_text = block_data.get("rich_text", [])
+            line = "".join(t.get("plain_text", "") for t in rich_text)
+            if line.strip():
+                prefix = {"heading_1": "# ", "heading_2": "## ", "heading_3": "### ",
+                          "quote": "> ", "to_do": "[ ] "}.get(btype, "")
+                texts.append(prefix + line)
 
-    def run(self):
-        print("\n" + "=" * 60)
-        print("🐉 龍魂 · Notion 全量扫描 v3.0")
-        print("=" * 60)
+        elif btype == "code":
+            rich_text = block_data.get("rich_text", [])
+            language = block_data.get("language", "")
+            code = "".join(t.get("plain_text", "") for t in rich_text)
+            texts.append(f"```{language}\n{code}\n```")
 
-        print("\n📡 搜索所有页面和数据库...")
-        all_items = self.api.search_all()
-        dbs = [x for x in all_items if x.get("object") == "database"]
-        pages = [x for x in all_items if x.get("object") == "page"]
-        print(f"   找到: {len(dbs)} 数据库 + {len(pages)} 页面 = {len(all_items)} 项")
+        elif btype == "image":
+            alt = "".join(t.get("plain_text", "") for t in
+                         block_data.get("caption", []))
+            file_url = (block_data.get("file", {}).get("url", "") or
+                       block_data.get("external", {}).get("url", ""))
+            texts.append(f"[图片: {alt or file_url[:50]}]")
 
-        print("\n📊 读取数据库内容...")
-        db_details = []
-        for i, db in enumerate(dbs):
-            db_id = db["id"].replace("-", "")
-            title = self.ext_title(db)
-            entries = self.api.query_db_all(db_id)
-            db_details.append({
-                "id": db_id, "title": title, "url": db.get("url", ""),
-                "entry_count": len(entries),
-                "entries": [{
-                    "id": e.get("id", ""),
-                    "title": self.ext_title(e),
-                    "url": e.get("url", ""),
-                    "last_edited": e.get("last_edited_time", ""),
-                } for e in entries],
+        elif block.get("has_children"):
+            texts.append(f"[嵌套内容: {btype}]")
+
+    return "\n".join(texts)
+
+
+# ─── 同步引擎 ────────────────────────────────────
+
+def sync_pages(
+    max_items: int = 0,
+    incremental: bool = False,
+    resume: bool = False,
+    progress_callback: Callable = None,
+) -> Dict:
+    """核心同步函数"""
+    if not NOTION_TOKEN:
+        return {"status": "error", "message": "NOTION_TOKEN 未设置"}
+
+    init_db()
+    client = NotionSyncClient()
+    started = datetime.now(timezone.utc).isoformat()
+
+    print(f"\n{'='*56}")
+    print(f"  🐉 龍魂 · Notion 全量同步引擎 v1.0")
+    mode = "增量" if incremental else ("断点续传" if resume else "全量")
+    if max_items:
+        print(f"  ⚡ 快速模式: 最多 {max_items} 项")
+    print(f"  📡 模式: {mode}")
+    print(f"  {SYNC_DNA}")
+    print(f"{'='*56}\n")
+
+    # ── Step 1: 搜索 ──
+    print("📡 搜索所有 Notion 内容...")
+    resume_cursor = ""
+    if resume:
+        conn = get_db()
+        cp = conn.execute("SELECT last_cursor FROM sync_checkpoint").fetchone()
+        resume_cursor = cp["last_cursor"] if cp else ""
+        conn.close()
+        if resume_cursor:
+            print(f"   🔄 从断点续传: cursor={resume_cursor[:30]}...")
+
+    all_items, last_cursor = client.search_all(
+        progress_callback=lambda n: print(f"\r   📄 已搜索 {n} 项...", end="", flush=True)
+        if n % 100 == 0 else None,
+        max_pages=max_items,
+        resume_cursor=resume_cursor,
+    )
+    print(f"\r   ✅ 搜索完成: {len(all_items)} 项  ")
+
+    # 分类
+    dbs = [x for x in all_items if x.get("object") == "database"]
+    pages = [x for x in all_items if x.get("object") == "page"]
+    active_pages = [p for p in pages if not p.get("archived")]
+    archived_count = len(pages) - len(active_pages)
+    if archived_count:
+        print(f"   ⏭️  跳过 {archived_count} 个已归档页面")
+
+    print(f"   📊 {len(dbs)} 数据库 + {len(active_pages)} 活跃页面")
+    print(f"   🔌 API 调用: {client.calls} 次\n")
+
+    # ── Step 2: 构建页面队列 ──
+    page_queue = []
+
+    # 独立页面
+    for p in active_pages:
+        pid = p.get("id", "").replace("-", "")
+        if pid:
+            parent = p.get("parent", {})
+            page_queue.append({
+                "id": pid,
+                "title": extract_title(p),
+                "url": p.get("url", ""),
+                "object_type": "page",
+                "parent_type": parent.get("type", ""),
+                "parent_id": parent.get("database_id", "").replace("-", ""),
+                "last_edited": p.get("last_edited_time", ""),
+                "created_time": p.get("created_time", ""),
+                "archived": 0,
             })
-            print(f"   [{i+1}/{len(dbs)}] 📁 {title} → {len(entries)} 条")
 
-        print("\n📝 页面摘要...")
-        page_summaries = [{
-            "id": p.get("id", "").replace("-", ""),
-            "title": self.ext_title(p),
-            "url": p.get("url", ""),
-            "last_edited": p.get("last_edited_time", ""),
-            "parent_type": p.get("parent", {}).get("type", ""),
-            "parent_db": p.get("parent", {}).get("database_id", "").replace("-", ""),
-            "archived": p.get("archived", False),
-        } for p in pages]
+    # 数据库条目（限制前10个数据库，避免API爆炸）
+    max_dbs = min(len(dbs), 10)
+    for i, db in enumerate(dbs[:max_dbs]):
+        db_id = db.get("id", "").replace("-", "")
+        db_title = extract_title(db)
+        if not db_id:
+            continue
+        print(f"   📊 [{i+1}/{min(len(dbs), max_dbs)}] 数据库: {db_title[:45]} ...")
+        entries = client.query_database(db_id)
+        active_entries = [e for e in entries if not e.get("archived")]
+        print(f"      → {len(entries)} 条 ({len(active_entries)} 活跃)")
 
-        result = {
-            "scan_time": NOW(),
-            "dna": f"#龍芯⚡️{NOW_TS()}-NOTION-SCAN-v3",
-            "summary": {
-                "total": len(all_items),
-                "databases": len(dbs),
-                "pages": len(pages),
-                "db_entries": sum(d["entry_count"] for d in db_details),
-                "api_calls": self.api.calls,
-            },
-            "database_details": db_details,
-            "page_summaries": page_summaries,
-        }
+        for e in active_entries:
+            if max_items and len(page_queue) >= max_items:
+                break
+            eid = e.get("id", "").replace("-", "")
+            if eid:
+                page_queue.append({
+                    "id": eid,
+                    "title": extract_title(e),
+                    "url": e.get("url", ""),
+                    "object_type": "database_entry",
+                    "parent_type": "database_id",
+                    "parent_id": db_id,
+                    "database_id": db_id,
+                    "last_edited": e.get("last_edited_time", ""),
+                    "created_time": e.get("created_time", ""),
+                    "archived": 0,
+                })
 
-        DATA_DIR.mkdir(parents=True, exist_ok=True)
-        SCAN_FILE.write_text(json.dumps(result, ensure_ascii=False, indent=2))
-        print(f"\n✅ 扫描完成: {SCAN_FILE}")
-        self._print_summary(result)
-        return result
+        if max_items and len(page_queue) >= max_items:
+            break
+        time.sleep(BATCH_DELAY)
 
-    @staticmethod
-    def _print_summary(r):
-        s = r["summary"]
-        print(f"   数据库: {s['databases']} | 独立页面: {s['pages']} | 条目: {s['db_entries']}")
-        print(f"   API调用: {s['api_calls']} 次")
+    if len(dbs) > max_dbs:
+        print(f"   ⚠️  数据库过多({len(dbs)}个)，仅同步前{max_dbs}个（后续同步补齐）")
 
+    # ── Step 3: 逐页拉取内容 ──
+    total = len(page_queue)
+    if total == 0:
+        print("\n   📭 无内容需要同步")
+        save_state({"status": "empty"})
+        return {"status": "empty", "total_pages": 0, "api_calls": client.calls}
 
-# ═══════════════════════════════════════════════
-# 3. 分析器
-# ═══════════════════════════════════════════════
-class Analyzer:
-    CATEGORIES = {
-        "宪法铁律": ["宪法", "铁律", "规则", "protocol", "constitution", "law", "北辰"],
-        "技术文档": ["技术", "tech", "API", "SDK", "架构", "engine", "部署", "deploy", "CNSH", "代码"],
-        "哲学文化": ["哲学", "易经", "道德经", "太极", "五行", "八卦", "洛书", "369", "三才", "河图"],
-        "身份IP": ["UID9622", "IP", "identity", "DNA", "诸葛鑫", "龙芯", "花名册", "about"],
-        "论文学术": ["论文", "paper", "IEEE", "白皮书", "whitepaper", "学术"],
-        "笔记日记": ["笔记", "日记", "log", "记录", "note", "投喂", "feed", "随想"],
-        "项目产品": ["项目", "project", "MVP", "产品", "app", "应用"],
-        "审计安全": ["审计", "audit", "安全", "security", "防火墙", "熔断"],
-        "财富金融": ["财富", "金融", "money", "currency", "支付"],
-        "未分类": [],
+    print(f"\n📝 共 {total} 个页面，开始拉取...\n")
+
+    stats = {"added": 0, "updated": 0, "skipped": 0, "errors": 0}
+    all_page_ids = set()
+
+    conn = get_db()
+    existing = {
+        row["id"]: (row["content_hash"], row["last_edited"])
+        for row in conn.execute("SELECT id, content_hash, last_edited FROM pages").fetchall()
     }
 
-    @classmethod
-    def classify(cls, title):
-        text = (title or "").lower()
-        scores = {}
-        for cat, kws in cls.CATEGORIES.items():
-            if cat == "未分类": continue
-            score = sum(1 for kw in kws if kw.lower() in text)
-            if score > 0: scores[cat] = score
-        return max(scores, key=scores.get) if scores else "未分类"
+    batch_start = time.time()
 
-    def analyze(self, scan):
-        # 分类统计
-        cat_counts = {}
-        for db in scan.get("database_details", []):
-            for e in db.get("entries", []):
-                c = self.classify(e.get("title", ""))
-                cat_counts[c] = cat_counts.get(c, 0) + 1
-        for p in scan.get("page_summaries", []):
-            c = self.classify(p.get("title", ""))
-            cat_counts[c] = cat_counts.get(c, 0) + 1
+    for idx, page_info in enumerate(page_queue):
+        pid = page_info["id"]
+        if not pid:
+            continue
 
-        # 建议结构
-        ideal_structure = {
-            "🏛️ 宪法铁律": {"category": "宪法铁律", "props": {
-                "名称": {"title": {}},
-                "版本": {"rich_text": {}},
-                "状态": {"select": {"options": [
-                    {"name": "✅ 有效", "color": "green"},
-                    {"name": "📝 草稿", "color": "yellow"},
-                    {"name": "📦 归档", "color": "gray"},
-                ]}},
-                "优先级": {"select": {"options": [
-                    {"name": "P0-不可修订", "color": "red"},
-                    {"name": "P1-老大审批", "color": "orange"},
-                    {"name": "P2-社区讨论", "color": "blue"},
-                ]}},
-            }},
-            "💻 技术文档": {"category": "技术文档", "props": {
-                "名称": {"title": {}},
-                "模块": {"select": {"options": [
-                    {"name": "CNSH", "color": "blue"},
-                    {"name": "引擎", "color": "green"},
-                    {"name": "鸿蒙", "color": "orange"},
-                    {"name": "运维", "color": "purple"},
-                    {"name": "API", "color": "pink"},
-                ]}},
-                "状态": {"select": {"options": [
-                    {"name": "✅ 完成", "color": "green"},
-                    {"name": "🚧 进行中", "color": "yellow"},
-                    {"name": "📋 规划", "color": "blue"},
-                ]}},
-            }},
-            "🧠 哲学文化": {"category": "哲学文化", "props": {
-                "名称": {"title": {}},
-                "维度": {"multi_select": {"options": [
-                    {"name": "太极", "color": "blue"},
-                    {"name": "易经", "color": "yellow"},
-                    {"name": "道德经", "color": "green"},
-                    {"name": "五行", "color": "red"},
-                    {"name": "八卦", "color": "purple"},
-                    {"name": "369", "color": "orange"},
-                    {"name": "三才", "color": "brown"},
-                    {"name": "河图", "color": "pink"},
-                ]}},
-            }},
-            "🆔 身份IP": {"category": "身份IP", "props": {
-                "名称": {"title": {}},
-                "类型": {"select": {"options": [
-                    {"name": "公开IP", "color": "green"},
-                    {"name": "内部档案", "color": "yellow"},
-                    {"name": "数字人", "color": "blue"},
-                ]}},
-            }},
-            "📝 论文发表": {"category": "论文学术", "props": {
-                "名称": {"title": {}},
-                "期刊": {"select": {"options": [
-                    {"name": "IEEE", "color": "blue"},
-                    {"name": "白皮书", "color": "gray"},
-                    {"name": "博客", "color": "green"},
-                ]}},
-                "状态": {"select": {"options": [
-                    {"name": "已发表", "color": "green"},
-                    {"name": "审稿中", "color": "yellow"},
-                    {"name": "草稿", "color": "orange"},
-                ]}},
-            }},
-            "📒 笔记投喂": {"category": "笔记日记", "props": {
-                "名称": {"title": {}},
-                "来源": {"select": {"options": [
-                    {"name": "老大", "color": "red"},
-                    {"name": "AI", "color": "blue"},
-                    {"name": "Claude", "color": "purple"},
-                    {"name": "Kimi", "color": "green"},
-                    {"name": "DeepSeek", "color": "orange"},
-                ]}},
-                "日期": {"date": {}},
-            }},
-            "🛡️ 审计安全": {"category": "审计安全", "props": {
-                "名称": {"title": {}},
-                "级别": {"select": {"options": [
-                    {"name": "🔴 严重", "color": "red"},
-                    {"name": "🟡 警告", "color": "yellow"},
-                    {"name": "🟢 正常", "color": "green"},
-                ]}},
-                "时间": {"date": {}},
-            }},
-            "📦 项目交付": {"category": "项目产品", "props": {
-                "名称": {"title": {}},
-                "阶段": {"select": {"options": [
-                    {"name": "概念", "color": "blue"},
-                    {"name": "开发", "color": "yellow"},
-                    {"name": "已交付", "color": "green"},
-                    {"name": "归档", "color": "gray"},
-                ]}},
-                "截止": {"date": {}},
-            }},
-        }
+        # 进度显示
+        if idx > 0 and idx % 10 == 0:
+            elapsed = time.time() - batch_start
+            rate = idx / elapsed if elapsed > 0 else 0
+            eta = (total - idx) / rate if rate > 0 else 0
+            print(f"   [{idx}/{total}] "
+                  f"🆕{stats['added']} 📝{stats['updated']} "
+                  f"⏭️{stats['skipped']} ❌{stats['errors']} | "
+                  f"{rate:.1f}页/s | ETA {eta:.0f}s | API:{client.calls}")
 
-        # 查找重复
-        titles_map = {}
-        for db in scan.get("database_details", []):
-            for e in db.get("entries", []):
-                t = (e.get("title", "") or "").strip().lower()
-                if len(t) > 5:
-                    titles_map.setdefault(t, []).append({"type": "db_entry", "id": e.get("id"), "title": e.get("title")})
-        for p in scan.get("page_summaries", []):
-            t = (p.get("title", "") or "").strip().lower()
-            if len(t) > 5:
-                titles_map.setdefault(t, []).append({"type": "page", "id": p.get("id"), "title": p.get("title")})
+        # 增量模式跳过未变化的
+        if incremental and pid in existing:
+            old_hash, old_edited = existing[pid]
+            if old_edited == page_info["last_edited"] and old_hash:
+                stats["skipped"] += 1
+                all_page_ids.add(pid)
+                continue
 
-        duplicates = [
-            {"title": v[0]["title"], "count": len(v), "items": v}
-            for v in titles_map.values() if len(v) > 1
-        ]
+        # 拉取块内容
+        try:
+            blocks = client.get_page_blocks(pid)
+            content = blocks_to_text(blocks)
+            content_hash = hashlib.md5(content.encode()).hexdigest()
 
-        # 本地去重建议
-        local_dedups = []
-        notions = {t for t in titles_map}
-        docs_dir = ROOT / "docs"
-        if docs_dir.exists():
-            for f in docs_dir.rglob("*.md"):
-                if f.stat().st_size > 5_000_000: continue
-                try:
-                    first_lines = f.read_text(encoding="utf-8")[:1000]
-                    for line in first_lines.splitlines():
-                        line = line.strip()
-                        if line.startswith("# ") and len(line) > 4:
-                            lt = line[2:].strip().lower()
-                            if lt in notions:
-                                size_kb = f.stat().st_size // 1024
-                                local_dedups.append({
-                                    "path": str(f.relative_to(ROOT)),
-                                    "title": line[2:].strip(),
-                                    "size_kb": size_kb,
-                                })
-                            break
-                except: pass
-        local_dedups.sort(key=lambda x: -x["size_kb"])
+            if pid in existing:
+                conn.execute("""
+                    UPDATE pages SET title=?, content=?, last_edited=?,
+                    content_hash=?, synced_at=?, sync_dna=?
+                    WHERE id=?
+                """, (
+                    page_info["title"], content, page_info["last_edited"],
+                    content_hash, datetime.now(timezone.utc).isoformat(),
+                    SYNC_DNA, pid,
+                ))
+                stats["updated"] += 1
+            else:
+                conn.execute("""
+                    INSERT INTO pages (id, title, content, url, object_type,
+                    parent_type, parent_id, database_id, last_edited,
+                    created_time, archived, content_hash, synced_at, sync_dna)
+                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                """, (
+                    pid, page_info["title"], content, page_info["url"],
+                    page_info["object_type"], page_info["parent_type"],
+                    page_info["parent_id"], page_info.get("database_id", ""),
+                    page_info["last_edited"], page_info["created_time"],
+                    page_info["archived"], content_hash,
+                    datetime.now(timezone.utc).isoformat(), SYNC_DNA,
+                ))
+                stats["added"] += 1
 
-        plan = {
-            "generated_at": NOW(),
-            "category_stats": cat_counts,
-            "ideal_structure": ideal_structure,
-            "duplicates": duplicates,
-            "local_dedup_suggestions": local_dedups[:100],
-            "total_local_dedup_kb": sum(d["size_kb"] for d in local_dedups),
-        }
-        PLAN_FILE.write_text(json.dumps(plan, ensure_ascii=False, indent=2))
-        return plan
+            all_page_ids.add(pid)
+
+        except Exception as e:
+            stats["errors"] += 1
+            if stats["errors"] <= 3:
+                print(f"   ⚠️ 拉取失败 [{page_info['title'][:30]}]: {e}")
+
+        # 定期提交 + 保存断点
+        if idx > 0 and idx % COMMIT_INTERVAL == 0:
+            conn.commit()
+            conn.execute("""
+                UPDATE sync_checkpoint SET last_cursor=?, last_page_index=?,
+                total_found=?, updated_at=?
+                WHERE id=1
+            """, (last_cursor or "", idx, total, datetime.now(timezone.utc).isoformat()))
+            conn.commit()
+
+        time.sleep(BATCH_DELAY / 2)
+
+    # 最终提交
+    conn.commit()
+
+    # 清理已删除页面（仅全量同步）
+    if not incremental and not max_items:
+        removed = set(existing.keys()) - all_page_ids
+        if removed:
+            placeholders = ",".join("?" * len(removed))
+            conn.execute(f"DELETE FROM pages WHERE id IN ({placeholders})", list(removed))
+            stats["removed"] = len(removed)
+
+    # 同步日志
+    conn.execute("""
+        INSERT INTO sync_log (started_at, finished_at, pages_total,
+        pages_added, pages_updated, pages_skipped, pages_removed,
+        errors, api_calls, sync_type, dna)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?)
+    """, (
+        started, datetime.now(timezone.utc).isoformat(),
+        total, stats["added"], stats["updated"], stats["skipped"],
+        stats.get("removed", 0), stats["errors"],
+        client.calls, "incremental" if incremental else "full", SYNC_DNA,
+    ))
+
+    # 清除断点
+    conn.execute("UPDATE sync_checkpoint SET last_cursor='', last_page_index=0, updated_at='' WHERE id=1")
+    conn.commit()
+    conn.close()
+
+    # ── 收尾 ──
+    rebuild_fts()
+    elapsed = time.time() - batch_start
+
+    print(f"\n{'='*56}")
+    print(f"  ✅ 同步完成")
+    print(f"  🆕 新增: {stats['added']}  |  📝 更新: {stats['updated']}")
+    print(f"  ⏭️  跳过: {stats['skipped']}  |  🗑️  移除: {stats.get('removed', 0)}")
+    print(f"  ❌ 错误: {stats['errors']}")
+    print(f"  🔌 API: {client.calls} 次  |  ⏱️  耗时: {elapsed:.1f}s")
+    print(f"  🧬 {SYNC_DNA}")
+    print(f"{'='*56}\n")
+
+    state = {
+        "last_sync": datetime.now(timezone.utc).isoformat(),
+        "total_pages": total,
+        "stats": stats,
+        "api_calls": client.calls,
+        "elapsed": elapsed,
+        "dna": SYNC_DNA,
+    }
+    save_state(state)
+    return state
 
 
-# ═══════════════════════════════════════════════
-# 4. 报告
-# ═══════════════════════════════════════════════
-def generate_report(scan, plan):
-    s = scan["summary"]
-    lines = [
-        f"# 🐉 龍魂 · Notion 全量整理报告",
-        f"",
-        f"**DNA:** `{scan['dna']}`  ",
-        f"**扫描时间:** {scan['scan_time']}  ",
-        f"**确认:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  ",
-        f"",
-        f"---",
-        f"",
-        f"## 📊 总览",
-        f"",
-        f"| 指标 | 数值 |",
-        f"|---|---|",
-        f"| 总项目数 | **{s['total']}** |",
-        f"| 数据库 | **{s['databases']}** |",
-        f"| 独立页面 | **{s['pages']}** |",
-        f"| 数据库条目 | **{s['db_entries']}** |",
-        f"| API 调用 | {s['api_calls']} 次 |",
-        f"",
-        f"## 📈 内容分类",
-        f"",
-        f"| 分类 | 数量 |",
-        f"|---|---|",
-    ]
-    for cat, cnt in sorted(plan["category_stats"].items(), key=lambda x: -x[1]):
-        lines.append(f"| {cat} | {cnt} |")
-
-    lines.extend([
-        f"",
-        f"## 📁 数据库清单",
-        f"",
-    ])
-    for db in scan["database_details"]:
-        lines.extend([
-            f"### {db['title']}",
-            f"- ID: `{db['id'][:16]}...`",
-            f"- 条目: **{db['entry_count']}** 条",
-            f"- URL: {db.get('url', 'N/A')}",
-            f"",
-        ])
-
-    lines.extend([
-        f"## 🏗️ 建议新数据库结构",
-        f"",
-        f"| 数据库 | 目标内容 |",
-        f"|---|---|",
-    ])
-    for name, info in plan["ideal_structure"].items():
-        cnt = plan["category_stats"].get(info["category"], 0)
-        lines.append(f"| {name} | {info['category']} (~{cnt}条) |")
-
-    if plan["duplicates"]:
-        lines.extend([
-            f"",
-            f"## ⚠️ 疑似重复 ({len(plan['duplicates'])} 组)",
-            f"",
-        ])
-        for d in plan["duplicates"][:10]:
-            lines.append(f"- **{d['title'][:50]}** — {d['count']} 个副本")
-
-    if plan["local_dedup_suggestions"]:
-        total_mb = plan["total_local_dedup_kb"] / 1024
-        lines.extend([
-            f"",
-            f"## 💾 本地去重建议",
-            f"",
-            f"以下 **{len(plan['local_dedup_suggestions'])}** 个本地文件在 Notion 中已有副本，",
-            f"可安全归档释放约 **{total_mb:.1f} MB** 本地存储空间：",
-            f"",
-            f"| # | 文件 | 标题 | KB |",
-            f"|---|---|---|---|",
-        ])
-        for i, d in enumerate(plan["local_dedup_suggestions"][:30], 1):
-            lines.append(f"| {i} | `{d['path']}` | {d['title'][:35]} | {d['size_kb']} |")
-
-    lines.extend([
-        f"",
-        f"---",
-        f"> 🇨🇳 中国的事情，中国人自己说了算  ",
-        f"> **DNA:** `{scan['dna']}`  ",
-        f"> **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`",
-    ])
-
-    report = "\n".join(lines)
-    REPORT_FILE.write_text(report)
-    return report
+def save_state(state: dict):
+    """保存同步状态"""
+    STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(STATE_FILE, 'w', encoding='utf-8') as f:
+        json.dump(state, f, ensure_ascii=False, indent=2)
 
 
-# ═══════════════════════════════════════════════
-# 5. CLI
-# ═══════════════════════════════════════════════
+def load_state() -> dict:
+    """加载同步状态"""
+    if STATE_FILE.exists():
+        with open(STATE_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return {}
+
+
+# ─── 搜索 ────────────────────────────────────────
+
+def search_pages(query: str, limit: int = 10) -> List[dict]:
+    """全文搜索（FTS5）"""
+    init_db()
+    conn = get_db()
+
+    # 移除 FTS5 特殊字符
+    safe_query = query.replace('"', '').replace("'", "")
+    # 中文分词优化：在每个字符间插入空格
+    if any('\u4e00' <= c <= '\u9fff' for c in safe_query):
+        safe_query = " ".join(safe_query)
+
+    try:
+        rows = conn.execute("""
+            SELECT p.*, rank
+            FROM pages_fts f
+            JOIN pages p ON f.rowid = p.rowid
+            WHERE pages_fts MATCH ?
+            ORDER BY rank
+            LIMIT ?
+        """, (safe_query, limit)).fetchall()
+    except Exception:
+        # 回退到 LIKE 搜索
+        like_q = f"%{query}%"
+        rows = conn.execute("""
+            SELECT *, 1 as rank FROM pages
+            WHERE title LIKE ? OR content LIKE ?
+            ORDER BY last_edited DESC
+            LIMIT ?
+        """, (like_q, like_q, limit)).fetchall()
+
+    conn.close()
+
+    results = []
+    for row in rows:
+        results.append({
+            "id": row["id"],
+            "title": row["title"],
+            "content": row["content"][:300],
+            "url": row["url"],
+            "last_edited": row["last_edited"],
+            "object_type": row["object_type"],
+        })
+    return results
+
+
+def get_status() -> dict:
+    """获取同步状态"""
+    state = load_state()
+    init_db()
+
+    conn = get_db()
+    page_count = conn.execute("SELECT COUNT(*) as c FROM pages").fetchone()["c"]
+    content_size = conn.execute(
+        "SELECT SUM(LENGTH(content)) as s FROM pages"
+    ).fetchone()["s"] or 0
+    last_sync = conn.execute(
+        "SELECT * FROM sync_log ORDER BY started_at DESC LIMIT 1"
+    ).fetchone()
+    conn.close()
+
+    return {
+        "total_pages": page_count,
+        "content_bytes": content_size,
+        "last_sync": state.get("last_sync"),
+        "last_sync_log": dict(last_sync) if last_sync else None,
+        "db_path": str(SYNC_DB),
+        "db_size_mb": SYNC_DB.stat().st_size / 1024 / 1024 if SYNC_DB.exists() else 0,
+    }
+
+
+# ─── CLI ──────────────────────────────────────────
+
+def print_banner():
+    print(f"""
+{'='*56}
+  🐉 龍魂 · Notion 全量同步引擎 v1.0
+  {SYNC_DNA}
+{'='*56}
+""")
+
+
 def main():
-    p = argparse.ArgumentParser(description="龍魂 Notion 全量同步整理器 v3.0")
-    p.add_argument("--execute", action="store_true", help="执行整理（在 Notion 创建新数据库结构）")
-    p.add_argument("--report-only", action="store_true", help="仅基于已有扫描生成报告")
-    args = p.parse_args()
+    import argparse
+    parser = argparse.ArgumentParser(description="🐉 龍魂 · Notion 全量同步引擎")
+    sub = parser.add_subparsers(dest="command", help="子命令")
 
-    api = NotionAPI()
+    # sync
+    p_sync = sub.add_parser("sync", help="全量/增量同步")
+    p_sync.add_argument("--max", type=int, default=0, help="最大同步项数（0=不限制）")
+    p_sync.add_argument("--incremental", action="store_true", help="增量同步（只拉变化的）")
+    p_sync.add_argument("--resume", action="store_true", help="断点续传")
 
-    if args.report_only:
-        if not SCAN_FILE.exists():
-            print(f"❌ 扫描文件不存在: {SCAN_FILE}\n   请先运行 python3 bin/lh_notion_full_sync.py")
-            sys.exit(1)
-        scan = json.loads(SCAN_FILE.read_text())
+    # search
+    p_search = sub.add_parser("search", help="全文搜索")
+    p_search.add_argument("query", help="搜索关键词")
+    p_search.add_argument("--limit", type=int, default=10, help="返回条数")
+    p_search.add_argument("--full", action="store_true", help="显示完整内容")
+
+    # status
+    sub.add_parser("status", help="查看同步状态")
+
+    # reset
+    sub.add_parser("reset", help="清空数据库重新同步")
+
+    args = parser.parse_args()
+
+    if not NOTION_TOKEN and args.command != "status":
+        print("❌ NOTION_TOKEN 未设置")
+        print("   export NOTION_TOKEN_BACKUP='ntn_...'")
+        sys.exit(1)
+
+    if args.command == "sync":
+        result = sync_pages(
+            max_items=args.max,
+            incremental=args.incremental,
+            resume=args.resume,
+        )
+    elif args.command == "search":
+        print_banner()
+        print(f"  🔍 搜索: {args.query}\n")
+        results = search_pages(args.query, limit=args.limit)
+        if results:
+            for i, r in enumerate(results, 1):
+                marker = f"[{i}]"
+                print(f"  {marker} {r['title']}")
+                print(f"     URL: {r['url']}")
+                print(f"     更新时间: {r['last_edited'][:19] if r['last_edited'] else 'N/A'}")
+                if args.full:
+                    print(f"     {r['content']}")
+                    print()
+                else:
+                    print(f"     {r['content'][:200]}...")
+                    print()
+            print(f"  共 {len(results)} 条结果")
+        else:
+            print("  📭 未找到匹配结果")
+    elif args.command == "status":
+        print_banner()
+        s = get_status()
+        print(f"""
+  📊 同步状态
+  {'─'*40}
+  已同步页面:   {s['total_pages']}
+  内容总量:     {s['content_bytes']/1024:.1f} KB
+  数据库大小:   {s['db_size_mb']:.1f} MB
+  上次同步:     {s['last_sync'][:19] if s['last_sync'] else '从未'}
+  数据库路径:   {s['db_path']}
+  {'─'*40}
+""")
+        if s["last_sync_log"]:
+            log = s["last_sync_log"]
+            print(f"  最近同步日志:")
+            print(f"    开始: {log.get('started_at', '')[:19]}")
+            print(f"    完成: {log.get('finished_at', '')[:19]}")
+            print(f"    新增: {log.get('pages_added', 0)}  更新: {log.get('pages_updated', 0)}")
+            print(f"    跳过: {log.get('pages_skipped', 0)}  错误: {log.get('errors', 0)}")
+            print(f"    API: {log.get('api_calls', 0)} 次\n")
+    elif args.command == "reset":
+        print_banner()
+        print("  🗑️  清空数据库...")
+        if SYNC_DB.exists():
+            SYNC_DB.unlink()
+        if STATE_FILE.exists():
+            STATE_FILE.unlink()
+        init_db()
+        print("  ✅ 已重置，可重新全量同步\n")
     else:
-        scanner = Scanner(api)
-        scan = scanner.run()
+        parser.print_help()
 
-    analyzer = Analyzer()
-    plan = analyzer.analyze(scan)
-    report = generate_report(scan, plan)
-
-    print(f"\n📄 报告: {REPORT_FILE}")
-    print(f"📐 方案: {PLAN_FILE}")
-
-    # 打印关键发现
-    print(f"\n{'='*60}")
-    print(f"🔑 关键发现:")
-    print(f"{'='*60}")
-    print(f"  📊 {scan['summary']['total']} 个 Notion 项目待整理")
-    if plan["duplicates"]:
-        print(f"  ⚠️ {len(plan['duplicates'])} 组疑似重复内容")
-    if plan["local_dedup_suggestions"]:
-        kb = plan["total_local_dedup_kb"]
-        print(f"  💾 {len(plan['local_dedup_suggestions'])} 个本地文件可归档 → 释放 ~{kb/1024:.1f}MB")
-    print(f"  🏗️ 建议 {len(plan['ideal_structure'])} 个主题数据库")
-
-    if args.execute:
-        print(f"\n⚠️  执行模式暂为预览。请先在 Notion 端确认报告后再执行整理。")
-        print(f"   整理报告: {REPORT_FILE}")
-
-    print(f"\n✅ 完成. DNA: #龍芯⚡️{NOW_TS()}-NOTION-FULL-SYNC-v3.0")
 
 if __name__ == "__main__":
     main()

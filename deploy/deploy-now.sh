@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · 一键部署到鲲鹏 v1.2
 # DNA: #龍芯⚡️丙午·乙未·癸亥·蹇-DEPLOY-NOW-v1.2-FIX-SSH-EVAL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

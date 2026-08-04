@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
 name: longhun-audit
 description: "龍魂審計修復系統 v5.1 — Agent修復追踪、根因分析引擎、修復驗證流程、歸檔評估系統。追踪AGENT-007/011/014修復記錄，自動生成審計日誌，C=R·I·T歸檔價值評估公式，完整性檢查。當需要修復追踪、故障審計、歸檔管理、根因分析時觸發。"

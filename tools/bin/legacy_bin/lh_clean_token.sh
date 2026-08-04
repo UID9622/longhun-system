@@ -1,4 +1,6 @@
 #!/bin/bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ═══════════════════════════════════════════════════════════
 # 龍魂·Git历史密钥清理脚本 v2.0
 # DNA: #龍芯⚡️丙午·乙未·癸未·亥时-CLEAN-TOKEN-v2.0

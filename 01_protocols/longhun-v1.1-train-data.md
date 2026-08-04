@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂·v1.1 训练数据补充方案
 
 > DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·讼-LONGHUN-V1.1-TRAIN-DATA

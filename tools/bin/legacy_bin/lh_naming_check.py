@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 龍魂·命名检查引擎 v1.0
 基于四层命名法(LH-NAMING-ARCH-v2.0)自动检查所有文件命名合规性

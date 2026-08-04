@@ -1,4 +1,5 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂協議盾 v1.0
 # DNA:#龍芯⚡️2026-06-07-PROTOCOL-SHIELD-v1.0
 # 功能: 防止協議被篡改、繞過、或被誘導執行危險操作

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · openEuler 鲲鹏服务端环境准备脚本
 # 用途: 在华为鲲鹏 openEuler 服务器上安装所有依赖
 # 适用: openEuler 22.03+ / 24.03+ (aarch64)

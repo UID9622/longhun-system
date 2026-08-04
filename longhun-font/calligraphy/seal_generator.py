@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # #龍芯⚡️20260624010825157-AUTO-DNA-B60F97C5 自动注入·分层治理自愈引擎 · 来源可查
 #!/usr/bin/env python3

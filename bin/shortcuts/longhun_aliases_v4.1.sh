@@ -1,4 +1,5 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂快捷命令 v4.1
 # DNA: #龍芯⚡️丙午·乙申·甲寅·庚午·隨-ALIASES-v4.1
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

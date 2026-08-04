@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 🤖 龍魂 · 飞书桥接智能体 — 全系统功能索引
 DNA: #龍芯⚡️2026-07-07-FEISHU-BRIDGE-AGENT-v1.0

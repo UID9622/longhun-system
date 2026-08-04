@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ============================================================
 # 龍魂 · ANTENNA-8GATE 八卦路由器
 # DNA: #龍芯⚡️丙午·乙未·乙未·申时·☰乾-BAGUA-ROUTER-v1.0-8GATE-a1b2c3d4

@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
 alwaysApply: true
 description: 龍魂体系 × CodeBuddy 全对齐规则 v2.0（融合版）—— 20人格治理 × CloudBase平台 × 三大协议，一份规则全部焊死

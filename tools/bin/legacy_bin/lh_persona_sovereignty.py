@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 lh_persona_sovereignty — 龍魂人格主权三禁守卫 v1.0
 禁一·禁Cosplay | 禁二·禁借壳 | 禁三·禁代言

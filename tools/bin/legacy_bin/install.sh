@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # ═══════════════════════════════════════════════════════════════════════
 #  🐉 龍魂系统 · 一键安装脚本
 #  LongHun System · One-Click Install

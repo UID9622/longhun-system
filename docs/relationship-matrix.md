@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 对接关系矩阵
 
 **DNA**:#龍芯⚡️2026-06-16-RELATIONSHIP-MATRIX-FILE1-v1.0
@@ -12,9 +15,9 @@
 | **skills** | Skill 库 | 201 | control-panel、baobao-guardian |
 | **baobao-guardian** | 守护应用 | 35 | skills、docs |
 | **extensions** | 浏览器扩展 | 47 | control-panel、skills |
-| **cnsh/core** | CNSH 核心 | 1066 | docs、integrated_modules |
-| **docs** | 知识库 | 973 | control-panel、cnsh/core |
-| **bin** | 工具脚本 | 2646 | skills、docs |
+| **cnsh/core** | CNSH 核心 | 1097 | docs、integrated_modules |
+| **docs** | 知识库 | 942 | control-panel、cnsh/core |
+| **bin** | 工具脚本 | 3051 | skills、docs |
 | **integrated_modules** | 集成模块 | 61 | cnsh/core、bin |
 
 ## 对接关系矩阵

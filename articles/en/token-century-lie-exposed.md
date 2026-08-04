@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
 title: "The Century Lie of Tokens: Multi-Dimensional Dissection of the AI Money-Burning Game & China's Chip Breakthrough"
 subtitle: "With the Longhun (龍魂) Sovereign Architecture as a Living Counter-Example"

@@ -1,0 +1,18 @@
+[Unit]
+Description=龍魂·量子卦象 API :9000
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/longhun/longhun-system
+ExecStart=/var/www/longhun/longhun-system/venv/bin/python3 bin/lh_quantum_api_v2.py --port 9000 --host 0.0.0.0
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/longhun/quantum-api.log
+StandardError=append:/var/log/longhun/quantum-api-error.log
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

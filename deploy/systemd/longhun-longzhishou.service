@@ -1,0 +1,36 @@
+[Unit]
+Description=龍魂·龍智守飞书机器人守护进程
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=longhun
+Group=longhun
+WorkingDirectory=/opt/longhun-system
+Environment="PYTHONUNBUFFERED=1"
+Environment="LANG=zh_CN.UTF-8"
+Environment="PYTHONPATH=/opt/longhun-system:/opt/longhun-system/scripts"
+Environment="PATH=/usr/local/bin:/usr/bin:/bin:/opt/longhun-system/bin"
+Environment="LONGZHISHOU_PORT=8783"
+Environment="HOME=/home/longhun"
+EnvironmentFile=/opt/longhun-system/.env
+ExecStart=/opt/longhun-system/.venv/bin/python3 /opt/longhun-system/bin/lh_longzhishou_daemon.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/longhun/longzhishou.log
+StandardError=append:/var/log/longhun/longzhishou-error.log
+
+# 资源限制
+MemoryMax=512M
+CPUQuota=100%
+TasksMax=50
+
+# 安全加固
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ReadWritePaths=/opt/longhun-system /var/log/longhun /home/longhun
+
+[Install]
+WantedBy=multi-user.target

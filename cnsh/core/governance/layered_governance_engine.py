@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂分层治理自愈引擎 · LongHun Layered Governance Self-Healing Engine v1.0
@@ -247,7 +249,7 @@ def _layer_specs() -> List[LayerSpec]:
                 ROOT / "cnsh-core" / "runtime-governance",
             ],
             file_patterns=["scripts/longhun_compression_engine.py", "scripts/kg_unified.py", "cnsh-core/runtime-governance/**"],
-            processes=["compression-engine"],
+            processes=[],  # compression-engine 已标记 DEPRECATED，不作为常驻进程要求
             si_dimension="di",
             f1_f7_required=False,
             rules=["分布式DNA", "认知压缩", "统一知识中枢"],

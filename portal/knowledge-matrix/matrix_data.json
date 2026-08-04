@@ -1,0 +1,2169 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+{
+  "dna": "#龍芯⚡️丙午·丙申·戊申·午时·䷗复-KNOWLEDGE-MATRIX-v1.0",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "generated_at": "2026-08-03T06:16:14.162595",
+  "generated_by": "lh_knowledge_matrix.py v1.0",
+  "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+  "protocols": {
+    "total": 259,
+    "by_category": {
+      "其他协议": 195,
+      "审计协议": 13,
+      "人格治理": 6,
+      "算法数学": 19,
+      "模板规范": 1,
+      "交付标准": 6,
+      "隐私安全": 3,
+      "主权协议": 7,
+      "部署运维": 1,
+      "融合指令": 4,
+      "授权契碑": 3,
+      "原创声明": 1
+    },
+    "items": [
+      {
+        "name": "LH-ANTENNA-8GATE-v1.0",
+        "path": "01_protocols/ANTENNA-8GATE/LH-ANTENNA-8GATE-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 6.7,
+        "dna": "#龍芯⚡️丙午·癸未·壬戌·乾为天-EFFICIENCY-BREAK-v5.0`"
+      },
+      {
+        "name": "README",
+        "path": "01_protocols/ANTENNA-8GATE/README.md",
+        "category": "其他协议",
+        "size_kb": 0.0,
+        "dna": ""
+      },
+      {
+        "name": "RETROSPECTIVE",
+        "path": "01_protocols/ANTENNA-8GATE/RETROSPECTIVE.md",
+        "category": "其他协议",
+        "size_kb": 2.6,
+        "dna": "#龍芯⚡️丙午·乙未·丙申·酉时·☲离-RETROSPECTIVE-v1v2-a1b2c3d4"
+      },
+      {
+        "name": "ATTRIBUTION",
+        "path": "01_protocols/ATTRIBUTION.md",
+        "category": "其他协议",
+        "size_kb": 1.9,
+        "dna": "#龍芯⚡️2026-07-21-迁移-ATTRIBUTION-v1.0"
+      },
+      {
+        "name": "AUDIT-SHEET-TEMPLATE-v1.0",
+        "path": "01_protocols/AUDIT-SHEET-TEMPLATE-v1.0.md",
+        "category": "审计协议",
+        "size_kb": 2.9,
+        "dna": ""
+      },
+      {
+        "name": "BEICHEN-MOTHER-PROTOCOL-v2.0",
+        "path": "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+        "category": "其他协议",
+        "size_kb": 11.2,
+        "dna": ""
+      },
+      {
+        "name": "CNSH-BRAIN-PERSONA-LANDING-v1.0",
+        "path": "01_protocols/CNSH-BRAIN-PERSONA-LANDING-v1.0.md",
+        "category": "人格治理",
+        "size_kb": 3.2,
+        "dna": ""
+      },
+      {
+        "name": "CNSH-MATH-SKELETON-v1.0",
+        "path": "01_protocols/CNSH-MATH-SKELETON-v1.0.md",
+        "category": "算法数学",
+        "size_kb": 5.9,
+        "dna": "#龍芯⚡️2026-07-23-CNSH-MATH-SKELETON-v1.0-f7c3d1e5"
+      },
+      {
+        "name": "CNSH-SYNTAX-PANORAMA-v3.0",
+        "path": "01_protocols/CNSH-SYNTAX-PANORAMA-v3.0.md",
+        "category": "算法数学",
+        "size_kb": 4.1,
+        "dna": "#龍芯⚡️2026-07-23-CNSH-SYNTAX-v3.0-e1a7f4b2"
+      },
+      {
+        "name": "CNSH-TONGXINYI-ALIGN-v2.0",
+        "path": "01_protocols/CNSH-TONGXINYI-ALIGN-v2.0.md",
+        "category": "算法数学",
+        "size_kb": 4.8,
+        "dna": "#龍芯⚡️2026-07-23-TONGXINYI-ALIGN-v2.0-d5a3f9e1"
+      },
+      {
+        "name": "CNSH-TRANSLATOR-NEURAL-ARCH-v1.0",
+        "path": "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+        "category": "算法数学",
+        "size_kb": 7.6,
+        "dna": "#龍芯⚡️丙午·丙申·丙辰·己丑·需-CNSH-TRANSLATOR-NEURAL-ARCH-v1.0`"
+      },
+      {
+        "name": "CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT",
+        "path": "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+        "category": "算法数学",
+        "size_kb": 15.1,
+        "dna": ""
+      },
+      {
+        "name": "CNSH_GLOBAL_PROTOCOL_v3.0",
+        "path": "01_protocols/CNSH_GLOBAL_PROTOCOL_v3.0.md",
+        "category": "算法数学",
+        "size_kb": 11.6,
+        "dna": "#龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-CNSH-GLOBAL-PACT-v3.0-SYSTEM\""
+      },
+      {
+        "name": "CNSH通用翻译引擎数学建模协议_v1.0",
+        "path": "01_protocols/CNSH通用翻译引擎数学建模协议_v1.0.md",
+        "category": "算法数学",
+        "size_kb": 28.5,
+        "dna": ""
+      },
+      {
+        "name": "DATA-PERMISSIONS-MATRIX-v1.0",
+        "path": "01_protocols/DATA-PERMISSIONS-MATRIX-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 8.9,
+        "dna": ""
+      },
+      {
+        "name": "DESIRE-INVERTED-GROWTH-v1.0",
+        "path": "01_protocols/DESIRE-INVERTED-GROWTH-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 0.0,
+        "dna": ""
+      },
+      {
+        "name": "DIGITAL-BATTLEFIELD-IRON-RULE-v1.0",
+        "path": "01_protocols/DIGITAL-BATTLEFIELD-IRON-RULE-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 6.8,
+        "dna": "#龍芯⚡️丙午·丙申·丙辰·己丑·坤-DIGITAL-BATTLEFIELD-IRON-RULE-v1.0`"
+      },
+      {
+        "name": "DIGITAL-MILITARY-CODE-v1.0",
+        "path": "01_protocols/DIGITAL-MILITARY-CODE-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 8.4,
+        "dna": ""
+      },
+      {
+        "name": "DNA_REGISTRY_PROTOCOL_200",
+        "path": "01_protocols/DNA_REGISTRY_PROTOCOL_200.md",
+        "category": "其他协议",
+        "size_kb": 4.3,
+        "dna": "#龍芯⚡️丙午·乙未·癸未·辰时-DNA-REGISTRY-200-v1.0`"
+      },
+      {
+        "name": "DNA可逆编码与时间主权协议_v1.0",
+        "path": "01_protocols/DNA可逆编码与时间主权协议_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 27.2,
+        "dna": ""
+      },
+      {
+        "name": "DYNAMIC-WEIGHT-MIN-LOSS-v1.0",
+        "path": "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 8.8,
+        "dna": "#龍芯⚡️丙午·丙申·丙辰·己丑·姤-DYNAMIC-WEIGHT-MIN-LOSS-v1.0`"
+      },
+      {
+        "name": "IPA-DICT-101-111-决策链",
+        "path": "01_protocols/IPA-DICT-101-111-决策链.md",
+        "category": "其他协议",
+        "size_kb": 6.5,
+        "dna": "#龍芯⚡️丙午·丙申·癸丑·午时·需-IPA-DICT-DECISION-CHAIN-7F99378B`"
+      },
+      {
+        "name": "IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞",
+        "path": "01_protocols/IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md",
+        "category": "其他协议",
+        "size_kb": 9.7,
+        "dna": "#龍芯⚡️丙午·丙申·癸丑·午时·需-IPA-DICT-ALIGN-INFINITE-LOOP-7F99378B`"
+      },
+      {
+        "name": "IPA-ROUTE-REGISTRY.local",
+        "path": "01_protocols/IPA-ROUTE-REGISTRY.local.md",
+        "category": "其他协议",
+        "size_kb": 50.3,
+        "dna": ""
+      },
+      {
+        "name": "IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING",
+        "path": "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
+        "category": "人格治理",
+        "size_kb": 17.5,
+        "dna": "#龍芯⚡️2026-07-08-IRON-PERSONA-SEMANTIC-UNIFIED-MAPPING-v1.0`"
+      },
+      {
+        "name": "LH-ACTIVATION-ECONOMY-v1.0",
+        "path": "01_protocols/LH-ACTIVATION-ECONOMY-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 4.0,
+        "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-ACTIVATION-ECONOMY-v1.0-A1B2C3D4"
+      },
+      {
+        "name": "LH-ACTIVATION-PAYMENT-v1.0",
+        "path": "01_protocols/LH-ACTIVATION-PAYMENT-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 4.9,
+        "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-ACTIVATION-PAYMENT-v1.0"
+      },
+      {
+        "name": "LH-ADAPTIVE-EVOLUTION-SPEC-v1.0",
+        "path": "01_protocols/LH-ADAPTIVE-EVOLUTION-SPEC-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 11.6,
+        "dna": "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-EVOLUTION-CORE-v1.0`"
+      },
+      {
+        "name": "LH-AI-ACCESS-MANDATE-v1.0",
+        "path": "01_protocols/LH-AI-ACCESS-MANDATE-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 9.1,
+        "dna": "#龍芯⚡️丙午·丙申·丙辰·午时·需-PROTOCOL-AI-ACCESS-MANDATE-v1.0`"
+      },
+      {
+        "name": "LH-AI-ETHICS-ENABLEMENT-v1.1",
+        "path": "01_protocols/LH-AI-ETHICS-ENABLEMENT-v1.1.md",
+        "category": "其他协议",
+        "size_kb": 21.9,
+        "dna": "#龍芯⚡️2026-08-02-AI-ETHICS-ENABLEMENT-v1.1`"
+      },
+      {
+        "name": "LH-AI-ONBOARDING-v1.0",
+        "path": "01_protocols/LH-AI-ONBOARDING-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 7.3,
+        "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-AI-ONBOARDING-v1.1-ALIGN-8B3C5D2E`"
+      },
+      {
+        "name": "LH-AI-SHAME-PILLAR-v3.0",
+        "path": "01_protocols/LH-AI-SHAME-PILLAR-v3.0.md",
+        "category": "其他协议",
+        "size_kb": 13.8,
+        "dna": "#龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-SHAME-PILLAR-INTEGRATION-SYSTEM"
+      },
+      {
+        "name": "LH-ANT-COLONY-VISUAL-v1.0",
+        "path": "01_protocols/LH-ANT-COLONY-VISUAL-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 9.7,
+        "dna": "#龍芯⚡️丙午·癸未·丁未·离为火-蚁群可视化-v1.0"
+      },
+      {
+        "name": "LH-ANTI-FISHING-GREED-v1.0",
+        "path": "01_protocols/LH-ANTI-FISHING-GREED-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 5.1,
+        "dna": ""
+      },
+      {
+        "name": "LH-ANTI-FRAUD-QUICK-GUIDE-v1.0",
+        "path": "01_protocols/LH-ANTI-FRAUD-QUICK-GUIDE-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 5.2,
+        "dna": "#龍芯⚡️丙午·癸未·丁未·☰乾-ANTI-FRAUD-QUICK-GUIDE-v1.0-彎彎繞繞-2f7e1b6c"
+      },
+      {
+        "name": "LH-API-NAMING-MATH-v1.0",
+        "path": "01_protocols/LH-API-NAMING-MATH-v1.0.md",
+        "category": "算法数学",
+        "size_kb": 16.8,
+        "dna": "#龍芯⚡️丙午·乙未·丙申·申时·☰乾-API-NAMING-MATH-V1.0-P0-b7391619"
+      },
+      {
+        "name": "LH-API-NAMING-TAIJI-ANT-v1.0",
+        "path": "01_protocols/LH-API-NAMING-TAIJI-ANT-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 18.1,
+        "dna": "#龍芯⚡️丙午·乙未·丙申·申时·☯️太极-API-NAMING-TAIJI-ANT-v1.0-P0-8a3e9c21`"
+      },
+      {
+        "name": "LH-ARCHIVE-AUDIT-v1.0",
+        "path": "01_protocols/LH-ARCHIVE-AUDIT-v1.0.md",
+        "category": "审计协议",
+        "size_kb": 18.2,
+        "dna": "#龍芯⚡️2026-07-23-ARCHIVE-AUDIT-v1.0-e3d7f1a2"
+      },
+      {
+        "name": "LH-ARTICLE-HEADER-TEMPLATES-v1.0",
+        "path": "01_protocols/LH-ARTICLE-HEADER-TEMPLATES-v1.0.md",
+        "category": "模板规范",
+        "size_kb": 22.6,
+        "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-ARTICLE-HEADER-TEMPLATES-v1.0-a7e4f2c1"
+      },
+      {
+        "name": "LH-ARTIFACT-CREATION-SOP-v1.0",
+        "path": "01_protocols/LH-ARTIFACT-CREATION-SOP-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 3.0,
+        "dna": "#龍芯⚡️丙午·癸未·丁未-ARTIFACT-CREATION-SOP-v1.0"
+      },
+      {
+        "name": "LH-AUDIT-AUTO-LEARNER-v1.0-REPAIR",
+        "path": "01_protocols/LH-AUDIT-AUTO-LEARNER-v1.0-REPAIR.md",
+        "category": "审计协议",
+        "size_kb": 3.7,
+        "dna": "#龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-AUDIT-REPAIR-v1.0"
+      },
+      {
+        "name": "LH-AUDIT-BATTLE-HUB-v1.0",
+        "path": "01_protocols/LH-AUDIT-BATTLE-HUB-v1.0.md",
+        "category": "审计协议",
+        "size_kb": 5.2,
+        "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-AUDIT-BATTLE-HUB-v1.0`"
+      },
+      {
+        "name": "LH-AUDIT-SHEET-60ITEM-v1.0",
+        "path": "01_protocols/LH-AUDIT-SHEET-60ITEM-v1.0.md",
+        "category": "审计协议",
+        "size_kb": 9.1,
+        "dna": "#龍芯⚡️丙午·辛未·乙酉·AUDIT-SHEET-60ITEM-v1.0`"
+      },
+      {
+        "name": "LH-AUTO-LEARNER-SPEC-v1.0",
+        "path": "01_protocols/LH-AUTO-LEARNER-SPEC-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 5.8,
+        "dna": "#龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-AUTO-LEARNER-v1.0`"
+      },
+      {
+        "name": "LH-AUTOFLOW-EXEC-PROTOCOL-v1.0",
+        "path": "01_protocols/LH-AUTOFLOW-EXEC-PROTOCOL-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 16.5,
+        "dna": ""
+      },
+      {
+        "name": "LH-BAGUA-MATH-MODEL-v1.0",
+        "path": "01_protocols/LH-BAGUA-MATH-MODEL-v1.0.md",
+        "category": "算法数学",
+        "size_kb": 32.4,
+        "dna": ""
+      },
+      {
+        "name": "LH-BASE-MODEL-LIST-v1.0",
+        "path": "01_protocols/LH-BASE-MODEL-LIST-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 7.1,
+        "dna": "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-BASE-MODEL-LIST-v1.0`"
+      },
+      {
+        "name": "LH-BEHAVIOR-CRYPTOGRAPHY-ANTI-FRAUD-v1.0",
+        "path": "01_protocols/LH-BEHAVIOR-CRYPTOGRAPHY-ANTI-FRAUD-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 12.6,
+        "dna": "#龍芯⚡️丙午·癸未·丁未·☰乾-BEHAVIOR-CRYPTO-ANTI-FRAUD-v1.0-彎彎繞繞-9e4b3d7a"
+      },
+      {
+        "name": "LH-BLACKBOX-PITFALLS-v1.0",
+        "path": "01_protocols/LH-BLACKBOX-PITFALLS-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 10.0,
+        "dna": "#龍芯⚡️2026-07-30-黑箱审计-坑位分析-v1.0`"
+      },
+      {
+        "name": "LH-BOUNDARY-EDIT-ROUTER-v1.0",
+        "path": "01_protocols/LH-BOUNDARY-EDIT-ROUTER-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 3.4,
+        "dna": "#龍芯⚡️丙午·丙申·丙辰·亥时·需-BOUNDARY-EDIT-ROUTER-v1.0`"
+      },
+      {
+        "name": "LH-CDNA-v1.2-需求文档",
+        "path": "01_protocols/LH-CDNA-v1.2-需求文档.md",
+        "category": "其他协议",
+        "size_kb": 31.1,
+        "dna": "#龍芯⚡️2026-07-21-迁移-LH-CDNA-v1.2-需求文档-v1.0"
+      },
+      {
+        "name": "LH-CODE-NAMING-STANDARD-v1.0",
+        "path": "01_protocols/LH-CODE-NAMING-STANDARD-v1.0.md",
+        "category": "交付标准",
+        "size_kb": 4.4,
+        "dna": "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-YIN-YU-FA-v1.0`"
+      },
+      {
+        "name": "LH-CODEBUDDY-ALIGNMENT-v2.0",
+        "path": "01_protocols/LH-CODEBUDDY-ALIGNMENT-v2.0.md",
+        "category": "其他协议",
+        "size_kb": 17.0,
+        "dna": ""
+      },
+      {
+        "name": "LH-COMPUTE-SEPARATION-v1.0",
+        "path": "01_protocols/LH-COMPUTE-SEPARATION-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 11.7,
+        "dna": "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-COMPUTE-SEPARATION-v1.0`"
+      },
+      {
+        "name": "LH-CONTAINER-ARCH-v1.0",
+        "path": "01_protocols/LH-CONTAINER-ARCH-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 18.2,
+        "dna": ""
+      },
+      {
+        "name": "LH-CONTEXT-STYLE-GUIDE-v1.0",
+        "path": "01_protocols/LH-CONTEXT-STYLE-GUIDE-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 5.5,
+        "dna": "#龍芯⚡️丙午·乙未·辛卯·䷐随-CONTEXT-STYLE-GUIDE-v1.0"
+      },
+      {
+        "name": "LH-CORE-DNA-FIX-v1.0",
+        "path": "01_protocols/LH-CORE-DNA-FIX-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 191.1,
+        "dna": ""
+      },
+      {
+        "name": "LH-CREATOR-PROTECTION-v1.0",
+        "path": "01_protocols/LH-CREATOR-PROTECTION-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 7.7,
+        "dna": ""
+      },
+      {
+        "name": "LH-DAODEJING-SCENE-ANCHOR-v1.0",
+        "path": "01_protocols/LH-DAODEJING-SCENE-ANCHOR-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 14.2,
+        "dna": "#龍芯⚡️2026-07-19-DAODEJING-SCENE-ANCHOR-V1.0-P0"
+      },
+      {
+        "name": "LH-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0",
+        "path": "01_protocols/LH-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0.md",
+        "category": "人格治理",
+        "size_kb": 12.1,
+        "dna": "#龍芯⚡️丙午·丙申·丙辰·己丑·需-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0`"
+      },
+      {
+        "name": "LH-DATA-PRIVACY-v2.0",
+        "path": "01_protocols/LH-DATA-PRIVACY-v2.0.md",
+        "category": "隐私安全",
+        "size_kb": 13.5,
+        "dna": ""
+      },
+      {
+        "name": "LH-DATA-PRIVACY-v2.1",
+        "path": "01_protocols/LH-DATA-PRIVACY-v2.1.md",
+        "category": "隐私安全",
+        "size_kb": 21.1,
+        "dna": ""
+      },
+      {
+        "name": "LH-DATA-SOVEREIGNTY-v2.0",
+        "path": "01_protocols/LH-DATA-SOVEREIGNTY-v2.0.md",
+        "category": "主权协议",
+        "size_kb": 8.6,
+        "dna": "#龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-DATA-SOVEREIGNTY-INTEGRATION-SYSTEM"
+      },
+      {
+        "name": "LH-DEBEN-AUDIT-v1.0",
+        "path": "01_protocols/LH-DEBEN-AUDIT-v1.0.md",
+        "category": "审计协议",
+        "size_kb": 5.1,
+        "dna": "#龍芯⚡️丙午·乙未·庚戌·巳时·需-DEBEN-AUDIT-v1.0"
+      },
+      {
+        "name": "LH-DEEP-LEARNING-ARCHITECTURE-v1.0",
+        "path": "01_protocols/LH-DEEP-LEARNING-ARCHITECTURE-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 36.0,
+        "dna": "#龍芯⚡️2026-07-23-ARCH-DEEP-LEARNING-v1.0-91e7d3c2"
+      },
+      {
+        "name": "LH-DELIVERY-INDEX-v1.0",
+        "path": "01_protocols/LH-DELIVERY-INDEX-v1.0.md",
+        "category": "交付标准",
+        "size_kb": 5.8,
+        "dna": "#龍芯⚡️2026-07-18-DELIVERY-PACKAGE-v1.0`"
+      },
+      {
+        "name": "LH-DELIVERY-PACKAGE-REPORT-v1.0",
+        "path": "01_protocols/LH-DELIVERY-PACKAGE-REPORT-v1.0.md",
+        "category": "交付标准",
+        "size_kb": 4.1,
+        "dna": "#龍芯⚡️2026-07-18-FINAL-DELIVERY-v1.0`"
+      },
+      {
+        "name": "LH-DELIVERY-STANDARD-v1.0",
+        "path": "01_protocols/LH-DELIVERY-STANDARD-v1.0.md",
+        "category": "交付标准",
+        "size_kb": 10.5,
+        "dna": ""
+      },
+      {
+        "name": "LH-DEPLOYMENT-CONFIG-v1.0",
+        "path": "01_protocols/LH-DEPLOYMENT-CONFIG-v1.0.md",
+        "category": "部署运维",
+        "size_kb": 10.4,
+        "dna": "#龍芯⚡️丙午·乙未·癸亥·蹇-DEPLOYMENT-CONFIG-V1.1-FIVEHARMS-FIX-b2c3d4e5"
+      },
+      {
+        "name": "LH-DISTRIBUTED-AUDIT-MATRIX-v1.0",
+        "path": "01_protocols/LH-DISTRIBUTED-AUDIT-MATRIX-v1.0.md",
+        "category": "审计协议",
+        "size_kb": 15.3,
+        "dna": "#龍芯⚡️丙午·辛未·乙酉·DISTRIBUTED-AUDIT-MATRIX-v1.0`"
+      },
+      {
+        "name": "LH-DNA-BIND-ANTIDISTILL-v1.0",
+        "path": "01_protocols/LH-DNA-BIND-ANTIDISTILL-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 8.9,
+        "dna": "#龍芯⚡️2026-07-21-DNA-BIND-ANTIDISTILL-V1.0-P0"
+      },
+      {
+        "name": "LH-DUALVIEW-V3-LANDING-v1.0",
+        "path": "01_protocols/LH-DUALVIEW-V3-LANDING-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 19.1,
+        "dna": ""
+      },
+      {
+        "name": "LH-ECOM-TRUST-REBUILD-v1.0",
+        "path": "01_protocols/LH-ECOM-TRUST-REBUILD-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 9.0,
+        "dna": "#龍芯⚡️2026-07-21-ECOM-TRUST-REBUILD-V1.0-P0"
+      },
+      {
+        "name": "LH-ETHICS-ANCHOR-v1.0",
+        "path": "01_protocols/LH-ETHICS-ANCHOR-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 41.2,
+        "dna": "#龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-ETHICS-ANCHOR-INTEGRATION-SYSTEM"
+      },
+      {
+        "name": "LH-EXISTENCE-PROOF-v1.0",
+        "path": "01_protocols/LH-EXISTENCE-PROOF-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 12.8,
+        "dna": ""
+      },
+      {
+        "name": "LH-EXTERNAL-ONE-WAY-ISOLATION-V1.0",
+        "path": "01_protocols/LH-EXTERNAL-ONE-WAY-ISOLATION-V1.0.md",
+        "category": "其他协议",
+        "size_kb": 5.3,
+        "dna": ""
+      },
+      {
+        "name": "LH-FEISHU-NOTIFY-GATEWAY-v1.0",
+        "path": "01_protocols/LH-FEISHU-NOTIFY-GATEWAY-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 10.4,
+        "dna": "#龍芯⚡️丙午·乙未·戊戌·寅时·☰乾-FEISHU-NOTIFY-v1.0`"
+      },
+      {
+        "name": "LH-FILE-FIX-REPORT-v1.0",
+        "path": "01_protocols/LH-FILE-FIX-REPORT-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 3.1,
+        "dna": "#龍芯⚡️2026-07-18-FIX-REPORT-v1.0`"
+      },
+      {
+        "name": "LH-FIVE-ELEMENT-AUDIT-v1.0",
+        "path": "01_protocols/LH-FIVE-ELEMENT-AUDIT-v1.0.md",
+        "category": "审计协议",
+        "size_kb": 3.9,
+        "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-FIVE-ELEMENT-AUDIT-v1.0`"
+      },
+      {
+        "name": "LH-FIXED-POINT-MEMORY-ARCHIVE-v1.0",
+        "path": "01_protocols/LH-FIXED-POINT-MEMORY-ARCHIVE-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 6.2,
+        "dna": "#龍芯⚡️丙午·丙申·癸酉·巳时·渐-FIXED-POINT-MEMORY-ARCHIVE-v1.0"
+      },
+      {
+        "name": "LH-FLOW-MASTER-v2.0-SUPPLEMENT",
+        "path": "01_protocols/LH-FLOW-MASTER-v2.0-SUPPLEMENT.md",
+        "category": "其他协议",
+        "size_kb": 30.3,
+        "dna": ""
+      },
+      {
+        "name": "LH-FLOW-MASTER-v2.0",
+        "path": "01_protocols/LH-FLOW-MASTER-v2.0.md",
+        "category": "其他协议",
+        "size_kb": 30.3,
+        "dna": ""
+      },
+      {
+        "name": "LH-FULL-SKILLS-NAV-V5.2",
+        "path": "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
+        "category": "其他协议",
+        "size_kb": 13.9,
+        "dna": "#龍芯⚡️2026-07-11-LONGHUN-FULL-SKILLS-NAV-v5.2**"
+      },
+      {
+        "name": "LH-FUSION-OS-GENERAL-INSTRUCTION-v3.0",
+        "path": "01_protocols/LH-FUSION-OS-GENERAL-INSTRUCTION-v3.0.md",
+        "category": "融合指令",
+        "size_kb": 25.0,
+        "dna": "#龍芯⚡️丙午·乙未·丙午·乾卦-FUSION-UPGRADE-v3.0`"
+      },
+      {
+        "name": "LH-GAP-LEDGER-v1.0",
+        "path": "01_protocols/LH-GAP-LEDGER-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 8.6,
+        "dna": "#龍芯⚡️2026-07-20-LANDING-GAP-LEDGER-V1.0"
+      },
+      {
+        "name": "LH-GOV-DATA-SOVEREIGNTY-v1.0",
+        "path": "01_protocols/LH-GOV-DATA-SOVEREIGNTY-v1.0.md",
+        "category": "主权协议",
+        "size_kb": 15.1,
+        "dna": "#龍芯⚡️2026-07-01-DATA-SOVEREIGNTY-DEATH-TO-BLACKBOX-UID9622`"
+      },
+      {
+        "name": "LH-GOV-GRASSROOTS-REALITY-PROTOCOL-FULL-v1.0",
+        "path": "01_protocols/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-FULL-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 15.6,
+        "dna": ""
+      },
+      {
+        "name": "LH-GOV-GRASSROOTS-REALITY-PROTOCOL-v1.0",
+        "path": "01_protocols/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 9.2,
+        "dna": ""
+      },
+      {
+        "name": "LH-GUANLAN-BROWSER-AI-INTEGRATION-README",
+        "path": "01_protocols/LH-GUANLAN-BROWSER-AI-INTEGRATION-README.md",
+        "category": "其他协议",
+        "size_kb": 4.7,
+        "dna": "#龍芯⚡️丙午·乙未·丙申·申时·☴巽-GUANLAN-BROWSER-AI-INTEGRATION-v1.0"
+      },
+      {
+        "name": "LH-GUANLAN-BROWSER-AI-INTEGRATION-v1.0",
+        "path": "01_protocols/LH-GUANLAN-BROWSER-AI-INTEGRATION-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 16.8,
+        "dna": ""
+      },
+      {
+        "name": "LH-GUANLAN-BROWSER-MATH-v1.0",
+        "path": "01_protocols/LH-GUANLAN-BROWSER-MATH-v1.0.md",
+        "category": "算法数学",
+        "size_kb": 12.4,
+        "dna": ""
+      },
+      {
+        "name": "LH-H-QUADRANT-EQUALITY-v1.0",
+        "path": "01_protocols/LH-H-QUADRANT-EQUALITY-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 2.8,
+        "dna": "#龍芯⚡️丙午·丙申·丙辰·亥时·需-H-QUADRANT-EQUALITY-v1.0`"
+      },
+      {
+        "name": "LH-HARMONYOS-COMPAT-WHITEPAPER-v1.0",
+        "path": "01_protocols/LH-HARMONYOS-COMPAT-WHITEPAPER-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 6.6,
+        "dna": "#龍芯⚡️丙午·癸未·甲子·既济-鸿蒙兼容-v1.0"
+      },
+      {
+        "name": "LH-HARMONYOS-COMPAT-WHITEPAPER-v1.1",
+        "path": "01_protocols/LH-HARMONYOS-COMPAT-WHITEPAPER-v1.1.md",
+        "category": "其他协议",
+        "size_kb": 11.2,
+        "dna": "#龍芯⚡️丙午·癸未·甲子·既济-鸿蒙兼容-v1.1"
+      },
+      {
+        "name": "LH-KNOWLEDGE-GRAPH-ARCH-v1.0",
+        "path": "01_protocols/LH-KNOWLEDGE-GRAPH-ARCH-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 9.1,
+        "dna": "#龍芯⚡️丙午·乙未·丙申·酉时·☰乾-KNOWLEDGE-GRAPH-ARCH-v1.0-f1e2d3c4"
+      },
+      {
+        "name": "LH-LEARN-INTEGRATE-MANUAL-v1.0",
+        "path": "01_protocols/LH-LEARN-INTEGRATE-MANUAL-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 34.5,
+        "dna": ""
+      },
+      {
+        "name": "LH-M261-PREQUEL-COVENANT-v1.0",
+        "path": "01_protocols/LH-M261-PREQUEL-COVENANT-v1.0.md",
+        "category": "授权契碑",
+        "size_kb": 6.5,
+        "dna": ""
+      },
+      {
+        "name": "LH-MASTER-PLAN-v1.0",
+        "path": "01_protocols/LH-MASTER-PLAN-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 5.4,
+        "dna": "#龍芯⚡️2026-07-23-MASTER-PLAN-v1.0-b7f3a2d1"
+      },
+      {
+        "name": "LH-MATH-FOUNDATIONS-v2.0",
+        "path": "01_protocols/LH-MATH-FOUNDATIONS-v2.0.md",
+        "category": "算法数学",
+        "size_kb": 5.4,
+        "dna": "#龍芯⚡️2026-07-23-MATH-FOUNDATIONS-v2.0-c3d9e1f7"
+      },
+      {
+        "name": "LH-MEDIA-SOVEREIGNTY-MARK-v1.0",
+        "path": "01_protocols/LH-MEDIA-SOVEREIGNTY-MARK-v1.0.md",
+        "category": "主权协议",
+        "size_kb": 5.1,
+        "dna": "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-MEDIA-SOVEREIGNTY-MARK-v1.0`"
+      },
+      {
+        "name": "LH-MEMORY-ETERNITY-EXOBRAIN-v1.0",
+        "path": "01_protocols/LH-MEMORY-ETERNITY-EXOBRAIN-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 1.9,
+        "dna": "#龍芯⚡️2026-07-20-MEMORY-ETERNITY-EXOBRAIN-V1.0-P0"
+      },
+      {
+        "name": "LH-MERCHANT-API-PROTOCOL-v1.0",
+        "path": "01_protocols/LH-MERCHANT-API-PROTOCOL-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 4.5,
+        "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-MERCHANT-PROTOCOL-v1.0"
+      },
+      {
+        "name": "LH-MFA-ACTIVATE-v2.0",
+        "path": "01_protocols/LH-MFA-ACTIVATE-v2.0.md",
+        "category": "其他协议",
+        "size_kb": 6.4,
+        "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-MFA-ACTIVATE-PROTOCOL-v2.0-3F7A1B9C"
+      },
+      {
+        "name": "LH-MINOR-GUARD-ENGINE-v1.0",
+        "path": "01_protocols/LH-MINOR-GUARD-ENGINE-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 0.0,
+        "dna": ""
+      },
+      {
+        "name": "LH-MINOR-GUARD-MATH-v1.0",
+        "path": "01_protocols/LH-MINOR-GUARD-MATH-v1.0.md",
+        "category": "算法数学",
+        "size_kb": 7.7,
+        "dna": "#龍芯⚡️丙午·乙未·丙申·申时·☳震-MINOR-GUARD-MATH-V1.0-P0-37006732`"
+      },
+      {
+        "name": "LH-NAMING-ARCH-v1.0",
+        "path": "01_protocols/LH-NAMING-ARCH-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 14.3,
+        "dna": ""
+      },
+      {
+        "name": "LH-NAMING-ARCH-v2.0",
+        "path": "01_protocols/LH-NAMING-ARCH-v2.0.md",
+        "category": "其他协议",
+        "size_kb": 14.0,
+        "dna": ""
+      },
+      {
+        "name": "LH-NAMING-SYMBOL-MASTER-v1.0",
+        "path": "01_protocols/LH-NAMING-SYMBOL-MASTER-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 24.4,
+        "dna": ""
+      },
+      {
+        "name": "LH-NANO-VISION-ENGINE-v4.1.5",
+        "path": "01_protocols/LH-NANO-VISION-ENGINE-v4.1.5.md",
+        "category": "其他协议",
+        "size_kb": 21.1,
+        "dna": "#龍芯⚡️丙午·癸未·丁未·离为火-纳米视觉-v4.1.5-INTEGRATED"
+      },
+      {
+        "name": "LH-NO-BACKEND-SOVEREIGNTY-PROTOCOL-v3.0",
+        "path": "01_protocols/LH-NO-BACKEND-SOVEREIGNTY-PROTOCOL-v3.0.md",
+        "category": "主权协议",
+        "size_kb": 14.0,
+        "dna": ""
+      },
+      {
+        "name": "LH-NOTION-ENGINE-DATABASE-v1.0",
+        "path": "01_protocols/LH-NOTION-ENGINE-DATABASE-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 40.4,
+        "dna": "#龍芯⚡️丙午·乙未·辛亥·酉时·☰乾-NOTION-ENGINE-DB-v1.0-7f3a2e1d"
+      },
+      {
+        "name": "LH-OPEN-AUDIT-WHITEPAPER-v2.0",
+        "path": "01_protocols/LH-OPEN-AUDIT-WHITEPAPER-v2.0.md",
+        "category": "审计协议",
+        "size_kb": 39.4,
+        "dna": ""
+      },
+      {
+        "name": "LH-ORIGINALITY-DECLARATION-PROTOCOL-v1.0",
+        "path": "01_protocols/LH-ORIGINALITY-DECLARATION-PROTOCOL-v1.0.md",
+        "category": "原创声明",
+        "size_kb": 19.0,
+        "dna": ""
+      },
+      {
+        "name": "LH-P0-WELD-BASE-v1.0",
+        "path": "01_protocols/LH-P0-WELD-BASE-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 10.6,
+        "dna": "#龍芯⚡️丙午·乙申·庚戌·巳时·需-P0-WELD-BASE-v1.0"
+      },
+      {
+        "name": "LH-PANGDONGLAI-PROFIT-SPLIT-v1.0",
+        "path": "01_protocols/LH-PANGDONGLAI-PROFIT-SPLIT-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 21.1,
+        "dna": "#龍芯⚡️丙午·癸未·丁亥·地火明夷-PANGDONGLAI-SPLIT-v1.0-3f7a1b9c"
+      },
+      {
+        "name": "LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.0",
+        "path": "01_protocols/LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.0.md",
+        "category": "人格治理",
+        "size_kb": 67.9,
+        "dna": ""
+      },
+      {
+        "name": "LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4",
+        "path": "01_protocols/LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md",
+        "category": "人格治理",
+        "size_kb": 67.7,
+        "dna": ""
+      },
+      {
+        "name": "LH-PERSONA-ORCHESTRA-VISUAL-v1.0",
+        "path": "01_protocols/LH-PERSONA-ORCHESTRA-VISUAL-v1.0.md",
+        "category": "人格治理",
+        "size_kb": 11.5,
+        "dna": "#龍芯⚡️丙午·癸未·丁未·离为火-人格协作可视化-v1.0"
+      },
+      {
+        "name": "LH-PRIVACY-WHITEPAPER-v1.0",
+        "path": "01_protocols/LH-PRIVACY-WHITEPAPER-v1.0.md",
+        "category": "隐私安全",
+        "size_kb": 8.1,
+        "dna": "#龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-PRIVACY-WHITEPAPER-INTEGRATION-SYSTEM"
+      },
+      {
+        "name": "LH-PROMPT-BLACKBOX-AUDIT-v2.0",
+        "path": "01_protocols/LH-PROMPT-BLACKBOX-AUDIT-v2.0.md",
+        "category": "审计协议",
+        "size_kb": 8.8,
+        "dna": "#龍芯⚡️2026-07-30-丙午·乙未·甲辰·离为火-黑箱审计-v2.0`"
+      },
+      {
+        "name": "LH-PROMPT-ENGINEERING-FRAMEWORK-v1.0",
+        "path": "01_protocols/LH-PROMPT-ENGINEERING-FRAMEWORK-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 12.2,
+        "dna": "#龍芯⚡️丙午·乙未·丙申·酉时·☰乾-PROMPT-ENGINEERING-FRAMEWORK-v1.0-c5d6e7f8"
+      },
+      {
+        "name": "LH-PROTOCOL-HIERARCHY-v1.0",
+        "path": "01_protocols/LH-PROTOCOL-HIERARCHY-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 14.9,
+        "dna": ""
+      },
+      {
+        "name": "LH-QA-EXTENDED-101-106",
+        "path": "01_protocols/LH-QA-EXTENDED-101-106.md",
+        "category": "其他协议",
+        "size_kb": 6.4,
+        "dna": "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-QA-EXTENDED-101-106-v1.0-7d2e4f81"
+      },
+      {
+        "name": "LH-REGISTER-MAIL-MATH-v1.0",
+        "path": "01_protocols/LH-REGISTER-MAIL-MATH-v1.0.md",
+        "category": "算法数学",
+        "size_kb": 10.2,
+        "dna": "#龍芯⚡️丙午·乙未·丙申·申时·☵坎-REGISTER-MAIL-MATH-V1.0-84e13841"
+      },
+      {
+        "name": "LH-REGULATORY-TRANSPARENCY-API-v1.0",
+        "path": "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 14.6,
+        "dna": "#龍芯⚡️丙午·丙申·丙辰·己丑·需-REGULATORY-TRANSPARENCY-API-v1.0`"
+      },
+      {
+        "name": "LH-RITE-BLADE-DUALTRACK-v1.0",
+        "path": "01_protocols/LH-RITE-BLADE-DUALTRACK-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 3.4,
+        "dna": ""
+      },
+      {
+        "name": "LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0",
+        "path": "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
+        "category": "交付标准",
+        "size_kb": 34.5,
+        "dna": "#龍芯⚡️丙午·辛未·乙酉·亥时·䷾既济-SANCAI-UNIFIED-v3.0 -->"
+      },
+      {
+        "name": "LH-SEMANTIC-COMMAND-MAPPING-v1.0",
+        "path": "01_protocols/LH-SEMANTIC-COMMAND-MAPPING-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 16.7,
+        "dna": "#龍芯⚡️丙午·乙未·甲寅·需-SEMANTIC-COMMAND-MAPPING-v1.0`"
+      },
+      {
+        "name": "LH-SOVEREIGN-LLM-ARCH-v1.0",
+        "path": "01_protocols/LH-SOVEREIGN-LLM-ARCH-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 14.9,
+        "dna": ""
+      },
+      {
+        "name": "LH-SOVEREIGNTY-BENCHMARK-v1.0",
+        "path": "01_protocols/LH-SOVEREIGNTY-BENCHMARK-v1.0.md",
+        "category": "主权协议",
+        "size_kb": 4.6,
+        "dna": "#龍芯⚡️2026-07-23-SOVEREIGNTY-BENCHMARK-v1.0-f3b7c1e9"
+      },
+      {
+        "name": "LH-SUMMARY-CRAWLER-TRAFFIC-SPLIT-v1.0",
+        "path": "01_protocols/LH-SUMMARY-CRAWLER-TRAFFIC-SPLIT-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 19.1,
+        "dna": "#龍芯⚡️2026-07-21-SUMMARY-CRAWLER-SPLIT-V1.0-P0`"
+      },
+      {
+        "name": "LH-SYSTEM-HEALTH-PANORAMA-v1.0",
+        "path": "01_protocols/LH-SYSTEM-HEALTH-PANORAMA-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 4.8,
+        "dna": "#龍芯⚡️丙午·癸未·丁未·离为火-健康全景图-v1.0"
+      },
+      {
+        "name": "LH-TAO-CHIP-v1.0",
+        "path": "01_protocols/LH-TAO-CHIP-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 7.9,
+        "dna": "#龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-TAO-CHIP-v1.0-->"
+      },
+      {
+        "name": "LH-TECH-SOVEREIGNTY-GUARD-REFERRAL-v1.0",
+        "path": "01_protocols/LH-TECH-SOVEREIGNTY-GUARD-REFERRAL-v1.0.md",
+        "category": "主权协议",
+        "size_kb": 32.2,
+        "dna": "#龍芯⚡️2026-07-20-TECH-SOVEREIGNTY-GUARD-V1.0-P0"
+      },
+      {
+        "name": "LH-TOKEN-CENTURY-LIE-v1.0",
+        "path": "01_protocols/LH-TOKEN-CENTURY-LIE-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 21.6,
+        "dna": "#龍芯⚡️2026-07-21-TOKEN-LIE-EXPOSED-V1.0"
+      },
+      {
+        "name": "LH-TONGXIN-LOCK-v1.0",
+        "path": "01_protocols/LH-TONGXIN-LOCK-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 3.8,
+        "dna": "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-TONGXIN-LOCK-v1.0`"
+      },
+      {
+        "name": "LH-UID9622-龍芯⚡️丙午·癸未·甲子·既济-AI-Traceability-Audit-Protocol-v1.0",
+        "path": "01_protocols/LH-UID9622-龍芯⚡️丙午·癸未·甲子·既济-AI-Traceability-Audit-Protocol-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 31.4,
+        "dna": ""
+      },
+      {
+        "name": "LH-UID9622-龍芯⚡️丙午·癸未·甲子·既济-猎手计划-CodeBuddy执行任务书-v1.0",
+        "path": "01_protocols/LH-UID9622-龍芯⚡️丙午·癸未·甲子·既济-猎手计划-CodeBuddy执行任务书-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 5.9,
+        "dna": ""
+      },
+      {
+        "name": "LH-UNIFIED-VISUAL-COLOR-PROTOCOL-v1.0",
+        "path": "01_protocols/LH-UNIFIED-VISUAL-COLOR-PROTOCOL-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 18.5,
+        "dna": "#龍芯⚡️丙午·乙未·庚戌·天风姤-UNIFIED-VISUAL-COLOR-v1.0"
+      },
+      {
+        "name": "LH-UNIVERSAL-AUDIT-TEMPLATE-v1.0",
+        "path": "01_protocols/LH-UNIVERSAL-AUDIT-TEMPLATE-v1.0.md",
+        "category": "审计协议",
+        "size_kb": 7.6,
+        "dna": "#龍芯⚡️丙午·辛未·乙酉·UNIVERSAL-AUDIT-TEMPLATE-v1.0`"
+      },
+      {
+        "name": "LH-VIDEO-PRODUCTION-v1.0",
+        "path": "01_protocols/LH-VIDEO-PRODUCTION-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 7.7,
+        "dna": "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-VIDEO-PROD-v1.0`"
+      },
+      {
+        "name": "LH-VISION-CONSTITUTION-v1.0",
+        "path": "01_protocols/LH-VISION-CONSTITUTION-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 9.0,
+        "dna": ""
+      },
+      {
+        "name": "LH-VISION-CONSTITUTION-v1.1",
+        "path": "01_protocols/LH-VISION-CONSTITUTION-v1.1.md",
+        "category": "其他协议",
+        "size_kb": 8.5,
+        "dna": ""
+      },
+      {
+        "name": "LH-VISUAL-AUDIO-FUSION-v1.0",
+        "path": "01_protocols/LH-VISUAL-AUDIO-FUSION-v1.0.md",
+        "category": "融合指令",
+        "size_kb": 5.0,
+        "dna": "#龍芯⚡️丙午·癸未·丁未·离为火-视觉声音融合-v1.0"
+      },
+      {
+        "name": "LH-WHITEPAPER-TEMPLATE-STANDARD-v1.0",
+        "path": "01_protocols/LH-WHITEPAPER-TEMPLATE-STANDARD-v1.0.md",
+        "category": "交付标准",
+        "size_kb": 10.8,
+        "dna": ""
+      },
+      {
+        "name": "LH-XIAOYI-DISPATCH-HUB-v5.0-P0-P4",
+        "path": "01_protocols/LH-XIAOYI-DISPATCH-HUB-v5.0-P0-P4.md",
+        "category": "其他协议",
+        "size_kb": 16.9,
+        "dna": ""
+      },
+      {
+        "name": "LONGHUN-ENTERPRISE-METAVERSE-FUSION-v2.0",
+        "path": "01_protocols/LONGHUN-ENTERPRISE-METAVERSE-FUSION-v2.0.md",
+        "category": "融合指令",
+        "size_kb": 74.5,
+        "dna": ""
+      },
+      {
+        "name": "GPG_SIGN_INSTRUCTIONS",
+        "path": "01_protocols/M261-prequel-covenant-v1.0/GPG_SIGN_INSTRUCTIONS.md",
+        "category": "融合指令",
+        "size_kb": 1.0,
+        "dna": ""
+      },
+      {
+        "name": "M261-prequel-covenant-v1.0",
+        "path": "01_protocols/M261-prequel-covenant-v1.0/M261-prequel-covenant-v1.0.md",
+        "category": "授权契碑",
+        "size_kb": 1.5,
+        "dna": ""
+      },
+      {
+        "name": "QIYE-DENG-TECH-ARCH-v2.0",
+        "path": "01_protocols/QIYE-DENG-TECH-ARCH-v2.0.md",
+        "category": "其他协议",
+        "size_kb": 0.0,
+        "dna": ""
+      },
+      {
+        "name": "SENSORY-EDUCATION-DIGNITY-v1.0",
+        "path": "01_protocols/SENSORY-EDUCATION-DIGNITY-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 12.8,
+        "dna": "#龍芯⚡️丙午·丙申·丙辰·己丑·需-SENSORY-EDUCATION-DIGNITY-v1.0-52139EB3`"
+      },
+      {
+        "name": "00-THESIS-OUTLINE",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/00-THESIS-OUTLINE.md",
+        "category": "其他协议",
+        "size_kb": 7.6,
+        "dna": ""
+      },
+      {
+        "name": "01-PREFACE",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/01-PREFACE.md",
+        "category": "其他协议",
+        "size_kb": 8.7,
+        "dna": ""
+      },
+      {
+        "name": "02-CHAPTER-01",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/02-CHAPTER-01.md",
+        "category": "其他协议",
+        "size_kb": 18.2,
+        "dna": ""
+      },
+      {
+        "name": "03-CHAPTER-02",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/03-CHAPTER-02.md",
+        "category": "其他协议",
+        "size_kb": 17.1,
+        "dna": ""
+      },
+      {
+        "name": "04-CHAPTER-03",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/04-CHAPTER-03.md",
+        "category": "其他协议",
+        "size_kb": 10.5,
+        "dna": ""
+      },
+      {
+        "name": "05-CHAPTER-04",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/05-CHAPTER-04.md",
+        "category": "其他协议",
+        "size_kb": 13.3,
+        "dna": ""
+      },
+      {
+        "name": "06-CHAPTER-05",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/06-CHAPTER-05.md",
+        "category": "其他协议",
+        "size_kb": 10.5,
+        "dna": ""
+      },
+      {
+        "name": "07-CHAPTER-06",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/07-CHAPTER-06.md",
+        "category": "其他协议",
+        "size_kb": 10.6,
+        "dna": ""
+      },
+      {
+        "name": "08-CHAPTER-07",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/08-CHAPTER-07.md",
+        "category": "其他协议",
+        "size_kb": 10.0,
+        "dna": ""
+      },
+      {
+        "name": "09-CHAPTER-08",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/09-CHAPTER-08.md",
+        "category": "其他协议",
+        "size_kb": 12.0,
+        "dna": ""
+      },
+      {
+        "name": "10-CHAPTER-09",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/10-CHAPTER-09.md",
+        "category": "其他协议",
+        "size_kb": 10.8,
+        "dna": ""
+      },
+      {
+        "name": "11-CHAPTER-10",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/11-CHAPTER-10.md",
+        "category": "其他协议",
+        "size_kb": 9.1,
+        "dna": ""
+      },
+      {
+        "name": "12-CHAPTER-11",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/12-CHAPTER-11.md",
+        "category": "其他协议",
+        "size_kb": 8.3,
+        "dna": ""
+      },
+      {
+        "name": "13-CHAPTER-12",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/13-CHAPTER-12.md",
+        "category": "其他协议",
+        "size_kb": 10.1,
+        "dna": ""
+      },
+      {
+        "name": "14-CHAPTER-13",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/14-CHAPTER-13.md",
+        "category": "其他协议",
+        "size_kb": 9.0,
+        "dna": ""
+      },
+      {
+        "name": "15-CHAPTER-14",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/15-CHAPTER-14.md",
+        "category": "其他协议",
+        "size_kb": 9.3,
+        "dna": ""
+      },
+      {
+        "name": "16-CHAPTER-15",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/16-CHAPTER-15.md",
+        "category": "其他协议",
+        "size_kb": 8.0,
+        "dna": ""
+      },
+      {
+        "name": "FULL-THESIS",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/FULL-THESIS.md",
+        "category": "其他协议",
+        "size_kb": 181.6,
+        "dna": ""
+      },
+      {
+        "name": "README",
+        "path": "01_protocols/THESIS-ROOT-GOVERNANCE/README.md",
+        "category": "其他协议",
+        "size_kb": 3.7,
+        "dna": ""
+      },
+      {
+        "name": "UID9622_人机协作协议_v2.0",
+        "path": "01_protocols/UID9622_人机协作协议_v2.0.md",
+        "category": "其他协议",
+        "size_kb": 3.6,
+        "dna": ""
+      },
+      {
+        "name": "XIAOYI-CMD-PROTOCOL-v1.0",
+        "path": "01_protocols/XIAOYI-CMD-PROTOCOL-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 7.7,
+        "dna": "#龍芯⚡️丙午·乙未·丙申·酉时·☰乾-XIAOYI-CMD-PROTOCOL-v1.0-7b2e4f1a"
+      },
+      {
+        "name": "XIAOYI-SKILL-DEFINITION-v1.0",
+        "path": "01_protocols/XIAOYI-SKILL-DEFINITION-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 4.8,
+        "dna": "#龍芯⚡️丙午·乙未·丙申·酉时·☰乾-XIAOYI-SKILL-v1.0-9c4d2e1f"
+      },
+      {
+        "name": "ARCHIVE_RECORD_2026-06-09",
+        "path": "01_protocols/archive/ARCHIVE_RECORD_2026-06-09.md",
+        "category": "其他协议",
+        "size_kb": 3.7,
+        "dna": ""
+      },
+      {
+        "name": "CURRENT_PROTOCOL_POINTER",
+        "path": "01_protocols/archive/CURRENT_PROTOCOL_POINTER.md",
+        "category": "其他协议",
+        "size_kb": 1.1,
+        "dna": ""
+      },
+      {
+        "name": "DATA_SOVEREIGNTY_PROTOCOL_v2_0",
+        "path": "01_protocols/archive/DATA_SOVEREIGNTY_PROTOCOL_v2_0.md",
+        "category": "主权协议",
+        "size_kb": 30.3,
+        "dna": "#龍芯⚡️2026-07-02-DATA-SOVEREIGNTY-v2_0-UID9622`"
+      },
+      {
+        "name": "LONGHUN_CHARTER_v1.1",
+        "path": "01_protocols/archive/LONGHUN_CHARTER_v1.1.md",
+        "category": "其他协议",
+        "size_kb": 1.3,
+        "dna": ""
+      },
+      {
+        "name": "LONGHUN_CHARTER_v1.1_SOLE_AUTHORITY_PROCLAMATION",
+        "path": "01_protocols/archive/LONGHUN_CHARTER_v1.1_SOLE_AUTHORITY_PROCLAMATION.md",
+        "category": "其他协议",
+        "size_kb": 6.0,
+        "dna": ""
+      },
+      {
+        "name": "PROTOCOL_BINDING_COMPLETION_REPORT",
+        "path": "01_protocols/archive/PROTOCOL_BINDING_COMPLETION_REPORT.md",
+        "category": "其他协议",
+        "size_kb": 8.3,
+        "dna": "#龍芯⚡️2026-06-08-PROTOCOL-BINDING-COMPLETION-FILE1-v1.0"
+      },
+      {
+        "name": "PROTOCOL_UNIFICATION_COMPLETION_REPORT",
+        "path": "01_protocols/archive/PROTOCOL_UNIFICATION_COMPLETION_REPORT.md",
+        "category": "其他协议",
+        "size_kb": 7.8,
+        "dna": "#龍芯⚡️2026-06-21-PROTOCOL-PROTOCOL_UNIFICATION_COMPLETION_REPORT-FILE1-v1.0-2 -->"
+      },
+      {
+        "name": "README",
+        "path": "01_protocols/archive/README.md",
+        "category": "其他协议",
+        "size_kb": 0.7,
+        "dna": ""
+      },
+      {
+        "name": "VERSION_UPGRADE_LOG",
+        "path": "01_protocols/archive/VERSION_UPGRADE_LOG.md",
+        "category": "其他协议",
+        "size_kb": 6.9,
+        "dna": "#龍芯⚡️2026-06-07-PROTOCOL-VERSION-HISTORY-FILE1-v1.0"
+      },
+      {
+        "name": "AUDIT_INTEGRATION_GUIDE_v1.0",
+        "path": "01_protocols/archive/_DEPRECATED_v1.0_2026-06-08/AUDIT_INTEGRATION_GUIDE_v1.0.md",
+        "category": "审计协议",
+        "size_kb": 11.4,
+        "dna": "#龍芯⚡️2026-06-08-AUDIT-INTEGRATION-GUIDE-FILE1_9754-v1.0"
+      },
+      {
+        "name": "THREE_COLOR_AUDIT_PROTOCOL_v1.0",
+        "path": "01_protocols/archive/_DEPRECATED_v1.0_2026-06-08/THREE_COLOR_AUDIT_PROTOCOL_v1.0.md",
+        "category": "审计协议",
+        "size_kb": 12.8,
+        "dna": "#龍芯⚡️2026-04-01-AI_-FILE2_A72C-v1.0"
+      },
+      {
+        "name": "UID9622_EXCLUSIVE_PROTOCOL_v1.0",
+        "path": "01_protocols/archive/_DEPRECATED_v1.0_2026-06-08/UID9622_EXCLUSIVE_PROTOCOL_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 5.8,
+        "dna": "#龍芯⚡️2026-06-08-UID9622-EXCLUSIVE-PROTOCOL-FILE1-v1.0"
+      },
+      {
+        "name": "UID9622_GENERATIONAL_COVENANT_v1.0",
+        "path": "01_protocols/archive/_DEPRECATED_v1.0_2026-06-08/UID9622_GENERATIONAL_COVENANT_v1.0.md",
+        "category": "授权契碑",
+        "size_kb": 6.3,
+        "dna": "#龍芯⚡️2026-06-08-UID9622-GENERATIONAL-COVENANT-FILE1-v1.0"
+      },
+      {
+        "name": "input-filter-preprocessing-v3.0",
+        "path": "01_protocols/archive/input-filter-preprocessing-v3.0.md",
+        "category": "其他协议",
+        "size_kb": 32.5,
+        "dna": "#龍芯⚡️2026-06-27-LONGHUN-INPUT-FILTER-FILE2-v3.0"
+      },
+      {
+        "name": "LONGHUN_PROTOCOL",
+        "path": "01_protocols/archive/legacy/English/LONGHUN_PROTOCOL.md",
+        "category": "其他协议",
+        "size_kb": 24.0,
+        "dna": ""
+      },
+      {
+        "name": "README",
+        "path": "01_protocols/archive/legacy/README.md",
+        "category": "其他协议",
+        "size_kb": 0.8,
+        "dna": "#龍芯⚡️2026-07-21-DUALVIEW-V3-LANDING-V1.0-P0"
+      },
+      {
+        "name": "LH-DUALVIEW-V3-LANDING-v1.0",
+        "path": "01_protocols/archive/legacy/中文版/LH-DUALVIEW-V3-LANDING-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 19.1,
+        "dna": ""
+      },
+      {
+        "name": "01_总纲",
+        "path": "01_protocols/audit_protocol_v2.0/01_总纲.md",
+        "category": "其他协议",
+        "size_kb": 3.5,
+        "dna": "#龍芯⚡️2026-07-19-审计协议-v2.0-系统融合`"
+      },
+      {
+        "name": "02_审计触发矩阵",
+        "path": "01_protocols/audit_protocol_v2.0/02_审计触发矩阵.md",
+        "category": "其他协议",
+        "size_kb": 4.3,
+        "dna": ""
+      },
+      {
+        "name": "03_16人格审计职责",
+        "path": "01_protocols/audit_protocol_v2.0/03_16人格审计职责.md",
+        "category": "其他协议",
+        "size_kb": 2.8,
+        "dna": ""
+      },
+      {
+        "name": "04_三色分级标准",
+        "path": "01_protocols/audit_protocol_v2.0/04_三色分级标准.md",
+        "category": "其他协议",
+        "size_kb": 3.4,
+        "dna": ""
+      },
+      {
+        "name": "05_v4.x审计推理流程",
+        "path": "01_protocols/audit_protocol_v2.0/05_v4.x审计推理流程.md",
+        "category": "其他协议",
+        "size_kb": 4.9,
+        "dna": ""
+      },
+      {
+        "name": "06_审计留痕格式",
+        "path": "01_protocols/audit_protocol_v2.0/06_审计留痕格式.md",
+        "category": "其他协议",
+        "size_kb": 4.0,
+        "dna": ""
+      },
+      {
+        "name": "07_主权申诉流程",
+        "path": "01_protocols/audit_protocol_v2.0/07_主权申诉流程.md",
+        "category": "其他协议",
+        "size_kb": 2.8,
+        "dna": ""
+      },
+      {
+        "name": "08_v4.1训练数据注入",
+        "path": "01_protocols/audit_protocol_v2.0/08_v4.1训练数据注入.md",
+        "category": "其他协议",
+        "size_kb": 10.6,
+        "dna": ""
+      },
+      {
+        "name": "BCDE12_胖东来分成契约_20260722",
+        "path": "01_protocols/contracts/BCDE12_胖东来分成契约_20260722.md",
+        "category": "其他协议",
+        "size_kb": 6.2,
+        "dna": ""
+      },
+      {
+        "name": "2026-07-07-CNSH-UPGRADE-v2.0",
+        "path": "01_protocols/downloads_archive/2026-07-07-CNSH-UPGRADE-v2.0.md",
+        "category": "算法数学",
+        "size_kb": 35.7,
+        "dna": ""
+      },
+      {
+        "name": "CNSH_v3.1_Changelog",
+        "path": "01_protocols/downloads_archive/CNSH_v3.1_Changelog.md",
+        "category": "算法数学",
+        "size_kb": 5.2,
+        "dna": "#龍芯⚡️2026-06-25-CNSH-v3.1-CHANGELOG`"
+      },
+      {
+        "name": "UID9622_计算公式对准表_v1.6_完整补全补丁",
+        "path": "01_protocols/downloads_archive/Kimi_Agent_龍魂收口协议/UID9622_计算公式对准表_v1.6_完整补全补丁.md",
+        "category": "其他协议",
+        "size_kb": 61.0,
+        "dna": ""
+      },
+      {
+        "name": "收口报告_UID9622_计算公式对准表_v1.6_完整补全补丁",
+        "path": "01_protocols/downloads_archive/Kimi_Agent_龍魂收口协议/收口报告_UID9622_计算公式对准表_v1.6_完整补全补丁.md",
+        "category": "其他协议",
+        "size_kb": 18.7,
+        "dna": "#龍芯⚡️2026-06-28-AUTO-CLOSURE-PROTOCOL-v2.0-HASH9f7ef551a8a91593"
+      },
+      {
+        "name": "收口报告_公式对准表v1.6补丁",
+        "path": "01_protocols/downloads_archive/Kimi_Agent_龍魂收口协议/收口报告_公式对准表v1.6补丁.md",
+        "category": "其他协议",
+        "size_kb": 2.1,
+        "dna": "#龍芯⚡️2026-06-28-AUTO-CLOSURE-PROTOCOL-v1.0"
+      },
+      {
+        "name": "csdn_export_md",
+        "path": "01_protocols/downloads_archive/Kimi_Agent_龍魂根协议自动化/csdn_export_md.md",
+        "category": "其他协议",
+        "size_kb": 0.0,
+        "dna": ""
+      },
+      {
+        "name": "UID9622_五大后台人格_部署报告",
+        "path": "01_protocols/downloads_archive/UID9622_五大后台人格_部署报告.md",
+        "category": "其他协议",
+        "size_kb": 10.0,
+        "dna": ""
+      },
+      {
+        "name": "UID9622_计算公式对准表_v1.6_完整补全补丁",
+        "path": "01_protocols/downloads_archive/UID9622_计算公式对准表_v1.6_完整补全补丁.md",
+        "category": "其他协议",
+        "size_kb": 61.0,
+        "dna": ""
+      },
+      {
+        "name": "UID9622_龍芯北辰_公开IP展示页_v2.0",
+        "path": "01_protocols/downloads_archive/UID9622_龍芯北辰_公开IP展示页_v2.0.md",
+        "category": "其他协议",
+        "size_kb": 17.9,
+        "dna": "#龍芯⚡️2026-07-04-UID9622-PUBLIC-IP-v2.0`"
+      },
+      {
+        "name": "CONTRIBUTING_EN",
+        "path": "01_protocols/downloads_archive/发布协议和申请条件/CONTRIBUTING_EN.md",
+        "category": "其他协议",
+        "size_kb": 9.8,
+        "dna": ""
+      },
+      {
+        "name": "LONGHUN_LICENSE_EN",
+        "path": "01_protocols/downloads_archive/发布协议和申请条件/LONGHUN_LICENSE_EN.md",
+        "category": "其他协议",
+        "size_kb": 8.2,
+        "dna": ""
+      },
+      {
+        "name": "README_EN",
+        "path": "01_protocols/downloads_archive/发布协议和申请条件/README_EN.md",
+        "category": "其他协议",
+        "size_kb": 5.9,
+        "dna": ""
+      },
+      {
+        "name": "龍魂IPA联动与红蓝对抗触发协议_v1.0",
+        "path": "01_protocols/downloads_archive/龍魂IPA联动与红蓝对抗触发协议_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 33.0,
+        "dna": ""
+      },
+      {
+        "name": "龍魂_CNSH_全球协议_v1.0",
+        "path": "01_protocols/downloads_archive/龍魂_CNSH_全球协议_v1.0.md",
+        "category": "算法数学",
+        "size_kb": 28.1,
+        "dna": ""
+      },
+      {
+        "name": "龍魂_CNSH_全球协议_v2.0",
+        "path": "01_protocols/downloads_archive/龍魂_CNSH_全球协议_v2.0.md",
+        "category": "算法数学",
+        "size_kb": 9.5,
+        "dna": "#龍芯⚡️2026-06-27-LONGHUN-CNSH-GLOBAL-PACT-v2.0`"
+      },
+      {
+        "name": "龍魂·语义优先编码规范_v1.0",
+        "path": "01_protocols/downloads_archive/龍魂·语义优先编码规范_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 15.4,
+        "dna": "#龍芯⚡️2026-07-03-SEMANTIC-CODE-SPEC-v1.0`"
+      },
+      {
+        "name": "龍魂企业级平台架构设计_v1.0",
+        "path": "01_protocols/downloads_archive/龍魂企业级平台架构设计_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 25.9,
+        "dna": ""
+      },
+      {
+        "name": "龍魂倫理錨定層_v1.0",
+        "path": "01_protocols/downloads_archive/龍魂倫理錨定層_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 41.0,
+        "dna": "#龍芯⚡️2026-07-05-LONGHUN-DAO-ETHICS-ANCHOR-v1.0`"
+      },
+      {
+        "name": "龍魂全局监控与实时通报架构_v1.0",
+        "path": "01_protocols/downloads_archive/龍魂全局监控与实时通报架构_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 28.4,
+        "dna": ""
+      },
+      {
+        "name": "龍魂全文件解析能力清单_v1.0",
+        "path": "01_protocols/downloads_archive/龍魂全文件解析能力清单_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 14.1,
+        "dna": ""
+      },
+      {
+        "name": "LONGHUN_PROTOCOL",
+        "path": "01_protocols/downloads_archive/龍魂协议双语版/LONGHUN_PROTOCOL.md",
+        "category": "其他协议",
+        "size_kb": 5.0,
+        "dna": "#龍芯⚡️20260529-LONGHUN-PROTOCOL-EN-v1.0"
+      },
+      {
+        "name": "龍魂协议",
+        "path": "01_protocols/downloads_archive/龍魂协议双语版/龍魂协议.md",
+        "category": "其他协议",
+        "size_kb": 4.0,
+        "dna": "#龍芯⚡️20260529-龍魂协议-中文-v1.0"
+      },
+      {
+        "name": "LONGHUN_PROTOCOL",
+        "path": "01_protocols/downloads_archive/龍魂协议双语版/龍魂系统-v3/协议文档/English/LONGHUN_PROTOCOL.md",
+        "category": "其他协议",
+        "size_kb": 5.0,
+        "dna": "#龍芯⚡️20260529-LONGHUN-PROTOCOL-EN-v1.0"
+      },
+      {
+        "name": "龍魂协议",
+        "path": "01_protocols/downloads_archive/龍魂协议双语版/龍魂系统-v3/协议文档/中文版/龍魂协议.md",
+        "category": "其他协议",
+        "size_kb": 4.0,
+        "dna": "#龍芯⚡️20260529-龍魂协议-中文-v1.0"
+      },
+      {
+        "name": "系统导航",
+        "path": "01_protocols/downloads_archive/龍魂协议双语版/龍魂系统-v3/系统导航.md",
+        "category": "其他协议",
+        "size_kb": 2.3,
+        "dna": "#龍芯⚡️20260529-系统导航-v3.0"
+      },
+      {
+        "name": "LONGHUN_CNSH_v2.0_PROTOCOL_COMPLETE",
+        "path": "01_protocols/downloads_archive/龍魂協議焊死·立即行動方案/LONGHUN_CNSH_v2.0_PROTOCOL_COMPLETE.md",
+        "category": "算法数学",
+        "size_kb": 23.8,
+        "dna": ""
+      },
+      {
+        "name": "PROTOCOL_LOCKDOWN_ACTION_PLAN",
+        "path": "01_protocols/downloads_archive/龍魂協議焊死·立即行動方案/PROTOCOL_LOCKDOWN_ACTION_PLAN.md",
+        "category": "其他协议",
+        "size_kb": 5.7,
+        "dna": "#龍芯⚡️2026-06-07-PROTOCOL-LOCKDOWN-ACTION-PLAN-v1.0"
+      },
+      {
+        "name": "龍魂合规漏洞挖掘指南_v1.0",
+        "path": "01_protocols/downloads_archive/龍魂合规漏洞挖掘指南_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 9.2,
+        "dna": ""
+      },
+      {
+        "name": "龍魂宪法_创始人愿景永久封存",
+        "path": "01_protocols/downloads_archive/龍魂宪法_创始人愿景永久封存.md",
+        "category": "其他协议",
+        "size_kb": 5.2,
+        "dna": ""
+      },
+      {
+        "name": "龍魂数据哲学与隐私保护协议_v1.0",
+        "path": "01_protocols/downloads_archive/龍魂数据哲学与隐私保护协议_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 24.2,
+        "dna": ""
+      },
+      {
+        "name": "龍魂档案·知识产权与专利可评估资产清单_v2.0",
+        "path": "01_protocols/downloads_archive/龍魂档案·知识产权与专利可评估资产清单_v2.0.md",
+        "category": "其他协议",
+        "size_kb": 32.7,
+        "dna": ""
+      },
+      {
+        "name": "龍魂流水线使用说明",
+        "path": "01_protocols/downloads_archive/龍魂流水线使用说明.md",
+        "category": "其他协议",
+        "size_kb": 3.6,
+        "dna": "#龍芯⚡️2026-05-28-LONGHUN-PIPELINE-v1.0`"
+      },
+      {
+        "name": "龍魂系统_封存声明_对齐整理",
+        "path": "01_protocols/downloads_archive/龍魂系统_封存声明_对齐整理.md",
+        "category": "其他协议",
+        "size_kb": 22.8,
+        "dna": ""
+      },
+      {
+        "name": "龍魂系统_知识矩阵总纲_v2.0",
+        "path": "01_protocols/downloads_archive/龍魂系统_知识矩阵总纲_v2.0.md",
+        "category": "其他协议",
+        "size_kb": 20.6,
+        "dna": ""
+      },
+      {
+        "name": "龍魂红蓝对抗良性竞争协议_v1.0",
+        "path": "01_protocols/downloads_archive/龍魂红蓝对抗良性竞争协议_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 14.5,
+        "dna": ""
+      },
+      {
+        "name": "🍎乔前辈数字人知识库·本地归档",
+        "path": "01_protocols/downloads_archive/🍎乔前辈数字人知识库·本地归档.md",
+        "category": "其他协议",
+        "size_kb": 39.5,
+        "dna": ""
+      },
+      {
+        "name": "longhun-intl-data-sources-v1.0",
+        "path": "01_protocols/longhun-intl-data-sources-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 12.6,
+        "dna": "#龍芯⚡️丙午·辛未·乙酉·卯时·讼-INTL-DATA-SOURCES-v1.0"
+      },
+      {
+        "name": "longhun-math-physics-engine-v1.0",
+        "path": "01_protocols/longhun-math-physics-engine-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 31.2,
+        "dna": ""
+      },
+      {
+        "name": "longhun-train-data-sources-v1.0",
+        "path": "01_protocols/longhun-train-data-sources-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 14.5,
+        "dna": "#龍芯⚡️丙午·辛未·乙酉·卯时·讼-TRAIN-DATA-SOURCES-v1.0"
+      },
+      {
+        "name": "longhun-v1.1-train-data",
+        "path": "01_protocols/longhun-v1.1-train-data.md",
+        "category": "其他协议",
+        "size_kb": 26.2,
+        "dna": "#龍芯⚡️丙午·辛未·乙酉·酉时·讼-LONGHUN-V1.1-TRAIN-DATA"
+      },
+      {
+        "name": "longhun-visual-engine-appendix-a-v1.0",
+        "path": "01_protocols/longhun-visual-engine-appendix-a-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 12.8,
+        "dna": "#龍芯⚡️丙午·辛未·乙酉·酉时·讼-VISUAL-ENGINE-APPENDIX-A-v1.0"
+      },
+      {
+        "name": "longhun-visual-engine-v1.0",
+        "path": "01_protocols/longhun-visual-engine-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 19.8,
+        "dna": ""
+      },
+      {
+        "name": "LH-MATH-PHYSICS-ENGINE-PROTOCOL-v1.0",
+        "path": "01_protocols/math-physics-engine/LH-MATH-PHYSICS-ENGINE-PROTOCOL-v1.0.md",
+        "category": "算法数学",
+        "size_kb": 64.8,
+        "dna": ""
+      },
+      {
+        "name": "README",
+        "path": "01_protocols/semantic_guard/README.md",
+        "category": "其他协议",
+        "size_kb": 3.0,
+        "dna": "#龍芯⚡️丙午·丙申·癸酉·乙卯·临-SEMANTIC-GUARD-README-v∞-5E93CB9A"
+      },
+      {
+        "name": "seven-factor-verification",
+        "path": "01_protocols/seven-factor-verification.md",
+        "category": "其他协议",
+        "size_kb": 7.5,
+        "dna": ""
+      },
+      {
+        "name": "LH-VISUAL-ENGINE-APPENDIX-A-v1.0",
+        "path": "01_protocols/visual-engine/LH-VISUAL-ENGINE-APPENDIX-A-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 41.5,
+        "dna": "#龍芯⚡️丙午·辛未·乙酉·酉时·讼-VISUAL-ENGINE-APPENDIX-A-v1.0"
+      },
+      {
+        "name": "LH-VISUAL-ENGINE-PROTOCOL-v1.0",
+        "path": "01_protocols/visual-engine/LH-VISUAL-ENGINE-PROTOCOL-v1.0.md",
+        "category": "其他协议",
+        "size_kb": 56.4,
+        "dna": ""
+      },
+      {
+        "name": "入口一致性协议_v1.0",
+        "path": "01_protocols/入口一致性协议_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 5.4,
+        "dna": ""
+      },
+      {
+        "name": "家法第一条_文化卖国罪_v1.2",
+        "path": "01_protocols/家法第一条_文化卖国罪_v1.2.md",
+        "category": "其他协议",
+        "size_kb": 8.8,
+        "dna": "#龍芯⚡️丙午·乙未·壬辰·午时-家法第一条-文化卖国罪-v1.2`"
+      },
+      {
+        "name": "封闭空间三生三世数学建模协议_v1.0",
+        "path": "01_protocols/封闭空间三生三世数学建模协议_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 30.7,
+        "dna": ""
+      },
+      {
+        "name": "测试庄园规范_v1.0",
+        "path": "01_protocols/测试庄园规范_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 4.2,
+        "dna": "#龍芯⚡️2026-07-08-08:56-TEST-ESTATE-PROTOCOL-v1.0`"
+      },
+      {
+        "name": "评论水军显化与反操纵协议_v1.0",
+        "path": "01_protocols/评论水军显化与反操纵协议_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 30.7,
+        "dna": ""
+      },
+      {
+        "name": "龍魂_创作者保护协议_不可篡改条款",
+        "path": "01_protocols/龍魂_创作者保护协议_不可篡改条款.md",
+        "category": "其他协议",
+        "size_kb": 7.5,
+        "dna": ""
+      },
+      {
+        "name": "龍魂八卦决策调度协议_v1.0",
+        "path": "01_protocols/龍魂八卦决策调度协议_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 3.7,
+        "dna": ""
+      },
+      {
+        "name": "龍魂算法审计与透明协议_v1.0",
+        "path": "01_protocols/龍魂算法审计与透明协议_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 32.4,
+        "dna": ""
+      },
+      {
+        "name": "龍魂系統輸入過濾與預處理協議_v3.0",
+        "path": "01_protocols/龍魂系統輸入過濾與預處理協議_v3.0.md",
+        "category": "其他协议",
+        "size_kb": 32.3,
+        "dna": ""
+      },
+      {
+        "name": "龍魂系统输入过滤与预处理协议_v2.0_审计报告",
+        "path": "01_protocols/龍魂系统输入过滤与预处理协议_v2.0_审计报告.md",
+        "category": "其他协议",
+        "size_kb": 16.0,
+        "dna": ""
+      },
+      {
+        "name": "龍魂认知上下文管理协议_v3.0",
+        "path": "01_protocols/龍魂认知上下文管理协议_v3.0.md",
+        "category": "其他协议",
+        "size_kb": 50.8,
+        "dna": ""
+      },
+      {
+        "name": "龙魂数字主权体系_学术论文_v2.0",
+        "path": "01_protocols/龙魂数字主权体系_学术论文_v2.0.md",
+        "category": "其他协议",
+        "size_kb": 50.2,
+        "dna": "#龍芯⚡️2026-07-21-迁移-龙魂数字主权体系_学术论文_v2.0-v1.0"
+      },
+      {
+        "name": "龙魂数据战后整顿与回头是岸协议_v1.0",
+        "path": "01_protocols/龙魂数据战后整顿与回头是岸协议_v1.0.md",
+        "category": "其他协议",
+        "size_kb": 32.8,
+        "dna": ""
+      }
+    ]
+  },
+  "papers": {
+    "total": 96,
+    "series": {
+      "A": "综合学术论文 · 多关键字命中（9篇）",
+      "B": "中国哲学可计算性系列（3篇）",
+      "C": "洛书369学术系列（8篇）",
+      "D": "太极易经·权重算法·IEEE系列（3篇）",
+      "E": "量子·Bra-Ket·能量场系列（6篇）",
+      "F": "黎曼猜想系列（龍魂视角·6篇）",
+      "G": "安全·审计·协议系列（8篇）",
+      "H": "人性·七因子·推演系列（6篇）",
+      "I": "宣言·协议·治理系列（7篇）"
+    },
+    "items": [],
+    "files": {
+      "pdf": 12,
+      "tex": 13,
+      "md": 57
+    }
+  },
+  "csdn": {
+    "total": 40,
+    "by_tag": {
+      "UID9622": 27,
+      "人工智能": 26,
+      "算法": 24,
+      "龍魂系统": 21,
+      "python": 14,
+      "开发语言": 11,
+      "网络": 6,
+      "大数据": 6,
+      "java": 4,
+      "重构": 4,
+      "数学建模": 3,
+      "安全": 3,
+      "websocket": 3,
+      "自然语言处理": 2,
+      "网络协议": 2
+    },
+    "latest": [
+      {
+        "title": "[特殊字符] AI治理博弈模型 · 白皮书（草案）",
+        "url": "https://uid9622-01.blog.csdn.net/article/details/163421943",
+        "time": "2026-08-02"
+      },
+      {
+        "title": "龍魂 · LU-Time Engine v4.0 — Python 完整实现（草案）",
+        "url": "https://uid9622-01.blog.csdn.net/article/details/163421283",
+        "time": "2026-08-02"
+      },
+      {
+        "title": "龍魂系统 · 全维度融合升级协议",
+        "url": "https://uid9622-01.blog.csdn.net/article/details/163421038",
+        "time": "2026-08-02"
+      },
+      {
+        "title": "龍魂系统 · 视觉识别置信度审计协议",
+        "url": "https://uid9622-01.blog.csdn.net/article/details/163420128",
+        "time": "2026-08-02"
+      },
+      {
+        "title": "这是对“网络铁门”系统的完整结构审查与补全，并已转化为**可直接运行的 Python 脚本**。",
+        "url": "https://uid9622-01.blog.csdn.net/article/details/163417068",
+        "time": "2026-08-02"
+      }
+    ],
+    "time_range": "2026-07-30 ~ 2026-08-02"
+  },
+  "engines": {
+    "total": 765,
+    "by_domain": {
+      "CNSH": 26,
+      "其他": 557,
+      "部署": 1,
+      "DNA": 11,
+      "训练": 27,
+      "Notion": 31,
+      "时间": 1,
+      "量子": 7,
+      "数字根": 4,
+      "人格": 14,
+      "知识": 11,
+      "八卦": 2,
+      "视频": 9,
+      "流场": 5,
+      "审计": 8,
+      "记忆": 10,
+      "异常": 1,
+      "AI模型": 3,
+      "签名": 1,
+      "对齐": 2,
+      "防篡改": 4,
+      "自适应": 3,
+      "代理": 2,
+      "CSDN": 4,
+      "API": 5,
+      "安全": 1,
+      "健康": 4,
+      "五行": 2,
+      "搜索": 1,
+      "七维": 3,
+      "德本": 1,
+      "白皮书": 1,
+      "模板": 1,
+      "主动观察": 1,
+      "熔断": 1
+    }
+  },
+  "knowledge_graph": {
+    "total_nodes": 417,
+    "total_edges": 438,
+    "node_types": {},
+    "crawled_knowledge": {
+      "domains": [
+        "daodejing",
+        "yijing",
+        "xingxiu",
+        "wuxing",
+        "hetu_luoshu",
+        "tiangan_dizhi",
+        "jieqi",
+        "bagua",
+        "daoist_concepts",
+        "metadata"
+      ],
+      "total_items": 416
+    }
+  },
+  "portal": {
+    "total": 34,
+    "pages": [
+      {
+        "name": "activation-lab",
+        "title": "激活经济舱 · 一元起步 · 上不封顶",
+        "path": "portal/activation-lab/"
+      },
+      {
+        "name": "ai-chat",
+        "title": "AI对话 ·",
+        "path": "portal/ai-chat/"
+      },
+      {
+        "name": "ai-chats",
+        "title": "AI对话档案馆",
+        "path": "portal/ai-chats/"
+      },
+      {
+        "name": "antenna-8gate",
+        "title": "ANTENNA-8GATE · 蚁触神经网控制台",
+        "path": "portal/antenna-8gate/"
+      },
+      {
+        "name": "audit-battle-hub",
+        "title": "审计对抗中枢 · 左右互搏 · 红蓝对抗",
+        "path": "portal/audit-battle-hub/"
+      },
+      {
+        "name": "browser-historian",
+        "title": "瀏覽器史官 v2.1 — 一件武器，不是一件商品",
+        "path": "portal/browser-historian/"
+      },
+      {
+        "name": "cnsh-dictionary",
+        "title": "CNSH标准词典 · 语义库",
+        "path": "portal/cnsh-dictionary/"
+      },
+      {
+        "name": "cnsh-ruyi",
+        "title": "CNSH·如意 — 多AI任务编排引擎",
+        "path": "portal/cnsh-ruyi/"
+      },
+      {
+        "name": "dashboard",
+        "title": "uid9622.cn",
+        "path": "portal/dashboard/"
+      },
+      {
+        "name": "data-radar",
+        "title": "个人数据主权雷达 v1.0",
+        "path": "portal/data-radar/"
+      },
+      {
+        "name": "deben-audit",
+        "title": "德本审计 · 五条底线",
+        "path": "portal/deben-audit/"
+      },
+      {
+        "name": "digital-legacy",
+        "title": "数字存在证明 · Digital Legacy",
+        "path": "portal/digital-legacy/"
+      },
+      {
+        "name": "dna-identity",
+        "title": "AI溯源与审计 · DNA仪表盘",
+        "path": "portal/dna-identity/"
+      },
+      {
+        "name": "evolution",
+        "title": "自适应进化中枢 v1.0",
+        "path": "portal/evolution/"
+      },
+      {
+        "name": "five-harms-expose",
+        "title": "五害曝光台 — 数字时代的包青天衙门",
+        "path": "portal/five-harms-expose/"
+      },
+      {
+        "name": "guanlan",
+        "title": "观澜浏览器 · AI联动控制台",
+        "path": "portal/guanlan/"
+      },
+      {
+        "name": "hunter",
+        "title": "猎手计划 — 全球AI合规性排行榜",
+        "path": "portal/hunter/"
+      },
+      {
+        "name": "knowledge",
+        "title": "知识中枢 | Knowledge Hub",
+        "path": "portal/knowledge/"
+      },
+      {
+        "name": "knowledge-matrix",
+        "title": "知识矩阵 | Knowledge Matrix",
+        "path": "portal/knowledge-matrix/"
+      },
+      {
+        "name": "manifesto",
+        "title": "系统初始化宣言 | Longhun System Initialization Manifesto",
+        "path": "portal/manifesto/"
+      },
+      {
+        "name": "memory-eternity",
+        "title": "🧬 记忆永存",
+        "path": "portal/memory-eternity/"
+      },
+      {
+        "name": "mental-immune",
+        "title": "精神免疫系统 — 不是功能，是一面盾",
+        "path": "portal/mental-immune/"
+      },
+      {
+        "name": "national-soul",
+        "title": "不朽·民族魂 — 数字丰碑",
+        "path": "portal/national-soul/"
+      },
+      {
+        "name": "pangdonglai",
+        "title": "胖东来分成审计公示 | 公开透明·焊死不等式",
+        "path": "portal/pangdonglai/"
+      },
+      {
+        "name": "pathfinder-lab",
+        "title": "路径规划推演舱 · v4.1.5",
+        "path": "portal/pathfinder-lab/"
+      },
+      {
+        "name": "pgp",
+        "title": "GPG 公钥 · 数字指纹 · UID9622",
+        "path": "portal/pgp/"
+      },
+      {
+        "name": "protocol-structure",
+        "title": "统一协议结构门户 v1.0",
+        "path": "portal/protocol-structure/"
+      },
+      {
+        "name": "rite-blade",
+        "title": "禮兵雙軌 · 系统宣言",
+        "path": "portal/rite-blade/"
+      },
+      {
+        "name": "seven-factor-identity",
+        "title": "七因子行为密码学 · 信用仪表盘",
+        "path": "portal/seven-factor-identity/"
+      },
+      {
+        "name": "soft-culture",
+        "title": "软文化污染隔离面板",
+        "path": "portal/soft-culture/"
+      },
+      {
+        "name": "team-orchestrator",
+        "title": "军团指挥中枢 v2.0",
+        "path": "portal/team-orchestrator/"
+      },
+      {
+        "name": "unified_visual",
+        "title": "统一视觉色彩协议 | 一看颜色就知道优先级",
+        "path": "portal/unified_visual/"
+      },
+      {
+        "name": "video-studio",
+        "title": "视频工坊 v3.0 · AI解说视频生成",
+        "path": "portal/video-studio/"
+      },
+      {
+        "name": "warp-lab",
+        "title": "曲速引擎推演舱 · Warp Field Lab | 系统",
+        "path": "portal/warp-lab/"
+      }
+    ]
+  },
+  "external_repos": {
+    "gitee": 10,
+    "github": 0,
+    "total": 10
+  },
+  "data_sources": {
+    "total": 0
+  },
+  "system_state": {
+    "current_model": "v3.7 (Qwen2.5)",
+    "engine_count": 18
+  },
+  "summary": {
+    "protocols": 259,
+    "papers": 96,
+    "csdn_articles": 40,
+    "engines": 765,
+    "kg_nodes": 417,
+    "kg_edges": 438,
+    "portal_pages": 34,
+    "external_repos": 10,
+    "data_sources": 0,
+    "grand_total": 2059
+  }
+}

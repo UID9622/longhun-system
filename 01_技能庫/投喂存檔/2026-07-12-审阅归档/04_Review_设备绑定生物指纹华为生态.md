@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂器·设计：设备绑定 + 生物指纹 + 华为生态
 
 **核心逻辑：覆写码 = 派生自你的设备指纹，不是硬编码。别人拿到代码，没有你的设备，算不出覆写码。**

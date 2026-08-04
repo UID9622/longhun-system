@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # DNA: #龍芯⚡️丙午·乙未·乙丑·坎-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # #龍芯⚡️20260624010825157-AUTO-DNA-F43722E7 自动注入·分层治理自愈引擎 · 来源可查

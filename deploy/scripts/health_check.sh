@@ -1,3 +1,5 @@
+#!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # 加载鲲鹏环境变量
@@ -8,9 +10,9 @@ if [ -f /opt/longhun-system/.env.kunpeng ]; then
 fi
 
 # ╔═══════════════════════════════════════════════════════════════╗
-# ║  🐉 龙魂系统 · 鲲鹏健康检查 + Bark 推送                     ║
-# ║  🏷️  版本: v1.2 · Bark                                      ║
-# ║  🧬  DNA: #龍芯⚡️2026-07-11-HEALTHCHECK-BARK-v1.2           ║
+# ║  🐉 龙魂系统 · 健康检查 + Apple Mail 推送                     ║
+# ║  🏷️  版本: v1.3 · Apple Mail                                ║
+# ║  🧬  DNA: #龍芯⚡️2026-08-02-HEALTHCHECK-MAIL-v1.3           ║
 # ║  👤  适用: UID9622 · 诸葛鑫                                  ║
 # ╚═══════════════════════════════════════════════════════════════╝
 
@@ -110,27 +112,13 @@ mark_sent() {
     date +%s > "${state_file}"
 }
 
-# ── Bark 推送（汇总）──
-send_bark() {
-    # 检测配置：自建模式需 BARK_SERVER，官方模式需 BARK_KEY
-    local has_config=false
-    if [ -n "${BARK_SERVER}" ]; then
-        has_config=true
-    elif [ -n "${BARK_KEY}" ] && [ "${BARK_KEY}" != "xxxxxxxxxxxxxxxx" ]; then
-        has_config=true
-    fi
-
-    if [ "${has_config}" = false ]; then
-        echo "[SKIP] ${TS} Bark 未配置，跳过推送" >> "${HEALTH_LOG}"
-        return
-    fi
-
+# ── Apple Mail 推送（主力）──
+send_mail() {
     if [ ${ALARM_COUNT} -eq 0 ]; then
-        # 没告警不发，保持安静
-        return
+        return  # 没告警不发
     fi
 
-    # 构造摘要标题
+    # 构造标题
     local title="🐉 龙魂系统告警"
     case "${ALARM_LEVEL}" in
         red)    title="🔴 龙魂系统 · ${ALARM_COUNT}条严重告警" ;;
@@ -152,94 +140,34 @@ send_bark() {
         esac
     done
 
-    # 追加资源摘要
-    local cpu_now=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'.' -f1)
-    [ -z "${cpu_now}" ] && cpu_now="N/A"
-    local mem_now=$(free -h | grep Mem | awk '{print $3 "/" $2}')
-    local disk_now=$(df -h /data 2>/dev/null | tail -1 | awk '{print $3 "/" $2}')
-    local uptime_str=$(uptime -p | sed 's/up //')
-
     body="${body}
 
-📊 CPU: ${cpu_now}% | 内存: ${mem_now}
-💾 磁盘: ${disk_now} | 运行: ${uptime_str}"
-    body="${body}
+🖥️ $(hostname) · ${TS}"
 
-${TS} · 鲲鹏 TaiShan 200"
-
-    # 使用 POST JSON 推送（避免 URL 过长）
-    local json_payload
-    json_payload=$(python3 -c "
-import json, sys
-title = sys.argv[1]
-body = sys.argv[2]
-print(json.dumps({'title': title, 'body': body, 'group': '龙魂系统', 'sound': 'alarm', 'autoCopy': True}))
-" "${title}" "${body}")
-
-    local http_code=$(curl -s -o /dev/null -w "%{http_code}" -X POST "${BARK_URL}"         -H "Content-Type: application/json"         -d "${json_payload}" 2>/dev/null)
-
-    if [ "${http_code}" = "200" ]; then
-        echo "[BARK] ${TS} 推送成功（${ALARM_COUNT} 条告警）" >> "${HEALTH_LOG}"
+    # 发送：Mac用Apple Mail，Linux静默跳过
+    if $IS_MAC; then
+        local escaped_body=$(echo "${body}" | sed 's/"/\\"/g')
+        osascript -e "
+tell application \"Mail\"
+  set newMessage to make new outgoing message with properties {subject:\"${title}\", content:\"${escaped_body}\"}
+  tell newMessage
+    set visible to false
+    set sender to \"ahaojiaqi520@icloud.com\"
+    make new to recipient at end of to recipients with properties {address:\"ahaojiaqi520@icloud.com\"}
+  end tell
+  send newMessage
+end tell" 2>/dev/null
+        local rc=$?
     else
-        echo "[BARK] ${TS} 推送失败，HTTP ${http_code}" >> "${HEALTH_LOG}"
-    fi
-}
-
-# ── 飞书推送（保留兼容，Bark 不可用时备用）──
-send_feishu() {
-    if [ -z "${FEISHU_WEBHOOK}" ]; then
-        return
-    fi
-    if [ ${ALARM_COUNT} -eq 0 ]; then
-        return
+        echo "${body}" | mail -s "${title}" "ahaojiaqi520@icloud.com" 2>/dev/null
+        local rc=$?
     fi
 
-    local detail=""
-    for alert in "${ALARM_ITEMS[@]}"; do
-        IFS='|' read -r level text <<< "${alert}"
-        case "${level}" in
-            critical) detail="${detail}\\n🔴 **${text}**" ;;
-            warn)     detail="${detail}\\n🟡 ${text}" ;;
-            info)     detail="${detail}\\n🟢 ${text}" ;;
-        esac
-    done
-
-    local cpu_now=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'.' -f1)
-    [ -z "${cpu_now}" ] && cpu_now="N/A"
-    local mem_now=$(free -h | grep Mem | awk '{print $3 "/" $2}')
-    local disk_now=$(df -h /data 2>/dev/null | tail -1 | awk '{print $3 "/" $2}')
-
-    local payload=$(cat << EOF
-{
-    "msg_type": "interactive",
-    "card": {
-        "header": {
-            "title": {"tag": "plain_text", "content": "🐉 龙魂系统 · 健康检查报告"},
-            "template": "${ALARM_LEVEL}"
-        },
-        "elements": [
-            {"tag": "div", "fields": [
-                {"is_short": true, "text": {"tag": "lark_md", "content": "**📊 检查时间**\\n${TS}"}},
-                {"is_short": true, "text": {"tag": "lark_md", "content": "**⚠️ 告警数量**\\n${ALARM_COUNT} 条"}}
-            ]},
-            {"tag": "hr"},
-            {"tag": "div", "fields": [
-                {"is_short": true, "text": {"tag": "lark_md", "content": "**CPU**\\n${cpu_now}%"}},
-                {"is_short": true, "text": {"tag": "lark_md", "content": "**内存**\\n${mem_now}"}},
-                {"is_short": true, "text": {"tag": "lark_md", "content": "**磁盘**\\n${disk_now}"}},
-                {"is_short": true, "text": {"tag": "lark_md", "content": "**运行时长**\\n$(uptime -p | sed 's/up //')"}}
-            ]},
-            {"tag": "hr"},
-            {"tag": "markdown", "content": "**📋 告警详情**\\n${detail}"},
-            {"tag": "note", "elements": [{"tag": "plain_text", "content": "龙魂系统 · 鲲鹏 TaiShan 200 · ${TS}"}]}
-        ]
-    }
-}
-EOF
-)
-    curl -s -o /dev/null -X POST "${FEISHU_WEBHOOK}" \
-        -H "Content-Type: application/json" \
-        -d "${payload}" > /dev/null 2>&1
+    if [ $rc -eq 0 ]; then
+        echo "[MAIL] ${TS} ✅ 已发送（${ALARM_COUNT} 条告警）" >> "${HEALTH_LOG}"
+    else
+        echo "[MAIL] ${TS} ⚠️ 发送失败" >> "${HEALTH_LOG}"
+    fi
 }
 
 # ────────────────────────────────────────────────────────────────
@@ -519,11 +447,8 @@ main() {
 
     echo "[HEALTH] ${TS} 检查完成，告警 ${ALARM_COUNT} 条，级别 ${ALARM_LEVEL}" >> "${HEALTH_LOG}"
 
-    # 推送到 Bark（主力）
-    send_bark
-
-    # 飞书备用（如果有配的话）
-    send_feishu
+    # 推送到 Apple Mail（主力）
+    send_mail
 
     # 控制台输出
     echo ""
@@ -539,8 +464,7 @@ main() {
     fi
     echo "──────────────────────────────────────────────"
     echo ""
-    echo "  Bark: $(if [ -n "${BARK_KEY}" ] && [ "${BARK_KEY}" != "xxxxxxxxxxxxxxxx" ]; then echo '✅ 已配置'; else echo '⚠️ 未配置'; fi)"
-    echo "  飞书: $(if [ -n "${FEISHU_WEBHOOK}" ]; then echo '✅ 已配置（备用）'; else echo '⚠️ 未配置'; fi)"
+    echo "  通知: ✅ Apple Mail (ahaojiaqi520@icloud.com)"
     echo "  去重: ${DEDUP_MINUTES} 分钟"
     echo "  健康日志: ${HEALTH_LOG}"
     echo ""

@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂·意念交流引擎 v3.0 — 知识融合完整版
@@ -281,12 +283,23 @@ class 知识库管理器:
 # ============================================================
 
 class 意念交流引擎V3:
-    """龍魂·意念交流引擎 v3.0 — 10阶段·五库·ROM·三层监督"""
+    """龍魂·意念交流引擎 v3.0 — 10阶段·五库·ROM·三层监督·图谱联动"""
 
-    def __init__(self, 知识管理器: 知识库管理器 = None):
+    def __init__(self, 知识管理器: 知识库管理器 = None, 图谱引擎=None):
         self.五库 = 知识管理器 or 知识库管理器()
         self.ROM: Dict[str, Dict] = {}
         self.处理历史: List[Dict] = []
+        # 任务关联图谱（v4.0新增）
+        try:
+            import sys
+            from pathlib import Path as _P
+            _bin_dir = _P(__file__).parent if '__file__' in dir() else _P.cwd() / 'bin'
+            if str(_bin_dir) not in sys.path:
+                sys.path.insert(0, str(_bin_dir))
+            from lh_task_graph import IntentEngineHook
+            self.图谱 = 图谱引擎 or IntentEngineHook()
+        except ImportError:
+            self.图谱 = None
 
     # ----- 阶段1: 语义解析 (P00文心) -----
     def _阶段1_语义解析(self, 输入: str) -> Dict:
@@ -493,13 +506,80 @@ class 意念交流引擎V3:
         指纹 = DNA追溯引擎.场景指纹(输入)
         return self.ROM.get(指纹)
 
+    # ----- 阶段12: DAG编排 (v4.0新增·多步骤自动路由) -----
+    def _阶段12_DAG编排(self, 用户输入: str, s1: Dict) -> Optional["DAGExecution"]:
+        """检测多步骤指令·路由到DAG引擎"""
+        try:
+            import sys as _sys12
+            _bin = Path.home() / "longhun-system" / "bin"
+            if str(_bin) not in _sys12.path:
+                _sys12.path.insert(0, str(_bin))
+            from lh_dag_engine import IntentEngineHook as DAGHook, ExecutionMode
+            hook = DAGHook()
+            if hook.detect_multi_step(用户输入):
+                return hook.try_execute(用户输入, ExecutionMode.AUTO)
+        except ImportError:
+            pass
+        return None
+
     # ----- 主处理 -----
     def 处理(self, 用户输入: str) -> Dict:
         t0 = time.time()
         DNA_full = DNA追溯引擎.生成("意图处理", "10阶段")
 
-        # 1-5: 意念理解链
+        # 1: 语义解析
         s1 = self._阶段1_语义解析(用户输入)
+
+        # 12: DAG编排（v4.0·多步骤检测·非阻塞·在常规链之前）
+        dag = self._阶段12_DAG编排(用户输入, s1)
+        if dag and dag.status == "success":
+            # 多步骤DAG执行成功·直接走审计→ROM→DNA→归档
+            s2, s3, s4, s5 = {}, [], {"选中人格":"DAG编排","原因":"多步骤自动路由"}, dag.to_dict()
+            # 过审计链
+            s6 = self._阶段6_三层监督(s5, s1)
+            if not s6["通过"]:
+                dna = self._阶段8_DNA归档(用户输入, s5, s4, s6)
+                return {"状态":"🔴 已熔断","响应":f"🚫 DAG审计不通过: {s6.get('原因','')}",
+                        "DNA":dna,"响应时间":f"{(time.time()-t0)*1000:.1f}ms",
+                        "监督":s6,"三色":"🔴","DAG":dag.dag_id}
+            s7 = self._阶段7_ROM固化(用户输入, str(s5))
+            s8 = self._阶段8_DNA归档(用户输入, s5, s4, s6)
+            s9 = self._阶段9_学习(s1, s4)
+            s11 = None
+            if self.图谱:
+                try:
+                    self.图谱.on_task_complete(
+                        input_text=用户输入, task_type="DAG多步骤",
+                        persona="DAG编排", success=True, response=str(s5),
+                        audit_mark="🟢",
+                    )
+                except Exception:
+                    pass
+            耗时 = time.time() - t0
+            卦 = DNA追溯引擎.起卦(用户输入)
+            确认码 = DNA追溯引擎.确认码(s8)
+            return {
+                "状态":"🟢 通过","响应":f"🐉 DAG编排完成·{dag.dag_id[:12]}·{len(dag.nodes)}步骤",
+                "DNA":s8,"确认码":确认码,"卦象":卦,"三色":"🟢",
+                "人格":"DAG编排","响应时间":f"{耗时*1000:.1f}ms",
+                "来源":"DAG编排引擎","监督分数":s6["分数"],
+                "DAG":dag.to_dict(),"图谱节点":s11,
+            }
+        elif dag:
+            # DAG部分失败·走正常审计链但标记警告
+            s2, s3, s4, s5 = {}, [], {"选中人格":"DAG编排","原因":"多步骤(部分失败)"}, dag.to_dict()
+            s6 = self._阶段6_三层监督(s5, s1)
+            s7 = self._阶段7_ROM固化(用户输入, str(s5))
+            s8 = self._阶段8_DNA归档(用户输入, s5, s4, s6)
+            s9 = self._阶段9_学习(s1, s4)
+            耗时 = time.time() - t0
+            return {
+                "状态":"🟡 部分完成","响应":f"⚠️ DAG部分失败·{dag.dag_id[:12]}·{dag.error or '未知错误'}",
+                "DNA":s8,"响应时间":f"{耗时*1000:.1f}ms",
+                "三色":"🟡","人格":"DAG编排","DAG":dag.to_dict(),
+            }
+
+        # 2-5: 意念理解链（单步骤常规路径）
         s2 = self._阶段2_历史追溯(s1)
         s3 = self._阶段3_知识检索(s1)
         s4 = self._阶段4_人格调度(s1, s3)
@@ -509,6 +589,20 @@ class 意念交流引擎V3:
         s6 = self._阶段6_三层监督(s5, s1)
         if not s6["通过"]:
             dna = self._阶段8_DNA归档(用户输入, s5, s4, s6)
+            # 熔断也写图谱
+            if self.图谱:
+                try:
+                    self.图谱.on_task_complete(
+                        input_text=用户输入,
+                        task_type=s1.get("任务类型","通用咨询"),
+                        persona=s4["选中人格"],
+                        success=False,
+                        emotion_score=s1.get("情绪分数",0.5),
+                        response=f"熔断:{s6.get('原因','')}",
+                        audit_mark="🔴",
+                    )
+                except Exception:
+                    pass
             return {"状态":"🔴 已熔断","响应":f"🚫 {s6.get('原因','')}",
                     "DNA":dna,"响应时间":f"{(time.time()-t0)*1000:.1f}ms",
                     "监督":s6,"三色":"🔴"}
@@ -525,6 +619,23 @@ class 意念交流引擎V3:
         # 10: 零延迟
         s10 = self._阶段10_零延迟(用户输入)
 
+        # 11: 图谱联动 (v4.0新增·任务关联图谱·非阻塞)
+        s11 = None
+        if self.图谱:
+            try:
+                s11 = self.图谱.on_task_complete(
+                    input_text=用户输入,
+                    task_type=s1.get("任务类型","通用咨询"),
+                    persona=s4["选中人格"],
+                    success=True,
+                    emotion_score=s1.get("情绪分数",0.5),
+                    response=s5,
+                    audit_mark="🟢",
+                    rom_hit=s7.get("命中",False),
+                )
+            except Exception:
+                pass  # 图谱写入失败不阻塞主流程
+
         耗时 = time.time() - t0
         卦 = DNA追溯引擎.起卦(用户输入)
         确认码 = DNA追溯引擎.确认码(s8)
@@ -538,7 +649,9 @@ class 意念交流引擎V3:
             "来源":s7.get("来源","实时生成"),
             "知识库命中":len(s3),"知识条目":s3[:3],
             "监督分数":s6["分数"],
-            "ROM命中":s7.get("命中",False)
+            "ROM命中":s7.get("命中",False),
+            "图谱节点":s11,  # v4.0·任务图谱节点ID
+            "DAG路由":False,  # v4.0·单步骤·未触发DAG
         }
 
         self.处理历史.append({"输入":用户输入,"响应":结果["响应"],"DNA":s8})

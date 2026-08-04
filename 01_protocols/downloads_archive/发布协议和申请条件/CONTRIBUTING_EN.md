@@ -1,3 +1,4 @@
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # Longhun System · Contributing Guide · English Edition
 
 **Longhun System is created, owned, and controlled by UID9622.**

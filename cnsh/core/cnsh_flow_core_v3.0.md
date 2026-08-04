@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 CNSH 龍魂文化算法流场压缩核 v3.0
 
 > DNA: `#龍芯⚡️2026-05-01-CNSH龍魂流场压缩核-v3.0` → `#龍芯⚡️2026-07-06-CNSH-FLOW-CORE-v3.0-ALIGNED`

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 # 由 CNSH 语法引擎自动生成
 # DNA: #龍芯⚡️2026-06-29-CNSH-GRAMMAR-ENGINE-v1-UID9622

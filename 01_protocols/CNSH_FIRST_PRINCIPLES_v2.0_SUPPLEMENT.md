@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ================================================================
 🐉 CNSH｜龍魂系统第一性原理总纲 v2.0·补全版
 路径: protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md

@@ -1,3 +1,4 @@
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CNSH · 中文原生脚本与字元编辑器规范
 
 ## 目录

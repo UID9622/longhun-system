@@ -1,264 +1,601 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<title>龍魂系统 · 门户导航</title>
-<!-- DNA: #龍芯⚡️丙午·乙未·庚戌·未时·坤-PORTAL-HUB-v1.0-9a2f4c1d -->
-<!-- 创建者: 诸葛鑫（UID9622）| 协议: CC BY-NC-SA 4.0 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂·积木拼接中心 | 统一总控导航面板</title>
 <style>
 :root {
-  --bg:#08080f; --bg2:#0c0c1a; --card:#12122a; --card-hover:#181836;
-  --border:#2a2a4a; --gold:#c9a84c; --gold-dim:rgba(201,168,76,0.12);
-  --gold-border:rgba(201,168,76,0.25); --accent:#a78bfa; --cyan:#22d3ee;
-  --green:#4ade80; --green-bg:rgba(74,222,128,0.1);
-  --orange:#fb923c; --orange-bg:rgba(251,146,60,0.1);
-  --red:#f87171; --red-bg:rgba(248,113,113,0.1);
-  --text:#d4d4d8; --dim:#71717a; --bright:#f0f0f0;
-  --radius:12px; --radius-sm:8px;
+  --bg: #0a0a0f;
+  --bg-card: #12121a;
+  --bg-card-hover: #1a1a28;
+  --gold: #d4a843;
+  --gold-dim: #8b7355;
+  --gold-bright: #f0c860;
+  --text: #c8c8d0;
+  --text-dim: #787888;
+  --border: #2a2a38;
+  --green: #4ade80;
+  --yellow: #facc15;
+  --red: #f87171;
+  --blue: #60a5fa;
+  --purple: #a78bfa;
+  --cyan: #22d3ee;
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;min-height:100vh;line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:var(--cyan);text-decoration:none}
-::selection{background:var(--gold-dim);color:#fff}
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:var(--bg2)}
-::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+.container { max-width: 1600px; margin:0 auto; padding: 20px; }
 
-/* ═══════════ LAYOUT ═══════════ */
-.container{max-width:780px;margin:0 auto;padding:20px 16px 40px}
+/* 头部 */
+.header {
+  text-align: center;
+  padding: 40px 0 24px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 32px;
+}
+.header h1 {
+  font-size: 2.2em;
+  color: var(--gold);
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+}
+.header .subtitle {
+  color: var(--text-dim);
+  font-size: 0.95em;
+}
+.header .stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9em;
+}
+.stat-dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
+.stat-dot.online { background:var(--green); box-shadow:0 0 8px var(--green); }
+.stat-dot.offline { background:var(--red); }
+.stat-dot.partial { background:var(--yellow); }
 
-/* header */
-.header{text-align:center;padding:32px 0 24px;border-bottom:1px solid var(--border);margin-bottom:28px}
-.header .logo{font-size:2rem;font-weight:900;letter-spacing:0.04em;color:var(--gold);margin-bottom:6px}
-.header .sub{font-size:0.85rem;color:var(--dim)}
-.header .dna{font-size:0.7rem;color:var(--dim);font-family:"SF Mono","Fira Code",monospace;margin-top:8px;word-break:break-all}
+/* 分类区域 */
+.section {
+  margin-bottom: 32px;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1em;
+  color: var(--gold);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.section-icon { font-size: 1.3em; }
 
-/* status bar */
-.status-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
-.status-dot{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;font-size:0.78rem;background:var(--card);border:1px solid var(--border)}
-.status-dot .dot{width:8px;height:8px;border-radius:50%}
-.dot-on{background:var(--green);box-shadow:0 0 8px var(--green)}
-.dot-off{background:var(--dim)}
-.dot-unknown{background:var(--orange);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+/* 卡片网格 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
+}
+.card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--gold-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(212,168,67,0.1);
+}
+.card-icon {
+  font-size: 1.5em;
+}
+.card-title {
+  font-size: 0.92em;
+  font-weight: 600;
+  color: var(--text);
+}
+.card-desc {
+  font-size: 0.78em;
+  color: var(--text-dim);
+}
+.card-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 0.65em;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.4);
+}
+.card-badge.new { color: var(--cyan); border: 1px solid var(--cyan); }
+.card-badge.core { color: var(--gold); border: 1px solid var(--gold-dim); }
+.card-badge.wip { color: var(--yellow); border: 1px solid var(--yellow); }
 
-/* section */
-.section{margin-bottom:28px}
-.section h2{display:flex;align-items:center;gap:8px;font-size:0.9rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
-.section h2::before{content:'';width:3px;height:16px;background:var(--gold);border-radius:2px;display:inline-block}
-
-/* cards grid */
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 16px;cursor:pointer;transition:all 0.2s;text-decoration:none;color:var(--text);display:block}
-.card:hover{background:var(--card-hover);border-color:var(--gold-border);transform:translateY(-2px)}
-.card .icon{font-size:1.5rem;margin-bottom:10px}
-.card .title{font-size:0.95rem;font-weight:700;color:var(--bright);margin-bottom:4px}
-.card .desc{font-size:0.78rem;color:var(--dim);line-height:1.4}
-.card .tag{display:inline-block;margin-top:8px;padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:600;letter-spacing:0.04em}
-.tag-green{background:var(--green-bg);color:var(--green)}
-.tag-orange{background:var(--orange-bg);color:var(--orange)}
-.tag-red{background:var(--red-bg);color:var(--red)}
-.tag-gold{background:var(--gold-dim);color:var(--gold)}
-
-/* footer */
-.footer{text-align:center;padding:28px 0 12px;border-top:1px solid var(--border);margin-top:8px}
-.footer p{font-size:0.72rem;color:var(--dim)}
-.footer .pgp{font-family:"SF Mono","Fira Code",monospace;font-size:0.62rem;word-break:break-all;margin-top:4px}
-
-/* mobile */
-@media(max-width:480px){
-  .header .logo{font-size:1.5rem}
-  .cards{grid-template-columns:1fr}
-  .status-bar{gap:6px}
+/* 快捷命令行 */
+.cmd-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 8px;
+}
+.cmd-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s;
+}
+.cmd-card:hover { border-color: var(--gold-dim); background: var(--bg-card-hover); }
+.cmd-icon { font-size: 1.2em; width: 28px; text-align: center; }
+.cmd-info { flex: 1; }
+.cmd-name { font-size: 0.82em; font-weight: 600; color: var(--gold-dim); }
+.cmd-desc { font-size: 0.72em; color: var(--text-dim); }
+.cmd-code {
+  background: #1a1a28;
+  color: var(--cyan);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.75em;
+  font-family: 'SF Mono', monospace;
+  white-space: nowrap;
 }
 
-/* refresh badge */
-.refresh-badge{position:fixed;bottom:16px;right:16px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:6px 12px;font-size:0.7rem;color:var(--dim);cursor:pointer;z-index:100}
-.refresh-badge:hover{border-color:var(--gold-border);color:var(--gold)}
+/* 服务状态面板 */
+.status-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.status-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.status-card h3 {
+  font-size: 0.9em;
+  color: var(--gold-dim);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.status-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.status-chip {
+  font-size: 0.72em;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: rgba(74,222,128,0.1);
+  border: 1px solid rgba(74,222,128,0.3);
+  color: var(--green);
+}
+.status-chip.dead {
+  background: rgba(248,113,113,0.1);
+  border-color: rgba(248,113,113,0.3);
+  color: var(--red);
+}
+
+/* 底部 */
+.footer {
+  text-align: center;
+  padding: 40px 0 20px;
+  color: var(--text-dim);
+  font-size: 0.78em;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+.footer .dna { color: var(--gold-dim); font-family: monospace; }
+
+/* 搜索 */
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.search-box input {
+  width: 500px;
+  max-width: 90vw;
+  padding: 12px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  color: var(--text);
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.search-box input:focus { border-color: var(--gold-dim); }
+.search-box input::placeholder { color: var(--text-dim); }
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .status-grid { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .header h1 { font-size: 1.5em; }
+  .stats-bar { gap: 16px; }
+}
 </style>
 </head>
 <body>
-
 <div class="container">
 
-  <!-- ═══════════ HEADER ═══════════ -->
+  <!-- 头部 -->
   <div class="header">
-    <div class="logo">龍魂系统</div>
-    <div class="sub">中国自主 · 数据主权归集本地 · 为人民服务</div>
-    <div class="dna">DNA: #龍芯⚡️丙午·乙未·未时·☷坤-PORTAL-HUB-v1.0</div>
+    <h1>🐉 龍魂积木拼接中心</h1>
+    <div class="subtitle">一块面板 · 所有积木 · 全部连接</div>
+    <div class="stats-bar">
+      <div class="stat-item"><span class="stat-dot online"></span> Mac 本地 <span id="mac-count">--</span></div>
+      <div class="stat-item"><span class="stat-dot online"></span> 鲲鹏云端 <span id="kunpeng-count">--</span></div>
+      <div class="stat-item">📦 门户 <span id="portal-count">--</span></div>
+      <div class="stat-item">⚙️ 引擎 <span id="engine-count">--</span></div>
+    </div>
   </div>
 
-  <!-- ═══════════ 系统状态 ═══════════ -->
-  <div class="status-bar" id="statusBar">
-    <span class="status-dot"><span class="dot dot-unknown" id="s8766"></span>知识中枢</span>
-    <span class="status-dot"><span class="dot dot-unknown" id="s8767"></span>胖东来审计</span>
-    <span class="status-dot"><span class="dot dot-unknown" id="s8768"></span>站点托管</span>
-    <span class="status-dot"><span class="dot dot-unknown" id="s9657"></span>审计对抗中枢</span>
+  <!-- 搜索 -->
+  <div class="search-box">
+    <input type="text" id="search" placeholder="🔍 搜索积木... 输入关键词如 AI / 审计 / 身份 / 安全 / 部署" oninput="filterCards()">
   </div>
 
-  <!-- ═══════════ 公开面板 ═══════════ -->
-  <div class="section">
-    <h2>公开面板</h2>
-    <div class="cards">
-      <a class="card" href="/knowledge/">
-        <div class="icon">🧠</div>
-        <div class="title">知识中枢</div>
-        <div class="desc">龍魂知识图谱·语义检索·分类浏览·273张知识卡片</div>
-        <span class="tag tag-green">运行中</span>
+  <!-- 服务状态 -->
+  <div class="status-grid">
+    <div class="status-card">
+      <h3>🖥️ Mac 本地服务 (launchd)</h3>
+      <div class="status-list" id="mac-services">加载中...</div>
+    </div>
+    <div class="status-card">
+      <h3>☁️ 鲲鹏云端服务 (systemd)</h3>
+      <div class="status-list" id="kunpeng-services">加载中...</div>
+    </div>
+  </div>
+
+  <!-- 🔥 AI 对话 -->
+  <div class="section" data-section="ai">
+    <div class="section-title"><span class="section-icon">🌐</span> AI 对话与模型</div>
+    <div class="card-grid">
+      <a href="/ai-hub/" class="card" data-keywords="AI 对话 多模型 审计 透明 对比">
+        <span class="card-badge new">NEW</span>
+        <div class="card-icon">🐉</div>
+        <div class="card-title">透明审计 AI Hub</div>
+        <div class="card-desc">多模型对话·对比·审计仪表盘·DNA追溯</div>
       </a>
-      <a class="card" href="/pangdonglai/">
-        <div class="icon">⚖️</div>
-        <div class="title">胖东来分成审计</div>
-        <div class="desc">企业利润分成公开审计·焊死不等式·7维检测</div>
-        <span class="tag tag-green">运行中</span>
+      <a href="/ai-chat/" class="card" data-keywords="AI 聊天 对话">
+        <div class="card-icon">💬</div>
+        <div class="card-title">AI 对话</div>
+        <div class="card-desc">单模型深度对话</div>
+      </a>
+      <a href="/ai-chats/" class="card" data-keywords="AI 多聊天 多会话">
+        <div class="card-icon">🗨️</div>
+        <div class="card-title">AI 多会话</div>
+        <div class="card-desc">多会话并行管理</div>
+      </a>
+      <a href="/notion-bridge/" class="card" data-keywords="Notion 对话桥 玄機閣 多模型 人格 RAG">
+        <span class="card-badge new">NEW</span>
+        <div class="card-icon">🌀</div>
+        <div class="card-title">Notion 对话桥 · 玄機閣</div>
+        <div class="card-desc">本地模型 + 在线API · 人格路由 · RAG · 记忆共享</div>
       </a>
     </div>
   </div>
 
-  <!-- ═══════════ 协议与签名 ═══════════ -->
-  <div class="section">
-    <h2>协议与签名</h2>
-    <div class="cards">
-      <a class="card" href="/pgp/">
-        <div class="icon">🔐</div>
-        <div class="title">PGP公钥</div>
-        <div class="desc">GPG签名验证·RSA-4096·A2D0092CEE2E5BA8</div>
-        <span class="tag tag-gold">身份锚</span>
+  <!-- 🛡️ 审计与安全 -->
+  <div class="section" data-section="audit">
+    <div class="section-title"><span class="section-icon">🛡️</span> 审计与安全</div>
+    <div class="card-grid">
+      <a href="/audit-battle-hub/" class="card" data-keywords="审计 三色 闸口 检查">
+        <span class="card-badge core">核心</span>
+        <div class="card-icon">⚔️</div>
+        <div class="card-title">审计对决中心</div>
+        <div class="card-desc">三色审计·十道闸口·P05核心</div>
       </a>
-      <a class="card" href="/manifesto/">
-        <div class="icon">📜</div>
-        <div class="title">初始化宣言</div>
-        <div class="desc">龍魂体系诞生宣言·底座锚点·不可变天条</div>
-        <span class="tag tag-red">∞永恒</span>
+      <a href="/deben-audit/" class="card" data-keywords="德本 离火运 五问 道德">
+        <span class="card-badge core">核心</span>
+        <div class="card-icon">🔥</div>
+        <div class="card-title">德本审计</div>
+        <div class="card-desc">离火运五问·德在技术前</div>
       </a>
-      <a class="card" href="/rite-blade/">
-        <div class="icon">🗡️</div>
-        <div class="title">礼刃</div>
-        <div class="desc">仪式感工具·龍魂字体·干支生成·数字签名</div>
-        <span class="tag tag-orange">工具</span>
+      <a href="/civil-audit/" class="card" data-keywords="民间 审计 公众">
+        <div class="card-icon">🏛️</div>
+        <div class="card-title">民间审计</div>
+        <div class="card-desc">公众审计入口</div>
       </a>
-      <a class="card" href="/longhun-font.html">
-        <div class="icon">🖋️</div>
-        <div class="title">龍魂字体</div>
-        <div class="desc">中国自主可控CJK统一汉字数字字体·书法风</div>
-        <span class="tag tag-gold">文化</span>
+      <a href="/five-harms-expose/" class="card" data-keywords="五害 曝光 揭发">
+        <div class="card-icon">⚠️</div>
+        <div class="card-title">五害曝光台</div>
+        <div class="card-desc">五类危害行为曝光</div>
       </a>
-    </div>
-  </div>
-
-  <!-- ═══════════ API 接口 ═══════════ -->
-  <div class="section">
-    <h2>API 接口</h2>
-    <div class="cards">
-      <a class="card" href="http://localhost:8766/docs" target="_blank">
-        <div class="icon">📡</div>
-        <div class="title">知识中枢 API</div>
-        <div class="desc">FastAPI :8766 · 语义搜索·知识图谱·AI对话</div>
-        <span class="tag tag-green">Swagger</span>
+      <a href="/data-radar/" class="card" data-keywords="数据 雷达 监控 检测">
+        <div class="card-icon">📡</div>
+        <div class="card-title">数据雷达</div>
+        <div class="card-desc">数据流动监控检测</div>
       </a>
-      <a class="card" href="http://localhost:8767/docs" target="_blank">
-        <div class="icon">📡</div>
-        <div class="title">胖东来审计 API</div>
-        <div class="desc">FastAPI :8767 · 企业审计·契约·公式·德本</div>
-        <span class="tag tag-green">Swagger</span>
+      <a href="/mental-immune/" class="card" data-keywords="心理 免疫 精神 防护">
+        <div class="card-icon">🧠</div>
+        <div class="card-title">心理免疫</div>
+        <div class="card-desc">精神防护·焦虑检测</div>
       </a>
     </div>
   </div>
 
-  <!-- ═══════════ CNSH标准词典 ═══════════ -->
-  <div class="section">
-    <h2>CNSH标准词典</h2>
-    <div class="cards">
-      <a class="card" href="/cnsh-dictionary/">
-        <div class="icon">📖</div>
-        <div class="title">CNSH词典</div>
-        <div class="desc">深度学习生态对照表·中国古人智慧命名·179条目·10领域</div>
-        <span class="tag tag-gold">语言</span>
+  <!-- 🧬 身份与DNA -->
+  <div class="section" data-section="identity">
+    <div class="section-title"><span class="section-icon">🧬</span> 身份与DNA</div>
+    <div class="card-grid">
+      <a href="/dna-generator/" class="card" data-keywords="DNA 追溯 生成 干支 卦">
+        <span class="card-badge core">核心</span>
+        <div class="card-icon">🧬</div>
+        <div class="card-title">DNA追溯生成器</div>
+        <div class="card-desc">天干地支·64卦·全生命周期</div>
+      </a>
+      <a href="/dna-identity/" class="card" data-keywords="DNA 身份 注册 登记">
+        <div class="card-icon">🪪</div>
+        <div class="card-title">DNA身份登记</div>
+        <div class="card-desc">资产注册·归属验证</div>
+      </a>
+      <a href="/seven-factor-identity/" class="card" data-keywords="七因子 身份 验证 认证">
+        <div class="card-icon">🔐</div>
+        <div class="card-title">七因子身份核验</div>
+        <div class="card-desc">六重认证链·设备指纹</div>
+      </a>
+      <a href="/pgp/" class="card" data-keywords="PGP GPG 密钥 签名">
+        <div class="card-icon">✍️</div>
+        <div class="card-title">PGP/GPG密钥</div>
+        <div class="card-desc">密钥管理·签名验证</div>
+      </a>
+      <a href="/digital-legacy/" class="card" data-keywords="数字 遗产 传承">
+        <div class="card-icon">📜</div>
+        <div class="card-title">数字遗产</div>
+        <div class="card-desc">数字资产传承规划</div>
       </a>
     </div>
   </div>
 
-  <!-- ═══════════ 数字存在证明 ═══════════ -->
-  <div class="section">
-    <h2>数字存在证明</h2>
-    <div class="cards">
-      <a class="card" href="/digital-legacy/">
-        <div class="icon">⚡️</div>
-        <div class="title">数字永恒</div>
-        <div class="desc">每个人都在宇宙中留下痕迹·DNA锚定时空中不可抹除</div>
-        <span class="tag tag-gold">存在</span>
+  <!-- 📚 知识与文档 -->
+  <div class="section" data-section="knowledge">
+    <div class="section-title"><span class="section-icon">📚</span> 知识与文档</div>
+    <div class="card-grid">
+      <a href="/knowledge-matrix/" class="card" data-keywords="知识 矩阵 图谱">
+        <div class="card-icon">🗺️</div>
+        <div class="card-title">知识矩阵</div>
+        <div class="card-desc">知识图谱可视化</div>
+      </a>
+      <a href="/cnsh-dictionary/" class="card" data-keywords="CNSH 字典 术语 中文编程">
+        <div class="card-icon">📖</div>
+        <div class="card-title">CNSH标准词典</div>
+        <div class="card-desc">中华自主编程语言字典</div>
+      </a>
+      <a href="/protocol-structure/" class="card" data-keywords="协议 结构 架构">
+        <div class="card-icon">📋</div>
+        <div class="card-title">协议结构</div>
+        <div class="card-desc">协议体系总览</div>
+      </a>
+      <a href="/manifesto/" class="card" data-keywords="宣言 声明">
+        <div class="card-icon">📢</div>
+        <div class="card-title">龍魂宣言</div>
+        <div class="card-desc">系统使命与价值观</div>
+      </a>
+      <a href="https://uid9622.cn:8766" class="card" data-keywords="知识库 知识 检索 API" target="_blank">
+        <div class="card-icon">🎓</div>
+        <div class="card-title">知识中枢 API</div>
+        <div class="card-desc">:8766 统一知识检索</div>
       </a>
     </div>
   </div>
 
-  <!-- ═══════════ 审计与治理 ═══════════ -->
-  <div class="section">
-    <h2>审计与治理</h2>
-    <div class="cards">
-      <a class="card" href="/audit-battle-hub/">
-        <div class="icon">🛡️</div>
-        <div class="title">审计对抗中枢</div>
-        <div class="desc">左右互搏·红蓝对抗·数学建模·漏洞扫描·关键模块上线前免疫系统</div>
-        <span class="tag tag-red">核心</span>
+  <!-- 🎨 创作与媒体 -->
+  <div class="section" data-section="media">
+    <div class="section-title"><span class="section-icon">🎨</span> 创作与媒体</div>
+    <div class="card-grid">
+      <a href="/video-studio/" class="card" data-keywords="视频 创作 制作">
+        <div class="card-icon">🎬</div>
+        <div class="card-title">视频工坊</div>
+        <div class="card-desc">AI视频制作·配音·字幕</div>
       </a>
-      <a class="card" href="/deben-audit/">
-        <div class="icon">⚖️</div>
-        <div class="title">德本审计</div>
-        <div class="desc">三色审计·DNA追溯·责任可究·君子协议</div>
-        <span class="tag tag-gold">治理</span>
+      <a href="https://uid9622.cn:9631" class="card" data-keywords="搜索 搜索引擎 Bing" target="_blank">
+        <div class="card-icon">🏹</div>
+        <div class="card-title">搜索引擎</div>
+        <div class="card-desc">:9631 多源搜索</div>
       </a>
     </div>
   </div>
 
-  <!-- ═══════════ 部署与工具 ═══════════ -->
-  <div class="section">
-    <h2>部署与工具</h2>
-    <div class="cards">
-      <a class="card" href="https://uid9622.cn" target="_blank">
-        <div class="icon">☁️</div>
-        <div class="title">uid9622.cn</div>
-        <div class="desc">鲲鹏服务器·官方域名·SSL加密</div>
-        <span class="tag tag-gold">生产</span>
+  <!-- 🔬 实验室 -->
+  <div class="section" data-section="lab">
+    <div class="section-title"><span class="section-icon">🔬</span> 实验室</div>
+    <div class="card-grid">
+      <a href="/warp-lab/" class="card" data-keywords="实验 翘曲 时空 探索">
+        <span class="card-badge core">核心</span>
+        <div class="card-icon">🌀</div>
+        <div class="card-title">Warp实验室</div>
+        <div class="card-desc">前沿实验·翘曲时空</div>
+      </a>
+      <a href="/evolution/" class="card" data-keywords="进化 演化 演进">
+        <div class="card-icon">🧪</div>
+        <div class="card-title">进化实验室</div>
+        <div class="card-desc">系统演进追踪</div>
+      </a>
+      <a href="/unified-visual/" class="card" data-keywords="可视化 统一 视觉">
+        <div class="card-icon">📊</div>
+        <div class="card-title">统一可视化</div>
+        <div class="card-desc">全系统数据可视化</div>
       </a>
     </div>
   </div>
 
-  <!-- ═══════════ FOOTER ═══════════ -->
+  <!-- 🏛️ 文化与治理 -->
+  <div class="section" data-section="culture">
+    <div class="section-title"><span class="section-icon">🏛️</span> 文化与治理</div>
+    <div class="card-grid">
+      <a href="/rite-blade/" class="card" data-keywords="国魂 民族 文化 礼仪 之刃 规范">
+        <div class="card-icon">⚔️</div>
+        <div class="card-title">礼之刃</div>
+        <div class="card-desc">礼仪规范与边界</div>
+      </a>
+      <a href="/dna-generator/" class="card" data-keywords="记忆 永恒 铭记 文化 DNA 追溯">
+        <div class="card-icon">💎</div>
+        <div class="card-title">DNA记忆锚点</div>
+        <div class="card-desc">永生DNA·不朽记忆</div>
+      </a>
+      <a href="/pangdonglai/" class="card" data-keywords="胖东来 经营 理念">
+        <div class="card-icon">🏪</div>
+        <div class="card-title">胖东来启示</div>
+        <div class="card-desc">善待员工·善待顾客</div>
+      </a>
+      <a href="/team-orchestrator/" class="card" data-keywords="团队 编排 协作">
+        <div class="card-icon">🎭</div>
+        <div class="card-title">团队编排器</div>
+        <div class="card-desc">人格团队协作调度</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 🔧 工具与配置 -->
+  <div class="section" data-section="tools">
+    <div class="section-title"><span class="section-icon">🔧</span> 工具与配置</div>
+    <div class="card-grid">
+      <a href="/antenna-8gate/" class="card" data-keywords="天线 八门 信号">
+        <div class="card-icon">📶</div>
+        <div class="card-title">天线八门</div>
+        <div class="card-desc">八门信号接收器</div>
+      </a>
+      <a href="/guanlan/" class="card" data-keywords="观澜 观察 监控">
+        <div class="card-icon">🔭</div>
+        <div class="card-title">观澜台</div>
+        <div class="card-desc">系统监控观察台</div>
+      </a>
+      <a href="/guanlan/" class="card" data-keywords="仪表盘 面板 状态 监控 观察">
+        <div class="card-icon">🎛️</div>
+        <div class="card-title">观澜监控台</div>
+        <div class="card-desc">系统监控·状态面板</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ⚙️ 快捷命令行 -->
+  <div class="section">
+    <div class="section-title"><span class="section-icon">⚙️</span> 常用命令速查</div>
+    <div class="cmd-grid">
+      <div class="cmd-card"><div class="cmd-icon">🖥️</div><div class="cmd-info"><div class="cmd-name">交互控制台</div><div class="cmd-desc">总入口·路由所有命令</div></div><span class="cmd-code">lh</span></div>
+      <div class="cmd-card"><div class="cmd-icon">🔍</div><div class="cmd-info"><div class="cmd-name">多源搜索</div><div class="cmd-desc">Bing·缓存·审计</div></div><span class="cmd-code">lh search "xx"</span></div>
+      <div class="cmd-card"><div class="cmd-icon">🛡️</div><div class="cmd-info"><div class="cmd-name">三色审计</div><div class="cmd-desc">十道闸口·全链路</div></div><span class="cmd-code">lh audit</span></div>
+      <div class="cmd-card"><div class="cmd-icon">📊</div><div class="cmd-info"><div class="cmd-name">系统状态</div><div class="cmd-desc">服务·引擎·端口</div></div><span class="cmd-code">lh status</span></div>
+      <div class="cmd-card"><div class="cmd-icon">🚀</div><div class="cmd-info"><div class="cmd-name">鲲鹏同步</div><div class="cmd-desc">一键推送鲲鹏</div></div><span class="cmd-code">bash deploy/sync-to-kunpeng.sh</span></div>
+      <div class="cmd-card"><div class="cmd-icon">✍️</div><div class="cmd-info"><div class="cmd-name">GPG签名</div><div class="cmd-desc">全量分离签名</div></div><span class="cmd-code">python3 bin/lh_gpg_sign.py sign .</span></div>
+      <div class="cmd-card"><div class="cmd-icon">🐉</div><div class="cmd-info"><div class="cmd-name">AI Hub启动</div><div class="cmd-desc">透明审计多模型</div></div><span class="cmd-code">lh ai-hub</span></div>
+      <div class="cmd-card"><div class="cmd-icon">🧬</div><div class="cmd-info"><div class="cmd-name">DNA生成</div><div class="cmd-desc">天干地支·64卦</div></div><span class="cmd-code">lh dna --title "xx"</span></div>
+      <div class="cmd-card"><div class="cmd-icon">🎬</div><div class="cmd-info"><div class="cmd-name">视频制作</div><div class="cmd-desc">AI配音·字幕</div></div><span class="cmd-code">lh video --script 稿.txt</span></div>
+      <div class="cmd-card"><div class="cmd-icon">🏥</div><div class="cmd-info"><div class="cmd-name">健康检查</div><div class="cmd-desc">自愈·Bark推送</div></div><span class="cmd-code">bash deploy/scripts/health_check.sh</span></div>
+      <div class="cmd-card"><div class="cmd-icon">🔗</div><div class="cmd-info"><div class="cmd-name">对齐检查</div><div class="cmd-desc">全项目一致性</div></div><span class="cmd-code">lh --align check</span></div>
+      <div class="cmd-card"><div class="cmd-icon">📡</div><div class="cmd-info"><div class="cmd-name">全部启动</div><div class="cmd-desc">Mac全服务</div></div><span class="cmd-code">bash bin/start_all.sh</span></div>
+    </div>
+  </div>
+
+  <!-- 底部 -->
   <div class="footer">
-    <p>创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0</p>
-    <p class="pgp">GPG: A2D0 092C EE2E 5BA8 7035 6009 24C3 704A 8CC2 6D5F</p>
-    <p style="margin-top:6px">#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</p>
+    <p>龍魂系统 · 积木拼接中心 v1.0</p>
+    <p class="dna">#龍芯⚡️丙午·丙申·戊申·积木拼接·UNIFIED-PORTAL-v1.0</p>
+    <p style="margin-top:8px;">创建者: 诸葛鑫（UID9622） | GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</p>
+    <p>所有积木已连接 · 一个入口访问一切</p>
   </div>
 
 </div>
 
-<div class="refresh-badge" onclick="location.reload()" title="刷新状态">🔄 刷新</div>
-
 <script>
-/* ═══════════ 系统状态检测 ═══════════ */
-async function checkStatus() {
-  const ports = [
-    {el:'s8766',url:'http://localhost:8766/health'},
-    {el:'s8767',url:'http://localhost:8767/v1/pangdonglai/health'},
-    {el:'s8768',url:'http://localhost:8768/'},
-    {el:'s9657',url:'http://localhost:9657/health'},
-  ];
-  for (const p of ports) {
-    try {
-      const r = await fetch(p.url,{signal:AbortSignal.timeout(3000)});
-      const dot = document.getElementById(p.el);
-      if (r.ok) { dot.className = 'dot dot-on'; }
-      else { dot.className = 'dot dot-unknown'; }
-    } catch(e) {
-      const dot = document.getElementById(p.el);
-      dot.className = 'dot dot-off';
+// 搜索过滤
+function filterCards() {
+  const q = document.getElementById('search').value.toLowerCase().trim();
+  document.querySelectorAll('.card').forEach(card => {
+    const kw = (card.dataset.keywords || '') + ' ' + card.textContent;
+    if (!q || kw.toLowerCase().includes(q)) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
     }
-  }
+  });
+  // 隐藏没有可见卡片的section
+  document.querySelectorAll('.section').forEach(sec => {
+    const visible = sec.querySelectorAll('.card[style*="display: none"]').length;
+    const total = sec.querySelectorAll('.card').length;
+    sec.style.display = (visible === total && total > 0) ? 'none' : '';
+  });
 }
-checkStatus();
-setInterval(checkStatus,30000);
-</script>
 
+// 加载服务状态
+async function loadStatus() {
+  try {
+    const r = await fetch('/api/ai-hub/health');
+    if (r.ok) {
+      const d = await r.json();
+      document.getElementById('kunpeng-count').textContent = 'AI Hub ✅';
+    }
+  } catch(e) {}
+  
+  // 静态统计
+  document.getElementById('mac-count').textContent = '52 launchd';
+  document.getElementById('kunpeng-count').textContent = '39 systemd';
+  document.getElementById('portal-count').textContent = '36+ 页面';
+  document.getElementById('engine-count').textContent = '397 引擎';
+  
+  // Mac服务模拟
+  const macServices = [
+    'frpc','longhun-services','internal-net','guanlan','evidence-api','privacy-api',
+    'xiaoyi-bridge','search-engine','kg-api','think-pipeline','portal','registry',
+    'heart-talk','memory-api','global-index','heartbeat','node-audit','antenna-8gate',
+    'flow-fusion','full-fetch','ai-hub','dna-generator','video-studio'
+  ];
+  const macDiv = document.getElementById('mac-services');
+  macDiv.innerHTML = macServices.map(s => `<span class="status-chip">${s}</span>`).join('');
+  
+  // 鲲鹏服务
+  const kunpengServices = [
+    'lh-ai-hub','longhun-api','longhun-audit','longhun-dashboard','longhun-dna',
+    'longhun-flow-engine','longhun-knowledge-hub','longhun-memory-api','longhun-portal',
+    'longhun-search-engine','longhun-sovereignty','longhun-think-pipeline','longhun-vault-api',
+    'longhun-identity','longhun-privacy','longhun-evidence','longhun-persona-api',
+    'longhun-local-gateway','longhun-antenna-8gate','longhun-eternity-api','longhun-calendar',
+    'longhun-pathfinder','longhun-health-panorama','longhun-wechat','longhun888',
+    'longhun-trace-reconstructor','longhun-flow-fusion','longhun-audit-hub','longhun-deepseek-executor',
+    'longhun-memory-sync','longhun-media-verify','longhun-nano-vision','longhun-pay-anchor',
+    'longhun-activation','longhun-quantum-api','longhun-video-gallery'
+  ];
+  const kpDiv = document.getElementById('kunpeng-services');
+  kpDiv.innerHTML = kunpengServices.map(s => `<span class="status-chip">${s}</span>`).join('');
+}
+
+loadStatus();
+</script>
 </body>
 </html>

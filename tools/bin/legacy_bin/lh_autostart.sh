@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂系统开机自启动脚本 v3.1
 # 统一启动常驻服务 + 认知压缩 + 分层治理自愈
 # 已集成反熔断守卫：过载检查 → 执行 → 输出契约校验 → 审计日志

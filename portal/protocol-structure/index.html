@@ -1,0 +1,877 @@
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂 · 统一协议结构门户 v1.0</title>
+<style>
+:root {
+    --bg: #0d1117; --panel: rgba(22,27,34,0.85); --panel2: rgba(30,35,46,0.7);
+    --border: rgba(255,255,255,0.06); --text: #e6edf3; --muted: #8b949e;
+    --gold: #f59e0b; --gold-dim: rgba(245,158,11,0.16);
+    --green: #27ae60; --red: #e5484d; --blue: #3498db; --purple: #9b59b6;
+    --yellow: #f1c40f; --silver: #9aa0a6;
+    --radius: 14px; --ease: cubic-bezier(0.22,1,0.36,1);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    background: var(--bg); color: var(--text); font-family: 'PingFang SC','Microsoft YaHei',sans-serif;
+    min-height: 100vh; -webkit-font-smoothing: antialiased;
+}
+body::before {
+    content:''; position:fixed; inset:0; z-index:-1;
+    background: radial-gradient(ellipse at 50% 0%, rgba(245,158,11,0.04) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(59,130,246,0.03) 0%, transparent 40%);
+}
+.app { max-width: 1280px; margin:0 auto; padding: 8px 20px 64px; }
+
+/* Header */
+.hero { text-align:center; padding:40px 0 28px; }
+.hero h1 {
+    font-size:clamp(26px,4vw,42px); font-weight:800; color:var(--gold);
+    text-shadow:0 3px 0 #b45309,0 5px 0 #78350f,0 8px 30px rgba(245,158,11,0.5);
+    letter-spacing:0.03em; margin-bottom:8px;
+}
+.hero .sub { color:var(--muted); font-size:14px; letter-spacing:0.08em; margin-top:6px; }
+.hero .badge-row { margin-top:14px; display:flex; justify-content:center; gap:8px; flex-wrap:wrap; }
+
+.badge {
+    font-size:11px; padding:3px 12px; border-radius:999px; letter-spacing:0.08em;
+    border:1px solid; display:inline-flex; align-items:center; gap:4px;
+}
+.badge-p0 { color:#ef4444; border-color:rgba(239,68,68,0.3); background:rgba(239,68,68,0.08); }
+.badge-l1 { color:var(--gold); border-color:rgba(245,158,11,0.3); background:rgba(245,158,11,0.08); }
+.badge-l2 { color:var(--blue); border-color:rgba(59,130,246,0.3); background:rgba(59,130,246,0.08); }
+.badge-api-on { color:var(--green); border-color:rgba(39,174,96,0.3); background:rgba(39,174,96,0.08); animation:pulse 2s ease-in-out infinite; }
+.badge-api-off { color:var(--yellow); border-color:rgba(241,196,15,0.3); background:rgba(241,196,15,0.08); }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.6; } }
+
+/* Stats row */
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin-bottom:24px; }
+.stat-card {
+    background:var(--panel); backdrop-filter:blur(12px); border:1px solid var(--border);
+    border-radius:var(--radius); padding:18px 16px; text-align:center;
+    transition:transform 0.3s var(--ease);
+}
+.stat-card:hover { transform:translateY(-2px); }
+.stat-card .num { font-size:32px; font-weight:700; }
+.stat-card .label { font-size:11px; color:var(--muted); margin-top:4px; letter-spacing:0.08em; }
+.num-red { color:var(--red); } .num-gold { color:var(--gold); } .num-blue { color:var(--blue); }
+.num-green { color:var(--green); } .num-silver { color:var(--silver); } .num-purple { color:var(--purple); }
+
+/* Tabs */
+.tabs { display:flex; gap:2px; margin-bottom:20px; overflow-x:auto; border-bottom:1px solid var(--border); padding-bottom:0; }
+.tab-btn {
+    padding:10px 20px; font-size:13px; cursor:pointer; background:none; border:none;
+    color:var(--muted); border-bottom:2px solid transparent; font-family:inherit;
+    transition:all 0.25s var(--ease); white-space:nowrap; letter-spacing:0.04em;
+}
+.tab-btn:hover { color:var(--text); }
+.tab-btn.active { color:var(--gold); border-bottom-color:var(--gold); }
+
+/* Panel */
+.tab-content { display:none; }
+.tab-content.active { display:block; }
+
+/* Search bar */
+.search-bar {
+    display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap;
+}
+.search-bar input {
+    flex:1; min-width:200px; background:var(--panel2); border:1px solid var(--border);
+    border-radius:10px; padding:10px 16px; color:var(--text); font-size:14px;
+    font-family:inherit; outline:none; transition:border 0.25s;
+}
+.search-bar input:focus { border-color:var(--gold); }
+.search-bar select {
+    background:var(--panel2); border:1px solid var(--border); border-radius:10px;
+    padding:10px 12px; color:var(--text); font-size:13px; font-family:inherit; cursor:pointer;
+}
+
+/* Protocol list */
+.proto-list { display:flex; flex-direction:column; gap:6px; }
+.proto-item {
+    background:var(--panel2); border:1px solid var(--border); border-radius:10px;
+    padding:12px 16px; display:flex; align-items:center; gap:12px;
+    transition:all 0.25s var(--ease); cursor:pointer;
+}
+.proto-item:hover { border-color:rgba(245,158,11,0.25); background:rgba(245,158,11,0.04); }
+.proto-item .level-dot {
+    width:10px; height:10px; border-radius:50%; flex-shrink:0;
+}
+.dot-p0 { background:var(--red); box-shadow:0 0 8px rgba(239,68,68,0.5); }
+.dot-l0 { background:#1a1a20; box-shadow:0 0 6px rgba(0,0,0,0.8); border:1px solid #333; }
+.dot-l1 { background:var(--gold); box-shadow:0 0 6px rgba(245,158,11,0.4); }
+.dot-l2 { background:var(--blue); box-shadow:0 0 6px rgba(59,130,246,0.4); }
+.proto-item .name { flex:1; font-size:13px; }
+.proto-item .file { font-size:11px; color:var(--muted); font-family:monospace; }
+.proto-item .tag { font-size:10px; padding:2px 8px; border-radius:4px; letter-spacing:0.06em; white-space:nowrap; }
+.tag-p0 { color:var(--red); background:rgba(239,68,68,0.1); }
+.tag-l1 { color:var(--gold); background:rgba(245,158,11,0.1); }
+.tag-l2 { color:var(--blue); background:rgba(59,130,246,0.1); }
+
+/* Detail panel */
+.detail-panel {
+    display:none; background:var(--panel); border:1px solid rgba(245,158,11,0.2);
+    border-radius:var(--radius); padding:24px; margin-bottom:16px;
+    animation:slideIn 0.3s var(--ease);
+}
+@keyframes slideIn { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+.detail-panel.show { display:block; }
+.detail-panel h3 { color:var(--gold); margin-bottom:12px; font-size:16px; }
+.detail-panel .meta { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:12px; }
+.detail-panel .meta span { font-size:11px; color:var(--muted); }
+.detail-panel .path { font-family:monospace; font-size:12px; color:var(--silver); margin-bottom:16px; word-break:break-all; }
+.detail-panel .commands { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
+.detail-panel .commands code {
+    background:rgba(245,158,11,0.1); color:var(--gold); padding:3px 10px;
+    border-radius:6px; font-size:12px; cursor:pointer;
+}
+
+/* Code render */
+.code-block {
+    background:#161b22; border:1px solid var(--border); border-radius:10px;
+    padding:16px; margin-bottom:12px; position:relative;
+}
+.code-block pre {
+    font-family:'SF Mono','Fira Code',monospace; font-size:12px; line-height:1.6;
+    color:var(--text); overflow-x:auto; white-space:pre-wrap;
+}
+.code-block .copy-btn {
+    position:absolute; top:8px; right:8px; background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.12); color:var(--muted); padding:4px 10px;
+    border-radius:6px; font-size:11px; cursor:pointer; transition:all 0.2s;
+}
+.code-block .copy-btn:hover { color:var(--text); border-color:rgba(255,255,255,0.2); }
+.code-block .type-tag {
+    position:absolute; top:8px; left:12px; font-size:10px; padding:2px 8px;
+    border-radius:4px; letter-spacing:0.06em;
+}
+.type-dna { color:#ef4444; background:rgba(239,68,68,0.1); }
+.type-root { color:var(--gold); background:rgba(245,158,11,0.1); }
+.type-abom { color:var(--blue); background:rgba(59,130,246,0.1); }
+.type-sig { color:var(--green); background:rgba(39,174,96,0.1); }
+
+/* Relations graph */
+.graph-container {
+    background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
+    padding:0; overflow:hidden; min-height:480px; position:relative;
+}
+.graph-container svg { width:100%; height:100%; }
+.graph-legend { display:flex; gap:16px; padding:12px 16px; flex-wrap:wrap; font-size:11px; color:var(--muted); }
+.graph-legend span { display:flex; align-items:center; gap:4px; }
+.graph-legend .dot { width:8px; height:8px; border-radius:50%; }
+
+/* Game Theory section */
+.gt-section h3 { color:var(--gold); margin:24px 0 12px; font-size:16px; }
+.gt-section table {
+    width:100%; border-collapse:collapse; font-size:12px; margin-bottom:16px;
+}
+.gt-section th { text-align:left; padding:8px 12px; color:var(--muted); border-bottom:1px solid var(--border); font-size:11px; letter-spacing:0.06em; }
+.gt-section td { padding:10px 12px; border-bottom:1px solid rgba(255,255,255,0.03); vertical-align:top; }
+.gt-section tr:hover td { background:rgba(245,158,11,0.03); }
+
+/* Quick commands */
+.cmd-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:8px; }
+.cmd-item {
+    background:var(--panel2); border:1px solid var(--border); border-radius:10px;
+    padding:12px 16px; display:flex; align-items:center; gap:10px;
+    transition:all 0.2s; cursor:pointer;
+}
+.cmd-item:hover { border-color:rgba(59,130,246,0.3); }
+.cmd-item .cmd { font-family:monospace; font-size:13px; color:var(--blue); }
+.cmd-item .cmd-desc { flex:1; font-size:12px; color:var(--muted); }
+.cmd-item .cmd-proto { font-size:10px; color:var(--gold); white-space:nowrap; }
+
+/* Footer */
+footer {
+    margin-top:48px; text-align:center; color:var(--muted); font-size:11px;
+    line-height:2; letter-spacing:0.06em;
+}
+footer .dna { color:#4b5563; font-family:monospace; font-size:10px; }
+
+/* Responsive */
+@media(max-width:640px) {
+    .app { padding:8px 12px 48px; }
+    .hero { padding:24px 0 16px; }
+    .tabs { gap:0; }
+    .tab-btn { padding:8px 14px; font-size:12px; }
+    .stats { grid-template-columns:repeat(3,1fr); }
+    .cmd-grid { grid-template-columns:1fr; }
+}
+
+/* Count display */
+.count { color:var(--muted); font-size:12px; margin-left:8px; }
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- Header -->
+<header class="hero">
+    <h1>🐉 龍魂 · 统一协议结构门户 v1.0</h1>
+    <p class="sub">338份文档 · 8色视觉编码 · 自动索引 · 搜索过滤 · 代码渲染 · 博弈论报告</p>
+    <div class="badge-row">
+        <span id="apiStatusBadge" class="badge badge-api-off">🟡 静态缓存</span>
+        <span class="badge badge-p0">P0 焊死天条</span>
+        <span class="badge badge-l1">L1 核心协议</span>
+        <span class="badge badge-l2">L2 执行文档</span>
+        <span class="badge" style="color:var(--green);border-color:rgba(39,174,96,0.3);background:rgba(39,174,96,0.08);">🟢 v1.0 已上线</span>
+    </div>
+</header>
+
+<!-- Stats -->
+<nav class="stats" id="statsRow"></nav>
+
+<!-- Tabs -->
+<nav class="tabs">
+    <button class="tab-btn active" data-tab="overview">📊 总览仪表盘</button>
+    <button class="tab-btn" data-tab="protocols">📋 协议库 (<span id="protoCount">256</span>)</button>
+    <button class="tab-btn" data-tab="root">📜 根文档 & 规则</button>
+    <button class="tab-btn" data-tab="skills">🔧 技能映射 (<span id="skillCount">150</span>)</button>
+    <button class="tab-btn" data-tab="render">💻 代码渲染器</button>
+    <button class="tab-btn" data-tab="relations">🔗 协议关系图</button>
+    <button class="tab-btn" data-tab="commands">⚡ 命令速查</button>
+    <button class="tab-btn" data-tab="gametheory">🎲 博弈论报告</button>
+</nav>
+
+<!-- Tab: Overview -->
+<section class="tab-content active" id="tab-overview">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:24px;">
+            <h3 style="color:var(--gold);margin-bottom:12px;font-size:15px;">🏗️ 文档层级分布</h3>
+            <div id="levelChart" style="display:flex;flex-direction:column;gap:8px;"></div>
+        </div>
+        <div style="background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:24px;">
+            <h3 style="color:var(--gold);margin-bottom:12px;font-size:15px;">🎨 八色状态覆盖</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;" id="colorCoverage"></div>
+        </div>
+    </div>
+    <div style="background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:16px;">
+        <h3 style="color:var(--gold);margin-bottom:12px;font-size:15px;">🗺️ 协议体系速览</h3>
+        <table style="width:100%;font-size:12px;border-collapse:collapse;">
+            <thead>
+                <tr style="border-bottom:1px solid var(--border);">
+                    <th style="text-align:left;padding:8px;color:var(--muted);">层</th>
+                    <th style="text-align:left;padding:8px;color:var(--muted);">内容类别</th>
+                    <th style="text-align:left;padding:8px;color:var(--muted);">数量</th>
+                    <th style="text-align:left;padding:8px;color:var(--muted);">代表文档</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td style="color:var(--red);padding:8px;font-weight:600;">P0·∞</td><td style="padding:8px;">宪法·永恒锁·授权令</td><td style="padding:8px;">5</td><td style="padding:8px;font-size:11px;color:var(--muted);">CONSTITUTION.md / P0_ETERNAL_LOCK.md / M261-COVENANT</td></tr>
+                <tr><td style="color:#1a1a20;padding:8px;font-weight:600;">L0</td><td style="padding:8px;">系统拓扑·焊死锚点·底座</td><td style="padding:8px;">3</td><td style="padding:8px;font-size:11px;color:var(--muted);">longhun_neural_net.json / CNSH语义协议</td></tr>
+                <tr><td style="color:var(--gold);padding:8px;font-weight:600;">L1</td><td style="padding:8px;">核心协议·安全·隐私·审计</td><td style="padding:8px;">12</td><td style="padding:8px;font-size:11px;color:var(--muted);">德本审计·隐私接入·算法审计·战后整顿·原创声明</td></tr>
+                <tr><td style="color:var(--blue);padding:8px;font-weight:600;">L2</td><td style="padding:8px;">执行协议·技能·部署·文档</td><td style="padding:8px;">140+</td><td style="padding:8px;font-size:11px;color:var(--muted);">部署指南·目录索引·命令索引·技能库</td></tr>
+                <tr><td style="color:var(--silver);padding:8px;font-weight:600;">L3</td><td style="padding:8px;">工具链·脚本·引擎</td><td style="padding:8px;">150+</td><td style="padding:8px;font-size:11px;color:var(--muted);">lh_unified_visual.py / lh_gpg_sign.py / 192引擎</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- Tab: Protocols -->
+<section class="tab-content" id="tab-protocols">
+    <div class="search-bar">
+        <input type="text" id="protoSearch" placeholder="🔍 搜索协议名称或文件名..." oninput="filterProtos()">
+        <select id="levelFilter" onchange="filterProtos()">
+            <option value="all">全部层级</option>
+            <option value="P0">P0 焊死天条</option>
+            <option value="L0">L0 系统底座</option>
+            <option value="L1">L1 核心协议</option>
+            <option value="L2">L2 执行文档</option>
+        </select>
+        <select id="catFilter" onchange="filterProtos()">
+            <option value="all">全部类别</option>
+            <option value="governance">治理</option>
+            <option value="security">安全</option>
+            <option value="privacy">隐私</option>
+            <option value="audit">审计</option>
+            <option value="deploy">部署</option>
+            <option value="culture">文化</option>
+            <option value="skill">技能</option>
+            <option value="visual">视觉</option>
+            <option value="other">其他</option>
+        </select>
+    </div>
+    <div class="proto-list" id="protoList"></div>
+    <div class="detail-panel" id="protoDetail"></div>
+</section>
+
+<!-- Tab: Root Docs & Rules -->
+<section class="tab-content" id="tab-root">
+    <h3 style="color:var(--gold);margin-bottom:12px;">📜 根文档 (P0根级)</h3>
+    <div class="proto-list" id="rootList"></div>
+    <h3 style="color:var(--gold);margin:24px 0 12px;">📐 CodeBuddy 规则</h3>
+    <div class="proto-list" id="rulesList"></div>
+</section>
+
+<!-- Tab: Skills -->
+<section class="tab-content" id="tab-skills">
+    <div class="search-bar">
+        <input type="text" id="skillSearch" placeholder="🔍 搜索技能..." oninput="filterSkills()">
+    </div>
+    <div class="proto-list" id="skillsList"></div>
+</section>
+
+<!-- Tab: Code Render -->
+<section class="tab-content" id="tab-render">
+    <div style="margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="tab-btn active" style="font-size:12px;padding:6px 16px;" onclick="switchRender('samples')">示例模板</button>
+        <button class="tab-btn" style="font-size:12px;padding:6px 16px;" onclick="switchRender('custom')">自定义渲染</button>
+    </div>
+    <div id="render-samples">
+        <div class="code-block">
+            <span class="type-tag type-dna">DNA格式</span>
+            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+            <pre style="padding-top:28px;">DNA: #龍芯⚡️{干支四柱或YYYY-MM-DD}-{模块}-{动作}-{版本}-{哈希8}
+创建者: 诸葛鑫（UID9622）
+协议: CC BY-NC-SA 4.0
+确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</pre>
+        </div>
+        <div class="code-block">
+            <span class="type-tag type-root">ROOT_CARD格式</span>
+            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+            <pre style="padding-top:28px;">┌─────────────────────────────────────────┐
+│ 🐉 龍魂体系 · ROOT_CARD                  │
+│─────────────────────────────────────────│
+│ DNA:  #龍芯⚡️{干支}·{卦}-{模块}-v{版本}    │
+│ 创建: 诸葛鑫（UID9622）                   │
+│ 层级: P0/L0/L1/L2                        │
+│ GPG:  A2D0092CEE2E5BA87035600924C3704A8CC26D5F │
+│ 许可: CC BY-NC-SA 4.0                    │
+│ 三色: 🟢 / 🟡 / 🔴                        │
+│ 确认: #CONFIRM🌌9622                      │
+└─────────────────────────────────────────┘</pre>
+        </div>
+        <div class="code-block">
+            <span class="type-tag type-abom">A-BOM算法物料清单</span>
+            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+            <pre style="padding-top:28px;">// A-BOM: {模块名}_v{版本}
+{
+  "algorithm": "{算法名称}",
+  "objective": "{目标函数描述}",
+  "inputs": ["{特征1}", "{特征2}", "..."],
+  "user_impact": "{对用户的影响说明}",
+  "appeal_channel": "{申诉渠道}",
+  "last_audit": "{审计日期}",
+  "audit_level": "三色标记",
+  "dna": "#龍芯⚡️{追溯码}"
+}</pre>
+        </div>
+        <div class="code-block">
+            <span class="type-tag type-sig">执行签章JSON</span>
+            <button class="copy-btn" onclick="copyCode(this)">复制</button>
+            <pre style="padding-top:28px;">{
+  "executor": "人格名称",
+  "trigger_time": "ISO 8601",
+  "audit_mark": "🟢/🟡/🔴",
+  "risk_score": 0.00,
+  "gpg_signature": "分离签名.asc",
+  "dna": "#龍芯⚡️..."
+}</pre>
+        </div>
+    </div>
+    <div id="render-custom" style="display:none;">
+        <textarea id="customInput" style="width:100%;height:200px;background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:16px;color:var(--text);font-family:'SF Mono',monospace;font-size:13px;resize:vertical;" placeholder="粘贴 DNA / ROOT_CARD / A-BOM / 签章JSON ...自动检测并渲染"></textarea>
+        <button class="tab-btn active" style="margin-top:8px;font-size:12px;padding:6px 20px;" onclick="renderCustom()">🎨 渲染</button>
+        <div id="customOutput" style="margin-top:12px;"></div>
+    </div>
+</section>
+
+<!-- Tab: Relations -->
+<section class="tab-content" id="tab-relations">
+    <div class="graph-legend">
+        <span><span class="dot" style="background:var(--red);"></span> P0宪法级</span>
+        <span><span class="dot" style="background:var(--gold);"></span> L1核心协议</span>
+        <span><span class="dot" style="background:var(--blue);"></span> L2执行文档</span>
+        <span style="color:var(--green);">→ 引用依赖</span>
+        <span style="color:var(--yellow);">⇢ 实现关系</span>
+    </div>
+    <div class="graph-container" id="graphContainer"></div>
+</section>
+
+<!-- Tab: Quick Commands -->
+<section class="tab-content" id="tab-commands">
+    <h3 style="color:var(--gold);margin-bottom:16px;">⚡ 协议 → lh 命令映射</h3>
+    <div class="cmd-grid" id="cmdGrid"></div>
+</section>
+
+<!-- Tab: Game Theory -->
+<section class="tab-content" id="tab-gametheory">
+    <div class="gt-section">
+        <div style="background:var(--panel);border:1px solid rgba(241,196,15,0.2);border-radius:var(--radius);padding:20px;margin-bottom:20px;">
+            <span style="color:var(--yellow);">🟡 三色: 黄色 — 分析性建模推演·建议人工复核后引用</span>
+            <span style="color:var(--muted);margin-left:16px;font-size:12px;">papers/LH-GAMETHEORY-REPORT-v1.0.md</span>
+        </div>
+
+        <h3>固化思维的四个形式化机制</h3>
+        <table>
+            <thead><tr><th>机制</th><th>提出者</th><th>锁定对象</th><th>博弈论对应物</th></tr></thead>
+            <tbody>
+                <tr><td>结构惯性</td><td>Hannan & Freeman 1984</td><td>单个组织</td><td>高调整成本的承诺策略</td></tr>
+                <tr><td>制度同构</td><td>DiMaggio & Powell 1983</td><td>整个行业场域</td><td>相关均衡/焦点</td></tr>
+                <tr><td>创新者窘境</td><td>Christensen</td><td>在位者战略</td><td>支付函数被现有客户焊死</td></tr>
+                <tr><td>指标博弈</td><td>古德哈特定律AI实例</td><td>评价体系</td><td>委托-代理信号失真</td></tr>
+            </tbody>
+        </table>
+
+        <h3>六系统博弈对比总表</h3>
+        <table>
+            <thead><tr><th>系统</th><th>均衡类型</th><th>固化根源</th><th>解锁条件</th></tr></thead>
+            <tbody>
+                <tr><td style="color:var(--red);">大模型军备</td><td>囚徒困境·军备占优</td><td>Scaling叙事焦点化</td><td>DeepSeek效率证伪</td></tr>
+                <tr><td style="color:var(--blue);">云计算三寡头</td><td>锁定均衡 τ≥r高−r低</td><td>egress费租金依赖</td><td>EU数据法案2027</td></tr>
+                <tr><td style="color:var(--purple);">移动OS双寡头</td><td>生态位均衡+进入壁垒</td><td>佣金租金≈利润50%</td><td>HarmonyOS主权市场</td></tr>
+                <tr><td style="color:var(--green);">芯片CUDA</td><td>生态锁定·集体认知税</td><td>500万开发者专用性</td><td>抽象层成熟</td></tr>
+                <tr><td style="color:var(--silver);">注意力平台</td><td>Engagement囚徒困境</td><td>KPI殖民目标函数</td><td>监管+替代支付函数</td></tr>
+                <tr><td style="color:var(--gold);font-weight:600;">🐉 龍魂体系</td><td>多点占位·后均衡布局</td><td>三重自固化风险</td><td>标点事件兑现+治理τ压缩</td></tr>
+            </tbody>
+        </table>
+
+        <h3>核心结论</h3>
+        <blockquote style="border-left:3px solid var(--gold);padding:12px 20px;margin:16px 0;color:var(--muted);font-size:14px;line-height:1.7;">
+            <strong style="color:var(--text);">主流系统的"不创新"是均衡，不是错误；均衡只能被支付函数的改变所打破，不能被口号所打破。</strong><br><br>
+            固化思维在所有案例中都扮演同一角色：它不是均衡的原因，而是均衡的认知黏合剂——让局中人把"我偏离会受损"误读为"这条路本身正确"。<br><br>
+            龍魂体系的战略要义不是"赢得辩论"，而是<strong style="color:var(--green);">活着等到并主动制造属于自己的标点事件</strong>——届时，所有被嘲笑为异端的设计，都将在一夜之间被重新命名为先见。
+        </blockquote>
+    </div>
+</section>
+
+<footer>
+    🐉 龍魂不息 · 以人为本 ｜ 祖国优先 · 普惠全球 · 技术为人民服务 🇨🇳<br>
+    <span class="dna">DNA: #龍芯⚡️丙午·乙未·丁酉·巳时·☵坎-PROTOCOL-STRUCTURE-PORTAL-v1.0 | CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z | GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</span>
+</footer>
+
+</div>
+
+<script>
+// ===== DATA LAYER =====
+const API_BASE = 'http://localhost:8910/api';
+let DATA = { protocols:[], root_docs:[], skills:[], total_protocols:0, total_root:0, total_skills:0, total_all:0 };
+let apiOnline = false;
+
+// Category detection
+const CAT_KEYWORDS = {
+    governance: ['治理','审计','govern','audit','熔断','GATE','闸口','德本','底线','离火','P05','P13','P15','P72','persona','人格'],
+    security: ['安全','security','vuln','漏洞','威胁','threat','crypto','GPG','签名','签名','防篡改','encrypt','渗透'],
+    privacy: ['隐私','privacy','数据','data','主权','sovereignty','个人信息'],
+    audit: ['审计','audit','三色','three.color','P05'],
+    deploy: ['部署','deploy','鲲鹏','docker','systemd','launchd','health'],
+    culture: ['文化','culture','道德经','五行','八卦','洛书','CNSH','龙','龍'],
+    skill: ['技能','skill','引擎','engine','pipeline','router','trainer','detector','orchestrator','agent','guard','colony'],
+    visual: ['视觉','visual','颜色','color','渲染','render','面板','portal','dashboard','动画'],
+};
+
+function detectCat(file, title) {
+    const t = (file + ' ' + title).toLowerCase();
+    for (const [cat, kws] of Object.entries(CAT_KEYWORDS)) {
+        for (const kw of kws) {
+            if (t.includes(kw.toLowerCase())) return cat;
+        }
+    }
+    return 'other';
+}
+
+function detectLevel(file, title) {
+    const t = (file + ' ' + title).toUpperCase();
+    if (t.includes('P0') || t.includes('ETERNAL') || t.includes('宪法') || t.includes('永恒') || t.includes('天条')) return 'P0';
+    if (t.includes('L0') || t.includes('NEURAL') || t.includes('CNSH_SEMANTIC') || t.includes('底座')) return 'L0';
+    if (t.includes('V1.0') || t.includes('V1.') || t.includes('P1') || t.includes('核心')) return 'L1';
+    return 'L2';
+}
+
+// ===== API STATUS =====
+function updateApiStatus(online) {
+    apiOnline = online;
+    const badge = document.getElementById('apiStatusBadge');
+    if (!badge) return;
+    if (online) {
+        badge.innerHTML = '🟢 API实时';
+        badge.className = 'badge' + ' badge-api-on';
+        badge.title = '协议动态索引服务在线 (8910端口)';
+    } else {
+        badge.innerHTML = '🟡 静态缓存';
+        badge.className = 'badge' + ' badge-api-off';
+        badge.title = 'API不可用·回退静态JSON数据';
+    }
+}
+
+// Load data — API first, fallback to static JSON
+async function loadData() {
+    let loaded = false;
+
+    // Try API (dashboard endpoint: one request, all data)
+    try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 2000);
+        const resp = await fetch(`${API_BASE}/dashboard`, { signal: controller.signal });
+        clearTimeout(timeout);
+
+        if (resp.ok) {
+            const apiData = await resp.json();
+            DATA = {
+                protocols: apiData.protocols || [],
+                root_docs: apiData.roots || [],
+                skills: apiData.skills || [],
+                total_protocols: apiData.total_protocols || 0,
+                total_root: apiData.total_roots || 0,
+                total_skills: apiData.total_skills || 0,
+                total_all: apiData.total_all || 0,
+            };
+            updateApiStatus(true);
+            loaded = true;
+            console.log(`✅ API 加载成功: ${DATA.total_all} 文档 (last_scan: ${apiData.last_scan})`);
+        }
+    } catch (e) {
+        console.warn('⚠️ API 不可达，尝试静态JSON:', e.message);
+    }
+
+    // Fallback to static JSON
+    if (!loaded) {
+        try {
+            const resp = await fetch('./protocol_index.json');
+            const staticData = await resp.json();
+            DATA = {
+                protocols: staticData.protocols || [],
+                root_docs: staticData.root_docs || [],
+                skills: staticData.skills || [],
+                total_protocols: staticData.total_protocols || staticData.protocols.length || 0,
+                total_root: staticData.total_root || staticData.root_docs.length || 0,
+                total_skills: staticData.total_skills || staticData.skills.length || 0,
+                total_all: staticData.total_all || 0,
+            };
+            updateApiStatus(false);
+            loaded = true;
+            console.log(`🟡 静态JSON加载: ${DATA.total_all} 文档`);
+        } catch(e2) {
+            console.error('❌ 两种方式均加载失败:', e2);
+            renderFallback();
+            return;
+        }
+    }
+
+    document.getElementById('protoCount').textContent = DATA.total_protocols;
+    document.getElementById('skillCount').textContent = DATA.total_skills;
+    renderStats();
+    renderProtos();
+    renderRoots();
+    renderSkills();
+    renderCommands();
+    renderRelations();
+}
+
+// ===== STATS =====
+function renderStats() {
+    // Count by level from API data
+    const ap = DATA.protocols || [];
+    const p0 = ap.filter(p => (p.level||p.get?.('level')||detectLevel(p.file||p.filename||'',p.title||''))==='P0').length
+              + (DATA.root_docs||[]).filter(d => (d.level||detectLevel(d.file||'',d.title||''))==='P0').length;
+    const l0 = ap.filter(p => (p.level||p.get?.('level')||detectLevel(p.file||p.filename||'',p.title||''))==='L0').length;
+    const l1 = ap.filter(p => (p.level||p.get?.('level')||detectLevel(p.file||p.filename||'',p.title||''))==='L1').length
+              + (DATA.root_docs||[]).filter(d => (d.level||detectLevel(d.file||'',d.title||''))==='L1').length;
+    const l2 = ap.filter(p => (p.level||p.get?.('level')||detectLevel(p.file||p.filename||'',p.title||''))==='L2').length
+
+    const total = DATA.total_all || (DATA.total_protocols + DATA.total_root + DATA.total_skills) || 338;
+
+    document.getElementById('statsRow').innerHTML = `
+        <div class="stat-card"><div class="num num-red">${p0}</div><div class="label">🔴 P0 焊死天条</div></div>
+        <div class="stat-card"><div class="num num-gold">${l1}</div><div class="label">🟡 L1 核心协议</div></div>
+        <div class="stat-card"><div class="num num-blue">${l2+l0}</div><div class="label">🔵 L2 执行文档</div></div>
+        <div class="stat-card"><div class="num num-green">${DATA.total_skills || 0}</div><div class="label">🟢 技能引擎</div></div>
+        <div class="stat-card"><div class="num num-silver">${total}</div><div class="label">⚪ 文档总计</div></div>
+        <div class="stat-card"><div class="num" style="color:var(--gold);">8</div><div class="label">🎨 八色色阶</div></div>
+    `;
+
+    // Level chart
+    document.getElementById('levelChart').innerHTML = [
+        {label:'P0 焊死天条', count:p0, color:'#e5484d', pct:Math.round(p0/total*100)},
+        {label:'L0 系统底座', count:l0||3, color:'#1a1a20', pct:Math.round((l0||3)/total*100)},
+        {label:'L1 核心协议', count:l1, color:'#f59e0b', pct:Math.round(l1/total*100)},
+        {label:'L2 执行文档', count:l2, color:'#3498db', pct:Math.round(l2/total*100)},
+        {label:'L3 技能工具', count:(DATA.total_skills||0), color:'#9aa0a6', pct:Math.round((DATA.total_skills||0)/total*100)},
+    ].map(l => `<div style="display:flex;align-items:center;gap:10px;">
+        <span style="width:80px;font-size:11px;color:var(--muted);">${l.label}</span>
+        <div style="flex:1;background:rgba(255,255,255,0.04);border-radius:6px;height:22px;overflow:hidden;">
+            <div style="width:${Math.max(l.pct,2)}%;height:100%;background:${l.color};border-radius:6px;transition:width 1s var(--ease);"></div>
+        </div>
+        <span style="font-size:12px;font-weight:600;min-width:30px;text-align:right;">${l.count}</span>
+    </div>`).join('');
+
+    // Color coverage
+    document.getElementById('colorCoverage').innerHTML = [
+        {name:'断空红 P0', color:'#e5484d', desc:'熔断·红线·立即停'},
+        {name:'深渊黑 P1', color:'#1a1a20', desc:'隔离·机密·永久禁'},
+        {name:'观察紫 P2', color:'#9b59b6', desc:'外部·未审·观察池'},
+        {name:'主权金 P3', color:'#d4af37', desc:'主控·实证·已授权'},
+        {name:'追踪蓝 P4', color:'#3498db', desc:'系统·审计·运维'},
+        {name:'待核黄 P5', color:'#f1c40f', desc:'待查·警告·48h复查'},
+        {name:'过渡银 P6', color:'#9aa0a6', desc:'AI生成·推演·非真'},
+        {name:'放行绿 P7', color:'#27ae60', desc:'通过·安全·正常'},
+    ].map(c => `<div style="display:flex;align-items:center;gap:8px;">
+        <span style="width:12px;height:12px;border-radius:50%;background:${c.color};flex-shrink:0;box-shadow:0 0 6px ${c.color}80;"></span>
+        <span style="font-size:12px;">${c.name}</span>
+        <span style="font-size:10px;color:var(--muted);">${c.desc}</span>
+    </div>`).join('');
+}
+
+// ===== PROTOCOLS =====
+function renderProtos() {
+    const all = (DATA.protocols || []).map(p => ({
+        ...p,
+        type: 'protocol',
+        file: p.file || p.filename || '',
+        level: p.level || detectLevel(p.file||p.filename||'', p.title||''),
+        category: p.category || detectCat(p.file||p.filename||'', p.title||''),
+    }));
+    window._allProtos = all;
+    filterProtos();
+}
+
+function filterProtos() {
+    const q = (document.getElementById('protoSearch')?.value || '').toLowerCase();
+    const lv = document.getElementById('levelFilter')?.value || 'all';
+    const cat = document.getElementById('catFilter')?.value || 'all';
+    
+    let filtered = window._allProtos || [];
+    if (q) filtered = filtered.filter(p => (p.title||'').toLowerCase().includes(q) || (p.file||'').toLowerCase().includes(q));
+    if (lv !== 'all') filtered = filtered.filter(p => (p.level) === lv);
+    if (cat !== 'all') filtered = filtered.filter(p => (p.category) === cat);
+    
+    const list = document.getElementById('protoList');
+    list.innerHTML = filtered.slice(0, 200).map(p => {
+        const lv = p.level;
+        const title = p.title || p.file || '';
+        const file = p.file || p.filename || '';
+        const path = p.path || '';
+        return `<div class="proto-item" onclick="showProtoDetail('${file.replace(/'/g,"\\'")}','${title.replace(/'/g,"\\'")}','${path.replace(/'/g,"\\'")}','${lv}','protocol')">
+            <span class="level-dot ${lv==='P0'?'dot-p0':lv==='L0'?'dot-l0':lv==='L1'?'dot-l1':'dot-l2'}"></span>
+            <span class="name">${title}</span>
+            <span class="file">${file}</span>
+            <span class="tag ${lv==='P0'?'tag-p0':lv==='L1'?'tag-l1':'tag-l2'}">${lv}</span>
+        </div>`;
+    }).join('');
+    if (filtered.length > 200) list.innerHTML += `<div style="padding:12px;color:var(--muted);text-align:center;">显示前200条，共${filtered.length}条匹配（请使用搜索缩小范围）</div>`;
+}
+
+function showProtoDetail(file, title, path, level, type) {
+    const cat = detectCat(file, title);
+    const cmdMap = {
+        'audit': 'lh audit', 'deploy': 'bash deploy/sync-to-kunpeng.sh',
+        'security': 'python3 bin/lh_gpg_sign.py sign .', 'visual': 'lh uv',
+        'governance': 'python3 bin/lh_deben_audit.py scan', 'skill': 'lh',
+    };
+    const cmd = Object.entries(cmdMap).find(([k]) => cat.includes(k))?.[1] || 'lh';
+    
+    document.getElementById('protoDetail').innerHTML = `
+        <h3>${title}</h3>
+        <div class="meta">
+            <span>层级: <b style="color:${level==='P0'?'var(--red)':level==='L1'?'var(--gold)':'var(--blue)'}">${level}</b></span>
+            <span>类别: ${cat}</span>
+            <span>类型: ${type}</span>
+        </div>
+        <div class="path">📁 ${path}</div>
+        <div class="commands">
+            <span style="font-size:11px;color:var(--muted);">关联命令:</span>
+            <code onclick="navigator.clipboard.writeText('${cmd}')">${cmd}</code>
+        </div>
+        <button class="tab-btn" style="font-size:11px;padding:4px 12px;" onclick="document.getElementById('protoDetail').classList.remove('show')">关闭</button>
+    `;
+    document.getElementById('protoDetail').classList.add('show');
+    document.getElementById('protoDetail').scrollIntoView({behavior:'smooth'});
+}
+
+// ===== ROOTS & RULES =====
+function renderRoots() {
+    const roots = DATA.root_docs || [];
+    const rlv = d => d.level || detectLevel(d.file||'', d.title||'');
+    document.getElementById('rootList').innerHTML = roots.map(d => {
+        const lv = rlv(d);
+        const file = d.file || '';
+        const path = d.path || '';
+        return `<div class="proto-item" onclick="showProtoDetail('${file.replace(/'/g,"\\'")}','根文档','${path.replace(/'/g,"\\'")}','${lv}','root')">
+            <span class="level-dot ${lv==='P0'?'dot-p0':lv==='L1'?'dot-l1':'dot-l2'}"></span>
+            <span class="name">${file}</span>
+            <span class="file">${path}</span>
+            <span class="tag ${lv==='P0'?'tag-p0':lv==='L1'?'tag-l1':'tag-l2'}">${lv}</span>
+        </div>`;
+    }).join('');
+
+    // Rules from root_docs with category==='rules'
+    const rules = roots.filter(d => (d.category||'')==='rules');
+    document.getElementById('rulesList').innerHTML = rules.length > 0 ? rules.map(r => {
+        const file = r.file || '';
+        const path = r.path || '';
+        return `<div class="proto-item">
+            <span class="level-dot dot-p0"></span>
+            <span class="name">${file}</span>
+            <span class="file">${path}</span>
+            <span class="tag tag-p0">P0</span>
+        </div>`;
+    }).join('') : '<div style="padding:12px;color:var(--muted);">规则已合并到上层文档</div>';
+}
+
+// ===== SKILLS =====
+function renderSkills() {
+    window._allSkills = DATA.skills || [];
+    filterSkills();
+}
+
+function filterSkills() {
+    const q = (document.getElementById('skillSearch')?.value || '').toLowerCase();
+    let filtered = window._allSkills || [];
+    if (q) filtered = filtered.filter(s => (s.file||'').toLowerCase().includes(q) || (s.path||'').toLowerCase().includes(q));
+    
+    document.getElementById('skillsList').innerHTML = filtered.slice(0, 100).map(s => {
+        const file = s.file || '';
+        const path = s.path || '';
+        return `<div class="proto-item">
+        <span class="level-dot dot-l2"></span>
+        <span class="name">${file}</span>
+        <span class="file">${path}</span>
+        <span class="tag tag-l2">L2</span>
+    </div>`;
+    }).join('');
+}
+
+// ===== COMMANDS =====
+function renderCommands() {
+    const cmds = [
+        {cmd:'lh', desc:'统一控制台入口', proto:'P13 姜子牙'},
+        {cmd:'lh audit', desc:'三色审计引擎', proto:'P05 上帝之眼'},
+        {cmd:'lh uv / lh visual', desc:'统一视觉八色判定', proto:'统一视觉协议'},
+        {cmd:'lh proto-serve --port 8910', desc:'启动协议动态索引服务', proto:'P0-1 协议索引'},
+        {cmd:'lh status', desc:'系统状态总览', proto:'P09 孙思邈'},
+        {cmd:'lh search', desc:'多源搜索引擎', proto:'搜索引擎协议'},
+        {cmd:'lh deploy / lh dp', desc:'鲲鹏一键部署', proto:'P14 吕蒙'},
+        {cmd:'python3 bin/lh_gpg_sign.py sign .', desc:'全量GPG签名', proto:'GPG签章协议'},
+        {cmd:'python3 bin/lh_deben_audit.py scan', desc:'德本审计五问', proto:'德本审计协议'},
+        {cmd:'bash deploy/sync-to-kunpeng.sh', desc:'同步到鲲鹏服务器', proto:'部署配置协议'},
+        {cmd:'python3 bin/lh_memory_load.py', desc:'加载焊死记忆', proto:'M261前传契碑'},
+        {cmd:'lh align', desc:'代码对齐复盘', proto:'全对齐规则'},
+        {cmd:'lh --head', desc:'六模板抬头选择', proto:'文章抬头模板'},
+    ];
+    
+    document.getElementById('cmdGrid').innerHTML = cmds.map(c => `
+        <div class="cmd-item" onclick="navigator.clipboard.writeText('${c.cmd}')" title="点击复制">
+            <span class="cmd">${c.cmd}</span>
+            <span class="cmd-desc">${c.desc}</span>
+            <span class="cmd-proto">→ ${c.proto}</span>
+        </div>
+    `).join('');
+}
+
+// ===== RELATIONS =====
+function renderRelations() {
+    const nodes = [
+        {id:'P0', label:'宪法·永恒锁', x:400,y:30, color:'#e5484d'},
+        {id:'M261', label:'M261授权令', x:220,y:120, color:'#e5484d'},
+        {id:'DEBEN', label:'德本审计', x:580,y:120, color:'#f59e0b'},
+        {id:'PERSONA', label:'20人格治理', x:400,y:200, color:'#f59e0b'},
+        {id:'AUDIT', label:'三色审计', x:200,y:300, color:'#3498db'},
+        {id:'GPGSIGN', label:'GPG签章', x:600,y:300, color:'#3498db'},
+        {id:'PRIVACY', label:'隐私接入', x:100,y:420, color:'#3498db'},
+        {id:'ALGOAUDIT', label:'算法审计A-BOM', x:400,y:400, color:'#3498db'},
+        {id:'WAR', label:'战后整顿双标识', x:700,y:420, color:'#3498db'},
+        {id:'VISUAL', label:'统一视觉八色', x:400,y:510, color:'#27ae60'},
+        {id:'DEPLOY', label:'鲲鹏部署', x:250,y:590, color:'#9aa0a6'},
+        {id:'CNSH', label:'CNSH语义', x:550,y:590, color:'#9aa0a6'},
+    ];
+    
+    const edges = [
+        {from:'P0',to:'M261'},{from:'P0',to:'DEBEN'},{from:'P0',to:'PERSONA'},
+        {from:'M261',to:'AUDIT'},{from:'M261',to:'GPGSIGN'},
+        {from:'PERSONA',to:'AUDIT'},{from:'PERSONA',to:'CNSH'},
+        {from:'DEBEN',to:'AUDIT'},{from:'DEBEN',to:'PRIVACY'},
+        {from:'AUDIT',to:'VISUAL'},{from:'GPGSIGN',to:'DEPLOY'},
+        {from:'PRIVACY',to:'AUDIT'},{from:'ALGOAUDIT',to:'AUDIT'},
+        {from:'WAR',to:'VISUAL'},{from:'VISUAL',to:'DEPLOY'},
+        {from:'CNSH',to:'PERSONA'},{from:'DEPLOY',to:'CNSH'},
+    ];
+    
+    const svg = `<svg viewBox="0 50 800 660" style="width:100%;height:auto;">
+        <defs>
+            <marker id="arrowRed" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e5484d80"/></marker>
+            <marker id="arrowGold" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b80"/></marker>
+            <marker id="arrowBlue" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#3498db80"/></marker>
+            <filter id="glow"><feGaussianBlur stdDeviation="3"/></filter>
+        </defs>
+        ${edges.map(e => {
+            const fn = nodes.find(n=>n.id===e.from), tn = nodes.find(n=>n.id===e.to);
+            if (!fn||!tn) return '';
+            const color = fn.color === '#e5484d' ? '#e5484d80' : fn.color === '#f59e0b' ? '#f59e0b80' : '#3498db80';
+            return `<line x1="${fn.x}" y1="${fn.y}" x2="${tn.x}" y2="${tn.y}" stroke="${color}" stroke-width="1" marker-end="url(#arrowBlue)"/>`;
+        }).join('')}
+        ${nodes.map(n => `
+            <g>
+                <circle cx="${n.x}" cy="${n.y}" r="24" fill="${n.color}22" stroke="${n.color}" stroke-width="1.5"/>
+                <text x="${n.x}" y="${n.y}" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="${n.color}" font-weight="600">${n.id}</text>
+                <text x="${n.x}" y="${n.y+36}" text-anchor="middle" font-size="9" fill="#8b949e">${n.label}</text>
+            </g>
+        `).join('')}
+    </svg>`;
+    
+    document.getElementById('graphContainer').innerHTML = svg;
+}
+
+// ===== CODE RENDER =====
+function switchRender(mode) {
+    document.querySelectorAll('#tab-render .tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('render-samples').style.display = mode === 'samples' ? 'block' : 'none';
+    document.getElementById('render-custom').style.display = mode === 'custom' ? 'block' : 'none';
+    event.target.classList.add('active');
+}
+
+function renderCustom() {
+    const input = document.getElementById('customInput').value.trim();
+    const out = document.getElementById('customOutput');
+    if (!input) { out.innerHTML = ''; return; }
+    
+    // Auto-detect format
+    let typeTag = 'type-dna', typeLabel = 'DNA格式';
+    if (input.includes('ROOT_CARD') || input.includes('┌─')) { typeTag = 'type-root'; typeLabel = 'ROOT_CARD'; }
+    else if (input.includes('A-BOM') || input.includes('"algorithm"')) { typeTag = 'type-abom'; typeLabel = 'A-BOM'; }
+    else if (input.includes('"executor"') || input.includes('audit_mark')) { typeTag = 'type-sig'; typeLabel = '执行签章'; }
+    
+    out.innerHTML = `<div class="code-block">
+        <span class="type-tag ${typeTag}">${typeLabel}</span>
+        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+        <pre style="padding-top:28px;">${escapeHtml(input)}</pre>
+    </div>`;
+}
+
+function copyCode(btn) {
+    const pre = btn.parentElement.querySelector('pre');
+    navigator.clipboard.writeText(pre.textContent);
+    btn.textContent = '已复制!';
+    setTimeout(() => btn.textContent = '复制', 1500);
+}
+
+function escapeHtml(s) {
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+}
+
+// ===== TABS =====
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const tab = this.dataset.tab;
+        if (!tab) return;
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+        document.getElementById('tab-' + tab)?.classList.add('active');
+        document.querySelectorAll('.tabs .tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+// ===== FALLBACK =====
+function renderFallback() {
+    document.getElementById('protoList').innerHTML = '<div style="padding:20px;color:var(--muted);text-align:center;">无法加载协议索引。请确保 protocol_index.json 存在。</div>';
+}
+
+// ===== INIT =====
+loadData();
+</script>
+</body>
+</html>

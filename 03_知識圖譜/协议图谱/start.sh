@@ -1,4 +1,7 @@
 #!/bin/bash
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 协议图谱本地服务器 (端口 8890) — 复用 docs.longhun888.com 同源机制
 # 用法: bash start.sh  |  停止: bash stop.sh
 cd "$(dirname "$0")"

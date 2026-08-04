@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # #龍芯⚡️2026-07-04-SANCAI-PROTOCOL-UID9622-v1.0
 # -*- coding: utf-8 -*-
 """

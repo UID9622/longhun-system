@@ -1,0 +1,38 @@
+# ==========================================================
+# CNSH CI/CD 配置
+# VERSION: v2.0.0
+# ==========================================================
+
+name: CNSH CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup CNSH Environment
+        run: |
+          source cnsh_env.sh
+          echo "CNSH_UID=$CNSH_UID" >> $GITHUB_ENV
+      
+      - name: Validate CNSH Footer
+        run: |
+          for file in $(find . -name "*.md" -o -name "*.py" -o -name "*.sh"); do
+            if ! grep -q "CNSH 文件主权尾注" "$file"; then
+              echo "❌ $file 缺少 CNSH 尾注"
+              exit 1
+            fi
+          done
+          echo "✅ 所有文件 CNSH 校验通过"
+      
+      - name: Run CNSH Tests
+        run: |
+          python3 cnsh_print.py
+          echo "✅ CNSH 测试通过"

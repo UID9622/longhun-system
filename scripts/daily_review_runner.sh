@@ -1,4 +1,5 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂每日復盤·帶密鑰激活運行器
 # 負責在 LaunchAgent / Cron 環境中加載 ~/.longhun/secrets.env 與 ~/.uid9622/git-tokens.sh
 # 再調用 tools/logging/daily_review_enhanced.py 發送郵件/Notion/日曆

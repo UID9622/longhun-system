@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 <!-- #龍芯⚡️20260624010825169-AUTO-DNA-7AD7F5DE 自动注入·分层治理自愈引擎 · 来源可查 -->
 # 龍魂通心译铁律：先翻译，再执行
 

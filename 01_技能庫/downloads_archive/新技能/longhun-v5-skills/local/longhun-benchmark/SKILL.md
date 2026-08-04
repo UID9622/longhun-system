@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
 name: longhun-benchmark
 description: Longhun Formula System performance benchmark engine with 16 test scenarios across Core layer (8 items), Chain layer (5 items), and Batch tests (3 items). Includes comparison analysis between v1.0 and v2.0, trend analysis, regression detection, and report generation. Achieves 205,228 decisions/sec throughput with audit trail overhead quantified at 5-20%.

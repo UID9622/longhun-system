@@ -1,4 +1,5 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # deploy-frp-v3.6.sh
 # 部署frp面板 v3.6 — 训练进度可视化 + Canvas进化时间轴
 # DNA: #龍芯⚡️丙午·辛未·DEPLOY-v3.6

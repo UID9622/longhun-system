@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 <!--#龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-DOC-PERSONA_TRAINING_SYSTEM-v1.1 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 

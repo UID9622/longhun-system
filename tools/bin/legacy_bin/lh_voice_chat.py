@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 # 龍魂实时语音对话引擎 · 占位符 · TTS+ASR+LLM 流式pipeline
 # DNA: #龍芯⚡️丙午·辛未·VOICE-CHAT-PLACEHOLDER

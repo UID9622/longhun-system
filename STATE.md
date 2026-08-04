@@ -1,10 +1,12 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·统一入口 STATE.md
 
 > 所有 AI（CodeBuddy / Kimi / Ollama 本地模型）的唯一入口。
 > 无论哪个窗口、哪个模型对话，启动时读这一份就够了。
 > 🔥 **新 AI 进门? → `https://uid9622.cn/api/onboarding/bootstrap`** (自动拉全量规则·不需要人工说)
-> 更新: 2026-07-28 · v2.0
-> DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☲离-STATE-UNIFIED-ENTRY-v2.0-ONBOARDING
+> 更新: 2026-08-02 · v2.1 🐉时间戳焊死
+> DNA: #龍芯⚡️丙午·丙申·戊申·亥时·䷗复-STATE-UNIFIED-ENTRY-v2.1-TIME-STAMP-WELD
 > 📋 **命令不会？→ 鲲鹏 https://uid9622.cn/api/cmd/**（毫秒级·所有AI统一入口）| 本地备份 → COMMAND_INDEX.md | 详情 → MEMORY.md §4
 
 ---
@@ -37,7 +39,7 @@
 | 🔐 **GPG 数字指纹** | ✅ **已公开发布**·`portal/pgp/`·RSA-4096·2025-12-17 |
 | ✍️ **GPG自动签名** 🔥 | ✅ **v1.0**·`bin/lh_gpg_sign.py`·1574签名文件·GATE-11签名闸·发布即签 |
 | 🐉 **主权守护引擎** 🔥 | ✅ **v1.0**·`bin/lh_sovereignty_guard.py`·法律边界+一票否决+数据主权·系统在协议在 |
-| 📋 **命令索引** 🔥 | ✅ **MEMORY.md §4**·命令大全·端口·部署·训练·运维·一步到位 |
+| 🐉 **LU-Time Engine v4.0** 🔥 | ✅ **`bin/lh_time_engine.py`**·天干地支·64卦·梅花易数·每句输出戳·审计链·`lh te` |
 | 🔒 **安全加固 v1.1** | ✅ **shell=False全替换·自然路由白名单·KFPP目录700·24测试全过·8文件GPG重签** |
 | 🧬 **跨模块路由总线** 🔥 | ✅ `lh_cross_module_router.py`·10条回调链·12/12测试 |
 | 📐 **黎曼三视角引擎** 🔥 | ✅ `lh_riemann_zeta_engine.py`·15/15·论文→引擎落地 |

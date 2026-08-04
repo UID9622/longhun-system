@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂TTS引擎 v1.0 | 主权语音系统：让AI开口说话的，必须是我们自己的规矩
 
 > **DNA追溯**：`#龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-TTS-v1.1-REVISED-b2c3d4e5`

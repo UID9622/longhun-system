@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · rsync 搬迁同步脚本
 # 依赖: connect-kunpeng.sh 已有密钥配置
 # DNA: #龍芯⚡️2026-07-06-KUNPENG-SYNC-v2.0
@@ -38,16 +39,16 @@ EXCLUDES=(
 )
 
 build_excludes() {
-    local args=""
-    for p in "${EXCLUDES[@]}"; do args="$args --exclude='$p'"; done
-    echo "$args"
+    local args=()
+    for p in "${EXCLUDES[@]}"; do args+=("--exclude=$p"); done
+    printf '%s\n' "${args[@]}"
 }
 
 dry_run() {
     info "干运行 — 预览将传输的文件:"
-    local ex
-    ex=$(build_excludes)
-    eval rsync -avzn --delete $ex \
+    local ex=()
+    while IFS= read -r line; do ex+=("$line"); done < <(build_excludes)
+    rsync -avzn --delete "${ex[@]}" \
         -e "ssh -p ${KUNPENG_SSH_PORT} -i ${KUNPENG_KEY} -o StrictHostKeyChecking=accept-new" \
         "${LONGHUN_ROOT}/" "${KUNPENG_USER}@${KUNPENG_MGMT_IP}:${KUNPENG_DEPLOY_PATH}/" \
         | head -80
@@ -57,9 +58,9 @@ do_sync() {
     info "全量同步 → ${KUNPENG_USER}@${KUNPENG_MGMT_IP}:${KUNPENG_DEPLOY_PATH}/"
     ssh_cmd "mkdir -p ${KUNPENG_DEPLOY_PATH}"
 
-    local ex
-    ex=$(build_excludes)
-    eval rsync -avz --progress $ex \
+    local ex=()
+    while IFS= read -r line; do ex+=("$line"); done < <(build_excludes)
+    rsync -avz --progress --delete --force "${ex[@]}" \
         -e "ssh -p ${KUNPENG_SSH_PORT} -i ${KUNPENG_KEY} -o StrictHostKeyChecking=accept-new" \
         "${LONGHUN_ROOT}/" "${KUNPENG_USER}@${KUNPENG_MGMT_IP}:${KUNPENG_DEPLOY_PATH}/"
 

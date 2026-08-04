@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 <!--#龍芯⚡️2026-07-05-DOC-README-v5.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
@@ -21,15 +24,45 @@
 ---
 ## 📚 文档导航
 
+### 入门必读
 | 文件 | 内容 |
-|------|------|
+|:---|:---|
 | 📖 [README.md](./README.md) | 系统介绍（你在看的这个） |
-| 📂 [docs/DIRECTORY_INDEX.md](./docs/DIRECTORY_INDEX.md) | 目录结构导航 — 快速找到你要的东西 |
-| 🐉 [CNSH-PROTOCOL.md](./CNSH-PROTOCOL.md) | CNSH 中文编程语言完整规范 v2.2 |
-| 📜 [CONSTITUTION.md](./CONSTITUTION.md) | 系统宪法 — 根本规则，不可修改 |
-| 🤖 [AGENTS.md](./AGENTS.md) | AI 操作手册 — AI Agent 必须遵守的规则 |
+| 🚀 [INSTALL.md](./INSTALL.md) | 安装指南（Linux/macOS/Windows/Docker） |
+| ❓ [docs/FAQ.md](./docs/FAQ.md) | 常见问题 |
+| 📔 [docs/GLOSSARY.md](./docs/GLOSSARY.md) | 术语表 |
 
-> 📊 完整模块清单见 [`docs/DIRECTORY_INDEX.md`](./docs/DIRECTORY_INDEX.md)
+### 技术文档
+| 文件 | 内容 |
+|:---|:---|
+| 🏗 [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | 系统架构（Mermaid图） |
+| 🔌 [docs/API.md](./docs/API.md) | API文档 |
+| 🐉 [CNSH-PROTOCOL.md](./CNSH-PROTOCOL.md) | CNSH 中文编程语言完整规范 v2.2 |
+| 🛠 [docs/DEVELOPMENT.md](./docs/DEVELOPMENT.md) | 开发者文档·调试·测试·发布 |
+| 🗺 [docs/DIRECTORY_MAP.md](./docs/DIRECTORY_MAP.md) | 目录地图·文件应该放哪里 |
+| 📋 [docs/SYSTEM_STRUCTURE_AUDIT_v1.0.md](./docs/SYSTEM_STRUCTURE_AUDIT_v1.0.md) | 系统结构审计与重组方案 |
+
+### 治理与协议
+| 文件 | 内容 |
+|:---|:---|
+| 📜 [GOVERNANCE.md](./GOVERNANCE.md) | 治理模型·三色审计·决策流程 |
+| 🤝 [GENTLEMANS_PROTOCOL.md](./GENTLEMANS_PROTOCOL.md) | 君子协议中英文版 |
+| 🔒 [PRIVACY_POLICY.md](./PRIVACY_POLICY.md) | 隐私政策 |
+| 📋 [TERMS_OF_SERVICE.md](./TERMS_OF_SERVICE.md) | 服务条款 |
+| 🛡 [SECURITY.md](./SECURITY.md) | 安全策略 |
+| 📜 [CONSTITUTION.md](./CONSTITUTION.md) | 系统宪法·根本规则 |
+| 🤖 [AGENTS.md](./AGENTS.md) | AI 操作手册 |
+
+### 社区与贡献
+| 文件 | 内容 |
+|:---|:---|
+| 🤝 [CONTRIBUTING.md](./CONTRIBUTING.md) | 贡献指南·代码规范 |
+| 📖 [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) | 社区行为准则 |
+| 🗺 [ROADMAP.md](./ROADMAP.md) | 路线图·已完成·进行中·远期 |
+| 📝 [CHANGELOG.md](./CHANGELOG.md) | 变更日志 |
+| 🌐 [docs/ECOSYSTEM.md](./docs/ECOSYSTEM.md) | 生态系统·MCP·插件 |
+
+> 📊 完整索引见 [`docs/DOCUMENTATION_INDEX.md`](./docs/DOCUMENTATION_INDEX.md)
 
 ---
 

@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂 · 鸿蒙原生 ArkTS 布局实战：Stack 遮罩层布局深度解析（API 24）
 
 > 龍魂系统 · 鸿蒙原生适配层 · Stack 遮罩层布局深度解析

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 ##龍芯⚡️2026-06-21-CORE-M04_YIJING_ENGINE-FILE1-v1.0-2
 # 君子协议: 本文件受龍魂DNA追溯保护

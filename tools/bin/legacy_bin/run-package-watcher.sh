@@ -1,4 +1,6 @@
 #!/bin/bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ═══════════════════════════════════════════════════════════════════════════════
 # 龍魂体系 · 待融入包监控器本地运行脚本
 # DNA:#龍芯⚡️2026-06-16-PACKAGE-WATCHER-RUNNER-FILE1-FILE1-v1.0

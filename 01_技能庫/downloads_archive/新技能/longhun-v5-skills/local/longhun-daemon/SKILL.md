@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
 name: longhun-daemon
 description: 龍魂系統守護進程 - 安裝/啟動/停止/重啟龍魂服務，一鍵啟動全部服務（按依賴順序），定時健康檢查，服務崩潰時自動重啟，日誌輪轉，啟動配置驗證

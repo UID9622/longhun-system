@@ -1,0 +1,30 @@
+# 龍魂系统 · 掀黑箱审计白名单
+# 格式：每行一个域名、路径关键词或模式
+# 以 # 开头的行会被忽略
+
+# === 自有基础设施 ===
+uid9622.cn
+longhun888.com
+119.13.90.27
+longhun-system
+龙魂
+DragonSoul
+
+# === 开发平台 ===
+github.com
+gitee.com
+gitcode.com
+notion.so
+feishu.cn
+larksuite.com
+
+# === AI API（已声明用途） ===
+api.openai.com
+api.anthropic.com
+api.deepseek.com
+
+# === 安全与加密库（正常依赖） ===
+cryptography.hazmat
+cryptography.fernet
+paramiko
+pynacl

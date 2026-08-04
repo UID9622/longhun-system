@@ -1,4 +1,5 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·底座痕迹采集引擎 — 一键安装脚本 v1.0
 # DNA: #龍芯⚡️丙午·乙未·壬寅·巳时·☰乾-TRACE-INSTALL-V1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

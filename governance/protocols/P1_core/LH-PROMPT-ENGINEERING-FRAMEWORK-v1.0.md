@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 提示词工程框架 v1.0
 
 > DNA: #龍芯⚡️丙午·乙未·丙申·酉时·☰乾-PROMPT-ENGINEERING-FRAMEWORK-v1.0-c5d6e7f8

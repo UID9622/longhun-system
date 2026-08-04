@@ -1,0 +1,395 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌊 流场实时监控 · 龍魂</title>
+<style>
+:root {
+    --bg: #0a0e14; --card: #131820; --border: #1e2838;
+    --text: #bcd0e8; --dim: #5a6e85; --gold: #d4a843;
+    --red: #e0556a; --yellow: #d4a843; --green: #4db87a;
+    --blue: #4078c0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif; background: var(--bg); color: var(--text); overflow: hidden; height: 100vh; }
+#canvas { position: fixed; top: 0; left: 0; z-index: 1; }
+.overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
+.overlay > * { pointer-events: auto; }
+.top-bar { display: flex; align-items: center; gap: 12px; padding: 12px 20px; background: rgba(10,14,20,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.top-bar h1 { font-size: 1.1em; color: var(--gold); white-space: nowrap; }
+.top-bar .pill { padding: 3px 10px; border-radius: 10px; font-size: 0.75em; font-weight: 600; }
+.pill.live { background: rgba(77,184,122,0.2); color: var(--green); }
+.pill.stale { background: rgba(224,85,106,0.2); color: var(--red); }
+.stat-mini { font-size: 0.8em; color: var(--dim); white-space: nowrap; }
+.stat-mini b { color: var(--text); }
+.bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; padding: 10px 20px; background: rgba(10,14,20,0.85); backdrop-filter: blur(12px); border-top: 1px solid var(--border); display: flex; align-items: center; gap: 16px; font-size: 0.75em; color: var(--dim); z-index: 3; }
+.bottom-bar b { color: var(--gold); }
+.panel { position: fixed; right: 16px; top: 70px; width: 280px; background: rgba(19,24,32,0.92); backdrop-filter: blur(8px); border: 1px solid var(--border); border-radius: 12px; padding: 16px; z-index: 3; max-height: calc(100vh - 120px); overflow-y: auto; }
+.panel h3 { font-size: 0.9em; color: var(--gold); margin-bottom: 10px; }
+.anomaly-mini { padding: 6px 8px; border-radius: 6px; margin: 4px 0; font-size: 0.75em; }
+.anomaly-mini.vortex { background: rgba(224,85,106,0.12); border-left: 2px solid var(--red); }
+.anomaly-mini.pressure { background: rgba(212,168,67,0.12); border-left: 2px solid var(--yellow); }
+.anomaly-mini.turbulence { background: rgba(64,120,192,0.12); border-left: 2px solid var(--blue); }
+.legend-row { display: flex; align-items: center; gap: 6px; font-size: 0.75em; margin: 2px 0; }
+.legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.legend-dot.particle { background: var(--gold); }
+.legend-dot.vortex-high { background: var(--red); }
+.legend-dot.pressure-high { background: var(--yellow); box-shadow: 0 0 4px var(--yellow); }
+.legend-dot.flow { background: var(--blue); opacity: 0.4; }
+</style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<div class="overlay">
+    <div class="top-bar">
+        <h1>🌊 流场实时监控</h1>
+        <span class="pill live" id="statusPill">实时</span>
+        <span class="stat-mini">粒子: <b id="statParticles">—</b></span>
+        <span class="stat-mini">涡量: <b id="statVorticity">—</b></span>
+        <span class="stat-mini">压力: <b id="statPressure">—</b></span>
+        <span class="stat-mini">异常: <b id="statAnomalies" style="color:var(--green)">0</b></span>
+    </div>
+
+    <div class="panel">
+        <h3>🧬 物理映射</h3>
+        <div class="legend-row"><span class="legend-dot particle"></span> 粒子 = 数据点</div>
+        <div class="legend-row"><span class="legend-dot flow"></span> 流线 = 数据路径</div>
+        <div class="legend-row"><span class="legend-dot vortex-high"></span> 涡旋 = 反馈回路</div>
+        <div class="legend-row"><span class="legend-dot pressure-high"></span> 压力 = 积压负载</div>
+        <hr style="border-color:var(--border);margin:10px 0">
+        <h3 id="anomalyTitle">🚨 异常 (0)</h3>
+        <div id="anomalyList" style="color:var(--dim)">✅ 暂无异常</div>
+    </div>
+</div>
+
+<div class="bottom-bar">
+    <span>流场≠雷达 · 被动观测 · 不发射不主动探测</span>
+    <span style="flex:1"></span>
+    <span>DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-FLOW-MAP-v2.0-UID9622</span>
+</div>
+
+<script>
+// ============================================================
+// Canvas 渲染引擎
+// ============================================================
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let W, H;
+
+function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+// 粒子渲染数据
+let particles = [];
+let vorticityGrid = [];
+let pressureGrid = [];
+let anomalies = [];
+let gridSize = 50;
+let domainSize = 10;
+let lastUpdate = 0;
+
+// ============================================================
+// WebSocket 连接
+// ============================================================
+const API_HOST = window.location.hostname || 'localhost';
+const API_PORT = 8776;
+let ws = null;
+
+function connect() {
+    const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+    ws = new WebSocket(proto + '//' + API_HOST + ':' + API_PORT + '/ws');
+
+    ws.onopen = () => {
+        document.getElementById('statusPill').className = 'pill live';
+        document.getElementById('statusPill').textContent = '实时';
+    };
+
+    ws.onmessage = (e) => {
+        try {
+            const msg = JSON.parse(e.data);
+            if (msg.type === 'init' || msg.type === 'state') {
+                updateData(msg.data);
+            } else if (msg.type === 'anomaly') {
+                anomalies = msg.data || [];
+                updateAnomalyPanel();
+            }
+        } catch(err) {}
+    };
+
+    ws.onclose = () => {
+        document.getElementById('statusPill').className = 'pill stale';
+        document.getElementById('statusPill').textContent = '断开';
+        setTimeout(connect, 3000);
+    };
+
+    ws.onerror = () => {};
+    lastUpdate = Date.now();
+}
+
+function updateData(data) {
+    if (!data) return;
+    lastUpdate = Date.now();
+
+    // 粒子
+    if (data.particles) particles = data.particles;
+
+    // 涡量
+    if (data.vorticity && Array.isArray(data.vorticity)) {
+        vorticityGrid = data.vorticity;
+        gridSize = Math.round(Math.sqrt(vorticityGrid.length)) || 50;
+    }
+
+    // 压力
+    if (data.pressure && Array.isArray(data.pressure)) {
+        pressureGrid = data.pressure;
+    }
+
+    // 异常
+    if (data.anomalies) anomalies = data.anomalies;
+
+    // 统计
+    if (data.stats) {
+        document.getElementById('statParticles').textContent = data.stats.particle_count || '—';
+        document.getElementById('statVorticity').textContent = (data.stats.max_vorticity || 0).toFixed(3);
+        document.getElementById('statPressure').textContent = (data.stats.max_pressure || 0).toFixed(2);
+        const ac = data.stats.anomaly_count || 0;
+        const ae = document.getElementById('statAnomalies');
+        ae.textContent = ac;
+        ae.style.color = ac > 0 ? 'var(--red)' : 'var(--green)';
+    }
+
+    updateAnomalyPanel();
+}
+
+function updateAnomalyPanel() {
+    const title = document.getElementById('anomalyTitle');
+    const list = document.getElementById('anomalyList');
+    title.textContent = '🚨 异常 (' + anomalies.length + ')';
+    if (anomalies.length === 0) {
+        list.innerHTML = '<span style="color:var(--green)">✅ 暂无异常</span>';
+    } else {
+        list.innerHTML = anomalies.map(a => `
+            <div class="anomaly-mini ${a.type}">
+                <b>${a.type}</b> ${(a.severity*100).toFixed(0)}%<br>
+                <span style="color:var(--dim)">${a.description}</span>
+            </div>
+        `).join('');
+    }
+}
+
+connect();
+
+// ============================================================
+// 渲染循环
+// ============================================================
+
+// 将流场坐标映射到画布
+function fieldToCanvas(fx, fy) {
+    const scale = Math.min(W, H) / domainSize;
+    const cx = W / 2 + fx * scale;
+    const cy = H / 2 - fy * scale; // y 轴翻转
+    return [cx, cy];
+}
+
+function drawGrid() {
+    // 绘制涡量热力图背景
+    if (vorticityGrid.length > 0) {
+        const gs = gridSize;
+        const cellW = W / gs;
+        const cellH = H / gs;
+        const maxVort = 1.0; // 归一化上限
+
+        for (let iy = 0; iy < gs; iy++) {
+            for (let ix = 0; ix < gs; ix++) {
+                const idx = iy * gs + ix;
+                const v = Math.abs(vorticityGrid[idx] || 0);
+                const alpha = Math.min(v / maxVort, 0.6);
+
+                if (alpha > 0.01) {
+                    // 涡旋: 红-蓝
+                    const r = Math.floor(100 + 155 * alpha);
+                    const g = Math.floor(40 * (1 - alpha));
+                    const b = Math.floor(160 - 120 * alpha);
+                    ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
+                    ctx.fillRect(ix * cellW, iy * cellH, cellW + 1, cellH + 1);
+                }
+            }
+        }
+    }
+
+    // 绘制压力热力图叠加
+    if (pressureGrid.length > 0) {
+        const gs = gridSize;
+        const cellW = W / gs;
+        const cellH = H / gs;
+        const maxP = 10.0;
+
+        for (let iy = 0; iy < gs; iy++) {
+            for (let ix = 0; ix < gs; ix++) {
+                const idx = iy * gs + ix;
+                const p = pressureGrid[idx] || 0;
+                const alpha = Math.min(p / maxP, 0.5);
+
+                if (alpha > 0.05) {
+                    // 压力: 黄-橙
+                    ctx.fillStyle = `rgba(255,${Math.floor(180 - 100 * alpha)},${Math.floor(30 - 30 * alpha)},${alpha * 0.7})`;
+                    ctx.fillRect(ix * cellW, iy * cellH, cellW + 1, cellH + 1);
+                }
+            }
+        }
+    }
+}
+
+function drawParticles() {
+    for (const p of particles) {
+        const [cx, cy] = fieldToCanvas(p.x, p.y);
+        if (cx < -10 || cx > W + 10 || cy < -10 || cy > H + 10) continue;
+
+        // 速度决定颜色和大小
+        const speed = Math.sqrt((p.vx || 0) ** 2 + (p.vy || 0) ** 2);
+        const alpha = Math.min(0.3 + speed * 0.3, 0.9);
+        const size = Math.max(1.5, Math.min(4, speed * 2));
+
+        // 色相随方向变化
+        const angle = Math.atan2(p.vy || 0, p.vx || 0);
+        const hue = ((angle + Math.PI) / (2 * Math.PI)) * 360;
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, size, 0, Math.PI * 2);
+        // 金色粒子，带方向色
+        const r = Math.floor(200 + 55 * Math.cos(angle));
+        const g = Math.floor(160 + 40 * Math.sin(angle));
+        const b = Math.floor(60 + 30 * Math.cos(angle + 1));
+        ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
+        ctx.fill();
+
+        // 拖尾
+        const trailLen = speed * 6;
+        if (trailLen > 1) {
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.lineTo(cx - (p.vx || 0) * trailLen, cy + (p.vy || 0) * trailLen); // y翻转
+            ctx.strokeStyle = `rgba(${r},${g},${b},${alpha * 0.4})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+        }
+    }
+}
+
+function drawAnomalyMarkers() {
+    for (const a of anomalies) {
+        if (!a.location) continue;
+        const [cx, cy] = fieldToCanvas(a.location[0], a.location[1]);
+        if (cx < 0 || cx > W || cy < 0 || cy > H) continue;
+
+        const radius = 20 + a.severity * 30;
+
+        // 脉冲环
+        const pulse = (Date.now() % 2000) / 2000;
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius + pulse * 15, 0, Math.PI * 2);
+        ctx.strokeStyle = a.type === 'vortex' ? `rgba(224,85,106,${0.5 - pulse * 0.3})` :
+                          a.type === 'pressure' ? `rgba(212,168,67,${0.5 - pulse * 0.3})` :
+                          `rgba(64,120,192,${0.5 - pulse * 0.3})`;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // 标记点
+        ctx.beginPath();
+        ctx.arc(cx, cy, 5, 0, Math.PI * 2);
+        const fillColor = a.type === 'vortex' ? '#e0556a' : a.type === 'pressure' ? '#d4a843' : '#4078c0';
+        ctx.fillStyle = fillColor;
+        ctx.fill();
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // 标签
+        ctx.fillStyle = '#fff';
+        ctx.font = '11px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(a.type, cx, cy - 12);
+    }
+}
+
+function drawGridLines() {
+    ctx.strokeStyle = 'rgba(90,110,133,0.08)';
+    ctx.lineWidth = 0.5;
+    const step = Math.min(W, H) / 10;
+    for (let x = step; x < W; x += step) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, H);
+        ctx.stroke();
+    }
+    for (let y = step; y < H; y += step) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(W, y);
+        ctx.stroke();
+    }
+    // 中心十字
+    ctx.strokeStyle = 'rgba(212,168,67,0.15)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(W / 2, 0); ctx.lineTo(W / 2, H);
+    ctx.moveTo(0, H / 2); ctx.lineTo(W, H / 2);
+    ctx.stroke();
+}
+
+function render() {
+    ctx.clearRect(0, 0, W, H);
+
+    // 背景网格
+    drawGridLines();
+
+    // 涡量热力图
+    drawGrid();
+
+    // 粒子
+    drawParticles();
+
+    // 异常标记
+    drawAnomalyMarkers();
+
+    // 标题水印
+    ctx.fillStyle = 'rgba(212,168,67,0.06)';
+    ctx.font = `bold ${Math.min(W, H) * 0.12}px "PingFang SC", sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('流场 ≠ 雷达', W / 2, H / 2);
+
+    // 连接状态指示
+    const stale = Date.now() - lastUpdate > 3000;
+    if (stale) {
+        document.getElementById('statusPill').className = 'pill stale';
+        document.getElementById('statusPill').textContent = '无数据';
+    }
+
+    requestAnimationFrame(render);
+}
+
+// 启动渲染
+requestAnimationFrame(render);
+
+// 定时拉取（WebSocket断开时兜底）
+setInterval(async () => {
+    if (ws && ws.readyState === WebSocket.OPEN) return; // WS 正常就不拉
+    try {
+        const r = await fetch('http://' + API_HOST + ':' + API_PORT + '/state');
+        const data = await r.json();
+        updateData(data);
+    } catch(e) {}
+}, 2000);
+</script>
+</body>
+</html>

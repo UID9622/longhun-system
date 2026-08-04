@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
 龍魂·代码对齐复盘器 v1.0
@@ -30,11 +31,33 @@ EXCLUDE_DIRS = {
     ".git", "__pycache__", ".venv", "venv", "node_modules",
     ".idea", ".vscode", "dist", "build", "egg-info",
 }
-# 排除的扫描子目录（第三方/历史遗留/大目录/备份归档）
+# 排除的扫描子目录（第三方/历史遗留/大目录/备份归档/缓存副本/venv）
 SKIP_SCAN_DIRS = {
-    "L7_数据层", "engines/gpt_sovits", "tools/bin/legacy_bin",
-    "L1_内核层", "L8_治理层", "03_知識圖譜", "02_執行記錄",
-    "05_系統報告", "协议文档", "CNSH_颜色历史", "_work", "archive",
+    # 大目录/历史遗留/数据层
+    "layers/L7_数据层", "layers/L1_内核层", "layers/L8_治理层",
+    "engines/gpt_sovits", "engines/core",
+    "tools/bin/legacy_bin",
+    "03_知識圖譜", "02_執行記錄", "05_系統報告",
+    "协议文档", "CNSH_颜色历史", "_work", "archive",
+    # 独立子项目/实验目录
+    "baobao-guardian",
+    "research",  # 数学探索实验代码，不参与主系统对齐
+    # 协议/文档归档（与正式目录重复）
+    "01_protocols/downloads_archive",
+    "governance/protocols/P2_system/downloads_archive",
+    "docs/claude-backlog",
+    "data/training/home_absorb/sources/claude搭建待整理",
+    # 缓存副本与历史归档
+    "data/knowledge_pull/cache",
+    "data/training/home_absorb/workspace/Desktop/龙魂系统-知识库/_archive",
+    "data/training/home_absorb/workspace/Desktop/桌面项目箱",
+    "data/training/home_absorb/workspace/_work",
+    "01_技能庫/downloads_archive",
+    "tombstone_vault",
+    "integrated_modules",
+    # Python 虚拟环境
+    "cnsh/core/runtime_governance/venv_notion",
+    "data/training/home_absorb/sources/龍魂系统/运行环境",
 }
 
 EXCLUDE_FILES = {"setup.py", "conftest.py", "__init__.py"}

@@ -1,4 +1,5 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·Git钩子安装脚本 v1.0
 # 将.githooks/下的钩子安装到.git/hooks/
 # DNA: #龍芯⚡️丙午·辛未·乙酉·亥-HOOK-INSTALL-v1.0

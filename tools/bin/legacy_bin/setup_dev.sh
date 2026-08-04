@@ -1,4 +1,6 @@
 #!/bin/bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ═══════════════════════════════════════════
 # 龍魂系统 · 开发环境一键搭建
 # DNA: #龍芯⚡️丙午·丙申·丙辰·巳时·需-SETUP-DEV-v2.0

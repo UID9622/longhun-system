@@ -1,0 +1,312 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "龍魂 · 省电 API",
+    "description": "为全球 AI 提供确定性任务执行能力 · 省电率 99.98%\n\n**省电原理**: 大模型推理一个任务需 2-10s，耗电 0.5-2 kWh。调用本 API 执行相同任务 < 100ms，耗电 ≈ 0。\n\n**两种模式**:\n- 同步模式（默认）: POST /run 阻塞等待返回完整结果\n- 异步模式（需 Redis）: POST /run async_mode=true → 返回 task_id → GET /task/{id} 轮询\n\n**AI 集成**: 读取 /openapi.json → 查看 /triggers → POST /run",
+    "version": "2.0.0",
+    "contact": {
+      "name": "UID9622",
+      "url": "https://github.com/UID9622/longhun-system"
+    },
+    "license": {
+      "name": "CC BY-NC-SA 4.0",
+      "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+    }
+  },
+  "servers": [
+    {"url": "https://uid9622.cn", "description": "鲲鹏服务器"},
+    {"url": "http://localhost:9622", "description": "本地开发"}
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": ["系统"],
+        "summary": "服务健康检查",
+        "description": "返回服务版本、Redis连接状态、数据库状态、异步模式支持情况",
+        "operationId": "health_check",
+        "responses": {
+          "200": {
+            "description": "服务正常运行",
+            "content": {
+              "application/json": {
+                "schema": {"$ref": "#/components/schemas/HealthResponse"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/run": {
+      "post": {
+        "tags": ["执行"],
+        "summary": "执行确定性任务",
+        "description": "通过触发词执行任务。同步模式阻塞等待结果；异步模式（async_mode=true,需Redis）立即返回 task_id。",
+        "operationId": "run_task",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {"$ref": "#/components/schemas/RunRequest"}
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-API-User",
+            "in": "header",
+            "schema": {"type": "string", "default": "anonymous"},
+            "description": "标识调用者身份"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "同步模式: 返回执行结果。异步模式: 返回 pending 状态和 task_id",
+            "content": {
+              "application/json": {
+                "schema": {"$ref": "#/components/schemas/RunResponse"}
+              }
+            }
+          },
+          "400": {"description": "参数错误"},
+          "503": {"description": "Redis不可用（异步模式需要）"}
+        }
+      }
+    },
+    "/task/{task_id}": {
+      "get": {
+        "tags": ["执行"],
+        "summary": "查询异步任务状态",
+        "description": "轮询异步任务 (POST /run async_mode=true) 的执行状态和结果",
+        "operationId": "get_task",
+        "parameters": [
+          {
+            "name": "task_id",
+            "in": "path",
+            "required": true,
+            "schema": {"type": "string"},
+            "description": "异步任务ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "任务状态",
+            "content": {
+              "application/json": {
+                "schema": {"$ref": "#/components/schemas/TaskStatusResponse"}
+              }
+            }
+          },
+          "404": {"description": "任务未找到"}
+        }
+      }
+    },
+    "/triggers": {
+      "get": {
+        "tags": ["系统"],
+        "summary": "获取可用触发词列表",
+        "description": "返回所有可用触发词及其对应命令，供 AI 自动发现能力",
+        "operationId": "list_triggers",
+        "responses": {
+          "200": {
+            "description": "触发词列表",
+            "content": {
+              "application/json": {
+                "schema": {"$ref": "#/components/schemas/TriggersResponse"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats": {
+      "get": {
+        "tags": ["计费"],
+        "summary": "查看计费/用量统计",
+        "description": "返回省电积分统计：总请求数、总耗时、平均耗时、成功率、按用户统计。需要 SQLAlchemy。",
+        "operationId": "get_stats",
+        "responses": {
+          "200": {
+            "description": "用量统计",
+            "content": {
+              "application/json": {
+                "schema": {"$ref": "#/components/schemas/StatsResponse"}
+              }
+            }
+          },
+          "503": {"description": "数据库未启用"}
+        }
+      }
+    },
+    "/openapi.json": {
+      "get": {
+        "tags": ["系统"],
+        "summary": "OpenAPI 规范文档",
+        "description": "返回完整的 OpenAPI 3.0 规范，供 AI 自动发现接口",
+        "operationId": "openapi_json",
+        "responses": {
+          "200": {
+            "description": "OpenAPI 规范",
+            "content": {
+              "application/json": {
+                "schema": {"type": "object"}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RunRequest": {
+        "type": "object",
+        "required": ["trigger"],
+        "properties": {
+          "trigger": {
+            "type": "string",
+            "description": "触发词，如'健康检查'、'签名'、'对齐检查'",
+            "example": "健康检查"
+          },
+          "args": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "额外参数",
+            "default": [],
+            "example": ["--verbose"]
+          },
+          "timeout": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 600,
+            "default": 300,
+            "description": "超时秒数"
+          },
+          "async_mode": {
+            "type": "boolean",
+            "default": false,
+            "description": "是否异步执行（需 Redis）"
+          }
+        }
+      },
+      "RunResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["success", "error", "timeout", "pending"],
+            "description": "执行状态"
+          },
+          "task_id": {
+            "type": "string",
+            "description": "异步任务ID（仅异步模式）"
+          },
+          "message": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "stdout": {
+            "type": "string",
+            "description": "标准输出（截断至8000字符）"
+          },
+          "stderr": {
+            "type": "string",
+            "description": "标准错误（截断至2000字符）"
+          },
+          "duration": {
+            "type": "number",
+            "description": "执行耗时（秒）"
+          },
+          "exit_code": {
+            "type": "integer",
+            "description": "退出码"
+          },
+          "dna": {
+            "type": "string",
+            "description": "DNA追溯码"
+          }
+        }
+      },
+      "TaskStatusResponse": {
+        "type": "object",
+        "properties": {
+          "task_id": {"type": "string"},
+          "status": {
+            "type": "string",
+            "enum": ["queued", "started", "finished", "failed", "unknown"]
+          },
+          "result": {"type": "object", "description": "任务结果（finished时）"},
+          "error": {"type": "string", "description": "错误信息（failed时）"},
+          "created_at": {"type": "string", "description": "创建时间"},
+          "ended_at": {"type": "string", "description": "结束时间"}
+        }
+      },
+      "TriggersResponse": {
+        "type": "object",
+        "properties": {
+          "total": {"type": "integer", "description": "触发词总数"},
+          "triggers": {"type": "array", "items": {"type": "string"}, "description": "触发词列表"},
+          "commands": {"type": "object", "additionalProperties": {"type": "string"}, "description": "触发词→命令映射"}
+        }
+      },
+      "StatsResponse": {
+        "type": "object",
+        "properties": {
+          "total_requests": {"type": "integer", "description": "总请求数"},
+          "total_duration": {"type": "number", "description": "总耗时（秒）= 省电积分"},
+          "avg_duration": {"type": "number", "description": "平均耗时（秒）"},
+          "success_rate": {"type": "number", "description": "成功率 (0-1)"},
+          "pending": {"type": "integer", "description": "待处理任务数"},
+          "by_user": {"type": "object", "additionalProperties": {"type": "integer"}, "description": "按用户统计"},
+          "tip": {"type": "string", "description": "省电积分说明"}
+        }
+      },
+      "HealthResponse": {
+        "type": "object",
+        "properties": {
+          "status": {"type": "string", "example": "ok"},
+          "version": {"type": "string", "example": "2.0.0"},
+          "dna": {"type": "string", "example": "#龍芯⚡️20260731-API-a1b2c3d4"},
+          "redis": {"type": "boolean", "description": "Redis是否可用"},
+          "db": {"type": "boolean", "description": "数据库是否启用"},
+          "async_supported": {"type": "boolean", "description": "是否支持异步模式"}
+        }
+      },
+      "HTTPValidationError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "array",
+            "items": {"$ref": "#/components/schemas/ValidationError"}
+          }
+        }
+      },
+      "ValidationError": {
+        "type": "object",
+        "required": ["loc", "msg", "type"],
+        "properties": {
+          "loc": {
+            "type": "array",
+            "items": {"anyOf": [{"type": "string"}, {"type": "integer"}]}
+          },
+          "msg": {"type": "string"},
+          "type": {"type": "string"}
+        }
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "设置环境变量 LH_API_KEY 后，在此传入 Bearer Token"
+      }
+    }
+  },
+  "tags": [
+    {"name": "系统", "description": "系统信息与发现"},
+    {"name": "执行", "description": "任务执行"},
+    {"name": "计费", "description": "用量统计与省电积分"}
+  ]
+}

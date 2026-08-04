@@ -1,0 +1,18 @@
+[Unit]
+Description=龍魂 · Notion 对话桥 v2.2 (玄機閣 Web 面板)
+After=network.target longhun-persona-api.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-system
+Environment=PYTHONPATH=/opt/longhun-system
+Environment=NOTION_CHAT_PROVIDER=auto
+Environment=NOTION_CHAT_MODEL=longhun-judge:latest
+Environment=OLLAMA_HOST=http://localhost:11434
+ExecStart=/opt/longhun-system/.venv/bin/python3 /opt/longhun-system/bin/lh_notion_chat_bridge.py --host 127.0.0.1 --port 8784
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

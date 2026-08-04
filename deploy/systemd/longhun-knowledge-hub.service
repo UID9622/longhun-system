@@ -1,0 +1,32 @@
+[Unit]
+Description=龍魂知识中枢 API · 官网AI助手后端
+After=network-online.target ollama.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-system
+Environment="PYTHONUNBUFFERED=1"
+Environment="LANG=zh_CN.UTF-8"
+Environment="PATH=/usr/local/bin:/usr/bin:/bin:/opt/longhun-system/bin"
+ExecStart=/opt/longhun-system/.venv/bin/python3 /opt/longhun-system/bin/lh_knowledge_hub_api.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/longhun/knowledge-hub.log
+StandardError=append:/var/log/longhun/knowledge-hub-error.log
+
+# 资源限制
+MemoryMax=2G
+CPUQuota=200%
+TasksMax=100
+
+# 安全加固
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/opt/longhun-system /var/log/longhun
+
+[Install]
+WantedBy=multi-user.target

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 P72 龙盾·宝宝 · 贴身守护执行器

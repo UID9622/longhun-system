@@ -1,0 +1,943 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂·DNA追溯码生成引擎 v2.0</title>
+<meta name="description" content="龍魂系统DNA追溯码生成引擎 — 每次产出自动打上时空身份标签">
+<meta name="author" content="UID9622·诸葛鑫">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --surface: #111118;
+  --surface2: #16161f;
+  --border: #1e1e2e;
+  --gold: #d4a84b;
+  --gold-dim: #8b6914;
+  --text: #c8c8d0;
+  --text-dim: #6e6e7e;
+  --red: #e0556a;
+  --yellow: #d4b83b;
+  --green: #5eb37e;
+  --blue: #5b9bd5;
+  --cyan: #4db8c8;
+  --wood: #6daa5e;
+  --fire: #e87040;
+  --earth: #c4a050;
+  --metal: #b8b8c0;
+  --water: #4090d8;
+  --font: 'SF Mono','Menlo','Monaco','Courier New',monospace;
+  --font-ui: -apple-system,'PingFang SC','Noto Sans SC',sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: var(--font-ui);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ===== LAYOUT ===== */
+.app { display:flex; min-height:100vh; }
+.sidebar {
+  width: 220px; background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 1.2rem 0;
+  display:flex; flex-direction:column;
+  position: sticky; top:0; height:100vh;
+  z-index: 10;
+}
+.main { flex:1; padding: 1.5rem 2rem; overflow-x:hidden; }
+
+/* ===== SIDEBAR ===== */
+.brand {
+  padding: 0 1.2rem 1.2rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.8rem;
+}
+.brand h1 { font-size:1.1rem; color:var(--gold); font-family:var(--font); }
+.brand .ver { font-size:0.7rem; color:var(--text-dim); margin-top:0.2rem; }
+.nav { flex:1; list-style:none; }
+.nav li { padding:0; }
+.nav a {
+  display:flex; align-items:center; gap:0.5rem;
+  padding:0.6rem 1.2rem; color:var(--text-dim);
+  text-decoration:none; font-size:0.82rem;
+  transition: all 0.15s; border-left: 2px solid transparent;
+}
+.nav a:hover { color:var(--text); background:var(--surface2); }
+.nav a.active { color:var(--gold); border-left-color:var(--gold); background:rgba(212,168,75,0.05); }
+.nav .emoji { font-size:1rem; width:1.2rem; text-align:center; }
+.sidebar-footer {
+  padding: 1rem 1.2rem; border-top: 1px solid var(--border);
+  font-size: 0.7rem; color: var(--text-dim);
+}
+
+/* ===== PANELS ===== */
+.panel { display:none; animation: fadeIn 0.2s ease; }
+.panel.active { display:block; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+
+/* ===== HEADER ===== */
+.page-header { margin-bottom: 1.5rem; }
+.page-header h2 { font-size:1.3rem; color:var(--gold); font-family:var(--font); }
+.page-header p { font-size:0.8rem; color:var(--text-dim); margin-top:0.2rem; }
+
+/* ===== COMPACT DNA CARD (always visible) ===== */
+.dna-preview {
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+  border: 1px solid var(--gold-dim);
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.dna-preview .label { font-size:0.7rem; color:var(--gold); text-transform:uppercase; letter-spacing:2px; margin-bottom:0.4rem; }
+.dna-preview .dna-code {
+  font-family: var(--font); font-size:1.1rem; color:var(--gold);
+  word-break: break-all; line-height:1.4;
+}
+.dna-preview .meta-row {
+  display:flex; gap:1.5rem; margin-top:0.8rem;
+  font-size:0.75rem; color:var(--text-dim);
+  flex-wrap:wrap;
+}
+.dna-preview .meta-row span { display:flex; align-items:center; gap:0.3rem; }
+.dna-preview .copy-btn {
+  margin-top:0.6rem; background:var(--gold-dim); color:var(--bg);
+  border:none; padding:0.3rem 0.8rem; border-radius:4px;
+  font-size:0.7rem; cursor:pointer; font-family:var(--font-ui);
+}
+.dna-preview .copy-btn:hover { background:var(--gold); }
+
+/* ===== FORM ===== */
+.form-grid {
+  display:grid; grid-template-columns: 1fr 1fr;
+  gap:1rem; margin-bottom:1.5rem;
+}
+.form-group { display:flex; flex-direction:column; gap:0.3rem; }
+.form-group.full { grid-column: 1/-1; }
+.form-group label { font-size:0.75rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:1px; }
+.form-group input,.form-group select {
+  background:var(--surface); border:1px solid var(--border);
+  color:var(--text); padding:0.55rem 0.7rem;
+  border-radius:6px; font-size:0.85rem;
+  font-family: var(--font-ui);
+  transition: border-color 0.2s;
+}
+.form-group input:focus,.form-group select:focus {
+  outline:none; border-color:var(--gold);
+}
+.generate-btn {
+  background:var(--gold); color:var(--bg);
+  border:none; padding:0.7rem 1.8rem; border-radius:6px;
+  font-size:0.9rem; font-weight:600; cursor:pointer;
+  font-family: var(--font-ui);
+  transition: all 0.15s;
+}
+.generate-btn:hover { background:#e0b850; transform:translateY(-1px); }
+
+/* ===== RESULT CARD ===== */
+.result-card {
+  background: var(--surface); border:1px solid var(--border);
+  border-radius:10px; padding:1.5rem; margin-bottom:1rem;
+}
+.result-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:0.8rem;
+}
+.result-item {
+  background:var(--surface2); border-radius:8px;
+  padding:0.8rem; text-align:center;
+}
+.result-item .val { font-size:1.3rem; font-weight:700; font-family:var(--font); }
+.result-item .lbl { font-size:0.65rem; color:var(--text-dim); margin-top:0.2rem; text-transform:uppercase; }
+.val.gold { color:var(--gold); }
+.val.red { color:var(--red); }
+.val.yellow { color:var(--yellow); }
+.val.green { color:var(--green); }
+.val.cyan { color:var(--cyan); }
+.val.wood { color:var(--wood); }
+.val.fire { color:var(--fire); }
+.val.water { color:var(--water); }
+.val.metal { color:var(--metal); }
+.val.earth { color:var(--earth); }
+
+/* ===== HEXAGRAM DISPLAY ===== */
+.hexa-display {
+  display:flex; align-items:center; gap:1rem;
+  padding:1rem; background:var(--surface);
+  border-radius:10px; border:1px solid var(--border);
+}
+.hexa-symbol { font-size:3.5rem; }
+.hexa-info { flex:1; }
+.hexa-info .hname { font-size:1rem; color:var(--gold); font-family:var(--font); }
+.hexa-info .hmean { font-size:0.75rem; color:var(--text-dim); margin-top:0.2rem; }
+
+/* ===== ROOT CARD ===== */
+.rootcard {
+  background:var(--bg); border:1px solid var(--gold-dim);
+  border-radius:8px; padding:1rem; margin-top:1rem;
+  font-family:var(--font); font-size:0.78rem;
+  color:var(--gold); line-height:1.8;
+  white-space:pre-wrap;
+}
+.rootcard .title { color:var(--gold); font-weight:700; font-size:0.82rem; }
+
+/* ===== STATS ===== */
+.stats-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:0.8rem; margin-bottom:1.5rem;
+}
+.stat-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:10px; padding:1.2rem; text-align:center;
+}
+.stat-card .num { font-size:2rem; font-weight:700; font-family:var(--font); color:var(--gold); }
+.stat-card .label { font-size:0.7rem; color:var(--text-dim); margin-top:0.3rem; }
+
+/* ===== TABLE ===== */
+.data-table {
+  width:100%; border-collapse:collapse;
+  font-size:0.78rem; margin-top:1rem;
+}
+.data-table th {
+  text-align:left; padding:0.5rem 0.7rem;
+  background:var(--surface); color:var(--text-dim);
+  font-weight:500; text-transform:uppercase; font-size:0.65rem;
+  letter-spacing:1px; border-bottom:1px solid var(--border);
+}
+.data-table td {
+  padding:0.5rem 0.7rem;
+  border-bottom:1px solid var(--border);
+}
+.data-table tr:hover td { background:rgba(212,168,75,0.03); }
+.data-table .dna-code-sm {
+  font-family:var(--font); font-size:0.72rem;
+  color:var(--gold); max-width:350px;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.data-table .wx-badge {
+  display:inline-block; padding:0.1rem 0.4rem; border-radius:3px;
+  font-size:0.65rem; font-weight:600;
+}
+
+/* ===== SEARCH ===== */
+.search-box {
+  display:flex; gap:0.5rem; margin-bottom:1rem;
+}
+.search-box input {
+  flex:1; background:var(--surface); border:1px solid var(--border);
+  color:var(--text); padding:0.55rem 0.7rem; border-radius:6px;
+  font-size:0.85rem;
+}
+.search-box button {
+  background:var(--gold); color:var(--bg);
+  border:none; padding:0.55rem 1rem; border-radius:6px;
+  font-size:0.85rem; cursor:pointer; font-weight:600;
+}
+
+/* ===== TOAST ===== */
+.toast {
+  position:fixed; bottom:1.5rem; right:1.5rem;
+  background:var(--surface); border:1px solid var(--gold-dim);
+  color:var(--gold); padding:0.7rem 1.2rem;
+  border-radius:8px; font-size:0.8rem;
+  animation: slideUp 0.3s ease;
+  z-index: 100;
+}
+@keyframes slideUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+/* ===== FLOW DIAGRAM ===== */
+.flow-container {
+  display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center;
+  padding:1rem; background:var(--surface); border-radius:10px;
+  margin-bottom:1rem; justify-content:center;
+}
+.flow-step {
+  padding:0.5rem 0.8rem; border-radius:6px;
+  font-size:0.72rem; font-family:var(--font);
+  border:1px solid var(--border);
+  background:var(--surface2);
+}
+.flow-arrow { color:var(--gold); font-size:1.2rem; }
+.flow-step.input { border-color:var(--blue); color:var(--blue); }
+.flow-step.calc { border-color:var(--cyan); color:var(--cyan); }
+.flow-step.out { border-color:var(--gold); color:var(--gold); }
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px) {
+  .sidebar { display:none; }
+  .main { padding:1rem; }
+  .form-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <h1>🐉 DNA生</h1>
+      <div class="ver">v2.0 · #龍芯⚡️丙午·丙申·己酉·䷐随</div>
+    </div>
+    <ul class="nav">
+      <li><a href="#generator" class="active" data-panel="generator"><span class="emoji">🧬</span>DNA生成</a></li>
+      <li><a href="#registry" data-panel="registry"><span class="emoji">📋</span>注册表</a></li>
+      <li><a href="#stats" data-panel="stats"><span class="emoji">📊</span>统计</a></li>
+      <li><a href="#spec" data-panel="spec"><span class="emoji">📖</span>格式规范</a></li>
+      <li><a href="#flow" data-panel="flow"><span class="emoji">🌊</span>数据流向</a></li>
+      <li><a href="#about" data-panel="about"><span class="emoji">ℹ️</span>关于</a></li>
+    </ul>
+    <div class="sidebar-footer">
+      UID9622 · 诸葛鑫<br>
+      GPG: A2D0092C...8CC26D5F<br>
+      CC BY-NC-SA 4.0
+    </div>
+  </aside>
+
+  <main class="main">
+    <!-- ===== PANEL: GENERATOR ===== -->
+    <div class="panel active" id="panel-generator">
+
+      <!-- Live DNA Preview (always visible) -->
+      <div class="dna-preview" id="dnaPreview">
+        <div class="label">⚡ 当前DNA预览</div>
+        <div class="dna-code" id="dnaPreviewCode">#龍芯⚡️---</div>
+        <div class="meta-row" id="dnaPreviewMeta"></div>
+        <button class="copy-btn" onclick="copyDNA()">📋 复制DNA</button>
+      </div>
+
+      <!-- Form -->
+      <div class="form-grid">
+        <div class="form-group full">
+          <label>📝 标题 (Title)</label>
+          <input type="text" id="genTitle" placeholder="输入文件/文档/任务标题..." oninput="previewDNA()">
+        </div>
+        <div class="form-group">
+          <label>📂 类别 (Category)</label>
+          <select id="genCategory" onchange="previewDNA()">
+            <option value="doc">📄 doc — 文档</option>
+            <option value="code">💻 code — 代码</option>
+            <option value="script">🔧 script — 脚本</option>
+            <option value="persona">👤 persona — 人格</option>
+            <option value="paper">📊 paper — 论文</option>
+            <option value="protocol">📜 protocol — 协议</option>
+            <option value="deploy">🚀 deploy — 部署</option>
+            <option value="review">📝 review — 复盘</option>
+            <option value="note">💡 note — 笔记</option>
+            <option value="audit">🔍 audit — 审计</option>
+            <option value="other">📦 other — 其他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>⚡ 动作 (Action)</label>
+          <select id="genAction" onchange="previewDNA()">
+            <option value="创建">创建</option>
+            <option value="修改">修改</option>
+            <option value="归档">归档</option>
+            <option value="审查">审查</option>
+            <option value="部署">部署</option>
+            <option value="签章">签章</option>
+            <option value="冻结">冻结</option>
+            <option value="删除">删除</option>
+            <option value="发布">发布</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>👤 执行者 (Actor)</label>
+          <select id="genActor" onchange="previewDNA()">
+            <option value="UID9622">UID9622·诸葛鑫</option>
+            <option value="P04">P04·鲁班</option>
+            <option value="P01">P01·诸葛亮</option>
+            <option value="P05">P05·上帝之眼</option>
+            <option value="P14">P14·吕蒙</option>
+            <option value="P03">P03·雯雯</option>
+            <option value="P15">P15·乔前辈</option>
+            <option value="P77">P77·黑天使</option>
+            <option value="AI">AI·自动</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>🗓️ 覆盖日期 (可选)</label>
+          <input type="date" id="genDate" onchange="previewDNA()">
+        </div>
+      </div>
+      <button class="generate-btn" onclick="generateDNA()">🧬 生成DNA</button>
+
+      <!-- Result -->
+      <div id="genResult" style="margin-top:1rem;"></div>
+    </div>
+
+    <!-- ===== PANEL: REGISTRY ===== -->
+    <div class="panel" id="panel-registry">
+      <div class="page-header"><h2>📋 DNA注册表</h2><p>所有已生成的DNA追溯码·按时间倒序</p></div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="搜索DNA（标题/执行者/类别/关键词）...">
+        <button onclick="searchDNA()">🔍 搜索</button>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="data-table" id="registryTable">
+          <thead><tr><th>DNA</th><th>标题</th><th>类别</th><th>动作</th><th>五行</th><th>卦</th><th>数字根</th><th>执行者</th><th>时间</th></tr></thead>
+          <tbody id="registryBody"><tr><td colspan="9" style="text-align:center;color:var(--text-dim);padding:2rem;">暂无数据 — 先在上方生成DNA</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== PANEL: STATS ===== -->
+    <div class="panel" id="panel-stats">
+      <div class="page-header"><h2>📊 DNA统计</h2><p>DNA生成频率·类别分布·执行者活跃度</p></div>
+      <div class="stats-grid" id="statsCards"></div>
+      <div id="statsChart"></div>
+    </div>
+
+    <!-- ===== PANEL: SPEC ===== -->
+    <div class="panel" id="panel-spec">
+      <div class="page-header"><h2>📖 DNA格式规范</h2><p>v∞标准·干支四柱·64卦·五行·数字根</p></div>
+      <div class="result-card">
+        <h3 style="color:var(--gold);font-family:var(--font);margin-bottom:0.8rem;">🔤 完整格式</h3>
+        <div class="dna-code" style="margin-bottom:0.8rem;">#龍芯⚡️&lt;年干年支&gt;·&lt;月干月支&gt;·&lt;日干日支&gt;·&lt;时干时支&gt;·&lt;卦符&gt;&lt;卦名&gt;-&lt;类别&gt;-&lt;动作&gt;-&lt;哈希8&gt;</div>
+        <table class="data-table">
+          <tr><td style="color:var(--text-dim);width:80px;">年柱</td><td>天干(丙)+地支(午)→丙午</td><td style="color:var(--text-dim);">(year-4)%10 : (year-4)%12</td></tr>
+          <tr><td style="color:var(--text-dim);">月柱</td><td>天干+地支 → 丙申</td><td style="color:var(--text-dim);">(年干×2+月数)%10 : (月数+1)%12</td></tr>
+          <tr><td style="color:var(--text-dim);">日柱</td><td>以1900-01-01为基准</td><td style="color:var(--text-dim);">(days+9)%10 : (days+11)%12</td></tr>
+          <tr><td style="color:var(--text-dim);">时柱</td><td>北京时辰→天干地支</td><td style="color:var(--text-dim);">(日干×2+时辰)%10 : 时辰序号</td></tr>
+          <tr><td style="color:var(--text-dim);">卦象</td><td>梅花易数 → 64卦</td><td style="color:var(--text-dim);">上卦=日支%8+1·下卦=时支%8+1</td></tr>
+          <tr><td style="color:var(--text-dim);">哈希8</td><td>SHA-256(标题)→前8位</td><td style="color:var(--text-dim);">唯一标识符·零碰撞</td></tr>
+        </table>
+      </div>
+      <div class="result-card" style="margin-top:1rem;">
+        <h3 style="color:var(--gold);font-family:var(--font);margin-bottom:0.8rem;">☯️ 五行映射表</h3>
+        <table class="data-table">
+          <thead><tr><th>天干</th><th>五行</th><th>三色倾向</th><th>地支</th><th>五行</th></tr></thead>
+          <tr><td>甲·乙</td><td><span style="color:var(--wood)">木</span></td><td>🟢</td><td>寅·卯</td><td><span style="color:var(--wood)">木</span></td></tr>
+          <tr><td>丙·丁</td><td><span style="color:var(--fire)">火</span></td><td>🟡</td><td>巳·午</td><td><span style="color:var(--fire)">火</span></td></tr>
+          <tr><td>戊·己</td><td><span style="color:var(--earth)">土</span></td><td>🟢</td><td>辰·戌·丑·未</td><td><span style="color:var(--earth)">土</span></td></tr>
+          <tr><td>庚·辛</td><td><span style="color:var(--metal)">金</span></td><td>🔴</td><td>申·酉</td><td><span style="color:var(--metal)">金</span></td></tr>
+          <tr><td>壬·癸</td><td><span style="color:var(--water)">水</span></td><td>🟡</td><td>亥·子</td><td><span style="color:var(--water)">水</span></td></tr>
+        </table>
+      </div>
+      <div class="result-card" style="margin-top:1rem;">
+        <h3 style="color:var(--gold);font-family:var(--font);margin-bottom:0.8rem;">🔢 数字根与369不动点</h3>
+        <p style="font-size:0.85rem;color:var(--text-dim);">
+          <code>digital_root(date) = Σdigit(YYYYMMDD)</code> 逐位求和直到单位数<br>
+          <strong>369不动点：</strong>sn=369, log369=5.911, perm369=108 —
+          当数字根落在 3/6/9 时标记 ⭐
+        </p>
+      </div>
+    </div>
+
+    <!-- ===== PANEL: FLOW ===== -->
+    <div class="panel" id="panel-flow">
+      <div class="page-header"><h2>🌊 数据流向</h2><p>DNA从生成到归档的完整生命周期</p></div>
+
+      <div class="result-card" style="margin-bottom:1.5rem;">
+        <h3 style="color:var(--gold);font-family:var(--font);margin-bottom:1rem;">🔄 DNA生命周期</h3>
+        <div class="flow-container">
+          <span class="flow-step input">📝 标题输入</span><span class="flow-arrow">→</span>
+          <span class="flow-step calc">🕐 干支四柱</span><span class="flow-arrow">→</span>
+          <span class="flow-step calc">☯️ 五行判定</span><span class="flow-arrow">→</span>
+          <span class="flow-step calc">🃏 64卦起卦</span><span class="flow-arrow">→</span>
+          <span class="flow-step calc">🔢 数字根</span><span class="flow-arrow">→</span>
+          <span class="flow-step calc">#️⃣ SHA-256</span><span class="flow-arrow">→</span>
+          <span class="flow-step out">🧬 DNA生成</span><span class="flow-arrow">→</span>
+          <span class="flow-step out">📋 注册入库</span><span class="flow-arrow">→</span>
+          <span class="flow-step out">🃏 ROOT_CARD</span><span class="flow-arrow">→</span>
+          <span class="flow-step out">📤 输出</span>
+        </div>
+      </div>
+
+      <div class="result-card" style="margin-bottom:1.5rem;">
+        <h3 style="color:var(--gold);font-family:var(--font);margin-bottom:1rem;">📤 输出路由</h3>
+        <table class="data-table">
+          <thead><tr><th>输出目标</th><th>格式</th><th>触发方式</th></tr></thead>
+          <tr><td>🏠 文件头部</td><td>DNA: #龍芯⚡️...</td><td>embed_dna_in_file() · API自动</td></tr>
+          <tr><td>📋 注册表</td><td>JSON条目</td><td>每次生成自动·save_to_registry()</td></tr>
+          <tr><td>🔏 GPG签名</td><td>.asc分离签名</td><td>lh_gpg_sign.py · 发布/部署前</td></tr>
+          <tr><td>🌐 Web门户</td><td>本页面</td><td>手动/API·可视化展示</td></tr>
+          <tr><td>📝 Notion</td><td>草日记元数据</td><td>lh_notion_full_sync.py · 定时同步</td></tr>
+          <tr><td>📊 审计日志</td><td>JSONL追加</td><td>P05审计链·GATE-09 DNA闸</td></tr>
+          <tr><td>🗄️ 存档</td><td>JSON archive/</td><td>archive子命令·手动归档</td></tr>
+        </table>
+      </div>
+
+      <div class="result-card">
+        <h3 style="color:var(--gold);font-family:var(--font);margin-bottom:1rem;">⚠️ 常见问题排查</h3>
+        <table class="data-table">
+          <thead><tr><th>问题</th><th>原因</th><th>解决</th></tr></thead>
+          <tr><td>DNA重复</td><td>同秒同标题生成两次</td><td>检查date/time参数·标题微小变化</td></tr>
+          <tr><td>五行显示"? "</td><td>天干映射不完整</td><td>检查TIAN_GAN_WUXING字典</td></tr>
+          <tr><td>注册表写入失败</td><td>目录权限不足</td><td>chmod 755 registry/</td></tr>
+          <tr><td>哈希长度≠8</td><td>标题为空字符串</td><td>确保标题至少1字符</td></tr>
+          <tr><td>validate报无卦象</td><td>DNA缺少64卦Unicode</td><td>检查䷀-䷿是否复制完整</td></tr>
+          <tr><td>counter.json并发损坏</td><td>多进程同时写</td><td>使用文件锁·或迁移SQLite(P1)</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== PANEL: ABOUT ===== -->
+    <div class="panel" id="panel-about">
+      <div class="page-header"><h2>ℹ️ 关于</h2><p>龍魂·DNA追溯码生成引擎</p></div>
+      <div class="result-card">
+        <div class="result-grid">
+          <div class="result-item"><div class="val gold">v2.0</div><div class="lbl">引擎版本</div></div>
+          <div class="result-item"><div class="val cyan">UID9622</div><div class="lbl">创建者</div></div>
+          <div class="result-item"><div class="val green">CC BY-NC-SA 4.0</div><div class="lbl">协议</div></div>
+          <div class="result-item"><div class="val yellow">Python 3</div><div class="lbl">运行环境</div></div>
+        </div>
+      </div>
+      <div class="result-card" style="margin-top:1rem;">
+        <h3 style="color:var(--gold);font-family:var(--font);margin-bottom:0.8rem;">🔗 关联引擎</h3>
+        <table class="data-table">
+          <tr><td>lh_time_engine.py</td><td style="color:var(--text-dim);">天干地支·64卦·梅花易数</td><td>L0焊死</td></tr>
+          <tr><td>lh_gpg_sign.py</td><td style="color:var(--text-dim);">GPG分离签名</td><td>GATE-11</td></tr>
+          <tr><td>lh_three_color_audit.py</td><td style="color:var(--text-dim);">三色审计·DNA闸</td><td>GATE-09</td></tr>
+          <tr><td>lh_deben_audit.py</td><td style="color:var(--text-dim);">德本审计五问</td><td>L0焊死</td></tr>
+          <tr><td>lh_header_template.py</td><td style="color:var(--text-dim);">六套抬头模板</td><td>DNA→模板联动</td></tr>
+          <tr><td>lh_notion_full_sync.py</td><td style="color:var(--text-dim);">Notion元数据同步</td><td>定时同步</td></tr>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<aside id="toastContainer"></aside>
+
+<script>
+// ===== GLOBAL STATE =====
+let registry = [];
+let currentDNA = null;
+
+// ===== PANEL SWITCHING =====
+document.querySelectorAll('.nav a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const panelId = a.dataset.panel;
+    document.querySelectorAll('.nav a').forEach(x => x.classList.remove('active'));
+    a.classList.add('active');
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    const panel = document.getElementById('panel-' + panelId);
+    if (panel) panel.classList.add('active');
+    if (panelId === 'registry') loadRegistry();
+    if (panelId === 'stats') loadStats();
+  });
+});
+
+// ===== HASH ROUTING =====
+window.addEventListener('hashchange', () => {
+  const hash = window.location.hash.replace('#', '');
+  const link = document.querySelector(`.nav a[data-panel="${hash}"]`);
+  if (link) link.click();
+});
+if (window.location.hash) {
+  const hash = window.location.hash.replace('#', '');
+  const link = document.querySelector(`.nav a[data-panel="${hash}"]`);
+  if (link) setTimeout(() => link.click(), 100);
+}
+
+// ===== GANZHI ENGINE (browser-side) =====
+const TIAN_GAN = ["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"];
+const DI_ZHI = ["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"];
+const TIAN_GAN_WUXING = {"甲":"木","乙":"木","丙":"火","丁":"火","戊":"土","己":"土","庚":"金","辛":"金","壬":"水","癸":"水"};
+const WUXING_TENDENCY = {"木":"🟢","火":"🟡","土":"🟢","金":"🔴","水":"🟡"};
+const WUXING_COLORS = {"木":"wood","火":"fire","土":"earth","金":"metal","水":"water"};
+
+const HEXAGRAM_DATA = {
+  1:{name:"乾为天",meaning:"刚健不息",phase:"执行",symbol:"䷀"},
+  2:{name:"坤为地",meaning:"厚德载物",phase:"观察",symbol:"䷁"},
+  3:{name:"屯",meaning:"初生艰难",phase:"调整",symbol:"䷂"},
+  4:{name:"蒙",meaning:"启蒙发蒙",phase:"观察",symbol:"䷃"},
+  5:{name:"需",meaning:"等待时机",phase:"观察",symbol:"䷄"},
+  6:{name:"讼",meaning:"争讼纷争",phase:"调整",symbol:"䷅"},
+  7:{name:"师",meaning:"统帅之师",phase:"执行",symbol:"䷆"},
+  8:{name:"比",meaning:"亲和比附",phase:"执行",symbol:"䷇"},
+  9:{name:"小畜",meaning:"小有积蓄",phase:"调整",symbol:"䷈"},
+  10:{name:"履",meaning:"履行责任",phase:"执行",symbol:"䷉"},
+  11:{name:"泰",meaning:"天地交泰",phase:"执行",symbol:"䷊"},
+  12:{name:"否",meaning:"天地否塞",phase:"观察",symbol:"䷋"},
+  13:{name:"同人",meaning:"志同道合",phase:"执行",symbol:"䷌"},
+  14:{name:"大有",meaning:"大有收获",phase:"执行",symbol:"䷍"},
+  15:{name:"谦",meaning:"谦逊有礼",phase:"调整",symbol:"䷎"},
+  16:{name:"豫",meaning:"愉悦安乐",phase:"执行",symbol:"䷏"},
+  17:{name:"随",meaning:"随顺而行",phase:"执行",symbol:"䷐"},
+  18:{name:"蛊",meaning:"反腐革新",phase:"调整",symbol:"䷑"},
+  19:{name:"临",meaning:"居高临下",phase:"执行",symbol:"䷒"},
+  20:{name:"观",meaning:"观察审视",phase:"观察",symbol:"䷓"},
+  21:{name:"噬嗑",meaning:"咬合决断",phase:"执行",symbol:"䷔"},
+  22:{name:"贲",meaning:"装饰文饰",phase:"调整",symbol:"䷕"},
+  23:{name:"剥",meaning:"剥落衰败",phase:"观察",symbol:"䷖"},
+  24:{name:"复",meaning:"回复复归",phase:"调整",symbol:"䷗"},
+  25:{name:"无妄",meaning:"不妄为",phase:"观察",symbol:"䷘"},
+  26:{name:"大畜",meaning:"大积蓄",phase:"调整",symbol:"䷙"},
+  27:{name:"颐",meaning:"颐养",phase:"观察",symbol:"䷚"},
+  28:{name:"大过",meaning:"大过度",phase:"调整",symbol:"䷛"},
+  29:{name:"坎为水",meaning:"险陷重重",phase:"观察",symbol:"䷜"},
+  30:{name:"离为火",meaning:"依附光明",phase:"执行",symbol:"䷝"},
+  31:{name:"咸",meaning:"感应",phase:"执行",symbol:"䷞"},
+  32:{name:"恒",meaning:"恒久",phase:"调整",symbol:"䷟"},
+  33:{name:"遁",meaning:"退避",phase:"观察",symbol:"䷠"},
+  34:{name:"大壮",meaning:"大强壮",phase:"执行",symbol:"䷡"},
+  35:{name:"晋",meaning:"前进",phase:"执行",symbol:"䷢"},
+  36:{name:"明夷",meaning:"光明受伤",phase:"观察",symbol:"䷣"},
+  37:{name:"家人",meaning:"家庭",phase:"执行",symbol:"䷤"},
+  38:{name:"睽",meaning:"乖离",phase:"调整",symbol:"䷥"},
+  39:{name:"蹇",meaning:"艰难",phase:"观察",symbol:"䷦"},
+  40:{name:"解",meaning:"解除",phase:"执行",symbol:"䷧"},
+  41:{name:"损",meaning:"减损",phase:"调整",symbol:"䷨"},
+  42:{name:"益",meaning:"增益",phase:"执行",symbol:"䷩"},
+  43:{name:"夬",meaning:"决断",phase:"执行",symbol:"䷪"},
+  44:{name:"姤",meaning:"遭遇",phase:"调整",symbol:"䷫"},
+  45:{name:"萃",meaning:"聚集",phase:"执行",symbol:"䷬"},
+  46:{name:"升",meaning:"上升",phase:"执行",symbol:"䷭"},
+  47:{name:"困",meaning:"困顿",phase:"观察",symbol:"䷮"},
+  48:{name:"井",meaning:"水井",phase:"调整",symbol:"䷯"},
+  49:{name:"革",meaning:"变革",phase:"执行",symbol:"䷰"},
+  50:{name:"鼎",meaning:"鼎新",phase:"执行",symbol:"䷱"},
+  51:{name:"震为雷",meaning:"震动警醒",phase:"执行",symbol:"䷲"},
+  52:{name:"艮为山",meaning:"止于当止",phase:"观察",symbol:"䷳"},
+  53:{name:"渐",meaning:"渐进",phase:"调整",symbol:"䷴"},
+  54:{name:"归妹",meaning:"归嫁",phase:"调整",symbol:"䷵"},
+  55:{name:"丰",meaning:"丰盛",phase:"执行",symbol:"䷶"},
+  56:{name:"旅",meaning:"旅行",phase:"执行",symbol:"䷷"},
+  57:{name:"巽为风",meaning:"柔顺渗透",phase:"调整",symbol:"䷸"},
+  58:{name:"兑为泽",meaning:"喜悦交流",phase:"执行",symbol:"䷹"},
+  59:{name:"涣",meaning:"涣散",phase:"调整",symbol:"䷺"},
+  60:{name:"节",meaning:"节制",phase:"调整",symbol:"䷻"},
+  61:{name:"中孚",meaning:"诚信",phase:"执行",symbol:"䷼"},
+  62:{name:"小过",meaning:"小过度",phase:"调整",symbol:"䷽"},
+  63:{name:"既济",meaning:"已完成",phase:"观察",symbol:"䷾"},
+  64:{name:"未济",meaning:"未完成",phase:"执行",symbol:"䷿"}
+};
+
+const TEMPLATE_INDEX = {
+  1: {name:"学术博弈论分析型",emoji:"📊",phase:"🟡"},
+  2: {name:"工程落地执行型",emoji:"🔧",phase:"🟢"},
+  3: {name:"协议/原则声明型",emoji:"📜",phase:"🟢"},
+  4: {name:"人格对话/协作记录型",emoji:"💬",phase:"🟢"},
+  5: {name:"复盘/总结型",emoji:"📝",phase:"🟡"},
+  6: {name:"快速笔记/想法型",emoji:"💡",phase:"🟡"}
+};
+
+const CATEGORY_TEMPLATE_MAP = {
+  "paper":"1","academic":"1","推演":"1",
+  "code":"2","script":"2","deploy":"2","api":"2",
+  "protocol":"3","agreement":"3","policy":"3",
+  "persona":"4","dialogue":"4","collab":"4",
+  "review":"5","复盘":"5","总结":"5",
+  "note":"6","idea":"6","memo":"6"
+};
+
+function sha256(text) {
+  // Simple SHA-256 via SubtleCrypto
+  const encoder = new TextEncoder();
+  const data = encoder.encode(text);
+  return crypto.subtle.digest('SHA-256', data).then(buf => {
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+  });
+}
+
+function getGanzhi(date) {
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const hour = date.getHours();
+
+  const yearG = (year - 4) % 10;
+  const yearZ = (year - 4) % 12;
+  const monthZ = (month + 1) % 12;
+  const monthG = (yearG * 2 + month) % 10;
+
+  const base = new Date(1900, 0, 1);
+  const daysDiff = Math.floor((date - base) / (1000 * 60 * 60 * 24));
+  const dayG = (daysDiff + 9) % 10;
+  const dayZ = (daysDiff + 11) % 12;
+
+  const shiIndex = hour < 23 ? Math.floor((hour + 1) / 2) % 12 : 0;
+  const shiG = (dayG * 2 + shiIndex) % 10;
+
+  return {
+    yearStr: TIAN_GAN[yearG] + DI_ZHI[yearZ],
+    monthStr: TIAN_GAN[monthG] + DI_ZHI[monthZ],
+    dayStr: TIAN_GAN[dayG] + DI_ZHI[dayZ],
+    hourStr: TIAN_GAN[shiG] + DI_ZHI[shiIndex],
+    yearG, yearZ, monthG, monthZ: monthZ, dayG, dayZ, shiG, shiIndex
+  };
+}
+
+function getHexagram(dayZ, shiIndex) {
+  const upper = (dayZ % 8) + 1;
+  const lower = (shiIndex % 8) + 1;
+  return (upper - 1) * 8 + lower;
+}
+
+function getWuxing(gz) {
+  const wxs = [
+    TIAN_GAN_WUXING[gz.yearStr[0]],
+    TIAN_GAN_WUXING[gz.monthStr[0]],
+    TIAN_GAN_WUXING[gz.dayStr[0]],
+    TIAN_GAN_WUXING[gz.hourStr[0]]
+  ];
+  const counts = {};
+  wxs.forEach(w => counts[w] = (counts[w]||0) + 1);
+  const dominant = Object.entries(counts).sort((a,b)=>b[1]-a[1])[0][0];
+  return {
+    year: wxs[0], month: wxs[1], day: wxs[2], hour: wxs[3],
+    dominant, tendency: WUXING_TENDENCY[dominant]||"🟡",
+    colorClass: WUXING_COLORS[dominant]||"metal"
+  };
+}
+
+function digitalRoot(dateStr) {
+  let n = parseInt(dateStr.replace(/-/g,''));
+  while (n > 9) n = n.toString().split('').reduce((a,b)=>a+parseInt(b),0);
+  return n;
+}
+
+// ===== PREVIEW =====
+async function previewDNA() {
+  const title = document.getElementById('genTitle').value || '(未输入标题)';
+  const category = document.getElementById('genCategory').value;
+  const action = document.getElementById('genAction').value;
+  const actor = document.getElementById('genActor').value;
+  const dateStr = document.getElementById('genDate').value;
+
+  let now = new Date();
+  if (dateStr) now = new Date(dateStr + 'T' + now.toTimeString().slice(0,8));
+
+  const gz = getGanzhi(now);
+  const hNum = getHexagram(gz.dayZ, gz.shiIndex);
+  const hexa = HEXAGRAM_DATA[hNum] || HEXAGRAM_DATA[1];
+  const wx = getWuxing(gz);
+  const dr = digitalRoot(now.toISOString().slice(0,10));
+  const hash = (await sha256(title)).slice(0,8);
+
+  const timetag = `${gz.yearStr}·${gz.monthStr}·${gz.dayStr}·${gz.hourStr}·${hexa.symbol}${hexa.name}`;
+  const dna = `#龍芯⚡️${timetag}-${category.toUpperCase()}-${action.toUpperCase()}-${hash}`;
+
+  document.getElementById('dnaPreviewCode').textContent = dna;
+  document.getElementById('dnaPreviewMeta').innerHTML = `
+    <span>🕐 ${timetag.split('·').slice(0,4).join('·')}</span>
+    <span>${hexa.symbol} ${hexa.name} #${hNum}</span>
+    <span class="val ${wx.colorClass}">${wx.dominant} ${wx.tendency}</span>
+    <span>dr:${dr}${[3,6,9].includes(dr)?' ⭐':''}</span>
+    <span>#${hash}</span>
+  `;
+
+  return {dna,gz,hNum,hexa,wx,dr,hash,category,action,actor,timetag,now};
+}
+
+// ===== GENERATE =====
+async function generateDNA() {
+  const info = await previewDNA();
+  const now = info.now;
+
+  currentDNA = {
+    dna_string: info.dna,
+    compact: `#龍芯⚡️${info.gz.yearStr}·${info.gz.monthStr}·${info.gz.dayStr}·${info.gz.hourStr}·${info.hexa.symbol}${info.hexa.name}`,
+    ganzhi: { year: info.gz.yearStr, month: info.gz.monthStr, day: info.gz.dayStr, hour: info.gz.hourStr },
+    hexagram: { number: info.hNum, name: info.hexa.name, phase: info.hexa.phase, symbol: info.hexa.symbol, meaning: info.hexa.meaning },
+    wuxing: info.wx,
+    digital_root: info.dr,
+    is_369: [3,6,9].includes(info.dr),
+    category: info.category,
+    action: info.action,
+    actor: info.actor,
+    title: document.getElementById('genTitle').value || '未输入',
+    timestamp: now.toISOString(),
+    title_hash: info.hash,
+    template_id: CATEGORY_TEMPLATE_MAP[info.category] || '2'
+  };
+
+  // Add to registry
+  registry.unshift(currentDNA);
+  if (registry.length > 500) registry = registry.slice(0, 500);
+  saveToLocal();
+
+  // Show result
+  showResult(currentDNA);
+  toast('✅ DNA已生成并入库');
+}
+
+function showResult(dna) {
+  const t = TEMPLATE_INDEX[dna.template_id] || TEMPLATE_INDEX[2];
+  const wx = dna.wuxing;
+  document.getElementById('genResult').innerHTML = `
+    <div class="result-card">
+      <div class="result-grid">
+        <div class="result-item"><div class="val gold">${dna.digital_root}</div><div class="lbl">数字根${dna.is_369?' ⭐369':''}</div></div>
+        <div class="result-item"><div class="val ${wx.colorClass}">${wx.dominant}</div><div class="lbl">主导五行 ${wx.tendency}</div></div>
+        <div class="result-item"><div class="val cyan">${dna.hexagram.number}</div><div class="lbl">64卦编号</div></div>
+        <div class="result-item"><div class="val gold">${dna.hexagram.symbol} ${dna.hexagram.name}</div><div class="lbl">卦象名</div></div>
+        <div class="result-item"><div class="val green">${dna.hexagram.phase}</div><div class="lbl">卦意</div></div>
+        <div class="result-item"><div class="val yellow">${t.emoji} #${dna.template_id}</div><div class="lbl">推荐抬头模板</div></div>
+      </div>
+    </div>
+
+    <div class="hexa-display" style="margin-top:0.8rem;">
+      <div class="hexa-symbol">${dna.hexagram.symbol}</div>
+      <div class="hexa-info">
+        <div class="hname">${dna.hexagram.name} · 第${dna.hexagram.number}卦</div>
+        <div class="hmean">${dna.hexagram.meaning} · 阶段: ${dna.hexagram.phase}</div>
+      </div>
+    </div>
+
+    <div class="rootcard" style="margin-top:0.8rem;">
+      <div class="title">🃏 ROOT_CARD</div>
+dr=${dna.digital_root}${dna.is_369?' ⭐369不动点!':''}
+Wuxing: ${wx.dominant}${wx.tendency}
+Hexagram: ${dna.hexagram.symbol}${dna.hexagram.name} #${dna.hexagram.number}
+Phase: ${dna.hexagram.phase}
+Ganzhi: ${dna.ganzhi.year}·${dna.ganzhi.month}·${dna.ganzhi.day}·${dna.ganzhi.hour}
+Category: ${dna.category.toUpperCase()}
+Action: ${dna.action}
+Actor: ${dna.actor}
+Template: ${t.emoji} ${t.name} (#${dna.template_id})
+Hash: ${dna.title_hash}
+Timestamp: ${dna.timestamp}
+    </div>
+  `;
+
+  document.getElementById('dnaPreviewCode').textContent = dna.dna_string;
+}
+
+// ===== REGISTRY =====
+function loadRegistry() {
+  loadFromLocal();
+  const tbody = document.getElementById('registryBody');
+  if (registry.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;color:var(--text-dim);padding:2rem;">暂无数据 — 先在上方生成DNA</td></tr>';
+    return;
+  }
+  tbody.innerHTML = registry.map((d,i) => `
+    <tr>
+      <td><span class="dna-code-sm" title="${d.dna_string}">${d.compact||d.dna_string}</span></td>
+      <td>${d.title||'?'}</td>
+      <td>${(d.category||'?').toUpperCase()}</td>
+      <td>${d.action||'?'}</td>
+      <td><span class="wx-badge" style="background:var(--${(d.wuxing||{}).colorClass||'metal'}20);color:var(--${(d.wuxing||{}).colorClass||'metal'})">${(d.wuxing||{}).dominant||'?'} ${(d.wuxing||{}).tendency||''}</span></td>
+      <td>${(d.hexagram||{}).symbol||'?'} ${(d.hexagram||{}).name||'?'}</td>
+      <td>${d.digital_root||'?'}${d.is_369?'⭐':''}</td>
+      <td>${d.actor||'?'}</td>
+      <td>${(d.timestamp||'').slice(0,16).replace('T',' ')}</td>
+    </tr>
+  `).join('');
+}
+
+function searchDNA() {
+  const kw = document.getElementById('searchInput').value.toLowerCase();
+  loadFromLocal();
+  const filtered = registry.filter(d =>
+    (d.title||'').toLowerCase().includes(kw) ||
+    (d.dna_string||'').toLowerCase().includes(kw) ||
+    (d.actor||'').toLowerCase().includes(kw) ||
+    (d.category||'').toLowerCase().includes(kw)
+  );
+
+  const orig = registry;
+  registry = filtered;
+  loadRegistry();
+  registry = orig;
+}
+
+// ===== STATS =====
+function loadStats() {
+  loadFromLocal();
+  const total = registry.length;
+  const typesCount = {};
+  const actorsCount = {};
+  const dailyCount = {};
+  let wx369 = 0;
+
+  registry.forEach(d => {
+    typesCount[d.category||'other'] = (typesCount[d.category||'other']||0) + 1;
+    actorsCount[d.actor||'unknown'] = (actorsCount[d.actor||'unknown']||0) + 1;
+    if (d.is_369) wx369++;
+    if (d.timestamp) {
+      const day = d.timestamp.slice(0,10);
+      dailyCount[day] = (dailyCount[day]||0) + 1;
+    }
+  });
+
+  document.getElementById('statsCards').innerHTML = `
+    <div class="stat-card"><div class="num">${total}</div><div class="label">总计DNA</div></div>
+    <div class="stat-card"><div class="num">${Object.keys(typesCount).length}</div><div class="label">类别数</div></div>
+    <div class="stat-card"><div class="num">${Object.keys(actorsCount).length}</div><div class="label">执行者</div></div>
+    <div class="stat-card"><div class="num" style="color:var(--gold);">${wx369}</div><div class="label">369不动点 ⭐</div></div>
+    <div class="stat-card"><div class="num">${Object.keys(dailyCount).length}</div><div class="label">活跃天数</div></div>
+    <div class="stat-card"><div class="num">${total>0?(100*wx369/total).toFixed(1):0}%</div><div class="label">369占比</div></div>
+  `;
+
+  document.getElementById('statsChart').innerHTML = `
+    <div class="result-card" style="margin-top:1rem;">
+      <h3 style="color:var(--gold);font-family:var(--font);margin-bottom:0.8rem;">按类别</h3>
+      ${Object.entries(typesCount).sort((a,b)=>b[1]-a[1]).map(([k,v]) =>
+        `<div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;">
+          <span style="width:80px;font-size:0.75rem;color:var(--text-dim);">${k}</span>
+          <div style="flex:1;background:var(--surface2);border-radius:3px;height:14px;overflow:hidden;">
+            <div style="width:${100*v/total}%;height:100%;background:var(--gold);border-radius:3px;"></div>
+          </div>
+          <span style="font-size:0.75rem;color:var(--gold);width:30px;text-align:right;">${v}</span>
+        </div>`
+      ).join('')}
+    </div>
+    <div class="result-card" style="margin-top:1rem;">
+      <h3 style="color:var(--gold);font-family:var(--font);margin-bottom:0.8rem;">按执行者</h3>
+      ${Object.entries(actorsCount).sort((a,b)=>b[1]-a[1]).map(([k,v]) =>
+        `<div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;">
+          <span style="width:80px;font-size:0.75rem;color:var(--text-dim);">${k}</span>
+          <div style="flex:1;background:var(--surface2);border-radius:3px;height:14px;overflow:hidden;">
+            <div style="width:${100*v/total}%;height:100%;background:var(--cyan);border-radius:3px;"></div>
+          </div>
+          <span style="font-size:0.75rem;color:var(--cyan);width:30px;text-align:right;">${v}</span>
+        </div>`
+      ).join('')}
+    </div>
+  `;
+}
+
+// ===== LOCAL STORAGE =====
+function saveToLocal() {
+  try {
+    localStorage.setItem('longhun_dna_registry', JSON.stringify(registry));
+  } catch(e) {
+    console.warn('localStorage full, trimming...');
+    registry = registry.slice(0, 200);
+    localStorage.setItem('longhun_dna_registry', JSON.stringify(registry));
+  }
+}
+
+function loadFromLocal() {
+  try {
+    const raw = localStorage.getItem('longhun_dna_registry');
+    if (raw) registry = JSON.parse(raw);
+  } catch(e) { registry = []; }
+}
+
+// ===== TOAST =====
+function toast(msg) {
+  const el = document.createElement('div');
+  el.className = 'toast';
+  el.textContent = msg;
+  document.getElementById('toastContainer').appendChild(el);
+  setTimeout(() => el.remove(), 2500);
+}
+
+// ===== COPY =====
+function copyDNA() {
+  const code = document.getElementById('dnaPreviewCode').textContent;
+  if (!code || code === '#龍芯⚡️---') { toast('⚠️ 请先生成DNA'); return; }
+  navigator.clipboard.writeText(code).then(() => toast('📋 DNA已复制到剪贴板'));
+}
+
+// ===== INIT =====
+loadFromLocal();
+previewDNA();
+
+// Auto-refresh preview every 10s for live timetag
+setInterval(() => {
+  if (!document.getElementById('genDate').value) previewDNA();
+}, 10000);
+</script>
+</body>
+</html>

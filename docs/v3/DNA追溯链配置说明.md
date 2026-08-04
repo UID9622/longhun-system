@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # 龍魂体系 · 全链路DNA追溯系统 v3.0 配置说明#龍芯⚡️2026-06-16-DNA-TRACE_15EE-v3.0
 
 CONFIRM (UID9622 本人授权):

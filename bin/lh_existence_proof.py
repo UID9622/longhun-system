@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """🐉 龍魂引擎：lh_existence_proof
 路径：bin/lh_existence_proof.py
 TODO：请补充详细功能说明（不少于20字）。"""

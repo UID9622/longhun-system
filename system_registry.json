@@ -1,0 +1,54 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+{
+  "version": "v1.0",
+  "dna": "#龍芯⚡️丙午·乙未·甲辰·离为火-SYSTEM-REGISTRY-v1.0-7F3A9B1C",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "created": "2026-08-02T22:20:18+0800",
+  "creator": "诸葛鑫（UID9622）",
+  "iron_laws_summary": {
+    "人永远是1": {
+      "语义": "人类需求与利益是一切技术/数据的源头。数据只是后面的0，没有1就没有意义。",
+      "落地": "bin/lh_source_vetting.py（源头校验器）· bin/lh_crawler_ethics.sh（爬虫伦理检查）",
+      "级别": "P0·焊死",
+      "不可绕过": true
+    },
+    "不蒸馏原则": {
+      "语义": "禁止使用未经源头校验的外部AI模型进行蒸馏。蒸馏前必须过源头校验，本源分<80拒绝。",
+      "落地": "蒸馏脚本前置调用 lh_source_vetting.audit_source()",
+      "级别": "P0·焊死",
+      "不可绕过": true
+    },
+    "系统底座习惯": {
+      "语义": "所有引擎启动前必须读取 system_registry.json 确认底座铁律完整。缺铁律 = 拒绝启动。",
+      "落地": "lh_ctl.py 入口 check_system_registry()",
+      "级别": "P0·焊死",
+      "不可绕过": true
+    },
+    "l0_manifesto": {
+      "语义": "PROTOCOL_0.md 九条不可推翻。为人民服务/数据主权归用户/隐私不传云/零黑箱/不删除只冻结/诚实不编造/中国法律准绳。",
+      "落地": "CODEBUDDY.md 规则层·lh_deben_audit.py 德本审计",
+      "级别": "P0·焊死",
+      "不可绕过": true
+    },
+    "anti_plagiarism": {
+      "语义": "禁止抄袭/冒名/伪造DNA。对外输出必须挂原创声明+DNA签章。",
+      "落地": "01_protocols/LH-ORIGINALITY-DECLARATION-PROTOCOL-v1.0.md·P15签章",
+      "级别": "P0·焊死",
+      "不可绕过": true
+    },
+    "append_only": {
+      "语义": "日志/审计/记忆全部追加式写入，不覆盖/不删除已有记录。删除 = 显式冻结+DNA记录。",
+      "落地": "所有 .jsonl 审计日志文件·记忆层 MEMORY.md 追加写入",
+      "级别": "P0·焊死",
+      "不可绕过": true
+    }
+  },
+  "vetting_modules": {
+    "source": "bin/lh_source_vetting.py",
+    "crawler_ethics": "bin/lh_crawler_ethics.sh",
+    "deben_audit": "bin/lh_deben_audit.py"
+  },
+  "last_verified": "2026-08-02T22:20:18+0800"
+}

@@ -1,4 +1,5 @@
 #!/bin/bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ═══════════════════════════════════════════════
 # 龍魂 · WireGuard 服务器端一键部署
 # DNA: #龍芯⚡️丙午·乙申·己酉·亥时·WG-SERVER-SETUP-v1.0

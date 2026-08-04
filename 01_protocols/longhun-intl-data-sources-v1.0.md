@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂·国际网站训练数据源清单（补充视角）
 
 > DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·讼-INTL-DATA-SOURCES-v1.0

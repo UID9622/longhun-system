@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 通心译（Tongxin Translation）术语映射表
 
 > DNA: #龍芯⚡️{YYYY-MM-DD}-TONGXIN-TERM-v1.0

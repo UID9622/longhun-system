@@ -1,3 +1,5 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # Behavioral Cryptography: A Multi-Factor Provenance Framework for Human-AI Collaborative Content Authentication
 
 > **行为密码学**：面向人机协作内容认证的多因素来源追溯框架

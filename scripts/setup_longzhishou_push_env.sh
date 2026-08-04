@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 # 龍智守飞书推送环境本地终端执行方案
 # DNA: #龍芯⚡️2026-07-01-LONGZHISHOU-PUSH-SETUP-v1.0

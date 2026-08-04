@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 #龍芯⚡️2026-06-21-ENGINE-TEST_AUDIT_INTEGRATION_V1-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0

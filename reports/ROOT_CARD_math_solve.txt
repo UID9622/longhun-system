@@ -1,0 +1,14 @@
+Root: dr=4
+Wuxing: 金
+TriColor: 🟢
+DataLevel: L0_PUBLIC
+PrivacyMode: normal
+Retention: summary_only
+TraceMode: chain
+Route: [MATH-SOLVE-EXAMPLE]
+Backend: python / jupyter / notion
+Action: archive
+DNA: #龍芯⚡️丙午·乙未·戊申·泽地萃-MATH-SOLVE-v2.0
+CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

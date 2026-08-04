@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂 Skill 落地计划 v1.0｜三 P0 全盘 + Skill 1 SKILL.md 草稿
 
 > **DNA追溯码：** #龍芯⚡️2026-07-12-Skill-Landing-Plan-v1.0-b08c43e3

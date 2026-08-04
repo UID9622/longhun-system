@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 P03 墨子/雯雯 · 邏輯驗證執行器

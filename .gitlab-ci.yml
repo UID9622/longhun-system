@@ -1,0 +1,25 @@
+# 🐉 掀黑箱审计 · GitLab CI
+# 自动检测 MR 中的技术主权风险
+# 部署时间: 2026-08-01T00:06:18.758299
+# DNA: #龍芯⚡️20260801000618-GitLabCI-UID9622
+
+audit:
+  stage: test
+  image: python:3.11
+  timeout: 15m
+  script:
+    - pip install --upgrade pip
+    - pip install psutil
+    - python3 bin/lh_ci_audit.py --target . --fail-level critical --scope changed
+  variables:
+    CI_AUDIT_WHITELIST: "uid9622.cn,longhun888.com,119.13.90.27,longhun-system,龙魂,DragonSoul,github.com,gitee.com,gitcode.com,notion.so,feishu.cn,larksuite.com,api.openai.com,api.anthropic.com,api.deepseek.com,cryptography.hazmat,cryptography.fernet,paramiko,pynacl"
+    CI_AUDIT_SCOPE: changed
+  only:
+    - merge_requests
+  except:
+    - main
+  artifacts:
+    when: always
+    paths:
+      - reports/
+    expire_in: 7 days

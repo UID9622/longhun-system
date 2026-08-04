@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 #龍芯⚡️丙午·癸未·甲子·既济-AUDIT-API-v1.0
@@ -94,6 +96,12 @@ async def root():
 async def health():
     """健康检查"""
     return {"status": "ok", "dna": DNA}
+
+
+@app.get("/health")
+async def health_root():
+    """健康检查（根路径兼容）"""
+    return {"status": "ok", "service": "audit-engine", "port": 8771, "dna": DNA}
 
 
 @app.get("/audit/plans")

@@ -1,3 +1,6 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 通心译 (Tongxin Translation) — 鸿蒙端
 
 > **DNA**: `#龍芯⚡️丙午·丙申·癸丑·午时·需-TONGXINYI-HARMONYOS-v1.0`

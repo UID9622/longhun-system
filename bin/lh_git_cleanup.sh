@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · Git 仓库收拾脚本 v1.0
 # 按 Kimi 建议收拾方案执行
 # DNA: #龍芯⚡️2026-07-12-GIT-HISTORY-CLEANUP-v1.0

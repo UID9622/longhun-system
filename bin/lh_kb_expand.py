@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 龍魂·知识库扩展自动化引擎 v1.1（精修版）
 DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-KB-EXPAND-AUTO-v1.1
