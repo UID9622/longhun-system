@@ -169,10 +169,10 @@
 
 ### `03_知識圖譜`
 
-- 🚀 [build_cnsh_editor_module.py](03_知識圖譜/build_cnsh_editor_module.py) — 状态: `HAS_MAIN`
-- 🚀 [compress_downloads_imports.py](03_知識圖譜/compress_downloads_imports.py) — 状态: `HAS_MAIN`
-- 🚀 [generate_downloads_inbox.py](03_知識圖譜/generate_downloads_inbox.py) — 状态: `HAS_MAIN`
-- 🚀 [migrate_downloads_inbox.py](03_知識圖譜/migrate_downloads_inbox.py) — 状态: `HAS_MAIN`
+- 🚀 [build_cnsh_editor_module.py](03_KNOWLEDGE_GRAPH/build_cnsh_editor_module.py) — 状态: `HAS_MAIN`
+- 🚀 [compress_downloads_imports.py](03_KNOWLEDGE_GRAPH/compress_downloads_imports.py) — 状态: `HAS_MAIN`
+- 🚀 [generate_downloads_inbox.py](03_KNOWLEDGE_GRAPH/generate_downloads_inbox.py) — 状态: `HAS_MAIN`
+- 🚀 [migrate_downloads_inbox.py](03_KNOWLEDGE_GRAPH/migrate_downloads_inbox.py) — 状态: `HAS_MAIN`
 
 ### `agents`
 

@@ -60,7 +60,7 @@ P13 姜子牙 → 触发 §200 联动钩子 → 通知所有订阅方
 | Portal 大盘 | `L5_服务层/services/portal/portal/index.html` | DNA 操作时间线 |
 | 控制面板 | `L5_服务层/services/api/control-panel/main.py` | DNA 统计/审计 |
 | 飞书 Bot | `L5_服务层/services/feishu_persona_bot.py` | 操作通知 |
-| 知识图谱 | `03_知識圖譜/graph_data.json` | DNA→节点映射 |
+| 知识图谱 | `03_KNOWLEDGE_GRAPH/graph_data.json` | DNA→节点映射 |
 | 联动感知引擎 | `bin/lh_cross_module_awareness.py` | 变更检测 |
 
 ### 待接驳

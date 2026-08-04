@@ -25,7 +25,7 @@ NEW_ENTRIES = {
 
     # L8 治理层 - 核心治理文件
     "L8_治理层/记错本.md": {"ipa_route":"IPA-L8-001","module_class":"L8::ErrorLog","status":"active","layer":"L8","consumed_by":[{"file":"AGENTS.md","rel":"error_audit"}]},
-    "L8_治理层/governance/FUSE_TRANSPARENCY/FUSE_PROTOCOL.md": {"ipa_route":"IPA-L8-002","module_class":"L8::FuseProtocol","status":"active","layer":"L8","consumed_by":[{"file":"01_技能庫/fuse-appeal.md","rel":"appeal_rules"}]},
+    "L8_治理层/governance/FUSE_TRANSPARENCY/FUSE_PROTOCOL.md": {"ipa_route":"IPA-L8-002","module_class":"L8::FuseProtocol","status":"active","layer":"L8","consumed_by":[{"file":"02_SKILLS/fuse-appeal.md","rel":"appeal_rules"}]},
     "L8_治理层/governance/曾仕强老师·捡回德_v1.0.md": {"ipa_route":"IPA-L8-003","module_class":"L8::ZengLegacy","status":"active","layer":"L8","consumed_by":[{"file":"AGENTS.md","rel":"A-026_anchor"}]},
     "L8_治理层/governance/ANTI_TAMPER/LONGHUN_ANTI_TAMPER.md": {"ipa_route":"IPA-L8-004","module_class":"L8::AntiTamper","status":"active","layer":"L8","consumed_by":[{"file":"bin/lh_anti_tamper.py","rel":"tamper_engine"}]},
     "L8_治理层/governance/IRON-LAWS/P0_ETERNAL_IRON_LAW_DIRECTORY.md": {"ipa_route":"IPA-L8-005","module_class":"L8::IronLaws","status":"active","layer":"L8","consumed_by":[{"file":"P0_ETERNAL_LOCK.md","rel":"lock_anchor"}]},

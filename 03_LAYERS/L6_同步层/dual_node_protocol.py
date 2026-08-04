@@ -10,7 +10,7 @@ DNA: #龍芯⚡️丙午·辛未·DUAL-NODE-PROTOCOL-v1.0
 五维同步体系：
   维度1 — 代码层: Mac ↔ 鲲鹏 rsync 增量同步
   维度2 — 协议层: 01_protocols/ 双向镜像
-  维度3 — 知识层: 03_知識圖譜/ + 技能库 双向合并
+  维度3 — 知识层: 03_KNOWLEDGE_GRAPH/ + 技能库 双向合并
   维度4 — 记忆层: brain/memories.db 双向合并（CRDT思路，最后写入胜）
   维度5 — 模型层: models/ checkpoint 单向拉取（鲲鹏→Mac）
 
@@ -58,7 +58,7 @@ DIMENSION_PATHS = {
         "01_protocols/",
     ],
     SyncDimension.KNOWLEDGE: [
-        "03_知識圖譜/", "02_SKILLS/",
+        "03_KNOWLEDGE_GRAPH/", "02_SKILLS/",
     ],
     SyncDimension.MEMORY: [
         "brain/memories.db", ".codebuddy/memory/",

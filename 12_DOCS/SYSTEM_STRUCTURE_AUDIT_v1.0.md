@@ -104,7 +104,7 @@ tags:
 | 目录 | 说明 | 问题 |
 |:---|:---|:---|
 | `01_protocols/` | 协议、白皮书、治理文档 | 子目录 24 个，部分命名不统一 |
-| `01_技能庫/` | 技能投喂存档 | 繁体中文目录名，应改为 `01_skills/` |
+| `02_SKILLS/` | 技能投喂存档 | 繁体中文目录名，应改为 `01_skills/` |
 | `02_rules/` → `.codebuddy/rules/archive` | 对齐规则 | Symlink，可保留但需明确 |
 | `02_執行記錄/` → `archive/历史记录/02_執行記錄` | 执行记录 | Symlink + 繁体，应整合到 `archive/records/` |
 | `04_決策日誌/` | 决策日志 | Symlink，应整合 |
@@ -211,8 +211,8 @@ L9_子系统
 
 | 反例 | 问题 |
 |:---|:---|
-| `01_protocols/` + `01_技能庫/` | 中英文目录同级，风格割裂 |
-| `03_后土OS/` + `03_知識圖譜/` | 繁体、产品名、技术术语混用 |
+| `01_protocols/` + `02_SKILLS/` | 中英文目录同级，风格割裂 |
+| `06_HOUTU_OS/` + `03_KNOWLEDGE_GRAPH/` | 繁体、产品名、技术术语混用 |
 | `L1_内核层` vs `layers/L1_内核层` | 同一内容两个入口 |
 | `articles/` vs `06_技術文檔/` | 都是文档，分散多处 |
 
@@ -456,9 +456,9 @@ L9_子系统
 | 原路径 | 目标路径 | 理由 |
 |:---|:---|:---|
 | `01_protocols/` | `01_PROTOCOLS/` | 统一大写，保留数字前缀 |
-| `01_技能庫/` | `02_SKILLS/` | 废止繁体中文顶层名 |
-| `03_后土OS/` | 移入 `03_LAYERS/L8_governance/` 或 `15_LABS/` | 按性质归类 |
-| `03_知識圖譜/` | `10_DATA/knowledge-graph/` | 数据资产归位 |
+| `02_SKILLS/` | `02_SKILLS/` | 废止繁体中文顶层名 |
+| `06_HOUTU_OS/` | 移入 `03_LAYERS/L8_governance/` 或 `15_LABS/` | 按性质归类 |
+| `03_KNOWLEDGE_GRAPH/` | `10_DATA/knowledge-graph/` | 数据资产归位 |
 | `layers/` | `03_LAYERS/` | 统一数字前缀 |
 | `L1_内核层` 等 Symlink | 删除 | 直接访问 `03_LAYERS/` |
 | `bin/` | `08_BIN/` | 分类子目录 |
@@ -488,7 +488,7 @@ L9_子系统
 | `L5_service/` | 服务编排、API、集成 | `L5_服务层` |
 | `L6_memory/` | 记忆、同步、状态 | `L6_记忆层` + `L6_同步层` |
 | `L7_expression/` | 表达、交互、前端 | `L7_表达层` |
-| `L8_governance/` | 治理、审计、决策 | `L8_治理层` + `03_后土OS/` |
+| `L8_governance/` | 治理、审计、决策 | `L8_治理层` + `06_HOUTU_OS/` |
 | `L9_subsystems/` | 子系统、独立应用 | `L9_子系统` |
 
 > 注：`L3_执行层`、`L4_数据层`、`L6_集成层`、`L7_数据层`、`L8_分发层` 按实际内容分别并入 `L3_data/`、`L5_service/`、`L6_memory/`、`L7_expression/`。
@@ -542,9 +542,9 @@ NN_CATEGORY-NAME/
 
 | 禁止 | 示例 | 正确 |
 |:---|:---|:---|
-| 顶层中文目录 | `01_技能庫/` | `02_SKILLS/` |
-| 顶层繁体目录 | `03_知識圖譜/` | `10_DATA/knowledge-graph/` |
-| 产品名作为顶层 | `03_后土OS/` | `03_LAYERS/L8_governance/` |
+| 顶层中文目录 | `02_SKILLS/` | `02_SKILLS/` |
+| 顶层繁体目录 | `03_KNOWLEDGE_GRAPH/` | `10_DATA/knowledge-graph/` |
+| 产品名作为顶层 | `06_HOUTU_OS/` | `03_LAYERS/L8_governance/` |
 | 无意义 Symlink | `core -> archive/experiments/core` | 删除 |
 | 平铺所有命令 | `bin/` 2003 个文件 | `08_BIN/<domain>/` |
 
@@ -620,9 +620,9 @@ python3 scripts/structure-audit.py --format=json --output=reports/structure-audi
       "name": "naming_compliance",
       "status": "fail",
       "violations": [
-        "01_技能庫/",
-        "03_后土OS/",
-        "03_知識圖譜/"
+        "02_SKILLS/",
+        "06_HOUTU_OS/",
+        "03_KNOWLEDGE_GRAPH/"
       ]
     },
     {
@@ -744,12 +744,12 @@ jobs:
 
 ```
 01_protocols/
-01_技能庫/
+02_SKILLS/
 02_rules -> .codebuddy/rules/archive
 02_執行記錄 -> archive/历史记录/02_執行記錄
 03_compiler -> cnsh/compiler_legacy
-03_后土OS/
-03_知識圖譜/
+06_HOUTU_OS/
+03_KNOWLEDGE_GRAPH/
 04_決策日誌 -> archive/历史记录/04_決策日誌
 05_系統報告 -> archive/历史记录/05_系統報告
 06_技術文檔 -> docs/tech
@@ -780,7 +780,7 @@ services/
 
 | 类别 | 数量 | 说明 |
 |:---|:---:|:---|
-| 协议/治理 | 7 | `01_protocols/`、`01_技能庫/`、`_rules/` 等 |
+| 协议/治理 | 7 | `01_protocols/`、`02_SKILLS/`、`_rules/` 等 |
 | 架构/代码 | 15 | `layers/`、`services/`、`engines/`、`bin/` 等 |
 | 数据/日志 | 8 | `data/`、`logs/`、`audit/` 等 |
 | 文档/文章 | 5 | `docs/`、`articles/` 等 |

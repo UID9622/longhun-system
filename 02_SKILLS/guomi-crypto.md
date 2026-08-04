@@ -191,8 +191,8 @@ n = FFFFFFFEFFFFFFFFFFFFFFFFFFFFFFFF7203DF6B21C6052B53BBF40939D54123
 - 国密标准：GM/T 0002/0003/0004-2012
 - Python库：`gmssl`（国密算法Python实现）
 - 相关文件：
-  - `01_技能庫/identity-positioning.md` — 身份定位总纲
-  - `01_技能庫/dna-trace-engine.md` — DNA追溯引擎
+  - `02_SKILLS/identity-positioning.md` — 身份定位总纲
+  - `02_SKILLS/dna-trace-engine.md` — DNA追溯引擎
   - `01_protocols/seven-factor-verification.md` — 七因子验证预言机协议
   - `crypto-stack/` — 密码学栈
 

@@ -48,7 +48,7 @@ def _build_module_map(engine_paths: List[str]) -> Dict[str, str]:
     for ep in engine_paths:
         # engines/core/xxx.py → core.xxx
         # bin/xxx.py → xxx
-        # 01_技能庫/xxx/yyy.py → xxx.yyy
+        # 02_SKILLS/xxx/yyy.py → xxx.yyy
         p = Path(ep)
         parts = list(p.parts)
         # 去掉 .py

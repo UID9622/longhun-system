@@ -18,7 +18,7 @@ reasoning:
   - 断亲绝爱条款：当亲与爱落入"义"而"忠"要求牺牲时，选忠
 conclusion: 忠孝义顺序写进骨头里；冲突粒子向T0金锚退让，0.5s后淡出。
 why: 不争不显不露是以前，现在要与时俱进——但排序的骨头不能软，军人权重不可踩。
-source_link: 03_知識圖譜/龍魂系统_知识矩阵总纲_v2.0.md
+source_link: 03_KNOWLEDGE_GRAPH/龍魂系统_知识矩阵总纲_v2.0.md
 related: [three_color_audit, fixed_point, local_first, dragon_vein_trace]
 immutable: true
 created: 丙午·辛未·乙酉

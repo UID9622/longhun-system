@@ -22,7 +22,7 @@
   02-流场可视化  → web/flow/ + papers/
   03-身份安全-DNA → 01_protocols/ + docs/
   04-审计治理    → audit/ + 01_protocols/
-  05-AI人格-Agent → 01_技能庫/ + bin/
+  05-AI人格-Agent → 02_SKILLS/ + bin/
   06-工具脚本    → bin/ + backend/
   07-论文PDF     → papers/
   08-浏览器插件   → extensions/

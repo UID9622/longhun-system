@@ -843,14 +843,14 @@
 - **ID**: `downloads/论文`
 - **类型**: paper
 - **DNA**:`#龍芯⚡️2026-06-22-DOWNLOADS-论文-v1.0`
-- **描述**: paper · 42.45 KB · 归宿: _archive/papers/ 或 03_知識圖譜/
+- **描述**: paper · 42.45 KB · 归宿: _archive/papers/ 或 03_KNOWLEDGE_GRAPH/
 - **相关节点**: [[l0-core]]
 
 #### [[论文 1]]
 - **ID**: `downloads/论文-1`
 - **类型**: paper
 - **DNA**:`#龍芯⚡️2026-06-22-DOWNLOADS-论文-1-v1.0`
-- **描述**: paper · 30.14 KB · 归宿: _archive/papers/ 或 03_知識圖譜/
+- **描述**: paper · 30.14 KB · 归宿: _archive/papers/ 或 03_KNOWLEDGE_GRAPH/
 - **相关节点**: [[l0-core]]
 
 ### PLUGIN
@@ -1463,7 +1463,7 @@
 - **DNA**:`#龍芯⚡️丙午·乙未·癸亥·亥时·☰乾-KNOWLEDGE-CHIP-LITHO-TAU-v1.0-7e3a9d1b`
 - **描述**: 芯片制造7步·光刻机原理·中国卡脖子6技术·华为韬定律τ=1.7nm
 - **泄密审查**: 🟢 全公开资料·无涉密内容
-- **相关节点**: [[l0-core]] [[03_知識圖譜/lh_knowledge_芯片_光刻韬定律知识工程]]
+- **相关节点**: [[l0-core]] [[03_KNOWLEDGE_GRAPH/lh_knowledge_芯片_光刻韬定律知识工程]]
 - **配套**: 视频脚本 `articles/chip_litho_tau_law_video_script.md` · CSDN文章 `articles/chip_litho_tau_law_article_csdn.md`
 - **归档源文件**: `downloads_archive/chip_knowledge/` (5文件·115KB)
 

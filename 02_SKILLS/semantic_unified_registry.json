@@ -192,7 +192,7 @@
             "01_protocols/LH-AI-SHAME-PILLAR-v3.0.md",
             "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
             "01_protocols/龍魂认知上下文管理协议_v3.0.md",
-            "01_技能庫/dna-gen.md"
+            "02_SKILLS/dna-gen.md"
           ],
           "added": "2026-07-14"
         },
@@ -217,8 +217,8 @@
             "01_protocols/LH-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0.md",
             "01_protocols/LH-PRIVACY-WHITEPAPER-v1.0.md",
             "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
-            "01_技能庫/api-sovereign-gateway.md",
-            "01_技能庫/dna-trace-engine.md"
+            "02_SKILLS/api-sovereign-gateway.md",
+            "02_SKILLS/dna-trace-engine.md"
           ],
           "added": "2026-07-14"
         },
@@ -230,8 +230,8 @@
             "01_protocols/LH-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0.md",
             "01_protocols/LH-PRIVACY-WHITEPAPER-v1.0.md",
             "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
-            "01_技能庫/api-sovereign-gateway.md",
-            "01_技能庫/dna-trace-engine.md"
+            "02_SKILLS/api-sovereign-gateway.md",
+            "02_SKILLS/dna-trace-engine.md"
           ],
           "added": "2026-07-14"
         },
@@ -242,9 +242,9 @@
           "files": [
             "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
             "01_protocols/SENSORY-EDUCATION-DIGNITY-v1.0.md",
-            "01_技能庫/guomi-crypto.md",
-            "01_技能庫/identity-positioning.md",
-            "01_技能庫/sovereign-privacy.md"
+            "02_SKILLS/guomi-crypto.md",
+            "02_SKILLS/identity-positioning.md",
+            "02_SKILLS/sovereign-privacy.md"
           ],
           "added": "2026-07-14"
         },
@@ -254,9 +254,9 @@
           "occurrence": 4,
           "files": [
             "01_protocols/DNA_REGISTRY_PROTOCOL_200.md",
-            "01_技能庫/guomi-crypto.md",
-            "01_技能庫/identity-positioning.md",
-            "01_技能庫/sovereign-privacy.md"
+            "02_SKILLS/guomi-crypto.md",
+            "02_SKILLS/identity-positioning.md",
+            "02_SKILLS/sovereign-privacy.md"
           ],
           "added": "2026-07-14"
         },
@@ -442,10 +442,10 @@
       "description": "语义库——龍魂系统的语言基础设施。CNSH中文命名规范、AI黑话拆穿词典、语义测谎模式库、通心译六层翻译体系、语义抽屉、反欺诈模式库。中文优先，中国人先懂，外国人再学。",
       "key_files": [
         "skills/longhun-ai-lexicon/SKILL.md",
-        "01_技能庫/semantic-parser.md",
-        "01_技能庫/on-translate.md",
-        "01_技能庫/anti_fraud_patterns_v2.0.json",
-        "01_技能庫/owner_semantic_drawers_v2.0.json",
+        "02_SKILLS/semantic-parser.md",
+        "02_SKILLS/on-translate.md",
+        "02_SKILLS/anti_fraud_patterns_v2.0.json",
+        "02_SKILLS/owner_semantic_drawers_v2.0.json",
         "CNSH-SEMANTIC.md",
         "bin/semantic_parser.py",
         "bin/lh_semantic_lie_detector.py",
@@ -489,12 +489,12 @@
         },
         "anti_fraud_patterns": {
           "name": "反欺诈语义模式库",
-          "file": "01_技能庫/anti_fraud_patterns_v2.0.json",
+          "file": "02_SKILLS/anti_fraud_patterns_v2.0.json",
           "desc": "独立于代码的语义模式库。热更新无需改代码。139条正则+15组谐音映射。"
         },
         "semantic_drawers": {
           "name": "语义抽屉",
-          "file": "01_技能庫/owner_semantic_drawers_v2.0.json",
+          "file": "02_SKILLS/owner_semantic_drawers_v2.0.json",
           "desc": "55个场景语义抽屉。将用户意图分类存储，按需取用。9真1变量·太极留白律。"
         }
       }
@@ -504,7 +504,7 @@
       "locations": {
         "codebuddy_skills": "~/.codebuddy/skills/",
         "project_skills": "skills/",
-        "skill_library": "01_技能庫/"
+        "skill_library": "02_SKILLS/"
       },
       "tools": {
         "ai_drawing": {
@@ -1369,7 +1369,7 @@
           "count": 14
         },
         "skill_library": {
-          "path": "01_技能庫/",
+          "path": "02_SKILLS/",
           "count": 30
         },
         "backup": {
@@ -1630,8 +1630,8 @@
             "01_protocols/CNSH-BRAIN-PERSONA-LANDING-v1.0.md",
             "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
             "01_protocols/IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md",
-            "01_技能庫/p15-qiaojie-persona.md",
-            "01_技能庫/semantic-parser.md"
+            "02_SKILLS/p15-qiaojie-persona.md",
+            "02_SKILLS/semantic-parser.md"
           ],
           "added": "2026-07-14"
         },
@@ -1643,8 +1643,8 @@
             "01_protocols/CNSH-BRAIN-PERSONA-LANDING-v1.0.md",
             "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
             "01_protocols/IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md",
-            "01_技能庫/black-angel-legion.md",
-            "01_技能庫/p15-qiaojie-persona.md"
+            "02_SKILLS/black-angel-legion.md",
+            "02_SKILLS/p15-qiaojie-persona.md"
           ],
           "added": "2026-07-14"
         },
@@ -1657,7 +1657,7 @@
             "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
             "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
             "01_protocols/龍魂系统输入过滤与预处理协议_v2.0_审计报告.md",
-            "01_技能庫/innovation-tracer-tech-doc.md"
+            "02_SKILLS/innovation-tracer-tech-doc.md"
           ],
           "added": "2026-07-14"
         },
@@ -1669,7 +1669,7 @@
             "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
             "01_protocols/LH-AI-ACCESS-MANDATE-v1.0.md",
             "01_protocols/LH-EXTERNAL-ONE-WAY-ISOLATION-V1.0.md",
-            "01_技能庫/semantic-parser.md",
+            "02_SKILLS/semantic-parser.md",
             "personas/P00-文心-元认知.md"
           ],
           "added": "2026-07-14"
@@ -1868,7 +1868,7 @@
             "01_protocols/IPA-ROUTE-REGISTRY.local.md",
             "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
             "01_protocols/seven-factor-verification.md",
-            "01_技能庫/audit-plugin.md"
+            "02_SKILLS/audit-plugin.md"
           ],
           "added": "2026-07-14"
         },
@@ -1906,8 +1906,8 @@
             "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
             "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
             "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
-            "01_技能庫/bagua-router.md",
-            "01_技能庫/black-angel-legion.md"
+            "02_SKILLS/bagua-router.md",
+            "02_SKILLS/black-angel-legion.md"
           ],
           "added": "2026-07-14"
         },
@@ -1918,7 +1918,7 @@
           "files": [
             "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
             "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
-            "01_技能庫/black-angel-legion.md",
+            "02_SKILLS/black-angel-legion.md",
             "config/notion_sync.json"
           ],
           "added": "2026-07-14"
@@ -1980,8 +1980,8 @@
             "01_protocols/IPA-ROUTE-REGISTRY.local.md",
             "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
             "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
-            "01_技能庫/api-sovereign-gateway.md",
-            "01_技能庫/identity-positioning.md"
+            "02_SKILLS/api-sovereign-gateway.md",
+            "02_SKILLS/identity-positioning.md"
           ],
           "added": "2026-07-14"
         }
@@ -2195,9 +2195,9 @@
           "files": [
             "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
             "01_protocols/SENSORY-EDUCATION-DIGNITY-v1.0.md",
-            "01_技能庫/audit-plugin.md",
-            "01_技能庫/dna-gen.md",
-            "01_技能庫/dna-trace-engine.md"
+            "02_SKILLS/audit-plugin.md",
+            "02_SKILLS/dna-gen.md",
+            "02_SKILLS/dna-trace-engine.md"
           ],
           "added": "2026-07-14"
         },
@@ -2370,7 +2370,7 @@
         "sancai_defense": {
           "name": "三才算法发微·为曾老师正名",
           "desc": "学术文档。阐明三才算法的中华根源，不让西方独占算法定义权。",
-          "file": "03_知識圖譜/三才算法发微_为曾老师正名.md"
+          "file": "03_KNOWLEDGE_GRAPH/三才算法发微_为曾老师正名.md"
         },
         "yijing_world_model": {
           "name": "易经世界模型(可计算宇宙)",
@@ -2387,7 +2387,7 @@
             "01_protocols/LH-DATA-PRIVACY-v2.0.md",
             "01_protocols/LH-DATA-PRIVACY-v2.1.md",
             "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
-            "01_技能庫/bagua-router.md"
+            "02_SKILLS/bagua-router.md"
           ],
           "added": "2026-07-14"
         },
@@ -2400,7 +2400,7 @@
             "01_protocols/IPA-DICT-101-111-决策链.md",
             "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
             "01_protocols/LH-GOV-DATA-SOVEREIGNTY-v1.0.md",
-            "01_技能庫/semantic-parser.md"
+            "02_SKILLS/semantic-parser.md"
           ],
           "added": "2026-07-14"
         },
@@ -2413,7 +2413,7 @@
             "01_protocols/DNA_REGISTRY_PROTOCOL_200.md",
             "01_protocols/LH-ETHICS-ANCHOR-v1.0.md",
             "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
-            "01_技能庫/p15-qiaojie-persona.md"
+            "02_SKILLS/p15-qiaojie-persona.md"
           ],
           "added": "2026-07-14"
         }
@@ -2502,7 +2502,7 @@
             "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
             "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
             "01_protocols/测试庄园规范_v1.0.md",
-            "01_技能庫/p15-qiaojie-persona.md"
+            "02_SKILLS/p15-qiaojie-persona.md"
           ],
           "added": "2026-07-14"
         },
@@ -2514,7 +2514,7 @@
             "01_protocols/LH-AI-SHAME-PILLAR-v3.0.md",
             "01_protocols/LH-CREATOR-PROTECTION-v1.0.md",
             "01_protocols/龍魂_创作者保护协议_不可篡改条款.md",
-            "01_技能庫/innovation-tracer-tech-doc.md",
+            "02_SKILLS/innovation-tracer-tech-doc.md",
             "config/notion_sync.json"
           ],
           "added": "2026-07-14"
@@ -2560,7 +2560,7 @@
           "source": "auto_sync_v1.0",
           "occurrence": 4,
           "files": [
-            "01_技能庫/semantic-parser.md",
+            "02_SKILLS/semantic-parser.md",
             "config/application_personas.json",
             "personas/P04-鲁班-技术执行.md",
             "personas/P14-吕蒙-快速成长.md"
@@ -2622,7 +2622,7 @@
             "01_protocols/LH-AI-SHAME-PILLAR-v3.0.md",
             "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
             "01_protocols/seven-factor-verification.md",
-            "01_技能庫/api-sovereign-gateway.md"
+            "02_SKILLS/api-sovereign-gateway.md"
           ],
           "added": "2026-07-14"
         },
@@ -2634,7 +2634,7 @@
             "01_protocols/IPA-ROUTE-REGISTRY.local.md",
             "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
             "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
-            "01_技能庫/black-angel-legion.md",
+            "02_SKILLS/black-angel-legion.md",
             "personas/P04-鲁班-技术执行.md"
           ],
           "added": "2026-07-14"
@@ -2645,10 +2645,10 @@
           "occurrence": 6,
           "files": [
             "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
-            "01_技能庫/bagua-router.md",
-            "01_技能庫/dna-gen.md",
-            "01_技能庫/semantic-parser.md",
-            "01_技能庫/skill-extension.md"
+            "02_SKILLS/bagua-router.md",
+            "02_SKILLS/dna-gen.md",
+            "02_SKILLS/semantic-parser.md",
+            "02_SKILLS/skill-extension.md"
           ],
           "added": "2026-07-14"
         },
@@ -2660,8 +2660,8 @@
             "01_protocols/DNA_REGISTRY_PROTOCOL_200.md",
             "01_protocols/IPA-ROUTE-REGISTRY.local.md",
             "01_protocols/龍魂认知上下文管理协议_v3.0.md",
-            "01_技能庫/route-find.md",
-            "01_技能庫/semantic-parser.md"
+            "02_SKILLS/route-find.md",
+            "02_SKILLS/semantic-parser.md"
           ],
           "added": "2026-07-14"
         },
@@ -2674,7 +2674,7 @@
             "01_protocols/LH-DATA-SOVEREIGNTY-v2.0.md",
             "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
             "01_protocols/LH-GOV-DATA-SOVEREIGNTY-v1.0.md",
-            "01_技能庫/code-audit.md"
+            "02_SKILLS/code-audit.md"
           ],
           "added": "2026-07-14"
         },
@@ -2684,9 +2684,9 @@
           "occurrence": 4,
           "files": [
             "01_protocols/seven-factor-verification.md",
-            "01_技能庫/dna-trace-engine.md",
-            "01_技能庫/guomi-crypto.md",
-            "01_技能庫/identity-positioning.md"
+            "02_SKILLS/dna-trace-engine.md",
+            "02_SKILLS/guomi-crypto.md",
+            "02_SKILLS/identity-positioning.md"
           ],
           "added": "2026-07-14"
         },
@@ -2697,8 +2697,8 @@
           "files": [
             "01_protocols/LH-AI-SHAME-PILLAR-v3.0.md",
             "01_protocols/LH-DATA-PRIVACY-v2.1.md",
-            "01_技能庫/identity-positioning.md",
-            "01_技能庫/water-army-detect.md"
+            "02_SKILLS/identity-positioning.md",
+            "02_SKILLS/water-army-detect.md"
           ],
           "added": "2026-07-14"
         },
@@ -2720,9 +2720,9 @@
           "occurrence": 4,
           "files": [
             "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
-            "01_技能庫/api-sovereign-gateway.md",
-            "01_技能庫/dna-trace-engine.md",
-            "01_技能庫/identity-positioning.md"
+            "02_SKILLS/api-sovereign-gateway.md",
+            "02_SKILLS/dna-trace-engine.md",
+            "02_SKILLS/identity-positioning.md"
           ],
           "added": "2026-07-14"
         },
@@ -2732,8 +2732,8 @@
           "occurrence": 3,
           "files": [
             "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
-            "01_技能庫/black-angel-legion.md",
-            "01_技能庫/red-team.md"
+            "02_SKILLS/black-angel-legion.md",
+            "02_SKILLS/red-team.md"
           ],
           "added": "2026-07-14"
         },
@@ -2744,7 +2744,7 @@
           "files": [
             "01_protocols/DNA_REGISTRY_PROTOCOL_200.md",
             "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
-            "01_技能庫/black-angel-legion.md"
+            "02_SKILLS/black-angel-legion.md"
           ],
           "added": "2026-07-14"
         },
@@ -2755,7 +2755,7 @@
           "files": [
             "01_protocols/LH-DATA-PRIVACY-v2.0.md",
             "01_protocols/LH-DATA-PRIVACY-v2.1.md",
-            "01_技能庫/black-angel-legion.md"
+            "02_SKILLS/black-angel-legion.md"
           ],
           "added": "2026-07-14"
         },
@@ -2777,7 +2777,7 @@
           "files": [
             "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
             "01_protocols/seven-factor-verification.md",
-            "01_技能庫/identity-positioning.md"
+            "02_SKILLS/identity-positioning.md"
           ],
           "added": "2026-07-14"
         }

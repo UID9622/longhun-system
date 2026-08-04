@@ -236,9 +236,9 @@ HALF_OPEN ──试探失败──────────────→ OPEN
 
 - 核心文档：API主权门关设计 `#龍芯⚡️2024-08-05-设计-API网关-v1.0`
 - 相关文件：
-  - `01_技能庫/identity-positioning.md` — 身份定位总纲
-  - `01_技能庫/guomi-crypto.md` — 国密三引擎
-  - `01_技能庫/dna-trace-engine.md` — DNA追溯引擎
+  - `02_SKILLS/identity-positioning.md` — 身份定位总纲
+  - `02_SKILLS/guomi-crypto.md` — 国密三引擎
+  - `02_SKILLS/dna-trace-engine.md` — DNA追溯引擎
   - `01_protocols/seven-factor-verification.md` — 七因子验证预言机协议
   - `CNSH-GATEKEEPER.md` — 守门人协议
   - `bin/cnsh_gatekeeper.py` — CNSH守门人

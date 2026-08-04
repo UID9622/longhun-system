@@ -169,7 +169,7 @@ L1+·人格層（20位·6家族組）
 | 4 | `main-console.html` | 標題"主控台"→"操作台" |
 | 5 | `longhun-unified-v9.html` | "主控制台"→"操作台" |
 | 6 | `router-matrix-config.json` | v2.0 +主控體系規範描述 |
-| 7 | `03_知識圖譜/graph_data.json` | main-console節點label更新 |
+| 7 | `03_KNOWLEDGE_GRAPH/graph_data.json` | main-console節點label更新 |
 
 - 驗證: 用戶說"主控台"→路由入口·說"操作台"→深度工具·不再混淆 ✅
 

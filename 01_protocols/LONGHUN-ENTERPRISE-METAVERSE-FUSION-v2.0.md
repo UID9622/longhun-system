@@ -1399,7 +1399,7 @@ Phase 3 · 全平台扩展 (4-8周)
 | 元世界入口 v0.6 | `docs/dragon-soul-open-hub/metaverse/🌌 龍魂元世界入口...` | 找感觉版 |
 | 元宇宙完整架构 v1.0 | `docs/cnsh-uid9622/metaverse/🌌 Dragon Soul Metaverse...` | 71人格版 |
 | LU指令导航页 v1.0 | `docs/uid9622-hosted/control-panel/UID9622 · LU...` | LU速查 |
-| 语义统一注册表 | `01_技能庫/semantic_unified_registry.json` | 420条目 |
+| 语义统一注册表 | `02_SKILLS/semantic_unified_registry.json` | 420条目 |
 | 人格定义 | `personas/` | 16份Markdown |
 | 神经网络拓扑 | `.codebuddy/longhun_neural_net.json` | L0-L9 |
 | 万国算法仓库 | `docs/dragon-soul-open-hub/metaverse/🌌 龍魂工作间...` | 排排坐/站 |

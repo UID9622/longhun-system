@@ -2,7 +2,7 @@
  * 测试 SM2 基点 G 曲线验证
  * DNA: #龍芯⚡️丙午·丙申·乙卯·亥时·需-GUOMI-TEST_G-v1.0
  *
- * 编译: cd 03_后土OS/src/guomi && clang -Wall -std=c99 test_g.c -o /tmp/test_g
+ * 编译: cd 06_HOUTU_OS/src/guomi && clang -Wall -std=c99 test_g.c -o /tmp/test_g
  *
  * 采用单翻译单元方式直接 #include sm2.c，可访问内部 static 函数。
  */

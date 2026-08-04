@@ -303,7 +303,7 @@ longhun-system/
 │   ├── LH-DEBEN-AUDIT-v1.0.md                     # 德本审计协议
 │   ├── LH-M261-PREQUEL-COVENANT-v1.0.md           # 全权授权令
 │   └── ...
-├── 01_技能庫/          # 技能定义（45+）
+├── 02_SKILLS/          # 技能定义（45+）
 ├── bin/                # 可执行脚本（200+）
 │   ├── lh              # 统一命令入口 (Shell wrapper)
 │   ├── lh.py           # Python主入口

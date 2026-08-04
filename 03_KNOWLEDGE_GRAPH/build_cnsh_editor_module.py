@@ -123,7 +123,7 @@ def write_readme():
 本模块通过 `build_cnsh_editor_module.py` 自动构建：
 - 项目核心文件复制到本模块
 - `cnsh-terminal/downloads-imports/` 中大量重复的 `CNSHEditor.ets`、`cnsh_editor_engine_v2.0.py`、`editor_ui.py` 等副本被迁移或删除
-- 详细清单见 `03_知識圖譜/cnsh_editor_build_report.md`
+- 详细清单见 `03_KNOWLEDGE_GRAPH/cnsh_editor_build_report.md`
 
 ---
 

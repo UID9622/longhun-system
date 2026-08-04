@@ -5,7 +5,7 @@
 
 > ⚠️ **已升级**: P77 已于 2026-07-07 升级为 **黑天使军团 (Black Angel Legion)**。
 > 本文件保留作为历史参照，原红客 10 大类攻击面能力由 **红天使 P77-1** 继承。
-> 完整军团定义见: [`01_技能庫/black-angel-legion.md`](./black-angel-legion.md)
+> 完整军团定义见: [`02_SKILLS/black-angel-legion.md`](./black-angel-legion.md)
 >
 > DNA: `#龍芯⚡️2026-07-07-RED-TEAM-P77-v1.0` → 升级至 `#龍芯⚡️2026-07-07-BLACK-ANGEL-LEGION-v1.0`
 > 确认码: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`

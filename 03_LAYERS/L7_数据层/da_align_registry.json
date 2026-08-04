@@ -533,7 +533,7 @@
           ]
         },
         {
-          "file": "03_知識圖譜/downloads_compression_report.json",
+          "file": "03_KNOWLEDGE_GRAPH/downloads_compression_report.json",
           "issues": [
             {
               "level": "warn",
@@ -542,7 +542,7 @@
           ]
         },
         {
-          "file": "03_知識圖譜/graph_data.json",
+          "file": "03_KNOWLEDGE_GRAPH/graph_data.json",
           "issues": [
             {
               "level": "warn",
@@ -551,7 +551,7 @@
           ]
         },
         {
-          "file": "03_知識圖譜/crawled_knowledge.json",
+          "file": "03_KNOWLEDGE_GRAPH/crawled_knowledge.json",
           "issues": [
             {
               "level": "warn",
@@ -560,7 +560,7 @@
           ]
         },
         {
-          "file": "03_知識圖譜/downloads_inbox_manifest.json",
+          "file": "03_KNOWLEDGE_GRAPH/downloads_inbox_manifest.json",
           "issues": [
             {
               "level": "warn",
@@ -569,7 +569,7 @@
           ]
         },
         {
-          "file": "03_知識圖譜/claude_sessions_manifest.json",
+          "file": "03_KNOWLEDGE_GRAPH/claude_sessions_manifest.json",
           "issues": [
             {
               "level": "warn",

@@ -12,7 +12,7 @@
 **DNA**: `#龍芯⚡️2026-06-03-IPA-ROUTE-REGISTRY-LOCAL-FILE1-FILE1-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
-{"node_id": "IPA-L1-006", "name": "downloads_inbox", "node_type": "ARCHIVAL", "status": "🟡", "local_path": "03_知識圖譜/downloads_inbox_index.md", "notion_url": null, "entry_point": "generate_downloads_inbox.py", "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-INBOX-IPA-v1.0", "layer": "L1_SEASONAL", "description": "Downloads 顶层交付物收件箱：扫描未录入主干的文件包并生成可审计索引", "tags": ["L1", "inbox", "downloads", "knowledge_graph", "audit"], "dependencies": ["IPA-L0-004", "IPA-L1-001"], "created_at": "2026-06-22T12:49:49.427951", "updated_at": "2026-06-22T12:49:49.427958", "metadata": {"manifest": "03_知識圖譜/downloads_inbox_manifest.json", "source": "~/Downloads"}}
+{"node_id": "IPA-L1-006", "name": "downloads_inbox", "node_type": "ARCHIVAL", "status": "🟡", "local_path": "03_KNOWLEDGE_GRAPH/downloads_inbox_index.md", "notion_url": null, "entry_point": "generate_downloads_inbox.py", "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-INBOX-IPA-v1.0", "layer": "L1_SEASONAL", "description": "Downloads 顶层交付物收件箱：扫描未录入主干的文件包并生成可审计索引", "tags": ["L1", "inbox", "downloads", "knowledge_graph", "audit"], "dependencies": ["IPA-L0-004", "IPA-L1-001"], "created_at": "2026-06-22T12:49:49.427951", "updated_at": "2026-06-22T12:49:49.427958", "metadata": {"manifest": "03_KNOWLEDGE_GRAPH/downloads_inbox_manifest.json", "source": "~/Downloads"}}
 ---
 
 # 龍魂·IPA路由注册表 (Append-Only JSONL)

@@ -49,7 +49,7 @@
 - **API 接口**: `sovereignty/portal/knowledge_api.py`
 
 统一中枢已把以下数据源汇入同一套节点/边/向量体系：
-- `03_知識圖譜/graph_data.json`（本模块）
+- `03_KNOWLEDGE_GRAPH/graph_data.json`（本模块）
 - `~/.longhun/notion_pages/notion_pages.db`
 - `~/_work/dragon_knowledge.db`
 - `brain/memories.db`

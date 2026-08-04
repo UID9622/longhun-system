@@ -216,7 +216,7 @@ def detect_sovereignty_level(file_path: str, content: str | None = None) -> tupl
             return (1, 0, f"公开内容: {pub_dir}")
     
     # bin/ 和引擎/ 中的非私有文件
-    if '/bin/' in path_str or '引擎/' in path_str or '01_技能庫/' in path_str:
+    if '/bin/' in path_str or '引擎/' in path_str or '02_SKILLS/' in path_str:
         return (1, 0, "公开工具/引擎代码")
     
     # ── 默认层2：透明 ──

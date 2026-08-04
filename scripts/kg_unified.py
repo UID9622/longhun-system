@@ -165,7 +165,7 @@ def _log_sync(conn: sqlite3.Connection, source: str, action: str, count: int) ->
 def sync_graph_data(conn: sqlite3.Connection, path: pathlib.Path = GRAPH_DATA_PATH) -> int:
     source = "graph_data"
     _clear_source(conn, source)
-    _register_source(conn, source, "项目文件知识图谱", "03_知識圖譜/graph_data.json", 0)
+    _register_source(conn, source, "项目文件知识图谱", "03_KNOWLEDGE_GRAPH/graph_data.json", 0)
     if not path.exists():
         return 0
 

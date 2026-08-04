@@ -63,7 +63,7 @@ SCAN_SCOPES = {
     },
     "01_技能庫": {
         "enabled": True,
-        "path": "01_技能庫/",
+        "path": "02_SKILLS/",
         "fail_level": "medium",
         "description": "技能模块"
     },

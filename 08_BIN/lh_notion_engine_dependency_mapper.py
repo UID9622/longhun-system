@@ -32,7 +32,7 @@ DEPENDENCY_GRAPH_FILE = OUTPUT_DIR / "dependency_graph.json"
 DOT_FILE = OUTPUT_DIR / "engine_dependency_graph.dot"
 
 # 视为项目内部源码目录的前缀
-INTERNAL_PREFIXES = ("engines/", "bin/", "01_技能庫/")
+INTERNAL_PREFIXES = ("engines/", "bin/", "02_SKILLS/")
 
 
 def _now() -> str:

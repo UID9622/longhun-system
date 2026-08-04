@@ -11,7 +11,7 @@ DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·临-NOTION-ENGINE-DISCOVERY-v1
 创建者: 诸葛鑫 (UID9622)
 协议: CC BY-NC-SA 4.0
 
-扫描 engines/ bin/ 01_技能庫/ 下所有引擎文件，提取元数据，生成 Notion 导入就绪的注册表 JSON。
+扫描 engines/ bin/ 02_SKILLS/ 下所有引擎文件，提取元数据，生成 Notion 导入就绪的注册表 JSON。
 
 用法:
   python3 bin/lh_notion_engine_discovery.py              # 全量扫描→data/notion_sync/engine_registry.json
@@ -351,7 +351,7 @@ def _compute_ops_tags(filepath: Path, content: str) -> List[str]:
         tags.append("核心引擎")
     elif "/bin/" in path_str:
         tags.append("工具脚本")
-    elif "/01_技能庫/" in path_str:
+    elif "/02_SKILLS/" in path_str:
         tags.append("技能库")
 
     # 复杂度标记

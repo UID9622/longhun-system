@@ -14,7 +14,7 @@
     "mission": "不做政府的事·但给政府提供最好的反诈工具·保护受害者"
   },
   "link_targets": {
-    "semantic_drawers": "01_技能庫/owner_semantic_drawers_v2.0.json",
+    "semantic_drawers": "02_SKILLS/owner_semantic_drawers_v2.0.json",
     "detector_engine": "bin/lh_semantic_lie_detector.py",
     "skill_registry": "skills/longhun-semantic-lie-detector/skill.json"
   },

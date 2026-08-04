@@ -55,9 +55,9 @@
 | 2 | 意图识别20大类 | ✅ 100% | `bin/semantic_parser.py`, `AGENTS.md` 路由表 |
 | 3 | 人格路由系统 | ✅ 100% | `L7_数据层/unified_family_roster.json`, `AGENTS.md` |
 | 4 | 三色审计与10道闸 | ✅ 100% | `systems/v3/三色审计与10道闸系统_v3.0.py` (95KB) |
-| 5 | DNA追溯码格式 | ✅ 100% | `01_技能庫/dna-gen.md`, `bin/hetu_luoshu_dna.py` |
-| 6 | 道德经81章锚点 | ✅ 100% | `01_技能庫/daodao.md` |
-| 7 | API联动检测 | ✅ 100% | `01_技能庫/api-check.md` |
+| 5 | DNA追溯码格式 | ✅ 100% | `02_SKILLS/dna-gen.md`, `bin/hetu_luoshu_dna.py` |
+| 6 | 道德经81章锚点 | ✅ 100% | `02_SKILLS/daodao.md` |
+| 7 | API联动检测 | ✅ 100% | `02_SKILLS/api-check.md` |
 | 8 | HarmonyOS × CNSH | ✅ 100% | A-013 锚点 + 鸿蒙API交付标准模板 |
 | 9 | 追溯记忆 | ✅ 100% | A-024 决策透明 + decision_card_chain.jsonl |
 | 10 | Open WebUI 提示词 | ✅ 100% | 搜索命中多层关联文件 |

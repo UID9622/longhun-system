@@ -16,7 +16,7 @@
 > 本索引收录 longhun-system/articles/ 下的原创文章与 CSDN 发布版。  
 > 所有文章均受君子协议保护，转载须保留 DNA、CONFIRM、作者署名。
 > 
-> **联动说明:** 「KG节点」列指向 [`03_知識圖譜/graph_data.json`](../03_知識圖譜/graph_data.json) 中的节点 ID。
+> **联动说明:** 「KG节点」列指向 [`03_KNOWLEDGE_GRAPH/graph_data.json`](../03_KNOWLEDGE_GRAPH/graph_data.json) 中的节点 ID。
 > 「路由节点」列指向 [`01_protocols/IPA-ROUTE-REGISTRY.local.md`](../01_protocols/IPA-ROUTE-REGISTRY.local.md)。
 
 ---
@@ -121,8 +121,8 @@
 | 协议/规范 | `01_protocols/downloads_archive/` | 29 |
 | 脚本/Python | `bin/` | 15 |
 | 论文/CNSH | `papers/` + `papers/downloads_archive/` | 10 |
-| 技能 | `01_技能庫/` + `downloads_archive/` | 9 |
-| 知识文档 | `03_知識圖譜/downloads_archive/` | 16 |
+| 技能 | `02_SKILLS/` + `downloads_archive/` | 9 |
+| 知识文档 | `03_KNOWLEDGE_GRAPH/downloads_archive/` | 16 |
 | 部署/自动化 | `deploy/downloads_archive/` | 3 |
 | 公式/计算 | `L1_内核层/formulas/downloads_archive/` | 2 |
 | 网关 | `L5_服务层/downloads_archive/` | 5 |

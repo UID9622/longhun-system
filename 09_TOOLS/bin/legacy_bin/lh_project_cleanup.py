@@ -257,20 +257,20 @@ def phase2_dedup():
             safe_remove(f)
             log(f"  删除旧版: {f.name}")
     
-    # 2D. 01_技能庫/downloads_archive/中重复 .skill
-    dup_skill = ROOT / "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-agent-eco.skill"
+    # 2D. 02_SKILLS/downloads_archive/中重复 .skill
+    dup_skill = ROOT / "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-agent-eco.skill"
     if dup_skill.exists():
         safe_remove(dup_skill)
         log("  删除重复.skill: longhun-agent-eco.skill (v5-skills/local)")
     
-    # 2E. 01_技能庫/downloads_archive/新技能/longhun_mvp_reviewed/ 整个目录 — v1.0旧版
-    reviewed_dir = ROOT / "01_技能庫/downloads_archive/新技能/longhun_mvp_reviewed"
+    # 2E. 02_SKILLS/downloads_archive/新技能/longhun_mvp_reviewed/ 整个目录 — v1.0旧版
+    reviewed_dir = ROOT / "02_SKILLS/downloads_archive/新技能/longhun_mvp_reviewed"
     if reviewed_dir.exists():
         safe_rmtree(reviewed_dir)
         log("  删除旧版目录: longhun_mvp_reviewed/ (v1.0旧版)")
     
-    # 2F. 01_技能庫/downloads_archive/新技能/zeng-extraction/ — 已整合
-    zeng_ext = ROOT / "01_技能庫/downloads_archive/新技能/zeng-extraction"
+    # 2F. 02_SKILLS/downloads_archive/新技能/zeng-extraction/ — 已整合
+    zeng_ext = ROOT / "02_SKILLS/downloads_archive/新技能/zeng-extraction"
     if zeng_ext.exists():
         safe_rmtree(zeng_ext)
         log("  删除已整合目录: zeng-extraction/")
@@ -372,7 +372,7 @@ def phase5_clean_downloads():
     skills_main = set()
     for f in (ROOT / "01_技能庫").glob("*.skill"):
         skills_main.add(f.name)
-    for f in (ROOT / "01_技能庫/downloads_archive").rglob("*.skill"):
+    for f in (ROOT / "02_SKILLS/downloads_archive").rglob("*.skill"):
         skills_main.add(f.name)
     
     for f in ds.rglob("*.skill"):

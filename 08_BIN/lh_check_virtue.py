@@ -48,7 +48,7 @@ EXCLUDED_FILES = {
 
 EXCLUDED_DIRS = [
     "_archive/", "_work/", "models/", "data/training/",
-    "docs/", "03_知識圖譜/", "01_技能庫/downloads_archive/",
+    "docs/", "03_KNOWLEDGE_GRAPH/", "02_SKILLS/downloads_archive/",
 ]
 
 

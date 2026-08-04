@@ -36,14 +36,14 @@ CATEGORIES = {
     "skill": {"kw": ["skill", "技能"], "target": "01_技能库/ 或 ~/.kimi-code/skills/", "related": ["l0-core"]},
     "cnsh": {"kw": ["cnsh", "cns", "中文原生", "中文编程"], "target": "cnsh-core/ 或 cnsh/", "related": ["IPA-L0-008"]},
     "protocol": {"kw": ["协议", "protocol", "協議", "焊死", "根协议"], "target": "01_protocols/", "related": ["l0-core"]},
-    "semantic": {"kw": ["语义", "semantic", "通心译", "tongxin"], "target": "~/.kimi-code/skills/CNSH-SEMANTIC/ 或 03_知識圖譜/", "related": ["l0-core"]},
+    "semantic": {"kw": ["语义", "semantic", "通心译", "tongxin"], "target": "~/.kimi-code/skills/CNSH-SEMANTIC/ 或 03_KNOWLEDGE_GRAPH/", "related": ["l0-core"]},
     "audit": {"kw": ["审计", "audit", "審計"], "target": "audit/", "related": ["/code-audit"]},
     "monitoring": {"kw": ["监控", "monitoring", "監控", "mobile"], "target": "longhun-monitoring skill / baobao-guardian/", "related": ["l5-monitor"]},
     "terminal": {"kw": ["终端", "terminal", "terminal"], "target": "cnsh-terminal/ 或 cnsh_terminal_v5.0/", "related": ["IPA-L0-008"]},
     "gateway": {"kw": ["网关", "gateway"], "target": "cnsh-core/api/ 或 agents/", "related": ["l0-core"]},
     "launcher": {"kw": ["启动", "launcher", "一键启动"], "target": "agents/ 或 bin/", "related": ["IPA-L1-004"]},
     "formula": {"kw": ["公式", "formula", "计算", "算力"], "target": "cnsh-core/龍魂-决策流场-自动化优化/", "related": ["l0-core"]},
-    "paper": {"kw": ["论文"], "target": "_archive/papers/ 或 03_知識圖譜/", "related": ["l0-core"]},
+    "paper": {"kw": ["论文"], "target": "_archive/papers/ 或 03_KNOWLEDGE_GRAPH/", "related": ["l0-core"]},
     "evidence": {"kw": ["证据"], "target": "_archive/evidence/", "related": ["l0-core"]},
     "notion_export": {"kw": ["notion", "导出"], "target": "_archive/notion-exports/", "related": ["l1-storage"]},
     "media": {"kw": [".mp3", ".mp4", ".mov", ".wav", ".heic", ".png", ".jpg", ".jpeg", ".pdf", ".docx", ".dmg"], "target": "_archive/media/ 或 _archive/deliverables/", "related": ["l1-storage"]},
@@ -294,7 +294,7 @@ def generate_markdown(manifest, stats):
             lines.append("")
             lines.append(f"- 对 `downloads-imports` 与 `_archive` 导入区执行内容级去重硬链接：扫描 **{comp.get('scanned_files', 0)}** 个文件，")
             lines.append(f"  发现 **{comp.get('duplicate_groups', 0)}** 组重复，创建 **{comp.get('hardlinks_created', 0)}** 个硬链接，节省 **{comp.get('human_saved', '0 B')}**。")
-            lines.append(f"- 详细日志：`03_知識圖譜/downloads_compression.log`")
+            lines.append(f"- 详细日志：`03_KNOWLEDGE_GRAPH/downloads_compression.log`")
             lines.append("")
         except Exception:
             pass
@@ -306,7 +306,7 @@ def generate_markdown(manifest, stats):
         lines.append("")
         lines.append("- 将分散的编辑器引擎、UI、关键字登记册、鸿蒙/iOS/Web 编辑器页面、文档整合到 `cnsh-editor/`。")
         lines.append("- 清理了 `cnsh-terminal/downloads-imports/` 中大量重复的 `cnsh_editor_engine_v2.0.py`、`editor_ui.py`、`CNSHEditor.ets` 等副本。")
-        lines.append("- 构建报告：`03_知識圖譜/cnsh_editor_build_report.md`")
+        lines.append("- 构建报告：`03_KNOWLEDGE_GRAPH/cnsh_editor_build_report.md`")
         lines.append("")
 
     lines.append("## 已补充的区块与标签")

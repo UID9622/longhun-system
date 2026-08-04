@@ -49,15 +49,15 @@ for i in range(1, 82):
 print(f'\\n✅ 爬取完成: {len(chapters)}章')
 
 # 更新知识文件
-with open('03_知識圖譜/crawled_knowledge.json', 'r') as f:
+with open('03_KNOWLEDGE_GRAPH/crawled_knowledge.json', 'r') as f:
     knowledge = json.load(f)
 knowledge['daodejing'] = chapters
 knowledge['metadata']['timestamp'] = datetime.now().isoformat()
-with open('03_知識圖譜/crawled_knowledge.json', 'w') as f:
+with open('03_KNOWLEDGE_GRAPH/crawled_knowledge.json', 'w') as f:
     json.dump(knowledge, f, ensure_ascii=False, indent=2)
 
 # 更新图谱
-with open('03_知識圖譜/graph_data.json', 'r') as f:
+with open('03_KNOWLEDGE_GRAPH/graph_data.json', 'r') as f:
     graph = json.load(f)
 for ch in chapters:
     node_id = f'knowledge/daodejing/{ch[\"chapter\"]}'
@@ -65,7 +65,7 @@ for ch in chapters:
         graph['nodes'][node_id]['description'] = ch.get('content', '')[:300]
         graph['nodes'][node_id]['source'] = 'daodejing.org'
 graph['timestamp'] = datetime.now().isoformat()
-with open('03_知識圖譜/graph_data.json', 'w') as f:
+with open('03_KNOWLEDGE_GRAPH/graph_data.json', 'w') as f:
     json.dump(graph, f, ensure_ascii=False, indent=2)
 
 print(f'✅ 图谱已更新')

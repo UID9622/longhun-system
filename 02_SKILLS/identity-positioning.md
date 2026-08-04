@@ -256,7 +256,7 @@ UID9622首次绑定
 | 分层治理引擎 | `cnsh-core/governance/layered_governance_engine.py` | §2.4 |
 | 主权隐私模块 | `bin/sovereign_privacy.py` | §6 |
 | DNA生成器 | `bin/hetu_luoshu_dna.py` | §5 |
-| 身份核验 | `01_技能庫/on-identity.md` | §1 |
+| 身份核验 | `02_SKILLS/on-identity.md` | §1 |
 
 ## 四维映射总表
 
@@ -299,11 +299,11 @@ API请求（携带DNA Headers）
 - 核心论文：BehavCrypto FULL_PAPER v1.0 · Def 3.2–3.4
 - 国密标准：GM/T 0002/0003/0004-2012
 - 相关文件：
-  - `01_技能庫/on-identity.md` — 身份核验
-  - `01_技能庫/dna-gen.md` — DNA生成器
-  - `01_技能庫/guomi-crypto.md` — 国密三引擎
-  - `01_技能庫/dna-trace-engine.md` — DNA追溯引擎
-  - `01_技能庫/api-sovereign-gateway.md` — API主权门关
+  - `02_SKILLS/on-identity.md` — 身份核验
+  - `02_SKILLS/dna-gen.md` — DNA生成器
+  - `02_SKILLS/guomi-crypto.md` — 国密三引擎
+  - `02_SKILLS/dna-trace-engine.md` — DNA追溯引擎
+  - `02_SKILLS/api-sovereign-gateway.md` — API主权门关
   - `01_protocols/seven-factor-verification.md` — 七因子验证预言机协议
   - `crypto-stack/src/l4_seven_factor.py` — L4七因子签名层
   - `cnsh-core/governance/f1_through_f7_verifier.py` — F1-F7验证器

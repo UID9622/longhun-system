@@ -82,7 +82,7 @@ DNA：         #龍芯⚡️丙午·丙申·丙辰·午时·离-CREATOR-LEGACY-H
 - 全部文档、协议、宪章（`library/protocols/`、`docs/`）
 - 全部CSDN文章（58篇，2025-01-15起）
 - 全部Notion工作空间（时间戳留痕）
-- 知识图谱与向量数据库（`03_知識圖譜/`、`vector_db/`）
+- 知识图谱与向量数据库（`03_KNOWLEDGE_GRAPH/`、`vector_db/`）
 - 人格矩阵定义（16人格，`personas/`）
 
 ### 4.3 数据资产

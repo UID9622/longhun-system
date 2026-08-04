@@ -1117,752 +1117,752 @@
   "skills": [
     {
       "file": "SKILL-COMPLETE-DELIVERY.md",
-      "path": "01_技能庫/SKILL-COMPLETE-DELIVERY.md",
+      "path": "02_SKILLS/SKILL-COMPLETE-DELIVERY.md",
       "level": "L2"
     },
     {
       "file": "SKILL.md",
-      "path": "01_技能庫/SKILL.md",
+      "path": "02_SKILLS/SKILL.md",
       "level": "L2"
     },
     {
       "file": "SKILL_longhun-empower-engine.md",
-      "path": "01_技能庫/SKILL_longhun-empower-engine.md",
+      "path": "02_SKILLS/SKILL_longhun-empower-engine.md",
       "level": "L2"
     },
     {
       "file": "api-sovereign-gateway.md",
-      "path": "01_技能庫/api-sovereign-gateway.md",
+      "path": "02_SKILLS/api-sovereign-gateway.md",
       "level": "L2"
     },
     {
       "file": "audit-plugin.md",
-      "path": "01_技能庫/audit-plugin.md",
+      "path": "02_SKILLS/audit-plugin.md",
       "level": "L2"
     },
     {
       "file": "bagua-router.md",
-      "path": "01_技能庫/bagua-router.md",
+      "path": "02_SKILLS/bagua-router.md",
       "level": "L2"
     },
     {
       "file": "black-angel-legion.md",
-      "path": "01_技能庫/black-angel-legion.md",
+      "path": "02_SKILLS/black-angel-legion.md",
       "level": "L2"
     },
     {
       "file": "code-audit.md",
-      "path": "01_技能庫/code-audit.md",
+      "path": "02_SKILLS/code-audit.md",
       "level": "L2"
     },
     {
       "file": "dna-gen.md",
-      "path": "01_技能庫/dna-gen.md",
+      "path": "02_SKILLS/dna-gen.md",
       "level": "L2"
     },
     {
       "file": "dna-trace-engine.md",
-      "path": "01_技能庫/dna-trace-engine.md",
+      "path": "02_SKILLS/dna-trace-engine.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/Kimi_Agent_龍魂体系技能检查/CNSH_v3.0中文编程规范_激活文档.md",
-      "path": "01_技能庫/downloads_archive/Kimi_Agent_龍魂体系技能检查/CNSH_v3.0中文编程规范_激活文档.md",
+      "path": "02_SKILLS/downloads_archive/Kimi_Agent_龍魂体系技能检查/CNSH_v3.0中文编程规范_激活文档.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/Kimi_Agent_龍魂体系技能检查/HTML交互工具启动指南.md",
-      "path": "01_技能庫/downloads_archive/Kimi_Agent_龍魂体系技能检查/HTML交互工具启动指南.md",
+      "path": "02_SKILLS/downloads_archive/Kimi_Agent_龍魂体系技能检查/HTML交互工具启动指南.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/Kimi_Agent_龍魂体系技能检查/Python工程工具启动指南.md",
-      "path": "01_技能庫/downloads_archive/Kimi_Agent_龍魂体系技能检查/Python工程工具启动指南.md",
+      "path": "02_SKILLS/downloads_archive/Kimi_Agent_龍魂体系技能检查/Python工程工具启动指南.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/Kimi_Agent_龍魂体系技能检查/SKILL-LAUNCHER使用说明.md",
-      "path": "01_技能庫/downloads_archive/Kimi_Agent_龍魂体系技能检查/SKILL-LAUNCHER使用说明.md",
+      "path": "02_SKILLS/downloads_archive/Kimi_Agent_龍魂体系技能检查/SKILL-LAUNCHER使用说明.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/SKILL.md",
-      "path": "01_技能庫/downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/检查清单_性能压力.md",
-      "path": "01_技能庫/downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/检查清单_性能压力.md",
+      "path": "02_SKILLS/downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/检查清单_性能压力.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/检查清单_数据分析.md",
-      "path": "01_技能庫/downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/检查清单_数据分析.md",
+      "path": "02_SKILLS/downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/检查清单_数据分析.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/检查清单_核心功能.md",
-      "path": "01_技能庫/downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/检查清单_核心功能.md",
+      "path": "02_SKILLS/downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/检查清单_核心功能.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/检查清单_用户体验.md",
-      "path": "01_技能庫/downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/检查清单_用户体验.md",
+      "path": "02_SKILLS/downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/检查清单_用户体验.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/检查清单_系统集成.md",
-      "path": "01_技能庫/downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/检查清单_系统集成.md",
+      "path": "02_SKILLS/downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/检查清单_系统集成.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/温州电商仓储管理制度.md",
-      "path": "01_技能庫/downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/温州电商仓储管理制度.md",
+      "path": "02_SKILLS/downloads_archive/Kimi_Agent_龍魂体系技能检查/longhun-warehouse-audit/references/温州电商仓储管理制度.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/Kimi_Agent_龍魂体系技能检查/三色审计配置说明.md",
-      "path": "01_技能庫/downloads_archive/Kimi_Agent_龍魂体系技能检查/三色审计配置说明.md",
+      "path": "02_SKILLS/downloads_archive/Kimi_Agent_龍魂体系技能检查/三色审计配置说明.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/Kimi_Agent_龍魂体系技能检查/人格矩阵路由系统配置说明.md",
-      "path": "01_技能庫/downloads_archive/Kimi_Agent_龍魂体系技能检查/人格矩阵路由系统配置说明.md",
+      "path": "02_SKILLS/downloads_archive/Kimi_Agent_龍魂体系技能检查/人格矩阵路由系统配置说明.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/Kimi_Agent_龍魂体系技能检查/安全域审计配置说明.md",
-      "path": "01_技能庫/downloads_archive/Kimi_Agent_龍魂体系技能检查/安全域审计配置说明.md",
+      "path": "02_SKILLS/downloads_archive/Kimi_Agent_龍魂体系技能检查/安全域审计配置说明.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/Kimi_Agent_龍魂体系技能检查/通心译双语引擎_v3.0_激活文档.md",
-      "path": "01_技能庫/downloads_archive/Kimi_Agent_龍魂体系技能检查/通心译双语引擎_v3.0_激活文档.md",
+      "path": "02_SKILLS/downloads_archive/Kimi_Agent_龍魂体系技能检查/通心译双语引擎_v3.0_激活文档.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/Kimi_Agent_龍魂体系技能检查/龍魂系统全模块激活状态报告_v3.0.md",
-      "path": "01_技能庫/downloads_archive/Kimi_Agent_龍魂体系技能检查/龍魂系统全模块激活状态报告_v3.0.md",
+      "path": "02_SKILLS/downloads_archive/Kimi_Agent_龍魂体系技能检查/龍魂系统全模块激活状态报告_v3.0.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/LONGHUN-10SKILL-COMPLETE-INTEGRATION-FINAL.md",
-      "path": "01_技能庫/downloads_archive/LONGHUN-10SKILL-COMPLETE-INTEGRATION-FINAL.md",
+      "path": "02_SKILLS/downloads_archive/LONGHUN-10SKILL-COMPLETE-INTEGRATION-FINAL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/LONGHUN-10SKILL-UNIFIED-STANDARD-v1.0.md",
-      "path": "01_技能庫/downloads_archive/LONGHUN-10SKILL-UNIFIED-STANDARD-v1.0.md",
+      "path": "02_SKILLS/downloads_archive/LONGHUN-10SKILL-UNIFIED-STANDARD-v1.0.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/LONGHUN-5SKILL-COMPLETE-STANDARD-v1.0.md",
-      "path": "01_技能庫/downloads_archive/LONGHUN-5SKILL-COMPLETE-STANDARD-v1.0.md",
+      "path": "02_SKILLS/downloads_archive/LONGHUN-5SKILL-COMPLETE-STANDARD-v1.0.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/CNSH/ROOT_CARD.md",
-      "path": "01_技能庫/downloads_archive/新技能/CNSH/ROOT_CARD.md",
+      "path": "02_SKILLS/downloads_archive/新技能/CNSH/ROOT_CARD.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/CNSH/中央藏经阁目录.md",
-      "path": "01_技能庫/downloads_archive/新技能/CNSH/中央藏经阁目录.md",
+      "path": "02_SKILLS/downloads_archive/新技能/CNSH/中央藏经阁目录.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/UID9622_人机协作协议_v2.0.md",
-      "path": "01_技能庫/downloads_archive/新技能/UID9622_人机协作协议_v2.0.md",
+      "path": "02_SKILLS/downloads_archive/新技能/UID9622_人机协作协议_v2.0.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/cnsh_terminal_v5.0/README.md",
-      "path": "01_技能庫/downloads_archive/新技能/cnsh_terminal_v5.0/README.md",
+      "path": "02_SKILLS/downloads_archive/新技能/cnsh_terminal_v5.0/README.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/cnsh_v5_supplement.md",
-      "path": "01_技能庫/downloads_archive/新技能/cnsh_v5_supplement.md",
+      "path": "02_SKILLS/downloads_archive/新技能/cnsh_v5_supplement.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/dragon-soul-agent/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/dragon-soul-agent/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/dragon-soul-agent/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/dragon-soul-agent/compliance/reports/合规报告_EU_欧盟_20260618_183453.md",
-      "path": "01_技能庫/downloads_archive/新技能/dragon-soul-agent/compliance/reports/合规报告_EU_欧盟_20260618_183453.md",
+      "path": "02_SKILLS/downloads_archive/新技能/dragon-soul-agent/compliance/reports/合规报告_EU_欧盟_20260618_183453.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/dragon-soul-agent/compliance/reports/市场对比报告_20260618_183453.md",
-      "path": "01_技能庫/downloads_archive/新技能/dragon-soul-agent/compliance/reports/市场对比报告_20260618_183453.md",
+      "path": "02_SKILLS/downloads_archive/新技能/dragon-soul-agent/compliance/reports/市场对比报告_20260618_183453.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/dragon-soul-agent/compliance/reports/快速状态报告_20260618_183453.md",
-      "path": "01_技能庫/downloads_archive/新技能/dragon-soul-agent/compliance/reports/快速状态报告_20260618_183453.md",
+      "path": "02_SKILLS/downloads_archive/新技能/dragon-soul-agent/compliance/reports/快速状态报告_20260618_183453.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/dragon-soul-agent/compliance/合规自检清单.md",
-      "path": "01_技能庫/downloads_archive/新技能/dragon-soul-agent/compliance/合规自检清单.md",
+      "path": "02_SKILLS/downloads_archive/新技能/dragon-soul-agent/compliance/合规自检清单.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/dragon-soul-agent/references/cnsh-naming-spec.md",
-      "path": "01_技能庫/downloads_archive/新技能/dragon-soul-agent/references/cnsh-naming-spec.md",
+      "path": "02_SKILLS/downloads_archive/新技能/dragon-soul-agent/references/cnsh-naming-spec.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/dragon-soul-agent/references/governance-framework.md",
-      "path": "01_技能庫/downloads_archive/新技能/dragon-soul-agent/references/governance-framework.md",
+      "path": "02_SKILLS/downloads_archive/新技能/dragon-soul-agent/references/governance-framework.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/dragon-soul-agent/references/tongxin-terminology.md",
-      "path": "01_技能庫/downloads_archive/新技能/dragon-soul-agent/references/tongxin-terminology.md",
+      "path": "02_SKILLS/downloads_archive/新技能/dragon-soul-agent/references/tongxin-terminology.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/infrastructure_changelog.md",
-      "path": "01_技能庫/downloads_archive/新技能/infrastructure_changelog.md",
+      "path": "02_SKILLS/downloads_archive/新技能/infrastructure_changelog.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-audit/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-audit/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-audit/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-automation/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-automation/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-automation/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-deploy/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-deploy/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-deploy/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-deploy/references/環境驗證.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-deploy/references/環境驗證.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-deploy/references/環境驗證.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-deploy/references/部署規範.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-deploy/references/部署規範.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-deploy/references/部署規範.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-kimi/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-kimi/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-kimi/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-mcp/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-mcp/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-mcp/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-mcp/references/API規範.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-mcp/references/API規範.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-mcp/references/API規範.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-mcp/references/配置說明.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-mcp/references/配置說明.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-mcp/references/配置說明.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-notion/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-notion/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-notion/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-notion/references/DNA_CHECK_PROTOCOL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-notion/references/DNA_CHECK_PROTOCOL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-notion/references/DNA_CHECK_PROTOCOL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-notion/references/NOTION_SYNC_SPEC.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-notion/references/NOTION_SYNC_SPEC.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-notion/references/NOTION_SYNC_SPEC.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-notion/references/WEEK_EXECUTION_PLAN.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-notion/references/WEEK_EXECUTION_PLAN.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-notion/references/WEEK_EXECUTION_PLAN.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-panel/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-panel/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-panel/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-panel/assets/占位說明.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-panel/assets/占位說明.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-panel/assets/占位說明.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-panel/references/API規範.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-panel/references/API規範.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-panel/references/API規範.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-panel/references/底座能力說明.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-panel/references/底座能力說明.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-cloud-panel/references/底座能力說明.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/docs/DEPLOYMENT_GUIDE_v1.0.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/docs/DEPLOYMENT_GUIDE_v1.0.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/docs/DEPLOYMENT_GUIDE_v1.0.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/docs/DEPLOYMENT_READINESS_CONFIRMATION_REPORT.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/docs/DEPLOYMENT_READINESS_CONFIRMATION_REPORT.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/docs/DEPLOYMENT_READINESS_CONFIRMATION_REPORT.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/docs/DEPLOYMENT_RUNBOOK_FOR_TEAM.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/docs/DEPLOYMENT_RUNBOOK_FOR_TEAM.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/docs/DEPLOYMENT_RUNBOOK_FOR_TEAM.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/docs/LOCAL_DEPLOYMENT_GUIDE.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/docs/LOCAL_DEPLOYMENT_GUIDE.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/docs/LOCAL_DEPLOYMENT_GUIDE.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/docs/团队部署手册.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/docs/团队部署手册.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-deployment-ready/docs/团队部署手册.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-integration/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-integration/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-integration/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-multicurrency/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-multicurrency/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-multicurrency/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/cloud/longhun-review/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-review/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/cloud/longhun-review/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-3core-opt/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-3core-opt/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-3core-opt/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-agent-eco/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-agent-eco/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-agent-eco/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-agent-eco/references/15_AGENTS_INTEGRATION_SUMMARY.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-agent-eco/references/15_AGENTS_INTEGRATION_SUMMARY.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-agent-eco/references/15_AGENTS_INTEGRATION_SUMMARY.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-archive/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-archive/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-archive/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-asr/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-asr/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-asr/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-backup/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-backup/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-backup/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-behavior-engine/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-behavior-engine/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-behavior-engine/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-benchmark/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-benchmark/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-benchmark/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-cnsh/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-cnsh/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-cnsh/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-cnsh/references/cnsh-naming-spec.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-cnsh/references/cnsh-naming-spec.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-cnsh/references/cnsh-naming-spec.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-cnsh/references/cnsh-spec.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-cnsh/references/cnsh-spec.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-cnsh/references/cnsh-spec.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-cross-platform/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-cross-platform/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-cross-platform/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-daemon/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-daemon/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-daemon/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-dna-align/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-dna-align/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-dna-align/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-dna-align/references/DNA_ALIGNMENT_CURRENT_STATUS.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-dna-align/references/DNA_ALIGNMENT_CURRENT_STATUS.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-dna-align/references/DNA_ALIGNMENT_CURRENT_STATUS.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-dna-align/references/DNA_ALIGNMENT_REPAIR_ACTION_PLAN.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-dna-align/references/DNA_ALIGNMENT_REPAIR_ACTION_PLAN.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-dna-align/references/DNA_ALIGNMENT_REPAIR_ACTION_PLAN.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-finance/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-finance/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-finance/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-finance/references/五行决策算法.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-finance/references/五行决策算法.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-finance/references/五行决策算法.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-finance/references/六十四卦审计参考.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-finance/references/六十四卦审计参考.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-finance/references/六十四卦审计参考.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-formula-opt/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-formula-opt/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-formula-opt/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-governance/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-governance/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-governance/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-harmonyos/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-harmonyos/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-harmonyos/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-ios/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-ios/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-ios/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-monitoring/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-monitoring/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-monitoring/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-monitoring/references/監控體系規範.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-monitoring/references/監控體系規範.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-monitoring/references/監控體系規範.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-nlp/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-nlp/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-nlp/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-ocr/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-ocr/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-ocr/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/local/longhun-riemann/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/local/longhun-riemann/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/local/longhun-riemann/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/protocols/CNSH-PROTOCOL/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/protocols/CNSH-PROTOCOL/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/protocols/CNSH-PROTOCOL/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/protocols/CNSH-PROTOCOL/references/CNSH-PROTOCOL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/protocols/CNSH-PROTOCOL/references/CNSH-PROTOCOL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/protocols/CNSH-PROTOCOL/references/CNSH-PROTOCOL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/protocols/CNSH-SEMANTIC/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/protocols/CNSH-SEMANTIC/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/protocols/CNSH-SEMANTIC/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-v5-skills/protocols/CNSH-SEMANTIC/references/CNSH-SEMANTIC.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-v5-skills/protocols/CNSH-SEMANTIC/references/CNSH-SEMANTIC.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-v5-skills/protocols/CNSH-SEMANTIC/references/CNSH-SEMANTIC.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-zeng-digital-human/SKILL.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-zeng-digital-human/SKILL.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-zeng-digital-human/SKILL.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-zeng-digital-human/references/哲学框架.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-zeng-digital-human/references/哲学框架.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-zeng-digital-human/references/哲学框架.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-zeng-digital-human/references/逻辑框架.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-zeng-digital-human/references/逻辑框架.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-zeng-digital-human/references/逻辑框架.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/longhun-zeng-digital-human/references/锚点体系.md",
-      "path": "01_技能庫/downloads_archive/新技能/longhun-zeng-digital-human/references/锚点体系.md",
+      "path": "02_SKILLS/downloads_archive/新技能/longhun-zeng-digital-human/references/锚点体系.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/mvp_changelog.md",
-      "path": "01_技能庫/downloads_archive/新技能/mvp_changelog.md",
+      "path": "02_SKILLS/downloads_archive/新技能/mvp_changelog.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/plan-v5-skill-split.md",
-      "path": "01_技能庫/downloads_archive/新技能/plan-v5-skill-split.md",
+      "path": "02_SKILLS/downloads_archive/新技能/plan-v5-skill-split.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/plan-v5.1-upgrade.md",
-      "path": "01_技能庫/downloads_archive/新技能/plan-v5.1-upgrade.md",
+      "path": "02_SKILLS/downloads_archive/新技能/plan-v5.1-upgrade.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/plan-v5.2-upgrade.md",
-      "path": "01_技能庫/downloads_archive/新技能/plan-v5.2-upgrade.md",
+      "path": "02_SKILLS/downloads_archive/新技能/plan-v5.2-upgrade.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/plan-zeng-extraction.md",
-      "path": "01_技能庫/downloads_archive/新技能/plan-zeng-extraction.md",
+      "path": "02_SKILLS/downloads_archive/新技能/plan-zeng-extraction.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/plan.md",
-      "path": "01_技能庫/downloads_archive/新技能/plan.md",
+      "path": "02_SKILLS/downloads_archive/新技能/plan.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/protocol_changelog.md",
-      "path": "01_技能庫/downloads_archive/新技能/protocol_changelog.md",
+      "path": "02_SKILLS/downloads_archive/新技能/protocol_changelog.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/workflow_changelog.md",
-      "path": "01_技能庫/downloads_archive/新技能/workflow_changelog.md",
+      "path": "02_SKILLS/downloads_archive/新技能/workflow_changelog.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/审查报告_v1.0.md",
-      "path": "01_技能庫/downloads_archive/新技能/审查报告_v1.0.md",
+      "path": "02_SKILLS/downloads_archive/新技能/审查报告_v1.0.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/温州星汇里9栋事件分析报告.md",
-      "path": "01_技能庫/downloads_archive/新技能/温州星汇里9栋事件分析报告.md",
+      "path": "02_SKILLS/downloads_archive/新技能/温州星汇里9栋事件分析报告.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/龍魂_创作者保护协议_不可篡改条款.md",
-      "path": "01_技能庫/downloads_archive/新技能/龍魂_创作者保护协议_不可篡改条款.md",
+      "path": "02_SKILLS/downloads_archive/新技能/龍魂_创作者保护协议_不可篡改条款.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/龍魂体系v5-升级报告.md",
-      "path": "01_技能庫/downloads_archive/新技能/龍魂体系v5-升级报告.md",
+      "path": "02_SKILLS/downloads_archive/新技能/龍魂体系v5-升级报告.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/龍魂体系v5.1-最终报告.md",
-      "path": "01_技能庫/downloads_archive/新技能/龍魂体系v5.1-最终报告.md",
+      "path": "02_SKILLS/downloads_archive/新技能/龍魂体系v5.1-最终报告.md",
       "level": "L2"
     },
     {
       "file": "downloads_archive/新技能/龙魂日记本-iOS/README.md",
-      "path": "01_技能庫/downloads_archive/新技能/龙魂日记本-iOS/README.md",
+      "path": "02_SKILLS/downloads_archive/新技能/龙魂日记本-iOS/README.md",
       "level": "L2"
     },
     {
       "file": "error-translator.md",
-      "path": "01_技能庫/error-translator.md",
+      "path": "02_SKILLS/error-translator.md",
       "level": "L2"
     },
     {
       "file": "guomi-crypto.md",
-      "path": "01_技能庫/guomi-crypto.md",
+      "path": "02_SKILLS/guomi-crypto.md",
       "level": "L2"
     },
     {
       "file": "identity-positioning.md",
-      "path": "01_技能庫/identity-positioning.md",
+      "path": "02_SKILLS/identity-positioning.md",
       "level": "L2"
     },
     {
       "file": "innovation-tracer-tech-doc.md",
-      "path": "01_技能庫/innovation-tracer-tech-doc.md",
+      "path": "02_SKILLS/innovation-tracer-tech-doc.md",
       "level": "L2"
     },
     {
       "file": "kimi-webbridge.md",
-      "path": "01_技能庫/kimi-webbridge.md",
+      "path": "02_SKILLS/kimi-webbridge.md",
       "level": "L2"
     },
     {
       "file": "lu-compress.md",
-      "path": "01_技能庫/lu-compress.md",
+      "path": "02_SKILLS/lu-compress.md",
       "level": "L2"
     },
     {
       "file": "on-identity.md",
-      "path": "01_技能庫/on-identity.md",
+      "path": "02_SKILLS/on-identity.md",
       "level": "L2"
     },
     {
       "file": "on-translate.md",
-      "path": "01_技能庫/on-translate.md",
+      "path": "02_SKILLS/on-translate.md",
       "level": "L2"
     },
     {
       "file": "p15-qiaojie-persona.md",
-      "path": "01_技能庫/p15-qiaojie-persona.md",
+      "path": "02_SKILLS/p15-qiaojie-persona.md",
       "level": "L2"
     },
     {
       "file": "plist-validator.md",
-      "path": "01_技能庫/plist-validator.md",
+      "path": "02_SKILLS/plist-validator.md",
       "level": "L2"
     },
     {
       "file": "red-team.md",
-      "path": "01_技能庫/red-team.md",
+      "path": "02_SKILLS/red-team.md",
       "level": "L2"
     },
     {
       "file": "route-find.md",
-      "path": "01_技能庫/route-find.md",
+      "path": "02_SKILLS/route-find.md",
       "level": "L2"
     },
     {
       "file": "semantic-parser.md",
-      "path": "01_技能庫/semantic-parser.md",
+      "path": "02_SKILLS/semantic-parser.md",
       "level": "L2"
     },
     {
       "file": "skill-extension.md",
-      "path": "01_技能庫/skill-extension.md",
+      "path": "02_SKILLS/skill-extension.md",
       "level": "L2"
     },
     {
       "file": "sovereign-privacy.md",
-      "path": "01_技能庫/sovereign-privacy.md",
+      "path": "02_SKILLS/sovereign-privacy.md",
       "level": "L2"
     },
     {
       "file": "water-army-detect.md",
-      "path": "01_技能庫/water-army-detect.md",
+      "path": "02_SKILLS/water-army-detect.md",
       "level": "L2"
     },
     {
       "file": "wuxing-guard.md",
-      "path": "01_技能庫/wuxing-guard.md",
+      "path": "02_SKILLS/wuxing-guard.md",
       "level": "L2"
     },
     {
       "file": "宝宝决策来源卡片.md",
-      "path": "01_技能庫/宝宝决策来源卡片.md",
+      "path": "02_SKILLS/宝宝决策来源卡片.md",
       "level": "L2"
     },
     {
       "file": "投喂存檔/2026-07-12-Notion投喂/01_Translation_OS_v1.1.md",
-      "path": "01_技能庫/投喂存檔/2026-07-12-Notion投喂/01_Translation_OS_v1.1.md",
+      "path": "02_SKILLS/投喂存檔/2026-07-12-Notion投喂/01_Translation_OS_v1.1.md",
       "level": "L2"
     },
     {
       "file": "投喂存檔/2026-07-12-Notion投喂/02_Browser_Engine_v1.1.md",
-      "path": "01_技能庫/投喂存檔/2026-07-12-Notion投喂/02_Browser_Engine_v1.1.md",
+      "path": "02_SKILLS/投喂存檔/2026-07-12-Notion投喂/02_Browser_Engine_v1.1.md",
       "level": "L2"
     },
     {
       "file": "投喂存檔/2026-07-12-Notion投喂/03_AutoResearch_Longhun_Bridge_v1.1.md",
-      "path": "01_技能庫/投喂存檔/2026-07-12-Notion投喂/03_AutoResearch_Longhun_Bridge_v1.1.md",
+      "path": "02_SKILLS/投喂存檔/2026-07-12-Notion投喂/03_AutoResearch_Longhun_Bridge_v1.1.md",
       "level": "L2"
     },
     {
       "file": "投喂存檔/2026-07-12-Notion投喂/04_Skill_Landing_Plan_v1.0.md",
-      "path": "01_技能庫/投喂存檔/2026-07-12-Notion投喂/04_Skill_Landing_Plan_v1.0.md",
+      "path": "02_SKILLS/投喂存檔/2026-07-12-Notion投喂/04_Skill_Landing_Plan_v1.0.md",
       "level": "L2"
     },
     {
       "file": "投喂存檔/2026-07-12-Notion投喂/05_CNSH_Router_v2.0.md",
-      "path": "01_技能庫/投喂存檔/2026-07-12-Notion投喂/05_CNSH_Router_v2.0.md",
+      "path": "02_SKILLS/投喂存檔/2026-07-12-Notion投喂/05_CNSH_Router_v2.0.md",
       "level": "L2"
     },
     {
       "file": "投喂存檔/2026-07-12-Notion投喂/INDEX.md",
-      "path": "01_技能庫/投喂存檔/2026-07-12-Notion投喂/INDEX.md",
+      "path": "02_SKILLS/投喂存檔/2026-07-12-Notion投喂/INDEX.md",
       "level": "L2"
     },
     {
       "file": "投喂存檔/2026-07-12-审阅归档/01_Review_老祖宗规则锚定注入.md",
-      "path": "01_技能庫/投喂存檔/2026-07-12-审阅归档/01_Review_老祖宗规则锚定注入.md",
+      "path": "02_SKILLS/投喂存檔/2026-07-12-审阅归档/01_Review_老祖宗规则锚定注入.md",
       "level": "L2"
     },
     {
       "file": "投喂存檔/2026-07-12-审阅归档/02_Review_四边界落地与主权覆写.md",
-      "path": "01_技能庫/投喂存檔/2026-07-12-审阅归档/02_Review_四边界落地与主权覆写.md",
+      "path": "02_SKILLS/投喂存檔/2026-07-12-审阅归档/02_Review_四边界落地与主权覆写.md",
       "level": "L2"
     },
     {
       "file": "投喂存檔/2026-07-12-审阅归档/03_Review_英文不是门槛架构才是.md",
-      "path": "01_技能庫/投喂存檔/2026-07-12-审阅归档/03_Review_英文不是门槛架构才是.md",
+      "path": "02_SKILLS/投喂存檔/2026-07-12-审阅归档/03_Review_英文不是门槛架构才是.md",
       "level": "L2"
     },
     {
       "file": "投喂存檔/2026-07-12-审阅归档/04_Review_设备绑定生物指纹华为生态.md",
-      "path": "01_技能庫/投喂存檔/2026-07-12-审阅归档/04_Review_设备绑定生物指纹华为生态.md",
+      "path": "02_SKILLS/投喂存檔/2026-07-12-审阅归档/04_Review_设备绑定生物指纹华为生态.md",
       "level": "L2"
     },
     {
       "file": "投喂存檔/2026-07-12-审阅归档/INDEX.md",
-      "path": "01_技能庫/投喂存檔/2026-07-12-审阅归档/INDEX.md",
+      "path": "02_SKILLS/投喂存檔/2026-07-12-审阅归档/INDEX.md",
       "level": "L2"
     },
     {
       "file": "给AI的部署指令.md",
-      "path": "01_技能庫/给AI的部署指令.md",
+      "path": "02_SKILLS/给AI的部署指令.md",
       "level": "L2"
     },
     {
       "file": "行为密码学csdn.md",
-      "path": "01_技能庫/行为密码学csdn.md",
+      "path": "02_SKILLS/行为密码学csdn.md",
       "level": "L2"
     }
   ],

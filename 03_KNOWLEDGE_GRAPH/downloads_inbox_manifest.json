@@ -1207,7 +1207,7 @@
       "is_dir": true,
       "child_count": 6,
       "category": "paper",
-      "target": "_archive/papers/ 或 03_知識圖譜/",
+      "target": "_archive/papers/ 或 03_KNOWLEDGE_GRAPH/",
       "status": "已迁移至主干",
       "tags": [
         "#paper",
@@ -1245,7 +1245,7 @@
       "is_dir": true,
       "child_count": 4,
       "category": "paper",
-      "target": "_archive/papers/ 或 03_知識圖譜/",
+      "target": "_archive/papers/ 或 03_KNOWLEDGE_GRAPH/",
       "status": "已迁移至主干",
       "tags": [
         "#paper",

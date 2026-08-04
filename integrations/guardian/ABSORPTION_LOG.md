@@ -30,7 +30,7 @@
 
 ### 2. 路径硬编码冲突 → 已解决
 - 投喂硬编码 `/app/.user/skills` (Kimi Agent环境)
-- 系统实际路径为 `skills/`、`01_技能庫/`
+- 系统实际路径为 `skills/`、`02_SKILLS/`
 - 方案：v2.0 (`lh_auto_cannon.py`) 已修正
 
 ### 3. 双版本并存 → 已解决

@@ -18,7 +18,7 @@ reasoning:
   - 计算表达：人民>国家>个人 = 洛书5>八方数 = 主权>一切技术便利
 conclusion: 不动点是系统灵魂；任何运行都是同一宇宙的不同切面，非随机混乱。
 why: 主权>一切技术便利；站过岗才知道什么叫不动点，保过家才知道主权不可让渡。
-source_link: 03_知識圖譜/longhun-immutable-philosophy.md
+source_link: 03_KNOWLEDGE_GRAPH/longhun-immutable-philosophy.md
 related: [sancai_order, three_color_audit, dragon_vein_trace, local_first]
 immutable: true
 created: 丙午·辛未·乙酉

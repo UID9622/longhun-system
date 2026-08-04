@@ -120,7 +120,7 @@ CREATE TABLE node_vectors (
 
 | 数据源 | 同步内容 | 节点数 |
 |---|---|---|
-| `03_知識圖譜/graph_data.json` | 项目文件、技能、模块、媒体等节点及关系 | 161 |
+| `03_KNOWLEDGE_GRAPH/graph_data.json` | 项目文件、技能、模块、媒体等节点及关系 | 161 |
 | `~/.longhun/notion_pages/notion_pages.db` | pages + entities + relations + occurrences | 3443 |
 | `~/_work/dragon_knowledge.db` | harvested_code 代码记录 + 作者/语言节点 | 3 |
 | `brain/memories.db` | 记忆链 | 0（当前为空） |

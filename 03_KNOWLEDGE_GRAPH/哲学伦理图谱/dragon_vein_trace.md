@@ -17,7 +17,7 @@ reasoning:
   - 不动点引力参数控制向心力，中心永在那里
 conclusion: 所有粒子绕T0轨道运行；痕迹缓慢淡去但永不完全消失。
 why: 痕迹就是主权的物质形式；一年认知压缩凝结成可感知的视觉现实。
-source_link: 03_知識圖譜/longhun-immutable-philosophy.md
+source_link: 03_KNOWLEDGE_GRAPH/longhun-immutable-philosophy.md
 related: [fixed_point, three_color_audit, sancai_order, local_first]
 immutable: true
 created: 丙午·辛未·乙酉

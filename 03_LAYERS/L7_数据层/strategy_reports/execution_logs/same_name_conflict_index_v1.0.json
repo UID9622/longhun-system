@@ -4146,7 +4146,7 @@
         "articles/INDEX.md",
         "docs/v3/INDEX.md",
         "L5_服务层/services/portal/portal/articles/INDEX.md",
-        "01_技能庫/longhun-zeng-digital-human/knowledge_base/INDEX.md",
+        "02_SKILLS/longhun-zeng-digital-human/knowledge_base/INDEX.md",
         "_archive/deprecated/01_技能库/downloads-imports/Kimi_Agent_启动全部技能/INDEX.md",
         "L7_数据层/desktop_archive/INDEX.md"
       ],
@@ -4224,7 +4224,7 @@
       "count": 3,
       "core_count": 3,
       "paths": [
-        "03_知識圖譜/LH-CDNA-v1.2-需求文档.md",
+        "03_KNOWLEDGE_GRAPH/LH-CDNA-v1.2-需求文档.md",
         "L8_治理层/governance/tech-docs/LH-CDNA-v1.2-需求文档.md",
         "docs/references/LH-CDNA-v1.2-需求文档.md"
       ],
@@ -4723,7 +4723,7 @@
         "_archived_reports/README.md",
         "人民维权助手/README.md",
         ".pytest_cache/README.md",
-        "03_知識圖譜/README.md",
+        "03_KNOWLEDGE_GRAPH/README.md",
         "bin/README.md",
         "knowledge-graph/README.md",
         "web/README.md",
@@ -4770,7 +4770,7 @@
         "releases/v5.1/staging/README.md",
         "releases/v5.1/staging/baobao-guardian/README.md",
         "releases/v5.1/staging/memory-universe/README.md",
-        "releases/v5.1/staging/03_知識圖譜/README.md",
+        "releases/v5.1/staging/03_KNOWLEDGE_GRAPH/README.md",
         "releases/v5.1/staging/bin/README.md",
         "releases/v5.1/staging/control-panel/README.md",
         "releases/v5.1/staging/agents/README.md",
@@ -6132,8 +6132,8 @@
       "count": 2,
       "core_count": 1,
       "paths": [
-        "01_技能庫/code-audit.md",
-        "releases/v5.1/staging/01_技能庫/code-audit.md"
+        "02_SKILLS/code-audit.md",
+        "releases/v5.1/staging/02_SKILLS/code-audit.md"
       ],
       "recommendation": "保留最新/最权威版本，其余归档到 _archive"
     },
@@ -6351,8 +6351,8 @@
       "count": 2,
       "core_count": 1,
       "paths": [
-        "01_技能庫/dna-gen.md",
-        "releases/v5.1/staging/01_技能庫/dna-gen.md"
+        "02_SKILLS/dna-gen.md",
+        "releases/v5.1/staging/02_SKILLS/dna-gen.md"
       ],
       "recommendation": "保留最新/最权威版本，其余归档到 _archive"
     },
@@ -6622,8 +6622,8 @@
       "count": 2,
       "core_count": 1,
       "paths": [
-        "03_知識圖譜/graph_data.json",
-        "releases/v5.1/staging/03_知識圖譜/graph_data.json"
+        "03_KNOWLEDGE_GRAPH/graph_data.json",
+        "releases/v5.1/staging/03_KNOWLEDGE_GRAPH/graph_data.json"
       ],
       "recommendation": "保留最新/最权威版本，其余归档到 _archive"
     },
@@ -6632,8 +6632,8 @@
       "count": 2,
       "core_count": 1,
       "paths": [
-        "03_知識圖譜/graph_index.md",
-        "releases/v5.1/staging/03_知識圖譜/graph_index.md"
+        "03_KNOWLEDGE_GRAPH/graph_index.md",
+        "releases/v5.1/staging/03_KNOWLEDGE_GRAPH/graph_index.md"
       ],
       "recommendation": "保留最新/最权威版本，其余归档到 _archive"
     },
@@ -6887,8 +6887,8 @@
       "count": 2,
       "core_count": 1,
       "paths": [
-        "01_技能庫/kimi-webbridge.md",
-        "releases/v5.1/staging/01_技能庫/kimi-webbridge.md"
+        "02_SKILLS/kimi-webbridge.md",
+        "releases/v5.1/staging/02_SKILLS/kimi-webbridge.md"
       ],
       "recommendation": "保留最新/最权威版本，其余归档到 _archive"
     },
@@ -7743,8 +7743,8 @@
       "count": 2,
       "core_count": 1,
       "paths": [
-        "01_技能庫/on-identity.md",
-        "releases/v5.1/staging/01_技能庫/on-identity.md"
+        "02_SKILLS/on-identity.md",
+        "releases/v5.1/staging/02_SKILLS/on-identity.md"
       ],
       "recommendation": "保留最新/最权威版本，其余归档到 _archive"
     },
@@ -7753,8 +7753,8 @@
       "count": 2,
       "core_count": 1,
       "paths": [
-        "01_技能庫/on-translate.md",
-        "releases/v5.1/staging/01_技能庫/on-translate.md"
+        "02_SKILLS/on-translate.md",
+        "releases/v5.1/staging/02_SKILLS/on-translate.md"
       ],
       "recommendation": "保留最新/最权威版本，其余归档到 _archive"
     },
@@ -8832,7 +8832,7 @@
       "count": 2,
       "core_count": 1,
       "paths": [
-        "03_知識圖譜/三才算法发微_为曾老师正名.md",
+        "03_KNOWLEDGE_GRAPH/三才算法发微_为曾老师正名.md",
         "articles/三才算法发微_为曾老师正名.md"
       ],
       "recommendation": "保留最新/最权威版本，其余归档到 _archive"
@@ -9314,7 +9314,7 @@
       "count": 2,
       "core_count": 1,
       "paths": [
-        "03_知識圖譜/行为密码学csdn.md",
+        "03_KNOWLEDGE_GRAPH/行为密码学csdn.md",
         "articles/行为密码学csdn.md"
       ],
       "recommendation": "保留最新/最权威版本，其余归档到 _archive"
@@ -9823,7 +9823,7 @@
       "count": 2,
       "core_count": 1,
       "paths": [
-        "03_知識圖譜/龍魂系统_知识矩阵总纲_v2.0.md",
+        "03_KNOWLEDGE_GRAPH/龍魂系统_知识矩阵总纲_v2.0.md",
         "_archive/downloads-inbox/misc/龍魂系统_知识矩阵总纲_v2.0.md"
       ],
       "recommendation": "保留最新/最权威版本，其余归档到 _archive"
@@ -9874,7 +9874,7 @@
       "count": 2,
       "core_count": 1,
       "paths": [
-        "03_知識圖譜/龙魂数字主权体系_学术论文_v2.0.md",
+        "03_KNOWLEDGE_GRAPH/龙魂数字主权体系_学术论文_v2.0.md",
         "articles/龙魂数字主权体系_学术论文_v2.0.md"
       ],
       "recommendation": "保留最新/最权威版本，其余归档到 _archive"

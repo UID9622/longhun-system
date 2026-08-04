@@ -46,7 +46,7 @@
 | `CNSH · 通心译 · 对齐标准.html` | 47 KB | 较完整 | 迁移到 `docs/cnsh/` |
 | `CNSH执行引擎与系统闭环-术语对照表.html` | 44 KB | 较完整 | 迁移到 `docs/cnsh/` |
 | `CNSH数学骨架与量子层-术语对照表.html` | 26 KB | 较完整 | 迁移到 `docs/cnsh/` |
-| `longhun-algorithms-cnsh-v1.0.md` | 32 KB | 较完整 | 迁移到 `01_技能庫/` |
+| `longhun-algorithms-cnsh-v1.0.md` | 32 KB | 较完整 | 迁移到 `02_SKILLS/` |
 | `CNSH-v1.0-测试/` | 6 文件 | 实验性 | 保留，标记为历史测试 |
 
 ---
@@ -97,7 +97,7 @@
 | `龍魂智能中枢_v5.0_全套一体化.html` | 149 KB | 较完整 | 迁移到 `L5_服务层/services/portal/` |
 | `main-console.html` | 65 KB | 框架对 | 迁移到 `L5_服务层/services/portal/` |
 | `longhun_hub.html` | 83 KB | 较完整 | 迁移到 `L5_服务层/services/portal/` |
-| `IPA-200-宝宝人格配置.html` | 31 KB | 较完整 | 迁移到 `01_技能庫/` |
+| `IPA-200-宝宝人格配置.html` | 31 KB | 较完整 | 迁移到 `02_SKILLS/` |
 | `AI智能体术语对照表-龍魂版.html` | 28 KB | 较完整 | 迁移到 `docs/terminology/` |
 | `Behavioral Cryptography...pdf` | 2.4 MB | 论文 | 迁移到 `docs/papers/` |
 | `行为密码学csdn.md` | 315 KB | 文章 | 迁移到 `docs/articles/` |

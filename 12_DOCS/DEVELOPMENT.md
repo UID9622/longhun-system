@@ -66,7 +66,7 @@ longhun-system/
 │   └── ...
 ├── engines/                # 核心引擎
 ├── 01_protocols/           # 协议文档
-├── 01_技能庫/              # 技能定义
+├── 02_SKILLS/              # 技能定义
 ├── personas/               # 人格定义
 ├── deploy/                 # 部署脚本
 │   ├── scripts/

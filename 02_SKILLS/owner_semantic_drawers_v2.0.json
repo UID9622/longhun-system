@@ -203,7 +203,7 @@
           "dezi_gate": "只分析话术·不做人身攻击·证据链完整·保护受害者",
           "target_ipa": ["PAI-007-审计者", "PAI-009-工程师"],
           "target_bin": "bin/lh_semantic_lie_detector.py",
-          "pattern_library": "01_技能庫/anti_fraud_patterns_v2.0.json",
+          "pattern_library": "02_SKILLS/anti_fraud_patterns_v2.0.json",
           "notes": "2025初心·人文系统即测谎仪·给政府提供反诈工具·追溯本源记忆·语义库联动进化"
         },
         {
@@ -350,7 +350,7 @@
           "action": "更新/查询语义抽屉映射表",
           "triggers_decision_card": false,
           "dna_required": false,
-          "target_bin": "01_技能庫/owner_semantic_drawers_v2.0.json"
+          "target_bin": "02_SKILLS/owner_semantic_drawers_v2.0.json"
         },
         {
           "drawer_id": "L4-07",

@@ -12,8 +12,8 @@
     "bin/lh_semantic_lie_detector.py"
   ],
   "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_semantic_lie_detector.py",
-  "pattern_library": "01_技能庫/anti_fraud_patterns_v2.0.json",
-  "semantic_drawers": "01_技能庫/owner_semantic_drawers_v2.0.json",
+  "pattern_library": "02_SKILLS/anti_fraud_patterns_v2.0.json",
+  "semantic_drawers": "02_SKILLS/owner_semantic_drawers_v2.0.json",
   "source": "internal",
   "dna": "#龍芯⚡️2026-07-12-SEMANTIC-LIE-DETECTOR-v2.0",
   "cloud_port": 19624,

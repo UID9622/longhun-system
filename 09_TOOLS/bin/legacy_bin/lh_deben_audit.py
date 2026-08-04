@@ -119,9 +119,9 @@ class DebenAuditor:
 
     # 排除的目录前缀（整个目录下的文件都是参考/归档/教育材料/防御代码）
     DEFENSIVE_DIR_PREFIXES = [
-        "01_技能庫/downloads_archive/",
+        "02_SKILLS/downloads_archive/",
         "docs/claude-backlog/",
-        "03_知識圖譜/",
+        "03_KNOWLEDGE_GRAPH/",
         "docs/",       # 文章/论文/教育内容
         "data/training/",  # 训练数据（教育性内容）
         "_work/",      # 工作副本/归档仓库

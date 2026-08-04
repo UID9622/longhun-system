@@ -146,7 +146,7 @@
       "type": "protocol",
       "layer": "L1",
       "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
-      "file": "03_知識圖譜/协议图谱/protocol_knowledge_sovereignty.md"
+      "file": "03_KNOWLEDGE_GRAPH/协议图谱/protocol_knowledge_sovereignty.md"
     },
     {
       "id": "protocol_speech_freedom",
@@ -154,7 +154,7 @@
       "type": "protocol",
       "layer": "L1",
       "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
-      "file": "03_知識圖譜/协议图谱/protocol_speech_freedom.md"
+      "file": "03_KNOWLEDGE_GRAPH/协议图谱/protocol_speech_freedom.md"
     },
     {
       "id": "clause_zero_conscription",
@@ -162,7 +162,7 @@
       "type": "clause",
       "layer": "L2",
       "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
-      "file": "03_知識圖譜/协议图谱/clause_zero_conscription.md"
+      "file": "03_KNOWLEDGE_GRAPH/协议图谱/clause_zero_conscription.md"
     },
     {
       "id": "clause_voluntary_contribution",
@@ -170,7 +170,7 @@
       "type": "clause",
       "layer": "L2",
       "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
-      "file": "03_知識圖譜/协议图谱/clause_voluntary_contribution.md"
+      "file": "03_KNOWLEDGE_GRAPH/协议图谱/clause_voluntary_contribution.md"
     },
     {
       "id": "clause_sovereign_recall",
@@ -178,7 +178,7 @@
       "type": "clause",
       "layer": "L2",
       "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
-      "file": "03_知識圖譜/协议图谱/clause_sovereign_recall.md"
+      "file": "03_KNOWLEDGE_GRAPH/协议图谱/clause_sovereign_recall.md"
     },
     {
       "id": "clause_knowledge_pricing",
@@ -186,7 +186,7 @@
       "type": "clause",
       "layer": "L2",
       "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C",
-      "file": "03_知識圖譜/协议图谱/clause_knowledge_pricing.md"
+      "file": "03_KNOWLEDGE_GRAPH/协议图谱/clause_knowledge_pricing.md"
     },
     {
       "id": "clause_speech_grading",
@@ -194,7 +194,7 @@
       "type": "clause",
       "layer": "L2",
       "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
-      "file": "03_知識圖譜/协议图谱/clause_speech_grading.md"
+      "file": "03_KNOWLEDGE_GRAPH/协议图谱/clause_speech_grading.md"
     },
     {
       "id": "clause_weight_eval",
@@ -202,7 +202,7 @@
       "type": "clause",
       "layer": "L2",
       "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
-      "file": "03_知識圖譜/协议图谱/clause_weight_eval.md"
+      "file": "03_KNOWLEDGE_GRAPH/协议图谱/clause_weight_eval.md"
     },
     {
       "id": "clause_self_censure",
@@ -210,7 +210,7 @@
       "type": "clause",
       "layer": "L2",
       "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
-      "file": "03_知識圖譜/协议图谱/clause_self_censure.md"
+      "file": "03_KNOWLEDGE_GRAPH/协议图谱/clause_self_censure.md"
     },
     {
       "id": "clause_dna_trace",
@@ -218,7 +218,7 @@
       "type": "clause",
       "layer": "L2",
       "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
-      "file": "03_知識圖譜/协议图谱/clause_dna_trace.md"
+      "file": "03_KNOWLEDGE_GRAPH/协议图谱/clause_dna_trace.md"
     },
     {
       "id": "clause_dispute_resolution",
@@ -226,7 +226,7 @@
       "type": "clause",
       "layer": "L2",
       "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
-      "file": "03_知識圖譜/协议图谱/clause_dispute_resolution.md"
+      "file": "03_KNOWLEDGE_GRAPH/协议图谱/clause_dispute_resolution.md"
     },
     {
       "id": "clause_auto_audit",
@@ -234,7 +234,7 @@
       "type": "clause",
       "layer": "L3",
       "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A",
-      "file": "03_知識圖譜/协议图谱/clause_auto_audit.md"
+      "file": "03_KNOWLEDGE_GRAPH/协议图谱/clause_auto_audit.md"
     },
     {
       "id": "clause_true_openness",
@@ -242,7 +242,7 @@
       "type": "clause",
       "layer": "L2",
       "dna": "#龍芯⚡️丙午·辛未·乙酉·巳时·同人-LONGHUN-CLAUSE-TRUE-OPENNESS-3B7E9C1A",
-      "file": "03_知識圖譜/协议图谱/clause_true_openness.md"
+      "file": "03_KNOWLEDGE_GRAPH/协议图谱/clause_true_openness.md"
     },
     {
       "id": "protocol_currency_culture_sovereignty",
@@ -371,5 +371,5 @@
   },
   "count": 22,
   "root_dna": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
-  "note": "L0 哲学节点见 03_知識圖譜/哲学伦理图谱/ 。本地服务器挂载本目录即可通过相对路径点开每个节点 md，引用格式 [[id]]·DNA:..."
+  "note": "L0 哲学节点见 03_KNOWLEDGE_GRAPH/哲学伦理图谱/ 。本地服务器挂载本目录即可通过相对路径点开每个节点 md，引用格式 [[id]]·DNA:..."
 }

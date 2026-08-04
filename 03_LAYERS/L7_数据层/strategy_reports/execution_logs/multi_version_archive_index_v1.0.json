@@ -234,11 +234,11 @@
       "longhun_mvp_reviewed/script_manager_v1.0.py"
     ],
     "龍魂系统_知识矩阵总纲": [
-      "03_知識圖譜/龍魂系统_知识矩阵总纲_v2.0.md",
+      "03_KNOWLEDGE_GRAPH/龍魂系统_知识矩阵总纲_v2.0.md",
       "_archive/downloads-inbox/misc/龍魂系统_知识矩阵总纲_v2.0.md"
     ],
     "龙魂数字主权体系_学术论文": [
-      "03_知識圖譜/龙魂数字主权体系_学术论文_v2.0.md",
+      "03_KNOWLEDGE_GRAPH/龙魂数字主权体系_学术论文_v2.0.md",
       "articles/龙魂数字主权体系_学术论文_v2.0.md"
     ],
     "longhun_mvp_executor": [
@@ -360,8 +360,8 @@
       "train/data/processed/auto_corpus/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-v1.0.md"
     ],
     "owner_semantic_drawers": [
-      "01_技能庫/owner_semantic_drawers_v2.0.json",
-      "01_技能庫/owner_semantic_drawers_v2.0.md"
+      "02_SKILLS/owner_semantic_drawers_v2.0.json",
+      "02_SKILLS/owner_semantic_drawers_v2.0.md"
     ],
     "longhun_lineage_verification": [
       "_archive/agent-sessions/Kimi_Agent_脚本升级请求/longhun_lineage_verification_v2.0.py",

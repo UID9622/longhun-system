@@ -52,7 +52,7 @@ SKIP_SCAN_DIRS = {
     "data/training/home_absorb/workspace/Desktop/龙魂系统-知识库/_archive",
     "data/training/home_absorb/workspace/Desktop/桌面项目箱",
     "data/training/home_absorb/workspace/_work",
-    "01_技能庫/downloads_archive",
+    "02_SKILLS/downloads_archive",
     "tombstone_vault",
     "integrated_modules",
     # Python 虚拟环境

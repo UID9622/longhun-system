@@ -43,7 +43,7 @@
 - 🧮 [数学公式算法核心·CNSH计算公式升级 v2.0](../L8_治理层/governance/reports/🧮%20数学公式算法核心·CNSH计算公式升级v2.0.md)
 - 🧮 [计算公式对准表 v1.6 完整补全补丁](../L8_治理层/governance/tech-docs/UID9622_计算公式对准表_v1.6_完整补全补丁.md)
 - 🧮 [数学公式术语与变量总表](../L8_治理层/governance/reports/🧮%20数学公式术语与变量总表.md)
-- 📜 [三才算法发微·为曾老师正名](../03_知識圖譜/三才算法发微_为曾老师正名.md)
+- 📜 [三才算法发微·为曾老师正名](../03_KNOWLEDGE_GRAPH/三才算法发微_为曾老师正名.md)
 - 🐉 [龍魂算法全集·CNSH实战版 v1.0](../L1_内核层/kernel/algorithms/longhun-algorithms-cnsh-v1.0.md)
 - 🧮 [龍魂数学公式母册完整版 v1.0](../L1_内核层/formulas/formula_catalog.py)
 - 🧮 [数学形式化引擎 v1.0](../bin/lh_math_formalization.py)

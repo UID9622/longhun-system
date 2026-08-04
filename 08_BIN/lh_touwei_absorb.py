@@ -478,7 +478,7 @@ class PersonaRouter:
             "知识管理": "IPA-L7-KNOWLEDGE → L7_数据层/knowledge/",
             "数据主权": "IPA-L8-GOVERNANCE → L8_治理层/governance/",
             "龍魂标准": "IPA-L1-CORE → L1_内核层/",
-            "人格": "IPA-L2-PERSONA → 01_技能庫/",
+            "人格": "IPA-L2-PERSONA → 02_SKILLS/",
         }
 
         for cat in concept_cats:

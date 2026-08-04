@@ -47,7 +47,7 @@ MAX_AGE_DAYS = 90   # 超过90天的自动清理
 
 # 备份源目录（只备份代码/协议/引擎，不备份大模型/训练数据）
 BACKUP_SOURCES = [
-    "bin/", "engines/", "portal/", "01_protocols/", "01_技能庫/",
+    "bin/", "engines/", "portal/", "01_protocols/", "02_SKILLS/",
     "personas/", "cnsh/", "web/", "deploy/", "config/",
     "01_执行記錄/", "docs/", ".codebuddy/",
     # 排除: data/ models/ _archive/ _work/ backups/

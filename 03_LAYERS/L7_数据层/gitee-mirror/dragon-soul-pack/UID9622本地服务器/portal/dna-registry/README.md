@@ -29,8 +29,8 @@
 | **前端源码** | `L5_服务层/services/portal/portal/dna-registry/index.html` | 唯一官方前端 |
 | **API 服务** | `L5_服务层/services/api/dna-registry/main.py` | FastAPI，端口 8778 |
 | **CLI 引擎** | `bin/lh_unified_dna_registry.py` | ../脚本 |
-| **人格路由** | `01_技能庫/dna-registry-persona.md` | P18/P19/P20 职责 |
-| **审计人格** | `01_技能庫/dna-registry-audit.md` | P19 极简审计清单 |
+| **人格路由** | `02_SKILLS/dna-registry-persona.md` | P18/P19/P20 职责 |
+| **审计人格** | `02_SKILLS/dna-registry-audit.md` | P19 极简审计清单 |
 
 ⚠️ **旧位置**：`L5_服务层/services/dashboard/web/unified_dna_register_v1.0.html` 已冻结，仅作备份，不再维护。
 
@@ -149,8 +149,8 @@ longhun-system/
 ├── L5_服务层/services/portal/portal/dna-registry/
 │   ├── index.html                          # 唯一官方前端（本文件所在目录）
 │   └── README.md                           # 本操作手册
-├── 01_技能庫/dna-registry-persona.md       # P18 基因登记官人格
-├── 01_技能庫/dna-registry-audit.md         # P19 极简审计官人格
+├── 02_SKILLS/dna-registry-persona.md       # P18 基因登记官人格
+├── 02_SKILLS/dna-registry-audit.md         # P19 极简审计官人格
 └── L8_治理层/governance/dna/
     ├── 物理虚拟统一DNA登记册_v1.0.md
     └── unified_dna_persona_router_v1.0.md

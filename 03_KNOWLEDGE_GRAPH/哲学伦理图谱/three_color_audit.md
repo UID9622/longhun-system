@@ -17,7 +17,7 @@ reasoning:
   - R值=0.2人类福祉+0.2公平公正+0.15可控可信+0.15透明可解释+0.15责任可追溯+0.15隐私保护
 conclusion: 🟢R≥85放行 / 🟡60≤R<85待审 / 🔴R<60被T2龍盾:9622吸走销毁。
 why: 排序不动点哲学——人民>国家>个人；技术服务于人民是唯一天条，不能拍脑袋。
-source_link: 03_知識圖譜/龍魂系统_知识矩阵总纲_v2.0.md
+source_link: 03_KNOWLEDGE_GRAPH/龍魂系统_知识矩阵总纲_v2.0.md
 related: [no_human_rights_violation, sancai_order, fixed_point, dragon_vein_trace]
 immutable: true
 created: 丙午·辛未·乙酉

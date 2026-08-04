@@ -8,7 +8,7 @@
 ║  Semantic Lie Detector · Connected to Semantic Library                 ║
 ╠══════════════════════════════════════════════════════════════════════════╣
 ║  DNA: #龍芯⚡️2026-07-12-SEMANTIC-LIE-DETECTOR-v2.0                      ║
-║  语义库: 01_技能庫/anti_fraud_patterns_v2.0.json (13+检测维度)            ║
+║  语义库: 02_SKILLS/anti_fraud_patterns_v2.0.json (13+检测维度)            ║
 ║  愿景: 2025年初心 — 人文系统就是测谎仪·给政府提供最好的反诈工具            ║
 ║  哲学:                                                                   ║
 ║    不只看字面意思 → 追溯本源记忆 → 跨会话DNA关联                            ║

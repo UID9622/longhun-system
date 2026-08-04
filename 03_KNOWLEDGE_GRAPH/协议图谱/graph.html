@@ -211,10 +211,10 @@ function select(id){
   document.querySelectorAll('.node').forEach(e=>e.classList.toggle('active',e.dataset.id===id));
   const n=byId[id]; if(!n) return;
   const relHtml=(n.related||[]).map(r=>{
-    const t=byId[r]; if(!t) return `<a href="03_知識圖譜/哲学伦理图谱/${r}.md">[[${r}]]</a>`;
+    const t=byId[r]; if(!t) return `<a href="03_KNOWLEDGE_GRAPH/哲学伦理图谱/${r}.md">[[${r}]]</a>`;
     return `<a href="#" onclick="select('${r}');return false;">${t.label}</a>`;
   }).join(" ");
-  const basedHtml=(n.based_on||[]).map(b=>`<a href="03_知識圖譜/哲学伦理图谱/${b}.md">[[${b}]]</a>`).join(" ");
+  const basedHtml=(n.based_on||[]).map(b=>`<a href="03_KNOWLEDGE_GRAPH/哲学伦理图谱/${b}.md">[[${b}]]</a>`).join(" ");
   const reasonHtml=(n.reasoning||[]).map(r=>`<div>· ${r}</div>`).join("");
   main.innerHTML=`
     <h2>${n.label} <span class="tag t-${n.layer}">${n.layer}</span></h2>

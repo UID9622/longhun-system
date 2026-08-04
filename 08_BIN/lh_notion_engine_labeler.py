@@ -268,7 +268,7 @@ def _compute_ops_tags(path_str: str, name: str, description: str, lines: int, im
         tags.append("核心引擎")
     elif "/bin/" in path_lower:
         tags.append("工具脚本")
-    elif "/01_技能庫/" in path_lower:
+    elif "/02_SKILLS/" in path_lower:
         tags.append("技能库")
 
     # 复杂度

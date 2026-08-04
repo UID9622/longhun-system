@@ -26,12 +26,12 @@ effective_date: 2026-08-04
 | 我要放什么 | 规范目录 | 当前对应路径 | 兼容 Symlink |
 |:---|:---|:---|:---|
 | 协议、治理文档、白皮书 | `01_PROTOCOLS/` | `01_protocols/` | — |
-| 技能定义、投喂存档 | `02_SKILLS/` | `02_SKILLS/` | `01_技能庫/` |
+| 技能定义、投喂存档 | `02_SKILLS/` | `02_SKILLS/` | `02_SKILLS/` |
 | 架构分层实现 | `03_LAYERS/` | `03_LAYERS/` | `layers/` |
-| 知识图谱 | `03_KNOWLEDGE_GRAPH/` | `03_KNOWLEDGE_GRAPH/` | `03_知識圖譜/` |
+| 知识图谱 | `03_KNOWLEDGE_GRAPH/` | `03_KNOWLEDGE_GRAPH/` | `03_KNOWLEDGE_GRAPH/` |
 | API/后端/集成服务 | `04_SERVICES/` | `04_SERVICES/` | `services/` |
 | 引擎核心代码 | `05_ENGINES/` | `05_ENGINES/` | `engines/` |
-| 终端应用 | `06_APPS/` | `06_HOUTU_OS/` | `03_后土OS/` |
+| 终端应用 | `06_APPS/` | `06_HOUTU_OS/` | `06_HOUTU_OS/` |
 | Web 门户页面 | `07_PORTAL/` | `10_PORTAL/` | `portal/` |
 | CLI 命令脚本 | `08_BIN/` | `08_BIN/` | `bin/` |
 | 可复用 SDK/库 | `09_LIBS/` | `09_TOOLS/`（当前含工具） | `tools/` |
@@ -99,7 +99,7 @@ effective_date: 2026-08-04
 | `archive/` | 历史技能 |
 | `registry.json` | 技能注册表 |
 
-**当前映射**：`02_SKILLS/`（兼容 Symlink：`01_技能庫/`）
+**当前映射**：`02_SKILLS/`（兼容 Symlink：`02_SKILLS/`）
 
 ---
 
@@ -117,7 +117,7 @@ effective_date: 2026-08-04
 | `L5_service/` | 服务编排、API、集成 | `L5_服务层` |
 | `L6_memory/` | 记忆、同步、状态 | `L6_记忆层` + `L6_同步层` |
 | `L7_expression/` | 表达、交互、前端 | `L7_表达层` |
-| `L8_governance/` | 治理、审计、决策 | `L8_治理层` + `06_HOUTU_OS/`（兼容：`03_后土OS/`） |
+| `L8_governance/` | 治理、审计、决策 | `L8_治理层` + `06_HOUTU_OS/`（兼容：`06_HOUTU_OS/`） |
 | `L9_subsystems/` | 子系统、独立应用 | `L9_子系统` |
 
 ---
@@ -411,9 +411,9 @@ effective_date: 2026-08-04
 | `data/` | `11_DATA/` | `data → 11_DATA` | ✅ 已执行 |
 | `docs/` | `12_DOCS/` | `docs → 12_DOCS` | ✅ 已执行 |
 | `tests/` | `13_TESTS/` | `tests → 13_TESTS` | ✅ 已执行 |
-| `01_技能庫/` | `02_SKILLS/` | `01_技能庫 → 02_SKILLS` | ✅ 已执行 |
-| `03_后土OS/` | `06_HOUTU_OS/` | `03_后土OS → 06_HOUTU_OS` | ✅ 已执行 |
-| `03_知識圖譜/` | `03_KNOWLEDGE_GRAPH/` | `03_知識圖譜 → 03_KNOWLEDGE_GRAPH` | ✅ 已执行 |
+| `02_SKILLS/` | `02_SKILLS/` | `01_技能庫 → 02_SKILLS` | ✅ 已执行 |
+| `06_HOUTU_OS/` | `06_HOUTU_OS/` | `03_后土OS → 06_HOUTU_OS` | ✅ 已执行 |
+| `03_KNOWLEDGE_GRAPH/` | `03_KNOWLEDGE_GRAPH/` | `03_知識圖譜 → 03_KNOWLEDGE_GRAPH` | ✅ 已执行 |
 
 ### 待规划目录
 

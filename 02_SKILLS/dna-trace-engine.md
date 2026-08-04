@@ -184,16 +184,16 @@ class L2登记层:
 | 引擎 | 文件 | 说明 |
 |------|------|------|
 | 河图洛书DNA引擎 | `bin/hetu_luoshu_dna.py` | DNA生成+数字根+八卦，v2.0 |
-| DNA生成器技能 | `01_技能庫/dna-gen.md` | 技能入口 |
+| DNA生成器技能 | `02_SKILLS/dna-gen.md` | 技能入口 |
 | 七因子验证器 | `cnsh-core/governance/f1_through_f7_verifier.py` | L2登记层验证 |
 
 ## 引用与溯源
 
 - 核心文档：DNA追溯体系规范 `#龍芯⚡️2024-06-10-规范-DNA追溯-v2.0`
 - 相关文件：
-  - `01_技能庫/dna-gen.md` — DNA生成器技能
-  - `01_技能庫/identity-positioning.md` — 身份定位总纲
-  - `01_技能庫/guomi-crypto.md` — 国密三引擎
+  - `02_SKILLS/dna-gen.md` — DNA生成器技能
+  - `02_SKILLS/identity-positioning.md` — 身份定位总纲
+  - `02_SKILLS/guomi-crypto.md` — 国密三引擎
   - `01_protocols/seven-factor-verification.md` — 七因子验证预言机协议
   - `bin/hetu_luoshu_dna.py` — 河图洛书DNA引擎
 

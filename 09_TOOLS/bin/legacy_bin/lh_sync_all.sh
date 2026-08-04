@@ -75,7 +75,7 @@ else
     
     # 技能库
     mkdir -p "$BACKUP_DIR/01_技能庫"
-    cp -r "$ROOT/01_技能庫"/* "$BACKUP_DIR/01_技能庫/" 2>/dev/null || true
+    cp -r "$ROOT/01_技能庫"/* "$BACKUP_DIR/02_SKILLS/" 2>/dev/null || true
     
     # bin 脚本
     mkdir -p "$BACKUP_DIR/bin"
@@ -83,7 +83,7 @@ else
     
     # 知识图谱
     mkdir -p "$BACKUP_DIR/03_知識圖譜"
-    cp -r "$ROOT/03_知識圖譜"/* "$BACKUP_DIR/03_知識圖譜/" 2>/dev/null || true
+    cp -r "$ROOT/03_知識圖譜"/* "$BACKUP_DIR/03_KNOWLEDGE_GRAPH/" 2>/dev/null || true
     
     BACKUP_SIZE=$(du -sh "$BACKUP_DIR" 2>/dev/null | awk '{print $1}')
     ok "本地备份: $BACKUP_DIR ($BACKUP_SIZE)"

@@ -490,7 +490,7 @@
       "label": "论文",
       "type": "paper",
       "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-论文-v1.0",
-      "description": "paper · 42.45 KB · 归宿: _archive/papers/ 或 03_知識圖譜/",
+      "description": "paper · 42.45 KB · 归宿: _archive/papers/ 或 03_KNOWLEDGE_GRAPH/",
       "related_nodes": [
         "l0-core"
       ]
@@ -500,7 +500,7 @@
       "label": "论文 1",
       "type": "paper",
       "dna": "#龍芯⚡️2026-06-22-DOWNLOADS-论文-1-v1.0",
-      "description": "paper · 30.14 KB · 归宿: _archive/papers/ 或 03_知識圖譜/",
+      "description": "paper · 30.14 KB · 归宿: _archive/papers/ 或 03_KNOWLEDGE_GRAPH/",
       "related_nodes": [
         "l0-core"
       ]
@@ -4606,7 +4606,7 @@
         "china_sovereignty",
         "cnsh_open_declaration"
       ],
-      "source": "03_知識圖譜/哲学伦理图谱/data_sovereignty_in_user.md",
+      "source": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/data_sovereignty_in_user.md",
       "immutable": true
     },
     "no_human_rights_violation": {
@@ -4621,7 +4621,7 @@
         "china_sovereignty",
         "three_color_audit"
       ],
-      "source": "03_知識圖譜/哲学伦理图谱/no_human_rights_violation.md",
+      "source": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/no_human_rights_violation.md",
       "immutable": true
     },
     "three_color_audit": {
@@ -4637,7 +4637,7 @@
         "fixed_point",
         "dragon_vein_trace"
       ],
-      "source": "03_知識圖譜/哲学伦理图谱/three_color_audit.md",
+      "source": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/three_color_audit.md",
       "immutable": true
     },
     "sancai_order": {
@@ -4653,7 +4653,7 @@
         "local_first",
         "dragon_vein_trace"
       ],
-      "source": "03_知識圖譜/哲学伦理图谱/sancai_order.md",
+      "source": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/sancai_order.md",
       "immutable": true
     },
     "fixed_point": {
@@ -4669,7 +4669,7 @@
         "dragon_vein_trace",
         "local_first"
       ],
-      "source": "03_知識圖譜/哲学伦理图谱/fixed_point.md",
+      "source": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/fixed_point.md",
       "immutable": true
     },
     "dragon_vein_trace": {
@@ -4685,7 +4685,7 @@
         "sancai_order",
         "local_first"
       ],
-      "source": "03_知識圖譜/哲学伦理图谱/dragon_vein_trace.md",
+      "source": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/dragon_vein_trace.md",
       "immutable": true
     },
     "local_first": {
@@ -4700,7 +4700,7 @@
         "china_sovereignty",
         "three_color_audit"
       ],
-      "source": "03_知識圖譜/哲学伦理图谱/local_first.md",
+      "source": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/local_first.md",
       "immutable": true
     },
     "china_sovereignty": {
@@ -4715,7 +4715,7 @@
         "no_human_rights_violation",
         "local_first"
       ],
-      "source": "03_知識圖譜/哲学伦理图谱/china_sovereignty.md",
+      "source": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/china_sovereignty.md",
       "immutable": true
     },
     "cnsh_open_declaration": {
@@ -4730,7 +4730,7 @@
         "local_first",
         "no_human_rights_violation"
       ],
-      "source": "03_知識圖譜/哲学伦理图谱/cnsh_open_declaration.md",
+      "source": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/cnsh_open_declaration.md",
       "immutable": true
     },
     "yijing_world_model": {
@@ -4746,7 +4746,7 @@
         "cnsh_open_declaration",
         "dragon_vein_trace"
       ],
-      "source": "03_知識圖譜/哲学伦理图谱/yijing_world_model.md",
+      "source": "03_KNOWLEDGE_GRAPH/哲学伦理图谱/yijing_world_model.md",
       "immutable": false
     },
     "protocol_knowledge_sovereignty": {

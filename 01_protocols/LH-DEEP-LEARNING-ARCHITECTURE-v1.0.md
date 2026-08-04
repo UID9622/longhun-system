@@ -366,7 +366,7 @@ LORA_CONFIG = {
   │ 存储层       │
   │ docs/notion_mirror/    (73 .md)
   │ L7_数据层/notion_prompt_library/ (9分类)
-  │ 01_技能庫/ (45技能)
+  │ 02_SKILLS/ (45技能)
   │ 01_protocols/ (195 .md)
   │ data/ (训练数据)
   └──────┬──────┘

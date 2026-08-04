@@ -18,7 +18,7 @@
 | CNSH内核碎片化 | 🔴严重 | 7个目录含CNSH相关代码（cnsh-core/cnsh/cnsh-terminal/cnsh-runtime-v1/cnsh-core.backup/cnsh_terminal_v5.0/cnsh-editor/cnsh_editor） |
 | 引擎多份副本 | 🔴严重 | 30个引擎文件，11组有副本冗余（最多5份同文件） |
 | Web操作台重复 | 🔴严重 | web/与portal/几乎完全对称（相同HTML文件） |
-| 技能定义分叉 | 🟡中等 | 01_技能庫/(13文件) vs 01_技能库/(64文件) vs skills/ (13+子目录) |
+| 技能定义分叉 | 🟡中等 | 02_SKILLS/(13文件) vs 01_技能库/(64文件) vs skills/ (13+子目录) |
 | 技能备份冗余 | 🟡中等 | skills.backup/ 与 skills/ 重复 |
 | 监控重复 | 🟡中等 | monitoring/ vs monitoring.backup/ 重复 |
 | 根目录散落 | 🟡中等 | 60+ .md/.py/.sh/.json 文件散落根目录 |
@@ -62,7 +62,7 @@ longhun-system/
 │
 ├── 🛡️ L2_技能层/                      ← 技能权威定义+引擎
 │   └── skills/
-│       ├── definitions/               ← (01_技能庫/) 13个权威技能定义
+│       ├── definitions/               ← (02_SKILLS/) 13个权威技能定义
 │       ├── engines/                   ← 技能引擎
 │       │   ├── skill_extension.py
 │       │   ├── bagua_router.py
@@ -108,7 +108,7 @@ longhun-system/
 │
 ├── 💾 L7_数据层/                      ← 数据存储+知识库
 │   └── data/
-│       ├── knowledge-graph/           ← (03_知識圖譜/)
+│       ├── knowledge-graph/           ← (03_KNOWLEDGE_GRAPH/)
 │       ├── brain/                     ← 第二大脑
 │       ├── memory/                    ← 记忆宇宙
 │       ├── capabilities/              ← 能力注册表
@@ -202,7 +202,7 @@ longhun-system/
 
 | 源 | 目标 | 操作 |
 |----|------|------|
-| `01_技能庫/` (13文件) | `L2_技能层/skills/definitions/` | 🏠 保留为权威定义 |
+| `02_SKILLS/` (13文件) | `L2_技能层/skills/definitions/` | 🏠 保留为权威定义 |
 | `01_技能库/` (64文件) | `_archive/deprecated/01_技能库/` | 📦 归档（简中分叉） |
 | `skills/` (运行时) | `L2_技能层/skills/runtime/` | 🏠 保留为运行时 |
 | `skills.backup/` | `_archive/deprecated/skills.backup/` | 📦 归档 |

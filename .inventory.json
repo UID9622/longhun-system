@@ -1196,7 +1196,7 @@
       "name": "lh_cnsh_dict_export.py",
       "path": "/Users/zuimeidedeyihan/longhun-system/bin/lh_cnsh_dict_export.py",
       "description": "CNSH标准词典 · CSV生成器",
-      "help": "✅ CSV: /Users/zuimeidedeyihan/longhun-system/03_知識圖譜/cnsh_standard_dictionary.csv (179 条)\n✅ TSV: /Users/zuimeidedeyihan/longhun-system/03_知識圖譜/cnsh_standard_dictionary.tsv (179 条)\n\n📊 分类统计:\n   编程执行层: 26 条\n   网络通信层: 22 条\n   AI/ML层: 22 条\n   数据存储层: 20 条\n   安全密码层: 20 条\n   DevOps/运维层: 20 条\n   区块链/Web3层: 1",
+      "help": "✅ CSV: /Users/zuimeidedeyihan/longhun-system/03_KNOWLEDGE_GRAPH/cnsh_standard_dictionary.csv (179 条)\n✅ TSV: /Users/zuimeidedeyihan/longhun-system/03_KNOWLEDGE_GRAPH/cnsh_standard_dictionary.tsv (179 条)\n\n📊 分类统计:\n   编程执行层: 26 条\n   网络通信层: 22 条\n   AI/ML层: 22 条\n   数据存储层: 20 条\n   安全密码层: 20 条\n   DevOps/运维层: 20 条\n   区块链/Web3层: 1",
       "executable": true
     },
     {

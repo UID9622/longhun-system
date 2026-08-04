@@ -12,13 +12,13 @@
 ## 关联模块
 
 - `skills/`
-- `01_技能庫/`
+- `02_SKILLS/`
 - `capabilities/`
 
 ## 本层入口
 
 - `skills/` → 符号链接到 `../skills/`
-- `01_技能庫/` → 符号链接到 `../01_技能庫/`
+- `02_SKILLS/` → 符号链接到 `../02_SKILLS/`
 - `capabilities/` → 符号链接到 `../capabilities/`
 
 ---

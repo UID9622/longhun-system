@@ -710,7 +710,7 @@ known_parties = {
 | 归档数据库 | `L7_数据层/data/longhun_unified.db` → `innovation_traces` 表 | SQLite 结构化存储 |
 | 报告归档 | `L7_数据层/strategy_reports/innovation_traces/` | Markdown 报告归档 |
 | 技能定义 | `brain/claude_archive/raw_skills/innovation-tracer/SKILL.md` | 技能元数据 |
-| **本文档** | `01_技能庫/innovation-tracer-tech-doc.md` | 技术文档 |
+| **本文档** | `02_SKILLS/innovation-tracer-tech-doc.md` | 技术文档 |
 | 路由注册 | `AGENTS.md` | 意图→人格路由表 |
 
 ---

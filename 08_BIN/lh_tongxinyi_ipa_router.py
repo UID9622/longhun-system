@@ -167,7 +167,7 @@ IPA注册表: Dict[str, Dict[str, Any]] = {
         "wuxing": "金",
         "priority": 1,
         "status": "live",
-        "engine": "01_技能庫/daodao.md + longpo.md",
+        "engine": "02_SKILLS/daodao.md + longpo.md",
     },
     "IPA-321": {
         "name": "东亚文化圈语义",

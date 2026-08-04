@@ -11,13 +11,13 @@
 
 ## 关联模块
 
-- `03_知識圖譜/`
+- `03_KNOWLEDGE_GRAPH/`
 - `knowledge-graph/`
 - `knowledge/`
 
 ## 本层入口
 
-- `03_知識圖譜/` → 符号链接到 `../03_知識圖譜/`
+- `03_KNOWLEDGE_GRAPH/` → 符号链接到 `../03_KNOWLEDGE_GRAPH/`
 - `knowledge-graph/` → 符号链接到 `../knowledge-graph/`
 - `knowledge/` → 符号链接到 `../knowledge/`
 

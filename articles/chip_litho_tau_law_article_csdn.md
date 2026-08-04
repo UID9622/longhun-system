@@ -189,7 +189,7 @@
 > **DNA**: `#龍芯⚡️丙午·乙未·癸亥·亥时·☰乾-CHIP-TAU-ARTICLE-v1.0-7e3a9d1b`
 > **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 > **视频解说**: 配套视频脚本见 [articles/chip_litho_tau_law_video_script.md]
-> **知识图谱**: 知识卡片见 [03_知識圖譜/lh_knowledge_芯片_光刻韬定律知识工程.md]
+> **知识图谱**: 知识卡片见 [03_KNOWLEDGE_GRAPH/lh_knowledge_芯片_光刻韬定律知识工程.md]
 
 ---
 

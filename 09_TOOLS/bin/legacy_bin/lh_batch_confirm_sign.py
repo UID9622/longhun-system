@@ -45,23 +45,23 @@ FILES = {
     "01_protocols/THESIS-ROOT-GOVERNANCE/FULL-THESIS.md": "论文全文",
 
     # === 01_技能庫 核心技能 ===
-    "01_技能庫/veto-alert.md": "一票否决·高危拦截",
-    "01_技能庫/emotion-absorber.md": "情绪海绵·反操控",
-    "01_技能庫/fuse-appeal.md": "熔断申诉·人工审计",
-    "01_技能庫/semantic-parser.md": "语义解析·中英双轨",
-    "01_技能庫/route-find.md": "路由查找·总线查询",
-    "01_技能庫/decision-card.md": "决策来源卡·全透明",
-    "01_技能庫/error-translator.md": "错误翻译器",
-    "01_技能庫/water-army-detect.md": "水军检测",
-    "01_技能庫/sovereign-privacy.md": "主权隐私",
-    "01_技能庫/plist-validator.md": "plist验证器",
-    "01_技能庫/skill-extension.md": "技能扩展",
-    "01_技能庫/audit-plugin.md": "审计插件",
-    "01_技能庫/wuxing-guard.md": "五行守护",
-    "01_技能庫/bagua-router.md": "八卦路由",
+    "02_SKILLS/veto-alert.md": "一票否决·高危拦截",
+    "02_SKILLS/emotion-absorber.md": "情绪海绵·反操控",
+    "02_SKILLS/fuse-appeal.md": "熔断申诉·人工审计",
+    "02_SKILLS/semantic-parser.md": "语义解析·中英双轨",
+    "02_SKILLS/route-find.md": "路由查找·总线查询",
+    "02_SKILLS/decision-card.md": "决策来源卡·全透明",
+    "02_SKILLS/error-translator.md": "错误翻译器",
+    "02_SKILLS/water-army-detect.md": "水军检测",
+    "02_SKILLS/sovereign-privacy.md": "主权隐私",
+    "02_SKILLS/plist-validator.md": "plist验证器",
+    "02_SKILLS/skill-extension.md": "技能扩展",
+    "02_SKILLS/audit-plugin.md": "审计插件",
+    "02_SKILLS/wuxing-guard.md": "五行守护",
+    "02_SKILLS/bagua-router.md": "八卦路由",
 
     # === 01_技能庫 曾师训练数据 ===
-    "01_技能庫/longhun-zeng-digital-human/knowledge_base/INDEX.md": "曾师知识库索引",
+    "02_SKILLS/longhun-zeng-digital-human/knowledge_base/INDEX.md": "曾师知识库索引",
 }
 
 SINGLE_LINE_INSERT = {

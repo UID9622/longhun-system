@@ -64,7 +64,7 @@ PATH_RULES: Dict[str, dict] = {
     },
     "skill_engine": {
         "label": "技能/引擎文件",
-        "good_dirs": ["01_技能庫/"],
+        "good_dirs": ["02_SKILLS/"],
         "bad_dirs": ["~/Desktop", "/tmp"],
         "extensions": [".md", ".py", ".json"],
     },
@@ -76,7 +76,7 @@ PATH_RULES: Dict[str, dict] = {
     },
     "knowledge_graph": {
         "label": "知识图谱",
-        "good_dirs": ["03_知識圖譜/"],
+        "good_dirs": ["03_KNOWLEDGE_GRAPH/"],
         "bad_dirs": ["~/Downloads", "~/Desktop", "/tmp"],
         "extensions": [".md"],
     },
@@ -85,11 +85,11 @@ PATH_RULES: Dict[str, dict] = {
 # 同义词/别名检测
 DIR_ALIASES = {
     "01_protocols": ["01_protocols/", "01_protocols"],
-    "01_技能庫": ["01_技能庫/", "01_技能庫", "skills/"],
+    "01_技能庫": ["02_SKILLS/", "01_技能庫", "skills/"],
     "bin": ["bin/", "bin"],
     "deploy": ["deploy/", "deploy", "deployment/"],
     "data": ["data/", "data"],
-    "03_知識圖譜": ["03_知識圖譜/", "03_知識圖譜"],
+    "03_知識圖譜": ["03_KNOWLEDGE_GRAPH/", "03_知識圖譜"],
 }
 
 # 项目内合法Python文件目录（非bin/deploy也合法的Python目录）
@@ -118,7 +118,7 @@ VALID_PYTHON_DIRS = {
     "L6_记忆层/", "L6_同步层/", "L7_表达层/", "L7_数据层/", "L8_分发层/",
     "L8_治理层/", "L9_子系统/",
     "web/", "web_apps/", "deployment/",
-    "01_技能庫/", "03_compiler/", "统一入口/", "引擎/",
+    "02_SKILLS/", "03_compiler/", "统一入口/", "引擎/",
     "cnsh/starter-kit/", "cnsh/editor/", "cnsh/terminal/", "cnsh/repo-push/",
     "editors/", "editor/", "mobile-monitoring.integrated/",
     "voice-dna/", "voice-twin/",
