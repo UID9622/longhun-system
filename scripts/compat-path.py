@@ -44,6 +44,13 @@ COMPAT_MAP: dict[str, str] = {
     "backend": "services/backend_legacy",
     "knowledge-graph": "knowledge/graph",
     "字体": "longhun-font",
+
+    # 2026-08-04 技能库规范化
+    "01_技能庫": "02_SKILLS",
+
+    # 2026-08-04 中文目录规范化
+    "03_后土OS": "06_HOUTU_OS",
+    "03_知識圖譜": "03_KNOWLEDGE_GRAPH",
 }
 
 # 2026-08-04 已清理的实验性 Symlink（原指向 archive/experiments/）

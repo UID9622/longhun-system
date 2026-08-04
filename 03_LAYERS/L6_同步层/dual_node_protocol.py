@@ -52,13 +52,13 @@ class SyncDimension(Enum):
 DIMENSION_PATHS = {
     SyncDimension.CODE: [
         "bin/", "L1_内核层/", "L3_数据层/", "L5_服务层/",
-        "scripts/", "deploy/", "agents/", "01_技能庫/",
+        "scripts/", "deploy/", "agents/", "02_SKILLS/",
     ],
     SyncDimension.PROTOCOL: [
         "01_protocols/",
     ],
     SyncDimension.KNOWLEDGE: [
-        "03_知識圖譜/", "01_技能庫/",
+        "03_知識圖譜/", "02_SKILLS/",
     ],
     SyncDimension.MEMORY: [
         "brain/memories.db", ".codebuddy/memory/",

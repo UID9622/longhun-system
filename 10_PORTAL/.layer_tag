@@ -1,0 +1,10 @@
+{
+  "layer_id": "10",
+  "layer_name": "PORTAL",
+  "display_name": "Web 门户页面",
+  "dna": "#龍芯⚡️丙午·丙申·庚戌·PORTAL-LAYER-v1.0-UID9622",
+  "purpose": "Web 面板、控制台、可视化页面、PWA 入口",
+  "compat_symlink": "portal",
+  "created_at": "2026-08-04T09:18:42.923263+00:00",
+  "version": "v2.0"
+}

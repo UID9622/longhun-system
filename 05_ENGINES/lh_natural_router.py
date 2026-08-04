@@ -34,7 +34,7 @@ from typing import Any, Dict, List, Optional, Tuple
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 BIN_DIR = PROJECT_ROOT / "bin"
 ENGINES_DIR = PROJECT_ROOT / "engines"
-DRAWERS_FILE = PROJECT_ROOT / "01_技能庫" / "owner_semantic_drawers_v2.0.json"
+DRAWERS_FILE = PROJECT_ROOT / "02_SKILLS" / "owner_semantic_drawers_v2.0.json"
 SEMANTIC_LIB = PROJECT_ROOT / "L7_数据层" / "semantic_context_library.json"
 VENV_PYTHON = PROJECT_ROOT / ".venv" / "bin" / "python3"
 PYTHON_CMD = str(VENV_PYTHON) if VENV_PYTHON.exists() else "python3"

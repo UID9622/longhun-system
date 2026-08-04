@@ -938,6 +938,7 @@ notes: "<注意事项>"
 |:---|:---|:---|:---|
 | v1.0 | 2026-08-04 | 初始审计报告·目标架构蓝图·迁移路线图·自动化治理规则 | UID9622+AI |
 | v2.0 | 2026-08-04 | 执行第一阶段重组：清理24个archive/experiments实验Symlink；完成10个核心目录编号化（bin→08_BIN、tools→09_TOOLS、portal→10_PORTAL、data→11_DATA、docs→12_DOCS、tests→13_TESTS、engines→05_ENGINES、services→04_SERVICES、layers→03_LAYERS、audit→07_AUDIT），旧路径全部保留Symlink兼容；新增scripts/compat-path.py兼容映射脚本；更新目录地图v2.0 | UID9622+AI |
+| v2.1 | 2026-08-04 | 第二阶段重组：为10个编号目录生成README.md与.layer_tag；技能库规范化01_技能庫→02_SKILLS；中文目录规范化03_后土OS→06_HOUTU_OS、03_知識圖譜→03_KNOWLEDGE_GRAPH；修复关键硬编码路径（lh_natural_router.py、dual_node_protocol.py、lh_dualview_validator.py）；更新compat-path.py与目录地图v2.1 | UID9622+AI |
 
 ---
 

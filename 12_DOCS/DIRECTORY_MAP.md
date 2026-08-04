@@ -26,11 +26,12 @@ effective_date: 2026-08-04
 | 我要放什么 | 规范目录 | 当前对应路径 | 兼容 Symlink |
 |:---|:---|:---|:---|
 | 协议、治理文档、白皮书 | `01_PROTOCOLS/` | `01_protocols/` | — |
-| 技能定义、投喂存档 | `02_SKILLS/` | `01_技能庫/` | — |
+| 技能定义、投喂存档 | `02_SKILLS/` | `02_SKILLS/` | `01_技能庫/` |
 | 架构分层实现 | `03_LAYERS/` | `03_LAYERS/` | `layers/` |
+| 知识图谱 | `03_KNOWLEDGE_GRAPH/` | `03_KNOWLEDGE_GRAPH/` | `03_知識圖譜/` |
 | API/后端/集成服务 | `04_SERVICES/` | `04_SERVICES/` | `services/` |
 | 引擎核心代码 | `05_ENGINES/` | `05_ENGINES/` | `engines/` |
-| 终端应用 | `06_APPS/` | `apps/` | — |
+| 终端应用 | `06_APPS/` | `06_HOUTU_OS/` | `03_后土OS/` |
 | Web 门户页面 | `07_PORTAL/` | `10_PORTAL/` | `portal/` |
 | CLI 命令脚本 | `08_BIN/` | `08_BIN/` | `bin/` |
 | 可复用 SDK/库 | `09_LIBS/` | `09_TOOLS/`（当前含工具） | `tools/` |
@@ -98,7 +99,7 @@ effective_date: 2026-08-04
 | `archive/` | 历史技能 |
 | `registry.json` | 技能注册表 |
 
-**当前映射**：`01_技能庫/`
+**当前映射**：`02_SKILLS/`（兼容 Symlink：`01_技能庫/`）
 
 ---
 
@@ -116,12 +117,12 @@ effective_date: 2026-08-04
 | `L5_service/` | 服务编排、API、集成 | `L5_服务层` |
 | `L6_memory/` | 记忆、同步、状态 | `L6_记忆层` + `L6_同步层` |
 | `L7_expression/` | 表达、交互、前端 | `L7_表达层` |
-| `L8_governance/` | 治理、审计、决策 | `L8_治理层` + `03_后土OS/` |
+| `L8_governance/` | 治理、审计、决策 | `L8_治理层` + `06_HOUTU_OS/`（兼容：`03_后土OS/`） |
 | `L9_subsystems/` | 子系统、独立应用 | `L9_子系统` |
 
 ---
 
-### 04_ENGINES/ — 引擎
+### 05_ENGINES/ — 引擎
 
 | 子目录 | 用途 |
 |:---|:---|
@@ -394,28 +395,37 @@ effective_date: 2026-08-04
 
 ---
 
-## 附录 · 当前 → 目标路径映射速查
+## 附录 · 已执行的重命名映射速查（v2.1）
 
-| 当前路径 | 目标路径 | 优先级 |
-|:---|:---|:---:|
-| `01_protocols/` | `01_PROTOCOLS/` | P0 |
-| `01_技能庫/` | `02_SKILLS/` | P0 |
-| `layers/` | `03_LAYERS/` | P0 |
-| `engines/` | `04_ENGINES/` | P0 |
-| `services/` | `05_SERVICES/` | P0 |
-| `apps/` | `06_APPS/` | P1 |
-| `portal/` | `07_PORTAL/` | P0 |
-| `bin/` | `08_BIN/` | P0 |
-| `articles/` | `11_ARTICLES/` | P1 |
-| `docs/` | `12_DOCS/` | P0 |
-| `tests/` | `13_TESTS/` | P1 |
-| `docker/`、`deploy/` | `14_DEPLOY/` | P1 |
-| `archive/experiments/` 活跃项 | `15_LABS/` | P2 |
-| `archive/` | `16_ARCHIVE/` | P1 |
-| `audit/` | `17_AUDIT/` | P1 |
-| `logs/` | `18_LOGS/` | P2 |
-| `_private/` | `21_PRIVATE/` | P0 |
-| `_work/` | `22_WORK/` | P1 |
+> 以下映射已全部执行，旧路径通过 Symlink 保留兼容。
+
+| 旧路径 | 新编号目录 | 兼容 Symlink | 状态 |
+|:---|:---|:---:|:---|
+| `layers/` | `03_LAYERS/` | `layers → 03_LAYERS` | ✅ 已执行 |
+| `services/` | `04_SERVICES/` | `services → 04_SERVICES` | ✅ 已执行 |
+| `engines/` | `05_ENGINES/` | `engines → 05_ENGINES` | ✅ 已执行 |
+| `audit/` | `07_AUDIT/` | `audit → 07_AUDIT` | ✅ 已执行 |
+| `bin/` | `08_BIN/` | `bin → 08_BIN` | ✅ 已执行 |
+| `tools/` | `09_TOOLS/` | `tools → 09_TOOLS` | ✅ 已执行 |
+| `portal/` | `10_PORTAL/` | `portal → 10_PORTAL` | ✅ 已执行 |
+| `data/` | `11_DATA/` | `data → 11_DATA` | ✅ 已执行 |
+| `docs/` | `12_DOCS/` | `docs → 12_DOCS` | ✅ 已执行 |
+| `tests/` | `13_TESTS/` | `tests → 13_TESTS` | ✅ 已执行 |
+| `01_技能庫/` | `02_SKILLS/` | `01_技能庫 → 02_SKILLS` | ✅ 已执行 |
+| `03_后土OS/` | `06_HOUTU_OS/` | `03_后土OS → 06_HOUTU_OS` | ✅ 已执行 |
+| `03_知識圖譜/` | `03_KNOWLEDGE_GRAPH/` | `03_知識圖譜 → 03_KNOWLEDGE_GRAPH` | ✅ 已执行 |
+
+### 待规划目录
+
+| 当前路径 | 建议目标路径 | 优先级 | 说明 |
+|:---|:---|:---:|:---|
+| `01_protocols/` | `01_PROTOCOLS/` | P2 | macOS 大小写不敏感，需特殊处理 |
+| `apps/` | `06_APPS/` | P2 | 当前仅含 homeowner-toolkit，规模小 |
+| `docker/`、`deploy/` | `14_DEPLOY/` | P2 | 待合并 |
+| `archive/experiments/` 活跃项 | `15_LABS/` | P2 | 已清理废弃 Symlink |
+| `logs/` | `18_LOGS/` | P2 | 当前为 `logs/` |
+| `_private/` | `21_PRIVATE/` | P2 | 已存在 `_private/` |
+| `_work/` | `22_WORK/` | P2 | 已存在 `_work/` |
 | `baobao-guardian/` | `25_BAOBAO/` | P2 |
 | `25_TASK_ENGINE/` | `26_TASK_ENGINE/` | P1 |
 
