@@ -27,28 +27,23 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 
 # 旧路径 → 新路径映射（相对仓库根目录）
 COMPAT_MAP: dict[str, str] = {
-    # 重组后的规范化目录（v1.0 安全阶段）
+    # 重组后的规范化目录（v2.0 编号结构）
+    "bin": "08_BIN",
+    "tools": "09_TOOLS",
+    "portal": "10_PORTAL",
+    "data": "11_DATA",
+    "docs": "12_DOCS",
+    "tests": "13_TESTS",
+    "engines": "05_ENGINES",
+    "services": "04_SERVICES",
+    "layers": "03_LAYERS",
+    "audit": "07_AUDIT",
+
+    # 一直保留的兼容入口
     "training": "train",
     "backend": "services/backend_legacy",
     "knowledge-graph": "knowledge/graph",
     "字体": "longhun-font",
-
-    # 计划中的高风险重命名（仅记录，不自动执行）
-    # "bin": "08_BIN",
-    # "layers": "03_LAYERS",
-    # "services": "04_SERVICES",
-    # "engines": "05_ENGINES",
-    # "protocols": "01_PROTOCOLS",
-    # "memory": "06_MEMORY",
-    # "audit": "07_AUDIT",
-    # "tools": "09_TOOLS",
-    # "portal": "10_PORTAL",
-    # "data": "11_DATA",
-    # "docs": "12_DOCS",
-    # "tests": "13_TESTS",
-    # "assets": "14_ASSETS",
-    # "labs": "15_LABS",
-    # "config": "20_CONFIG",
 }
 
 # 2026-08-04 已清理的实验性 Symlink（原指向 archive/experiments/）

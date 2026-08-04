@@ -21,33 +21,35 @@ effective_date: 2026-08-04
 
 ## 快速决策表
 
-| 我要放什么 | 放到哪里 | 当前对应路径 |
-|:---|:---|:---|
-| 协议、治理文档、白皮书 | `01_PROTOCOLS/` | `01_protocols/` |
-| 技能定义、投喂存档 | `02_SKILLS/` | `01_技能庫/` |
-| 架构分层实现 | `03_LAYERS/` | `layers/` |
-| 引擎核心代码 | `04_ENGINES/` | `engines/` |
-| API/后端/集成服务 | `05_SERVICES/` | `services/` |
-| 终端应用 | `06_APPS/` | `apps/` |
-| Web 门户页面 | `07_PORTAL/` | `portal/` |
-| CLI 命令脚本 | `08_BIN/` | `bin/` |
-| 可复用 SDK/库 | `09_LIBS/` | （待拆分） |
-| 知识图谱、数据集 | `10_DATA/` | `data/`、`knowledge-graph/` |
-| 文章、教程 | `11_ARTICLES/` | `articles/` |
-| 技术文档、架构说明 | `12_DOCS/` | `docs/` |
-| 单元/集成/性能测试 | `13_TESTS/` | `tests/`、`benchmarks/` |
-| Docker/systemd/nginx 配置 | `14_DEPLOY/` | `deploy/`、`docker/` |
-| 活跃实验项目 | `15_LABS/` | `archive/experiments/` |
-| 历史归档（只读） | `16_ARCHIVE/` | `archive/` |
-| 审计日志、报告 | `17_AUDIT/` | `audit/` |
-| 运行时日志 | `18_LOGS/` | `logs/` |
-| 字体、图片、音频 | `19_ASSETS/` | `fonts/`、`portal/assets/` |
-| 编辑器、工具配置 | `20_CONFIG/` | `.vscode/`、`.devcontainer/` |
-| 私密资料（不纳入版本控制） | `21_PRIVATE/` | `_private/` |
-| 临时工作区 | `22_WORK/` | `_work/` |
-| 第三方集成 | `23_INTEGRATIONS/` | `integrations/` |
-| Android 相关 | `24_ANDROID/` | `android-auto/` |
-| 宝宝守护 | `25_BAOBAO/` | `baobao-guardian/` |
+> **v2.0 更新（2026-08-04）**：以下"当前对应路径"已按编号结构重组。旧路径（如 `bin/`、`docs/`）仍通过 Symlink 保留兼容性，可用 `scripts/compat-path.py resolve <旧路径>` 查询映射。
+
+| 我要放什么 | 规范目录 | 当前对应路径 | 兼容 Symlink |
+|:---|:---|:---|:---|
+| 协议、治理文档、白皮书 | `01_PROTOCOLS/` | `01_protocols/` | — |
+| 技能定义、投喂存档 | `02_SKILLS/` | `01_技能庫/` | — |
+| 架构分层实现 | `03_LAYERS/` | `03_LAYERS/` | `layers/` |
+| API/后端/集成服务 | `04_SERVICES/` | `04_SERVICES/` | `services/` |
+| 引擎核心代码 | `05_ENGINES/` | `05_ENGINES/` | `engines/` |
+| 终端应用 | `06_APPS/` | `apps/` | — |
+| Web 门户页面 | `07_PORTAL/` | `10_PORTAL/` | `portal/` |
+| CLI 命令脚本 | `08_BIN/` | `08_BIN/` | `bin/` |
+| 可复用 SDK/库 | `09_LIBS/` | `09_TOOLS/`（当前含工具） | `tools/` |
+| 知识图谱、数据集 | `10_DATA/` | `11_DATA/` | `data/` |
+| 文章、教程 | `11_ARTICLES/` | `articles/`（待建） | — |
+| 技术文档、架构说明 | `12_DOCS/` | `12_DOCS/` | `docs/` |
+| 单元/集成/性能测试 | `13_TESTS/` | `13_TESTS/` | `tests/` |
+| Docker/systemd/nginx 配置 | `14_DEPLOY/` | `deploy/`、`docker/` | — |
+| 活跃实验项目 | `15_LABS/` | `15_LABS/` | — |
+| 历史归档（只读） | `16_ARCHIVE/` | `archive/` | — |
+| 审计日志、报告 | `17_AUDIT/` | `07_AUDIT/` | `audit/` |
+| 运行时日志 | `18_LOGS/` | `logs/` | — |
+| 字体、图片、音频 | `19_ASSETS/` | `longhun-font/` | `字体/` |
+| 编辑器、工具配置 | `20_CONFIG/` | `.vscode/`、`.devcontainer/` | — |
+| 私密资料（不纳入版本控制） | `21_PRIVATE/` | `_private/` | — |
+| 临时工作区 | `22_WORK/` | `_work/` | — |
+| 第三方集成 | `23_INTEGRATIONS/` | `integrations/`（待建） | — |
+| Android 相关 | `24_ANDROID/` | `android-auto/` | — |
+| 宝宝守护 | `25_BAOBAO/` | `baobao-guardian/` | — |
 | 任务引擎 | `26_TASK_ENGINE/` | `25_TASK_ENGINE/` |
 
 ---

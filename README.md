@@ -21,6 +21,8 @@
 > 
 > 📖 [快速入门](./QUICKSTART.md) · 🤝 [参与贡献](./CONTRIBUTING.md) · 💬 [社区讨论](https://github.com/UID9622/longhun-system/discussions)
 
+> 🏗️ **目录结构 v2.0**（2026-08-04）：核心目录已按编号结构重组（如 `08_BIN/`、`12_DOCS/`）。旧路径（`bin/`、`docs/` 等）仍通过 Symlink 保持兼容，现有命令和链接无需修改。详见 [`docs/DIRECTORY_MAP.md`](./docs/DIRECTORY_MAP.md) 与 [`docs/SYSTEM_STRUCTURE_AUDIT_v1.0.md`](./docs/SYSTEM_STRUCTURE_AUDIT_v1.0.md)。
+
 ---
 ## 📚 文档导航
 

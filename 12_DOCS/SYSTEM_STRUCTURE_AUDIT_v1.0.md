@@ -937,6 +937,7 @@ notes: "<注意事项>"
 | 版本 | 日期 | 变更 | 修订人 |
 |:---|:---|:---|:---|
 | v1.0 | 2026-08-04 | 初始审计报告·目标架构蓝图·迁移路线图·自动化治理规则 | UID9622+AI |
+| v2.0 | 2026-08-04 | 执行第一阶段重组：清理24个archive/experiments实验Symlink；完成10个核心目录编号化（bin→08_BIN、tools→09_TOOLS、portal→10_PORTAL、data→11_DATA、docs→12_DOCS、tests→13_TESTS、engines→05_ENGINES、services→04_SERVICES、layers→03_LAYERS、audit→07_AUDIT），旧路径全部保留Symlink兼容；新增scripts/compat-path.py兼容映射脚本；更新目录地图v2.0 | UID9622+AI |
 
 ---
 
