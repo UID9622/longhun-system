@@ -1,16 +1,13 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 {
   "system": "CNSH-EUV v1.0",
   "dna": "#龍芯⚡️2026-07-18-CNSH-EUV-LITHOGRAPHY-v1.0-M248",
   "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
   "audit": "🟡 预判骨架",
-  "timestamp": "2026-08-04T13:10:34.961359",
+  "timestamp": "2026-08-04T22:08:43.791301",
   "baseline": {
     "dna": "#龍芯⚡️2026-07-18-CNSH-EUV-LITHOGRAPHY-v1.0-M248",
     "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
-    "timestamp": "2026-08-04T13:10:34.944268",
+    "timestamp": "2026-08-04T22:08:43.742869",
     "inputs": {
       "P_laser_W": 30000.0,
       "CE": 0.06,
@@ -959,7 +956,7 @@
       {
         "dna": "#龍芯⚡️2026-07-18-CNSH-EUV-LITHOGRAPHY-v1.0-M248",
         "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
-        "timestamp": "2026-08-04T13:10:34.944768",
+        "timestamp": "2026-08-04T22:08:43.744008",
         "inputs": {
           "P_laser_W": 30000.0,
           "CE": 0.06,
@@ -1907,7 +1904,7 @@
       {
         "dna": "#龍芯⚡️2026-07-18-CNSH-EUV-LITHOGRAPHY-v1.0-M248",
         "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
-        "timestamp": "2026-08-04T13:10:34.945358",
+        "timestamp": "2026-08-04T22:08:43.745941",
         "inputs": {
           "P_laser_W": 30000.0,
           "CE": 0.08,
@@ -2863,7 +2860,7 @@
       {
         "dna": "#龍芯⚡️2026-07-18-CNSH-EUV-LITHOGRAPHY-v1.0-M248",
         "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
-        "timestamp": "2026-08-04T13:10:34.945823",
+        "timestamp": "2026-08-04T22:08:43.747031",
         "inputs": {
           "P_laser_W": 40000.0,
           "CE": 0.1,
@@ -3822,7 +3819,7 @@
     "best_scenario": {
       "dna": "#龍芯⚡️2026-07-18-CNSH-EUV-LITHOGRAPHY-v1.0-M248",
       "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
-      "timestamp": "2026-08-04T13:10:34.945823",
+      "timestamp": "2026-08-04T22:08:43.747031",
       "inputs": {
         "P_laser_W": 40000.0,
         "CE": 0.1,
@@ -4796,10 +4793,10 @@
   },
   "hexagram_simulation": {
     "total_shots": 5000,
-    "complete_cycles": 63,
-    "avg_cycle_length": 77.296875,
-    "meltdowns": 64,
-    "flips": 186,
+    "complete_cycles": 50,
+    "avg_cycle_length": 96.68627450980392,
+    "meltdowns": 51,
+    "flips": 202,
     "trajectory": [
       {
         "shot": 0,
@@ -4863,26 +4860,26 @@
       },
       {
         "shot": 1000,
-        "from": "䷧解",
-        "to": "䷨损",
+        "from": "䷓观",
+        "to": "䷔噬嗑",
         "reason": "正常跃迁"
       },
       {
         "shot": 2000,
+        "from": "䷋否",
+        "to": "䷌同人",
+        "reason": "正常跃迁"
+      },
+      {
+        "shot": 3000,
         "from": "䷊泰",
         "to": "䷋否",
         "reason": "正常跃迁"
       },
       {
-        "shot": 3000,
-        "from": "䷷旅",
-        "to": "䷸巽",
-        "reason": "正常跃迁"
-      },
-      {
         "shot": 4000,
-        "from": "䷝离",
-        "to": "䷞咸",
+        "from": "䷃蒙",
+        "to": "䷄需",
         "reason": "正常跃迁"
       }
     ]

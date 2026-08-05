@@ -100,7 +100,7 @@ class BootStep:
 
 class SystemLauncher:
     """
-    龙魂系统启动器 — 按6阶段有序启动所有组件。
+    龍魂系统启动器 — 按6阶段有序启动所有组件。
 
     用法:
         launcher = SystemLauncher()

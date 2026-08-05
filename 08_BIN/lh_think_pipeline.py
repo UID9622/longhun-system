@@ -1017,7 +1017,7 @@ def main():
         sys.path = _saved
 
         app = create_app(pipeline)
-        host = "0.0.0.0"
+        host = "127.0.0.1"
         print(f"\n  🧠 思考管线 HTTP 服务启动")
         print(f"  ═══════════════════════════════")
         print(f"  地址:   http://{host}:{args.port}")

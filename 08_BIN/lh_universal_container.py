@@ -193,7 +193,7 @@ def detect_privacy_level(filepath: str, content_preview: str = "") -> PrivacyLev
         return PrivacyLevel.P2_RESTRICTED
 
     # P1: 项目内部
-    if '/longhun' in path_lower or '/cnsh' in path_lower or '龙魂' in path_lower:
+    if '/longhun' in path_lower or '/cnsh' in path_lower or '龍魂' in path_lower:
         return PrivacyLevel.P1_INTERNAL
 
     # P0: 默认公开
@@ -554,7 +554,7 @@ class Decomposer:
             "姜子牙": "P13-姜子牙",
             "吕蒙": "P14-吕蒙",
             "乔前辈": "P15-乔前辈",
-            "龙盾": "P72-龙盾·宝宝",
+            "龍盾": "P72-龍盾·宝宝",
         }
         matched = []
         for signal, persona in persona_signals.items():
@@ -1074,12 +1074,12 @@ class UniversalContainer:
         return results
 
     def scan_home_for_longhun_assets(self, home_dir: str | None = None) -> List[str]:
-        """扫描家目录中所有龙魂相关资产路径"""
+        """扫描家目录中所有龍魂相关资产路径"""
         if home_dir is None:
             home_dir = str(Path.home())
 
         scan_targets = [
-            # 核心龙魂目录
+            # 核心龍魂目录
             f"{home_dir}/.龍魂",
             f"{home_dir}/龍魂",
             f"{home_dir}/龍魂系统",
@@ -1122,10 +1122,10 @@ class UniversalContainer:
             # UID9622
             f"{home_dir}/UID9622_Automation",
             f"{home_dir}/UID9622_Workspace",
-            # 龙魂工作目录
+            # 龍魂工作目录
             f"{home_dir}/_work",
-            # 龙魂相关单文件
-            f"{home_dir}/龙魂系统初始化宣言_P0底线焊死版.html",
+            # 龍魂相关单文件
+            f"{home_dir}/龍魂系统初始化宣言_P0底线焊死版.html",
             f"{home_dir}/龍魂数学公式体系 · 升级版 v2.0 _ UID9622.html",
             # 其他
             f"{home_dir}/dragon_soul",
@@ -1137,7 +1137,7 @@ class UniversalContainer:
 
         # 只保留存在的路径
         existing = [p for p in scan_targets if Path(p).exists()]
-        log.info(f"扫描到 {len(existing)}/{len(scan_targets)} 个龙魂资产路径")
+        log.info(f"扫描到 {len(existing)}/{len(scan_targets)} 个龍魂资产路径")
         return existing
 
     def print_report(self, results: List[WeightedResult]):
@@ -1180,7 +1180,7 @@ def main():
     parser = argparse.ArgumentParser(description="龍魂·万能摄入容器 v1.0")
     parser.add_argument("paths", nargs="*", help="要摄入的路径（文件或目录）")
     parser.add_argument("--scan-home", action="store_true",
-                       help="自动扫描家目录中所有龙魂资产")
+                       help="自动扫描家目录中所有龍魂资产")
     parser.add_argument("--no-recursive", action="store_true",
                        help="不递归扫描子目录")
     parser.add_argument("--no-hidden", action="store_true",
@@ -1199,9 +1199,9 @@ def main():
     if args.scan_home:
         paths = container.scan_home_for_longhun_assets()
         if not paths:
-            print("未找到龙魂资产路径")
+            print("未找到龍魂资产路径")
             return
-        print(f"自动扫描到 {len(paths)} 个龙魂资产路径")
+        print(f"自动扫描到 {len(paths)} 个龍魂资产路径")
         for p in paths:
             print(f"  📁 {p}")
     elif args.paths:

@@ -18,9 +18,9 @@ ROOT = Path("/Users/zuimeidedeyihan/longhun-system")
 # 文件列表及其简短描述
 FILES = {
     # === 01_protocols 核心协议 ===
-    "01_protocols/龍魂认知上下文管理协议_v3.0.md": "龙魂认知上下文管理协议",
-    "01_protocols/龍魂系統輸入過濾與預處理協議_v3.0.md": "龙魂系统输入过滤与预处理协议",
-    "01_protocols/龍魂八卦决策调度协议_v1.0.md": "龙魂八卦决策调度协议",
+    "01_protocols/龍魂认知上下文管理协议_v3.0.md": "龍魂认知上下文管理协议",
+    "01_protocols/龍魂系統輸入過濾與預處理協議_v3.0.md": "龍魂系统输入过滤与预处理协议",
+    "01_protocols/龍魂八卦决策调度协议_v1.0.md": "龍魂八卦决策调度协议",
     "01_protocols/测试庄园规范_v1.0.md": "测试庄园规范",
     "01_protocols/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-FULL-v1.0.md": "基层现实协议完整版",
     "01_protocols/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-v1.0.md": "基层现实协议",

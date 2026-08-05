@@ -33,7 +33,7 @@ from typing import Dict, List, Optional, Any
 # ============================================================
 
 PROJECT_ROOT = Path.home() / "longhun-system"
-TARGET_REPO = PROJECT_ROOT  # 默认部署到龙魂系统自身仓库
+TARGET_REPO = PROJECT_ROOT  # 默认部署到龍魂系统自身仓库
 
 # 扫描范围配置（按优先级扩展）
 SCAN_SCOPES = {
@@ -92,7 +92,7 @@ INITIAL_WHITELIST = [
     "longhun888.com",
     "119.13.90.27",
     "longhun-system",
-    "龙魂",
+    "龍魂",
     "DragonSoul",
     "",
     "# === 开发平台 ===",
@@ -178,7 +178,7 @@ jobs:
           script: |
             const prNumber = context.payload.pull_request?.number;
             if (!prNumber) return;
-            const message = `## 🐉 掀黑箱审计失败\\n\\n检测到技术主权风险，请查看 CI 日志中的详细发现。\\n\\n⚠️ PR 被自动阻断，请修复后重新提交。\\n\\n_Powered by 龙魂系统 · 掀黑箱引擎_`;
+            const message = `## 🐉 掀黑箱审计失败\\n\\n检测到技术主权风险，请查看 CI 日志中的详细发现。\\n\\n⚠️ PR 被自动阻断，请修复后重新提交。\\n\\n_Powered by 龍魂系统 · 掀黑箱引擎_`;
             await github.rest.issues.createComment({{
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -219,8 +219,8 @@ audit:
 FEEDBACK_SCRIPT_TEMPLATE = """#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 '''
-🐉 龙魂 · 白名单反馈收集器 v1.0
-DNA: #龙芯{YEAR}{MONTH}{DAY}{HOUR}{MINUTE}-白名单反馈-v1.0-UID9622
+🐉 龍魂 · 白名单反馈收集器 v1.0
+DNA: #龍芯{YEAR}{MONTH}{DAY}{HOUR}{MINUTE}-白名单反馈-v1.0-UID9622
 
 功能：
   - 从审计日志中提取高频误报
@@ -287,7 +287,7 @@ def parse_audit_logs(log_dir: Path) -> Counter:
 def generate_suggestions(counter: Counter, top_n: int = 20) -> str:
     '''生成白名单建议'''
     lines = []
-    lines.append("# 🐉 龙魂 · 白名单建议")
+    lines.append("# 🐉 龍魂 · 白名单建议")
     lines.append(f"*生成时间: {{datetime.now().isoformat()}}*")
     lines.append("")
     lines.append("以下是从审计日志中提取的高频误报，请人工审查后添加到 `.audit-whitelist`：")
@@ -315,12 +315,12 @@ def generate_suggestions(counter: Counter, top_n: int = 20) -> str:
     lines.append("2. 运行 `lh 掀黑箱` 验证是否还有误报")
     lines.append("3. 提交白名单更新到仓库")
     lines.append("")
-    lines.append(f"*DNA: #龙芯{{datetime.now().strftime('%Y%m%d%H%M%S')}}-白名单反馈-UID9622*")
+    lines.append(f"*DNA: #龍芯{{datetime.now().strftime('%Y%m%d%H%M%S')}}-白名单反馈-UID9622*")
 
     return "\\n".join(lines)
 
 def main():
-    parser = argparse.ArgumentParser(description="龙魂 · 白名单反馈收集器")
+    parser = argparse.ArgumentParser(description="龍魂 · 白名单反馈收集器")
     parser.add_argument("--logs", type=Path, help="审计日志目录")
     parser.add_argument("--output", type=Path, help="输出文件路径")
     parser.add_argument("--top", type=int, default=20, help="显示前N个高频项")
@@ -469,7 +469,7 @@ def deploy_audit_engine_check(repo_path: Path) -> bool:
 # ============================================================
 
 def main():
-    parser = argparse.ArgumentParser(description="龙魂 · CI 审计自动化部署器")
+    parser = argparse.ArgumentParser(description="龍魂 · CI 审计自动化部署器")
     parser.add_argument("--repo", type=Path, default=TARGET_REPO, help="目标仓库路径")
     parser.add_argument("--dry-run", action="store_true", help="预览模式，不实际写入")
     parser.add_argument("--fail-level", default="critical",
@@ -483,7 +483,7 @@ def main():
         print(f"❌ 仓库路径不存在: {repo_path}")
         sys.exit(1)
 
-    print(f"🐉 龙魂 · CI 审计部署器")
+    print(f"🐉 龍魂 · CI 审计部署器")
     print(f"  目标仓库: {repo_path}")
     print(f"  阻断阈值: {args.fail_level}")
     print(f"  模式: {'预览' if args.dry_run else '实际部署'}")

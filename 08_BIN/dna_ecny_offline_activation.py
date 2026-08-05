@@ -20,7 +20,7 @@ TODO：请补充详细功能说明（不少于20字）。"""
 # ═══════════════════════════════════════════════════════════════
 # DNA追溯：#ZHUGEXIN⚡️20260227-DNA-ECNY-OFFLINE-ACTIVATION-v1.0
 # 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# 创始人：Lucky·UID9622（诸葛鑫·龙芯北辰）
+# 创始人：Lucky·UID9622（诸葛鑫·龍芯北辰）
 # GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # 理论指导：曾老师（永恒显示）
 # ═══════════════════════════════════════════════════════════════
@@ -37,7 +37,7 @@ from datetime import datetime, timedelta
 # ═══════════════════════════════════════════════════════════════
 
 FOUNDER_UID = "UID9622"
-FOUNDER_NAME = "Lucky·诸葛鑫·龙芯北辰"
+FOUNDER_NAME = "Lucky·诸葛鑫·龍芯北辰"
 FOUNDER_GPG = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 FOUNDER_CONFIRMATION = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 

@@ -1049,7 +1049,7 @@ class CNSHInterpreter:
 
     def world_demo(self) -> str:
         """世界机演示"""
-        self.world.create_world("龙魂元宇宙", {"dimension": 3, "light": "normal", "terrain": "mountain"})
+        self.world.create_world("龍魂元宇宙", {"dimension": 3, "light": "normal", "terrain": "mountain"})
         self.world.create_entity("玩家", "character", {"health": 100, "level": 1})
         self.world.create_scene("欢迎场景", "玩家进入时触发欢迎", ["玩家"])
         self.world.trigger_event("玩家进入", {"player": "Lucky"})
@@ -1133,7 +1133,7 @@ def main():
                     continue
 
                 if user_input.lower() in ['exit', 'quit']:
-                    print("👋 龙魂永存")
+                    print("👋 龍魂永存")
                     break
 
                 if user_input.lower() == 'demo':

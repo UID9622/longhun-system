@@ -479,7 +479,7 @@ class UniversalCompletionEngine:
                 if not cmd:
                     continue
                 if cmd.lower() in ["exit", "quit"]:
-                    print("👋 龙魂永存，能力常新")
+                    print("👋 龍魂永存，能力常新")
                     break
 
                 if cmd.startswith("process "):

@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-DeepSeek-V3 工具调用 + 龙魂审计集成
+DeepSeek-V3 工具调用 + 龍魂审计集成
 DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-DeepSeek-tools-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
@@ -18,7 +18,7 @@ from deepseek_api import DeepSeekClient
 
 
 class DeepSeekAudited:
-    """带龙魂审计的DeepSeek调用"""
+    """带龍魂审计的DeepSeek调用"""
 
     def __init__(self, client: DeepSeekClient = None):
         self.client = client or DeepSeekClient()
@@ -42,7 +42,7 @@ class DeepSeekAudited:
     def query_with_audit(
         self,
         prompt: str,
-        system_prompt: str = "你是龙魂系统助手，回答直接真实。",
+        system_prompt: str = "你是龍魂系统助手，回答直接真实。",
         temperature: float = 0.7,
         max_tokens: int = 4096
     ) -> Dict[str, Any]:
@@ -75,7 +75,7 @@ class DeepSeekAudited:
     def stream_with_audit(
         self,
         prompt: str,
-        system_prompt: str = "你是龙魂系统助手，回答直接真实。"
+        system_prompt: str = "你是龍魂系统助手，回答直接真实。"
     ):
         """流式查询（带审计）"""
         messages = [

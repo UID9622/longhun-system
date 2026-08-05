@@ -22,6 +22,7 @@ import json
 import time
 import hashlib
 import threading
+from pathlib import Path
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Dict, List, Optional, Any, Tuple
@@ -34,6 +35,30 @@ except ImportError:
 
 
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+
+
+# 尝试加载 notion 模型注册表，用于识别自训练模型
+_MODEL_REGISTRY: Dict[str, Any] = {}
+try:
+    _REGISTRY_PATH = Path(__file__).resolve().parent.parent / "data" / "notion_model_registry.json"
+    if _REGISTRY_PATH.exists():
+        _MODEL_REGISTRY = json.loads(_REGISTRY_PATH.read_text(encoding="utf-8"))
+except Exception:
+    _MODEL_REGISTRY = {}
+
+
+def _is_self_trained(model_name: str) -> bool:
+    """结合 registry 与名称前缀判定自训练模型。"""
+    if not model_name:
+        return False
+    if any(model_name.lower().startswith(p.lower()) for p in ("longhun-", "龍魂-")):
+        return True
+    for m in _MODEL_REGISTRY.get("models", []):
+        if m.get("id", "").lower() == model_name.lower():
+            return bool(m.get("self_trained", False))
+        if model_name.lower().startswith(m.get("id", "").lower() + ":"):
+            return bool(m.get("self_trained", False))
+    return False
 
 
 def _now() -> str:
@@ -216,20 +241,26 @@ class WuxingModelCouncil:
         assignments: Dict[str, CouncilMember] = {}
         used_models: Dict[str, str] = {}  # provider -> model
 
-        def pick_model(provider: str, preferred: List[str]) -> str:
+        def pick_model(provider: str, preferred: List[str], prefer_self_trained: bool = False) -> str:
             models = probe_map.get(provider, {}).get("models", [])
+            # 1) 优先 registry 声明的 preferred_models
             for m in preferred:
                 if any(m.lower() in x.lower() for x in models):
                     return m
-            # 自训练优先
+            # 2) 若角色要求自训练优先（如 土·承载），先选自训练本地模型
+            if prefer_self_trained:
+                for m in models:
+                    if _is_self_trained(m):
+                        return m
+            # 3) 默认自训练前缀兜底
             for m in models:
                 if any(m.lower().startswith(p.lower()) for p in ["longhun-v", "longhun-", "龍魂-"]):
                     return m
             return models[0] if models else "default"
 
-        # 1. 土：本地/自训练模型
+        # 1. 土：本地/自训练模型（协议底座，强制优先自训练）
         if "local" in available:
-            model = pick_model("local", WUXING_ROLES["土"]["preferred_models"])
+            model = pick_model("local", WUXING_ROLES["土"]["preferred_models"], prefer_self_trained=True)
             assignments["土"] = CouncilMember("土", "local", model, "online")
             used_models["local"] = model
 
@@ -528,7 +559,8 @@ class WuxingModelCouncil:
             })
 
         return {
-            "status": "ok" if audit_status != "red" else "error",
+            "status": "ok",
+            "audit_level": audit_status,
             "reply": final_reply,
             "provider": "council",
             "model": "wuxing-council-v1.0",

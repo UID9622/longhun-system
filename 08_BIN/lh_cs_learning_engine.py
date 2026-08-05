@@ -14,7 +14,7 @@
 ║  DNA: #龍芯⚡️2026-07-11-CS-LEARNING-ENGINE-v1.0                          ║
 ║  源矿: backups/cs-kb-enhanced-20260701/cs_kb.db (306条知识卡片)           ║
 ║  引擎: cnsh/core/longhun_cs_kb.py (FTS5全文搜索·分类查询·公式路由)          ║
-║  铁律: 本地数据·不联网·学习路径基于龙魂算法                                   ║
+║  铁律: 本地数据·不联网·学习路径基于龍魂算法                                   ║
 ╠══════════════════════════════════════════════════════════════════════════╣
 ║  用法:                                                                   ║
 ║    python3 bin/lh_cs_learning_engine.py --interactive                    ║

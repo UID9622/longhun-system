@@ -469,7 +469,7 @@ class ResidentFunctionRegistry:
             # 提交
             dna_hash = hashlib.sha256(status.stdout.encode()).hexdigest()[:8]
             commit_msg = (
-                f"🤖 龙魂自动同步 {datetime.now().strftime('%m-%d %H:%M')}\n"
+                f"🤖 龍魂自动同步 {datetime.now().strftime('%m-%d %H:%M')}\n"
                 f"DNA: #龍芯⚡️AUTO-SYNC-{dna_hash}"
             )
             commit = subprocess.run(
@@ -773,7 +773,7 @@ class ResidentFunctionRegistry:
         return p
 
     def _check_services(self) -> Dict[str, str]:
-        """检查龙魂服务状态"""
+        """检查龍魂服务状态"""
         services = {}
         svc_names = ["longhun-api", "longhun-portal", "longhun-dashboard", "longhun-core"]
         for svc in svc_names:

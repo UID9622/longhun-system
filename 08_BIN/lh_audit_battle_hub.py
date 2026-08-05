@@ -55,6 +55,14 @@ try:
 except Exception:
     HAS_FIVE_ELEMENT = False
 
+# 文档结构审计引擎 v2.0
+try:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from lh_doc_structure_audit import DocStructureAuditHub, format_report as format_doc_report
+    HAS_DOC_AUDIT = True
+except Exception:
+    HAS_DOC_AUDIT = False
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # P0 配置
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -662,6 +670,21 @@ def main():
     p_five.add_argument("--text", required=True, help="待审计文本")
     p_five.add_argument("--output", help="输出 JSON 文件路径")
 
+    p_doc = sub.add_parser("doc-audit", help="🆕 文档结构审计（左右互搏v2.0）")
+    p_doc.add_argument("--target", required=True, help="目标文件路径")
+    p_doc.add_argument("--type", default="auto", choices=["auto", "tech_article", "project_doc", "general_md", "python", "html"])
+    p_doc.add_argument("--expected-modules", nargs="*", help="预期应存在的类/函数名")
+    p_doc.add_argument("--output", help="输出 JSON 文件路径")
+    p_doc.add_argument("--json", action="store_true", help="JSON 格式输出")
+    p_doc.add_argument("--verbose", "-v", action="store_true", help="详细输出")
+
+    p_trunc = sub.add_parser("check-truncation", help="🆕 代码截断检测")
+    p_trunc.add_argument("--target", required=True, help="目标文件路径")
+    p_trunc.add_argument("--json", action="store_true", help="JSON 格式输出")
+
+    p_suggest = sub.add_parser("content-suggest", help="🆕 内容补全建议")
+    p_suggest.add_argument("--target", required=True, help="目标文件路径")
+
     p_server = sub.add_parser("server", help="启动 API 服务")
     p_server.add_argument("--host", default="127.0.0.1")
     p_server.add_argument("--port", type=int, default=9657)
@@ -700,6 +723,73 @@ def main():
         print(json.dumps(result, ensure_ascii=False, indent=2))
         if args.output:
             Path(args.output).write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    elif args.cmd == "doc-audit":
+        if not HAS_DOC_AUDIT:
+            print("❌ 文档结构审计引擎未加载，请检查 lh_doc_structure_audit.py")
+            sys.exit(1)
+        hub_doc = DocStructureAuditHub()
+        target = P0_CONFIG["project_root"] / args.target
+        report = hub_doc.audit_file(
+            target,
+            doc_type=args.type,
+            expected_modules=args.expected_modules,
+        )
+        if args.json:
+            print(json.dumps(report.to_dict(), ensure_ascii=False, indent=2))
+        else:
+            print(format_doc_report(report, verbose=args.verbose))
+        if args.output:
+            Path(args.output).write_text(
+                json.dumps(report.to_dict(), ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+
+    elif args.cmd == "check-truncation":
+        if not HAS_DOC_AUDIT:
+            print("❌ 文档结构审计引擎未加载")
+            sys.exit(1)
+        content = Path(args.target).read_text(encoding="utf-8", errors="ignore")
+        from lh_doc_structure_audit import PythonCodeAuditor, HTMLAuditor, Severity as DocSeverity
+        suffix = Path(args.target).suffix.lower()
+        if suffix == ".py":
+            auditor = PythonCodeAuditor(content)
+            auditor.check_truncation()
+        else:
+            auditor = HTMLAuditor(content)
+            auditor.audit()
+        findings = auditor.findings
+        fatal = sum(1 for f in findings if f.severity == DocSeverity.FATAL)
+        if args.json:
+            print(json.dumps({
+                "target": str(args.target),
+                "findings": [f.to_dict() for f in findings],
+                "summary": {"fatal": fatal},
+            }, ensure_ascii=False, indent=2))
+        else:
+            print(f"\n截断检测: {args.target}")
+            print(f"  致命: {fatal} | 重要: {sum(1 for f in findings if f.severity == DocSeverity.IMPORTANT)}")
+            for f in findings:
+                print(f"  {f.severity.icon} {f.title}" + (f" (行{f.line})" if f.line else ""))
+        if fatal > 0:
+            sys.exit(1)
+
+    elif args.cmd == "content-suggest":
+        if not HAS_DOC_AUDIT:
+            print("❌ 文档结构审计引擎未加载")
+            sys.exit(1)
+        from lh_doc_structure_audit import ContentSuggester
+        content = Path(args.target).read_text(encoding="utf-8", errors="ignore")
+        suggester = ContentSuggester()
+        suggestions = suggester.suggest(content)
+        if not suggestions:
+            print("✅ 未发现明显缺失的区块")
+        else:
+            print(f"\n💡 场景推理补全建议 ({len(suggestions)} 条):\n")
+            for i, s in enumerate(suggestions, 1):
+                print(f"  {i}. [{s['scenario']}] 缺少: {s['missing_block']}")
+                print(f"     描述: {s['description']}")
+                print(f"     模板: {s['template'][:120]}...\n")
 
     elif args.cmd == "server":
         if not HAS_FLASK:

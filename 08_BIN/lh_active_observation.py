@@ -241,7 +241,7 @@ DEFAULT_RULES: List[Dict] = [
         "pattern": "longhun-*:down",
         "action": "execute",
         "action_script": "systemctl restart",
-        "description": "龙魂服务异常退出时自动重启",
+        "description": "龍魂服务异常退出时自动重启",
     },
     # ── 资源 ──
     {
@@ -443,7 +443,7 @@ class ActiveObservationEngine:
             time.sleep(interval)
 
     def _process_observer_loop(self):
-        """进程事件观察器 — 每30秒检查龙魂进程"""
+        """进程事件观察器 — 每30秒检查龍魂进程"""
         interval = 30
         while self._running:
             try:
@@ -547,7 +547,7 @@ class ActiveObservationEngine:
             })
 
     def _check_processes(self):
-        """检查龙魂关键进程"""
+        """检查龍魂关键进程"""
         key_procs = ["longhun-api", "longhun-portal", "longhun-dashboard", "python"]
         for proc in psutil.process_iter(['pid', 'name', 'cmdline']):
             try:

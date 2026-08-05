@@ -370,7 +370,7 @@ def infer_frame_tags(metrics: dict, video_name: str = '',
         'data': (['数据', '图表'], '数据图表', '分析'),
         'news': (['新闻', '时事'], '证据记录', '严肃'),
         '龙': (['龍魂', '中国'], '文化传承', '庄严'),
-        '龙魂': (['龍魂', '数字主权'], '文化传承', '庄严'),
+        '龍魂': (['龍魂', '数字主权'], '文化传承', '庄严'),
     }
     for kw, (kwtags, ct, em) in kw_map.items():
         if kw in name_lower:
@@ -426,7 +426,7 @@ def _guess_content_type(filename: str, tags: list, video_name: str) -> str:
     combined = f"{filename} {video_name} {' '.join(tags)}".lower()
     type_map = [
         (['code', '编程', '代码', '技术', 'tech', '架构', 'architecture', 'topology'], 'code'),
-        (['culture', '文化', '易经', '道德经', '哲学', '传统', 'history', '龙魂', '龍'], 'culture'),
+        (['culture', '文化', '易经', '道德经', '哲学', '传统', 'history', '龍魂', '龍'], 'culture'),
         (['security', '安全', '漏洞', '防护', '审计', 'attack', 'defense'], 'security'),
         (['deploy', '部署', '上线', 'server', '服务器', 'docker', 'k8s'], 'deploy'),
         (['evidence', '证据', '记录', 'screenshot', '截图', 'capture'], 'evidence'),

@@ -150,7 +150,7 @@ class P00Wenxin:
             "dna": self.dna,
         }
 
-    def goal_align(self, task: str, ultimate_goal: str = "UID9622龙魂系统主权与自治") -> Dict[str, Any]:
+    def goal_align(self, task: str, ultimate_goal: str = "UID9622龍魂系统主权与自治") -> Dict[str, Any]:
         """目标对齐：确保任务与终极目标一致"""
         # 检查是否偏离核心目标
         deviation_keywords = ["商业", "广告", "第三方", "外放", "外国", "国际"]
@@ -211,7 +211,7 @@ class P00Wenxin:
             result["output"] = self.task_dispatch(task, persona=kwargs.get("persona"))
         elif any(kw in task for kw in ["对齐", "目标", "偏离"]):
             result["capability_used"] = "goal_align"
-            result["output"] = self.goal_align(task, ultimate_goal=kwargs.get("goal", "UID9622龙魂系统主权与自治"))
+            result["output"] = self.goal_align(task, ultimate_goal=kwargs.get("goal", "UID9622龍魂系统主权与自治"))
         elif any(kw in task for kw in ["监控", "审视", "二阶"]):
             result["capability_used"] = "meta_monitor"
             result["output"] = self.meta_monitor(

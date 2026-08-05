@@ -343,7 +343,7 @@ SCENE_DETECTION_PATTERNS: Dict[SceneType, Dict[str, List[str]]] = {
         "sovereignty_signals": [
             "主权", "底线", "不退", "边界", "宪法", "法律底线",
             "核心利益", "领土", "统一", "分裂", "挑衅",
-            "龙魂系统", "数据主权", "自主可控",
+            "龍魂系统", "数据主权", "自主可控",
         ],
         "sovereignty_context": [
             "声明", "宣告", "立场", "政策", "不可协商",

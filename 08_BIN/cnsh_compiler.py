@@ -7,7 +7,7 @@ DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-CNSH编译器-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 功能：将 .cnsh 源文件编译为可执行的 Python 代码
-定位：龙魂系统中文编程语言编译器
+定位：龍魂系统中文编程语言编译器
 """
 
 import sys

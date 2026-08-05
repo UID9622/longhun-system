@@ -91,7 +91,7 @@ PERSONA_SIGNING_PROFILES = {
     "P13": {"name": "姜子牙", "role": "封神榜·权限管理", "layer": "守护", "trust": "L5"},
     "P14": {"name": "吕蒙", "role": "快速成长·学习引擎", "layer": "文化", "trust": "L3"},
     "P15": {"name": "乔前辈", "role": "极简工程·产品灵魂", "layer": "守护", "trust": "L5"},
-    "P72": {"name": "龙盾宝宝", "role": "贴身管家·安全兜底", "layer": "守护", "trust": "L5"},
+    "P72": {"name": "龍盾宝宝", "role": "贴身管家·安全兜底", "layer": "守护", "trust": "L5"},
 }
 
 ACTION_TYPES = [
@@ -723,7 +723,7 @@ def main():
 
 人格代码: P00文心 P01诸葛亮 P02宝宝 P03雯雯 P04鲁班 P05上帝之眼
          P06数学大师 P08仓颉 P09孙思邈 P10苏东坡 P11李白 P12屈原
-         P13姜子牙 P14吕蒙 P15乔前辈 P72龙盾宝宝
+         P13姜子牙 P14吕蒙 P15乔前辈 P72龍盾宝宝
 
 示例:
   %(prog)s --sign P01 --action "新增模块" --target "bin/new_feature.py"

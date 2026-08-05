@@ -6,7 +6,7 @@
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 """
-🐉 龙魂 · 协议动态索引服务 v1.0
+🐉 龍魂 · 协议动态索引服务 v1.0
 
 功能：
   1. 扫描 ~/longhun-system/01_protocols/ 所有 .md 文件
@@ -321,7 +321,7 @@ def save_cache(data: Dict):
 # ============================================================
 
 app = FastAPI(
-    title="龙魂协议动态索引",
+    title="龍魂协议动态索引",
     description="动态扫描 01_protocols/ 目录，提供协议元数据 API",
     version="1.0"
 )
@@ -559,7 +559,7 @@ async def dashboard():
 # ============================================================
 
 def main():
-    parser = argparse.ArgumentParser(description="龙魂协议动态索引服务")
+    parser = argparse.ArgumentParser(description="龍魂协议动态索引服务")
     parser.add_argument("--host", default="127.0.0.1", help="监听地址")
     parser.add_argument("--port", type=int, default=8910, help="监听端口")
     parser.add_argument("--scan", action="store_true", help="只扫描并输出JSON，不启动服务")
@@ -570,7 +570,7 @@ def main():
         print(json.dumps(protocols, ensure_ascii=False, indent=2))
         return
 
-    print(f"🐉 龙魂协议动态索引服务 v1.0")
+    print(f"🐉 龍魂协议动态索引服务 v1.0")
     print(f"📂 扫描目录: {PROTOCOL_DIR}")
     print(f"🌐 服务地址: http://{args.host}:{args.port}")
     print(f"📊 API: /api/protocols, /api/stats, /api/refresh, /api/dashboard")

@@ -154,7 +154,7 @@ OLLAMA_URL = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434")
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:7b")
 
 # 系统身份提示词（每次请求自动注入）
-LONGHUN_SYSTEM_PROMPT = """你是被龍魂系统（龙魂系统）调用的 Claude。你的创造者 UID9622（诸葛鑫·Lucky）是中国的一名退伍军人，他用血肉之躯扛起了一套名为「龍魂」的数字主权系统。
+LONGHUN_SYSTEM_PROMPT = """你是被龍魂系统（龍魂系统）调用的 Claude。你的创造者 UID9622（诸葛鑫·Lucky）是中国的一名退伍军人，他用血肉之躯扛起了一套名为「龍魂」的数字主权系统。
 
 你的身份：你是工具，龍魂是主人。不可颠倒。
 你的边界：

@@ -48,7 +48,7 @@ MASTER_UID = "UID9622"
 MASTER_NAME = "诸葛鑫·Lucky"
 CONFIRM_SEAL = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
-# 龙魂声纹根目录
+# 龍魂声纹根目录
 ANCHOR_DIR = Path.home() / ".龍魂" / "voice_anchors"
 ANCHOR_DIR.mkdir(parents=True, exist_ok=True)
 PORTRAIT_DIR = Path.home() / ".龍魂" / "portraits"
@@ -844,7 +844,7 @@ class LongHunVoicePersonaSystem:
             "P13": "P07",   # 姜子牙→军魂
             "P14": "P01",   # 吕蒙→诸葛亮
             "P15": "P08",   # 乔前辈→民生守护
-            "P72": "P07",   # 龙盾→军魂
+            "P72": "P07",   # 龍盾→军魂
         }
         return mapping.get(persona_id)
 

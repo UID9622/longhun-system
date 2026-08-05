@@ -680,9 +680,19 @@ async def remote_auth_middleware(request: Request, call_next):
 @app.get("/v1/memory/health")
 async def health_check(request: Request):
     """健康检查"""
+    return await _health_response(request)
+
+
+@app.get("/health")
+async def health_check_root(request: Request):
+    """统一健康检查入口（与/v1/memory/health等价）。"""
+    return await _health_response(request)
+
+
+async def _health_response(request: Request):
     memory = parse_memory_md()
     client_ip = request.client.host if request.client else "unknown"
-    log_api_access("GET /v1/memory/health", client_ip, 200)
+    log_api_access("GET /health", client_ip, 200)
 
     token = get_or_create_token()
     return {

@@ -894,7 +894,9 @@ def check_system_registry(exit_on_fail: bool = False) -> Dict[str, Any]:
         return {}
 
     with open(reg_path, "r", encoding="utf-8") as f:
-        registry = json.load(f)
+        # system_registry.json 可能包含 DNA/CONFIRM/SEAL 注释头，需先过滤
+        lines = [line for line in f if not line.lstrip().startswith("#")]
+        registry = json.loads("".join(lines))
 
     # 六条底座铁律（缺一不可）
     required_laws = [
@@ -915,7 +917,7 @@ def check_system_registry(exit_on_fail: bool = False) -> Dict[str, Any]:
     if missing:
         msg = f"❌ 缺少底座铁律: {missing}"
         console.print(f"[red]{msg}[/red]")
-        console.print("[red]龙魂拒绝启动。请修复 system_registry.json。[/red]")
+        console.print("[red]龍魂拒绝启动。请修复 system_registry.json。[/red]")
         if exit_on_fail:
             sys.exit(1)
         _SYS_REGISTRY_CHECKED = True

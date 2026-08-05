@@ -28,7 +28,7 @@ API端点 (HTTP·端口8799):
   GET  /api/v1/xiaoyi/models        — 模型状态（Ollama+训练进度）
   POST /api/v1/xiaoyi/audit         — 触发安全审计
   GET  /api/v1/xiaoyi/logs          — 最近日志
-  POST /api/v1/chat                 — 🆕 AI对话（路由到Ollama长龙魂模型）
+  POST /api/v1/chat                 — 🆕 AI对话（路由到Ollama长龍魂模型）
   GET  /api/v1/chat/models          — 🆕 可用对话模型列表
   GET  /                                — 根页面（HTML状态面板）
 """
@@ -435,7 +435,7 @@ class XiaoYiHandler(BaseHTTPRequestHandler):
                 "bridge": "longhun-xiaoyi-v2.0",
                 "capabilities": {
                     "system_commands": cmds,
-                    "ai_chat": "POST /api/v1/chat — Ollama长龙魂模型对话",
+                    "ai_chat": "POST /api/v1/chat — Ollama长龍魂模型对话",
                     "model_query": "GET /api/v1/chat/models — 可用对话模型列表",
                     "audit": "POST /api/v1/xiaoyi/audit — 三色审计",
                 },

@@ -38,7 +38,7 @@ import re
 DEFAULT_CONFIG = {
     "project_name": "longhun-system",
     "project_description": "龍魂系统 — 中国主权AI基础设施",
-    "author": "UID9622 (龙芯北辰)",
+    "author": "UID9622 (龍芯北辰)",
     "author_email": "longhun@uid9622.com",
     "author_url": "https://uid9622.cn",
     "repo_url": "https://github.com/UID9622/longhun-system",
@@ -346,7 +346,7 @@ python3 -m pytest --cov=bin tests/
 
 ## 📄 协议
 
-本项目采用 **{config['license']}** 协议开源 + 龙魂主权附加条款。
+本项目采用 **{config['license']}** 协议开源 + 龍魂主权附加条款。
 
 详见 [LICENSE](LICENSE) 文件。
 
@@ -355,8 +355,8 @@ python3 -m pytest --cov=bin tests/
 ## 🙏 致谢
 
 - **曾仕强老师** — 理论指导（永恒显示）
-- **UID9622 (龙芯北辰)** — 创始人、架构师
-- **所有贡献者** — 让龙魂更强大
+- **UID9622 (龍芯北辰)** — 创始人、架构师
+- **所有贡献者** — 让龍魂更强大
 
 ---
 
@@ -380,7 +380,7 @@ python3 -m pytest --cov=bin tests/
 **确认码:** `{config['confirm']}`  
 **最后更新:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
-© {config['year']} {config['author']} · 龙魂系统 · 主权归中国
+© {config['year']} {config['author']} · 龍魂系统 · 主权归中国
 """
 
 
@@ -406,7 +406,7 @@ https://license.coscl.org.cn/MulanPSL2/
 
 ---
 
-本项目附加条款（龙魂系统专用）：
+本项目附加条款（龍魂系统专用）：
 
 1. **主权条款**：本软件及其所有衍生作品的数据主权归中华人民共和国所有。
 2. **法律边界**：本软件的使用必须遵守中华人民共和国法律。
@@ -434,7 +434,7 @@ class ContributingGenerator:
     def generate(config: Dict) -> str:
         return f"""# 贡献指南 · {config['project_name']}
 
-感谢你对龙魂系统的关注！我们欢迎所有符合中国法律、尊重数据主权的贡献。
+感谢你对龍魂系统的关注！我们欢迎所有符合中国法律、尊重数据主权的贡献。
 
 ---
 
@@ -513,7 +513,7 @@ python3 -m pylint bin/ engines/
 
 1. 贡献内容符合中华人民共和国法律
 2. 贡献内容的数据主权归中国
-3. 贡献内容受木兰宽松许可证 v2 + 龙魂主权附加条款保护
+3. 贡献内容受木兰宽松许可证 v2 + 龍魂主权附加条款保护
 4. UID9622 拥有对贡献内容的最终否决权
 
 ---
@@ -604,7 +604,7 @@ class SecurityGenerator:
     def generate(config: Dict) -> str:
         return f"""# 安全政策 · {config['project_name']}
 
-龙魂系统高度重视安全。我们欢迎安全研究人员负责任地报告漏洞。
+龍魂系统高度重视安全。我们欢迎安全研究人员负责任地报告漏洞。
 
 ---
 
@@ -851,7 +851,7 @@ assignees: ''
 
 - 操作系统: [e.g., macOS 15.0, Ubuntu 22.04]
 - Python 版本: [e.g., 3.11.5]
-- 龙魂版本: [e.g., v1.0.0]
+- 龍魂版本: [e.g., v1.0.0]
 - 架构: [e.g., ARM64, x86_64]
 
 ## 日志输出
@@ -984,7 +984,7 @@ class PRTemplateGenerator:
 
 1. 本 PR 内容符合中华人民共和国法律
 2. 数据主权归中国
-3. 同意木兰宽松许可证 v2 + 龙魂主权附加条款
+3. 同意木兰宽松许可证 v2 + 龍魂主权附加条款
 4. 接受 UID9622 的最终否决权
 
 ---
@@ -1118,7 +1118,7 @@ class RepoTemplateGenerator:
     def _print_summary(self):
         print(f"""
 ┌─────────────────────────────────────────────────────────────┐
-│  🐉 龙魂·开源项目模板生成完毕                               │
+│  🐉 龍魂·开源项目模板生成完毕                               │
 ├─────────────────────────────────────────────────────────────┤
 │  📁 输出目录: {self.output_dir}
 │  📄 新生成: {len(self.files_generated)} 个文件
@@ -1128,7 +1128,7 @@ class RepoTemplateGenerator:
 """)
 
     def _gen_requirements(self) -> str:
-        return """# 龙魂系统核心依赖
+        return """# 龍魂系统核心依赖
 requests>=2.28.0
 beautifulsoup4>=4.11.0
 cryptography>=39.0.0
@@ -1151,7 +1151,7 @@ mypy>=0.990
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂·开源项目发布模板生成器 v1.0",
+        description="🐉 龍魂·开源项目发布模板生成器 v1.0",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:

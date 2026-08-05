@@ -637,7 +637,7 @@ def interactive():
                 continue
 
             if user_input.lower() in ['exit', 'quit']:
-                print("👋 龙魂永存")
+                print("👋 龍魂永存")
                 break
 
             if user_input.startswith("set "):

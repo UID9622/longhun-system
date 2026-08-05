@@ -13,7 +13,7 @@ B1 · 多语言解析脑区 → P07 开源守门
 解析多种编程语言的AST，提取语法特征。
 支援: Python, JavaScript, TypeScript, Java, C/C++, Go, Rust
 
-DNA: #龙芯⚡️丙午·丙申·丙辰·未时·需-BRAIN-B1-PARSER-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·未时·需-BRAIN-B1-PARSER-v1.0
 """
 
 import re

@@ -35,8 +35,8 @@ class NotifyEngine:
         "task_failed": "❌ 任务失败: {task_name} 错误: {error}",
         "audit_passed": "🟢 审计通过: {result}",
         "audit_failed": "🔴 审计失败: {findings} 项风险",
-        "system_start": "🐉 龙魂系统启动 (PID: {pid})",
-        "system_stop": "⏹️ 龙魂系统停止",
+        "system_start": "🐉 龍魂系统启动 (PID: {pid})",
+        "system_stop": "⏹️ 龍魂系统停止",
         "deploy_done": "🚀 部署完成: {target} (耗时:{duration}s)",
     }
 
@@ -81,7 +81,7 @@ class NotifyEngine:
             import smtplib
             from email.mime.text import MIMEText
             msg = MIMEText(message)
-            msg["Subject"] = f"[{level.value}] 龙魂系统通知"
+            msg["Subject"] = f"[{level.value}] 龍魂系统通知"
             msg["From"] = cfg.get("sender_email", "")
             msg["To"] = cfg.get("receiver_email", "")
             with smtplib.SMTP(cfg.get("smtp_server", ""), 587) as s:

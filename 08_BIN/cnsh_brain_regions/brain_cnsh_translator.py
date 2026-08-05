@@ -13,7 +13,7 @@ B4 · CNSH翻译脑区 → P04 鲁班
 将解析後的代码转换为CNSH格式。
 对接已有 cnsh_translator_engine_v2.0.py。
 
-DNA: #龙芯⚡️丙午·丙申·丙辰·未时·需-BRAIN-B4-CNSH-TRANSLATOR-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·未时·需-BRAIN-B4-CNSH-TRANSLATOR-v1.0
 """
 
 import re

@@ -164,7 +164,7 @@ def generate_audit_log():
     ts = datetime.now().strftime('%Y%m%d_%H%M%S')
     log_file = log_dir / f"harvester_setup_{ts}.log"
     log_file.write_text("\n".join([
-        "🐉 龙魂知识拉取器配置日志",
+        "🐉 龍魂知识拉取器配置日志",
         f"时间: {datetime.now().isoformat()}",
         f"DNA: #龍芯⚡️{ts}-SETUP-UID9622",
         f"NOTION_API_KEY: {'已设置' if os.getenv('NOTION_API_KEY') else '未设置'}",

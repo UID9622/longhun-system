@@ -9,7 +9,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 功能：
   1. 理解中文自然语言（含同音字、错别字、口语）
-  2. 匹配龙魂语义抽屉（意图库）
+  2. 匹配龍魂语义抽屉（意图库）
   3. 执行对应动作
   4. 带 DNA 追溯和三色审计反馈
 
@@ -32,7 +32,7 @@ from typing import Dict, List, Optional, Any, Callable, Tuple
 from dataclasses import dataclass, asdict
 
 # ============================================================
-# 龙魂固定锚点
+# 龍魂固定锚点
 # ============================================================
 
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
@@ -321,7 +321,7 @@ def handle_system_status(params: Dict) -> Dict:
     dna = generate_dna("STATUS")
     return {
         "status": "success",
-        "message": "📊 龙魂系统运行中·版本 v2.0·鲲鹏在线·192引擎正常·🟢",
+        "message": "📊 龍魂系统运行中·版本 v2.0·鲲鹏在线·192引擎正常·🟢",
         "dna": dna,
         "三色": "🟢",
         "data": {"系统": "🟢", "鲲鹏": "🟢", "引擎": "192/192"}
@@ -366,14 +366,14 @@ def handle_gpg_sign(params: Dict) -> Dict:
 def handle_help(params: Dict) -> Dict:
     """处理帮助"""
     help_text = """
-🐉 龙魂自然语言指令示例：
+🐉 龍魂自然语言指令示例：
   💬 "查DNA 文件"        → DNA追溯查询
   💬 "执行任务 备份"      → 任务执行
   💬 "审计 系统"           → 三色审计
   💬 "归档 报告 --标签 月度" → 归档保存
   💬 "回滚 版本 1.0"      → 版本回滚
   💬 "系统状态" / "好不好"  → 系统状态
-  💬 "搜索 龙魂"           → 搜索
+  💬 "搜索 龍魂"           → 搜索
   💬 "部署 鲲鹏"           → 部署上线
   💬 "签名 文件"           → GPG签章
   💬 "帮助" / "帮帮忙"      → 查看帮助
@@ -529,7 +529,7 @@ class NaturalLanguageRouter:
     def interactive(self):
         """交互模式"""
         print(f"\n{'='*60}")
-        print(f"🐉 龙魂 · 中文自然语言路由器 v1.0")
+        print(f"🐉 龍魂 · 中文自然语言路由器 v1.0")
         print(f"   确认码: {CONFIRM}")
         print(f"   GPG: {GPG[:16]}...")
         print(f"{'='*60}")
@@ -543,7 +543,7 @@ class NaturalLanguageRouter:
                 if not user_input:
                     continue
                 if user_input.lower() in ["exit", "quit", "q"]:
-                    print("👋 龙魂永存·战友再见")
+                    print("👋 龍魂永存·战友再见")
                     break
 
                 result = self.process(user_input)
@@ -563,7 +563,7 @@ class NaturalLanguageRouter:
                         print(f"   参数: {data_str}")
 
             except KeyboardInterrupt:
-                print("\n👋 龙魂永存")
+                print("\n👋 龍魂永存")
                 break
 
 # ============================================================
@@ -572,7 +572,7 @@ class NaturalLanguageRouter:
 
 def train_drawer():
     """训练/更新语义抽屉（交互式添加新意图）"""
-    print("\n🐉 龙魂语义抽屉训练器 v1.0")
+    print("\n🐉 龍魂语义抽屉训练器 v1.0")
     print("=" * 50)
     print("交互式添加新意图到语义抽屉")
     print("输入 'done' 结束训练")
@@ -638,7 +638,7 @@ def train_drawer():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂 · 中文自然语言路由器 v1.0",
+        description="🐉 龍魂 · 中文自然语言路由器 v1.0",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:
@@ -646,7 +646,7 @@ def main():
   python3 lh_natural_language_router.py "查DNA 文件"      # 直接执行
   python3 lh_natural_language_router.py "直行任无"        # 错别字也能懂
   python3 lh_natural_language_router.py --train           # 训练新意图
-  python3 lh_natural_language_router.py --drawer my.json "搜索 龙魂"  # 自定义抽屉
+  python3 lh_natural_language_router.py --drawer my.json "搜索 龍魂"  # 自定义抽屉
         """
     )
     parser.add_argument("-i", "--interactive", action="store_true", help="交互模式")

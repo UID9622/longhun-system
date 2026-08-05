@@ -631,7 +631,7 @@ class LUPageGenerator:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂 · LU 系统页面生成器 v1.0",
+        description="🐉 龍魂 · LU 系统页面生成器 v1.0",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=textwrap.dedent("""\
         示例:

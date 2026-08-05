@@ -464,7 +464,7 @@ async def neural_strategy(steps: int = Query(1, ge=1, le=20)):
 def main():
     parser = argparse.ArgumentParser(description="龍魂·ASI增强服务 v1.0")
     parser.add_argument("--port", type=int, default=9000, help="监听端口 (默认9000)")
-    parser.add_argument("--host", type=str, default="0.0.0.0", help="监听地址")
+    parser.add_argument("--host", type=str, default="127.0.0.1", help="监听地址 (默认: 127.0.0.1)")
     parser.add_argument("--listen", action="store_true", help="启动HTTP服务")
     parser.add_argument("--test", type=str, help="单次测试触发词")
     args = parser.parse_args()

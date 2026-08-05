@@ -1,0 +1,14 @@
+.venv/
+.venv_check/
+__pycache__/
+*.pyc
+.pytest_cache/
+output/*
+!output/.gitkeep
+logs/*
+!logs/.gitkeep
+audit/*.png
+audit/*.json
+.DS_Store
+.git/
+*.asc

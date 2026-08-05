@@ -513,19 +513,23 @@ def _判斷意圖(text: str) -> str:
 
 
 def _底部按钮() -> dict[str, Any]:
-    """生成飞书卡片底部按钮，焊死确认码。"""
+    """生成飞书卡片底部按钮，焊死确认码。
+
+    飞书卡片 button 的 value 字段要求是 map<string, string> 对象，
+    不能是 JSON 字符串，否则客户端点击会报 200671。
+    """
     actions = [
         {
             "tag": "button",
             "text": {"tag": "plain_text", "content": "✅ 确认"},
             "type": "primary",
-            "value": json.dumps({"action": "confirm", "code": _CONFIRM}),
+            "value": {"action": "confirm", "code": _CONFIRM},
         },
         {
             "tag": "button",
             "text": {"tag": "plain_text", "content": "❌ 忽略"},
             "type": "default",
-            "value": json.dumps({"action": "ignore", "code": _CONFIRM}),
+            "value": {"action": "ignore", "code": _CONFIRM},
         },
     ]
     return {

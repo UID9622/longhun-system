@@ -354,7 +354,7 @@ class SelfHealingWelder:
     def generate_dna_stubs(self, result: subprocess.CompletedProcess) -> List[Dict]:
         """生成DNA存根"""
         stubs = []
-        dna_pattern = r'#(?:龍芯|龙芯)⚡️[^\s]+'
+        dna_pattern = r'#(?:龍芯|龍芯)⚡️[^\s]+'
         matches = re.findall(dna_pattern, result.stdout + result.stderr)
 
         for dna in matches:
@@ -506,7 +506,7 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂 · 自愈焊接引擎",
+        description="🐉 龍魂 · 自愈焊接引擎",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:

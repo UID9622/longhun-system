@@ -184,7 +184,7 @@ class SystemHealth:
 
     def terminal_output(self):
         r = self.generate_report()
-        print(f"\n🐉 龙魂系统健康报告")
+        print(f"\n🐉 龍魂系统健康报告")
         print("=" * 60)
         print(f"  📊 评分: {r['overall_score']}/100 ({r['grade']})")
         print(f"  ⚙️  引擎: {r.get('engine_count', 0)} 个")

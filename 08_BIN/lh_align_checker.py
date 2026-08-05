@@ -49,7 +49,7 @@ SKIP_SCAN_DIRS = {
     "data/training/home_absorb/sources/claude搭建待整理",
     # 缓存副本与历史归档
     "data/knowledge_pull/cache",
-    "data/training/home_absorb/workspace/Desktop/龙魂系统-知识库/_archive",
+    "data/training/home_absorb/workspace/Desktop/龍魂系统-知识库/_archive",
     "data/training/home_absorb/workspace/Desktop/桌面项目箱",
     "data/training/home_absorb/workspace/_work",
     "02_SKILLS/downloads_archive",

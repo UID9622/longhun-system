@@ -34,7 +34,7 @@ from datetime import datetime
 import json
 
 # ============================================================
-# 龙魂统一色板 (来自 LH-UNIFIED-VISUAL-COLOR-PROTOCOL-v1.0)
+# 龍魂统一色板 (来自 LH-UNIFIED-VISUAL-COLOR-PROTOCOL-v1.0)
 # ============================================================
 COLORS = {
     '断空红': '#CC0000',  # P0 - 熔断
@@ -138,7 +138,7 @@ WHITEPAPERS = {
     },
     'sovereignty': {
         'name': '数字主权体系',
-        'file': '01_protocols/龙魂数字主权体系_学术论文_v2.0.md',
+        'file': '01_protocols/龍魂数字主权体系_学术论文_v2.0.md',
         'version': 'v2.0',
         'charts': [
             {'id': 1, 'name': '三位一体架构图', 'type': 'stack', 'func': 'chart_sovereignty_triunity'},
@@ -160,14 +160,14 @@ WHITEPAPERS = {
 # 工具函数
 # ============================================================
 def add_longhun_header(fig, title, subtitle=''):
-    """统一龙魂图表头部"""
+    """统一龍魂图表头部"""
     fig.text(0.5, 0.97, f'🐉 {title}', ha='center', va='top',
              fontsize=16, fontweight='bold', color=C_GOLD,
              fontfamily='sans-serif')
     if subtitle:
         fig.text(0.5, 0.94, subtitle, ha='center', va='top',
                  fontsize=10, color=COLORS['text_secondary'])
-    # 龙魂水印
+    # 龍魂水印
     fig.text(0.99, 0.01, '龍魂·白皮书可视化引擎 v1.0',
              ha='right', va='bottom', fontsize=7,
              color=COLORS['text_secondary'], alpha=0.5,
@@ -452,7 +452,7 @@ def chart_open_audit_architecture(fmt='png'):
     for i, (label, val, color) in enumerate(metrics):
         ax.text(9.5, 13.8-i*0.5, f'{label}: {val}', fontsize=8, color=color)
 
-    ax.set_title('龙魂系统·六层开放审计协议架构',
+    ax.set_title('龍魂系统·六层开放审计协议架构',
                  fontsize=16, color=C_GOLD, fontweight='bold', pad=25)
     add_longhun_header(fig, '六层开放审计架构纵剖图',
                        '三色审计→本地否决→多节点时间戳→可回滚→沙盒推演→权限分层')
@@ -629,7 +629,7 @@ def chart_privacy_three_layer(fmt='png'):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 8))
     fig.patch.set_facecolor(C_BG)
 
-    # --- 左: 传统 vs 龙魂对比 ---
+    # --- 左: 传统 vs 龍魂对比 ---
     categories = ['数据存储', '访问权限', '追溯能力', '责任归属', '透明度']
     traditional = [1, 1, 1, 1, 1]
     longhun = [4, 4, 5, 5, 5]
@@ -638,13 +638,13 @@ def chart_privacy_three_layer(fmt='png'):
     w = 0.35
     ax1.bar(x - w/2, traditional, w, label='传统黑箱', color=C_SILVER,
             alpha=0.6)
-    ax1.bar(x + w/2, longhun, w, label='龙魂设计', color=C_GOLD,
+    ax1.bar(x + w/2, longhun, w, label='龍魂设计', color=C_GOLD,
             alpha=0.85)
 
     ax1.set_xticks(x)
     ax1.set_xticklabels(categories, fontsize=11, color=C_TEXT)
     ax1.set_ylabel('主权评分 (1-5)', fontsize=11, color=C_TEXT)
-    ax1.set_title('数据主权对比: 传统 vs 龙魂', fontsize=13, color=C_GOLD,
+    ax1.set_title('数据主权对比: 传统 vs 龍魂', fontsize=13, color=C_GOLD,
                   fontweight='bold')
     ax1.legend(fontsize=10, facecolor=C_CARD, edgecolor=COLORS['border'],
                labelcolor=C_TEXT)
@@ -688,7 +688,7 @@ def chart_privacy_three_layer(fmt='png'):
                     xytext=(9, layers_data[i+1]['y']+layers_data[i+1]['h']-0.5),
                     arrowprops=dict(arrowstyle='<->', color=C_GOLD, lw=1.5, alpha=0.5))
 
-    ax2.set_title('龙魂·三层隐私架构', fontsize=13, color=C_GOLD,
+    ax2.set_title('龍魂·三层隐私架构', fontsize=13, color=C_GOLD,
                   fontweight='bold', pad=10)
     add_longhun_header(fig, '隐私架构·三层主权模型',
                        '本地层(完全控制)→国密层(中国主权)→云端层(可选增强)')
@@ -712,7 +712,7 @@ def chart_privacy_dna_timeline(fmt='png'):
 
     ax.text(5.5, 4.5, '传统模式: 内容暴露 → 隐私泄露', ha='center',
             fontsize=13, fontweight='bold', color=C_RED)
-    ax.text(5.5, 0.3, '龙魂模式: DNA追溯 → 内容隔离+可审计', ha='center',
+    ax.text(5.5, 0.3, '龍魂模式: DNA追溯 → 内容隔离+可审计', ha='center',
             fontsize=13, fontweight='bold', color=C_GREEN)
 
     for i, (s, yt, yl, ct, cl) in enumerate(zip(steps, y_pos, [0.8]*6,
@@ -722,7 +722,7 @@ def chart_privacy_dna_timeline(fmt='png'):
                                      boxstyle='round', facecolor=C_CARD,
                                      edgecolor=ct, linewidth=1.5))
         ax.text(i*1.8+0.75, yt+0.85, s, ha='center', fontsize=10, color=ct)
-        # 龙魂
+        # 龍魂
         ax.add_patch(FancyBboxPatch((i*1.8, yt-1.7), 1.5, 0.7,
                                      boxstyle='round', facecolor=C_CARD,
                                      edgecolor=cl, linewidth=1.5))
@@ -738,7 +738,7 @@ def chart_privacy_dna_timeline(fmt='png'):
     ax.text(11, 0.55, '✅ 安全', fontsize=10, color=C_GREEN, fontweight='bold')
 
     add_longhun_header(fig, 'DNA追溯 vs 内容暴露',
-                       '传统: 内容上传→平台分析→隐私泄露 | 龙魂: DNA哈希→内容本地→审计需授权')
+                       '传统: 内容上传→平台分析→隐私泄露 | 龍魂: DNA哈希→内容本地→审计需授权')
     return save_chart(fig, 'privacy', 2, 'DNA追溯时序对比', fmt)
 
 
@@ -758,7 +758,7 @@ def chart_harmonyos_gantt(fmt='png'):
          'desc': 'CNSH-Lite+种子人格\n断网能力+语音输入'},
         {'name': 'Phase 3: 共生体', 'start': 7, 'dur': 12,
          'color': C_GOLD, 'status': '📋 规划中',
-         'desc': '鸿蒙分布式×龙魂\n全人格本地化运行'},
+         'desc': '鸿蒙分布式×龍魂\n全人格本地化运行'},
     ]
 
     for i, p in enumerate(phases):
@@ -1113,7 +1113,7 @@ def chart_template_structure(fmt='png'):
                    xytext=(6, sections[i]['y']-0.6),
                    arrowprops=dict(arrowstyle='->', color=C_GOLD, lw=1.5, alpha=0.5))
 
-    ax.set_title('龙魂·白皮书结构模板标准', fontsize=16, color=C_GOLD,
+    ax.set_title('龍魂·白皮书结构模板标准', fontsize=16, color=C_GOLD,
                  fontweight='bold', pad=20)
     add_longhun_header(fig, '白皮书模板·结构标准',
                        '文件头→声明→方法论→读者指南→摘要→正文→附录→签章 | 8段标准结构')
@@ -1172,7 +1172,7 @@ def generate_all(whitepaper_key=None, chart_id=None, fmt='png'):
 
 def list_whitepapers():
     """列所有白皮书和图表"""
-    print("\n🐉 龙魂·白皮书可视化 总目")
+    print("\n🐉 龍魂·白皮书可视化 总目")
     print("="*60)
     total_charts = 0
     for key, wp in WHITEPAPERS.items():
@@ -1191,7 +1191,7 @@ def list_whitepapers():
 # ============================================================
 def main():
     parser = argparse.ArgumentParser(
-        description='🐉 龙魂·白皮书可视化引擎 v1.0',
+        description='🐉 龍魂·白皮书可视化引擎 v1.0',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:

@@ -18,7 +18,7 @@ lh — 龍魂统一交互控制台
     lh --dashboard      # 直接显示人格仪表盘
 """
 
-import json, os, sys, time, shlex, subprocess
+import json, os, sys, time, shlex, subprocess, hashlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -28,6 +28,105 @@ sys.path.insert(0, str(ROOT))
 # ===== 常量 =====
 VERSION = "v1.0"
 DNA = "#龍芯⚡️丙午·丙申·癸丑·申时·大有-lh-CONSOLE-v1.0"
+
+# ===== 国密 SM4-CBC 加密模块（数据主权助手）=====
+def _load_sm4_class():
+    """动态加载 CNSH_国密工具.py 中的 SM4 类。"""
+    import importlib.util
+    sm4_path = ROOT / "bin" / "CNSH_国密工具.py"
+    spec = importlib.util.spec_from_file_location("cnsh_sm4", str(sm4_path))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.SM4
+
+
+def _get_master_key() -> bytes:
+    """读取或生成 16 字节国密主密钥，存于 ~/.longhun/config/master.key。"""
+    key_file = Path.home() / ".longhun" / "config" / "master.key"
+    key_file.parent.mkdir(parents=True, exist_ok=True)
+    if key_file.exists():
+        return bytes.fromhex(key_file.read_text(encoding="utf-8").strip())
+    import secrets
+    key = secrets.token_bytes(16)
+    key_file.write_text(key.hex(), encoding="utf-8")
+    key_file.chmod(0o600)
+    return key
+
+
+def _sm4_cbc_encrypt(plaintext: bytes, key: bytes) -> bytes:
+    """SM4-CBC 加密：返回 IV || ciphertext。"""
+    SM4 = _load_sm4_class()
+    import secrets
+    iv = secrets.token_bytes(16)
+    padded = SM4._pad(plaintext)
+    rk = SM4._expand_key(key)
+    ciphertext = b""
+    prev = iv
+    for i in range(0, len(padded), 16):
+        block = bytes(a ^ b for a, b in zip(padded[i:i + 16], prev))
+        enc = SM4._crypt_block(block, rk)
+        ciphertext += enc
+        prev = enc
+    return iv + ciphertext
+
+
+def _sm4_cbc_decrypt(ciphertext: bytes, key: bytes) -> bytes:
+    """SM4-CBC 解密：输入 IV || ciphertext。"""
+    SM4 = _load_sm4_class()
+    if len(ciphertext) < 16 or len(ciphertext) % 16 != 0:
+        raise ValueError("密文长度无效")
+    iv = ciphertext[:16]
+    body = ciphertext[16:]
+    rk = SM4._expand_key(key)[::-1]
+    plaintext = b""
+    prev = iv
+    for i in range(0, len(body), 16):
+        dec = SM4._crypt_block(body[i:i + 16], rk)
+        plaintext += bytes(a ^ b for a, b in zip(dec, prev))
+        prev = body[i:i + 16]
+    return SM4._unpad(plaintext)
+
+
+# ===== 证据固化 · Agent审计 + GPG签名 + SM4加密 =====
+def _gpg_sign_file(plain_path: Path, key_id: str = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F") -> Path:
+    """对指定文件生成 GPG 分离签名，返回 .asc 文件路径。"""
+    asc_path = plain_path.with_suffix(plain_path.suffix + ".asc")
+    cmd = [
+        "gpg", "--batch", "--yes", "--armor",
+        "--local-user", key_id,
+        "--detach-sign",
+        "--output", str(asc_path),
+        str(plain_path),
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        raise RuntimeError(f"GPG 签名失败: {result.stderr}")
+    return asc_path
+
+
+def _run_witness_audit(content: str) -> dict:
+    """调用 longhun_agents 对证据内容进行轻量审计链 (P05 + P15 + S3)。"""
+    try:
+        sys.path.insert(0, str(ROOT / "05_ENGINES"))
+        from engines.longhun_agents import GrandOrchestrator
+        orchestrator = GrandOrchestrator(enable_ant_colony=False, enable_blackboard=False)
+        task = f"审计以下维权证据的合规性、完整性与签章策略：\n{content[:2000]}"
+        result = orchestrator.run(task, mode="quick", agents=["P05", "P15", "S3"])
+        return {
+            "ok": True,
+            "chain": result.get("chain", []),
+            "agent_results": {
+                pid: {
+                    "status": r.get("status", "?"),
+                    "name": r.get("name", pid),
+                    "summary": str(r.get("result", ""))[:200],
+                }
+                for pid, r in result.get("agent_results", {}).items()
+            },
+        }
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
 
 # ===== 功能模块定义（分组+描述）=====
 MODULES = {
@@ -271,7 +370,7 @@ MODULES = {
         "items": [
             {"id": "1", "label": "💬 交互对话模式", "cmd": "python3 bin/lh_natural_language_router.py -i", "desc": "持续对话·输入中文即可·同音字/错别字自动纠正"},
             {"id": "2", "label": "🧬 查DNA追溯", "cmd": "python3 bin/lh_natural_language_router.py '查DNA 文件'", "desc": "自然语言查询DNA追溯信息"},
-            {"id": "3", "label": "🔍 搜索东西", "cmd": "python3 bin/lh_natural_language_router.py '搜索 龙魂'", "desc": "口语化搜索·同音字容错"},
+            {"id": "3", "label": "🔍 搜索东西", "cmd": "python3 bin/lh_natural_language_router.py '搜索 龍魂'", "desc": "口语化搜索·同音字容错"},
             {"id": "4", "label": "📊 看系统状态", "cmd": "python3 bin/lh_natural_language_router.py '系统状态'", "desc": "口语查询系统状态·正常吗/好不好/有没有问题"},
             {"id": "5", "label": "📦 归档保存", "cmd": "python3 bin/lh_natural_language_router.py '归档 报告 --标签 月度'", "desc": "自然语言归档"},
             {"id": "6", "label": "🧪 错别字测试", "cmd": "python3 bin/lh_natural_language_router.py '直行任无'", "desc": "测试同音字纠错: 直行任无→执行任务"},
@@ -336,7 +435,7 @@ MODULES = {
             {"id": "4", "label": "消化过滤器", "cmd": "python3 bin/lh_digest_filter.py", "desc": "信息消化优先级排序"},
             {"id": "5", "label": "语义上下文引擎", "cmd": "python3 bin/lh_semantic_context_engine.py", "desc": "上下文中提取语义关系"},
             {"id": "6", "label": "反假货检测", "cmd": "python3 bin/lh_anti_counterfeit.py", "desc": "检测仿冒/抄袭内容"},
-            {"id": "7", "label": "🧩 知识全息拉取", "cmd": "python3 bin/lh_knowledge_harvester.py", "desc": "从Notion/CSDN/本地/备忘录/AI对话拉取龙魂知识·哲学→代码"},
+            {"id": "7", "label": "🧩 知识全息拉取", "cmd": "python3 bin/lh_knowledge_harvester.py", "desc": "从Notion/CSDN/本地/备忘录/AI对话拉取龍魂知识·哲学→代码"},
             {"id": "8", "label": "⚙️ 知识拉取器配置", "cmd": "python3 bin/lh_setup_harvester.py", "desc": "一键配置环境变量+依赖+拉取+审查（交互式引导）"},
             {"id": "9", "label": "🧪 知识编译", "cmd": "python3 bin/lh_knowledge_compiler.py --all", "desc": "原则→可执行规则·规则→.env配置·模式→触发词·生成代码骨架"},
             {"id": "10", "label": "📤 知识迁移", "cmd": "python3 bin/lh_knowledge_migrate.py", "desc": "本地知识推送到Notion/导出Markdown包/推GitHub"},
@@ -601,6 +700,10 @@ SUB_DISPATCH = {
     'san_cai':              ('san_cai_v2.py',                 '☯️', '三才算法', [], '--interactive'),
     'ant_colony':           ('lh_ant_colony_daemon.py',       '🐜', '蚁群引擎'),
     'update':               ('lh_engine_registry.py',         '🔄', '更新引擎索引', ['scan']),
+    'compliance':           ('lh_compliance.py',              '⚖️', '合规证据包（法律+国密+等保+AI合规）', ['--export']),
+    'syntax':               ('lh_syntax_lint.py',              '📐', '语法规范校验·DNA/确认码/缩进/龍字/三色/许可·依据v3.0', [], '.'),
+    'syntax-lint':          ('lh_syntax_lint.py',              '📐', '语法规范校验(全写)·同上', [], '.'),
+    'syntax-fix':           ('lh_syntax_lint.py',              '🔧', '自动修正「龙」→「龍」品牌标识', ['--fix-dragon']),
     'status':               ('lh_unified_brain.py',           '📊', '全系统状态', ['status']),
     '掀黑箱':               ('lh_掀黑箱.py',                  '📦', '掀黑箱审计', ['.']),
     'imprint':              ('lh_digital_imprint.py',        '🧬', '数字人印记'),
@@ -613,6 +716,10 @@ SUB_DISPATCH = {
     'portal':               ('lh_portal_api.py',               '🌐', '统一门户官网', [], '--port 8778'),
     'mode':                 ('lh_universal_mode.py',           '🧬', '统一AI执行模式·ROOT_CARD审计', [], ''),
     'learn':                ('lh_learning_engine.py',          '🧠', '自主学习引擎·知识DNA·数字大军', [], ''),
+    'evolution':            ('lh_evolution_engine.py',         '🧬', '自我进化引擎v2.0·感知·学习·记忆·进化四维闭环', [], 'demo'),
+    'evo':                  ('lh_evolution_engine.py',         '🧬', '进化引擎(简)·自检·演示·状态', [], 'status'),
+    'fortified':            ('lh_evolution_fortified.py',      '🛡️', '强化进化引擎·主权·真理·反殖民十维防护', [], 'demo'),
+    'fort':                 ('lh_evolution_fortified.py',      '🛡️', '强化引擎(简)·自检·演示·状态', [], 'status'),
     'knowledge_source':     ('lh_knowledge_source_manager.py', '📡', '知识源管理器·自动订阅·更新检测·喂入学习', [], ''),
     'persona_router':       ('lh_persona_router.py',           '🧬', '人格路由引擎·自动归类·动态权重·Notion花名册', [], '--status'),
     'math_explore':         ('lh_math_explorer.py',             '🔢', '数学难题解决工作流·素数数字根·哥德巴赫·流场·三色审计', [], '--n 100000'),
@@ -937,6 +1044,13 @@ def main():
     parser.add_argument('--benefit', dest='benefit', nargs=argparse.REMAINDER, help='创作者DNA受益算法 (lh --benefit --register --creator-id UID9622 --creator-name Lucky --content "算法描述" --category algorithm)')
     # 📋 任务编排引擎
     parser.add_argument('--task', dest='task', nargs=argparse.REMAINDER, help='任务编排与执行可视化引擎 (lh --task create/list/status/execute/pause/resume/cancel/review/retry/serve)')
+    # 🏠 老百姓入口 · 数据主权助手
+    parser.add_argument('--ask', metavar='QUESTION', type=str, help='本地安全对话 (lh --ask "问题")')
+    parser.add_argument('--witness', nargs=argparse.REMAINDER, help='一键固化证据 (lh --witness 或 lh --witness "证据内容" 或 lh --witness --sign)')
+    parser.add_argument('--export', action='store_true', help='导出合规证据包 (lh --export)')
+    parser.add_argument('--view-witness', dest='view_witness', metavar='ID', type=str, help='解密查看证据 (lh --view-witness WITNESS-xxx)')
+    parser.add_argument('--view-export', dest='view_export', metavar='FILE', type=str, help='解密查看证据包 (lh --view-export backup/evidence_xxx.json.enc)')
+    parser.add_argument('--witness-serve', dest='witness_serve', action='store_true', help='启动维权证据固化 Web 服务 (lh --witness-serve)')
     parser.add_argument('--quick', type=str, help='快速跳转到模块名')
 
     args = parser.parse_args()
@@ -951,6 +1065,307 @@ def main():
     if args.show_help or args.show_help_flag:
         print_help()
         return
+
+    # === 🏠 老百姓入口 · 数据主权助手 ===
+    if args.ask is not None:
+        from datetime import datetime, timezone
+        question = args.ask.strip() or "你好，龍魂！"
+        print_header()
+        print(f"\n  🐉 龍魂正在思考（本地优先·数据主权模式）")
+        print(f"  📝 问题: {question}")
+        print(f"  🔒 数据根留本地 | 不上传境外平台\n")
+        sys.stdout.flush()
+
+        bridge_path = ROOT / "bin" / "lh_notion_chat_bridge.py"
+        answer_text = ""
+        meta = {}
+        # 优先调用 Notion 对话桥（本地模型优先）
+        try:
+            result = subprocess.run(
+                [sys.executable, str(bridge_path), "chat", question, "--mode", "council", "--style", "plain"],
+                cwd=str(ROOT), capture_output=True, text=True, timeout=120,
+            )
+            if result.returncode == 0:
+                # 解析 plain 输出: 第一行是模型，然后是回答
+                lines = result.stdout.splitlines()
+                answer_lines = []
+                for line in lines:
+                    if line.startswith("🤖 回答模型:"):
+                        meta["model"] = line.replace("🤖 回答模型:", "").strip()
+                    elif line.startswith("🔁 模型降级链:"):
+                        break
+                    else:
+                        answer_lines.append(line)
+                answer_text = "\n".join(line for line in answer_lines if line.strip()).strip()
+        except Exception as e:
+            print(f"  ⚠️ 对话桥调用失败: {e}")
+
+        # Fallback: 本地 Ollama
+        if not answer_text:
+            try:
+                import urllib.request
+                req = urllib.request.Request(
+                    "http://localhost:11434/api/generate",
+                    data=json.dumps({"model": "qwen2.5:7b", "prompt": question, "stream": False}).encode(),
+                    headers={"Content-Type": "application/json"},
+                    method="POST",
+                )
+                with urllib.request.urlopen(req, timeout=30) as resp:
+                    answer_text = json.loads(resp.read().decode()).get("response", "服务繁忙")
+                meta["model"] = "ollama/qwen2.5:7b"
+            except Exception as e:
+                answer_text = f"本地模型也未就绪: {e}\n请确保 Ollama 运行: ollama run qwen2.5:7b"
+                meta["model"] = "none"
+
+        print(f"  🤖 模型: {meta.get('model', 'council/wuxing-council-v1.0')}")
+        print(f"\n  💡 回答:\n{answer_text}")
+        print("\n" + "=" * 58)
+        print("  ✅ 本次对话数据已留本地，未上传境外平台。")
+        print(f"  🧬 DNA: #龍芯⚡️{datetime.now().strftime('%Y%m%d%H%M%S')}-ASK-UID9622")
+        print("=" * 58)
+        return
+
+    if args.witness_serve:
+        print_header()
+        print("\n  🐉 启动维权证据固化 Web 服务...")
+        server_script = ROOT / "bin" / "lh_witness_server.py"
+        if not server_script.exists():
+            print(f"  ❌ 服务脚本不存在: {server_script}")
+            return
+        try:
+            subprocess.run(["python3", str(server_script), "--host", "127.0.0.1", "--port", "8780"], check=True)
+        except KeyboardInterrupt:
+            print("\n  ⏹ 服务已停止")
+        return
+
+    if args.view_witness:
+        print_header()
+        print(f"\n  🔓 解密查看证据: {args.view_witness}\n")
+        key = _get_master_key()
+        witness_dir = ROOT / "data" / "witness"
+        target = None
+        for f in sorted(witness_dir.glob("witness_*.json.enc")):
+            try:
+                cipher = f.read_bytes()
+                plain = _sm4_cbc_decrypt(cipher, key)
+                data = json.loads(plain.decode("utf-8"))
+                if data.get("witness_id") == args.view_witness:
+                    target = data
+                    break
+            except Exception:
+                continue
+        if not target:
+            print("  ❌ 未找到该证据，或主密钥不正确。")
+            return
+        print(f"  🆔 证据ID: {target['witness_id']}")
+        print(f"  🕐 时间: {target['timestamp_utc']}")
+        print(f"  🔐 SHA-256: {target['content_sha256'][:40]}...")
+        print(f"  🧬 DNA: {target['dna']}")
+        print("\n  📝 内容:\n" + "-" * 58)
+        print(f"  {target['content']}")
+        print("-" * 58)
+        return
+
+    if args.witness is not None:
+        print_header()
+        print("\n  🐉 龍魂·维权证据固化工具")
+
+        # 解析 --witness 后的参数（REMAINDER 模式）
+        do_sign = "--sign" in args.witness
+        evidence_lines = [x for x in (args.witness or []) if x != "--sign"]
+
+        if do_sign:
+            print("  🔏 签名模式已启用：Agent 审计 → GPG 签章 → SM4 加密\n")
+        else:
+            print("  请输入要固化的证据（支持多行，空行或输入 done 结束）：\n")
+
+        if evidence_lines and evidence_lines[0]:
+            pass  # 已经通过命令行传入
+        else:
+            evidence_lines = []
+            while True:
+                try:
+                    line = input("  > ")
+                    if line.strip().lower() in ("done", "end", ""):
+                        break
+                    evidence_lines.append(line)
+                except (EOFError, KeyboardInterrupt):
+                    print("\n  ⏹ 已取消")
+                    return
+
+        content = "\n".join(evidence_lines).strip()
+        if not content:
+            print("\n  ⚠️ 未输入任何证据，已取消。")
+            return
+
+        from datetime import datetime, timezone
+        ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        content_hash = hashlib.sha256(content.encode("utf-8")).hexdigest()[:16]
+        witness_id = f"WITNESS-{ts}-{content_hash}"
+
+        witness_dir = ROOT / "data" / "witness"
+        witness_dir.mkdir(parents=True, exist_ok=True)
+        plain_file = witness_dir / f"witness_{ts}.json"
+        enc_file = witness_dir / f"witness_{ts}.json.enc"
+        asc_file = plain_file.with_suffix(plain_file.suffix + ".asc")
+
+        # 可选：Agent 审计链
+        audit_result = None
+        if do_sign:
+            print("  ⏳ 正在执行 Agent 审计链 (P05 + P15 + S3)...")
+            audit_result = _run_witness_audit(content)
+            if audit_result.get("ok"):
+                print("  ✅ Agent 审计链完成")
+                for pid, info in audit_result.get("agent_results", {}).items():
+                    print(f"     • {pid} ({info.get('name', '?')}): {info.get('status', '?')}")
+            else:
+                print(f"  ⚠️ Agent 审计未通过或引擎不可用: {audit_result.get('error', '未知错误')}")
+                print("  🛡️ 继续执行 GPG 签名（签名本身不依赖 Agent 审计）")
+
+        evidence_pkg = {
+            "witness_id": witness_id,
+            "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+            "dna": "#龍芯⚡️丙午·癸未·甲申-WITNESS-" + witness_id,
+            "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+            "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+            "content": content,
+            "content_sha256": hashlib.sha256(content.encode("utf-8")).hexdigest(),
+            "signature": "",
+            "agent_audit": audit_result if do_sign else None,
+        }
+        plain_bytes = json.dumps(evidence_pkg, ensure_ascii=False, indent=2).encode("utf-8")
+
+        # GPG 签名（仅签名模式）
+        if do_sign:
+            plain_file.write_bytes(plain_bytes)
+            try:
+                asc_path = _gpg_sign_file(plain_file)
+                sig_text = asc_path.read_text(encoding="utf-8")
+                evidence_pkg["signature"] = sig_text
+                evidence_pkg["signature_file"] = str(asc_file.relative_to(ROOT))
+                # 更新明文内容以包含签名信息
+                plain_bytes = json.dumps(evidence_pkg, ensure_ascii=False, indent=2).encode("utf-8")
+                plain_file.write_bytes(plain_bytes)
+                print(f"  ✅ GPG 签章完成: {asc_path.relative_to(ROOT)}")
+            except Exception as e:
+                print(f"  ❌ GPG 签名失败: {e}")
+                try:
+                    plain_file.unlink()
+                    asc_file.unlink(missing_ok=True)
+                except Exception:
+                    pass
+                return
+
+        # SM4 加密
+        key = _get_master_key()
+        cipher_bytes = _sm4_cbc_encrypt(plain_bytes, key)
+        enc_file.write_bytes(cipher_bytes)
+
+        # 明文不落盘；签名文件保留（签名可公开验证）
+        try:
+            plain_file.unlink()
+        except Exception:
+            pass
+
+        print("\n" + "=" * 58)
+        print(f"  ✅ 证据已固化并加密: {enc_file.relative_to(ROOT)}")
+        print(f"  🆔 证据ID: {witness_id}")
+        print(f"  🔐 SHA-256: {evidence_pkg['content_sha256'][:32]}...")
+        print(f"  🔒 加密算法: 国密 SM4-CBC")
+        if do_sign:
+            print(f"  ✍️  GPG 签章: {asc_file.relative_to(ROOT)}")
+            print(f"  🧩 Agent 审计链: P05→P15→S3")
+        print("  📋 下一步:")
+        print(f"     1. 解密查看: lh --view-witness {witness_id}")
+        print("     2. 导出证据包: lh --export")
+        print("=" * 58)
+        return
+
+    if args.view_export:
+        print_header()
+        print(f"\n  🔓 解密查看证据包: {args.view_export}\n")
+        key = _get_master_key()
+        export_path = Path(args.view_export)
+        if not export_path.is_absolute():
+            export_path = ROOT / export_path
+        if not export_path.exists():
+            print(f"  ❌ 文件不存在: {export_path}")
+            return
+        try:
+            cipher = export_path.read_bytes()
+            plain = _sm4_cbc_decrypt(cipher, key)
+            data = json.loads(plain.decode("utf-8"))
+            print(f"  📦 证据包ID: {data.get('export_id')}")
+            print(f"  🕐 导出时间: {data.get('timestamp_utc')}")
+            print(f"  🧬 DNA: {data.get('dna')}")
+            print(f"  📊 摘要: {json.dumps(data.get('summary', {}), ensure_ascii=False, indent=4)}")
+            print(f"\n  📝 证据记录数: {len(data.get('witnesses', []))}")
+            for i, w in enumerate(data.get('witnesses', [])[:5], 1):
+                print(f"    {i}. {w.get('witness_id')} | {w.get('timestamp_utc')}")
+        except Exception as e:
+            print(f"  ❌ 解密失败: {e}")
+        return
+
+    if args.export:
+        print_header()
+        print("\n  🐉 龍魂·合规证据包导出\n")
+
+        from datetime import datetime, timezone
+        ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        backup_dir = ROOT / "backup"
+        backup_dir.mkdir(parents=True, exist_ok=True)
+        plain_file = backup_dir / f"evidence_{ts}.json"
+        enc_file = backup_dir / f"evidence_{ts}.json.enc"
+
+        key = _get_master_key()
+        witness_dir = ROOT / "data" / "witness"
+        witnesses = []
+        if witness_dir.exists():
+            for f in sorted(witness_dir.glob("witness_*.json.enc")):
+                try:
+                    cipher = f.read_bytes()
+                    plain = _sm4_cbc_decrypt(cipher, key)
+                    witnesses.append(json.loads(plain.decode("utf-8")))
+                except Exception:
+                    continue
+
+        # 检查 GPG 签名状态
+        signed_count = 0
+        for f in (ROOT / "08_BIN").glob("*.py"):
+            if (f.with_suffix(f.suffix + ".asc")).exists():
+                signed_count += 1
+
+        export_pkg = {
+            "export_id": f"EXPORT-{ts}",
+            "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+            "dna": "#龍芯⚡️丙午·癸未·甲申-EVIDENCE-EXPORT-" + ts,
+            "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+            "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+            "summary": {
+                "witness_count": len(witnesses),
+                "signed_scripts": signed_count,
+                "project_root": str(ROOT),
+            },
+            "witnesses": witnesses[-20:],  # 最近 20 条
+        }
+        plain_bytes = json.dumps(export_pkg, ensure_ascii=False, indent=2).encode("utf-8")
+        cipher_bytes = _sm4_cbc_encrypt(plain_bytes, key)
+        enc_file.write_bytes(cipher_bytes)
+        # 明文不落盘
+        plain_file.write_bytes(plain_bytes)
+        try:
+            plain_file.unlink()
+        except Exception:
+            pass
+
+        print(f"  ✅ 证据包已导出并加密: {enc_file.relative_to(ROOT)}")
+        print(f"  📦 包含: {len(witnesses)} 条证据记录")
+        print(f"  🔐 系统签名状态: {signed_count} 个脚本已 GPG 签名")
+        print(f"  🔒 加密算法: 国密 SM4-CBC")
+        print(f"  🧬 DNA: {export_pkg['dna']}")
+        print("\n  建议: 将证据包复制到外部加密介质或打印成纸质备份。")
+        return
+
     if args.personas:
         print_persona_dashboard()
         return
@@ -1239,7 +1654,7 @@ def main():
     # === 一键启动全部服务 ===
     if args.start_all:
         print_header()
-        print("\n  🐉 启动所有龙魂服务...\n")
+        print("\n  🐉 启动所有龍魂服务...\n")
         # 启动 API 服务
         print("  📡 启动省电 API (端口 9622)...")
         subprocess.Popen(

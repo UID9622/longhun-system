@@ -17,7 +17,7 @@
   5. 来源追溯和更新记录
 
 用法：
-  python3 bin/lh_knowledge_source_manager.py --add --name "龙魂系统" --type github --url "https://github.com/UID9622/longhun-system"
+  python3 bin/lh_knowledge_source_manager.py --add --name "龍魂系统" --type github --url "https://github.com/UID9622/longhun-system"
   python3 bin/lh_knowledge_source_manager.py --scan                   # 扫描所有源更新
   python3 bin/lh_knowledge_source_manager.py --scan --source-id 1     # 扫描指定源
   python3 bin/lh_knowledge_source_manager.py --status                 # 查看所有源状态
@@ -647,7 +647,7 @@ class KnowledgeSourceManager:
 
 PRESET_SOURCES = [
     {
-        "name": "龙魂系统核心库",
+        "name": "龍魂系统核心库",
         "type": "github",
         "url": "https://github.com/UID9622/longhun-system",
         "config": "core"
@@ -671,7 +671,7 @@ PRESET_SOURCES = [
         "config": "tech_news"
     },
     {
-        "name": "龙魂官网博客",
+        "name": "龍魂官网博客",
         "type": "web",
         "url": "https://uid9622.cn",
         "config": "blog"
@@ -705,7 +705,7 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="龙魂 · 自动学习知识源管理器",
+        description="龍魂 · 自动学习知识源管理器",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:

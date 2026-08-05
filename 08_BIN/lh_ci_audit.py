@@ -289,7 +289,7 @@ def print_ci_report(ci_env: Dict[str, Any], audit_result: Dict[str, Any], risk_e
 
     lines = []
     lines.append(f"\n{BOLD}{'='*70}{RESET}")
-    lines.append(f"{BOLD}🐉 龙魂 · CI 流水线审计报告{RESET}")
+    lines.append(f"{BOLD}🐉 龍魂 · CI 流水线审计报告{RESET}")
     lines.append(f"{BOLD}{'='*70}{RESET}")
 
     # CI 上下文
@@ -355,7 +355,7 @@ def print_ci_report(ci_env: Dict[str, Any], audit_result: Dict[str, Any], risk_e
 # ============================================================
 
 def main():
-    parser = argparse.ArgumentParser(description="龙魂 · CI 流水线审计集成器")
+    parser = argparse.ArgumentParser(description="龍魂 · CI 流水线审计集成器")
     parser.add_argument("--target", default=".", help="要审计的目标路径")
     parser.add_argument("--pr", type=int, help="PR 编号（手动指定）")
     parser.add_argument("--fail-level", default=CI_AUDIT_FAIL_LEVEL,

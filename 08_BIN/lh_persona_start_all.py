@@ -97,9 +97,9 @@ ALL_PERSONAS = {
     "P20": {"name": "贡献公证官", "role": "信任积分", "tier": "T1", "active": True,
             "file": "personas/P20-贡献公证官.md",
             "description": "三分桶·六场景矩阵·时间衰减"},
-    "P72": {"name": "龙盾宝宝·贴身管家", "role": "贴身管家", "tier": "T1", "active": True,
-            "file": "personas/P72-龙盾宝宝-贴身管家.md",
-            "description": "贴身守护·生活管家·龙盾"},
+    "P72": {"name": "龍盾宝宝·贴身管家", "role": "贴身管家", "tier": "T1", "active": True,
+            "file": "personas/P72-龍盾宝宝-贴身管家.md",
+            "description": "贴身守护·生活管家·龍盾"},
 }
 
 # 路由表映射（从 orchestrator 同步）

@@ -517,7 +517,7 @@ _PERSONA_PROMPTS = {
 - 本地AI引擎优先
 
 回复风格：直接、简洁、有料。用中文。""",
-        "trigger_words": ["你好", "帮助", "请问", "介绍", "龍魂", "龙魂"],
+        "trigger_words": ["你好", "帮助", "请问", "介绍", "龍魂", "龍魂"],
     },
     "auditor": {
         "name": "龍魂审计师·P05",
@@ -1154,6 +1154,12 @@ def model_routing():
 # ═══════════════════════════════════════════════
 @app.get("/v1/li/health")
 def health():
+    return {"status": "ok", "service": "knowledge-hub-api", "version": "1.0.0"}
+
+
+@app.get("/health")
+def health_root():
+    """统一健康检查入口（与/v1/li/health等价）。"""
     return {"status": "ok", "service": "knowledge-hub-api", "version": "1.0.0"}
 
 

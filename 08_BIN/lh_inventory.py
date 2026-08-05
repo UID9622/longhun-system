@@ -145,6 +145,34 @@ def count_personas() -> dict:
     return {"definitions": count, "executors": exec_count}
 
 
+EXCLUDED_TEST_DIRS = {".git", "__pycache__", ".venv", ".venv_tts", ".venv_gpt_sovts",
+                      "_work", "archive", "dist", "_archive", "_private", ".pytest_cache"}
+
+
+def scan_tests() -> dict:
+    """统计项目内真实测试文件，排除虚拟环境、历史归档、缓存等。"""
+    total_raw = 0
+    clean = 0
+    excluded = 0
+    samples = []
+    for pattern in ("test_*.py", "*_test.py"):
+        for f in ROOT.rglob(pattern):
+            total_raw += 1
+            rel_parts = set(f.relative_to(ROOT).parts)
+            if rel_parts & EXCLUDED_TEST_DIRS:
+                excluded += 1
+                continue
+            clean += 1
+            if len(samples) < 10:
+                samples.append(str(f.relative_to(ROOT)))
+    return {
+        "total_raw": total_raw,
+        "excluded": excluded,
+        "project_tests": clean,
+        "samples": samples,
+    }
+
+
 def generate_inventory() -> dict:
     """生成完整功能清单"""
     triggers = extract_triggers_from_lh_run()
@@ -153,6 +181,7 @@ def generate_inventory() -> dict:
     cnsh = scan_cnsh_modules()
     protocols = scan_protocols()
     personas = count_personas()
+    tests = scan_tests()
 
     inventory = {
         "generated_at": datetime.now().isoformat(),
@@ -166,6 +195,7 @@ def generate_inventory() -> dict:
             "total_cnsh_modules": len(cnsh),
             "total_protocols": len(protocols),
             "personas": personas,
+            "tests": tests,
         },
         "triggers": triggers,
         "scripts": scripts,
@@ -180,7 +210,7 @@ def write_markdown(inv: dict) -> str:
     """生成 Markdown 清单"""
     s = inv["summary"]
     lines = [
-        "# 🐉 龙魂系统功能清单",
+        "# 🐉 龍魂系统功能清单",
         "",
         f"> 生成时间: {inv['generated_at']}",
         f"> DNA: {inv['dna']}",
@@ -199,6 +229,9 @@ def write_markdown(inv: dict) -> str:
         f"| 协议文档 | {s['total_protocols']} |",
         f"| 人格定义 | {s['personas']['definitions']} |",
         f"| 人格执行器 | {s['personas']['executors']} |",
+        f"| 测试文件 (原始) | {s['tests']['total_raw']} |",
+        f"| 测试文件 (项目内) | {s['tests']['project_tests']} |",
+        f"| 排除的测试噪音 | {s['tests']['excluded']} |",
         "",
         "---",
         "",

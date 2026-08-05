@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🐉 龙魂哲学方法论引擎 v1.0
+🐉 龍魂哲学方法论引擎 v1.0
 DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-PHILOSOPHY-ENGINE-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-SEAL: #ZHUGEXIN⚡️2026-龙魂-主权-不商业-不站队
+SEAL: #ZHUGEXIN⚡️2026-龍魂-主权-不商业-不站队
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色: 🟢 v1.0·13律完整闭环·自检·批量·关联图谱 🟡 2律待实战验证·匹配算法待语义升级 🔴无
 
@@ -14,7 +14,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 > 抬头模板索引: `01_protocols/LH-ARTICLE-HEADER-TEMPLATES-v1.0.md`
 
-**摘要**: 龙魂13条哲学方法论的结构化引擎。可查询/评估/审计/批量处理。
+**摘要**: 龍魂13条哲学方法论的结构化引擎。可查询/评估/审计/批量处理。
           13律覆盖责任·价值·约束·镜像·混沌·未来·种树·虚无·苦难·共生·守夜·火种·道术。
 **适用场景**: 哲学问答·决策参考·教学辅助·自我审视·AI行为边界定义。
 **ROOT_CARD**:
@@ -28,7 +28,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
   - 关联: `01_protocols/` 隐私接入规则·算法审计协议·战后整顿协议
 
 功能:
-  1. 13条龙魂哲学方法论的结构化展示
+  1. 13条龍魂哲学方法论的结构化展示
   2. 法则查询/搜索/解释
   3. 多维度评估（关键词+语义权重+三才维度）
   4. 三色审计·A-BOM物料清单
@@ -79,7 +79,7 @@ from enum import Enum
 # ============================================================
 
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
-SEAL = "#ZHUGEXIN⚡️2026-龙魂-主权-不商业-不站队"
+SEAL = "#ZHUGEXIN⚡️2026-龍魂-主权-不商业-不站队"
 GPG_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 
 # 项目根（相对于本脚本位置）
@@ -159,7 +159,7 @@ class PhilosophyLaw:
     successors: List[int] = field(default_factory=list)      # 后继法则编号
 
 # ============================================================
-# 13条龙魂哲学方法论（完整定义）
+# 13条龍魂哲学方法论（完整定义）
 # ============================================================
 
 LAWS_DATA = [
@@ -469,7 +469,7 @@ LAWS_DATA = [
 # ============================================================
 
 class PhilosophyEngine:
-    """龙魂哲学方法论引擎"""
+    """龍魂哲学方法论引擎"""
 
     def __init__(self):
         self.laws: List[PhilosophyLaw] = [PhilosophyLaw(**data) for data in LAWS_DATA]
@@ -1040,7 +1040,7 @@ class PhilosophyEngine:
     def get_a_bom(self) -> Dict:
         """生成A-BOM算法物料清单"""
         return {
-            "engine": "龙魂哲学方法论引擎",
+            "engine": "龍魂哲学方法论引擎",
             "version": "v1.0",
             "algorithm": {
                 "name": "多维度法则匹配",
@@ -1063,7 +1063,7 @@ class PhilosophyEngine:
 
     def print_law_list(self):
         """打印法则列表（带颜色）"""
-        cprint("\n📋 龙魂十三律:", Colors.CYAN)
+        cprint("\n📋 龍魂十三律:", Colors.CYAN)
         cprint("═" * 65, Colors.DIM)
         for law in self.laws:
             pre = f" ← {','.join(map(str, law.prerequisites))}" if law.prerequisites else ""
@@ -1104,7 +1104,7 @@ class PhilosophyEngine:
 
 def interactive_mode(engine: PhilosophyEngine):
     """交互式控制台"""
-    cprint("\n🐉 龙魂哲学方法论引擎 v1.0", Colors.BOLD)
+    cprint("\n🐉 龍魂哲学方法论引擎 v1.0", Colors.BOLD)
     cprint(f"  {CONFIRM}", Colors.DIM)
     cprint(f"  DNA: {engine.dna}", Colors.DIM)
     cprint("-" * 50, Colors.RESET)
@@ -1211,7 +1211,7 @@ def interactive_mode(engine: PhilosophyEngine):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂哲学方法论引擎 v1.0 — 13律结构化查询/评估/审计",
+        description="🐉 龍魂哲学方法论引擎 v1.0 — 13律结构化查询/评估/审计",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=f"""
 示例:
@@ -1348,7 +1348,7 @@ GPG: {GPG_FINGERPRINT}
             output = json.dumps(stats, ensure_ascii=False, indent=2)
             print(output)
         else:
-            cprint(f"\n📈 龙魂哲学引擎 v1.0 统计", Colors.BOLD)
+            cprint(f"\n📈 龍魂哲学引擎 v1.0 统计", Colors.BOLD)
             cprint(f"  法则: {stats['total_laws']}条", Colors.RESET)
             cprint(f"  三色: 🟢{stats['tri_color']['green']} 🟡{stats['tri_color']['yellow']} 🔴{stats['tri_color']['red']}", Colors.RESET)
             cprint(f"  支柱: {stats['total_pillars']}个 | 方法论: {stats['total_methods']}条", Colors.RESET)

@@ -38,7 +38,7 @@ import subprocess
 # 文化锚点：这些词不翻译，直接保留（文化主权）
 CULTURAL_ANCHORS = {
     "龍魂": "Longhun",
-    "龙魂": "Longhun",
+    "龍魂": "Longhun",
     "UID9622": "UID9622",
     "诸葛鑫": "Zhuge Xin",
     "龍芯北辰": "Longxin Beichen",
@@ -231,7 +231,7 @@ class TongxinyiTranslator:
 将以下{lang_names.get(source_lang, source_lang)}文本翻译成{lang_names.get(target_lang, target_lang)}。
 
 规则：
-1. 保护文化锚点：龍魂、UID9622、诸葛鑫、龙芯北辰、鲲鹏、昇腾、河图、洛书、八卦、五行、天干、地支、CNSH 等词不翻译，直接保留
+1. 保护文化锚点：龍魂、UID9622、诸葛鑫、龍芯北辰、鲲鹏、昇腾、河图、洛书、八卦、五行、天干、地支、CNSH 等词不翻译，直接保留
 2. 翻译要保留原文的"魂"——不仅是字面意思，更要传递背后的文化和情感
 3. 输出只包含翻译结果，不要添加任何解释
 4. 保持原文的语气和风格

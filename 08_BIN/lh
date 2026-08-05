@@ -57,8 +57,8 @@ if [ "$FIRST_ARG" = "帮助" ]; then
   exec python3 "$HOME/longhun-system/bin/lh.py" --help "$@"
 fi
 
-# 自然语言路由：显式 ask / --ask / --natural 优先
-if [ "$FIRST_ARG" = "--ask" ] || [ "$FIRST_ARG" = "--natural" ]; then
+# 自然语言路由：显式 --natural 优先（--ask 已升级为民入口，交给 lh.py）
+if [ "$FIRST_ARG" = "--natural" ]; then
   shift
   exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_natural_router.py" "$@"
 fi
@@ -469,6 +469,13 @@ for cmd in $CTL_COMMANDS; do
     exec python3 "$HOME/longhun-system/bin/lh_ctl.py" "$@"
   fi
 done
+
+# ─── 合规证据包 ───
+if [ "$FIRST_ARG" = "compliance" ]; then
+  shift
+  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  exec python3 "$SCRIPT_DIR/lh_compliance.py" "$@"
+fi
 
 # 兜底：任何非 flag 且非已知命令的参数，视为自然语言查询
 if [ -n "$FIRST_ARG" ] && [ "${FIRST_ARG#-}" = "$FIRST_ARG" ]; then

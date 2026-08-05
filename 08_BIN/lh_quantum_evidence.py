@@ -701,7 +701,7 @@ class QuantumEvidenceEngine:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂 · 量子存证系统 v1.0",
+        description="🐉 龍魂 · 量子存证系统 v1.0",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:

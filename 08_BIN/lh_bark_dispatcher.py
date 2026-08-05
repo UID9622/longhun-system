@@ -8,7 +8,7 @@
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
-║   🐉 龙魂·Bark 通知调度器 v1.0 — 全通道·DNA嵌入·审计·知识矩阵入库            ║
+║   🐉 龍魂·Bark 通知调度器 v1.0 — 全通道·DNA嵌入·审计·知识矩阵入库            ║
 ║   Bark Dispatcher · DNA → Audit → Annotate → Store → Send               ║
 ╠══════════════════════════════════════════════════════════════════════════╣
 ║   DNA: #龍芯⚡️2026-07-12-BARK-DISPATCHER-v1.0                            ║
@@ -149,7 +149,7 @@ def 来源标注(来源: str) -> str:
 时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 作者: UID9622 · 诸葛鑫
 授权链: UID9622 → P02 龍芯 → Bark调度器
-责任声明: 本文由龙魂系统自动生成，UID9622授权发送。如有错误，接受批评改正。
+责任声明: 本文由龍魂系统自动生成，UID9622授权发送。如有错误，接受批评改正。
 ---"""
 
 
@@ -198,16 +198,16 @@ def 入库知识矩阵(dna: str, 消息类型: str, 标题: str, 原文: str,
 
 ## 📝 备注
 
-> 本文由龙魂Bark通知调度器自动生成并入库。
+> 本文由龍魂Bark通知调度器自动生成并入库。
 > DNA: {短DNA}
 > 入库时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 > 入库类型: bark-notification/{消息类型}
 >
-> **责任声明**: 龙魂系统对推送内容负责。如有错误或不当，接受批评并立即改正。
+> **责任声明**: 龍魂系统对推送内容负责。如有错误或不当，接受批评并立即改正。
 > 本文为系统自动生成的通知记录，不修改原文，仅追加审计与来源信息。
 
 ---
-*由龙魂Bark调度器 v1.0 生成 · UID9622授权*
+*由龍魂Bark调度器 v1.0 生成 · UID9622授权*
 """
 
     with open(file_path, "w", encoding="utf-8") as f:
@@ -280,7 +280,7 @@ def 发送Bark(标题: str, 内容: str, 审计色: str, dna: str) -> bool:
     payload = json.dumps({
         "title": full_title,
         "body": body,
-        "group": "龙魂系统",
+        "group": "龍魂系统",
         "sound": "alarm",
         "autoCopy": True,
         "url": f"longhun://notification/{短DNA}",
@@ -323,7 +323,7 @@ def 记录审计日志(dna: str, 消息类型: str, 审计色: str, 来源: str,
 # 主调度函数
 # ═══════════════════════════════════════════════════════════
 
-def dispatch(消息类型: str, 标题: str, 内容: str, 来源: str = "龙魂系统",
+def dispatch(消息类型: str, 标题: str, 内容: str, 来源: str = "龍魂系统",
             dry_run: bool = False) -> Dict[str, Any]:
     """
     核心调度管道:
@@ -383,7 +383,7 @@ def dispatch(消息类型: str, 标题: str, 内容: str, 来源: str = "龙魂�
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂·Bark通知调度器 v1.0",
+        description="🐉 龍魂·Bark通知调度器 v1.0",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument("--type", required=True,
@@ -391,7 +391,7 @@ def main():
                        help="消息类型")
     parser.add_argument("--title", required=True, help="消息标题")
     parser.add_argument("--content", default="", help="消息内容（或从stdin读取）")
-    parser.add_argument("--source", default="龙魂系统", help="消息来源")
+    parser.add_argument("--source", default="龍魂系统", help="消息来源")
     parser.add_argument("--stdin", action="store_true", help="从stdin读取内容")
     parser.add_argument("--dry-run", action="store_true", help="干运行，不实际发送")
     parser.add_argument("--json", action="store_true", help="JSON格式输出")

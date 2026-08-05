@@ -3,7 +3,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
-🐉 龙魂任务编排与执行可视化引擎 v1.1
+🐉 龍魂任务编排与执行可视化引擎 v1.1
 将用户需求自动拆解为可执行任务链，追踪每一步执行状态
 
 DNA: #龍芯⚡️丙午·癸未·壬午-TASK-ORCHESTRATOR-v1.1-UID9622
@@ -884,7 +884,7 @@ def serve_web(port: int = 9631, host: str = "0.0.0.0"):
         print("请安装: pip install fastapi uvicorn")
         return
 
-    app = FastAPI(title="🐉 龙魂任务看板", version="1.1")
+    app = FastAPI(title="🐉 龍魂任务看板", version="1.1")
     orchestrator = TaskOrchestrator()
 
     HTML_TEMPLATE = """
@@ -892,7 +892,7 @@ def serve_web(port: int = 9631, host: str = "0.0.0.0"):
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>🐉 龙魂任务看板</title>
+        <title>🐉 龍魂任务看板</title>
         <style>
             * { margin: 0; padding: 0; box-sizing: border-box; }
             body {
@@ -947,7 +947,7 @@ def serve_web(port: int = 9631, host: str = "0.0.0.0"):
     <body>
         <div class="header">
             <div>
-                <h1>🐉 龙魂任务看板 v1.1</h1>
+                <h1>🐉 龍魂任务看板 v1.1</h1>
                 <div class="dna">DNA: #龍芯⚡️丙午·癸未·壬午-TASK-BOARD-UID9622</div>
             </div>
             <button class="refresh-btn" onclick="loadData()">🔄 刷新</button>
@@ -1055,7 +1055,7 @@ def serve_web(port: int = 9631, host: str = "0.0.0.0"):
         return audit_task(task, orchestrator.db.get_steps(task_id))
 
     print(f"""
-🐉 龙魂任务看板 v1.1
+🐉 龍魂任务看板 v1.1
 ========================================
 🚀 启动服务: http://{host}:{port}
 📊 查看任务: http://{host}:{port}
@@ -1073,7 +1073,7 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂任务编排与执行可视化引擎 v1.1"
+        description="🐉 龍魂任务编排与执行可视化引擎 v1.1"
     )
     subparsers = parser.add_subparsers(dest="command", help="子命令")
 

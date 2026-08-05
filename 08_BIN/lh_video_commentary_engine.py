@@ -670,8 +670,8 @@ class VideoCommentaryEngine:
         log("调用龍魂视频工坊生成完整视频...", "STEP")
         ok, msg = run_cmd(cmd, cwd=PROJECT_ROOT, timeout=600)
         if ok:
-            # studio 输出到 ~/Desktop/龙魂视频，这里尝试找回最近文件
-            studio_dir = Path.home() / "Desktop" / "龙魂视频"
+            # studio 输出到 ~/Desktop/龍魂视频，这里尝试找回最近文件
+            studio_dir = Path.home() / "Desktop" / "龍魂视频"
             if studio_dir.exists():
                 mp4s = sorted(studio_dir.glob(f"{output_name}_*.mp4"), key=lambda p: p.stat().st_mtime, reverse=True)
                 if mp4s:

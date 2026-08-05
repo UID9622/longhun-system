@@ -1,0 +1,15 @@
+[Unit]
+Description=龍魂·统一知识库引擎 — 定时触发 (每6小时)
+Requires=longhun-knowledge-hub.service
+
+[Timer]
+OnCalendar=*-*-* 00:00:00
+OnCalendar=*-*-* 06:00:00
+OnCalendar=*-*-* 12:00:00
+OnCalendar=*-*-* 18:00:00
+OnBootSec=10min
+RandomizedDelaySec=300
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -254,7 +254,7 @@ PERSONA_SIGNING_PROFILES = {
     "P13": {"name": "姜子牙", "role": "封神榜·权限管理", "layer": "守护", "trust": "L5"},
     "P14": {"name": "吕蒙", "role": "快速成长·学习引擎", "layer": "文化", "trust": "L3"},
     "P15": {"name": "乔前辈", "role": "极简工程·产品灵魂", "layer": "守护", "trust": "L5"},
-    "P72": {"name": "龙盾宝宝", "role": "贴身管家·安全兜底", "layer": "守护", "trust": "L5"},
+    "P72": {"name": "龍盾宝宝", "role": "贴身管家·安全兜底", "layer": "守护", "trust": "L5"},
 }
 
 ACTION_TYPES = [

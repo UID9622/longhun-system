@@ -20,7 +20,7 @@ from typing import Union, List, Optional, Dict, Any
 # ========== 核心引擎 ==========
 class 数字根引擎:
     """
-    龙魂数字根计算引擎
+    龍魂数字根计算引擎
     输入任意文本 → 提取数字 → 反复相加 → 输出一位数（0-9）
     """
 
@@ -111,7 +111,7 @@ class 数字根引擎:
 # ========== 命令行接口 ==========
 def main():
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂·数字根计算引擎 v1.0",
+        description="🐉 龍魂·数字根计算引擎 v1.0",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:

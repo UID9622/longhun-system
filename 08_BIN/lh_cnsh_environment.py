@@ -466,7 +466,7 @@ import hashlib
 
 from cnsh_constants import *
 
-CNSH_LOG_FILE = os.environ.get("CNSH_LOG_FILE", "龙魂打印迹.log")
+CNSH_LOG_FILE = os.environ.get("CNSH_LOG_FILE", "龍魂打印迹.log")
 
 def 打印(文本, 审计状态: str = None):
     """CNSH 标准打印函数，自动记录日志和DNA"""
@@ -498,7 +498,7 @@ def 打印_审计(文本, 审计颜色: str = None):
     return 打印(f"[{{colors.get(color, color)}}] {{文本}}", color)
 
 if __name__ == "__main__":
-    打印("你好，龙魂")
+    打印("你好，龍魂")
 '''
 
     # ============================================================

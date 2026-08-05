@@ -264,7 +264,7 @@ def interactive_mode():
                 continue
             
             if user_input.lower() in ['exit', 'quit']:
-                print("👋 龙魂永存")
+                print("👋 龍魂永存")
                 break
             
             if user_input.startswith('file '):
@@ -307,7 +307,7 @@ def main():
   python3 cnsh_ios_test.py demo.cnsh
 
   # 直接执行CNSH代码
-  python3 cnsh_ios_test.py --code '设 名字 = "龙魂" 打印 名字'
+  python3 cnsh_ios_test.py --code '设 名字 = "龍魂" 打印 名字'
 
   # 使用真实AI（需配置）
   python3 cnsh_ios_test.py demo.cnsh --ai

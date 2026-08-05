@@ -8,7 +8,7 @@ DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-CODEBUDDY-SKILL-GENERAT
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
-用途：将龙魂技能总线定义转化为 CodeBuddy 兼容的 SKILL.md 文件
+用途：将龍魂技能总线定义转化为 CodeBuddy 兼容的 SKILL.md 文件
 策略：已有完整 SKILL.md 的跳过（保护现有），只补全缺失的技能
 """
 
@@ -252,10 +252,10 @@ SKILLS = [
         "category": "总控层",
         "version": "1.0",
         "desc_short": "龍魂·总控指挥台 v1.0。全局调度·42技能路由·Kimi技能协同·意图分发。",
-        "desc_full": "龍魂·总控指挥台 v1.0。42龙魂技能+CodeBuddy内置技能统一调度: 意图解析→技能匹配→协同调用→结果汇总→审计签章。当用户说龙魂指挥、总控、全局调度、用什么技能、技能列表——任一种说法都触发。语库: GOVERNANCE·ORCHESTRATOR。",
+        "desc_full": "龍魂·总控指挥台 v1.0。42龍魂技能+CodeBuddy内置技能统一调度: 意图解析→技能匹配→协同调用→结果汇总→审计签章。当用户说龍魂指挥、总控、全局调度、用什么技能、技能列表——任一种说法都触发。语库: GOVERNANCE·ORCHESTRATOR。",
         "entry": "无需独立入口·AI直接调用",
-        "triggers_kw": ["总控", "指挥", "调度", "全局", "龙魂指挥", "技能列表", "有什么技能", "用哪个技能", "编排", "协同", "42技能"],
-        "triggers_nl": ["龙魂指挥台", "总控调度", "全局调度下", "我们现在有什么技能", "有哪些龙魂技能", "帮我看下技能列表", "用哪个技能能解决", "42个技能分别是什么"],
+        "triggers_kw": ["总控", "指挥", "调度", "全局", "龍魂指挥", "技能列表", "有什么技能", "用哪个技能", "编排", "协同", "42技能"],
+        "triggers_nl": ["龍魂指挥台", "总控调度", "全局调度下", "我们现在有什么技能", "有哪些龍魂技能", "帮我看下技能列表", "用哪个技能能解决", "42个技能分别是什么"],
         "tribute": "致敬⚡️UID9622·42技能总控·意图解析·统一调度",
         "is_orchestrator": True,
     },
@@ -332,9 +332,9 @@ metadata:
 | 职责 | 说明 |
 |:---|:---|
 | **意图解析** | 理解用户自然语言→映射到最佳技能组合 |
-| **技能路由** | 从42个龙魂技能中选择最合适的 |
+| **技能路由** | 从42个龍魂技能中选择最合适的 |
 | **协同调用** | 多技能联动（如审计+签章+归档） |
-| **Kimi协同** | 龙魂技能不足时→调用CodeBuddy内置技能(Kimi 266+技能) |
+| **Kimi协同** | 龍魂技能不足时→调用CodeBuddy内置技能(Kimi 266+技能) |
 | **结果审计** | 输出前过GATE-01~11，自动签章 |
 
 ---
@@ -395,7 +395,7 @@ metadata:
 | 技能 | 一句话 |
 |:---|:---|
 | — | longhun-mind-link* 意念交流引擎 |
-| — | longhun-longzhi-shou* 龙智守管家 |
+| — | longhun-longzhi-shou* 龍智守管家 |
 | — | longhun-yijing* 易经起卦 |
 | — | longhun-tongxin-ear* 通心耳 |
 
@@ -443,7 +443,7 @@ metadata:
 - 部署前必过: deploy → vuln-detect → three-color-audit → gpg-sign → deben-audit
 - 发布前必过: gpg-sign → three-color-audit → identity-verify
 - 审计链路: 任意输出 → P05审计 → P15签章 → P03归档
-- 熔断兜底: 任何红线 → circuit-breaker → P72龙盾
+- 熔断兜底: 任何红线 → circuit-breaker → P72龍盾
 
 ---
 **DNA**: `{DNA_BASE}-ORCHESTRATOR-v{version}`
@@ -493,7 +493,7 @@ cd ~/longhun-system
 
 - P05三色审计（审计链路）
 - P15签章（交付链路）
-- P72龙盾（熔断兜底）
+- P72龍盾（熔断兜底）
 - longhun-orchestrator（总控调度）
 
 ---
@@ -550,8 +550,8 @@ def main():
     print(f"   已加载的技能: {len(existing_skills)} (用户级) + {stats['created']} (项目级) = {len(existing_skills) + stats['created']} 个")
     print(f"\n📌 下一步:")
     print(f"   - CodeBuddy 重启后自动加载")
-    print(f"   - 问'龙魂有什么技能'验证")
-    print(f"   - 问'龙魂指挥我该用哪个技能'测试总控路由")
+    print(f"   - 问'龍魂有什么技能'验证")
+    print(f"   - 问'龍魂指挥我该用哪个技能'测试总控路由")
     print(f"   - GPG签名: python3 bin/lh_gpg_sign.py sign .codebuddy/skills/")
 
     return stats["created"]

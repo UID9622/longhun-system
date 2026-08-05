@@ -9,7 +9,7 @@ DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-HARVEST-v1.0-UID9622
 协议: CC BY-NC-SA 4.0
 
 功能：
-  - 从 Notion、CSDN、本地代码库、Mac备忘录、AI对话记录拉取龙魂相关知识
+  - 从 Notion、CSDN、本地代码库、Mac备忘录、AI对话记录拉取龍魂相关知识
   - 提取哲学/原则/规则/模式
   - 自动转化为可执行的系统代码骨架
   - 生成知识主权报告
@@ -49,9 +49,9 @@ CACHE_DIR.mkdir(parents=True, exist_ok=True)
 OUTPUT_DIR = PROJECT_ROOT / "data" / "harvested_knowledge"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# 龙魂相关关键词（用于过滤和标记）
+# 龍魂相关关键词（用于过滤和标记）
 LONGHUN_KEYWORDS = [
-    "龙魂", "龙魂系统", "DragonSoul", "UID9622", "诸葛鑫",
+    "龍魂", "龍魂系统", "DragonSoul", "UID9622", "诸葛鑫",
     "君子协议", "耻辱柱", "反虚伪", "掀黑箱", "主权",
     "DNA", "三色审计", "省电积分", "活人证明",
     "CNSH", "龍魂", "鲲鹏", "主权验证", "因果推断",
@@ -251,9 +251,9 @@ class CSDNFetcher(BaseFetcher):
             "articles": [
                 {
                     "id": "example_001",
-                    "title": "【示例】龙魂系统：主权级AI执行骨架",
+                    "title": "【示例】龍魂系统：主权级AI执行骨架",
                     "content": """
-龙魂系统是一个主权级AI执行骨架，核心原则包括：
+龍魂系统是一个主权级AI执行骨架，核心原则包括：
 1. 不歧视、不迎合、不瞎扯
 2. DNA追溯码：所有内容可追溯
 3. 君子协议：不走法律，走耻辱柱
@@ -602,7 +602,7 @@ class KnowledgeAnalyzer:
 
         # 1. 原则文件
         principle_lines = [
-            "# 龙魂系统原则",
+            "# 龍魂系统原则",
             f"# DNA: #龍芯⚡️{datetime.now().strftime('%Y%m%d%H%M%S')}-PRINCIPLES-UID9622",
             f"# 自动生成于: {datetime.now().isoformat()}",
             "",
@@ -617,7 +617,7 @@ class KnowledgeAnalyzer:
 
         # 2. 规则文件
         rules_lines = [
-            "# 龙魂系统规则",
+            "# 龍魂系统规则",
             f"# 自动生成于: {datetime.now().isoformat()}",
             "",
         ]
@@ -761,7 +761,7 @@ class KnowledgeHarvester:
 # ============================================================
 
 def main():
-    parser = argparse.ArgumentParser(description="龙魂 · 知识全息拉取器")
+    parser = argparse.ArgumentParser(description="龍魂 · 知识全息拉取器")
     parser.add_argument("--source", "-s", action="append",
                         help="指定来源 (notion/csdn/local/notes/ai)")
     parser.add_argument("--dry-run", action="store_true",

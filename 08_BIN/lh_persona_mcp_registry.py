@@ -525,7 +525,7 @@ class PersonaMCPRegistry:
 def main():
     import argparse
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂 · 人格MCP代理注册中心 v1.1",
+        description="🐉 龍魂 · 人格MCP代理注册中心 v1.1",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=f"""
 DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-PERSONA-MCP-v1.1

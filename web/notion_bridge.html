@@ -1,9 +1,11 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+<!--
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+-->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>龍魂 · 玄機閣</title>
@@ -377,39 +379,81 @@ body {
 .badge-online { color: var(--jade); }
 .badge-offline { color: var(--accent); }
 
-/* Blocks */
-.blocks { display: flex; flex-direction: column; gap: 6px; }
+/* Blocks — 对话墙气泡样式 */
+.blocks { display: flex; flex-direction: column; gap: 18px; padding: 8px 0; }
 .block {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  padding: 4px 0;
-  border-radius: var(--radius);
+  padding: 0;
+  border-radius: 0;
   position: relative;
+  background: transparent;
 }
-.block:hover { background: rgba(232,224,204,0.4); }
+.block:hover { background: transparent; }
 .block-handle {
-  width: 20px;
-  height: 26px;
+  width: 14px;
+  height: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: grab;
   color: var(--text-tertiary);
   opacity: 0;
-  font-size: 12px;
+  font-size: 10px;
   flex-shrink: 0;
   font-family: var(--font-cursive);
+  position: absolute;
+  left: -20px;
+  top: 10px;
 }
-.block:hover .block-handle { opacity: 1; }
+.block:hover .block-handle { opacity: 0.4; }
 .block-content {
   flex: 1;
   min-width: 0;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.75;
   color: var(--text);
 }
-.block-content p { margin: 0; }
+.block-content p { margin: 0 0 8px; }
+.block-content p:last-child { margin-bottom: 0; }
+
+/* 用户消息气泡 */
+.user-message-content {
+  background: linear-gradient(135deg, var(--selected), rgba(185,58,50,0.06));
+  border: 1px solid var(--selected-border);
+  border-radius: 14px 14px 4px 14px;
+  padding: 12px 16px;
+  margin-left: auto;
+  max-width: 82%;
+  width: fit-content;
+  box-shadow: var(--shadow);
+}
+
+/* AI 消息气泡 */
+.ai-message-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 92%;
+}
+.ai-message-wrap .ai-model-badge {
+  margin-bottom: 6px;
+}
+.ai-message-wrap .audit-green,
+.ai-message-wrap .audit-yellow,
+.ai-message-wrap .audit-red,
+.ai-message-wrap .audit-white {
+  background: var(--bg);
+  border: 1px solid var(--border-light);
+  border-radius: 4px 14px 14px 14px;
+  padding: 14px 18px;
+  box-shadow: var(--shadow);
+  width: 100%;
+}
+.ai-message-wrap .audit-yellow { border-left: 3px solid var(--gold); }
+.ai-message-wrap .audit-red { border-left: 3px solid var(--accent); }
+.ai-message-wrap .audit-green { border-left: 3px solid var(--jade); }
 .block-content h1 { font-size: 32px; font-weight: 700; margin: 10px 0; font-family: var(--font-cursive); color: var(--ink); }
 .block-content h2 { font-size: 26px; font-weight: 600; margin: 8px 0; font-family: var(--font-cursive); color: var(--ink); }
 .block-content h3 { font-size: 22px; font-weight: 600; margin: 6px 0; font-family: var(--font-cursive); color: var(--ink); }
@@ -443,35 +487,51 @@ body {
   padding: 8px 8px 8px 16px;
   border-radius: 0 var(--radius) var(--radius) 0;
 }
+.block-content strong { font-weight: 700; color: var(--ink); }
+.block-content em { font-style: italic; color: var(--text-secondary); }
+.block-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.block-content a:hover { color: var(--accent-hover); }
 .block-content .ai-model-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
+  gap: 6px;
+  font-size: 11px;
   color: var(--text-tertiary);
-  margin-bottom: 6px;
+  flex-wrap: wrap;
+  max-width: 100%;
 }
 .block-content .ai-model-badge .provider {
   background: linear-gradient(135deg, var(--bg-secondary), var(--bg));
   color: var(--accent);
-  padding: 3px 10px;
+  padding: 2px 8px;
   border-radius: 999px;
   font-weight: 600;
   border: 1px solid var(--gold-light);
+  white-space: nowrap;
 }
 .block-content .ai-model-badge .mode {
   background: rgba(74, 124, 89, 0.08);
   color: var(--jade);
-  padding: 3px 10px;
+  padding: 2px 8px;
   border-radius: 999px;
   font-weight: 600;
   border: 1px solid rgba(74, 124, 89, 0.25);
+  white-space: nowrap;
 }
 .block-content .ai-model-badge .fallback-chain {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  background: var(--bg-secondary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.block-content .ai-model-badge .audit-pill {
   margin-left: auto;
   font-size: 11px;
   color: var(--text-tertiary);
-  font-family: var(--font-mono);
+  white-space: nowrap;
 }
 
 /* 协作模式工具条 */
@@ -512,6 +572,117 @@ body {
   color: var(--text-tertiary);
   font-family: var(--font-mono);
 }
+
+/* 主题切换器 */
+.theme-switcher {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+.theme-switcher button {
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text-secondary);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: var(--font-serif);
+}
+.theme-switcher button.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--selected);
+}
+
+/* 五行议事会开关 */
+.council-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 13px;
+  transition: all .15s;
+}
+.council-toggle.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--selected);
+}
+.council-toggle input { accent-color: var(--accent); }
+
+/* 八卦指示器 */
+.bagua-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid var(--gold-light);
+  border-radius: var(--radius);
+  background: rgba(201, 162, 39, 0.08);
+  color: var(--text-secondary);
+  font-size: 12px;
+  margin-left: 10px;
+}
+.bagua-indicator .gua { font-size: 14px; }
+
+/* AI 消息增强 */
+.block-content .audit-green { border-left: 3px solid var(--jade); }
+.block-content .audit-yellow { border-left: 3px solid #c9a227; }
+.block-content .audit-red { border-left: 3px solid var(--accent); }
+
+.wuxing-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 12px;
+  padding: 10px;
+  background: rgba(0,0,0,0.02);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+}
+.wuxing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  cursor: help;
+}
+.wuxing-badge.participated {
+  border-color: var(--gold);
+  color: var(--ink);
+  background: rgba(201, 162, 39, 0.1);
+}
+
+.synthesis-panel {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: rgba(0,0,0,0.02);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  font-size: 13px;
+}
+.synthesis-panel summary {
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-family: var(--font-serif);
+}
+.member-reply {
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--border-light);
+}
+.member-reply:last-child { border-bottom: none; }
+.member-reply .role { font-weight: 600; color: var(--ink); }
 
 /* 输入区：砚台 */
 .input-block {
@@ -886,6 +1057,14 @@ body {
         <span class="current" id="breadcrumbTitle">新对话</span>
       </div>
       <div class="topbar-actions">
+        <div class="theme-switcher" id="themeSwitcher" title="切换界面主题">
+          <button data-theme="theme-xuanji" class="active" onclick="setNotionTheme('theme-xuanji')">玄機閣</button>
+          <button data-theme="theme-cyber" onclick="setNotionTheme('theme-cyber')">赛博龍魂</button>
+          <button data-theme="theme-minimal" onclick="setNotionTheme('theme-minimal')">极简白纸</button>
+        </div>
+        <label class="council-toggle" id="councilToggle" title="启用五行议事会多模型协作">
+          <input type="checkbox" onchange="toggleCouncilMode(this)"> 五行议事会
+        </label>
         <button class="topbar-btn" onclick="toggleTerminal()">⌘ 终端</button>
         <button class="topbar-btn" onclick="sharePage()">↗ 分享</button>
         <button class="topbar-btn" onclick="newPage()">+ 新建</button>
@@ -990,6 +1169,26 @@ const PERSONAS = [
   { icon: '🔴', name: '审计·三色熔炉', ipa: 'audit' },
 ];
 
+const THEMES = [
+  { id: 'theme-xuanji', label: '玄機閣' },
+  { id: 'theme-cyber', label: '赛博龍魂' },
+  { id: 'theme-minimal', label: '极简白纸' },
+];
+
+const WUXING_META = {
+  '木': { name: '木·生发', emoji: '🌲', color: '#4a7c59' },
+  '火': { name: '火·转化', emoji: '🔥', color: '#b93a32' },
+  '土': { name: '土·承载', emoji: '🟫', color: '#8b7355' },
+  '金': { name: '金·收敛', emoji: '⚜️', color: '#c9a227' },
+  '水': { name: '水·流动', emoji: '💧', color: '#4a7c9c' },
+};
+
+const BAGUA_DESC = {
+  '乾': '开天启问', '坤': '厚德载物', '震': '雷动变革',
+  '巽': '风行渗透', '坎': '水险渊深', '离': '火光照物',
+  '艮': '山止为界', '兑': '泽悦交流'
+};
+
 // Init
 if (pages.length === 0) {
   newPage();
@@ -998,6 +1197,9 @@ if (pages.length === 0) {
 }
 renderPageList();
 updateStatus();
+initTheme();
+initCouncilMode();
+initBaguaIndicator();
 
 const modeSelect = document.getElementById('chatModeSelect');
 if (modeSelect) {
@@ -1065,36 +1267,194 @@ function renderBlocks(blocks) {
 }
 
 function renderBlockContent(block) {
+  if (block.type === 'user') {
+    return `<div class="user-message-content">${markdownToHtml(block.content)}</div>`;
+  }
+
   if (block.type === 'ai') {
-    const fallback = Array.isArray(block.fallback_chain) && block.fallback_chain.length
-      ? `<span class="fallback-chain" title="${escapeHtml(block.fallback_chain.map(c => `${c.provider || '?'}: ${c.reason || ''}`).join(' | '))}">🔁 ${block.fallback_chain.map(c => c.provider || '?').join(' → ')}</span>`
-      : '';
-    return `
-      <div class="ai-model-badge">
-        <span class="provider">${escapeHtml(block.provider || 'auto')}</span>
-        <span class="mode">${escapeHtml(block.mode || 'auto')}</span>
-        <span>${escapeHtml(block.model || '')}</span>
-        ${fallback}
-      </div>
-      <div>${markdownToHtml(block.content)}</div>
+    return renderAiBlockContent(block);
+  }
+
+  return `<div class="ai-message-wrap"><div class="audit-white">${markdownToHtml(block.content)}</div></div>`;
+}
+
+function renderAiBlockContent(block) {
+  const provider = block.provider || block.model_provider || 'auto';
+  const model = block.model || block.model_name || '';
+  const mode = block.mode || 'auto';
+  const audit = block.audit_status || 'yellow';
+  const auditEmoji = audit === 'green' ? '🟢' : audit === 'yellow' ? '🟡' : audit === 'red' ? '🔴' : '⚪';
+  const auditClass = 'audit-' + audit;
+
+  const fallback = Array.isArray(block.fallback_chain) && block.fallback_chain.length
+    ? `<span class="fallback-chain" title="${escapeHtml(block.fallback_chain.map(c => `${c.provider || '?'}: ${c.reason || ''}`).join(' | '))}">🔁 ${block.fallback_chain.map(c => c.provider || '?').join(' → ')}</span>`
+    : '';
+
+  const isCouncil = Array.isArray(block.council_members) && block.council_members.length;
+  let councilHtml = '';
+  if (isCouncil) {
+    const bagua = block.bagua_state || {};
+    const members = block.council_members;
+    const participated = members.filter(m => m.status === 'participated');
+    const similarities = block.similarities || [];
+    const similarityText = similarities.map(s => `${s.pair}: ${s.similarity}`).join(' · ');
+
+    const wuxingBar = `<div class="wuxing-bar">` +
+      members.map(m => {
+        const meta = WUXING_META[m.role] || { name: m.role, emoji: '●' };
+        const activeClass = m.status === 'participated' ? 'participated' : '';
+        const title = `${meta.name} (${m.provider}/${m.model})\n权重 ${m.weight || 0}\n${m.status === 'participated' ? '参与本轮议事' : '补位委员'}`;
+        return `<span class="wuxing-badge ${activeClass}" title="${escapeHtml(title)}">${meta.emoji} ${m.role} ${m.provider}</span>`;
+      }).join('') +
+      `</div>`;
+
+    const synthesisDetails = members.map(m => {
+      const meta = WUXING_META[m.role] || { name: m.role, emoji: '●' };
+      return `<div class="member-reply"><span class="role">${meta.emoji} ${meta.name}</span> · ${m.provider}/${m.model}<br><span style="color:var(--text-secondary)">${escapeHtml(m.reply_preview || '')}</span></div>`;
+    }).join('');
+
+    councilHtml = `
+      ${wuxingBar}
+      <details class="synthesis-panel ${auditClass}">
+        <summary>展开合成过程 · ${participated.length} 位委员 · 共识度 ${((block.consensus_score || 0) * 100).toFixed(0)}% · ${similarityText || '无相似度'}</summary>
+        ${synthesisDetails}
+      </details>
     `;
   }
-  return markdownToHtml(block.content);
+
+  const bagua = block.bagua_state || {};
+  const modeLabel = isCouncil
+    ? `${bagua.emoji || '☰'} ${bagua.state || '乾'}·${BAGUA_DESC[bagua.state] || '启'}`
+    : mode;
+
+  return `
+    <div class="ai-message-wrap">
+      <div class="ai-model-badge">
+        <span class="provider">${escapeHtml(provider)}</span>
+        <span class="mode">${escapeHtml(modeLabel)}</span>
+        <span style="color:var(--text-tertiary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px;" title="${escapeHtml(model)}">${escapeHtml(model)}</span>
+        ${fallback}
+        <span class="audit-pill">${auditEmoji} 三色审计</span>
+      </div>
+      <div class="${auditClass}">${markdownToHtml(block.content)}</div>
+      ${councilHtml}
+    </div>
+  `;
+}
+
+// ===== 主题切换 =====
+function initTheme() {
+  const saved = localStorage.getItem('notionBridgeTheme') || 'theme-xuanji';
+  setNotionTheme(saved);
+}
+
+function setNotionTheme(themeId) {
+  document.body.classList.remove(...THEMES.map(t => t.id));
+  document.body.classList.add(themeId);
+  localStorage.setItem('notionBridgeTheme', themeId);
+  document.querySelectorAll('#themeSwitcher button').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.theme === themeId);
+  });
+}
+
+// ===== 五行议事会模式 =====
+function initCouncilMode() {
+  const saved = localStorage.getItem('notionBridgeCouncilMode') === 'true';
+  const cb = document.querySelector('#councilToggle input[type="checkbox"]');
+  if (cb) cb.checked = saved;
+  const toggle = document.getElementById('councilToggle');
+  if (toggle) toggle.classList.toggle('active', saved);
+}
+
+function toggleCouncilMode(cb) {
+  localStorage.setItem('notionBridgeCouncilMode', cb.checked);
+  const toggle = document.getElementById('councilToggle');
+  if (toggle) toggle.classList.toggle('active', cb.checked);
+}
+
+function isCouncilMode() {
+  return localStorage.getItem('notionBridgeCouncilMode') === 'true';
+}
+
+// ===== 八卦状态指示器 =====
+function initBaguaIndicator() {
+  const breadcrumb = document.querySelector('.breadcrumb');
+  if (!breadcrumb || document.getElementById('baguaIndicator')) return;
+  const indicator = document.createElement('span');
+  indicator.className = 'bagua-indicator';
+  indicator.id = 'baguaIndicator';
+  indicator.title = '当前对话八卦状态';
+  indicator.innerHTML = '<span class="gua">☰</span><span id="baguaText">乾·启</span>';
+  breadcrumb.appendChild(indicator);
+  refreshBaguaState();
+}
+
+async function refreshBaguaState() {
+  try {
+    const res = await fetch(`${API_BASE}/api/bagua/state?session_id=${encodeURIComponent(currentPageId || 'default')}`);
+    const data = await res.json();
+    const el = document.getElementById('baguaIndicator');
+    if (el && data.state) {
+      el.querySelector('.gua').textContent = data.emoji || '☰';
+      el.querySelector('#baguaText').textContent = `${data.state}·${BAGUA_DESC[data.state] || data.mood}`;
+      el.title = `${data.name || ''}\n${data.desc || ''}\n偏好角色：${(data.roles || []).join('/')}`;
+    }
+  } catch (e) {
+    // 静默失败
+  }
 }
 
 function markdownToHtml(md) {
   if (!md) return '';
-  return md
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+  // 先转义
+  let html = md
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+  // 代码块（优先处理，避免内部被转义两次）
+  const codeBlocks = [];
+  html = html.replace(/```([\s\S]*?)```/g, (m, code) => {
+    codeBlocks.push('<pre><code>' + code.replace(/^\n|\n$/g, '') + '</code></pre>');
+    return '\u0000CODE' + (codeBlocks.length - 1) + '\u0000';
+  });
+
+  // 行内代码
+  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+  // 粗体 / 斜体 / 删除线 / 链接（在段落化之前处理）
+  html = html.replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>');
+  html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  html = html.replace(/__([^_]+)__/g, '<strong>$1</strong>');
+  html = html.replace(/_([^_]+)_/g, '<em>$1</em>');
+  html = html.replace(/~~([^~]+)~~/g, '<del>$1</del>');
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+
+  // 标题
+  html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>')
     .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-    .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
-    .replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>')
-    .replace(/^\- (.*$)/gim, '<ul><li>$1</li></ul>')
-    .replace(/^\d+\. (.*$)/gim, '<ol><li>$1</li></ol>')
-    .replace(/\n/g, '<br>');
+    .replace(/^# (.*$)/gim, '<h1>$1</h1>');
+
+  // 引用
+  html = html.replace(/^&gt; (.*$)/gim, '<blockquote>$1</blockquote>');
+
+  // 列表：把连续的多行合并为一个 ul/ol
+  html = html.replace(/(^\- .+(\n|$))+/gim, m => '<ul>' + m.trim().split('\n').map(l => '<li>' + l.replace(/^\- /, '') + '</li>').join('') + '</ul>');
+  html = html.replace(/(^\d+\. .+(\n|$))+/gim, m => '<ol>' + m.trim().split('\n').map(l => '<li>' + l.replace(/^\d+\. /, '') + '</li>').join('') + '</ol>');
+
+  // 段落：非空行且不是标签开头 → 包成 p
+  html = html.split('\n').map(line => {
+    if (!line.trim()) return '';
+    if (/^<(?:h[1-6]|ul|ol|blockquote|pre)\b/.test(line)) return line;
+    return '<p>' + line + '</p>';
+  }).join('\n');
+
+  // 还原文代码块占位
+  html = html.replace(/\u0000CODE(\d+)\u0000/g, (m, i) => codeBlocks[+i]);
+
+  // 清理空 p
+  html = html.replace(/<p><\/p>/g, '');
+
+  return html;
 }
 
 function escapeHtml(text) {
@@ -1176,7 +1536,8 @@ async function sendMessage(text) {
   else if (lower.startsWith('/deepseek')) { provider = 'deepseek'; cleanText = text.replace(/^\/?deepseek\s*/i, ''); }
   else if (lower.startsWith('/ask') || lower.startsWith('/问卦')) { cleanText = text.replace(/^\/?(ask|问卦)\s*/i, ''); }
 
-  const mode = document.getElementById('chatModeSelect').value || 'auto';
+  const routeMode = document.getElementById('chatModeSelect').value || 'auto';
+  const useCouncil = isCouncilMode();
 
   // Loading
   const loadingId = 'loading_' + Date.now();
@@ -1184,21 +1545,45 @@ async function sendMessage(text) {
   renderBlocks(page.blocks);
 
   try {
+    const payload = useCouncil
+      ? { message: cleanText, mode: 'council', session_id: currentPageId, use_persona: true }
+      : { message: cleanText, provider, mode: routeMode, session_id: currentPageId, use_persona: true };
+
     const res = await fetch(`${API_BASE}/api/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: cleanText, provider, mode, session_id: currentPageId, use_persona: true })
+      body: JSON.stringify(payload)
     });
     const data = await res.json();
     page.blocks = page.blocks.filter(b => b.id !== loadingId);
-    page.blocks.push({
-      type: 'ai',
-      content: data.response || data.message || '[无回复]',
-      provider: data.model_provider || provider,
-      model: data.model_name || '',
-      mode: data.mode || mode,
-      fallback_chain: data.fallback_chain || []
-    });
+
+    if (useCouncil) {
+      page.blocks.push({
+        type: 'ai',
+        content: data.reply || data.response || '[无回复]',
+        provider: data.model_provider || 'council',
+        model: data.model_name || 'wuxing-council-v1.0',
+        mode: 'council',
+        audit_status: data.audit_status || 'yellow',
+        consensus_score: data.consensus_score || 0,
+        bagua_state: data.bagua_state || {},
+        council_members: data.council_members || [],
+        synthesis_log: data.synthesis_log || {},
+        similarities: data.similarities || [],
+        fallback_chain: data.fallback_chain || []
+      });
+      refreshBaguaState();
+    } else {
+      page.blocks.push({
+        type: 'ai',
+        content: data.response || data.message || '[无回复]',
+        provider: data.model_provider || provider,
+        model: data.model_name || '',
+        mode: data.mode || routeMode,
+        audit_status: data.audit_status || 'yellow',
+        fallback_chain: data.fallback_chain || []
+      });
+    }
   } catch (err) {
     page.blocks = page.blocks.filter(b => b.id !== loadingId);
     page.blocks.push({ type: 'ai', content: '请求失败：' + err.message, provider: 'error' });

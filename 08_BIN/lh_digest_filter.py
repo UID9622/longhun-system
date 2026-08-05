@@ -7,7 +7,7 @@
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
-🐉 龙魂消化过滤层 v1.0 · AI输出清洗引擎
+🐉 龍魂消化过滤层 v1.0 · AI输出清洗引擎
 ===========================================
 AI接入强制规范（A-042）的执行引擎。AI输出经过此层：
   ✅ 保留 → 核心事实、代码、数据、直接回答
@@ -319,7 +319,7 @@ def check_fuse(text: str) -> Dict[str, Any]:
 # ═══════════════════════════════════════════════════════════════════════════════
 
 def main():
-    parser = argparse.ArgumentParser(description="🐉 龙魂消化过滤层 — AI输出清洗引擎")
+    parser = argparse.ArgumentParser(description="🐉 龍魂消化过滤层 — AI输出清洗引擎")
     parser.add_argument("text", nargs="?", help="待消化的AI输出文本")
     parser.add_argument("--pipe", "-p", action="store_true", help="从stdin读取")
     parser.add_argument("--mode", "-m", choices=["strict", "default", "lenient"],

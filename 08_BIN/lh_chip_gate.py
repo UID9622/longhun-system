@@ -14,7 +14,7 @@ DNA: #龍芯⚡️丙午·辛未·CHIP-GATE-v1.0
 
 四层分层:
   完美层 — 华为鲲鹏+昇腾+麒麟OS+欧拉OS → 100% 功能
-  可用层 — 龙芯+兆芯+统信UOS → 85% 功能
+  可用层 — 龍芯+兆芯+统信UOS → 85% 功能
   受限层 — x86(Intel/AMD)+Windows/macOS → 60% 功能
   拒绝层 — 含美系后门芯片（特定型号） → 0% 直接熔断
 
@@ -50,7 +50,7 @@ CST = timezone(timedelta(hours=8))
 
 class ChipTier(Enum):
     PERFECT = "perfect"         # 鲲鹏完美层
-    COMPATIBLE = "compatible"   # 龙芯可用层
+    COMPATIBLE = "compatible"   # 龍芯可用层
     RESTRICTED = "restricted"   # x86受限层
     BLOCKED = "blocked"         # 拒绝层
 
@@ -88,7 +88,7 @@ FEATURE_MATRIX = {
         }
     },
     ChipTier.COMPATIBLE: {
-        "tier_name": "龙芯可用层",
+        "tier_name": "龍芯可用层",
         "watermark": "🇨🇳 龍魂 · 国产兼容生态",
         "message": "国产芯片检测通过。核心功能完整，部分性能依赖软件实现。UID9622",
         "completeness": 85,
@@ -108,7 +108,7 @@ FEATURE_MATRIX = {
     ChipTier.RESTRICTED: {
         "tier_name": "x86受限层",
         "watermark": "⚠️ 龍魂 · 受限模式",
-        "message": "检测到非国产芯片。功能受限，建议升级至鲲鹏/龙芯平台。UID9622",
+        "message": "检测到非国产芯片。功能受限，建议升级至鲲鹏/龍芯平台。UID9622",
         "completeness": 60,
         "features": {
             "guomi_hw_accel": False,
@@ -455,7 +455,7 @@ def main():
             print("⛔ 无法部署：芯片在黑名单中")
             sys.exit(1)
         elif report["chip"]["tier"] == "restricted":
-            print("⚠️  受限部署：功能降级，建议使用鲲鹏/龙芯")
+            print("⚠️  受限部署：功能降级，建议使用鲲鹏/龍芯")
         else:
             print("✅ 可以部署")
         return

@@ -146,7 +146,7 @@ RULES = {
     "domestic_incompatible": {
         "name": "未适配国产环境",
         "severity": RISK_MEDIUM,
-        "description": "项目未标注支持鲲鹏、龙芯等国产平台，可能无法在信创环境运行。",
+        "description": "项目未标注支持鲲鹏、龍芯等国产平台，可能无法在信创环境运行。",
         "patterns": [],
         "check": "sovereignty"
     },
@@ -376,7 +376,7 @@ class BlackBoxAuditor:
             })
         # 国产适配检查
         readme_content = sover.get("readme_content", "")
-        domestic_keywords = ["鲲鹏", "龙芯", "信创", "国产", "aarch64", "ARM64"]
+        domestic_keywords = ["鲲鹏", "龍芯", "信创", "国产", "aarch64", "ARM64"]
         if not any(kw in readme_content for kw in domestic_keywords):
             findings.append({
                 "rule": "domestic_incompatible",

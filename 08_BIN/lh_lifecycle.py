@@ -19,7 +19,7 @@ CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
   from lh_lifecycle import ScriptRunner
 
   runner = ScriptRunner(timeout=300, idle_timeout=60)
-  result = runner.run("python3 bin/lh_search_engine.py search 龙魂")
+  result = runner.run("python3 bin/lh_search_engine.py search 龍魂")
   # result.status: 'success' | 'timeout' | 'idle_kill' | 'error' | 'crashed'
   # result.stdout, result.stderr, result.duration, result.exit_code
 """

@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
-DeepSeek-V3 API 调用封装（龙魂适配版）
+DeepSeek-V3 API 调用封装（龍魂适配版）
 DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-DeepSeek适配-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
@@ -125,7 +125,7 @@ if __name__ == "__main__":
 
     # 1. 同步对话
     messages = [
-        {"role": "system", "content": "你是龙魂系统的AI助手，回答要直接、真实、不虚伪。"},
+        {"role": "system", "content": "你是龍魂系统的AI助手，回答要直接、真实、不虚伪。"},
         {"role": "user", "content": "介绍一下DeepSeek-V3的特点"}
     ]
     response = client.chat(messages)

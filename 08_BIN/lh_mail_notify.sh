@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ╔═══════════════════════════════════════════════════════════════╗
-# ║  🐉 龙魂系统 · Apple Mail 通知引擎                          ║
+# ║  🐉 龍魂系统 · Apple Mail 通知引擎                          ║
 # ║  🏷️  版本: v1.0                                              ║
 # ║  🧬  DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-MAIL-NOTIFY-v1.0 ║
 # ║  👤  创建者: 诸葛鑫（UID9622）                               ║
@@ -22,7 +22,7 @@
 
 set -e
 
-TITLE="${1:-龙魂系统通知}"
+TITLE="${1:-龍魂系统通知}"
 BODY="${2:-}"
 LEVEL="${3:-info}"
 
@@ -63,7 +63,7 @@ HTML_BODY=$(cat <<HTMLEOF
   <pre style="color: #e0e0e0; font-size: 13px; line-height: 1.5; white-space: pre-wrap; margin: 0; font-family: -apple-system, monospace;">${BODY}</pre>
   <hr style="border-color: #333; margin: 12px 0;">
   <p style="color: #888; font-size: 11px; margin: 0;">
-    龙魂系统 · ${TS} · 级别: ${LEVEL}
+    龍魂系统 · ${TS} · 级别: ${LEVEL}
   </p>
 </div>
 </body></html>

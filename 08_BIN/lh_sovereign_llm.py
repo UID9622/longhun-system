@@ -19,7 +19,7 @@
 
 核心特性:
   1. 纯本地推理 — 数据不出机
-  2. 国产芯片优先 — 昇腾/鲲鹏/龙芯/飞腾
+  2. 国产芯片优先 — 昇腾/鲲鹏/龍芯/飞腾
   3. 国密全链路 — SM2/SM3/SM4
   4. 六层主权认证 — 物理→行为→灵魂
   5. 芯片门禁 — 非国产熔断
@@ -405,7 +405,7 @@ class ChipGate:
     SOVEREIGN_CHIPS = {
         "kunpeng": ChipTier.PERFECT,      # 华为鲲鹏 (ARM)
         "ascend": ChipTier.PERFECT,        # 华为昇腾 (NPU)
-        "loongson": ChipTier.PERFECT,      # 龙芯 (LoongArch)
+        "loongson": ChipTier.PERFECT,      # 龍芯 (LoongArch)
         "phytium": ChipTier.PERFECT,       # 飞腾 (ARM)
         "zhaoxin": ChipTier.USABLE,        # 兆芯 (x86)
         "hygon": ChipTier.USABLE,          # 海光 (x86)
@@ -1094,8 +1094,8 @@ DNA: {__DNA__}
         msg = (
             "\n⚠️ 龍魂·芯片门禁警告 ⚠️\n"
             f"当前芯片层级: {self.chip_gate.tier.value} (拒绝层)\n"
-            f"龙魂大模型仅运行在中国国产芯片上。\n"
-            f"支持的芯片: 华为昇腾/鲲鹏、龙芯、飞腾、海光、摩尔线程\n"
+            f"龍魂大模型仅运行在中国国产芯片上。\n"
+            f"支持的芯片: 华为昇腾/鲲鹏、龍芯、飞腾、海光、摩尔线程\n"
             f"\n如果您使用的是国产芯片但被误判，请提交设备信息以供审核。\n"
         )
         print(msg)

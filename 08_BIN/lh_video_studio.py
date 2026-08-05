@@ -59,8 +59,8 @@ SEAL_DIR = PROJECT_ROOT / "brand" / "seals"
 BRAND_DIR = PROJECT_ROOT / "brand"
 
 # 签章资产（生成脚本: python3 longhun-font/calligraphy/seal_generator.py）
-SEAL_CORNER = SEAL_DIR / "seal_龙魂_square_128.png"     # 右下角签章（128px）
-SEAL_WATERMARK = SEAL_DIR / "seal_龙魂_circle_128.png"   # 水印圆章
+SEAL_CORNER = SEAL_DIR / "seal_龍魂_square_128.png"     # 右下角签章（128px）
+SEAL_WATERMARK = SEAL_DIR / "seal_龍魂_circle_128.png"   # 水印圆章
 BADGE_A = BRAND_DIR / "badge-A.png"                       # 龍魂徽章（左上角）
 
 # 检查资产是否存在，不存在则优雅降级（不阻碍生成）
@@ -109,7 +109,7 @@ import numpy as np
 # =============================================================================
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-OUTPUT_DIR = Path.home() / "Desktop" / "龙魂视频"
+OUTPUT_DIR = Path.home() / "Desktop" / "龍魂视频"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # 龍魂配色体系 (黑底金边军事风)
@@ -1041,7 +1041,7 @@ def main():
 签章说明:
   每个视频帧自动叠加: 右下角「龍魂」方章 + 左上角「龍魂」徽章
   签章由 lh_voice_clone.py 和 GPG 分离签名共同保护
-  品牌资产: brand/seals/seal_龙魂_square_128.png · brand/badge-A.png
+  品牌资产: brand/seals/seal_龍魂_square_128.png · brand/badge-A.png
         """
     )
     parser.add_argument('--script', required=True, 

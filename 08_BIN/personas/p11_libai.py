@@ -104,7 +104,7 @@ class P11Libai:
         ideas = []
         for i, tmpl in enumerate(templates[:5]):
             idea = tmpl.format(
-                domain=domain or "龙魂系统",
+                domain=domain or "龍魂系统",
                 module=brief,
                 problem=brief,
             )

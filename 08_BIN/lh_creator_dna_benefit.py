@@ -87,7 +87,7 @@ class CreatorBenefitEngine:
     """创作者受益算法引擎 v1.1"""
 
     def __init__(self, db_path: Path = None):
-        self.db_path = db_path or Path.home() / ".龙魂" / "creator_benefit.db"
+        self.db_path = db_path or Path.home() / ".龍魂" / "creator_benefit.db"
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self._init_db()
 

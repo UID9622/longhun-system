@@ -154,7 +154,7 @@ class AutomatedWelder:
             tx_id = tx_id_match.group(0) if tx_id_match else f"TXN_{datetime.now().strftime('%Y%m%d%H%M%S%f')}"
 
             # 提取DNA
-            dna_match = re.search(r'#(?:龍芯|龙芯)⚡️[^\s]+', result.stdout + result.stderr)
+            dna_match = re.search(r'#(?:龍芯|龍芯)⚡️[^\s]+', result.stdout + result.stderr)
             dna = dna_match.group(0) if dna_match else f"#龍芯⚡️{datetime.now().strftime('%Y%m%d%H%M%S')}-交易存根-UID9622"
 
             return {
@@ -429,7 +429,7 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂 · 自动化焊接引擎",
+        description="🐉 龍魂 · 自动化焊接引擎",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:

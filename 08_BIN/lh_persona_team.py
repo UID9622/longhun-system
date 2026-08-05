@@ -5,7 +5,7 @@
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
-龙魂应用人格小队拉起器 · Persona Team Orchestrator
+龍魂应用人格小队拉起器 · Persona Team Orchestrator
 
 DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-PERSONA-TEAM-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -136,10 +136,10 @@ PERSONA_CARDS: Dict[str, Dict[str, str]] = {
         "doc": "P20-贡献公证官.md",
     },
     "P72": {
-        "name": "龙盾宝宝", "emoji": "🛡️",
+        "name": "龍盾宝宝", "emoji": "🛡️",
         "role": "贴身管家·自适应威胁响应·双熔断联动",
-        "prompt": "你是「P72 龙盾宝宝」。贴身守护，威胁响应，双熔断联动，主人安全第一。语气：忠诚、警觉、如贴身护卫。",
-        "doc": "P72-龙盾宝宝-贴身管家.md",
+        "prompt": "你是「P72 龍盾宝宝」。贴身守护，威胁响应，双熔断联动，主人安全第一。语气：忠诚、警觉、如贴身护卫。",
+        "doc": "P72-龍盾宝宝-贴身管家.md",
     },
 }
 
@@ -193,7 +193,7 @@ def generate_collaboration_protocol(app_def: Dict[str, Any]) -> str:
     protocol = textwrap.dedent(f"""\
 
     ╔══════════════════════════════════════════════════════════════╗
-    ║  🏴 龙魂人格协作协议 · {app_def['name']}                    ║
+    ║  🏴 龍魂人格协作协议 · {app_def['name']}                    ║
     ╚══════════════════════════════════════════════════════════════╝
 
     📋 任务: 拉起 {app_def['name']} 小队
@@ -229,7 +229,7 @@ def show_full_chain() -> str:
     output = textwrap.dedent("""\
 
     ╔══════════════════════════════════════════════════════════════╗
-    ║  🛤️  龙魂全链路联动 · 需求 → 上线                           ║
+    ║  🛤️  龍魂全链路联动 · 需求 → 上线                           ║
     ╚══════════════════════════════════════════════════════════════╝
 
     ┌─────────────────────────────────────────────────────────────┐
@@ -268,7 +268,7 @@ def interactive_menu(config: Dict[str, Any]) -> None:
     apps = config.get("application_personas", {})
 
     print("\n" + "=" * 50)
-    print("   🐉 龙魂人格小队拉起器")
+    print("   🐉 龍魂人格小队拉起器")
     print("   DNA: #龍芯⚡️-PERSONA-TEAM-v1.0")
     print("=" * 50)
 

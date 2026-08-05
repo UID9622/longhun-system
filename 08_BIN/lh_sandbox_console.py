@@ -117,7 +117,7 @@ PERSONAS = {
         "P11": "李白·创意爆发",
         "P14": "吕蒙·快速成长",
         "P15": "乔前辈·极简工程",
-        "P72": "龙盾宝宝·贴身管家",
+        "P72": "龍盾宝宝·贴身管家",
     },
 }
 
@@ -456,7 +456,7 @@ class GameTheorySandbox:
 
 class SelfEvolutionEngine:
     """
-    自我进化引擎 · 道法自然×机器学习×龙魂自省
+    自我进化引擎 · 道法自然×机器学习×龍魂自省
     
     学习机制：
       - 经验提取：从每次推演中提取可复用规则
@@ -467,7 +467,7 @@ class SelfEvolutionEngine:
     
     def __init__(self):
         self.name = "自我进化引擎"
-        self.version = "v2.0·龙魂自省"
+        self.version = "v2.0·龍魂自省"
         self.evolution_log: List[Dict] = []
         self.patterns = {"成功模式": [], "失败教训": [], "边界条件": [], "最佳实践": []}
     
@@ -543,12 +543,12 @@ class SelfEvolutionEngine:
 
 class ParallelUniverseSimulator:
     """
-    平行宇宙模拟器 · 量子态叠加×蒙特卡洛×龙魂价值观筛选
+    平行宇宙模拟器 · 量子态叠加×蒙特卡洛×龍魂价值观筛选
     
     核心能力：
       - 10000个平行宇宙并行推演
       - 369不动点作为收敛锚
-      - 龙魂价值观筛选宇宙（78.42%龙魂宇宙）
+      - 龍魂价值观筛选宇宙（78.42%龍魂宇宙）
       - 71人格并行模拟
     """
     
@@ -589,7 +589,7 @@ class ParallelUniverseSimulator:
             
             # 三因素模型
             success_prob = 0.5 + perturbation  # 基础成功率
-            dragon_soul_alignment = random.uniform(0.5, 1.0)  # 龙魂对齐度
+            dragon_soul_alignment = random.uniform(0.5, 1.0)  # 龍魂对齐度
             risk_factor = random.uniform(0, 1)  # 风险因子
             
             # 369不动点锚定
@@ -647,13 +647,13 @@ class ParallelUniverseSimulator:
             result.risks.append(f"低成功率({success_rate:.1%})·建议重新评估")
         
         if dragon_soul_rate > 0.78:
-            result.opportunities.append(f"龙魂对齐度({dragon_soul_rate:.1%})·符合价值观")
+            result.opportunities.append(f"龍魂对齐度({dragon_soul_rate:.1%})·符合价值观")
         
         bar_unit = max(1, universes // 50)
         result.prediction = (
             f"【平行宇宙模拟·{decision}】\n"
             f"推演宇宙数：{universes} | 耗时：{elapsed:.2f}秒\n"
-            f"成功率：{success_rate:.1%} | 龙魂对齐：{dragon_soul_rate:.1%}\n"
+            f"成功率：{success_rate:.1%} | 龍魂对齐：{dragon_soul_rate:.1%}\n"
             f"369分布：{dr_369_rate:.1%} | 卦象：{result.gua_name}\n"
             f"三色：{result.tricolor} | 动作：{tricolor_action(result.tricolor)}\n\n"
             f"📊 数字根分布：\n"

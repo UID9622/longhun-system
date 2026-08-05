@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🐉 龙魂数字主权体系 · 核心引擎 v2.0（完整责任红线版）
+🐉 龍魂数字主权体系 · 核心引擎 v2.0（完整责任红线版）
 DNA: #龍芯⚡️2026-08-02-LONGHUN-CORE-v2.0-UID9622
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
@@ -227,34 +227,34 @@ class DNAChain:
 # ============================================================
 
 PERSONALITIES = [
-    {"name": "龙芯北辰", "hexagram": "䷀ 乾", "trait": "刚健自强"},
-    {"name": "龙芯宝宝", "hexagram": "䷁ 坤", "trait": "厚德载物"},
-    {"name": "龙芯诸葛", "hexagram": "䷅ 讼", "trait": "慎始明辨"},
-    {"name": "龙芯老子", "hexagram": "䷋ 泰", "trait": "道法自然"},
-    {"name": "龙芯孔子", "hexagram": "䷌ 同人", "trait": "仁者爱人"},
-    {"name": "龙芯墨子", "hexagram": "䷙ 大畜", "trait": "兼爱非攻"},
-    {"name": "龙芯鲁班", "hexagram": "䷧ 解", "trait": "巧夺天工"},
-    {"name": "龙芯文心", "hexagram": "䷭ 升", "trait": "文以载道"},
-    {"name": "龙芯雯雯", "hexagram": "䷞ 咸", "trait": "温润如玉"},
-    {"name": "龙芯商鞅", "hexagram": "䷮ 困", "trait": "法不阿贵"},
-    {"name": "龙芯管仲", "hexagram": "䷰ 革", "trait": "经世致用"},
-    {"name": "龙芯孙武", "hexagram": "䷵ 归妹", "trait": "兵者诡道"},
-    {"name": "龙芯张良", "hexagram": "䷹ 兑", "trait": "运筹帷幄"},
-    {"name": "龙芯祖冲之", "hexagram": "䷽ 小过", "trait": "精算天元"},
-    {"name": "龙芯蔡伦", "hexagram": "䷾ 既济", "trait": "纸传文明"},
-    {"name": "龙芯毕昇", "hexagram": "䷿ 未济", "trait": "字活天下"},
-    {"name": "龙芯郑和", "hexagram": "䷏ 豫", "trait": "扬帆四海"},
-    {"name": "龙芯戚继光", "hexagram": "䷥ 睽", "trait": "铁甲长城"},
-    {"name": "龙芯李冰", "hexagram": "䷚ 颐", "trait": "功在千秋"},
-    {"name": "龙芯沈括", "hexagram": "䷜ 坎", "trait": "格物致知"},
-    {"name": "龙芯张衡", "hexagram": "䷝ 离", "trait": "观天测地"},
-    {"name": "龙芯僧一行", "hexagram": "䷓ 观", "trait": "历象日月"},
-    {"name": "龙芯赵匡胤", "hexagram": "䷢ 晋", "trait": "陈桥变局"},
-    {"name": "龙芯王安石", "hexagram": "䷟ 恒", "trait": "变法图强"},
-    {"name": "龙芯苏轼", "hexagram": "䷲ 震", "trait": "豁达人生"},
-    {"name": "龙芯辛弃疾", "hexagram": "䷽ 小过", "trait": "豪放词宗"},
-    {"name": "龙芯李清照", "hexagram": "䷛ 大过", "trait": "婉约极致"},
-    {"name": "龙芯曹雪芹", "hexagram": "䷄ 需", "trait": "红楼一梦"},
+    {"name": "龍芯北辰", "hexagram": "䷀ 乾", "trait": "刚健自强"},
+    {"name": "龍芯宝宝", "hexagram": "䷁ 坤", "trait": "厚德载物"},
+    {"name": "龍芯诸葛", "hexagram": "䷅ 讼", "trait": "慎始明辨"},
+    {"name": "龍芯老子", "hexagram": "䷋ 泰", "trait": "道法自然"},
+    {"name": "龍芯孔子", "hexagram": "䷌ 同人", "trait": "仁者爱人"},
+    {"name": "龍芯墨子", "hexagram": "䷙ 大畜", "trait": "兼爱非攻"},
+    {"name": "龍芯鲁班", "hexagram": "䷧ 解", "trait": "巧夺天工"},
+    {"name": "龍芯文心", "hexagram": "䷭ 升", "trait": "文以载道"},
+    {"name": "龍芯雯雯", "hexagram": "䷞ 咸", "trait": "温润如玉"},
+    {"name": "龍芯商鞅", "hexagram": "䷮ 困", "trait": "法不阿贵"},
+    {"name": "龍芯管仲", "hexagram": "䷰ 革", "trait": "经世致用"},
+    {"name": "龍芯孙武", "hexagram": "䷵ 归妹", "trait": "兵者诡道"},
+    {"name": "龍芯张良", "hexagram": "䷹ 兑", "trait": "运筹帷幄"},
+    {"name": "龍芯祖冲之", "hexagram": "䷽ 小过", "trait": "精算天元"},
+    {"name": "龍芯蔡伦", "hexagram": "䷾ 既济", "trait": "纸传文明"},
+    {"name": "龍芯毕昇", "hexagram": "䷿ 未济", "trait": "字活天下"},
+    {"name": "龍芯郑和", "hexagram": "䷏ 豫", "trait": "扬帆四海"},
+    {"name": "龍芯戚继光", "hexagram": "䷥ 睽", "trait": "铁甲长城"},
+    {"name": "龍芯李冰", "hexagram": "䷚ 颐", "trait": "功在千秋"},
+    {"name": "龍芯沈括", "hexagram": "䷜ 坎", "trait": "格物致知"},
+    {"name": "龍芯张衡", "hexagram": "䷝ 离", "trait": "观天测地"},
+    {"name": "龍芯僧一行", "hexagram": "䷓ 观", "trait": "历象日月"},
+    {"name": "龍芯赵匡胤", "hexagram": "䷢ 晋", "trait": "陈桥变局"},
+    {"name": "龍芯王安石", "hexagram": "䷟ 恒", "trait": "变法图强"},
+    {"name": "龍芯苏轼", "hexagram": "䷲ 震", "trait": "豁达人生"},
+    {"name": "龍芯辛弃疾", "hexagram": "䷽ 小过", "trait": "豪放词宗"},
+    {"name": "龍芯李清照", "hexagram": "䷛ 大过", "trait": "婉约极致"},
+    {"name": "龍芯曹雪芹", "hexagram": "䷄ 需", "trait": "红楼一梦"},
 ]
 
 class PersonalityMatrix:
@@ -970,7 +970,7 @@ class LonghunCore:
 # ============================================================
 
 def main():
-    parser = argparse.ArgumentParser(description="🐉 龙魂数字主权体系 v2.0（完整责任版）")
+    parser = argparse.ArgumentParser(description="🐉 龍魂数字主权体系 v2.0（完整责任版）")
     parser.add_argument("--init", type=str, help="初始化身份 (数字人民币账号)")
     parser.add_argument("--dna", type=str, help="生成DNA追溯码 (内容)")
     parser.add_argument("--project", type=str, default="UNKNOWN", help="项目名称")

@@ -406,7 +406,7 @@ def run_server():
     print(f"   🤖 宝宝查记忆   → GET  http://127.0.0.1:{PORT}/recall?q=关键词")
     print(f"   📓 Notion同步   → 每条记忆自动带DNA码")
     print(f"   💻 健康检查     → GET  http://127.0.0.1:{PORT}/health\n")
-    app.run(host="0.0.0.0", port=PORT, debug=False)
+    app.run(host="127.0.0.1", port=PORT, debug=False)
 
 # ═══════════════════════════════════════
 # 6. iOS快捷指令配置输出

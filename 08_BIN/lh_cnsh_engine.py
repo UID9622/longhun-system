@@ -346,7 +346,7 @@ class CNSHEngine:
                 if not text:
                     continue
                 if text.lower() == "exit":
-                    print("👋 龙魂永存")
+                    print("👋 龍魂永存")
                     break
                 if text.lower() == "help":
                     print("触发词: 补齐/补全/优化/落地/整理/投喂/升级/视图/图片/插件/声音/情报/CNSH/发给所有AI/给Cursor/默认全补")

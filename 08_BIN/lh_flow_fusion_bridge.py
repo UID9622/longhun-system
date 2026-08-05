@@ -1228,7 +1228,7 @@ def print_banner(port: int, flow_connected: bool):
 {'='*55}
 🐉 龍魂 · 流场融合桥接引擎 v1.0
 {'='*55}
-  API:     http://0.0.0.0:{port}
+  API:     http://127.0.0.1:{port}
   仪表盘:  http://localhost:{port}/
   流场:    {FLOW_ENGINE_URL} {'✅ 已连通' if flow_connected else '❌ 未连通'}
 {'='*55}
@@ -1246,12 +1246,12 @@ def run_server(port: int = 8777, connect_flow: bool = True):
     FusionHTTPHandler.bridge = bridge
     print_banner(port, bridge.flow_connected)
 
-    server = socketserver.ThreadingTCPServer(("0.0.0.0", port), FusionHTTPHandler)
+    server = socketserver.ThreadingTCPServer(("127.0.0.1", port), FusionHTTPHandler)
     server.daemon_threads = True
     try:
         server.serve_forever()
     except KeyboardInterrupt:
-        print("\n👋 融合桥接 · 龙魂不息")
+        print("\n👋 融合桥接 · 龍魂不息")
         bridge.close()
         server.shutdown()
 

@@ -430,7 +430,7 @@ def main():
                       f"桥接{'✅' if results['bridge_available'] else '❌'}")
                 time.sleep(args.interval)
         except KeyboardInterrupt:
-            print("\n👋 融合管道 · 龙魂不息")
+            print("\n👋 融合管道 · 龍魂不息")
     else:
         print_banner()
         results = run_pipeline(args.bridge_url, stages, args.dry_run)

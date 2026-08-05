@@ -103,7 +103,7 @@ class Wen_Zhang_Jie_Xi:
 
     def __init__(self):
         self.guan_jian_ci_ku = {
-            "历史": ["离火运", "国耻", "五胡乱华", "先烈", "牺牲", "龙脉", "觉醒"],
+            "历史": ["离火运", "国耻", "五胡乱华", "先烈", "牺牲", "龍脉", "觉醒"],
             "主权": ["数据主权", "铜墙铁壁", "不可破", "焊死", "红线", "背后捅刀"],
             "科技": ["算法", "AI", "人工智能", "黑箱", "透明", "开源"],
             "人民": ["老百姓", "底层", "付出者", "普通人", "寒心"],
@@ -344,7 +344,7 @@ class Shi_Pin_Guan_Xian:
     def _zhao_zi_ti(self):
         """寻找可用的中文字体"""
         candidates = [
-            Path(__file__).resolve().parent.parent / "longhun-font" / "output" / "龙魂字体-Regular.otf",
+            Path(__file__).resolve().parent.parent / "longhun-font" / "output" / "龍魂字体-Regular.otf",
             Path(__file__).resolve().parent.parent / "_work" / "repos" / "LonghunFont" / "output" / "LonghunFont-Regular.otf",
             Path("/System/Library/Fonts/STHeiti Light.ttc"),
             Path("/System/Library/Fonts/PingFang.ttc"),

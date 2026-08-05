@@ -670,7 +670,7 @@ class SelfReflexivityAudit:
 
     # ---------- 8. 交互模式 ----------
     def interactive(self):
-        print("\n🐉 龙魂自我审计引擎 v1.0")
+        print("\n🐉 龍魂自我审计引擎 v1.0")
         print(f"CONFIRM: {CONFIRM}")
         print("-" * 50)
         print("命令: full, dna, p0, protocol, trend, report, exit")
@@ -682,7 +682,7 @@ class SelfReflexivityAudit:
                 if not cmd:
                     continue
                 if cmd in ["exit", "quit"]:
-                    print("👋 龙魂不息")
+                    print("👋 龍魂不息")
                     break
                 elif cmd == "full":
                     results = self.full_audit()
@@ -712,7 +712,7 @@ class SelfReflexivityAudit:
 # ============================================================
 
 def main():
-    parser = argparse.ArgumentParser(description="🐉 龙魂自我审计引擎")
+    parser = argparse.ArgumentParser(description="🐉 龍魂自我审计引擎")
     parser.add_argument("--full", action="store_true", help="执行完整审计")
     parser.add_argument("--risk", choices=["dna", "p0", "protocol"], help="检测指定风险")
     parser.add_argument("--trend", action="store_true", help="检测固化趋势")

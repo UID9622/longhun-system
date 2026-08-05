@@ -8,12 +8,12 @@ DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-智能体训练-v1.0
 协议: CC BY-NC-SA 4.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
-定位：让龙魂系统学会思考，联动全系统自动决策，成为真正的智能体。
+定位：让龍魂系统学会思考，联动全系统自动决策，成为真正的智能体。
 
 核心能力：
   1. 思考引擎 — 多步推理、因果链、假设验证
   2. 决策引擎 — 优先级判断、风险评估、路径规划
-  3. 系统联动 — 统一调用所有龙魂引擎
+  3. 系统联动 — 统一调用所有龍魂引擎
   4. 自主决策 — 不需要明确指令，根据上下文行动
   5. 自反馈学习 — 从执行结果中持续优化
   6. 记忆增强 — 利用记忆系统做上下文推理
@@ -57,7 +57,7 @@ DEFAULT_CONFIG = {
     "version": "1.0",
     "dna": "#龍芯⚡️丙午·乙未·甲辰·离为火-智能体训练-v1.0",
     "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
-    "agent_name": "龙魂智能体",
+    "agent_name": "龍魂智能体",
     "thinking_depth": 3,
     "decision_timeout": 30,
     "max_iterations": 100,
@@ -265,7 +265,7 @@ class ThinkingEngine:
 
     @staticmethod
     def _check_condition(hypothesis: str) -> str:
-        conditions = {"工具": "龙魂引擎已就绪", "本地": "本地环境 OK",
+        conditions = {"工具": "龍魂引擎已就绪", "本地": "本地环境 OK",
                       "历史": "历史记录匹配", "时间": "时间窗口合适",
                       "外部": "外部调用路径通畅", "经验": "相似经验可复用"}
         for key, value in conditions.items():
@@ -368,7 +368,7 @@ class DecisionEngine:
         if context.get("args"):
             params["args"] = context["args"]
         params["execution_id"] = f"exec_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
-        params["source"] = "龙魂智能体"
+        params["source"] = "龍魂智能体"
         return params
 
     def _calculate_priority(self, goal: str, context: Dict) -> int:
@@ -404,7 +404,7 @@ class DecisionEngine:
 # ============================================================
 
 class SystemOrchestrator:
-    """系统联动层 — 统一调用所有龙魂引擎"""
+    """系统联动层 — 统一调用所有龍魂引擎"""
 
     def __init__(self):
         self.engines = {
@@ -624,7 +624,7 @@ class ReflectionEngine:
 # ============================================================
 
 class LonghunAgent:
-    """龙魂智能体 — 完整思考→决策→执行→学习循环"""
+    """龍魂智能体 — 完整思考→决策→执行→学习循环"""
 
     def __init__(self):
         self.config = self._load_config()
@@ -656,7 +656,7 @@ class LonghunAgent:
         """处理用户输入 — 完整智能体流程"""
         context = context or {}
 
-        print(f"\n🐉 龙魂智能体处理: {input_text[:50]}…")
+        print(f"\n🐉 龍魂智能体处理: {input_text[:50]}…")
         print("-" * 40)
 
         # 1. 构建上下文
@@ -821,7 +821,7 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:
-  lh agent process "优化龙魂系统性能"    单次处理
+  lh agent process "优化龍魂系统性能"    单次处理
   lh agent interactive                   交互模式
   lh agent train --iterations 100        训练模式
   lh agent daemon                        守护进程
@@ -853,7 +853,7 @@ def main():
         print("=" * 50)
 
     elif args.command == "interactive":
-        print("\n🐉 龙魂智能体交互模式")
+        print("\n🐉 龍魂智能体交互模式")
         print("输入 'exit' 退出, 'status' 查看状态")
         print("-" * 40)
         while True:
@@ -867,18 +867,18 @@ def main():
                 if not user_input:
                     continue
                 result = agent.process(user_input)
-                print(f"\n🤖 龙魂: {result['response'][:200]}")
+                print(f"\n🤖 龍魂: {result['response'][:200]}")
             except KeyboardInterrupt:
                 print("\n👋 退出")
                 break
 
     elif args.command == "daemon":
-        print("🐉 启动龙魂智能体守护进程…")
+        print("🐉 启动龍魂智能体守护进程…")
         agent.run_loop()
 
     elif args.command == "status":
         stats = agent.memory.get_statistics()
-        print("\n🐉 龙魂智能体状态")
+        print("\n🐉 龍魂智能体状态")
         print("-" * 40)
         print(f"  🧬 DNA: {agent.config['dna']}")
         print(f"  📚 总经验: {stats['total_experiences']}")

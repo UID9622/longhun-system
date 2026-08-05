@@ -111,12 +111,25 @@
 
 ---
 
-## 七、许可证版本历史
+## 七、适用法律与争议解决（法律适用条款）
+
+本许可证及与之相关的任何争议，均适用**中华人民共和国法律**（不包括其冲突法规则）。
+
+因本许可证引起的或与本许可证有关的任何争议，应提交**中国国际经济贸易仲裁委员会（CIETAC）**，按照申请仲裁时该会现行有效的仲裁规则进行仲裁。仲裁裁决是终局的，对双方均有约束力。仲裁地为北京，仲裁语言为中文。
+
+This License and any disputes arising out of or in connection with this License shall be governed by the laws of the **People's Republic of China** (excluding its conflict of law rules). Any dispute arising out of or in connection with this License shall be submitted to the **China International Economic and Trade Arbitration Commission (CIETAC)** for arbitration which shall be conducted in accordance with the CIETAC's arbitration rules in effect at the time of applying for arbitration. The arbitral award is final and binding upon both parties. The seat of arbitration shall be Beijing. The language of arbitration shall be Chinese.
+
+> ⚖️ **法律主权声明**：龍魂系统及其所有子项目、协议、文档，均以中华人民共和国法律为最高准则。任何与本系统相关的争议，均适用中国法律，并以中国法院或仲裁机构为管辖机关。本声明与本文件第七节共同构成完整的法律适用框架。
+
+---
+
+## 八、许可证版本历史
 
 - v1.0: 2026-07-06，CN-SOVEREIGN-LICENSE（初始版本）
 - v2.0: 2026-07-31，CC BY-NC-SA 4.0 + 君子协议（统一非商业）
 - v3.0: 2026-08-04，分层双许可证（CC BY-NC-SA 4.0 + MulanPSL v2）· 解决一刀切问题
+- v4.0: 2026-08-05，新增适用法律条款（中国法律+CIETAC仲裁）· 法律主权焊死
 
 ---
 
-> 🐉 **思想不卖·工具随便用。分层治理·一劳永逸。**
+> 🐉 **思想不卖·工具随便用。分层治理·一劳永逸。法律主权焊死·中国法律为准。**

@@ -928,7 +928,7 @@ class 命令解析器:
     def 清洗(self, 原始消息: str) -> str:
         # 先進行語義歸一化：繁簡、全半形、大小寫、多語言變體統一
         消息 = self._归一化.normalize(原始消息) if self._归一化 else 原始消息
-        消息 = re.sub(r"^@龙智守\s*", "", 消息.strip())
+        消息 = re.sub(r"^@龍智守\s*", "", 消息.strip())
         消息 = re.sub(r"^@龍智守\s*", "", 消息)
         return 消息
 
@@ -1478,7 +1478,7 @@ class 执行引擎:
         # 優先使用規範化目錄 ~/.longhun/training/scripts/ 中的主版本
         optimizer_path = Path.home() / ".longhun" / "training" / "scripts" / "龍魂訓練數據優化器_v3.2.0.py"
         # 兼容舊版 Downloads 路徑
-        fallback_path = Path.home() / "Downloads" / "Kimi_Agent_龙魂训练协议" / "龍魂訓練數據優化器_v3.2.0.py"
+        fallback_path = Path.home() / "Downloads" / "Kimi_Agent_龍魂训练协议" / "龍魂訓練數據優化器_v3.2.0.py"
         if not optimizer_path.exists():
             if fallback_path.exists():
                 optimizer_path = fallback_path

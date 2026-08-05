@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 🔐 多方主权下的AI开放审计模型
-——基于龙魂系统的可验证治理架构
+——基于龍魂系统的可验证治理架构
 
 白皮书版本: v2.0（完整推演版）
 DNA追溯码: #龍芯⚡️2026-08-03-OPEN-AUDIT-ENGINE-v2.0-UID9622
@@ -19,7 +19,7 @@ GPG签名: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
   4. 重复博弈均衡分析（纳什均衡检测、临界贴现因子计算）
   5. 三种均衡状态识别（A/B/C）
   6. 三组预设推演场景
-  7. 龙魂系统审计协议模拟
+  7. 龍魂系统审计协议模拟
   8. 可视化输出（三轴图、时间序列、均衡地图）
   9. 易经隐喻层映射（未济→既济转化路径）
   10. 导出JSON报告 + GPG签名验证
@@ -530,7 +530,7 @@ class ScenarioPresets:
         return sim
 
 # ============================================================
-# 6. 龙魂系统审计协议模拟
+# 6. 龍魂系统审计协议模拟
 # ============================================================
 
 @dataclass
@@ -565,7 +565,7 @@ class AuditRecord:
         return json.dumps(self.to_dict(), ensure_ascii=False, indent=2)
 
 class AuditProtocol:
-    """龙魂系统开放审计协议"""
+    """龍魂系统开放审计协议"""
 
     def __init__(self):
         self.audit_log: List[AuditRecord] = []
@@ -587,7 +587,7 @@ class AuditProtocol:
         record = AuditRecord(
             audit_id=audit_id,
             timestamp=now_iso(),
-            system="龙魂系统 v4.0",
+            system="龍魂系统 v4.0",
             module="开放审计协议",
             decision_id=decision_id,
             inputs=inputs,
@@ -1049,7 +1049,7 @@ def generate_gpg_signature(filepath: str) -> str:
     sig = hashlib.sha256(content).hexdigest()
     with open(sig_path, 'w') as f:
         f.write(f"-----BEGIN PGP SIGNATURE-----\n")
-        f.write(f"Version: 龙魂系统 GPG v1.0\n\n")
+        f.write(f"Version: 龍魂系统 GPG v1.0\n\n")
         f.write(f"SHA256: {sig}\n")
         f.write(f"Fingerprint: {GPG_FINGERPRINT}\n")
         f.write(f"-----END PGP SIGNATURE-----\n")

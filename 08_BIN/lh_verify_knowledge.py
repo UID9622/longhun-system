@@ -215,7 +215,7 @@ def json_output():
 
 def main():
     import argparse
-    parser = argparse.ArgumentParser(description="龙魂 · 知识拉取验证器")
+    parser = argparse.ArgumentParser(description="龍魂 · 知识拉取验证器")
     parser.add_argument("--json", action="store_true", help="JSON 格式输出")
     args = parser.parse_args()
 

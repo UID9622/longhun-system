@@ -90,7 +90,7 @@ DEFAULT_PERSONAS = [
     {"ipa": "P18", "name": "基因登记官", "func": "DNA注册·资产登记", "group": "守护组", "protocol": "P1-审计", "level": "内核人格"},
     {"ipa": "P19", "name": "极简审计官", "func": "UI审计·前端质量", "group": "守护组", "protocol": "P1-审计", "level": "外围人格"},
     {"ipa": "P20", "name": "贡献公证官", "func": "信任积分·三分桶", "group": "守护组", "protocol": "P1-审计", "level": "内核人格"},
-    {"ipa": "P72", "name": "龙盾", "func": "贴身管家·熔断决策", "group": "守护组", "protocol": "P0-熔断", "level": "内核人格"},
+    {"ipa": "P72", "name": "龍盾", "func": "贴身管家·熔断决策", "group": "守护组", "protocol": "P0-熔断", "level": "内核人格"},
     {"ipa": "P77", "name": "黑天使", "func": "红蓝对抗·安全渗透", "group": "安全组", "protocol": "P1-安全", "level": "内核人格"},
     {"ipa": "S1",  "name": "法律引擎", "func": "法条检索·合规分析", "group": "子系统", "protocol": "P2-法律", "level": "外围人格"},
     {"ipa": "S2",  "name": "洛书369", "func": "深层数理·洛书推演", "group": "子系统", "protocol": "P0-数学", "level": "外围人格"},

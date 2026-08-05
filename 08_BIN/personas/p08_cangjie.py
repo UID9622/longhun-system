@@ -27,7 +27,7 @@ SYSTEM_ROOT = Path(__file__).parent.parent.parent
 DICTIONARY = {
     "民心": "HEARTSENSE",
     "感知": "SENSE",
-    "龙魂": "LONGHUN",
+    "龍魂": "LONGHUN",
     "审计": "AUDIT",
     "安全": "SECURITY",
     "数据": "DATA",

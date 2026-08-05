@@ -17,7 +17,7 @@ DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-PORTAL-API-v2.0-UID9622
   6. 健康检查 API (/api/health)
 
 用法:
-  lh portal [--port 8778] [--host 0.0.0.0]
+  lh portal [--port 8778] [--host 127.0.0.1]
   python3 bin/lh_portal_api.py --port 8778
 """
 
@@ -146,7 +146,7 @@ PERSONA_MATRIX = {
         "layer": "guardian", "motto": "公正无私", "ipa": "P20", "ipa_phonetic": "gòng xiàn gōng zhèng guān"
     },
     "P72": {
-        "name": "龙盾", "role": "熔断守护", "expertise": "四级熔断·24小时守护·双熔断联动·例外豁免",
+        "name": "龍盾", "role": "熔断守护", "expertise": "四级熔断·24小时守护·双熔断联动·例外豁免",
         "layer": "guardian", "motto": "熔断守底", "ipa": "P72", "ipa_phonetic": "lóng dùn"
     },
     "P77": {
@@ -527,7 +527,7 @@ async def serve_static(filename: str):
 def main():
     import argparse
     ap = argparse.ArgumentParser(description="龍魂统一门户 API v2.0")
-    ap.add_argument("--host", default="0.0.0.0", help="监听地址")
+    ap.add_argument("--host", default="127.0.0.1", help="监听地址 (默认: 127.0.0.1)")
     ap.add_argument("--port", type=int, default=8778, help="监听端口")
     ap.add_argument("--reload", action="store_true", help="热重载模式")
     args = ap.parse_args()

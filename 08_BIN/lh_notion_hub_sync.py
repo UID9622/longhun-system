@@ -229,7 +229,7 @@ def push_repos() -> bool:
 - 战略层: P00文心 · P01诸葛亮
 - 执行层: P02宝宝 · P03雯雯 · P04鲁班 · P07管仲 · P14吕蒙
 - 文化层: P08仓颉 · P09孙思邈 · P10苏东坡 · P11李白 · P12屈原
-- 守护层: P05上帝之眼 · P06数学大师 · P13姜子牙 · P15乔前辈 · P72龙盾
+- 守护层: P05上帝之眼 · P06数学大师 · P13姜子牙 · P15乔前辈 · P72龍盾
 
 ## 🔐 核心协议
 - 系统宪法 (CONSTITUTION.md + P0_ETERNAL_LOCK.md) P0
@@ -248,7 +248,7 @@ def push_repos() -> bool:
 - 五害曝光台: https://uid9622.cn/five-harms-expose
 
 ---
-*由 诸葛鑫 (UID9622) 创建 · 龙魂系统自动生成*
+*由 诸葛鑫 (UID9622) 创建 · 龍魂系统自动生成*
 """
     overview_file = output_dir / "01_系统全景.md"
     overview_file.write_text(overview, encoding='utf-8')

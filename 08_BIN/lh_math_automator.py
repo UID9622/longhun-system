@@ -246,7 +246,7 @@ class DashboardGenerator:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>🐉 龙魂 · 数学探索看板</title>
+<title>🐉 龍魂 · 数学探索看板</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 *{{margin:0;padding:0;box-sizing:border-box}}
@@ -265,7 +265,7 @@ h1{{color:#f0f6fc;margin-bottom:8px}}
 </head>
 <body>
 <div class="container">
-<h1>🐉 龙魂 · 数学探索历史看板</h1>
+<h1>🐉 龍魂 · 数学探索历史看板</h1>
 <p style="color:#8b949e;font-size:.85em">更新时间: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | DNA: #龍芯⚡️UID9622</p>
 <div class="stats">
 <div class="stat-card"><div class="val">{count}</div><div class="lbl">运行次数</div></div>
@@ -475,7 +475,7 @@ class MathAutomator:
 
 def main():
     import argparse
-    p = argparse.ArgumentParser(description="龙魂 · 数学探索自动化调度器 v2.0")
+    p = argparse.ArgumentParser(description="龍魂 · 数学探索自动化调度器 v2.0")
     p.add_argument("--run", action="store_true", help="执行自动化流程")
     p.add_argument("--tune", action="store_true", help="多参数调优")
     p.add_argument("--dashboard", action="store_true", help="生成可视化看板")

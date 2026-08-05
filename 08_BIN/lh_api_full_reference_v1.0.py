@@ -8,7 +8,7 @@
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
-龙魂系统 API接口完整实现 v1.0
+龍魂系统 API接口完整实现 v1.0
 
 DNA追溯码：#龍芯⚡️2026-02-21-API接口实现-v1.0
 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -441,7 +441,7 @@ class RedLineDetector:
         """
         try:
             msg = MIMEText(message, 'plain', 'utf-8')
-            msg['Subject'] = '🔴 龙魂系统告警'
+            msg['Subject'] = '🔴 龍魂系统告警'
             msg['From'] = Config.EMAIL_USER
             msg['To'] = Config.EMAIL_TO
             
@@ -572,7 +572,7 @@ class DefensiveAuditor:
 处理结果：
   ✅ 已封禁
   ✅ 已加入耻辱墙永久区
-  ✅ 已同步黑名单到所有龙魂节点
+  ✅ 已同步黑名单到所有龍魂节点
 
 DNA追溯：#龍芯⚡️{datetime.now().strftime('%Y-%m-%d')}-自动反击-{attacker_id}
         """
@@ -613,7 +613,7 @@ DNA追溯：#龍芯⚡️{datetime.now().strftime('%Y-%m-%d')}-自动反击-{att
         """发送告警邮件"""
         try:
             msg = MIMEText(message, 'plain', 'utf-8')
-            msg['Subject'] = '🔴 龙魂防御系统告警'
+            msg['Subject'] = '🔴 龍魂防御系统告警'
             msg['From'] = Config.EMAIL_USER
             msg['To'] = Config.EMAIL_TO
             
@@ -955,11 +955,11 @@ if __name__ == '__main__':
     使用方法：
     1. 先运行 init_database() 初始化数据库
     2. 配置邮件密码等信息
-    3. 运行 python 龙魂系统_API接口完整实现_v1.0.py
+    3. 运行 python 龍魂系统_API接口完整实现_v1.0.py
     4. API会在 http://localhost:5000 启动
     """
     
-    print("🐉 龙魂系统 API服务器")
+    print("🐉 龍魂系统 API服务器")
     print("=" * 50)
     print("DNA追溯码：#龍芯⚡️2026-02-21-API接口实现-v1.0")
     print("确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")

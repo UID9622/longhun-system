@@ -166,7 +166,7 @@ class CNSHAlignEngine:
     # 龍魂标准: lh_<模块>_<功能>.py / lh_<功能>.py
     LH_NAME_RE = re.compile(r'^lh_[a-z][a-z0-9_]*(?:_[a-z][a-z0-9_]*)*\.(py|sh)$')
     # 检测是否含繁体「龍」（应为「龍」而非「龙」）
-    LONG_SIMP_RE = re.compile(r'龙魂|龙芯|龙盾')
+    LONG_SIMP_RE = re.compile(r'龍魂|龍芯|龍盾')
 
     # ── 一票否决词（来自对齐规则第十层）──
     VETO_WORDS = [
@@ -313,7 +313,7 @@ class CNSHAlignEngine:
         long_simp = cls.LONG_SIMP_RE.findall(content)
         if long_simp:
             info.issues.append(f"发现简体「龙」: {set(long_simp)}，应为繁体「龍」")
-            info.suggestions.append("将「龙魂/龙芯/龙盾」改为「龍魂/龍芯/龍盾」")
+            info.suggestions.append("将「龍魂/龍芯/龍盾」改为「龍魂/龍芯/龍盾」")
 
         # ── 5. 一票否决词检测 ──
         for word in cls.VETO_WORDS:

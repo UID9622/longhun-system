@@ -8,7 +8,7 @@
 
 set -e
 
-echo "🐉 龙魂 · DeepSeek-V3 部署脚本"
+echo "🐉 龍魂 · DeepSeek-V3 部署脚本"
 echo "================================"
 
 # 1. 检测GPU

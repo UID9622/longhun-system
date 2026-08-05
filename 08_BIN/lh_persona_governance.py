@@ -463,7 +463,7 @@ class PersonaGovernance:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂 · 人格治理引擎 v2.1",
+        description="🐉 龍魂 · 人格治理引擎 v2.1",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=f"""
 DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-PERSONA-GOVERNANCE-v2.1

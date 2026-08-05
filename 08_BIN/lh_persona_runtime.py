@@ -149,7 +149,7 @@ BUILTIN_PERSONAS = {
             "relations": ["P05", "P06", "P03"],
             "trigger_words": "贡献 积分 信任分 公证 功德 场景判定",
             "one_liner": "信任积分·三分桶·贡献公证"},
-    "P72": {"name": "龙盾·贴身管家", "layer": "守护层", "hexagram": "☰乾", "group": "👁️ 守护组",
+    "P72": {"name": "龍盾·贴身管家", "layer": "守护层", "hexagram": "☰乾", "group": "👁️ 守护组",
             "weight": 15, "route_weight": 20, "route_priority": 0,
             "relations": ["P05", "P12", "P77", "P00"],
             "trigger_words": "熔断 紧急 威胁 异常 安全事件 入侵 求救",

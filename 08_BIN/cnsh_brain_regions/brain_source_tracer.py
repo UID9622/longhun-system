@@ -15,10 +15,10 @@ B3 · 来源追溯脑区 → P18 凤凰
 四种指纹:
   1. 语法指纹: 缩进、命名、括号风格
   2. 算法指纹: 控制流模式、复杂度
-  3. DNA指纹: #ZHUGEXIN⚡️ / #龙芯⚡️ 识别
+  3. DNA指纹: #ZHUGEXIN⚡️ / #龍芯⚡️ 识别
   4. 语义哈希: 内容结构哈希
 
-DNA: #龙芯⚡️丙午·丙申·丙辰·未时·需-BRAIN-B3-SOURCE-TRACER-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·未时·需-BRAIN-B3-SOURCE-TRACER-v1.0
 """
 
 import re
@@ -101,7 +101,7 @@ def extract_algo_fingerprint(code: str) -> Dict[str, Any]:
 
 def extract_dna_fingerprint(code: str) -> Optional[str]:
     """提取DNA追溯码"""
-    patterns = [r'#ZHUGEXIN⚡️[^\n]+', r'#龙芯⚡️[^\n]+', r'DNA[：:]\s*[^\n]+']
+    patterns = [r'#ZHUGEXIN⚡️[^\n]+', r'#龍芯⚡️[^\n]+', r'DNA[：:]\s*[^\n]+']
     for pat in patterns:
         m = re.search(pat, code)
         if m:
@@ -150,7 +150,7 @@ def execute(code: str, features: Dict[str, Any], step: int, total: int) -> Dict[
 
 if __name__ == "__main__":
     test = """
-#龙芯⚡️丙午·丙申-EXAMPLE-ABCD1234
+#龍芯⚡️丙午·丙申-EXAMPLE-ABCD1234
 def quick_sort(arr):
     if len(arr) <= 1:
         return arr

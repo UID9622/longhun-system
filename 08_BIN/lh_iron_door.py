@@ -3,7 +3,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
-🛡️ 龙魂DNA网络铁门系统 v1.0
+🛡️ 龍魂DNA网络铁门系统 v1.0
 “数字长城” —— 让网络行为过DNA，溯源到人，存证到链
 
 DNA: #龍芯⚡️2026-08-02-NETWORK-IRON-DOOR-v1.0-UID9622
@@ -975,7 +975,7 @@ def run_api_server(host="0.0.0.0", port=8010):
         sys.exit(1)
 
     app = FastAPI(
-        title="龙魂DNA网络铁门系统",
+        title="龍魂DNA网络铁门系统",
         description="数字长城 · 溯源到人 · 存证到链 · 防埋雷防栽赃",
         version="1.0"
     )
@@ -1162,7 +1162,7 @@ def _output(data, as_json: bool, text: str):
 def main():
     parser = argparse.ArgumentParser(
         prog="lh iron-door",
-        description="🛡️ 龙魂DNA网络铁门系统 v1.0 —— 数字长城",
+        description="🛡️ 龍魂DNA网络铁门系统 v1.0 —— 数字长城",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:

@@ -1,0 +1,18 @@
+[Unit]
+Description=龍魂·飞书知识库自动更新定时器（每6小时）
+Requires=longhun-feishu-kb.service
+
+[Timer]
+# 每6小时执行一次
+OnCalendar=*-*-* 00:00:00
+OnCalendar=*-*-* 06:00:00
+OnCalendar=*-*-* 12:00:00
+OnCalendar=*-*-* 18:00:00
+# 开机后5分钟首次执行
+OnBootSec=5min
+# 分散执行避免撞车
+RandomizedDelaySec=300
+Persistent=true
+
+[Install]
+WantedBy=timers.target

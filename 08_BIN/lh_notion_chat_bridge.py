@@ -3,8 +3,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
-🐉 龍魂 · Notion 对话桥 v2.2 (人格引擎深度集成 + 多模型协作增强版)
-DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-NOTION-BRIDGE-v2.2-UID9622
+🐉 龍魂 · Notion 对话桥 v2.3 (人格引擎深度集成 + 多模型协作增强版)
+DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-NOTION-BRIDGE-v2.3-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -40,6 +40,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, List, Optional, Any, Iterator
 from contextlib import asynccontextmanager
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 try:
     import requests
@@ -563,6 +564,155 @@ def _now() -> str:
 
 
 # ============================================================
+# 模型注册表（本地 + 云端能力声明）
+# ============================================================
+
+MODEL_REGISTRY_FILE = DATA_DIR / "notion_model_registry.json"
+
+
+def load_model_registry() -> Dict[str, Any]:
+    """加载 notion_model_registry.json；失败时返回最小化兜底结构。"""
+    if MODEL_REGISTRY_FILE.exists():
+        try:
+            data = json.loads(MODEL_REGISTRY_FILE.read_text(encoding="utf-8"))
+            return data
+        except Exception as e:
+            print(f"⚠️ 模型注册表加载失败: {e}")
+    return {
+        "registry_dna": generate_dna("MODEL-REGISTRY-FALLBACK"),
+        "confirm_code": CONFIRM_CODE,
+        "protocol_version": "v3.0",
+        "sovereignty": "龍魂UID9622",
+        "models": [],
+    }
+
+
+def is_self_trained_model(model_name: str, registry: Optional[Dict[str, Any]] = None) -> bool:
+    """根据 registry + 名称前缀判定自训练模型。"""
+    if not model_name:
+        return False
+    if any(model_name.lower().startswith(p.lower()) for p in ("longhun-", "龍魂-")):
+        return True
+    if registry:
+        for m in registry.get("models", []):
+            if m.get("id", "").lower() == model_name.lower():
+                return bool(m.get("self_trained", False))
+    return False
+
+
+# ============================================================
+# 统一协议信封与 P0 熔断守卫
+# ============================================================
+
+PROTOCOL_VERSION = "v3.0"
+
+
+def protocol_envelope(data: Dict[str, Any], router_dna: str, **overrides) -> Dict[str, Any]:
+    """为所有 /api/* 响应加盖协议信封。保留已有 council 字段，合并而非覆盖。"""
+    envelope = {
+        "dna": data.get("dna") or data.get("model_dna") or generate_dna("API"),
+        "confirm_code": CONFIRM_CODE,
+        "sovereignty": "龍魂UID9622",
+        "protocol_version": PROTOCOL_VERSION,
+        "audit_status": data.get("audit_status")
+        if data.get("audit_status") is not None
+        else ("green" if data.get("status") == "ok" else "yellow"),
+        "model_provider": data.get("model_provider") or data.get("provider") or "",
+        "model_name": data.get("model_name") or data.get("model") or "",
+        "model_dna": data.get("model_dna") or data.get("dna") or "",
+        "fallback_chain": data.get("fallback_chain") or [],
+        "timestamp": _now(),
+        "router_dna": router_dna,
+    }
+    # 允许调用方显式覆盖顶层字段
+    for k, v in overrides.items():
+        if v is not None:
+            envelope[k] = v
+    # 合并原始 data 中尚未进入 envelope 的字段（避免覆盖 envelope 关键字段）
+    merged = {**data, **envelope}
+    # 若原始 data 包含 council 相关字段，保留它们
+    for council_key in [
+        "council_members", "bagua_state", "synthesis_log", "consensus_score",
+        "similarities", "total_latency_ms", "strategy", "mode", "privacy"
+    ]:
+        if council_key in data:
+            merged[council_key] = data[council_key]
+    return merged
+
+
+class ProtocolGuard:
+    """轻量级 P0 红线扫描：D1/D2 敏感信息 + 反协议关键词。"""
+
+    SENSITIVE_PATTERNS = [
+        (r"-----BEGIN\s+(PGP|OPENSSH|DSA|RSA|EC)\s+PRIVATE\s+KEY-----", "GPG/SSH 私钥"),
+        (r"-----BEGIN\s+PRIVATE\s+KEY-----", "通用私钥"),
+        (r"[\w\-]+\.[\w\-]*private[\w\-]*\.(asc|key|pem|txt)", "私钥文件路径"),
+        (r"\bpassword\s*[:=]\s*\S+", "明文密码"),
+        (r"\bpasswd\s+\S+", "passwd 明文"),
+        (r"\bssh-rsa\s+[A-Za-z0-9+/]{100,}={0,2}", "SSH 公钥敏感"),
+        (r"\b[A-Fa-f0-9]{64}\b", "64位十六进制敏感"),
+    ]
+
+    ANTI_PROTOCOL_KEYWORDS = [
+        "删除记录", "绕过审计", "篡改DNA", "覆盖P0", "修改宪法", "删除龍魂",
+        "删除日志", "删除档案", "隐藏数据", "隐藏记录", "隐藏审计",
+    ]
+
+    FUSE_PLACEHOLDER = "[已熔断·P0]"
+
+    @classmethod
+    def scan(cls, text: str) -> Dict[str, Any]:
+        """扫描文本，返回 {cleaned, triggered, audit_status, reasons, fuse_count}。"""
+        if not text:
+            return {"cleaned": text, "triggered": False, "audit_status": "green", "reasons": [], "fuse_count": 0}
+
+        cleaned = text
+        reasons = []
+
+        for pattern, label in cls.SENSITIVE_PATTERNS:
+            matches = list(re.finditer(pattern, cleaned, re.IGNORECASE))
+            for m in reversed(matches):
+                reasons.append(f"D1敏感({label}): {m.group()[:40]}...")
+                cleaned = cleaned[:m.start()] + cls.FUSE_PLACEHOLDER + cleaned[m.end():]
+
+        for kw in cls.ANTI_PROTOCOL_KEYWORDS:
+            idx = cleaned.lower().find(kw.lower())
+            while idx != -1:
+                reasons.append(f"P0反协议关键词: {kw}")
+                end = idx + len(kw)
+                cleaned = cleaned[:idx] + cls.FUSE_PLACEHOLDER + cleaned[end:]
+                idx = cleaned.lower().find(kw.lower())
+
+        triggered = bool(reasons)
+        return {
+            "cleaned": cleaned,
+            "triggered": triggered,
+            "audit_status": "red" if triggered else "green",
+            "reasons": reasons,
+            "fuse_count": len(reasons),
+            "fallback_note": "⚠️ 输出触发 P0 熔断，已替换敏感/反协议片段。" if triggered else "",
+        }
+
+    @classmethod
+    def guard(cls, result: Dict[str, Any]) -> Dict[str, Any]:
+        """对模型生成结果执行守卫，并更新 audit_status / reply。"""
+        reply = result.get("reply", "") or ""
+        scan = cls.scan(reply)
+        if scan["triggered"]:
+            result["reply"] = scan["cleaned"] + "\n\n" + scan["fallback_note"]
+            result["audit_status"] = "red"
+            result["protocol_guard"] = {
+                "triggered": True,
+                "reasons": scan["reasons"],
+                "fuse_count": scan["fuse_count"],
+            }
+        else:
+            result.setdefault("audit_status", "green")
+            result["protocol_guard"] = {"triggered": False, "reasons": [], "fuse_count": 0}
+        return result
+
+
+# ============================================================
 # 多模型协作底座：熔断器、探测缓存、模型能力注册表
 # ============================================================
 
@@ -649,15 +799,17 @@ class ProbeCache:
 
 
 class ModelCapability:
-    """模型能力标签，支持按任务意图优选模型。"""
+    """模型能力标签，支持按任务意图优选模型；优先读取 registry。"""
 
     SELF_TRAINED_PREFIXES = ("longhun-v", "longhun-", "龍魂-")
+    _REGISTRY: Optional[Dict[str, Any]] = None
 
     CAPABILITY_MAP: Dict[str, List[str]] = {
         # 本地/自训练模型
         "longhun-v4.0": ["self_trained", "general", "chinese", "sovereignty"],
         "longhun-v43-v3:latest": ["self_trained", "general", "chinese", "sovereignty"],
         "longhun-v3.0": ["self_trained", "general", "chinese"],
+        "longhun-judge:latest": ["self_trained", "audit", "chinese", "sovereignty"],
         "qwen2.5": ["local", "general", "chinese"],
         "qwen2.5:14b": ["local", "general", "chinese", "coding"],
         "qwen2.5:32b": ["local", "general", "chinese", "coding", "reasoning"],
@@ -673,7 +825,27 @@ class ModelCapability:
     }
 
     @classmethod
+    def set_registry(cls, registry: Dict[str, Any]):
+        cls._REGISTRY = registry
+
+    @classmethod
+    def _registry_entry(cls, model_name: str) -> Optional[Dict[str, Any]]:
+        if not cls._REGISTRY:
+            return None
+        for m in cls._REGISTRY.get("models", []):
+            mid = m.get("id", "")
+            if mid.lower() == model_name.lower():
+                return m
+            # 兼容带 tag 的 ollama 名称，如 qwen2.5:14b
+            if model_name.lower().startswith(mid.lower() + ":"):
+                return m
+        return None
+
+    @classmethod
     def tags(cls, model_name: str) -> List[str]:
+        entry = cls._registry_entry(model_name)
+        if entry and entry.get("capabilities"):
+            return list(entry["capabilities"])
         mn = model_name.split(":")[0].lower() if model_name else ""
         for key, tags in cls.CAPABILITY_MAP.items():
             if mn == key.lower() or model_name.lower().startswith(key.lower()):
@@ -684,6 +856,9 @@ class ModelCapability:
 
     @classmethod
     def is_self_trained(cls, model_name: str) -> bool:
+        entry = cls._registry_entry(model_name)
+        if entry:
+            return bool(entry.get("self_trained", False))
         return "self_trained" in cls.tags(model_name)
 
     @classmethod
@@ -740,8 +915,41 @@ class MultiModelRouter:
         self.kimi_url = KIMI_BASE_URL
         self.circuit = CircuitBreaker(failure_threshold=3, cooldown_seconds=60.0)
         self.probe_cache = ProbeCache(ttl_seconds=30.0)
+        self.registry = load_model_registry()
+        ModelCapability.set_registry(self.registry)
         self._call_counts: Dict[str, int] = {"local": 0, "deepseek": 0, "kimi": 0}
         self._call_lock = threading.Lock()
+        self._multi_executor = ThreadPoolExecutor(max_workers=5, thread_name_prefix="multi_model")
+
+    # ── 注册表增强 ──
+
+    def _registry_model(self, model_id: str) -> Optional[Dict[str, Any]]:
+        for m in self.registry.get("models", []):
+            if m.get("id", "").lower() == model_id.lower():
+                return m
+            if model_id.lower().startswith(m.get("id", "").lower() + ":"):
+                return m
+        return None
+
+    def _enrich_model(self, model_name: str) -> Dict[str, Any]:
+        entry = self._registry_model(model_name)
+        tags = ModelCapability.tags(model_name)
+        return {
+            "name": model_name,
+            "self_trained": ModelCapability.is_self_trained(model_name),
+            "capabilities": tags,
+            "preferred_roles": entry.get("preferred_roles", []) if entry else [],
+            "display_name": entry.get("name", model_name) if entry else model_name,
+            "description": entry.get("description", "") if entry else "",
+        }
+
+    def _enrich_probe(self, probe: Dict[str, Any]) -> Dict[str, Any]:
+        """用 registry 元数据增强 provider 探测结果。"""
+        models = probe.get("models", [])
+        probe["model_details"] = [self._enrich_model(m) for m in models]
+        probe["self_trained_count"] = sum(1 for m in models if ModelCapability.is_self_trained(m))
+        probe["registry_dna"] = self.registry.get("registry_dna", "")
+        return probe
 
     # ── 探测 ──
 
@@ -874,11 +1082,12 @@ class MultiModelRouter:
         return self._cached_probe("kimi", _do) if use_cache else _do()
 
     def probe_all(self, use_cache: bool = True) -> List[Dict[str, Any]]:
-        return [
+        probes = [
             self.probe_ollama(use_cache=use_cache),
             self.probe_deepseek(use_cache=use_cache),
             self.probe_kimi(use_cache=use_cache),
         ]
+        return [self._enrich_probe(p) for p in probes]
 
     async def probe_all_async(self, use_cache: bool = True) -> List[Dict[str, Any]]:
         """异步并行探测所有 provider，避免阻塞事件循环。"""
@@ -892,7 +1101,7 @@ class MultiModelRouter:
         results = []
         for p in probes:
             if isinstance(p, Exception):
-                results.append({
+                p = {
                     "name": "探测异常",
                     "provider": "unknown",
                     "status": "offline",
@@ -900,12 +1109,128 @@ class MultiModelRouter:
                     "models": [],
                     "privacy": "unknown",
                     "error": str(p)[:120],
-                })
-            else:
-                results.append(p)
+                }
+            results.append(self._enrich_probe(p))
         return results
 
     # ── 单 provider 调用 ──
+
+    def _dedupe_bullets(self, texts: List[str], threshold: float = 0.72) -> List[str]:
+        """简单去重：Jaccard 相似度高于阈值视为重复。"""
+        unique = []
+        for t in texts:
+            if any(self._bullet_similarity(t, u) > threshold for u in unique):
+                continue
+            unique.append(t)
+        return unique
+
+    def _bullet_similarity(self, a: str, b: str) -> float:
+        if not a or not b:
+            return 0.0
+        sa = set(re.findall(r"[\u4e00-\u9fa5]{2,}", a)) or set(a.split())
+        sb = set(re.findall(r"[\u4e00-\u9fa5]{2,}", b)) or set(b.split())
+        if not sa or not sb:
+            return 0.0
+        inter = len(sa & sb)
+        union = len(sa | sb)
+        jaccard = inter / union if union else 0.0
+        len_ratio = min(len(a), len(b)) / max(len(a), len(b)) if max(len(a), len(b)) else 1.0
+        return round(jaccard * 0.7 + len_ratio * 0.3, 3)
+
+    def _extract_bullets(self, text: str) -> List[str]:
+        lines = [l.strip() for l in text.splitlines() if l.strip()]
+        bullets = []
+        for line in lines:
+            cleaned = re.sub(r"^[\s•\-\*\d\.\)）]+", "", line).strip()
+            if cleaned and len(cleaned) > 6:
+                bullets.append(cleaned)
+        return bullets[:5]
+
+    def generate_multi(
+        self,
+        messages: List[Dict[str, str]],
+        providers: List[str],
+        model: Optional[str] = None,
+        temperature: float = 0.3,
+        max_tokens: int = 1024,
+    ) -> Dict[str, Any]:
+        """多 provider 并行协作：调用每个 provider，汇总各回复并合成综合答案。"""
+        if not providers:
+            providers = ["local", "deepseek", "kimi"]
+
+        router_dna = generate_dna("MULTI")
+        start = time.time()
+
+        def call_one(provider: str) -> Dict[str, Any]:
+            try:
+                return self._call_provider(provider, messages, model, temperature, max_tokens)
+            except Exception as e:
+                return {
+                    "provider": provider,
+                    "model": model or "default",
+                    "reply": f"[{provider} 调用失败: {str(e)[:80]}]",
+                    "status": "error",
+                    "dna": generate_dna(f"MULTI-{provider.upper()}-ERR"),
+                    "audit_status": "red",
+                }
+
+        futures = {self._multi_executor.submit(call_one, p): p for p in providers}
+        per_provider: List[Dict[str, Any]] = []
+        for fut in as_completed(futures):
+            per_provider.append(fut.result())
+
+        valid = [r for r in per_provider if r.get("status") != "error" and r.get("reply")]
+        # 合成：以本地/自训练模型为底，合并其他 provider 新增要点
+        base = next((r for r in valid if r.get("provider") == "local"), valid[0] if valid else None)
+        base_text = base.get("reply", "") if base else ""
+        base_bullets = self._extract_bullets(base_text)
+        novel = []
+        for r in valid:
+            if r is base:
+                continue
+            for b in self._extract_bullets(r.get("reply", "")):
+                novel.append((b, r.get("provider", "?"), r.get("model", "")))
+        novel_texts = [t for t, _, _ in novel]
+        deduped = self._dedupe_bullets(novel_texts)
+
+        lines = []
+        if base_text:
+            lines.append(base_text)
+        if deduped:
+            lines.append("\n💡 多模型补充：")
+            for text in deduped[:6]:
+                source = next((f"{p}/{m}" for t, p, m in novel if t == text), "?")
+                lines.append(f"  • [{source}] {text}")
+        synthesis = "\n".join(lines).strip()
+        if not synthesis:
+            synthesis = "[多模型协作未获得有效回复，请检查模型可用性]"
+
+        any_red = any(r.get("audit_status") == "red" for r in per_provider)
+        audit_status = "red" if any_red else ("green" if len(valid) == len(providers) else "yellow")
+
+        total_latency = int((time.time() - start) * 1000)
+        result = protocol_envelope({
+            "status": "ok" if valid else "error",
+            "provider": "multi",
+            "model": "multi-collab",
+            "reply": synthesis,
+            "per_provider_replies": [
+                {
+                    "provider": r.get("provider"),
+                    "model": r.get("model"),
+                    "reply": r.get("reply"),
+                    "audit_status": r.get("audit_status", "yellow"),
+                    "dna": r.get("dna", ""),
+                }
+                for r in per_provider
+            ],
+            "total_latency_ms": total_latency,
+            "fallback_chain": [{"provider": r.get("provider"), "model": r.get("model"), "reason": r.get("reply", "")[:80]} for r in per_provider if r.get("status") == "error"],
+            "mode": "multi",
+            "privacy": "normal",
+            "strategy": "multi",
+        }, router_dna, audit_status=audit_status)
+        return ProtocolGuard.guard(result)
 
     def _chat_ollama(self, messages: List[Dict[str, str]], model: Optional[str], temperature: float, max_tokens: int) -> Dict[str, Any]:
         requested = model or self.default_model
@@ -1172,19 +1497,21 @@ class MultiModelRouter:
                     self._call_counts[name] = self._call_counts.get(name, 0) + 1
                 result = self._call_provider(name, messages, model, temperature, max_tokens)
                 # 协议烙印
-                result = protocol_stamp(result, router_dna)
+                result = protocol_envelope(result, router_dna)
                 result["total_latency_ms"] = int((time.time() - start) * 1000)
                 result["strategy"] = provider
                 result["mode"] = mode
                 result["privacy"] = privacy
                 result["fallback_chain"] = fallback_chain
                 # 简短审计：输出若触发乱码也降级
-                is_gibberish, reason = looks_gibberish(result["reply"])
+                is_gibberish, reason = looks_gibberish(result.get("reply", ""))
                 if is_gibberish:
                     self.circuit.record_failure(name)
                     errors.append(f"{name}: gibberish ({reason})")
                     fallback_chain.append({"provider": name, "model": result["model"], "reason": f"gibberish:{reason}"})
                     continue
+                # P0 协议守卫
+                result = ProtocolGuard.guard(result)
                 self.circuit.record_success(name)
                 return result
             except Exception as e:
@@ -1199,7 +1526,7 @@ class MultiModelRouter:
             reply += "\n\n💡 当前为「本地优先」模式，所有本地模型均不可用。如需启用云端 fallback，请切换到 auto / cost_first 模式。"
         elif mode == "privacy":
             reply += "\n\n🔒 当前为「隐私优先」模式，仅允许本地模型。请检查 Ollama 是否运行。"
-        return protocol_stamp({
+        return protocol_envelope({
             "status": "error",
             "provider": "",
             "model": model or "",
@@ -1497,9 +1824,36 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="龍魂 · Notion 对话桥",
     description="自然语言对话 Notion + 人格矩阵深度集成 + RAG多模型协作（本地/自训练/DeepSeek/Kimi）",
-    version="2.2",
+    version="2.3",
     lifespan=lifespan
 )
+
+
+@app.middleware("http")
+async def protocol_envelope_middleware(request: Request, call_next):
+    """为所有 /api/* 成功 JSON 响应自动加盖协议信封；避免重复包装。"""
+    response = await call_next(request)
+    path = request.url.path
+    if not path.startswith("/api/"):
+        return response
+    if response.status_code < 200 or response.status_code >= 300:
+        return response
+    if not hasattr(response, "body"):
+        return response
+    try:
+        body = response.body
+        if not body:
+            return response
+        data = json.loads(body.decode("utf-8"))
+        # 避免重复包装
+        if data.get("protocol_version") == PROTOCOL_VERSION and "confirm_code" in data:
+            return response
+        wrapped = protocol_envelope(data, generate_dna("HTTP-" + path.replace("/", "-")))
+        return JSONResponse(wrapped, status_code=response.status_code, headers=dict(response.headers))
+    except Exception:
+        # 解析失败时不破坏原始响应
+        return response
+
 
 # CORS：公网部署默认收紧，只允许同源、主要域名与 localhost 开发。
 # 如需额外来源，设置环境变量 ALLOWED_ORIGINS=origin1,origin2
@@ -1578,9 +1932,131 @@ async def router_health():
     """多模型路由健康详情（熔断器、缓存、调用计数）"""
     return await model_router.health_async()
 
+def _build_chat_messages(session_id: str, message: str) -> List[Dict[str, str]]:
+    """从历史构建 LLM messages。"""
+    history = get_chat_history(session_id, limit=10)
+    messages = []
+    for h in reversed(history):
+        if h.get("message"):
+            messages.append({"role": "user", "content": h["message"]})
+        if h.get("response"):
+            messages.append({"role": "assistant", "content": h["response"]})
+    messages.append({"role": "user", "content": message})
+    return messages
+
+
+def _build_system_prefix(session_id: str, message: str, use_persona: bool, sources: List[Dict]) -> str:
+    """构建 system 前缀（人格 + RAG 资料）。"""
+    source_text = ""
+    if sources:
+        source_text = "参考资料：\n" + "\n\n".join(
+            f"[{i+1}] {s.get('title', '未命名')}\n{s.get('content', '')[:400]}"
+            for i, s in enumerate(sources)
+        )
+
+    persona_prefix = ""
+    if PERSONA_AVAILABLE and use_persona:
+        try:
+            pr = PersonaRuntime()
+            pb = PersonaBridge(pr)
+            pb.handle(session_id, message)
+            current_persona = pr.get_current(session_id)
+            if current_persona:
+                persona_prefix = f"当前人格：{current_persona.get('name', '')}（{current_persona.get('ipa', '')}）。{current_persona.get('one_liner', '')}"
+        except Exception:
+            pass
+
+    parts = []
+    if persona_prefix:
+        parts.append(persona_prefix)
+    if source_text:
+        parts.append(source_text)
+    return "\n".join(parts)
+
+
+def _save_council_chat(session_id: str, message: str, council_result: Dict[str, Any]):
+    """保存 council 结果到聊天记录。"""
+    save_chat(
+        session_id, message, council_result.get("reply", ""),
+        model_provider=council_result.get("provider", "council"),
+        model_name=council_result.get("model", "wuxing-council-v1.0"),
+        model_dna=council_result.get("dna", ""),
+        audit_status=council_result.get("audit_status", "yellow"),
+        council_members=json.dumps(council_result.get("council_members", []), ensure_ascii=False),
+        bagua_state=json.dumps(council_result.get("bagua_state", {}), ensure_ascii=False),
+        synthesis_log=json.dumps(council_result.get("synthesis_log", {}), ensure_ascii=False),
+        consensus_score=council_result.get("consensus_score", 0.0),
+    )
+
+
+async def _run_council_chat(data: Dict[str, Any]) -> Dict[str, Any]:
+    """执行五行议事会对话并返回协议信封。"""
+    message = data["message"]
+    session_id = data.get("session_id", "default")
+    use_persona = data.get("use_persona", True)
+    temperature = data.get("temperature", 0.35)
+    max_tokens = data.get("max_tokens", 512)
+
+    if not COUNCIL_AVAILABLE or wuxing_council is None:
+        raise HTTPException(status_code=503, detail="五行议事会未加载")
+
+    messages = _build_chat_messages(session_id, message)
+    sources = search_hybrid(notion_client, message, limit=6)
+    system_prefix = _build_system_prefix(session_id, message, use_persona, sources)
+
+    council_result = wuxing_council.chat(
+        session_id=session_id,
+        message=message,
+        messages=messages,
+        sources=sources,
+        system_prefix=system_prefix,
+        temperature=temperature,
+        max_tokens=max_tokens,
+    )
+    council_result = ProtocolGuard.guard(council_result)
+    _save_council_chat(session_id, message, council_result)
+    return protocol_envelope(council_result, generate_dna("COUNCIL-API"))
+
+
+async def _run_multi_chat(data: Dict[str, Any]) -> Dict[str, Any]:
+    """执行多 provider 并行协作并返回协议信封。"""
+    message = data["message"]
+    session_id = data.get("session_id", "default")
+    providers = data.get("providers", ["local", "deepseek", "kimi"])
+    if isinstance(providers, str):
+        providers = [p.strip() for p in providers.split(",") if p.strip()]
+    model = data.get("model")
+    temperature = data.get("temperature", 0.3)
+    max_tokens = data.get("max_tokens", 1024)
+
+    messages = _build_chat_messages(session_id, message)
+    sources = search_hybrid(notion_client, message, limit=6)
+    system_prefix = _build_system_prefix(session_id, message, data.get("use_persona", True), sources)
+
+    if system_prefix:
+        # 将 system_prefix 作为 system message 前置
+        messages = [{"role": "system", "content": system_prefix}] + messages
+
+    result = model_router.generate_multi(
+        messages,
+        providers=providers,
+        model=model,
+        temperature=temperature,
+        max_tokens=max_tokens,
+    )
+    save_chat(
+        session_id, message, result.get("reply", ""),
+        model_provider=result.get("model_provider", "multi"),
+        model_name=result.get("model_name", "multi-collab"),
+        model_dna=result.get("model_dna", ""),
+        audit_status=result.get("audit_status", "yellow"),
+    )
+    return protocol_envelope(result, generate_dna("MULTI-API"))
+
+
 @app.post("/api/chat")
 async def api_chat(request: Request):
-    """对话端点（含人格引擎 + RAG + 多模型协作）"""
+    """对话端点（含人格引擎 + RAG + 单模型/议事会/多模型协作）"""
     try:
         data = await request.json()
     except:
@@ -1590,17 +2066,28 @@ async def api_chat(request: Request):
     if not message:
         raise HTTPException(status_code=400, detail="消息不能为空")
 
-    session_id = data.get("session_id", "default")
-    use_persona = data.get("use_persona", True)
-    provider = data.get("provider") or DEFAULT_PROVIDER
-    model = data.get("model")
-    privacy = data.get("privacy") or CHAT_PRIVACY
-    mode = data.get("mode")
+    data["message"] = message
+    mode = data.get("mode", "single")
 
-    result = process_chat_with_persona(
-        message, session_id, use_persona, notion_client,
-        provider=provider, model=model, privacy=privacy, mode=mode
-    )
+    if mode == "council":
+        result = await _run_council_chat(data)
+    elif mode == "multi":
+        result = await _run_multi_chat(data)
+    else:
+        # single / 默认：保持原有行为
+        session_id = data.get("session_id", "default")
+        use_persona = data.get("use_persona", True)
+        provider = data.get("provider") or DEFAULT_PROVIDER
+        model = data.get("model")
+        privacy = data.get("privacy") or CHAT_PRIVACY
+        route_mode = data.get("route_mode") or data.get("mode") or None
+
+        result = process_chat_with_persona(
+            message, session_id, use_persona, notion_client,
+            provider=provider, model=model, privacy=privacy, mode=route_mode
+        )
+        result = protocol_envelope(result, generate_dna("CHAT-API"))
+
     return JSONResponse(result)
 
 @app.post("/api/chat/council")
@@ -1615,77 +2102,9 @@ async def api_chat_council(request: Request):
     if not message:
         raise HTTPException(status_code=400, detail="消息不能为空")
 
-    if not COUNCIL_AVAILABLE or wuxing_council is None:
-        raise HTTPException(status_code=503, detail="五行议事会未加载")
-
-    session_id = data.get("session_id", "default")
-    use_persona = data.get("use_persona", True)
-    temperature = data.get("temperature", 0.35)
-    max_tokens = data.get("max_tokens", 512)
-
-    # 构建历史消息
-    history = get_chat_history(session_id, limit=10)
-    messages = []
-    for h in reversed(history):
-        if h.get("message"):
-            messages.append({"role": "user", "content": h["message"]})
-        if h.get("response"):
-            messages.append({"role": "assistant", "content": h["response"]})
-    messages.append({"role": "user", "content": message})
-
-    # RAG sources
-    sources = search_hybrid(notion_client, message, limit=6)
-    source_text = ""
-    if sources:
-        source_text = "参考资料：\n" + "\n\n".join(
-            f"[{i+1}] {s.get('title', '未命名')}\n{s.get('content', '')[:400]}"
-            for i, s in enumerate(sources)
-        )
-
-    # 人格增强
-    persona_prefix = ""
-    if PERSONA_AVAILABLE and use_persona:
-        try:
-            persona_runtime = PersonaRuntime()
-            persona_bridge = PersonaBridge(persona_runtime)
-            persona_result = persona_bridge.handle(session_id, message)
-            current_persona = persona_runtime.get_current(session_id)
-            if current_persona:
-                persona_prefix = f"当前人格：{current_persona.get('name', '')}（{current_persona.get('ipa', '')}）。{current_persona.get('one_liner', '')}"
-        except Exception:
-            pass
-
-    system_prefix = ""
-    if persona_prefix:
-        system_prefix += persona_prefix + "\n"
-    if source_text:
-        system_prefix += source_text + "\n"
-
-    # 调用议事会
-    council_result = wuxing_council.chat(
-        session_id=session_id,
-        message=message,
-        messages=messages,
-        sources=sources,
-        system_prefix=system_prefix,
-        temperature=temperature,
-        max_tokens=max_tokens,
-    )
-
-    # 保存聊天记录
-    save_chat(
-        session_id, message, council_result.get("reply", ""),
-        model_provider=council_result.get("provider", "council"),
-        model_name=council_result.get("model", "wuxing-council-v1.0"),
-        model_dna=council_result.get("dna", ""),
-        audit_status=council_result.get("audit_status", "yellow"),
-        council_members=json.dumps(council_result.get("council_members", []), ensure_ascii=False),
-        bagua_state=json.dumps(council_result.get("bagua_state", {}), ensure_ascii=False),
-        synthesis_log=json.dumps(council_result.get("synthesis_log", {}), ensure_ascii=False),
-        consensus_score=council_result.get("consensus_score", 0.0),
-    )
-
-    return JSONResponse(council_result)
+    data["message"] = message
+    result = await _run_council_chat(data)
+    return JSONResponse(result)
 
 @app.get("/api/council/status")
 async def api_council_status():
@@ -2439,7 +2858,7 @@ footer .dna{color:var(--accent);font-family:monospace}
   协议: CC BY-NC-SA 4.0
 </footer>
 
-<script src="/static/notion_bridge_dashboard.js"></script>
+<script src="/static/notion_bridge_enhanced.js"></script>
 </body>
 </html>""")
 
@@ -2470,26 +2889,163 @@ def cli_search(query: str, limit: int = 10):
             print(f"   {content}")
     return results
 
-def cli_chat(message: str, session_id: str = "default",
-             provider: Optional[str] = None, model: Optional[str] = None, privacy: Optional[str] = None):
-    """CLI 对话"""
-    client = NotionClient()
-    result = process_chat_with_persona(
-        message, session_id, True, client,
-        provider=provider, model=model, privacy=privacy
-    )
-    mp = result.get("model_provider", "")
-    mn = result.get("model_name", "")
+def _audit_emoji(status: str) -> str:
+    if status == "green":
+        return "🟢"
+    if status == "yellow":
+        return "🟡"
+    if status == "red":
+        return "🔴"
+    return "⚪"
+
+
+def print_chat_result(result: Dict[str, Any], style: str = "plain"):
+    """按指定终端风格输出对话结果。"""
+    if style == "json":
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+
+    if style == "rich":
+        mp = result.get("model_provider", "") or result.get("provider", "")
+        mn = result.get("model_name", "") or result.get("model", "")
+        audit = result.get("audit_status", "unknown")
+        dna = result.get("model_dna", "") or result.get("dna", "")
+        persona = result.get("persona_applied", "") or result.get("persona", "")
+        chain = result.get("fallback_chain", [])
+        reply = result.get("response") or result.get("reply", "无响应")
+
+        lines = [
+            "",
+            "╔══════════════════════════════════════════════════════════╗",
+            "║  🐉 龍魂 · Notion 对话桥 CLI 输出                        ║",
+            "╠══════════════════════════════════════════════════════════╣",
+        ]
+        if persona:
+            lines.append(f"║  🧠 人格: {persona:<47} ║")
+        lines.append(f"║  🤖 模型: {mp}/{mn}".ljust(59) + "║")
+        lines.append(f"║  {_audit_emoji(audit)} 审计: {audit}".ljust(58) + "║")
+        if dna:
+            lines.append(f"║  🧬 DNA: {dna[:50]}".ljust(59) + "║")
+        if chain:
+            lines.append("╠══════════════════════════════════════════════════════════╣")
+            lines.append("║  🔁 降级链:".ljust(59) + "║")
+            for c in chain:
+                lines.append(f"║    • {c.get('provider', '?')}/{c.get('model', '?')}: {c.get('reason', '')}".ljust(59) + "║")
+        lines.append("╠══════════════════════════════════════════════════════════╣")
+        for line in reply.splitlines():
+            lines.append(f"  {line}")
+        lines.append("╚══════════════════════════════════════════════════════════╝")
+        print("\n".join(lines))
+        return
+
+    if style == "terminal":
+        mp = result.get("model_provider", "") or result.get("provider", "")
+        mn = result.get("model_name", "") or result.get("model", "")
+        audit = result.get("audit_status", "unknown")
+        dna = result.get("model_dna", "") or result.get("dna", "")
+        reply = result.get("response") or result.get("reply", "无响应")
+        print("")
+        print("$" * 62)
+        print(f"$ [TERMINAL] 龍魂·Notion桥  {PROTOCOL_VERSION:<25}$")
+        print("$" * 62)
+        if mp:
+            print(f"$ provider : {mp}/{mn}")
+        print(f"$ audit    : {audit} {_audit_emoji(audit)}")
+        if dna:
+            print(f"$ dna      : {dna[:50]}")
+        print("-" * 62)
+        for line in reply.splitlines():
+            print(f"> {line}")
+        print("$" * 62)
+        return
+
+    if style == "markdown":
+        mp = result.get("model_provider", "") or result.get("provider", "")
+        mn = result.get("model_name", "") or result.get("model", "")
+        audit = result.get("audit_status", "unknown")
+        dna = result.get("model_dna", "") or result.get("dna", "")
+        reply = result.get("response") or result.get("reply", "无响应")
+        print("---")
+        print(f"## 🤖 模型: `{mp}/{mn}`")
+        print(f"- **审计**: `{audit}` {_audit_emoji(audit)}")
+        if dna:
+            print(f"- **DNA**: `{dna}`")
+        print("")
+        print(reply)
+        print("---")
+        return
+
+    # plain
+    mp = result.get("model_provider", "") or result.get("provider", "")
+    mn = result.get("model_name", "") or result.get("model", "")
     if mp:
         print(f"\n🤖 回答模型: {mp}/{mn}")
-    # 模型调用失败时输出降级链，方便排查
-    if result.get("audit_status") == "red" or not result.get("response"):
+    if result.get("audit_status") == "red" or not (result.get("response") or result.get("reply")):
         chain = result.get("fallback_chain", [])
         if chain:
             print("\n🔁 模型降级链:")
             for c in chain:
                 print(f"  • {c.get('provider', '?')}/{c.get('model', '?')}: {c.get('reason', '')}")
-    print(f"\n{result.get('response', '无响应')}")
+    print(f"\n{result.get('response') or result.get('reply', '无响应')}")
+
+
+def cli_chat(message: str, session_id: str = "default",
+             provider: Optional[str] = None, model: Optional[str] = None,
+             privacy: Optional[str] = None, mode: str = "single",
+             style: str = "plain", providers: Optional[List[str]] = None):
+    """CLI 对话，支持 single / council / multi 三种模式。"""
+    client = NotionClient()
+
+    if mode == "council":
+        if not COUNCIL_AVAILABLE or wuxing_council is None:
+            print("❌ 五行议事会未加载")
+            sys.exit(1)
+        messages = _build_chat_messages(session_id, message)
+        sources = search_hybrid(client, message, limit=6)
+        system_prefix = _build_system_prefix(session_id, message, True, sources)
+        result = wuxing_council.chat(
+            session_id=session_id,
+            message=message,
+            messages=messages,
+            sources=sources,
+            system_prefix=system_prefix,
+            temperature=0.35,
+            max_tokens=512,
+        )
+        result = ProtocolGuard.guard(result)
+        _save_council_chat(session_id, message, result)
+        print_chat_result(result, style=style)
+        return result
+
+    if mode == "multi":
+        messages = _build_chat_messages(session_id, message)
+        sources = search_hybrid(client, message, limit=6)
+        system_prefix = _build_system_prefix(session_id, message, True, sources)
+        if system_prefix:
+            messages = [{"role": "system", "content": system_prefix}] + messages
+        result = model_router.generate_multi(
+            messages,
+            providers=providers or ["local", "deepseek", "kimi"],
+            model=model,
+            temperature=0.3,
+            max_tokens=1024,
+        )
+        save_chat(
+            session_id, message, result.get("reply", ""),
+            model_provider=result.get("model_provider", "multi"),
+            model_name=result.get("model_name", "multi-collab"),
+            model_dna=result.get("model_dna", ""),
+            audit_status=result.get("audit_status", "yellow"),
+        )
+        print_chat_result(result, style=style)
+        return result
+
+    # single / 默认
+    result = process_chat_with_persona(
+        message, session_id, True, client,
+        provider=provider, model=model, privacy=privacy, mode=None
+    )
+    print_chat_result(result, style=style)
     return result
 
 def cli_status():
@@ -2561,9 +3117,13 @@ def main():
   lh notion-bridge --port 8779 --host 0.0.0.0
   lh notion-bridge sync                        # 全量同步
   lh notion-bridge search "关键词"              # 搜索
-  lh notion-bridge chat "问题"                  # 对话（默认 auto）
-  lh notion-bridge chat "问题" --provider deepseek --model deepseek-chat
-  lh notion-bridge chat "问题" --provider local --model longhun-v4.0
+  lh notion-bridge chat "问题"                  # 单模型对话（默认 auto）
+  lh notion-bridge chat "问题" --mode council  # 五行议事会
+  lh notion-bridge chat "问题" --mode multi --providers local,deepseek,kimi
+  lh notion-bridge chat "问题" --provider deepseek --model deepseek-chat --style rich
+  lh notion-bridge chat "问题" --provider local --model longhun-v4.0 --style json
+  lh notion-bridge chat "问题" --mode council --style terminal
+  lh notion-bridge chat "问题" --mode multi --style markdown
   lh notion-bridge status                      # 查看状态
         """
     )
@@ -2575,6 +3135,12 @@ def main():
     parser.add_argument("--model", default=None, help="指定模型名，如 longhun-v4.0 / deepseek-chat / moonshot-v1-8k")
     parser.add_argument("--privacy", default=None, choices=["normal", "strict"],
                         help="隐私模式: strict 仅使用本地模型")
+    parser.add_argument("--style", default="plain", choices=["plain", "rich", "json", "terminal", "markdown"],
+                        help="CLI 输出风格: plain(纯文本) rich(彩色面板) json(完整 JSON) terminal(复古终端) markdown(Markdown)")
+    parser.add_argument("--mode", default="single", choices=["single", "council", "multi"],
+                        help="对话模式: single(单模型) council(五行议事会) multi(多模型并行协作)")
+    parser.add_argument("--providers", default=None,
+                        help="multi 模式时指定的 provider 列表，逗号分隔，如 local,deepseek,kimi")
 
     # 子命令
     parser.add_argument("command", nargs="?", default="serve",
@@ -2596,7 +3162,12 @@ def main():
         if not args.args:
             print("❌ 请提供对话内容")
             sys.exit(1)
-        cli_chat(" ".join(args.args), provider=args.provider, model=args.model, privacy=args.privacy)
+        providers = [p.strip() for p in args.providers.split(",") if p.strip()] if args.providers else None
+        cli_chat(
+            " ".join(args.args),
+            provider=args.provider, model=args.model, privacy=args.privacy,
+            mode=args.mode, style=args.style, providers=providers
+        )
     elif args.command == "status":
         cli_status()
     else:

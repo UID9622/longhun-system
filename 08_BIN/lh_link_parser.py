@@ -11,7 +11,7 @@ DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-链接解析-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 功能：解析用户发来的任何URL，提取元数据、正文、链接，可选递归子页面
-定位：龙魂系统统一信息采集入口
+定位：龍魂系统统一信息采集入口
 """
 
 import sys
@@ -99,7 +99,7 @@ class ParseResult:
 # ============================================================
 
 class LinkParser:
-    """龙魂链接解析引擎"""
+    """龍魂链接解析引擎"""
 
     def __init__(
         self,
@@ -376,7 +376,7 @@ class LinkParser:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂·链接解析引擎 v1.0",
+        description="🐉 龍魂·链接解析引擎 v1.0",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:
@@ -557,7 +557,7 @@ def main():
     else:
         # 打印摘要
         print("\n" + "=" * 60)
-        print("🐉 龙魂·链接解析结果")
+        print("🐉 龍魂·链接解析结果")
         print("=" * 60)
         for result in results:
             print(f"🔗 根URL: {result.root_url}")

@@ -338,7 +338,7 @@ class CNSHApp:
     def load_demo(self):
         demo_content = '''@任务 开始
 
-设 名字 = "龙魂"
+设 名字 = "龍魂"
 打印 名字
 
 设 时间 = 12

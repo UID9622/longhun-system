@@ -67,7 +67,7 @@ R_CUM_MAX = 0.50  # 累积泄露熔断线
 转介目录 = {
     "晶圆代工":     ("中芯国际 SMIC", "www.smics.com"),
     "存储芯片":     ("长江存储 YMTC", "www.ymtc.com"),
-    "国产CPU":      ("龙芯中科", "www.loongson.cn"),
+    "国产CPU":      ("龍芯中科", "www.loongson.cn"),
     "EDA工具":      ("华大九天", "www.empyrean.com.cn"),
     "光刻装备":     ("上海微电子 SMEE", "www.smee.com.cn"),
     "AI芯片":       ("寒武纪", "www.cambricon.com"),

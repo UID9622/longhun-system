@@ -939,7 +939,7 @@ def generate_html_dashboard() -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🐉 龙魂 · 学习引擎看板</title>
+<title>🐉 龍魂 · 学习引擎看板</title>
 <style>
 *{{margin:0;padding:0;box-sizing:border-box;}}
 body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0d1117;color:#c9d1d9;padding:20px;}}
@@ -965,7 +965,7 @@ h1{{color:#f0f6fc;font-size:2em;margin-bottom:4px;}}
 </head>
 <body>
 <div class="container">
-<h1>🐉 龙魂 · 学习引擎看板</h1>
+<h1>🐉 龍魂 · 学习引擎看板</h1>
 <div class="subtitle">{now} · DNA: #龍芯⚡️{now[:10].replace('-','')}-DASHBOARD</div>
 
 <div class="grid">
