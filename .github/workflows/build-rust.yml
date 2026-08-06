@@ -1,0 +1,229 @@
+# DNA: #龍芯⚡️丙午·丙申·壬子·子时·䷕贲-CI-CD-v2.0-UID9622
+# 创建者: 诸葛鑫（UID9622）
+# 协议: MulanPSL v2 (工程层)
+#
+# 龍魂 Rust 多架构 CI/CD v2.0
+# 新增: Android JNI · 鸿蒙 NAPI · Python绑定测试
+# 策略: 原生编译 > 交叉编译 > Docker多架构
+# 官方节点: ubuntu-22.04 (x86_64) + ubuntu-22.04-arm (aarch64)
+# 龙芯/申威: Docker QEMU兜底（无原生GitHub Runner）
+
+name: 龍魂 Rust CI/CD
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'rust/**'
+      - '.github/workflows/build-rust.yml'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - 'rust/**'
+
+env:
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: 1
+  RUSTUP_DIST_SERVER: https://mirrors.tuna.tsinghua.edu.cn/rustup
+
+jobs:
+  # ────────────────────────────────────────────
+  # 代码质量：格式检查 + Clippy lint
+  # ────────────────────────────────────────────
+  lint:
+    name: 🧹 Lint & Format
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Cargo fmt check (core)
+        working-directory: rust/longhun-core
+        run: cargo fmt --all -- --check
+
+      - name: Cargo clippy (core)
+        working-directory: rust/longhun-core
+        run: cargo clippy --all-targets -- -D warnings
+
+      - name: Cargo clippy (jni)
+        working-directory: rust/longhun-jni
+        run: cargo clippy --all-targets -- -D warnings
+
+      - name: Cargo clippy (napi)
+        working-directory: rust/longhun-napi
+        run: cargo clippy --all-targets -- -D warnings
+
+  # ────────────────────────────────────────────
+  # 核心库测试 (x86_64 + aarch64)
+  # ────────────────────────────────────────────
+  test:
+    name: 🧪 Test (${{ matrix.target }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-22.04
+            target: x86_64-unknown-linux-gnu
+          - os: ubuntu-22.04-arm
+            target: aarch64-unknown-linux-gnu
+          - os: macos-14
+            target: aarch64-apple-darwin
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cargo test
+        working-directory: rust/longhun-core
+        run: cargo test --verbose
+
+  # ────────────────────────────────────────────
+  # 多架构编译（交叉编译验证）
+  # ────────────────────────────────────────────
+  build-matrix:
+    name: 🔨 Build (${{ matrix.target }})
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - aarch64-unknown-linux-gnu    # 鲲鹏 ARM64
+          - x86_64-unknown-linux-gnu     # x86 服务端
+          - loongarch64-unknown-linux-gnu  # 龙芯
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install cross-compilation tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-aarch64-linux-gnu gcc-x86-64-linux-gnu qemu-user-static
+          rustup target add ${{ matrix.target }}
+
+      - name: Prepare linker config
+        run: |
+          mkdir -p ~/.cargo
+          case "${{ matrix.target }}" in
+            aarch64-unknown-linux-gnu)
+              echo '[target.aarch64-unknown-linux-gnu]' >> ~/.cargo/config.toml
+              echo 'linker = "aarch64-linux-gnu-gcc"' >> ~/.cargo/config.toml
+              ;;
+          esac
+
+      - name: Cargo build (core lib)
+        working-directory: rust/longhun-core
+        run: cargo build --release --target ${{ matrix.target }}
+
+      - name: Cargo build (PyO3 binding)
+        working-directory: rust/longhun-py
+        run: cargo build --release --target ${{ matrix.target }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: longhun-core-${{ matrix.target }}
+          path: rust/longhun-core/target/${{ matrix.target }}/release/liblonghun_core.*
+
+  # ────────────────────────────────────────────
+  # 移动端编译 (Android JNI + 鸿蒙 NAPI)
+  # ────────────────────────────────────────────
+  build-mobile:
+    name: 📱 Mobile (${{ matrix.target }})
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        crate: [jni, napi]
+        target:
+          - aarch64-linux-android       # 主流手机·鲲鹏·鸿蒙
+          - x86_64-linux-android        # 模拟器
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Setup Android NDK
+        uses: nttld/setup-ndk@v1
+        with:
+          ndk-version: r26d
+          add-to-path: false
+
+      - name: Add Rust target
+        run: rustup target add ${{ matrix.target }}
+
+      - name: Configure linker for ${{ matrix.target }}
+        run: |
+          NDK_HOME=${{ env.ANDROID_NDK_HOME }}/toolchains/llvm/prebuilt/linux-x86_64
+          mkdir -p ~/.cargo
+          echo "[target.${{ matrix.target }}]" >> ~/.cargo/config.toml
+          echo "linker = \"${NDK_HOME}/bin/aarch64-linux-android26-clang\"" >> ~/.cargo/config.toml
+          echo "ar = \"${NDK_HOME}/bin/llvm-ar\"" >> ~/.cargo/config.toml
+
+      - name: Cargo build (${{ matrix.crate }})
+        working-directory: rust/longhun-${{ matrix.crate }}
+        run: cargo build --release --target ${{ matrix.target }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: longhun-${{ matrix.crate }}-${{ matrix.target }}
+          path: rust/longhun-${{ matrix.crate }}/target/${{ matrix.target }}/release/liblonghun_${{ matrix.crate }}.*
+
+  # ────────────────────────────────────────────
+  # Docker 多架构镜像（龙芯/申威 QEMU兜底）
+  # ────────────────────────────────────────────
+  docker-multiarch:
+    name: 🐳 Docker Multi-Arch
+    runs-on: ubuntu-22.04
+    needs: [lint, test]
+    if: github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build multi-arch Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: docker/Dockerfile.rust
+          platforms: linux/amd64,linux/arm64
+          push: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # ────────────────────────────────────────────
+  # 汇总
+  # ────────────────────────────────────────────
+  summary:
+    name: 📊 Summary
+    runs-on: ubuntu-22.04
+    needs: [lint, test, build-matrix, build-mobile, docker-multiarch]
+    if: always()
+    steps:
+      - name: Check results
+        run: |
+          echo "## 🐉 龍魂 Rust CI/CD 报告 v2.0" >> $GITHUB_STEP_SUMMARY
+          echo "| Job | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|:---|:---|" >> $GITHUB_STEP_SUMMARY
+          echo "| 🧹 Lint | ${{ needs.lint.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🧪 Test | ${{ needs.test.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🔨 Build Matrix | ${{ needs.build-matrix.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 📱 Mobile Build | ${{ needs.build-mobile.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🐳 Docker | ${{ needs.docker-multiarch.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "DNA: #龍芯⚡️CI-CD-RUST-v2.0-UID9622" >> $GITHUB_STEP_SUMMARY
+          echo "新增: Android JNI + 鸿蒙 NAPI + Python绑定全栈CI" >> $GITHUB_STEP_SUMMARY

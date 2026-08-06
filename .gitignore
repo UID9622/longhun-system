@@ -242,3 +242,6 @@ models/longhun-v1.0/
 11_DATA/knowledge_pull/cache/engines/gpt_sovits
 11_DATA/training/home_absorb/workspace/Desktop/桌面项目箱/打包待命/龙魂万年历-生态入口包
 tts/fish-speech
+
+# --- Rust 编译产物 ---
+target/

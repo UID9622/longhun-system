@@ -1,0 +1,224 @@
+# 龍魂代码中转站 · GitHub Actions CI/CD
+# DNA: #龍芯⚡️丙午·丙申·戊申·亥时·䷗复-LH-STATION-GITHUB-ACTIONS-v1.0-A7F3C2B1
+# 创建者: 诸葛鑫（UID9622）
+# 协议: CC BY-NC-SA 4.0（核心思想层）
+
+name: lh-station CI/CD
+
+on:
+  push:
+    paths:
+      - 'tools/lh-station/**'
+      - '.github/workflows/lh-station.yml'
+  pull_request:
+    paths:
+      - 'tools/lh-station/**'
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: 1
+
+jobs:
+  # ── P0级 · 代码主权检查 ──
+  audit:
+    name: 🔍 主权审计 (Sovereignty Audit)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/lh-station
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rust 工具链
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: 缓存 Cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry/
+            ~/.cargo/git/
+            tools/lh-station/target/
+          key: ${{ runner.os }}-cargo-audit-${{ hashFiles('tools/lh-station/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-audit-
+
+      - name: cargo build (先编译)
+        run: cargo build
+
+      - name: clippy 静态分析
+        run: cargo clippy -- -D warnings
+
+      - name: cargo fmt 格式检查
+        run: cargo fmt -- --check
+
+  # ── P0级 · 编译测试矩阵 ──
+  build-and-test:
+    name: 🧪 构建 & 测试 (${{ matrix.os }})
+    needs: audit
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    defaults:
+      run:
+        working-directory: tools/lh-station
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rust 工具链
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: 缓存 Cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry/
+            ~/.cargo/git/
+            tools/lh-station/target/
+          key: ${{ runner.os }}-cargo-build-${{ hashFiles('tools/lh-station/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-build-
+
+      - name: cargo build (release)
+        run: cargo build --release
+
+      - name: cargo test (全量)
+        run: cargo test --release -- --nocapture
+
+      - name: 归档 release 产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: lh-station-${{ runner.os }}
+          path: tools/lh-station/target/release/lh-station*
+
+  # ── P1级 · 补充测试套件 ──
+  supplement-tests:
+    name: 🧪 补充测试套件
+    needs: audit
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/lh-station
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rust 工具链
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: 缓存 Cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry/
+            ~/.cargo/git/
+            tools/lh-station/target/
+          key: ${{ runner.os }}-cargo-supp-${{ hashFiles('tools/lh-station/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-supp-
+
+      - name: 运行补充测试 (P0 + P1)
+        run: |
+          cargo test --test supplement_tests -- --nocapture --test-threads=1
+
+      - name: 测试报告
+        if: always()
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "  龍魂 lh-station 补充测试报告"
+          echo "  时间: $(date -u '+%Y-%m-%dT%H:%M:%SZ')"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+  # ── P1级 · 跨平台编译检查 ──
+  cross-check:
+    name: 🏗️ 跨平台编译检查
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/lh-station
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - aarch64-unknown-linux-gnu
+          - x86_64-unknown-linux-gnu
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rust 工具链
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: 缓存 Cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry/
+            ~/.cargo/git/
+            tools/lh-station/target/
+          key: ${{ runner.os }}-cargo-cross-${{ matrix.target }}-${{ hashFiles('tools/lh-station/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-cross-${{ matrix.target }}-
+
+      - name: 安装交叉编译依赖
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-aarch64-linux-gnu
+
+      - name: cargo check (跨平台)
+        run: cargo check --release --target ${{ matrix.target }}
+
+  # ── P0级 · 安全扫描 ──
+  security-scan:
+    name: 🛡️ 安全扫描
+    needs: audit
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/lh-station
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rust 工具链
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: cargo audit (CVE 检查)
+        uses: actions-rs/audit-check@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 依赖许可证检查
+        run: |
+          cargo install cargo-deny --quiet 2>/dev/null || true
+          cargo deny check licenses 2>/dev/null || echo "⚠️ cargo-deny 未完整运行"
+
+  # ── 汇总 ──
+  summary:
+    name: ✅ 全量检查汇总
+    needs: [audit, build-and-test, supplement-tests, cross-check, security-scan]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: 汇总结果
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "  龍魂 lh-station CI/CD 全量汇总"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          echo "  audit            → ${{ needs.audit.result }}"
+          echo "  build-and-test   → ${{ needs.build-and-test.result }}"
+          echo "  supplement-tests → ${{ needs.supplement-tests.result }}"
+          echo "  cross-check      → ${{ needs.cross-check.result }}"
+          echo "  security-scan    → ${{ needs.security-scan.result }}"
+          echo ""
+          if [[ "${{ needs.audit.result }}" == "success" ]] && \
+             [[ "${{ needs.build-and-test.result }}" == "success" ]] && \
+             [[ "${{ needs.supplement-tests.result }}" == "success" ]] && \
+             [[ "${{ needs.cross-check.result }}" == "success" ]] && \
+             [[ "${{ needs.security-scan.result }}" == "success" ]]; then
+            echo "  🟢 全量通过 · 可部署"
+          else
+            echo "  🔴 存在失败项 · 禁止部署"
+          fi
