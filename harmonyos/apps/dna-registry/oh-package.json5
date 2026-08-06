@@ -1,0 +1,8 @@
+{
+  "name": "longhun_dna_registry",
+  "version": "1.0.0",
+  "description": "龙魂·鸿蒙DNA注册与干支时间戳引擎 v1.0",
+  "author": "UID9622",
+  "license": "MulanPSL v2",
+  "dependencies": {}
+}

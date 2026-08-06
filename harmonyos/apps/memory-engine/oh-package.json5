@@ -1,0 +1,8 @@
+{
+  "name": "longhun_memory_engine",
+  "version": "1.0.0",
+  "description": "龙魂·鸿蒙记忆压缩与恢复引擎 v1.0",
+  "author": "UID9622",
+  "license": "MulanPSL v2",
+  "dependencies": {}
+}
