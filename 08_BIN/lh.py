@@ -20,6 +20,7 @@ lh — 龍魂统一交互控制台
 
 import json, os, sys, time, shlex, subprocess, hashlib
 from pathlib import Path
+from typing import Any
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "bin"))  # bin/ 优先，确保 lh_lifecycle 等模块可导入
@@ -35,6 +36,8 @@ def _load_sm4_class():
     import importlib.util
     sm4_path = ROOT / "bin" / "CNSH_国密工具.py"
     spec = importlib.util.spec_from_file_location("cnsh_sm4", str(sm4_path))
+    if spec is None or spec.loader is None:
+        raise ImportError(f"无法加载 SM4 模块: {sm4_path}")
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     return mod.SM4
@@ -104,7 +107,7 @@ def _gpg_sign_file(plain_path: Path, key_id: str = "A2D0092CEE2E5BA87035600924C3
     return asc_path
 
 
-def _run_witness_audit(content: str) -> dict:
+def _run_witness_audit(content: str) -> "dict[str, Any]":
     """调用 longhun_agents 对证据内容进行轻量审计链 (P05 + P15 + S3)。"""
     try:
         sys.path.insert(0, str(ROOT / "05_ENGINES"))
@@ -155,7 +158,7 @@ MODULES = {
         ]
     },
     "🛡️ 安全 & 审计": {
-        "desc": "五色审计、防篡改、一票否决、熔断申诉、主权守护",
+        "desc": "五色审计、防篡改、一票否决、熔断申诉、主权守护、🧩插件主权适配",
         "items": [
             {"id": "1", "label": "🔴🐉 主权守护验证", "cmd": "python3 bin/lh_sovereignty_guard.py validate", "desc": "法律边界+一票否决+数据主权三合一验证"},
             {"id": "2", "label": "🐉 主权守护状态", "cmd": "python3 bin/lh_sovereignty_guard.py status", "desc": "查看主权宪法·否决权·数据主权状态"},
@@ -172,6 +175,12 @@ MODULES = {
             {"id": "13", "label": "⚖️ 公正总裁/审计员", "cmd": "python3 bin/lh_judge.py --content \"请裁决以下争议...\"", "desc": "调用鲲鹏 longhun-judge 模型做公正裁决与三色审计"},
             {"id": "14", "label": "🔄 序列执行引擎", "cmd": "python3 bin/lh_seq.py", "desc": "SafeAI→KFPP→CSDN→公正总裁 流水线审计（交互式输入文本）"},
             {"id": "15", "label": "📦 掀黑箱审计", "cmd": "python3 bin/lh_掀黑箱.py", "desc": "审计任意项目·闭源依赖·数据外流·主权缺失·后门检测·一键报告"},
+            {"id": "16", "label": "🧩 插件主权扫描", "cmd": "python3 engines/lh_sovereignty_adapter_engine.py scan", "desc": "扫描任意插件·六维黑箱判定·一票否决检测"},
+            {"id": "17", "label": "🧩 插件加载(自动适配)", "cmd": "python3 engines/lh_sovereignty_adapter_engine.py load", "desc": "加载插件→黑箱自动拒绝→生成主权适配器"},
+            {"id": "18", "label": "🔌 适配器列表", "cmd": "python3 engines/lh_sovereignty_adapter_engine.py list", "desc": "查看所有已生成的主权适配器"},
+            {"id": "19", "label": "🔌 适配器审计", "cmd": "python3 engines/lh_sovereignty_adapter_engine.py audit", "desc": "审计指定适配器·主权元数据完整性检查"},
+            {"id": "20", "label": "🚫 黑名单管理", "cmd": "python3 engines/lh_sovereignty_adapter_engine.py blacklist list", "desc": "查看/添加黑箱插件黑名单"},
+            {"id": "21", "label": "🏗️ 手动生成适配器", "cmd": "python3 engines/lh_sovereignty_adapter_engine.py generate", "desc": "直接生成指定功能的主权适配器骨架"},
         ]
     },
     "🧠 人格 & AI": {
@@ -739,6 +748,9 @@ SUB_DISPATCH = {
     # 🔥 时间引擎 v4.0 — 全系统输出时间戳·天干地支·64卦·审计链
     'time-engine':          ('lh_time_engine.py',             '🐉', '时间引擎·天干地支·64卦·审计链·输出戳', [], 'stamp'),
     'te':                   ('lh_time_engine.py',             '🐉', '时间引擎(简)·天干地支·64卦', [], 'stamp'),
+    # 🐉 道德经知识引擎 v2.0 — 可编程·可查询·蚁群定锚·五行生克·DNA全链路
+    'ddj':                  ('lh_daodejing_engine.py',         '📖', '道德经引擎·查询/定锚/导出/统计·81章龙魂解读', [], ''),
+    'daodejing':            ('lh_daodejing_engine.py',         '📖', '道德经引擎(全写)·同上', [], ''),
     # 🔥 知识矩阵 v1.0 — 全维度知识索引聚合·协议·论文·CSDN·引擎·图谱
     'matrix':               ('lh_knowledge_matrix.py',        '🧬', '知识矩阵·全维度知识索引聚合', [], '--pretty'),
     'km':                   ('lh_knowledge_matrix.py',        '🧬', '知识矩阵(简)·数据聚合', [], '--pretty'),
@@ -759,6 +771,9 @@ SUB_DISPATCH = {
     'config-pull':          ('lh_config_puller.py',           '📦', '配置拉取·自动发现·合并快照', [], '--merge'),
     'cp':                   ('lh_config_puller.py',           '📦', '配置拉取(简)·合并/检查', [], '--merge'),
     'setup-all':            ('setup-all',                     '🚀', '一键搭建·知识拉取+配置合并+状态', [], ''),
+    # 🔥 自主主权插件适配 v1.0 — 黑箱检测·自动替代·适配器管理
+    'plugin':               ('lh_sovereignty_adapter_engine.py', '🧩', '主权插件管理·扫描/加载/黑名单', []),
+    'adapter':              ('lh_sovereignty_adapter_engine.py', '🔌', '适配器管理·列表/审计/生成/移除', []),
 }
 
 
@@ -957,6 +972,9 @@ def main():
     parser.add_argument('--search', nargs=argparse.REMAINDER, help='搜索引擎 (lh --search "关键词")')
     parser.add_argument('--video', nargs=argparse.REMAINDER, help='视频工坊 (lh --video --script 稿.txt)')
     parser.add_argument('--pipeline-3d', '--3d', dest='pipeline_3d', nargs=argparse.REMAINDER, help='3D管线 (lh --3d)')
+    # 🔥 自主主权插件适配 v1.0
+    parser.add_argument('--plugin', nargs=argparse.REMAINDER, help='主权插件管理 (lh --plugin scan/load/list/blacklist)')
+    parser.add_argument('--adapter', nargs=argparse.REMAINDER, help='适配器管理 (lh --adapter list/audit/generate/remove)')
     parser.add_argument('--browser', nargs=argparse.REMAINDER, help='浏览器史官 (lh --browser collect/search/validate/status)')
     parser.add_argument('--uv', nargs=argparse.REMAINDER, help='统一视觉八色判定 (lh --uv judge "文本")')
     parser.add_argument('--visual', nargs=argparse.REMAINDER, help='统一视觉八色判定 (lh --visual colors)')
@@ -1024,6 +1042,9 @@ def main():
     # 🔥 时间引擎 v4.0
     parser.add_argument('--time-engine', dest='time_engine', nargs=argparse.REMAINDER, help='时间引擎·天干地支64卦 (lh --time-engine --stamp/hexagram/run/audit)')
     parser.add_argument('--te', dest='te', nargs=argparse.REMAINDER, help='时间引擎简写 (lh --te --stamp)')
+    # 🐉 道德经知识引擎 v2.0
+    parser.add_argument('--ddj', dest='ddj', nargs=argparse.REMAINDER, help='道德经引擎 (lh --ddj -c 章号/-s 关键词/-t 标签/-a 定锚/--stats)')
+    parser.add_argument('--daodejing', dest='daodejing', nargs=argparse.REMAINDER, help='道德经引擎全写 (lh --daodejing --stats)')
     # 🔐 平台规则审计
     parser.add_argument('--platform-audit', dest='platform_audit', nargs=argparse.REMAINDER, help='平台规则审计·华夏法则对照 (lh --platform-audit --interactive/--file xxx/--url xxx)')
     parser.add_argument('--pa', dest='pa', nargs=argparse.REMAINDER, help='平台规则审计简写 (lh --pa --interactive)')
