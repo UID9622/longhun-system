@@ -1,0 +1,48 @@
+# DNA: #龍芯⚡️丙午·丙申·壬子·子时·䷕贲-DOCKER-RUST-v1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）
+# 协议: MulanPSL v2 (工程层)
+#
+# 龍魂 Rust 多架构 Docker 构建
+# 构建: docker buildx build --platform linux/amd64,linux/arm64 -t longhun-rust .
+
+# ── Stage 1: Builder ──
+FROM --platform=$BUILDPLATFORM rust:1.98-slim-bookworm AS builder
+
+ARG TARGETPLATFORM
+RUN case "$TARGETPLATFORM" in \
+      "linux/amd64")   echo "x86_64-unknown-linux-gnu"  > /rust_target ;; \
+      "linux/arm64")   echo "aarch64-unknown-linux-gnu" > /rust_target ;; \
+      *)               echo "x86_64-unknown-linux-gnu"  > /rust_target ;; \
+    esac
+
+RUN rustup target add $(cat /rust_target)
+
+WORKDIR /build
+COPY rust/longhun-core/ ./longhun-core/
+COPY rust/longhun-py/   ./longhun-py/
+
+# Build core library
+RUN cd longhun-core && cargo build --release --target $(cat /rust_target)
+
+# Build Python binding
+RUN cd longhun-py && cargo build --release --target $(cat /rust_target)
+
+# Create symlinks for multi-stage copy (avoid $(cat /rust_target) in COPY paths)
+RUN TARGET=$(cat /rust_target) && \
+    ln -s /build/longhun-core/target/$TARGET/release/liblonghun_core.rlib /build/liblonghun_core.rlib && \
+    ln -s /build/longhun-py/target/$TARGET/release/lib_longhun_core.so  /build/lib_longhun_core.so
+
+# ── Stage 2: Runtime ──
+FROM --platform=$TARGETPLATFORM debian:bookworm-slim
+
+# Security: upgrade OS packages before anything else
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends \
+    python3 python3-pip ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=builder /build/liblonghun_core.rlib /usr/local/lib/
+COPY --from=builder /build/lib_longhun_core.so  /usr/local/lib/python3/dist-packages/
+
+WORKDIR /app
+CMD ["python3", "-c", "import longhun_core; print(longhun_core.DNA)"]
