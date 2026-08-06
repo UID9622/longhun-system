@@ -1,0 +1,9 @@
+{
+  "modelVersion": "5.0.0",
+  "description": "龙魂·鸿蒙易经推演引擎 v1.0",
+  "dependencies": {},
+  "devDependencies": {
+    "@ohos/hvigor-ohos-plugin": "5.0.0",
+    "@ohos/hvigor": "5.0.0"
+  }
+}
