@@ -15,6 +15,38 @@ GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 ---
 
+## 📋 摘要
+
+> **三色审计 Python SDK 提供两种使用形态：（1）本地引擎嵌入——在应用进程内直接调用判定逻辑，零网络延迟；（2）HTTP客户端——连接远程审计服务，解耦部署。支持自定义规则注入、评分建议、审计日志持久化。一行 `from engines.longhun.tricolor import evaluate` 即可跑通第一次判定。**
+
+---
+
+## 🏗 SDK架构图
+
+```mermaid
+graph LR
+    subgraph 本地["本地引擎"]
+        EVAL["evaluate()"]
+        BATCH["evaluate_batch()"]
+        RULES["get_rules()"]
+        CONFORM["conformance_test()"]
+    end
+    subgraph 远程["HTTP客户端"]
+        CLIENT["TricolorClient"]
+    end
+    subgraph 日志["持久化"]
+        WRITER["AuditLogWriter<br/>JSONL"]
+    end
+    APP["你的Python应用"] --> 本地
+    APP --> 远程
+    本地 --> 日志
+    远程 --> 日志
+    style 本地 fill:#2d1b4e,stroke:#9966ff,color:#fff
+    style 远程 fill:#1a3a5c,stroke:#4da6ff,color:#fff
+```
+
+---
+
 ## 📑 目录
 
 1. [安装](#一安装)
@@ -816,3 +848,5 @@ GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 许可:       工程层 MulanPSL v2（允许商业使用）
 ═══════════════════════════════════════════════════
 ```
+
+**📌 标签:** `三色审计` `Python SDK` `AI治理` `pip` `Django` `FastAPI` `审计日志` `合规` `龍魂系统` `开源`

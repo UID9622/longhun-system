@@ -37,6 +37,40 @@ JS SDK:     `web_apps/tricolor-sdk-js/`
 
 ---
 
+## 🏗 三色审计系统架构总览
+
+```mermaid
+graph TB
+    subgraph 理念层["🧠 理念层"]
+        PHIL["六维伦理框架<br/>人类福祉·公平·可控<br/>透明·追溯·隐私"]
+        DEBEN["离火运五条底线<br/>德在技术前·路径对齐<br/>不寒付出者·信息主权<br/>外化内不化"]
+    end
+    subgraph 工程层["⚙️ 工程接口层"]
+        API["OpenAPI 3.1<br/>8端点 REST"]
+        SDK_PY["Python SDK<br/>pip install"]
+        SDK_JS["JS SDK<br/>npm install"]
+        ADAPTER["开源适配器<br/>任何语言"]
+    end
+    subgraph 判定层["⚖️ 判定层"]
+        RED["红线一票否决<br/>5条焊死"]
+        RV["R值加权评分<br/>六维·上限95"]
+        DNA_T["DNA追溯锚链<br/>SHA-256"]
+        AUDIT["审计日志<br/>JSONL不可篡改"]
+    end
+    subgraph 生态层["🌍 生态层"]
+        CONFORM["一致性自测<br/>18/18通过"]
+        CERT["接入认证<br/>三轨制"]
+        WEBHOOK["Webhook<br/>事件推送"]
+    end
+    理念层 --> 工程层
+    工程层 --> 判定层
+    判定层 --> 生态层
+    style 理念层 fill:#2d1b4e,stroke:#9966ff,color:#fff
+    style 判定层 fill:#0d2818,stroke:#00cc66,color:#fff
+```
+
+---
+
 ## 📑 目录
 
 1. [提案背景：为什么现在是时候](#一提案背景为什么现在是时候)

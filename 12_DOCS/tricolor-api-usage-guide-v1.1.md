@@ -39,6 +39,38 @@ GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 ---
 
+## 🏗 系统架构图
+
+```mermaid
+graph TB
+    subgraph 接入["🔌 接入层"]
+        REST["REST API<br/>POST /api/v1/evaluate"]
+        SDK_PY["Python SDK"]
+        SDK_JS["JS SDK"]
+    end
+    subgraph 核心["⚙️ 核心判定引擎"]
+        RED["🔴 红线扫描<br/>5条焊死红线"]
+        RV["📊 R值计算<br/>六维加权·上限95"]
+        CTX["🔍 上下文审查"]
+        DNA_G["🧬 DNA锚链生成"]
+    end
+    subgraph 输出["📤 输出与集成"]
+        VERDICT["三色判定<br/>🟢 🟡 🔴"]
+        LOG["审计日志<br/>JSONL"]
+        HOOK["Webhook"]
+        REPORT["报告"]
+    end
+    接入 --> 核心
+    核心 --> 输出
+    RED -->|命中→R=0| VERDICT
+    RV --> CTX --> DNA_G --> VERDICT
+    VERDICT --> LOG & HOOK & REPORT
+    style 核心 fill:#2d1b4e,stroke:#9966ff,color:#fff
+    style 输出 fill:#0d2818,stroke:#00cc66,color:#fff
+```
+
+---
+
 ## 一、核心原理深度解析
 
 ### 1.1 R值公式为何这样设计
@@ -1593,3 +1625,5 @@ GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 分层许可:    思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2
 ═══════════════════════════════════════════════════
 ```
+
+**📌 标签:** `三色审计` `API` `AI治理` `REST API` `OpenAPI` `Python SDK` `JS SDK` `合规` `龍魂系统` `开源`

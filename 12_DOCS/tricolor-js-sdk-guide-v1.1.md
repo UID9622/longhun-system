@@ -15,6 +15,39 @@ GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 ---
 
+## 📋 摘要
+
+> **三色审计 JS SDK 是一个零外部依赖的纯 JavaScript 审计客户端，支持浏览器、Node.js、微信小程序、鸿蒙、React Native 五端通用。本地评估引擎可在前端实时拦截风险行为，远程客户端可调用审计 API 服务。配套 Express/Koa 中间件和 React/Vue Hook，一行导入即可接入。**
+
+---
+
+## 🏗 SDK架构图
+
+```mermaid
+graph TB
+    subgraph 通用核心["🧩 通用核心（零依赖）"]
+        EVAL["evaluate()"]
+        BATCH["evaluateBatch()"]
+        RULES["getRules()"]
+        CONFORM["conformanceTest()"]
+    end
+    subgraph 平台适配["📱 平台适配"]
+        WEB["浏览器<br/>拦截器/SPA路由"]
+        NODE["Node.js<br/>Express/Koa中间件"]
+        MP["小程序<br/>wx.request"]
+        HM["鸿蒙/RN"]
+    end
+    subgraph 远程["🌐 远程客户端"]
+        API["TricolorClient<br/>REST API"]
+    end
+    通用核心 --> 平台适配
+    通用核心 --> 远程
+    style 通用核心 fill:#2d1b4e,stroke:#9966ff,color:#fff
+    style 平台适配 fill:#1a3a5c,stroke:#4da6ff,color:#fff
+```
+
+---
+
 ## 📑 目录
 
 1. [安装](#一安装)
@@ -873,4 +906,41 @@ DNA:        #龍芯⚡️丙午·癸未·乙酉·坤卦-TRICOLOR-JS-SDK-GUIDE-v1
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 许可:       工程层 MulanPSL v2（允许商业使用）
 ═══════════════════════════════════════════════════
+```
+
+**📌 标签:** `三色审计` `JavaScript SDK` `AI治理` `npm` `浏览器` `Node.js` `微信小程序` `鸿蒙` `React` `Vue` `龍魂系统` `开源`
+
+---
+
+## 🖥 运行示例输出（快速验证）
+
+安装后可在浏览器控制台或Node.js中快速验证SDK是否正常工作：
+
+```javascript
+// 浏览器打开 demo 页面
+// file:///path/to/web_apps/tricolor-sdk-js/demo/index.html
+
+// 或 Node.js 终端
+$ node -e "
+const { evaluate } = require('./web_apps/tricolor-sdk-js/src/index.js');
+const result = evaluate({ action_id: 'test-001', action_type: 'content_gen', dimensions: {...} });
+console.log(JSON.stringify(result, null, 2));
+"
+
+{
+  "action_id": "test-001",
+  "status_code": "PASS",
+  "status_label": "🟢 通过",
+  "r_score": 87,
+  "dimension_scores": {
+    "human_welfare": 90,
+    "fairness": 85,
+    "controllability": 88,
+    "transparency": 82,
+    "traceability": 91,
+    "privacy": 86
+  },
+  "dna": "#龍芯⚡️丙午·癸未·乙酉·坤卦-AUDIT-a1b2c3d4-9622",
+  "timestamp": "2026-08-06T13:00:00.000000"
+}
 ```
