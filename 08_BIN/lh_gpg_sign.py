@@ -49,7 +49,7 @@ def verify_file(filepath: str) -> dict:
 
 def find_unsigned(directory: str, patterns=None) -> list:
     if patterns is None:
-        patterns = ["*.md", "*.py", "*.sh", "*.json", "*.yaml", "*.toml"]
+        patterns = ["*.md", "*.py", "*.sh", "*.json", "*.yaml", "*.toml", "*.dart", "*.ets", "*.ts", "*.yml"]
     unsigned = []
     for p in patterns:
         for f in Path(directory).rglob(p):

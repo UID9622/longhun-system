@@ -1,0 +1,23 @@
+name: ohos_sensors
+description: 🐉 龙魂·鸿蒙传感器插件 - 支持加速度计、陀螺仪、磁力计等
+version: 2.0.0
+homepage: https://github.com/UID9622/longhun-system
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      openharmony:
+        pluginClass: OhosSensorPlugin
+        fileName: OhosSensorPlugin.ets

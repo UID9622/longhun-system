@@ -1,0 +1,18 @@
+name: ohos_lifecycle
+description: 🐉 龙魂·生命周期插件 - 应用状态监听、前后台切换、事件管理
+version: 2.0.0
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      openharmony:
+        pluginClass: OhosLifecyclePlugin
+        fileName: OhosLifecyclePlugin.ets
