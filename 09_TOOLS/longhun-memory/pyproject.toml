@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "longhun-memory"
+version = "1.0.0"
+description = "龙魂·记忆压缩+国密加密SDK — 对话记忆压缩·SM4加密·SM3追溯链·DNA溯源"
+authors = [{name = "诸葛鑫 (UID9622)", email = "uid9622@uid9622.cn"}]
+license = {text = "MulanPSL v2"}
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MulanPSL v2",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security :: Cryptography",
+]
+keywords = ["memory", "encryption", "SM4", "SM3", "guomi", "compress", "longhun", "CNSH"]
+
+[project.urls]
+Homepage = "https://uid9622.cn"
+
+[tool.setuptools.packages.find]
+include = ["longhun_memory*"]
+
+[project.scripts]
+lh-memory = "longhun_memory.cli:main"
