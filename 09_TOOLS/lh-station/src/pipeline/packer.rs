@@ -31,7 +31,7 @@ pub struct Manifest {
     pub signed: u32,
     pub dna: String,
     pub security_passed: bool,
-    pub anti_colonial_score: f64,
+    pub r_score: u32,             // 三色审计 R 值 (0-95)
     // 成本分析字段（第七批）
     #[serde(skip_serializing_if = "Option::is_none")]
     pub cost_monthly_cny: Option<f64>,
@@ -110,7 +110,7 @@ pub fn generate_manifest(
     compiled: u32,
     signed: u32,
     security_passed: bool,
-    anti_colonial_score: f64,
+    r_score: u32,
 ) -> Manifest {
     Manifest {
         station_version: "1.0.0".to_string(),
@@ -126,7 +126,7 @@ pub fn generate_manifest(
         signed,
         dna: dna::generate_dna("TRANSFORM"),
         security_passed,
-        anti_colonial_score,
+        r_score,
         cost_monthly_cny: None,
         cost_daily_cny: None,
         data_sovereign_risk: None,
@@ -203,7 +203,7 @@ mod tests {
 
     #[test]
     fn test_generate_manifest() {
-        let m = generate_manifest("/test", "Rust", Some("Cargo"), "Linux", "鲲鹏", 10, 10, 1, 10, true, 1.0);
+        let m = generate_manifest("/test", "Rust", Some("Cargo"), "Linux", "鲲鹏", 10, 10, 1, 10, true, 95);
         assert_eq!(m.total_files, 10);
         assert_eq!(m.injected, 10);
         assert!(m.security_passed);

@@ -26,7 +26,7 @@ _ENGINE_DIR = Path(__file__).resolve().parent.parent / "05_ENGINES" / "longhun" 
 if str(_ENGINE_DIR) not in sys.path:
     sys.path.insert(0, str(_ENGINE_DIR))
 
-from engine import TricolorEngine, Scores, Verdict
+from engine import evaluate, TricolorEngine
 
 # ━━━━ 初始化 ━━━━
 engine = TricolorEngine()
@@ -59,15 +59,19 @@ async def home():
 @app.post("/api/audit")
 async def audit(request: AuditRequest):
     """执行三色审计"""
-    scores = Scores(
-        human_welfare=request.humanWelfare,
-        fairness=request.fairness,
-        controllability=request.controllability,
-        transparency=request.transparency,
-        traceability=request.traceability,
-        privacy=request.privacy,
+    verdict = evaluate(
+        scores={
+            "humanWelfare": request.humanWelfare,
+            "fairness": request.fairness,
+            "controllability": request.controllability,
+            "transparency": request.transparency,
+            "traceability": request.traceability,
+            "privacy": request.privacy,
+        },
+        action_id="demo-" + datetime.now(timezone.utc).strftime("%H%M%S"),
+        actor="demo-user",
+        action_type="demo_query",
     )
-    verdict = engine.evaluate(scores)
 
     return {
         "action_id": "demo-" + datetime.now(timezone.utc).strftime("%H%M%S"),

@@ -202,7 +202,7 @@ pub fn run(
         compiled_count,
         signed_count,
         sec_report.passed,
-        sec_report.anti_colonial_score,
+        sec_report.verdict.r_score,
     );
 
     // 注入成本分析字段
@@ -229,7 +229,7 @@ pub fn run(
         signed_count,
         sec_report.passed,
         violations_count as u32,
-        Some(sec_report.anti_colonial_score),
+        Some(sec_report.verdict.r_score),
         cost_monthly,
         cost_risk.clone(),
         cross_border_count,
@@ -263,13 +263,14 @@ pub fn run(
     println!("   └── README-lh-station.md");
     println!();
     println!("🧬 DNA: {}", manifest.dna);
-    println!("📊 主权状态: {} {} 通过 · {} 注入 · {} 编译 · {} 签名 · 反殖民评分 {:.2}",
+    println!("📊 主权状态: {} {} 通过 · {} 注入 · {} 编译 · {} 签名 · 三色审计 R={}/95 ({})",
         status_icon,
         if sec_report.passed { "" } else { " (有阻断项)" },
         injected_count,
         compiled_count,
         signed_count,
-        sec_report.anti_colonial_score,
+        sec_report.verdict.r_score,
+        sec_report.verdict.status_code,
     );
     if let Some(c) = cost_monthly {
         println!("💰 预估月API成本: ¥{:.2}", c);
