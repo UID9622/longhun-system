@@ -145,6 +145,10 @@ CLAUDE.md.asc
 字体/*.otf
 字体/*.woff2
 
+# --- Web 静态资源中的第三方库 ---
+web/static/layui/
+web/static/icons/remixicon/
+
 # --- 运行时状态（不入版本库）---
 state/
 .longhun/
