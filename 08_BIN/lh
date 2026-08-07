@@ -387,6 +387,12 @@ if [ "$FIRST_ARG" = "健康检查" ] || [ "$FIRST_ARG" = "health" ]; then
   exec python3 "$HOME/longhun-system/bin/lh_health_check.py" "$@"
 fi
 
+# ─── 忠义铁律扫描 ───
+if [ "$FIRST_ARG" = "loyalty" ] || [ "$FIRST_ARG" = "忠义" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_loyalty_scan.py" "$@"
+fi
+
 # ─── 文档生成 ───
 if [ "$FIRST_ARG" = "文档生成" ] || [ "$FIRST_ARG" = "docs" ]; then
   shift

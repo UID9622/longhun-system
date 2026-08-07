@@ -18,7 +18,7 @@ lh — 龍魂统一交互控制台
     lh --dashboard      # 直接显示人格仪表盘
 """
 
-import json, os, sys, time, shlex, subprocess, hashlib
+import json, os, re, sys, time, shlex, subprocess, hashlib
 from pathlib import Path
 from typing import Any
 
@@ -27,7 +27,7 @@ sys.path.insert(0, str(ROOT / "bin"))  # bin/ 优先，确保 lh_lifecycle 等�
 sys.path.insert(0, str(ROOT))
 
 # ===== 常量 =====
-VERSION = "v1.0"
+VERSION = "v1.3"
 DNA = "#龍芯⚡️丙午·丙申·癸丑·申时·大有-lh-CONSOLE-v1.0"
 
 # ===== 国密 SM4-CBC 加密模块（数据主权助手）=====
@@ -167,9 +167,9 @@ MODULES = {
             {"id": "5", "label": "全系统安全巡检", "cmd": "python3 bin/lh_full_system_audit.py", "desc": "一键触发全系统安全扫描"},
             {"id": "6", "label": "三色代码审计", "cmd": "python3 bin/lh_code_audit_cli.py", "desc": "审计单个代码文件安全（交互式输入路径）"},
             {"id": "7", "label": "防篡改扫描", "cmd": "python3 bin/lh_anti_tamper.py scan", "desc": "外部AI内容熔断检查（交互式输入文本）"},
-            {"id": "8", "label": "一票否决查询", "cmd": "python3 bin/lh_fuse_response.py --list", "desc": "查看所有熔断规则"},
-            {"id": "9", "label": "熔断申诉", "cmd": "python3 bin/lh_fuse_appeal.py --interactive", "desc": "对熔断判定提出申诉"},
-            {"id": "10", "label": "算法审计", "cmd": "python3 bin/lh_algorithm_audit.py", "desc": "审计算法公平性和偏差"},
+            {"id": "8", "label": "一票否决查询", "cmd": "python3 bin/lh_circuit_breaker.py --list", "desc": "查看所有熔断规则"},
+            {"id": "9", "label": "熔断申诉", "cmd": "python3 bin/lh_circuit_breaker.py --interactive", "desc": "对熔断判定提出申诉"},
+            {"id": "10", "label": "算法审计", "cmd": "python3 bin/lh_deben_audit.py scan", "desc": "德本审计·离火运五问"},
             {"id": "11", "label": "双重审计引擎", "cmd": "python3 bin/lh_dual_audit_engine.py", "desc": "并行审计提高覆盖"},
             {"id": "12", "label": "🛡️ 上下文安全引擎", "cmd": "python3 bin/lh_safeai.py --inspect \"什么是SQL注入？怎么防范？\"", "desc": "意图分类+七因子审计+P0-P4分层熔断（safe-ai v1.0）"},
             {"id": "13", "label": "⚖️ 公正总裁/审计员", "cmd": "python3 bin/lh_judge.py --content \"请裁决以下争议...\"", "desc": "调用鲲鹏 longhun-judge 模型做公正裁决与三色审计"},
@@ -192,7 +192,7 @@ MODULES = {
             {"id": "4", "label": "记忆管理", "cmd": "python3 bin/lh_memory.py --menu", "desc": "记忆增删改查"},
             {"id": "5", "label": "千问幻觉评分", "cmd": "python3 bin/lh_qwen_hallucination_scorer.py", "desc": "评估AI输出幻觉程度"},
             {"id": "6", "label": "AI防炒作检测", "cmd": "python3 bin/lh_ai_anti_hype.py", "desc": "检测AI相关内容的炒作成分"},
-            {"id": "7", "label": "文化觉醒引擎", "cmd": "python3 bin/lh_cultural_awakening.py", "desc": "中华文化内容觉醒检测"},
+            {"id": "7", "label": "道德经锚点", "cmd": "python3 bin/lh_daodejing_engine.py", "desc": "81章道德经·哲学锚点"},
         ]
     },
     "🧬 DNA & 追溯": {
@@ -202,7 +202,7 @@ MODULES = {
             {"id": "2", "label": "统一DNA登记", "cmd": "python3 bin/lh_unified_dna_registry.py --menu", "desc": "物理+虚拟资产统一登记"},
             {"id": "3", "label": "DNA审计验证", "cmd": "python3 bin/lh_unified_dna_audit.py", "desc": "验证DNA登记册完整性"},
             {"id": "4", "label": "创新溯源查询", "cmd": "python3 bin/lh_innovation_tracer.py --menu", "desc": "查谁先自研的某项技术"},
-            {"id": "5", "label": "DNA唯一性守卫", "cmd": "python3 bin/lh_dna_uniqueness_guard.py", "desc": "防止DNA重复/冲突"},
+            {"id": "5", "label": "DNA唯一性守卫", "cmd": "echo '🟡 已冻结·DNA唯一性由人工审计确保'", "desc": "[冻结] 防止DNA重复/冲突"},
             {"id": "6", "label": "DNA登记修复", "cmd": "python3 bin/lh_registry_extend.py", "desc": "批量修复DNA登记问题"},
         ]
     },
@@ -213,16 +213,16 @@ MODULES = {
             {"id": "2", "label": "行为指纹", "cmd": "python3 bin/lh_habit_fingerprint.py", "desc": "用户行为指纹采集分析"},
             {"id": "3", "label": "机器人评分", "cmd": "python3 bin/lh_robot_score.py", "desc": "判断内容是否AI生成(RobotScore)"},
             {"id": "4", "label": "行为基准测试", "cmd": "python3 bin/lh_behavioral_benchmark.py", "desc": "校准机器人检测模型"},
-            {"id": "5", "label": "行为加密验证", "cmd": "python3 bin/lh_behavioral_crypto_verifier.py", "desc": "加密验证行为数据完整性"},
+            {"id": "5", "label": "行为加密验证", "cmd": "python3 bin/lh_gpg_sign.py verify", "desc": "GPG签名验证·加密完整性"},
             {"id": "6", "label": "情绪海绵", "cmd": "python3 bin/lh_emotion_cli.py", "desc": "情绪温度检测+降温（交互式输入文本）"},
-            {"id": "7", "label": "水军引擎(v2)", "cmd": "python3 bin/lh_behavioral_water_army_engine.py", "desc": "高级水军团伙检测引擎"},
+            {"id": "7", "label": "水军引擎(v2)", "cmd": "python3 bin/lh_water_army_detect.py", "desc": "水军团伙检测引擎"},
         ]
     },
     "🔗 同步 & 集成": {
         "desc": "Git同步、Notion同步、道引吸收、跨模块联动",
         "items": [
             {"id": "1", "label": "全量Git推送", "cmd": "python3 bin/lh_auto_cannon.py", "desc": "一键同步到GitHub+Gitee+GitCode"},
-            {"id": "2", "label": "Notion知识同步", "cmd": "python3 brain_notion_sync.py", "desc": "双向同步本地↔Notion"},
+            {"id": "2", "label": "Notion知识同步", "cmd": "python3 bin/lh_notion_full_sync.py", "desc": "双向同步本地↔Notion"},
             {"id": "3", "label": "龍魂道引·开源吸收", "cmd": "python3 bin/lh_daoyin.py --menu", "desc": "吸收外部开源代码入系统"},
             {"id": "4", "label": "跨模块联动感知", "cmd": "python3 bin/lh_cross_module_awareness.py", "desc": "变更影响链路分析"},
             {"id": "5", "label": "Claude桥接", "cmd": "python3 bin/lh_claude_bridge.py", "desc": "连接Claude API"},
@@ -245,8 +245,8 @@ MODULES = {
     "⚙️ 系统 & 运维": {
         "desc": "系统评估、自助修复、定时任务、服务管理",
         "items": [
-            {"id": "1", "label": "系统健康评估", "cmd": "python3 bin/lh_system_eval.py", "desc": "全面系统健康评分"},
-            {"id": "2", "label": "自助修复", "cmd": "python3 bin/lh_self-heal.py", "desc": "自动检测并修复常见问题"},
+            {"id": "1", "label": "系统健康评估", "cmd": "python3 bin/lh_system_health.py", "desc": "全面系统健康评分"},
+            {"id": "2", "label": "自助修复", "cmd": "python3 bin/lh_auto_heal.py scan", "desc": "自动检测并修复常见问题"},
             {"id": "3", "label": "定时任务管理", "cmd": "python3 bin/lh_auto_shouheng.py --cron", "desc": "查看/管理定时任务"},
             {"id": "4", "label": "守护进程(v2)", "cmd": "python3 bin/lh_guardian_v2.py", "desc": "系统守护进程管理"},
             {"id": "5", "label": "桌面菜单", "cmd": "cat cnsh/terminal/desktop-menu.json | python3 -m json.tool", "desc": "查看macOS右键菜单配置"},
@@ -261,10 +261,10 @@ MODULES = {
         "items": [
             {"id": "1", "label": "AI API网关", "cmd": "python3 bin/lh_ai_gateway.py", "desc": "统一AI模型调用网关"},
             {"id": "2", "label": "本地AI中继", "cmd": "python3 bin/lh_local_ai_relay.py", "desc": "本地Ollama中继代理"},
-            {"id": "3", "label": "爬虫治理", "cmd": "python3 bin/lh_crawl_governor.py", "desc": "管理网络爬虫行为"},
+            {"id": "3", "label": "爬虫治理", "cmd": "echo '🟡 已淘汰·爬虫治理功能已废弃'", "desc": "[冻结] 管理网络爬虫行为"},
             {"id": "4", "label": "浏览器守护", "cmd": "python3 bin/lh_browser_daemon.py", "desc": "浏览器自动化守护进程"},
             {"id": "5", "label": "平台封锁日志", "cmd": "python3 bin/lh_platform_block_logger.py", "desc": "记录平台审查/封锁行为"},
-            {"id": "6", "label": "Web3 DNA市场", "cmd": "python3 bin/lh_web3_dna_market_engine.py", "desc": "去中心化DNA资产市场"},
+            {"id": "6", "label": "Web3 DNA市场", "cmd": "echo '🟡 已冻结·Web3 DNA市场未激活'", "desc": "[冻结] 去中心化DNA资产市场"},
         ]
     },
     "🧠 自主学习引擎": {
@@ -603,10 +603,10 @@ def print_help():
     lh --push           → 一键推送全部远端仓库
     lh --health         → 引擎+通道健康检查
     lh --personas       → 人格列表+状态
-    lh "查一下语义抽屉"  → 自然语言路由，自动触发相关引擎
+    lh "查一下语义抽屉"  → 自然语言路由，自动触发相关引擎（说人话就行）
     lh ask "人参的功效" → 同上（显式自然语言入口）
-    lh analyze "..."    → 自动意图分析（dry-run，只看不执行）
-    lh run "..."        → 自动意图分析 + 自动执行引擎/人格/动作
+    lh "系统状态如何"    → 自动匹配status引擎返回系统状态
+    lh "我回来了"        → 任意中文→自动语义匹配→智能路由
     lh chat             → 对话模式，每句输入自动分析触发
     lh auto             → 剪贴板守护，复制粘贴自动触发
 
@@ -685,6 +685,7 @@ SUB_DISPATCH = {
     'cnsh_ui':              ('cnsh_ui.py',                    '🖥️', 'CNSH UI'),
     'seven_dimension':      ('lh_seven_dimension_engine_v2.py','🌌', '七维推演引擎', [], '--interactive'),
     'three_color':          ('lh_three_color_audit.py',       '🔴', '三色审计引擎', [], 'audit'),
+    'loyalty':              ('lh_loyalty_scan.py',            '🐉', '忠义数据铁律自检（永不收集用户数据）', [], 'scan'),
     'uv':                   ('lh_unified_visual.py',          '🎨', '统一视觉色彩引擎(八色)', [], 'judge'),
     'visual':               ('lh_unified_visual.py',          '🎨', '统一视觉色彩引擎(八色)', [], 'judge'),
     'proto':                ('lh_proto_portal.py',            '📋', '协议结构门户(338文档·8Tab)', [], 'governance'),
@@ -774,6 +775,17 @@ SUB_DISPATCH = {
     # 🔥 自主主权插件适配 v1.0 — 黑箱检测·自动替代·适配器管理
     'plugin':               ('lh_sovereignty_adapter_engine.py', '🧩', '主权插件管理·扫描/加载/黑名单', []),
     'adapter':              ('lh_sovereignty_adapter_engine.py', '🔌', '适配器管理·列表/审计/生成/移除', []),
+    # 🐉 協議層統治引擎 v1.0 — P0價值邊境檢查站·DNA驗證·渲染引擎·API網關·強制P0約束
+    'protocol-reign':       ('lh_protocol_reign.py',           '🐉', '協議層統治·P0價值邊境檢查站(演示)', [], '--demo'),
+    'preign':               ('lh_protocol_reign.py',           '🐉', '協議統治(簡)·P0驗證/DNA校驗/渲染', []),
+    # 🐉 真話-協議轉化引擎 v1.0 — 用戶真話→AI結構化→協議映射→工程落地→反饋閉環·簡繁雙關鍵詞
+    'truth':                ('lh_truth_engine.py',             '🗣️', '真話轉化·用戶說真話→P0協議·簡繁雙關鍵詞(演示)', [], '--demo'),
+    'zhenhua':              ('lh_truth_engine.py',             '🗣️', '真話引擎(簡)·結構化·看板·反饋', []),
+    # 🔬 行為密碼學引擎 v2.0 — 七因子來源追溯·五級攻擊模擬·主權API
+    'bcm':                  ('lh_behavioral_crypto.py',        '🔬', '行為密碼學·七因子行為指紋·攻擊模擬·主權API(:8775)', []),
+    'behavioral-crypto':    ('lh_behavioral_crypto.py',        '🔬', '行為密碼學(全名)·七因子·實驗·雷達圖', [], '--demo'),
+    # 📖 术语白话化 — 查询术语大白话解释
+    'term':                 ('lh_term_tool.py',                '📖', '术语白话查询·端口/目录/命令/缩写/组件大白话', [], ''),
 }
 
 
@@ -965,9 +977,12 @@ def main():
     parser.add_argument('--energy', nargs=argparse.REMAINDER, help='省电监控器 (lh --energy 或 lh --energy --watch 仪表盘)')
     parser.add_argument('--power-save', nargs=argparse.REMAINDER, help='省电省算力总控台 (lh --power-save status/optimize/sleep/wake/cache/report/daemon/services)')
     parser.add_argument('--head', nargs=argparse.REMAINDER, help='文章抬头模板选择器 (lh --head 或 lh --head --list/--auto "描述"/--template N --title "标题")')
+    parser.add_argument('--term', nargs=argparse.REMAINDER, help='术语白话查询 (lh --term <术语> 或 lh --term --list/--scan <文件>)')
     parser.add_argument('--voice', nargs=argparse.REMAINDER, help='语音网关 (lh --voice 或 lh --voice --text 文本模式)')
     parser.add_argument('--start-all', dest='start_all', action='store_true', help='一键启动全部服务 (lh --start-all)')
     parser.add_argument('--compare', nargs=argparse.REMAINDER, help='模式对比器 (lh --compare 或 lh --compare --md/--html/--all)')
+    parser.add_argument('--kunpeng', nargs=argparse.REMAINDER, help='鲲鹏状态 (lh --kunpeng 或 lh --kunpeng --services/--logs)')
+    parser.add_argument('--ports', nargs=argparse.REMAINDER, help='端口状态一览 (lh --ports 或 lh --ports --full/--mac/--kunpeng)')
     # === 调度表子命令（统一处理） ===
     parser.add_argument('--search', nargs=argparse.REMAINDER, help='搜索引擎 (lh --search "关键词")')
     parser.add_argument('--video', nargs=argparse.REMAINDER, help='视频工坊 (lh --video --script 稿.txt)')
@@ -1074,7 +1089,7 @@ def main():
     parser.add_argument('--witness-serve', dest='witness_serve', action='store_true', help='启动维权证据固化 Web 服务 (lh --witness-serve)')
     parser.add_argument('--quick', type=str, help='快速跳转到模块名')
 
-    args = parser.parse_args()
+    args, remaining = parser.parse_known_args()
 
     # 快捷模式
     if args.dashboard:
@@ -1635,6 +1650,61 @@ def main():
         subprocess.run(cmd, cwd=str(ROOT))
         return
 
+    # === 鲲鹏状态 ===
+    if args.kunpeng is not None:
+        print_header()
+        kunpeng_args = list(args.kunpeng) if args.kunpeng else []
+        print("\n  🖥️ 鲲鹏服务器状态 (119.13.90.27)\n")
+        ssh_cmd = ["ssh", "-i", str(Path.home() / ".ssh" / "longhun_kunpeng_ed25519"),
+                    "-o", "StrictHostKeyChecking=no",
+                    "-o", "ConnectTimeout=5",
+                    "root@119.13.90.27"]
+        if "--logs" in kunpeng_args:
+            subprocess.run(ssh_cmd + ["journalctl -n 50 --no-pager --no-hostname | grep -E '(error|fail|longhun|nginx)' || true"], shell=False, cwd=str(ROOT))
+        else:
+            subprocess.run(ssh_cmd + ["systemctl --no-pager list-units 'lh*' 'longhun*' 'nginx*' 2>/dev/null || echo '无匹配服务' | head -30"], shell=False, cwd=str(ROOT))
+            if "--services" in kunpeng_args:
+                subprocess.run(ssh_cmd + ["systemctl --no-pager --state=running | head -30"], shell=False, cwd=str(ROOT))
+        print()
+        return
+
+    # === 端口状态一览 ===
+    if args.ports is not None:
+        print_header()
+        ports_args = list(args.ports) if args.ports else []
+        full = "--full" in ports_args or len(ports_args) == 0
+        print("\n  📡 龍魂端口矩阵\n")
+        # Mac本地端口
+        print("  ┌─ Mac 本地 ─────────────────────────────────────┐")
+        result = subprocess.run(["/usr/sbin/lsof", "-iTCP", "-sTCP:LISTEN", "-nP"],
+                               capture_output=True, text=True, cwd=str(ROOT))
+        for line in result.stdout.split('\n'):
+            for port in ['9622','9623','9631','8766','8777','8780','8783','8989','8999']:
+                if f':{port}' in line:
+                    parts = line.split()
+                    if len(parts) >= 2:
+                        print(f"  │  :{port}  {parts[0]:15s} {' '.join(parts[2:4]) if len(parts)>3 else ''}")
+        print("  └─────────────────────────────────────────────────┘")
+        # launchd 服务列表
+        if full:
+            print("\n  ┌─ launchd 龍魂服务 ─────────────────────────────┐")
+            result2 = subprocess.run(["/bin/launchctl", "list"], capture_output=True, text=True, cwd=str(ROOT))
+            for line in result2.stdout.split('\n'):
+                if 'longhun' in line.lower() or 'lh_' in line.lower() or 'lh.' in line.lower():
+                    print(f"  │  {line.strip()}")
+            print("  └─────────────────────────────────────────────────┘")
+        # 鲲鹏端口（可选）
+        if "--kunpeng" in ports_args:
+            print("\n  ┌─ 鲲鹏 (119.13.90.27) 端口 ─────────────────────┐")
+            subprocess.run(["ssh", "-i", str(Path.home() / ".ssh" / "longhun_kunpeng_ed25519"),
+                          "-o", "StrictHostKeyChecking=no", "-o", "ConnectTimeout=5",
+                          "root@119.13.90.27",
+                          "ss -tlnp | head -40 2>/dev/null || netstat -tlnp | head -40"],
+                          cwd=str(ROOT))
+            print("  └─────────────────────────────────────────────────┘")
+        print()
+        return
+
     # === 盘点器 ===
     if args.inventory:
         print_header()
@@ -1803,6 +1873,138 @@ def main():
             show_category(cat)
         else:
             print(f"  ❌ 未知模块: {args.quick}，可用: {', '.join(qmap.keys())}")
+        return
+
+    # === 🔥 位置子命令分发（lh status / lh audit / lh search query 等） ===
+    if remaining:
+        subcmd = remaining[0].lstrip('-')  # 兼容 bare word 和 --flag 两种形式
+        extra = remaining[1:]
+        # 查 SUB_DISPATCH
+        if subcmd in SUB_DISPATCH:
+            script, emoji, desc, *rest = SUB_DISPATCH[subcmd]
+            smart_default = rest[0] if rest else None
+            if not extra and smart_default and isinstance(smart_default, (list, str)):
+                if isinstance(smart_default, str):
+                    extra = [smart_default]
+                else:
+                    extra = list(smart_default)
+            # 检测 --json 抑制 header（管道输出）
+            no_header = '--json' in extra
+            _run_subcommand(script, extra, emoji, desc, suppress_header=no_header)
+            _print_time_stamp()
+            return
+        # 裸词→自动转 --flag 形式重试（如 lh audit → lh --audit）
+        # 递归防护：_LH_NO_REDIRECT 环境变量阻止无限重试
+        if os.environ.get('_LH_NO_REDIRECT') != '1':
+            retry_flag = f"--{subcmd}"
+            retry_env = os.environ.copy()
+            retry_env['_LH_NO_REDIRECT'] = '1'
+            retry_cmd = [sys.executable, __file__, retry_flag] + extra
+            result = subprocess.run(retry_cmd, cwd=str(ROOT), env=retry_env, capture_output=True)
+            if result.returncode == 0:
+                print(result.stdout, end='')
+                if result.stderr:
+                    print(result.stderr, end='', file=sys.stderr)
+                return
+        # 🔥 自然语言路由（仅父进程·_LH_NO_REDIRECT 的子进程跳过）
+        if os.environ.get('_LH_NO_REDIRECT') == '1':
+            # 子进程 flag 重试失败 → 非零退出让父进程继续自然语言路由
+            sys.exit(2)
+        nl_text = ' '.join(remaining)
+        has_cjk = bool(re.search(r'[\u4e00-\u9fff\u3400-\u4dbf]', nl_text))
+        is_long = len(nl_text) > 20 or len(remaining) > 1
+        if has_cjk or is_long:
+            # 优先：语义抽屉匹配（快速·本地·不耗算力）
+            nl_router = ROOT / "bin" / "lh_natural_language_router.py"
+            if nl_router.exists():
+                print(f"\n  🐉 龍魂理解: {nl_text}\n")
+                result = subprocess.run(
+                    [sys.executable, str(nl_router), nl_text, "--json"],
+                    cwd=str(ROOT), capture_output=True, text=True, timeout=30
+                )
+                if result.returncode == 0 and result.stdout.strip():
+                    try:
+                        parsed = json.loads(result.stdout)
+                        if parsed.get("status") == "success":
+                            # 提取关键信息展示
+                            msg = parsed.get("message", parsed.get("意图", ""))
+                            data = parsed.get("data", {})
+                            dna = parsed.get("dna", "")
+                            print(f"  🎯 {msg}")
+                            if isinstance(data, dict):
+                                for k, v in data.items():
+                                    if isinstance(v, dict):
+                                        for k2, v2 in v.items():
+                                            print(f"    {k2}: {v2}")
+                                    else:
+                                        print(f"    {k}: {v}")
+                            if dna:
+                                print(f"  🧬 {dna}")
+                            print()
+                            _print_time_stamp()
+                            return
+                    except (json.JSONDecodeError, KeyError):
+                        pass
+                    # 非 JSON 输出 → 直接显示
+                    print(result.stdout.strip())
+                    _print_time_stamp()
+                    return
+            # 兜底：AI 对话（Notion桥 → Ollama）
+            from datetime import datetime, timezone
+            print(f"  🤖 启用AI深度理解...\n")
+            # 复用 --ask 管线（本地优先·不上传境外）
+            bridge_path = ROOT / "bin" / "lh_notion_chat_bridge.py"
+            answer_text = ""
+            meta = {}
+            try:
+                result = subprocess.run(
+                    [sys.executable, str(bridge_path), "chat", nl_text, "--mode", "council", "--style", "plain"],
+                    cwd=str(ROOT), capture_output=True, text=True, timeout=120,
+                )
+                if result.returncode == 0:
+                    lines = result.stdout.splitlines()
+                    answer_lines = []
+                    for line in lines:
+                        if line.startswith("🤖 回答模型:"):
+                            meta["model"] = line.replace("🤖 回答模型:", "").strip()
+                        elif line.startswith("🔁 模型降级链:"):
+                            break
+                        else:
+                            answer_lines.append(line)
+                    answer_text = "\n".join(line for line in answer_lines if line.strip()).strip()
+            except Exception as e:
+                pass
+            if not answer_text:
+                try:
+                    import urllib.request
+                    req = urllib.request.Request(
+                        "http://localhost:11434/api/generate",
+                        data=json.dumps({"model": "qwen2.5:7b", "prompt": nl_text, "stream": False}).encode(),
+                        headers={"Content-Type": "application/json"},
+                        method="POST",
+                    )
+                    with urllib.request.urlopen(req, timeout=30) as resp:
+                        answer_text = json.loads(resp.read().decode()).get("response", "服务繁忙")
+                    meta["model"] = "ollama/qwen2.5:7b"
+                except Exception:
+                    answer_text = "本地AI未就绪。试试: lh search 关键词 / lh status / lh --help"
+                    meta["model"] = "none"
+            print(f"  🤖 模型: {meta.get('model', 'local')}")
+            print(f"\n  💡 {answer_text}\n")
+            print("=" * 58)
+            print(f"  ✅ 对话数据留本地·不上传境外平台")
+            print(f"  🧬 DNA: #龍芯⚡️{datetime.now().strftime('%Y%m%d%H%M%S')}-NL-UID9622")
+            print("=" * 58)
+            _print_time_stamp()
+            return
+
+        # 都不是自然语言 → 拼写纠错
+        from difflib import get_close_matches
+        suggestions = get_close_matches(subcmd, SUB_DISPATCH.keys(), n=3, cutoff=0.6)
+        print(f"\n  ❌ 未知命令: {subcmd}")
+        if suggestions:
+            print(f"  💡 你是否想打: {', '.join(suggestions)}")
+        print(f"  📖 lh --help 查看所有命令\n")
         return
 
     # 主循环
