@@ -224,6 +224,27 @@ papers/*/md2docx_out/
 *.mp3
 *.wav
 
+# --- 第三方下载归档（不入git）---
+02_SKILLS/downloads_archive/
+editors/downloads_archive/
+
+# --- 运行时日志/守护进程日志（不入git）---
+agents/daemon_logs/
+
+# --- 审计运行时日志（不入git）---
+07_AUDIT/*.jsonl
+07_AUDIT/*.jsonl.asc
+
+# --- 临时备份/墓碑 Vault（不入git）---
+tombstone_vault/
+
+# --- 历史归档目录（不入git）---
+archive/历史记录/
+archive/csdn_sync/
+archive/experiments/
+archive/kimi_sessions_*/
+archive/training/
+
 # 🔒 安全加固自动添加
 id_rsa*
 id_ed25519*
