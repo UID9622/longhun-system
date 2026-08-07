@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=68.0", "wheel"]
-build-backend = "setuptools.backends._legacy:_Backend"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "longhun-system"
@@ -78,11 +78,19 @@ all = [
 # ═══════════════════════════════════════════════
 
 [project.scripts]
-lh = "bin.lh_ctl:main"
-longhun = "bin.lh_ctl:main"
+lh = "bin.lh:main"
+longhun = "bin.lh:main"
 
 [project.gui-scripts]
 longhun-dashboard = "bin.longhun_cli:dashboard"
+
+# ═══════════════════════════════════════════════
+# 包发现
+# ═══════════════════════════════════════════════
+
+[tool.setuptools.packages.find]
+include = ["bin*", "cnsh*", "engines*", "longhun*"]
+exclude = ["tests*", "*__pycache__*", "._*", "*.egg-info"]
 
 # ═══════════════════════════════════════════════
 # 工具配置
