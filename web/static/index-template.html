@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="龍魂系统 · 主权锚定 · 三色审计 · DNA追溯">
+    <title>🐉 龍魂系统</title>
+
+    <!-- 龙魂基础样式 -->
+    <link rel="stylesheet" href="/static/css/longhun-base.css">
+    <!-- Layui 组件库 -->
+    <link rel="stylesheet" href="/static/layui/dist/css/layui.css">
+    <!-- Remix Icon -->
+    <link rel="stylesheet" href="/static/icons/remixicon/fonts/remixicon.css">
+
+    <!-- 本地字体声明 -->
+    <style>
+        @font-face {
+            font-family: 'MiSans';
+            src: url('/static/fonts/MiSans-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+</head>
+<body>
+
+<div class="lh-container lh-mt-4">
+    <!-- 头部 -->
+    <div class="lh-flex-between lh-mb-3">
+        <div>
+            <h1 class="lh-gold lh-title-lg">🐉 龍魂系统</h1>
+            <p class="lh-subtitle lh-mt-1">主权锚定 · 三色审计 · DNA追溯 · 守护数字疆土</p>
+        </div>
+        <span class="lh-badge lh-badge-gold">v4.0 运行中</span>
+    </div>
+
+    <hr class="lh-divider">
+
+    <!-- 三色状态卡片 -->
+    <div class="lh-grid-3 lh-mb-3">
+        <div class="lh-card lh-card-green">
+            <div class="lh-flex-between lh-mb-1">
+                <strong class="lh-text-green">🟢 系统健康</strong>
+                <span class="lh-badge lh-badge-green">GREEN</span>
+            </div>
+            <p class="lh-text-dim" style="font-size:0.9rem;">核心引擎运行正常 · R=95</p>
+        </div>
+        <div class="lh-card lh-card-yellow">
+            <div class="lh-flex-between lh-mb-1">
+                <strong class="lh-text-yellow">🟡 待复核</strong>
+                <span class="lh-badge lh-badge-yellow">YELLOW</span>
+            </div>
+            <p class="lh-text-dim" style="font-size:0.9rem;">队列中有 2 项待人工确认</p>
+        </div>
+        <div class="lh-card lh-card-red">
+            <div class="lh-flex-between lh-mb-1">
+                <strong class="lh-text-red">🔴 预警</strong>
+                <span class="lh-badge lh-badge-red">RED</span>
+            </div>
+            <p class="lh-text-dim" style="font-size:0.9rem;">熔断器就绪 · 无触发</p>
+        </div>
+    </div>
+
+    <!-- 快捷操作 -->
+    <div class="lh-card lh-mb-3">
+        <h3 class="lh-gold lh-title lh-mb-2">⚡ 快捷操作</h3>
+        <div class="lh-flex lh-flex-wrap lh-gap-2">
+            <button class="lh-btn lh-btn-primary"><i class="ri-shield-check-line"></i> 跑三色审计</button>
+            <button class="lh-btn lh-btn-secondary"><i class="ri-cloud-upload-line"></i> 同步到鲲鹏</button>
+            <button class="lh-btn lh-btn-secondary"><i class="ri-fingerprint-line"></i> GPG 签名</button>
+            <button class="lh-btn lh-btn-secondary"><i class="ri-heart-pulse-line"></i> 健康检查</button>
+        </div>
+    </div>
+
+    <!-- 引擎状态表 -->
+    <div class="lh-card lh-mb-3">
+        <h3 class="lh-gold lh-title lh-mb-2">📊 核心引擎状态</h3>
+        <table class="lh-table">
+            <thead>
+                <tr>
+                    <th>引擎</th>
+                    <th>状态</th>
+                    <th>R 值</th>
+                    <th>上次心跳</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>🐉 LU-Time Engine v4.0</td>
+                    <td><span class="lh-badge lh-badge-green">🟢</span></td>
+                    <td>95</td>
+                    <td class="lh-text-dim">刚刚</td>
+                </tr>
+                <tr>
+                    <td>🌐 三色审计引擎</td>
+                    <td><span class="lh-badge lh-badge-green">🟢</span></td>
+                    <td>92</td>
+                    <td class="lh-text-dim">1 分钟前</td>
+                </tr>
+                <tr>
+                    <td>🔒 GPG 签章引擎</td>
+                    <td><span class="lh-badge lh-badge-green">🟢</span></td>
+                    <td>90</td>
+                    <td class="lh-text-dim">3 分钟前</td>
+                </tr>
+                <tr>
+                    <td>🛡️ 主权适配引擎</td>
+                    <td><span class="lh-badge lh-badge-yellow">🟡</span></td>
+                    <td>78</td>
+                    <td class="lh-text-dim">5 分钟前</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="lh-text-muted lh-mb-3" style="text-align:center; font-size:0.85rem;">
+        <span class="lh-code">#龍芯⚡️丙午·癸未·乙酉·坤卦-LONGHUN-SYSTEM</span>
+        &nbsp;·&nbsp;
+        UID9622 © 2026 &nbsp;·&nbsp;
+        MulanPSL v2 / CC BY-NC-SA 4.0
+    </footer>
+</div>
+
+<script src="/static/layui/dist/layui.js"></script>
+</body>
+</html>
