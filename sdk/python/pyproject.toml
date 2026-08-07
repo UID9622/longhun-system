@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "longhun-tricolor"
+version = "1.1.0"
+authors = [
+    {name = "诸葛鑫 (UID9622)", email = "uid9622@dragon-soul.io"},
+]
+description = "🐉 龙魂·三色审计 Python SDK — 中国AI合规参考标准"
+readme = "README.md"
+license = {text = "MulanPSL-2.0"}
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    "Operating System :: OS Independent",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "httpx>=0.24.0",
+]
+
+[project.urls]
+Documentation = "https://github.com/UID9622/longhun-tricolor-standard"
+Source = "https://github.com/UID9622/longhun-tricolor-standard"
+Tracker = "https://github.com/UID9622/longhun-tricolor-standard/issues"
+
+[tool.setuptools.packages.find]
+include = ["longhun_tricolor*"]
