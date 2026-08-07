@@ -26,6 +26,66 @@
 
 ---
 
+## 🗂️ 仓库速览 · Repository at a Glance
+
+> 一键看清这个仓库的「现在进行时」。所有状态均可在本地复现验证。
+
+| 维度 | 状态 | 验证入口 |
+|:---|:---|:---|
+| 🏷️ **最新版本** | v5.1.0 · 品牌与国际化完善 | [`CHANGELOG.md`](./CHANGELOG.md) |
+| 🧬 **默认分支** | `orphan_main` | GitHub 仓库首页 |
+| ✅ **CI 状态** | GitHub Actions 持续集成 | [`.github/workflows/`](./.github/workflows/) |
+| 🔐 **GPG 签名** | 全量文件 `.asc` 脱签验证 | 本仓库任意 `.md.asc` / `.py.asc` |
+| 🎨 **品牌资产** | 印章风格 Logo / App 图标 / OG 预览 | [`brand/`](./brand/) |
+| 🌐 **在线门户** | `10_PORTAL/index.html` 静态站点 | [`portal/`](./portal/) |
+| 📊 **学术引用** | CITATION.cff 已配置 | [`CITATION.cff`](./CITATION.cff) |
+| 💰 **支持入口** | FUNDING.yml + 此路同行二维码 | [`.github/FUNDING.yml`](./.github/FUNDING.yml) |
+
+---
+
+## 🔐 可验证性 · Verifiability
+
+> 龍魂系统的每一份核心文件都带有 **GPG 脱签签名**（`.asc`），确保内容从提交起未被篡改。
+
+```bash
+# 验证任意文件签名（以 README.md 为例）
+gpg --verify README.md.asc README.md
+
+# 批量验证当前目录下所有签名
+find . -type f -name '*.asc' -not -path './.git/*' | sed 's/\.asc$//' | xargs -I{} gpg --verify {}.asc {}
+```
+
+- **签名密钥指纹**: `...SozCbV8`（UID9622）
+- **签名策略**: 协议/代码/配置/文档四类文件强制签名，审计日志与临时数据除外
+- **验证失败处理**: 参见 [`SECURITY.md`](./SECURITY.md) 的「完整性事件响应」
+
+---
+
+## 📊 项目规模 · Project Scale
+
+> 数据截止 2026-08-07，可通过下方命令本地复测。
+
+| 指标 | 数量 | 说明 |
+|:---|---:|:---|
+| 📁 核心目录 | 20+ | `01_protocols/` ~ `25_TASK_ENGINE/` 编号结构 |
+| 📝 协议文档 | 185+ | `01_protocols/` 下 `.md` 治理与技术协议 |
+| ⚙️ 引擎模块 | 48 | `05_ENGINES/` 下独立引擎/子系统 |
+| 🖥️ 门户页面 | 47 | `10_PORTAL/` 静态 HTML 页面 |
+| 🧪 测试脚本 | 33 | `13_TESTS/` 单元/集成/回归测试 |
+| 🔏 GPG 签名 | 4,000+ | 核心文件 `.asc` 脱签覆盖 |
+| 🐍 Python 文件 | 1,700+ | 核心实现（不含下载归档） |
+| 📄 Markdown 文件 | 1,500+ | 文档、论文、协议、教程 |
+
+```bash
+# 复测命令
+find 01_protocols -maxdepth 1 -type f -name '*.md' | wc -l   # 协议数
+find 05_ENGINES -maxdepth 2 -type d | wc -l                   # 引擎数
+find 10_PORTAL -maxdepth 2 -type f -name '*.html' | wc -l     # 门户页数
+find 13_TESTS -type f -name '*.py' | wc -l                    # 测试数
+```
+
+---
+
 ## 📄 Featured Paper · 行为密码学统一理论
 
 > **[Unified Theory of Behavioral Cryptography v3.0](articles/behavioral-cryptography-unified-theory-v3.0.md)**
