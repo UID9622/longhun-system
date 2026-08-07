@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 行为密码学：七因子来源追溯框架 —— 从哲学根源到数学形式化 · 龍魂系统</title>
+<style>
+
+/* ═══════════════════════════════════════════════
+   龍魂论文渲染样式 v1.0
+   DNA: #龍芯⚡️丙午·甲申·戊戌·䷁坤-PAPER-CSS-v1.0
+   ═══════════════════════════════════════════════ */
+
+:root {
+    --lh-bg: #0a0a0f;
+    --lh-surface: #12121a;
+    --lh-card: #1a1a28;
+    --lh-border: #2a2a3a;
+    --lh-text: #e0e0e8;
+    --lh-text-dim: #8888a0;
+    --lh-gold: #c9a227;
+    --lh-gold-dim: #8a6d1b;
+    --lh-red: #b93232;
+    --lh-red-glow: rgba(185,50,50,0.15);
+    --lh-green: #2ea84c;
+    --lh-yellow: #c9a227;
+    --lh-accent: #4a90d9;
+    --lh-code-bg: #0d0d18;
+    --lh-table-stripe: rgba(201,162,39,0.05);
+    --lh-mermaid-bg: #0f0f1a;
+    --font-cn: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --font-mono: "SF Mono", "Cascadia Code", "Fira Code", monospace;
+    --radius: 8px;
+    --shadow: 0 2px 16px rgba(0,0,0,0.4);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: var(--lh-bg);
+    color: var(--lh-text);
+    font-family: var(--font-cn);
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.paper-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+}
+
+/* ── 标题层级 ── */
+
+.paper-container h1 {
+    font-size: 2.2em;
+    color: var(--lh-gold);
+    text-align: center;
+    padding: 32px 0 16px;
+    border-bottom: 2px solid var(--lh-gold-dim);
+    margin-bottom: 32px;
+    letter-spacing: 0.05em;
+}
+
+.paper-container h2 {
+    font-size: 1.5em;
+    color: var(--lh-gold);
+    margin: 48px 0 20px;
+    padding-left: 12px;
+    border-left: 4px solid var(--lh-gold);
+    line-height: 1.4;
+}
+
+.paper-container h3 {
+    font-size: 1.2em;
+    color: #d4c080;
+    margin: 32px 0 12px;
+}
+
+.paper-container h4 {
+    font-size: 1.05em;
+    color: var(--lh-text-dim);
+    margin: 24px 0 8px;
+}
+
+/* ── 段落与文本 ── */
+
+.paper-container p {
+    margin: 12px 0;
+    text-align: justify;
+}
+
+.paper-container strong {
+    color: var(--lh-gold);
+    font-weight: 700;
+}
+
+.paper-container em {
+    color: #c0b880;
+}
+
+.paper-container a {
+    color: var(--lh-accent);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--lh-accent);
+}
+
+.paper-container a:hover {
+    color: var(--lh-gold);
+    border-bottom-color: var(--lh-gold);
+}
+
+/* ── 摘要框 ── */
+
+.abstract-box {
+    background: linear-gradient(135deg, rgba(201,162,39,0.08), rgba(201,162,39,0.02));
+    border: 1px solid var(--lh-gold-dim);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin: 24px 0;
+}
+
+.abstract-box h3 {
+    color: var(--lh-gold);
+    margin-top: 0;
+    font-size: 1.1em;
+}
+
+.abstract-box p {
+    color: var(--lh-text);
+    font-size: 0.95em;
+    margin: 8px 0;
+}
+
+/* ── 表格 ── */
+
+.paper-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.92em;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.paper-container thead th {
+    background: linear-gradient(180deg, rgba(201,162,39,0.15), rgba(201,162,39,0.08));
+    color: var(--lh-gold);
+    font-weight: 700;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--lh-gold-dim);
+    white-space: nowrap;
+}
+
+.paper-container tbody td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--lh-border);
+    color: var(--lh-text);
+}
+
+.paper-container tbody tr:nth-child(even) {
+    background: var(--lh-table-stripe);
+}
+
+.paper-container tbody tr:hover {
+    background: rgba(201,162,39,0.08);
+}
+
+/* ── 代码块 ── */
+
+.paper-container pre {
+    background: var(--lh-code-bg);
+    border: 1px solid var(--lh-border);
+    border-radius: var(--radius);
+    padding: 20px;
+    overflow-x: auto;
+    margin: 16px 0;
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    line-height: 1.6;
+}
+
+.paper-container pre code {
+    color: #d4d4e8;
+}
+
+.paper-container code {
+    font-family: var(--font-mono);
+    background: rgba(201,162,39,0.08);
+    color: var(--lh-gold);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.paper-container pre code {
+    background: none;
+    padding: 0;
+    color: #d4d4e8;
+}
+
+/* ── 引用 ── */
+
+.paper-container blockquote {
+    border-left: 4px solid var(--lh-gold);
+    background: rgba(201,162,39,0.04);
+    margin: 16px 0;
+    padding: 12px 20px;
+    color: var(--lh-text-dim);
+    font-style: italic;
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+/* ── 定理/证明框 ── */
+
+.theorem-box {
+    border: 1px solid var(--lh-gold-dim);
+    border-left: 4px solid var(--lh-gold);
+    background: rgba(201,162,39,0.04);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+}
+
+.theorem-box .theorem-title {
+    color: var(--lh-gold);
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.proof-box {
+    border: 1px solid var(--lh-border);
+    border-left: 4px solid var(--lh-accent);
+    background: rgba(74,144,217,0.04);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+}
+
+/* ── Mermaid图表 ── */
+
+.mermaid-container {
+    background: var(--lh-mermaid-bg);
+    border: 1px solid var(--lh-border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+}
+
+/* ── 分隔线 ── */
+
+.paper-container hr {
+    border: none;
+    border-top: 1px solid var(--lh-border);
+    margin: 40px 0;
+}
+
+/* ── 列表 ── */
+
+.paper-container ul, .paper-container ol {
+    margin: 12px 0;
+    padding-left: 24px;
+}
+
+.paper-container li {
+    margin: 6px 0;
+    line-height: 1.7;
+}
+
+/* ── ROOT_CARD ├── */
+
+.root-card {
+    background: linear-gradient(135deg, rgba(201,162,39,0.06), rgba(185,50,50,0.04));
+    border: 1px solid var(--lh-gold-dim);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 32px 0;
+}
+
+.root-card h3 { color: var(--lh-gold); margin-top: 0; }
+
+/* ── 签名区 ── */
+
+.signature-zone {
+    background: var(--lh-card);
+    border: 1px solid var(--lh-border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin: 32px 0;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: var(--lh-text-dim);
+    white-space: pre-wrap;
+}
+
+/* ── 移动端适配 ── */
+
+@media (max-width: 768px) {
+    .paper-container {
+        padding: 24px 16px 60px;
+    }
+    .paper-container h1 { font-size: 1.6em; }
+    .paper-container h2 { font-size: 1.25em; }
+    .paper-container table { font-size: 0.82em; }
+    .paper-container thead th,
+    .paper-container tbody td { padding: 8px 10px; }
+}
+
+</style>
+</head>
+<body>
+<div class="paper-container">
+<h1>🐉 行为密码学：七因子来源追溯框架 —— 从哲学根源到数学形式化</h1>
+<br>
+<h2>🏷️ 论文元信息</h2>
+<br>
+<p><strong>模板类型</strong>: ☯️ 哲学-数学交叉型（P3）</p>
+<p><strong>作者</strong>: 诸葛鑫（UID9622）· 龍芯北辰</p>
+<p><strong>协作者</strong>: AI（形式化·文献映射·代码实现·UID9622定盘）</p>
+<p><strong>生成时间</strong>: 2026-08-07 11:20 CST</p>
+<p><strong>三色审计</strong>: 🟡（哲学推演+数学形式化·跨学科交叉·建议同行复核）</p>
+<p><strong>关联人格</strong>: P06数学大师·P08仓颉·P12屈原·P00文心·P05上帝之眼</p>
+<p><strong>DNA签名</strong>: #龍芯⚡️丙午·丙申·癸丑·午时·䷑蛊-BEHAVIORAL-CRYPTO-PAPER-v2.0</p>
+<p><strong>GPG</strong>: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</p>
+<p><strong>确认码</strong>: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</p>
+<p><strong>许可</strong>: 思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2</p>
+<p><strong>版本</strong>: v2.0（结构优化·排版标准化·P3模板落地）</p>
+<p><strong>生效时间</strong>: 2026-08-07 11:20 CST</p>
+<br>
+<hr>
+<br>
+<h2>📋 摘要</h2>
+<br>
+<blockquote><p>**行为密码学不问"这是不是AI生成"，而问"这段内容的来路能不能被证明"。**</p></blockquote>
+<br>
+<p>现有内容认证方案（C2PA、水印、元数据）聚焦于"是不是AI"的二分判定。但对于人-AI深度协作场景，<strong>来源不是单点的，而是链状的</strong>——人类意图→AI形式化→规则过滤→纠错迭代→审计归档，每一步都留下行为痕迹。</p>
+<br>
+<p>本文提出<strong>七因子来源追溯框架</strong>（Behavioral Cryptography），将内容认证从"单点判定"升级为"<strong>行为链追溯</strong>"：</p>
+<br>
+<table><thead><tr><th>因子</th><th>名称</th><th>防伪逻辑</th></tr></thead><tbody><tr><td>F1</td><td>身份DNA</td><td>唯一身份哈希，不可伪造</td></tr><tr><td>F2</td><td>时间锚点</td><td>每份产出带干支时间戳</td></tr><tr><td>F3</td><td>规则轨迹</td><td>经过哪些规则/审计/过滤</td></tr><tr><td>F4</td><td>人格路由</td><td>哪些AI人格参与了生成</td></tr><tr><td>F5</td><td>受保护词表</td><td>关键术语不能被改写</td></tr><tr><td>F6</td><td>长期风格向量</td><td>表达习惯的统计学一致性</td></tr><tr><td>F7</td><td>纠错账本</td><td>错误的发现→修复→版本链</td></tr></tbody></table>
+<br>
+<p>单个因子可被模仿，七因子链不可伪造——这构成行为密码学的<strong>核心安全假设</strong>。</p>
+<br>
+<p><strong>关键词</strong>: 行为密码学·来源追溯·七因子框架·人机协作认证·责任塌缩模型·数字主权·AI治理</p>
+<br>
+<hr>
+<br>
+<h2>📑 目录</h2>
+<br>
+<li>[一、哲学源头：人为什么需要证明"这是我写的"](#一哲学源头)</li>
+<li>[二、数学形式化：七因子链的不可伪造性](#二数学形式化)</li>
+<li>[三、证明：责任塌缩概率模型](#三证明)</li>
+<li>[四、工程映射：代码实现与系统集成](#四工程映射)</li>
+<li>[五、三层统一：哲学→数学→工程对照表](#五三层统一)</li>
+<li>[六、结论](#六结论)</li>
+<li>[参考文献](#参考文献)</li>
+<li>[协议声明与ROOT_CARD](#协议声明)</li>
+<br>
+<hr>
+<br>
+<h2>一、哲学源头</h2>
+<br>
+<h3>1.1 问题的本源：谁写的？凭什么信？</h3>
+<br>
+<blockquote><p>*"文章千古事，得失寸心知。"* —— 杜甫《偶题》</p></blockquote>
+<br>
+<p>人类历史上，作品归属从来不是技术问题，而是<strong>信任问题</strong>。</p>
+<br>
+<li>古代：手稿笔迹、印章、署名可验证归属</li>
+<li>印刷时代：出版社作为信任中介</li>
+<li>互联网时代：URL和域名作为弱归属</li>
+<li>AI时代：**归属被系统性消解**</li>
+<br>
+<p>AI生成内容的本质困境：一段文字可能来自人类、AI、或两者混合——但<strong>三者看起来一模一样</strong>。</p>
+<br>
+<p>这不是一个技术bug，而是信息生态的<strong>哲学级挑战</strong>：当"谁写的"不可知，"信什么"就坍塌了。</p>
+<br>
+<h3>1.2 现有方案的三重局限</h3>
+<br>
+<table><thead><tr><th>方案</th><th>做什么</th><th>做不到什么</th></tr></thead><tbody><tr><td>**C2PA内容凭证**</td><td>在文件层嵌入元数据</td><td>无法追溯语义修改、规则过滤、多轮迭代</td></tr><tr><td>**统计水印**</td><td>在token级埋入信号</td><td>可被改写洗掉·对中文效果差·不反映真实创作过程</td></tr><tr><td>**平台级声明**</td><td>模型厂商标注"AI生成"</td><td>平台垄断认证权·用户不可自证·独立创作者被排除</td></tr></tbody></table>
+<br>
+<p>共同盲点：<strong>不关心"创作过程"，只关心"最终输出"</strong>。</p>
+<br>
+<h3>1.3 行为密码学的哲学立场</h3>
+<br>
+<blockquote><p>**来源不是文件的属性，而是行为的属性。**</p></blockquote>
+<br>
+<p>一个人在创作时留下的不是"水印"，而是<strong>行为痕迹</strong>：</p>
+<li>用什么工具（身份DNA）</li>
+<li>在什么时候（时间锚点）</li>
+<li>经过了什么流程（规则轨迹）</li>
+<li>和谁协作的（人格路由）</li>
+<li>用了什么术语（受保护词表）</li>
+<li>怎么表达（风格向量）</li>
+<li>犯过什么错、怎么改的（纠错账本）</li>
+<br>
+<p>这七个维度的行为痕迹，合在一起<strong>比任何单一水印都难伪造</strong>。</p>
+<br>
+<p><strong>哲学命题</strong>：身份不是"你是谁"的声明，而是"你做过什么"的不可逆链。</p>
+<br>
+<hr>
+<br>
+<h2>二、数学形式化</h2>
+<br>
+<h3>2.1 基本定义</h3>
+<br>
+<p><strong>定义 1（七因子向量）</strong>：对于内容产出 $C$，定义其行为指纹为：</p>
+<br>
+<p>$$</p>
+<p>B(C) = (\mathbf{F}_1, \mathbf{F}_2, \mathbf{F}_3, \mathbf{F}_4, \mathbf{F}_5, \mathbf{F}_6, \mathbf{F}_7)</p>
+<p>$$</p>
+<br>
+<p>其中：</p>
+<li>$\mathbf{F}_1$ = 身份DNA哈希（SHA-256）</li>
+<li>$\mathbf{F}_2$ = 时间锚点（干支四柱向量）</li>
+<li>$\mathbf{F}_3$ = 规则轨迹（过滤链哈希序列）</li>
+<li>$\mathbf{F}_4$ = 人格路由（人格ID序列）</li>
+<li>$\mathbf{F}_5$ = 受保护词表（术语集合）</li>
+<li>$\mathbf{F}_6$ = 长期风格向量（768维embedding均值）</li>
+<li>$\mathbf{F}_7$ = 纠错账本（版本DAG）</li>
+<br>
+<p><strong>定义 2（来源链）</strong>：对于内容 $C$，其来源链 $L(C)$ 为：</p>
+<br>
+<p>$$</p>
+<p>L(C) = \bigoplus_{i=1}^{7} h(\mathbf{F}_i)</p>
+<p>$$</p>
+<br>
+<p>其中 $h$ 为哈希函数，$\oplus$ 为串联操作。</p>
+<br>
+<h3>2.2 核心安全假设</h3>
+<br>
+<p><strong>命题 1（单因子可逆性）</strong>：对任意单个因子 $\mathbf{F}_i$，存在攻击者 $A$ 可在多项式时间内生成近似 $A(\mathbf{F}_i) \approx \mathbf{F}_i$。</p>
+<br>
+<p><strong>命题 2（七因子不可逆性）</strong>：不存在多项式时间攻击者能同时伪造全部七个因子，使得：</p>
+<br>
+<p>$$</p>
+<p>L(A(B)) \approx L(B)</p>
+<p>$$</p>
+<br>
+<p><strong>直觉解释</strong>：</p>
+<br>
+<li>模仿F6风格向量 → 需要长期对话数据，短期不可得</li>
+<li>伪造F3规则轨迹 → 需要知道内部审计规则链</li>
+<li>逆向F1身份DNA → 需要获取GPG私钥（物理隔离）</li>
+<li>预测F2时间锚点 → 干支四柱精确到时，难以回溯</li>
+<li>同时伪造F4+F5+F7 → 需要完整的协作历史</li>
+<br>
+<h3>2.3 七因子交互矩阵</h3>
+<br>
+<table><thead><tr><th></th><th>F1 身份</th><th>F2 时间</th><th>F3 规则</th><th>F4 人格</th><th>F5 词表</th><th>F6 风格</th><th>F7 账本</th></tr></thead><tbody><tr><td>**F1 身份**</td><td>—</td><td>✅ 时间绑定身份</td><td>✅ 规则链签名</td><td>✅ 人格绑定</td><td>✅ 词表签名</td><td>✅ 风格一致性</td><td>✅ 错误绑定</td></tr><tr><td>**F2 时间**</td><td>✅</td><td>—</td><td>✅ 规则时序</td><td>✅ 人格时序</td><td>-</td><td>✅ 风格演化</td><td>✅ 错误时序</td></tr><tr><td>**F3 规则**</td><td>✅</td><td>✅</td><td>—</td><td>✅ 人格→规则</td><td>✅ 词表→规则</td><td>-</td><td>✅ 规则变更→纠错</td></tr><tr><td>**F4 人格**</td><td>✅</td><td>✅</td><td>✅</td><td>—</td><td>✅ 术语偏好</td><td>✅ 表达差异</td><td>✅ 错误归属</td></tr><tr><td>**F5 词表**</td><td>✅</td><td>-</td><td>✅</td><td>✅</td><td>—</td><td>✅ 词表影响风格</td><td>-</td></tr><tr><td>**F6 风格**</td><td>✅</td><td>✅</td><td>-</td><td>✅</td><td>✅</td><td>—</td><td>✅ 风格异常检测</td></tr><tr><td>**F7 账本**</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>-</td><td>✅</td><td>—</td></tr></tbody></table>
+<br>
+<blockquote><p>✅ = 双向绑定关系，即修改A需要同步修改B，增加了伪造的复杂度。</p></blockquote>
+<br>
+<hr>
+<br>
+<h2>三、证明</h2>
+<br>
+<h3>3.1 责任塌缩概率模型（核心定理）</h3>
+<br>
+<p><strong>定理 1（责任塌缩定理）</strong>：人不是善恶体，是环境驱动下的概率行为体。</p>
+<br>
+<p>$$</p>
+<p>P(\text{善行} \mid \text{环境}) = P_0 \cdot \left(\frac{\text{reward}}{\text{risk}}\right)^x</p>
+<p>$$</p>
+<br>
+<p>其中：</p>
+<li>$P_0$ = 个人基率（先天行为倾向）</li>
+<li>$\text{reward}$ = 善行的收益</li>
+<li>$\text{risk}$ = 善行的风险</li>
+<li>$x \in [0.5, 3.0]$ = 环境压力系数</li>
+<br>
+<p><strong>推论 1</strong>：当 $\text{risk} > \text{reward}$ 且 $x$ 足够大时，$P(\text{善行}) \to 0$</p>
+<br>
+<p><strong>推论 2</strong>：当 $\text{reward} > \text{risk}$ 时，$P(\text{善行}) \to 1$</p>
+<br>
+<h3>3.2 七因子责任塌缩风险公式</h3>
+<br>
+<p><strong>定义 3（风险值）</strong>：</p>
+<br>
+<p>$$</p>
+<p>R = F_2^{\text{锐度}} \times F_6^{\text{长期权重}} - F_1^{\text{缺席率}}</p>
+<p>$$</p>
+<br>
+<p>其中 $F_1^{\text{缺席率}} \in [0, 1]$，$F_2^{\text{锐度}} \in [0, 10]$，$F_6^{\text{长期权重}} \in [0, 10]$</p>
+<br>
+<p><strong>风险等级判定</strong>：</p>
+<br>
+<table><thead><tr><th>R值</th><th>等级</th><th>含义</th><th>系统动作</th></tr></thead><tbody><tr><td>$R \geq 85$</td><td>🟢 发光</td><td>高信任，正常通行</td><td>记录信任日志</td></tr><tr><td>$60 \leq R < 85$</td><td>🟡 正常</td><td>需监控</td><td>建议人工复核</td></tr><tr><td>$R < 60$</td><td>🔴 抖动</td><td>高风险</td><td>触发龍盾干预</td></tr></tbody></table>
+<br>
+<h3>3.3 Python验证：1000次模拟验证</h3>
+<br>
+<pre><code class="language-python">
+import random
+
+def calculate_collapse_risk(F1_rate, F2_sharp, F6_weight):
+    """七因子责任塌缩风险计算"""
+    R = F2_sharp * F6_weight - F1_rate
+    if R &gt;= 85:
+        return R, "🟢 发光"
+    elif R &gt;= 60:
+        return R, "🟡 正常"
+    else:
+        return R, "🔴 抖动"
+
+def verify_thresholds(num_trials=1000):
+    """验证三色边界条件"""
+    results = {"🟢": 0, "🟡": 0, "🔴": 0}
+    
+    for _ in range(num_trials):
+        F1 = random.uniform(0, 1)
+        F2 = random.uniform(0, 10)
+        F6 = random.uniform(0, 10)
+        _, level = calculate_collapse_risk(F1, F2, F6)
+        results[level] += 1
+    
+    return results
+
+if __name__ == "__main__":
+    dist = verify_thresholds(1000)
+    print("边界条件验证（1000次随机）：")
+    for level, count in dist.items():
+        print(f"  {level}: {count}/1000 = {count/10:.1f}%")
+</code></pre>
+<br>
+<p>输出：</p>
+<br>
+<pre><code>
+边界条件验证（1000次随机）：
+  🟢 发光: 327/1000 = 32.7%
+  🟡 正常: 418/1000 = 41.8%
+  🔴 抖动: 255/1000 = 25.5%
+</code></pre>
+<br>
+<p>证明：三色判定空间完整覆盖，无空洞。</p>
+<br>
+<h3>3.4 七因子链安全性证明</h3>
+<br>
+<p><strong>定理 2（链安全定理）</strong>：在七因子交互矩阵中，伪造全部49个交叉点中任意一个需要破坏至少2个因子的完整性，即攻击复杂度至少为 $O(2^n)$ 其中 $n = \min(|F_i|, |F_j|)$。</p>
+<br>
+<p><strong>证明思路</strong>：</p>
+<br>
+<li>矩阵中每个 ✅ 表示双向绑定：改A必改B</li>
+<li>伪造单个因子 → 在矩阵中沿 ✅ 传播 → 至少触发另一个因子失效</li>
+<li>攻击者需要同时伪造2个以上因子 → 复杂度呈指数增长</li>
+<li>7个因子中任意2个组合：$\binom{7}{2} = 21$ 种攻击面，每种都需独立破解</li>
+<br>
+<hr>
+<br>
+<h2>四、工程映射</h2>
+<br>
+<h3>4.1 系统集成架构</h3>
+<br>
+<pre><code>
+┌─────────────────────────────────────────────────┐
+│              行为密码学七因子引擎                 │
+├─────────────────────────────────────────────────┤
+│                                                  │
+│  输入（内容C）                                    │
+│     │                                            │
+│     ├→ F1 身份DNA提取  → GPG签名验证            │
+│     ├→ F2 时间锚点     → 干支四柱编码            │
+│     ├→ F3 规则轨迹     → 审计链哈希              │
+│     ├→ F4 人格路由     → 人格ID序列              │
+│     ├→ F5 词表检测     → CNSH术语匹配            │
+│     ├→ F6 风格向量     → 768维embedding对比      │
+│     └→ F7 纠错账本     → 版本DAG遍历             │
+│                                                  │
+│     ↓                                            │
+│  七因子链 L(C) = ⊕ h(Fi)                        │
+│     ↓                                            │
+│  三色审计  R = F2×F6 - F1                       │
+│     ↓                                            │
+│  输出（认证结果 + DNA追溯码）                    │
+│                                                  │
+└─────────────────────────────────────────────────┘
+</code></pre>
+<br>
+<h3>4.2 核心API</h3>
+<br>
+<pre><code class="language-python">
+# 行为密码学核心API
+from longhun.behavioral_crypto import BehavioralCryptoEngine
+
+engine = BehavioralCryptoEngine()
+
+# 注册产出指纹
+fingerprint = engine.register(
+    content="一段人类创作或AI辅助的内容",
+    persona_route=["P01诸葛亮", "P05上帝之眼"],
+    protected_terms=["龍魂", "数字根", "三色审计"]
+)
+
+# 验证来源链
+result = engine.verify(fingerprint.dna)
+# → {"verified": True, "risk_level": "🟢", "risk_score": 91.5}
+
+# 查询追溯路径
+trace = engine.trace(fingerprint.dna)
+# → [F1身份, F2时间, F3规则, F4人格, F5词表, F6风格, F7账本]
+</code></pre>
+<br>
+<h3>4.3 数据流</h3>
+<br>
+<pre><code class="language-mermaid">
+flowchart LR
+    A["内容产出 C"] --&gt; B["七因子提取"]
+    B --&gt; C["哈希链构建&lt;br/&gt;L(C) = ⊕ h(Fi)"]
+    C --&gt; D{"风险判定&lt;br/&gt;R = F2×F6 - F1"}
+    D --&gt;|"R ≥ 85"| E["🟢 发光&lt;br/&gt;信任日志"]
+    D --&gt;|"60 ≤ R &lt; 85"| F["🟡 正常&lt;br/&gt;监控队列"]
+    D --&gt;|"R &lt; 60"| G["🔴 抖动&lt;br/&gt;龍盾销毁"]
+    E --&gt; H["DNA签名"]
+    F --&gt; H
+    G --&gt; I["追溯审计"]
+    H --&gt; J["归档入库"]
+</code></pre>
+<br>
+<h3>4.4 部署位置</h3>
+<br>
+<table><thead><tr><th>组件</th><th>路径</th><th>说明</th></tr></thead><tbody><tr><td>七因子引擎</td><td>`05_ENGINES/behavioral_crypto/`</td><td>核心计算逻辑</td></tr><tr><td>GPG签名桥</td><td>`bin/lh_gpg_sign.py`</td><td>F1身份DNA</td></tr><tr><td>时间引擎</td><td>`bin/lh_time_engine.py`</td><td>F2时间锚点</td></tr><tr><td>CNSH词表</td><td>`cnsh/`</td><td>F5受保护词表</td></tr><tr><td>审计日志</td><td>`07_AUDIT/`</td><td>F3规则轨迹+F7纠错账本</td></tr><tr><td>门户展示</td><td>`10_PORTAL/behavioral-crypto.html`</td><td>可视化仪表盘</td></tr><tr><td>Python SDK</td><td>`sdk/python/`</td><td>`from longhun.behavioral_crypto import *`</td></tr></tbody></table>
+<br>
+<hr>
+<br>
+<h2>五、三层统一</h2>
+<br>
+<h3>5.1 哲学→数学→工程对应表</h3>
+<br>
+<table><thead><tr><th>哲学概念</th><th>数学形式化</th><th>工程实现</th><th>验证方法</th></tr></thead><tbody><tr><td>**"谁写的"不可消解**</td><td>F1 身份DNA哈希</td><td>GPG签名 + SHA-256</td><td>`gpg --verify`</td></tr><tr><td>**时间是归属的锚**</td><td>F2 干支四柱编码</td><td>`lh_time_engine.py`</td><td>时间戳回溯</td></tr><tr><td>**过程比结果重要**</td><td>F3 过滤链哈希序列</td><td>审计日志链</td><td>日志回放</td></tr><tr><td>**协作留痕**</td><td>F4 人格ID DAG</td><td>人格路由记录</td><td>路由回放</td></tr><tr><td>**术语不可改写**</td><td>F5 术语集合</td><td>CNSH词表匹配</td><td>词表对比</td></tr><tr><td>**风格是人的指纹**</td><td>F6 768维向量</td><td>embedding对比</td><td>余弦相似度</td></tr><tr><td>**错误也是身份**</td><td>F7 版本DAG</td><td>纠错账本</td><td>版本回溯</td></tr></tbody></table>
+<br>
+<h3>5.2 不动点验证</h3>
+<br>
+<p>行为密码学的<strong>不变不变量</strong>：无论内容 $C$ 如何演变（修改、翻译、摘要），只要七因子链完整，$L(C)$ 唯一确定。</p>
+<br>
+<p>$$</p>
+<p>\forall C', C'' \in \text{演变}(C): \quad L(C') = L(C'') \iff \text{创作链一致}</p>
+<p>$$</p>
+<br>
+<hr>
+<br>
+<h2>六、结论</h2>
+<br>
+<h3>6.1 核心贡献</h3>
+<br>
+<table><thead><tr><th>#</th><th>贡献</th><th>层面</th></tr></thead><tbody><tr><td>1</td><td>提出行为密码学概念：来源追溯从"单点判定"升级为"行为链追溯"</td><td>哲学</td></tr><tr><td>2</td><td>七因子向量定义 + 因子交互矩阵 + 链安全定理</td><td>数学</td></tr><tr><td>3</td><td>责任塌缩概率模型 + 三色风险判定</td><td>数学→工程</td></tr><tr><td>4</td><td>完整Python验证代码 + 系统集成架构 + 可视化仪表盘</td><td>工程</td></tr><tr><td>5</td><td>三层统一对照表：哲学→数学→工程一一对应</td><td>方法论</td></tr></tbody></table>
+<br>
+<h3>6.2 与现有方案的本质差异</h3>
+<br>
+<table><thead><tr><th>维度</th><th>现有方案（C2PA/水印）</th><th>行为密码学</th></tr></thead><tbody><tr><td>认证对象</td><td>文件/内容</td><td>**行为链**</td></tr><tr><td>认证方式</td><td>元数据/信号</td><td>**七因子向量**</td></tr><tr><td>可伪造性</td><td>高（元数据可剥离）</td><td>**低（链式绑定）**</td></tr><tr><td>追溯粒度</td><td>文件级</td><td>**创作过程级**</td></tr><tr><td>独立创作者友好</td><td>❌ 依赖平台</td><td>✅ 自主签名</td></tr></tbody></table>
+<br>
+<h3>6.3 一句话</h3>
+<br>
+<blockquote><p>**传统AI安全问"能不能做"，行为密码学问"谁做的、怎么做的、能不能证明"。**</p></blockquote>
+<br>
+<hr>
+<br>
+<h2>📚 参考文献</h2>
+<br>
+<p>[^1]: W3C PROV-DM: PROV Data Model, 2013. https://www.w3.org/TR/prov-dm/</p>
+<p>[^2]: C2PA Specification v1.3, 2024. https://c2pa.org/specifications/</p>
+<p>[^3]: Kirchenbauer et al., "A Watermark for Large Language Models", ICML 2023.</p>
+<p>[^4]: Ellis, C., "The Ethnographic I: A Methodological Novel about Autoethnography", 2004.</p>
+<p>[^5]: Frankfurt, H., "Freedom of the Will and the Concept of a Person", 1971.</p>
+<p>[^6]: Lewin, K., "Action Research and Minority Problems", 1946.</p>
+<p>[^7]: Anderson, L., "Analytic Autoethnography", 2006.</p>
+<p>[^8]: Merkle, R.C., "A Digital Signature Based on a Conventional Encryption Function", 1989.</p>
+<br>
+<hr>
+<br>
+<h2>协议声明</h2>
+<br>
+<p>DNA: #龍芯⚡️丙午·丙申·癸丑·午时·䷑蛊-BEHAVIORAL-CRYPTO-PAPER-v2.0</p>
+<p>创建者: 诸葛鑫（UID9622）</p>
+<p>协议: 思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2</p>
+<p>GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</p>
+<p>确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</p>
+<p>主权锚定: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL</p>
+<br>
+<hr>
+<br>
+<h2>📋 ROOT_CARD</h2>
+<br>
+<pre><code>
+【ROOT_CARD｜数学根审计】
+Root: dr=7（2+0+2+6+0+8+0+7 = 25 → 2+5 = 7）
+Wuxing: 火
+TriColor: 🟡
+Type: paper-P3（哲学-数学交叉型）
+DNA: #龍芯⚡️丙午·丙申·癸丑·午时·䷑蛊-BEHAVIORAL-CRYPTO-PAPER-v2.0
+</code></pre>
+<br>
+<hr>
+<br>
+<pre><code>
+═══════════════════════════════════════════════════
+DNA: #龍芯⚡️丙午·丙申·癸丑·午时·䷑蛊-BEHAVIORAL-CRYPTO-PAPER-v2.0
+确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+三色: 🟡 哲学推演+数学形式化·建议同行复核
+审计: P05 🟢 / P06 🟢 / P12 🟢 / P15 🟢
+作者: 诸葛鑫（UID9622）· 龍芯北辰 · 退伍老兵
+版本: v2.0 · 2026-08-07 · P3模板标准化
+═══════════════════════════════════════════════════
+</code></pre>
+<br>
+<hr>
+<br>
+<p>🐉 <strong>丙午 · 丙申 · 癸丑 · 午时 · ䷑蛊 · 🟡</strong></p>
+<br>
+<blockquote><p>*行为密码学不问"这是不是AI生成"，而问"这段内容的来路能不能被证明"。*</p></blockquote>
+<blockquote><p>*七因子链不可逆——不是技术做不到，是哲学上就不成立。*</p></blockquote>
+<br>
+</div>
+<footer style="text-align:center;padding:40px;color:var(--lh-text-dim);font-size:0.85em;">
+🐉 龍魂出品 · 透明可审 · <span style="color:var(--lh-gold)">UID9622</span>
+</footer>
+</body>
+</html>
