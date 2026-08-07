@@ -1,28 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 256" width="512" height="256">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#080c14"/>
-      <stop offset="100%" stop-color="#1a1a2e"/>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f9e8a8"/>
+      <stop offset="35%" stop-color="#d4a843"/>
+      <stop offset="65%" stop-color="#b8860b"/>
+      <stop offset="100%" stop-color="#f5d76e"/>
     </linearGradient>
-    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f8e080"/>
-      <stop offset="40%" stop-color="#f0c040"/>
-      <stop offset="100%" stop-color="#b8960c"/>
+    <linearGradient id="redSeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c53d32"/>
+      <stop offset="50%" stop-color="#a01e18"/>
+      <stop offset="100%" stop-color="#7a120e"/>
     </linearGradient>
-    <linearGradient id="goldRing" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f0c040"/>
-      <stop offset="50%" stop-color="#c89020"/>
-      <stop offset="100%" stop-color="#f0c040"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <filter id="glowStrong">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -30,98 +20,55 @@
     </filter>
   </defs>
 
-  <!-- Background circle -->
-  <circle cx="256" cy="256" r="240" fill="url(#bgGrad)" stroke="url(#goldRing)" stroke-width="4"/>
-
-  <!-- Outer ring -->
-  <circle cx="256" cy="256" r="220" fill="none" stroke="rgba(240,192,64,0.15)" stroke-width="1"/>
-
-  <!-- Inner ring -->
-  <circle cx="256" cy="256" r="195" fill="none" stroke="rgba(240,192,64,0.08)" stroke-width="1"/>
-
-  <!-- Dragon body - stylized curved shape -->
-  <path d="M256 80
-    C 200 100, 140 130, 120 180
-    C 100 230, 110 260, 140 280
-    C 100 290, 80 310, 85 345
-    C 90 380, 120 400, 160 410
-    C 200 420, 250 415, 300 400
-    C 340 388, 360 365, 370 340
-    C 380 315, 375 295, 360 280
-    C 400 270, 420 250, 415 220
-    C 410 190, 390 160, 360 140
-    C 330 120, 295 105, 256 80Z"
-    fill="none" stroke="url(#goldGrad)" stroke-width="5" filter="url(#glow)"/>
-
-  <!-- Dragon head (top-left curve detail) -->
-  <path d="M130 175 C 120 155, 135 135, 155 125"
-    fill="none" stroke="url(#goldGrad)" stroke-width="4" stroke-linecap="round" filter="url(#glow)"/>
-
-  <!-- Dragon eye -->
-  <circle cx="150" cy="150" r="5" fill="#f8e080" filter="url(#glowStrong)"/>
-
-  <!-- Dragon spine / scales detail -->
-  <path d="M200 95 C 210 110, 195 125, 190 140"
-    fill="none" stroke="rgba(240,192,64,0.5)" stroke-width="2" stroke-linecap="round"/>
-  <path d="M230 88 C 240 105, 225 120, 218 135"
-    fill="none" stroke="rgba(240,192,64,0.4)" stroke-width="2" stroke-linecap="round"/>
-  <path d="M265 83 C 272 100, 260 112, 250 125"
-    fill="none" stroke="rgba(240,192,64,0.3)" stroke-width="2" stroke-linecap="round"/>
-
-  <!-- Claw left -->
-  <path d="M175 405 C 165 415, 155 425, 145 420"
-    fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
-  <path d="M180 410 C 168 422, 158 430, 148 428"
-    fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
-
-  <!-- Claw right -->
-  <path d="M340 395 C 350 408, 360 418, 370 415"
-    fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
-  <path d="M335 400 C 348 415, 358 422, 368 420"
-    fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
-
-  <!-- Central character: 龍 -->
-  <text x="256" y="285" text-anchor="middle" font-size="90" font-weight="bold"
-    font-family="'PingFang SC','Microsoft YaHei','Noto Serif CJK SC',serif"
-    fill="url(#goldGrad)" filter="url(#glow)">龍</text>
-
-  <!-- Hexagram trigrams on sides -->
-  <!-- ☰ Qian (top trigram - 3 solid lines) -->
-  <g transform="translate(170, 230)" opacity="0.6">
-    <rect x="0" y="0" width="24" height="3" rx="1" fill="#f0c040"/>
-    <rect x="0" y="7" width="24" height="3" rx="1" fill="#f0c040"/>
-    <rect x="0" y="14" width="24" height="3" rx="1" fill="#f0c040"/>
+  <!-- 左侧红色印章 -->
+  <g transform="translate(30, 28) scale(0.9)">
+    <rect x="0" y="0" width="120" height="120" rx="8" ry="8" fill="url(#redSeal)" stroke="#8b1a14" stroke-width="2" filter="url(#glow)"/>
+    <rect x="6" y="6" width="108" height="108" rx="4" ry="4" fill="none" stroke="#e8b4a8" stroke-width="1.5" opacity="0.7"/>
+    <text x="60" y="54" text-anchor="middle" font-family="STXingkai, Zhi Mang Xing, KaiTi, cursive" font-size="42" fill="url(#gold)" font-weight="bold" filter="url(#glow)">龍</text>
+    <text x="60" y="96" text-anchor="middle" font-family="STXingkai, Zhi Mang Xing, KaiTi, cursive" font-size="42" fill="url(#gold)" font-weight="bold" filter="url(#glow)">魂</text>
   </g>
 
-  <!-- ☷ Kun trigram on right -->
-  <g transform="translate(318, 230)" opacity="0.6">
-    <rect x="0" y="0" width="12" height="3" rx="1" fill="#f0c040"/>
-    <rect x="14" y="0" width="12" height="3" rx="1" fill="#f0c040"/>
-    <rect x="0" y="7" width="12" height="3" rx="1" fill="#f0c040"/>
-    <rect x="14" y="7" width="12" height="3" rx="1" fill="#f0c040"/>
-    <rect x="0" y="14" width="12" height="3" rx="1" fill="#f0c040"/>
-    <rect x="14" y="14" width="12" height="3" rx="1" fill="#f0c040"/>
+  <!-- 主标题书法字 -->
+  <g transform="translate(160, 50)">
+    <text x="0" y="60" font-family="STXingkai, Zhi Mang Xing, KaiTi, cursive" font-size="72" fill="url(#gold)" font-weight="bold" filter="url(#glow)">龍魂系统</text>
   </g>
 
-  <!-- Bottom text -->
-  <text x="256" y="390" text-anchor="middle" font-size="22" font-weight="500"
-    font-family="'PingFang SC','Microsoft YaHei',sans-serif"
-    fill="rgba(240,192,64,0.7)" letter-spacing="8">龙 魂 系 统</text>
+  <!-- 分隔竖线 -->
+  <line x1="345" y1="42" x2="345" y2="110" stroke="url(#gold)" stroke-width="1.5" opacity="0.6"/>
 
-  <text x="256" y="420" text-anchor="middle" font-size="12"
-    font-family="monospace" fill="rgba(240,192,64,0.35)" letter-spacing="2">LONGHUN SYSTEM</text>
+  <!-- UID9622 -->
+  <g transform="translate(360, 50)">
+    <text x="0" y="58" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="42" fill="url(#gold)" font-weight="300" letter-spacing="2">UID9622</text>
+  </g>
 
-  <!-- Corner stars (369 anchor points) -->
-  <circle cx="85" cy="100" r="3" fill="#f0c040" opacity="0.5"/>
-  <circle cx="427" cy="100" r="3" fill="#f0c040" opacity="0.5"/>
-  <circle cx="85" cy="430" r="3" fill="#f0c040" opacity="0.5"/>
-  <circle cx="427" cy="430" r="3" fill="#f0c040" opacity="0.5"/>
+  <!-- 装饰龙纹 -->
+  <g transform="translate(155, 120)" opacity="0.35" fill="none" stroke="url(#gold)" stroke-width="1">
+    <path d="M0,0 Q20,-8 40,0 T80,0 T120,0 T160,0 T200,0 T240,0 T280,0"/>
+    <path d="M5,4 Q25,-4 45,4 T85,4 T125,4 T165,4 T205,4 T245,4 T285,4"/>
+  </g>
 
-  <!-- DNA trace line -->
-  <line x1="85" y1="100" x2="427" y2="430" stroke="rgba(240,192,64,0.08)" stroke-width="1"/>
-  <line x1="427" y1="100" x2="85" y2="430" stroke="rgba(240,192,64,0.08)" stroke-width="1"/>
+  <!-- DNA追溯 -->
+  <g transform="translate(160, 155)">
+    <g transform="translate(0, -10) scale(0.45)">
+      <path d="M0,0 C12,-14 28,-14 40,0 C52,14 68,14 80,0" fill="none" stroke="url(#gold)" stroke-width="4"/>
+      <path d="M0,16 C12,2 28,2 40,16 C52,30 68,30 80,16" fill="none" stroke="url(#gold)" stroke-width="4"/>
+      <line x1="14" y1="-6" x2="14" y2="22" stroke="url(#gold)" stroke-width="3"/>
+      <line x1="28" y1="-10" x2="28" y2="26" stroke="url(#gold)" stroke-width="3"/>
+      <line x1="42" y1="-6" x2="42" y2="22" stroke="url(#gold)" stroke-width="3"/>
+      <line x1="56" y1="0" x2="56" y2="16" stroke="url(#gold)" stroke-width="3"/>
+      <line x1="70" y1="-6" x2="70" y2="22" stroke="url(#gold)" stroke-width="3"/>
+    </g>
+    <text x="45" y="6" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18" fill="url(#gold)" opacity="0.9">DNA 追溯</text>
+  </g>
 
-  <!-- GPG fingerprint at very bottom -->
-  <text x="256" y="460" text-anchor="middle" font-size="8"
-    font-family="monospace" fill="rgba(240,192,64,0.15)">A2D0092CEE2E5BA87035600924C3704A8CC26D5F</text>
+  <!-- 底部英文 -->
+  <text x="256" y="220" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="14" fill="url(#gold)" opacity="0.75" letter-spacing="3">LONGHUN SYSTEM · DIGITAL SOVEREIGNTY</text>
+
+  <!-- 四角锚点 -->
+  <g fill="url(#gold)" opacity="0.5">
+    <circle cx="8" cy="8" r="2"/>
+    <circle cx="504" cy="8" r="2"/>
+    <circle cx="8" cy="248" r="2"/>
+    <circle cx="504" cy="248" r="2"/>
+  </g>
 </svg>

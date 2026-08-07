@@ -26,6 +26,7 @@
 - 🔄 Dashboard 引擎列表 9→15（新增多智能体/真话引擎/视频工坊/协议统治/忠义铁律/合规引擎）
 - 🖼️ 门户 OG 元数据补全（社交预览图·Twitter Card）
 - 🏷️ 徽章系统：从空链接升级为 GitHub Actions/Release/License 实时数据
+- 🎨 品牌图标风格对齐「龍芯北辰 UID9622 签章」：红印章+金书法+DNA追溯
 
 ### 修复
 - 🐛 门户 favicon 始终为 emoji inline·无独立图标文件
