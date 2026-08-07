@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>⚙️ 龍魂 · 管理后台</title>
+<style>
+:root {
+  --bg: #0a0e14; --surface: #12171d; --surface2: #181e26;
+  --border: #2a3340; --border-hover: #3d5998;
+  --text: #c9d1d9; --text2: #7d8796;
+  --gold: #ffd60a; --primary: #1f6feb; --green: #2ea043; --orange: #d29922; --red: #f85149;
+  --radius: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+.container { max-width: 900px; margin: 0 auto; padding: 24px 20px; }
+
+/* Login */
+.login-box { max-width: 380px; margin: 120px auto; padding: 40px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); text-align: center; }
+.login-box h1 { color: var(--gold); margin-bottom: 24px; }
+.login-box input { width: 100%; padding: 12px; margin-bottom: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 0.9em; outline: none; }
+.login-box input:focus { border-color: var(--primary); }
+.login-box button { width: 100%; padding: 12px; background: var(--primary); color: #fff; border: none; border-radius: 8px; font-size: 0.9em; font-weight: 600; cursor: pointer; }
+.login-box .err { color: var(--red); margin-top: 8px; font-size: 0.8em; }
+
+/* Header */
+header { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+header h1 { color: var(--gold); font-size: 1.3em; display: flex; align-items: center; gap: 8px; }
+header button { padding: 8px 16px; background: var(--surface2); color: var(--text2); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 0.8em; }
+
+/* Tabs */
+.tabs { display: flex; gap: 2px; margin-bottom: 20px; border-bottom: 2px solid var(--border); }
+.tab { padding: 10px 20px; background: none; border: none; color: var(--text2); cursor: pointer; font-size: 0.85em; font-weight: 600; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all .2s; }
+.tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+.tab:hover { color: var(--text); }
+
+/* Cards */
+.panel { padding: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 16px; }
+.panel h3 { font-size: 1em; color: var(--gold); margin-bottom: 14px; }
+input, textarea, select { width: 100%; padding: 10px 12px; margin-bottom: 10px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 0.85em; outline: none; font-family: inherit; }
+input:focus, textarea:focus, select:focus { border-color: var(--primary); }
+textarea { min-height: 80px; resize: vertical; }
+label { font-size: 0.78em; color: var(--text2); display: block; margin-bottom: 4px; margin-top: 8px; }
+
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-size: 0.85em; font-weight: 600; transition: all .15s; }
+.btn.primary { background: var(--primary); color: #fff; }
+.btn.primary:hover { background: #1a5fc7; }
+.btn.danger { background: var(--red); color: #fff; }
+.btn.success { background: var(--green); color: #fff; }
+.btn.sm { padding: 5px 12px; font-size: 0.75em; }
+
+/* Announce list */
+.ann-list .ann-item { padding: 14px 16px; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.ann-list .ann-info { flex: 1; min-width: 200px; }
+.ann-list .ann-info .ann-title { font-weight: 600; font-size: 0.9em; }
+.ann-list .ann-info .ann-meta { font-size: 0.7em; color: var(--text2); margin-top: 3px; }
+.ann-list .ann-actions { display: flex; gap: 6px; flex-shrink: 0; }
+.tag { display: inline-block; padding: 2px 8px; font-size: 0.65em; border-radius: 10px; font-weight: 600; margin-right: 6px; }
+.tag.update { background: rgba(31,111,235,0.2); color: var(--primary); }
+.tag.feature { background: rgba(46,160,67,0.2); color: var(--green); }
+.tag.maintenance { background: rgba(210,153,34,0.2); color: var(--orange); }
+.tag.security { background: rgba(248,81,73,0.2); color: var(--red); }
+
+/* Engine status table */
+.engine-table { width: 100%; border-collapse: collapse; font-size: 0.82em; }
+.engine-table th { text-align: left; padding: 10px 12px; color: var(--text2); font-weight: 600; border-bottom: 1px solid var(--border); font-size: 0.75em; }
+.engine-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+.engine-table .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+.engine-table .dot.online { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.engine-table .dot.offline { background: var(--red); }
+
+.toast { position: fixed; bottom: 24px; right: 24px; padding: 12px 16px; border-radius: 10px; background: var(--surface); border: 1px solid var(--border); font-size: 0.8em; z-index: 200; display: none; max-width: 360px; }
+.toast.show { display: block; }
+.toast.ok { border-color: var(--green); color: var(--green); }
+.toast.err { border-color: var(--red); color: var(--red); }
+
+@media (max-width: 640px) {
+  .login-box { margin: 60px auto; padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Login Screen -->
+<div id="loginScreen" class="login-box">
+  <h1>🐉 管理后台</h1>
+  <input type="password" id="pwdInput" placeholder="输入管理密码" onkeydown="if(event.key==='Enter')login()">
+  <button onclick="login()">🔐 登录</button>
+  <div class="err" id="loginErr"></div>
+</div>
+
+<!-- Main Dashboard -->
+<div id="mainPanel" style="display:none">
+  <div class="container">
+    <header>
+      <h1>⚙️ 龍魂管理后台</h1>
+      <button onclick="logout()">🚪 退出</button>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('announce')">📋 公告管理</button>
+      <button class="tab" onclick="switchTab('engines')">⚡ 引擎监控</button>
+      <button class="tab" onclick="switchTab('new-announce')">✏️ 新建公告</button>
+    </div>
+
+    <!-- 公告列表 -->
+    <div id="tab-announce">
+      <div class="panel">
+        <h3>📋 所有公告</h3>
+        <div class="ann-list" id="annListAll">加载中...</div>
+      </div>
+    </div>
+
+    <!-- 引擎监控 -->
+    <div id="tab-engines" style="display:none">
+      <div class="panel">
+        <h3>⚡ 引擎实时状态</h3>
+        <table class="engine-table" id="engineTable">
+          <thead><tr><th>引擎</th><th>端口</th><th>状态</th><th>说明</th></tr></thead>
+          <tbody id="engineBody">检查中...</tbody>
+        </table>
+        <button class="btn primary" onclick="refreshEngines()" style="margin-top:14px">🔄 刷新状态</button>
+      </div>
+    </div>
+
+    <!-- 新建公告 -->
+    <div id="tab-new-announce" style="display:none">
+      <div class="panel">
+        <h3>✏️ 发布新公告</h3>
+        <label>类型</label>
+        <select id="annTag">
+          <option value="update">🔄 更新 (update)</option>
+          <option value="feature">✨ 新功能 (feature)</option>
+          <option value="maintenance">🔧 维护 (maintenance)</option>
+          <option value="security">🔐 安全 (security)</option>
+          <option value="announcement">📢 公告 (announcement)</option>
+        </select>
+        <label>标题</label>
+        <input type="text" id="annTitle" placeholder="公告标题...">
+        <label>内容</label>
+        <textarea id="annBody" placeholder="公告正文..."></textarea>
+        <button class="btn success" onclick="createAnnounce()">📢 发布公告</button>
+        <div id="createMsg" style="margin-top:10px;font-size:0.82em;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const ADMIN_PWD = 'longhun-admin-9622';
+let token = localStorage.getItem('lh_admin_token');
+
+// ==================== Auth ====================
+function login() {
+  const pwd = document.getElementById('pwdInput').value;
+  if (pwd === ADMIN_PWD) {
+    token = btoa('admin:' + Date.now());
+    localStorage.setItem('lh_admin_token', token);
+    showMain();
+  } else {
+    document.getElementById('loginErr').textContent = '密码错误';
+  }
+}
+
+function logout() {
+  localStorage.removeItem('lh_admin_token');
+  token = null;
+  location.reload();
+}
+
+function showMain() {
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('mainPanel').style.display = 'block';
+  loadAnnouncements();
+  refreshEngines();
+}
+
+// Auto-check token
+if (token) {
+  showMain();
+}
+
+// ==================== Tabs ====================
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.tab[onclick*="${name}"]`).classList.add('active');
+  ['announce', 'engines', 'new-announce'].forEach(n => {
+    document.getElementById('tab-' + n).style.display = n === name ? 'block' : 'none';
+  });
+  if (name === 'announce') loadAnnouncements();
+  if (name === 'engines') refreshEngines();
+}
+
+// ==================== Announcements ====================
+async function loadAnnouncements() {
+  try {
+    const resp = await fetch('/api/admin/announcements?all=1', { headers: { 'X-Admin-Token': token } });
+    const data = await resp.json();
+    if (!data.items || data.items.length === 0) {
+      document.getElementById('annListAll').innerHTML = '<p style="color:var(--text2)">暂无公告</p>';
+      return;
+    }
+    document.getElementById('annListAll').innerHTML = data.items.map((a, i) => `
+      <div class="ann-item">
+        <div class="ann-info">
+          <div class="ann-title"><span class="tag ${a.tag}">${tagLabel(a.tag)}</span>${esc(a.title)}</div>
+          <div class="ann-meta">${a.date} · ID: ${a.id || i}</div>
+        </div>
+        <div class="ann-actions">
+          <button class="btn danger sm" onclick="deleteAnnounce(${a.id || i})">🗑 删除</button>
+        </div>
+      </div>
+    `).join('');
+  } catch(e) {
+    document.getElementById('annListAll').innerHTML = '<p style="color:var(--red)">加载失败: ' + esc(e.message) + '</p>';
+  }
+}
+
+async function createAnnounce() {
+  const tag = document.getElementById('annTag').value;
+  const title = document.getElementById('annTitle').value.trim();
+  const body = document.getElementById('annBody').value.trim();
+  if (!title || !body) { showToast('标题和内容不能为空', 'err'); return; }
+
+  try {
+    const resp = await fetch('/api/admin/announcements', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Admin-Token': token },
+      body: JSON.stringify({ tag, title, body })
+    });
+    const data = await resp.json();
+    if (data.ok) {
+      showToast('✅ 公告已发布', 'ok');
+      document.getElementById('annTitle').value = '';
+      document.getElementById('annBody').value = '';
+      switchTab('announce');
+      loadAnnouncements();
+    } else {
+      showToast(data.error || '发布失败', 'err');
+    }
+  } catch(e) {
+    showToast('发布失败: ' + e.message, 'err');
+  }
+}
+
+async function deleteAnnounce(id) {
+  if (!confirm('确定删除此公告？')) return;
+  try {
+    const resp = await fetch(`/api/admin/announcements/${id}`, {
+      method: 'DELETE',
+      headers: { 'X-Admin-Token': token }
+    });
+    const data = await resp.json();
+    if (data.ok) { showToast('✅ 已删除', 'ok'); loadAnnouncements(); }
+    else showToast(data.error || '删除失败', 'err');
+  } catch(e) { showToast('删除失败: ' + e.message, 'err'); }
+}
+
+// ==================== Engines ====================
+async function refreshEngines() {
+  const engines = [
+    { name: '行为密码学 (BCM)', port: 8775 },
+    { name: '三色审计', port: 8771 },
+    { name: '知识中枢', port: 8766 },
+    { name: '流场融合 (API网关)', port: 8777 },
+    { name: '统一记忆', port: 8773 },
+    { name: '龍智守 (飞书)', port: 8783 },
+    { name: '量子卦象', port: 9000 },
+    { name: '多源搜索', port: 9631 },
+    { name: '支付锚定', port: 19623 },
+    { name: 'Dashboard (本站)', port: 9627 },
+  ];
+
+  const results = await Promise.allSettled(engines.map(async e => {
+    try {
+      const resp = await fetch(`https://uid9622.cn/api/proxy?port=${e.port}&path=/health`, { signal: AbortSignal.timeout(3000) });
+      return { ...e, online: resp.ok, time: resp.ok ? (e.port === 9627 ? 'now' : 'ok') : 'error' };
+    } catch { return { ...e, online: false, time: 'timeout' }; }
+  }));
+
+  const statuses = results.map(r => r.status === 'fulfilled' ? r.value : { online: false });
+
+  document.getElementById('engineBody').innerHTML = statuses.map(e => `
+    <tr>
+      <td><span class="dot ${e.online ? 'online' : 'offline'}"></span>${e.name}</td>
+      <td style="font-family:monospace;font-size:0.8em">:${e.port}</td>
+      <td style="color:${e.online ? 'var(--green)' : 'var(--red)'}">${e.online ? '🟢 在线' : '🔴 离线'}</td>
+      <td style="font-size:0.75em;color:var(--text2)">${e.time || '-'}</td>
+    </tr>
+  `).join('');
+}
+
+// ==================== Helpers ====================
+function tagLabel(t) { const m = { update: '更新', feature: '新功能', maintenance: '维护', security: '安全', announcement: '公告' }; return m[t] || '公告'; }
+function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+function showToast(msg, type) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.className = 'toast show ' + (type || '');
+  setTimeout(() => { t.className = 'toast'; }, 3000);
+}
+</script>
+</body>
+</html>
