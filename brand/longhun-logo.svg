@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#080c14"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8e080"/>
+      <stop offset="40%" stop-color="#f0c040"/>
+      <stop offset="100%" stop-color="#b8960c"/>
+    </linearGradient>
+    <linearGradient id="goldRing" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0c040"/>
+      <stop offset="50%" stop-color="#c89020"/>
+      <stop offset="100%" stop-color="#f0c040"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowStrong">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#bgGrad)" stroke="url(#goldRing)" stroke-width="4"/>
+
+  <!-- Outer ring -->
+  <circle cx="256" cy="256" r="220" fill="none" stroke="rgba(240,192,64,0.15)" stroke-width="1"/>
+
+  <!-- Inner ring -->
+  <circle cx="256" cy="256" r="195" fill="none" stroke="rgba(240,192,64,0.08)" stroke-width="1"/>
+
+  <!-- Dragon body - stylized curved shape -->
+  <path d="M256 80
+    C 200 100, 140 130, 120 180
+    C 100 230, 110 260, 140 280
+    C 100 290, 80 310, 85 345
+    C 90 380, 120 400, 160 410
+    C 200 420, 250 415, 300 400
+    C 340 388, 360 365, 370 340
+    C 380 315, 375 295, 360 280
+    C 400 270, 420 250, 415 220
+    C 410 190, 390 160, 360 140
+    C 330 120, 295 105, 256 80Z"
+    fill="none" stroke="url(#goldGrad)" stroke-width="5" filter="url(#glow)"/>
+
+  <!-- Dragon head (top-left curve detail) -->
+  <path d="M130 175 C 120 155, 135 135, 155 125"
+    fill="none" stroke="url(#goldGrad)" stroke-width="4" stroke-linecap="round" filter="url(#glow)"/>
+
+  <!-- Dragon eye -->
+  <circle cx="150" cy="150" r="5" fill="#f8e080" filter="url(#glowStrong)"/>
+
+  <!-- Dragon spine / scales detail -->
+  <path d="M200 95 C 210 110, 195 125, 190 140"
+    fill="none" stroke="rgba(240,192,64,0.5)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M230 88 C 240 105, 225 120, 218 135"
+    fill="none" stroke="rgba(240,192,64,0.4)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M265 83 C 272 100, 260 112, 250 125"
+    fill="none" stroke="rgba(240,192,64,0.3)" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Claw left -->
+  <path d="M175 405 C 165 415, 155 425, 145 420"
+    fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M180 410 C 168 422, 158 430, 148 428"
+    fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Claw right -->
+  <path d="M340 395 C 350 408, 360 418, 370 415"
+    fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M335 400 C 348 415, 358 422, 368 420"
+    fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Central character: 龍 -->
+  <text x="256" y="285" text-anchor="middle" font-size="90" font-weight="bold"
+    font-family="'PingFang SC','Microsoft YaHei','Noto Serif CJK SC',serif"
+    fill="url(#goldGrad)" filter="url(#glow)">龍</text>
+
+  <!-- Hexagram trigrams on sides -->
+  <!-- ☰ Qian (top trigram - 3 solid lines) -->
+  <g transform="translate(170, 230)" opacity="0.6">
+    <rect x="0" y="0" width="24" height="3" rx="1" fill="#f0c040"/>
+    <rect x="0" y="7" width="24" height="3" rx="1" fill="#f0c040"/>
+    <rect x="0" y="14" width="24" height="3" rx="1" fill="#f0c040"/>
+  </g>
+
+  <!-- ☷ Kun trigram on right -->
+  <g transform="translate(318, 230)" opacity="0.6">
+    <rect x="0" y="0" width="12" height="3" rx="1" fill="#f0c040"/>
+    <rect x="14" y="0" width="12" height="3" rx="1" fill="#f0c040"/>
+    <rect x="0" y="7" width="12" height="3" rx="1" fill="#f0c040"/>
+    <rect x="14" y="7" width="12" height="3" rx="1" fill="#f0c040"/>
+    <rect x="0" y="14" width="12" height="3" rx="1" fill="#f0c040"/>
+    <rect x="14" y="14" width="12" height="3" rx="1" fill="#f0c040"/>
+  </g>
+
+  <!-- Bottom text -->
+  <text x="256" y="390" text-anchor="middle" font-size="22" font-weight="500"
+    font-family="'PingFang SC','Microsoft YaHei',sans-serif"
+    fill="rgba(240,192,64,0.7)" letter-spacing="8">龙 魂 系 统</text>
+
+  <text x="256" y="420" text-anchor="middle" font-size="12"
+    font-family="monospace" fill="rgba(240,192,64,0.35)" letter-spacing="2">LONGHUN SYSTEM</text>
+
+  <!-- Corner stars (369 anchor points) -->
+  <circle cx="85" cy="100" r="3" fill="#f0c040" opacity="0.5"/>
+  <circle cx="427" cy="100" r="3" fill="#f0c040" opacity="0.5"/>
+  <circle cx="85" cy="430" r="3" fill="#f0c040" opacity="0.5"/>
+  <circle cx="427" cy="430" r="3" fill="#f0c040" opacity="0.5"/>
+
+  <!-- DNA trace line -->
+  <line x1="85" y1="100" x2="427" y2="430" stroke="rgba(240,192,64,0.08)" stroke-width="1"/>
+  <line x1="427" y1="100" x2="85" y2="430" stroke="rgba(240,192,64,0.08)" stroke-width="1"/>
+
+  <!-- GPG fingerprint at very bottom -->
+  <text x="256" y="460" text-anchor="middle" font-size="8"
+    font-family="monospace" fill="rgba(240,192,64,0.15)">A2D0092CEE2E5BA87035600924C3704A8CC26D5F</text>
+</svg>

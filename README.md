@@ -10,12 +10,13 @@
 > **技术服务于人民。主权不可交易。**
 > *Technology serves the people. Sovereignty is not for sale.*
 
-[![版本](https://img.shields.io/badge/version-v5.0.0-blue)]()
-[![状态](https://img.shields.io/badge/status-Active-green)]()
-[![DNA](https://img.shields.io/badge/DNA-Full%20Traceability-orange)]()
-[![语言](https://img.shields.io/badge/language-Python%20|%20CNSH-yellow)]()
-[![审计](https://img.shields.io/badge/三色审计-🟢%20通过-brightgreen)]()
-[![Discussions](https://img.shields.io/badge/Discussions-欢迎讨论-blue)](https://github.com/UID9622/longhun-system/discussions)
+[![Version](https://img.shields.io/github/v/release/UID9622/longhun-system?label=版本&color=blue)](https://github.com/UID9622/longhun-system/releases)
+[![License](https://img.shields.io/badge/license-MulanPSL%20v2%20%7C%20CC%20BY--NC--SA%204.0-green)](https://github.com/UID9622/longhun-system#%EF%B8%8F-%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE)
+[![CI](https://img.shields.io/github/actions/workflow/status/UID9622/longhun-system/ci.yml?label=CI&color=brightgreen)](https://github.com/UID9622/longhun-system/actions)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-yellow?logo=python)](https://www.python.org/)
+[![CNSH](https://img.shields.io/badge/CNSH-%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B-orange)](https://github.com/UID9622/longhun-system/tree/orphan_main/cnsh.integrated)
+[![Audit](https://img.shields.io/badge/三色审计-🟢_通过-brightgreen)](https://uid9622.cn/)
+[![Stars](https://img.shields.io/github/stars/UID9622/longhun-system?style=social)](https://github.com/UID9622/longhun-system/stargazers)
 
 > 🚀 **5 分钟上手**: `bash install.sh` → `python3 bin/龍魂体系v5-一键启动.py`
 > 

@@ -12,6 +12,26 @@
 
 ---
 
+## [v5.1.0] — 2026-08-07 · 品牌与国际化完善
+
+### 新增
+- 🎨 项目品牌标识系统（Logo SVG · App 图标 · OG 社交预览图）`brand/`
+- 📄 英文论文 HTML 渲染版（MathJax 数学公式·暗金主题）`articles/behavioral-cryptography-unified-theory-v3.0.html`
+- 📚 API 文档可视化页（Redoc 渲染·OpenAPI 3.1）`10_PORTAL/api-docs.html`
+- 📖 CITATION.cff 学术引用标准
+- 💰 FUNDING.yml 赞助配置
+- 🏷️ README 徽章全部绑定实际链接（CI/Release/License/Stars）
+
+### 变更
+- 🔄 Dashboard 引擎列表 9→15（新增多智能体/真话引擎/视频工坊/协议统治/忠义铁律/合规引擎）
+- 🖼️ 门户 OG 元数据补全（社交预览图·Twitter Card）
+- 🏷️ 徽章系统：从空链接升级为 GitHub Actions/Release/License 实时数据
+
+### 修复
+- 🐛 门户 favicon 始终为 emoji inline·无独立图标文件
+
+---
+
 ## [v5.0.0] — 2026-07-31 · 开源发布
 
 ### 新增
