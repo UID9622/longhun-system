@@ -23,7 +23,13 @@ from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-from registry import register_sovereign_identity, verify_identity, get_identity, list_identities
+from registry import (
+    register_sovereign_identity,
+    verify_identity,
+    get_identity,
+    list_identities,
+    hash_id_number,
+)
 from card import generate_card_png
 
 
@@ -31,10 +37,12 @@ def cmd_register(args):
     gpg_key = ""
     if args.gpg_key_file:
         gpg_key = Path(args.gpg_key_file).read_text(encoding="utf-8")
+    # 本地哈希：CLI 侧完成，不传递明文证件号到注册核心
+    id_number_hash = hash_id_number(args.id_number)
     result = register_sovereign_identity(
         name=args.name,
         id_type=args.id_type,
-        id_number=args.id_number,
+        id_number_hash=id_number_hash,
         device_fingerprint=args.device_fingerprint or "",
         gpg_public_key=gpg_key,
     )

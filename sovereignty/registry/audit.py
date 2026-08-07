@@ -30,6 +30,11 @@ GREEN_KEYWORDS = [
 ]
 
 
+def is_hash_id_number(id_number: str) -> bool:
+    """判断是否为证件号哈希（64位十六进制SHA-256）。"""
+    return bool(re.match(r"^[a-fA-F0-9]{64}$", str(id_number)))
+
+
 def audit_registration(
     name: str,
     id_type: str,
@@ -38,6 +43,8 @@ def audit_registration(
 ) -> Dict[str, Any]:
     """
     对注册请求执行三色审计。
+
+    当 id_number 为 64 位十六进制哈希时，视为客户端已完成本地哈希，跳过明文格式校验。
 
     Returns:
         {"level": "🟢/🟡/🔴", "reason": "...", "rules": [...]}
@@ -56,8 +63,8 @@ def audit_registration(
             rules_triggered.append(f"§9.50 命中禁用词: {kw}")
             return {"level": "🔴", "reason": f"注册信息包含禁用内容: {kw}", "rules": rules_triggered}
 
-    # 证件号基础校验
-    if id_type == "身份证":
+    # 证件号基础校验（仅对明文证件号；哈希值跳过）
+    if id_type == "身份证" and not is_hash_id_number(id_number):
         if not re.match(r"^\d{15}$|^\d{17}[\dXx]$", id_number):
             rules_triggered.append("§9.50 身份证格式异常")
             return {"level": "🟡", "reason": "身份证格式不符合规范", "rules": rules_triggered}

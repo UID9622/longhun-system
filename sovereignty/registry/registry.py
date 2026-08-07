@@ -49,6 +49,12 @@ def sanitize_id_number(id_number: str) -> str:
     return re.sub(r"[^a-zA-Z0-9\-\/]", "", str(id_number))[:64]
 
 
+def hash_id_number(id_number: str) -> str:
+    """对证件号做本地 SHA-256 哈希。明文只在此函数内存中出现，不持久化。"""
+    normalized = sanitize_id_number(id_number)
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+
+
 def sanitize_name(name: str) -> str:
     """清理姓名：允许中文、字母、空格、·。"""
     return re.sub(r"[^\u4e00-\u9fa5a-zA-Z\s\·\.]", "", str(name))[:32].strip()
@@ -122,29 +128,30 @@ def uid_exists(uid: str, manifest: Optional[Dict[str, Any]] = None) -> bool:
     return any(r.get("uid") == uid for r in manifest.get("records", []))
 
 
-def id_number_exists(id_number: str, manifest: Optional[Dict[str, Any]] = None) -> bool:
+def id_number_exists(id_number_hash: str, manifest: Optional[Dict[str, Any]] = None) -> bool:
     """检查证件号是否已注册（基于哈希比对）。"""
     if manifest is None:
         manifest = load_manifest()
-    normalized = sanitize_id_number(id_number)
-    target_hash = hashlib.sha256(normalized.encode("utf-8")).hexdigest()
-    return any(r.get("id_number_hash") == target_hash for r in manifest.get("records", []))
+    return any(r.get("id_number_hash") == id_number_hash for r in manifest.get("records", []))
 
 
 def register_sovereign_identity(
     name: str,
     id_type: str,
-    id_number: str,
+    id_number_hash: str,
     device_fingerprint: str = "",
     gpg_public_key: str = "",
 ) -> Dict[str, Any]:
     """
     注册 UID9622 主权身份。
 
+    忠义铁律合规：本函数不再接收明文证件号，只接收证件号哈希。
+    客户端应在本地完成证件号哈希后再调用，服务端全程不接触明文证件号。
+
     Args:
         name: 真实姓名
         id_type: 身份证/护照/退伍证
-        id_number: 证件号
+        id_number_hash: 证件号 SHA-256 哈希（本地生成）
         device_fingerprint: 设备指纹
         gpg_public_key: 可选 GPG 公钥
 
@@ -155,28 +162,28 @@ def register_sovereign_identity(
 
     name = sanitize_name(name)
     id_type = str(id_type).strip()[:32]
-    id_number = sanitize_id_number(id_number)
+    id_number_hash = str(id_number_hash).strip()[:64]
     device_fingerprint = str(device_fingerprint).strip()[:256]
     gpg_public_key = str(gpg_public_key).strip()[:8192]
 
     if not name:
         return {"status": "error", "message": "姓名不能为空", "audit": "🔴"}
-    if not id_number:
-        return {"status": "error", "message": "证件号不能为空", "audit": "🔴"}
+    if not id_number_hash:
+        return {"status": "error", "message": "证件号哈希不能为空", "audit": "🔴"}
     if id_type not in ("身份证", "护照", "退伍证"):
         return {"status": "error", "message": "证件类型必须是：身份证、护照、退伍证", "audit": "🟡"}
 
-    # 三色审计
-    audit = audit_registration(name, id_type, id_number, device_fingerprint)
+    # 三色审计（基于哈希，不反推明文）
+    audit = audit_registration(name, id_type, id_number_hash, device_fingerprint)
     if audit["level"] == "🔴":
         log_shame_wall("register_rejected", None, f"三色审计未通过: {audit.get('reason', '')}", audit)
         return {"status": "rejected", "message": audit.get("reason", "注册请求被三色审计拒绝"), "audit": audit}
 
     manifest = load_manifest()
 
-    # 证件号重复检测
-    if id_number_exists(id_number, manifest):
-        log_shame_wall("register_rejected", None, "证件号已注册", {"id_number_hash": hashlib.sha256(id_number.encode()).hexdigest()})
+    # 证件号重复检测（基于哈希）
+    if id_number_exists(id_number_hash, manifest):
+        log_shame_wall("register_rejected", None, "证件号已注册", {"id_number_hash": id_number_hash})
         return {"status": "duplicate", "message": "该证件号已注册主权身份", "audit": "🟡"}
 
     # 生成唯一 UID
@@ -188,9 +195,6 @@ def register_sovereign_identity(
     dna = generate_dna(uid, timestamp)
     sovereign_hash = compute_sovereign_hash(uid, name, timestamp)
     confirm_code = generate_confirm_code()
-
-    # 证件号哈希存储（不存明文证件号）
-    id_number_hash = hashlib.sha256(id_number.encode("utf-8")).hexdigest()
 
     record = {
         "uid": uid,
@@ -314,5 +318,7 @@ def list_identities(limit: Optional[int] = None) -> List[Dict[str, Any]]:
 
 
 if __name__ == "__main__":
-    result = register_sovereign_identity("诸葛鑫", "身份证", "110101199001011234")
+    # 示例：客户端本地哈希后传入
+    demo_hash = hash_id_number("110101199001011234")
+    result = register_sovereign_identity("诸葛鑫", "身份证", demo_hash)
     print(json.dumps(result, ensure_ascii=False, indent=2))

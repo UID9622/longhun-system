@@ -30,6 +30,7 @@ from registry import (
     list_identities,
     attempt_modification,
     MANIFEST_PATH,
+    hash_id_number,
 )
 from card import generate_card_png, generate_card_html
 
@@ -51,11 +52,16 @@ class VerifyRequest(BaseModel):
 
 @router.post("/register")
 def api_register(req: RegisterRequest):
-    """UID9622 主权身份注册接口。"""
+    """UID9622 主权身份注册接口。
+
+    忠义铁律合规：证件号在 API 层本地哈希后传入注册核心，服务端不持久化明文证件号。
+    """
+    # 本地哈希：req.id_number 仅在此函数内存中出现，不存储、不传递明文
+    id_number_hash = hash_id_number(req.id_number)
     result = register_sovereign_identity(
         name=req.name,
         id_type=req.id_type,
-        id_number=req.id_number,
+        id_number_hash=id_number_hash,
         device_fingerprint=req.device_fingerprint,
         gpg_public_key=req.gpg_public_key,
     )

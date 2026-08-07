@@ -23,6 +23,7 @@ from registry import (
     attempt_modification,
     MANIFEST_PATH,
     SHAME_WALL_PATH,
+    hash_id_number,
 )
 from card import generate_card_png, generate_card_html
 
@@ -35,10 +36,11 @@ def main():
     unique = datetime.datetime.now().strftime("%H%M%S%f")
     rand3 = f"{random.randint(0, 999):03d}"
     id_number = f"11010119900101{rand3}X"
+    id_number_hash = hash_id_number(id_number)
 
     # 1. 注册成功
     print("[1/6] 注册主权身份...")
-    r1 = register_sovereign_identity("诸葛鑫", "身份证", id_number, "macos-safari-cn")
+    r1 = register_sovereign_identity("诸葛鑫", "身份证", id_number_hash, "macos-safari-cn")
     assert r1["status"] == "success", f"注册失败: {r1}"
     uid = r1["uid"]
     dna = r1["dna"]
@@ -47,13 +49,13 @@ def main():
 
     # 2. UID 不可重复注册（证件号重复）
     print("[2/6] 证件号重复检测...")
-    r2 = register_sovereign_identity("诸葛鑫", "身份证", id_number, "macos-safari-cn")
+    r2 = register_sovereign_identity("诸葛鑫", "身份证", id_number_hash, "macos-safari-cn")
     assert r2["status"] == "duplicate", f"重复检测失败: {r2}"
     print(f"   ✅ 重复注册被拒绝\n")
 
     # 3. 三色审计拒绝
     print("[3/6] 三色审计熔断...")
-    r3 = register_sovereign_identity("test用户", "身份证", "11010119900101002X", "device-001")
+    r3 = register_sovereign_identity("test用户", "身份证", hash_id_number("11010119900101002X"), "device-001")
     assert r3["status"] == "rejected", f"审计未拒绝: {r3}"
     print(f"   ✅ 禁用内容被三色审计拦截\n")
 
