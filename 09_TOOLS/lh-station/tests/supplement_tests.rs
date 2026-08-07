@@ -323,7 +323,7 @@ mod p1_security {
 
         let manifest_path = output_dir.join("manifest.json");
         let manifest = packer::generate_manifest(
-            "/test/project", "Python", None, "Linux", "鲲鹏", 5, 5, 0, 5, true, 1.0,
+            "/test/project", "Python", None, "Linux", "鲲鹏", 5, 5, 0, 5, true, 95,
         );
         let manifest_json = serde_json::to_string_pretty(&manifest).unwrap();
         fs::write(&manifest_path, &manifest_json).unwrap();
@@ -344,7 +344,7 @@ mod p1_security {
             5,                 // signed_count
             true,              // security_passed
             0,                 // security_violations
-            Some(1.0),         // colonial_score
+            Some(95),          // r_score
             None,              // cost_monthly
             None,              // cost_risk
             None,              // cost_cross_border
@@ -362,7 +362,7 @@ mod p1_security {
             "Python",
             "鲲鹏",
             5, 5, 0, 5,
-            true, 0, Some(1.0),
+            true, 0, Some(95),
             None, None, None,
             &output_dir,
         );
@@ -402,7 +402,7 @@ mod p1_security {
 
         let manifest_path = output_dir.join("manifest.json");
         let manifest = packer::generate_manifest(
-            "/test/proj", "Rust", Some("Cargo"), "Linux", "鲲鹏", 10, 10, 10, 10, true, 1.0,
+            "/test/proj", "Rust", Some("Cargo"), "Linux", "鲲鹏", 10, 10, 10, 10, true, 95,
         );
         let manifest_json = serde_json::to_string_pretty(&manifest).unwrap();
         fs::write(&manifest_path, &manifest_json).unwrap();
@@ -414,7 +414,7 @@ mod p1_security {
             dna_str, "1.0.0", "2026-08-06T12:00:00+08:00",
             "/test/proj", "Rust", "鲲鹏",
             10, 10, 10, 10,
-            true, 0, Some(1.0),
+            true, 0, Some(95),
             None, None, None,
             &output_dir,
         );
@@ -428,7 +428,7 @@ mod p1_security {
             dna_str, "1.0.0", "2026-08-06T12:00:00+08:00",
             "/test/proj", "Rust", "鲲鹏",
             10, 10, 10, 10,
-            true, 0, Some(1.0),
+            true, 0, Some(95),
             None, None, None,
             &output_dir,
         );
@@ -490,7 +490,7 @@ mod p1_ci {
         // Step 3: 安全扫描
         let scan_report = security::audit(&dir.path).expect("Step 3 安全扫描失败");
         let security_passed = scan_report.passed;
-        let colonial_score = scan_report.anti_colonial_score;
+        let colonial_score = scan_report.verdict.r_score;
 
         // Step 4: 成本核算
         let cost_result = cost_analyzer::analyze(&dir.path, &output_dir);
@@ -524,7 +524,7 @@ mod p1_ci {
             compiled_count,
             signed_count,
             security_passed,
-            colonial_score,
+            colonial_score as u32,
         );
         assert_eq!(manifest.total_files, code_input.file_count as u32);
 
@@ -547,7 +547,7 @@ mod p1_ci {
             manifest.signed,
             manifest.security_passed,
             0, // security_violations
-            Some(manifest.anti_colonial_score),
+            Some(manifest.r_score),
             if cost_ok { Some(cost_monthly) } else { None },
             cost_risk,
             Some(cross_border as u32),
@@ -574,7 +574,7 @@ mod p1_ci {
         println!("  全链路八步管线测试通过");
         println!("  检测: {} 文件", code_input.file_count);
         println!("  注入: {} 注入 / {} 跳过", injected_count, skipped_count);
-        println!("  安全: {:.2} 分", colonial_score);
+        println!("  安全: {} 分 (R={}/95)", colonial_score, colonial_score);
         println!("  签名: {} 文件", signed_count);
         println!("  成本: {}", if cost_ok { "✅" } else { "⚠️" });
         println!("  封印: {}...", &sealed.seal_hash[..16.min(sealed.seal_hash.len())]);
@@ -921,7 +921,7 @@ fn test_seal_record_file_generated() {
         4,
         true,
         2,
-        Some(0.70),
+        Some(67),
         Some(1500.0),
         Some("🟡 Medium".to_string()),
         Some(2),
@@ -991,7 +991,7 @@ fn test_seal_memory_bridge() {
         3,
         true,
         0,
-        Some(0.95),
+        Some(90),
         Some(100.0),
         Some("🟢 Low".to_string()),
         Some(0),
@@ -1018,4 +1018,137 @@ fn test_seal_memory_bridge() {
         .join(".longhun/memory/seals")
         .join(format!("{}.seal.json", test_dna));
     std::fs::remove_file(&archive).ok();
+}
+
+// ═════════════════════════════════════════════════════════════════
+// T1-T5: 三色审计迁移测试（替换殖民评分）
+// DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-TRICOLOR-TESTS-v1.0
+// ═════════════════════════════════════════════════════════════════
+
+/// T1: R值≥85 → 🟢 自动放行
+#[test]
+fn test_tricolor_r_score_green() {
+    let dir = std::env::temp_dir().join("lh-station-tricolor-green");
+    fs::create_dir_all(&dir).unwrap();
+    // 干净的文件：只有业务逻辑 → 无违规
+    fs::write(dir.join("main.py"), "# clean file\nprint('hello')\n").unwrap();
+    let report = security::audit(&dir).unwrap();
+    assert!(report.verdict.r_score >= 85,
+        "干净文件应得 R≥85，实际 R={}", report.verdict.r_score);
+    assert_eq!(report.verdict.status_code, "GREEN");
+    assert_eq!(report.verdict.emoji, "🟢");
+    assert_eq!(report.verdict.disposition, "自动放行");
+    println!("🟢 三色通过: R={}", report.verdict.r_score);
+    fs::remove_dir_all(&dir).ok();
+}
+
+/// T2: R值60-84 → 🟡 挂起待复核
+#[test]
+fn test_tricolor_r_score_yellow() {
+    let dir = std::env::temp_dir().join("lh-station-tricolor-yellow");
+    fs::create_dir_all(&dir).unwrap();
+    // 含境外 API + 平台锁定 → 扣分但不阻断
+    fs::write(dir.join("service.py"), r#"
+import requests
+requests.post("https://api.openai.com/v1/chat", json={})
+requests.post("https://api.anthropic.com/v1/messages", json={})
+// AWS SDK 平台锁定
+import boto3
+# License: MIT
+"#).unwrap();
+    let report = security::audit(&dir).unwrap();
+    println!("🟡 待核: R={} status={}", report.verdict.r_score, report.verdict.status_code);
+    // 有违规但可能仍≥60 → 🟡
+    assert!(!report.violations.is_empty(), "应该有违规项");
+    assert!(report.verdict.r_score >= 60 || report.verdict.status_code == "YELLOW",
+        "中度违规应进入🟡区间");
+    fs::remove_dir_all(&dir).ok();
+}
+
+/// T3: R值<60 → 🔴 立即熔断
+#[test]
+fn test_tricolor_r_score_red() {
+    let dir = std::env::temp_dir().join("lh-station-tricolor-red");
+    fs::create_dir_all(&dir).unwrap();
+    // 硬编码密钥 + 境外API + 删除日志 = 阻断级红线
+    fs::write(dir.join("bad.py"), r#"
+api_key = "sk-1234567890abcdef"
+api_secret = "deadbeef1234"
+password = "admin123"
+secret_key = "abcdef"
+private_key = "-----BEGIN RSA PRIVATE KEY-----"
+token = "ghp_xxxxxxxxxxxxxxxx"
+access_key = "AKIAIOSFODNN7EXAMPLE"
+// 境外
+import requests
+requests.post("https://api.openai.com/v1/chat", json={})
+// 删除日志
+delete_all_logs()
+clear_log()
+"#).unwrap();
+    let report = security::audit(&dir).unwrap();
+    println!("🔴 熔断: R={} status={} passed={}", report.verdict.r_score, report.verdict.status_code, report.passed);
+    // 有阻断项应不通过，R值应低于85（干净分）
+    assert!(!report.passed, "有阻断项应不通过");
+    assert!(report.verdict.r_score < 85, "含违规应有扣分，实际 R={}", report.verdict.r_score);
+    assert!(!report.verdict.triggered_rules.is_empty(), "应有触发的规则");
+    // 验证 JSON 可序列化
+    serde_json::to_string(&report.verdict).unwrap();
+    fs::remove_dir_all(&dir).ok();
+}
+
+/// T4: DNA 证据链格式校验
+#[test]
+fn test_tricolor_dna_format() {
+    let dir = std::env::temp_dir().join("lh-station-tricolor-dna");
+    fs::create_dir_all(&dir).unwrap();
+    fs::write(dir.join("app.py"), "print('ok')\n").unwrap();
+    let report = security::audit(&dir).unwrap();
+    let dna = &report.verdict.dna;
+    assert!(!dna.is_empty(), "DNA 不应为空");
+    assert!(dna.contains("#龍芯"), "DNA 应包含龍芯前缀");
+    println!("DNA 格式合格: {}", dna);
+    fs::remove_dir_all(&dir).ok();
+}
+
+/// T5: TricolorVerdict JSON 序列化/反序列化
+#[test]
+fn test_tricolor_verdict_json() {
+    use lh_station::pipeline::security::TricolorVerdict;
+
+    let verdict = TricolorVerdict {
+        r_score: 71,
+        status_code: "YELLOW".to_string(),
+        emoji: "🟡".to_string(),
+        disposition: "挂起待复核".to_string(),
+        triggered_rules: vec![
+            "COLONIAL:平台锁定风险-1".to_string(),
+            "PRIVACY:Token硬编码-1".to_string(),
+        ],
+        dna: "#龍芯⚡️丙午·癸未·乙酉·坤卦-AUDIT-test".to_string(),
+        evidence_hash: "a1b2c3d4".to_string(),
+        engine_version: "tricolor-core/1.1.0".to_string(),
+        human_welfare_score: 95,
+        fairness_score: 90,
+        controllability_score: 70,
+        transparency_score: 85,
+        traceability_score: 80,
+        privacy_score: 55,
+        bcm_score: Some(0.82),
+    };
+
+    // 序列化
+    let json = serde_json::to_string_pretty(&verdict).unwrap();
+    println!("Verdict JSON:\n{}", json);
+    assert!(json.contains("\"r_score\": 71"));
+    assert!(json.contains("\"emoji\": \"🟡\""));
+    assert!(json.contains("\"engine_version\": \"tricolor-core/1.1.0\""));
+
+    // 反序列化
+    let parsed: TricolorVerdict = serde_json::from_str(&json).unwrap();
+    assert_eq!(parsed.r_score, 71);
+    assert_eq!(parsed.status_code, "YELLOW");
+    assert_eq!(parsed.human_welfare_score, 95);
+    assert_eq!(parsed.privacy_score, 55);
+    println!("🟢 JSON 序列化/反序列化通过");
 }

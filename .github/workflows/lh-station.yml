@@ -170,6 +170,53 @@ jobs:
       - name: cargo check (跨平台)
         run: cargo check --release --target ${{ matrix.target }}
 
+  # ── 🔬 行为密码学七因子实验 ──
+  bcm-experiment:
+    name: 🔬 行为密码学实验
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 🐍 Python 3
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 🔬 七因子攻击模拟实验
+        run: |
+          cd 04_ENGINES/behavioral_crypto
+          echo "━━━ 行为密码学七因子引擎 ━━━"
+          python3 seven_factor_model.py
+          echo ""
+          echo "━━━ 攻击模拟实验 (127文档×5级) ━━━"
+          python3 experiment_runner.py --docs 127 --json experiment_results.json
+          echo ""
+          echo "━━━ 实验结果 ━━━"
+          python3 -c "
+          import json
+          with open('experiment_results.json') as f:
+              d = json.load(f)
+          print(f'文檔數: {d.get(\"total_docs\", \"?\")}')
+          rr = d.get('retention_rate', 0)
+          print(f'總體保留率: {rr*100:.1f}%')
+          print(f'三色: {\"🟢\" if rr > 0.85 else \"🟡\" if rr > 0.60 else \"🔴\"}')"
+
+      - name: 📦 存档实验结果
+        uses: actions/upload-artifact@v4
+        with:
+          name: bcm-experiment-${{ github.run_id }}
+          path: 04_ENGINES/behavioral_crypto/experiment_results.json
+          retention-days: 30
+
+      - name: 📡 实验总结
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "  🔬 行为密码学实验完成"
+          echo "  引擎: behavioral-crypto-v2.0"
+          echo "  时间: $(date -u '+%Y-%m-%dT%H:%M:%SZ')"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
   # ── P0级 · 安全扫描 ──
   security-scan:
     name: 🛡️ 安全扫描
@@ -197,28 +244,79 @@ jobs:
   # ── 汇总 ──
   summary:
     name: ✅ 全量检查汇总
-    needs: [audit, build-and-test, supplement-tests, cross-check, security-scan]
+    needs: [audit, build-and-test, supplement-tests, cross-check, bcm-experiment, security-scan]
     if: always()
     runs-on: ubuntu-latest
     steps:
-      - name: 汇总结果
+      - uses: actions/checkout@v4
+
+      - name: 三色审计报告
         run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "  龍魂 lh-station CI/CD 全量汇总"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "  🐉 三色审计报告"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           echo ""
           echo "  audit            → ${{ needs.audit.result }}"
           echo "  build-and-test   → ${{ needs.build-and-test.result }}"
           echo "  supplement-tests → ${{ needs.supplement-tests.result }}"
           echo "  cross-check      → ${{ needs.cross-check.result }}"
+          echo "  bcm-experiment   → ${{ needs.bcm-experiment.result }}"
           echo "  security-scan    → ${{ needs.security-scan.result }}"
           echo ""
           if [[ "${{ needs.audit.result }}" == "success" ]] && \
              [[ "${{ needs.build-and-test.result }}" == "success" ]] && \
              [[ "${{ needs.supplement-tests.result }}" == "success" ]] && \
              [[ "${{ needs.cross-check.result }}" == "success" ]] && \
+             [[ "${{ needs.bcm-experiment.result }}" == "success" ]] && \
              [[ "${{ needs.security-scan.result }}" == "success" ]]; then
-            echo "  🟢 全量通过 · 可部署"
+            echo "  三色: 🟢 GREEN · 全量通过 · 可部署"
+            echo "  engine: tricolor-core/1.1.0"
           else
-            echo "  🔴 存在失败项 · 禁止部署"
+            echo "  三色: 🔴 RED · 存在失败项 · 禁止部署"
+            echo "  engine: tricolor-core/1.1.0"
           fi
+          echo ""
+          echo "  DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-AUDIT-CI-$(date +%s | head -c 8)"
+
+      - name: PR 评论 · 三色审计
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const auditOk = '${{ needs.audit.result }}' === 'success';
+            const buildOk = '${{ needs.build-and-test.result }}' === 'success';
+            const testOk = '${{ needs.supplement-tests.result }}' === 'success';
+            const crossOk = '${{ needs.cross-check.result }}' === 'success';
+            const bcmOk = '${{ needs.bcm-experiment.result }}' === 'success';
+            const secOk = '${{ needs.security-scan.result }}' === 'success';
+            const allPass = auditOk && buildOk && testOk && crossOk && bcmOk && secOk;
+
+            const rScore = allPass ? 95 : 45;
+            const emoji = allPass ? '🟢' : '🔴';
+            const status = allPass ? 'GREEN' : 'RED';
+            const disposition = allPass ? '自动放行' : '立即熔断';
+
+            const body = `### 🐉 三色审计报告
+
+            | 维度 | 值 |
+            |:---|:---:|
+            | R 值 | **${rScore}** |
+            | 状态 | **${emoji} ${status}** |
+            | 处置 | ${disposition} |
+            | 引擎 | tricolor-core/1.1.0 |
+
+            **CI 阶段结果:**
+            - 🔍 主权审计: ${auditOk ? '🟢' : '🔴'}
+            - 🧪 构建测试: ${buildOk ? '🟢' : '🔴'}
+            - 🧪 补充测试: ${testOk ? '🟢' : '🔴'}
+            - 🏗️ 跨平台: ${crossOk ? '🟢' : '🔴'}
+            - 🔬 BCM实验: ${bcmOk ? '🟢' : '🟡'}
+            - 🛡️ 安全扫描: ${secOk ? '🟢' : '🔴'}
+            `;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body
+            });

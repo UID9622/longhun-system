@@ -1,601 +1,931 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+<!--
+  # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+  # DNA: #龍芯⚡️丙午·丙申·戊申·亥时·䷗復-PORTAL-OFFICIAL-v4.0-UID9622
+
+       ___________
+      /           \
+     /  ◉     ◉   \
+    |     ▂▂▂      |
+    |   ┌─────┐   |
+    |   └─────┘   |
+     \    ___    /
+      \_________/
+        龍魂系统
+   uid9622.cn · v4.0
+
+  # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+  协议: MulanPSL v2 (工程层) · 创建者: 诸葛鑫 (UID9622)
+  精修: 合并 Kimi longhun888.com v3.1 + home-new.html · 修escHtml/模板字面量/CSS缺失/主题名对齐
+  变更: Kimi原版L5_服务层路径 → portal/ (正确路径) · 旧版积木拼接中心 → building-blocks.html
+-->
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="longxin">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>龍魂·积木拼接中心 | 统一总控导航面板</title>
+<meta name="description" content="龍魂系统 - 中国自主可控 AI 基础设施。退伍军人诸葛鑫创建·为人民服务·数字主权守护者。">
+<meta name="keywords" content="龍魂,AI,数字主权,中国自研,诸葛鑫,UID9622,CNSH,三才算法,20人格,三色审计">
+<meta property="og:title" content="龍魂系统 · 中国自主可控 AI">
+<meta property="og:description" content="数字主权守护者·三才算法引擎·20人格矩阵·为人民服务">
+<meta property="og:url" content="https://uid9622.cn">
+<meta property="og:type" content="website">
+<title>uid9622.cn · 龍魂系统 · 中国自主可控 AI 基础设施</title>
+<link rel="stylesheet" href="css/longhun-portal.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐉%3C/text%3E%3C/svg%3E">
 <style>
-:root {
-  --bg: #0a0a0f;
-  --bg-card: #12121a;
-  --bg-card-hover: #1a1a28;
-  --gold: #d4a843;
-  --gold-dim: #8b7355;
-  --gold-bright: #f0c860;
-  --text: #c8c8d0;
-  --text-dim: #787888;
-  --border: #2a2a38;
-  --green: #4ade80;
-  --yellow: #facc15;
-  --red: #f87171;
-  --blue: #60a5fa;
-  --purple: #a78bfa;
-  --cyan: #22d3ee;
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-  min-height: 100vh;
-  line-height: 1.5;
-}
-.container { max-width: 1600px; margin:0 auto; padding: 20px; }
+/* === 补充CSS (longhun-portal.css缺失) === */
 
-/* 头部 */
-.header {
-  text-align: center;
-  padding: 40px 0 24px;
-  border-bottom: 2px solid var(--border);
-  margin-bottom: 32px;
-}
-.header h1 {
-  font-size: 2.2em;
-  color: var(--gold);
-  letter-spacing: 4px;
-  margin-bottom: 8px;
-}
-.header .subtitle {
-  color: var(--text-dim);
-  font-size: 0.95em;
-}
-.header .stats-bar {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-.stat-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9em;
-}
-.stat-dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
-.stat-dot.online { background:var(--green); box-shadow:0 0 8px var(--green); }
-.stat-dot.offline { background:var(--red); }
-.stat-dot.partial { background:var(--yellow); }
+/* Hero精修 */
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:6px 16px;font-size:13px;color:var(--text-dim);margin-bottom:18px}
+.hero-badge .hero-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green)}
+.hero h1 .hero-title-main{display:block;font-family:var(--font-brand);color:var(--accent);text-shadow:0 0 22px var(--accent-dim)}
+.hero h1 .hero-title-sub{display:block;font-size:22px;color:var(--text-dim);font-weight:400;letter-spacing:1px;margin-top:6px}
+.hero-desc{font-size:16px;color:var(--text-dim);max-width:700px;margin:0 auto 28px;line-height:1.8}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero-dna{margin-top:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.dna-tag{font-size:11px;font-family:var(--font-mono);color:var(--gold);background:rgba(212,165,116,.08);padding:2px 8px;border-radius:4px;word-break:break-all}
+.dna-tag.confirm{color:var(--purple);background:var(--purple-dim)}
 
-/* 分类区域 */
-.section {
-  margin-bottom: 32px;
-}
-.section-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.1em;
-  color: var(--gold);
-  margin-bottom: 16px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--border);
-}
-.section-icon { font-size: 1.3em; }
+/* Stats精修 */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px}
+.stat-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:18px 10px;text-align:center;transition:.2s}
+.stat-item:hover{border-color:var(--accent);box-shadow:var(--shadow-glow)}
+.stat-num{display:block;font-size:28px;color:var(--accent);font-weight:800}
+.stat-label{font-size:12px;color:var(--text-dim);margin-top:4px;display:block}
 
-/* 卡片网格 */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px;
-}
-.card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 16px;
-  cursor: pointer;
-  transition: all 0.2s;
-  text-decoration: none;
-  color: var(--text);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  position: relative;
-  overflow: hidden;
-}
-.card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--gold-dim);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(212,168,67,0.1);
-}
-.card-icon {
-  font-size: 1.5em;
-}
-.card-title {
-  font-size: 0.92em;
-  font-weight: 600;
-  color: var(--text);
-}
-.card-desc {
-  font-size: 0.78em;
-  color: var(--text-dim);
-}
-.card-badge {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  font-size: 0.65em;
-  padding: 2px 8px;
-  border-radius: 10px;
-  background: rgba(0,0,0,0.4);
-}
-.card-badge.new { color: var(--cyan); border: 1px solid var(--cyan); }
-.card-badge.core { color: var(--gold); border: 1px solid var(--gold-dim); }
-.card-badge.wip { color: var(--yellow); border: 1px solid var(--yellow); }
+/* Section headings */
+section{padding:56px 0;border-top:1px solid var(--border)}
+section .container{position:relative}
+.section-heading{font-size:22px;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.section-desc{color:var(--text-dim);font-size:13px;margin-bottom:22px}
 
-/* 快捷命令行 */
-.cmd-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 8px;
-}
-.cmd-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: all 0.2s;
-}
-.cmd-card:hover { border-color: var(--gold-dim); background: var(--bg-card-hover); }
-.cmd-icon { font-size: 1.2em; width: 28px; text-align: center; }
-.cmd-info { flex: 1; }
-.cmd-name { font-size: 0.82em; font-weight: 600; color: var(--gold-dim); }
-.cmd-desc { font-size: 0.72em; color: var(--text-dim); }
-.cmd-code {
-  background: #1a1a28;
-  color: var(--cyan);
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 0.75em;
-  font-family: 'SF Mono', monospace;
-  white-space: nowrap;
-}
+/* Feature cards */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.feature-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:.2s}
+.feature-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow-glow)}
+.feature-card .feature-icon{font-size:28px;display:block;margin-bottom:10px}
+.feature-card h3{font-size:15px;font-weight:700;margin-bottom:6px;color:var(--text)}
+.feature-card p{font-size:12px;color:var(--text-dim);line-height:1.5}
 
-/* 服务状态面板 */
-.status-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 32px;
-}
-.status-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 16px;
-}
-.status-card h3 {
-  font-size: 0.9em;
-  color: var(--gold-dim);
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.status-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.status-chip {
-  font-size: 0.72em;
-  padding: 4px 10px;
-  border-radius: 12px;
-  background: rgba(74,222,128,0.1);
-  border: 1px solid rgba(74,222,128,0.3);
-  color: var(--green);
-}
-.status-chip.dead {
-  background: rgba(248,113,113,0.1);
-  border-color: rgba(248,113,113,0.3);
-  color: var(--red);
-}
+/* 服务矩阵 */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.service-card{display:flex;align-items:flex-start;gap:14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:.2s;text-decoration:none;color:inherit}
+.service-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow-glow)}
+.service-card .service-icon{font-size:24px;flex-shrink:0}
+.service-card h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px}
+.service-card p{font-size:12px;color:var(--text-dim)}
+.service-card .service-tag{display:inline-block;margin-top:6px;font-size:10px;background:var(--purple-dim);color:var(--purple);padding:2px 8px;border-radius:4px}
 
-/* 底部 */
-.footer {
-  text-align: center;
-  padding: 40px 0 20px;
-  color: var(--text-dim);
-  font-size: 0.78em;
-  border-top: 1px solid var(--border);
-  margin-top: 40px;
-}
-.footer .dna { color: var(--gold-dim); font-family: monospace; }
+/* 控制台 */
+.console-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.card-hover{display:block;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:.2s;text-decoration:none;color:inherit}
+.card-hover:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow-glow)}
+.card-hover .ci-icon{font-size:28px;display:block;margin-bottom:10px}
+.card-hover .ci-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
+.card-hover .ci-desc{font-size:12px;color:var(--text-dim)}
 
-/* 搜索 */
-.search-box {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 24px;
-}
-.search-box input {
-  width: 500px;
-  max-width: 90vw;
-  padding: 12px 20px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  color: var(--text);
-  font-size: 1em;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.search-box input:focus { border-color: var(--gold-dim); }
-.search-box input::placeholder { color: var(--text-dim); }
+/* AI对话预览 */
+.chat-section{background:var(--bg2);border:1px solid var(--border);border-left:none;border-right:none}
+.chat-section-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.chat-section-preview{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;max-width:400px;justify-self:center}
+.chat-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.chat-avatar{width:32px;height:32px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--bg)}
+.chat-msg{font-size:12px;color:var(--text-dim);background:var(--bg2);padding:8px 12px;border-radius:10px;margin-bottom:8px;max-width:80%}
+.chat-msg.right{background:var(--blue-dim);margin-left:auto;text-align:right;color:var(--blue)}
+.chat-input-demo{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;margin-top:12px;font-size:12px;color:var(--text-dim)}
+.fake-send{font-weight:700;color:var(--accent)}
+@keyframes dotBounce{0%,80%,100%{opacity:1;transform:translateY(0)}40%{opacity:.3;transform:translateY(-3px)}}
+
+/* DNA底栏 */
+.dna-banner{padding:40px 0;text-align:center;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.dna-line{font-family:var(--font-mono);font-size:12px;color:var(--gold);word-break:break-all;margin-top:6px}
+.gpg{font-family:var(--font-mono);font-size:11px;color:var(--text-dim);margin-top:4px}
+
+/* 导航栏增强 */
+.nav-actions{display:flex;align-items:center;gap:10px}
+.nav-chat-btn{display:flex;align-items:center;gap:6px;background:var(--accent-dim);color:var(--accent);border:1px solid var(--accent);padding:6px 14px;border-radius:8px;font-size:12px;cursor:pointer;transition:.2s}
+.nav-chat-btn:hover{background:var(--accent);color:var(--bg)}
+.nav-chat-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green)}
+.nav-bcm{background:linear-gradient(135deg, var(--accent-dim), rgba(212,175,55,0.1));padding:2px 8px;border-radius:4px;font-weight:700;border:1px solid rgba(212,175,55,0.3)}
 
 /* 响应式 */
-@media (max-width: 768px) {
-  .status-grid { grid-template-columns: 1fr; }
-  .card-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-  .header h1 { font-size: 1.5em; }
-  .stats-bar { gap: 16px; }
+@media(max-width:768px){
+  .chat-section-inner{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .nav-chat-btn{display:none}
 }
+
+/* === 术语白话化悬浮提示 === */
+.lh-term{position:relative;border-bottom:1px dashed var(--gold);cursor:help}
+.lh-term:hover .lh-term-tooltip{display:block}
+.lh-term-tooltip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  background:var(--bg2);border:1px solid var(--gold);border-radius:8px;padding:8px 14px;
+  font-size:12px;color:var(--text);white-space:nowrap;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.5);
+  max-width:360px;white-space:normal;line-height:1.6}
+.lh-term-tooltip .term-plain{display:block;color:var(--gold);font-weight:700;margin-bottom:2px}
+.lh-term-tooltip .term-meaning{display:block;color:var(--text-dim)}
+
+/* === 术语表浮动按钮 === */
+.term-glossary-btn{position:fixed;bottom:20px;right:20px;width:48px;height:48px;border-radius:50%;
+  background:var(--accent);color:#000;border:none;cursor:pointer;font-size:20px;z-index:9998;
+  box-shadow:0 4px 16px rgba(212,165,116,.3);transition:transform .2s,box-shadow .2s}
+.term-glossary-btn:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(212,165,116,.5)}
+.term-glossary-btn.active{background:var(--gold)}
+
+/* === 术语表面板 === */
+.term-glossary-panel{position:fixed;bottom:80px;right:20px;width:380px;max-height:70vh;
+  background:var(--bg2);border:1px solid var(--gold);border-radius:12px;z-index:9997;
+  box-shadow:0 8px 40px rgba(0,0,0,.6);display:none;flex-direction:column;overflow:hidden}
+.term-glossary-panel.open{display:flex}
+.term-glossary-panel-header{display:flex;justify-content:space-between;align-items:center;
+  padding:14px 18px;border-bottom:1px solid var(--border);background:var(--bg3)}
+.term-glossary-panel-header h3{color:var(--gold);font-size:15px;margin:0;font-family:var(--font-brand)}
+.term-glossary-panel-header .close-btn{background:none;border:none;color:var(--text-dim);font-size:20px;cursor:pointer}
+.term-glossary-panel-search{padding:10px 18px;border-bottom:1px solid var(--border)}
+.term-glossary-panel-search input{width:100%;padding:8px 12px;border:1px solid var(--border);
+  border-radius:8px;background:var(--bg);color:var(--text);font-size:13px;outline:none}
+.term-glossary-panel-search input:focus{border-color:var(--accent)}
+.term-glossary-panel-body{flex:1;overflow-y:auto;padding:10px 18px}
+.term-glossary-panel-body .term-item{padding:8px 0;border-bottom:1px solid var(--border);transition:background .2s}
+.term-glossary-panel-body .term-item:hover{background:var(--bg3);border-radius:4px;padding-left:6px;padding-right:6px}
+.term-glossary-panel-body .term-item:last-child{border-bottom:none}
+.term-glossary-panel-body .term-item .t-term{color:var(--gold);font-weight:600;font-size:13px;font-family:var(--font-mono)}
+.term-glossary-panel-body .term-item .t-plain{font-size:13px;color:var(--text)}
+.term-glossary-panel-body .term-item .t-meaning{font-size:11px;color:var(--text-dim);margin-top:2px}
+.term-glossary-panel-body .term-item .t-cat{font-size:10px;background:var(--bg3);padding:1px 6px;border-radius:4px;color:var(--text-dim);margin-left:6px}
+@media(max-width:768px){.term-glossary-panel{width:calc(100vw - 20px);right:10px;bottom:75px}}
 </style>
 </head>
 <body>
-<div class="container">
 
-  <!-- 头部 -->
-  <div class="header">
-    <h1>🐉 龍魂积木拼接中心</h1>
-    <div class="subtitle">一块面板 · 所有积木 · 全部连接</div>
-    <div class="stats-bar">
-      <div class="stat-item"><span class="stat-dot online"></span> Mac 本地 <span id="mac-count">--</span></div>
-      <div class="stat-item"><span class="stat-dot online"></span> 鲲鹏云端 <span id="kunpeng-count">--</span></div>
-      <div class="stat-item">📦 门户 <span id="portal-count">--</span></div>
-      <div class="stat-item">⚙️ 引擎 <span id="engine-count">--</span></div>
+<!-- ====== 导航栏 ====== -->
+<nav>
+  <div class="container nav-inner">
+    <div class="logo"><span class="brand">☰ 龍🇨🇳魂 ☷</span> uid9622.cn</div>
+    <div class="nav-links">
+      <a href="#features">能力</a>
+      <a href="#services">服务</a>
+      <a href="#persona">人格</a>
+      <a href="#api">API</a>
+      <a href="#console">控制台</a>
+      <a href="#kg">知识图谱</a>
+      <a href="#articles">文章</a>
+      <a href="#notion">Notion</a>
+      <a href="#csdn">CSDN</a>
+      <a href="#papers">论文</a>
+      <a href="#chat-section">对话</a>
+      <a href="behavioral-crypto.html" class="nav-bcm">🔬 行为密码学</a>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-chat-btn" onclick="document.getElementById('cwBubble')?.click()">
+        <span class="nav-chat-dot"></span> AI对话
+      </button>
+      <!-- 5主题切换 -->
+      <div class="theme-switcher" id="tb"></div>
     </div>
   </div>
+</nav>
 
-  <!-- 搜索 -->
-  <div class="search-box">
-    <input type="text" id="search" placeholder="🔍 搜索积木... 输入关键词如 AI / 审计 / 身份 / 安全 / 部署" oninput="filterCards()">
-  </div>
-
-  <!-- 服务状态 -->
-  <div class="status-grid">
-    <div class="status-card">
-      <h3>🖥️ Mac 本地服务 (launchd)</h3>
-      <div class="status-list" id="mac-services">加载中...</div>
+<!-- ====== Hero ====== -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stars"></div>
+  <div class="container">
+    <div class="hero-badge"><span class="hero-dot"></span> v4.0 · 龍魂人民版 · 中国自主可控</div>
+    <h1>
+      <span class="hero-title-main">龍魂系统</span>
+      <span class="hero-title-sub">长空无垠 · 魂铸中华</span>
+    </h1>
+    <p class="hero-desc">中国自主AI引擎 · 19年退伍军人诸葛鑫（UID9622）创建<br>为人民服务，不为资本黑箱服务。<br>数字主权，握在老百姓自己手里。</p>
+    <div class="hero-cta">
+      <a href="longhun-master-control.html" class="btn btn-primary">⚡ 进入控制台</a>
+      <a href="#api" class="btn btn-outline">查看 API</a>
+      <a href="data/" class="btn btn-outline">下载资源</a>
     </div>
-    <div class="status-card">
-      <h3>☁️ 鲲鹏云端服务 (systemd)</h3>
-      <div class="status-list" id="kunpeng-services">加载中...</div>
-    </div>
-  </div>
-
-  <!-- 🔥 AI 对话 -->
-  <div class="section" data-section="ai">
-    <div class="section-title"><span class="section-icon">🌐</span> AI 对话与模型</div>
-    <div class="card-grid">
-      <a href="/ai-hub/" class="card" data-keywords="AI 对话 多模型 审计 透明 对比">
-        <span class="card-badge new">NEW</span>
-        <div class="card-icon">🐉</div>
-        <div class="card-title">透明审计 AI Hub</div>
-        <div class="card-desc">多模型对话·对比·审计仪表盘·DNA追溯</div>
-      </a>
-      <a href="/ai-chat/" class="card" data-keywords="AI 聊天 对话">
-        <div class="card-icon">💬</div>
-        <div class="card-title">AI 对话</div>
-        <div class="card-desc">单模型深度对话</div>
-      </a>
-      <a href="/ai-chats/" class="card" data-keywords="AI 多聊天 多会话">
-        <div class="card-icon">🗨️</div>
-        <div class="card-title">AI 多会话</div>
-        <div class="card-desc">多会话并行管理</div>
-      </a>
-      <a href="/notion-bridge/" class="card" data-keywords="Notion 对话桥 玄機閣 多模型 人格 RAG">
-        <span class="card-badge new">NEW</span>
-        <div class="card-icon">🌀</div>
-        <div class="card-title">Notion 对话桥 · 玄機閣</div>
-        <div class="card-desc">本地模型 + 在线API · 人格路由 · RAG · 记忆共享</div>
-      </a>
+    <div class="hero-dna">
+      <span class="dna-tag">DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-PORTAL-v4.0</span>
+      <span class="dna-tag confirm">#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</span>
     </div>
   </div>
+</header>
 
-  <!-- 🛡️ 审计与安全 -->
-  <div class="section" data-section="audit">
-    <div class="section-title"><span class="section-icon">🛡️</span> 审计与安全</div>
-    <div class="card-grid">
-      <a href="/audit-battle-hub/" class="card" data-keywords="审计 三色 闸口 检查">
-        <span class="card-badge core">核心</span>
-        <div class="card-icon">⚔️</div>
-        <div class="card-title">审计对决中心</div>
-        <div class="card-desc">三色审计·十道闸口·P05核心</div>
-      </a>
-      <a href="/deben-audit/" class="card" data-keywords="德本 离火运 五问 道德">
-        <span class="card-badge core">核心</span>
-        <div class="card-icon">🔥</div>
-        <div class="card-title">德本审计</div>
-        <div class="card-desc">离火运五问·德在技术前</div>
-      </a>
-      <a href="/civil-audit/" class="card" data-keywords="民间 审计 公众">
-        <div class="card-icon">🏛️</div>
-        <div class="card-title">民间审计</div>
-        <div class="card-desc">公众审计入口</div>
-      </a>
-      <a href="/five-harms-expose/" class="card" data-keywords="五害 曝光 揭发">
-        <div class="card-icon">⚠️</div>
-        <div class="card-title">五害曝光台</div>
-        <div class="card-desc">五类危害行为曝光</div>
-      </a>
-      <a href="/data-radar/" class="card" data-keywords="数据 雷达 监控 检测">
-        <div class="card-icon">📡</div>
-        <div class="card-title">数据雷达</div>
-        <div class="card-desc">数据流动监控检测</div>
-      </a>
-      <a href="/mental-immune/" class="card" data-keywords="心理 免疫 精神 防护">
-        <div class="card-icon">🧠</div>
-        <div class="card-title">心理免疫</div>
-        <div class="card-desc">精神防护·焦虑检测</div>
-      </a>
+<!-- ====== 实时统计 ====== -->
+<section class="stats" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item"><b id="stat-modules">15</b><span>功能模块</span></div>
+      <div class="stat-item"><b id="stat-persona">--</b><span>人格矩阵</span></div>
+      <div class="stat-item"><b id="stat-services">11</b><span>在线服务</span></div>
+      <div class="stat-item"><b id="stat-resources">8</b><span>下载资源</span></div>
+      <div class="stat-item"><b id="stat-pages">25</b><span>子页面</span></div>
+      <div class="stat-item"><b id="stat-sovereign">本地</b><span>数据主权</span></div>
     </div>
   </div>
+</section>
 
-  <!-- 🧬 身份与DNA -->
-  <div class="section" data-section="identity">
-    <div class="section-title"><span class="section-icon">🧬</span> 身份与DNA</div>
-    <div class="card-grid">
-      <a href="/dna-generator/" class="card" data-keywords="DNA 追溯 生成 干支 卦">
-        <span class="card-badge core">核心</span>
-        <div class="card-icon">🧬</div>
-        <div class="card-title">DNA追溯生成器</div>
-        <div class="card-desc">天干地支·64卦·全生命周期</div>
-      </a>
-      <a href="/dna-identity/" class="card" data-keywords="DNA 身份 注册 登记">
-        <div class="card-icon">🪪</div>
-        <div class="card-title">DNA身份登记</div>
-        <div class="card-desc">资产注册·归属验证</div>
-      </a>
-      <a href="/seven-factor-identity/" class="card" data-keywords="七因子 身份 验证 认证">
-        <div class="card-icon">🔐</div>
-        <div class="card-title">七因子身份核验</div>
-        <div class="card-desc">六重认证链·设备指纹</div>
-      </a>
-      <a href="/pgp/" class="card" data-keywords="PGP GPG 密钥 签名">
-        <div class="card-icon">✍️</div>
-        <div class="card-title">PGP/GPG密钥</div>
-        <div class="card-desc">密钥管理·签名验证</div>
-      </a>
-      <a href="/digital-legacy/" class="card" data-keywords="数字 遗产 传承">
-        <div class="card-icon">📜</div>
-        <div class="card-title">数字遗产</div>
-        <div class="card-desc">数字资产传承规划</div>
-      </a>
-    </div>
+<!-- ====== 功能模块 15张 ====== -->
+<section id="features">
+  <div class="container">
+    <h2 class="section-heading">⚙️ 功能模块</h2>
+    <p class="section-desc">15个核心模块覆盖AI全栈：从算法审计到知识管理，从人格路由到记忆永恒</p>
+    <div class="features-grid" id="features-grid"></div>
   </div>
+</section>
 
-  <!-- 📚 知识与文档 -->
-  <div class="section" data-section="knowledge">
-    <div class="section-title"><span class="section-icon">📚</span> 知识与文档</div>
-    <div class="card-grid">
-      <a href="/knowledge-matrix/" class="card" data-keywords="知识 矩阵 图谱">
-        <div class="card-icon">🗺️</div>
-        <div class="card-title">知识矩阵</div>
-        <div class="card-desc">知识图谱可视化</div>
+<!-- ====== 服务矩阵 11张 ====== -->
+<section id="services">
+  <div class="container">
+    <h2 class="section-heading">🌐 龍魂服务矩阵</h2>
+    <p class="section-desc">从知识到安全，从审计到创作——龍魂体系的完整服务入口</p>
+    <div class="services-grid" id="services-grid"></div>
+  </div>
+</section>
+
+<!-- ====== 人格报表 ====== -->
+<section id="persona">
+  <div class="container">
+    <h2 class="section-heading">🏛️ 人格内阁报表</h2>
+    <p class="section-desc">20人格实时评分·绩效排名·需关注事项</p>
+    <div id="persona-overview"></div>
+    <div style="overflow-x:auto;margin-top:16px;">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead id="persona-thead"></thead>
+        <tbody id="persona-tbody"></tbody>
+      </table>
+    </div>
+    <div id="persona-attention" style="margin-top:12px;"></div>
+    <div id="persona-dna" style="text-align:center;font-size:11px;color:var(--text-dim);margin-top:10px;"></div>
+  </div>
+</section>
+
+<!-- ====== API 接口 ====== -->
+<section id="api">
+  <div class="container">
+    <h2 class="section-heading">📡 API 接口</h2>
+    <p class="section-desc">龍魂系统对外API端点（来自 CNSH OpenAPI 规范）</p>
+    <div id="api-list"></div>
+  </div>
+</section>
+
+<!-- ====== 控制台 ====== -->
+<section id="console">
+  <div class="container">
+    <h2 class="section-heading">🖥️ 控制台</h2>
+    <p class="section-desc">龍魂系统的各个控制入口</p>
+    <div class="console-grid">
+      <a href="longhun-master-control.html" class="card-hover">
+        <span class="ci-icon">🎛️</span>
+        <div class="ci-title">主控台</div>
+        <div class="ci-desc">九宫调度·服务启停·一键同步</div>
       </a>
-      <a href="/cnsh-dictionary/" class="card" data-keywords="CNSH 字典 术语 中文编程">
-        <div class="card-icon">📖</div>
-        <div class="card-title">CNSH标准词典</div>
-        <div class="card-desc">中华自主编程语言字典</div>
+      <a href="p0-controls/" class="card-hover">
+        <span class="ci-icon">🛡️</span>
+        <div class="ci-title">P0 控制面板</div>
+        <div class="ci-desc">31项审计·安全·熔断·签章</div>
       </a>
-      <a href="/protocol-structure/" class="card" data-keywords="协议 结构 架构">
-        <div class="card-icon">📋</div>
-        <div class="card-title">协议结构</div>
-        <div class="card-desc">协议体系总览</div>
+      <a href="dna-registry/" class="card-hover">
+        <span class="ci-icon">🧬</span>
+        <div class="ci-title">DNA 登记处</div>
+        <div class="ci-desc">资产登记·身份注册·归属验证</div>
       </a>
-      <a href="/manifesto/" class="card" data-keywords="宣言 声明">
-        <div class="card-icon">📢</div>
-        <div class="card-title">龍魂宣言</div>
-        <div class="card-desc">系统使命与价值观</div>
+      <a href="longhun-flow-field-v9.html" class="card-hover">
+        <span class="ci-icon">🌊</span>
+        <div class="ci-title">流场可视化</div>
+        <div class="ci-desc">人格路由·数据流·决策流·实时拓扑</div>
       </a>
-      <a href="https://uid9622.cn:8766" class="card" data-keywords="知识库 知识 检索 API" target="_blank">
-        <div class="card-icon">🎓</div>
-        <div class="card-title">知识中枢 API</div>
-        <div class="card-desc">:8766 统一知识检索</div>
+      <a href="CNSH_龍魂控制台v4.0.html" class="card-hover">
+        <span class="ci-icon">⌨️</span>
+        <div class="ci-title">CNSH 控制台</div>
+        <div class="ci-desc">中文编程环境·神经符号混合</div>
       </a>
     </div>
   </div>
+</section>
 
-  <!-- 🎨 创作与媒体 -->
-  <div class="section" data-section="media">
-    <div class="section-title"><span class="section-icon">🎨</span> 创作与媒体</div>
-    <div class="card-grid">
-      <a href="/video-studio/" class="card" data-keywords="视频 创作 制作">
-        <div class="card-icon">🎬</div>
-        <div class="card-title">视频工坊</div>
-        <div class="card-desc">AI视频制作·配音·字幕</div>
-      </a>
-      <a href="https://uid9622.cn:9631" class="card" data-keywords="搜索 搜索引擎 Bing" target="_blank">
-        <div class="card-icon">🏹</div>
-        <div class="card-title">搜索引擎</div>
-        <div class="card-desc">:9631 多源搜索</div>
-      </a>
+<!-- ====== 知识图谱 ====== -->
+<section id="kg">
+  <div class="container">
+    <h2 class="section-heading">🧠 龍魂知识图谱</h2>
+    <p class="section-desc" style="margin-bottom:18px;">节点 · 边 · 数据源统计（端口8444）</p>
+    <div id="kg-stats"></div>
+  </div>
+</section>
+
+<!-- ====== 文章 ====== -->
+<section id="articles">
+  <div class="container">
+    <h2 class="section-heading">📝 文章</h2>
+    <p class="section-desc" style="margin-bottom:18px;">龍魂系统核心白皮书与实践指南</p>
+    <div id="articles-list"></div>
+  </div>
+</section>
+
+<!-- ====== Notion 导航 ====== -->
+<section id="notion">
+  <div class="container">
+    <h2 class="section-heading">📋 Notion 导航</h2>
+    <p class="section-desc" style="margin-bottom:18px;">龍魂体系在 Notion 上的完整知识库导航</p>
+    <div id="notion-list"></div>
+  </div>
+</section>
+
+<!-- ====== CSDN 文章 ====== -->
+<section id="csdn">
+  <div class="container">
+    <h2 class="section-heading">📰 CSDN 文章</h2>
+    <p class="section-desc" style="margin-bottom:18px;">已同步到 CSDN 的技术文章（来自 data/csdn_articles.json）</p>
+    <div id="csdn-list"></div>
+  </div>
+</section>
+
+<!-- ====== 论文 ====== -->
+<section id="papers">
+  <div class="container">
+    <h2 class="section-heading">📄 论文</h2>
+    <p class="section-desc" style="margin-bottom:18px;">龍魂系统相关学术论文</p>
+    <div id="papers-list"></div>
+  </div>
+</section>
+
+<!-- ====== AI 对话预览 ====== -->
+<section id="chat-section" class="chat-section">
+  <div class="container">
+    <div class="chat-section-inner">
+      <div class="chat-section-text">
+        <h2 class="section-heading" style="text-align:left;">💬 和龍魂直接对话</h2>
+        <p style="font-size:14px;color:var(--text-dim);line-height:1.8;">点击右下角悬浮气泡打开 AI 对话框。<br>龍魂AI基于自主训练模型，回答关于龍魂系统、技术问题、知识查询等各类问题。</p>
+        <button class="btn btn-primary" style="margin-top:16px;padding:12px 24px;font-size:14px;" onclick="document.getElementById('cwBubble')?.click()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:4px;"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+          打开 AI 对话框
+        </button>
+        <p style="font-size:11px;color:var(--text-dim);opacity:.5;margin-top:8px;">对话不上传云端 · 本地浏览器存储 · 隐私优先</p>
+      </div>
+      <div class="chat-section-preview">
+        <div class="chat-header">
+          <div class="chat-avatar">龍</div>
+          <div style="font-size:13px;color:var(--gold);font-weight:600;">龍魂 AI</div>
+        </div>
+        <div class="chat-msg">你好！我是龍魂AI助手 👋</div>
+        <div class="chat-msg right">龍魂系统是什么？</div>
+        <div class="chat-msg">龍魂系统是由退伍军人诸葛鑫（UID9622）创建的中国自主AI体系，基于三才算法和洛书369哲学底座，包含20个人格矩阵和192个执行引擎...</div>
+        <div class="chat-msg right">核心原则是什么？</div>
+        <div class="chat-msg">
+          <span style="display:inline-block;animation:dotBounce 1.4s infinite;width:5px;height:5px;border-radius:50%;background:var(--gold);">.</span>
+          <span style="display:inline-block;animation:dotBounce 1.4s infinite;animation-delay:.2s;width:5px;height:5px;border-radius:50%;background:var(--gold);margin:0 2px;">.</span>
+          <span style="display:inline-block;animation:dotBounce 1.4s infinite;animation-delay:.4s;width:5px;height:5px;border-radius:50%;background:var(--gold);margin:0 2px;">.</span>
+        </div>
+        <div class="chat-input-demo">
+          <span>随时提问...</span>
+          <div class="fake-send">➤</div>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- 🔬 实验室 -->
-  <div class="section" data-section="lab">
-    <div class="section-title"><span class="section-icon">🔬</span> 实验室</div>
-    <div class="card-grid">
-      <a href="/warp-lab/" class="card" data-keywords="实验 翘曲 时空 探索">
-        <span class="card-badge core">核心</span>
-        <div class="card-icon">🌀</div>
-        <div class="card-title">Warp实验室</div>
-        <div class="card-desc">前沿实验·翘曲时空</div>
-      </a>
-      <a href="/evolution/" class="card" data-keywords="进化 演化 演进">
-        <div class="card-icon">🧪</div>
-        <div class="card-title">进化实验室</div>
-        <div class="card-desc">系统演进追踪</div>
-      </a>
-      <a href="/unified-visual/" class="card" data-keywords="可视化 统一 视觉">
-        <div class="card-icon">📊</div>
-        <div class="card-title">统一可视化</div>
-        <div class="card-desc">全系统数据可视化</div>
-      </a>
+<!-- ====== 下载资源 ====== -->
+<section id="downloads">
+  <div class="container">
+    <h2 class="section-heading">📦 下载资源</h2>
+    <p class="section-desc" style="margin-bottom:18px;">龍魂字体·SDK·工具（点击自动校验可用性）</p>
+    <div class="features-grid" id="downloads-grid"></div>
+  </div>
+</section>
+
+<!-- ====== 🔬 行为密码学 ====== -->
+<section id="bcm">
+  <div class="container">
+    <div class="section-title"><span class="section-num bc">🔬</span>行为密码学引擎 v2.0</div>
+    <div class="section-desc">七因子行为指纹 · AIGC来源追溯 · 不可伪造的数字DNA</div>
+    <div style="max-width:900px;margin:0 auto;">
+      <div class="feature-grid mt-40">
+        <div class="feature-card" style="text-align:center">
+          <div class="feature-icon bc">🔬</div>
+          <h4>七因子行为指纹</h4>
+          <p>身份DNA · 时间锚定 · 内容哈希(SM3) · 风格向量 · 保护词汇 · 长期风格 · 纠错账本</p>
+        </div>
+        <div class="feature-card" style="text-align:center">
+          <div class="feature-icon bc">⚔️</div>
+          <h4>五级攻击模拟</h4>
+          <p>L0-L4: 无攻击→轻微改写→风格模仿→部分伪造→完全AI重写 · 实测抗攻击保留率70.8%+</p>
+        </div>
+        <div class="feature-card" style="text-align:center">
+          <div class="feature-icon bc">🌐</div>
+          <h4>主权REST API</h4>
+          <p>9端点(:8775) · 主权中间件 · X-Longhun-DNA · 双许可证(CC+BY·NC·SA + MulanPSL v2)</p>
+        </div>
+      </div>
+      <div style="margin-top:32px;text-align:center">
+        <a href="behavioral-crypto.html" class="cta-button">打开完整仪表板 →</a>
+        <span style="margin:0 16px;color:var(--text-dim)">|</span>
+        <code style="background:var(--bg2);padding:6px 14px;border-radius:6px;font-size:14px;color:var(--gold)">lh bcm</code>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- 🏛️ 文化与治理 -->
-  <div class="section" data-section="culture">
-    <div class="section-title"><span class="section-icon">🏛️</span> 文化与治理</div>
-    <div class="card-grid">
-      <a href="/rite-blade/" class="card" data-keywords="国魂 民族 文化 礼仪 之刃 规范">
-        <div class="card-icon">⚔️</div>
-        <div class="card-title">礼之刃</div>
-        <div class="card-desc">礼仪规范与边界</div>
-      </a>
-      <a href="/dna-generator/" class="card" data-keywords="记忆 永恒 铭记 文化 DNA 追溯">
-        <div class="card-icon">💎</div>
-        <div class="card-title">DNA记忆锚点</div>
-        <div class="card-desc">永生DNA·不朽记忆</div>
-      </a>
-      <a href="/pangdonglai/" class="card" data-keywords="胖东来 经营 理念">
-        <div class="card-icon">🏪</div>
-        <div class="card-title">胖东来启示</div>
-        <div class="card-desc">善待员工·善待顾客</div>
-      </a>
-      <a href="/team-orchestrator/" class="card" data-keywords="团队 编排 协作">
-        <div class="card-icon">🎭</div>
-        <div class="card-title">团队编排器</div>
-        <div class="card-desc">人格团队协作调度</div>
-      </a>
+<!-- ====== DNA 底栏 ====== -->
+<div class="dna-banner">
+  <div class="container">
+    <div style="margin-bottom:12px;font-size:11px;color:var(--gold);letter-spacing:2px;">DNA · 全生命周期追溯</div>
+    <div class="dna-line">#龍芯⚡️丙午·丙申·戊申·亥时·䷗復-UID9622-OFFICIAL-PORTAL-v4.0-a3b7f0e2</div>
+    <div class="gpg">GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</div>
+    <div style="margin-top:12px;font-size:12px;color:var(--text-dim);">
+      龍魂系统 · 中国自主可控 · 数据主权归人民
     </div>
   </div>
-
-  <!-- 🔧 工具与配置 -->
-  <div class="section" data-section="tools">
-    <div class="section-title"><span class="section-icon">🔧</span> 工具与配置</div>
-    <div class="card-grid">
-      <a href="/antenna-8gate/" class="card" data-keywords="天线 八门 信号">
-        <div class="card-icon">📶</div>
-        <div class="card-title">天线八门</div>
-        <div class="card-desc">八门信号接收器</div>
-      </a>
-      <a href="/guanlan/" class="card" data-keywords="观澜 观察 监控">
-        <div class="card-icon">🔭</div>
-        <div class="card-title">观澜台</div>
-        <div class="card-desc">系统监控观察台</div>
-      </a>
-      <a href="/guanlan/" class="card" data-keywords="仪表盘 面板 状态 监控 观察">
-        <div class="card-icon">🎛️</div>
-        <div class="card-title">观澜监控台</div>
-        <div class="card-desc">系统监控·状态面板</div>
-      </a>
-    </div>
-  </div>
-
-  <!-- ⚙️ 快捷命令行 -->
-  <div class="section">
-    <div class="section-title"><span class="section-icon">⚙️</span> 常用命令速查</div>
-    <div class="cmd-grid">
-      <div class="cmd-card"><div class="cmd-icon">🖥️</div><div class="cmd-info"><div class="cmd-name">交互控制台</div><div class="cmd-desc">总入口·路由所有命令</div></div><span class="cmd-code">lh</span></div>
-      <div class="cmd-card"><div class="cmd-icon">🔍</div><div class="cmd-info"><div class="cmd-name">多源搜索</div><div class="cmd-desc">Bing·缓存·审计</div></div><span class="cmd-code">lh search "xx"</span></div>
-      <div class="cmd-card"><div class="cmd-icon">🛡️</div><div class="cmd-info"><div class="cmd-name">三色审计</div><div class="cmd-desc">十道闸口·全链路</div></div><span class="cmd-code">lh audit</span></div>
-      <div class="cmd-card"><div class="cmd-icon">📊</div><div class="cmd-info"><div class="cmd-name">系统状态</div><div class="cmd-desc">服务·引擎·端口</div></div><span class="cmd-code">lh status</span></div>
-      <div class="cmd-card"><div class="cmd-icon">🚀</div><div class="cmd-info"><div class="cmd-name">鲲鹏同步</div><div class="cmd-desc">一键推送鲲鹏</div></div><span class="cmd-code">bash deploy/sync-to-kunpeng.sh</span></div>
-      <div class="cmd-card"><div class="cmd-icon">✍️</div><div class="cmd-info"><div class="cmd-name">GPG签名</div><div class="cmd-desc">全量分离签名</div></div><span class="cmd-code">python3 bin/lh_gpg_sign.py sign .</span></div>
-      <div class="cmd-card"><div class="cmd-icon">🐉</div><div class="cmd-info"><div class="cmd-name">AI Hub启动</div><div class="cmd-desc">透明审计多模型</div></div><span class="cmd-code">lh ai-hub</span></div>
-      <div class="cmd-card"><div class="cmd-icon">🧬</div><div class="cmd-info"><div class="cmd-name">DNA生成</div><div class="cmd-desc">天干地支·64卦</div></div><span class="cmd-code">lh dna --title "xx"</span></div>
-      <div class="cmd-card"><div class="cmd-icon">🎬</div><div class="cmd-info"><div class="cmd-name">视频制作</div><div class="cmd-desc">AI配音·字幕</div></div><span class="cmd-code">lh video --script 稿.txt</span></div>
-      <div class="cmd-card"><div class="cmd-icon">🏥</div><div class="cmd-info"><div class="cmd-name">健康检查</div><div class="cmd-desc">自愈·Bark推送</div></div><span class="cmd-code">bash deploy/scripts/health_check.sh</span></div>
-      <div class="cmd-card"><div class="cmd-icon">🔗</div><div class="cmd-info"><div class="cmd-name">对齐检查</div><div class="cmd-desc">全项目一致性</div></div><span class="cmd-code">lh --align check</span></div>
-      <div class="cmd-card"><div class="cmd-icon">📡</div><div class="cmd-info"><div class="cmd-name">全部启动</div><div class="cmd-desc">Mac全服务</div></div><span class="cmd-code">bash bin/start_all.sh</span></div>
-    </div>
-  </div>
-
-  <!-- 底部 -->
-  <div class="footer">
-    <p>龍魂系统 · 积木拼接中心 v1.0</p>
-    <p class="dna">#龍芯⚡️丙午·丙申·戊申·积木拼接·UNIFIED-PORTAL-v1.0</p>
-    <p style="margin-top:8px;">创建者: 诸葛鑫（UID9622） | GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</p>
-    <p>所有积木已连接 · 一个入口访问一切</p>
-  </div>
-
 </div>
 
+<!-- ====== 页脚 ====== -->
+<footer>
+  <div class="container">
+    <p>© 2026 诸葛鑫（UID9622）· 龍魂系统 · uid9622.cn</p>
+    <p>协议: 核心思想层 CC BY-NC-SA 4.0 · 工程代码层 MulanPSL v2</p>
+    <p style="margin-top:6px;">中国自主知识产权 · 不删只冻结 · 全生命周期DNA追溯 · 为人民服务</p>
+  </div>
+</footer>
+
+<!-- ====== Toast ====== -->
+<div class="toast" id="toast"></div>
+
+<!-- ====== Chat Widget ====== -->
+<script src="/chat-widget.js"></script>
+
+<!-- ══════════════════════════════════════════════════════════
+     龍魂门户 JS · 全部重写 · 精修Bug
+     修: escHtml未定义·模板字面量语法错误·Python join混入·CSS变量缺失·主题名不对齐
+     ══════════════════════════════════════════════════════════ -->
 <script>
-// 搜索过滤
-function filterCards() {
-  const q = document.getElementById('search').value.toLowerCase().trim();
-  document.querySelectorAll('.card').forEach(card => {
-    const kw = (card.dataset.keywords || '') + ' ' + card.textContent;
-    if (!q || kw.toLowerCase().includes(q)) {
-      card.style.display = '';
-    } else {
-      card.style.display = 'none';
+// ─── 工具函数 ───
+function escHtml(s){return String(s).replace(/[&<>"']/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]})}
+function showToast(m,d){d=d||2000;var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},d)}
+async function loadJSON(u){try{var r=await fetch(u);if(!r.ok)throw Error('HTTP '+r.status);return await r.json()}catch(e){console.warn('loadJSON('+u+'):',e.message);return null}}
+function makeLink(h,t,ex){var a=document.createElement('a');a.href=h;a.textContent=t;if(ex!==false)a.target='_blank';return a}
+function makeMeta(t){var s=document.createElement('span');s.className='meta';s.textContent=t;return s}
+function setText(id,t){var e=document.getElementById(id);if(e)e.textContent=t}
+
+// ─── 主题切换 (5色,对齐CSS: longxin/tongxinyi/longhun/junzi/audit) ───
+(function(){
+  var themes=['longxin','tongxinyi','longhun','junzi','audit'];
+  var labels=['龍芯⚡️','通心譯','龍魂','君子','審計'];
+  var colors=['#FFD700','#c084fc','#f87171','#22d3ee','#60a5fa'];
+  var saved=localStorage.getItem('longhun-theme')||'longxin';
+  if(themes.indexOf(saved)!==-1)document.documentElement.setAttribute('data-theme',saved);
+  var tb=document.getElementById('tb');
+  themes.forEach(function(t,i){
+    var d=document.createElement('span');
+    d.className='theme-dot';
+    d.title=labels[i];
+    d.setAttribute('data-theme',t);
+    d.style.background=colors[i];
+    if(t===saved)d.classList.add('active');
+    d.addEventListener('click',function(){
+      document.documentElement.setAttribute('data-theme',t);
+      localStorage.setItem('longhun-theme',t);
+      document.querySelectorAll('.theme-dot').forEach(function(x){x.classList.remove('active')});
+      d.classList.add('active');
+    });
+    tb.appendChild(d);
+  });
+})();
+
+// ─── 15张功能模块 ───
+(function(){
+  var fs=[
+    {i:'🛡️',t:'三色审计',d:'🟢通过·🟡待核·🔴红线·10道闸口'},
+    {i:'🔐',t:'PGP签名认证',d:'GPG分离签名·批量签验·1574+.asc'},
+    {i:'🧬',t:'DNA追溯',d:'v∞干支卦DNA·全生命周期追溯'},
+    {i:'⚖️',t:'德本审计',d:'离火运五问·德在技术前'},
+    {i:'🌐',t:'CNSH编程语言',d:'中文神经符号混合·繁体龍永存'},
+    {i:'🧠',t:'20人格矩阵',d:'16核心+1安全+3子系统·职能路由'},
+    {i:'📡',t:'多源搜索',d:'Bing搜索+深度提取+来源审计'},
+    {i:'🏥',t:'自愈巡检',d:'每小时巡检·自动重启·Bark推送'},
+    {i:'🔥',t:'四级熔断',d:'∞伦理·L1数据·L2人格·L3行为'},
+    {i:'💎',t:'记忆永恒',d:'数字遗产·人生档案·不可篡改'},
+    {i:'📊',t:'审计复盘',d:'执行记录回溯·差错对比·改进建议'},
+    {i:'🗜️',t:'记忆压缩',d:'日志归档·摘要生成·冗余消除'},
+    {i:'🔗',t:'IP资产/数字永恒',d:'原创声明·版权登记·数字水印'},
+    {i:'⌨️',t:'CNSH中文编辑器',d:'在线中文编程（待接入）'},
+    {i:'🧭',t:'人格路由/Bra-Ket',d:'意图解析·Bra-Ket量子路由（待接入）'}
+  ];
+  var g=document.getElementById('features-grid');
+  fs.forEach(function(f){
+    var c=document.createElement('div');c.className='feature-card';
+    c.innerHTML='<span class="feature-icon">'+f.i+'</span><h3>'+f.t+'</h3><p>'+f.d+'</p>';
+    g.appendChild(c);
+  });
+})();
+
+// ─── 服务矩阵 ───
+(function(){
+  var ss=[
+    {i:'📚',t:'知识中枢',d:'知识卡片·语义检索',u:'https://uid9622.cn/knowledge',tg:'热门'},
+    {i:'🌐',t:'浏览器史官',d:'浏览记录本地索引·隐私优先',u:'https://uid9622.cn/browser-historian'},
+    {i:'🎯',t:'猎手排行榜',d:'算法猎手·漏洞挖掘',u:'https://uid9622.cn/hunter'},
+    {i:'⚖️',t:'五害曝光台',d:'反诈·反霸·反黑·反假·反套',u:'https://uid9622.cn/five-harms-expose'},
+    {i:'🏮',t:'民族魂',d:'文化传承·历史记忆',u:'https://uid9622.cn/national-soul'},
+    {i:'如意',t:'CNSH如意',d:'中文AI编程·神经符号混合',u:'https://uid9622.cn/cnsh-ruyi',tg:'新'},
+    {i:'💎',t:'永恒记忆',d:'数字遗产·人生档案',u:'https://uid9622.cn/memory-eternity'},
+    {i:'📖',t:'软文化',d:'AI时代人文思考',u:'https://uid9622.cn/soft-culture'},
+    {i:'🚀',t:'曲速引擎',d:'Alcubierre度量·3D曲速泡',u:'https://uid9622.cn/warp-lab',tg:'新'},
+    {i:'🧭',t:'路径规划',d:'八阵·A*·蚁群·D* Lite',u:'https://uid9622.cn/pathfinder-lab',tg:'新'},
+    {i:'🎫',t:'激活经济舱',d:'一元起步·实名支付·MFA绑定',u:'https://uid9622.cn/activation-lab',tg:'新'}
+  ];
+  var g=document.getElementById('services-grid');
+  ss.forEach(function(s){
+    var a=document.createElement('a');a.href=s.u;a.className='service-card';a.target='_blank';
+    var tg=s.tg?'<span class="service-tag">'+s.tg+'</span>':'';
+    a.innerHTML='<span class="service-icon">'+s.i+'</span><div><h4>'+s.t+'</h4><p>'+s.d+'</p>'+tg+'</div>';
+    g.appendChild(a);
+  });
+})();
+
+// ─── 下载资源 ───
+(function(){
+  var ds=[
+    {n:'龍魂字体 v1.0',f:'downloads/fonts/LonghunFont-Regular.otf',d:'龍魂专用字体 (OTF)'},
+    {n:'龍魂五彩字体',f:'downloads/fonts/LonghunFont-WuwuColor.otf',d:'彩色字体 (仅9字符)'},
+    {n:'三色审计 Python SDK',f:'downloads/longhun-tricolor-py.tar.gz',d:'pip install 一行调用'},
+    {n:'三色审计 JS SDK',f:'downloads/longhun-tricolor-js.tar.gz',d:'浏览器/Node/小程序通用'},
+    {n:'CNSH 编译器',f:'downloads/cnsh-compiler.tar.gz',d:'中文→Python翻译引擎'},
+    {n:'龍魂记忆 SDK',f:'downloads/longhun-memory.tar.gz',d:'统一记忆系统·Rust FFI'},
+    {n:'lh-station CLI',f:'downloads/lh-station.tar.gz',d:'主权转换·DNA注入·GPG签章'},
+    {n:'龍魂守护 Daemon',f:'downloads/longhun-guardian.tar.gz',d:'自愈·熔断·健康上报'}
+  ];
+  var g=document.getElementById('downloads-grid');
+  ds.forEach(function(d){
+    var c=document.createElement('div');c.className='feature-card';c.style.cursor='pointer';
+    c.innerHTML='<span class="feature-icon">📦</span><h3>'+d.n+'</h3><p>'+d.d+'</p><span style="font-size:11px;color:var(--accent);display:block;margin-top:8px;">点击校验下载</span>';
+    c.addEventListener('click',function(){
+      fetch(d.f,{method:'HEAD'}).then(function(r){
+        r.ok?window.location.href=d.f:showToast('⚠ '+d.n+' 暂不可用');
+      }).catch(function(){showToast('⚠ '+d.n+' 不可达')});
+    });
+    g.appendChild(c);
+  });
+})();
+
+// ─── 统计 ───
+(function(){
+  setText('stat-modules','15');
+  setText('stat-services','11');
+  setText('stat-resources','8');
+  setText('stat-pages','25');
+  loadJSON('data/persona_report.json').then(function(d){
+    setText('stat-persona',d&&d.summary?(d.summary.active||0)+'/'+(d.summary.total_personas||'?'):'-');
+  });
+})();
+
+// ─── API ───
+loadJSON('data/cnsh_openapi.json').then(function(sp){
+  var ct=document.getElementById('api-list');
+  if(!sp||!sp.paths){ct.innerHTML='<div class="error">API 数据未加载</div>';return}
+  var w=document.createElement('div');
+  Object.entries(sp.paths).forEach(function(pe){
+    var path=pe[0],methods=pe[1];
+    Object.entries(methods).forEach(function(me){
+      var m=me[0],info=me[1];
+      if(['get','post','put','delete'].indexOf(m)===-1)return;
+      var ep=document.createElement('div');ep.className='endpoint';
+      ep.innerHTML='<span class="method">'+m.toUpperCase()+'</span><code>/api/v1'+path+'</code><p>'+(info.summary||info.description||'')+'</p>';
+      w.appendChild(ep);
+    });
+  });
+  ct.innerHTML='';ct.appendChild(w);
+});
+
+// ─── 知识图谱 ───
+fetch('http://127.0.0.1:8444/api/unified/stats').then(function(r){return r.json()}).then(function(s){
+  var ct=document.getElementById('kg-stats');
+  ct.innerHTML='<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">'+
+    '<div class="card" style="text-align:center;padding:16px"><b style="font-size:28px;color:var(--accent)">'+(s.node_count||0)+'</b><p style="font-size:11px;color:var(--text-dim);margin-top:4px">节点</p></div>'+
+    '<div class="card" style="text-align:center;padding:16px"><b style="font-size:28px;color:var(--cyan)">'+(s.edge_count||0)+'</b><p style="font-size:11px;color:var(--text-dim);margin-top:4px">关系</p></div>'+
+    '<div class="card" style="text-align:center;padding:16px"><b style="font-size:28px;color:var(--purple)">'+((s.sources||[]).length||0)+'</b><p style="font-size:11px;color:var(--text-dim);margin-top:4px">数据源</p></div>'+
+    '</div>'+
+    '<p style="margin-top:14px;text-align:center"><a class="btn btn-accent" href="p0-controls/龍魂知识矩阵-3D-沉浸式.html" target="_blank">进入 3D 矩阵</a></p>';
+}).catch(function(){
+  document.getElementById('kg-stats').innerHTML='<div class="error">知识图谱服务离线（端口8444）- 可尝试手动启动</div>';
+});
+
+// ─── 人格报表 ───
+loadJSON('data/persona_report.json').then(function(d){
+  var ov=document.getElementById('persona-overview');
+  if(!d){ov.innerHTML='<div class="error">报表未生成，运行 python3 bin/lh_persona_report.py 生成。</div>';return}
+  var s=d.summary,r=d.rankings;
+  var hc=s.system_health>=80?'var(--green)':s.system_health>=60?'var(--yellow)':'var(--red)';
+  var gd=Object.entries(s.grade_distribution||{}).map(function(e){return'<b style="color:var(--accent)">'+e[0]+'</b>×'+e[1]}).join(' | ');
+  var td=Object.entries(s.trust_distribution||{}).map(function(e){return'<b>'+e[0]+'</b>×'+e[1]}).join(' | ');
+  ov.innerHTML='<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px">'+
+    '<div class="card" style="text-align:center;padding:12px"><div style="font-size:26px;font-weight:800;color:var(--accent)">'+s.total_personas+'</div><div style="font-size:11px;color:var(--text-dim)">人格总数</div></div>'+
+    '<div class="card" style="text-align:center;padding:12px"><div style="font-size:26px;font-weight:800;color:var(--green)">'+s.active+'</div><div style="font-size:11px;color:var(--text-dim)">在线</div></div>'+
+    '<div class="card" style="text-align:center;padding:12px"><div style="font-size:26px;font-weight:800;color:'+hc+'">'+s.system_health+'</div><div style="font-size:11px;color:var(--text-dim)">健康度</div></div>'+
+    '<div class="card" style="text-align:center;padding:12px"><div style="font-size:26px;font-weight:800;color:var(--purple)">'+s.average_score+'</div><div style="font-size:11px;color:var(--text-dim)">平均分</div></div>'+
+    '</div>'+
+    '<div style="margin-top:10px;font-size:12px;color:var(--text-dim);text-align:center">等级: '+gd+' | 信任: '+td+'</div>';
+
+  var gc={S:'#FFD700',A:'var(--green)',B:'var(--blue)',C:'var(--text-dim)',D:'var(--red)'};
+  document.getElementById('persona-thead').innerHTML='<tr style="background:var(--bg3);color:var(--text-dim);font-size:11px;text-align:left">'+
+    ['#','代码','名称','角色','分组','总分','等级','活跃','成功率','信任','贡献','稳定','风险']
+      .map(function(h){return'<th style="padding:8px 6px;border-bottom:1px solid var(--border)">'+h+'</th>'}).join('')+'</tr>';
+  document.getElementById('persona-tbody').innerHTML=r.map(function(p,i){
+    var sc=p.scores||{},bg=p.lu_origin?'rgba(192,132,252,0.06)':'';
+    var lu=p.lu_origin?' <span style="font-size:9px;background:var(--purple-dim);color:var(--purple);padding:1px 4px;border-radius:4px">LU</span>':'';
+    return'<tr style="background:'+bg+';border-bottom:1px solid var(--border)">'+
+      '<td style="padding:6px;font-size:11px;color:var(--text-dim)">'+(i+1)+'</td>'+
+      '<td style="padding:6px;font-weight:600">'+escHtml(p.code)+'</td>'+
+      '<td style="padding:6px">'+escHtml(p.name)+lu+'</td>'+
+      '<td style="padding:6px;font-size:11px;color:var(--text-dim)">'+escHtml(p.role)+'</td>'+
+      '<td style="padding:6px;font-size:10px"><span style="background:var(--bg3);padding:2px 6px;border-radius:4px">'+escHtml(p.ip_group)+'</span></td>'+
+      '<td style="padding:6px;font-weight:700;color:'+(gc[p.grade]||'var(--text)')+'">'+sc.total+'</td>'+
+      '<td style="padding:6px;font-weight:700;color:'+(gc[p.grade]||'var(--text)')+'">'+p.grade+'</td>'+
+      '<td style="padding:6px;font-size:11px">'+escHtml(p.activity_label)+'</td>'+
+      '<td style="padding:6px;font-size:11px">'+sc.success+'</td>'+
+      '<td style="padding:6px;font-size:11px">'+sc.trust+'</td>'+
+      '<td style="padding:6px;font-size:11px">'+sc.contribution+'</td>'+
+      '<td style="padding:6px;font-size:11px">'+sc.stability+'</td>'+
+      '<td style="padding:6px;font-size:11px">'+p.risk+'</td>'+
+      '</tr>';
+  }).join('');
+
+  var att=d.needs_attention||[];
+  document.getElementById('persona-attention').innerHTML=att.length?
+    '<div style="background:var(--yellow-dim);border:1px solid var(--yellow);border-radius:var(--radius);padding:12px 16px">'+
+      '<b style="color:var(--yellow)">⚠ 需关注 ('+att.length+')</b>: '+
+      att.map(function(a){return'<span style="margin:0 6px;font-size:12px">'+escHtml(a.code)+' '+escHtml(a.name)+' <span style="color:var(--text-dim)">('+a.grade+'级)</span></span>'}).join('')+
+    '</div>':'';
+  var mt=d._meta||{};
+  document.getElementById('persona-dna').textContent='DNA: '+(mt.report_dna||'')+' · '+((mt.generated_at||'').split('T')[0]);
+});
+
+// ─── 文章 (降级硬编码) ───
+loadJSON('data/articles_index.json').then(function(d){
+  var ct=document.getElementById('articles-list');
+  if(d&&d.length){
+    var l=document.createElement('div');l.className='list';
+    d.forEach(function(a){
+      var it=document.createElement('div');it.className='list-item';
+      it.appendChild(makeLink(a.path,a.title));it.appendChild(makeMeta(a.date||''));
+      l.appendChild(it);
+    });
+    ct.innerHTML='';ct.appendChild(l);
+  }else{
+    ct.innerHTML='<div class="list">'+
+      '<div class="list-item"><a href="articles/2026-07-04-龍魂隐私白皮书_v2.0.md" target="_blank">龍魂隐私白皮书 v2.0</a><span class="meta">2026-07-04</span></div>'+
+      '<div class="list-item"><a href="articles/2026-07-04-龍魂天道系统-v1.3-优化版.md" target="_blank">龍魂天道系统 v1.3</a><span class="meta">2026-07-04</span></div>'+
+      '<div class="list-item"><a href="articles/2026-07-04-UID9622-IP展示页-龍芯北辰.md" target="_blank">UID9622 IP 展示页</a><span class="meta">2026-07-04</span></div>'+
+      '<div class="list-item"><a href="articles/2026-07-04-龍魂算法公司护城河规范-v1.0-优化版.md" target="_blank">算法护城河规范 v1.0</a><span class="meta">2026-07-04</span></div>'+
+    '</div>';
+  }
+});
+
+// ─── Notion ───
+loadJSON('data/notion_nav.json').then(function(d){
+  var ct=document.getElementById('notion-list');
+  if(!d||!d.length){ct.innerHTML='<div class="empty">无 Notion 数据</div>';return}
+  var cats={};
+  d.forEach(function(p){var c=p.category||'未分类';if(!cats[c])cats[c]=[];cats[c].push(p)});
+  var w=document.createDocumentFragment();
+  Object.entries(cats).forEach(function(e){
+    var t=document.createElement('div');t.className='category-title';t.textContent=e[0];
+    var l=document.createElement('div');l.className='list';
+    e[1].forEach(function(p){
+      var it=document.createElement('div');it.className='list-item';
+      it.appendChild(makeLink(p.url,p.title));it.appendChild(makeMeta(p.status||''));
+      l.appendChild(it);
+    });
+    w.append(t,l);
+  });
+  ct.innerHTML='';ct.appendChild(w);
+});
+
+// ─── CSDN ───
+loadJSON('data/csdn_articles.json').then(function(d){
+  var ct=document.getElementById('csdn-list');
+  var as=(d&&d.articles)?d.articles:[];
+  if(!as.length){ct.innerHTML='<div class="empty">暂无已同步 CSDN 文章</div>';return}
+  var l=document.createElement('div');l.className='list';
+  as.forEach(function(a){
+    var it=document.createElement('div');it.className='list-item';
+    it.appendChild(makeLink(a.url,a.title));
+    it.appendChild(makeMeta((a.first_published_at||'').split('T')[0]));
+    l.appendChild(it);
+  });
+  ct.innerHTML='';ct.appendChild(l);
+});
+
+// ─── 论文 ───
+loadJSON('data/papers.json').then(function(d){
+  var ct=document.getElementById('papers-list');
+  var ps=(d&&d.papers)?d.papers:[];
+  if(!ps.length){ct.innerHTML='<div class="empty">暂无论文数据</div>';return}
+  var l=document.createElement('div');l.className='list';
+  ps.forEach(function(p){
+    var it=document.createElement('div');it.className='list-item';
+    it.appendChild(makeLink(p.path||p.url||'#',p.title));
+    it.appendChild(makeMeta(p.topic||'未分类'));
+    l.appendChild(it);
+  });
+  ct.innerHTML='';ct.appendChild(l);
+});
+
+// ─── 术语白话化 ───
+var termDB={
+'localhost:8765':{plain:'本地通讯端口8765',meaning:'你家书房的电脑地址，用来跑龙魂系统核心服务',cat:'端口'},
+'localhost:9622':{plain:'本地通讯端口9622',meaning:'专门留给 lh 命令用的，用来执行龙魂系统里的各种指令',cat:'端口'},
+'localhost:8501':{plain:'本地通讯端口8501',meaning:'给 Streamlit 这类可视化工具用的',cat:'端口'},
+'localhost:8080':{plain:'本地通讯端口8080',meaning:'常用的网页测试服务器端口',cat:'端口'},
+'localhost:11434':{plain:'本地通讯端口11434',meaning:'给 Ollama 本地大模型用的端口，用来跑 AI 对话',cat:'端口'},
+'8765':{plain:'龙魂核心服务端口',meaning:'龙魂系统的主服务，用来处理各种核心功能',cat:'端口'},
+'9622':{plain:'CNSH网关端口',meaning:'专门处理中文编程指令的入口',cat:'端口'},
+'8501':{plain:'流场可视化端口',meaning:'显示龙魂系统的流场和粒子动画',cat:'端口'},
+'11434':{plain:'本地大模型端口',meaning:'跑本地AI模型（比如Ollama）用的',cat:'端口'},
+'localhost':{plain:'本地电脑',meaning:'指你正在用的这台电脑，不是远程的、不是别人的，就是自己的',cat:'端口'},
+'端口':{plain:'通讯端口',meaning:'就像你家的门牌号，不同的号码通往不同的房间（服务）',cat:'端口'},
+'portal':{plain:'门户目录',meaning:'存放系统首页和入口页面的地方，相当于龙魂的\'大门\'',cat:'目录'},
+'bin':{plain:'可执行命令目录',meaning:'存放龙魂系统各种命令的地方',cat:'目录'},
+'config':{plain:'配置文件目录',meaning:'存放龙魂系统各种设置文件的地方',cat:'目录'},
+'logs':{plain:'日志目录',meaning:'存放系统运行记录的地方，出问题时能查这里',cat:'目录'},
+'data':{plain:'数据目录',meaning:'存放系统数据的地方，比如记忆、知识库等',cat:'目录'},
+'backup':{plain:'备份目录',meaning:'存放系统备份文件的地方',cat:'目录'},
+'docs':{plain:'文档目录',meaning:'存放系统各种说明文档的地方',cat:'目录'},
+'scripts':{plain:'脚本目录',meaning:'存放各种自动化脚本的地方',cat:'目录'},
+'01_protocols':{plain:'协议归档目录',meaning:'存放龙魂系统所有协议文档的地方',cat:'目录'},
+'02_SKILLS':{plain:'技能库目录',meaning:'存放龙魂系统所有AI技能的目录',cat:'目录'},
+'v1.0':{plain:'版本1.0',meaning:'系统的第一个正式版本，表示功能已经基本稳定',cat:'版本'},
+'v2.0-beta':{plain:'版本2.0测试版',meaning:'新功能的测试版本，可能有一些BUG',cat:'版本'},
+'P0':{plain:'最高优先级',meaning:'系统里最重要的事，不能改动、不能绕过、不能降级',cat:'版本'},
+'P1':{plain:'高优先级',meaning:'系统里很重要的事，优先级仅次于P0',cat:'版本'},
+'P2':{plain:'中优先级',meaning:'系统里一般重要的事，可以按计划推进',cat:'版本'},
+'lh deploy':{plain:'执行部署',meaning:'把当前龙魂系统的修改推送到鲲鹏服务器上',cat:'命令'},
+'lh status':{plain:'查看系统状态',meaning:'看看龙魂系统现在运行得怎么样',cat:'命令'},
+'lh audit':{plain:'执行审计',meaning:'对系统进行一次三色审计检查',cat:'命令'},
+'deploy':{plain:'部署',meaning:'把代码/文件推送到服务器上让它们跑起来',cat:'命令'},
+'CNSH':{plain:'中文编程语法',meaning:'Chinese Syntax的缩写——用中文写代码的语法规范',cat:'缩写'},
+'DNA':{plain:'追溯码',meaning:'每条数据或操作的唯一身份标识',cat:'缩写'},
+'GPG':{plain:'数字签名',meaning:'给文件或数据签名的工具',cat:'缩写'},
+'UID':{plain:'用户唯一标识',meaning:'龙魂系统里每个用户的唯一编号',cat:'缩写'},
+'API':{plain:'编程接口',meaning:'程序之间互相通信的规则',cat:'缩写'},
+'CLI':{plain:'命令行工具',meaning:'在黑色终端窗口里敲命令操作的工具',cat:'缩写'},
+'JSON':{plain:'数据格式',meaning:'一种人和机器都能读懂的数据格式',cat:'缩写'},
+'SSH':{plain:'安全远程连接',meaning:'安全地远程登录到另一台电脑的方式',cat:'缩写'},
+'HTTP':{plain:'网页传输协议',meaning:'浏览器和网站之间传数据的规则',cat:'缩写'},
+'HTTPS':{plain:'加密网页传输',meaning:'HTTP的加密版本，传输数据时加了锁',cat:'缩写'},
+'MCP':{plain:'模型上下文协议',meaning:'让AI工具之间互相通信的标准协议',cat:'缩写'},
+'IP':{plain:'网络地址',meaning:'就像你家的邮政地址，网上每台电脑都有一个',cat:'缩写'},
+'三色审计':{plain:'三种颜色的检查',meaning:'用🟢🟡🔴三种颜色给系统行为打标签',cat:'组件'},
+'DNA追溯':{plain:'身份追踪',meaning:'给每条数据、每次操作都打上一个独一无二的身份证号',cat:'组件'},
+'六维对齐':{plain:'六个维度的对齐检查',meaning:'从数据、协议、行为、价值、时间、空间六个维度检查',cat:'组件'},
+'四级熔断':{plain:'四级安全保护',meaning:'L0伦理→L1数据→L2人格→L3行为，自动停止危险操作',cat:'组件'},
+'通心译':{plain:'智能翻译',meaning:'龙魂系统里把英文术语翻译成中文+大白话的功能',cat:'组件'},
+'鲲鹏':{plain:'华为云服务器',meaning:'龙魂系统部署在华为云上的服务器',cat:'组件'},
+'洛书369':{plain:'数学不动点',meaning:'龙魂系统核心算法的数学底座，sn=369',cat:'组件'},
+'三才算法':{plain:'天地人三层计算',meaning:'龙魂系统核心算法，天·地·人三个维度',cat:'组件'},
+'龙魂守卫':{plain:'自动化守护流程',meaning:'代码进去→主权注入→安全审查→GPG签名→全绿才报',cat:'组件'},
+'Ollama':{plain:'本地AI运行工具',meaning:'让你在自己电脑上跑AI大模型的工具',cat:'组件'},
+'python3':{plain:'Python编程语言',meaning:'一种容易上手的编程语言，龙魂系统主要用它来写',cat:'缩写'},
+
+// === 龍魂核心工作流（v1.2新增） ===
+'lh-station':{plain:'代码中转站',meaning:'代码进去→过一道龍魂流水线→带着主权标识出来',cat:'工作流'},
+'八步管道':{plain:'八道工序',meaning:'检测→注入→编译→安全审查→成本分析→签名→打包→封印',cat:'工作流'},
+'主权注入':{plain:'盖章',meaning:'给代码盖上中国身份章，证明它属于中国主权',cat:'工作流'},
+'记忆封印':{plain:'加密存档',meaning:'把每次操作记录加密存进记忆库，防篡改',cat:'工作流'},
+'双轨加密':{plain:'两条加密路',meaning:'国产国密+国际TLS两种标准',cat:'工作流'},
+'君子协议':{plain:'两套许可',meaning:'思想层CC版权、工程层Mulan开源，说好的规矩',cat:'工作流'},
+
+// === 鸿蒙共生体（v1.2新增） ===
+'HarmonyOS':{plain:'鸿蒙系统',meaning:'华为的操作系统，装在手机平板车机手表上的中国系统',cat:'鸿蒙'},
+'鸿蒙':{plain:'华为的操作系统',meaning:'装在手机平板车机手表上的中国自研系统',cat:'鸿蒙'},
+'共生体':{plain:'你中有我',meaning:'龍魂给鸿蒙灵魂，鸿蒙给龍魂载体，谁也离不开谁',cat:'鸿蒙'},
+'ArkTS':{plain:'鸿蒙的普通话',meaning:'用类似网页脚本的方式写鸿蒙应用',cat:'鸿蒙'},
+'Hvigor':{plain:'鸿蒙的工头',meaning:'把代码打包优化编译成可运行的应用',cat:'鸿蒙'},
+'元服务':{plain:'免安装小应用',meaning:'不用下载安装、点开就能用的轻量服务',cat:'鸿蒙'},
+'分布式软总线':{plain:'设备间的隐形网线',meaning:'手机平板电脑之间数据自动互通',cat:'鸿蒙'},
+'HiLog':{plain:'鸿蒙的记事本',meaning:'记录鸿蒙应用运行日志，出问题能查',cat:'鸿蒙'},
+'鸿蒙适配器':{plain:'翻译官',meaning:'让龍魂代码在鸿蒙上跑起来的连接模块',cat:'鸿蒙'},
+'Ability':{plain:'能力单元',meaning:'鸿蒙应用里的一个功能模块',cat:'鸿蒙'},
+'原子化服务':{plain:'精简小服务',meaning:'只做一件事的服务，用完即走',cat:'鸿蒙'},
+'DevEco Studio':{plain:'鸿蒙开发台',meaning:'华为官方写鸿蒙代码的IDE',cat:'鸿蒙'},
+'鸿蒙四大组件':{plain:'四个零件',meaning:'Page/Ability/Service/Data四类基础模块',cat:'鸿蒙'},
+
+// === 芯片适配（v1.2新增） ===
+'昇腾':{plain:'华为AI芯片',meaning:'专门跑AI计算的国产芯片',cat:'芯片'},
+'飞腾':{plain:'国产服务器芯片',meaning:'国产CPU，兼容ARM指令',cat:'芯片'},
+'龙芯':{plain:'国产芯片',meaning:'完全自主指令集的国产CPU',cat:'芯片'},
+'申威':{plain:'国产超算芯片',meaning:'用在神威太湖之光超算上的国产芯片',cat:'芯片'},
+'aarch64':{plain:'ARM64位架构',meaning:'芯片的内部方言，鲲鹏/飞腾都用它',cat:'芯片'},
+};
+
+// 扫描页面中的术语并添加悬浮提示
+(function initTermTooltips(){
+  var ps=document.querySelectorAll('p,li,td,th,span,div.footer,div.dna-banner,.stat-label,.module-name');
+  ps.forEach(function(el){
+    // 跳过已处理的
+    if(el.closest('.term-glossary-panel')||el.closest('.lh-term'))return;
+    Object.keys(termDB).forEach(function(term){
+      if(el.innerHTML.indexOf(term)===-1)return;
+      // 只替换文本节点中的术语
+      walkTextNodes(el,function(tn){
+        var txt=tn.nodeValue;
+        var idx=txt.indexOf(term);
+        if(idx===-1)return;
+        var before=txt.substring(0,idx);
+        var after=txt.substring(idx+term.length);
+        var span=document.createElement('span');
+        span.className='lh-term';
+        span.setAttribute('data-term',term);
+        span.textContent=term;
+        var tooltip=document.createElement('span');
+        tooltip.className='lh-term-tooltip';
+        var d=termDB[term];
+        tooltip.innerHTML='<span class="term-plain">📖 '+d.plain+'</span><span class="term-meaning">'+d.meaning+'</span>';
+        span.appendChild(tooltip);
+        var frag=document.createDocumentFragment();
+        if(before)frag.appendChild(document.createTextNode(before));
+        frag.appendChild(span);
+        if(after)frag.appendChild(document.createTextNode(after));
+        tn.parentNode.replaceChild(frag,tn);
+      });
+    });
+  });
+  function walkTextNodes(node,fn){
+    if(node.nodeType===3){fn(node);return}
+    if(node.nodeName==='SCRIPT'||node.nodeName==='STYLE')return;
+    for(var i=0;i<node.childNodes.length;i++)walkTextNodes(node.childNodes[i],fn);
+  }
+})();
+
+// 术语表浮动面板
+(function initGlossaryPanel(){
+  var btn=document.createElement('button');
+  btn.className='term-glossary-btn';
+  btn.innerHTML='📖';
+  btn.title='术语白话表';
+  document.body.appendChild(btn);
+
+  var panel=document.createElement('div');
+  panel.className='term-glossary-panel';
+  panel.id='term-glossary-panel';
+  panel.innerHTML='<div class="term-glossary-panel-header">'+
+    '<h3>🐉 术语白话表</h3>'+
+    '<button class="close-btn" id="term-close-btn">✕</button>'+
+    '</div>'+
+    '<div class="term-glossary-panel-search">'+
+    '<input type="text" id="term-search-input" placeholder="🔍 搜索术语...">'+
+    '</div>'+
+    '<div class="term-glossary-panel-body" id="term-glossary-body"></div>';
+  document.body.appendChild(panel);
+
+  function renderTerms(filter){
+    var body=document.getElementById('term-glossary-body');
+    var cats=['端口','目录','版本','命令','缩写','组件','工作流','鸿蒙','芯片'];
+    var html='';
+    cats.forEach(function(cat){
+      var items=[];
+      Object.keys(termDB).forEach(function(k){
+        if(termDB[k].cat!==cat)return;
+        if(filter&&k.toLowerCase().indexOf(filter)===-1&&termDB[k].plain.toLowerCase().indexOf(filter)===-1)return;
+        items.push(k);
+      });
+      if(!items.length)return;
+      html+='<div style="margin-bottom:12px"><span style="font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px">'+cat+'</span></div>';
+      items.forEach(function(k){
+        var d=termDB[k];
+        html+='<div class="term-item"><span class="t-term">'+k+'</span><span class="t-cat">'+d.cat+'</span>'+
+          '<div class="t-plain">📝 '+d.plain+'</div><div class="t-meaning">💡 '+d.meaning+'</div></div>';
+      });
+    });
+    if(!html||html.indexOf('term-item')===-1)html='<div style="padding:20px;color:var(--text-dim);text-align:center">没有匹配的术语</div>';
+    body.innerHTML=html;
+  }
+
+  btn.addEventListener('click',function(){
+    var p=document.getElementById('term-glossary-panel');
+    var isOpen=p.classList.contains('open');
+    if(isOpen){p.classList.remove('open');btn.classList.remove('active')}
+    else{p.classList.add('open');btn.classList.add('active');renderTerms('')}
+  });
+
+  document.getElementById('term-close-btn').addEventListener('click',function(){
+    document.getElementById('term-glossary-panel').classList.remove('open');
+    btn.classList.remove('active');
+  });
+
+  document.getElementById('term-search-input').addEventListener('input',function(){
+    renderTerms(this.value.toLowerCase());
+  });
+
+  // ESC关闭
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){
+      document.getElementById('term-glossary-panel').classList.remove('open');
+      btn.classList.remove('active');
     }
   });
-  // 隐藏没有可见卡片的section
-  document.querySelectorAll('.section').forEach(sec => {
-    const visible = sec.querySelectorAll('.card[style*="display: none"]').length;
-    const total = sec.querySelectorAll('.card').length;
-    sec.style.display = (visible === total && total > 0) ? 'none' : '';
-  });
-}
+})();
 
-// 加载服务状态
-async function loadStatus() {
-  try {
-    const r = await fetch('/api/ai-hub/health');
-    if (r.ok) {
-      const d = await r.json();
-      document.getElementById('kunpeng-count').textContent = 'AI Hub ✅';
-    }
-  } catch(e) {}
-  
-  // 静态统计
-  document.getElementById('mac-count').textContent = '52 launchd';
-  document.getElementById('kunpeng-count').textContent = '39 systemd';
-  document.getElementById('portal-count').textContent = '36+ 页面';
-  document.getElementById('engine-count').textContent = '397 引擎';
-  
-  // Mac服务模拟
-  const macServices = [
-    'frpc','longhun-services','internal-net','guanlan','evidence-api','privacy-api',
-    'xiaoyi-bridge','search-engine','kg-api','think-pipeline','portal','registry',
-    'heart-talk','memory-api','global-index','heartbeat','node-audit','antenna-8gate',
-    'flow-fusion','full-fetch','ai-hub','dna-generator','video-studio'
-  ];
-  const macDiv = document.getElementById('mac-services');
-  macDiv.innerHTML = macServices.map(s => `<span class="status-chip">${s}</span>`).join('');
-  
-  // 鲲鹏服务
-  const kunpengServices = [
-    'lh-ai-hub','longhun-api','longhun-audit','longhun-dashboard','longhun-dna',
-    'longhun-flow-engine','longhun-knowledge-hub','longhun-memory-api','longhun-portal',
-    'longhun-search-engine','longhun-sovereignty','longhun-think-pipeline','longhun-vault-api',
-    'longhun-identity','longhun-privacy','longhun-evidence','longhun-persona-api',
-    'longhun-local-gateway','longhun-antenna-8gate','longhun-eternity-api','longhun-calendar',
-    'longhun-pathfinder','longhun-health-panorama','longhun-wechat','longhun888',
-    'longhun-trace-reconstructor','longhun-flow-fusion','longhun-audit-hub','longhun-deepseek-executor',
-    'longhun-memory-sync','longhun-media-verify','longhun-nano-vision','longhun-pay-anchor',
-    'longhun-activation','longhun-quantum-api','longhun-video-gallery'
-  ];
-  const kpDiv = document.getElementById('kunpeng-services');
-  kpDiv.innerHTML = kunpengServices.map(s => `<span class="status-chip">${s}</span>`).join('');
-}
-
-loadStatus();
+// ─── 完成 ───
+console.log('🐉 龍魂官网门户 v4.0 已就绪 · 术语白话化v1.2·鸿蒙共生体已嵌入');
 </script>
+
 </body>
 </html>
