@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this paper or software, please cite it as below."
+title: "Unified Theory of Behavioral Cryptography v3.0: Seven-Factor Provenance Framework × Three-Domain Behavioral Boundary"
+authors:
+  - family-names: "Zhuge"
+    given-names: "Xin"
+    alias: "UID9622"
+    orcid: ""
+    affiliation: "LongHun System · Independent Researcher"
+type: article
+version: "3.0"
+date-released: "2026-08-07"
+doi: ""
+url: "https://github.com/UID9622/longhun-system"
+repository-code: "https://github.com/UID9622/longhun-system"
+keywords:
+  - "behavioral cryptography"
+  - "seven-factor provenance"
+  - "AIGC content authentication"
+  - "private domain exemption"
+  - "cross-domain propagation tracking"
+  - "responsibility attribution"
+  - "digital sovereignty"
+abstract: |
+  The Unified Theory of Behavioral Cryptography proposes a dual-wing framework:
+  the Seven-Factor Provenance Framework authenticates content origin with a joint
+  forgery probability of ~10⁻⁸, while the Three-Domain Behavioral Boundary governs
+  content propagation across private, community, and public domains with A0/A1/A2
+  authorization codes. The two wings unite into a single mathematical model with an
+  immutable Merkle propagation tree and ±5-minute responsibility attribution.
+  Implementation: ~950 lines of Python (unified_boundary_engine.py).
+license:
+  - "CC BY-NC-SA 4.0 (Thought Layer)"
+  - "MulanPSL v2 (Engineering Layer)"

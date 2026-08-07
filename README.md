@@ -24,6 +24,25 @@
 > 🏗️ **目录结构 v2.0**（2026-08-04）：核心目录已按编号结构重组（如 `08_BIN/`、`12_DOCS/`）。旧路径（`bin/`、`docs/` 等）仍通过 Symlink 保持兼容，现有命令和链接无需修改。详见 [`docs/DIRECTORY_MAP.md`](./docs/DIRECTORY_MAP.md) 与 [`docs/SYSTEM_STRUCTURE_AUDIT_v1.0.md`](./docs/SYSTEM_STRUCTURE_AUDIT_v1.0.md)。
 
 ---
+
+## 📄 Featured Paper · 行为密码学统一理论
+
+> **[Unified Theory of Behavioral Cryptography v3.0](articles/behavioral-cryptography-unified-theory-v3.0.md)**
+> — *Seven-Factor Provenance × Three-Domain Boundary · A Dual-Wing Unified Model*
+
+| | |
+|:---|:---|
+| 📖 **Paper (Markdown)** | [`articles/behavioral-cryptography-unified-theory-v3.0.md`](articles/behavioral-cryptography-unified-theory-v3.0.md) |
+| 🌐 **Paper (HTML)** | [`articles/behavioral-cryptography-unified-theory-v3.0.html`](articles/behavioral-cryptography-unified-theory-v3.0.html) — MathJax rendered, read online |
+| 🇨🇳 **论文（中文）** | [`articles/行为密码学-统一框架-v3.0.md`](articles/行为密码学-统一框架-v3.0.md) |
+| 🔬 **Engine** | [`04_ENGINES/behavioral_crypto/unified_boundary_engine.py`](04_ENGINES/behavioral_crypto/unified_boundary_engine.py) (~950 lines) |
+| 📜 **Protocol** | [`01_protocols/LH-BEHAVIOR-BOUNDARY-PROTOCOL-v1.0.md`](01_protocols/LH-BEHAVIOR-BOUNDARY-PROTOCOL-v1.0.md) |
+
+**Abstract**: A unified mathematical framework that solves content provenance (Who wrote this? — Seven-Factor, joint forgery ~10⁻⁸) and behavioral boundary (Where should this circulate? — A0/A1/A2 three-domain authorization) in one integrated model. Private domain content is mathematically guaranteed audit-exempt; public domain content is full-chain traceable. ~950 lines of Python, empirically verified.
+
+**Keywords**: `#BehavioralCryptography` `#AIGC-Authentication` `#PrivateDomainExemption` `#CrossDomainTracking`
+
+---
 ## 📚 文档导航
 
 ### 入门必读
