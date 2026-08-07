@@ -1,0 +1,18 @@
+[package]
+name = "longhun-jni"
+version = "0.1.0"
+edition = "2021"
+description = "龍魂 Android JNI 绑定 · longhun-core → .so → Android Java/Kotlin 调用"
+authors = ["诸葛鑫（UID9622）"]
+license = "MulanPSL-2.0"
+repository = "https://uid9622.cn"
+
+[lib]
+name = "longhun_jni"
+crate-type = ["cdylib"]
+
+[dependencies]
+lhcore = { package = "longhun-core", path = "../longhun-core" }
+jni = { version = "0.21", features = ["invocation"] }
+serde = "1.0"
+serde_json = "1.0"

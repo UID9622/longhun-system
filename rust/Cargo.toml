@@ -1,0 +1,25 @@
+[workspace]
+members = [
+    "longhun-core",
+    "longhun-py",
+    "longhun-jni",
+    "longhun-napi",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["诸葛鑫（UID9622）"]
+license = "MulanPSL-2.0"
+repository = "https://uid9622.cn"
+
+[workspace.dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true

@@ -1,0 +1,27 @@
+[package]
+name = "longhun-core"
+version = "0.1.0"
+edition = "2021"
+description = "龍魂跨平台统一内核 · 中国芯片适配 · 监督状态机 · 记忆生命周期"
+authors = ["诸葛鑫（UID9622）"]
+license = "MulanPSL-2.0"
+repository = "https://uid9622.cn"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+sha2 = "0.10"
+hex = "0.4"
+thiserror = "2.0"
+
+[lib]
+name = "longhun_core"
+crate-type = ["lib", "cdylib"]
+path = "src/lib.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
