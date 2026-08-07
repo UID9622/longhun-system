@@ -1,0 +1,73 @@
+# DNA: #龍芯⚡️丙午·丙申·壬子·子时·䷕贲-ANDROID-BUILD-GRADLE-v1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）
+# 协议: MulanPSL v2 (工程层)
+# 用途: Android 模块 build.gradle — 集成 longhun_jni.so
+
+plugins {
+    id 'com.android.library'
+    id 'org.mozilla.rust-android-gradle.rust-android' version '0.9.4'
+}
+
+android {
+    namespace 'com.longhun.core'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 34
+        ndk {
+            abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86_64'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+        }
+    }
+
+    // JNI 源码路径
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['jniLibs']
+            java.srcDirs = ['src/main/java']
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+}
+
+// Rust 交叉编译配置
+cargo {
+    module = "../rust/longhun-jni"
+    libname = "longhun_jni"
+    targets = ["arm64", "arm", "x86_64"]
+    profile = "release"
+}
+
+// 自动从 Rust 编译产物复制到 jniLibs
+task copyRustLibs(type: Copy) {
+    from("${project.rootDir}/../rust/longhun-jni/target") {
+        include 'aarch64-linux-android/release/liblonghun_jni.so'
+        include 'armv7-linux-androideabi/release/liblonghun_jni.so'
+        include 'x86_64-linux-android/release/liblonghun_jni.so'
+        rename { fileName ->
+            fileName.replace('aarch64-linux-android/release/', 'arm64-v8a/')
+                    .replace('armv7-linux-androideabi/release/', 'armeabi-v7a/')
+                    .replace('x86_64-linux-android/release/', 'x86_64/')
+        }
+    }
+    into "${project.buildDir}/jniLibs"
+}
+
+preBuild.dependsOn copyRustLibs
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.12.0'
+    testImplementation 'junit:junit:4.13.2'
+}

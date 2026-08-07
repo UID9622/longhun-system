@@ -1,0 +1,25 @@
+{
+  "module": {
+    "name": "longhun_supervision_dashboard",
+    "type": "entry",
+    "srcEntry": "./ets/pages/Dashboard.ets",
+    "description": "龍魂三层监督仪表盘·环形进度·14人格矩阵·审计时间线",
+    "mainElement": "DashboardAbility",
+    "deviceTypes": ["phone", "tablet", "2in1"],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [{
+      "name": "DashboardAbility",
+      "srcEntry": "./ets/pages/Dashboard.ets",
+      "description": "监督仪表盘主页",
+      "type": "page",
+      "exported": true,
+      "launchType": "singleton"
+    }],
+    "metadata": [
+      { "name": "longhun_dna", "value": "#龍芯⚡️丙午·癸未·乙酉·坤卦-PLUGIN-SUPERVISION-DASHBOARD-UID9622" },
+      { "name": "longhun_confirm", "value": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z" }
+    ]
+  }
+}

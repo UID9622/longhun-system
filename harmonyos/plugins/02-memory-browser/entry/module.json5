@@ -1,0 +1,28 @@
+{
+  "module": {
+    "name": "longhun_memory_browser",
+    "type": "entry",
+    "srcEntry": "./ets/pages/MemoryList.ets",
+    "description": "龍魂记忆浏览·四级记忆·图谱可视化·暗金主题",
+    "mainElement": "MemoryListAbility",
+    "deviceTypes": ["phone", "tablet", "2in1"],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "MemoryListAbility",
+        "srcEntry": "./ets/pages/MemoryList.ets",
+        "description": "记忆列表页",
+        "type": "page",
+        "exported": true,
+        "launchType": "singleton"
+      }
+    ],
+    "metadata": [
+      { "name": "longhun_dna", "value": "#龍芯⚡️丙午·癸未·乙酉·坤卦-PLUGIN-MEMORY-BROWSER-UID9622" },
+      { "name": "longhun_confirm", "value": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z" },
+      { "name": "longhun_sovereignty", "value": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL" }
+    ]
+  }
+}

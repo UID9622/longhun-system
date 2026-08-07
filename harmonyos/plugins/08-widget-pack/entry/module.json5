@@ -1,0 +1,17 @@
+{
+  "module": {
+    "name": "longhun_widget_pack",
+    "type": "entry",
+    "srcEntry": "./ets/form/StatusWidget.ets",
+    "description": "龍魂桌面小组件套件·系统状态·记忆·监督缩影·快捷操作",
+    "mainElement": "WidgetAbility",
+    "deviceTypes": ["phone", "tablet", "2in1"],
+    "extensionAbilities": [
+      { "name": "StatusWidget", "srcEntry": "./ets/form/StatusWidget.ets", "type": "form", "metadata": [{ "name": "ohos.extension.form", "resource": "$profile:form_config" }] },
+      { "name": "MemoryWidget", "srcEntry": "./ets/form/MemoryWidget.ets", "type": "form", "metadata": [{ "name": "ohos.extension.form", "resource": "$profile:form_config" }] },
+      { "name": "SupervisionWidget", "srcEntry": "./ets/form/SupervisionWidget.ets", "type": "form", "metadata": [{ "name": "ohos.extension.form", "resource": "$profile:form_config" }] },
+      { "name": "QuickActionWidget", "srcEntry": "./ets/form/QuickActionWidget.ets", "type": "form", "metadata": [{ "name": "ohos.extension.form", "resource": "$profile:form_config" }] }
+    ],
+    "metadata": [{ "name": "longhun_dna", "value": "#龍芯⚡️丙午·癸未·乙酉·坤卦-PLUGIN-WIDGET-PACK-UID9622" }]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "module": {
+    "name": "longhun_notification_service",
+    "type": "entry",
+    "srcEntry": "./ets/service/AlertService.ets",
+    "description": "龍魂通知服务·监督拦截警报·进化提案·主权异常·跨设备异常",
+    "mainElement": "AlertAbility",
+    "deviceTypes": ["phone", "tablet", "2in1"],
+    "pages": "$profile:main_pages",
+    "abilities": [
+      { "name": "AlertService", "srcEntry": "./ets/service/AlertService.ets", "type": "service", "exported": false, "backgroundModes": ["dataTransfer"] },
+      { "name": "NotificationAbility", "srcEntry": "./ets/pages/NotificationHistory.ets", "type": "page", "exported": true, "launchType": "singleton" }
+    ],
+    "requestPermissions": [{ "name": "ohos.permission.NOTIFICATION_CONTROLLER", "reason": "监督异常需要推送通知" }],
+    "metadata": [{ "name": "longhun_dna", "value": "#龍芯⚡️丙午·癸未·乙酉·坤卦-PLUGIN-NOTIFICATION-SERVICE-UID9622" }]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "module": {
+    "name": "longhun_one_click_migrate",
+    "type": "entry",
+    "srcEntry": "./ets/pages/MigrateHome.ets",
+    "description": "龍魂一键搬迁·检测设备·生成目标工程·注入配置·验证完整性",
+    "mainElement": "MigrateAbility",
+    "deviceTypes": ["phone", "tablet", "2in1"],
+    "pages": "$profile:main_pages",
+    "abilities": [{ "name": "MigrateAbility", "srcEntry": "./ets/pages/MigrateHome.ets", "type": "page", "exported": true, "launchType": "singleton" }],
+    "metadata": [{ "name": "longhun_dna", "value": "#龍芯⚡️丙午·癸未·乙酉·坤卦-PLUGIN-ONE-CLICK-MIGRATE-UID9622" }]
+  }
+}

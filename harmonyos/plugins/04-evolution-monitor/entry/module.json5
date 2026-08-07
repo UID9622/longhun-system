@@ -1,0 +1,18 @@
+{
+  "module": {
+    "name": "longhun_evolution_monitor",
+    "type": "entry",
+    "srcEntry": "./ets/pages/EvolutionDashboard.ets",
+    "description": "龍魂进化引擎监控·版本历史·规则查看·健康度仪表",
+    "mainElement": "EvolutionAbility",
+    "deviceTypes": ["phone", "tablet", "2in1"],
+    "pages": "$profile:main_pages",
+    "abilities": [
+      { "name": "EvolutionAbility", "srcEntry": "./ets/pages/EvolutionDashboard.ets", "type": "page", "exported": true, "launchType": "singleton" },
+      { "name": "EvolutionServiceAbility", "srcEntry": "./ets/service/EvolutionService.ets", "type": "service", "exported": false }
+    ],
+    "metadata": [
+      { "name": "longhun_dna", "value": "#龍芯⚡️丙午·癸未·乙酉·坤卦-PLUGIN-EVOLUTION-MONITOR-UID9622" }
+    ]
+  }
+}
