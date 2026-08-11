@@ -126,13 +126,36 @@ class DebenAuditor:
         "bin/lh_check_contributor.py",             # 贡献者检测·检测寒心叙事(好人=穷等)
         "bin/lh_gap_detector.py",                  # 缺口检测·检测行为追踪
         "01_protocols/LH-AUDIT-AUTO-LEARNER-v1.0-REPAIR.md",  # 审计修复文档·引述问题描述
+        # v2.4 新增：审计/检测/防护工具误报修复
+        "bin/lh_platform_audit.py",                # 平台审计引擎·检测大数据杀熟/价格歧视
+        "bin/lh_sg_localize.py",                   # 本地化引擎·引述检测目标
+        "bin/lh_ethics_quantum.py",                # 伦理量子审计·检测技术无德
+        "bin/lh_掀黑箱.py",                        # 掀黑箱检测工具·检测第三方数据共享
+        "bin/lh_loyalty_scan.py",                  # 忠义扫描·检查行为追踪/数据主权
+        "bin/lh_three_color_audit.py",             # 三色审计引擎·检测各种违规
+        # v2.4 补充：协议/知识文档（讨论分析非实施）
+        "01_protocols/LH-GAME-THEORY-PLATFORM-ASYMMETRY-v1.0.md",  # 博弈论分析平台不对称（学术研究）
+        "01_protocols/LH-CDNA-v1.2-需求文档.md",  # CDNA需求文档·讨论算法透明
+        # v2.4 补充：检测/分析/训练工具（引用术语非实施）
+        "bin/lh_truth_engine.py",                  # 求真引擎·分析平台算法
+        "bin/lh_daodejing_anchor.py",              # 道德经锚点·引述平台概念
+        "bin/lh_personalization_engine.py",        # 个性化反制引擎·检测用户画像
+        "bin/lh_platform_block_logger.py",         # 平台封锁日志·检测平台算法
+        "bin/lh_lu_cnsh_map.py",                   # CNSH映射·分析用户画像概念
+        "bin/lh_pathfinder_train_data_v3.py",      # 训练数据生成v3·教育性讨论
+        "bin/lh_pathfinder_train_data_v4.py",      # 训练数据生成v4·教育性讨论
+        "bin/lh_csdn_to_train.py",                 # CSDN转训练·教育性收集
+        "deploy/evidence/longhun_privacy.py",      # 隐私证据收集·检测用户画像
     }
 
     # 排除的目录前缀（整个目录下的文件都是参考/归档/教育材料/防御代码）
     DEFENSIVE_DIR_PREFIXES = [
         "02_SKILLS/downloads_archive/",
+        "01_技能庫/downloads_archive/",  # 技能库下载归档（检测/合规参考代码）
+        "01_protocols/desktop-knowledge-matrix/",  # 桌面知识矩阵（学术论文/草稿/参考）
         "docs/claude-backlog/",
         "03_KNOWLEDGE_GRAPH/",
+        "03_知識圖譜/",  # 知识图谱（参考/教育内容·非实施代码）
         "docs/",       # 文章/论文/教育内容
         "data/training/",  # 训练数据（教育性内容）
         "_work/",      # 工作副本/归档仓库
