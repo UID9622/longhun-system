@@ -87,8 +87,91 @@ FOUNDATION_PATTERNS = [
 ]
 
 
+# ============================================================
+# 模块级硬编码兜底常量（共享配置 scan-exclusions.json 不可达时使用）
+# 正常情况：DebenAuditor 从 scan-exclusions.json 加载并合并
+# 兜底情况：config 不可达 → 使用以下常量保证审计不中断
+# ============================================================
+
+_HARDCODED_FILE_EXCLUSIONS = {
+    # 审计检测引擎自身
+    "bin/lh_deben_audit.py",
+    "bin/lh_public_expression_audit.py",
+    "bin/lh_path_audit.py",
+    # 训练数据（教育性内容）
+    "bin/lh_lora_trainer.py",
+    "bin/lh_lora_trainer_v39.py",
+    "bin/lh_lora_trainer_v391.py",
+    "bin/lh_lora_trainer_v392.py",
+    "bin/lh_prepare_v2.1_data.py",
+    # 审计/文档/隐私保护
+    "bin/lh_audit_package.py",
+    "bin/lh_free_app_cost.py",
+    "bin/lh_privacy_train_inject.py",
+    # 人格守护规则
+    "bin/personas/p12_quyuan.py",
+    # 协议文档
+    "01_protocols/LH-CDNA-v1.2-需求文档.md",
+    "01_protocols/LH-DEBEN-AUDIT-v1.0.md",
+}
+
+_HARDCODED_DIR_PREFIXES = [
+    "02_SKILLS/downloads_archive/",
+    "01_技能庫/downloads_archive/",
+    "01_protocols/desktop-knowledge-matrix/",
+    "docs/claude-backlog/",
+    "03_KNOWLEDGE_GRAPH/",
+    "03_知識圖譜/",
+    "docs/",
+    "data/training/",
+    "_work/",
+    "L3_数据层/",
+    "integrations/",
+    "models/",
+]
+
+
 class DebenAuditor:
     """德本审计执行器"""
+    
+    # 共享排除配置路径（单一真相源）
+    SHARED_CONFIG_PATH = Path(__file__).resolve().parent.parent / ".codebuddy/rules/scan-exclusions.json"
+    
+    @classmethod
+    def _load_shared_config(cls) -> Dict[str, Any]:
+        """从 scan-exclusions.json 加载共享排除配置，不可达时返回空兜底"""
+        try:
+            if cls.SHARED_CONFIG_PATH.exists():
+                with open(cls.SHARED_CONFIG_PATH, "r", encoding="utf-8") as f:
+                    return json.load(f)
+        except Exception:
+            pass
+        return {}
+
+    @staticmethod
+    def _build_file_exclusions(shared: Dict) -> set:
+        """构建防御性文件白名单：硬编码 + 共享配置合并"""
+        result = _HARDCODED_FILE_EXCLUSIONS.copy()
+        df = shared.get("defensive_files", {}) if shared else {}
+        for version_key in df:
+            result.update(set(df[version_key]))
+        return result
+    
+    @staticmethod
+    def _build_dir_prefixes(shared: Dict) -> list:
+        """构建排除目录前缀列表：硬编码 + 共享配置合并"""
+        result = list(_HARDCODED_DIR_PREFIXES)
+        ed = shared.get("excluded_dirs", {}) if shared else {}
+        for category_key in ed:
+            result.extend(ed[category_key])
+        # 去重保序
+        seen = set()
+        unique = []
+        for p in result:
+            if p not in seen:
+                seen.add(p)
+                unique.append(p)
+        return unique
 
     def __init__(self, root: Path = None):
         self.root = root or PROJECT_ROOT
@@ -97,72 +180,10 @@ class DebenAuditor:
             "五问结果": {},
             "总体判定": "未执行",
         }
-
-    # 已知防御性/检测性文件——包含模式关键词但用途是检测/教育/防御，非实施
-    DEFENSIVE_FILE_EXCLUSIONS = {
-        # 审计检测引擎自身
-        "bin/lh_deben_audit.py",
-        "bin/lh_public_expression_audit.py",
-        "bin/lh_path_audit.py",
-        # 训练数据（教育性内容，解释原则而非实施不道德行为）
-        "bin/lh_lora_trainer.py",
-        "bin/lh_lora_trainer_v39.py",
-        "bin/lh_lora_trainer_v391.py",
-        "bin/lh_lora_trainer_v392.py",
-        "bin/lh_prepare_v2.1_data.py",
-        # 审计/文档/隐私保护文件
-        "bin/lh_audit_package.py",
-        "bin/lh_free_app_cost.py",
-        "bin/lh_privacy_train_inject.py",
-        # 人格守护规则（检测不道德行为）
-        "bin/personas/p12_quyuan.py",
-        # 协议文档（批评性讨论非认可）
-        "01_protocols/LH-CDNA-v1.2-需求文档.md",
-        "01_protocols/LH-DEBEN-AUDIT-v1.0.md",
-        # v2.1 新增：检测/防御性引擎（关键词命中但用途是检测恶行，非实施）
-        "bin/lh_five_harms_historian_bridge.py",   # 五害史官桥接·检测大数据杀熟
-        "bin/lh_five_harms_api.py",                # 五害曝光API·检测大数据杀熟/价格歧视/第三方数据
-        "bin/lh_check_virtue.py",                  # 德行检测·检测价格歧视
-        "bin/lh_check_contributor.py",             # 贡献者检测·检测寒心叙事(好人=穷等)
-        "bin/lh_gap_detector.py",                  # 缺口检测·检测行为追踪
-        "01_protocols/LH-AUDIT-AUTO-LEARNER-v1.0-REPAIR.md",  # 审计修复文档·引述问题描述
-        # v2.4 新增：审计/检测/防护工具误报修复
-        "bin/lh_platform_audit.py",                # 平台审计引擎·检测大数据杀熟/价格歧视
-        "bin/lh_sg_localize.py",                   # 本地化引擎·引述检测目标
-        "bin/lh_ethics_quantum.py",                # 伦理量子审计·检测技术无德
-        "bin/lh_掀黑箱.py",                        # 掀黑箱检测工具·检测第三方数据共享
-        "bin/lh_loyalty_scan.py",                  # 忠义扫描·检查行为追踪/数据主权
-        "bin/lh_three_color_audit.py",             # 三色审计引擎·检测各种违规
-        # v2.4 补充：协议/知识文档（讨论分析非实施）
-        "01_protocols/LH-GAME-THEORY-PLATFORM-ASYMMETRY-v1.0.md",  # 博弈论分析平台不对称（学术研究）
-        "01_protocols/LH-CDNA-v1.2-需求文档.md",  # CDNA需求文档·讨论算法透明
-        # v2.4 补充：检测/分析/训练工具（引用术语非实施）
-        "bin/lh_truth_engine.py",                  # 求真引擎·分析平台算法
-        "bin/lh_daodejing_anchor.py",              # 道德经锚点·引述平台概念
-        "bin/lh_personalization_engine.py",        # 个性化反制引擎·检测用户画像
-        "bin/lh_platform_block_logger.py",         # 平台封锁日志·检测平台算法
-        "bin/lh_lu_cnsh_map.py",                   # CNSH映射·分析用户画像概念
-        "bin/lh_pathfinder_train_data_v3.py",      # 训练数据生成v3·教育性讨论
-        "bin/lh_pathfinder_train_data_v4.py",      # 训练数据生成v4·教育性讨论
-        "bin/lh_csdn_to_train.py",                 # CSDN转训练·教育性收集
-        "deploy/evidence/longhun_privacy.py",      # 隐私证据收集·检测用户画像
-    }
-
-    # 排除的目录前缀（整个目录下的文件都是参考/归档/教育材料/防御代码）
-    DEFENSIVE_DIR_PREFIXES = [
-        "02_SKILLS/downloads_archive/",
-        "01_技能庫/downloads_archive/",  # 技能库下载归档（检测/合规参考代码）
-        "01_protocols/desktop-knowledge-matrix/",  # 桌面知识矩阵（学术论文/草稿/参考）
-        "docs/claude-backlog/",
-        "03_KNOWLEDGE_GRAPH/",
-        "03_知識圖譜/",  # 知识图谱（参考/教育内容·非实施代码）
-        "docs/",       # 文章/论文/教育内容
-        "data/training/",  # 训练数据（教育性内容）
-        "_work/",      # 工作副本/归档仓库
-        "L3_数据层/",  # 数据层防护代码
-        "integrations/",  # 集成/连接器（非业务逻辑）
-        "models/",     # 模型资源
-    ]
+        # 加载共享配置
+        shared = self._load_shared_config()
+        self.defensive_file_exclusions = self._build_file_exclusions(shared)
+        self.defensive_dir_prefixes = self._build_dir_prefixes(shared)
 
     def check_file_for_patterns(self, filepath: Path, patterns: list) -> List[Dict]:
         """检查单个文件中是否匹配模式"""
@@ -170,10 +191,10 @@ class DebenAuditor:
         rel = str(filepath.relative_to(self.root))
 
         # 排除已知防御性文件
-        if rel in self.DEFENSIVE_FILE_EXCLUSIONS:
+        if rel in self.defensive_file_exclusions:
             return hits
         # 排除防御性目录（参考材料/归档/教育内容）
-        if any(rel.startswith(prefix) for prefix in self.DEFENSIVE_DIR_PREFIXES):
+        if any(rel.startswith(prefix) for prefix in self.defensive_dir_prefixes):
             return hits
 
         try:
