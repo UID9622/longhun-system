@@ -628,6 +628,10 @@ class UnifiedBoundaryEngine:
         Returns:
             UnifiedAnalysisResult: 完整統一分析結果
         """
+        # 確保 domain 為 Domain 枚舉 (兼容字符串傳入)
+        if isinstance(domain, str):
+            domain = Domain(domain)
+
         # Step 1: 提取七因子指紋
         self.seven_factor_engine.update_author_profile(author_id, text)
         fingerprint = self.seven_factor_engine.extract(text, author_id)

@@ -136,29 +136,72 @@ VALID_PYTHON_DIRS = {
     "gitee-export/", "data/",
 }
 
-# 根级已知合法文件（不在任何子目录下的 .md / .py 文件）
+# 根级已知合法文件（不在任何子目录下的 .md / .py / .sh / .json / .toml / .txt 文件）
 ROOT_LEVEL_WHITELIST = {
-    # 核心宪法/锁
-    "AGENTS.md", "AGENTS.md.asc", "CLAUDE.md", "CLAUDE.md.asc",
+    # 核心宪法/锁（含 .asc 签名）
+    "AGENTS.md", "AGENTS.md.asc",
     "CONSTITUTION.md", "CONSTITUTION.md.asc",
     "P0_ETERNAL_LOCK.md", "P0_ETERNAL_LOCK.md.asc",
-    "CHANGELOG.md", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md",
-    "COMMIT_MESSAGE_STANDARD.md", "ATTRIBUTION.md",
-    "LICENSE", "LICENSE.asc", "README.md",
+    # 项目标准文档（含 .asc 签名）
+    "README.md", "README.md.asc",
+    "CHANGELOG.md", "CHANGELOG.md.asc",
+    "CONTRIBUTING.md", "CONTRIBUTING.md.asc",
+    "CODE_OF_CONDUCT.md", "CODE_OF_CONDUCT.md.asc",
+    "COMMIT_MESSAGE_STANDARD.md", "COMMIT_MESSAGE_STANDARD.md.asc",
+    "ATTRIBUTION.md", "ATTRIBUTION.md.asc",
+    "LICENSE", "LICENSE.asc",
+    "NOTICE.asc",
+    "SECURITY.md", "SECURITY.md.asc",
+    "QUICKSTART.md", "QUICKSTART.md.asc",
+    "ROADMAP.md", "ROADMAP.md.asc",
+    "GOVERNANCE.md", "GOVERNANCE.md.asc",
+    "MANIFESTO.md", "MANIFESTO.md.asc",
+    "INSTALL.md", "INSTALL.md.asc",
+    "PRIVACY_POLICY.md", "PRIVACY_POLICY.md.asc",
+    "TERMS_OF_SERVICE.md", "TERMS_OF_SERVICE.md.asc",
+    "GENTLEMANS_PROTOCOL.md", "GENTLEMANS_PROTOCOL.md.asc",
+    "CITATION.cff", "CITATION.cff.asc",
     # 项目根级状态/入口文件（合法）
-    "STATE.md", "MEMORY.md", "STANDARD.md", "STANDARD.md.asc",
-    "SECURITY.md", "QUICKSTART.md", "入口一致性协议_v1.0.md",
+    "STATE.md", "STATE.md.asc", "STANDARD.md", "STANDARD.md.asc",
+    "功能清单.md", "功能清单.md.asc",
+    "RELEASE_ANNOUNCEMENT-v5.0.0-opensource.md", "RELEASE_ANNOUNCEMENT-v5.0.0-opensource.md.asc",
     # Python/项目配置
-    "pyproject.toml", "pyproject.toml.asc", "__init__.py",
-    "pytest.ini", "requirements.txt", "requirements-base.txt",
-    ".pre-commit-config.yaml", ".coverage",
-    ".cursorrules", ".dockerignore",
-    # Shell/迁移脚本
-    "龍魂v3一键迁移.sh",
-    # 日志/杂项/Git/Env/CI
+    "pyproject.toml", "pyproject.toml.asc", "__init__.py", "__init__.py.asc",
+    "requirements.txt", "requirements-base.txt", "requirements.lock.txt",
+    ".gitignore", ".gitignore.asc", ".env", ".env.example", ".env.example.asc",
+    ".bandit.yaml", ".bandit.yaml.asc",
+    ".dockerignore", ".gitlab-ci.yml",
+    ".pre-commit-config.yaml", ".audit-whitelist",
+    "pytest.ini", ".inventory.json", ".inventory.json.asc",
+    ".dev_env.json", ".pre-commit-config.yaml.asc",
+    # CI / 审计日志 / 库存
+    "sync_log.jsonl", "audit_log.jsonl",
+    "NOTICE", "NOTICE.asc",
+    "Dockerfile.cnsh", "Dockerfile.cnsh.asc",
+    # CNSH Shell/Python 边界脚本
+    "cnsh_constants.py", "cnsh_constants.py.asc",
+    "cnsh_print.py", "cnsh_print.py.asc",
+    "cnsh_create.sh", "cnsh_create.sh.asc",
+    "cnsh_env.sh", "cnsh_env.sh.asc",
+    "cnsh_prompt.zsh", "cnsh_prompt.zsh.asc",
+    # LongHun桥接/进化引擎
+    "longhun_bridge.py", "longhun_bridge.py.asc",
+    "longhun_evolution_engine.py", "longhun_evolution_engine.py.asc",
+    # DNA相关根级文件
+    "dna_master_key.json", "dna_master_key.json.asc",
+    "system_registry.json", "system_registry.json.asc",
+    "code_with_dna_1785506239.py", "code_with_dna_1785506239.py.asc",
+    "code_with_dna_1785820178.py", "code_with_dna_1785820178.py.asc",
+    "code_with_dna_1785852438.py", "code_with_dna_1785852438.py.asc",
+    # Docker/部署
+    "docker-compose.yml", "Dockerfile.cnsh.asc",
+    # GPG公钥
+    "lh_public_key.asc",
+    # 演示/测试文件
+    "demo_vulnerable.py", "demo_vulnerable.py.asc",
+    # 日志
     "操作草日志.log", "launchd.err.log", "launchd.out.log",
     "cnsh.integrated",
-    ".gitignore", ".env", ".bandit.yaml",
 }
 
 # 需要忽略的目录
