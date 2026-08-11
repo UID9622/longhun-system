@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dragonsoul-dna"
+version = "1.1.0"
+description = "🐉 龍魂 DNA 还原引擎 — AI可读的代码版本革命"
+readme = "README.md"
+license = {text = "MulanPSL-2.0"}
+authors = [
+    {name = "诸葛鑫 (ZHUGE XIN)", email = "uid9622@dragon-soul.io"}
+]
+keywords = ["dna", "version-control", "semantic-diff", "ai", "blockchain", "cryptography"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Mulan Permissive Software License v2 (MulanPSL-2.0)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Version Control",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+requires-python = ">=3.8"
+dependencies = [
+    "cryptography>=41.0.0",
+]
+
+[project.optional-dependencies]
+ai = [
+    "openai>=1.0.0",
+    "anthropic>=0.5.0",
+]
+gpg = [
+    "python-gnupg>=0.5.0",
+]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[project.scripts]
+dna-restore = "engines.longhun_dna_restore.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests/dna_restore_engine"]
+python_files = "test_*.py"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["engines.longhun_dna_restore*"]
