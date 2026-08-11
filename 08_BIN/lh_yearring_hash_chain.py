@@ -40,51 +40,26 @@ from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass
 from pathlib import Path
 
+# ============================================================
+# 🔥 P1修复：日柱不再自算，统一从 rizhu_core v3.0 导入（1900甲戌锚点·唯一口径）
+# ============================================================
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(_PROJECT_ROOT / "05_ENGINES" / "core"))
+from rizhu_core import get_rizhu, sizhu_ganzhi, get_nianzhu, get_yuezhu, get_shizhu
+
 
 # ============================================================
-# 天干地支基表 · L0 不可变（与 ganzhi_dna_engine.py 同口径）
+# 保留本地十天干/十二地支引用（兼容年轮链内其他函数）
 # ============================================================
-
 十天干 = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"]
 十二地支 = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
 十二时辰 = ["子时", "丑时", "寅时", "卯时", "辰时", "巳时",
             "午时", "未时", "申时", "酉时", "戌时", "亥时"]
 
 
-def _年干支(year: int) -> str:
-    base = year - 4  # 公元4年为甲子年
-    return 十天干[base % 10] + 十二地支[base % 12]
-
-
-def _月干支(year: int, month: int) -> str:
-    """年上起月法（五虎遁），阳历月近似"""
-    月支映射 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0]
-    月支_idx = 月支映射[month - 1]
-    年干 = 十天干.index(_年干支(year)[0])
-    寅月干映射 = [2, 4, 6, 8, 0, 2, 4, 6, 8, 0]
-    寅月干 = 寅月干映射[年干]
-    offset = (月支_idx - 2) % 12
-    return 十天干[(寅月干 + offset) % 10] + 十二地支[月支_idx]
-
-
-def _日干支(year: int, month: int, day: int) -> str:
-    yy = year % 100
-    base = (yy + 7) * 5 + 15 + (yy + 19) // 4
-    base %= 60
-    is_leap = (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
-    月天数 = [31, 29 if is_leap else 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    day_of_year = sum(月天数[:month - 1]) + day
-    seq = (base + day_of_year) % 60
-    return 十天干[(seq - 1) % 10] + 十二地支[(seq - 1) % 12]
-
-
-def _时辰(hour: int) -> str:
-    return 十二时辰[((hour + 1) // 2) % 12]
-
-
 def 四柱干支(dt: datetime) -> str:
-    """统一口径：年·月·日·时 四柱（与 ganzhi_dna_engine.py 一致）"""
-    return f"{_年干支(dt.year)}·{_月干支(dt.year, dt.month)}·{_日干支(dt.year, dt.month, dt.day)}·{_时辰(dt.hour)}"
+    """统一口径：年·月·日·时 四柱 → rizhu_core v3.0（唯一口径）"""
+    return sizhu_ganzhi(dt)
 
 
 def get_ganzhi(dt: datetime) -> str:

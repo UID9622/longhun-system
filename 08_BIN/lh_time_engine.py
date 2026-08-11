@@ -466,7 +466,7 @@ def get_output_stamp(now: datetime.datetime = None, format_type: str = "full") -
     format_type:
       - "full": [丙午·乙未·丙午·申时·䷪夬] 2026-08-02T15:30:00+08:00
       - "compact": #龍芯⚡️丙午·乙未·丙午·申时·䷪夬
-      - "simple": 🐉丙午·申时·䷪夬
+      - "simple": 🐉丙午·乙未·丙午·申时·䷪夬
       - "json": JSON格式完整数据
     """
     data = get_time_block(now)
@@ -474,7 +474,7 @@ def get_output_stamp(now: datetime.datetime = None, format_type: str = "full") -
     if format_type == "compact":
         return f"#龍芯⚡️{data['year_pillar']}·{data['month_pillar']}·{data['day_pillar']}·{data['hour_name']}·{data['hexagram_symbol']}{data['hexagram_name']}"
     elif format_type == "simple":
-        return f"🐉{data['year_pillar']}·{data['hour_name']}·{data['hexagram_symbol']}{data['hexagram_name']}·{data['color']}"
+        return f"🐉{data['year_pillar']}·{data['month_pillar']}·{data['day_pillar']}·{data['hour_name']}·{data['hexagram_symbol']}{data['hexagram_name']}·{data['color']}"
     elif format_type == "json":
         return json.dumps(data, ensure_ascii=False)
     else:  # full
