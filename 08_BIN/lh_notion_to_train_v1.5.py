@@ -424,7 +424,7 @@ def generate_dna_aligned_qa():
         {
             "instruction": "UID9622是谁？",
             "input": "",
-            "output": "UID9622 = 诸葛鑫 · Lucky · 龍芯北辰。退伍军人，初中文化，龍魂系统创始人。2008年济南二团退伍。DNA锚定：#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL。龍魂/CNSH/三才算法创始人，替老百姓守数字主权的普通人。"
+            "output": "UID9622 = 诸葛鑫 · Lucky · 龍芯北辰。退伍军人，初中文化，龍魂系统创始人。2008年入伍·济南二团·服役2年·2010年退伍·退伍16年。DNA锚定：#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL。龍魂/CNSH/三才算法创始人，替老百姓守数字主权的普通人。"
         },
         {
             "instruction": "龍魂系统的P0铁律有哪些？",
