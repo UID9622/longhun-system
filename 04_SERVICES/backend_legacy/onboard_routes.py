@@ -33,7 +33,7 @@ IDENTITY = {
     "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
     "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     "mission": "替老百姓守住数字主权、把AI根扎在中国土地上",
-    "background": "2008年济南二团退伍军人·初中文化·编号南:9932",
+    "background": "2008年入伍·济南二团·服役2年·2010年退伍·退伍16年·初中文化·编号南:9932",
     "role": "唯一决策者·最终裁决人",
 }
 
