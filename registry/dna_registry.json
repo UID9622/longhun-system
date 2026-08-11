@@ -20,7 +20,9 @@
       "iso": "2026-08-03T14:30:00"
     },
     "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬KZ94Y3HW",
-    "uid": "9622"
+    "uid": "9622",
+    "口径": "v2-legacy-冻结",
+    "口径说明": "lh_dna_generator v2.0旧日柱口径（自算公式·非万年历）——被 rizhu_core v3.0 1900甲戌锚点替代"
   },
   {
     "dna": "#龍芯⚡️丙午·丁酉·己酉·未时·䷼中孚-DNA-SPEC-v2.0-0002-bce933ad",
@@ -40,7 +42,9 @@
       "iso": "2026-08-03T14:35:00"
     },
     "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬UOLIWH4J",
-    "uid": "9622"
+    "uid": "9622",
+    "口径": "v2-legacy-冻结",
+    "口径说明": "lh_dna_generator v2.0旧日柱口径（自算公式·非万年历）——被 rizhu_core v3.0 1900甲戌锚点替代"
   },
   {
     "dna_string": "#龍芯⚡️丙午·丙酉·戊戌·乙卯·䷓观-CODE-创建-7b9701a6",
