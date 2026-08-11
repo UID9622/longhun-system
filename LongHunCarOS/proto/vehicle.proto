@@ -1,0 +1,78 @@
+// 龍魂车载 · gRPC协议定义
+// License: MulanPSL v2
+// DNA: #龍芯⚡️2026-08-11-CAR-PROTO-v2.0-UID9622
+
+syntax = "proto3";
+
+package longhun.car;
+
+service VehicleService {
+  rpc RegisterVehicle(RegisterRequest) returns (RegisterResponse);
+  rpc RecordNavigation(NavigationRequest) returns (RecordResponse);
+  rpc ChainDNA(DNARequest) returns (DNAResponse);
+  rpc RegisterShame(ShameRequest) returns (RecordResponse);
+  rpc ResolveShame(ShameResolveRequest) returns (RecordResponse);
+  rpc GetStatus(StatusRequest) returns (StatusResponse);
+}
+
+message RegisterRequest {
+  string id = 1;
+  string model = 2;
+  string vin = 3;
+  string brand = 4;
+  string platform = 5;
+  string dna = 6;
+}
+
+message RegisterResponse {
+  string status = 1;
+  string dna = 2;
+}
+
+message NavigationRequest {
+  string vehicle_id = 1;
+  string sancai_decision = 2;
+  string hexagram = 3;
+  string dna = 4;
+}
+
+message DNARequest {
+  string vehicle_id = 1;
+  string dna = 2;
+  string operation = 3;
+  string detail = 4;
+}
+
+message DNAResponse {
+  string status = 1;
+  string tx_hash = 2;
+}
+
+message ShameRequest {
+  string id = 1;
+  string vehicle_id = 2;
+  string error_type = 3;
+  string error_detail = 4;
+  int32 severity = 5;
+  string dna = 6;
+}
+
+message ShameResolveRequest {
+  string id = 1;
+  string resolution = 2;
+}
+
+message RecordResponse {
+  string status = 1;
+}
+
+message StatusRequest {}
+
+message StatusResponse {
+  string status = 1;
+  int32 vehicles = 2;
+  int32 navigation_records = 3;
+  int32 dna_chain_records = 4;
+  int32 shame_wall_records = 5;
+  int32 pending_shame = 6;
+}
