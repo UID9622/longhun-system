@@ -33,31 +33,51 @@ EXCLUDE_DIRS = {
 }
 # 排除的扫描子目录（第三方/历史遗留/大目录/备份归档/缓存副本/venv）
 SKIP_SCAN_DIRS = {
-    # 大目录/历史遗留/数据层
-    "layers/L7_数据层", "layers/L1_内核层", "layers/L8_治理层",
-    "engines/gpt_sovits", "engines/core",
-    "tools/bin/legacy_bin",
+    # 大目录/历史遗留
+    "L7_数据层", "L1_内核层", "L8_治理层",
+    "L4_数据层", "L3_数据层", "L6_记忆层", "L9_子系统",
+    "CNSH_颜色历史", "CNSH_加工输出", "CNSH_修复输出", "CNSH_监管数据", "CNSH_护盾数据",
+    # 第三方/供应商代码
+    "05_ENGINES/gpt_sovits",      # GPT-SoVITS 第三方模型
+    "05_ENGINES/video",            # 视频编码器第三方代码
+    "engines/core",
+    "09_TOOLS/bin/legacy_bin",     # 遗留工具
+    # 知识图谱/执行记录/系统报告（参考文档）
     "03_知識圖譜", "02_執行記錄", "05_系統報告",
-    "协议文档", "CNSH_颜色历史", "_work", "archive",
+    "协议文档", "_work", "archive", "_archive",
+    "backups", "backup",
+    # 备份目录
+    "11_DATA/backups",             # 数据备份归档
+    "11_DATA/knowledge_pull/cache", # 知识拉取缓存
     # 独立子项目/实验目录
     "baobao-guardian",
-    "research",  # 数学探索实验代码，不参与主系统对齐
-    # 协议/文档归档（与正式目录重复）
+    "research",
+    "experiments",
+    "15_LABS",
+    # 协议/文档归档
     "01_protocols/downloads_archive",
+    "01_技能庫/downloads_archive",
+    "02_SKILLS/downloads_archive",
     "governance/protocols/P2_system/downloads_archive",
     "docs/claude-backlog",
     "data/training/home_absorb/sources/claude搭建待整理",
-    # 缓存副本与历史归档
-    "data/knowledge_pull/cache",
+    # 缓存/训练数据/工作区
     "data/training/home_absorb/workspace/Desktop/龍魂系统-知识库/_archive",
     "data/training/home_absorb/workspace/Desktop/桌面项目箱",
     "data/training/home_absorb/workspace/_work",
-    "02_SKILLS/downloads_archive",
     "tombstone_vault",
     "integrated_modules",
-    # Python 虚拟环境
+    "models",                      # 模型文件
+    "dist",                        # 构建产物
+    # Python/Node 虚拟环境
     "cnsh/core/runtime_governance/venv_notion",
     "data/training/home_absorb/sources/龍魂系统/运行环境",
+    # 训练/融合模型
+    "train", "training", "fused_model",
+    # Rust/编译目标
+    "rust",
+    # 前端构建产物
+    "web_apps", "web/node_modules",
 }
 
 EXCLUDE_FILES = {"setup.py", "conftest.py", "__init__.py"}
@@ -120,7 +140,7 @@ def scan_files(target_dir):
             has_gpg = asc_path.exists()
 
             results.append({
-                "file": str(filepath.relative_to(target_dir.parent)),
+                "file": str(filepath.relative_to(target_dir)),
                 "functions": all_funcs,
                 "classes": classes,
                 "has_dna": bool(dna),
