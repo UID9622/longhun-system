@@ -31,56 +31,59 @@ EXCLUDE_DIRS = {
     ".git", "__pycache__", ".venv", "venv", "node_modules",
     ".idea", ".vscode", "dist", "build", "egg-info",
 }
-# 排除的扫描子目录（第三方/历史遗留/大目录/备份归档/缓存副本/venv）
-SKIP_SCAN_DIRS = {
-    # 大目录/历史遗留
+EXCLUDE_FILES = {"setup.py", "conftest.py", "__init__.py"}
+
+# 共享排除配置路径（单一真相源）
+_SHARED_CONFIG_PATH = Path(__file__).resolve().parent.parent / ".codebuddy/rules/scan-exclusions.json"
+
+
+def _load_shared_exclusions():
+    """从 scan-exclusions.json 加载共享排除配置，合并到 SKIP_SCAN_DIRS"""
+    try:
+        if _SHARED_CONFIG_PATH.exists():
+            with open(_SHARED_CONFIG_PATH, "r", encoding="utf-8") as f:
+                shared = json.load(f)
+            ed = shared.get("excluded_dirs", {})
+            for category in ed:
+                for d in ed[category]:
+                    if d not in _HARDCODED_SKIP_SCAN_DIRS and d not in SKIP_SCAN_DIRS:
+                        SKIP_SCAN_DIRS.add(d)
+    except Exception:
+        pass  # 降级：使用硬编码兜底
+
+
+# 硬编码兜底排除目录（共享配置不可达时使用）
+_HARDCODED_SKIP_SCAN_DIRS = {
     "L7_数据层", "L1_内核层", "L8_治理层",
     "L4_数据层", "L3_数据层", "L6_记忆层", "L9_子系统",
     "CNSH_颜色历史", "CNSH_加工输出", "CNSH_修复输出", "CNSH_监管数据", "CNSH_护盾数据",
-    # 第三方/供应商代码
-    "05_ENGINES/gpt_sovits",      # GPT-SoVITS 第三方模型
-    "05_ENGINES/video",            # 视频编码器第三方代码
-    "engines/core",
-    "09_TOOLS/bin/legacy_bin",     # 遗留工具
-    # 知识图谱/执行记录/系统报告（参考文档）
+    "05_ENGINES/gpt_sovits", "05_ENGINES/video",
+    "engines/core", "09_TOOLS/bin/legacy_bin",
     "03_知識圖譜", "02_執行記錄", "05_系統報告",
-    "协议文档", "_work", "archive", "_archive",
-    "backups", "backup",
-    # 备份目录
-    "11_DATA/backups",             # 数据备份归档
-    "11_DATA/knowledge_pull/cache", # 知识拉取缓存
-    # 独立子项目/实验目录
-    "baobao-guardian",
-    "research",
-    "experiments",
-    "15_LABS",
-    # 协议/文档归档
-    "01_protocols/downloads_archive",
-    "01_技能庫/downloads_archive",
+    "协议文档", "_work", "archive", "_archive", "backups", "backup",
+    "11_DATA/backups", "11_DATA/knowledge_pull/cache",
+    "baobao-guardian", "research", "experiments", "15_LABS",
+    "01_protocols/downloads_archive", "01_技能庫/downloads_archive",
     "02_SKILLS/downloads_archive",
     "governance/protocols/P2_system/downloads_archive",
     "docs/claude-backlog",
     "data/training/home_absorb/sources/claude搭建待整理",
-    # 缓存/训练数据/工作区
     "data/training/home_absorb/workspace/Desktop/龍魂系统-知识库/_archive",
     "data/training/home_absorb/workspace/Desktop/桌面项目箱",
     "data/training/home_absorb/workspace/_work",
-    "tombstone_vault",
-    "integrated_modules",
-    "models",                      # 模型文件
-    "dist",                        # 构建产物
-    # Python/Node 虚拟环境
+    "tombstone_vault", "integrated_modules",
+    "models", "dist",
     "cnsh/core/runtime_governance/venv_notion",
     "data/training/home_absorb/sources/龍魂系统/运行环境",
-    # 训练/融合模型
-    "train", "training", "fused_model",
-    # Rust/编译目标
-    "rust",
-    # 前端构建产物
+    "train", "training", "fused_model", "rust",
     "web_apps", "web/node_modules",
 }
 
-EXCLUDE_FILES = {"setup.py", "conftest.py", "__init__.py"}
+# 排除的扫描子目录（合并：硬编码兜底 + 共享配置加载）
+SKIP_SCAN_DIRS = set(_HARDCODED_SKIP_SCAN_DIRS)
+
+# 加载共享排除配置（追加到 SKIP_SCAN_DIRS）
+_load_shared_exclusions()
 
 # 正则
 FUNC_PATTERN = re.compile(r'^\s*def\s+(\w+)\s*\(', re.MULTILINE)

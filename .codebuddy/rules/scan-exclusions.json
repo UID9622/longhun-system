@@ -1,0 +1,169 @@
+{
+  "_meta": {
+    "version": "v1.0",
+    "description": "龍魂全仓扫描共享排除配置 — 单一真相源",
+    "DNA": "#龍芯⚡️丙午·甲申·丁巳·䷖剥-SCAN-EXCLUSIONS-v1.0",
+    "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "updated": "2026-08-11",
+    "principle": "防御性代码（检测/审计工具引用敏感词但用途是检测恶行，非实施）不视为违规；第三方/参考/归档目录不参与主系统对齐",
+    "loaded_by": ["lh_deben_audit.py", "lh_align_checker.py"]
+  },
+
+  "defensive_files": {
+    "_description": "审计/检测/防护工具误报白名单（用途是检测恶行非实施）",
+    "v1_0": [
+      "bin/lh_five_harms_historian_bridge.py",
+      "bin/lh_five_harms_api.py",
+      "bin/lh_check_virtue.py",
+      "bin/lh_check_contributor.py",
+      "bin/lh_gap_detector.py",
+      "01_protocols/LH-AUDIT-AUTO-LEARNER-v1.0-REPAIR.md"
+    ],
+    "v2_4_audit_tools": [
+      "bin/lh_platform_audit.py",
+      "bin/lh_sg_localize.py",
+      "bin/lh_ethics_quantum.py",
+      "bin/lh_掀黑箱.py",
+      "bin/lh_loyalty_scan.py",
+      "bin/lh_three_color_audit.py"
+    ],
+    "v2_4_research_docs": [
+      "01_protocols/LH-GAME-THEORY-PLATFORM-ASYMMETRY-v1.0.md",
+      "01_protocols/LH-CDNA-v1.2-需求文档.md"
+    ],
+    "v2_4_detection_tools": [
+      "bin/lh_truth_engine.py",
+      "bin/lh_daodejing_anchor.py",
+      "bin/lh_personalization_engine.py",
+      "bin/lh_platform_block_logger.py",
+      "bin/lh_lu_cnsh_map.py",
+      "bin/lh_pathfinder_train_data_v3.py",
+      "bin/lh_pathfinder_train_data_v4.py",
+      "bin/lh_csdn_to_train.py",
+      "deploy/evidence/longhun_privacy.py"
+    ]
+  },
+
+  "excluded_dirs": {
+    "_description": "全仓扫描排除目录（第三方/参考/归档/大目录/构建产物）",
+    "third_party_code": [
+      "05_ENGINES/gpt_sovits",
+      "05_ENGINES/video",
+      "engines/core",
+      "09_TOOLS/bin/legacy_bin"
+    ],
+    "archive_backup": [
+      "02_SKILLS/downloads_archive",
+      "01_技能庫/downloads_archive",
+      "01_protocols/downloads_archive",
+      "01_protocols/desktop-knowledge-matrix",
+      "governance/protocols/P2_system/downloads_archive",
+      "docs/claude-backlog",
+      "_work",
+      "archive",
+      "_archive",
+      "backups",
+      "backup",
+      "11_DATA/backups",
+      "11_DATA/knowledge_pull/cache",
+      "tombstone_vault",
+      "integrated_modules"
+    ],
+    "reference_content": [
+      "03_知識圖譜",
+      "03_KNOWLEDGE_GRAPH",
+      "02_執行記錄",
+      "05_系統報告",
+      "协议文档",
+      "docs",
+      "data/training",
+      "data/training/home_absorb/sources/claude搭建待整理",
+      "data/training/home_absorb/workspace/Desktop/龍魂系统-知识库/_archive",
+      "data/training/home_absorb/workspace/Desktop/桌面项目箱",
+      "data/training/home_absorb/workspace/_work"
+    ],
+    "build_artifacts": [
+      "models",
+      "dist",
+      "train",
+      "training",
+      "fused_model",
+      "rust",
+      "web_apps",
+      "web/node_modules",
+      "node_modules",
+      "__pycache__",
+      ".git",
+      ".venv",
+      "venv",
+      "egg-info",
+      "build",
+      ".idea",
+      ".vscode"
+    ],
+    "venv": [
+      "cnsh/core/runtime_governance/venv_notion",
+      "data/training/home_absorb/sources/龍魂系统/运行环境"
+    ],
+    "data_layers": [
+      "L7_数据层",
+      "L1_内核层",
+      "L8_治理层",
+      "L4_数据层",
+      "L3_数据层",
+      "L6_记忆层",
+      "L9_子系统",
+      "CNSH_颜色历史",
+      "CNSH_加工输出",
+      "CNSH_修复输出",
+      "CNSH_监管数据",
+      "CNSH_护盾数据"
+    ],
+    "external_projects": [
+      "baobao-guardian",
+      "research",
+      "experiments",
+      "15_LABS"
+    ]
+  },
+
+  "excluded_files": {
+    "_description": "单文件排除（不参与对齐检查）",
+    "files": ["setup.py", "conftest.py", "__init__.py"]
+  },
+
+  "mandatory_sign_dirs": {
+    "_description": "签章必签目录（每个文件的 .asc 签名必须存在）",
+    "core_scripts": "08_BIN/",
+    "protocols": "01_protocols/",
+    "engines": "04_ENGINES/",
+    "services": "05_ENGINES/",
+    "audit": "07_AUDIT/",
+    "deploy_scripts": "deploy/scripts/",
+    "portal": "10_PORTAL/",
+    "rules": ".codebuddy/rules/",
+    "memory": ".codebuddy/memory/"
+  },
+
+  "path_mappings": {
+    "_description": "路径前缀映射（脚本中不同别名→实际物理路径，避免排除规则失效）",
+    "engines/": "05_ENGINES/",
+    "tools/": "09_TOOLS/",
+    "layers/": "实际顶层目录分散（L*/）",
+    "bin/": "08_BIN/",
+    "_note": "对齐检查器必须使用实际物理路径前缀对比，而不是旧的别名路径"
+  },
+
+  "schema_version": "1.0",
+  "expansion_rule": {
+    "_description": "新增排除规则时按此顺序追加",
+    "order": [
+      "1. 确认文件/目录用途",
+      "2. 归类到对应category",
+      "3. 追加到对应数组",
+      "4. 版本标注(v2.x新增)",
+      "5. 运行 lh audit --full 验证",
+      "6. GPG签章本文件"
+    ]
+  }
+}
