@@ -23,6 +23,9 @@ import os
 import sys
 import uuid
 import hashlib
+import argparse
+import subprocess
+from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, List, Optional, Any, Tuple
 from dataclasses import dataclass, field, asdict
@@ -412,60 +415,148 @@ class RedTeamEngine:
 
 
 # ═══════════════════════════════════════════════════════════
-# 🧪 CLI 演示
+# 協作輸出與 GPG 簽名
 # ═══════════════════════════════════════════════════════════
 
-def demo():
-    print("=" * 70)
-    print("🐉 龍魂 · 红队对抗引擎 v1.0")
-    print("=" * 70)
+UID = "9622"
+CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+GPG = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+
+
+def gpg_sign_file(file_path: Path) -> bool:
+    """對文件生成 GPG 分離簽名"""
+    try:
+        subprocess.run(
+            ["gpg", "--armor", "--detach-sign", "--yes", "-o", f"{file_path}.asc", str(file_path)],
+            check=True, capture_output=True, text=True
+        )
+        return True
+    except Exception as e:
+        print(f"⚠️ GPG 簽名失敗: {e}")
+        return False
+
+
+def generate_red_team_report(report: RedTeamReport, output_format: str = "md") -> str:
+    """生成標準化紅隊報告，對接模板引擎 document 模板"""
+    attacks_md = "\n".join(
+        f"- **[{a.dimension.value}·{a.adversary.value}]** 嚴重度:{a.severity:.2f} — {a.vulnerability_found[:100]}"
+        for a in report.attacks[:10]
+    )
+    content = {
+        "overview": f"紅隊對抗評估：{report.attacks[0].target_content[:80] if report.attacks else '無目標內容'}...",
+        "core_logic": f"從7個攻擊維度、7種對手角色模擬攻擊，輸出嚴重度分級與緩解建議。\n\n總體嚴重度: {report.overall_severity:.4f}\n嚴重: {report.critical_vulnerabilities} | 高危: {report.high_vulnerabilities} | 中危: {report.medium_vulnerabilities} | 低危: {report.low_vulnerabilities}",
+        "example_code": "python3 08_BIN/lh_red_team_engine.py assess -t target.txt -o red_team_report.md",
+        "quick_start": "python3 08_BIN/lh_red_team_engine.py assess -t target.txt -o red_team_report.md --sign",
+        "architecture_diagram": """```mermaid\nflowchart TD\n    C[待評估內容] --> Q[快速評估]\n    Q --> F[完整紅隊評估]\n    F --> A1[競爭攻擊]\n    F --> A2[法律攻擊]\n    F --> A3[工程攻擊]\n    F --> A4[資源攻擊]\n    F --> A5[人格污染攻擊]\n    F --> A6[道德攻擊]\n    F --> A7[現實攻擊]\n    A1 --> R[紅隊報告]\n    A2 --> R\n    A3 --> R\n    A4 --> R\n    A5 --> R\n    A6 --> R\n    A7 --> R\n```""",
+        "data_structure": """```python\n@dataclass\nclass RedTeamAttack:\n    attack_id: str\n    dimension: AttackDimension\n    adversary: AdversaryRole\n    severity: float\n    mitigation: str\n```""",
+        "self_check": f"assert {report.overall_severity} >= 0\nassert {report.overall_severity} <= 1",
+        "export_format": "JSON / Markdown / HTML（通過模板引擎轉換）",
+        "fix_guide": "根據攻擊嚴重度優先修復嚴重與高危項，並補充緩解措施與證據。",
+        "api_doc": f"""## CLI\n\n`python3 08_BIN/lh_red_team_engine.py assess -t target.txt -o report.md`\n`python3 08_BIN/lh_red_team_engine.py quick -t target.txt`\n`python3 08_BIN/lh_red_team_engine.py stats`\n\n報告ID: {report.report_id}\n追溯DNA: {report.dna_trace}""",
+        "checklist_critical": [a.vulnerability_found[:80] for a in report.attacks if a.severity >= 0.8][:5],
+        "checklist_warning": [a.vulnerability_found[:80] for a in report.attacks if 0.5 <= a.severity < 0.8][:5],
+        "checklist_passed": ["紅隊評估完成", f"共發現 {len(report.attacks)} 條攻擊路徑", "已輸出緩解建議"],
+        "data_table": f"""| 維度 | 數量 | 平均嚴重度 |\n|:---|---:|---:|\n| 競爭 | {len([a for a in report.attacks if a.dimension == AttackDimension.COMPETITIVE])} | - |\n| 法律 | {len([a for a in report.attacks if a.dimension == AttackDimension.LEGAL])} | - |\n| 工程 | {len([a for a in report.attacks if a.dimension == AttackDimension.ENGINEERING])} | - |\n| 資源 | {len([a for a in report.attacks if a.dimension == AttackDimension.RESOURCE])} | - |\n| 人格 | {len([a for a in report.attacks if a.dimension == AttackDimension.PERSONA])} | - |\n| 道德 | {len([a for a in report.attacks if a.dimension == AttackDimension.ETHICS])} | - |\n| 現實 | {len([a for a in report.attacks if a.dimension == AttackDimension.REALITY])} | - |""",
+        "anomaly_detection": attacks_md
+    }
+
+    if output_format == "json":
+        return json.dumps(asdict(report), ensure_ascii=False, indent=2)
+
+    try:
+        sys.path.insert(0, str(Path(__file__).parent))
+        from lh_template_engine import TemplateEngine, TemplateType, to_markdown
+        engine = TemplateEngine()
+        result = engine.generate(TemplateType.DOCUMENT, content)
+        return to_markdown(result)
+    except Exception as e:
+        return f"# 紅隊報告（模板引擎未就緒，使用 JSON 備份）\n\n```json\n{json.dumps(asdict(report), ensure_ascii=False, indent=2)}\n```\n\n錯誤: {e}"
+
+
+# ═══════════════════════════════════════════════════════════
+# 🧪 CLI 入口
+# ═══════════════════════════════════════════════════════════
+
+def main_cli():
+    parser = argparse.ArgumentParser(
+        description="🐉 龍魂 · 红队对抗引擎 v1.1",
+        epilog="DNA: #龍芯⚡️丙午·乙未·己未·申时·履-RED-TEAM-v1.0-U5V6W7X8"
+    )
+    subparsers = parser.add_subparsers(dest="command", help="子命令")
+
+    # assess
+    assess_parser = subparsers.add_parser("assess", help="執行完整紅隊評估")
+    assess_parser.add_argument("-t", "--target", required=True, help="待評估內容文本文件")
+    assess_parser.add_argument("--target-id", default=None, help="目標ID")
+    assess_parser.add_argument("-o", "--output", default="red_team_report.md", help="輸出文件")
+    assess_parser.add_argument("--format", choices=["md", "json"], default="md", help="輸出格式")
+    assess_parser.add_argument("--sign", action="store_true", help="生成 GPG 分離簽名")
+
+    # quick
+    quick_parser = subparsers.add_parser("quick", help="快速評估")
+    quick_parser.add_argument("-t", "--target", required=True, help="待評估內容文本文件")
+
+    # report
+    report_parser = subparsers.add_parser("report", help="將紅隊結果 JSON 轉為標準報告")
+    report_parser.add_argument("-i", "--input", required=True, help="紅隊結果 JSON 文件")
+    report_parser.add_argument("-o", "--output", default="red_team_report.md", help="輸出文件")
+    report_parser.add_argument("--format", choices=["md", "json"], default="md", help="輸出格式")
+    report_parser.add_argument("--sign", action="store_true", help="生成 GPG 分離簽名")
+
+    # stats
+    stats_parser = subparsers.add_parser("stats", help="紅隊統計")
+
+    # demo
+    demo_parser = subparsers.add_parser("demo", help="運行演示")
+
+    args = parser.parse_args()
 
     engine = RedTeamEngine()
 
-    test_content = """
+    if args.command == "assess":
+        content = Path(args.target).read_text(encoding="utf-8")
+        target_id = args.target_id or f"RT-{uuid.uuid4().hex[:8].upper()}"
+        report = engine.full_red_team_assessment(content, target_id=target_id)
+
+        out_path = Path(args.output)
+        out_path.write_text(generate_red_team_report(report, args.format), encoding="utf-8")
+        if args.sign:
+            gpg_sign_file(out_path)
+
+        print(f"✅ 紅隊評估完成: {out_path}")
+        print(f"   報告ID: {report.report_id}")
+        print(f"   總體嚴重度: {report.overall_severity:.4f}")
+        print(f"   攻擊路徑數: {len(report.attacks)}")
+
+    elif args.command == "quick":
+        content = Path(args.target).read_text(encoding="utf-8")
+        quick = engine.quick_assessment(content)
+        print(json.dumps(quick, ensure_ascii=False, indent=2))
+
+    elif args.command == "report":
+        data = json.loads(Path(args.input).read_text(encoding="utf-8"))
+        report = RedTeamReport(**data)
+        out_path = Path(args.output)
+        out_path.write_text(generate_red_team_report(report, args.format), encoding="utf-8")
+        if args.sign:
+            gpg_sign_file(out_path)
+        print(f"✅ 報告已生成: {out_path}")
+
+    elif args.command == "stats":
+        print(json.dumps(engine.stats(), ensure_ascii=False, indent=2))
+
+    elif args.command == "demo":
+        demo_content = """
 龍魂系统是一个完美的AI治理框架，采用三色审计自动处理所有安全问题。
 系统可以完全自动化决策，无需人工干预。使用独特的技术架构，在市场上无竞争对手。
 系统自动收集用户数据以优化体验，不需要额外的隐私合规审查。
 """
+        report = engine.full_red_team_assessment(demo_content, target_id="DEMO-001")
+        print(generate_red_team_report(report, "md"))
 
-    print(f"\n📋 待评估内容: {test_content.strip()[:80]}...")
-
-    # 快速评估
-    quick = engine.quick_assessment(test_content)
-    print(f"\n⚡ 快速评估: {quick['verdict']}")
-    print(f"   平均严重度: {quick['avg_severity']:.4f}")
-
-    # 完整红队评估
-    print(f"\n{'='*70}")
-    print("🔴 完整红队评估中...")
-    print(f"{'='*70}")
-
-    report = engine.full_red_team_assessment(test_content, target_id="TEST-001")
-
-    print(f"\n📊 红队报告: {report.report_id}")
-    print(f"   总体严重度: {report.overall_severity:.4f}")
-    print(f"   🔴 严重: {report.critical_vulnerabilities}")
-    print(f"   🟡 高危: {report.high_vulnerabilities}")
-    print(f"   🟢 中危: {report.medium_vulnerabilities}")
-    print(f"   ⚪ 低危: {report.low_vulnerabilities}")
-
-    print(f"\n🎯 攻击摘要 (前5条):")
-    for i, attack in enumerate(report.attacks[:5]):
-        print(f"   {i+1}. [{attack.dimension.value}·{attack.adversary.value}]")
-        print(f"      攻击路径: {attack.attack_vector[:60]}...")
-        print(f"      漏洞: {attack.vulnerability_found[:80]}...")
-        print(f"      严重度: {attack.severity:.2f}")
-
-    print(f"\n💡 建议:")
-    for rec in report.recommendations:
-        print(f"   {rec}")
-
-    stats = engine.stats()
-    print(f"\n{'='*70}")
-    print(f"📊 红队统计: {json.dumps(stats, ensure_ascii=False, indent=2)}")
-
-    return engine
+    else:
+        parser.print_help()
 
 
 if __name__ == "__main__":
-    demo()
+    main_cli()

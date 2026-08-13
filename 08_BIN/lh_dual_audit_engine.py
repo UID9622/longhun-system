@@ -20,7 +20,10 @@ import hashlib
 import json
 import time
 import random
-from dataclasses import dataclass, field
+import argparse
+import subprocess
+from pathlib import Path
+from dataclasses import dataclass, field, asdict
 from enum import Enum
 from typing import Any, List, Dict, Optional
 
@@ -758,10 +761,137 @@ def run_all_tests():
 
 
 # ============================================================
+# 協作輸出與 GPG 簽名
+# ============================================================
+
+UID = "9622"
+CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+GPG = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+
+
+def gpg_sign_file(file_path: Path) -> bool:
+    """對文件生成 GPG 分離簽名"""
+    try:
+        subprocess.run(
+            ["gpg", "--armor", "--detach-sign", "--yes", "-o", f"{file_path}.asc", str(file_path)],
+            check=True, capture_output=True, text=True
+        )
+        return True
+    except Exception as e:
+        print(f"⚠️ GPG 簽名失敗: {e}")
+        return False
+
+
+def generate_duel_report(duel: DuelResult, problem: Dict, solution: Dict, output_format: str = "json") -> str:
+    """生成標準化互搏報告，對接模板引擎 document 模板"""
+    report = {
+        "dna": duel.duel_dna or DnaSigner.combine_dna(duel.left_dna, duel.right_dna, asdict(duel)),
+        "confirm": CONFIRM,
+        "gpg": GPG,
+        "tricolor": duel.color,
+        "timestamp": datetime.now().isoformat() if 'datetime' in globals() else time.strftime("%Y-%m-%dT%H:%M:%S"),
+        "template_type": "document",
+        "content": {
+            "overview": f"左右互搏審計：左保守 vs 右探索，共識={duel.consensus}",
+            "core_logic": f"問題: {json.dumps(problem, ensure_ascii=False)}\n方案: {json.dumps(solution, ensure_ascii=False)}\n左方觀點: {duel.left_opinion}\n右方觀點: {duel.right_opinion}\n最終決議: {duel.resolution}",
+            "example_code": "python3 08_BIN/lh_dual_audit_engine.py duel -p problem.json -s solution.json",
+            "quick_start": "python3 08_BIN/lh_dual_audit_engine.py duel -p problem.json -s solution.json -o report.md",
+            "architecture_diagram": """```mermaid\nflowchart TD\n    P[問題+方案] --> L[左人格·保守者]\n    P --> R[右人格·探索者]\n    L --> D{互搏對決}\n    R --> D\n    D --> V[驗證與反例]\n    V --> O[共識/複審/熔斷]\n```""",
+            "data_structure": """```python\n@dataclass\nclass DuelResult:\n    left_dna: str\n    right_dna: str\n    consensus: bool\n    color: str  # 🟢🟡🔴\n    score: int\n    resolution: str\n```""",
+            "self_check": f"assert duel.score == {duel.score}\nassert duel.consensus == {duel.consensus}",
+            "export_format": "JSON / Markdown / HTML（通過模板引擎轉換）",
+            "fix_guide": "若結果為🔴，必須修復後重新互搏；若為🟡，標記複審。",
+            "api_doc": """## CLI\n\n`python3 08_BIN/lh_dual_audit_engine.py duel -p problem.json -s solution.json -o report.json`\n`python3 08_BIN/lh_dual_audit_engine.py test`\n`python3 08_BIN/lh_dual_audit_engine.py report -i duel_result.json -o report.md`"""
+        }
+    }
+
+    if output_format == "json":
+        return json.dumps(report, ensure_ascii=False, indent=2)
+    # 調用模板引擎生成 Markdown
+    try:
+        import sys
+        sys.path.insert(0, str(Path(__file__).parent))
+        from lh_template_engine import TemplateEngine, TemplateType, to_markdown
+        engine = TemplateEngine()
+        result = engine.generate(TemplateType.DOCUMENT, report["content"])
+        return to_markdown(result)
+    except Exception as e:
+        return f"# 左右互搏報告（模板引擎未就緒，使用 JSON 備份）\n\n```json\n{json.dumps(report, ensure_ascii=False, indent=2)}\n```\n\n錯誤: {e}"
+
+
+# ============================================================
 # DNA簽名 - 文件末尾
 # ============================================================
 FILE_DNA = "L6F8E2A1B9C3D5E7"  # 保守者開頭
 
+
+def main_cli():
+    """命令行入口"""
+    parser = argparse.ArgumentParser(
+        description="🐉 龍魂 · 左右互搏審計引擎 v1.1",
+        epilog=f"DNA: #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_dual_audit_engine-INTEGRATION-SYSTEM"
+    )
+    subparsers = parser.add_subparsers(dest="command", help="子命令")
+
+    # duel
+    duel_parser = subparsers.add_parser("duel", help="執行互搏審計")
+    duel_parser.add_argument("-p", "--problem", required=True, help="問題描述 JSON 文件")
+    duel_parser.add_argument("-s", "--solution", required=True, help="方案 JSON 文件")
+    duel_parser.add_argument("-o", "--output", default="duel_report.md", help="輸出文件")
+    duel_parser.add_argument("--format", choices=["md", "json"], default="md", help="輸出格式")
+    duel_parser.add_argument("--sign", action="store_true", help="生成 GPG 分離簽名")
+
+    # report
+    report_parser = subparsers.add_parser("report", help="將互搏結果轉為標準報告")
+    report_parser.add_argument("-i", "--input", required=True, help="互搏結果 JSON 文件")
+    report_parser.add_argument("-o", "--output", default="duel_report.md", help="輸出文件")
+    report_parser.add_argument("--format", choices=["md", "json"], default="md", help="輸出格式")
+    report_parser.add_argument("--sign", action="store_true", help="生成 GPG 分離簽名")
+
+    # test
+    test_parser = subparsers.add_parser("test", help="運行單元測試")
+
+    args = parser.parse_args()
+
+    if args.command == "duel":
+        problem = json.loads(Path(args.problem).read_text(encoding="utf-8"))
+        solution = json.loads(Path(args.solution).read_text(encoding="utf-8"))
+        engine = MutualAuditEngine()
+        duel = engine.duel(problem, solution)
+
+        out_path = Path(args.output)
+        if args.format == "json":
+            out_path.write_text(json.dumps(asdict(duel), ensure_ascii=False, indent=2), encoding="utf-8")
+        else:
+            out_path.write_text(generate_duel_report(duel, problem, solution, "md"), encoding="utf-8")
+
+        if args.sign:
+            gpg_sign_file(out_path)
+
+        print(f"✅ 互搏審計完成: {out_path}")
+        print(f"   共識: {duel.consensus}")
+        print(f"   三色: {duel.color}")
+        print(f"   得分: {duel.score}")
+        print(f"   互搏DNA: {duel.duel_dna}")
+
+    elif args.command == "report":
+        duel_data = json.loads(Path(args.input).read_text(encoding="utf-8"))
+        duel = DuelResult(**duel_data)
+        problem = duel_data.get("_problem", {})
+        solution = duel_data.get("_solution", {})
+        out_path = Path(args.output)
+        out_path.write_text(generate_duel_report(duel, problem, solution, args.format), encoding="utf-8")
+        if args.sign:
+            gpg_sign_file(out_path)
+        print(f"✅ 報告已生成: {out_path}")
+
+    elif args.command == "test":
+        success = run_all_tests()
+        exit(0 if success else 1)
+
+    else:
+        parser.print_help()
+
+
 if __name__ == "__main__":
-    success = run_all_tests()
-    exit(0 if success else 1)
+    main_cli()
