@@ -205,6 +205,7 @@ MODULES = {
             {"id": "5", "label": "DNA唯一性守卫", "cmd": "echo '🟡 已冻结·DNA唯一性由人工审计确保'", "desc": "[冻结] 防止DNA重复/冲突"},
             {"id": "6", "label": "DNA登记修复", "cmd": "python3 bin/lh_registry_extend.py", "desc": "批量修复DNA登记问题"},
             {"id": "7", "label": "🔗 龍魂信任链", "cmd": "python3 bin/lh_trust_chain.py demo", "desc": "demo/deploy/verify/docs · 防篡改签章链"},
+            {"id": "8", "label": "🐉 透明审计仲裁", "cmd": "python3 bin/lh_transparent_audit.py demo", "desc": "多引擎事实级冲突仲裁·三色/R值双尺"},
         ]
     },
     "📊 检测 & 分析": {
@@ -899,6 +900,8 @@ SUB_DISPATCH = {
     'dna-chain':            ('lh_dna_chain.py',               '⛓️', 'DNA接龙链·init/append/verify/show/scan/auto'),
     # 🔗 龍魂信任链 v1.2 — 哈希签章链·GPG分离签名·防篡改·CI/CD闸门
     'trust-chain':          ('lh_trust_chain.py',             '🔗', '龍魂信任链·demo/deploy/verify/docs', [], 'demo'),
+    # 🐉 透明审计与冲突仲裁 v2.2 — 多引擎事实级仲裁·三色/R值双尺·年轮链
+    'transparent-audit':    ('lh_transparent_audit.py',       '🐉', '透明审计仲裁·demo/audit/api/verify', [], 'demo'),
     # 📦 AI归集Hub v2.0 — KFPP七因子过滤·跨工具索引·符号链接归集
     'hub':                  ('lh_ai_hub.py',                  '📦', 'AI归集Hub·build/search/link/status（含KFPP过滤）'),
     # 🐉 透明审计AI Hub — 多模型对话·对比·审计仪表盘·DNA追溯

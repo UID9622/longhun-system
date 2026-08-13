@@ -573,6 +573,12 @@ if [ "$FIRST_ARG" = "trust-chain" ] || [ "$FIRST_ARG" = "信任链" ]; then
   exec python3 "$HOME/longhun-system/08_BIN/lh_trust_chain.py" "$@"
 fi
 
+# ─── 龍魂透明审计与冲突仲裁 v2.2 ───
+if [ "$FIRST_ARG" = "transparent-audit" ] || [ "$FIRST_ARG" = "透明审计" ] || [ "$FIRST_ARG" = "audit" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_transparent_audit.py" "$@"
+fi
+
 # ─── 龍魂工作流程透明化 v1.0 ───
 if [ "$FIRST_ARG" = "workflow" ] || [ "$FIRST_ARG" = "wf" ] || [ "$FIRST_ARG" = "透明" ]; then
   shift
