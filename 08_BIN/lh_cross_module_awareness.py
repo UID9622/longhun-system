@@ -58,8 +58,16 @@ def load_registry() -> Optional[dict[str, Any]]:
     if not REGISTRY_PATH.exists():
         print(color(f"❌ 注册表不存在: {REGISTRY_PATH}", Colors.RED))
         return None
-    with open(REGISTRY_PATH, 'r') as f:
-        return json.load(f)
+    raw = REGISTRY_PATH.read_text(encoding='utf-8')
+    # 跳过前导 SEAL / # / // 注释行（本仓库 JSON 常带签名头）
+    lines = raw.splitlines()
+    while lines and (lines[0].strip().startswith('#') or lines[0].strip().startswith('//')):
+        lines.pop(0)
+    try:
+        return json.loads('\n'.join(lines))
+    except json.JSONDecodeError as e:
+        print(color(f"❌ 注册表 JSON 解析失败: {e}", Colors.RED))
+        return None
 
 # ─── 读取文件 ───
 def read_file_safe(path: Path) -> Optional[str]:
@@ -498,7 +506,9 @@ def auto_fix_issues(issues: list[dict[str, Any]]) -> int:
     if new_registrations:
         registry_path = PROJECT_ROOT / "L1_内核层" / "kernel" / "cross_module_registry.json"
         try:
-            reg = json.load(open(registry_path, 'r'))
+            reg = load_registry()
+            if reg is None:
+                raise RuntimeError("无法加载注册表")
             existing = reg.get("registered_bin_scripts", [])
             existing_names = {r["name"] for r in existing}
             for nr in new_registrations:
@@ -506,7 +516,16 @@ def auto_fix_issues(issues: list[dict[str, Any]]) -> int:
                     existing.append(nr)
             reg["registered_bin_scripts"] = existing
             reg["_meta"]["last_updated"] = datetime.now().isoformat()
-            json.dump(reg, open(registry_path, 'w'), ensure_ascii=False, indent=2)
+            # 保留原始签名头
+            header = ""
+            if registry_path.exists():
+                first_line = registry_path.read_text(encoding='utf-8').splitlines()[0]
+                if first_line.strip().startswith('#'):
+                    header = first_line + "\n"
+            with open(registry_path, 'w', encoding='utf-8') as f:
+                if header:
+                    f.write(header)
+                json.dump(reg, f, ensure_ascii=False, indent=2)
             print(f"  📋 {color('[持久化]', Colors.GREEN)} {len(new_registrations)} 个脚本写入 cross_module_registry.json")
         except Exception as e:
             print(f"  ❌ 持久化失败: {e}")

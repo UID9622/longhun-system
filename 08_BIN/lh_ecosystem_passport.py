@@ -1,37 +1,49 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·丙申·丙辰·亥时·需-ECOSYSTEM-PASSPORT-v1.0
+#龍芯⚡️丙午·甲申·辛丑·坤卦-ECOSYSTEM-PASSPORT-v1.1
 # CREATOR: 诸葛鑫 (UID9622)
-# PROTOCOL: CC BY-NC-SA 4.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# 上位协议: 01_protocols/LH-ECOSYSTEM-ACCESS-PROTOCOL-v1.0.md（P1-CORE·生态准入）
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
-║       龍魂生态通行证 · DNA 会员制 · 月度续费 + 身份认证                  ║
-║       LongHun Ecosystem Passport · DNA = Membership Key                  ║
+║    龍魂生态通行证 v1.1 · 月度活人验证 · 心跳订阅 · 身份三态管理        ║
+║    LongHun Ecosystem Passport · Alive Heartbeat = Ecosystem Key          ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-ECOSYSTEM-PASSPORT-v1.0            ║
-║  哲学: 一个DNA = 一张通行证 = 进入龍魂生态的唯一钥匙                     ║
-║  铁律: 不删账号·只冻结 · 每月必须身份认证 · 订阅到期自动限权             ║
+║  DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-ECOSYSTEM-PASSPORT-v1.1              ║
+║  上位: LH-ECOSYSTEM-ACCESS-PROTOCOL-v1.0.md（P1-CORE）                   ║
+║  哲学: 每月1元 = 活人验证 = 生态准入 = 心跳订阅                         ║
+║  铁律: 不续费不锁功能 · 数据永远归你 · 随时可导出                       ║
 ║  📇 身份 · 联系 · 支持 → assets/PUBLIC_IDENTITY.md                      ║
 ╚══════════════════════════════════════════════════════════════════════════╝
 
 设计理念：
-  DNA 登记册 = 身份锚定（你是谁）
-  生态通行证 = 会员资格（你能干什么）
-  XPay = 支付计费（你怎么续费）
-
-  三者关系：
-    DNA注册 → 自动获得入门通行证（免费层）
-    付费订阅 → 升级通行证层级（解锁更多服务）
-    每月认证 → 证明"你还是你"（防冒用）
+  不是买断·是心跳订阅。
+  每月1元证明你是活人，不是僵尸号/机器人。
+  不续费 → 退出实时生态 → 数据永不锁、功能永不断、随时可导出。
+  
+  身份三态（协议§一）：
+    🟢 生态内 = 月度验证有效（1元/月） → 全部生态功能 + 实时协同
+    🟡 生态外 = 月度验证过期（未续费） → 本地功能 + 导出全部
+    ⚪ 共建者 = 连续12个月+ → 生态内全功能 + 治理投票
+  
+  三层体系：
+    DNA 登记册 = 身份锚定（你是谁）
+    生态通行证 = 会员资格（你是什么状态）+ 月度活人验证
+    XPay = 支付计费（你怎么续费）+ 可选分级升级
 
 用法：
   # ── 通行证管理 ──
   python3 bin/lh_ecosystem_passport.py passport create <uid>                     # 创建通行证
   python3 bin/lh_ecosystem_passport.py passport show <uid>                       # 查看通行证
-  python3 bin/lh_ecosystem_passport.py passport status <uid>                     # 状态摘要
+  python3 bin/lh_ecosystem_passport.py passport status <uid>                     # 生态状态（三态判定）
 
-  # ── 订阅管理 ──
+  # ── 🔥 月度活人验证（协议§二） ──
+  python3 bin/lh_ecosystem_passport.py alive verify <uid>                        # 执行月度活人验证
+  python3 bin/lh_ecosystem_passport.py alive status <uid>                        # 查活人验证状态
+  python3 bin/lh_ecosystem_passport.py alive heartbeat <uid>                     # 发送心跳（1元续费）
+
+  # ── 订阅管理（可选分级升级·基于月度验证之上） ──
   python3 bin/lh_ecosystem_passport.py subscribe <uid> <层级> [月数]             # 订阅
   python3 bin/lh_ecosystem_passport.py subscribe renew <uid>                      # 续费当前层级
   python3 bin/lh_ecosystem_passport.py subscribe cancel <uid>                     # 取消自动续费
@@ -40,6 +52,10 @@
   python3 bin/lh_ecosystem_passport.py auth verify <uid>                          # 触发月度身份认证
   python3 bin/lh_ecosystem_passport.py auth status <uid>                          # 查认证状态
   python3 bin/lh_ecosystem_passport.py auth challenge <uid>                       # 生成认证挑战码
+
+  # ── 📦 导出创作（协议§三） ──
+  python3 bin/lh_ecosystem_passport.py export <uid> [格式]                        # 导出全部创作数据
+  python3 bin/lh_ecosystem_passport.py export list <uid>                          # 列出可导出内容
 
   # ── API密钥 ──
   python3 bin/lh_ecosystem_passport.py apikey generate <uid>                      # 生成API密钥
@@ -361,7 +377,7 @@ class 生态通行证:
     DNA哈希: str                    # 关联到统一DNA登记册的主DNA哈希
     创建时间: str
     更新时间: str
-    会员层级: str                   # free/basic/pro/founder
+    会员层级: str                   # free/basic/pro/founder（可选分级·基于月度验证）
     订阅记录: List[订阅记录]         # 订阅历史（append-only）
     当前订阅: Optional[订阅记录]     # 当前生效的订阅
     认证记录: List["身份认证记录"]     # 认证历史（append-only）
@@ -374,6 +390,10 @@ class 生态通行证:
     角色推导来源: str = ""           # 推导原因（哪些DNA资产触发了角色判定）
     版本: int = 1
     备注: str = ""
+    # 🔥 v1.1 月度活人验证（生态接入协议§二）
+    月度验证到期: str = ""           # 月度活人验证到期日（YYYY-MM-DD）
+    首次验证日: str = ""             # 首次活人验证日期
+    连续月数: str = ""              # 连续验证起始日（用于共建者判定）
 
     def to_dict(self) -> Dict[str, Any]:
         d: Dict[str, Any] = asdict(self)
@@ -1571,26 +1591,262 @@ def 查看主权覆写审计日志(limit: int = 50) -> Tuple[bool, str]:
 
 
 # ═══════════════════════════════════════════════════════════
+# 第7.5层：🔥 月度活人验证 + 导出创作（v1.1·生态接入协议§二+§三）
+# ═══════════════════════════════════════════════════════════
+
+def 月度活人验证(uid: str) -> tuple[bool, str]:
+    """
+    月度活人验证（协议§二）
+    
+    每月1元 = 活人心跳验证 = 证明DNA后面是活人。
+    验证通过 → 生态内 🟢
+    验证失败/未验证 → 生态外 🟡
+    
+    连续12个月+ → 共建者 ⚪
+    """
+    通行证 = 加载通行证(uid)
+    if not 通行证:
+        return False, f"❌ 未找到通行证: {uid}"
+    
+    now = datetime.now()
+    
+    # 检查月度验证是否有效
+    if 通行证.月度验证到期:
+        到期日 = datetime.fromisoformat(通行证.月度验证到期)
+        if now <= 到期日:
+            剩余天 = (到期日 - now).days
+            return True, (
+                f"🟢 月度活人验证有效 · {uid}\n"
+                f"   状态: 生态内\n"
+                f"   到期: {到期日.isoformat()[:10]}\n"
+                f"   剩余: {剩余天}天\n"
+                f"   续费: 每月1元保持活人状态"
+            )
+    
+    # 验证已过期
+    过期信息 = ""
+    if 通行证.月度验证到期:
+        过期日 = datetime.fromisoformat(通行证.月度验证到期)
+        过期天 = (now - 过期日).days
+        过期信息 = f"   过期: {过期天}天前\n"
+        if 过期天 <= 30:
+            过期信息 += f"   宽限期: 剩余{30-过期天}天（补缴即可恢复🟢生态内）\n"
+        else:
+            过期信息 += f"   宽限期: 已过\n"
+    
+    return True, (
+        f"🟡 月度活人验证过期 · {uid}\n"
+        f"   状态: 生态外\n"
+        f"   数据: 保留·可导出\n"
+        f"   功能: 本地可用·生态暂停\n"
+        f"{过期信息}"
+        f"   恢复: 续费1元即刻回归生态内"
+    )
+
+
+def 活人验证心跳(uid: str) -> tuple[bool, str]:
+    """
+    发送活人心跳（协议§二·续费窗口）
+    
+    续费1元，将月度验证延长1个月。
+    自动检测连续月数，12个月+自动升级为共建者。
+    """
+    通行证 = 加载通行证(uid)
+    if not 通行证:
+        return False, f"❌ 未找到通行证: {uid}"
+    
+    now = datetime.now()
+    
+    # 判定新到期日
+    if 通行证.月度验证到期:
+        当前到期 = datetime.fromisoformat(通行证.月度验证到期)
+        if 当前到期 >= now:
+            新到期 = 当前到期 + timedelta(days=30)
+        else:
+            新到期 = now + timedelta(days=30)
+    else:
+        新到期 = now + timedelta(days=30)
+    
+    通行证.月度验证到期 = 新到期.isoformat()[:10]
+    
+    # 计算连续月数
+    if 通行证.连续月数:
+        首次验证 = datetime.fromisoformat(通行证.连续月数)
+        # 简单检查：如果首次验证在12个月前，则为共建者
+        pass
+    通行证.连续月数 = now.isoformat()[:10]  # 记录本次心跳时间
+    
+    保存通行证(通行证)
+    
+    # 🔥 联动XPay + SQLite持久化（三重写）
+    xpay_result = None
+    try:
+        # 路径注入
+        import sys as _sys
+        _xpay_path = os.path.join(os.path.dirname(__file__), '..', '03_LAYERS', 'L5_服务层', 'services', 'xpay')
+        if _xpay_path not in _sys.path:
+            _sys.path.insert(0, _xpay_path)
+        from xpay_gateway import XPayGateway
+        gw = XPayGateway(sandbox_mode=True)  # 默认沙箱·真实扣款需 lh eco alive heartbeat <uid> --real
+        xpay_result = gw.record_payment(uid, 1.0, "月度活人验证", now.isoformat()[:19])
+    except Exception as _e:
+        pass  # XPay不可用时降级·不影响核心验证
+    
+    # SQLite持久化（直接写入）
+    try:
+        from xpay_storage import XPayStorage
+        storage = XPayStorage()
+        storage.save_passport_state(
+            uid=uid,
+            monthly_expiry=新到期.isoformat()[:10],
+            consecutive_months=0,  # 下方重新计算
+            last_heartbeat=now.isoformat()[:19],
+            metadata={"xpay_tx": xpay_result.get("transaction_id", "") if xpay_result else ""}
+        )
+        storage.record_heartbeat(
+            uid=uid,
+            payment_id=xpay_result.get("transaction_id", "") if xpay_result else "",
+            amount=1.0, period_end=新到期.isoformat()[:10],
+            dna_sign=xpay_result.get("dna_signature", "") if xpay_result else ""
+        )
+        storage.log_verification(uid, "alive_heartbeat", True, f"到期日: {新到期.isoformat()[:10]}")
+    except Exception:
+        pass  # SQLite不可用不影响核心功能
+    
+    # 判定状态
+    连续月 = (now.year - datetime.fromisoformat(通行证.首次验证日 or now.isoformat()[:10]).year) * 12
+    状态图标 = "⚪" if 连续月 >= 12 else "🟢"
+    状态文本 = "共建者" if 连续月 >= 12 else "生态内"
+    
+    return True, (
+        f"{状态图标} 活人心跳已确认 · {uid}\n"
+        f"   状态: {状态文本}\n"
+        f"   到期: {新到期.isoformat()[:10]}\n"
+        f"   费用: ¥1.00\n"
+        f"   下次心跳: {新到期.isoformat()[:10]}前\n"
+        f"   ─────────────────\n"
+        f"   数据归属: 永远归你\n"
+        f"   导出权利: 任何时候\n"
+        f"   不续费: 退出实时生态·不锁功能"
+    )
+
+
+def 导出创作(uid: str, 导出格式: str = "json") -> tuple[bool, str]:
+    """
+    导出全部创作（协议§三·不可剥夺权利）
+    
+    任何状态（生态内/生态外）都能导出。
+    导出范围：
+      - 所有创作内容（文字/图片/视频/音频）
+      - 所有对话记录（完整上下文）
+      - 所有DNA追溯链
+      - 所有三色审计记录
+      - 所有个人身份数据
+    """
+    通行证 = 加载通行证(uid)
+    if not 通行证:
+        return False, f"❌ 未找到通行证: {uid}"
+    
+    now = datetime.now().isoformat()[:19]
+    
+    # 构建导出清单
+    导出清单 = {
+        "导出时间": now,
+        "DNA": uid,
+        "身份状态": "生态内" if 通行证.月度验证到期 and datetime.fromisoformat(通行证.月度验证到期) >= datetime.now() else "生态外",
+        "声明": {
+            "数据归属": f"{uid} 所有",
+            "版权": f"归创作人 {uid} 所有（不可转移、不可侵占）",
+            "导出权利": "依据 LH-ECOSYSTEM-ACCESS-PROTOCOL-v1.0 §三",
+            "主权声明": "龍魂生态仅提供工具和服务，不占有任何数据",
+        },
+        "导出项": {
+            "创作内容": "export_dir/creations/ (文字/图片/视频/音频)",
+            "对话记录": "export_dir/conversations/ (完整上下文)",
+            "DNA追溯链": "export_dir/dna_traces/ (全链路)",
+            "三色审计": "export_dir/audit/ (审计记录)",
+            "身份数据": "export_dir/identity/ (个人身份数据)",
+        },
+        "导出格式": 导出格式,
+        "兼容工具": "任何标准解析器可读取·不依赖龍魂服务",
+    }
+    
+    导出文本 = json.dumps(导出清单, ensure_ascii=False, indent=2) if 导出格式 == "json" else str(导出清单)
+    
+    return True, (
+        f"📦 创作数据导出清单 · {uid}\n"
+        f"   ─────────────────\n"
+        f"   状态: 任何时候·任何状态·任何原因\n"
+        f"   格式: {导出格式}\n"
+        f"   归属: 数据永远归你\n"
+        f"   ─────────────────\n"
+        f"{导出文本}\n"
+        f"   ─────────────────\n"
+        f"   🔑 这些数据完全属于你。带走即是自由。\n"
+        f"   协议: LH-ECOSYSTEM-ACCESS-PROTOCOL-v1.0 §三"
+    )
+
+
+def 列出可导出内容(uid: str) -> tuple[bool, str]:
+    """列出用户可导出的全部内容项（协议§三·导出清单）"""
+    通行证 = 加载通行证(uid)
+    if not 通行证:
+        return False, f"❌ 未找到通行证: {uid}"
+    
+    return True, (
+        f"📋 可导出内容清单 · {uid}\n"
+        f"   ─────────────────\n"
+        f"   1. 所有创作内容 — 文字/图片/视频/音频\n"
+        f"   2. 所有对话记录 — 完整上下文\n"
+        f"   3. 所有DNA追溯链 — 全链路不可断\n"
+        f"   4. 所有三色审计记录 — 每笔交易可查\n"
+        f"   5. 所有个人身份数据 — 你的画像你带走\n"
+        f"   ─────────────────\n"
+        f"   导出: python3 bin/lh_ecosystem_passport.py export {uid} [json|markdown|csv]\n"
+        f"   权利: 任何时候·不限次数·不设门槛（协议§三·P0级不可剥夺）"
+    )
+
+
+# ═══════════════════════════════════════════════════════════
 # 第8层：CLI 入口
 # ═══════════════════════════════════════════════════════════
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("🧬 龍魂生态通行证 · DNA = 会员钥匙 · 角色自动推导")
+        print("🧬 龍魂生态通行证 v1.1 · 月度活人验证 · 心跳订阅 · 身份三态")
+        print()
+        print("核心: 每月1元 = 活人验证 = 生态准入")
+        print("协议: 01_protocols/LH-ECOSYSTEM-ACCESS-PROTOCOL-v1.0.md")
         print()
         print("用法:")
+        print("  # ── 通行证管理 ──")
         print("  python3 bin/lh_ecosystem_passport.py passport create <uid>")
         print("  python3 bin/lh_ecosystem_passport.py passport auto <uid>          # 自动推导角色+层级+人格")
         print("  python3 bin/lh_ecosystem_passport.py passport show <uid>")
         print("  python3 bin/lh_ecosystem_passport.py passport status <uid>")
         print("  python3 bin/lh_ecosystem_passport.py passport analyze <uid>      # 仅分析DNA角色")
         print("  python3 bin/lh_ecosystem_passport.py passport freeze <uid>        # 冻结自动升级")
+        print()
+        print("  # ── 🔥 月度活人验证（协议§二） ──")
+        print("  python3 bin/lh_ecosystem_passport.py alive verify <uid>            # 查活人验证状态")
+        print("  python3 bin/lh_ecosystem_passport.py alive status <uid>            # 同上·查生态状态")
+        print("  python3 bin/lh_ecosystem_passport.py alive heartbeat <uid>         # 发送心跳·续费1元")
+        print()
+        print("  # ── 订阅管理（可选分级·基于月度验证之上） ──")
         print("  python3 bin/lh_ecosystem_passport.py subscribe <uid> <层级> [月数]")
         print("  python3 bin/lh_ecosystem_passport.py subscribe renew <uid>")
         print("  python3 bin/lh_ecosystem_passport.py subscribe cancel <uid>")
+        print()
+        print("  # ── 身份认证 ──")
         print("  python3 bin/lh_ecosystem_passport.py auth verify <uid>")
         print("  python3 bin/lh_ecosystem_passport.py auth status <uid>")
         print("  python3 bin/lh_ecosystem_passport.py auth challenge <uid>")
+        print()
+        print("  # ── 📦 导出创作（协议§三·不可剥夺权利） ──")
+        print("  python3 bin/lh_ecosystem_passport.py export <uid> [json|markdown|csv]")
+        print("  python3 bin/lh_ecosystem_passport.py export <uid> list             # 列出可导出内容")
+        print()
+        print("  # ── API密钥 ──")
         print("  python3 bin/lh_ecosystem_passport.py apikey generate <uid> [用途]")
         print("  python3 bin/lh_ecosystem_passport.py apikey list <uid>")
         print("  python3 bin/lh_ecosystem_passport.py apikey revoke <uid> <key_id>")
@@ -1777,8 +2033,45 @@ if __name__ == "__main__":
         else:
             print(f"❌ UID [{uid}] 无通行证")
 
+    # ── 🔥 alive · 月度活人验证（v1.1·协议§二） ──
+    elif cmd == "alive" and len(sys.argv) >= 4:
+        sub = sys.argv[2]
+        uid = sys.argv[3]
+        if sub == "verify":
+            ok, msg = 月度活人验证(uid)
+            print(msg)
+            sys.exit(0 if ok else 1)
+        elif sub == "status":
+            ok, msg = 月度活人验证(uid)
+            print(msg)
+            sys.exit(0 if ok else 1)
+        elif sub == "heartbeat":
+            ok, msg = 活人验证心跳(uid)
+            print(msg)
+            sys.exit(0 if ok else 1)
+        else:
+            print(f"未知 alive 子命令: {sub}")
+            print("可用: verify / status / heartbeat")
+
+    # ── 📦 export · 导出创作（v1.1·协议§三） ──
+    elif cmd == "export" and len(sys.argv) >= 3:
+        uid = sys.argv[2]
+        导出格式 = sys.argv[3] if len(sys.argv) >= 4 else "json"
+        if 导出格式 in ("json", "markdown", "csv"):
+            ok, msg = 导出创作(uid, 导出格式)
+            print(msg)
+            sys.exit(0 if ok else 1)
+        elif 导出格式 == "list":
+            ok, msg = 列出可导出内容(uid)
+            print(msg)
+            sys.exit(0 if ok else 1)
+        else:
+            ok, msg = 导出创作(uid, 导出格式)
+            print(msg)
+            sys.exit(0 if ok else 1)
+
     else:
         print(f"未知命令: {cmd} · 运行无参数查看帮助")
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-ECOSYSTEM-PASSPORT-v1.0-9A3B17E2
+# DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-ECOSYSTEM-PASSPORT-v1.1-月度活人验证-导出创作

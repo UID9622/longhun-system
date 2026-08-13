@@ -67,6 +67,22 @@ logging.basicConfig(
 )
 logger = logging.getLogger("lh_ai_gateway")
 
+# ═══════════════════════════════════════════════════════
+# 流控模块 v1.1（2026-08-11 集成）
+#
+# 🔥 P0焊死·铁律（2026-08-11·UID9622）:
+#    新网关实例默认 100 token/s · 自动加载 · 不询问 · 不等待
+#    例外: 无（除非覆盖配置，覆盖需显式操作）
+#    DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-FLOW-CONTROL-v1.1-UID9622
+# ═══════════════════════════════════════════════════════
+_flow_plugin = None
+try:
+    from engines.lh_flow_control import RateLimiterPlugin, create_plugin, process_stream, SCENE_CONFIGS
+    _flow_plugin = create_plugin(tokens_per_second=100, burst_size=20)  # 🔥 P0焊死: 100 t/s 默认·不可改
+    logger.info("🐉 流控模块已加载: 100 token/s, burst=20")
+except ImportError:
+    logger.warning("⚠️ 流控模块未加载 (engines/lh_flow_control.py)，跳过流控")
+
 
 # ═══════════════════════════════════════════════════════
 # 任务类型
@@ -261,26 +277,41 @@ def _call_claude_format(provider: str, messages: List[Dict[str, Any]],
 
 
 # ═══════════════════════════════════════════════════════
-# 智能路由调用
+# 智能路由调用（集成流控 v1.1）
 # ═══════════════════════════════════════════════════════
 
+def _estimate_tokens(text: str) -> int:
+    """粗略估算 token 数：中文 ~1.5字符/token, 英文 ~4字符/token"""
+    cn_chars = sum(1 for c in text if '\u4e00' <= c <= '\u9fff')
+    en_chars = len(text) - cn_chars
+    return max(1, int(cn_chars / 1.5 + en_chars / 4.0))
+
+
 def chat(messages: List[Dict[str, Any]], task_type: TaskType = TaskType.GENERAL,
-         temperature: float = 0.7, system: str = "") -> Dict[str, Any]:
+         temperature: float = 0.7, system: str = "",
+         flow_session_id: str = "default") -> Dict[str, Any]:
     """
-    统一对话入口 - 自动路由到最佳模型
-    
+    统一对话入口 - 自动路由到最佳模型（集成流控）
+
     Args:
         messages: [{"role": "user", "content": "..."}, ...]
         task_type: 任务类型（code/cn/translate/analyze/creative/math/general）
         temperature: 温度参数
         system: 系统提示词
-    
+        flow_session_id: 流控会话ID（用于多会话隔离限速）
+
     Returns:
         {"content": "...", "model": "...", "provider": "...", "dna": "..."}
     """
     dna = _build_dna()
     providers = ROUTE_TABLE.get(task_type, ROUTE_TABLE[TaskType.GENERAL])
-    
+
+    # 估算输入token并根据流控等待
+    input_text = system + " " + " ".join(m.get("content", "") for m in messages)
+    estimated_input_tokens = _estimate_tokens(input_text)
+    if _flow_plugin:
+        _flow_plugin.wait_and_check(flow_session_id, tokens=estimated_input_tokens, timeout=10.0)
+
     last_error = None
     for provider in providers:
         try:
@@ -291,18 +322,124 @@ def chat(messages: List[Dict[str, Any]], task_type: TaskType = TaskType.GENERAL,
                 if system:
                     messages = [{"role": "system", "content": system}] + list(messages)
                 result = _call_openai_format(provider, messages, temperature)
-            
+
+            # 估算输出token并消耗流控额度
+            output_tokens = _estimate_tokens(result.get("content", ""))
+            if _flow_plugin:
+                _flow_plugin.check_and_consume(flow_session_id, tokens=output_tokens)
+
             result["dna"] = dna
             result["routed_via"] = provider
             result["task_type"] = task_type.value
             return result
-            
+
         except Exception as e:
             last_error = e
             logger.warning(f"⚠️ {provider} 失败，尝试下一个... ({e})")
             continue
-    
+
     raise RuntimeError(f"❌ 所有模型均失败 (tried: {providers}) | last: {last_error}")
+
+
+def chat_stream(messages: List[Dict[str, Any]], task_type: TaskType = TaskType.GENERAL,
+                temperature: float = 0.7, system: str = "",
+                flow_session_id: str = "default"):
+    """
+    流式对话入口 — 支持 SSE 流式输出 + 流控限速
+
+    用法:
+        for chunk in chat_stream([{"role": "user", "content": "你好"}]):
+            print(chunk, end="")
+    """
+    dna = _build_dna()
+    providers = ROUTE_TABLE.get(task_type, ROUTE_TABLE[TaskType.GENERAL])
+
+    # 估算输入token
+    input_text = system + " " + " ".join(m.get("content", "") for m in messages)
+    estimated_input_tokens = _estimate_tokens(input_text)
+    if _flow_plugin:
+        _flow_plugin.wait_and_check(flow_session_id, tokens=estimated_input_tokens, timeout=10.0)
+
+    for provider in providers:
+        try:
+            config = MODEL_CONFIGS[provider]
+            api_key = _get_api_key(provider)
+            if not api_key:
+                raise ValueError(f"❌ {provider} API Key 未配置")
+
+            url = f"{config['base_url']}{config['endpoint']}"
+            headers = {
+                config["auth_header"]: f"{config['auth_prefix']}{api_key}",
+                "Content-Type": "application/json",
+            }
+            payload = {
+                "model": config["model"],
+                "messages": messages if provider != "claude" else [{"role": m["role"], "content": m["content"]} for m in messages if m["role"] != "system"],
+                "max_tokens": config["max_tokens"],
+                "temperature": temperature,
+                "stream": True,
+            }
+            if system and provider == "openai" or provider == "deepseek" or provider == "kimi":
+                payload["messages"] = [{"role": "system", "content": system}] + list(messages)
+
+            logger.info(f"📤 {provider} 流式请求 | model={config['model']}")
+
+            with httpx.Client(timeout=300.0) as client:
+                with client.stream("POST", url, json=payload, headers=headers) as resp:
+                    resp.raise_for_status()
+                    char_count = 0
+                    for line in resp.iter_lines():
+                        if not line or line.startswith(": "):
+                            continue
+                        if line == "data: [DONE]":
+                            break
+                        if line.startswith("data: "):
+                            try:
+                                data = json.loads(line[6:])
+                                if provider == "claude":
+                                    if data.get("type") == "content_block_delta":
+                                        chunk = data.get("delta", {}).get("text", "")
+                                    else:
+                                        continue
+                                else:
+                                    delta = data.get("choices", [{}])[0].get("delta", {})
+                                    chunk = delta.get("content", "")
+                                if chunk:
+                                    char_count += len(chunk)
+                                    # 每积累一定字符做一次流控
+                                    if _flow_plugin and char_count % 10 == 0:
+                                        _flow_plugin.wait_and_check(
+                                            flow_session_id, tokens=max(1, char_count // 4), timeout=3.0)
+                                        char_count = 0
+                                    yield chunk
+                            except (json.JSONDecodeError, KeyError):
+                                continue
+                    # 消费剩余token
+                    if _flow_plugin and char_count > 0:
+                        _flow_plugin.check_and_consume(flow_session_id, tokens=max(1, char_count // 4))
+
+            logger.info(f"✅ {provider} 流式完成 | dna={dna}")
+            return  # 成功后退出
+
+        except Exception as e:
+            logger.warning(f"⚠️ {provider} 流式失败，尝试下一个... ({e})")
+            continue
+
+    raise RuntimeError(f"❌ 所有模型流式均失败 (tried: {providers})")
+
+
+def get_flow_stats(flow_session_id: Optional[str] = None) -> Dict:
+    """获取流控统计"""
+    if _flow_plugin:
+        return _flow_plugin.get_stats(flow_session_id)
+    return {"error": "流控未加载"}
+
+
+def get_flow_metrics() -> str:
+    """获取 Prometheus 流控指标"""
+    if _flow_plugin:
+        return _flow_plugin.get_metrics()
+    return "# 流控未加载\n"
 
 
 def classify_task(text: str) -> TaskType:
@@ -369,19 +506,36 @@ if __name__ == "__main__":
         print(f"📊 AI 网关状态:")
         for p, ok in available.items():
             print(f"  {'🟢' if ok else '🔴'} {p}")
+        if _flow_plugin:
+            stats = _flow_plugin.get_stats()
+            print(f"\n🐉 流控状态: 🟢 已加载")
+            print(f"   活跃会话: {stats.get('active_sessions', 0)}")
+            print(f"   放行: {stats.get('allowed', 0)}  拒绝: {stats.get('blocked', 0)}  超时: {stats.get('timeouts', 0)}")
         sys.exit(0)
-    
+
+    if "--flow-stats" in sys.argv:
+        if _flow_plugin:
+            stats = _flow_plugin.get_stats()
+            print(json.dumps(stats, indent=2, ensure_ascii=False))
+        else:
+            print('{"error": "流控未加载"}')
+        sys.exit(0)
+
+    if "--flow-metrics" in sys.argv:
+        print(get_flow_metrics())
+        sys.exit(0)
+
     if "--chat" in sys.argv:
         idx = sys.argv.index("--chat")
         prompt = " ".join(sys.argv[idx + 1:])
         if not prompt:
             print("用法: --chat \"你的问题\"")
             sys.exit(1)
-        
+
         task = classify_task(prompt)
         print(f"🧠 任务类型: {task.value} | 路由: {' → '.join(ROUTE_TABLE[task])}")
         print(f"📤 发送中...")
-        
+
         try:
             result = chat(
                 messages=[{"role": "user", "content": prompt}],
@@ -394,8 +548,8 @@ if __name__ == "__main__":
             print(f"❌ {e}")
             sys.exit(1)
         sys.exit(0)
-    
+
     # 默认
-    print("龍魂 AI 网关 v1.0")
-    print("用法: --check 检查状态 | --chat \"问题\" 对话")
+    print("龍魂 AI 网关 v1.1 · 流控集成")
+    print("用法: --check | --chat \"问题\" | --flow-stats | --flow-metrics")
     check_available()

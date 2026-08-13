@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # DNA: #龍芯⚡️丙午·丙申·#龍芯⚡️丙午·丙申·POSTAUDIT-PYO3_KUNPENG_SMOKE-09018101
 """鲲鹏 PyO3 冒烟测试"""
 import longhun_core as lh

@@ -46,8 +46,20 @@ class 数字根引擎:
         输出：0-9 的数字根
         """
         文本 = str(输入)
-        # 提取所有数字
-        数字列表 = [int(c) for c in 文本 if c.isdigit()]
+        # 提取所有数字（包括 Unicode 上标/圆圈数字）
+        import unicodedata
+        数字列表 = []
+        for c in 文本:
+            if c.isdigit():
+                try:
+                    数字列表.append(int(c))
+                except ValueError:
+                    # Unicode 数字（如 ①②③）取 normalize 后的 digit 值
+                    try:
+                        d = unicodedata.digit(c)
+                        数字列表.append(d)
+                    except (ValueError, TypeError):
+                        pass
 
         if not 数字列表:
             return 0

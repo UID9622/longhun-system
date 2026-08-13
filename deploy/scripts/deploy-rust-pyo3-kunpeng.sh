@@ -1,4 +1,5 @@
 #!/bin/bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # DNA: #龍芯⚡️丙午·丙申·壬子·子时·䷕贲-DEPLOY-RUST-PYO3-KUNPENG-v1.0
 # 创建者: 诸葛鑫（UID9622）
 # 协议: MulanPSL v2 (工程层)

@@ -1,4 +1,5 @@
 #!/bin/bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 🐲 龙魂记忆编辑器 · 一键安装脚本 v3.1
 # DNA: #龍芯⚡️2026-08-05-INSTALL-UID9622
 # 创建者: 诸葛鑫（UID9622）

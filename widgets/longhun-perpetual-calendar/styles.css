@@ -366,6 +366,285 @@ html, body {
   word-break: break-all;
 }
 
+/* 巡检状态条 */
+.scan-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+
+.scan-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--muted);
+  font-family: 'LonghunFont';
+}
+
+.scan-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+  box-shadow: 0 0 6px rgba(0, 212, 255, 0.4);
+}
+
+.scan-dot.ok { background: var(--green); box-shadow: 0 0 8px rgba(0, 255, 136, 0.6); }
+.scan-dot.warn { background: var(--yellow); box-shadow: 0 0 8px rgba(245, 197, 24, 0.6); }
+.scan-dot.crit { background: var(--red); box-shadow: 0 0 8px rgba(255, 107, 107, 0.7); animation: pulse 1.2s infinite; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* 领域切换 */
+.domain-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.domain-tab {
+  flex: 1;
+  padding: 9px 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  font-family: 'LonghunFont';
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.domain-tab:hover {
+  border-color: var(--blue);
+  color: var(--text);
+}
+
+.domain-tab.active {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(195, 155, 211, 0.15));
+  border-color: var(--blue);
+  color: var(--blue);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.15);
+}
+
+/* 通用面板 */
+.panel {
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.panel-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--blue);
+  font-family: 'LonghunFont';
+}
+
+.panel-sub {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+/* 文明基因图谱：事件链 */
+.gene-chain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.gene-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 10px;
+  min-width: 52px;
+}
+
+.gene-node .gz {
+  font-size: 10px;
+  color: var(--purple);
+  font-family: 'LonghunFont';
+}
+
+.gene-node .type {
+  font-size: 8px;
+  color: var(--gold);
+}
+
+.gene-node .title {
+  font-size: 9px;
+  color: var(--text);
+  max-width: 72px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gene-node .gua {
+  font-size: 8px;
+  color: var(--muted);
+}
+
+/* 重演模式 */
+.gene-repeats, .prophecy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.repeat-card, .prophecy-card {
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.repeat-card.🔴 { border-color: rgba(255, 107, 107, 0.5); background: rgba(255, 107, 107, 0.06); }
+.repeat-card.🟡 { border-color: rgba(245, 197, 24, 0.5); background: rgba(245, 197, 24, 0.06); }
+
+.repeat-head, .prophecy-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.repeat-score {
+  font-size: 11px;
+  color: var(--gold);
+  font-family: 'LonghunFont';
+}
+
+.repeat-detail {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 4px;
+  line-height: 1.6;
+}
+
+/* 预言 */
+.prophecy-card.🔴 { border-color: rgba(255, 107, 107, 0.5); background: rgba(255, 107, 107, 0.06); }
+.prophecy-card.🟡 { border-color: rgba(245, 197, 24, 0.5); background: rgba(245, 197, 24, 0.06); }
+
+.prophecy-eta {
+  font-size: 10px;
+  color: var(--purple);
+  margin-top: 4px;
+  font-family: 'LonghunFont';
+}
+
+/* H武器推演 */
+.hweapon-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hweapon-trigger {
+  padding: 10px 12px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(195, 155, 211, 0.08));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.hweapon-trigger .label {
+  color: var(--muted);
+  font-size: 10px;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.hweapon-score {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hweapon-score .score-box {
+  flex: 1;
+  min-width: 90px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.hweapon-score .num {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--gold);
+  font-family: 'LonghunFont';
+}
+
+.hweapon-score .cap {
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.hweapon-dims {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.hweapon-dims b {
+  color: var(--green);
+}
+
+.hweapon-tl {
+  font-size: 10px;
+  color: var(--purple);
+  line-height: 1.8;
+}
+
+.hweapon-dna {
+  font-size: 9px;
+  color: var(--muted);
+  word-break: break-all;
+  font-family: 'LonghunFont';
+}
+
+.empty-tip {
+  padding: 14px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+}
+
 /* 响应式 */
 @media (max-width: 600px) {
   .hero {
@@ -377,5 +656,11 @@ html, body {
   }
   .lunar-big {
     font-size: 24px;
+  }
+  .scan-strip {
+    gap: 6px;
+  }
+  .hweapon-score .score-box {
+    min-width: 76px;
   }
 }

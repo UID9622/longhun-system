@@ -1,139 +1,397 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# DNA: #龍芯⚡️丙午·丙戌·乙丑·卯时·䷯井-EVENT-BUS-v1.0-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# -*- coding: utf-8 -*-
 """
-🐉 龍魂 · 事件总线引擎 v1.0
-DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-EVENTBUS-v1.0-UID9622
-创建者: 诸葛鑫（UID9622）
-协议: CC BY-NC-SA 4.0
+🐉 龍魂中枢事件总线（LongHun Central Bus, LCB）v1.0
 
-功能：
-  - 解耦所有引擎：通过事件通信
-  - 支持发布-订阅模式
-  - 支持事件持久化（防止丢失）
-  - 支持异步处理（非阻塞）
+为龍魂技能生态提供统一的事件发布/订阅/消费能力，
+是自动迭代飞轮的基础设施。
+
+用法:
+    # 发布事件
+    python3 08_BIN/lh_event_bus.py publish --topic skill.execution \
+        --source lh-iron-law --type check_completed \
+        --payload '{"verdict":"🟢","file":"x.md"}'
+
+    # 订阅事件
+    python3 08_BIN/lh_event_bus.py subscribe --skill longhun-audit \
+        --topic skill.execution --type check_completed
+
+    # 消费事件（技能主动拉取）
+    python3 08_BIN/lh_event_bus.py consume --skill longhun-audit --limit 10
+
+    # 监听模式（守护进程）
+    python3 08_BIN/lh_event_bus.py listen --skill longhun-audit \
+        --handler 'python3 08_BIN/lh_audit_react.py'
+
+    # 查看事件流
+    python3 08_BIN/lh_event_bus.py list --topic skill.execution --limit 20
+
+协议: CC BY-NC-SA 4.0 (思想层) · MulanPSL v2 (工程层)
 """
 
+import argparse
+import hashlib
 import json
-import threading
-import queue
+import os
+import subprocess
+import sys
 import time
-from pathlib import Path
-from typing import Dict, Any, List, Callable
-from dataclasses import dataclass, field
 from datetime import datetime
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from core.longhun_core.dna_trace import generate_dna
+
+CONFIRM_MARK = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+
+DATA_DIR = Path.home() / ".longhun" / "event_bus"
+DB_PATH = DATA_DIR / "event_bus.db"
+
+SCHEMA = """
+CREATE TABLE IF NOT EXISTS events (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    timestamp TEXT NOT NULL,
+    dna TEXT NOT NULL,
+    topic TEXT NOT NULL,
+    source TEXT NOT NULL,
+    event_type TEXT NOT NULL,
+    payload TEXT NOT NULL,
+    payload_hash TEXT NOT NULL UNIQUE,
+    status TEXT DEFAULT 'pending'
+);
+
+CREATE INDEX IF NOT EXISTS idx_events_topic ON events(topic);
+CREATE INDEX IF NOT EXISTS idx_events_type ON events(event_type);
+CREATE INDEX IF NOT EXISTS idx_events_status ON events(status);
+CREATE INDEX IF NOT EXISTS idx_events_source ON events(source);
+
+CREATE TABLE IF NOT EXISTS subscriptions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    skill TEXT NOT NULL,
+    topic TEXT NOT NULL,
+    event_type TEXT,
+    priority INTEGER DEFAULT 50,
+    created_at TEXT NOT NULL,
+    UNIQUE(skill, topic, event_type)
+);
+
+CREATE TABLE IF NOT EXISTS deliveries (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_id INTEGER NOT NULL,
+    skill TEXT NOT NULL,
+    delivered_at TEXT,
+    result TEXT,
+    FOREIGN KEY (event_id) REFERENCES events(id)
+);
+"""
+
+import sqlite3
 
 
-@dataclass
-class Event:
-    topic: str
-    data: Dict[str, Any]
-    timestamp: str = field(default_factory=lambda: datetime.now().isoformat())
-    id: str = field(default_factory=lambda: f"evt_{int(time.time()*1000)}")
+def _init_db() -> sqlite3.Connection:
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    conn = sqlite3.connect(str(DB_PATH))
+    conn.row_factory = sqlite3.Row
+    conn.executescript(SCHEMA)
+    conn.commit()
+    return conn
 
 
-class EventBus:
-    """事件总线引擎——引擎间解耦通信，发布-订阅"""
+def _payload_hash(topic: str, source: str, event_type: str, payload: str) -> str:
+    raw = f"{topic}:{source}:{event_type}:{payload}:{datetime.now().strftime('%Y%m%d%H')}".encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()[:16]
 
-    def __init__(self, persist: bool = False):
-        self._subscribers: Dict[str, List[Callable]] = {}
-        self._queue: queue.Queue = queue.Queue()
-        self._workers: List[threading.Thread] = []
-        self._running = True
-        self._persist = persist
-        self._persist_file = Path.home() / "longhun-system/data/event_log.jsonl"
-        self._start_workers()
 
-    def subscribe(self, topic: str, callback: Callable):
-        if topic not in self._subscribers:
-            self._subscribers[topic] = []
-        self._subscribers[topic].append(callback)
+def cmd_publish(args: argparse.Namespace):
+    conn = _init_db()
+    payload = args.payload
+    if not payload.startswith("{"):
+        # treat as file path
+        p = Path(payload)
+        if p.exists():
+            payload = p.read_text(encoding="utf-8")
+        else:
+            print(f"❌ payload 不是 JSON 且文件不存在: {payload}", file=sys.stderr)
+            sys.exit(2)
 
-    def unsubscribe(self, topic: str, callback: Callable):
-        if topic in self._subscribers:
-            self._subscribers[topic] = [cb for cb in self._subscribers[topic] if cb != callback]
+    # validate json
+    try:
+        json.loads(payload)
+    except Exception as e:
+        print(f"❌ payload 不是合法 JSON: {e}", file=sys.stderr)
+        sys.exit(2)
 
-    def publish(self, event: Event):
-        """异步发布事件"""
-        if self._persist:
-            self._persist_event(event)
-        self._queue.put(event)
+    ph = _payload_hash(args.topic, args.source, args.type, payload)
+    dna = generate_dna("EVENT-BUS", "UID9622")
+    now = datetime.now().isoformat()
 
-    def publish_sync(self, event: Event) -> List[Any]:
-        """同步发布（等待所有消费者完成）"""
-        results = []
-        if event.topic in self._subscribers:
-            for cb in self._subscribers[event.topic]:
-                try:
-                    results.append(cb(event))
-                except Exception as e:
-                    results.append({"error": str(e)})
-        return results
+    try:
+        conn.execute(
+            "INSERT INTO events (timestamp, dna, topic, source, event_type, payload, payload_hash) VALUES (?, ?, ?, ?, ?, ?, ?)",
+            (now, dna, args.topic, args.source, args.type, payload, ph),
+        )
+        conn.commit()
+        print(f"✅ 事件已发布 | topic={args.topic} | type={args.type} | hash={ph}")
+    except sqlite3.IntegrityError:
+        print(f"⏭️ 幂等跳过 | hash={ph}")
+    finally:
+        conn.close()
 
-    def _start_workers(self, num_workers: int = 2):
-        for _ in range(num_workers):
-            t = threading.Thread(target=self._worker_loop, daemon=True)
-            t.start()
-            self._workers.append(t)
 
-    def _worker_loop(self):
-        while self._running:
-            try:
-                event = self._queue.get(timeout=0.5)
-                if event.topic in self._subscribers:
-                    for cb in self._subscribers[event.topic]:
-                        try:
-                            cb(event)
-                        except Exception as e:
-                            print(f"⚠️ 事件处理失败 [{event.topic}]: {e}")
-            except queue.Empty:
-                continue
+def cmd_subscribe(args: argparse.Namespace):
+    conn = _init_db()
+    now = datetime.now().isoformat()
+    conn.execute(
+        """INSERT INTO subscriptions (skill, topic, event_type, priority, created_at)
+           VALUES (?, ?, ?, ?, ?)
+           ON CONFLICT(skill, topic, event_type) DO UPDATE SET priority=excluded.priority""",
+        (args.skill, args.topic, args.type, args.priority, now),
+    )
+    conn.commit()
+    conn.close()
+    type_str = args.type or "*"
+    print(f"✅ 订阅已注册 | skill={args.skill} | topic={args.topic} | type={type_str}")
 
-    def _persist_event(self, event: Event):
-        self._persist_file.parent.mkdir(parents=True, exist_ok=True)
-        with open(self._persist_file, 'a', encoding='utf-8') as f:
-            f.write(json.dumps({"topic": event.topic, "data": event.data, "id": event.id, "timestamp": event.timestamp}, ensure_ascii=False) + "\n")
 
-    def stop(self):
-        self._running = False
-        for t in self._workers:
-            t.join(timeout=2)
-
-    def stats(self) -> Dict[str, Any]:
-        return {
-            "topics": len(self._subscribers),
-            "subscribers": sum(len(v) for v in self._subscribers.values()),
-            "workers": len(self._workers),
-            "queue_size": self._queue.qsize(),
-            "running": self._running,
+def _events_to_dict(events: List[sqlite3.Row]) -> List[Dict[str, Any]]:
+    out = []
+    for ev in events:
+        d = {
+            "id": ev["id"],
+            "topic": ev["topic"],
+            "event_type": ev["event_type"],
+            "source": ev["source"],
+            "payload": ev["payload"],
+            "status": ev["status"],
         }
+        # 兼容旧表可能没有 timestamp 字段
+        try:
+            d["timestamp"] = ev["timestamp"]
+        except IndexError:
+            pass
+        out.append(d)
+    return out
 
 
-# 全局单例
-_global_bus = None
+def cmd_consume(args: argparse.Namespace):
+    conn = _init_db()
+    cursor = conn.cursor()
+
+    # find subscriptions for skill
+    cursor.execute("SELECT topic, event_type FROM subscriptions WHERE skill=?", (args.skill,))
+    subs = cursor.fetchall()
+    if not subs:
+        if args.json:
+            print(json.dumps({"error": f"{args.skill} 没有注册订阅"}, ensure_ascii=False))
+        else:
+            print(f"⚠️ {args.skill} 没有注册订阅")
+        conn.close()
+        return
+
+    events: List[sqlite3.Row] = []
+    for topic, event_type in subs:
+        if event_type and event_type != "*":
+            cursor.execute(
+                "SELECT * FROM events WHERE topic=? AND event_type=? AND status='pending' ORDER BY id LIMIT ?",
+                (topic, event_type, args.limit),
+            )
+        else:
+            cursor.execute(
+                "SELECT * FROM events WHERE topic=? AND status='pending' ORDER BY id LIMIT ?",
+                (topic, args.limit),
+            )
+        events.extend(cursor.fetchall())
+
+    # dedup by id
+    seen = set()
+    unique_events = []
+    for ev in events:
+        if ev["id"] not in seen:
+            seen.add(ev["id"])
+            unique_events.append(ev)
+
+    unique_events = unique_events[: args.limit]
+
+    for ev in unique_events:
+        cursor.execute(
+            "INSERT INTO deliveries (event_id, skill, delivered_at) VALUES (?, ?, ?)",
+            (ev["id"], args.skill, datetime.now().isoformat()),
+        )
+        cursor.execute("UPDATE events SET status='delivered' WHERE id=?", (ev["id"],))
+
+    conn.commit()
+    conn.close()
+
+    if args.json:
+        print(json.dumps(_events_to_dict(unique_events), ensure_ascii=False))
+        return
+
+    print(f"🐉 {args.skill} 消费 {len(unique_events)} 条事件\n")
+    for ev in unique_events:
+        print(f"  [{ev['id']}] {ev['topic']}/{ev['event_type']} from {ev['source']}")
+        print(f"      payload: {ev['payload'][:120]}")
 
 
-def get_event_bus(persist: bool = True) -> EventBus:
-    global _global_bus
-    if _global_bus is None:
-        _global_bus = EventBus(persist=persist)
-    return _global_bus
+def cmd_listen(args: argparse.Namespace):
+    conn = _init_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT topic, event_type FROM subscriptions WHERE skill=?", (args.skill,))
+    subs = cursor.fetchall()
+    if not subs:
+        print(f"❌ {args.skill} 没有订阅，无法监听", file=sys.stderr)
+        conn.close()
+        sys.exit(2)
+
+    print(f"🐉 {args.skill} 开始监听事件总线（每 {args.interval} 秒轮询，Ctrl+C 停止）")
+    try:
+        while True:
+            # reuse consume logic without printing counts
+            for topic, event_type in subs:
+                if event_type:
+                    cursor.execute(
+                        "SELECT * FROM events WHERE topic=? AND event_type=? AND status='pending' ORDER BY id LIMIT ?",
+                        (topic, event_type, args.limit),
+                    )
+                else:
+                    cursor.execute(
+                        "SELECT * FROM events WHERE topic=? AND status='pending' ORDER BY id LIMIT ?",
+                        (topic, args.limit),
+                    )
+                events = cursor.fetchall()
+                for ev in events:
+                    # mark delivered
+                    cursor.execute(
+                        "INSERT INTO deliveries (event_id, skill, delivered_at) VALUES (?, ?, ?)",
+                        (ev["id"], args.skill, datetime.now().isoformat()),
+                    )
+                    cursor.execute("UPDATE events SET status='delivered' WHERE id=?", (ev["id"],))
+                    conn.commit()
+                    # invoke handler if given
+                    if args.handler:
+                        env = os.environ.copy()
+                        env["LCB_EVENT_ID"] = str(ev["id"])
+                        env["LCB_TOPIC"] = ev["topic"]
+                        env["LCB_TYPE"] = ev["event_type"]
+                        env["LCB_SOURCE"] = ev["source"]
+                        env["LCB_PAYLOAD"] = ev["payload"]
+                        try:
+                            result = subprocess.run(
+                                args.handler,
+                                shell=True,
+                                env=env,
+                                capture_output=True,
+                                text=True,
+                                timeout=120,
+                            )
+                            res = {"returncode": result.returncode, "stdout": result.stdout[:500], "stderr": result.stderr[:500]}
+                        except Exception as e:
+                            res = {"error": str(e)}
+                        cursor.execute(
+                            "UPDATE deliveries SET result=? WHERE event_id=? AND skill=?",
+                            (json.dumps(res, ensure_ascii=False), ev["id"], args.skill),
+                        )
+                        conn.commit()
+                    else:
+                        print(f"  [{ev['id']}] {ev['topic']}/{ev['event_type']} | {ev['payload'][:80]}")
+            time.sleep(args.interval)
+    except KeyboardInterrupt:
+        print("\n🛑 监听停止")
+    finally:
+        conn.close()
+
+
+def cmd_list(args: argparse.Namespace):
+    conn = _init_db()
+    cursor = conn.cursor()
+    sql = "SELECT * FROM events WHERE 1=1"
+    params = []
+    if args.topic:
+        sql += " AND topic=?"
+        params.append(args.topic)
+    if args.type:
+        sql += " AND event_type=?"
+        params.append(args.type)
+    if args.status:
+        sql += " AND status=?"
+        params.append(args.status)
+    sql += " ORDER BY id DESC LIMIT ?"
+    params.append(args.limit)
+
+    cursor.execute(sql, params)
+    rows = cursor.fetchall()
+    print(f"🐉 事件流（共 {len(rows)} 条）\n")
+    print(f"{'ID':<6} {'TOPIC':<22} {'TYPE':<22} {'SOURCE':<18} {'STATUS':<10} {'PAYLOAD'}")
+    print("-" * 110)
+    for r in rows:
+        payload = r["payload"][:60] + "..." if len(r["payload"]) > 60 else r["payload"]
+        print(f"{r['id']:<6} {r['topic']:<22} {r['event_type']:<22} {r['source']:<18} {r['status']:<10} {payload}")
+    conn.close()
+
+
+def cmd_stats(args: argparse.Namespace):
+    conn = _init_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT status, COUNT(*) FROM events GROUP BY status")
+    status_counts = dict(cursor.fetchall())
+    cursor.execute("SELECT skill, COUNT(*) FROM subscriptions GROUP BY skill")
+    subs = dict(cursor.fetchall())
+    conn.close()
+    print("📊 事件总线统计")
+    print(f"   总事件: {sum(status_counts.values())}")
+    for st, c in status_counts.items():
+        print(f"   - {st}: {c}")
+    print(f"   订阅者: {len(subs)}")
+    for sk, c in subs.items():
+        print(f"      {sk}: {c} 条订阅")
+
+
+def main():
+    parser = argparse.ArgumentParser(description="🐉 龍魂中枢事件总线 LCB")
+    sub = parser.add_subparsers(dest="command", help="子命令")
+
+    p_pub = sub.add_parser("publish", help="发布事件")
+    p_pub.add_argument("--topic", required=True)
+    p_pub.add_argument("--source", required=True)
+    p_pub.add_argument("--type", required=True)
+    p_pub.add_argument("--payload", required=True, help="JSON 字符串或 JSON 文件路径")
+
+    p_sub = sub.add_parser("subscribe", help="注册订阅")
+    p_sub.add_argument("--skill", required=True)
+    p_sub.add_argument("--topic", required=True)
+    p_sub.add_argument("--type", default=None)
+    p_sub.add_argument("--priority", type=int, default=50)
+
+    p_con = sub.add_parser("consume", help="消费事件")
+    p_con.add_argument("--skill", required=True)
+    p_con.add_argument("--limit", type=int, default=10)
+    p_con.add_argument("--json", action="store_true", help="输出 JSON 数组")
+
+    p_listen = sub.add_parser("listen", help="监听模式（守护进程）")
+    p_listen.add_argument("--skill", required=True)
+    p_listen.add_argument("--handler", default=None, help="事件触发时执行的命令（通过环境变量接收事件）")
+    p_listen.add_argument("--interval", type=float, default=5.0)
+    p_listen.add_argument("--limit", type=int, default=10)
+    p_listen.add_argument("--json", action="store_true", help="handler 调用时使用 JSON 环境变量")
+
+    p_list = sub.add_parser("list", help="查看事件流")
+    p_list.add_argument("--topic", default=None)
+    p_list.add_argument("--type", default=None)
+    p_list.add_argument("--status", default=None)
+    p_list.add_argument("--limit", type=int, default=20)
+
+    sub.add_parser("stats", help="统计")
+
+    args = parser.parse_args()
+    if not args.command:
+        parser.print_help()
+        sys.exit(2)
+
+    globals()[f"cmd_{args.command}"](args)
 
 
 if __name__ == "__main__":
-    bus = EventBus(persist=False)
-
-    received = []
-
-    def handler(evt):
-        received.append(evt.data.get("message", ""))
-
-    bus.subscribe("test_topic", handler)
-    bus.publish(Event("test_topic", {"message": "hello world"}))
-    time.sleep(0.1)  # 等 worker 处理
-
-    print(f"收到: {received}")
-    print(f"总线状态: {bus.stats()}")
-    bus.stop()
-    print("🟢 事件总线引擎测试通过")
+    main()

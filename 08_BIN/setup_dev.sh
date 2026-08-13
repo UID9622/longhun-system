@@ -54,9 +54,6 @@ echo ""
 echo "📦 安装基础依赖..."
 pip install -r requirements-base.txt -q 2>&1 | tail -1
 
-echo "📦 安装后端依赖..."
-pip install -r backend/requirements.txt -q 2>&1 | tail -1
-
 echo "📦 安装统一依赖..."
 pip install -r requirements.txt -q 2>&1 | tail -1
 
@@ -115,8 +112,8 @@ SCRIPTS=(
     "bin/lh_memory_load.py"
     "bin/lh_anti_tamper.py"
     "bin/hetu_luoshu_dna.py"
-    "backend/main.py"
-    "web_server.py"
+    "08_BIN/web_server.py"
+    "control-panel/main.py"
 )
 for script in "${SCRIPTS[@]}"; do
     if [ -f "$script" ]; then
@@ -130,12 +127,12 @@ echo ""
 echo "🐉 ========================================"
 echo "   🟢 开发环境搭建完成！"
 echo ""
-echo "   启动后端:   python backend/main.py"
-echo "   启动门户:   python web_server.py"
-echo "   一键启动:   bash bin/start_all.sh"
-echo "   Docker:     docker compose up -d"
+echo "   启动门户:   python3 08_BIN/web_server.py"
+echo "   启动控制台: python3 control-panel/main.py"
+echo "   一键启动:   bash bin/start_dev_env.sh"
+echo "   全量启动:   bash bin/start_all.sh"
 echo ""
 echo "   门户:       http://127.0.0.1:8777"
-echo "   API 文档:   http://127.0.0.1:9622/api/docs"
-echo "   健康检查:   http://127.0.0.1:9622/api/system/health"
+echo "   控制台:     http://127.0.0.1:9630"
+echo "   健康检查:   http://127.0.0.1:8777/health"
 echo "🐉 ========================================"

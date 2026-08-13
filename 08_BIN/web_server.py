@@ -28,8 +28,8 @@ from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
-# 项目根路径
-ROOT = Path(__file__).resolve().parent
+# 项目根路径（本脚本位于 08_BIN/ 下，向上两级为项目根）
+ROOT = Path(__file__).resolve().parent.parent
 PORTAL_DIR = ROOT / "portal"
 WEB_DIR = ROOT / "web"
 REPORTS_DIR = WEB_DIR / "reports"
@@ -133,9 +133,8 @@ if __name__ == "__main__":
     print(f"   报告: {REPORTS_DIR}")
 
     uvicorn.run(
-        "web_server:app",
+        app,
         host=host,
         port=port,
-        reload=True,
         log_level="info",
     )

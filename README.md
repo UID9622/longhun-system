@@ -38,6 +38,7 @@
 | 🔐 **GPG 签名** | 全量文件 `.asc` 脱签验证 | 本仓库任意 `.md.asc` / `.py.asc` |
 | 🎨 **品牌资产** | 印章风格 Logo / App 图标 / OG 预览 | [`brand/`](./brand/) |
 | 🌐 **在线门户** | `10_PORTAL/index.html` 静态站点 | [`portal/`](./portal/) |
+| 🖥️ **CNSH IDE** | 基于 FastAPI + Ace Editor 的可交付编辑器 | [`CNSH_IDE.md`](./CNSH_IDE.md) |
 | 📊 **学术引用** | CITATION.cff 已配置 | [`CITATION.cff`](./CITATION.cff) |
 | 💰 **支持入口** | FUNDING.yml + 此路同行二维码 | [`.github/FUNDING.yml`](./.github/FUNDING.yml) |
 
@@ -104,6 +105,29 @@ find 13_TESTS -type f -name '*.py' | wc -l                    # 测试数
 **Keywords**: `#BehavioralCryptography` `#AIGC-Authentication` `#PrivateDomainExemption` `#CrossDomainTracking`
 
 ---
+
+## 🖥️ CNSH IDE · 中文编程集成开发环境
+
+> 已交付可独立运行的 CNSH 编辑器，支持纠错 / 编译 / 运行三引擎联动。
+
+```bash
+# 本地运行
+python3 08_BIN/cnsh_web_ide.py
+
+# 打包为 macOS .app
+python3 08_BIN/build_cnsh_app.py
+```
+
+| 入口 | 说明 |
+|:---|:---|
+| 🚀 **运行** | `python3 08_BIN/cnsh_web_ide.py` → http://127.0.0.1:8848 |
+| 📦 **打包** | `python3 08_BIN/build_cnsh_app.py --target macos_app` |
+| 🧠 **AI 接入** | 本地 Ollama 模型优先 + 国产云厂商可选，零 API 费用 | [`CNSH_IDE.md`](./CNSH_IDE.md) |
+| 📖 **交付说明** | [`CNSH_IDE.md`](./CNSH_IDE.md) |
+| 🐳 **容器** | [`container/README.md`](./container/README.md) |
+
+---
+
 ## 📚 文档导航
 
 ### 入门必读
@@ -289,6 +313,17 @@ The LongHun Protocol is designed to be the governance layer that any AI system c
 - **GitHub:** [@UID9622](https://github.com/UID9622)
 - **Repository:** [longhun-system](https://github.com/UID9622/longhun-system)
 - **Discussions:** [社区讨论区](https://github.com/UID9622/longhun-system/discussions)
+
+### 🔗 知识库 & 反向链接
+
+> 龍魂知识分布在多个平台，互为镜像、互相链接。
+
+| 平台 | 链接 | 内容 |
+|:---|:---|:---|
+| 📓 **Notion 知识库** | [uid9622.notion.site](https://uid9622.notion.site) | 367个数据库·设计文档·引擎注册表·知识图谱·完整知识底座 |
+| 📺 **CSDN 博客** | [uid9622-01.blog.csdn.net](https://uid9622-01.blog.csdn.net) | 技术文章·实战教程·知识卡片·公开发布 |
+| 🌐 **官方网站** | [uid9622.cn](https://uid9622.cn) | 龍魂系统入口·API文档·健康状态 |
+| 📦 **GitHub** | [github.com/UID9622/longhun-system](https://github.com/UID9622/longhun-system) | 源码·协议·引擎·一切开源
 
 ---
 

@@ -1,4 +1,5 @@
 #!/bin/bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # DNA: #龍芯⚡️丁未·戊申·戊午·巳时·䷀乾-BCM-SYSTEMD-DEPLOY-v1.0
 # 创建者: 诸葛鑫（UID9622）
 # License: MulanPSL v2

@@ -270,3 +270,31 @@ tts/fish-speech
 
 # --- Rust 编译产物 ---
 target/
+
+# ═══════════════════════════════════════════════════════════
+# 🔴 D1 绝密引擎保护 · 主权焊死 · 永不入 Git
+# 规则: 01_protocols/LH-ENGINE-PROTECTION-v1.0.md
+# 任何 D1 标记文件误入 git → ∞熔断
+# ═══════════════════════════════════════════════════════════
+# D1 绝密标记文件
+*_D1_SECRET*
+*_NEVER_EXPORT*
+*_sovereign_key*
+*_quantum_key*
+*_dna_seed*
+# 量子密钥
+**/quantum_keys/**
+**/*.quantum
+# GPG 私钥
+**/private_keys/**
+*.gpg-private
+# 主权加密密钥
+**/sovereign_crypto_keys/**
+# 369 内核算法
+**/luoshu_369_core/**
+**/*_369_kernel*
+# 行为密码学核心
+**/behavioral_crypto_core/**
+**/*_seven_factor_core*
+# 焊死封印文件（锁存）
+config/engine_protection.weld.*.json

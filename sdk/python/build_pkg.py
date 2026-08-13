@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# DNA: #龍芯⚡️丙午·丙酉·壬戌·戌时·䷬萃-SDK-PYTHON-BUILD_PKG-UID9622-3F79D790
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """Build longhun-tricolor Python package"""
 import shutil
 import tarfile

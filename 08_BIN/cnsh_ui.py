@@ -16,11 +16,16 @@ import os
 import sys
 import re
 import json
+import ast
 import datetime
 from pathlib import Path
-from typing import Dict, List, Tuple, Optional, Any
-import tkinter as tk
-from tkinter import filedialog, messagebox, scrolledtext
+from typing import Dict, List, Tuple, Optional, Any, Callable
+try:
+    import tkinter as tk
+    from tkinter import filedialog, messagebox, scrolledtext
+    HAS_TKINTER = True
+except ImportError:
+    HAS_TKINTER = False
 import threading
 
 # ============================================================
@@ -54,8 +59,17 @@ class CNSHRuntime:
 
 class CNSHAI:
     """AI接口 - 可替换为真实API"""
+    _custom_ask: Optional[Callable[[str], str]] = None
+
+    @classmethod
+    def set_custom_ask(cls, callback: Optional[Callable[[str], str]]):
+        """设置外部 AI 回调（例如 CNSH IDE 的多厂商路由）"""
+        cls._custom_ask = callback
+
     @staticmethod
     def ask(prompt: str, use_real_ai: bool = False) -> str:
+        if CNSHAI._custom_ask is not None:
+            return CNSHAI._custom_ask(prompt)
         if use_real_ai:
             # TODO: 接入真实AI API
             return f"[AI真实理解] {prompt}"
@@ -153,16 +167,31 @@ class CNSHExecutorV2:
     """CNSH v2.0 执行器"""
     
     @staticmethod
+    def _safe_eval(expr: str) -> Any:
+        """安全表达式求值：仅允许数字字面量与基础运算符。"""
+        if not expr or not expr.strip():
+            return True
+        tree = ast.parse(expr.strip(), mode='eval')
+        allowed_nodes = (ast.Expression, ast.BinOp, ast.UnaryOp, ast.Constant,
+                         ast.Add, ast.Sub, ast.Mult, ast.Div, ast.Mod, ast.Pow,
+                         ast.FloorDiv, ast.USub, ast.UAdd)
+        for node in ast.walk(tree):
+            if not isinstance(node, allowed_nodes):
+                return None
+        return eval(compile(tree, '<safe>', 'eval'))
+
+    @staticmethod
     def eval_condition(cond: str, runtime: CNSHRuntime) -> bool:
         try:
             # 替换变量
             for k, v in runtime.get_all().items():
                 cond = cond.replace(k, str(v))
-            # 安全评估
+            # 安全评估：先把剩余标识符替换为 0，再走安全求值
             if re.search(r'[a-zA-Z_]', cond):
                 cond = re.sub(r'[a-zA-Z_][a-zA-Z0-9_]*', '0', cond)
-            return eval(cond) if cond.strip() else True
-        except:
+            result = CNSHExecutorV2._safe_eval(cond)
+            return bool(result) if result is not None else False
+        except Exception:
             return False
     
     @staticmethod
@@ -249,6 +278,8 @@ class CNSHInterpreterV2:
 
 class CNSHApp:
     def __init__(self, root):
+        if not HAS_TKINTER:
+            raise RuntimeError("Tkinter 不可用，无法启动 CNSH 桌面控制台。请使用 CNSH Web IDE 或安装 Tkinter。")
         self.root = root
         self.root.title("🐉 CNSH 控制台 v2.0")
         self.root.geometry("700x500")

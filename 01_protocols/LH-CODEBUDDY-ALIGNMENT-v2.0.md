@@ -6,7 +6,7 @@ description: 龍魂体系 × CodeBuddy 全对齐规则 v2.0（融合版）——
 ---
 
 # 龍魂体系 × CodeBuddy 全对齐规则 v2.0（融合版）
-# DNA: #龍芯⚡️2026-07-20-CODEBUDDY-ALIGNMENT-RULES-V2.0-FUSION
+# DNA: #龍芯⚡️丙午·乙未·乙未·午时·☰乾-CODEBUDDY-ALIGNMENT-RULES-FUSION-V2.0-P0-9d1b1a08
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # 上位文档: LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md（P0-ETERNAL，本规则是其执行层摘要，冲突时以上位文档为准）
@@ -218,7 +218,7 @@ D3日志脱敏；D4自由流动。
 规则制定：诸葛鑫（UID9622） × Kimi 协助成文
 上位文档：LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md（P0-ETERNAL）
 关联协议：隐私接入规则v2.0｜战后整顿协议v1.0｜算法审计与透明协议v1.0｜LH-ORIGINALITY-DECLARATION-PROTOCOL-v1.0
-DNA: #龍芯⚡️2026-07-20-CODEBUDDY-ALIGNMENT-RULES-V2.0-FUSION
+DNA: #龍芯⚡️丙午·乙未·乙未·午时·☰乾-CODEBUDDY-ALIGNMENT-RULES-FUSION-V2.0-P0-9d1b1a08
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 三色: 🟢三方规则已合并去重·冲突序已统一 🟡CodeBuddy规则入口以IDE实际配置为准 🔴无编造
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
