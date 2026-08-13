@@ -22,26 +22,37 @@
 
 焊死跨 AI 窗口（Kimi / CodeBuddy / Claude / 任何后来者）的会话交接协议：上一窗口收尾时写入 handoff 包，下一窗口进场时读取并继续，不允许失忆、不允许重复问、不允许丢上下文。
 
+**协作中枢（v2.0 落地）**：交接包三处一致——
+| 位置 | 路径 | 角色 |
+|:---|:---|:---|
+| 🖥️ 本地 | `12_DOCS/handoffs/` | 工作副本 |
+| ☁️ 鲲鹏 | `/opt/longhun/shared/handoffs/` | **唯一真相来源** |
+| 🌍 Web | `https://uid9622.cn/collab/handoffs/` | 快速导航 |
+
+> 原则：**鲲鹏是唯一真相来源，本地是工作副本**。任何设备进场 `lh handoff load --remote` 都能拿到最新交接包。
+
 
 ## 🏛️ 架构图
 
 ```mermaid
 flowchart LR
-    A[会话A Kimi] -->|写入 handoff| B[12_DOCS/handoffs/]
-    C[会话B CodeBuddy] -->|读取 handoff| B
+    A[会话A Kimi] -->|lh handoff save 自动推送| B[/opt/longhun/shared/handoffs/ 鲲鹏唯一真相源/]
+    C[会话B CodeBuddy] -->|lh handoff load --remote| B
     D[会话C Claude] -->|读取+追加 handoff| B
     B --> E[统一上下文/ TODO/ 未验证假设/ 本地改动]
+    E --> F[deploy/sync-collab.sh full 双向同步]
+    F --> B
 ```
 
 
 ## 🧠 核心逻辑
 
-每次会话收尾必须执行 `lh handoff save`：把当前 TODO 状态、上下文摘要、未验证假设、本地未提交改动清单、下一步建议写入 `12_DOCS/handoffs/HANDOFF-<干支四柱>-<窗口>-v1.0.md`。新会话进场先执行 `lh handoff load`：读取最新 handoff，恢复上下文，再继续工作。
+每次会话收尾必须执行 `lh handoff save`：把当前 TODO 状态、上下文摘要、未验证假设、本地未提交改动清单、下一步建议写入 `12_DOCS/handoffs/HANDOFF-<干支四柱>-<窗口>-v1.0.md`，并**自动推送鲲鹏共享中枢**（`--no-push` 可关）。新会话进场先执行 `lh handoff load`（或 `--remote` 从鲲鹏拉最新）：读取最新 handoff，恢复上下文，再继续工作。
 
 
 ## 🌊 数据流向
 
-AI 操作 → 更新 TODO/上下文 → 会话结束前调用 handoff save → 生成 handoff 文件 + GPG 签名 → 下一 AI 窗口调用 handoff load → 解析 handoff → 恢复 TODO 和上下文 → 继续执行
+AI 操作 → 更新 TODO/上下文 → 会话结束前调用 handoff save → 生成 handoff 文件 + GPG 签名 → **自动推送鲲鹏 shared/handoffs/** → 下一 AI 窗口（任意设备）调用 handoff load（--remote）→ 从鲲鹏拉取 → 解析 handoff → 恢复 TODO 和上下文 → 继续执行
 
 
 ## 📐 关键数据结构
@@ -52,14 +63,17 @@ handoff 文件固定结构：1) 元数据（DNA/确认码/GPG/时间戳/上一�
 ## 🚀 实战示例
 
 ```python
-# 上一窗口收尾
+# 上一窗口收尾（自动推送鲲鹏）
 lh handoff save --from kimi --summary "修复模板引擎 DNA 格式" --next "生成交接协议文档"
 
-# 下一窗口进场
+# 下一窗口进场：本地读
 lh handoff load
 
-# 查看历史交接
-lh handoff list
+# 下一窗口进场：跨设备/新设备 → 从鲲鹏拉最新再读
+lh handoff load --remote
+
+# 查看历史交接（含鲲鹏）
+lh handoff list --remote
 ```
 
 
@@ -69,6 +83,8 @@ lh handoff list
 2. handoff DNA 格式错误 → 拒绝加载，通知老大
 3. 本地改动与 handoff 描述不符 → 重新扫描 git status 并更新 handoff
 4. GPG 签名失效 → 视为被篡改，禁止加载
+5. 鲲鹏推送失败 → 本地保存不受影响，提示稍后 `bash deploy/sync-collab.sh full` 补推
+6. 鲲鹏不可达 → 降级为本地 handoff，声明"未上鲲鹏"，恢复后补推
 
 
 ## ✅ 自检方案
