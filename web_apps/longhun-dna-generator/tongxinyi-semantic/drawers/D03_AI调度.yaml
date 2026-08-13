@@ -1,0 +1,44 @@
+# 龍魂语义抽屉 · D03 · AI调度
+# 归属: 龍魂系统 UID9622 · 通心译引用源
+# 状态机: 种子 → 审核 → 焊死(P0冻结, 不可改只冻结)
+# 引用语法: @D03.{词元}  例: @D03.铸码
+
+drawer: D03
+name: AI调度
+count: 5
+entries:
+  - term: "铸码"
+    alias: ["铸造DNA", "生成DNA"]
+    en: "dna generate"
+    cnsh: "铸码"
+    gua: "䷱鼎"
+    status: "种子"
+    note: "调用DNA生成器"
+  - term: "验码"
+    alias: ["验证DNA", "校验"]
+    en: "dna verify"
+    cnsh: "验码"
+    gua: "䷲震"
+    status: "种子"
+    note: "校验注册与完整性"
+  - term: "还文"
+    alias: ["恢复全文", "还原"]
+    en: "dna recover"
+    cnsh: "还文"
+    gua: "䷳艮"
+    status: "种子"
+    note: "凭DNA恢复全文"
+  - term: "唤格"
+    alias: ["人格加载", "召唤人格"]
+    en: "persona load"
+    cnsh: "唤格"
+    gua: "䷴渐"
+    status: "种子"
+    note: "加载16人格之一"
+  - term: "启智"
+    alias: ["启动AI", "开控制台"]
+    en: "launch ai"
+    cnsh: "启智"
+    gua: "䷵归妹"
+    status: "种子"
+    note: "打开啟動AI控制台"

@@ -1,0 +1,51 @@
+# 🐉 龍魂系统 · 开发环境 Docker Compose
+# DNA: #龍芯⚡️丙午·丙申·戊申·巳时·需-DOCKER-COMPOSE-v1.0-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 用法: docker compose up -d
+
+services:
+  longhun-portal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: longhun-portal
+    ports:
+      - "8777:8777"
+    environment:
+      - LONGHUN_WEB_PORT=8777
+      - LONGHUN_API_URL=http://longhun-control-panel:9630
+    volumes:
+      - ./portal:/app/portal:ro
+      - ./web:/app/web:ro
+      - ./brand:/app/brand:ro
+      - ./logs:/app/logs
+    command: python3 08_BIN/web_server.py
+    depends_on:
+      - longhun-control-panel
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8777/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  longhun-control-panel:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: longhun-control-panel
+    ports:
+      - "9630:9630"
+    environment:
+      - CONTROL_PANEL_PORT=9630
+    volumes:
+      - ./control-panel:/app/control-panel:ro
+      - ./api:/app/api:ro
+      - ./skills:/app/skills:ro
+      - ./docs:/app/docs:ro
+      - ./logs:/app/logs
+    command: python3 control-panel/main.py
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9630/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

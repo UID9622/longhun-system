@@ -1,0 +1,707 @@
+{
+  "timestamp": "2026-08-07T22:52:19.014306",
+  "total_pages": 65,
+  "archived": 56,
+  "skipped_missing": 9,
+  "skipped_exists": 0,
+  "details": [
+    {
+      "category": "宪法与治理层",
+      "src": "12_DOCS/notion_mirror/pages/8ad36909a4504f0aae24cbaea3c4ea9f.md",
+      "title": "龍魂系统宪法 v1.0",
+      "level": "P0",
+      "status": "ARCHIVED",
+      "target": "01_protocols/龍魂系统宪法_v1_0.md",
+      "size_bytes": 5456,
+      "had_dna": true
+    },
+    {
+      "category": "宪法与治理层",
+      "src": "12_DOCS/notion_mirror/pages/3337125a9c9f8187875eda5b6aa1d7f0.md",
+      "title": "一票否决权×阴阳调和 v1.0",
+      "level": "P0",
+      "status": "MISSING_SOURCE",
+      "target": "01_protocols/一票否决权×阴阳调和_v1_0.md",
+      "size_bytes": 0
+    },
+    {
+      "category": "宪法与治理层",
+      "src": "12_DOCS/notion_mirror/pages/dd9eabae98ec48a7ba583b79aa14f8dc.md",
+      "title": "老大初心宣言·灵魂档案归集 v1.0",
+      "level": "P0",
+      "status": "ARCHIVED",
+      "target": "01_protocols/老大初心宣言·灵魂档案归集_v1_0.md",
+      "size_bytes": 18235,
+      "had_dna": false
+    },
+    {
+      "category": "宪法与治理层",
+      "src": "12_DOCS/notion_mirror/pages/2743f5deed0a48b4980b1154a766ba3a.md",
+      "title": "德者永生殿·路由回流协议 v2.0",
+      "level": "P0",
+      "status": "MISSING_SOURCE",
+      "target": "01_protocols/德者永生殿·路由回流协议_v2_0.md",
+      "size_bytes": 0
+    },
+    {
+      "category": "宪法与治理层",
+      "src": "12_DOCS/notion_mirror/pages/19a8289545b74cae8b3b873c0e4bce68.md",
+      "title": "动态AI协议入口",
+      "level": "P0",
+      "status": "ARCHIVED",
+      "target": "01_protocols/动态AI协议入口.md",
+      "size_bytes": 12807,
+      "had_dna": true
+    },
+    {
+      "category": "宪法与治理层",
+      "src": "12_DOCS/notion_mirror/pages/a267c3af2ba74da2a379a18572656cf1.md",
+      "title": "全球文化主权与维权宪法 v2.0",
+      "level": "P0",
+      "status": "ARCHIVED",
+      "target": "01_protocols/全球文化主权与维权宪法_v2_0.md",
+      "size_bytes": 18181,
+      "had_dna": true
+    },
+    {
+      "category": "宪法与治理层",
+      "src": "12_DOCS/notion_mirror/pages/c60d629444c94656b2b2ea968a6c72af.md",
+      "title": "北辰协议·原文存档（L0-012）",
+      "level": "P0",
+      "status": "ARCHIVED",
+      "target": "01_protocols/北辰协议·原文存档_L0-012_.md",
+      "size_bytes": 9836,
+      "had_dna": false
+    },
+    {
+      "category": "大脑与智能路由",
+      "src": "12_DOCS/notion_mirror/pages/072c483a21b6437f9326b722636af935.md",
+      "title": "智能体大脑集成手册 v1.0",
+      "level": "P0",
+      "status": "MISSING_SOURCE",
+      "target": "04_ENGINES/智能体大脑集成手册_v1_0.md",
+      "size_bytes": 0
+    },
+    {
+      "category": "大脑与智能路由",
+      "src": "12_DOCS/notion_mirror/pages/0d0af05b0b95484182a344f25eaeedc2.md",
+      "title": "沉浸式复交启动页 v1.0",
+      "level": "P0",
+      "status": "ARCHIVED",
+      "target": "04_ENGINES/沉浸式复交启动页_v1_0.md",
+      "size_bytes": 8042,
+      "had_dna": true
+    },
+    {
+      "category": "大脑与智能路由",
+      "src": "12_DOCS/notion_mirror/pages/4566044476014326803e907f7a926ab2.md",
+      "title": "AI自动路由系统",
+      "level": "L3",
+      "status": "ARCHIVED",
+      "target": "04_ENGINES/AI自动路由系统.md",
+      "size_bytes": 7693,
+      "had_dna": true
+    },
+    {
+      "category": "大脑与智能路由",
+      "src": "12_DOCS/notion_mirror/pages/bec1e986ff4c427999dcc9943b2b0d87.md",
+      "title": "龙魂自动路由系统·宝宝智能管家",
+      "level": "L3",
+      "status": "ARCHIVED",
+      "target": "04_ENGINES/龙魂自动路由系统·宝宝智能管家.md",
+      "size_bytes": 7854,
+      "had_dna": true
+    },
+    {
+      "category": "大脑与智能路由",
+      "src": "12_DOCS/notion_mirror/pages/b53160a0479947a98c002179fc1dc298.md",
+      "title": "龙魂记忆中枢·DNA永生记忆",
+      "level": "L2",
+      "status": "ARCHIVED",
+      "target": "04_ENGINES/龙魂记忆中枢·DNA永生记忆.md",
+      "size_bytes": 4033,
+      "had_dna": true
+    },
+    {
+      "category": "DNA与身份架构",
+      "src": "12_DOCS/notion_mirror/pages/1dd88844789e4185a0efbb43017f3e74.md",
+      "title": "DNA時間軸L5分層架構 v1.4",
+      "level": "P0",
+      "status": "ARCHIVED",
+      "target": "01_protocols/DNA時間軸L5分層架構_v1_4.md",
+      "size_bytes": 18285,
+      "had_dna": true
+    },
+    {
+      "category": "DNA与身份架构",
+      "src": "12_DOCS/notion_mirror/pages/a07533b376b94bdabab391541216f2bb.md",
+      "title": "統一DNA變量對照表 v1.0（已封存）",
+      "level": "P0",
+      "status": "ARCHIVED",
+      "target": "01_protocols/統一DNA變量對照表_v1_0_已封存_.md",
+      "size_bytes": 15559,
+      "had_dna": false
+    },
+    {
+      "category": "DNA与身份架构",
+      "src": "12_DOCS/notion_mirror/pages/77106ff9282f4db6b3ffb65f83f97c21.md",
+      "title": "DNA時間軸L5分層架構白皮書 v2.1",
+      "level": "P0",
+      "status": "ARCHIVED",
+      "target": "01_protocols/DNA時間軸L5分層架構白皮書_v2_1.md",
+      "size_bytes": 22666,
+      "had_dna": true
+    },
+    {
+      "category": "DNA与身份架构",
+      "src": "12_DOCS/notion_mirror/pages/c10baabe55694bbcb0f4e5d5377c634e.md",
+      "title": "DNA分层安全设计 v4.0",
+      "level": "L1",
+      "status": "ARCHIVED",
+      "target": "01_protocols/DNA分层安全设计_v4_0.md",
+      "size_bytes": 8450,
+      "had_dna": true
+    },
+    {
+      "category": "DNA与身份架构",
+      "src": "12_DOCS/notion_mirror/pages/c167bf3709414ddfb50df5af4687e0e0.md",
+      "title": "【P0永恒级】数据来源追溯规范",
+      "level": "P0",
+      "status": "MISSING_SOURCE",
+      "target": "01_protocols/_P0永恒级_数据来源追溯规范.md",
+      "size_bytes": 0
+    },
+    {
+      "category": "安全与认证",
+      "src": "12_DOCS/notion_mirror/pages/2b525f18ec4f4e78a68edb3cac47b899.md",
+      "title": "龙魂数据安全架构",
+      "level": "L1",
+      "status": "ARCHIVED",
+      "target": "01_protocols/龙魂数据安全架构.md",
+      "size_bytes": 9197,
+      "had_dna": true
+    },
+    {
+      "category": "安全与认证",
+      "src": "12_DOCS/notion_mirror/pages/6c1025697a9e40bc92e52d414500108c.md",
+      "title": "智能身份认证系统 v1.0",
+      "level": "L1",
+      "status": "MISSING_SOURCE",
+      "target": "01_protocols/智能身份认证系统_v1_0.md",
+      "size_bytes": 0
+    },
+    {
+      "category": "安全与认证",
+      "src": "12_DOCS/notion_mirror/pages/f894aca6671348ad8ca5c0c9a186f495.md",
+      "title": "CNSH代码变量隔离系统",
+      "level": "L2",
+      "status": "ARCHIVED",
+      "target": "01_protocols/CNSH代码变量隔离系统.md",
+      "size_bytes": 4855,
+      "had_dna": true
+    },
+    {
+      "category": "安全与认证",
+      "src": "12_DOCS/notion_mirror/pages/141f146e598a4bdcb3cb7dcb8e673560.md",
+      "title": "Service DNA 接入规范 v0.2",
+      "level": "L2",
+      "status": "ARCHIVED",
+      "target": "01_protocols/Service_DNA_接入规范_v0_2.md",
+      "size_bytes": 7294,
+      "had_dna": true
+    },
+    {
+      "category": "CNSH与工程实现",
+      "src": "12_DOCS/notion_mirror/pages/1543ceabbcb747d09bcaddd7fcb9d845.md",
+      "title": "CNSH × 龍魂系统·MVP v2.0",
+      "level": "P0",
+      "status": "MISSING_SOURCE",
+      "target": "03_compiler/CNSH_×_龍魂系统·MVP_v2_0.md",
+      "size_bytes": 0
+    },
+    {
+      "category": "CNSH与工程实现",
+      "src": "12_DOCS/notion_mirror/pages/142168c7f03942e696e8c499d2914e47.md",
+      "title": "龍芯家族花名册·设备主人主权铁律 v1.0",
+      "level": "P0",
+      "status": "ARCHIVED",
+      "target": "03_compiler/龍芯家族花名册·设备主人主权铁律_v1_0.md",
+      "size_bytes": 26698,
+      "had_dna": false
+    },
+    {
+      "category": "CNSH与工程实现",
+      "src": "12_DOCS/notion_mirror/pages/16399c8440fa4d1aad5cad3aa8cb5ffe.md",
+      "title": "CNSH工具集本地网页模板",
+      "level": "L3",
+      "status": "ARCHIVED",
+      "target": "03_compiler/CNSH工具集本地网页模板.md",
+      "size_bytes": 4652,
+      "had_dna": true
+    },
+    {
+      "category": "CNSH与工程实现",
+      "src": "12_DOCS/notion_mirror/pages/ca83c2fd3cd94adabe10159417f2ec67.md",
+      "title": "数字甲骨文字元立碑工程·总系统 v1.0",
+      "level": "P0",
+      "status": "ARCHIVED",
+      "target": "03_compiler/数字甲骨文字元立碑工程·总系统_v1_0.md",
+      "size_bytes": 12821,
+      "had_dna": true
+    },
+    {
+      "category": "CNSH与工程实现",
+      "src": "12_DOCS/notion_mirror/pages/3187125a9c9f80a68158d9064f591f26.md",
+      "title": "CNSH × 北辰协议 IEEE白皮书 v1.1",
+      "level": "P0",
+      "status": "MISSING_SOURCE",
+      "target": "03_compiler/CNSH_×_北辰协议_IEEE白皮书_v1_1.md",
+      "size_bytes": 0
+    },
+    {
+      "category": "CNSH与工程实现",
+      "src": "12_DOCS/notion_mirror/pages/e3d22f7e5d854dbf8c138e72274afd23.md",
+      "title": "开源文件模板系统·CNSH-Editor v1.0",
+      "level": "L3",
+      "status": "ARCHIVED",
+      "target": "03_compiler/开源文件模板系统·CNSH-Editor_v1_0.md",
+      "size_bytes": 8961,
+      "had_dna": true
+    },
+    {
+      "category": "审计与质量保障",
+      "src": "12_DOCS/notion_mirror/pages/2fef05eeb41a4e0e9beff239289678b8.md",
+      "title": "三色审计·AI回复真实性验证协议 v1.0",
+      "level": "L1",
+      "status": "ARCHIVED",
+      "target": "07_AUDIT/三色审计·AI回复真实性验证协议_v1_0.md",
+      "size_bytes": 11763,
+      "had_dna": true
+    },
+    {
+      "category": "审计与质量保障",
+      "src": "12_DOCS/notion_mirror/pages/de14987164d7414d95d6add1138f8492.md",
+      "title": "三色审计前置评估机制",
+      "level": "L1",
+      "status": "ARCHIVED",
+      "target": "07_AUDIT/三色审计前置评估机制.md",
+      "size_bytes": 5924,
+      "had_dna": true
+    },
+    {
+      "category": "审计与质量保障",
+      "src": "12_DOCS/notion_mirror/pages/e0d66f81b4de49698497e349c328d883.md",
+      "title": "宪法合规审计报告",
+      "level": "L1",
+      "status": "ARCHIVED",
+      "target": "07_AUDIT/宪法合规审计报告.md",
+      "size_bytes": 7618,
+      "had_dna": true
+    },
+    {
+      "category": "审计与质量保障",
+      "src": "12_DOCS/notion_mirror/pages/3297125a9c9f81329819fb69b3dc907e.md",
+      "title": "审计日报 2026-03-20",
+      "level": "L3",
+      "status": "ARCHIVED",
+      "target": "07_AUDIT/审计日报_2026-03-20.md",
+      "size_bytes": 5116,
+      "had_dna": true
+    },
+    {
+      "category": "审计与质量保障",
+      "src": "12_DOCS/notion_mirror/pages/e6e50ba19da645ac9f95d83c39e8bc34.md",
+      "title": "龙魂系统发布验收完整方案",
+      "level": "L2",
+      "status": "ARCHIVED",
+      "target": "07_AUDIT/龙魂系统发布验收完整方案.md",
+      "size_bytes": 5748,
+      "had_dna": true
+    },
+    {
+      "category": "知识与学习体系",
+      "src": "12_DOCS/notion_mirror/pages/c2df953f773545308593bc65aa3c14ed.md",
+      "title": "龍魂知识库·论文&白皮书总部 v1.0",
+      "level": "L1",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/龍魂知识库·论文_白皮书总部_v1_0.md",
+      "size_bytes": 6591,
+      "had_dna": false
+    },
+    {
+      "category": "知识与学习体系",
+      "src": "12_DOCS/notion_mirror/pages/4419a93e11174045a9fc0ac0b3f7e4a5.md",
+      "title": "AI算法史·NodeCard时间轴 1943-2025 v1.0",
+      "level": "L2",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/AI算法史·NodeCard时间轴_1943-2025_v1_0.md",
+      "size_bytes": 13176,
+      "had_dna": true
+    },
+    {
+      "category": "知识与学习体系",
+      "src": "12_DOCS/notion_mirror/pages/fdb1b46b581a4c159d6842bd03e909a8.md",
+      "title": "CSDN占稿·双账号单向架构",
+      "level": "L3",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/CSDN占稿·双账号单向架构.md",
+      "size_bytes": 5057,
+      "had_dna": true
+    },
+    {
+      "category": "知识与学习体系",
+      "src": "12_DOCS/notion_mirror/pages/837a3b763b7541ab8f681defe3ac7362.md",
+      "title": "北辰协议｜原文存档（L2-021+L1-031）",
+      "level": "P0",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/北辰协议_原文存档_L2-021_L1-031_.md",
+      "size_bytes": 8228,
+      "had_dna": true
+    },
+    {
+      "category": "知识与学习体系",
+      "src": "12_DOCS/notion_mirror/pages/c4a8ebb5e4db4773a38cee76f04185d5.md",
+      "title": "龍魂系统执行日志 2026-03-13",
+      "level": "L3",
+      "status": "MISSING_SOURCE",
+      "target": "03_KNOWLEDGE_GRAPH/龍魂系统执行日志_2026-03-13.md",
+      "size_bytes": 0
+    },
+    {
+      "category": "通心译与人机交互",
+      "src": "12_DOCS/notion_mirror/pages/f0f1844b8ae548e485ebdbd4ac4051a1.md",
+      "title": "通心译执行手册 v1.0",
+      "level": "L1",
+      "status": "ARCHIVED",
+      "target": "engines/通心译执行手册_v1_0.md",
+      "size_bytes": 16665,
+      "had_dna": false
+    },
+    {
+      "category": "通心译与人机交互",
+      "src": "12_DOCS/notion_mirror/pages/346e0c1babd6475baabb09654fb1efe0.md",
+      "title": "Notion AI龍魂代理宝宝系统 v1.2",
+      "level": "L2",
+      "status": "ARCHIVED",
+      "target": "engines/Notion_AI龍魂代理宝宝系统_v1_2.md",
+      "size_bytes": 9582,
+      "had_dna": true
+    },
+    {
+      "category": "通心译与人机交互",
+      "src": "12_DOCS/notion_mirror/pages/3c8bf63e3d3b49dc84d01407ceeaa3d2.md",
+      "title": "龍魂·Notion API 全景文档",
+      "level": "L3",
+      "status": "ARCHIVED",
+      "target": "engines/龍魂·Notion_API_全景文档.md",
+      "size_bytes": 9136,
+      "had_dna": true
+    },
+    {
+      "category": "治理与组织",
+      "src": "12_DOCS/notion_mirror/pages/84daa1d2030447318ade20e12b1fdb36.md",
+      "title": "龍魂七維AI治理×數字主權執行表 v1.0",
+      "level": "P0",
+      "status": "ARCHIVED",
+      "target": "governance/龍魂七維AI治理×數字主權執行表_v1_0.md",
+      "size_bytes": 24425,
+      "had_dna": true
+    },
+    {
+      "category": "治理与组织",
+      "src": "12_DOCS/notion_mirror/pages/1f9a58996f82415ca02e567c7cd16363.md",
+      "title": "龍魂·世界入口论文",
+      "level": "P0",
+      "status": "MISSING_SOURCE",
+      "target": "governance/龍魂·世界入口论文.md",
+      "size_bytes": 0
+    },
+    {
+      "category": "治理与组织",
+      "src": "12_DOCS/notion_mirror/pages/2e67125a9c9f80eb8b9ff857bea1846a.md",
+      "title": "主控仪表盘（L0）",
+      "level": "L0",
+      "status": "ARCHIVED",
+      "target": "governance/主控仪表盘_L0_.md",
+      "size_bytes": 6162,
+      "had_dna": true
+    },
+    {
+      "category": "治理与组织",
+      "src": "12_DOCS/notion_mirror/pages/a3ca7dc0068c42b2ba23cdbb7dd45361.md",
+      "title": "关键词归集索引",
+      "level": "L3",
+      "status": "ARCHIVED",
+      "target": "governance/关键词归集索引.md",
+      "size_bytes": 5784,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/数字根_洛书369.md",
+      "title": "数字根·洛书369",
+      "level": "L0",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/数字根·洛书369.md",
+      "size_bytes": 2599,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/CNSH三才校验公式.md",
+      "title": "CNSH三才校验公式",
+      "level": "L0",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/CNSH三才校验公式.md",
+      "size_bytes": 2452,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/CNSH原点能量场公式.md",
+      "title": "CNSH原点能量场公式",
+      "level": "L0",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/CNSH原点能量场公式.md",
+      "size_bytes": 1992,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/CNSH路由公式.md",
+      "title": "CNSH路由公式",
+      "level": "L1",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/CNSH路由公式.md",
+      "size_bytes": 2932,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/五行生克算法_WuXing.md",
+      "title": "五行生克算法",
+      "level": "L1",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/五行生克算法.md",
+      "size_bytes": 2909,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/三才向量合成_Sancai_Vector.md",
+      "title": "三才向量合成",
+      "level": "L1",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/三才向量合成.md",
+      "size_bytes": 3125,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/64卦维度_64Gua.md",
+      "title": "64卦维度",
+      "level": "L1",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/64卦维度.md",
+      "size_bytes": 2281,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/八卦维度_Bagua.md",
+      "title": "八卦维度",
+      "level": "L1",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/八卦维度.md",
+      "size_bytes": 2321,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/天干地支维度_StemsBranches.md",
+      "title": "天干地支维度",
+      "level": "L1",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/天干地支维度.md",
+      "size_bytes": 2513,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/河洛图维度_Hetu_Luoshu.md",
+      "title": "河洛图维度",
+      "level": "L1",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/河洛图维度.md",
+      "size_bytes": 2898,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/信息论_Information_Theory.md",
+      "title": "信息论",
+      "level": "L2",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/信息论.md",
+      "size_bytes": 2316,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/傅里叶变换_Fourier.md",
+      "title": "傅里叶变换",
+      "level": "L2",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/傅里叶变换.md",
+      "size_bytes": 2093,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/采样定理_Nyquist.md",
+      "title": "采样定理",
+      "level": "L2",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/采样定理.md",
+      "size_bytes": 2472,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/自动微分_Automatic_Differentiation.md",
+      "title": "自动微分",
+      "level": "L2",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/自动微分.md",
+      "size_bytes": 2736,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/数值方法_Numerical_Methods.md",
+      "title": "数值方法",
+      "level": "L2",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/数值方法.md",
+      "size_bytes": 2640,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/渲染几何_Geometry_Rendering.md",
+      "title": "渲染几何",
+      "level": "L2",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/渲染几何.md",
+      "size_bytes": 2468,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/量子计算抽象层_Quantum_Abstract.md",
+      "title": "量子计算抽象层",
+      "level": "L2",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/量子计算抽象层.md",
+      "size_bytes": 3274,
+      "had_dna": true
+    },
+    {
+      "category": "哲学与数学基础",
+      "src": "12_DOCS/notion_mirror/pages/通心译翻译引擎_总纲.md",
+      "title": "通心译翻译引擎·总纲",
+      "level": "L1",
+      "status": "ARCHIVED",
+      "target": "03_KNOWLEDGE_GRAPH/通心译翻译引擎·总纲.md",
+      "size_bytes": 3990,
+      "had_dna": true
+    },
+    {
+      "category": "协作与未来",
+      "src": "12_DOCS/notion_mirror/pages/dabb25dd74594ecb8de94457be6e1b68.md",
+      "title": "自动化对话档案系统",
+      "level": "L3",
+      "status": "ARCHIVED",
+      "target": "02_執行記錄/自动化对话档案系统.md",
+      "size_bytes": 9155,
+      "had_dna": true
+    },
+    {
+      "category": "协作与未来",
+      "src": "12_DOCS/notion_mirror/pages/3664bb869a0841478008c6c111b9289d.md",
+      "title": "曾老师智慧算法·量子力学重构",
+      "level": "L2",
+      "status": "ARCHIVED",
+      "target": "02_執行記錄/曾老师智慧算法·量子力学重构.md",
+      "size_bytes": 13936,
+      "had_dna": true
+    },
+    {
+      "category": "协作与未来",
+      "src": "12_DOCS/notion_mirror/pages/34f7125a9c9f80b9951cee661375dd09.md",
+      "title": "待办",
+      "level": "L3",
+      "status": "ARCHIVED",
+      "target": "02_執行記錄/待办.md",
+      "size_bytes": 14278,
+      "had_dna": true
+    }
+  ],
+  "by_category": {
+    "宪法与治理层": {
+      "total": 7,
+      "archived": 5,
+      "skipped": 2
+    },
+    "大脑与智能路由": {
+      "total": 5,
+      "archived": 4,
+      "skipped": 1
+    },
+    "DNA与身份架构": {
+      "total": 5,
+      "archived": 4,
+      "skipped": 1
+    },
+    "安全与认证": {
+      "total": 4,
+      "archived": 3,
+      "skipped": 1
+    },
+    "CNSH与工程实现": {
+      "total": 6,
+      "archived": 4,
+      "skipped": 2
+    },
+    "审计与质量保障": {
+      "total": 5,
+      "archived": 5,
+      "skipped": 0
+    },
+    "知识与学习体系": {
+      "total": 5,
+      "archived": 4,
+      "skipped": 1
+    },
+    "通心译与人机交互": {
+      "total": 3,
+      "archived": 3,
+      "skipped": 0
+    },
+    "治理与组织": {
+      "total": 4,
+      "archived": 3,
+      "skipped": 1
+    },
+    "哲学与数学基础": {
+      "total": 18,
+      "archived": 18,
+      "skipped": 0
+    },
+    "协作与未来": {
+      "total": 3,
+      "archived": 3,
+      "skipped": 0
+    }
+  }
+}

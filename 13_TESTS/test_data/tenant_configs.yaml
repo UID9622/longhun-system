@@ -1,0 +1,27 @@
+# 🐉 龙魂流控压测 · 租户配置
+# DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-TENANT-CONFIG-UID9622
+# License: MulanPSL v2 (工程层)
+
+# 默认租户 — P0焊死 100 t/s
+tenant_default:
+  api_key: "sk-default-tenant-key"
+  tokens_per_second: 100
+  burst_size: 20
+  expected_rate: 100
+  rate_tolerance: 0.20
+
+# VIP租户
+tenant_vip:
+  api_key: "sk-vip-tenant-key"
+  tokens_per_second: 200
+  burst_size: 50
+  expected_rate: 200
+  rate_tolerance: 0.20
+
+# 免费租户
+tenant_free:
+  api_key: "sk-free-tenant-key"
+  tokens_per_second: 50
+  burst_size: 10
+  expected_rate: 50
+  rate_tolerance: 0.20

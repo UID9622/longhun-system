@@ -1,0 +1,22 @@
+{
+  "app": "CNSH IDE",
+  "version": "1.0.0",
+  "built_at": "2026-08-12T11:48:45.005316",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "target": "macos_app",
+  "onefile": false,
+  "entry": "08_BIN/cnsh_web_ide.py",
+  "engines": [
+    "cnsh_editor",
+    "cnsh_compiler",
+    "cnsh_ui",
+    "cnsh_complete",
+    "cnsh_interpreter",
+    "cnsh_gateway",
+    "cnsh_ai_providers",
+    "cnsh_bagua_router",
+    "lh_agent_cosmos"
+  ],
+  "dna": "#龍芯⚡️2026-08-12-CNSH-IDE-BUILD-21A7BCAB-UID9622",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+}

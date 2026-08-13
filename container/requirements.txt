@@ -1,0 +1,7 @@
+# 🐉 龍魂系统容器依赖
+# 核心能力尽量零依赖，但容器内允许补充 requests 等轻量包
+
+requests>=2.31.0
+urllib3>=2.0.0
+fastapi>=0.100
+uvicorn[standard]>=0.23

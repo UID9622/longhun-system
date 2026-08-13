@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 算力成本对比 | 龍魂低算力内核</title>
+<style>
+  :root {
+    --bg:#0a0a0f; --card:#111118; --border:#1a1a2e;
+    --gold:#c9a84c; --gold-dim:#8b7340; --green:#2ecc71;
+    --yellow:#f1c40f; --red:#e74c3c; --text:#ccc; --text-dim:#888;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Mono",monospace;line-height:1.6;min-height:100vh}
+  .container{max-width:900px;margin:0 auto;padding:40px 20px}
+  h1,h2{color:var(--gold)}
+  h1{font-size:1.8rem;text-align:center;margin-bottom:10px}
+  h2{font-size:1.2rem;margin:30px 0 15px}
+  .subtitle{text-align:center;color:var(--text-dim);margin-bottom:30px}
+
+  .big-save{text-align:center;padding:30px;background:var(--card);border:2px solid var(--gold-dim);border-radius:12px;margin:20px 0}
+  .big-save .amount{font-size:3rem;color:var(--green);font-weight:bold}
+  .big-save .note{color:var(--text-dim);margin-top:8px}
+
+  table{width:100%;border-collapse:collapse;margin:15px 0;font-size:0.85rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border)}
+  th{color:var(--gold);font-weight:600}
+  .num{text-align:right;font-variant-numeric:tabular-nums}
+  .green{color:var(--green)} .red{color:var(--red)} .yellow{color:var(--yellow)}
+
+  .bar-chart{margin:20px 0}
+  .bar-row{display:flex;align-items:center;margin:8px 0;gap:10px}
+  .bar-label{width:120px;text-align:right;font-size:0.8rem;color:var(--text-dim);flex-shrink:0}
+  .bar-track{flex:1;background:var(--card);border-radius:4px;height:24px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:8px;font-size:0.75rem;color:#fff}
+  .bar-fill.lh{background:var(--green);width:2%}
+  .bar-fill.cloud{background:var(--red);width:95%}
+
+  .footer{text-align:center;padding:30px 0;margin-top:40px;border-top:1px solid var(--border);color:var(--text-dim);font-size:0.85rem}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🐉 算力成本对比</h1>
+  <div class="subtitle">大厂告诉你：算力=智能。龍魂告诉你：你随时可以验证我说的话。</div>
+
+  <div class="big-save">
+    <div style="color:var(--text-dim);font-size:0.9rem">龍魂低算力内核 · 年运营成本</div>
+    <div class="amount">¥0</div>
+    <div class="note">vs 云GPU ~$8,322/年 · 云CPU ~$1,387/年</div>
+    <div class="note" style="color:var(--green);margin-top:5px">纯标准库 · 零云依赖 · 本地主权运行</div>
+  </div>
+
+  <h2>逐项对比</h2>
+  <table>
+    <thead><tr><th>指标</th><th>🐉 龍魂</th><th>行业典型</th><th>节约</th></tr></thead>
+    <tbody>
+      <tr><td>内存占用</td><td>≈0-6 MB</td><td>500MB-2GB</td><td class="green">83x-333x</td></tr>
+      <tr><td>DNA签发</td><td>44,875 条/秒</td><td>15-1,500 条/秒</td><td class="green">30x-2,991x</td></tr>
+      <tr><td>年轮链落笔</td><td>11,250 条/秒</td><td>1,000-5,000 条/秒</td><td class="green">2.25x-11x</td></tr>
+      <tr><td>流控吞吐</td><td>327,785 t/s</td><td>10,000-50,000 r/s</td><td class="green">6.5x-32x</td></tr>
+      <tr><td>5万审计内存</td><td>32.4 MB</td><td>200MB-1GB</td><td class="green">6x-31x</td></tr>
+      <tr><td>启动时间</td><td>&lt;10 ms</td><td>500ms-30s</td><td class="green">50x-3,000x</td></tr>
+      <tr><td>网络依赖</td><td>零</td><td>必须联网</td><td class="green">∞</td></tr>
+      <tr><td>包大小</td><td>≈10 KB</td><td>500MB-5GB</td><td class="green">50,000x-500,000x</td></tr>
+    </tbody>
+  </table>
+
+  <h2>🌍 环保估算</h2>
+  <table>
+    <thead><tr><th></th><th class="num">年耗电</th><th class="num">年碳排放</th></tr></thead>
+    <tbody>
+      <tr><td>🟢 龍魂本地</td><td class="num">131 kWh</td><td class="num green">62 kg CO₂</td></tr>
+      <tr><td>🔴 云GPU (A100)</td><td class="num">2,628 kWh</td><td class="num red">1,248 kg CO₂</td></tr>
+      <tr><td colspan="2"></td><td class="num green">减排 95%</td></tr>
+    </tbody>
+  </table>
+
+  <h2>💡 为什么能做到零成本？</h2>
+  <p style="color:var(--text-dim);line-height:1.8">
+    1. <strong style="color:var(--gold)">纯标准库</strong> — Python 自带的 hashlib + json + threading 就够了，不需要装任何包<br>
+    2. <strong style="color:var(--gold)">本地主权</strong> — 数据不出设备，不需要云数据库、不需要对象存储<br>
+    3. <strong style="color:var(--gold)">算法优先</strong> — SHA-256 做链、令牌桶做流控、数字根做校验，都在本机 CPU<br>
+    4. <strong style="color:var(--gold)">无框架开销</strong> — 不跑 JVM、不启动容器、不加载 CUDA，import 即就绪<br>
+    5. <strong style="color:var(--gold)">断网可跑</strong> — 不需要 API 调用、不需要云函数、不需要消息队列
+  </p>
+
+  <div class="footer">
+    <p>🐉 #龍芯⚡️丙午·丙申·丁巳·恒卦-COST-COMPARE-UID9622</p>
+    <p>大厂告诉你算力=智能 · 龍魂告诉你随时可以验证</p>
+  </div>
+</div>
+</body>
+</html>

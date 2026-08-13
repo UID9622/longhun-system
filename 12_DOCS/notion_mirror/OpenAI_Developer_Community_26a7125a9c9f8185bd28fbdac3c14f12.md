@@ -1,0 +1,429 @@
+# OpenAI Developer Community
+
+> Notion URL: https://app.notion.com/p/OpenAI-Developer-Community-26a7125a9c9f8185bd28fbdac3c14f12
+> Created: 2025-09-10T21:58:00.000Z
+> Last edited: 2025-09-18T19:41:00.000Z
+> Archived at: 2026-08-12T01:40:45.558086
+Welcome to the OpenAI Developer Community, a forum for developers to meet and chat with other developers while building with OpenAI’s APIs and developer platform.
+This is not a place for ChatGPT discussion (with the exception of ChatGPT developer tools, like Codex). ChatGPT discussion takes place in the OpenAI Discord community.
+What to know:
+1. This forum is community-run and maintained. Not all posts are monitored. To get in touch with OpenAI, reach out at https://help.openai.com/en/?q=contact.
+1. Discussions related to the ChatGPT app and plans will be hidden, and your account may be suspended. (We must keep conversations focused on technical topics related to building with OpenAI, for the sake of the larger community here.)
+1. Before posting a new topic, please search the forum for similar topics. This prevents duplicate discussions.
+1. Your use of this forum means you agree to the community guidelines, which include being nice, productive, and constructive. Read the full community guidelines: FAQ - OpenAI Developer Community
+Hi everyone,
+I’m working on real-time audio conversion for Telnyx WebSocket calls and running into an issue where my PCM16 to Opus conversion appears successful but produces silent audio during calls.
+What I’m trying to do:
+- Convert PCM16 base64 audio to Opus base64 for Telnyx real-time media streaming
+- Send converted Opus audio via WebSocket like this:
+```plain text
+ convertedAudio =  ..(, {
+              : response.,
+              : ,
+            });
+
+             audioDelta = {
+              : ,
+              : {
+                : convertedAudio..,
+                : ,
+              },
+            };
+
+            connectedWs.(.(audioDelta));
+
+```
+Telnyx controller (answering an incoming call):
+```plain text
+  private  () {
+    ..();
+
+     callControlId = payload.;
+     direction = payload.;
+
+
+     (callControlId && direction === ) {
+       {
+         ..(callControlId, {
+          : ..(),
+          : ,
+          : ,
+          : ,
+          : ,
+          : ,
+          : ,
+          : (
+            .({ : , :  }),
+          ),
+        }  .);
+
+        ..();
+        ..(
+          ,
+        );
+      }  (error) {
+        ..(, error);
+      }
+    }   (direction === ) {
+      ..();
+    }
+  }
+
+```
+OpenAI session update data:
+```plain text
+ sessionUpdate = {
+      : ,
+      : {
+        : {
+          : ,
+          : ,
+          : ,
+          : ,
+          : ,
+        },
+        : ,
+        : ,
+        : ,
+        : ,
+        : [, ],
+        : ,
+      },
+    };
+
+```
+What’s working:
+- PCM16 to Opus conversion completes successfully using Python opuslib
+- Generated WAV files from original PCM16 play correctly
+- Conversion logs show reasonable compression ratios (e.g., 12000 bytes → 35-66 bytes)
+- Tested multiple sample rates: 8kHz, 16kHz, 24kHz, 48kHz
+The problem:
+- Original PCM16 audio (when converted to WAV) plays perfectly
+- Opus converted audio is completely silent in Telnyx calls
+- Round-trip conversion (PCM16 → Opus → PCM16) also produces silent audio
+My conversion setup:
+- Using 20ms frames (160 samples at 8kHz, 320 at 16kHz, etc.)
+- opuslib.APPLICATION_VOIP for telephony use
+- Trying various sample rates but Telnyx docs suggest 8kHz is preferred
+- Single channel (mono) audio
+Questions:
+1. Are there specific Opus encoding parameters required for Telnyx compatibility?
+1. Could this be a frame concatenation issue? (I’m joining multiple Opus frames)
+1. Are there additional headers or formatting requirements for Telnyx WebSocket audio?
+1. Has anyone successfully implemented PCM16 → Opus conversion for Telnyx calls?
+Any insights would be greatly appreciated! The fact that the original audio works but converted audio doesn’t suggests something specific about the Opus encoding process.
+Thanks!
+This is my python coverter:
+```plain text
+import base64
+import logging
+from typing import List, Optional
+import numpy as np
+from fastapi import FastAPI, HTTPException, status
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel, Field
+import opuslib
+import uvicorn
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+# Initialize FastAPI app
+app = FastAPI(
+    title="Audio Converter Service",
+    description="Convert audio between PCM16 and Opus formats with base64 encoding",
+    version="2.0.0"
+)
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Audio configuration
+DEFAULT_SAMPLE_RATE = 16000
+DEFAULT_CHANNELS = 1
+FRAME_DURATION_MS = 20  # 20ms frames
+BITS_PER_SAMPLE = 16
+
+
+class AudioConversionRequest(BaseModel):
+    """Request model for audio conversion."""
+    audio_data: str = Field(..., description="Base64 encoded audio data")
+    input_format: str = Field(..., description="Input format: 'pcm16' or 'opus'")
+    sample_rate: Optional[int] = Field(DEFAULT_SAMPLE_RATE, description="Sample rate in Hz")
+    channels: Optional[int] = Field(DEFAULT_CHANNELS, description="Number of audio channels")
+
+
+class AudioConversionResponse(BaseModel):
+    """Response model for audio conversion."""
+    audio_data: str = Field(..., description="Base64 encoded converted audio data")
+    output_format: str = Field(..., description="Output format: 'pcm16' or 'opus'")
+    sample_rate: int = Field(..., description="Sample rate in Hz")
+    channels: int = Field(..., description="Number of audio channels")
+    success: bool = Field(..., description="Conversion success status")
+    message: Optional[str] = Field(None, description="Status message")
+
+
+class AudioConverter:
+    """Main audio converter class handling PCM16 ⟷ Opus conversions."""
+
+    def __init__(self):
+        """Initialize the audio converter."""
+        self._encoders = {}
+        self._decoders = {}
+
+    def _get_encoder(self, sample_rate: int, channels: int) -> opuslib.Encoder:
+        """Get or create an Opus encoder for the given parameters."""
+        key = (sample_rate, channels)
+        if key not in self._encoders:
+            self._encoders[key] = opuslib.Encoder(
+                sample_rate,
+                channels,
+                opuslib.APPLICATION_VOIP
+            )
+        return self._encoders[key]
+
+    def _get_decoder(self, sample_rate: int, channels: int) -> opuslib.Decoder:
+        """Get or create an Opus decoder for the given parameters."""
+        key = (sample_rate, channels)
+        if key not in self._decoders:
+            self._decoders[key] = opuslib.Decoder(sample_rate, channels)
+        return self._decoders[key]
+
+    def _validate_audio_params(self, sample_rate: int, channels: int) -> None:
+        """Validate audio parameters."""
+        if sample_rate not in [8000, 12000, 16000, 24000, 48000]:
+            raise ValueError(f"Unsupported sample rate: {sample_rate}. Supported: 8000, 12000, 16000, 24000, 48000")
+
+        if channels not in [1, 2]:
+            raise ValueError(f"Unsupported channel count: {channels}. Supported: 1 (mono), 2 (stereo)")
+
+    def _calculate_frame_size(self, sample_rate: int) -> int:
+        """Calculate frame size for the given sample rate."""
+        return int(sample_rate * FRAME_DURATION_MS / 1000)
+
+    def pcm16_to_opus(self, pcm_data: bytes, sample_rate: int, channels: int) -> bytes:
+        """
+        Convert PCM16 audio data to Opus format.
+
+        Args:
+            pcm_data: Raw PCM16 audio data (16-bit signed integers)
+            sample_rate: Sample rate in Hz
+            channels: Number of audio channels
+
+        Returns:
+            Opus encoded audio data
+        """
+        print(f"Converting PCM16 to Opus: {sample_rate} Hz, {channels} channels")
+
+        try:
+            # self._validate_audio_params(sample_rate, channels)
+
+            # Decode incoming PCM16
+            pcm_bytes = base64.b64decode(pcm_data)
+
+            # Calculate frame sizes
+            frame_size = self._calculate_frame_size(sample_rate)
+            bytes_per_frame = frame_size * channels * 2               # 2 bytes per sample
+
+            # Get encoder and frame size
+            encoder = self._get_encoder(sample_rate, channels)
+
+            opus_frames: List[bytes] = []
+
+            # Process in fixed‐size chunks
+            for offset in range(0, len(pcm_bytes), bytes_per_frame):
+                chunk = pcm_bytes[offset:offset + bytes_per_frame]
+                if len(chunk) < bytes_per_frame:
+                    # pad with silence if last frame is short
+                    chunk += b'\x00' * (bytes_per_frame - len(chunk))
+
+                # Encode raw PCM16 → Opus
+                opus_frame = encoder.encode(chunk, frame_size)
+                opus_frames.append(opus_frame)
+
+            # Concatenate all Opus frames into single bytes object
+            opus_bytes = b''.join(opus_frames)
+
+            logger.info(f"Converted PCM16 to Opus: {len(pcm_data)} bytes → {len(opus_bytes)} bytes")
+            return opus_bytes
+
+        except Exception as e:
+            logger.error(f"PCM16 to Opus conversion failed: {e}")
+            raise ValueError(f"PCM16 to Opus conversion failed: {str(e)}")
+
+    def opus_to_pcm16(self, opus_data: bytes, sample_rate: int, channels: int) -> bytes:
+        """
+        Convert Opus audio data to PCM16 format.
+
+        Args:
+            opus_data: Opus encoded audio data
+            sample_rate: Sample rate in Hz
+            channels: Number of audio channels
+
+        Returns:
+            Raw PCM16 audio data (16-bit signed integers)
+        """
+        try:
+            self._validate_audio_params(sample_rate, channels)
+
+            # Validate Opus data
+            if len(opus_data) < 1:
+                raise ValueError("Empty Opus data")
+
+            # Get decoder and frame size
+            decoder = self._get_decoder(sample_rate, channels)
+            frame_size = self._calculate_frame_size(sample_rate)
+
+            # Decode Opus to float32 PCM
+            pcm_data = decoder.decode(opus_data, frame_size)
+            pcm_array = np.frombuffer(pcm_data, dtype=np.float32)
+
+            # Convert float32 to int16
+            pcm_int16 = (pcm_array * 32767.0).astype(np.int16)
+
+            # Clip values to prevent overflow
+            pcm_int16 = np.clip(pcm_int16, -32768, 32767)
+
+            logger.info(f"Converted Opus to PCM16: {len(opus_data)} bytes → {len(pcm_int16.tobytes())} bytes")
+            return pcm_int16.tobytes()
+
+        except Exception as e:
+            logger.error(f"Opus to PCM16 conversion failed: {e}")
+            raise ValueError(f"Opus to PCM16 conversion failed: {str(e)}")
+
+
+# Global converter instance
+converter = AudioConverter()
+
+
+@app.post("/convert", response_model=AudioConversionResponse)
+async def convert_audio(request: AudioConversionRequest):
+    """
+    Convert audio between PCM16 and Opus formats.
+
+    - **audio_data**: Base64 encoded audio data
+    - **input_format**: Either 'pcm16' or 'opus'
+    - **sample_rate**: Sample rate in Hz (8000, 12000, 16000, 24000, 48000)
+    - **channels**: Number of channels (1 or 2)
+    """
+    try:
+        # Decode base64 input
+        try:
+            audio_bytes = base64.b64decode(request.audio_data)
+        except Exception as e:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"Invalid base64 audio data: {str(e)}"
+            )
+
+        # Validate input format
+        input_format = request.input_format.lower()
+        if input_format not in ['pcm16', 'opus']:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Input format must be 'pcm16' or 'opus'"
+            )
+
+        # Perform conversion
+        if input_format == 'pcm16':
+            # Convert PCM16 to Opus
+            converted_bytes = converter.pcm16_to_opus(
+                audio_bytes,
+                request.sample_rate,
+                request.channels
+            )
+            output_format = 'opus'
+        else:
+            # Convert Opus to PCM16
+            converted_bytes = converter.opus_to_pcm16(
+                audio_bytes,
+                request.sample_rate,
+                request.channels
+            )
+            output_format = 'pcm16'
+
+        # Encode result to base64
+        converted_base64 = base64.b64encode(converted_bytes).decode('utf-8')
+
+        print(f"{converted_base64}")
+
+        return AudioConversionResponse(
+            audio_data=converted_base64,
+            output_format=output_format,
+            sample_rate=request.sample_rate,
+            channels=request.channels,
+            success=True,
+            message=f"Successfully converted {input_format} to {output_format}"
+        )
+
+    except HTTPException:
+        raise
+    except ValueError as e:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(e)
+        )
+    except Exception as e:
+        logger.error(f"Unexpected conversion error: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Conversion failed: {str(e)}"
+        )
+
+
+@app.get("/health")
+async def health_check():
+    """Health check endpoint."""
+    return {
+        "status": "healthy",
+        "service": "Audio Converter",
+        "version": "2.0.0"
+    }
+
+
+@app.get("/")
+async def root():
+    """Root endpoint with service information."""
+    return {
+        "service": "Audio Converter Service",
+        "version": "2.0.0",
+        "description": "Convert audio between PCM16 and Opus formats with base64 encoding",
+        "endpoints": {
+            "convert": "/convert (POST)",
+            "health": "/health (GET)",
+            "docs": "/docs (GET)"
+        },
+        "supported_formats": ["pcm16", "opus"],
+        "supported_sample_rates": [8000, 12000, 16000, 24000, 48000],
+        "supported_channels": [1, 2],
+        "default_sample_rate": DEFAULT_SAMPLE_RATE,
+        "default_channels": DEFAULT_CHANNELS
+    }
+
+
+def main():
+    """Entry point for the audio converter service."""
+    logger.info("Starting Audio Converter Service...")
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=8000,
+        log_level="info"
+    )
+
+
+if __name__ == "__main__":
+    main()
+
+```
+show post in topic

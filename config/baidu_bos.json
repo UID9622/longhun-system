@@ -1,0 +1,22 @@
+{
+  "ak": "ALTAK6tVbbSLKVVAPo4C1iLCwQ",
+  "sk": "7918acd7d819466ab4378fd09a9ac991",
+  "endpoint": "https://bj.bcebos.com",
+  "bucket": "longhun-system-backup",
+  "region": "bj",
+  "prefix": "longhun/",
+  "backup_excludes": [
+    "__pycache__/",
+    "*.pyc",
+    "node_modules/",
+    ".git/",
+    "_private/",
+    ".DS_Store",
+    "*.asc",
+    "models/*.bin",
+    "models/*.safetensors"
+  ],
+  "auto_backup_hours": 6,
+  "retention_days": 90,
+  "enabled": true
+}

@@ -1,0 +1,6 @@
+# ARXIV_SUBMISSION_PACKAGE.md.asc
+
+> Notion URL: https://app.notion.com/p/ARXIV_SUBMISSION_PACKAGE-md-asc-39f7125a9c9f814a86b2f910cb0472c0
+> Created: 2026-07-16T00:43:00.000Z
+> Last edited: 2026-07-16T00:43:00.000Z
+> Archived at: 2026-08-12T01:40:45.558086

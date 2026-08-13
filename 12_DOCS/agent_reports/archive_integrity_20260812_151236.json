@@ -1,0 +1,24 @@
+{
+  "dna": "#龍芯⚡️2026-08-12-151236-196278-ARCHIVE-INTEGRITY-198A47FB-9622",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "generated_at": "2026-08-12T15:12:36.196294",
+  "db_path": "/root/.cnsh/civilization_archive.db",
+  "verify": {
+    "total": 68,
+    "tampered": 0,
+    "integrity": "🟢 完整",
+    "details": [],
+    "dna": "#龍芯⚡️2026-08-12-151236-195978-CHAIN-VERIFY-4ED0C37E-9622"
+  },
+  "stats": {
+    "total": 68,
+    "by_civilization": {
+      "CN": 68
+    },
+    "by_category": {
+      "event": 1,
+      "test": 67
+    },
+    "dna": "#龍芯⚡️2026-08-12-151236-195077-CIVILIZATION-ARCHIVE-764259B5-9622"
+  }
+}

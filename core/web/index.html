@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂低算力内核 · longhun-core v1.0.0</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --card: #111118;
+    --border: #1a1a2e;
+    --gold: #c9a84c;
+    --gold-dim: #8b7340;
+    --green: #2ecc71;
+    --yellow: #f1c40f;
+    --red: #e74c3c;
+    --text: #ccc;
+    --text-dim: #888;
+    --accent: #3498db;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Mono", "Menlo", monospace;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+  .hero {
+    text-align: center;
+    padding: 60px 0 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+  .hero h1 { font-size: 2.2rem; color: var(--gold); margin-bottom: 10px; }
+  .hero .subtitle { color: var(--text-dim); font-size: 1rem; }
+  .hero .dao {
+    color: var(--gold-dim);
+    font-style: italic;
+    margin-top: 8px;
+    font-size: 0.95rem;
+  }
+  .dna-bar {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 20px;
+    margin: 20px 0;
+    font-size: 0.85rem;
+    color: var(--gold-dim);
+    text-align: center;
+    word-break: break-all;
+  }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 30px 0; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: var(--gold-dim); }
+  .card h3 { color: var(--gold); font-size: 1.05rem; margin-bottom: 10px; }
+  .card .module-name { font-size: 0.85rem; color: var(--accent); margin-bottom: 6px; }
+  .card .metric { font-size: 1.8rem; font-weight: bold; color: var(--green); margin: 8px 0; }
+  .card .desc { color: var(--text-dim); font-size: 0.85rem; }
+  .card .tag {
+    display: inline-block;
+    background: rgba(201, 168, 76, 0.15);
+    color: var(--gold);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    margin: 5px 3px 0 0;
+  }
+
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--gold); font-weight: 600; }
+  td { color: var(--text); }
+  .green { color: var(--green); }
+  .yellow { color: var(--yellow); }
+  .red { color: var(--red); }
+
+  .cmd-box {
+    background: #000;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-family: "SF Mono", "Menlo", monospace;
+    font-size: 0.85rem;
+    overflow-x: auto;
+    white-space: pre;
+    color: var(--green);
+  }
+  .cmd-box .prompt { color: var(--gold); }
+
+  .tricolor-bar {
+    display: flex; gap: 12px; margin: 20px 0; justify-content: center;
+  }
+  .tricolor-item {
+    padding: 8px 20px; border-radius: 6px; text-align: center;
+    border: 1px solid var(--border);
+  }
+  .tricolor-item.green-bg { background: rgba(46,204,113,0.1); }
+  .tricolor-item.yellow-bg { background: rgba(241,196,15,0.1); }
+  .tricolor-item.red-bg { background: rgba(231,76,60,0.1); }
+
+  .footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.85rem;
+  }
+  .footer a { color: var(--gold-dim); text-decoration: none; }
+  .footer a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="hero">
+    <h1>🐉 龍魂低算力内核</h1>
+    <div class="subtitle">longhun-core v1.0.0 · 纯标准库 · 零依赖 · 断网可跑</div>
+    <div class="dao">「治大国若烹小鲜」——《道德经》第60章</div>
+  </div>
+
+  <div class="dna-bar">
+    DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-LOW-POWER-BENCH-UID9622
+    &nbsp;|&nbsp; 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+    &nbsp;|&nbsp; 许可: 工程层 MulanPSL v2 · 思想层 CC BY-NC-SA 4.0
+  </div>
+
+  <div class="tricolor-bar">
+    <div class="tricolor-item green-bg">
+      <span style="font-size: 1.5rem;">🟢</span><br>
+      <span style="color: var(--green); font-size: 0.8rem;">R ≥ 85 · 通过</span>
+    </div>
+    <div class="tricolor-item yellow-bg">
+      <span style="font-size: 1.5rem;">🟡</span><br>
+      <span style="color: var(--yellow); font-size: 0.8rem;">60 ≤ R < 85 · 待核</span>
+    </div>
+    <div class="tricolor-item red-bg">
+      <span style="font-size: 1.5rem;">🔴</span><br>
+      <span style="color: var(--red); font-size: 0.8rem;">R < 60 · 阻断</span>
+    </div>
+  </div>
+
+  <!-- 五模块卡片 -->
+  <h2 style="color: var(--gold); margin-top: 40px;">五模块内核</h2>
+
+  <div class="grid">
+    <div class="card">
+      <div class="module-name">dna_trace</div>
+      <h3>干支 DNA 追溯</h3>
+      <div class="metric">44,875 <span style="font-size:0.8rem;">条/秒</span></div>
+      <div class="desc">天干地支四柱 DNA 签发，SHA-256 哈希链接</div>
+      <span class="tag">格式: #龍芯⚡️</span>
+      <span class="tag">64卦嵌入</span>
+      <span class="tag">黄帝纪年</span>
+    </div>
+
+    <div class="card">
+      <div class="module-name">tricolor_audit</div>
+      <h3>三色审计</h3>
+      <div class="metric">32.4 <span style="font-size:0.8rem;">MB</span></div>
+      <div class="desc">🟢🟡🔴 三层判定 · 7项默认检查 · 5万条仅32MB</div>
+      <span class="tag">__slots__</span>
+      <span class="tag">R值计算</span>
+      <span class="tag">德本内置</span>
+    </div>
+
+    <div class="card">
+      <div class="module-name">historian</div>
+      <h3>年轮链</h3>
+      <div class="metric">11,250 <span style="font-size:0.8rem;">条/秒</span></div>
+      <div class="desc">只追加 · 不可删改 · 篡改即断链🔴 · Merkle验证</div>
+      <span class="tag">SHA-256链</span>
+      <span class="tag">Merkle根</span>
+      <span class="tag">局部根</span>
+    </div>
+
+    <div class="card">
+      <div class="module-name">digital_root</div>
+      <h3>369 数字根</h3>
+      <div class="metric">369 <span style="font-size:0.8rem;">不动点</span></div>
+      <div class="desc">洛书九宫 · 五行生克 · 权重计算 · 梅花易数起卦</div>
+      <span class="tag">log369=5.911</span>
+      <span class="tag">perm369=108</span>
+    </div>
+
+    <div class="card">
+      <div class="module-name">flow_control</div>
+      <h3>流控引擎</h3>
+      <div class="metric">327,785 <span style="font-size:0.8rem;">token/秒</span></div>
+      <div class="desc">Token Bucket · 🔥P0焊死默认100t/s · 三级降级</div>
+      <span class="tag">passthrough</span>
+      <span class="tag">degrade</span>
+      <span class="tag">block</span>
+    </div>
+  </div>
+
+  <!-- 实测数据表 -->
+  <h2 style="color: var(--gold); margin-top: 40px;">实测数据 (2026-08-11 沙箱实跑)</h2>
+
+  <table>
+    <thead>
+      <tr><th>指标</th><th>实测值</th><th>状态</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>内核增量内存</td><td>≈0–6 MB（纯标准库零依赖）</td><td class="green">🟢</td></tr>
+      <tr><td>DNA签发吞吐</td><td>44,875 条/秒</td><td class="green">🟢</td></tr>
+      <tr><td>年轮链落笔</td><td>11,250 条/秒（篡改即断链🔴）</td><td class="green">🟢</td></tr>
+      <tr><td>流式token吞吐</td><td>327,785 token/秒</td><td class="green">🟢</td></tr>
+      <tr><td>五万条审计记录内存</td><td>32.4 MB</td><td class="green">🟢</td></tr>
+      <tr><td>网络依赖</td><td>零（断网可跑）</td><td class="green">🟢</td></tr>
+      <tr><td>发行包大小</td><td>≈10 KB (tar.gz)</td><td class="green">🟢</td></tr>
+      <tr><td>启动时间</td><td>&lt;10 ms</td><td class="green">🟢</td></tr>
+    </tbody>
+  </table>
+
+  <!-- 三十秒跑通 -->
+  <h2 style="color: var(--gold); margin-top: 40px;">三十秒跑通</h2>
+
+  <div class="cmd-box">
+<div class="prompt">$ </div>tar -xzf dist/longhun-core-1.0.0.tar.gz
+<div class="prompt">$ </div>bash install.sh        <span style="color: var(--text-dim);"># 自动自测，看到🟢即成</span>
+<div class="prompt">$ </div>lh version             <span style="color: var(--text-dim);"># 🐉 longhun-core v1.0.0</span>
+<div class="prompt">$ </div>lh dna 我的第一行代码    <span style="color: var(--text-dim);"># 打印干支DNA</span>
+<div class="prompt">$ </div>lh audit --json '{"阻塞率":0.02}'
+<div class="prompt">$ </div>python3 tools/benchmark_lowpower.py   <span style="color: var(--text-dim);"># 复现实测报告</span>
+  </div>
+
+  <!-- 目录结构 -->
+  <h2 style="color: var(--gold); margin-top: 40px;">目录</h2>
+
+  <div class="cmd-box" style="white-space: pre-line;">
+core/longhun_core/   五模块内核（dna_trace干支DNA·tricolor_audit三色·historian年轮链·digital_root数字根·flow_control流控）
+lh                   命令行
+install.sh           一键安装
+tools/               实测脚本 + 成本对比器
+web/                 可视化看板 + 成本对比页（浏览器直接打开）
+docs/                实测报告·节约证明·浪费案例库
+dist/                发行包 longhun-core-1.0.0.tar.gz（10KB）
+  </div>
+
+  <!-- 分层许可 -->
+  <h2 style="color: var(--gold); margin-top: 40px;">分层许可</h2>
+  <p style="color: var(--text-dim); margin: 10px 0;">
+    思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2
+  </p>
+  <p style="color: var(--text-dim);">
+    代码随便用去赚钱，思想名号要授权。
+  </p>
+
+  <div class="footer">
+    <p>🐉 #龍芯⚡️丙午·丙申·丁巳·恒卦-LOW-POWER-BENCH-UID9622</p>
+    <p>创建者: 诸葛鑫（UID9622） · 大厂告诉你算力=智能 · 龍魂告诉你随时可以验证</p>
+    <p style="margin-top: 6px;">Python 3.8+ · 纯标准库 · 零网络依赖</p>
+  </div>
+
+</div>
+</body>
+</html>

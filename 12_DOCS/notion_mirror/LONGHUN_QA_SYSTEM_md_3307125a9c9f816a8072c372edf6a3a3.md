@@ -1,0 +1,6 @@
+# LONGHUN_QA_SYSTEM.md
+
+> Notion URL: https://app.notion.com/p/LONGHUN_QA_SYSTEM-md-3307125a9c9f816a8072c372edf6a3a3
+> Created: 2026-03-27T08:13:00.000Z
+> Last edited: 2026-07-01T14:05:00.000Z
+> Archived at: 2026-08-12T01:40:45.558086

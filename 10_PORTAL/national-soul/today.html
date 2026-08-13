@@ -1,0 +1,639 @@
+<!-- DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-NATIONAL-SOUL-TODAY-v1.0-UID9622 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔥 薪火相传 · 今日历史 — 龍魂</title>
+<style>
+:root {
+  --bg:#080808; --bg-panel:#0c0c12; --bg-card:#101016;
+  --gold:#C9A84C; --gold-light:#e0c16e; --gold-dim:#5c4d24;
+  --blood:#8B0000; --text:#b8b8c4; --text-dim:#5a5a6a; --text-bright:#e2e2ea;
+  --border:#1a1a24; --radius:6px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC','PingFang SC',sans-serif;line-height:1.8;min-height:100vh;}
+a{color:var(--gold);text-decoration:none;}
+
+.top-bar {
+  background:var(--bg-panel);border-bottom:1px solid var(--gold-dim);
+  padding:12px 24px;display:flex;align-items:center;gap:16px;
+  position:sticky;top:0;z-index:100;
+}
+.top-bar a{font-size:14px;color:var(--gold-dim);transition:color 0.3s;}
+.top-bar a:hover{color:var(--gold);}
+.top-bar .sep{color:var(--border);}
+.top-bar .title{font-family:'Noto Serif SC',serif;font-size:18px;color:var(--gold);letter-spacing:0.15em;}
+
+.container{max-width:860px;margin:0 auto;padding:40px 24px;}
+
+/* 日期头部 */
+.date-header {
+  text-align:center;padding:48px 0 32px;
+  border-bottom:1px solid var(--border);margin-bottom:40px;
+}
+.month-day {
+  font-family:'Noto Serif SC',serif;font-size:96px;font-weight:900;
+  color:var(--gold);line-height:1;letter-spacing:0.05em;
+}
+.month-day .slash{color:var(--blood);}
+.year-hint{font-size:14px;color:var(--text-dim);margin-top:8px;letter-spacing:0.15em;}
+
+/* 日期选择器 */
+.date-picker {
+  display:flex;gap:10px;justify-content:center;align-items:center;
+  margin:24px 0 40px;flex-wrap:wrap;
+}
+.date-picker select {
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:10px 14px;color:var(--text);font-size:14px;font-family:inherit;cursor:pointer;
+}
+.date-picker select:focus{outline:none;border-color:var(--gold);}
+.date-picker .go-btn {
+  background:var(--gold);color:#000;border:none;border-radius:var(--radius);
+  padding:10px 24px;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:0.08em;
+  font-family:inherit;transition:all 0.3s;
+}
+.date-picker .go-btn:hover{box-shadow:0 4px 20px rgba(201,168,76,0.3);}
+
+/* 时间轴 */
+.timeline{position:relative;padding-left:32px;}
+.timeline::before{
+  content:'';position:absolute;left:8px;top:0;bottom:0;
+  width:2px;background:linear-gradient(180deg,var(--gold) 0%,var(--gold-dim) 100%);
+}
+.event-item{
+  position:relative;margin-bottom:36px;
+  padding:20px 24px;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius);transition:all 0.3s ease;
+}
+.event-item:hover{border-color:var(--gold);transform:translateX(4px);}
+.event-item::before{
+  content:'';position:absolute;left:-28px;top:24px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--gold);border:2px solid var(--bg);box-shadow:0 0 10px rgba(201,168,76,0.4);
+}
+.event-year{
+  display:inline-block;padding:3px 12px;background:rgba(201,168,76,0.08);
+  border:1px solid var(--gold-dim);border-radius:20px;
+  font-size:13px;color:var(--gold-light);font-weight:700;letter-spacing:0.05em;margin-bottom:8px;
+}
+.event-tag{
+  display:inline-block;padding:2px 8px;margin-left:8px;border-radius:12px;
+  font-size:10px;font-weight:500;letter-spacing:0.05em;
+}
+.tag-war{background:rgba(139,0,0,0.2);color:#d4726a;}
+.tag-science{background:rgba(76,175,80,0.15);color:#81c784;}
+.tag-culture{background:rgba(201,168,76,0.15);color:var(--gold-light);}
+.tag-politics{background:rgba(33,150,243,0.15);color:#64b5f6;}
+.tag-society{background:rgba(156,39,176,0.15);color:#ce93d8;}
+
+.event-title{font-size:17px;font-weight:700;color:var(--text-bright);margin-bottom:6px;}
+.event-desc{font-size:13px;color:var(--text-dim);line-height:1.7;}
+
+.empty-state{text-align:center;padding:80px 20px;color:var(--text-dim);}
+.empty-state .icon{font-size:48px;margin-bottom:16px;}
+
+.info-bar{
+  text-align:center;padding:24px;margin-top:48px;border-top:1px solid var(--border);
+  font-size:11px;color:var(--text-dim);letter-spacing:0.06em;
+}
+.info-bar strong{color:var(--gold-dim);}
+.info-bar a{color:var(--gold);}
+
+@media(max-width:640px){
+  .month-day{font-size:60px;}
+  .container{padding:20px 12px;}
+  .timeline{padding-left:24px;}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="index.html">← 返回门户</a>
+  <span class="sep">|</span>
+  <span class="title">🔥 薪火相传 · 历史上的今天</span>
+</div>
+
+<div class="container">
+
+  <div class="date-header">
+    <div class="month-day" id="month-day-display">8<span class="slash">/</span>7</div>
+    <div class="year-hint">历史上的今天 —— 每一天都有人为这片土地拼过命</div>
+  </div>
+
+  <div class="date-picker">
+    <select id="month-select"></select>
+    <select id="day-select"></select>
+    <button class="go-btn" onclick="goToDate()">🔍 查看</button>
+  </div>
+
+  <div class="timeline" id="timeline"></div>
+  <div class="empty-state" id="empty-state" style="display:none;">
+    <div class="icon">📅</div>
+    <p>这一天暂无已收录的历史事件</p>
+    <small>试试其他日期</small>
+  </div>
+
+  <div class="info-bar">
+    <strong>📚 数据来源：</strong>公开历史资料整理 · 
+    事件收录持续扩充中 · 
+    <a href="index.html">返回门户</a> ·
+    <strong>记住历史，才能不重蹈覆辙。</strong>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════
+// 历史上的今天 · 中国历史事件数据库
+// 数据来源：公开史料·纪念馆·教科书·学术研究
+// 灵感来源: Wikipedia "On This Day" 功能
+// ═══════════════════════════════════
+
+const HISTORY_DB = {
+  '1-1': [
+    { year:1912, title:'中华民国成立', desc:'孙中山在南京宣誓就任中华民国临时大总统，宣告中华民国成立。', tag:'politics' },
+    { year:1979, title:'中美正式建交', desc:'中华人民共和国与美利坚合众国正式建立外交关系。', tag:'politics' },
+    { year:1942, title:'《联合国家宣言》签署', desc:'26国在华盛顿签署《联合国家宣言》，中国位列四大领衔签字国之一。', tag:'politics' },
+  ],
+  '1-8': [
+    { year:1976, title:'周恩来总理逝世', desc:'中国人民敬爱的周恩来总理于北京逝世，享年78岁。十里长街送总理，举国同悲。', tag:'politics' },
+  ],
+  '1-18': [
+    { year:1919, title:'巴黎和会召开', desc:'战胜国在巴黎凡尔赛宫召开和会，中国作为战胜国提出收回山东权益被拒，直接引发五四运动。', tag:'politics' },
+  ],
+  '1-28': [
+    { year:1932, title:'一·二八淞沪抗战', desc:'日军进攻上海闸北，十九路军奋起抵抗。打了一个多月，毙伤日军三千多人。', tag:'war' },
+  ],
+  '1-31': [
+    { year:1949, title:'北平和平解放', desc:'傅作义起义，解放军进入北平。千年古都免于战火。', tag:'war' },
+  ],
+  '2-4': [
+    { year:2022, title:'北京冬奥会开幕', desc:'第24届冬季奥林匹克运动会在北京开幕，北京成为世界首个"双奥之城"。', tag:'society' },
+  ],
+  '3-5': [
+    { year:1898, title:'周恩来诞辰', desc:'周恩来出生于江苏淮安。后来成为新中国第一任总理，鞠躬尽瘁死而后已。', tag:'politics' },
+  ],
+  '3-12': [
+    { year:1925, title:'孙中山逝世', desc:'中国民主革命先行者孙中山在北京逝世，享年59岁。', tag:'politics' },
+  ],
+  '3-14': [
+    { year:2005, title:'《反分裂国家法》通过', desc:'第十届全国人民代表大会第三次会议通过《反分裂国家法》，以法律形式明确台湾问题底线。', tag:'politics' },
+    { year:1997, title:'重庆直辖', desc:'第八届全国人大五次会议批准设立重庆直辖市。', tag:'politics' },
+  ],
+  '4-5': [
+    { year:1976, title:'四五运动', desc:'北京天安门广场群众自发悼念周恩来，反对"四人帮"，为后来粉碎"四人帮"奠定了群众基础。', tag:'politics' },
+  ],
+  '4-23': [
+    { year:1949, title:'南京解放', desc:'人民解放军占领南京，国民党政权覆灭。毛泽东写下"钟山风雨起苍黄，百万雄师过大江"。', tag:'war' },
+  ],
+  '5-4': [
+    { year:1919, title:'五四运动爆发', desc:'北京学生游行反对巴黎和会出卖中国利益。工人阶级登上历史舞台，新民主主义革命由此开端。', tag:'politics' },
+  ],
+  '5-8': [
+    { year:1999, title:'北约轰炸中国驻南联盟大使馆', desc:'以美国为首的北约用导弹袭击中国驻南联盟大使馆，邵云环、许杏虎、朱颖三位烈士牺牲。举国愤怒。', tag:'war' },
+  ],
+  '5-12': [
+    { year:2008, title:'汶川大地震', desc:'四川汶川发生8.0级特大地震，近7万人遇难。全国人民众志成城，一方有难八方支援。', tag:'society' },
+  ],
+  '5-16': [
+    { year:1966, title:'文化大革命开始', desc:'中共中央政治局扩大会议通过《五一六通知》，文化大革命全面发动。', tag:'politics' },
+  ],
+  '5-22': [
+    { year:2021, title:'袁隆平逝世', desc:'杂交水稻之父袁隆平在长沙逝世，享年91岁。长沙市民自发街头送别，车鸣声响彻全城。', tag:'science' },
+  ],
+  '6-1': [
+    { year:1963, title:'六一国际儿童节', desc:'新中国将6月1日定为国际儿童节，保护儿童权益。', tag:'society' },
+  ],
+  '6-7': [
+    { year:2020, title:'《全国人民代表大会关于建立健全香港特别行政区维护国家安全的法律制度和执行机制的决定》', desc:'全国人大通过香港国安法决定。', tag:'politics' },
+  ],
+  '7-1': [
+    { year:1921, title:'中国共产党成立', desc:'中共一大在上海开幕（后转移到嘉兴南湖），中国共产党正式成立。', tag:'politics' },
+    { year:1997, title:'香港回归', desc:'中华人民共和国政府恢复对香港行使主权，结束了155年的英国殖民统治。', tag:'politics' },
+  ],
+  '7-7': [
+    { year:1937, title:'七七事变（卢沟桥事变）', desc:'日军在北平西南卢沟桥挑起事端，全面侵华战争爆发。中华全民族抗战从此开始。', tag:'war' },
+  ],
+  '7-13': [
+    { year:2001, title:'北京申奥成功', desc:'国际奥委会宣布北京获得2008年夏季奥运会主办权，举国沸腾。', tag:'society' },
+  ],
+  '7-27': [
+    { year:1953, title:'朝鲜停战协定签署', desc:'《朝鲜停战协定》在板门店签署，抗美援朝战争结束。彭德怀说："它雄辩地证明：西方侵略者几百年来只要在东方一个海岸上架起几尊大炮就可霸占一个国家的时代是一去不复返了。"', tag:'war' },
+  ],
+  '8-1': [
+    { year:1927, title:'南昌起义', desc:'周恩来、贺龙、叶挺、朱德等领导南昌起义，打响了武装反抗国民党反动派的第一枪。8月1日后成为中国人民解放军建军节。', tag:'war' },
+  ],
+  '8-6': [
+    { year:1945, title:'广岛原子弹爆炸', desc:'美军在广岛投下原子弹。8月9日长崎也遭原子弹袭击，加速了日本的投降。', tag:'war' },
+  ],
+  '8-15': [
+    { year:1945, title:'日本宣布无条件投降', desc:'日本天皇裕仁以广播《终战诏书》形式宣布无条件投降。中国十四年抗战取得最终胜利。', tag:'war' },
+  ],
+  '9-3': [
+    { year:1945, title:'抗日战争胜利纪念日', desc:'日本正式签署投降书。十二届全国人大常委会将9月3日定为中国人民抗日战争胜利纪念日。', tag:'war' },
+  ],
+  '9-9': [
+    { year:1976, title:'毛泽东主席逝世', desc:'中国共产党、中国人民解放军、中华人民共和国的主要缔造者毛泽东在北京逝世，享年83岁。', tag:'politics' },
+  ],
+  '9-18': [
+    { year:1931, title:'九一八事变', desc:'日军炸毁沈阳柳条湖附近南满铁路并嫁祸中国军队，以此为借口炮轰北大营，侵占东北。十四年抗战由此开始。', tag:'war' },
+  ],
+  '10-1': [
+    { year:1949, title:'中华人民共和国成立', desc:'毛泽东在天安门城楼庄严宣告："中华人民共和国中央人民政府今天成立了！"中国人民从此站起来了。', tag:'politics' },
+  ],
+  '10-10': [
+    { year:1911, title:'辛亥革命爆发', desc:'武昌起义打响第一枪，各省纷纷响应。清帝于次年退位，两千多年的封建帝制结束。', tag:'politics' },
+  ],
+  '10-16': [
+    { year:1964, title:'中国第一颗原子弹爆炸成功', desc:'中国在罗布泊成功爆炸第一颗原子弹，成为世界上第五个拥有核武器的国家。', tag:'science' },
+  ],
+  '10-25': [
+    { year:1950, title:'抗美援朝战争', desc:'中国人民志愿军跨过鸭绿江入朝作战。', tag:'war' },
+    { year:1971, title:'中国恢复联合国席位', desc:'第26届联大通过2758号决议，恢复中华人民共和国在联合国的一切合法权利。', tag:'politics' },
+  ],
+  '11-11': [
+    { year:1949, title:'中国人民解放军空军成立', desc:'中央军委宣布中国人民解放军空军正式成立。', tag:'war' },
+  ],
+  '12-9': [
+    { year:1935, title:'一二·九运动', desc:'北平大中学生数千人举行抗日救国示威游行，掀起全国抗日救国新高潮。', tag:'politics' },
+  ],
+  '12-12': [
+    { year:1936, title:'西安事变', desc:'张学良、杨虎城在西安扣押蒋介石，逼其停止内战一致抗日。事变和平解决后，国共第二次合作逐渐形成。', tag:'politics' },
+  ],
+  '12-13': [
+    { year:1937, title:'南京大屠杀开始', desc:'日军攻陷南京，开始长达六周的大规模屠杀、强奸、抢劫。超过30万中国军民惨遭杀害。12月13日为南京大屠杀死难者国家公祭日。', tag:'war' },
+  ],
+  '12-19': [
+    { year:1984, title:'中英签署《中英联合声明》', desc:'中英两国政府签署关于香港问题的联合声明，确认中国政府于1997年7月1日恢复对香港行使主权。', tag:'politics' },
+  ],
+  '12-20': [
+    { year:1999, title:'澳门回归', desc:'中华人民共和国政府恢复对澳门行使主权，结束了442年的葡萄牙殖民统治。', tag:'politics' },
+  ],
+  '12-26': [
+    { year:1893, title:'毛泽东诞辰', desc:'毛泽东出生于湖南湘潭韶山冲。', tag:'politics' },
+  ],
+  '12-29': [
+    { year:1968, title:'南京长江大桥建成通车', desc:'中国人自己设计建造的第一座长江大桥——南京长江大桥全线通车。', tag:'science' },
+  ],
+};
+
+// 额外补充更多日期事件
+const MORE_EVENTS = {
+  '1-2': [{ year:1959, title:'苏联发射月球1号', desc:'人类首个飞越月球的人造物体，标志着航天时代的开始。', tag:'science' }],
+  '1-15': [{ year:1935, title:'遵义会议召开', desc:'中共中央在遵义召开政治局扩大会议，确立了毛泽东在红军和党中央的领导地位。生死攸关的转折点。', tag:'politics' }],
+  '2-17': [{ year:1979, title:'对越自卫反击战开始', desc:'中国人民解放军边防部队对侵犯中国领土的越南军队进行自卫还击作战。', tag:'war' }],
+  '2-19': [{ year:1997, title:'邓小平逝世', desc:'中国改革开放和现代化建设的总设计师邓小平在北京逝世，享年93岁。', tag:'politics' }],
+  '3-8': [{ year:1910, title:'国际劳动妇女节', desc:'第一个国际妇女节确定。后成为纪念妇女争取平等权利的重要节日。', tag:'society' }],
+  '4-15': [{ year:1991, title:'希望工程开始实施', desc:'中国青少年发展基金会发起希望工程，救助贫困地区失学儿童。', tag:'society' }],
+  '4-24': [{ year:1970, title:'东方红一号发射', desc:'中国第一颗人造地球卫星东方红一号成功发射。《东方红》乐曲响彻太空。', tag:'science' }],
+  '5-15': [{ year:1991, title:'中国首次南极科学考察', desc:'中国在南极建立长城站，开启极地科学研究。', tag:'science' }],
+  '5-23': [{ year:1951, title:'西藏和平解放', desc:'中央人民政府与西藏地方政府签署《十七条协议》，西藏和平解放。', tag:'politics' }],
+  '6-17': [{ year:1967, title:'中国第一颗氢弹爆炸成功', desc:'中国成功爆炸第一颗氢弹，从原子弹到氢弹只用了2年8个月，世界最快。', tag:'science' }],
+  '6-25': [{ year:1950, title:'朝鲜战争爆发', desc:'朝鲜战争爆发。10月中国人民志愿军入朝参战。', tag:'war' }],
+  '7-23': [{ year:1921, title:'中共一大开幕', desc:'中国共产党第一次全国代表大会在上海开幕，正式宣告中国共产党成立。', tag:'politics' }],
+  '8-25': [{ year:1937, title:'八路军平型关大捷', desc:'八路军在平型关伏击日军，毙敌1000余人。打破了"日军不可战胜"的神话。', tag:'war' }],
+  '9-21': [{ year:1949, title:'中国人民政治协商会议第一届全体会议', desc:'政协第一届全体会议在北平开幕，通过了《共同纲领》。', tag:'politics' }],
+  '10-6': [{ year:1976, title:'粉碎"四人帮"', desc:'华国锋、叶剑英等代表中共中央政治局，对江青、张春桥、王洪文、姚文元实行隔离审查。"文化大革命"的十年内乱至此结束。', tag:'politics' }],
+  '11-3': [{ year:1957, title:'苏联发射第二颗人造卫星', desc:'携带小狗莱卡的卫星发射升空，莱卡成为进入太空的第一个地球生物。', tag:'science' }],
+  '11-14': [{ year:1860, title:'《北京条约》签订', desc:'清政府与英法俄签订不平等条约，割让九龙半岛南端给英国。', tag:'politics' }],
+  '11-24': [{ year:1950, title:'长津湖战役', desc:'志愿军九兵团在零下40度的长津湖地区围歼美军陆战一师。冻死冻伤三万余人，打出军威国威。', tag:'war' }],
+  '12-1': [{ year:1948, title:'中国人民银行成立', desc:'中国人民银行在石家庄成立。12月1日开始发行第一套人民币。', tag:'politics' }],
+};
+
+// 合并数据
+for (const [k, v] of Object.entries(MORE_EVENTS)) {
+  if (!HISTORY_DB[k]) HISTORY_DB[k] = v;
+  else HISTORY_DB[k] = [...HISTORY_DB[k], ...v];
+}
+
+// 渲染
+const monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+
+function buildSelectors(month, day) {
+  const ms = document.getElementById('month-select');
+  const ds = document.getElementById('day-select');
+
+  ms.innerHTML = monthNames.map((n,i) => `<option value="${i+1}" ${i+1===month?'selected':''}>${n}</option>`).join('');
+
+  const daysInMonth = new Date(2024, month, 0).getDate();
+  ds.innerHTML = Array.from({length:daysInMonth}, (_,i) =>
+    `<option value="${i+1}" ${i+1===day?'selected':''}>${i+1}日</option>`
+  ).join('');
+}
+
+function goToDate() {
+  const m = parseInt(document.getElementById('month-select').value);
+  const d = parseInt(document.getElementById('day-select').value);
+  renderDate(m, d);
+}
+
+function renderDate(month, day) {
+  document.getElementById('month-day-display').innerHTML = `${month}<span class="slash">/</span>${day}`;
+  document.getElementById('year-hint') && (document.getElementById('year-hint').textContent = `历史上的今天 —— ${month}月${day}日`);
+
+  const key = `${month}-${day}`;
+  const events = HISTORY_DB[key] || [];
+  const timeline = document.getElementById('timeline');
+  const empty = document.getElementById('empty-state');
+
+  if (events.length === 0) {
+    timeline.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  const sorted = [...events].sort((a,b) => b.year - a.year);
+
+  timeline.innerHTML = sorted.map(e => {
+    const tagMap = {
+      war: 'tag-war', science: 'tag-science', culture: 'tag-culture',
+      politics: 'tag-politics', society: 'tag-society'
+    };
+    const tagLabel = {
+      war:'战史', science:'科技', culture:'文化', politics:'政治', society:'社会'
+    };
+    return `
+    <div class="event-item" style="animation:fadeIn 0.5s both;">
+      <span class="event-year">${e.year}年</span>
+      <span class="event-tag ${tagMap[e.tag]||'tag-society'}">${tagLabel[e.tag]||'事件'}</span>
+      <div class="event-title">${e.title}</div>
+      <div class="event-desc">${e.desc}</div>
+    </div>`;
+  }).join('');
+
+  document.querySelectorAll('.event-item').forEach((el,i) => {
+    el.style.animationDelay = `${i*80}ms`;
+  });
+}
+
+// 初始化
+const today = new Date();
+const currentMonth = today.getMonth() + 1;
+const currentDay = today.getDate();
+buildSelectors(currentMonth, currentDay);
+renderDate(currentMonth, currentDay);
+
+// 动画
+const s = document.createElement('style');
+s.textContent = '@keyframes fadeIn{from{opacity:0;transform:translateX(-12px);}to{opacity:1;transform:translateX(0);}}';
+document.head.appendChild(s);
+</script>
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

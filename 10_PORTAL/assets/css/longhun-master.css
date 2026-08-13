@@ -1,0 +1,273 @@
+/* ═══════════════════════════════════════════════════════════════
+   龍魂 · 统一设计系统入口 v1.0
+   所有龍魂Web页面的CSS统一入口
+   使用: <link rel="stylesheet" href="/assets/css/longhun-master.css">
+   DNA: #龍芯⚡️2026-08-07-CSS-UNIFIED-v1.0
+   创建者: 诸葛鑫（UID9622）
+   License: MulanPSL v2 (工程层，商业可用)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* === 1. 字体 === */
+@import url('/assets/fonts/LonghunFont.css');
+
+/* === 2. Notion 桥接主题 === */
+@import url('/assets/css/notion_bridge_themes.css');
+
+/* === 3. 龍魂基础样式 === */
+@import url('/assets/css/longhun-base.css');
+
+/* === 4. 龍魂门户主题 === */
+@import url('/assets/css/longhun-portal.css');
+
+/* === 5. 龍魂Web样式 === */
+@import url('/assets/css/longhun-web.css');
+
+/* === 6. 论文/文章排版主题 === */
+@import url('/assets/css/longhun-paper-theme.css');
+
+/* === 7. 龍魂 v5 主题 === */
+@import url('/assets/css/longhun-v5.css');
+
+/* === 8. 自定义覆盖 === */
+@import url('/assets/css/custom.css');
+
+/* ══════════════════════════════════════════════
+   全局重置 & 设计Token
+   ══════════════════════════════════════════════ */
+:root {
+  /* === 龍魂核心色板 === */
+  --lh-bg-deep: #0a0a0f;
+  --lh-bg-primary: #111118;
+  --lh-bg-secondary: #1a1a24;
+  --lh-bg-card: #1c1c2a;
+  --lh-bg-hover: #252538;
+  
+  --lh-gold: #c9a84c;
+  --lh-gold-light: #e0c878;
+  --lh-gold-dark: #a88a30;
+  --lh-gold-dim: rgba(201, 168, 76, 0.15);
+  
+  --lh-red: #e74c3c;
+  --lh-red-dim: rgba(231, 76, 60, 0.15);
+  --lh-yellow: #f0a030;
+  --lh-yellow-dim: rgba(240, 160, 48, 0.15);
+  --lh-green: #2ecc71;
+  --lh-green-dim: rgba(46, 204, 113, 0.15);
+  
+  --lh-text-primary: #e8e8ec;
+  --lh-text-secondary: #b0b0c0;
+  --lh-text-muted: #707088;
+  --lh-text-gold: #c9a84c;
+  
+  --lh-border: rgba(201, 168, 76, 0.2);
+  --lh-border-light: rgba(255,255,255,0.06);
+  
+  --lh-radius: 8px;
+  --lh-radius-lg: 12px;
+  --lh-radius-xl: 16px;
+  
+  --lh-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --lh-shadow-gold: 0 4px 24px rgba(201,168,76,0.15);
+  --lh-shadow-red: 0 4px 24px rgba(231,76,60,0.15);
+  
+  --lh-font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --lh-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --lh-font-cn: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  
+  --lh-transition: 0.3s ease;
+  --lh-max-width: 1200px;
+  --lh-header-height: 64px;
+}
+
+/* === 全局基础 === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--lh-font-sans);
+  background: var(--lh-bg-deep);
+  color: var(--lh-text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--lh-gold);
+  text-decoration: none;
+  transition: color var(--lh-transition);
+}
+a:hover {
+  color: var(--lh-gold-light);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* === 滚动条 === */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--lh-bg-deep); }
+::-webkit-scrollbar-thumb { 
+  background: var(--lh-gold-dark);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--lh-gold); }
+
+/* === 选中 === */
+::selection {
+  background: rgba(201, 168, 76, 0.3);
+  color: var(--lh-gold-light);
+}
+
+/* === 通用布局 === */
+.lh-container {
+  max-width: var(--lh-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.lh-section {
+  padding: 60px 0;
+}
+
+/* === 通用按钮 === */
+.lh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border: 1px solid var(--lh-gold);
+  border-radius: var(--lh-radius);
+  background: transparent;
+  color: var(--lh-gold);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--lh-transition);
+  font-family: inherit;
+}
+.lh-btn:hover {
+  background: var(--lh-gold-dim);
+  box-shadow: var(--lh-shadow-gold);
+}
+.lh-btn.primary {
+  background: linear-gradient(135deg, var(--lh-gold), var(--lh-gold-dark));
+  color: #000;
+  border: none;
+}
+.lh-btn.primary:hover {
+  box-shadow: var(--lh-shadow-gold);
+  transform: translateY(-1px);
+}
+.lh-btn.danger {
+  border-color: var(--lh-red);
+  color: var(--lh-red);
+}
+.lh-btn.danger:hover {
+  background: var(--lh-red-dim);
+}
+
+/* === 通用卡片 === */
+.lh-card {
+  background: var(--lh-bg-card);
+  border: 1px solid var(--lh-border);
+  border-radius: var(--lh-radius-lg);
+  padding: 24px;
+  transition: all var(--lh-transition);
+}
+.lh-card:hover {
+  border-color: var(--lh-gold);
+  box-shadow: var(--lh-shadow-gold);
+}
+
+/* === 通用表格 === */
+.lh-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.lh-table th, .lh-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--lh-border-light);
+}
+.lh-table th {
+  color: var(--lh-gold);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.lh-table tr:hover td {
+  background: var(--lh-bg-hover);
+}
+
+/* === 通用标签/徽章 === */
+.lh-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.lh-badge.gold { background: var(--lh-gold-dim); color: var(--lh-gold); }
+.lh-badge.green { background: var(--lh-green-dim); color: var(--lh-green); }
+.lh-badge.red { background: var(--lh-red-dim); color: var(--lh-red); }
+.lh-badge.yellow { background: var(--lh-yellow-dim); color: var(--lh-yellow); }
+
+/* === 三色审计指示器 === */
+.lh-audit-pass { color: var(--lh-green); }
+.lh-audit-warn { color: var(--lh-yellow); }
+.lh-audit-fail { color: var(--lh-red); }
+
+/* === 实用工具类 === */
+.lh-text-center { text-align: center; }
+.lh-text-gold { color: var(--lh-gold); }
+.lh-text-muted { color: var(--lh-text-muted); }
+.lh-mt-1 { margin-top: 8px; }
+.lh-mt-2 { margin-top: 16px; }
+.lh-mt-3 { margin-top: 24px; }
+.lh-mt-4 { margin-top: 32px; }
+.lh-mb-1 { margin-bottom: 8px; }
+.lh-mb-2 { margin-bottom: 16px; }
+.lh-mb-3 { margin-bottom: 24px; }
+.lh-flex { display: flex; }
+.lh-flex-center { display: flex; align-items: center; justify-content: center; }
+.lh-gap-1 { gap: 8px; }
+.lh-gap-2 { gap: 16px; }
+.lh-gap-3 { gap: 24px; }
+.lh-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.lh-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.lh-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+@media (max-width: 768px) {
+  .lh-grid-2, .lh-grid-3, .lh-grid-4 { grid-template-columns: 1fr; }
+}
+
+/* === 动画 === */
+@keyframes lh-fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.lh-animate-in {
+  animation: lh-fadeIn 0.6s ease forwards;
+}
+
+@keyframes lh-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(201,168,76,0.1); }
+  50% { box-shadow: 0 0 40px rgba(201,168,76,0.2); }
+}
+.lh-glow {
+  animation: lh-glow 3s ease-in-out infinite;
+}

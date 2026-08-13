@@ -1,0 +1,21 @@
+# 龍魂语义库 · 总账（Master Ledger）
+# 归属: 龍魂系统 UID9622 · 通心译唯一引用源
+# 规则: 词元一律进抽屉，抽屉一律入账；禁止散兵游勇
+library: 龍魂语义库
+version: v0.1
+uid: UID9622
+resolution_order: [显式引用, 精确词元, 别名, 模糊匹配, 抽屉路由]
+status_machine: [种子, 审核, 焊死]   # 焊死=P0冻结，不可改只冻结
+drawers:
+  D01: {name: 系统核,   file: drawers/D01_系统核.yaml,   entries: 6, persona: 架构师}
+  D02: {name: 网络云,   file: drawers/D02_网络云.yaml,   entries: 5, persona: 架构师}
+  D03: {name: AI调度,   file: drawers/D03_AI调度.yaml,   entries: 5, persona: 助手}
+  D04: {name: 协议法典, file: drawers/D04_协议法典.yaml, entries: 4, persona: 审计师}
+  D05: {name: 数据主权, file: drawers/D05_数据主权.yaml, entries: 4, persona: 审计师}
+  D06: {name: 民生审计, file: drawers/D06_民生审计.yaml, entries: 3, persona: 审计师}
+  D07: {name: 文化映射, file: drawers/D07_文化映射.yaml, entries: 4, persona: 哲人}
+  D08: {name: 军事指挥, file: drawers/D08_军事指挥.yaml, entries: 4, persona: 助手}
+totals: {drawers: 8, entries: 35}
+growth_protocol: |
+  新词元流程: 进对应抽屉YAML → status=种子 → 通心译实战引用≥3次 → 审核 → 焊死
+  每周自动: bin/lh_tongxinyi_resolver.py 全量自检（每个词元 resolve 必须命中自己）

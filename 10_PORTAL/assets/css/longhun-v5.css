@@ -1,0 +1,59 @@
+# ═══════════════════════════════════════════════════════
+# 模型版本 & 训练进度样式追加到 longhun.css
+# ═══════════════════════════════════════════════════════
+
+/* ── 模型版本显示 ── */
+#lh-model-version {
+    cursor: help;
+    transition: all 0.3s ease;
+}
+#lh-model-version:active {
+    transform: scale(0.95);
+}
+
+/* ── 待切换版本闪烁 ── */
+#lh-pending-version {
+    animation: lh-pending-glow 2s ease-in-out infinite;
+}
+@keyframes lh-pending-glow {
+    0%, 100% { text-shadow: 0 0 4px rgba(255, 145, 0, 0.4); }
+    50% { text-shadow: 0 0 12px rgba(255, 145, 0, 0.8); }
+}
+
+/* ── 训练进度动画（同 lh-pending-glow，保留一个即可） ── */
+
+/* ── 隔离面板 ── */
+.lh-qp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.lh-qp-title { color: #c41e3a; font-weight: 700; font-size: 14px; }
+.lh-qp-close { color: #5a5a6a; cursor: pointer; font-size: 16px; line-height: 1; }
+.lh-qp-close:hover { color: #ff1744; }
+.lh-qp-section-title { color: #8a8a9a; font-size: 11px; margin: 12px 0 6px; font-weight: 600; }
+.lh-qp-card { padding: 10px; border-radius: 8px; margin-bottom: 8px; font-size: 11px; }
+.lh-qp-card.quarantine { background: rgba(255,145,0,0.08); border: 1px solid rgba(255,145,0,0.2); }
+.lh-qp-card.banned { background: rgba(255,23,68,0.08); border: 1px solid rgba(255,23,68,0.2); }
+.lh-qp-card.clean { text-align: center; padding: 20px; color: #00c853; }
+.lh-qp-node-id { font-weight: 600; color: #e8e8f0; }
+.lh-qp-node-id.banned { color: #ff1744; }
+.lh-qp-meta { color: #5a5a6a; margin-top: 4px; font-size: 10px; }
+.lh-qp-meta .score { color: #ff9100; font-weight: 600; }
+.lh-qp-meta .time { color: #d4af37; }
+.lh-qp-meta .reason { color: #8a8a9a; }
+
+/* ── 节点人格徽章 ── */
+.lh-persona-badge {
+    display: inline-block; padding: 1px 6px; border-radius: 8px;
+    font-size: 9px; font-weight: 600; margin-left: 6px;
+}
+.lh-persona-badge.master { background: linear-gradient(135deg,#c41e3a,#ff2d55); color:#fff; box-shadow: 0 0 8px rgba(196,30,58,0.4); }
+.lh-persona-badge.high { background: rgba(0,200,83,0.2); color:#00c853; border:1px solid rgba(0,200,83,0.3); }
+.lh-persona-badge.medium { background: rgba(255,145,0,0.2); color:#ff9100; border:1px solid rgba(255,145,0,0.3); }
+.lh-persona-badge.low { background: rgba(255,23,68,0.2); color:#ff1744; border:1px solid rgba(255,23,68,0.3); }
+.lh-persona-badge.unverified { background: rgba(90,90,106,0.2); color:#5a5a6a; border:1px solid rgba(90,90,106,0.3); }
+.lh-persona-badge.quarantine { background: rgba(196,30,58,0.2); color:#c41e3a; border:1px solid rgba(196,30,58,0.4); animation: lh-sb 1s ease-in-out infinite; }
+.lh-persona-badge.banned { background: rgba(196,30,58,0.3); color:#fff; border:1px solid #ff1744; }
+@keyframes lh-sb { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }

@@ -1,0 +1,53 @@
+{
+  "dna": "#龍芯⚡️丙午·丙酉·甲子·卯时·䷯井-NOTION-CMD-REGISTRY-RUN-UID9622-2267109E",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "timestamp": "2026-08-13T06:49:54.948922",
+  "dry_run": false,
+  "results": [
+    {
+      "name": "C1 · 文明档案馆哈希链验证",
+      "phase": "Phase C",
+      "mode": "验证",
+      "command": "python3 08_BIN/civilization_archive.py --verify",
+      "returncode": 0,
+      "stdout": "{\n  \"total\": 67,\n  \"tampered\": 0,\n  \"integrity\": \"🟢 完整\",\n  \"details\": [],\n  \"dna\": \"#龍芯⚡️2026-08-13-064949-575756-CHAIN-VERIFY-5E7679A5-9622\"\n}",
+      "stderr": ""
+    },
+    {
+      "name": "D1 · 验证外网 API 合规检测",
+      "phase": "Phase D",
+      "mode": "验证",
+      "command": "curl -X POST http://119.13.90.27:8080/cnsh/api/compliance/check -H 'Content-Type: application/json' -d '{\"text\":\"测试内容\",\"lang\":\"zh\",\"persona\":\"堂吉诃德\"}'",
+      "returncode": 0,
+      "stdout": "{\"success\":true,\"report\":{\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-SANDBOX-E6514E7B-9622\",\"confirm\":\"#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\",\"mode\":\"sandbox\",\"content_hash\":\"e3b0c44298fc1c14\",\"generated_at\":\"2026-08-13T06:49:50.312097\",\"summary\":{\"total\":17,\"passed\":17,\"critical\":0,\"review\":0},\"verdict\":\"🟢 通过\",\"results\":[{\"region\":\"CN\",\"region_name\":\"中国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。\",\"laws\":[\"网络安全法\",\"数据安全法\",\"个人信息保护法\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-CN-F700BA68-9622\"},{\"region\":\"EU\",\"region_name\":\"欧盟\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。\",\"laws\":[\"GDPR\",\"DSA\",\"AI Act\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-EU-BF2CD222-9622\"},{\"region\":\"US\",\"region_name\":\"美国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。\",\"laws\":[\"CLOUD Act\",\"CCPA/CPRA\",\"HIPAA\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-US-41741694-9622\"},{\"region\":\"JP\",\"region_name\":\"日本\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"出境前完成告知程序；对匿名数据进行重识别风险评估。\",\"laws\":[\"APPI\",\"网络安全基本法\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-JP-55A96C36-9622\"},{\"region\":\"KR\",\"region_name\":\"韩国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"确保出境同意与安全保障；建立泄露响应机制。\",\"laws\":[\"PIPA\",\"信息通信网络法\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-KR-F6887F89-9622\"},{\"region\":\"SG\",\"region_name\":\"新加坡\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"进行跨境传输影响评估；CI 运营商落实安全基线。\",\"laws\":[\"PDPA\",\"网络安全法\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-SG-44276220-9622\"},{\"region\":\"AU\",\"region_name\":\"澳大利亚\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"履行 APP 告知义务；建立非法内容处置流程。\",\"laws\":[\"Privacy Act\",\"Online Safety Act\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-AU-45682E84-9622\"},{\"region\":\"CA\",\"region_name\":\"加拿大\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"确保同意有效；跨境前完成告知。\",\"laws\":[\"PIPEDA\",\"隐私法\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-CA-62DCE6FA-9622\"},{\"region\":\"BR\",\"region_name\":\"巴西\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"采用国际传输允许机制；建立主体权利响应流程。\",\"laws\":[\"LGPD\",\"互联网民法\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-BR-A59389CB-9622\"},{\"region\":\"UK\",\"region_name\":\"英国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"关注在线安全义务；使用 IDTA 等传输机制。\",\"laws\":[\"UK GDPR\",\"Online Safety Bill\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-UK-6A4407EC-9622\"},{\"region\":\"IN\",\"region_name\":\"印度\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"关注政府数据本地化要求；确保同意机制合规。\",\"laws\":[\"DPDP Act\",\"IT Rules\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-IN-DD33D13B-9622\"},{\"region\":\"RU\",\"region_name\":\"俄罗斯\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"俄罗斯公民数据需境内存储；沙盒可模拟，生产环境禁止未评估出境。\",\"laws\":[\"数据本地化法\",\"主权互联网法\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-RU-3C6EA57C-9622\"},{\"region\":\"DE\",\"region_name\":\"德国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"员工数据处理需有法律依据；监控需透明。\",\"laws\":[\"BDSG\",\"DSGVO\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-DE-14DCC042-9622\"},{\"region\":\"FR\",\"region_name\":\"法国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"AI 系统需可解释；生物识别需严格合法基础。\",\"laws\":[\"数据保护法\",\"AI 责任框架\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-FR-C50EB8A3-9622\"},{\"region\":\"CH\",\"region_name\":\"瑞士\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"敏感数据加强保护；使用标准合同条款。\",\"laws\":[\"FADP\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-CH-FD254DE8-9622\"},{\"region\":\"ES\",\"region_name\":\"西班牙\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。\",\"laws\":[\"LOPDGDD\",\"刑法典\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-ES-03BA50EA-9622\"},{\"region\":\"TH\",\"region_name\":\"泰国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"泰国皇室为绝对红线；沙盒内可讨论语言规范，生产环境禁止任何冒犯内容。\",\"laws\":[\"冒犯君主罪法\",\"计算机犯罪法\"],\"dna\":\"#龍芯⚡️2026-08-13-COMPLIANCE-TH-9B03A549-9622\"}]}}",
+      "stderr": "% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n100  5316  100  5256  100    60  40494    462 --:--:-- --:--:-- --:--:-- 41209"
+    },
+    {
+      "name": "D2 · API 限流压力测试",
+      "phase": "Phase D",
+      "mode": "验证",
+      "command": "for i in {1..5}; do curl -s -o /dev/null -w '%{http_code} ' -f http://119.13.90.27:8080/cnsh/api/ai/providers; done",
+      "returncode": 0,
+      "stdout": "200 200 200 200 200",
+      "stderr": ""
+    },
+    {
+      "name": "通用 · 检查鲲鹏 IDE 服务状态",
+      "phase": "通用",
+      "mode": "验证",
+      "command": "ssh -i ~/.ssh/longhun_kunpeng_ed25519 root@119.13.90.27 'systemctl status cnsh-ide.service --no-pager'",
+      "returncode": 0,
+      "stdout": "● cnsh-ide.service - CNSH Web IDE\n     Loaded: loaded (/etc/systemd/system/cnsh-ide.service; enabled; preset: enabled)\n     Active: active (running) since Wed 2026-08-12 15:21:02 CST; 15h ago\n   Main PID: 2522403 (python3)\n      Tasks: 6 (limit: 8970)\n     Memory: 46.0M (peak: 47.1M)\n        CPU: 48.063s\n     CGroup: /system.slice/cnsh-ide.service\n             └─2522403 /opt/cnsh-ide/.venv/bin/python3 08_BIN/cnsh_web_ide.py --host 0.0.0.0 --port 8850 --project /opt/cnsh-ide/cnsh_projects --rate-limit 100 --rate-window 60\n\n8月 12 15:21:02 ecs-d428 systemd[1]: Started cnsh-ide.service - CNSH Web IDE.\n8月 12 15:21:02 ecs-d428 python3[2522403]: ⚠️ 静态资源目录不存在: /opt/cnsh-ide/static",
+      "stderr": ""
+    },
+    {
+      "name": "修复 · DNA 生成器日柱/月柱/卦象校正",
+      "phase": "修复",
+      "mode": "验证",
+      "command": "python3 08_BIN/lh_day_gua_verify.py --cross-check",
+      "returncode": 0,
+      "stdout": "==============================================================\n龍魂日卦推算脚本 v1.1 —— CB-001 交叉验证\n==============================================================\n\n目标日期：2026-08-12（当前时辰=寅时，地支序数=3）\n标准四柱：丙午年·丙申月·戊午日·甲寅时\n日干支序号：54（甲=0, 子=0）\n\n【算法A】黄历日卦查表法（人工归纳结论，非程序查表）\n--------------------------------------------------------------\n已实测验证的戊午日样本：2025-04-19 / 2025-08-17 / 2026-08-12（今日）\n（注：2025-03-09 实测为丁丑日，非戊午，已剔除）\n  结果：鼎卦（火风鼎）— 第50卦，稳重图变，中下卦\n  象曰：莺鹜蛤蜊落沙滩，蛤蜊莺鹜两翅扇，\n        渔人进前双得利，失走行人却自在。\n  ⚠️ 待办：将黄历日卦数据源建库，实现程序化查表\n\n【算法B】梅花易数时间起卦（农历六月三十近似 · 寅时）\n--------------------------------------------------------------\n  年支数=7，月=6，日=30，时=3\n  上卦=离，下卦=坎 → 离上坎下\n  对应64卦：?（需卦象上下卦查表）\n  ⚠️ 与算法A可能不一致——体系不同（黄历日卦 vs 梅花易数）\n\n【算法C】河洛理数（简化版）\n--------------------------------------------------------------\n  四柱干支数：丙午(3+7) + 丙申(3+9) + 戊午(5+7) + 甲寅(1+3)\n  干支数总和：38 → 卦序号：38 → 睽卦（火泽睽）\n  ⚠️ 简化算法，完整河洛理数需综合阴阳天地数\n\n【对拍】官方生成器简化算法（bin/lh_dna_generator.py 同算法复刻）\n--------------------------------------------------------------\n  官方四柱：丙午·丙申·戊午·乙卯\n  官方卦象：上卦序=7，下卦序=4 → 64卦 #62 = 小过卦（雷山小过）\n\n  差异对照：\n    ├ 年柱：标准 丙午  vs  官方 丙午  → 一致 ✓\n    ├ 月柱：标准 丙申(节气月)  vs  官方 丙申(节气月)  → 一致 ✓\n    ├ 日柱：标准 戊午  vs  官方 戊午  → 一致 ✓\n    └ 卦象：标准梅花易数 离上坎下  vs  官方日支上时支下 #62  → 起卦法不同（非错误）\n\n==============================================================\n【结论】\n==============================================================\n1. 标准算法四柱：丙午年·丙申月·戊午日·戊午时 —— 与系统时间引擎一致 ✓\n2. 算法A（黄历）鼎卦 / 算法B（梅花易数）睽卦 / 算法C（河洛）升卦 —— 体系不同，结论各异属正常\n3. 官方简化算法为对拍基准，月柱/卦象差异属简化设计，非 bug\n4. 若与本地 lh_dna_generator.py 输出不一致，以龍魂系统官方生成器为准\n==============================================================",
+      "stderr": ""
+    }
+  ]
+}
