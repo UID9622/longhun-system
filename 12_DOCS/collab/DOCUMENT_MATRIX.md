@@ -43,6 +43,7 @@ bash deploy/sync-collab.sh pull
 | **德本审计协议** | `01_protocols/LH-DEBEN-AUDIT-v1.0.md` | 鲲鹏镜像 | — | 修订→GPG→同步 |
 | **长期记忆** | `.codebuddy/memory/MEMORY.md` | ⚠️ 本地私有·不入共享 | — | 每次会话后追加 |
 | **目录索引** | `12_DOCS/DIRECTORY_INDEX.md` | `/opt/longhun/shared/DIRECTORY_INDEX.md` | — | 结构变更→更新→同步 |
+| **微信域名验证** | — | `/opt/longhun/shared/wechat/MP_verify_vqGTp0pitw7tcP4n.txt` | `https://uid9622.cn/MP_verify_vqGTp0pitw7tcP4n.txt` | 微信后台下载→传鲲鹏→nginx alias→reload |
 
 ## 🔄 更新迭代统一规则（任何 AI 遵守）
 
