@@ -298,3 +298,6 @@ target/
 **/*_seven_factor_core*
 # 焊死封印文件（锁存）
 config/engine_protection.weld.*.json
+
+# 嵌入式 git 子模块（外部视频编解码器仓库）
+05_ENGINES/video/
