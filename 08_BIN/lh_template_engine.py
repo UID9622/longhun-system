@@ -44,7 +44,7 @@ def generate_dna(suffix: str = "") -> str:
     """生成 DNA 追溯码"""
     timestamp = datetime.now().strftime("%Y-%m-%d")
     rand = hashlib.md5(f"{suffix}{timestamp}".encode()).hexdigest()[:8].upper()
-    return f"{DNA_PREFIX}{timestamp}-{suffix}-{rand}-{UID}"
+    return f"{DNA_PREFIX}{timestamp}-{suffix}-{rand}-UID{UID}"
 
 
 def current_ganzhi() -> str:
