@@ -459,6 +459,98 @@ MODULES = {
             {"id": "4", "label": "重建索引", "cmd": "python3 engines/lh_xuanji_engine.py --rebuild-index", "desc": "强制重建向量索引"},
         ]
     },
+    "🌐 生态接入·月度活人验证": {
+        "desc": "每月1元=活人心跳·身份三态(生态内/外/共建者)·数据永不锁·随时可导出",
+        "items": [
+            {"id": "1", "label": "🧬 生态状态检查", "cmd": "python3 bin/lh_ecosystem_passport.py alive status UID9622", "desc": "查活人验证状态·生态内/生态外/共建者"},
+            {"id": "2", "label": "💓 发送活人心跳", "cmd": "python3 bin/lh_ecosystem_passport.py alive heartbeat UID9622", "desc": "续费1元·保持生态内状态·自动判定共建者"},
+            {"id": "3", "label": "🧬 创建通行证", "cmd": "python3 bin/lh_ecosystem_passport.py passport create UID9622", "desc": "首次创建生态通行证"},
+            {"id": "4", "label": "📋 查看通行证", "cmd": "python3 bin/lh_ecosystem_passport.py passport show UID9622", "desc": "完整通行证信息"},
+            {"id": "5", "label": "📦 导出全部创作", "cmd": "python3 bin/lh_ecosystem_passport.py export UID9622 json", "desc": "导出全部数据·任何时候·任何状态·不限次数"},
+            {"id": "6", "label": "📋 列出可导出内容", "cmd": "python3 bin/lh_ecosystem_passport.py export UID9622 list", "desc": "查看哪些内容可以导出"},
+        ]
+    },
+    "💰 XPay 支付 & 许愿池": {
+        "desc": "真实支付桥接·微信/支付宝/PayPal·许愿池众筹·SQLite持久化·5/5自检",
+        "items": [
+            {"id": "1", "label": "💳 查看余额", "cmd": "python3 bin/lh.py --xpay balance", "desc": "支付网关余额查询·多币种"},
+            {"id": "2", "label": "💰 发起支付", "cmd": "python3 bin/lh.py --xpay pay", "desc": "微信/支付宝/PayPal支付桥接"},
+            {"id": "3", "label": "🙏 创建愿望", "cmd": "python3 bin/lh.py --wish create", "desc": "许愿池众筹·创建愿望"},
+            {"id": "4", "label": "❤️ 支持愿望", "cmd": "python3 bin/lh.py --wish pledge", "desc": "许愿池·支持愿望"},
+            {"id": "5", "label": "📋 愿望列表", "cmd": "python3 bin/lh.py --wish list", "desc": "许愿池·查看所有愿望"},
+            {"id": "6", "label": "🧪 支付自检", "cmd": "python3 bin/lh_payment_api.py --health", "desc": "5/5支付通道健康自检"},
+        ]
+    },
+    "🗄️ 历史资产管理中心 v1.1": {
+        "desc": "SQLite+FTS5+SM3哈希链·7端点API·GPG签章·资产不丢失",
+        "items": [
+            {"id": "1", "label": "📋 资产总览", "cmd": "python3 bin/lh.py --asset status", "desc": "全部资产·分类汇总·哈希列表"},
+            {"id": "2", "label": "🔍 搜索资产", "cmd": "python3 bin/lh.py --asset search", "desc": "FTS5全文搜索·按类型/日期/标签"},
+            {"id": "3", "label": "🧬 注册新资产", "cmd": "python3 bin/lh.py --asset register", "desc": "SM3哈希注册·DNA绑定·GPG签章"},
+            {"id": "4", "label": "🔗 查看SM3链", "cmd": "python3 bin/lh.py --asset chain", "desc": "资产哈希链·只追加不删除·完整审计"},
+            {"id": "5", "label": "📦 年轮备份", "cmd": "python3 bin/lh.py --asset backup", "desc": "SQLite整体进年轮备份"},
+        ]
+    },
+    "🏥 知识中枢 v3.1": {
+        "desc": "API后端 :8766·全能面板12区块·知识库管理·智能检索",
+        "items": [
+            {"id": "1", "label": "🚀 启动知识中枢", "cmd": "python3 bin/lh_knowledge_hub_api.py --port 8766", "desc": "知识库API服务·12区块面板"},
+            {"id": "2", "label": "🔍 知识检索", "cmd": "python3 bin/lh.py --hub search", "desc": "多源知识库全文检索"},
+            {"id": "3", "label": "📊 知识拉取", "cmd": "python3 bin/lh_knowledge_hub.py fetch", "desc": "20域·84文件·1.2MB·每6h自更新"},
+            {"id": "4", "label": "🔗 AI归集索引", "cmd": "python3 bin/lh.py --hub build", "desc": "AI Hub·23092文件索引·8工具"},
+            {"id": "5", "label": "📋 知识库状态", "cmd": "python3 bin/lh.py --hub status", "desc": "查看知识库覆盖·版本·更新时间"},
+        ]
+    },
+    "📊 估值报告模板 v1.1": {
+        "desc": "四维度×四场景·一键复现·新项目秒填·Excel联动·不可用于交易定价",
+        "items": [
+            {"id": "1", "label": "📊 一键生成估值", "cmd": "python3 core/valuation/lh_valuation_template.py --auto", "desc": "默认配置·一键生成估值报告"},
+            {"id": "2", "label": "🆕 交互式新建", "cmd": "python3 core/valuation/lh_valuation_template.py --init", "desc": "问答式创建新项目估值"},
+            {"id": "3", "label": "📑 生成Excel", "cmd": "python3 core/valuation/lh_valuation_template.py --excel", "desc": "8张表Excel·一键联动"},
+            {"id": "4", "label": "📋 查看模板", "cmd": "python3 core/valuation/lh_valuation_template.py --list", "desc": "查看所有可用模板·场景选择"},
+        ]
+    },
+    "🧠 多智能体框架 v2.0": {
+        "desc": "24人格Agent·黑板+总线·蚁群桥接·自检100%·编排调度",
+        "items": [
+            {"id": "1", "label": "🚀 启动多智能体", "cmd": "python3 05_ENGINES/lh_multiagent_arch_engine.py --run", "desc": "24人格Agent全量启动·黑板+总线"},
+            {"id": "2", "label": "📊 Agent状态", "cmd": "python3 05_ENGINES/lh_multiagent_arch_engine.py --status", "desc": "查看所有Agent运行状态"},
+            {"id": "3", "label": "🔄 蚁群桥接", "cmd": "python3 05_ENGINES/lh_multiagent_arch_engine.py --bridge", "desc": "多智能体↔蚁群双向桥接"},
+            {"id": "4", "label": "🧪 自检", "cmd": "python3 05_ENGINES/lh_multiagent_arch_engine.py --check", "desc": "全链路自检·100%覆盖"},
+            {"id": "5", "label": "📋 任务编排", "cmd": "python3 05_ENGINES/lh_multiagent_arch_engine.py --orchestrate", "desc": "黑板发布任务·总线分发"},
+        ]
+    },
+    "🐉 时间引擎 v4.0": {
+        "desc": "天干地支四柱·64卦·梅花易数起卦·审计链·每句输出打戳",
+        "items": [
+            {"id": "1", "label": "⏰ 时间戳", "cmd": "python3 bin/lh_time_engine.py --stamp", "desc": "完整天干地支+卦象+三色·当前时刻"},
+            {"id": "2", "label": "☯ 起卦", "cmd": "python3 bin/lh_time_engine.py --hexagram", "desc": "梅花易数时间起卦·64卦"},
+            {"id": "3", "label": "📅 日期转换", "cmd": "python3 bin/lh_time_engine.py --convert 2026-08-11", "desc": "任意日期→天干地支四柱"},
+            {"id": "4", "label": "🔗 审计链", "cmd": "python3 bin/lh_time_engine.py --audit", "desc": "完整时间审计链·不可篡改"},
+            {"id": "5", "label": "🏃 持续运行", "cmd": "python3 bin/lh_time_engine.py --run", "desc": "时间引擎持续运行·实时打戳"},
+        ]
+    },
+    "🚀 鲲鹏共生体": {
+        "desc": "本地发号·鲲鹏执行·21人格集群·自动AI调取·SSH直联",
+        "items": [
+            {"id": "1", "label": "🔍 鲲鹏状态", "cmd": "lh-kunpeng status", "desc": "查看鲲鹏在线/人格/任务队列"},
+            {"id": "2", "label": "🧪 完整自检", "cmd": "lh-kunpeng check", "desc": "SSH+引擎+本地路由全链路自检"},
+            {"id": "3", "label": "📤 同步代码到鲲鹏", "cmd": "lh-kunpeng sync", "desc": "SCP推送集群引擎并验证"},
+            {"id": "4", "label": "🚀 下发一句话任务", "cmd": "lh-kunpeng task \"评估当前系统状态\"", "desc": "自动路由人格·鲲鹏执行·返回结果"},
+            {"id": "5", "label": "🎬 演示调度", "cmd": "lh-kunpeng demo", "desc": "演示战略推演人格调度"},
+            {"id": "6", "label": "⏰ 启动自动巡检", "cmd": "lh-kunpeng monitor 3600", "desc": "每隔1小时自动下发系统巡检"},
+        ]
+    },
+    "🧠 ASI 系统建设器": {
+        "desc": "自然语言→人格科技公司→系统落地·ASI天花板约束·DNA签章",
+        "items": [
+            {"id": "1", "label": "🧠 自然语言建设", "cmd": "python3 08_BIN/lh_asi_system_builder.py \"为估值报告增加PDF导出\"", "desc": "解析需求·调度人格团队·生成落地计划"},
+            {"id": "2", "label": "⚙️ 自然语言并执行", "cmd": "python3 08_BIN/lh_asi_system_builder.py \"运行全系统健康检查\" --exec", "desc": "规划+自动匹配脚本执行"},
+            {"id": "3", "label": "🔴 ASI天花板自检", "cmd": "python3 08_BIN/lh_asi_system_builder.py --ceiling-check", "desc": "验证ASI约束+人格架构+不可替代人格"},
+            {"id": "4", "label": "🏢 查看组织架构", "cmd": "python3 08_BIN/lh_asi_system_builder.py --org-chart", "desc": "输出龍芯家族科技公司组织图"},
+            {"id": "5", "label": "📖 阅读ASI天花板协议", "cmd": "cat 01_protocols/LH-ASI-CEILING-PROTOCOL-v1.0.md", "desc": "L0宪法层·ASI即终点·禁止ASI+"},
+        ]
+    },
 }
 
 # ===== 人格卡片 =====
@@ -513,8 +605,32 @@ def print_header():
     print(f"  🐉  龍魂统一控制台 {VERSION}")
     print(f"  📍 UID9622 · 诸葛鑫 · Lucky")
     print(f"  🧬 {DNA}")
-    print(f"  📦 已注册能力: {len(ENGINE_CAPS)}项 · 人格: {len(PERSONAS)}个 · 命令: 120+")
+    print(f"  📦 已注册模块: {len(MODULES)}项 · 人格: {len(PERSONAS)}个 · 命令: 120+")
     print(f"{'='*min(w,100)}")
+
+def print_alive_banner():
+    """🔥 生态准入状态横幅 — 每次进入控制台自动检查"""
+    try:
+        import sys as _s
+        _s.path.insert(0, str(ROOT / 'bin'))
+        from lh_ecosystem_passport import 月度活人验证
+        ok, msg = 月度活人验证('UID9622')
+        # 提取关键信息
+        import re as _re
+        status_match = _re.search(r'(🟢|🟡|⚪)', msg)
+        status = status_match.group(0) if status_match else '🟡'
+        days_match = _re.search(r'剩余: (\d+)天', msg)
+        days = f"剩余{days_match.group(1)}天" if days_match else ""
+        expiry_match = _re.search(r'到期: (\d{4}-\d{2}-\d{2})', msg)
+        expiry = expiry_match.group(1) if expiry_match else ""
+        
+        w = _term_width()
+        print(f"{'─'*min(w,100)}")
+        print(f"  🌐 生态准入: {status} {days} 到期:{expiry}  |  续费: lh eco alive heartbeat UID9622")
+        print(f"{'─'*min(w,100)}")
+    except Exception:
+        pass  # 降级：不显示横幅不影响正常使用
+
 
 def print_menu():
     print(f"\n  📋 功能模块（输入数字进入）：\n")
@@ -609,6 +725,23 @@ def print_help():
     lh "我回来了"        → 任意中文→自动语义匹配→智能路由
     lh chat             → 对话模式，每句输入自动分析触发
     lh auto             → 剪贴板守护，复制粘贴自动触发
+
+  ⚡ 轻量内核命令（自动走 lh-core，零依赖·断网可跑）
+
+    lh version          → 查看版本（lh-core 快速响应）
+    lh bench            → 跑低算力基准测试
+    lh dna "内容"        → 签发 DNA 追溯码
+    lh audit --json '{{}}' → 三色审计
+    lh root 369           → 数字根 + 五行 + 洛书
+    lh root --wuxing 2025 → 数字五行属性
+    lh chain write '{{}}' → 年轮链写入
+    lh flow tricolor    → 流控三色审计
+    lh info             → 系统信息
+    lh help             → lh-core 独立帮助
+    lh core --help      → 同上（显式 core 前缀入口）
+
+    这些命令也可直接用 lh-core 调用：lh-core version / lh-core bench / ...
+    完整版 lh 保持 orchestrator 角色，复杂任务仍走原路由。
 
   不用记命令：输入 lh 然后按数字就行。
   也可以直接说人话：lh "去年318路上的事" 会自动调用璇玑推演。
@@ -761,6 +894,10 @@ SUB_DISPATCH = {
     # 🧬 DNA追溯码生成 — 自动化时空标签·五行·64卦·ROOT_CARD
     'dna':                  ('lh_dna_generator.py',           '🧬', 'DNA追溯码生成·五行·64卦·ROOT_CARD', [], '--title'),
     'dna-gen':              ('lh_dna_generator.py',           '🧬', 'DNA生成(完整名)', [], '--title'),
+    # ⛓️ DNA接龙链引擎 v1.0 — 只追加·不覆盖·不删除·行为密码学注链·跨人格接龙
+    'dna-chain':            ('lh_dna_chain.py',               '⛓️', 'DNA接龙链·init/append/verify/show/scan/auto'),
+    # 📦 AI归集Hub v2.0 — KFPP七因子过滤·跨工具索引·符号链接归集
+    'hub':                  ('lh_ai_hub.py',                  '📦', 'AI归集Hub·build/search/link/status（含KFPP过滤）'),
     # 🐉 透明审计AI Hub — 多模型对话·对比·审计仪表盘·DNA追溯
     'ai-hub':               ('lh_ai_hub_api.py',              '🐉', '透明审计AI Hub·多模型·审计·对比', [], '--port=8778'),
     # 🧩 提示词路由器 — 动态路由·自我学习·鲲鹏同步
@@ -786,15 +923,66 @@ SUB_DISPATCH = {
     'behavioral-crypto':    ('lh_behavioral_crypto.py',        '🔬', '行為密碼學(全名)·七因子·實驗·雷達圖', [], '--demo'),
     # 📖 术语白话化 — 查询术语大白话解释
     'term':                 ('lh_term_tool.py',                '📖', '术语白话查询·端口/目录/命令/缩写/组件大白话', [], ''),
+    # 📚 飞书知识库同步 v1.0 — Markdown→飞书Wiki·取代Notion·双向对比
+    'wiki':                 ('lh_feishu_wiki_sync.py',         '📚', '飞书知识库同步·Markdown→Wiki·取代Notion', [], 'status'),
+    'feishu-wiki':          ('lh_feishu_wiki_sync.py',         '📚', '飞书Wiki(全名)·同步/状态/配置', [], 'status'),
+    # 🔥 AI产出归集索引 v1.0 — 多工具输出归集·跨工具搜索·内容索引
+    'ai-index':             ('lh_ai_indexer.py',               '📦', 'AI归集索引·构建/搜索/报告', [], 'report'),
+    'ai-find':              ('lh_ai_indexer.py',               '🔍', 'AI归集搜索·跨工具关键词搜索', ['search']),
+    'ai-scan':              ('lh_ai_indexer.py',               '📂', 'AI归集扫描·指定目录归集入Hub', ['scan']),
+    'ai-report':            ('lh_ai_indexer.py',               '📊', 'AI归集报告·统计概览', ['report']),
+    # 🎬 视频编码器 v1.0 — AVS3中国自主标准 + VVC(H.266)开源实现
+    'avs3enc':              ('lh_avs3_encoder.py',             '🇨🇳', 'AVS3编码器·中国自主标准·8K超高清', [], ''),
+    'avs3dec':              ('lh_avs3_decoder.py',             '🇨🇳', 'AVS3解码器·中国自主标准', [], ''),
+    'vvcenc':               ('lh_vvc_encoder.py',              '🎬', 'VVC(H.266)编码器·比HEVC省50%码率', [], ''),
+    # 🛡️ 引擎分层保护 v1.0 — D1-D4四级·自动分类·烟雾弹·剽窃检测
+    'protect':              ('lh_engine_protect.py',            '🛡️', '引擎分层保护·scan/seal/fog/report', [], 'scan'),
+    'plagiarize':           ('lh_plagiarism_detect.py',         '🔍', '剽窃检测·fingerprint/search/compare/report', [], 'fingerprint'),
+    'guard':                ('lh_guardian_replay.py',            '🛡️', '守卫复盘·quick/daily/weekly/deploy', [], 'daily'),
+    # 🔴 主权总闸 v1.0 P0-ETERNAL — 11引擎统一调度·全链路验证·焊死封印
+    'sovereignty':          ('lh_sovereignty_master_gate.py',    '🔴', '主权总闸·verify/audit/guard/weld/report/status', [], 'verify'),
+    # 🐉 智能体嵌入总闸 v1.0 — 知识矩阵嵌入·模板路由·架构搭建
+    'agent-embed':          ('lh_agent_embed_engine.py',         '🐉', '智能体嵌入·build/verify/status/route/audit/summary', [], 'build'),
+    # 🌐 生态接入 v1.0 — 月度活人验证·身份三态·导出创作
+    'eco':                  ('lh_ecosystem_passport.py',         '🌐', '生态通行证·passport/alive/export', [], ''),
+    'passport':             ('lh_ecosystem_passport.py',         '🧬', '生态通行证·passport create/auto/show/status', [], ''),
+    # 💰 经济引擎 — 许愿池·XPay支付网关·多币种·经济核算
+    'xpay':                 ('../../03_LAYERS/L5_服务层/services/xpay/xpay_gateway.py', '💰', 'XPay支付网关·许愿池·打赏·多币种', [], ''),
+    'wish':                 ('../../03_LAYERS/L5_服务层/services/xpay/xpay_gateway.py', '🙏', '许愿池·众筹·打赏', [], ''),
+    # 🐉 花名册调度中心 v1.0 — 97人格查询·短DNA生成·验证·流水线·闸口
+    'roster':               ('lh_roster.py',                    '🐉', '花名册调度中心·menu/shortdna/verify/show/pipeline/gates/circle/stats', [], 'menu'),
+    # 🧠 人格思维化引擎 v1.0 — 20人格独立思维·协作·并行
+    'think':                ('lh_persona_thought.py',           '🧠', '人格思维·单人/协作/并行/状态·--persona/--collaborate/--parallel/--status', [], '--demo'),
+    # ⏱️ 系统性能测试 — CPU/内存/磁盘/网络基准·压力测试
+    'benchmark':            ('lh_system_benchmark.py',          '⏱️', '系统性能基准·CPU/内存/磁盘/网络四维跑分·--quick/--compare/--json', [], ''),
+    'load-test':            ('lh_load_test.py',                 '🔥', 'HTTP压力测试·并发/QPS/延迟分布·--concurrency/--duration/--endpoint', [], ''),
 }
 
 
 def _run_subcommand(script_name: str, extra_args: list[str] | None = None, emoji: str = '🚀', label: str = '',
-                    smart_default: str = '', suppress_header: bool = False):
-    """统一子命令执行器
-    - 如果 extra_args 不为空且第一个参数不是 -(flags)，且定义了 smart_default → 自动插入默认子命令
-    - suppress_header: True 时不打印装饰 header（用于 --json 模式）
+                    smart_default: str = '', suppress_header: bool = False,
+                    command_name: str = ''):
+    """统一子命令执行器（🔥 所有命令走人格网关：出去→执行→回流）
+    - 有 command_name → 人格网关路由（所有常规命令）
+    - 无 command_name → 旧路径直行（向后兼容·极少场景）
+    - smart_default: 第一个非flag参数自动插入默认子命令
+    - suppress_header: True 时不打印装饰 header（--json 模式）
     """
+    if command_name:
+        # 🔥 人格网关：路由→执行→审计回流
+        from lh_persona_gate import get_persona_gate
+        gate = get_persona_gate()
+        return gate.execute(
+            command=command_name,
+            script_name=script_name,
+            extra_args=extra_args or [],
+            emoji=emoji,
+            label=label,
+            smart_default=smart_default,
+            suppress_header=suppress_header,
+        )
+
+    # 旧路径（无命令名的直接调用·向后兼容）
     script_path = ROOT / "bin" / script_name
     if not suppress_header:
         print_header()
@@ -803,12 +991,10 @@ def _run_subcommand(script_name: str, extra_args: list[str] | None = None, emoji
     args_list = [sys.executable, str(script_path)]
 
     if extra_args:
-        # 智能插入：第一个参数不是 flag 且设有 smart_default
         if smart_default and extra_args and not extra_args[0].startswith('-'):
             args_list.append(smart_default)
         args_list.extend(extra_args)
     result = subprocess.run(args_list, cwd=str(ROOT), check=False)
-    # 🔥 自动输出时间戳（每句回复焊死）
     if not suppress_header:
         _print_time_stamp()
     return result
@@ -955,6 +1141,12 @@ def main():
     parser.add_argument('--complete', type=str, help='命令自动补全 (lh --complete "部")')
     parser.add_argument('--repo', nargs=argparse.REMAINDER, help='开源项目模板生成 (lh --repo 或 lh --repo --dry-run 或 lh --repo -o ~/my-project)')
     parser.add_argument('--dna', nargs=argparse.REMAINDER, help='DNA生成与管理 (lh --dna generate/lookup/inherit/family/verify/stats)')
+    parser.add_argument('--dna-chain', dest='dna_chain', nargs=argparse.REMAINDER, help='⛓️ DNA接龙链 (lh --dna-chain init/append/verify/show/scan/auto)')
+    parser.add_argument('--eco', nargs=argparse.REMAINDER, help='🌐 生态接入·月度活人验证 (lh --eco alive/export/passport)')
+    parser.add_argument('--passport', dest='passport_cmd', nargs=argparse.REMAINDER, help='🧬 生态通行证 (lh --passport create/auto/show/status)')
+    parser.add_argument('--xpay', nargs=argparse.REMAINDER, help='💰 XPay支付网关 (lh --xpay pay/wish/balance)')
+    parser.add_argument('--wish', nargs=argparse.REMAINDER, help='🙏 许愿池 (lh --wish create/pledge/list)')
+    parser.add_argument('--hub', nargs=argparse.REMAINDER, help='📦 AI归集Hub (lh --hub build/search/link/status)')
     parser.add_argument('--know', nargs=argparse.REMAINDER, help='本地知识引擎 (lh --know scan/search/convert/status)')
     parser.add_argument('--agent', nargs=argparse.REMAINDER, help='智能体训练 (lh --agent process/interactive/train/status)')
     parser.add_argument('--lu', nargs=argparse.REMAINDER, help='LU压缩引擎 (lh --lu compress/recall/align/index/shortcodes)')
@@ -1072,6 +1264,8 @@ def main():
     parser.add_argument('--config-pull', dest='config_pull', nargs=argparse.REMAINDER, help='配置拉取·自动发现合并 (lh --config-pull --list/--merge/--report)')
     parser.add_argument('--cp', dest='cp', nargs=argparse.REMAINDER, help='配置拉取简写 (lh --cp --merge)')
     parser.add_argument('--setup-all', dest='setup_all', nargs=argparse.REMAINDER, help='一键搭建·知识+配置+状态 (lh --setup-all)')
+    # 🐉 主权身份融合弹窗
+    parser.add_argument('--identity-popup', dest='identity_popup', nargs=argparse.REMAINDER, help='主权身份融合弹窗 (lh --identity-popup 或 lh --identity-popup --force/--check/--reset)')
     # 📄 智能排版引擎
     parser.add_argument('--format', dest='fmt', nargs=argparse.REMAINDER, help='智能排版引擎 (lh --format "内容" --type flowchart / cnsh / python / table / timeline / ...)')
     parser.add_argument('--type', dest='fmt_type', type=str, help='排版类型 (配合 --format 使用，默认 auto 自动识别)')
@@ -1088,6 +1282,10 @@ def main():
     parser.add_argument('--view-export', dest='view_export', metavar='FILE', type=str, help='解密查看证据包 (lh --view-export backup/evidence_xxx.json.enc)')
     parser.add_argument('--witness-serve', dest='witness_serve', action='store_true', help='启动维权证据固化 Web 服务 (lh --witness-serve)')
     parser.add_argument('--quick', type=str, help='快速跳转到模块名')
+    # 🛡️ 引擎分层保护 + 剽窃检测 + 守卫复盘 (2026-08-07)
+    parser.add_argument('--protect', nargs=argparse.REMAINDER, help='引擎分层保护 (lh --protect scan/seal/fog/report)')
+    parser.add_argument('--plagiarize', nargs=argparse.REMAINDER, help='剽窃检测 (lh --plagiarize fingerprint/search/compare)')
+    parser.add_argument('--guard', nargs=argparse.REMAINDER, help='守卫复盘 (lh --guard quick/daily/weekly/deploy)')
 
     args, remaining = parser.parse_known_args()
 
@@ -1795,7 +1993,7 @@ def main():
             extra = list(val) if val else list(default_args)
             # 检测 --json 参数，抑制 header 以避免污染管道输出
             no_header = '--json' in (extra or [])
-            _run_subcommand(script, extra, emoji, desc, smart_default, suppress_header=no_header)
+            _run_subcommand(script, extra, emoji, desc, smart_default, suppress_header=no_header, command_name=flag)
             return
 
     if args.health:
@@ -1890,8 +2088,7 @@ def main():
                     extra = list(smart_default)
             # 检测 --json 抑制 header（管道输出）
             no_header = '--json' in extra
-            _run_subcommand(script, extra, emoji, desc, suppress_header=no_header)
-            _print_time_stamp()
+            _run_subcommand(script, extra, emoji, desc, suppress_header=no_header, command_name=subcmd)
             return
         # 裸词→自动转 --flag 形式重试（如 lh audit → lh --audit）
         # 递归防护：_LH_NO_REDIRECT 环境变量阻止无限重试
@@ -2011,6 +2208,7 @@ def main():
     while True:
         clear_screen()
         print_header()
+        print_alive_banner()
         print_menu()
 
         choice = input("  🎯 输入数字/字母 > ").strip().lower()

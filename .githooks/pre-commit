@@ -1,12 +1,13 @@
 #!/bin/bash
-# 🐉 龍魂 · 永恒审计三问 + 密钥审计 · Git Pre-commit 钩子 v2.0（合并版）
-# DNA: #龍芯⚡️2026-08-11-AUDIT-GATE-v2.0-UID9622
+# 🐉 龍魂 · 永恒审计三问 + 密钥审计 + 对齐扫描 · Git Pre-commit 钩子 v3.0
+# DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-AUDIT-GATE-v3.0-UID9622
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #
 # 合并说明:
-#   - 阶段一: 密钥硬编码检查（原 v1.0，快速拦截）
-#   - 阶段二: 永恒审计三问（Kimi版，DNA/P0/许可证/密钥全面审计）
-#   - 阶段性结果合并：任一阶段🔴则整体🔴
+#   - 阶段一: 密钥硬编码检查（v1.0，快速拦截）
+#   - 阶段二: 永恒审计三问（DNA/P0/许可证/密钥全面审计）
+#   - 阶段三: lh_align.py 对齐扫描（LONGHUN_ALIGN v1.0，DNA干支/确认码/三段式/分层许可）🆕
+#   - 阶段性结果合并：🔴阻塞 / 🟡警告通过 / 🟢全绿
 #
 # 安装: ln -sf ../../.githooks/pre-commit .git/hooks/pre-commit
 # ============================================================
@@ -307,6 +308,46 @@ else
   echo ""
   echo -e "${RED}[x] 阶段二失败${NC}"
   TOTAL_EXIT=1
+fi
+
+# ============================================================
+# 阶段三 · lh_align.py 对齐扫描（LONGHUN_ALIGN 锚定 v1.0）
+# ============================================================
+echo ""
+echo -e "${GREEN}🐉 阶段三 · 龍魂永恒对齐扫描（LONGHUN_ALIGN）${NC}"
+
+ALIGN_TOOL="$REPO_ROOT/08_BIN/lh_align.py"
+if [ -f "$ALIGN_TOOL" ]; then
+  set +e
+  python3 "$ALIGN_TOOL" "$REPO_ROOT" --json 2>&1 | tee /tmp/lh_align_precommit.log
+  phase3_exit=$?
+  set -e
+
+  # 解析JSON取overall
+  ALIGN_OVERALL=$(python3 -c "
+import json, sys
+try:
+    with open('/tmp/lh_align_precommit.log') as f:
+        for line in f:
+            line = line.strip()
+            if line.startswith('{'):
+                data = json.loads(line)
+                print(data.get('overall', '🟡'))
+                sys.exit(0)
+except: pass
+print('🟡')
+" 2>/dev/null)
+
+  if [ $phase3_exit -eq 0 ]; then
+    echo -e "${GREEN}[✓] 阶段三通过 · 对齐状态: ${ALIGN_OVERALL}${NC}"
+  elif [ $phase3_exit -eq 1 ]; then
+    echo -e "${YELLOW}[!] 阶段三警告 · 对齐状态: ${ALIGN_OVERALL} · 🟡警告不阻塞提交${NC}"
+  else
+    echo -e "${RED}[x] 阶段三失败 · 对齐状态: ${ALIGN_OVERALL} · 🔴红线阻塞提交${NC}"
+    TOTAL_EXIT=1
+  fi
+else
+  echo -e "${YELLOW}[!] lh_align.py 未找到，跳过对齐扫描${NC}"
 fi
 
 # ============================================================

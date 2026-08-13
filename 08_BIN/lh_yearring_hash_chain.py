@@ -36,7 +36,7 @@ import hashlib
 import time
 import argparse
 from datetime import datetime, timedelta, timezone
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -186,7 +186,7 @@ class YearRingChain:
         with open(events_file, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
-    def add_event(self, event_type: str, data: Dict) -> Tuple[RingEvent, Ring]:
+    def add_event(self, event_type: str, data: Dict[str, Any]) -> Tuple[RingEvent, Ring]:
         tz = timezone(timedelta(hours=8))
         now = datetime.now(tz)
         today = now.strftime("%Y-%m-%d")
@@ -300,7 +300,7 @@ class YearRingChain:
     def get_events_by_date(self, date: str) -> List[RingEvent]:
         return self._get_events_for_date(date)
 
-    def get_stats(self) -> Dict:
+    def get_stats(self) -> Dict[str, Any]:
         tz = timezone(timedelta(hours=8))
         now = datetime.now(tz)
         return {
@@ -377,7 +377,10 @@ def main():
 
     elif args.command == "close":
         ring = engine.close_today()
-        print(f"✅ 封圈完成: {ring.date} | {ring.ganzhi} | hash: {ring.hash}")
+        if ring is None:
+            print("⚠️ 无法封圈：close_today() 返回空")
+        else:
+            print(f"✅ 封圈完成: {ring.date} | {ring.ganzhi} | hash: {ring.hash}")
 
     elif args.command == "verify":
         valid, errors = engine.verify_chain(args.verbose)

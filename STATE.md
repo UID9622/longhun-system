@@ -5,8 +5,8 @@
 > 所有 AI（CodeBuddy / Kimi / Ollama 本地模型）的唯一入口。
 > 无论哪个窗口、哪个模型对话，启动时读这一份就够了。
 > 🔥 **新 AI 进门? → `https://uid9622.cn/api/onboarding/bootstrap`** (自动拉全量规则·不需要人工说)
-> 更新: 2026-08-02 · v2.1 🐉时间戳焊死
-> DNA: #龍芯⚡️丙午·丙申·戊申·亥时·䷗复-STATE-UNIFIED-ENTRY-v2.1-TIME-STAMP-WELD
+> 更新: 2026-08-11 · v2.4 💰真实支付对接+生态准入全覆盖
+> DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-STATE-UNIFIED-ENTRY-v2.4-XPAY-REAL-PAYMENT-POPUP
 > 📋 **命令不会？→ 鲲鹏 https://uid9622.cn/api/cmd/**（毫秒级·所有AI统一入口）| 本地备份 → COMMAND_INDEX.md | 详情 → MEMORY.md §4
 
 ---
@@ -40,6 +40,27 @@
 | ✍️ **GPG自动签名** 🔥 | ✅ **v1.0**·`bin/lh_gpg_sign.py`·1574签名文件·GATE-11签名闸·发布即签 |
 | 🐉 **主权守护引擎** 🔥 | ✅ **v1.0**·`bin/lh_sovereignty_guard.py`·法律边界+一票否决+数据主权·系统在协议在 |
 | 🐉 **LU-Time Engine v4.0** 🔥 | ✅ **`bin/lh_time_engine.py`**·天干地支·64卦·梅花易数·每句输出戳·审计链·`lh te` |
+| 🌐 **生态接入协议 v1.0** 🔥 | ✅ **`01_protocols/LH-ECOSYSTEM-ACCESS-PROTOCOL-v1.0.md`**·P1-CORE·月度活人验证·三态身份(生态内/外/共建者)·不可剥夺三权·铁律三则 |
+| 🗄️ **历史资产管理中心 v1.1** | ✅ **`01_protocols/LH-ASSET-CENTER-v1.1.md`**·14章·5项冲突修正焊死·SQLite+FTS5+SM3链·7端点API·GPG签章 |
+| 🐉 **CodeBuddy 生态总索引 v1.0** | ✅ **`01_protocols/LH-CODEBUDDY-MASTER-INDEX-v1.0.md`**·规则/配置/产出/工具/备份/审计统一入口 |
+| 🛠️ **CodeBuddy 技能生成器 v1.1** | ✅ **`08_BIN/lh_generate_codebuddy_skills.py`**·v∞ DNA·入口脚本存在性校验·`--force`/`--validate-only` |
+| 🤖 **多Agent协同架构引擎** | ✅ **`05_ENGINES/lh_multiagent_arch_engine.py`**·P0底座·16人格调度·三色审计·资产治理 |
+| ☯️ **风水场博弈论引擎** | ✅ **`05_ENGINES/lh_fengshui_game_engine.py`**·养德/摆阵/无为三策略·纳什均衡·Banach不动点 |
+| 🔥 **longhun-core v1.0.0 低算力内核** | ✅ **`core/dist/longhun-core-1.0.0.tar.gz`**·29KB·零依赖·CLI `lh-core` 已安装·5/5 自检·基准全绿·`--help`/`-h`/`help` 独立帮助入口已上线 |
+| 🔗 **lh → lh-core 桥接** | ✅ **`bin/lh`**·`version/bench/dna/audit/root/chain/info/help` 轻量命令优先走 `lh-core`·新增 `lh core <cmd>` 统一前缀入口·`lh --help` 已增加内核命令专区 |
+| 💰 **估值报告模板引擎 v1.1** 🔥 | ✅ **`core/valuation/lh_valuation_template.py`**·模板`+`配置一键生成报告·`--validate`/`--strict`/`--init`·`--config`+`--excel`联动·正则预编译·单层`{{#each}}`·GPG签名 |
+| 🚀 **鲲鹏共生体快捷入口** 🔥 | ✅ **`08_BIN/lh_kunpeng.sh`**·已安装 `lh-kunpeng`·`status/check/sync/task/demo/monitor`·本地发号·鲲鹏 21人格执行·SSH直联 |
+| 🐉 **龍魂一键启动入口** 🔥 | ✅ **`08_BIN/lh_start.sh`**·已安装 `lh-start`·`lh-start`进控制台·`--kunpeng`/`--status`/`--all`/`--time` 一键直达 |
+| 📋 **鲲鹏自动AI调取 SOP** 🔥 | ✅ **`01_protocols/LH-KUNPENG-AUTO-AI-SOP-v1.0.md`**·常用启动指令·周期巡检·故障排查·已落地 |
+| 🧠 **ASI 系统建设器 v1.0** 🔥 | ✅ **`08_BIN/lh_asi_system_builder.py`**·自然语言→人格科技公司→系统落地·`--ceiling-check`/`--org-chart`/`--exec`·已接入 `lh asi` |
+| 🔴 **ASI 天花板协议 v1.0** 🔥 | ✅ **`01_protocols/LH-ASI-CEILING-PROTOCOL-v1.0.md`**·L0宪法层·ASI=数字孪生=最终形态·禁止 ASI+·人格组织架构化·CEO=UID9622 |
+| 🏢 **人格注册表科技公司架构** 🔥 | ✅ **`20_CONFIG/persona-registry.yaml`**·24人格映射为 C-level/VP/Director/Advisor·部门·汇报线·不可替代人格 |
+| 📐 **CodeBuddy 对齐规则 v2.0** | ✅ **`01_protocols/LH-CODEBUDDY-ALIGNMENT-v2.0.md`**·DNA 修成 v∞ 干支卦格式 |
+| 🧬 **生态护照引擎 v1.1** 🔥 | ✅ **`bin/lh_ecosystem_passport.py`**·联动协议·`alive verify/heartbeat`·`export <uid>`·月度活人验证·导出创作 |
+| 💰 **XPayGateway v2.0** 🔥 | ✅ **`03_LAYERS/L5_服务层/services/xpay/xpay_gateway.py`**·真实支付桥接·桥接微信/支付宝/PayPal·沙箱/真实双模式·5/5自检通过 |
+| 🗄️ **XPayStorage v1.0** 🔥 | ✅ **`03_LAYERS/L5_服务层/services/xpay/xpay_storage.py`**·SQLite持久化·5张表+7索引·append-only审计日志·8/8自检通过 |
+| 🌐 **生态准入弹窗嵌入器** 🔥 | ✅ **`bin/lh_sovereign_popup_embedder.py`**·自动注入3个关键Portal·`lh --eco`·`lh --xpay`·`lh --passport` |
+| 🪟 **生态准入独立弹窗** 🔥 | ✅ **`10_PORTAL/eco-popup-standalone.html`**·深渊暗色+龍魂金·三色状态徽章·24h不重复弹窗 |
 | 🔒 **安全加固 v1.1** | ✅ **shell=False全替换·自然路由白名单·KFPP目录700·24测试全过·8文件GPG重签** |
 | 🧬 **跨模块路由总线** 🔥 | ✅ `lh_cross_module_router.py`·10条回调链·12/12测试 |
 | 📐 **黎曼三视角引擎** 🔥 | ✅ `lh_riemann_zeta_engine.py`·15/15·论文→引擎落地 |
@@ -70,6 +91,15 @@
 | 📜 **媒体主权标记协议** 🔥 | ✅ `01_protocols/LH-MEDIA-SOVEREIGNTY-MARK-v1.0.md`·P0·六层来源链 |
 | 🎬 **视频解说稿自动生成引擎** 🆕 | ✅ `bin/lh_video_commentary_engine.py`·v1.0·主题/脚本/文章→解说稿+配音+视频·dry-run·人格路由·DNA签章·全路径验证通过 |
 | 🧬 **对齐统一入口** 🔥 | ✅ `bin/lh_align.py`·道生一·统一入口·check/fix/status/history/clean-old |
+| 🕸️ **智能体嵌入总闸 v1.3** 🆕 | ✅ `bin/lh_agent_embed_engine.py`+`bin/lh`·`lh agent-embed` 总闸入口·build/verify/status/route/run/summary/bcm·15套模板·JSON输出·v∞ DNA·GPG签名·联动感知注册通过·行为密码学/脚本发现模板已接入 |
+| 🔍 **统一脚本路由引擎 v1.0** 🆕 | ✅ `bin/lh_script_router.py`+`bin/lh`·扫描 `bin/`+`08_BIN/` 共 897 个 Python 脚本·按关键词 fuzzy 路由·dry-run 默认·`--exec` 真执行·`lh script`/`lh run`/`lh agent-embed run` 三入口·人工校准关键词映射·GPG 签名 |
+| 🧬 **联动感知引擎 v1.1** 🆕 | ✅ `bin/lh_cross_module_awareness.py`·修复 JSON 签名头解析·修复持久化写回·自动注册 332 项·健康度恢复 |
+| 🔐 **行为密码学入口 v2.0** 🆕 | ✅ `bin/lh` + `08_BIN/lh_behavioral_crypto.py` + `agent-embed bcm`·七因子指纹·易经账号身份·已集成到智能体总闸 |
+| 📚 **国际编程语言笔试题库引擎 v1.0** 🆕 | ✅ `bin/lh_exam_engine.py` + `bin/lh`·14 份题库（含 JS/Java/Go/TS/SQL/Rust/C#/Shell/Ruby/PHP/Swift/Kotlin + Python/C++）·list/search/random·GPG 签名 |
+| ⚖️ **权重参数全表 v1.1** 🆕 | ✅ `01_protocols/LH-WEIGHT-PARAMETERS-v1.1.md` + `bin/lh_weight_auditor.py`·102 项权重·5 项 P0 焊死·14 组归一校验·五行动态范围·`lh weight-audit` 一键审计 |
+| 🔍 **CodeBuddy 路径统一审计 v1.0** 🆕 | ✅ `07_AUDIT/codebuddy-path-audit-20260810.md`·三色审计·`ai-outputs/codebuddy/` 迁往 `11_DATA/codebuddy-outputs/`·`longhun-release/` 同名路径改为符号链接 + 备份·联动健康度 95/100 |
+| 🌐 **GitHub 仓库三色审计与整改 v1.0** 🆕 | ✅ `07_AUDIT/github-repo-audit-20260810.md`·审计 24 个仓库·LICENSE 100%·README 100%·徽章 100%·消除全部 🔴 项·为 7 个空 README 仓库新建门面·为 16 个仓库补齐徽章·GPG 签名提交 |
+| 🌐 **GitHub 审计整改推送 v1.0** 🆕 | ✅ UID9622 Profile README · longhun-system 12_DOCS/DIRECTORY_MAP.md · 多仓库 LICENSE · longhun-identity-system/README · onghun-system/README · longhun-network-neural 新仓 + LICENSE · ai-truth-protocol LICENSE（GPG 签名提交）|
 | 🧪 **代码对齐闭环** | 🟡 DNA✅·确认码45残留·重复31K·相似30对（无自动修复·标记为已知） |
 | 🤖 **Claude桥** | 🔴 已死·403 Forbidden·全量Ollama兜底 |
 | 🌌 **璇玑引擎·多源记忆接入** 🆕 | ✅ `engines/lh_xuanji_engine.py`·local/notion/log 三源聚合·每条记忆带 source/timestamp·`--memory-source` 参数已可用 |
@@ -302,6 +332,7 @@ UID:      9622 (诸葛鑫·Lucky·唯一决策者)
 | 德本审计五条底线 | `01_protocols/LH-DEBEN-AUDIT-v1.0.md` |
 | 深度学习架构总纲 | `01_protocols/LH-DEEP-LEARNING-ARCHITECTURE-v1.0.md` |
 | Notion全页面索引 | `docs/notion_mirror/INDEX.md` |
+| 🔗 **外部知识库** | [Notion](https://uid9622.notion.site) · [CSDN](https://uid9622-01.blog.csdn.net) · [鲲鹏](https://uid9622.cn) |
 | M261前传契碑（全权授权令·L0） | `01_protocols/LH-M261-PREQUEL-COVENANT-v1.0.md` |
 | GPG自动签名引擎 v1.0 | `bin/lh_gpg_sign.py` · 1574签名·GATE-11签名闸 |
 | 龍魂待整理审计报告 | `01_protocols/LH-ARCHIVE-AUDIT-v1.0.md` |
@@ -315,6 +346,17 @@ UID:      9622 (诸葛鑫·Lucky·唯一决策者)
 | 全API参考v1.0 | `bin/lh_api_full_reference_v1.0.py` |
 | CNSH→C编译器 | `cnsh/cnsh_compiler.js` |
 | HTML规格书归档 | `docs/archive_html/` (20份) |
+
+---
+
+## 最近变更日志
+
+| 时间 | 操作 | 影响 | 状态 |
+|:---|:---|:---|:---:|
+| 2026-08-10 | 修复 `~/.longhun/scripts/longhun_memory_bootstrap.py` 性能瓶颈：正则替换 sanitize、deque 流式读尾、Kimi session 只读最近 5 个活跃 session | 记忆启动不再卡死在大 wire 日志上 | 🟢 |
+| 2026-08-10 | CodeBuddy 路径统一收尾：`~/ai-outputs/codebuddy/` 数据文件迁往 `longhun-system/11_DATA/codebuddy-outputs/`，旧位置仅保留 README + TOMBSTONE；`.zshrc` 去重 CodeBuddy PATH 并声明 `CODEBUDDY_HOME` | 单一真相源、环境变量统一 | 🟢 |
+| 2026-08-10 | 过期备份全面归档：6 处散乱备份（记忆/local/repair/vault/CodeBuddy）迁往 `longhun-system/11_DATA/backups/`，原位置立 TOMBSTONE；敏感证据与系统依赖备份保留原处 | 备份统一归集、不删文件铁律落实 | 🟢 |
+| 2026-08-10 | CodeBuddy 命令总目规范化：`.codebuddy/COMMAND_INDEX.md` 升级 v3.18，补全 CNSH 语法/命名规范、环境变量统一声明、自动化集成声明、API 契约与版本策略、文档结构审计、最终签名 | 命令总目结构完整、可审计、可同步 | 🟢 |
 
 ---
 

@@ -17,6 +17,33 @@ if [ ! -x "$VENV_PYTHON" ]; then
   VENV_PYTHON="python3"
 fi
 
+# 🐉 轻量内核命令优先路由到 lh-core（零依赖·低延迟·断网可跑）
+CORE_COMMANDS="version bench dna audit root chain info help"
+if command -v lh-core >/dev/null 2>&1; then
+  # 统一前缀入口：lh core <cmd> [args...]
+  if [ "$FIRST_ARG" = "core" ]; then
+    shift
+    exec lh-core "$@"
+  fi
+  for core_cmd in $CORE_COMMANDS; do
+    if [ "$FIRST_ARG" = "$core_cmd" ]; then
+      exec lh-core "$@"
+    fi
+  done
+fi
+
+# 🐉 鲲鹏共生体快捷入口：lh kunpeng <cmd> [args...]
+if [ "$FIRST_ARG" = "kunpeng" ]; then
+  shift
+  exec lh-kunpeng "$@"
+fi
+
+# 🧠 ASI 系统建设器：lh asi "自然语言需求"
+if [ "$FIRST_ARG" = "asi" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_asi_system_builder.py" "$@"
+fi
+
 # 自动意图入口
 if [ "$FIRST_ARG" = "analyze" ]; then
   shift
@@ -30,14 +57,59 @@ if [ "$FIRST_ARG" = "auto" ]; then
   shift
   exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_clipboard_daemon.py" "$@"
 fi
+# 🐉 统一脚本发现与路由引擎（默认 dry-run，真执行加 --exec）
+if [ "$FIRST_ARG" = "script" ] || [ "$FIRST_ARG" = "scripts" ] || [ "$FIRST_ARG" = "router" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_script_router.py" "$@"
+fi
+
+# 🐉 lh run：强匹配时走脚本路由；弱匹配/自然语言降级到意图引擎
 if [ "$FIRST_ARG" = "run" ]; then
   shift
+  # 先尝试脚本路由（仅强匹配才接管，避免自然语言被误路由）
+  match_json=$(python3 "$HOME/longhun-system/bin/lh_script_router.py" route "$1" --json 2>/dev/null)
+  if [ -n "$match_json" ]; then
+    matched_count=$(echo "$match_json" | python3 -c "import sys,json; print(json.load(sys.stdin).get('matched_count',0))" 2>/dev/null)
+    best_score=$(echo "$match_json" | python3 -c "import sys,json; print(json.load(sys.stdin).get('best',{}).get('score',0))" 2>/dev/null)
+    if [ "$matched_count" != "0" ] && [ -n "$matched_count" ] && [ "${best_score%.*}" -ge 15 ] 2>/dev/null; then
+      best_name=$(echo "$match_json" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('best',{}).get('name',''))" 2>/dev/null)
+      echo "🐉 脚本路由命中: $best_name (得分 $best_score)"
+      echo "   执行: lh script run \"$1\" --exec --args ${*:2}"
+      exec python3 "$HOME/longhun-system/bin/lh_script_router.py" run "$1" --exec --args "${@:2}"
+    fi
+  fi
+  # 降级：自然语言意图引擎
   exec "$VENV_PYTHON" "$HOME/longhun-system/engines/lh_auto_intent.py" run --execute "$@"
 fi
 if [ "$FIRST_ARG" = "kfpp" ]; then
   shift
   exec python3 "$HOME/longhun-system/bin/lh_kfpp_engine.py" "$@"
 fi
+
+# 🐉 智能体嵌入总闸
+if [ "$FIRST_ARG" = "agent-embed" ] || [ "$FIRST_ARG" = "embed" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_agent_embed_engine.py" "$@"
+fi
+
+# 🐉 行为密码学引擎（七因子行为指纹 · 易经账号身份）
+if [ "$FIRST_ARG" = "bcm" ] || [ "$FIRST_ARG" = "behavior" ] || [ "$FIRST_ARG" = "行为密码" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_behavioral_crypto.py" "$@"
+fi
+
+# 🐉 国际编程语言笔试题库引擎
+if [ "$FIRST_ARG" = "exam" ] || [ "$FIRST_ARG" = "题库" ] || [ "$FIRST_ARG" = "question-bank" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_exam_engine.py" "$@"
+fi
+
+# 🐉 权重参数审计工具
+if [ "$FIRST_ARG" = "weight-audit" ] || [ "$FIRST_ARG" = "audit-weight" ] || [ "$FIRST_ARG" = "权重审计" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_weight_auditor.py" "$@"
+fi
+
 if [ "$FIRST_ARG" = "safeai" ]; then
   shift
   exec python3 "$HOME/longhun-system/bin/lh_safeai.py" "$@"
@@ -481,6 +553,78 @@ if [ "$FIRST_ARG" = "compliance" ]; then
   shift
   SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
   exec python3 "$SCRIPT_DIR/lh_compliance.py" "$@"
+fi
+
+# ─── 龍魂铁律自审闸 v1.0 ───
+if [ "$FIRST_ARG" = "iron" ] || [ "$FIRST_ARG" = "iron-law" ] || [ "$FIRST_ARG" = "铁律" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_iron_law_gate.py" "$@"
+fi
+
+# ─── 龍魂君子协议 v1.0 ───
+if [ "$FIRST_ARG" = "trust" ] || [ "$FIRST_ARG" = "trust-protocol" ] || [ "$FIRST_ARG" = "君子" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_trust_protocol.py" "$@"
+fi
+
+# ─── 龍魂工作流程透明化 v1.0 ───
+if [ "$FIRST_ARG" = "workflow" ] || [ "$FIRST_ARG" = "wf" ] || [ "$FIRST_ARG" = "透明" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_workflow_transparent.py" "$@"
+fi
+
+# ─── 龍魂中枢事件总线 LCB v1.0 ───
+if [ "$FIRST_ARG" = "event" ] || [ "$FIRST_ARG" = "事件" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_event_bus.py" "$@"
+fi
+
+# ─── 龍魂治理流水线执行器 v1.0 ───
+if [ "$FIRST_ARG" = "governed" ] || [ "$FIRST_ARG" = "治理" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_governed_exec.py" "$@"
+fi
+
+# ─── 龍魂 Agent 编排器 v1.0 ───
+if [ "$FIRST_ARG" = "orchestrator" ] || [ "$FIRST_ARG" = "编排" ] || [ "$FIRST_ARG" = "agent" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_agent_orchestrator.py" "$@"
+fi
+
+# ─── 龍魂 Agent 编排器守护进程 v1.0 ───
+if [ "$FIRST_ARG" = "agent-daemon" ] || [ "$FIRST_ARG" = "守护" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_agent_daemon.py" "$@"
+fi
+
+# ─── 龍魂多 Agent 协作工作流引擎 v1.0 ───
+if [ "$FIRST_ARG" = "workflow-chain" ] || [ "$FIRST_ARG" = "工作流" ] || [ "$FIRST_ARG" = "wf" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_workflow_engine.py" "$@"
+fi
+
+# ─── 龍魂工作流触发器引擎 v1.0 ───
+if [ "$FIRST_ARG" = "trigger" ] || [ "$FIRST_ARG" = "触发器" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_trigger_engine.py" "$@"
+fi
+
+# ─── 龍魂系统可视化仪表盘 v1.0 ───
+if [ "$FIRST_ARG" = "dashboard" ] || [ "$FIRST_ARG" = "仪表盘" ] || [ "$FIRST_ARG" = "看板" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_dashboard_web.py" "$@"
+fi
+
+# ─── 龍魂仪表盘 · 鲲鹏部署 v1.0 ───
+if [ "$FIRST_ARG" = "dashboard-deploy" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/deploy_dashboard_kunpeng.py" "$@"
+fi
+
+# ─── 龍魂 · 三才DNA无损压缩 v1.0 ───
+if [ "$FIRST_ARG" = "sancai-compress" ] || [ "$FIRST_ARG" = "三才压缩" ] || [ "$FIRST_ARG" = "dna-compress" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_sancai_dna_compress.py" "$@"
 fi
 
 # 兜底：任何非 flag 且非已知命令的参数，视为自然语言查询

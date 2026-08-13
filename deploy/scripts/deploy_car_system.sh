@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 🐉 龍魂车载系统 · 实战部署脚本 v1.0（鲲鹏/边缘节点）
 # DNA: #龍芯⚡️2026-08-11-CAR-DEPLOY-v1.0-UID9622
 # 用法: sudo ./deploy_car_system.sh [install|upgrade|rollback|status|uninstall]

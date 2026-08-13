@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 龍魂·飞书知识库抓取引擎 v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

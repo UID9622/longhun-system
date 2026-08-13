@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 🐉 龍魂车载实景导航 · 边缘索引服务 v1.1（Kimi审阅修正版 · 零依赖纯标准库）
 ==============================================================================
@@ -24,6 +25,7 @@ import os
 import sqlite3
 from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from typing import Any
 from urllib.parse import urlparse, parse_qs
 
 DB_DIR = os.environ.get('LONGHUN_CAR_DIR', './car_index')
@@ -64,7 +66,7 @@ def init_db():
     conn.close()
 
 
-def index_tile(data: dict) -> tuple:
+def index_tile(data: dict[str, Any]) -> tuple[int, dict[str, Any]]:
     """索引一块实景瓦片。返回 (http_status, dict)。"""
     tile_id = data.get('tile_id')
     dna = data.get('dna')
@@ -103,7 +105,7 @@ def index_tile(data: dict) -> tuple:
     return 200, {'status': '🟢', 'tile_id': tile_id, 'dna': dna, 'version': ver}
 
 
-def query_tiles(lat: float, lng: float, radius: float = 0.02) -> dict:
+def query_tiles(lat: float, lng: float, radius: float = 0.02) -> dict[str, Any]:
     radius = min(radius, MAX_RADIUS)
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
@@ -121,7 +123,7 @@ def query_tiles(lat: float, lng: float, radius: float = 0.02) -> dict:
 
 
 class Handler(BaseHTTPRequestHandler):
-    def _send(self, code: int, obj: dict):
+    def _send(self, code: int, obj: dict[str, Any]):
         body = json.dumps(obj, ensure_ascii=False).encode('utf-8')
         self.send_response(code)
         self.send_header('Content-Type', 'application/json; charset=utf-8')

@@ -70,9 +70,9 @@ SYNC_STATE_FILE = MEMORY_DIR / "sync_state.json"  # v2.0: 同步状态
 # 鲲鹏配置
 # ═══════════════════════════════════════════════
 
-KUNPENG_HOST = os.environ.get("KUNPENG_HOST", "uid9622.cn")
-KUNPENG_SYNC_URL = f"https://{KUNPENG_HOST}/sync"
-KUNPENG_TIMEOUT = 5  # 秒
+KUNPENG_HOST = os.environ.get("KUNPENG_HOST", "119.13.90.27:8080")
+KUNPENG_SYNC_URL = f"http://{KUNPENG_HOST}/cnsh"
+KUNPENG_TIMEOUT = 10  # 秒
 
 # Token 加载（与记忆API共用）
 def _load_sync_token() -> str:
@@ -261,42 +261,65 @@ class KunpengSyncBridge:
         """检测鲲鹏是否可达"""
         if self._online is not None:
             return self._online
-        result = self._request("GET", "/health")
+        result = self._request("GET", "/api/memory/stats")
         return self._online if self._online is not None else False
 
     def push_entry(self, entry: MemoryEntry) -> bool:
-        """推送单条记忆到鲲鹏"""
-        payload = asdict(entry)
-        # 移除本地专用字段
-        payload.pop("synced_to_kunpeng", None)
-        result = self._request("POST", "/store", payload)
+        """推送单条记忆到鲲鹏 CNSH IDE 知识库"""
+        payload = {
+            "content": entry.content,
+            "category": entry.topic or "general",
+            "tags": entry.tags or [],
+            "source": entry.source_window or "dna_memory_layer",
+            "dna": entry.dna,
+            "metadata": {
+                "device": entry.device or "",
+                "local_id": entry.id,
+                "checksum": entry.checksum,
+                "priority": entry.priority,
+                "session_id": entry.session_id,
+            },
+        }
+        result = self._request("POST", "/api/memory/store", payload)
         if result is None:
             return False
-        if result.get("error"):
-            return False
-        return result.get("status") in ("ok", "duplicate")
+        return result.get("success", False)
 
     def pull_entries(self, limit: int = 50, since: str = "") -> Optional[list]:
-        """从鲲鹏拉取记忆列表"""
-        path = f"/pull?limit={limit}"
-        if since:
-            path += f"&since={since}"
-        result = self._request("GET", path)
+        """从鲲鹏 CNSH IDE 知识库检索最近记忆"""
+        # 先尝试空查询拉取最新（CNSH IDE search 需要 query，用 since 做查询词兜底）
+        query = since if since else "龍芯"
+        payload = {"query": query, "top_k": min(limit, 20)}
+        result = self._request("POST", "/api/memory/search", payload)
         if result is None:
             return None
-        return result.get("entries", [])
+        if not result.get("success"):
+            return []
+        items = result.get("results", [])
+        return [
+            {
+                "entry_id": item.get("entry_id", ""),
+                "dna": item.get("dna", ""),
+                "content": item.get("content", ""),
+                "category": item.get("category", "general"),
+                "tags": item.get("tags", []),
+                "source": item.get("source", "kunpeng"),
+                "created_at": item.get("created_at", ""),
+            }
+            for item in items
+        ]
 
     def get_summary(self) -> Optional[dict]:
         """从鲲鹏获取全域摘要"""
-        return self._request("GET", "/summary")
+        return self._request("GET", "/api/memory/stats")
 
     def get_stats(self) -> Optional[dict]:
         """从鲲鹏获取统计"""
-        return self._request("GET", "/stats")
+        return self._request("GET", "/api/memory/stats")
 
     def health(self) -> Optional[dict]:
         """鲲鹏健康检查"""
-        return self._request("GET", "/health")
+        return self._request("GET", "/api/memory/stats")
 
 
 # ═══════════════════════════════════════════════

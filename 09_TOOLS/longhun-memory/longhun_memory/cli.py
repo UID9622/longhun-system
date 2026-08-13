@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # DNA: #龍芯⚡️2026-08-06-MEMORY-CLI-v2.0-CNSH
 # License: MulanPSL v2
 """longhun-memory CLI v2.0 · CNSH双输出"""

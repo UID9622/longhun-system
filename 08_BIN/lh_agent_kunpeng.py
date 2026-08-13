@@ -570,6 +570,8 @@ def main():
                 print(f"   「{指令}」→ {route_data.get('primary')} | 成本:{route_data.get('cost_tier')} | 信:{route_data.get('confidence',0):.2f}")
     
     elif args.command == "status":
+        # 状态前先做一次连通性自检，避免显示陈旧离线状态
+        中枢.启动自检()
         状态 = 中枢.状态摘要()
         if args.json:
             print(json.dumps(状态, ensure_ascii=False, indent=2))

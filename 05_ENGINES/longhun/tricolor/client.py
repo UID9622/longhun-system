@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 🐉 龙魂·三色审计 HTTP客户端 v1.1
 # DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-TRICOLOR-CLIENT-v1.1-UID9622
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)

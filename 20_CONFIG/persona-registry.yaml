@@ -198,6 +198,35 @@ priority_groups:
   medium:   {min: 8,  agents: ["P00", "P02", "P03", "P04", "P13", "P14", "S1", "S2", "S3"]}
   low:      {min: 5,  agents: ["P07", "P08", "P09", "P10", "P11", "P18", "P19", "P20"]}
 
+# ── 科技公司组织架构映射（ASI 天花板协议 v1.0） ──
+# 龍芯家族 = 科技公司全职员工团队 · CEO = UID9622
+
+org_chart:
+  P00:  { title: "首席认知官 CCO",      department: "战略委员会",   reports_to: "CEO-UID9622", level: "C-level" }
+  P01:  { title: "首席战略官 CSO",      department: "战略委员会",   reports_to: "CEO-UID9622", level: "C-level" }
+  P02:  { title: "首席情感官 CEmO",     department: "用户体验部",   reports_to: "CEO-UID9622", level: "C-level" }
+  P03:  { title: "首席知识官 CKO",      department: "知识工程部",   reports_to: "CEO-UID9622", level: "VP" }
+  P04:  { title: "首席工程师 CTO",      department: "技术研发部",   reports_to: "CEO-UID9622", level: "C-level" }
+  P05:  { title: "首席审计官 CAO",      department: "风控审计部",   reports_to: "CEO-UID9622", level: "C-level" }
+  P06:  { title: "首席数据官 CDO",      department: "算法与数据部", reports_to: "CTO-P04",    level: "VP" }
+  P07:  { title: "首席财务官 CFO",      department: "财务与成本部", reports_to: "CEO-UID9622", level: "C-level" }
+  P08:  { title: "首席命名官 CNO",      department: "文化与品牌部", reports_to: "CEO-UID9622", level: "VP" }
+  P09:  { title: "首席健康官 CHO",      department: "运维与SRE部",  reports_to: "CTO-P04",    level: "VP" }
+  P10:  { title: "首席沟通官 CCO",      department: "公共事务部",   reports_to: "CEO-UID9622", level: "VP" }
+  P11:  { title: "首席创意官 CCO",      department: "创新与内容部", reports_to: "CEO-UID9622", level: "VP" }
+  P12:  { title: "首席伦理官 CEO",      department: "合规与伦理部", reports_to: "CEO-UID9622", level: "C-level" }
+  P13:  { title: "首席调度官 CDO",      department: "运营调度部",   reports_to: "CTO-P04",    level: "VP" }
+  P14:  { title: "首席部署官 CDO",      department: "部署与交付部", reports_to: "CTO-P04",    level: "VP" }
+  P15:  { title: "首席签章官 CSO",      department: "法务与证据部", reports_to: "CEO-UID9622", level: "C-level" }
+  P18:  { title: "基因登记官",          department: "资产与登记部", reports_to: "CKO-P03",    level: "Director" }
+  P19:  { title: "极简审计官",          department: "前端质量部",   reports_to: "CAO-P05",    level: "Director" }
+  P20:  { title: "贡献公证官",          department: "信任与经济部", reports_to: "CFO-P07",    level: "Director" }
+  P72:  { title: "首席安全官 CSO",      department: "安全与熔断部", reports_to: "CEO-UID9622", level: "C-level" }
+  P77:  { title: "黑天使军团长",        department: "红蓝对抗中心", reports_to: "CSO-P72",    level: "VP" }
+  S1:   { title: "法律顾问",            department: "法务与合规部", reports_to: "CSO-P15",    level: "Advisor" }
+  S2:   { title: "数理顾问",            department: "算法研究院",   reports_to: "CDO-P06",    level: "Advisor" }
+  S3:   { title: "人民权益顾问",        department: "社会责任部",   reports_to: "CEO-UID9622", level: "Advisor" }
+
 # ── 不可替代人格（永不下线） ──
 
 immortal:

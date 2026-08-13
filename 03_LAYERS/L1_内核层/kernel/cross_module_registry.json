@@ -5,7 +5,7 @@
     "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     "description": "龍魂系统跨模块联动感知注册表。记录每条数据/模块/API的上下游依赖关系，是联动感知引擎的知识底座。",
     "version": "v1.0",
-    "last_updated": "2026-07-27T10:13:11.647439"
+    "last_updated": "2026-08-11T20:21:55.914973"
   },
   "dependency_graph": {
     "L5_服务层/services/portal/portal/data/persona_report.json": {
@@ -4962,6 +4962,2100 @@
       "name": "龍魂_华为云部署脚本_v1.0.sh",
       "description": "═══════════════════════════════════════════════════════════════════════",
       "added": "2026-07-27T10:13:11.646832",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "ASI_enhanced.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.078817",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_执行器.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.079102",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "CNSH_透明语义治理内核.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.079346",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "cnsh_compiler.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.079848",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "cnsh_complete.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.080252",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "cnsh_editor.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.080535",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "cnsh_interpreter.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.080709",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "cnsh_ios_test.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.080843",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "cnsh_ui.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.080975",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "code_audit.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.081068",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "deepseek_api.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.081383",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "deepseek_tools.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.083732",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "dna_memory_layer.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.084429",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "dna_validate.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.084642",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "emotion_absorber.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.084768",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "governance_engine.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.085001",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_3d_pipeline.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.085165",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_academic_runtime.py",
+      "description": "🐉 CNSH × Claude × Notion · 论文完美化三页合一引擎 v1.0 DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-ACADEMIC-RUNTIME-v1.0-UID9622 CONFIRM: #CONFIRM🌌962",
+      "added": "2026-08-09T22:40:15.085455",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_activation_api.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.085719",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_adapter_base.py",
+      "description": "🐉 龍魂 · 主权适配器基类 DNA: #龍芯⚡️丙午·丙申·壬子·丑时·䷖剥-ADAPTER-BASE-V1.0-UID9622 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z 主权锚定: #ZHUGEXIN",
+      "added": "2026-08-09T22:40:15.086381",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_adaptive_guardian.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.087078",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_add_backlinks.py",
+      "description": "给12份面试题库添加Notion反向链接",
+      "added": "2026-08-09T22:40:15.088708",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_agent_embed_engine.py",
+      "description": "🐉 龍魂 · 智能体嵌入总闸引擎 v1.1 DNA: #龍芯⚡️丙午·丁酉·乙酉·丁亥·䷋否-AGENT-EMBED-v1.1-UID9622 UID: 9622 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.089000",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_agent_trainer.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.092040",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ai_hub.py",
+      "description": "DNA: #龍芯⚡️丙午·甲申·己亥·䷁坤-AI-HUB-MANAGER-v2.0",
+      "added": "2026-08-09T22:40:15.092966",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ai_hub_api.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.093236",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ai_indexer.py",
+      "description": "龍魂·AI输出归集索引引擎 v1.0 DNA: #龍芯⚡️丙午·丙申·戊午·亥时·AI-INDEXER-V1.0-INDEX 创建者: 诸葛鑫（UID9622） 协议: MulanPSL v2（工程层·允许商业使用）",
+      "added": "2026-08-09T22:40:15.096345",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_alert_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.097003",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_align.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.097267",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_align_checker.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.097594",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_anomaly_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.097739",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_anti_fraud_detector.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.098065",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_api_server.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.098359",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_archive_vague_comments.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.098509",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_asi_neural.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.098696",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_audit_battle_hub.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "added": "2026-08-09T22:40:15.099012",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_auto_align_daemon.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "added": "2026-08-09T22:40:15.099232",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_auto_operator.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.099373",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_auto_trigger.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.099538",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_automated_welder.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.099713",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_avs3_decoder.py",
+      "description": "龍魂·AVS3视频解码器 v1.0 — 中国自主知识产权视频解码标准 uavs3d 开源实现 BSD 4-clause",
+      "added": "2026-08-09T22:40:15.099784",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_avs3_encoder.py",
+      "description": "龍魂·AVS3视频编码器 v1.0 — 中国自主知识产权视频编码标准 uavs3e 开源实现，北大深圳研究生院+鹏城实验室+广东博华 BSD 4-clause · 支持8K超高清",
+      "added": "2026-08-09T22:40:15.099847",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_backup_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.099927",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_baidu_bos.py",
+      "description": "龍魂·百度云BOS存储网关 v1.0 ============================= 百度智能云对象存储(BOS)统一接入层。 功能: 上传/下载/列表/删除/同步/备份/恢复。 未配置AK/SK时优雅降级为本地模拟模式。",
+      "added": "2026-08-09T22:40:15.100090",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_batch_processor.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.100214",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_behavioral_crypto.py",
+      "description": "🐉 龍魂·行為密碼學 CLI 入口（lh.py 調度用） DNA: #龍芯⚡️丙午·甲申·丁酉·艮卦-BCM-CLI-V2.0-UID9622 License: MulanPSL v2",
+      "added": "2026-08-09T22:40:15.100598",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_browser_historian.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.100887",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_capability_scheduler.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.101377",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_causal_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.101545",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ci_audit.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.101682",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_civil_defense_samples.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.101808",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_clean_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.101902",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.102048",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_environment.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.102976",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_runtime.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.103648",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_runtime_math.py",
+      "description": "🐉 CNSH Runtime Governance Mathematics v3.1 DNA: #龍芯⚡️2026-08-02-CNSH-RUNTIME-MATH-v3.1 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA",
+      "added": "2026-08-09T22:40:15.104413",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_translator.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.104779",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_cnsh_transpiler.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.105562",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_code_audit_cli.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.105729",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_code_review.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.106682",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_codegen_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.106809",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_command_runner.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.107447",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_community_qa.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.108737",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_compliance.py",
+      "description": "🐉 龍魂·合规证据包生成器 v1.0 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 用途: 自动生成龍魂系统合规证据包，涵盖法律适用、加密合规、       数据主权、等保自检",
+      "added": "2026-08-09T22:40:15.109637",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_compliance_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.109850",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_compression_commands.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·庚申·酉时·☰乾-COMPRESSION-COMMANDS-V3.0-d8e2f1a4 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）",
+      "added": "2026-08-09T22:40:15.110225",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_config_puller.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.110361",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_content_classifier.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.110498",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_creator_dna_benefit.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.111316",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_csdn_fetcher.py",
+      "description": "龍魂·CSDN文章拉取入库工具 v1.0 DNA: #龍芯⚡️丙午·丙申·辛亥·戌时·䷐随-CSDN-FETCHER-v1.0 创建者: 诸葛鑫（UID9622）+ AI协作 License: MulanPSL v2 (https://li",
+      "added": "2026-08-09T22:40:15.111565",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_csdn_sync.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.112071",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ctl.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.113566",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ctl_config.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.113724",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ctl_scheduler.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.113862",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ctl_web.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.113984",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dag_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.116225",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_daodejing_engine.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.117267",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dashboard_server.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.117648",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dct_watermark.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.118640",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_decision_card_system.py",
+      "description": "╔══════════════════════════════════════════════════════════════╗ ║  🔧 工程落地执行型 — 龍魂·责任卡/决策卡片系统 v2.0              ║ ║  DNA",
+      "added": "2026-08-09T22:40:15.119205",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dependency_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.119436",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_deploy_ci_audit.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.119855",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_digital_imprint.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.120288",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_digital_root.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.120536",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_digital_twin.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.121172",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_distill_v40_data.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.121421",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dna_chain.py",
+      "description": "龍魂·DNA接龙链引擎 v1.0 只追加·不覆盖·不删除·焊死铁律 每个AI/人格的每次修改都接在链尾·行为密码学指纹嵌入每节",
+      "added": "2026-08-09T22:40:15.121695",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dna_vinf.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.121924",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_doc_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.122043",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_doc_generator.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.122198",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_doc_structure_audit.py",
+      "description": "🐉 龍魂·文档结构审计引擎 v2.0 · 左右互搏升级版 DNA: #龍芯⚡️丙午·丙申·戊申·亥时·䷗复-DOC-STRUCTURE-AUDIT-v2.0 创建者: 诸葛鑫（UID9622） 协议: MulanPSL v2",
+      "added": "2026-08-09T22:40:15.122474",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dynamic_goal.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.122861",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_emotion_cli.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.123006",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_energy_monitor.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.123155",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_engine_dashboard.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.123315",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_engine_protect.py",
+      "description": "龍魂·引擎分层保护引擎 v1.0 DNA: #龍芯⚡️丙午·甲申·壬子·亥时·䷗复-ENGINE-PROTECT-v1.0 创建者: 诸葛鑫（UID9622） 分层许可: 工程层 MulanPSL v2",
+      "added": "2026-08-09T22:40:15.123499",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_engine_registry.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.123694",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_engine_verify.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.123811",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_entry_test_runner.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.124127",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ethics_quantum.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.124403",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_event_bus.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.124498",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_evolution_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.124987",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_evolution_fortified.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.125384",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_expand_v38_data.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.128300",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_face_verify.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.128722",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_feed_baby.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.128967",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_feishu_kb_fetcher.py",
+      "description": "龍魂·飞书知识库抓取引擎 v1.0 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 用途: 深度学习飞书开放平台公开文档，构建本地知识库底座 来源: GitHub SDK仓库 / 飞书开放平台API / C",
+      "added": "2026-08-09T22:40:15.129284",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_feishu_wiki_sync.py",
+      "description": "龍魂·飞书知识库同步引擎 v2.0 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 用途: 自动同步本地 Markdown → 飞书知识库（Wiki），取代 Notion 新增: 守护模式·多目录并行·反向",
+      "added": "2026-08-09T22:40:15.129625",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_five_element_audit.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.129892",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_fix_missing_confirm.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "added": "2026-08-09T22:40:15.130389",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_fix_missing_dna.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.130571",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_flow_engine.py",
+      "description": "🐉 龍魂 · 流场映射层引擎 v2.0 DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-FLOW-MAP-v2.0-UID9622 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z SEAL: #ZHU",
+      "added": "2026-08-09T22:40:15.131037",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_flow_fusion_bridge.py",
+      "description": "🐉 龍魂 · 流场融合桥接引擎 v1.0 DNA: #龍芯⚡️丙午·乙巳·壬申·午时·☰乾-FLOW-FUSION-BRIDGE-v1.0 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z SEAL: #",
+      "added": "2026-08-09T22:40:15.131698",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_flow_fusion_pipeline.py",
+      "description": "🐉 龍魂 · 流场融合管道 v1.0（一键全量注入） DNA: #龍芯⚡️丙午·乙巳·壬申·未时·☰乾-FLOW-FUSION-PIPELINE-v1.0 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.131917",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_flow_upgrade.py",
+      "description": "🐉 龍魂 · 流场融合升级补丁 v1.1 DNA: #龍芯⚡️丙午·乙巳·丙戌·亥时·☴巽-FLOW-UPGRADE-v1.1-UID9622 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z SEAL:",
+      "added": "2026-08-09T22:40:15.132086",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_format_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.132261",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_generate_codebuddy_skills.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.132446",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_gpg_sign.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.132535",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_guardian_replay.py",
+      "description": "龍魂·守卫复盘引擎 v1.0 DNA: #龍芯⚡️丙午·甲申·壬子·亥时·䷗复-GUARDIAN-REPLAY-v1.0 创建者: 诸葛鑫（UID9622） 分层许可: 工程层 MulanPSL v2",
+      "added": "2026-08-09T22:40:15.132959",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_header_template.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.133197",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_health_api.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.133292",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_herbal_rag.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.133492",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_herbal_train_data_v43.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.133744",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_herbal_train_data_v43_v2.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.133909",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_immutable_history.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.134207",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_immutable_history_anchor.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.134555",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_immutable_history_daemon.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.134788",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_install_deps.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.134993",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_intent_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.135514",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_inventory.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.136850",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_iron_door.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.137525",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_judge.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.137646",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_judge_api.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.137783",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_kfpp_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.138545",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_knowledge_compiler.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.138870",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_knowledge_complete.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.139105",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_knowledge_graph.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.139220",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_knowledge_harvester.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.139448",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_knowledge_hub.py",
+      "description": "龍魂·统一知识库引擎 v2.0 — 多源知识底座管理 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 用途: 统一管理龍魂体系所有外部知识底座（飞书/Python/FastAPI",
+      "added": "2026-08-09T22:40:15.141484",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_knowledge_matrix.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.141692",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_knowledge_migrate.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.141818",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_knowledge_puller.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.141985",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_knowledge_source_manager.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.142839",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_learning_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.143868",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lifecycle.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.146709",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_linear_regression_auditor.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.147093",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_link_parser.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.147348",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_local_knowledge_engine.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.148249",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_longhun_core_v2.py",
+      "description": "🐉 龍魂数字主权体系 · 核心引擎 v2.0（完整责任红线版） DNA: #龍芯⚡️2026-08-02-LONGHUN-CORE-v2.0-UID9622 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772",
+      "added": "2026-08-09T22:40:15.148658",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_longzhishou_daemon.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.148885",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_loyalty_scan.py",
+      "description": "============================================================",
+      "added": "2026-08-09T22:40:15.149663",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lu_compressor.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.150114",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lu_page_generator.py",
+      "description": "🐉 龍魂 · LU 系统页面生成器 v1.0 DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-LU-PAGE-v1.0-UID9622 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z SEAL: #Z",
+      "added": "2026-08-09T22:40:15.150449",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_lu_runtime.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.151171",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_mac_translator.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.151375",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_material_scanner.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.151555",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_material_search.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.152208",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_material_tagger.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.152388",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_material_video_bridge.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.152961",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_math_automator.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.153281",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_math_explorer.py",
+      "description": "DNA: #龍芯⚡️丙午·乙未·戊申·泽地萃-MATH-EXPLORER-v2.0-落地-a1b2c3d4",
+      "added": "2026-08-09T22:40:15.154116",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_memory_recall.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.154305",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_memory_sync_server.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.154669",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_merchant_api_gateway.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.155039",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_merchant_gateway_quickstart.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.155237",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_mfa_activate.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.155400",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_mfa_bind.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.155494",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_mirror_index.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.155655",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_model_manager.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.155771",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_model_router.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.155869",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_multimodal_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.155954",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_mvp_runner.py",
+      "description": "🐉 CNSH × 龍魂系统 · MVP 三件套统一入口 DNA: #龍芯⚡️2026-05-25-LONGHUN-MVP-RUNNER-v1.0 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z SEAL",
+      "added": "2026-08-09T22:40:15.156133",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_natural_language_router.py",
+      "description": "🐉 龍魂 · 中文自然语言路由器 v1.0 DNA: #龍芯⚡️丙午·乙未·戊申·泽地萃-NL-ROUTER-v1.0-UID9622 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z SEAL: #ZH",
+      "added": "2026-08-09T22:40:15.156343",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_need_translator.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.156497",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_neuron_flow_engine.py",
+      "description": "DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-NEURON-FLOW-ENGINE-v4.0",
+      "added": "2026-08-09T22:40:15.156784",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notify_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.156876",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_architect.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.157032",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_autolinker.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.157188",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_chat_bridge.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.157783",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_council.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.157966",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_dependency_mapper.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.158092",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_engine_db_setup.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.158198",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_engine_dependency_mapper.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.158309",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_engine_discovery.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.158488",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_engine_integrity_checker.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.158624",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_engine_integrity_fixer.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.158755",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_engine_labeler.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.158894",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_engine_status_syncer.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.161849",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_integrity_check.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.162221",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_material_extractor.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.162686",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_mirror_archive.py",
+      "description": "龍魂·Notion镜像归档工具 v1.0 从 12_DOCS/notion_mirror/pages/ 提取结构化内容，按11大类归入项目目录。 DNA: #龍芯⚡️2026-08-07-NOTION-MIRROR-ARCHIVE-v1.0",
+      "added": "2026-08-09T22:40:15.163349",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_persona_sync.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.163692",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_push_artifacts.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.163821",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_status_sync.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.164263",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_sync_v2.py",
+      "description": "龍魂·Notion全量同步引擎 v2.0 DNA: #龍芯⚡️丙午·甲申·壬子·亥时·䷗复-NOTION-SYNC-V2-FULL 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0（核心思想层）",
+      "added": "2026-08-09T22:40:15.164480",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_tag_classifier.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.164657",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_upload_banks.py",
+      "description": "龍魂·面试题库 Notion 直传引擎 v1.0 DNA: #龍芯⚡️丙午·甲申·壬子·亥时·䷗复-INTERVIEW-BANKS-NOTION-UPLOAD-v1.0 创建者: 诸葛鑫（UID9622） License: MulanPSL",
+      "added": "2026-08-09T22:40:15.164892",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_upload_banks_v2.py",
+      "description": "龍魂·面试题库 Notion 快速直传 v2.0 DNA: #龍芯⚡️丙午·甲申·壬子·亥时·䷗复-INTERVIEW-BANKS-NOTION-UPLOAD-v2.0 创建者: 诸葛鑫（UID9622） License: MulanPSL",
+      "added": "2026-08-09T22:40:15.165111",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_open_audit_engine.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "added": "2026-08-09T22:40:15.166483",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_paper_template.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.166759",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_pathfinder_api.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.166866",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_pathfinder_train_data.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.167750",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_pathfinder_train_data_v2.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.168138",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_pathfinder_train_data_v3.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.168383",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_pathfinder_train_data_v4.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.168936",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_payment_activate.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.169412",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_performance_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.169867",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_permission_manager.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.170779",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_persona_governance.py",
+      "description": "🐉 龍魂 · 人格治理引擎 v2.0 DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-PERSONA-GOVERNANCE-v2.0-UID9622 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z S",
+      "added": "2026-08-09T22:40:15.171387",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_persona_mcp_registry.py",
+      "description": "🐉 龍魂 · 人格MCP代理注册中心 v1.0 DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-PERSONA-MCP-v1.0-UID9622 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z SEA",
+      "added": "2026-08-09T22:40:15.173327",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_persona_router.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.173946",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_persona_runtime.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.174346",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_personalization_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.175119",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_philosophy_engine.py",
+      "description": "🐉 龍魂哲学方法论引擎 v1.0 DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-PHILOSOPHY-ENGINE-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断） CON",
+      "added": "2026-08-09T22:40:15.176698",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_philosophy_principles.py",
+      "description": "DNA: #龍芯⚡️丙午·乙巳·癸酉·☰乾-PHILOSOPHY-PRINCIPLES-v1.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）",
+      "added": "2026-08-09T22:40:15.177118",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_plagiarism_detect.py",
+      "description": "龍魂·剽窃检测引擎 v1.0 DNA: #龍芯⚡️丙午·甲申·壬子·亥时·䷗复-PLAGIARISM-DETECT-v1.0 创建者: 诸葛鑫（UID9622） 分层许可: 工程层 MulanPSL v2",
+      "added": "2026-08-09T22:40:15.177341",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_platform_audit.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.178434",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_portal_api.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.178884",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_post_task_audit.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·戊申·亥时·䷗复-POST-TASK-AUDIT-v1.0",
+      "added": "2026-08-09T22:40:15.179251",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_power_save_orchestrator.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.179629",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_predict_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.179924",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_prompt_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.180363",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_prompt_router.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.180899",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_proto_portal.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.183616",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_protocol_reign.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.184044",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_protocol_server.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.184321",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_public_console.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.184715",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_qr_code.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.185367",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_quantum_api_v2.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.186760",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_quantum_arbitrator.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.188064",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_quantum_core.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.188632",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_quantum_evidence.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.188893",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_regulatory_firewall.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.189227",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_repo_template.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.189511",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_resource_scheduler.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.189740",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_rl_feedback_loop.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "added": "2026-08-09T22:40:15.190080",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_run.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.190270",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_safeai.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.190391",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_scheduler_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.190492",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_search_engine.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.190656",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_security_auditor.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "added": "2026-08-09T22:40:15.190878",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_self_healing_welder.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.191035",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_self_reflexivity_audit.py",
+      "description": "🐉 龍魂 · 自我审计引擎 v1.0 DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-SELF-AUDIT-v1.0-UID9622 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z SEAL: #ZH",
+      "added": "2026-08-09T22:40:15.191267",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_seq.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.191364",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_setup_harvester.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.191642",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_seven_dimension_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.192182",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_seven_dimension_engine_v2.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.192646",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sg_auditor.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.192766",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sg_generator.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.192862",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sg_localize.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.192966",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sg_normalize.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.193071",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sg_startup_guard.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.193169",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sg_sync.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.193253",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_source_vetting.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.193369",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sovereign_crypto.py",
+      "description": "🐉 龍魂·主权加密模块（SovereignCrypto）v1.0 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 用途: 龍魂系统所有加密操作强制使用国密标准 实现: SM2 签",
+      "added": "2026-08-09T22:40:15.196354",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sovereignty_adapter_engine.py",
+      "description": "🐉 龍魂 · 自主主权插件适配引擎 · CLI薄包装器 DNA: #龍芯⚡️丙午·丙申·壬子·丑时·䷖剥-ADAPTER-ENGINE-WRAPPER-V1.0-UID9622 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK",
+      "added": "2026-08-09T22:40:15.196982",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sovereignty_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.197233",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sovereignty_guard.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.197551",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sovereignty_master_gate.py",
+      "description": "龍魂·主权总闸引擎 v1.0 🔴 P0-ETERNAL · 焊死不可改 DNA: #龍芯⚡️丙午·甲申·甲寅·亥时·䷗复-SOVEREIGNTY-MASTER-GATE-v1.0-WELDED 创建者: 诸葛鑫（UID9622） 主权: #",
+      "added": "2026-08-09T22:40:15.197854",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_syntax_lint.py",
+      "description": "🐉 龍魂系统 · 语法规范校验器 v1.0 ═══════════════════════════════════════════════════════════════ DNA:        #龍芯⚡️丙午·丙申·辛亥·戌时-SYNTA",
+      "added": "2026-08-09T22:40:15.198040",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_system_health.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.198212",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_task_graph.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.198473",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_task_orchestrator.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.198773",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_term_tool.py",
+      "description": "🐉 龍魂系统 · 术语大白话查询工具 DNA: #龍芯⚡️丙午·癸未·丙戌·乾卦-TERM-TOOL-V1.2-UID9622 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z 分层许可: 工程层 MulanPS",
+      "added": "2026-08-09T22:40:15.199035",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_test_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.199133",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_test_v38.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.199273",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_three_color_audit.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.199819",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_three_layer_guard.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.200764",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_time_engine.py",
+      "description": "🐉 龍魂 · LU-Time Engine v4.0 DNA: #龍芯⚡️2026-08-02-LU-TIME-ENGINE-v4.0 创建者: 诸葛鑫（UID9622） 协议: CC BY-NC-SA 4.0 CONFIRM: #CONF",
+      "added": "2026-08-09T22:40:15.201175",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_tongxinyi_structure.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.201474",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_tongxinyi_translator.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.204117",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_train_v43_v3.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.204790",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_translate_engine.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.205483",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_triple_audit_gate.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "added": "2026-08-09T22:40:15.206009",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_truth_engine.py",
+      "description": "🐉 龍魂真話-協議轉化引擎 v1.0 DNA: #龍芯⚡️丙午·甲申·丁酉·坤卦-TRUTH-TO-PROTOCOL-V1.0-UID9622 確認碼: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z 主權錨定: #ZH",
+      "added": "2026-08-09T22:40:15.206280",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_tts_xtts.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.206521",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_uid9622_central.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.207230",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ultimate_feed.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.207604",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_unified_brain.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.207804",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_unified_console.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.207955",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_unified_visual.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.208126",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_universal_completer.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "added": "2026-08-09T22:40:15.208339",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_universal_mode.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.208586",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_update_index.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.208754",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v40_test.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.208864",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v41_test.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.209010",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_verify_knowledge.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.209154",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_version_release.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.209280",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_video_cleaner.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.209501",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_video_commentary_engine.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.209707",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_video_index.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.210641",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_video_studio.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.211289",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_video_studio_v5.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.212042",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_visual_engine.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.212500",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_voice_gateway.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.212768",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_voice_register.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.213275",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_vvc_encoder.py",
+      "description": "龍魂·VVC视频编码器 v1.0 — H.266/VVC Fraunhofer开源实现 vvencapp 1.15.0 · 比HEVC省50%码率",
+      "added": "2026-08-09T22:40:15.213423",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_web_health_check.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.213531",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_weight_algorithm.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.213778",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_whitepaper_viz.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.214201",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_witness_server.py",
+      "description": "License: MulanPSL v2",
+      "added": "2026-08-09T22:40:15.214623",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_worker.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.214706",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_wuxing_core.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.214863",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_反虚伪报告.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.215065",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_掀黑箱.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.215382",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "san_cai_v2.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "added": "2026-08-09T22:40:15.215663",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "uid9622_governance.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.215921",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "universal_completion.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.216138",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "verify_memory_cnsh.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "added": "2026-08-09T22:40:15.216238",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "模式对比.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.216408",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "deploy_activation_to_kunpeng.sh",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.216531",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "deploy_deepseek.sh",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.216664",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "deploy_pathfinder_to_kunpeng.sh",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.216773",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "deploy_video_studio_to_kunpeng.sh",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.216948",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ai_hub_env.sh",
+      "description": "╔══════════════════════════════════════════════════════════════╗",
+      "added": "2026-08-09T22:40:15.217112",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_crawler_ethics.sh",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.217234",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_daily_civil_ops.sh",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.217322",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_mail_notify.sh",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.217414",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_ssh_tunnel_all.sh",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.217511",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_train_v38.sh",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.217639",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v40_all.sh",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.217711",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v40_distill.sh",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.217774",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_v40_report.sh",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-09T22:40:15.217851",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_voice_clone_setup.sh",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.217953",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "setup_alipay_sandbox.sh",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.218050",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "setup_wechat_pay.sh",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-09T22:40:15.218143",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_exam_engine.py",
+      "description": "🐉 龍魂·國際編程語言筆試題庫引擎 v1.0 DNA: #龍芯⚡️丙午·丁酉·丙戌·戊子·䷐隨-EXAM-ENGINE-v1.0-UID9622 License: MulanPSL v2",
+      "added": "2026-08-10T00:35:56.943996",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_weight_auditor.py",
+      "description": "🐉 龍魂系統 · 權重參數審計工具 v1.1 DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-WEIGHT-AUDIT-V1.1-UID9622 變更: 新增全組Σ校验 / 動態範圍越界檢測 / JSON導出 / 進程退出碼",
+      "added": "2026-08-10T00:54:30.428723",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_script_router.py",
+      "description": "🐉 龍魂 · 统一脚本发现与路由引擎 v1.0 DNA: #龍芯⚡️丙午·丁酉·乙酉·丁亥·䷋否-SCRIPT-ROUTER-v1.0-UID9622 UID: 9622 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-",
+      "added": "2026-08-10T02:15:40.136845",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_car_verify_integration.py",
+      "description": "🐉 龍魂车载系统 · 集成验证脚本 v1.0 ===================================== DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-CAR-INTEGRATE-VERIFY-v1.0-UID9622 Lic",
+      "added": "2026-08-11T16:26:40.407386",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_identity_popup.py",
+      "description": "龍魂 UID9622 主权身份融合弹窗引擎 Sovereign Identity Fusion Popup Engine",
+      "added": "2026-08-11T16:26:40.407473",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_load_test.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·丁巳·未时·䷐随-LOAD-TEST-v1.0-b2e8f4a1",
+      "added": "2026-08-11T16:26:40.407551",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_normalize_command_index.py",
+      "description": "🐉 龍魂 · COMMAND_INDEX 规范化脚本 对齐 CNSH 语法、命名规范、环境变量、自动化集成声明",
+      "added": "2026-08-11T16:26:40.407616",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_persona_gate.py",
+      "description": "CREATOR: 诸葛鑫 (UID9622)",
+      "added": "2026-08-11T16:26:40.407703",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_persona_thought.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·丁巳·酉时·䷑蛊-PERSONA-THOUGHT-v1.0-UID9622",
+      "added": "2026-08-11T16:26:40.407884",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_roster.py",
+      "description": "🐉 龙魂·花名册调度中心 v1.0 ================================ 子命令:   menu            交互式花名册查询菜单   shortdna --run  批量生成短DNA（P02→P03→",
+      "added": "2026-08-11T16:26:40.407998",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_roster_upgrade_v3.py",
+      "description": "花名册 v3.0 全量升级脚本 - 修正 canonical_name 错误（P05-P12不匹配白皮书） - 补全24个标准字段 - 新增缺失人格（P14/外部AI/子系统/平台） - 旧DNA冻结入notes",
+      "added": "2026-08-11T16:26:40.408099",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sovereign_popup.py",
+      "description": "龍魂 UID9622 · 主权活人验证弹窗引擎 v3.0 Sovereign Alive-Check Popup Engine",
+      "added": "2026-08-11T16:26:40.408230",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sovereign_popup_embedder.py",
+      "description": "龍魂生态准入弹窗 · 嵌入器 v1.0 LongHun Sovereign Popup Embedder — injects alive verification into all entry points",
+      "added": "2026-08-11T16:26:40.408312",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_system_benchmark.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·丁巳·未时·䷐随-SYSTEM-BENCHMARK-v1.0-a3f7c2d1",
+      "added": "2026-08-11T16:26:40.408402",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_yearring_hash_chain.py",
+      "description": "🐉 龍魂 · 年轮哈希链 v1.1（Kimi审查修正版） =========================================== DNA: #龍芯⚡️2026-08-11-YEAR-RING-CHAIN-v1.1-UID96",
+      "added": "2026-08-11T16:26:40.408489",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "rizhu_core.py",
+      "description": "🐉 龍魂 · 干支公共模块 rizhu_core.py v3.0（唯一口径） ======================================================================== DNA: #龍芯",
+      "added": "2026-08-11T16:26:40.408544",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "demo_trust_chain.sh",
+      "description": "🐉 龍魂 · 信任链演示验证脚本",
+      "added": "2026-08-11T16:26:40.408610",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "deploy_trust_chain.sh",
+      "description": "🐉 龍魂 · 信任链实战部署脚本",
+      "added": "2026-08-11T16:26:40.408667",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "start_dev_env.sh",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-11T16:26:40.408710",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "stop_dev_env.sh",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-11T16:26:40.408748",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_kunpeng.sh",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-11T20:09:47.044524",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_start.sh",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-11T20:09:47.044577",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_asi_system_builder.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-11T20:21:55.912591",
       "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
     }
   ],

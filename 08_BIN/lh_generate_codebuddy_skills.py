@@ -12,19 +12,70 @@ DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-CODEBUDDY-SKILL-GENERAT
 策略：已有完整 SKILL.md 的跳过（保护现有），只补全缺失的技能
 """
 
+import argparse
 import json
 import os
 import sys
 from pathlib import Path
-from datetime import datetime
 
 # ─── 路径配置 ───
 SYSTEM_DIR = Path.home() / "longhun-system"
 USER_SKILLS_DIR = Path.home() / ".codebuddy" / "skills"
 PROJECT_SKILLS_DIR = SYSTEM_DIR / ".codebuddy" / "skills"
+BIN_DIR = SYSTEM_DIR / "bin"
 
-TODAY = datetime.now().strftime("%Y-%m-%d")
-DNA_BASE = f"#龍芯⚡️{TODAY}-SKILL"
+# ─── v∞ DNA 生成 ───
+sys.path.insert(0, str(BIN_DIR))
+try:
+    from ganzhi_dna_engine import DNA生成 as _dna生成
+except Exception as _e:  # pragma: no cover
+    def _dna生成(模块, 动作="", 版本="", 级别=""):
+        return f"#龍芯⚡️丙午·丙申·丁巳·申时·乾卦-{模块}-{动作}-{版本}-{级别}"
+
+
+def make_dna(module: str, action: str = "SKILL", version: str = "V1.0", level: str = "P1") -> str:
+    """生成 v∞ 干支卦格式 DNA。"""
+    return _dna生成(module, action, version, level)
+
+
+DNA_BASE = make_dna("SKILL-GENERATOR", "RUN", "V1.0", "P1")
+
+
+def validate_entry(entry: str) -> tuple[bool, str]:
+    """
+    校验技能入口脚本是否存在。
+    返回 (是否存在, 实际路径或说明)。
+    """
+    if not entry or "无需独立入口" in entry or "AI直接调用" in entry:
+        return True, entry
+
+    # 解析 python3 ~/longhun-system/bin/xxx.py
+    parts = entry.split()
+    candidate = None
+    for p in parts:
+        if p.endswith(".py") or "/" in p:
+            candidate = os.path.expanduser(p)
+            break
+
+    if not candidate:
+        return True, entry  # 非文件类入口不校验
+
+    path = Path(candidate)
+    if path.is_absolute():
+        exists = path.exists()
+    else:
+        exists = (SYSTEM_DIR / path).exists() or (BIN_DIR / path.name).exists() or path.exists()
+
+    if exists:
+        return True, str(path)
+
+    # 尝试在 bin/ 下查找同名脚本
+    alt = BIN_DIR / path.name
+    if alt.exists():
+        return True, f"python3 {alt}"
+
+    return False, f"⚠️ 入口缺失: {path}"
+
 
 # ═══════════════════════════════════════════════════════════════
 # 🔥 全量技能定义（42个技能 · 22已有 + 20新增）
@@ -265,20 +316,6 @@ SKILLS = [
 # 技能文件生成逻辑
 # ═══════════════════════════════════════════════════════════════
 
-def check_existing_skill(name):
-    """检查技能是否已有完整 SKILL.md"""
-    # 优先检查用户级技能目录
-    skill_dir = USER_SKILLS_DIR / name
-    if skill_dir.exists():
-        skill_md = skill_dir / "SKILL.md"
-        if skill_md.exists():
-            content = skill_md.read_text(encoding="utf-8")
-            # 检查是否有完整的前置元数据和正文
-            if "---" in content and "name:" in content and content.count("---") >= 2:
-                return {"exists": True, "location": str(skill_dir), "content": content}
-    return {"exists": False, "location": None, "content": None}
-
-
 def generate_skill_md(skill):
     """生成 SKILL.md 内容"""
     name = skill["name"]
@@ -292,6 +329,19 @@ def generate_skill_md(skill):
     tribute = skill.get("tribute", f"致敬⚡️UID9622·{name}")
     is_orch = skill.get("is_orchestrator", False)
 
+    # 校验入口
+    entry_ok, entry_info = validate_entry(entry)
+    if entry_ok:
+        final_entry = entry_info
+        entry_status = ""
+    else:
+        final_entry = "# 规划中: " + entry_info
+        entry_status = f"\n> {entry_info}"
+
+    # 生成 v∞ DNA
+    module_tag = name.replace("longhun-", "").replace("-", "_").upper()
+    skill_dna = make_dna(f"SKILL-{module_tag}", "DEF", f"V{version}", "P1")
+
     # 生成 YAML 前置
     kw_yaml = "\n".join([f"    - {k}" for k in triggers_kw])
     nl_yaml = "\n".join([f"    - \"{n}\"" for n in triggers_nl])
@@ -304,10 +354,11 @@ allowed-tools:
 - python
 metadata:
   version: '{version}'
-  dna: '{DNA_BASE}-{name.replace("longhun-", "").upper()}-v{version}'
+  dna: '{skill_dna}'
   tribute: '#{tribute}'
   id: {name}
-  entry: {entry}
+  entry: {final_entry}
+  entry_valid: {entry_ok}
   trigger:
     keywords:
 {kw_yaml}
@@ -322,8 +373,8 @@ metadata:
         body = f"""
 # 🐉 龍魂·总控指挥台 v{version}
 
-**DNA**: `{DNA_BASE}-ORCHESTRATOR-v{version}`
-**定位**: 42技能统一入口·意图解析·协同调度
+**DNA**: `{skill_dna}`
+**定位**: 42技能统一入口·意图解析·协同调度{entry_status}
 
 ---
 
@@ -454,7 +505,7 @@ metadata:
         body = f"""
 # 🐉 龍魂·{name.replace("longhun-", "").replace("-", "·")}·{category}
 
-**DNA**: `{DNA_BASE}-{name.replace("longhun-", "").upper()}-v{version}`
+**DNA**: `{skill_dna}`
 **{tribute}**
 
 ---
@@ -472,8 +523,8 @@ metadata:
 
 ```bash
 cd ~/longhun-system
-{entry}
-```
+{final_entry}
+```{entry_status}
 
 ---
 
@@ -497,66 +548,96 @@ cd ~/longhun-system
 - longhun-orchestrator（总控调度）
 
 ---
-**DNA**: `{DNA_BASE}-{name.replace("longhun-", "").upper()}-v{version}`
+**DNA**: `{skill_dna}`
 """
 
     return yaml_block + body
 
 
+def check_existing_skill(name, force: bool = False):
+    """检查技能是否已有完整 SKILL.md（用户级或项目级）"""
+    locations = [
+        ("用户级", USER_SKILLS_DIR / name),
+        ("项目级", PROJECT_SKILLS_DIR / name),
+    ]
+    for loc_type, skill_dir in locations:
+        if skill_dir.exists():
+            skill_md = skill_dir / "SKILL.md"
+            if skill_md.exists():
+                content = skill_md.read_text(encoding="utf-8")
+                if "---" in content and "name:" in content and content.count("---") >= 2:
+                    return {"exists": not force, "location": f"{loc_type}:{skill_dir}", "content": content}
+    return {"exists": False, "location": None, "content": None}
+
+
 def main():
-    print("🐉 龍魂 · CodeBuddy 技能批量生成器 v1.0")
+    parser = argparse.ArgumentParser(description="龍魂 · CodeBuddy 技能批量生成器")
+    parser.add_argument("--force", action="store_true", help="强制重生成已存在的 SKILL.md")
+    parser.add_argument("--validate-only", action="store_true", help="仅校验入口脚本存在性，不写入文件")
+    args = parser.parse_args()
+
+    print("🐉 龍魂 · CodeBuddy 技能批量生成器 v1.1")
     print(f"   用户技能目录: {USER_SKILLS_DIR}")
     print(f"   项目技能目录: {PROJECT_SKILLS_DIR}")
     print(f"   技能总数: {len(SKILLS)}")
+    print(f"   模式: {'仅校验' if args.validate_only else ('强制重生成' if args.force else '增量生成')}")
     print()
 
-    # 确保输出目录存在
-    PROJECT_SKILLS_DIR.mkdir(parents=True, exist_ok=True)
+    if not args.validate_only:
+        PROJECT_SKILLS_DIR.mkdir(parents=True, exist_ok=True)
 
-    stats = {"skipped": 0, "created": 0, "errors": 0}
+    stats = {"skipped": 0, "created": 0, "errors": 0, "missing_entries": 0}
     existing_skills = []
 
     for skill in SKILLS:
         name = skill["name"]
-        check = check_existing_skill(name)
+        entry = skill.get("entry", "")
+        entry_ok, entry_info = validate_entry(entry)
+        if not entry_ok:
+            stats["missing_entries"] += 1
+            print(f"  ⚠️  {name}: {entry_info}")
+
+        check = check_existing_skill(name, force=args.force)
 
         if check["exists"]:
             existing_skills.append({"name": name, "location": check["location"]})
             continue
 
-        # 创建新技能
+        if args.validate_only:
+            continue
+
         try:
             skill_dir = PROJECT_SKILLS_DIR / name
             skill_dir.mkdir(exist_ok=True)
             md_content = generate_skill_md(skill)
             (skill_dir / "SKILL.md").write_text(md_content, encoding="utf-8")
-            print(f"  ✅ 新建 {name}/SKILL.md  ({skill['category']})")
+            print(f"  ✅ {'重生成' if args.force else '新建'} {name}/SKILL.md  ({skill['category']})")
             stats["created"] += 1
         except Exception as e:
             print(f"  ❌ {name} 创建失败: {e}")
             stats["errors"] += 1
 
-    # 汇总
     print(f"\n{'='*60}")
     print(f"📊 汇总:")
     print(f"   已有完整SKILL.md(跳过): {len(existing_skills)} 个")
     for s in existing_skills:
         print(f"     - {s['name']} ({s['location']})")
-    print(f"   本次新建: {stats['created']} 个")
+    print(f"   本次生成: {stats['created']} 个")
+    print(f"   入口缺失: {stats['missing_entries']} 个")
     if stats["errors"]:
         print(f"   失败: {stats['errors']} 个")
 
-    print(f"\n📂 项目技能目录: {PROJECT_SKILLS_DIR}")
-    print(f"   已加载的技能: {len(existing_skills)} (用户级) + {stats['created']} (项目级) = {len(existing_skills) + stats['created']} 个")
-    print(f"\n📌 下一步:")
-    print(f"   - CodeBuddy 重启后自动加载")
-    print(f"   - 问'龍魂有什么技能'验证")
-    print(f"   - 问'龍魂指挥我该用哪个技能'测试总控路由")
-    print(f"   - GPG签名: python3 bin/lh_gpg_sign.py sign .codebuddy/skills/")
+    if not args.validate_only:
+        print(f"\n📂 项目技能目录: {PROJECT_SKILLS_DIR}")
+        print(f"   已加载的技能: {len(existing_skills)} (存在) + {stats['created']} (新生成) = {len(existing_skills) + stats['created']} 个")
+        print(f"\n📌 下一步:")
+        print(f"   - CodeBuddy 重启后自动加载")
+        print(f"   - 问'龍魂有什么技能'验证")
+        print(f"   - 问'龍魂指挥我该用哪个技能'测试总控路由")
+        print(f"   - GPG签名: python3 bin/lh_gpg_sign.py sign .codebuddy/skills/")
 
-    return stats["created"]
+    return 0
 
 
 if __name__ == "__main__":
-    created = main()
-    sys.exit(0 if created >= 0 else 1)
+    sys.exit(main())

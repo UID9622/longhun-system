@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 🐉 龍魂车载系统 · 云端索引服务 v2.1（Kimi审阅修正版 · 零依赖纯标准库）
 ========================================================================
@@ -294,4 +295,5 @@ def main(port=8080):
 
 
 if __name__ == '__main__':
-    main()
+    port = int(os.environ.get('LONGHUN_CAR_PORT', 8080))
+    main(port)

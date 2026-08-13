@@ -239,6 +239,6 @@ def ecosystem_dashboard():
 
 
 if __name__ == "__main__":
-
-    import uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=9622, reload=False)
+    import uvicorn, os
+    port = int(os.environ.get("CONTROL_PANEL_PORT", "9622"))
+    uvicorn.run("main:app", host="127.0.0.1", port=port, reload=False)
