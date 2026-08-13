@@ -1,0 +1,63 @@
+{
+  "version": "v2.0",
+  "created_at": "2026-08-13T17:21:32",
+  "owner": "UID9622·诸葛鑫",
+  "anchors": {
+    "S0": {
+      "code": "S0",
+      "name": "UID9622·诸葛鑫",
+      "role": "唯一主权人",
+      "layer": "sovereign",
+      "status": "eternal",
+      "version": "v∞",
+      "immutable": true,
+      "anchor": "龍芯北辰·唯一决策者"
+    },
+    "P00": {
+      "code": "P00",
+      "name": "文心",
+      "role": "永恒锚点·意图解析",
+      "layer": "core",
+      "immutable": true,
+      "anchor": "A009 再楠不惧·终成豪图",
+      "status": "eternal"
+    },
+    "P01": {
+      "code": "P01",
+      "name": "诸葛亮",
+      "role": "太极中枢·推演决策",
+      "layer": "core",
+      "immutable": true,
+      "anchor": "决策中心",
+      "status": "eternal"
+    },
+    "P05": {
+      "code": "P05",
+      "name": "上帝之眼",
+      "role": "meta_controller·审计眼",
+      "layer": "guard",
+      "immutable": true,
+      "anchor": "审计否决权",
+      "status": "eternal"
+    },
+    "P72": {
+      "code": "P72",
+      "name": "龙盾",
+      "role": "fuse_guardian·四级熔断",
+      "layer": "guard",
+      "immutable": true,
+      "anchor": "熔断守卫",
+      "status": "eternal"
+    },
+    "P53": {
+      "code": "P53",
+      "name": "老顽童",
+      "role": "tombstone_guardian·墓碑守护",
+      "layer": "guard",
+      "immutable": true,
+      "anchor": "不删只冻结",
+      "status": "eternal"
+    }
+  },
+  "audit": []
+}

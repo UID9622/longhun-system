@@ -953,6 +953,8 @@ SUB_DISPATCH = {
     'roster':               ('lh_roster.py',                    '🐉', '花名册调度中心·menu/shortdna/verify/show/pipeline/gates/circle/stats', [], 'menu'),
     # 🧠 人格思维化引擎 v1.0 — 20人格独立思维·协作·并行
     'think':                ('lh_persona_thought.py',           '🧠', '人格思维·单人/协作/并行/状态·--persona/--collaborate/--parallel/--status', [], '--demo'),
+    # 🧬 活人格引擎 v1.0 — 记→学→进→评·士别三日自检·睡死人格雷达
+    'persona-life':         ('../08_BIN/lh_persona_life.py',    '🧬', '活人格引擎·record/learn/adapt/evolve/status/hook·人格会学习会成长', [], 'status'),
     # ⏱️ 系统性能测试 — CPU/内存/磁盘/网络基准·压力测试
     'benchmark':            ('lh_system_benchmark.py',          '⏱️', '系统性能基准·CPU/内存/磁盘/网络四维跑分·--quick/--compare/--json', [], ''),
     'load-test':            ('lh_load_test.py',                 '🔥', 'HTTP压力测试·并发/QPS/延迟分布·--concurrency/--duration/--endpoint', [], ''),
@@ -1967,6 +1969,30 @@ def main():
         print("     API 文档: http://localhost:9622/docs")
         print("     省电总控: lh --power-save status")
         print("     使用 'lh --energy' 查看省电报告\n")
+        return
+
+    # === 🔥 位置子命令优先分发（防 --persona/--task 等 REMAINDER flag 劫持子命令参数） ===
+    # 例: `lh persona-life learn --persona P00 --task "x"` 中 --persona/--task 是子命令参数,
+    # 必须先按位置子命令 persona-life 路由, 否则会被顶层 REMAINDER flag 抢先劫持。
+    if remaining and remaining[0].lstrip('-') in SUB_DISPATCH:
+        subcmd = remaining[0].lstrip('-')  # 兼容 bare word 和 --flag 两种形式
+        extra = remaining[1:]
+        # 回收被顶层 REMAINDER flag 劫持的子命令参数（--persona/--task 等）
+        # 例: `lh persona-life learn --persona P00 --task "x"` 中这些参数被 argparse
+        #     顶层 REMAINDER 捕获进 args.persona/args.task, 需原样放回 extra。
+        for _flag in ('persona', 'task'):
+            _v = getattr(args, _flag, None)
+            if _v is not None:
+                extra += [f'--{_flag}'] + list(_v)
+        script, emoji, desc, *rest = SUB_DISPATCH[subcmd]
+        smart_default = rest[0] if rest else None
+        if not extra and smart_default and isinstance(smart_default, (list, str)):
+            if isinstance(smart_default, str):
+                extra = [smart_default]
+            else:
+                extra = list(smart_default)
+        no_header = '--json' in extra
+        _run_subcommand(script, extra, emoji, desc, suppress_header=no_header, command_name=subcmd)
         return
 
     # === 调度表子命令统一处理（30+ 引擎一行处理） ===

@@ -26,6 +26,12 @@ from typing import Any, Dict, List, Optional
 
 SYSTEM_ROOT = Path(__file__).parent.parent.parent
 
+# 活人格引擎(学习回路: 记→学→进→评)
+_LIFE_DIR = SYSTEM_ROOT / "08_BIN"
+if str(_LIFE_DIR) not in sys.path:
+    sys.path.insert(0, str(_LIFE_DIR))
+from lh_persona_life import record_execution  # noqa: E402
+
 
 class P04Luban:
     """P04 鲁班 · 技术执行"""
@@ -320,6 +326,16 @@ class P04Luban:
             result["capability_used"] = "tech_assess"
             result["output"] = self.tech_assess(idea=task)
 
+        # 学习回路: 每次执行自动记录到活人格引擎(记→学→进→评)
+        try:
+            out = result.get("output")
+            ok = bool(out)
+            record_execution(self.PERSONA_CODE, task,
+                             "success" if ok else "fail",
+                             capability=result.get("capability_used", ""),
+                             silent=True)
+        except Exception:
+            pass
         return result
 
     def get_system_prompt(self) -> str:

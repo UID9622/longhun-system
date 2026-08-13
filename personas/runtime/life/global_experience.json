@@ -1,0 +1,15 @@
+{
+  "items": [
+    {
+      "persona": "P04",
+      "id": "E-20260813-001",
+      "at": "2026-08-13T17:16:05",
+      "kind": "skill",
+      "lesson": "CNSH编译器连hello都编不过",
+      "improve": "先修编译器地基再交付扩展",
+      "applied": false,
+      "source_task": ""
+    }
+  ],
+  "updated_at": "2026-08-13T17:16:05"
+}

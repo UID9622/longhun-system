@@ -41,15 +41,30 @@ GPG = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 
 
 def generate_dna(suffix: str = "") -> str:
-    """生成 DNA 追溯码"""
-    timestamp = datetime.now().strftime("%Y-%m-%d")
-    rand = hashlib.md5(f"{suffix}{timestamp}".encode()).hexdigest()[:8].upper()
-    return f"{DNA_PREFIX}{timestamp}-{suffix}-{rand}-UID{UID}"
+    """生成 DNA 追溯码（调用 rizhu_core v3.0 唯一口径）"""
+    try:
+        core_path = os.path.join(os.path.dirname(__file__), "..", "05_ENGINES", "core")
+        if core_path not in sys.path:
+            sys.path.insert(0, core_path)
+        import rizhu_core
+        return rizhu_core.quick_dna(datetime.now(), suffix, "v1.0", f"UID{UID}")
+    except Exception:
+        # 降级：rizhu_core 不可用时保留旧格式，避免阻断
+        timestamp = datetime.now().strftime("%Y-%m-%d")
+        rand = hashlib.md5(f"{suffix}{timestamp}".encode()).hexdigest()[:8].upper()
+        return f"{DNA_PREFIX}{timestamp}-{suffix}-{rand}-UID{UID}"
 
 
 def current_ganzhi() -> str:
-    """返回当前干支与卦象标识（简化版）"""
-    return "丙午·甲申·辛丑·坤卦"
+    """返回当前干支标识（调用 rizhu_core v3.0 唯一口径）"""
+    try:
+        core_path = os.path.join(os.path.dirname(__file__), "..", "05_ENGINES", "core")
+        if core_path not in sys.path:
+            sys.path.insert(0, core_path)
+        import rizhu_core
+        return rizhu_core.sizhu_ganzhi(datetime.now())
+    except Exception:
+        return "丙午·甲申·辛丑·坤卦"
 
 
 # ============================================================
@@ -1040,18 +1055,22 @@ def markdown_to_html(md: str) -> str:
 # 验证工具
 # ============================================================
 
-DNA_RE = re.compile(r"^#龍芯⚡️\d{4}-\d{2}-\d{2}-[A-Z0-9_\-]+-[A-F0-9]{8}-UID9622$")
+DNA_RE = re.compile(
+    r"^#龍芯⚡️(?:\d{4}-\d{2}-\d{2}-[A-Z0-9_\-]+-[A-F0-9]{8}|[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]·[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]·[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]·[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]-[A-Z0-9_\-]+-v[0-9]+\.[0-9]+)-UID9622$"
+)
 CONFIRM_RE = re.compile(r"^#CONFIRM🌌9622-ONLY-ONCE🧬[A-Z0-9]{4}-[A-Z0-9]{4}$")
 
 
 def verify_dna(dna: str) -> Dict[str, Any]:
-    """验证 DNA 格式合法性"""
+    """验证 DNA 格式合法性（兼容旧格里历格式与新干支四柱格式）"""
     valid = bool(DNA_RE.match(dna))
+    has_ganzhi = bool(re.search(r"[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]·", dna))
+    has_date = bool(re.search(r"\d{4}-\d{2}-\d{2}", dna))
     return {
         "dna": dna,
         "valid": valid,
-        "message": "✅ DNA 格式正确" if valid else "❌ DNA 格式错误，应为: #龍芯⚡️YYYY-MM-DD-SUFFIX-HASH8-UID9622",
-        "timestamp_check": "包含日期字段" if re.search(r"\d{4}-\d{2}-\d{2}", dna) else "缺少日期字段"
+        "message": "✅ DNA 格式正确" if valid else "❌ DNA 格式错误，应为: #龍芯⚡️<干支四柱>-SUFFIX-vVERSION-UID9622 或旧格里历格式",
+        "timestamp_check": "包含干支四柱" if has_ganzhi else ("包含日期字段" if has_date else "缺少时间锚定")
     }
 
 

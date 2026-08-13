@@ -1,14 +1,14 @@
 # 🐉 龍魂 · 文档模板 · 生成输出
 
-**DNA:** `#龍芯⚡️2026-08-13-DOCUMENT-247EAE0C-UID9622`
+**DNA:** `#龍芯⚡️丙午·丙申·己未·癸酉-DOCUMENT-v1.0-UID9622`
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 **三色:** 🟢 通过
-**生成时间:** `2026-08-13T16:53:07.502856`
+**生成时间:** `2026-08-13T17:46:24.758246`
 
 ---
 
-**DNA:** `#龍芯⚡️2026-08-13-AI-COLLABORATION-81A5AC8F-UID9622`
+**DNA:** `#龍芯⚡️丙午·丙申·己未·癸酉-AI-COLLABORATION-v1.0-UID9622`
 
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
@@ -20,7 +20,7 @@
 
 ## 🎯 概述
 
-本规范焊死「AI如何在一个文档内与龍魂系统协作」：编辑→签名→迭代三步闭环。任何 AI（CodeBuddy / Kimi / Claude）产出同一标准、同一追溯、同一可验证。模板引擎 v1.1 为执行底座，GPG 签名为信任根，DNA/确认码/时间戳为三验三证。
+本规范焊死「AI如何在一个文档内与龍魂系统协作」：编辑→签名→迭代→归档四步闭环。任何 AI（CodeBuddy / Kimi / Claude）产出同一标准、同一追溯、同一可验证。模板引擎 v1.1 为执行底座，GPG 签名为信任根，DNA/确认码/时间戳为三验三证。
 
 
 ## 🏛️ 架构图
@@ -86,7 +86,7 @@ python3 08_BIN/lh_template_engine.py generate \
 python3 bin/lh_gpg_sign.py sign 01_protocols/LH-AI-COLLABORATION-v1.0.md
 
 # ③ 三验证闭环
-python3 08_BIN/lh_template_engine.py verify-dna "#龍芯⚡️2026-08-13-AI-COLLABORATION-XXXX-9622"
+python3 08_BIN/lh_template_engine.py verify-dna "#龍芯⚡️丙午·丙申·己未·癸酉-AI-COLLABORATION-v1.0-UID9622"
 python3 08_BIN/lh_template_engine.py verify-confirm "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 python3 08_BIN/lh_template_engine.py check-timestamp "2026-08-13T16:25:04"
 
@@ -166,10 +166,10 @@ python3 08_BIN/lh_template_engine.py generate -t document -i _work/ai_collab_inp
 
 # 🐉 技能落地指令包
 
-**DNA:** `#龍芯⚡️2026-08-13-SKILL-LANDING-83AD9459-UID9622`
+**DNA:** `#龍芯⚡️丙午·丙申·己未·癸酉-SKILL-LANDING-v1.0-UID9622`
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
-**技能:** 本规范焊死「AI如何在一个文档内与龍魂系统协作」：编辑→签名→迭代三步闭环。任何 AI（CodeBuddy / Kimi / Claude）产出同一标准、同一追溯、同一可验证。模板引擎 v1.1 为执行底座，GPG 签名为信任根，DNA/确认码/时间戳为三验三证。
-**生成时间:** `2026-08-13T16:53:07.502888`
+**技能:** 本规范焊死「AI如何在一个文档内与龍魂系统协作」：编辑→签名→迭代→归档四步闭环。任何 AI（CodeBuddy / Kimi / Claude）产出同一标准、同一追溯、同一可验证。模板引擎 v1.1 为执行底座，GPG 签名为信任根，DNA/确认码/时间戳为三验三证。
+**生成时间:** `2026-08-13T17:46:24.758246`
 
 ## 一、一键安装
 
@@ -192,14 +192,14 @@ python3 08_BIN/lh_template_engine.py generate -t document -i _work/ai_collab_inp
 
 ## 四、生态对接
 
-- 注册到技能总线：`python3 08_BIN/lh_skill_bus.py register 本规范焊死「AI如何在一个文档内与龍魂系统协作」：编辑→签名→迭代三步闭环。任何 AI（CodeBuddy / Kimi / Claude）产出同一标准、同一追溯、同一可验证。模板引擎 v1.1 为执行底座，GPG 签名为信任根，DNA/确认码/时间戳为三验三证。`
+- 注册到技能总线：`python3 08_BIN/lh_skill_bus.py register 本规范焊死「AI如何在一个文档内与龍魂系统协作」：编辑→签名→迭代→归档四步闭环。任何 AI（CodeBuddy / Kimi / Claude）产出同一标准、同一追溯、同一可验证。模板引擎 v1.1 为执行底座，GPG 签名为信任根，DNA/确认码/时间戳为三验三证。`
 - 同步到通行证：`python3 08_BIN/lh_skill_bus.py sync`
-- DNA登记：`python3 08_BIN/lh_unified_dna_registry.py register #龍芯⚡️2026-08-13-SKILL-LANDING-83AD9459-UID9622`
+- DNA登记：`python3 08_BIN/lh_unified_dna_registry.py register #龍芯⚡️丙午·丙申·己未·癸酉-SKILL-LANDING-v1.0-UID9622`
 
 ## 五、最终签名
 
 ```
-DNA: #龍芯⚡️2026-08-13-SKILL-LANDING-83AD9459-UID9622
+DNA: #龍芯⚡️丙午·丙申·己未·癸酉-SKILL-LANDING-v1.0-UID9622
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色: 🟢 通过
@@ -211,7 +211,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 ## 🔐 最终签名
 
 ```
-DNA:        #龍芯⚡️2026-08-13-DOCUMENT-247EAE0C-UID9622
+DNA:        #龍芯⚡️丙午·丙申·己未·癸酉-DOCUMENT-v1.0-UID9622
 确认码:      #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色:       🟢 通过
