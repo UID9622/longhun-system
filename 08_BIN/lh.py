@@ -958,6 +958,8 @@ SUB_DISPATCH = {
     # ⏱️ 系统性能测试 — CPU/内存/磁盘/网络基准·压力测试
     'benchmark':            ('lh_system_benchmark.py',          '⏱️', '系统性能基准·CPU/内存/磁盘/网络四维跑分·--quick/--compare/--json', [], ''),
     'load-test':            ('lh_load_test.py',                 '🔥', 'HTTP压力测试·并发/QPS/延迟分布·--concurrency/--duration/--endpoint', [], ''),
+    # 📤 跨AI窗口交接 — save/load/list·LH-AI-HANDOFF-v1.0 协议 CLI 落地（2026-08-13 修复）
+    'handoff':              ('lh_handoff.py',                   '📤', 'AI窗口交接·save/load/list·跨会话无缝衔接不丢上下文', [], 'list'),
 }
 
 

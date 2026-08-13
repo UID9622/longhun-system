@@ -49,10 +49,8 @@ def generate_dna(suffix: str = "") -> str:
         import rizhu_core
         return rizhu_core.quick_dna(datetime.now(), suffix, "v1.0", f"UID{UID}")
     except Exception:
-        # 降级：rizhu_core 不可用时保留旧格式，避免阻断
-        timestamp = datetime.now().strftime("%Y-%m-%d")
-        rand = hashlib.md5(f"{suffix}{timestamp}".encode()).hexdigest()[:8].upper()
-        return f"{DNA_PREFIX}{timestamp}-{suffix}-{rand}-UID{UID}"
+        # 降级：rizhu_core 不可用时不得编造干支/旧格里历格式（LONGHUN_ALIGN.md 二.3：宁可空着也不许编）
+        return f"{DNA_PREFIX}【待生成器回填】-{suffix}-UID{UID}"
 
 
 def current_ganzhi() -> str:
@@ -1056,7 +1054,7 @@ def markdown_to_html(md: str) -> str:
 # ============================================================
 
 DNA_RE = re.compile(
-    r"^#龍芯⚡️(?:\d{4}-\d{2}-\d{2}-[A-Z0-9_\-]+-[A-F0-9]{8}|[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]·[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]·[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]·[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]-[A-Z0-9_\-]+-v[0-9]+\.[0-9]+)-UID9622$"
+    r"^#龍芯⚡️(?:\d{4}-\d{2}-\d{2}-[A-Z0-9_\-]+-[A-Fa-f0-9]{8}|[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]·[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]·[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]·[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]-[A-Z0-9_\-]+-v[0-9]+\.[0-9]+)-UID9622$"
 )
 CONFIRM_RE = re.compile(r"^#CONFIRM🌌9622-ONLY-ONCE🧬[A-Z0-9]{4}-[A-Z0-9]{4}$")
 
