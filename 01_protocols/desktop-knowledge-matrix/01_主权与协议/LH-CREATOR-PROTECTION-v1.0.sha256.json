@@ -1,0 +1,11 @@
+{
+  "dna": "#龍芯⚡️2026-06-20-LONGHUN-CREATOR-PROTECTION-v1.0",
+  "file": "01_protocols/LONGHUN-CREATOR-PROTECTION-v1.0.md",
+  "sha256": "ee1f862e9eb1aea50f8a650a24116719d1275cfc8aa2f9ad45a3feab2a04b0f7",
+  "bytes": 6346,
+  "generated_at": "2026-06-21T21:30:03.271601",
+  "source_chain": "#龍芯⚡️2026-06-19-LONGHUN-GOVERNANCE-v5.0 → #龍芯⚡️2026-06-20-LONGHUN-CREATOR-PROTECTION-v1.0",
+  "gpg_fingerprint": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+  "status": "🔴 焊死 · 永不可改",
+  "immutable": true
+}

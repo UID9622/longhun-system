@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂 · 模型管理中心</title>
+<meta name="description" content="龍魂AI模型全生命周期管理——Ollama本地部署·LoRA微调·训练迭代·磁盘监控">
+<meta property="og:title" content="龍魂 · 模型管理中心">
+<meta property="og:description" content="Ollama本地模型管理·训练流水线·全生命周期追溯">
+<meta property="og:type" content="website">
+<style>
+/* ===== CSS 变量 ===== */
+:root {
+  --bg: #080c14; --surface: #111827; --surface2: #1a2332;
+  --border: #243044; --border-light: #1e2d40;
+  --gold: #f0c040; --gold-dark: #b8960c; --gold-light: #f8e080;
+  --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+  --primary: #3b82f6; --primary-glow: rgba(59,130,246,0.15);
+  --green: #22c55e; --green-glow: rgba(34,197,94,0.25);
+  --orange: #f59e0b; --orange-glow: rgba(245,158,11,0.2);
+  --red: #ef4444; --red-glow: rgba(239,68,68,0.2);
+  --purple: #a855f7; --purple-glow: rgba(168,85,247,0.15);
+  --cyan: #06b6d4; --cyan-glow: rgba(6,182,212,0.15);
+  --radius: 16px; --radius-sm: 10px;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", monospace;
+}
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font); background: var(--bg); color: var(--text);
+  line-height: 1.6; min-height: 100vh;
+}
+a { color: var(--primary); text-decoration: none; }
+
+/* ===== 悬浮导航栏 ===== */
+#topbar {
+  position: fixed; top: 0; left: 0; right: 0; height: 50px; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px;
+  background: rgba(10,10,18,0.82); backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(240,192,64,0.12);
+}
+#topbar .brand { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; letter-spacing: 1px; }
+#topbar .brand .gold { color: var(--gold); }
+#topbar .links { display: flex; align-items: center; gap: 18px; }
+#topbar .links a { color: var(--text2); text-decoration: none; font-size: 0.78em; font-weight: 500; transition: color .2s; white-space: nowrap; }
+#topbar .links a:hover,.topbar .links a.active { color: var(--gold); }
+#topbar .links a.active { border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
+#topbar .links .sp { color: var(--text3); font-size: 0.6em; }
+
+/* ===== 主内容区 ===== */
+main { padding: 70px 24px 60px; max-width: 1400px; margin: 0 auto; }
+
+/* ===== Hero 指标区 ===== */
+.hero { margin-bottom: 32px; }
+.hero h1 { font-size: 1.8em; font-weight: 700; color: var(--gold); margin-bottom: 4px; letter-spacing: 1px; }
+.hero .sub { font-size: 0.82em; color: var(--text3); margin-bottom: 24px; }
+.metrics { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+.metric-card {
+  padding: 18px 20px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); transition: all .2s;
+}
+.metric-card:hover { border-color: var(--gold-dark); transform: translateY(-2px); }
+.metric-card .label { font-size: 0.7em; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.metric-card .value { font-size: 1.6em; font-weight: 700; }
+.metric-card .value.gold { color: var(--gold); }
+.metric-card .value.green { color: var(--green); }
+.metric-card .value.blue { color: var(--primary); }
+.metric-card .value.purple { color: var(--purple); }
+.metric-card .value.orange { color: var(--orange); }
+.metric-card .sub { font-size: 0.68em; color: var(--text3); margin-top: 2px; }
+.metric-card .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+.metric-card .status-dot.online { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.metric-card .status-dot.warning { background: var(--orange); animation: pulse 1.5s infinite; }
+
+/* ===== 通用区块 ===== */
+.section { margin-bottom: 36px; }
+.section-title {
+  font-size: 1.1em; font-weight: 700; color: var(--gold);
+  margin-bottom: 16px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 8px;
+}
+.section-title .icon { font-size: 1.1em; }
+.section-title .badge {
+  font-size: 0.6em; padding: 2px 10px; border-radius: 20px;
+  font-weight: 500; margin-left: auto;
+}
+.badge.production { background: rgba(34,197,94,0.12); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+.badge.experiment { background: rgba(245,158,11,0.12); color: var(--orange); border: 1px solid rgba(245,158,11,0.3); }
+.badge.aux { background: rgba(6,182,212,0.12); color: var(--cyan); border: 1px solid rgba(6,182,212,0.3); }
+.badge.archived { background: rgba(100,116,139,0.1); color: var(--text3); border: 1px solid rgba(100,116,139,0.2); }
+
+/* ===== 流水线可视化 ===== */
+.pipeline {
+  display: flex; align-items: center; gap: 0; flex-wrap: wrap;
+  padding: 20px 0; overflow-x: auto;
+}
+.pipeline .step {
+  flex-shrink: 0; padding: 14px 22px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  text-align: center; min-width: 130px; transition: all .2s;
+}
+.pipeline .step:hover { border-color: var(--gold-dark); }
+.pipeline .step .s-icon { font-size: 1.6em; margin-bottom: 6px; }
+.pipeline .step .s-name { font-weight: 700; font-size: 0.85em; color: var(--gold); }
+.pipeline .step .s-desc { font-size: 0.68em; color: var(--text2); margin-top: 2px; }
+.pipeline .step .s-meta { font-size: 0.62em; color: var(--text3); margin-top: 4px; }
+.pipeline .arrow {
+  flex-shrink: 0; padding: 0 6px; color: var(--gold-dark);
+  font-size: 1.2em; font-weight: 700;
+}
+
+/* ===== 模型表格 ===== */
+.model-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+.model-table thead th {
+  background: var(--surface2); padding: 12px 16px; text-align: left;
+  font-size: 0.72em; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border);
+}
+.model-table tbody td {
+  padding: 12px 16px; font-size: 0.82em; border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.model-table tbody tr { background: var(--surface); transition: background .15s; }
+.model-table tbody tr:hover { background: var(--surface2); }
+.model-table tbody tr:last-child td { border-bottom: none; }
+.model-table .m-name { font-weight: 700; color: var(--gold); font-family: monospace; font-size: 0.88em; }
+.model-table .m-tag {
+  display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.7em; font-weight: 600;
+  margin-right: 4px;
+}
+.m-tag.latest { background: rgba(34,197,94,0.12); color: var(--green); }
+.m-tag.quantized { background: rgba(59,130,246,0.12); color: var(--primary); }
+.m-tag.exp { background: rgba(245,158,11,0.12); color: var(--orange); }
+.m-tag.embed { background: rgba(6,182,212,0.12); color: var(--cyan); }
+.m-tag.base { background: rgba(168,85,247,0.12); color: var(--purple); }
+.m-tag.bind { background: rgba(239,68,68,0.12); color: var(--red); }
+.m-tag.antenna { background: rgba(34,197,94,0.12); color: var(--green); }
+.model-table .m-size { color: var(--text3); font-family: monospace; font-size: 0.78em; }
+.model-table .m-date { color: var(--text3); font-size: 0.72em; }
+.model-table .m-hash { color: var(--text3); font-family: monospace; font-size: 0.68em; max-width: 120px; overflow: hidden; text-overflow: ellipsis; }
+.model-table .progress-bg { width: 80px; height: 4px; background: var(--border); border-radius: 2px; display: inline-block; margin-right: 8px; vertical-align: middle; }
+.model-table .progress-bar { height: 100%; border-radius: 2px; }
+.model-table .progress-bar.live { background: var(--green); }
+.model-table .progress-bar.frozen { background: var(--text3); }
+.model-table .progress-bar.warm { background: var(--orange); }
+
+/* ===== 训练时间线 ===== */
+.timeline { position: relative; padding-left: 24px; }
+.timeline::before {
+  content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px;
+  width: 1px; background: linear-gradient(to bottom, var(--gold-dark), var(--border), var(--border));
+}
+.timeline-item { position: relative; margin-bottom: 20px; padding: 14px 18px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); transition: all .2s; }
+.timeline-item:hover { border-color: var(--gold-dark); }
+.timeline-item::before {
+  content: ''; position: absolute; left: -21px; top: 20px;
+  width: 10px; height: 10px; border-radius: 50%;
+  border: 2px solid var(--gold-dark); background: var(--bg);
+}
+.timeline-item[data-status="production"]::before { background: var(--green); border-color: var(--green); box-shadow: 0 0 8px var(--green-glow); }
+.timeline-item[data-status="experimental"]::before { background: var(--orange); border-color: var(--orange); }
+.timeline-item[data-status="archived"]::before { background: var(--text3); border-color: var(--text3); }
+.timeline-item[data-status="training"]::before { background: transparent; border-color: var(--purple); animation: pulse 1.5s infinite; }
+.timeline-item .tl-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+.timeline-item .tl-version { font-weight: 700; font-size: 0.92em; color: var(--gold); font-family: monospace; }
+.timeline-item .tl-date { font-size: 0.68em; color: var(--text3); }
+.timeline-item .tl-desc { font-size: 0.78em; color: var(--text2); margin-bottom: 6px; }
+.timeline-item .tl-meta { display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.68em; color: var(--text3); }
+.timeline-item .tl-meta span { display: flex; align-items: center; gap: 4px; }
+.timeline-item .tl-status-tag {
+  display: inline-block; padding: 2px 10px; border-radius: 10px;
+  font-size: 0.68em; font-weight: 600; margin-left: 8px;
+}
+.tl-status-tag.live { background: rgba(34,197,94,0.12); color: var(--green); }
+.tl-status-tag.frozen { background: rgba(100,116,139,0.1); color: var(--text3); }
+.tl-status-tag.warm { background: rgba(245,158,11,0.12); color: var(--orange); }
+
+/* ===== 底座模型区 ===== */
+.base-models { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.base-card {
+  padding: 20px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); transition: all .2s;
+  border-left: 3px solid var(--purple);
+}
+.base-card:hover { border-color: var(--purple); transform: translateY(-2px); box-shadow: 0 4px 20px var(--purple-glow); }
+.base-card .b-name { font-weight: 700; font-size: 0.92em; color: var(--purple); margin-bottom: 4px; }
+.base-card .b-source { font-size: 0.68em; color: var(--text3); margin-bottom: 8px; }
+.base-card .b-meta { display: flex; gap: 14px; font-size: 0.7em; color: var(--text2); flex-wrap: wrap; }
+
+/* ===== 配置卡片 ===== */
+.config-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.config-card {
+  padding: 18px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.config-card h4 { font-size: 0.82em; color: var(--gold); margin-bottom: 10px; font-weight: 600; }
+.config-card .cfg-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.02); font-size: 0.76em; }
+.config-card .cfg-row .key { color: var(--text3); }
+.config-card .cfg-row .val { color: var(--text); font-family: monospace; font-weight: 500; }
+
+/* ===== 存储概览 ===== */
+.storage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.storage-card {
+  padding: 18px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); transition: all .2s;
+}
+.storage-card:hover { border-color: var(--gold-dark); }
+.storage-card .st-name { font-size: 0.78em; color: var(--text2); margin-bottom: 6px; }
+.storage-card .st-size { font-size: 1.3em; font-weight: 700; color: var(--gold); }
+.storage-card .st-bar-outer { height: 6px; background: var(--border); border-radius: 3px; margin-top: 8px; overflow: hidden; }
+.storage-card .st-bar-inner { height: 100%; border-radius: 3px; transition: width .5s; }
+.storage-card .st-bar-inner.model { background: linear-gradient(90deg, var(--gold-dark), var(--gold)); }
+.storage-card .st-bar-inner.training { background: linear-gradient(90deg, var(--purple), var(--primary)); }
+.storage-card .st-bar-inner.base { background: linear-gradient(90deg, var(--cyan), var(--purple)); }
+.storage-card .st-bar-inner.quantized { background: linear-gradient(90deg, var(--green), var(--cyan)); }
+
+/* ===== 操作区 ===== */
+.actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.act-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 20px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 20px; color: var(--text2); cursor: pointer; font-size: 0.78em;
+  font-family: var(--font); font-weight: 500; transition: all .2s;
+}
+.act-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(240,192,64,0.05); }
+.act-btn.primary { border-color: var(--primary); color: var(--primary); }
+.act-btn.primary:hover { background: rgba(59,130,246,0.08); box-shadow: 0 0 20px var(--primary-glow); }
+.act-btn.danger { border-color: var(--red); color: var(--red); }
+.act-btn.danger:hover { background: rgba(239,68,68,0.08); }
+
+/* ===== 信息板 ===== */
+.info-banner {
+  padding: 14px 20px; border-radius: var(--radius-sm); margin-bottom: 20px;
+  font-size: 0.78em; display: flex; align-items: center; gap: 10px;
+}
+.info-banner.tip { background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2); color: var(--primary); }
+.info-banner.warn { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.2); color: var(--orange); }
+
+/* ===== 页脚 DNA ===== */
+#dna-ring {
+  text-align: center; padding: 30px 24px; pointer-events: none;
+}
+#dna-ring .line { font-size: 9px; color: #444; font-family: monospace; letter-spacing: 0.3px; }
+#dna-ring .line .hl { color: var(--gold-dark); }
+footer { text-align: center; padding: 12px 24px; font-size: 0.68em; color: var(--text3); }
+footer a { color: var(--primary); }
+footer .dna { color: var(--gold-dark); font-family: monospace; }
+
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* 响应式 */
+@media (max-width: 768px) {
+  main { padding: 60px 12px 40px; }
+  #topbar { padding: 0 12px; height: 44px; }
+  #topbar .links { gap: 10px; }
+  #topbar .links a { font-size: 0.7em; }
+  .pipeline { flex-direction: column; align-items: stretch; }
+  .pipeline .arrow { transform: rotate(90deg); padding: 4px 0; }
+  .hero h1 { font-size: 1.3em; }
+  .model-table { display: block; overflow-x: auto; }
+}
+
+/* 搜索过滤 */
+.filter-bar { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+.filter-bar input {
+  flex: 1; min-width: 200px; padding: 8px 14px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 20px; color: var(--text);
+  font-family: var(--font); font-size: 0.8em; outline: none; transition: border-color .2s;
+}
+.filter-bar input:focus { border-color: var(--gold); }
+.filter-btn {
+  padding: 8px 16px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 20px; color: var(--text2); cursor: pointer; font-size: 0.76em;
+  font-family: var(--font); transition: all .2s;
+}
+.filter-btn:hover,.filter-btn.active { border-color: var(--gold); color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- ===== 悬浮导航栏 ===== -->
+<nav id="topbar">
+  <div class="brand"><span class="gold">🐉 龍魂</span><span>· 模型中心</span></div>
+  <div class="links">
+    <a href="../dashboard/">📊 看板</a>
+    <span class="sp">|</span>
+    <a href="#" class="active">🧠 模型</a>
+    <span class="sp">|</span>
+    <a href="../api-docs.html">📡 API</a>
+    <span class="sp">|</span>
+    <a href="https://uid9622.cn">🌐 鲲鹏</a>
+  </div>
+</nav>
+
+<!-- ===== 主内容 ===== -->
+<main>
+
+  <!-- Hero 区 -->
+  <div class="hero">
+    <h1>🧠 模型管理中心</h1>
+    <p class="sub">Ollama本地部署 · LoRA微调流水线 · 全生命周期DNA追溯</p>
+    <div class="metrics">
+      <div class="metric-card">
+        <div class="label">Ollama 已部署</div>
+        <div class="value gold">28</div>
+        <div class="sub">含量化版本的模型标签</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">生产主力</div>
+        <div class="value green"><span class="status-dot online"></span>v4.0</div>
+        <div class="sub">Llama-3.1-8B · Val 1.218</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">训练迭代</div>
+        <div class="value blue">22</div>
+        <div class="sub">v3.7 → v4.1.6（持续）</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">模型磁盘占用</div>
+        <div class="value orange">~715GB</div>
+        <div class="sub">models/ · 含训练中间产物</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">底座模型</div>
+        <div class="value purple">4</div>
+        <div class="sub">Qwen2.5 / Llama3.1 / DeepSeek / Yi</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">训练数据</div>
+        <div class="value" style="color:var(--cyan)">979-1273条</div>
+        <div class="sub">13知识域 · 家法主权强化</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模型生命周期流程 -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🔄</span> 模型生命周期流水线</div>
+    <div class="pipeline">
+      <div class="step">
+        <div class="s-icon">📥</div>
+        <div class="s-name">1. 底座模型</div>
+        <div class="s-desc">从HuggingFace/Ollama下载</div>
+        <div class="s-meta">Llama/Qwen/DeepSeek/Yi</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step">
+        <div class="s-icon">🏋️</div>
+        <div class="s-name">2. LoRA微调</div>
+        <div class="s-desc">MLX LoRA rank=16</div>
+        <div class="s-meta">lr=1e-5 · epochs=8</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step">
+        <div class="s-icon">🔗</div>
+        <div class="s-name">3. 合并权重</div>
+        <div class="s-desc">Merge → Fuse</div>
+        <div class="s-meta">lora_weights + base</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step">
+        <div class="s-icon">📦</div>
+        <div class="s-name">4. GGUF转换</div>
+        <div class="s-desc">F16 → Q4_K_M量化</div>
+        <div class="s-meta">llama.cpp convert</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step">
+        <div class="s-icon">🚀</div>
+        <div class="s-name">5. Ollama注册</div>
+        <div class="s-desc">Modelfile → ollama create</div>
+        <div class="s-meta">温度/top_p/context</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step">
+        <div class="s-icon">✅</div>
+        <div class="s-name">6. 生产部署</div>
+        <div class="s-desc">lh AI模型调用网关</div>
+        <div class="s-meta">:8778 · 智能路由</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 信息提示 -->
+  <div class="info-banner tip">
+    💡 <strong>自动化说明</strong>：模型下载、LoRA训练、GGUF转换、Ollama注册已通过 <code>bin/lh_lora_trainer_v4.py</code> 串联为自动化流水线。AI执行代理模式下，老大只需说"训练新模型"即可触发全链路。
+  </div>
+
+  <!-- 已部署模型表格 -->
+  <div class="section">
+    <div class="section-title">
+      <span class="icon">📋</span> 已部署模型注册表（Ollama）
+      <span class="badge production">生产</span>
+    </div>
+
+    <div class="filter-bar">
+      <input type="text" id="modelFilter" placeholder="🔍 搜索模型名称..." oninput="filterModels()">
+      <button class="filter-btn active" onclick="filterByType('all', this)">全部</button>
+      <button class="filter-btn" onclick="filterByType('production', this)">🟢 生产</button>
+      <button class="filter-btn" onclick="filterByType('experimental', this)">🟡 实验</button>
+      <button class="filter-btn" onclick="filterByType('auxiliary', this)">🔵 辅助</button>
+    </div>
+
+    <table class="model-table" id="modelTable">
+      <thead>
+        <tr>
+          <th>模型名称</th>
+          <th>标签</th>
+          <th>大小</th>
+          <th>类型</th>
+          <th>部署时间</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 生产模型 -->
+        <tr data-type="production">
+          <td><span class="m-name">longhun-v4.0:latest</span></td>
+          <td><span class="m-tag latest">主力</span><span class="m-tag base">Llama3.1-8B</span></td>
+          <td class="m-size">16 GB</td>
+          <td>生产模型</td>
+          <td class="m-date">6天前</td>
+        </tr>
+        <tr data-type="production">
+          <td><span class="m-name">longhun-v4.0:q4</span></td>
+          <td><span class="m-tag quantized">Q4量化</span></td>
+          <td class="m-size">4.9 GB</td>
+          <td>生产模型</td>
+          <td class="m-date">10天前</td>
+        </tr>
+        <!-- 实验模型 - v4.1系列 -->
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v4.1.4:latest</span></td>
+          <td><span class="m-tag exp">实验</span></td>
+          <td class="m-size">18 GB</td>
+          <td>实验模型</td>
+          <td class="m-date">2周前</td>
+        </tr>
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v4.1.1-bind-antenna:latest</span></td>
+          <td><span class="m-tag bind">天线绑定</span><span class="m-tag antenna">蚂蚁实验室</span></td>
+          <td class="m-size">17 GB</td>
+          <td>实验模型</td>
+          <td class="m-date">2周前</td>
+        </tr>
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v4.1.1-bind:latest</span></td>
+          <td><span class="m-tag bind">绑定</span></td>
+          <td class="m-size">17 GB</td>
+          <td>实验模型</td>
+          <td class="m-date">2周前</td>
+        </tr>
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v4.1.1:latest</span></td>
+          <td><span class="m-tag exp">实验</span></td>
+          <td class="m-size">17 GB</td>
+          <td>实验模型</td>
+          <td class="m-date">2周前</td>
+        </tr>
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v4.1.0:latest</span></td>
+          <td><span class="m-tag exp">实验</span></td>
+          <td class="m-size">17 GB</td>
+          <td>实验模型</td>
+          <td class="m-date">2周前</td>
+        </tr>
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v4.0.7:experimental</span></td>
+          <td><span class="m-tag exp">实验</span></td>
+          <td class="m-size">17 GB</td>
+          <td>实验模型</td>
+          <td class="m-date">2周前</td>
+        </tr>
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v4.0.6:latest</span></td>
+          <td><span class="m-tag exp">实验</span></td>
+          <td class="m-size">17 GB</td>
+          <td>实验模型</td>
+          <td class="m-date">2周前</td>
+        </tr>
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v4.0.5:latest</span></td>
+          <td><span class="m-tag exp">实验</span></td>
+          <td class="m-size">17 GB</td>
+          <td>实验模型</td>
+          <td class="m-date">2周前</td>
+        </tr>
+        <!-- 实验模型 - v4.3系列 -->
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v43-v3:latest</span></td>
+          <td><span class="m-tag exp">蚂蚁v3</span></td>
+          <td class="m-size">4.9 GB</td>
+          <td>实验模型</td>
+          <td class="m-date">9天前</td>
+        </tr>
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v43-v2:latest</span></td>
+          <td><span class="m-tag exp">蚂蚁v2</span></td>
+          <td class="m-size">4.9 GB</td>
+          <td>实验模型</td>
+          <td class="m-date">9天前</td>
+        </tr>
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v43:latest</span></td>
+          <td><span class="m-tag exp">蚂蚁</span></td>
+          <td class="m-size">4.9 GB</td>
+          <td>实验模型</td>
+          <td class="m-date">9天前</td>
+        </tr>
+        <!-- 实验模型 - v4.2系列 -->
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v42-sys:latest</span></td>
+          <td><span class="m-tag exp">系统</span></td>
+          <td class="m-size">4.9 GB</td>
+          <td>实验模型</td>
+          <td class="m-date">9天前</td>
+        </tr>
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v42-v3:latest</span></td>
+          <td><span class="m-tag exp">v3</span></td>
+          <td class="m-size">4.9 GB</td>
+          <td>实验模型</td>
+          <td class="m-date">9天前</td>
+        </tr>
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v42-v2:latest</span></td>
+          <td><span class="m-tag exp">v2</span></td>
+          <td class="m-size">4.9 GB</td>
+          <td>实验模型</td>
+          <td class="m-date">9天前</td>
+        </tr>
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v41:latest</span></td>
+          <td><span class="m-tag exp">实验</span></td>
+          <td class="m-size">4.9 GB</td>
+          <td>实验模型</td>
+          <td class="m-date">10天前</td>
+        </tr>
+        <!-- 轻量模型 -->
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v3.8-expanded:latest</span></td>
+          <td><span class="m-tag exp">扩展</span></td>
+          <td class="m-size">986 MB</td>
+          <td>轻量实验</td>
+          <td class="m-date">10天前</td>
+        </tr>
+        <tr data-type="experimental">
+          <td><span class="m-name">longhun-v3.8:latest</span></td>
+          <td><span class="m-tag latest">稳定</span></td>
+          <td class="m-size">3.1 GB</td>
+          <td>轻量实验</td>
+          <td class="m-date">10天前</td>
+        </tr>
+        <!-- 辅助模型 -->
+        <tr data-type="auxiliary">
+          <td><span class="m-name">qwen2.5:1.5b</span></td>
+          <td><span class="m-tag base">底座</span></td>
+          <td class="m-size">986 MB</td>
+          <td>底座模型</td>
+          <td class="m-date">3周前</td>
+        </tr>
+        <tr data-type="auxiliary">
+          <td><span class="m-name">nomic-embed-text:latest</span></td>
+          <td><span class="m-tag embed">嵌入</span></td>
+          <td class="m-size">274 MB</td>
+          <td>嵌入模型</td>
+          <td class="m-date">4周前</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 训练历史时间线 -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📜</span> 训练迭代历史</div>
+    <div class="timeline">
+
+      <div class="timeline-item" data-status="training">
+        <div class="tl-header">
+          <span class="tl-version">v4.1.6 📍</span>
+          <span class="tl-date">正在训练中</span>
+        </div>
+        <div class="tl-desc">最新迭代 · 持续优化 · 基于v4.1.5 checkpoint继续训练</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📊 alpha=64</span><span>🐉 Llama-3.1-8B</span><span>📦 ~260MB LoRA</span>
+        </div>
+        <span class="tl-status-tag warm">训练中</span>
+      </div>
+
+      <div class="timeline-item" data-status="experimental">
+        <div class="tl-header">
+          <span class="tl-version">v4.1.5</span>
+          <span class="tl-date">2026-08-05</span>
+        </div>
+        <div class="tl-desc">优化参数迭代 · LoRA权重微调</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📦 ~156MB LoRA</span><span>🐉 Llama-3.1-8B</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-status="experimental">
+        <div class="tl-header">
+          <span class="tl-version">v4.1.4</span>
+          <span class="tl-date">2026-07-28</span>
+        </div>
+        <div class="tl-desc">重大实验 · 18GB Ollama部署 · 加入更多知识域数据</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📊 alpha=64</span><span>📦 34GB训练产物</span><span>🐉 Llama-3.1-8B</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-status="experimental">
+        <div class="tl-header">
+          <span class="tl-version">v4.1.3</span>
+          <span class="tl-date">2026-07-24</span>
+        </div>
+        <div class="tl-desc">快速迭代 · 修复数据质量</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📦 12KB LoRA</span><span>🐉 Llama-3.1-8B</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-status="experimental">
+        <div class="tl-header">
+          <span class="tl-version">v4.1.2</span>
+          <span class="tl-date">2026-07-23</span>
+        </div>
+        <div class="tl-desc">精简实验 · 小LoRA快速验证</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📦 52MB LoRA</span><span>🐉 Llama-3.1-8B</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-status="experimental">
+        <div class="tl-header">
+          <span class="tl-version">v4.1.1 / v4.1.1-bind / v4.1.1-bind-antenna</span>
+          <span class="tl-date">2026-07-22</span>
+        </div>
+        <div class="tl-desc">关键实验 · 天线绑定分支 · 蚂蚁实验室联调 · 三路并行</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📊 alpha=64</span><span>📦 23GB × 3路</span><span>🐉 Llama-3.1-8B</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-status="experimental">
+        <div class="tl-header">
+          <span class="tl-version">v4.1.0</span>
+          <span class="tl-date">2026-07-20</span>
+        </div>
+        <div class="tl-desc">训练数据扩充 · 新增知识域</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📊 alpha=64</span><span>📦 23GB</span><span>🐉 Llama-3.1-8B</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-status="experimental">
+        <div class="tl-header">
+          <span class="tl-version">v4.0.9</span>
+          <span class="tl-date">2026-07-18</span>
+        </div>
+        <div class="tl-desc">精简训练 · LoRA小型化实验</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📦 1.5GB</span><span>🐉 Llama-3.1-8B</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-status="experimental">
+        <div class="tl-header">
+          <span class="tl-version">v4.0.8</span>
+          <span class="tl-date">2026-07-17</span>
+        </div>
+        <div class="tl-desc">精简训练实验</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📦 4.7GB</span><span>🐉 Llama-3.1-8B</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-status="experimental">
+        <div class="tl-header">
+          <span class="tl-version">v4.0.7</span>
+          <span class="tl-date">2026-07-15</span>
+        </div>
+        <div class="tl-desc">Ollama部署为experimental标签 · 17GB · 测试推理效果</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📊 alpha=64</span><span>📦 34GB</span><span>🐉 Llama-3.1-8B</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-status="experimental">
+        <div class="tl-header">
+          <span class="tl-version">v4.0.6</span>
+          <span class="tl-date">2026-07-14</span>
+        </div>
+        <div class="tl-desc">17GB Ollama部署 · 实验标签</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📦 24GB</span><span>🐉 Llama-3.1-8B</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-status="experimental">
+        <div class="tl-header">
+          <span class="tl-version">v4.0.5</span>
+          <span class="tl-date">2026-07-13</span>
+        </div>
+        <div class="tl-desc">17GB · 训练优化迭代</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📦 32GB</span><span>🐉 Llama-3.1-8B</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-status="experimental">
+        <div class="tl-header">
+          <span class="tl-version">v4.0.4</span>
+          <span class="tl-date">2026-07-11</span>
+        </div>
+        <div class="tl-desc">34GB训练产物 · 参数调优</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📊 alpha=64</span><span>📦 34GB</span><span>🐉 Llama-3.1-8B</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-status="experimental">
+        <div class="tl-header">
+          <span class="tl-version">v4.0.3</span>
+          <span class="tl-date">2026-07-09</span>
+        </div>
+        <div class="tl-desc">25GB · 训练策略调整</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📦 25GB</span><span>🐉 Llama-3.1-8B</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-status="experimental">
+        <div class="tl-header">
+          <span class="tl-version">v4.0.2</span>
+          <span class="tl-date">2026-07-08</span>
+        </div>
+        <div class="tl-desc">31GB · 首次迭代</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📦 31GB</span><span>🐉 Llama-3.1-8B</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-status="experimental">
+        <div class="tl-header">
+          <span class="tl-version">v4.0 DeepSeek R1</span>
+          <span class="tl-date">2026-07-06</span>
+        </div>
+        <div class="tl-desc">DeepSeek-R1-Distill-Llama-8B 底座 · 31GB LoRA训练产物</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📦 31GB</span><span>🐉 DeepSeek-R1-8B</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-status="experimental">
+        <div class="tl-header">
+          <span class="tl-version">v4.0 天线分支</span>
+          <span class="tl-date">2026-07-05</span>
+        </div>
+        <div class="tl-desc">蚂蚁实验室天线分支 · 17GB并行训练</div>
+        <div class="tl-meta">
+          <span>🔧 rank=16</span><span>📦 17GB</span><span>🐉 Llama-3.1-8B</span>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-status="production">
+        <div class="tl-header">
+          <span class="tl-version">v4.0 ⭐</span>
+          <span class="tl-date">2026-07-03</span>
+        </div>
+        <div class="tl-desc"><strong>底座升级里程碑</strong>：Qwen2.5-1.5B → Llama-3.1-8B。979条训练样本，13知识域·家法主权。Val 1.218，16GB Ollama部署，当前生产主力。</div>
+        <div class="tl-meta">
+          <span>🔧 LoRA rank=16</span><span>📊 alpha=64</span><span>📦 32GB</span><span>🧪 Val=1.218</span><span>📝 979样本</span>
+        </div>
+        <span class="tl-status-tag live">主力</span>
+      </div>
+
+      <div class="timeline-item" data-status="production">
+        <div class="tl-header">
+          <span class="tl-version">v3.7</span>
+          <span class="tl-date">2026-06-15</span>
+        </div>
+        <div class="tl-desc"><strong>第一代主力</strong>：Qwen2.5-1.5B底座 · 1273条训练样本 · 13知识域 · Val 0.194 · 4.3GB Ollama部署 · 早停优化</div>
+        <div class="tl-meta">
+          <span>🔧 LoRA rank=16</span><span>📊 alpha=64</span><span>📦 48GB</span><span>🧪 Val=0.194</span><span>📝 1273样本</span>
+        </div>
+        <span class="tl-status-tag frozen">归档</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 底座模型 -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🏗️</span> 底座模型</div>
+    <div class="base-models">
+      <div class="base-card">
+        <div class="b-name">🦙 Meta-Llama-3.1-8B-Instruct</div>
+        <div class="b-source">Meta · HuggingFace · 8B参数</div>
+        <div class="b-meta">
+          <span>📦 68KB（索引）</span>
+          <span>🐉 v4.0+ 底座</span>
+          <span>🟢 主力</span>
+        </div>
+      </div>
+      <div class="base-card">
+        <div class="b-name">🤖 Qwen2.5-1.5B</div>
+        <div class="b-source">阿里 · Ollama官方 · 1.5B参数</div>
+        <div class="b-meta">
+          <span>📦 986MB</span>
+          <span>🐉 v3.7 底座</span>
+          <span>🟡 归档</span>
+        </div>
+      </div>
+      <div class="base-card">
+        <div class="b-name">🧠 DeepSeek-R1-Distill-Llama-8B</div>
+        <div class="b-source">DeepSeek · HuggingFace · 8B参数</div>
+        <div class="b-meta">
+          <span>📦 15GB</span>
+          <span>🐉 v4.0 DeepSeek分支</span>
+          <span>🟡 实验</span>
+        </div>
+      </div>
+      <div class="base-card">
+        <div class="b-name">🏯 Yi-1.5-9B-Chat</div>
+        <div class="b-source">零一万物 · HuggingFace · 9B参数</div>
+        <div class="b-meta">
+          <span>📦 16GB</span>
+          <span>🐉 备选底座</span>
+          <span>🔵 备用</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 训练配置 -->
+  <div class="section">
+    <div class="section-title"><span class="icon">⚙️</span> 训练配置参数</div>
+    <div class="config-grid">
+      <div class="config-card">
+        <h4>🔧 LoRA 配置</h4>
+        <div class="cfg-row"><span class="key">rank</span><span class="val">16</span></div>
+        <div class="cfg-row"><span class="key">alpha</span><span class="val">64</span></div>
+        <div class="cfg-row"><span class="key">dropout</span><span class="val">0.05</span></div>
+        <div class="cfg-row"><span class="key">target_modules</span><span class="val">q_proj, v_proj</span></div>
+      </div>
+      <div class="config-card">
+        <h4>🏋️ 训练超参</h4>
+        <div class="cfg-row"><span class="key">learning_rate</span><span class="val">1e-5</span></div>
+        <div class="cfg-row"><span class="key">epochs</span><span class="val">8</span></div>
+        <div class="cfg-row"><span class="key">batch_size</span><span class="val">4</span></div>
+        <div class="cfg-row"><span class="key">optimizer</span><span class="val">AdamW</span></div>
+      </div>
+      <div class="config-card">
+        <h4>🧠 推理配置（当前主力 v4.0）</h4>
+        <div class="cfg-row"><span class="key">temperature</span><span class="val">0.7</span></div>
+        <div class="cfg-row"><span class="key">top_p</span><span class="val">0.9</span></div>
+        <div class="cfg-row"><span class="key">num_ctx</span><span class="val">4096</span></div>
+        <div class="cfg-row"><span class="key">template</span><span class="val">Llama3-Instruct</span></div>
+      </div>
+      <div class="config-card">
+        <h4>📊 量化配置</h4>
+        <div class="cfg-row"><span class="key">精度</span><span class="val">F16 → Q4_K_M</span></div>
+        <div class="cfg-row"><span class="key">压缩比</span><span class="val">~3.3:1</span></div>
+        <div class="cfg-row"><span class="key">v4.0 F16</span><span class="val">16 GB</span></div>
+        <div class="cfg-row"><span class="key">v4.0 Q4</span><span class="val">4.9 GB</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 存储概览 -->
+  <div class="section">
+    <div class="section-title"><span class="icon">💾</span> 存储概览</div>
+    <div class="storage-grid">
+      <div class="storage-card">
+        <div class="st-name">📦 模型仓库总计</div>
+        <div class="st-size">~715 GB</div>
+        <div class="st-bar-outer"><div class="st-bar-inner model" style="width:95%"></div></div>
+      </div>
+      <div class="storage-card">
+        <div class="st-name">🏗️ 底座模型</div>
+        <div class="st-size">31 GB</div>
+        <div class="st-bar-outer"><div class="st-bar-inner base" style="width:31%"></div></div>
+      </div>
+      <div class="storage-card">
+        <div class="st-name">🏋️ 训练产物</div>
+        <div class="st-size">~384 GB</div>
+        <div class="st-bar-outer"><div class="st-bar-inner training" style="width:68%"></div></div>
+      </div>
+      <div class="storage-card">
+        <div class="st-name">📊 量化部署</div>
+        <div class="st-size">~107 GB</div>
+        <div class="st-bar-outer"><div class="st-bar-inner quantized" style="width:19%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 信息提示 -->
+  <div class="info-banner warn">
+    ⚠️ <strong>注意</strong>：v3.7训练产物（48GB）和部分早期v4.0.x中间产物可考虑归档清理以释放磁盘。当前生产主力为 <code>longhun-v4.0:latest</code>（16GB）及量化版 <code>longhun-v4.0:q4</code>（4.9GB）。
+  </div>
+
+  <!-- 快速操作 -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🎮</span> 快速操作</div>
+    <div class="actions">
+      <button class="act-btn" onclick="navigator.clipboard.writeText('ollama list')" title="复制命令">
+        📋 查看模型列表
+      </button>
+      <button class="act-btn" onclick="navigator.clipboard.writeText('ollama run longhun-v4.0')" title="复制命令">
+        🚀 启动v4.0
+      </button>
+      <button class="act-btn" onclick="navigator.clipboard.writeText('python3 bin/lh_lora_trainer_v4.py')" title="复制命令">
+        🏋️ 训练新模型
+      </button>
+      <button class="act-btn" onclick="navigator.clipboard.writeText('python3 bin/lh_gpg_sign.py sign .')" title="复制命令">
+        ✍️ GPG签名
+      </button>
+      <button class="act-btn primary" onclick="navigator.clipboard.writeText('python3 bin/lh_memory_load.py')" title="复制命令">
+        🧠 加载记忆
+      </button>
+      <button class="act-btn danger" onclick="navigator.clipboard.writeText('ollama rm MODEL_NAME')" title="复制命令">
+        🗑️ 删除模型
+      </button>
+    </div>
+  </div>
+
+</main>
+
+<!-- DNA 页脚 -->
+<div id="dna-ring">
+  <div class="line"><span class="hl">DNA:</span> #龍芯⚡️丙午·丙申·戊申·亥时·䷗复-MODEL-CENTER-v1.0</div>
+  <div class="line" style="margin-top:2px">创建者: <span class="hl">诸葛鑫（UID9622）</span> | 协议: CC BY-NC-SA 4.0 / MulanPSL v2</div>
+  <div class="line" style="margin-top:2px">GPG: <span class="hl">A2D0092CEE2E5BA87035600924C3704A8CC26D5F</span></div>
+</div>
+<footer>
+  <p>🐉 龍魂AI模型管理中心 v1.0 | 全生命周期DNA追溯 | 三色审计: 🟢 所有已部署模型通过安全审查</p>
+  <p class="dna">确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</p>
+</footer>
+
+<script>
+// 模型过滤
+function filterModels() {
+  const q = document.getElementById('modelFilter').value.toLowerCase();
+  document.querySelectorAll('#modelTable tbody tr').forEach(tr => {
+    const name = tr.querySelector('.m-name')?.textContent.toLowerCase() || '';
+    tr.style.display = name.includes(q) ? '' : 'none';
+  });
+}
+
+function filterByType(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#modelTable tbody tr').forEach(tr => {
+    if (type === 'all') { tr.style.display = ''; return; }
+    tr.style.display = tr.dataset.type === type ? '' : 'none';
+  });
+}
+
+// 键盘快捷键
+document.addEventListener('keydown', e => {
+  if (e.key === '/' && document.activeElement !== document.getElementById('modelFilter')) {
+    e.preventDefault();
+    document.getElementById('modelFilter').focus();
+  }
+});
+</script>
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

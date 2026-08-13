@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="诸葛鑫（UID9622）">
+<meta name="dna" content="#龍芯⚡️丙午·甲申·庚子·坤卦-TEMPLATE-EXAMPLE-BEHAVIORAL-CRYPTO-UID9622">
+<meta name="keywords" content="行为密码学,七因子追溯,数字签名,行为指纹,龍魂">
+<meta property="og:title" content="行为密码学七因子追溯框架——人如何在数字世界被唯一识别">
+<meta property="og:description" content="不靠密码，靠行为模式。七因子行为指纹的数学证明与工程落地。">
+<title>行为密码学七因子追溯框架——示例文章 | 龍魂 模板示例</title>
+<link rel="stylesheet" href="/assets/css/longhun-master.css">
+<style>
+.article-container { max-width: 780px; margin: 60px auto; padding: 0 24px; }
+.article-header { text-align: center; padding-bottom: 32px; margin-bottom: 40px; border-bottom: 1px solid var(--lh-border); }
+.article-header h1 { font-size: 1.8rem; font-weight: 800; color: var(--lh-gold-light); line-height: 1.5; margin-bottom: 16px; }
+.article-meta { display: flex; justify-content: center; gap: 24px; font-size: 13px; color: var(--lh-text-muted); flex-wrap: wrap; }
+.article-meta span { display: flex; align-items: center; gap: 6px; }
+.article-tags { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+.article-body { font-size: 15px; line-height: 1.9; text-align: justify; }
+.article-body h2 { font-size: 1.3rem; color: var(--lh-gold); margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--lh-border); }
+.article-body h3 { font-size: 1.05rem; color: var(--lh-gold-light); margin: 28px 0 12px; }
+.article-body p { margin-bottom: 18px; }
+.article-body img { max-width: 100%; border-radius: var(--lh-radius); margin: 24px auto; display: block; }
+.article-body blockquote { border-left: 3px solid var(--lh-gold); background: var(--lh-gold-dim); padding: 16px 24px; margin: 24px 0; border-radius: 0 var(--lh-radius) var(--lh-radius) 0; font-size: 14px; }
+.article-body pre { background: var(--lh-bg-deep); padding: 16px 20px; border-radius: var(--lh-radius); overflow-x: auto; font-size: 13px; line-height: 1.6; margin: 20px 0; }
+.article-body code { font-family: var(--lh-font-mono); background: var(--lh-gold-dim); padding: 2px 6px; border-radius: 3px; font-size: 13px; color: var(--lh-gold-light); }
+.article-body pre code { background: none; padding: 0; color: var(--lh-text-primary); }
+.article-body table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 13px; }
+.article-body table th { background: var(--lh-gold-dim); color: var(--lh-gold); padding: 10px 14px; border: 1px solid var(--lh-border); }
+.article-body table td { padding: 10px 14px; border: 1px solid var(--lh-border-light); }
+.figure-caption { text-align: center; color: var(--lh-text-muted); font-size: 13px; margin-top: -16px; margin-bottom: 24px; }
+.article-audit { margin-top: 48px; display: flex; flex-wrap: wrap; gap: 16px; padding: 16px 20px; background: var(--lh-bg-card); border: 1px solid var(--lh-border); border-radius: var(--lh-radius); font-size: 13px; color: var(--lh-text-muted); }
+@media (max-width: 768px) { .article-header h1 { font-size: 1.4rem; } }
+@media print { body { background: white; color: black; } .article-body, .article-header h1 { color: black; } }
+</style>
+</head>
+<body>
+
+<nav class="lh-article-nav" style="padding:16px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--lh-border);">
+  <a href="/" style="font-weight:700; color:var(--lh-gold);">🐉 龍魂</a>
+  <div style="display:flex; gap:16px; font-size:14px;">
+    <a href="/articles/">文章</a>
+    <a href="/templates/">模板</a>
+    <a href="/portal-index.html">首页</a>
+  </div>
+</nav>
+
+<main class="article-container">
+
+  <header class="article-header">
+    <h1>行为密码学七因子追溯框架——人如何在数字世界被唯一识别</h1>
+    <div class="article-meta">
+      <span>📅 2026-08-07</span>
+      <span>👤 诸葛鑫（UID9622）</span>
+      <span>🕐 阅读约 8 分钟</span>
+    </div>
+    <div class="article-tags">
+      <span class="lh-badge">行为密码学</span>
+      <span class="lh-badge">七因子</span>
+      <span class="lh-badge">数字身份</span>
+      <span class="lh-badge">安全</span>
+    </div>
+  </header>
+
+  <div class="article-body">
+
+    <h2>密码会忘记，行为不会骗人</h2>
+    <p>传统身份认证依赖"你知道什么"（密码）或"你有什么"（手机/密钥）。但这些都可能被窃取、遗忘、伪造。行为密码学的核心思想是：<strong>你是谁，取决于你如何行为，而不是你记住什么。</strong></p>
+
+    <blockquote>
+      核心公式：Identity = f(Behavior₁, Behavior₂, ..., Behavior₇)<br>
+      七个因子的组合构成了90亿种可能的状态——比地球人口还多。
+    </blockquote>
+
+    <h2>七因子行为指纹</h2>
+
+    <p>我们定义了七个独立的行为维度，每个维度都可以在数字交互中被测量：</p>
+
+    <table>
+      <thead>
+        <tr><th>#</th><th>因子名称</th><th>测量内容</th><th>权重</th><th>稳定性</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>F1</td><td>打字节律</td><td>击键间隔·力度·节奏</td><td>18%</td><td>高</td></tr>
+        <tr><td>F2</td><td>鼠标轨迹</td><td>移动曲线·停顿模式</td><td>12%</td><td>中</td></tr>
+        <tr><td>F3</td><td>语言风格</td><td>用词频率·句式结构</td><td>22%</td><td>中</td></tr>
+        <tr><td>F4</td><td>时间模式</td><td>活跃时段·操作间隔</td><td>15%</td><td>高</td></tr>
+        <tr><td>F5</td><td>决策风格</td><td>犹豫度·信息收集量</td><td>14%</td><td>中低</td></tr>
+        <tr><td>F6</td><td>设备指纹</td><td>硬件·浏览器·分辨率</td><td>10%</td><td>低</td></tr>
+        <tr><td>F7</td><td>社交图谱</td><td>交互对象·转发网络</td><td>9%</td><td>中</td></tr>
+      </tbody>
+    </table>
+
+    <h2>为什么是七个因子？</h2>
+
+    <p>七个因子的数学优势在于：7是质数，且7个独立维度的组合空间 = 10×10×...×10 = 10⁷ = 10,000,000种基本状态。再乘以各因子的量化级数，总状态空间超过90亿——这确保了：</p>
+
+    <ul>
+      <li><strong>唯一性</strong>：地球上80亿人，每人有约1.12个独特状态</li>
+      <li><strong>容错性</strong>：即使3个因子被模仿，剩余4个仍能提供10,000种区分度</li>
+      <li><strong>不可逆性</strong>：从行为到身份是单向的——知道行为指纹无法逆向获得密码</li>
+    </ul>
+
+    <h2>安全等级与隐私设计</h2>
+
+    <p>行为密码学的基石原则：<strong>这些行为数据永远不出用户设备</strong>。七因子的计算全部在本地完成，只有不可逆的哈希结果传到服务器。任何人——包括系统管理员——都无法从哈希反向推导行为特征。</p>
+
+    <table>
+      <thead>
+        <tr><th>安全等级</th><th>验证方式</th><th>适用场景</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>L1 基础</td><td>1-2个行为因子 + 密码</td><td>日常登录</td></tr>
+        <tr><td>L2 增强</td><td>4-5个行为因子</td><td>支付·敏感操作</td></tr>
+        <tr><td>L3 高安全</td><td>全部7个因子 + GPG签名</td><td>特权操作·系统管理</td></tr>
+        <tr><td>L4 主权</td><td>7因子 + DNA追溯 + 物理设备</td><td>UID9622专属</td></tr>
+      </tbody>
+    </table>
+
+    <h2>工程落地：一行代码接入</h2>
+
+    <p>行为密码学已完整落地为Python SDK：</p>
+
+<pre><code># 安装
+pip install longhun-behavioral-crypto
+
+# 一行代码生成行为指纹
+from longhun_behavioral import BehavioralFingerprint
+bf = BehavioralFingerprint()
+fingerprint_hash = bf.generate()  # 返回 SHA-256 哈希
+print(f"行为指纹: {fingerprint_hash[:16]}...")</code></pre>
+
+    <p>API端口 <code>:8775</code> 提供完整的七因子验证服务。</p>
+
+    <h2>与传统认证的对比</h2>
+
+    <table>
+      <thead>
+        <tr><th>特性</th><th>传统密码</th><th>双因素认证(2FA)</th><th>行为密码学</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>可遗忘</td><td>是</td><td>是（手机丢失）</td><td style="color:var(--lh-green);">否</td></tr>
+        <tr><td>可窃取</td><td>是</td><td>是（SIM劫持）</td><td style="color:var(--lh-green);">否（需完整行为模拟）</td></tr>
+        <tr><td>验证延迟</td><td>即时</td><td>5-30秒</td><td>1-3秒</td></tr>
+        <tr><td>隐私保护</td><td>中</td><td>低（手机号泄露）</td><td style="color:var(--lh-green);">高（本地计算）</td></tr>
+        <tr><td>持续验证</td><td>否</td><td>否</td><td style="color:var(--lh-green);">是（行为漂移检测）</td></tr>
+      </tbody>
+    </table>
+
+    <h2>行为漂移检测：持续安全</h2>
+
+    <p>传统认证是"一次性"的——登录时验证，之后不再检查。行为密码学引入了<strong>行为漂移检测</strong>：系统持续监测当前行为与历史基线之间的偏差。如果有人在会话中途接过你的键盘，七因子的漂移会立刻暴露这一事实。</p>
+
+    <blockquote>
+      这种行为漂移检测已经内置于龍魂的身份核验引擎（`bin/lh_identity_verify.py`），作为六重认证链的第二重。
+    </blockquote>
+
+    <h2>展望：从身份验证到主权确认</h2>
+
+    <p>行为密码学的终极目标不是替代密码——而是确立<strong>数字主权</strong>。当你的数字身份由你的行为模式唯一确认时，任何第三方就无法伪造你的数字存在。这是龍魂"信息主权不可让渡"原则的技术基石。</p>
+
+  </div>
+
+  <div class="article-audit">
+    <div class="audit-item"><span>🟢 审计: 通过</span></div>
+    <div class="audit-item"><span>📁 模板: article-template.html 示例</span></div>
+    <div class="audit-item"><span>📜 协议: CC BY-NC-SA 4.0（核心思想层）</span></div>
+    <div class="audit-item"><span>🔏 GPG: 待签</span></div>
+  </div>
+
+</main>
+
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

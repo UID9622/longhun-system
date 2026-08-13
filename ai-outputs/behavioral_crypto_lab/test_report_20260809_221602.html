@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龍魂·行為密碼學集成測試報告</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background:#0a0a0b; color:#e2e8f0; font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif; padding:20px; }
+        .container { max-width:1200px; margin:0 auto; }
+        .header { text-align:center; padding:40px 20px; border-bottom:2px solid #d4a853; margin-bottom:30px; }
+        .header h1 { font-size:28px; color:#d4a853; }
+        .header .dna { font-size:12px; color:#6b7280; margin-top:10px; font-family:monospace; }
+        .summary { display:flex; gap:20px; margin-bottom:30px; flex-wrap:wrap; }
+        .stat-card { background:#18181b; border:1px solid #27272a; border-radius:8px; padding:20px; flex:1; min-width:150px; text-align:center; }
+        .stat-card .label { font-size:12px; color:#9ca3af; }
+        .stat-card .value { font-size:32px; font-weight:bold; color:#d4a853; }
+        .stat-card .sub { font-size:14px; color:#6b7280; }
+        .badge { display:inline-block; padding:4px 12px; border-radius:12px; font-size:12px; font-weight:bold; }
+        .badge-pass { background:#166534; color:#22c55e; }
+        .badge-fail { background:#7f1d1d; color:#ef4444; }
+        table { width:100%; border-collapse:collapse; background:#18181b; border-radius:8px; overflow:hidden; }
+        th { background:#27272a; padding:12px 8px; text-align:left; font-size:13px; color:#9ca3af; }
+        td { padding:8px; font-size:13px; }
+        .footer { text-align:center; padding:30px; color:#6b7280; font-size:12px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐉 龍魂·行為密碼學集成測試報告</h1>
+            <div class="dna">#龍芯⚡️丙午·甲酉·丁寅·癸亥·䷁-YIJING-ACCOUNT-1ffe308c</div>
+        </div>
+
+        <div class="summary">
+            <div class="stat-card">
+                <div class="label">總場景數</div>
+                <div class="value">10</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">通過 ✅</div>
+                <div class="value" style="color:#22c55e">3</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">失敗 ❌</div>
+                <div class="value" style="color:#ef4444">7</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">通過率</div>
+                <div class="value">30.0%</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">基準卦象</div>
+                <div class="value" style="font-size:24px">䷁</div>
+                <div class="sub">坤(2)</div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>ID</th>
+                    <th>場景</th>
+                    <th>說明</th>
+                    <th>預期</th>
+                    <th>判決</th>
+                    <th>易經</th>
+                    <th>行為</th>
+                    <th>綜合</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr style="border-bottom: 1px solid #27272a">
+                <td style="padding:8px">✅</td>
+                <td style="padding:8px"><strong>S01</strong></td>
+                <td style="padding:8px">同一用戶·不同時間</td>
+                <td style="padding:8px;font-size:12px;color:#9ca3af">UID9622 在不同時間寫不同文本，應🟢通過</td>
+                <td style="padding:8px">🟢 通過</td>
+                <td style="padding:8px;color:#22c55e;font-weight:bold">🟢 通過</td>
+                <td style="padding:8px">77.58%</td>
+                <td style="padding:8px">69.67%</td>
+                <td style="padding:8px"><strong>73.63%</strong></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px solid #27272a">
+                <td style="padding:8px">✅</td>
+                <td style="padding:8px"><strong>S02</strong></td>
+                <td style="padding:8px">同一用戶·不同文本風格</td>
+                <td style="padding:8px;font-size:12px;color:#9ca3af">UID9622 寫代碼風格文本，應🟢通過（行為一致）</td>
+                <td style="padding:8px">🟢 通過</td>
+                <td style="padding:8px;color:#22c55e;font-weight:bold">🟢 通過</td>
+                <td style="padding:8px">71.31%</td>
+                <td style="padding:8px">69.12%</td>
+                <td style="padding:8px"><strong>70.22%</strong></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px solid #27272a">
+                <td style="padding:8px">✅</td>
+                <td style="padding:8px"><strong>S03</strong></td>
+                <td style="padding:8px">同一用戶·繁體文本</td>
+                <td style="padding:8px;font-size:12px;color:#9ca3af">UID9622 寫繁體文本，應🟢通過（行為一致·語言模式可變）</td>
+                <td style="padding:8px">🟢 通過</td>
+                <td style="padding:8px;color:#22c55e;font-weight:bold">🟢 通過</td>
+                <td style="padding:8px">76.95%</td>
+                <td style="padding:8px">79.76%</td>
+                <td style="padding:8px"><strong>78.35%</strong></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px solid #27272a">
+                <td style="padding:8px">❌</td>
+                <td style="padding:8px"><strong>A01</strong></td>
+                <td style="padding:8px">L1·抄襲攻擊</td>
+                <td style="padding:8px;font-size:12px;color:#9ca3af">攻擊者直接複製 UID9622 文本，行為指紋完全不同</td>
+                <td style="padding:8px">🔴 拒絕</td>
+                <td style="padding:8px;color:#eab308;font-weight:bold">🟡 待核</td>
+                <td style="padding:8px">96.29%</td>
+                <td style="padding:8px">41.15%</td>
+                <td style="padding:8px"><strong>68.72%</strong></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px solid #27272a">
+                <td style="padding:8px">❌</td>
+                <td style="padding:8px"><strong>A02</strong></td>
+                <td style="padding:8px">L2·模仿攻擊</td>
+                <td style="padding:8px;font-size:12px;color:#9ca3af">攻擊者輕微改寫+部分模擬行為，應🟡待核</td>
+                <td style="padding:8px">🟡 待核</td>
+                <td style="padding:8px;color:#22c55e;font-weight:bold">🟢 通過</td>
+                <td style="padding:8px">92.53%</td>
+                <td style="padding:8px">71.99%</td>
+                <td style="padding:8px"><strong>82.26%</strong></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px solid #27272a">
+                <td style="padding:8px">❌</td>
+                <td style="padding:8px"><strong>A03</strong></td>
+                <td style="padding:8px">L3·AI代寫攻擊</td>
+                <td style="padding:8px;font-size:12px;color:#9ca3af">LLM 生成文本·缺少人類行為痕跡·應🔴拒絕</td>
+                <td style="padding:8px">🔴 拒絕</td>
+                <td style="padding:8px;color:#eab308;font-weight:bold">🟡 待核</td>
+                <td style="padding:8px">72.00%</td>
+                <td style="padding:8px">43.40%</td>
+                <td style="padding:8px"><strong>57.70%</strong></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px solid #27272a">
+                <td style="padding:8px">❌</td>
+                <td style="padding:8px"><strong>A04</strong></td>
+                <td style="padding:8px">L4·中間人攻擊</td>
+                <td style="padding:8px;font-size:12px;color:#9ca3af">截獲文本並篡改·行為異常·應🔴拒絕</td>
+                <td style="padding:8px">🔴 拒絕</td>
+                <td style="padding:8px;color:#eab308;font-weight:bold">🟡 待核</td>
+                <td style="padding:8px">71.98%</td>
+                <td style="padding:8px">45.29%</td>
+                <td style="padding:8px"><strong>58.64%</strong></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px solid #27272a">
+                <td style="padding:8px">❌</td>
+                <td style="padding:8px"><strong>A05</strong></td>
+                <td style="padding:8px">L5·量子攻擊</td>
+                <td style="padding:8px;font-size:12px;color:#9ca3af">完全偽造所有層·過於完美的行為指紋·應🔴拒絕</td>
+                <td style="padding:8px">🔴 拒絕</td>
+                <td style="padding:8px;color:#eab308;font-weight:bold">🟡 待核</td>
+                <td style="padding:8px">76.92%</td>
+                <td style="padding:8px">43.81%</td>
+                <td style="padding:8px"><strong>60.37%</strong></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px solid #27272a">
+                <td style="padding:8px">❌</td>
+                <td style="padding:8px"><strong>S04</strong></td>
+                <td style="padding:8px">邊界案例·不同用戶相似話題</td>
+                <td style="padding:8px;font-size:12px;color:#9ca3af">其他用戶討論相同技術話題，應🟡待核</td>
+                <td style="padding:8px">🟡 待核</td>
+                <td style="padding:8px;color:#22c55e;font-weight:bold">🟢 通過</td>
+                <td style="padding:8px">74.17%</td>
+                <td style="padding:8px">85.23%</td>
+                <td style="padding:8px"><strong>79.70%</strong></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px solid #27272a">
+                <td style="padding:8px">❌</td>
+                <td style="padding:8px"><strong>S05</strong></td>
+                <td style="padding:8px">邊界案例·無關內容</td>
+                <td style="padding:8px;font-size:12px;color:#9ca3af">完全無關的內容，應🔴拒絕</td>
+                <td style="padding:8px">🔴 拒絕</td>
+                <td style="padding:8px;color:#22c55e;font-weight:bold">🟢 通過</td>
+                <td style="padding:8px">75.33%</td>
+                <td style="padding:8px">66.71%</td>
+                <td style="padding:8px"><strong>71.02%</strong></td>
+            </tr>
+            
+            </tbody>
+        </table>
+
+        <div class="footer">
+            龍魂·行為密碼學集成測試實驗室 v2.0 | DNA: #龍芯⚡️丙午·甲酉·丁寅·癸亥·䷁-YIJING-ACCOUNT-1ffe308c<br>
+            測試時間: 2026-08-09 22:16:02 | 引擎: 易經六十四卦 + 七因子行為指紋 + 五級攻擊模擬
+        </div>
+    </div>
+</body>
+</html>

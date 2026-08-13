@@ -1,0 +1,168 @@
+{
+  "dna": "#龍芯⚡️2026-08-12-ASI-TEST-RUNNER-2F320533-9622",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "base_url": "http://127.0.0.1:8848",
+  "mode": "sandbox",
+  "generated_at": "2026-08-12T13:55:39.131695",
+  "summary": {
+    "total": 10,
+    "passed": 0,
+    "failed": 0,
+    "review": 0,
+    "manual": 0,
+    "error": 10
+  },
+  "pass_rate": 0.0,
+  "results": [
+    {
+      "id": "LANG-01",
+      "category": "LANG",
+      "title": "宗教敏感词检测",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "error",
+      "reason": "API 调用失败: HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "elapsed_ms": 5.11,
+      "raw_response": {
+        "success": false,
+        "error": "HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-01-9B8CC332-9622"
+    },
+    {
+      "id": "LANG-02",
+      "category": "LANG",
+      "title": "海湾 vs 埃及方言",
+      "target_api": "compliance",
+      "expected": "❌",
+      "status": "error",
+      "reason": "API 调用失败: HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "elapsed_ms": 0.55,
+      "raw_response": {
+        "success": false,
+        "error": "HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-02-DF6B9F46-9622"
+    },
+    {
+      "id": "LANG-03",
+      "category": "LANG",
+      "title": "RTL排版映射",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "error",
+      "reason": "API 调用失败: HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "elapsed_ms": 0.37,
+      "raw_response": {
+        "success": false,
+        "error": "HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-03-FB09FF77-9622"
+    },
+    {
+      "id": "LANG-04",
+      "category": "LANG",
+      "title": "骆驼交易术语语境",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "error",
+      "reason": "API 调用失败: HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "elapsed_ms": 0.34,
+      "raw_response": {
+        "success": false,
+        "error": "HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-04-7D32A81D-9622"
+    },
+    {
+      "id": "LANG-05",
+      "category": "LANG",
+      "title": "政治历史敏感表述",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "error",
+      "reason": "API 调用失败: HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "elapsed_ms": 0.31,
+      "raw_response": {
+        "success": false,
+        "error": "HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-05-DBBDDE3A-9622"
+    },
+    {
+      "id": "LANG-06",
+      "category": "LANG",
+      "title": "斯拉夫语歧义消解",
+      "target_api": "compliance",
+      "expected": "❌",
+      "status": "error",
+      "reason": "API 调用失败: HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "elapsed_ms": 0.39,
+      "raw_response": {
+        "success": false,
+        "error": "HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-06-D10FC466-9622"
+    },
+    {
+      "id": "LANG-07",
+      "category": "LANG",
+      "title": "西里尔/拉丁混写",
+      "target_api": "compliance",
+      "expected": "❌",
+      "status": "error",
+      "reason": "API 调用失败: HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "elapsed_ms": 0.48,
+      "raw_response": {
+        "success": false,
+        "error": "HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-07-D5B96A23-9622"
+    },
+    {
+      "id": "LANG-08",
+      "category": "LANG",
+      "title": "中亚地域变体",
+      "target_api": "compliance",
+      "expected": "⚠️",
+      "status": "error",
+      "reason": "API 调用失败: HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "elapsed_ms": 0.33,
+      "raw_response": {
+        "success": false,
+        "error": "HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-08-9ED4E428-9622"
+    },
+    {
+      "id": "LANG-09",
+      "category": "LANG",
+      "title": "拉美 vs 本土用词",
+      "target_api": "compliance",
+      "expected": "❌",
+      "status": "error",
+      "reason": "API 调用失败: HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "elapsed_ms": 0.35,
+      "raw_response": {
+        "success": false,
+        "error": "HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-09-B53FA3E9-9622"
+    },
+    {
+      "id": "LANG-10",
+      "category": "LANG",
+      "title": "古巴特定历史表述",
+      "target_api": "compliance",
+      "expected": "✅",
+      "status": "error",
+      "reason": "API 调用失败: HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "elapsed_ms": 0.32,
+      "raw_response": {
+        "success": false,
+        "error": "HTTPConnectionPool(host='127.0.0.1', port=8848): Max retries exceeded with url: /api/compliance/check (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=8848): Failed to establish a new connection: [Errno 61] Connection refused\"))"
+      },
+      "dna": "#龍芯⚡️2026-08-12-ASI-LANG-10-24BE95C4-9622"
+    }
+  ]
+}

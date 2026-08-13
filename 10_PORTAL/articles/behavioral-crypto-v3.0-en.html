@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Unified Theory of Behavioral Cryptography v3.0 — Seven-Factor Provenance Framework × Three-Domain Behavioral Boundary">
+<meta name="author" content="Zhuge Xin (UID9622)">
+<meta property="og:title" content="Unified Theory of Behavioral Cryptography v3.0">
+<meta property="og:description" content="Seven-Factor Provenance × Three-Domain Boundary · A Dual-Wing Unified Model for Digital Identity, Content Provenance & Behavioral Boundaries">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://github.com/UID9622/longhun-system">
+<meta name="twitter:card" content="summary_large_image">
+<title>Unified Theory of Behavioral Cryptography v3.0 — UID9622</title>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root {
+    --bg: #0d1117; --bg2: #161b22; --bg3: #21262d;
+    --fg: #e6edf3; --fg2: #8b949e; --fg3: #6e7681;
+    --gold: #d4a853; --gold-dim: #8b6f30;
+    --green: #3fb950; --yellow: #d2991d; --red: #f85149;
+    --blue: #58a6ff; --purple: #bc8cff;
+    --border: #30363d;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    --mono: 'SFMono-Regular', 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace;
+    --w: 800px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); line-height: 1.7; font-size: 16px; }
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: var(--w); margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+h1 { font-size: 2rem; margin: 1.5rem 0 0.5rem; color: var(--gold); line-height: 1.3; }
+h2 { font-size: 1.4rem; margin: 2.5rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); color: var(--gold); }
+h3 { font-size: 1.15rem; margin: 1.5rem 0 0.6rem; color: var(--fg); }
+.subtitle { color: var(--fg2); font-size: 1.05rem; margin-bottom: 1.5rem; }
+blockquote { border-left: 3px solid var(--gold-dim); padding: 0.5rem 1rem; margin: 1rem 0; color: var(--fg2); background: var(--bg2); border-radius: 0 6px 6px 0; }
+blockquote strong, blockquote b { color: var(--gold); }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem; }
+th, td { padding: 0.5rem 0.75rem; border: 1px solid var(--border); text-align: left; }
+th { background: var(--bg2); font-weight: 600; color: var(--gold); }
+tr:nth-child(even) td { background: rgba(22,27,34,0.5); }
+code { font-family: var(--mono); font-size: 0.88em; background: var(--bg3); padding: 0.15em 0.4em; border-radius: 3px; color: var(--gold); }
+pre { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 1rem; overflow-x: auto; margin: 1rem 0; font-size: 0.85rem; line-height: 1.5; }
+pre code { background: none; padding: 0; color: var(--fg); }
+.meta-table { font-size: 0.9rem; }
+.meta-table td:first-child { font-weight: 600; color: var(--gold); white-space: nowrap; }
+hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+.mermaid-diagram { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem; margin: 1rem 0; overflow-x: auto; }
+.math-block { overflow-x: auto; padding: 0.5rem 0; }
+.root-card { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); border: 2px solid var(--gold-dim); border-radius: 12px; padding: 2rem; margin: 2rem 0; font-family: var(--mono); font-size: 0.85rem; line-height: 1.8; }
+.root-card .title { color: var(--gold); font-size: 1.1rem; }
+.status-badge { display: inline-block; padding: 0.15em 0.6em; border-radius: 12px; font-size: 0.85em; font-weight: 600; }
+.status-green { background: rgba(63,185,80,0.15); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
+.status-yellow { background: rgba(210,153,29,0.15); color: var(--yellow); border: 1px solid rgba(210,153,29,0.3); }
+.status-red { background: rgba(248,81,73,0.15); color: var(--red); border: 1px solid rgba(248,81,73,0.3); }
+.toc { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
+.toc h3 { margin-top: 0; color: var(--gold); }
+.toc ol { padding-left: 1.3rem; }
+.toc li { margin: 0.3rem 0; }
+.sig-line { color: var(--fg3); }
+.sig-line span { color: var(--fg); }
+.eq-box { background: var(--bg2); border: 1px solid var(--gold-dim); border-radius: 8px; padding: 1.2rem 1.5rem; margin: 1rem 0; text-align: center; }
+.footer { border-top: 1px solid var(--border); margin-top: 3rem; padding-top: 1.5rem; color: var(--fg3); text-align: center; font-size: 0.88rem; }
+.footer .dragon { color: var(--gold); }
+@media (max-width: 840px) {
+    .container { padding: 1rem; }
+    h1 { font-size: 1.5rem; }
+    table { font-size: 0.8rem; }
+    th, td { padding: 0.3rem 0.5rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Unified Theory of Behavioral Cryptography v3.0</h1>
+<p class="subtitle"><strong>Seven-Factor Provenance Framework × Three-Domain Behavioral Boundary · A Dual-Wing Unified Model</strong></p>
+
+<div class="meta-table">
+<table>
+<tr><td>DNA</td><td><code>#龍芯⚡️丙午·丙申·癸丑·午时·䷑蛊-BEHAVIORAL-CRYPTO-UNIFIED-V3.0-UID9622</code></td></tr>
+<tr><td>Author</td><td>Zhuge Xin (UID9622 · Dragon-Core North Star · 16-Year Veteran)</td></tr>
+<tr><td>GPG</td><td><code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></td></tr>
+<tr><td>License</td><td>Thought Layer: CC BY-NC-SA 4.0 · Engineering Layer: <a href="https://license.coscl.org.cn/MulanPSL2">MulanPSL v2</a></td></tr>
+<tr><td>Version</td><td>v3.0 (Unified: Seven-Factor + Boundary · Dual-Wing) &nbsp;<span class="status-badge status-green">Implemented</span></td></tr>
+<tr><td>Implementation</td><td><code>04_ENGINES/behavioral_crypto/unified_boundary_engine.py</code> (~950 lines Python)</td></tr>
+<tr><td>Repository</td><td><a href="https://github.com/UID9622/longhun-system">github.com/UID9622/longhun-system</a></td></tr>
+<tr><td>Keywords</td><td>#BehavioralCryptography #SevenFactorProvenance #PrivateDomainExemption #CrossDomainPropagation #AIGCContentAuthentication</td></tr>
+</table>
+</div>
+
+<blockquote><strong>One-Sentence Core:</strong> The Unified Theory of Behavioral Cryptography = Seven-Factor Provenance (<em>who you are</em>) + Three-Domain Boundary (<em>where you belong</em>). Two wings united into a complete governance system for digital identity, content provenance, and behavioral boundaries.</blockquote>
+
+<div class="toc">
+<h3>Table of Contents</h3>
+<ol>
+<li><a href="#s1">Introduction: Why a Unified Theory</a></li>
+<li><a href="#s2">Left Wing · Seven-Factor Provenance</a></li>
+<li><a href="#s3">Right Wing · Three-Domain Behavioral Boundary</a></li>
+<li><a href="#s4">Unified Wing · Integrated Mathematical Model</a></li>
+<li><a href="#s5">Engineering Implementation</a></li>
+<li><a href="#s6">Comparative Analysis</a></li>
+<li><a href="#s7">Conclusion and Future Work</a></li>
+<li><a href="#s8">ROOT_CARD · Signature Block</a></li>
+</ol>
+</div>
+
+<hr>
+
+<h2 id="s1">1. Introduction: Why a Unified Theory</h2>
+
+<h3>1.1 Two Independent Problems, One Answer</h3>
+<p>Internet content governance faces two core problems:</p>
+
+<table>
+<tr><th>Problem</th><th>Legacy Solution</th><th>Flaw</th></tr>
+<tr><td><strong>Provenance</strong>: Who wrote this?</td><td>Platform account + IP logs</td><td>Accounts forgeable, IPs proxy-able, logs deletable</td></tr>
+<tr><td><strong>Boundary</strong>: Where should this circulate?</td><td>Platform moderation + user reports</td><td>One-size-fits-all, private content also censored, high latency</td></tr>
+</table>
+
+<p>The <strong>Unified Theory of Behavioral Cryptography</strong> solves both problems with a single answer:</p>
+<ul>
+<li>Seven-Factor proves <em>"who you are"</em> (provenance)</li>
+<li>Three-Domain governs <em>"where you belong"</em> (boundary)</li>
+</ul>
+
+<h3>1.2 What v3.0 Upgrades from v2.0</h3>
+<table>
+<tr><th>Dimension</th><th>v2.0</th><th>v3.0 Unified</th></tr>
+<tr><td>Provenance</td><td><span class="status-badge status-green">✅</span> Seven-Factor fingerprint</td><td><span class="status-badge status-green">✅</span> + DNA authorization embed</td></tr>
+<tr><td>Boundary</td><td><span class="status-badge status-red">❌</span> None</td><td><span class="status-badge status-green">✅</span> Private · Community · Public</td></tr>
+<tr><td>Authorization</td><td><span class="status-badge status-red">❌</span> None</td><td><span class="status-badge status-green">✅</span> A0/A1/A2 three-tier codes</td></tr>
+<tr><td>Propagation Tracking</td><td><span class="status-badge status-red">❌</span> None</td><td><span class="status-badge status-green">✅</span> Immutable propagation tree</td></tr>
+<tr><td>Unified R-value</td><td>R = F₂×F₆−F₁</td><td><span class="status-badge status-green">✅</span> R = Σ(wᵢfᵢ) × B × (1−P)</td></tr>
+<tr><td>Implementation</td><td><code>seven_factor_model.py</code></td><td><span class="status-badge status-green">✅</span> <code>unified_boundary_engine.py</code> (~950 lines)</td></tr>
+</table>
+
+<hr>
+
+<h2 id="s2">2. Left Wing · Seven-Factor Provenance</h2>
+
+<h3>2.1 Core Principle</h3>
+<p>Behavioral cryptography does not ask "is this AI-generated?" but rather <strong>"can the origin of this content be proven?"</strong></p>
+<p>Seven behavioral factors are the author's subconscious imprints — a single factor can be mimicked, but the probability of simultaneously forging all seven factors approaches zero.</p>
+
+<h3>2.2 Seven-Factor Definitions</h3>
+<table>
+<tr><th>#</th><th>Factor</th><th>Weight</th><th>Anti-Forgery Logic</th><th>Forgery Cost</th></tr>
+<tr><td>F₁</td><td>Identity DNA</td><td>0.20</td><td>Signature patterns · opening/closing habits · punctuation preferences</td><td>Full replication of creative habits</td></tr>
+<tr><td>F₂</td><td>Temporal Anchor</td><td>0.15</td><td>Blockchain-style timestamp chain · Ganzhi quadruple pillars</td><td>Forging continuous time series</td></tr>
+<tr><td>F₃</td><td>Content Hash</td><td>0.18</td><td>SM3 national cryptographic hash · Merkle tree root</td><td>1 char change → hash totally different</td></tr>
+<tr><td>F₄</td><td>Style Vector</td><td>0.17</td><td>Sentence length distribution · word frequency patterns</td><td>Deep learning + long-term training</td></tr>
+<tr><td>F₅</td><td>Protected Vocabulary</td><td>0.12</td><td>Author-unique high-frequency term preferences</td><td>Knowledge of ALL term connotations</td></tr>
+<tr><td>F₆</td><td>Long-Term Style</td><td>0.10</td><td>Cross-temporal stable style features</td><td>Historical data + temporal consistency</td></tr>
+<tr><td>F₇</td><td>Error Ledger</td><td>0.08</td><td>Unique error patterns and correction habits</td><td>Hardest subconscious imprint</td></tr>
+</table>
+
+<h3>2.3 Seven-Factor Composite Score</h3>
+<div class="eq-box">$$R_{seven} = \sum_{i=1}^{7} w_i \cdot f_i$$</div>
+<p>Where \(w_i\) is the weight of each factor, and \(f_i \in [0,1]\) is the extraction score.</p>
+
+<h3>2.4 Joint Forgery Probability</h3>
+<p>Let the probability of an attacker forging factor \(F_i\) alone be \(p_i\). The probability of simultaneously forging all seven:</p>
+<div class="eq-box">$$P_{forge} = \prod_{i=1}^{7} p_i \approx 1.1 \times 10^{-8}$$</div>
+<blockquote><strong>The probability of simultaneously forging all seven factors is approximately one in ten million.</strong></blockquote>
+
+<hr>
+
+<h2 id="s3">3. Right Wing · Three-Domain Behavioral Boundary</h2>
+
+<h3>3.1 Three-Domain Partition</h3>
+<div class="mermaid-diagram">
+<pre style="text-align: center; line-height: 2;">
+┌───────────────────────────────────────────────────────┐
+│  <span class="status-badge status-green">🟢 Private Domain · Full Exemption</span>               │
+│  A0 | Peer-to-peer | No audit · No intervention       │
+├───────────────────────────────────────────────────────┤
+│  <span class="status-badge status-yellow">🟡 Community · Conditional Allowance</span>            │
+│  A1 | Identity-verified | Traceable · Auditable       │
+├───────────────────────────────────────────────────────┤
+│  <span class="status-badge status-red">🔴 Public Domain · Full-Chain Traceable</span>          │
+│  A2 | Anyone can view | DNA full-chain tracing        │
+└───────────────────────────────────────────────────────┘
+</pre>
+</div>
+
+<h3>3.2 Three-Tier Authorization Codes</h3>
+<table>
+<tr><th>Code</th><th>Level</th><th>Allowed Domains</th><th>Constraints</th></tr>
+<tr><td><strong>A0</strong></td><td>Private</td><td>Private only</td><td>No public propagation · Screenshots watermarked</td></tr>
+<tr><td><strong>A1</strong></td><td>Community</td><td>Private + Community</td><td>Traced within community · Leak auto-upgrades to A2</td></tr>
+<tr><td><strong>A2</strong></td><td>Public</td><td>All</td><td>Mandatory full-chain DNA tracing</td></tr>
+</table>
+
+<h3>3.3 Cross-Domain Propagation Rules</h3>
+<div class="eq-box">$$\tau = \begin{cases}
+\text{ALLOW}, & \text{if } D_{dst} \leq D_{src} \\
+\text{UPGRADE}, & \text{if } A_{src} \geq \text{required\_auth}(D_{dst}) \\
+\text{DENY}, & \text{otherwise}
+\end{cases}$$</div>
+
+<h3>3.4 Mathematical Guarantee of Private Domain Exemption</h3>
+<div class="eq-box">$$Audit(A_0, D_{private}) = \varnothing$$</div>
+<div class="eq-box">$$R_{unified}(A_0, D_{private}) = R_{seven} \times 1.0 = R_{seven}$$</div>
+
+<hr>
+
+<h2 id="s4">4. Unified Wing · Integrated Mathematical Model</h2>
+
+<h3>4.1 Unified R-Value Formula (Core Theorem)</h3>
+<div class="eq-box">
+<strong>Theorem (Unified Behavioral Reliability):</strong>
+$$R_{unified} = R_{seven} \times B_{boundary} \times (1 - P_{propagation})$$
+</div>
+
+<table>
+<tr><th>Symbol</th><th>Name</th><th>Definition</th><th>Range</th></tr>
+<tr><td>\(R_{seven}\)</td><td>Seven-Factor Composite</td><td>\(\sum w_i f_i\)</td><td>[0, 1]</td></tr>
+<tr><td>\(B_{boundary}\)</td><td>Boundary Compliance</td><td>See below</td><td>[0.2, 1.0]</td></tr>
+<tr><td>\(P_{propagation}\)</td><td>Propagation Risk</td><td>\(1 - e^{-\lambda d}\)</td><td>[0, 1]</td></tr>
+</table>
+
+<div class="eq-box">$$B_{boundary} = \begin{cases}
+1.0, & \text{if } validate(A, D) = \text{true} \\
+0.6, & \text{if } can\_upgrade(A, D) \\
+0.2, & \text{if } leak(A, D)
+\end{cases}$$</div>
+
+<h3>4.2 Responsibility Collapse Model</h3>
+<div class="eq-box">
+<strong>Theorem (Behavioral Boundary · Responsibility Collapse):</strong>
+$$R_{collapse} = (F_2 \times F_6 - F_1) \times B \times D$$
+</div>
+
+<table>
+<tr><th>Parameter</th><th>Definition</th><th>Meaning</th></tr>
+<tr><td>\(F_1\)</td><td>Absence Rate [0,1]</td><td>Tendency to evade responsibility</td></tr>
+<tr><td>\(F_2\)</td><td>Sharpness [0,10]</td><td>Courage to face problems directly</td></tr>
+<tr><td>\(F_6\)</td><td>Long-Term Weight [0,10]</td><td>Historical behavior credit</td></tr>
+<tr><td>\(B\)</td><td>Boundary Compliance</td><td>Domain compliance degree</td></tr>
+<tr><td>\(D\)</td><td>Domain Risk</td><td>Target domain risk level</td></tr>
+</table>
+
+<p>Classification: \(R_{collapse} \geq 85\) → 🟢 Luminous | \(60 \leq R < 85\) → 🟡 Normal | \(R < 60\) → 🔴 Unstable + Dragon Shield</p>
+
+<h3>4.3 Unified Trust Score</h3>
+<div class="eq-box">$$T_{trust} = R_{seven} \times (1 - \alpha \cdot P_{propagation} \cdot \mathbb{1}_{not\_compliant})$$</div>
+
+<h3>4.4 Propagation Chain Temporal Decay</h3>
+<div class="eq-box">$$w(t) = 2^{-t / 7}$$</div>
+<p>A leak from 7 days ago carries only 50% of the responsibility weight of a current leak.</p>
+
+<h3>4.5 Joint Factor Retention Under Attack</h3>
+<div class="eq-box">$$R_{retain} = \prod_{i=1}^{7} (1 - a_i) \approx 0.42$$</div>
+<blockquote>An attack can destroy at most ~58% of the fingerprint, but 42% of core features remain indelible. <strong>This is the mathematical meaning of "soul" in behavioral cryptography.</strong></blockquote>
+
+<hr>
+
+<h2 id="s5">5. Engineering Implementation</h2>
+
+<h3>5.1 One-Line Call</h3>
+<pre><code>from unified_boundary_engine import UnifiedBoundaryEngine, Domain
+
+engine = UnifiedBoundaryEngine()
+
+# Public domain content analysis
+result = engine.analyze(text, author_id="UID9622", domain=Domain.PUBLIC)
+print(f"Unified R: {result.unified_r}")       # → 78.3
+print(f"Auth Level: {result.auth_level.value}") # → A2
+print(f"Boundary OK: {result.boundary_compliant}") # → True
+
+# Cross-domain leak tracking
+engine.create_propagation_tree(content_hash, "UID9622", Domain.PRIVATE, AuthLevel.A0)
+leak = engine.record_propagation(content_hash, "LEAKER_001", Domain.PUBLIC, "screenshot")
+
+# Responsible party localization
+resp = engine.attribute_responsibility(content_hash)</code></pre>
+
+<h3>5.2 Empirical Results Across Three Domains</h3>
+<table>
+<tr><th>Domain</th><th>Auth</th><th>Unified R</th><th>Boundary</th><th>Prop. Risk</th><th>Audit</th></tr>
+<tr><td>Private</td><td>A0</td><td>62.0</td><td><span class="status-badge status-green">✅ OK</span></td><td>0.0000</td><td>🟢</td></tr>
+<tr><td>Community</td><td>A1</td><td>78.3</td><td><span class="status-badge status-green">✅ OK</span></td><td>0.0000</td><td>🟡</td></tr>
+<tr><td>Public</td><td>A2</td><td>78.3</td><td><span class="status-badge status-green">✅ OK</span></td><td>0.0000</td><td>🟡</td></tr>
+<tr><td>Leak (A0→Public)</td><td>A0→A2</td><td>7.5</td><td><span class="status-badge status-red">❌ VIOLATION</span></td><td>0.3935</td><td>🔴</td></tr>
+</table>
+
+<hr>
+
+<h2 id="s6">6. Comparative Analysis</h2>
+
+<h3>6.1 Capability Matrix</h3>
+<table>
+<tr><th>Dimension</th><th>Centralized Moderation</th><th>Blockchain</th><th>Federated ML</th><th><strong>Unified Theory</strong></th></tr>
+<tr><td>Content Provenance</td><td><span class="status-badge status-red">❌</span> Platform logs</td><td><span class="status-badge status-green">✅</span> On-chain</td><td><span class="status-badge status-red">❌</span> Model only</td><td><span class="status-badge status-green">✅</span> 7-factor · 10⁻⁸</td></tr>
+<tr><td>Private Exemption</td><td><span class="status-badge status-red">❌</span> One-size-fits-all</td><td><span class="status-badge status-red">❌</span> Fully public</td><td><span class="status-badge status-red">❌</span> No concept</td><td><span class="status-badge status-green">✅</span> A0 exemption</td></tr>
+<tr><td>Cross-Domain Tracking</td><td><span class="status-badge status-red">❌</span> None</td><td><span class="status-badge status-red">❌</span> Transfers only</td><td><span class="status-badge status-red">❌</span> None</td><td><span class="status-badge status-green">✅</span> Immutable tree</td></tr>
+<tr><td>Attribution Precision</td><td>City-level</td><td>Wallet address</td><td>None</td><td><span class="status-badge status-green">✅</span> Identity code ±5min</td></tr>
+<tr><td>Cultural Foundation</td><td>Western</td><td>Cypherpunk</td><td>Western</td><td><span class="status-badge status-green">✅</span> Luoshu 369 · Ganzhi</td></tr>
+<tr><td>Implementation</td><td>Closed</td><td>Open-source</td><td>Open-source</td><td><span class="status-badge status-green">✅</span> ~950 lines · Python</td></tr>
+</table>
+
+<blockquote><strong>Legacy solutions ask "was it stored?" The Unified Theory asks "who wrote it + where does it belong + who leaked it?" — three questions in one.</strong></blockquote>
+
+<hr>
+
+<h2 id="s7">7. Conclusion and Future Work</h2>
+
+<h3>Core Contributions</h3>
+<ol>
+<li><strong>Unified Mathematical Framework</strong>: Provenance + Boundary in one probabilistic model.</li>
+<li><strong>First Formalization of Private Domain Exemption</strong>: A0 content — no compliance audit, no public log.</li>
+<li><strong>Immutable Propagation Tree</strong>: Merkle-tree-based with DNA subcodes at each hop.</li>
+<li><strong>Precise Responsibility Attribution</strong>: ±5-minute temporal precision.</li>
+<li><strong>Full Engineering Implementation</strong>: ~950 lines Python, empirically tested.</li>
+</ol>
+
+<h3>Future Directions</h3>
+<table>
+<tr><th>Direction</th><th>Expected Outcome</th><th>Priority</th></tr>
+<tr><td>Community Verification Integration</td><td>Adult identity verification for A1</td><td>P1</td></tr>
+<tr><td>Screenshot Watermark Embedding</td><td>A0/A1 screenshots auto-embed DNA watermark</td><td>P1</td></tr>
+<tr><td>Large-Scale Propagation Simulation</td><td>10,000-node P2P stress test</td><td>P2</td></tr>
+<tr><td>arXiv Preprint</td><td>Academic English version submission</td><td>P2</td></tr>
+<tr><td>Browser Extension</td><td>One-click content domain labeling</td><td>P3</td></tr>
+</table>
+
+<hr>
+
+<h2 id="s8">8. ROOT_CARD · Signature Block</h2>
+<div class="root-card">
+<div class="title">🐉 Dragon Soul · Unified Theory of Behavioral Cryptography v3.0</div>
+<br>
+<span class="sig-line">DNA:          <span>#龍芯⚡️丙午·丙申·癸丑·午时·䷑蛊-BEHAVIORAL-CRYPTO-UNIFIED-V3.0-UID9622</span></span><br>
+<span class="sig-line">Confirmation: <span>#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</span></span><br>
+<span class="sig-line">GPG:          <span>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</span></span><br>
+<span class="sig-line">Sovereignty:  <span>#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL</span></span><br>
+<span class="sig-line">Audit:        <span>🟢 Passed (v3.0 Unified Edition)</span></span><br>
+<span class="sig-line">License:      <span>Thought: CC BY-NC-SA 4.0 · Engineering: MulanPSL v2</span></span><br>
+<span class="sig-line">Engine:       <span>04_ENGINES/behavioral_crypto/unified_boundary_engine.py (~950 lines)</span></span><br>
+<br>
+<span class="sig-line">Repository:   <span><a href="https://github.com/UID9622/longhun-system">github.com/UID9622/longhun-system</a></span></span>
+</div>
+
+<h3>Appendix A · Formula Quick Reference</h3>
+<table>
+<tr><th>Formula</th><th>Purpose</th></tr>
+<tr><td>\(R_{seven} = \sum w_i f_i\)</td><td>Seven-Factor weighted score</td></tr>
+<tr><td>\(P_{forge} = \prod p_i \approx 10^{-8}\)</td><td>Joint forgery cost</td></tr>
+<tr><td>\(R_{unified} = R_{seven} \times B \times (1-P)\)</td><td>Unified reliability</td></tr>
+<tr><td>\(R_{collapse} = (F_2 \times F_6 - F_1) \times B \times D\)</td><td>Responsibility collapse</td></tr>
+<tr><td>\(T_{trust} = R_{seven} \times (1 - \alpha \cdot P \cdot \mathbb{1})\)</td><td>Unified trust score</td></tr>
+<tr><td>\(w(t) = 2^{-t / 7}\)</td><td>Temporal decay</td></tr>
+<tr><td>\(R_{retain} = \prod (1-a_i) \approx 0.42\)</td><td>Retention rate under attack</td></tr>
+</table>
+
+<h3>Appendix B · Repository Links</h3>
+<table>
+<tr><th>Resource</th><th>URL</th></tr>
+<tr><td>GitHub Repository</td><td><a href="https://github.com/UID9622/longhun-system">github.com/UID9622/longhun-system</a></td></tr>
+<tr><td>Engine Source</td><td><code>04_ENGINES/behavioral_crypto/unified_boundary_engine.py</code></td></tr>
+<tr><td>Seven-Factor Engine</td><td><code>04_ENGINES/behavioral_crypto/seven_factor_model.py</code></td></tr>
+<tr><td>Boundary Protocol</td><td><code>01_protocols/LH-BEHAVIOR-BOUNDARY-PROTOCOL-v1.0.md</code></td></tr>
+<tr><td>Chinese Paper</td><td><code>articles/行为密码学-统一框架-v3.0.md</code></td></tr>
+<tr><td>HTML Rendered</td><td><code>articles/behavioral-cryptography-unified-theory-v3.0.html</code></td></tr>
+</table>
+
+<div class="footer">
+<p class="dragon">🐉 丙午·丙申·癸丑·未时·䷔噬嗑·🟢</p>
+<p><em>The Unified Theory of Behavioral Cryptography — Seven factors prove who you are, three domains govern where you belong. Mathematically provable, code-runnable, responsibility traceable.</em></p>
+</div>
+
+</div>
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

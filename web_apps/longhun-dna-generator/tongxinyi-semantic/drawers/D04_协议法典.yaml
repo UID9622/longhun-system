@@ -1,0 +1,37 @@
+# 龍魂语义抽屉 · D04 · 协议法典
+# 归属: 龍魂系统 UID9622 · 通心译引用源
+# 状态机: 种子 → 审核 → 焊死(P0冻结, 不可改只冻结)
+# 引用语法: @D04.{词元}  例: @D04.审计
+
+drawer: D04
+name: 协议法典
+count: 4
+entries:
+  - term: "审计"
+    alias: ["三色审计", "合规检查"]
+    en: "audit --tricolor"
+    cnsh: "审计"
+    gua: "䷔噬嗑"
+    status: "种子"
+    note: "🟢🟡🔴 三色判定"
+  - term: "焊死"
+    alias: ["锁死", "钉死"]
+    en: "weld --p0"
+    cnsh: "焊死"
+    gua: "䷖剥"
+    status: "种子"
+    note: "P0级冻结不可改"
+  - term: "签章"
+    alias: ["盖章", "会签"]
+    en: "stamp"
+    cnsh: "签章"
+    gua: "䷗复"
+    status: "种子"
+    note: "16人格会签生效"
+  - term: "立约"
+    alias: ["君子协议", "签约"]
+    en: "gentleman-accord"
+    cnsh: "立约"
+    gua: "䷘无妄"
+    status: "种子"
+    note: "中英双语协议"

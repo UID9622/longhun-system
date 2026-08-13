@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500&family=Cinzel:wght@600&family=JetBrains+Mono:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 龍魂 黑金 token 体系 (design.md §1) */
+    --ink: #080706;
+    --ink-2: #0D0B08;
+    --ink-3: #14110A;
+    --ink-4: #1C1810;
+    --gold: #C9A227;
+    --gold-bright: #E9CB6B;
+    --gold-dim: #5C4C1C;
+    --paper: #EFE7D3;
+    --paper-dim: #A49A80;
+    --paper-faint: #6E6654;
+    --vermilion: #A8382A;
+    --line: rgba(201, 162, 39, 0.16);
+    --line-strong: rgba(201, 162, 39, 0.42);
+
+    /* shadcn tokens mapped onto 黑金 (for ui/ components) */
+    --background: 40 14% 3%;
+    --foreground: 42 34% 88%;
+    --card: 43 26% 6%;
+    --card-foreground: 42 34% 88%;
+    --popover: 43 26% 6%;
+    --popover-foreground: 42 34% 88%;
+    --primary: 45 67% 47%;
+    --primary-foreground: 40 14% 3%;
+    --secondary: 43 20% 10%;
+    --secondary-foreground: 42 24% 67%;
+    --muted: 43 20% 10%;
+    --muted-foreground: 42 14% 46%;
+    --accent: 43 26% 9%;
+    --accent-foreground: 45 67% 47%;
+    --destructive: 8 60% 41%;
+    --destructive-foreground: 42 34% 88%;
+    --border: 45 67% 47% / 0.16;
+    --input: 45 67% 47% / 0.16;
+    --ring: 45 67% 47%;
+    --radius: 0px;
+    --sidebar-background: 40 14% 3%;
+    --sidebar-foreground: 42 24% 67%;
+    --sidebar-primary: 45 67% 47%;
+    --sidebar-primary-foreground: 40 14% 3%;
+    --sidebar-accent: 43 26% 9%;
+    --sidebar-accent-foreground: 42 34% 88%;
+    --sidebar-border: 45 67% 47% / 0.16;
+    --sidebar-ring: 45 67% 47%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: auto; /* Lenis 接管 */
+  }
+
+  body {
+    @apply bg-ink text-paper font-sans antialiased;
+    letter-spacing: 0.02em;
+  }
+
+  /* 宣纸/墨面颗粒质感层：texture-rice.png 4% + overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 2147483000;
+    pointer-events: none;
+    background-image: url('/texture-rice.png');
+    background-repeat: repeat;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+  }
+
+  ::selection {
+    background: rgba(201, 162, 39, 0.28);
+    color: var(--paper);
+  }
+
+  /* 中文禁用斜体 */
+  em, i, cite, dfn {
+    font-style: normal;
+  }
+
+  /* 细滚动条，黑金 */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--ink); }
+  ::-webkit-scrollbar-thumb { background: var(--gold-dim); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+}
+
+@layer components {
+  /* 唯一允许的金色渐变文字：首页 hero 巨标 */
+  .text-gold-gradient {
+    background: linear-gradient(180deg, #F2DB94, #C9A227 55%, #8A6D1F);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* 排版孤岛：纯 ink 底 + 1px 金边遮罩块 */
+  .type-island {
+    background: var(--ink);
+    border: 1px solid var(--line-strong);
+  }
+
+  /* eyebrow 印章小标签（Cinzel 全大写宽字距） */
+  .eyebrow {
+    font-family: Cinzel, serif;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.38em;
+    color: var(--gold);
+  }
+}
+
+@layer utilities {
+  .hairline-t { border-top: 1px solid var(--line); }
+  .hairline-b { border-bottom: 1px solid var(--line); }
+  .writing-vertical { writing-mode: vertical-rl; }
+}
+
+/* 全局降级：一切动画 → 直接呈现终态 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+    scroll-behavior: auto !important;
+  }
+}

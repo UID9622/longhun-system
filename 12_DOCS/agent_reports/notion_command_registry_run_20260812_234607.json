@@ -1,0 +1,53 @@
+{
+  "dna": "#龍芯⚡️丙午·丙酉·癸亥·子时·䷮困-NOTION-CMD-REGISTRY-RUN-UID9622-F0853E2B",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "timestamp": "2026-08-12T23:46:07.435825",
+  "dry_run": true,
+  "results": [
+    {
+      "name": "C1 · 文明档案馆哈希链验证",
+      "phase": "Phase C",
+      "mode": "验证",
+      "command": "python3 08_BIN/civilization_archive.py --verify --chain",
+      "returncode": 0,
+      "stdout": "[dry-run] 未执行",
+      "stderr": ""
+    },
+    {
+      "name": "D1 · 验证外网 API 合规检测",
+      "phase": "Phase D",
+      "mode": "验证",
+      "command": "curl -X POST http://119.13.90.27:8080/cnsh/api/compliance/check -H 'Content-Type: application/json' -d '{\"text\":\"测试内容\",\"lang\":\"zh\",\"persona\":\"堂吉诃德\"}'",
+      "returncode": 0,
+      "stdout": "[dry-run] 未执行",
+      "stderr": ""
+    },
+    {
+      "name": "D2 · API 限流压力测试",
+      "phase": "Phase D",
+      "mode": "验证",
+      "command": "for i in {1..5}; do curl -s -o /dev/null -w '%{http_code} ' http://119.13.90.27:8080/cnsh/api/providers; done",
+      "returncode": 0,
+      "stdout": "[dry-run] 未执行",
+      "stderr": ""
+    },
+    {
+      "name": "通用 · 检查鲲鹏 IDE 服务状态",
+      "phase": "通用",
+      "mode": "验证",
+      "command": "ssh -i ~/.ssh/longhun_kunpeng_ed25519 root@119.13.90.27 'systemctl status cnsh-ide.service --no-pager'",
+      "returncode": 0,
+      "stdout": "[dry-run] 未执行",
+      "stderr": ""
+    },
+    {
+      "name": "修复 · DNA 生成器日柱/月柱/卦象校正",
+      "phase": "修复",
+      "mode": "验证",
+      "command": "python3 08_BIN/lh_day_gua_verify.py --cross-check",
+      "returncode": 0,
+      "stdout": "[dry-run] 未执行",
+      "stderr": ""
+    }
+  ]
+}

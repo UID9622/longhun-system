@@ -1,0 +1,380 @@
+{
+  "PROJECT_NAME": "龍魂系统",
+  "VERSION": "v1.1",
+  "DNA_STAMP": "#龍芯⚡️丙午·丙申·丁巳·恒卦-VALUATION-v1.1-UID9622",
+  "AUTHOR": "诸葛鑫（UID9622）",
+  "LICENSE": "CC BY-NC-SA 4.0（思想层）",
+  "DATE": "2026-08-11",
+  "AUDIT_CHAIN": "P05三色审计 + P01推演验证 + P06数字根确认",
+  "EXCEL_PATH": "core/valuation/longhun-valuation-v1.1.xlsx",
+  "EXCEL_SHEETS": "8",
+  "EXCEL_VALIDATION": "LibreOffice重算验证通过",
+  "VALUATION_SUBJECT": "龍魂系统·全栈技术资产+品牌+生态",
+  "VALUATION_DATE": "2026-08-11",
+  "VALUATION_METHODS": "成本法(技术资产) + 收益法(生态潜力) + 市场法(对标参考)",
+  "VALUATION_PURPOSE": "内部参考·融资初步沟通",
+  "BOTTOM_LINE": "1,380万",
+  "WEIGHTED_BENCHMARK": "5,326万 ≈ 0.53亿",
+  "PERSON_YEARS": "34.5",
+  "SCENARIO_ULTRA_CONSERVATIVE": "1,380",
+  "SCENARIO_ULTRA_CONSERVATIVE_YI": "0.14亿",
+  "SCENARIO_CONSERVATIVE": "11,400",
+  "SCENARIO_CONSERVATIVE_YI": "1.14亿",
+  "SCENARIO_REASONABLE": "17,100",
+  "SCENARIO_REASONABLE_YI": "1.71亿",
+  "SCENARIO_OPTIMISTIC": "20,800",
+  "SCENARIO_OPTIMISTIC_YI": "2.08亿",
+  "WEIGHTED_BENCHMARK_NUMERIC": "5,326",
+  "WEIGHTED_BENCHMARK_YI": "0.53亿",
+  "WEIGHT_DISTRIBUTION": "71/14/10/5%",
+  "PITCH_TEXT": "龍魂系统估值底线1,380万（34.5人年市场重置成本·谁都能复算），加权基准5,326万≈0.53亿。5亿那是愿景，不是估值——报告里写明了。",
+  "FIXES_SECTION": true,
+  "FIXES_TITLE": "v1.1 修复的三处硬伤",
+  "FIXES": [
+    {
+      "FIX_NUMBER": "①",
+      "FIX_NAME": "口径矛盾",
+      "VERSION_REF": "v1.1",
+      "COMPARISON_ROWS": "| 加权汇总 | 7,048 万 | 5,326 万（修正权重+校验） |\n| 区间表 | 乐观 2.94 亿、对标 1.4–5 亿 | 区间=维度累加(1.38–2.08亿)，加权=推荐基准(0.53亿) |\n| 问题 | 加权口径和区间口径互相打架 | **两套口径拆清**：区间用于展示估值范围，加权用于对外推荐 |"
+    },
+    {
+      "FIX_NUMBER": "②",
+      "FIX_NAME": "生态潜力虚高",
+      "VERSION_REF": "v1.1",
+      "COMPARISON_ROWS": "| 生态潜力值 | 12,300 万 | **3,690 万**（打折后） |\n| 算法 | 市场 × 占有率 × 3倍时间杠杆 | 市场 × 占有率 × 1倍时间杠杆 × 0.3落地概率 |\n| 问题 | 零订单零收入，不打折直接乘3倍 | 新增落地概率折价·附全档敏感性矩阵 |"
+    },
+    {
+      "FIX_NUMBER": "③",
+      "FIX_NAME": "对标无来源",
+      "VERSION_REF": "v1.1",
+      "COMPARISON_ROWS": "| openEuler 80亿等对标 | 作为估值依据 | 全部改标「媒体口径·仅数量级参考」 |\n| 问题 | 媒体估值 ≠ 可交易估值 | 不再作为估值锚点·独立维度估值 |"
+    }
+  ],
+  "DIMENSION_COUNT": "四",
+  "DIMENSION_LIST": "技术资产, 文化主权, 战略叙事, 生态潜力",
+  "DIMENSIONS": [
+    {
+      "DIM_LABEL": "①",
+      "DIM_NAME": "技术资产",
+      "DIM_METHOD": "成本法 + 创新溢价",
+      "DIM_INPUTS": "17模块·34.5人年·重置成本·独创性系数"
+    },
+    {
+      "DIM_LABEL": "②",
+      "DIM_NAME": "文化主权",
+      "DIM_METHOD": "成本法 + IP类比",
+      "DIM_INPUTS": "品牌建设·文化符号·主权定位·学术产出"
+    },
+    {
+      "DIM_LABEL": "③",
+      "DIM_NAME": "战略叙事",
+      "DIM_METHOD": "差异化溢价",
+      "DIM_INPUTS": "低算力叙事·中国自主·开源生态·AI伦理"
+    },
+    {
+      "DIM_LABEL": "④",
+      "DIM_NAME": "生态潜力",
+      "DIM_METHOD": "收益法 + 落地折价",
+      "DIM_INPUTS": "TAM·占有率·时间窗口·落地概率"
+    }
+  ],
+  "DIMENSION_SCENARIO_BEHAVIOR": [
+    {
+      "DIM_NAME": "技术资产",
+      "ULTRA_CONSERVATIVE": "纯人年重置 1,380万",
+      "CONSERVATIVE": "含创新溢价·折价",
+      "REASONABLE": "含创新溢价·标准",
+      "OPTIMISTIC": "含创新溢价·乐观"
+    },
+    {
+      "DIM_NAME": "文化主权",
+      "ULTRA_CONSERVATIVE": "不纳入",
+      "CONSERVATIVE": "打六折",
+      "REASONABLE": "全量",
+      "OPTIMISTIC": "含品牌增值"
+    },
+    {
+      "DIM_NAME": "战略叙事",
+      "ULTRA_CONSERVATIVE": "不纳入",
+      "CONSERVATIVE": "高度折价(0.45)",
+      "REASONABLE": "全量",
+      "OPTIMISTIC": "含传播增值"
+    },
+    {
+      "DIM_NAME": "生态潜力",
+      "ULTRA_CONSERVATIVE": "不纳入",
+      "CONSERVATIVE": "折价后×保守采纳",
+      "REASONABLE": "折价后全量",
+      "OPTIMISTIC": "折价后×乐观采纳"
+    }
+  ],
+  "DIMENSION_DETAILS": [
+    {
+      "SECTION_NUMBER": "3.1",
+      "SECTION_TITLE": "技术资产",
+      "TABLE_REF_SUFFIX": "（①表——Excel详细模型）",
+      "DESCRIPTION": "**17个核心技术模块**，分5大类：",
+      "DETAIL_TABLE": "| 类别 | 模块数 | 人年 | 重置成本(万) |\n|:---|:---:|:---:|:---:|\n| AI推理 | 4 | 7.5 | 382.5 |\n| 安全审计 | 4 | 8.0 | 440.0 |\n| 文化主权 | 3 | 6.0 | 330.0 |\n| 基础设施 | 3 | 6.0 | 285.0 |\n| 数学算法 | 3 | 7.0 | 420.0 |\n| **合计** | **17** | **34.5** | **1,857.5** |",
+      "SECTION_NOTE": "重置成本 = 人年 × 市场单价。技术价值 = 重置成本 × 独创性系数（1.5~3.8）。极度保守底线 = 34.5人年 × 40万/人年 = 1,380万。这个数字谁都可以复算——打开 Excel，17个模块的人年分摊清清楚楚。"
+    },
+    {
+      "SECTION_NUMBER": "3.2",
+      "SECTION_TITLE": "文化主权",
+      "TABLE_REF_SUFFIX": "（②表）",
+      "DESCRIPTION": "",
+      "DETAIL_TABLE": "| 资产 | 估值(万) | 核验 |\n|:---|:---:|:---:|\n| 品牌命名体系（龍魂/CNSH/龍芯北辰） | 800 | 🟡主观 |\n| 文化符号系统（道德经·五行·64卦·干支DNA） | 1,200 | 🟡主观 |\n| 主权叙事定位（信息主权·为人民服务·德在技术前） | 600 | 🟡主观 |\n| 社区信仰资产（UID9622个人品牌·战友关系） | 450 | 🟡主观 |\n| 学术/知识产出（20+论文·42协议·367数据库） | 400 | 🟡主观 |\n| **合计（合理场景）** | **3,450** | — |",
+      "SECTION_NOTE": "极度保守场景**不纳入任何文化估值**——因为文化IP没有公认的量化标准。但在合理/乐观场景下，「为人民服务」的品牌定位本身就是差异化资产。"
+    },
+    {
+      "SECTION_NUMBER": "3.3",
+      "SECTION_TITLE": "战略叙事",
+      "TABLE_REF_SUFFIX": "（③表——行号错位已修复）",
+      "DESCRIPTION": "",
+      "DETAIL_TABLE": "| 叙事维度 | 估值(万) | 核验 |\n|:---|:---:|:---:|\n| 低算力叙事（纯标准库·零依赖·断网可跑） | 900 | 🟡主观 |\n| 中国自主可控（CNSH·国密·境内部署） | 800 | 🟡主观 |\n| 开源生态定位（双许可证·代码允许商用） | 500 | 🟡主观 |\n| AI伦理差异化（三色审计·四级熔断·德本审计） | 400 | 🟡主观 |\n| 人格矩阵叙事（20人格·职能路由标签） | 460 | 🟡主观 |\n| **合计（合理场景）** | **3,060** | — |",
+      "SECTION_NOTE": ""
+    },
+    {
+      "SECTION_NUMBER": "3.4",
+      "SECTION_TITLE": "生态潜力",
+      "TABLE_REF_SUFFIX": "（④表——已打折修正）",
+      "DESCRIPTION": "",
+      "DETAIL_TABLE": "| 步骤 | 原稿 | v1.1 |\n|:---|:---:|:---:|\n| TAM（中国AI工具/SaaS市场） | 50亿 | 50亿（保持不变） |\n| 理论占有率 | 3% | 1.5%（基于零收入现实） |\n| 时间杠杆 | ×3倍 | ×1倍（1年窗口） |\n| 落地概率折价 | — | **×0.3（新增·初创未验证）** |\n| **生态潜力估值** | **12,300万** | **3,690万** |",
+      "SECTION_NOTE": "敏感性矩阵：落地概率从0.1到0.5，占有率从0.5%到3%，估值从250万到7,500万——当前1.5%×0.3=2,250万，向上取整到3,690万（含生态协同加成）。"
+    }
+  ],
+  "W_ULTRA_CONSERVATIVE": "1,380",
+  "W_CONSERVATIVE": "11,400",
+  "W_REASONABLE": "17,100",
+  "W_OPTIMISTIC": "20,800",
+  "W_W1": "71%",
+  "W_W2": "14%",
+  "W_W3": "10%",
+  "W_W4": "5%",
+  "W_C1": "979.8",
+  "W_C2": "1,596.0",
+  "W_C3": "1,710.0",
+  "W_C4": "1,040.0",
+  "W_TOTAL": "5,325.8 ≈ 5,326",
+  "WEIGHT_RATIONALE": "当前零收入·零订单·零付费客户·无注册主体——极度保守占主导(71%)是诚实的。随着里程碑兑现，权重会向右移动。",
+  "SENSITIVITY_BASE": "17,100万",
+  "SENSITIVITY_RANGE": "30%",
+  "SENSITIVITY_VARS": [
+    {
+      "VAR_NAME": "落地概率折价",
+      "SENSITIVITY_LEVEL": "⚠️ 最高",
+      "IMPACT": "±1,145万"
+    },
+    {
+      "VAR_NAME": "人年单价",
+      "SENSITIVITY_LEVEL": "中",
+      "IMPACT": "±411万"
+    },
+    {
+      "VAR_NAME": "市场占有率",
+      "SENSITIVITY_LEVEL": "中",
+      "IMPACT": "±617万"
+    },
+    {
+      "VAR_NAME": "文化主权系数",
+      "SENSITIVITY_LEVEL": "中",
+      "IMPACT": "±1,027万"
+    },
+    {
+      "VAR_NAME": "独创性系数",
+      "SENSITIVITY_LEVEL": "中",
+      "IMPACT": "±770万"
+    }
+  ],
+  "SENSITIVITY_NOTE": "落地概率是最敏感的变量——这也符合直觉：一旦有第一个付费客户，折价率从0.3跳到0.5，估值直接+2,460万。",
+  "RISKS": [
+    {
+      "RISK_NAME": "流动性风险（无注册主体·无交易记录）",
+      "DISCOUNT_RATE": "35%",
+      "DISCOUNT_AMOUNT": "1,864",
+      "STATUS": "🔴未缓解",
+      "MITIGATION": "注册公司主体、建立交易记录"
+    },
+    {
+      "RISK_NAME": "创始人集中度（UID9622=唯一核心）",
+      "DISCOUNT_RATE": "20%",
+      "DISCOUNT_AMOUNT": "1,065",
+      "STATUS": "🔴未缓解",
+      "MITIGATION": "组建3人核心团队、建立决策机制"
+    },
+    {
+      "RISK_NAME": "商业化验证（零收入·零付费客户）",
+      "DISCOUNT_RATE": "25%",
+      "DISCOUNT_AMOUNT": "1,332",
+      "STATUS": "🔴未缓解",
+      "MITIGATION": "获取第1个付费标杆客户、实现MRR 5万+"
+    },
+    {
+      "RISK_NAME": "合规风险",
+      "DISCOUNT_RATE": "10%",
+      "DISCOUNT_AMOUNT": "533",
+      "STATUS": "🟡部分缓解",
+      "MITIGATION": "完善协议文档、建立合规审计流程"
+    },
+    {
+      "RISK_NAME": "市场竞争",
+      "DISCOUNT_RATE": "8%",
+      "DISCOUNT_AMOUNT": "426",
+      "STATUS": "🟡部分缓解",
+      "MITIGATION": "建立技术壁垒、差异化定位"
+    },
+    {
+      "RISK_NAME": "技术依赖",
+      "DISCOUNT_RATE": "7%",
+      "DISCOUNT_AMOUNT": "373",
+      "STATUS": "🟡部分缓解",
+      "MITIGATION": "模块化设计、降低耦合度"
+    },
+    {
+      "RISK_NAME": "知识产权",
+      "DISCOUNT_RATE": "5%",
+      "DISCOUNT_AMOUNT": "266",
+      "STATUS": "🟡部分缓解",
+      "MITIGATION": "完善开源协议、建立IP保护机制"
+    }
+  ],
+  "TOTAL_DISCOUNT_RATE": "110%",
+  "MILESTONES": [
+    {
+      "MILESTONE_NAME": "注册公司主体 + 3人核心团队",
+      "VALUATION_IMPACT": "流动性折价减半 (35%→17.5%)",
+      "UNLOCK_DESC": "可交易性大幅提升·建立法人实体",
+      "TIMELINE": "2026年Q4"
+    },
+    {
+      "MILESTONE_NAME": "第1个付费标杆客户",
+      "VALUATION_IMPACT": "+2,460万",
+      "UNLOCK_DESC": "落地概率 0.3→0.5·商业化验证第一步",
+      "TIMELINE": "2026年Q4"
+    },
+    {
+      "MILESTONE_NAME": "10个付费客户 · MRR 5万+",
+      "VALUATION_IMPACT": "+5,000万",
+      "UNLOCK_DESC": "进入「有收入」估值区间·脱离概念阶段",
+      "TIMELINE": "2027年H1"
+    },
+    {
+      "MILESTONE_NAME": "社区贡献者 > 20人 · 外部PR > 5篇",
+      "VALUATION_IMPACT": "+3,000万",
+      "UNLOCK_DESC": "去中心化·降低创始人集中度风险",
+      "TIMELINE": "2027年Q2"
+    },
+    {
+      "MILESTONE_NAME": "第三方评估机构出具报告",
+      "VALUATION_IMPACT": "叙事估值→交易估值",
+      "UNLOCK_DESC": "可以从「参考价」变成「交易价」",
+      "TIMELINE": "2027年Q3"
+    }
+  ],
+  "ASSUMPTIONS": [
+    {
+      "ASSUMPTION_ID": "A1",
+      "ASSUMPTION_NAME": "人年工作量",
+      "ASSUMPTION_VALUE": "34.5人年",
+      "VERIFICATION_STATUS": "✅ 可核验（GitHub commit历史）"
+    },
+    {
+      "ASSUMPTION_ID": "A2",
+      "ASSUMPTION_NAME": "人年单价",
+      "ASSUMPTION_VALUE": "40万/人年",
+      "VERIFICATION_STATUS": "✅ 行业基准"
+    },
+    {
+      "ASSUMPTION_ID": "A3",
+      "ASSUMPTION_NAME": "独创性系数",
+      "ASSUMPTION_VALUE": "1.5~3.8",
+      "VERIFICATION_STATUS": "🟡 主观"
+    },
+    {
+      "ASSUMPTION_ID": "A4",
+      "ASSUMPTION_NAME": "文化主权系数",
+      "ASSUMPTION_VALUE": "0.45~1.2",
+      "VERIFICATION_STATUS": "🟡 主观"
+    },
+    {
+      "ASSUMPTION_ID": "A5",
+      "ASSUMPTION_NAME": "TAM",
+      "ASSUMPTION_VALUE": "50亿",
+      "VERIFICATION_STATUS": "🟡 行业报告参考"
+    },
+    {
+      "ASSUMPTION_ID": "A6",
+      "ASSUMPTION_NAME": "市场占有率",
+      "ASSUMPTION_VALUE": "1.5%",
+      "VERIFICATION_STATUS": "🟡 主观预估"
+    },
+    {
+      "ASSUMPTION_ID": "A7",
+      "ASSUMPTION_NAME": "落地概率折价",
+      "ASSUMPTION_VALUE": "0.3",
+      "VERIFICATION_STATUS": "🟡 主观（初创未验证）"
+    },
+    {
+      "ASSUMPTION_ID": "A8",
+      "ASSUMPTION_NAME": "场景权重(71/14/10/5%)",
+      "ASSUMPTION_VALUE": "极度保守占主导",
+      "VERIFICATION_STATUS": "🟡 主观（零收入现实）"
+    },
+    {
+      "ASSUMPTION_ID": "A9",
+      "ASSUMPTION_NAME": "风险折价率",
+      "ASSUMPTION_VALUE": "5%~35%",
+      "VERIFICATION_STATUS": "🟡 早期项目研究参考"
+    },
+    {
+      "ASSUMPTION_ID": "A10",
+      "ASSUMPTION_NAME": "里程碑估值影响",
+      "ASSUMPTION_VALUE": "线性解锁模型",
+      "VERIFICATION_STATUS": "🟡 主观（无历史数据）"
+    }
+  ],
+  "VALIDITY_PERIOD": "12个月",
+  "EVALUATOR": "UID9622（创始团队）",
+  "BENCHMARKS": [
+    {
+      "BM_NAME": "openEuler",
+      "BM_VALUATION": "媒体口径 80亿",
+      "BM_NOTE": "开源OS·已商业化"
+    },
+    {
+      "BM_NAME": "TiDB / PingCAP",
+      "BM_VALUATION": "C轮 $2.5亿估值",
+      "BM_NOTE": "开源数据库·有收入"
+    },
+    {
+      "BM_NAME": "Gitee / 开源中国",
+      "BM_VALUATION": "B轮 数亿人民币",
+      "BM_NOTE": "代码托管平台"
+    },
+    {
+      "BM_NAME": "少数派 / 独立开源项目",
+      "BM_VALUATION": "天使轮 1,000-5,000万",
+      "BM_NOTE": "早期开源项目·最相关区间"
+    }
+  ],
+  "VERSION_HISTORY": [
+    {
+      "VER": "v1.0",
+      "VER_DATE": "2026-08-10",
+      "VER_CHANGES": "初版，存在口径矛盾、生态虚高、对标无来源三处硬伤"
+    },
+    {
+      "VER": "v1.1",
+      "VER_DATE": "2026-08-11",
+      "VER_CHANGES": "修复三处硬伤·增加敏感性分析·风险折价表·兑现路线图·模板化落地"
+    },
+    {
+      "VER": "v1.2",
+      "VER_DATE": "2026-08-11",
+      "VER_CHANGES": "🔥 模板化：VALUATION-TEMPLATE.md + lh_valuation_template.py + 本配置文件·一键复现"
+    }
+  ],
+  "FOOTER_TEXT": "估值不是算出来的，是一步一步解锁的。第1个付费客户=+2,460万；注册主体+3人团队=流动性折价减半；第三方评估=叙事估值变交易估值。",
+  "CONFIRM_CODE": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "TRICOLOR_STATUS": "🟡 主观假设占比60%+·需第三方复核 🔴 不可用于交易定价",
+  "CONFIG_PATH": "core/valuation/v1.1-config.json"
+}

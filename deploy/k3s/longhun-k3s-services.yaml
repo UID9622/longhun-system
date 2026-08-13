@@ -1,0 +1,56 @@
+# DNA: #龍芯⚡️丙午·丙申·戊申·亥时·䷗复-K3S-SERVICES-v1.0
+# 创建者: 诸葛鑫（UID9622）
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: longhun-data-pvc
+  namespace: longhun
+  labels:
+    app: longhun
+    layer: L0-storage
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: local-path
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: longhun-daily-audit
+  namespace: longhun
+  labels:
+    app: longhun
+    component: audit
+    layer: L0-audit
+spec:
+  schedule: "0 */6 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: audit-runner
+            image: python:3.11-slim
+            command:
+            - /bin/bash
+            - -c
+            - |
+              pip install requests --quiet
+              echo "[$(date -Iseconds)] 龍魂定时审计触发"
+              curl -s http://127.0.0.1:8766/health && echo " [知识中枢 OK]"
+              curl -s http://127.0.0.1:8773/health && echo " [记忆API OK]"
+              echo "审计完成"
+            resources:
+              requests:
+                memory: "32Mi"
+                cpu: "25m"
+              limits:
+                memory: "64Mi"
+                cpu: "50m"
+          restartPolicy: OnFailure

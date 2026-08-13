@@ -1,0 +1,38 @@
+# 🐉 龍魂系统容器构建忽略清单
+# 这些目录/文件不进入容器镜像，保持镜像精简
+
+# 版本控制
+.git
+.gitignore
+
+# 工作区大数据（通过 volume 挂载到 sandbox，不打包进镜像）
+_work
+*.tar.gz
+*.bundle
+*.zip
+
+# 缓存与编译产物
+__pycache__
+*.pyc
+*.pyo
+.pytest_cache
+.mypy_cache
+.cache
+
+# 虚拟环境
+.venv
+venv
+
+# IDE
+.vscode
+.idea
+
+# 日志与临时文件
+logs/*.log
+*.log
+*.tmp
+*.temp
+.DS_Store
+
+# 容器自身避免递归
+container/README.md

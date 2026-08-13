@@ -1,0 +1,6 @@
+# FINAL_INSTRUCTIONS.md
+
+> Notion URL: https://app.notion.com/p/FINAL_INSTRUCTIONS-md-3307125a9c9f817ea0c9f9ccc6c776d5
+> Created: 2026-03-27T07:50:00.000Z
+> Last edited: 2026-07-01T14:09:00.000Z
+> Archived at: 2026-08-12T01:40:45.558086

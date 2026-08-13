@@ -1,0 +1,22 @@
+{
+  "backups": [
+    {
+      "id": "incr_20260809_041214",
+      "type": "incremental",
+      "parent": null,
+      "timestamp": "2026-08-09T04:12:14.458406",
+      "files": 1,
+      "total_size": 316373,
+      "compressed_size": 18028,
+      "file_list": [
+        {
+          "path": "deploy/auto_sync/sync.log",
+          "hash": "fca72a041d964009a9106d4b37ba1ca49da0002ea4ff961a3625203e78b00279",
+          "size": 316373
+        }
+      ],
+      "since": "2026-08-08T04:12:14.458396"
+    }
+  ],
+  "last_incremental": "2026-08-09T04:12:14.458406"
+}

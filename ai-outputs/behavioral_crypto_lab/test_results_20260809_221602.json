@@ -1,0 +1,278 @@
+{
+  "lab": "龍魂·行為密碼學集成測試實驗室 v2.0",
+  "dna": "#龍芯⚡️丙午·甲酉·丁寅·癸亥·䷁-YIJING-ACCOUNT-1ffe308c",
+  "baseline": {
+    "hexagram": "䷁ 坤",
+    "fingerprint_summary": {
+      "typing_speed_cps": 5.7,
+      "sentence_length_avg": 23.7,
+      "chinese_variant": "mixed"
+    }
+  },
+  "total_scenarios": 10,
+  "passed": 3,
+  "failed": 7,
+  "pass_rate": 30.0,
+  "scenarios": [
+    {
+      "id": "S01",
+      "name": "同一用戶·不同時間",
+      "description": "UID9622 在不同時間寫不同文本，應🟢通過",
+      "expected": "🟢 通過",
+      "actual_verdict": "🟢 通過",
+      "yijing_confidence": 0.7758,
+      "behavior_similarity": 0.6967,
+      "combined_confidence": 0.7363,
+      "passed": true,
+      "details": {
+        "hexagram": "坤(2)",
+        "target_hexagram": "噬嗑(21)",
+        "dao_match": true,
+        "fa_similarity": 0.9192,
+        "fingerprint": {
+          "typing_speed": 6.1,
+          "sentence_length": 25.4,
+          "typo_rate": 0.00321,
+          "chinese_variant": "traditional",
+          "decision_latency": 550.0,
+          "emotional_stability": 0.934
+        }
+      },
+      "timestamp": "2026-08-09T22:16:02.487634"
+    },
+    {
+      "id": "S02",
+      "name": "同一用戶·不同文本風格",
+      "description": "UID9622 寫代碼風格文本，應🟢通過（行為一致）",
+      "expected": "🟢 通過",
+      "actual_verdict": "🟢 通過",
+      "yijing_confidence": 0.7131,
+      "behavior_similarity": 0.6912,
+      "combined_confidence": 0.7022,
+      "passed": true,
+      "details": {
+        "hexagram": "坤(2)",
+        "target_hexagram": "大畜(26)",
+        "dao_match": true,
+        "fa_similarity": 0.7102,
+        "fingerprint": {
+          "typing_speed": 6.4,
+          "sentence_length": 24.4,
+          "typo_rate": 0.01987,
+          "chinese_variant": "traditional",
+          "decision_latency": 1051.0,
+          "emotional_stability": 0.874
+        }
+      },
+      "timestamp": "2026-08-09T22:16:02.487744"
+    },
+    {
+      "id": "S03",
+      "name": "同一用戶·繁體文本",
+      "description": "UID9622 寫繁體文本，應🟢通過（行為一致·語言模式可變）",
+      "expected": "🟢 通過",
+      "actual_verdict": "🟢 通過",
+      "yijing_confidence": 0.7695,
+      "behavior_similarity": 0.7976,
+      "combined_confidence": 0.7835,
+      "passed": true,
+      "details": {
+        "hexagram": "坤(2)",
+        "target_hexagram": "蒙(4)",
+        "dao_match": true,
+        "fa_similarity": 0.8983,
+        "fingerprint": {
+          "typing_speed": 6.1,
+          "sentence_length": 25.6,
+          "typo_rate": 0.00569,
+          "chinese_variant": "traditional",
+          "decision_latency": 1967.0,
+          "emotional_stability": 0.759
+        }
+      },
+      "timestamp": "2026-08-09T22:16:02.487824"
+    },
+    {
+      "id": "A01",
+      "name": "L1·抄襲攻擊",
+      "description": "攻擊者直接複製 UID9622 文本，行為指紋完全不同",
+      "expected": "🔴 拒絕",
+      "actual_verdict": "🟡 待核",
+      "yijing_confidence": 0.9629,
+      "behavior_similarity": 0.4115,
+      "combined_confidence": 0.6872,
+      "passed": false,
+      "details": {
+        "hexagram": "坤(2)",
+        "target_hexagram": "坤(2)",
+        "dao_match": true,
+        "fa_similarity": 0.8765,
+        "fingerprint": {
+          "typing_speed": 32.8,
+          "sentence_length": 45.1,
+          "typo_rate": 0.00298,
+          "chinese_variant": "simplified",
+          "decision_latency": 277.0,
+          "emotional_stability": 0.997
+        }
+      },
+      "timestamp": "2026-08-09T22:16:02.488099"
+    },
+    {
+      "id": "A02",
+      "name": "L2·模仿攻擊",
+      "description": "攻擊者輕微改寫+部分模擬行為，應🟡待核",
+      "expected": "🟡 待核",
+      "actual_verdict": "🟢 通過",
+      "yijing_confidence": 0.9253,
+      "behavior_similarity": 0.7199,
+      "combined_confidence": 0.8226,
+      "passed": false,
+      "details": {
+        "hexagram": "坤(2)",
+        "target_hexagram": "坤(2)",
+        "dao_match": true,
+        "fa_similarity": 0.751,
+        "fingerprint": {
+          "typing_speed": 6.2,
+          "sentence_length": 19.4,
+          "typo_rate": 0.001,
+          "chinese_variant": "traditional",
+          "decision_latency": 1122.0,
+          "emotional_stability": 0.811
+        }
+      },
+      "timestamp": "2026-08-09T22:16:02.489170"
+    },
+    {
+      "id": "A03",
+      "name": "L3·AI代寫攻擊",
+      "description": "LLM 生成文本·缺少人類行為痕跡·應🔴拒絕",
+      "expected": "🔴 拒絕",
+      "actual_verdict": "🟡 待核",
+      "yijing_confidence": 0.72,
+      "behavior_similarity": 0.434,
+      "combined_confidence": 0.577,
+      "passed": false,
+      "details": {
+        "hexagram": "坤(2)",
+        "target_hexagram": "大畜(26)",
+        "dao_match": true,
+        "fa_similarity": 0.7335,
+        "fingerprint": {
+          "typing_speed": 26.4,
+          "sentence_length": 31.9,
+          "typo_rate": 0.0017,
+          "chinese_variant": "simplified",
+          "decision_latency": 130.0,
+          "emotional_stability": 0.965
+        }
+      },
+      "timestamp": "2026-08-09T22:16:02.492590"
+    },
+    {
+      "id": "A04",
+      "name": "L4·中間人攻擊",
+      "description": "截獲文本並篡改·行為異常·應🔴拒絕",
+      "expected": "🔴 拒絕",
+      "actual_verdict": "🟡 待核",
+      "yijing_confidence": 0.7198,
+      "behavior_similarity": 0.4529,
+      "combined_confidence": 0.5864,
+      "passed": false,
+      "details": {
+        "hexagram": "坤(2)",
+        "target_hexagram": "無妄(25)",
+        "dao_match": true,
+        "fa_similarity": 0.7328,
+        "fingerprint": {
+          "typing_speed": 29.9,
+          "sentence_length": 45.1,
+          "typo_rate": 0.00341,
+          "chinese_variant": "simplified",
+          "decision_latency": 294.0,
+          "emotional_stability": 0.951
+        }
+      },
+      "timestamp": "2026-08-09T22:16:02.492815"
+    },
+    {
+      "id": "A05",
+      "name": "L5·量子攻擊",
+      "description": "完全偽造所有層·過於完美的行為指紋·應🔴拒絕",
+      "expected": "🔴 拒絕",
+      "actual_verdict": "🟡 待核",
+      "yijing_confidence": 0.7692,
+      "behavior_similarity": 0.4381,
+      "combined_confidence": 0.6037,
+      "passed": false,
+      "details": {
+        "hexagram": "坤(2)",
+        "target_hexagram": "中孚(61)",
+        "dao_match": true,
+        "fa_similarity": 0.8972,
+        "fingerprint": {
+          "typing_speed": 10.0,
+          "sentence_length": 30.0,
+          "typo_rate": 0.0,
+          "chinese_variant": "simplified",
+          "decision_latency": 50,
+          "emotional_stability": 1.0
+        }
+      },
+      "timestamp": "2026-08-09T22:16:02.492925"
+    },
+    {
+      "id": "S04",
+      "name": "邊界案例·不同用戶相似話題",
+      "description": "其他用戶討論相同技術話題，應🟡待核",
+      "expected": "🟡 待核",
+      "actual_verdict": "🟢 通過",
+      "yijing_confidence": 0.7417,
+      "behavior_similarity": 0.8523,
+      "combined_confidence": 0.797,
+      "passed": false,
+      "details": {
+        "hexagram": "坤(2)",
+        "target_hexagram": "蹇(39)",
+        "dao_match": true,
+        "fa_similarity": 0.8058,
+        "fingerprint": {
+          "typing_speed": 6.3,
+          "sentence_length": 22.4,
+          "typo_rate": 0.00201,
+          "chinese_variant": "mixed",
+          "decision_latency": 2053.0,
+          "emotional_stability": 0.844
+        }
+      },
+      "timestamp": "2026-08-09T22:16:02.492995"
+    },
+    {
+      "id": "S05",
+      "name": "邊界案例·無關內容",
+      "description": "完全無關的內容，應🔴拒絕",
+      "expected": "🔴 拒絕",
+      "actual_verdict": "🟢 通過",
+      "yijing_confidence": 0.7533,
+      "behavior_similarity": 0.6671,
+      "combined_confidence": 0.7102,
+      "passed": false,
+      "details": {
+        "hexagram": "坤(2)",
+        "target_hexagram": "小過(62)",
+        "dao_match": true,
+        "fa_similarity": 0.8442,
+        "fingerprint": {
+          "typing_speed": 6.3,
+          "sentence_length": 33.5,
+          "typo_rate": 0.01436,
+          "chinese_variant": "traditional",
+          "decision_latency": 1594.0,
+          "emotional_stability": 0.91
+        }
+      },
+      "timestamp": "2026-08-09T22:16:02.493058"
+    }
+  ]
+}

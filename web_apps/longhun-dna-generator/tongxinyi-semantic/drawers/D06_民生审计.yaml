@@ -1,0 +1,30 @@
+# 龍魂语义抽屉 · D06 · 民生审计
+# 归属: 龍魂系统 UID9622 · 通心译引用源
+# 状态机: 种子 → 审核 → 焊死(P0冻结, 不可改只冻结)
+# 引用语法: @D06.{词元}  例: @D06.维权
+
+drawer: D06
+name: 民生审计
+count: 3
+entries:
+  - term: "维权"
+    alias: ["消费者维权", "投诉"]
+    en: "rights-defense"
+    cnsh: "维权"
+    gua: "䷝离"
+    status: "种子"
+    note: "民生层核心动作"
+  - term: "察促"
+    alias: ["促销审计", "活动审计"]
+    en: "promo-audit"
+    cnsh: "察促"
+    gua: "䷞咸"
+    status: "种子"
+    note: "金额/名额/去向全透明"
+  - term: "照箱"
+    alias: ["黑箱检测", "开黑箱"]
+    en: "blackbox-scan"
+    cnsh: "照箱"
+    gua: "䷟恒"
+    status: "种子"
+    note: "数据不透明即欺诈"

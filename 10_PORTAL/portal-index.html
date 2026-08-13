@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="诸葛鑫（UID9622）">
+<meta name="dna" content="#龍芯⚡️2026-08-07-PORTAL-INDEX-v1.0">
+<title>龍魂 · 统一门户导航</title>
+<style>
+:root {
+  --bg-deep: #0a0a0f;
+  --bg-card: #1c1c2a;
+  --gold: #c9a84c;
+  --gold-light: #e0c878;
+  --gold-dim: rgba(201,168,76,0.12);
+  --text: #e8e8ec;
+  --text-muted: #707088;
+  --border: rgba(201,168,76,0.18);
+  --radius: 10px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg-deep);color:var(--text);line-height:1.6;min-height:100vh}
+a{color:var(--gold);text-decoration:none;transition:color .3s}
+a:hover{color:var(--gold-light)}
+
+.header {
+  text-align:center;
+  padding:80px 24px 48px;
+  background:linear-gradient(180deg,rgba(201,168,76,0.08) 0%,transparent 100%);
+}
+.header h1 {font-size:2.2rem;color:var(--gold-light);margin-bottom:8px}
+.header p {color:var(--text-muted);font-size:15px}
+.header .stats {display:flex;justify-content:center;gap:32px;margin-top:20px;flex-wrap:wrap}
+.header .stats .stat {text-align:center}
+.header .stats .stat .num {font-size:1.8rem;color:var(--gold);font-weight:700}
+.header .stats .stat .label {font-size:12px;color:var(--text-muted)}
+
+.container {max-width:1200px;margin:0 auto;padding:0 24px 60px}
+
+/* === 分类区域 === */
+.cat-section {margin:48px 0}
+.cat-title {
+  display:flex;align-items:center;gap:10px;
+  font-size:1.3rem;color:var(--gold);margin-bottom:20px;
+  padding-bottom:8px;border-bottom:1px solid var(--border);
+}
+.cat-title .cat-icon {font-size:1.5rem}
+.cat-title .cat-count {font-size:12px;color:var(--text-muted);margin-left:8px}
+
+/* === 卡片网格 === */
+.grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.card {
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px;
+  transition:all .3s;display:flex;flex-direction:column;gap:8px;
+}
+.card:hover {border-color:var(--gold);box-shadow:0 4px 24px rgba(201,168,76,0.1);transform:translateY(-1px)}
+.card .card-icon {font-size:1.6rem}
+.card .card-name {font-weight:600;color:var(--gold-light);font-size:14px}
+.card .card-desc {font-size:12px;color:var(--text-muted);line-height:1.5}
+.card .card-badge {font-size:10px;display:inline-block;padding:1px 8px;border-radius:100px}
+.card .card-badge.online {background:rgba(46,204,113,0.15);color:#2ecc71}
+.card .card-badge.local {background:rgba(201,168,76,0.15);color:var(--gold)}
+.card .card-badge.wip {background:rgba(240,160,48,0.15);color:#f0a030}
+
+/* === 模板卡片特殊样式 === */
+.template-card {background:linear-gradient(135deg,var(--gold-dim),var(--bg-card))}
+
+/* === 搜索 === */
+.search-box {
+  max-width:500px;margin:24px auto 0;
+  position:relative;
+}
+.search-box input {
+  width:100%;padding:12px 16px 12px 40px;
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:100px;color:var(--text);font-size:14px;
+  outline:none;transition:border-color .3s;
+}
+.search-box input:focus {border-color:var(--gold)}
+.search-box .search-icon {
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  color:var(--text-muted);font-size:16px;
+}
+
+/* === 响应式 === */
+@media (max-width:768px) {
+  .header {padding:48px 16px 32px}
+  .header h1 {font-size:1.6rem}
+  .grid {grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+}
+
+.footer {
+  text-align:center;padding:32px 24px;
+  border-top:1px solid var(--border);color:var(--text-muted);font-size:12px;
+  margin-top:48px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🐉 龍魂 · 统一门户导航 v2.0</h1>
+  <p>898个HTML → 去重281个 → 统一归并 → 5篇新论文 · 3篇注释 · 3示例 · 2国家魂</p>
+  <div class="stats">
+    <div class="stat"><div class="num" id="totalCount">-</div><div class="label">功能入口</div></div>
+    <div class="stat"><div class="num">281</div><div class="label">已去重删除</div></div>
+    <div class="stat"><div class="num">6</div><div class="label">排版模板</div></div>
+    <div class="stat"><div class="num">14</div><div class="label">今日新增</div></div>
+  </div>
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="搜索功能...（输入名称筛选）" oninput="filterCards()">
+  </div>
+</div>
+
+<main class="container">
+
+  <!-- === 核心应用 === -->
+  <section class="cat-section" data-cat="apps">
+    <div class="cat-title"><span class="cat-icon">🚀</span> 核心应用 <span class="cat-count">/ apps</span></div>
+    <div class="grid">
+      <a href="/ai-chat/index.html" class="card"><div class="card-icon">🤖</div><div class="card-name">AI对话</div><div class="card-desc">混元/DeepSeek/Ollama·智能路由</div><span class="card-badge online">在线</span></a>
+      <a href="/dashboard/index.html" class="card"><div class="card-icon">📊</div><div class="card-name">Dashboard</div><div class="card-desc">系统监控·引擎状态·实时数据</div><span class="card-badge online">在线</span></a>
+      <a href="/deben-audit/index.html" class="card"><div class="card-icon">🛡️</div><div class="card-name">德本审计</div><div class="card-desc">离火运五问·十道闸口</div><span class="card-badge online">在线</span></a>
+      <a href="/audit-battle-hub/index.html" class="card"><div class="card-icon">⚔️</div><div class="card-name">红蓝对抗</div><div class="card-desc">P77黑天使·渗透测试</div><span class="card-badge local">本地</span></a>
+      <a href="/ai-hub/index.html" class="card"><div class="card-icon">🔍</div><div class="card-name">AI中枢</div><div class="card-desc">多源搜索·Bing+学术源</div><span class="card-badge online">在线</span></a>
+      <a href="/cnsh-dictionary/index.html" class="card"><div class="card-icon">📖</div><div class="card-name">CNSH词典</div><div class="card-desc">中文编程语言·语法速查</div><span class="card-badge local">本地</span></a>
+      <a href="/dna-identity/index.html" class="card"><div class="card-icon">🧬</div><div class="card-name">DNA身份</div><div class="card-desc">数字DNA注册·签名追溯</div><span class="card-badge local">本地</span></a>
+      <a href="/five-harms-expose/index.html" class="card"><div class="card-icon">⚖️</div><div class="card-name">五害曝光</div><div class="card-desc">人民维权·消费保护</div><span class="card-badge online">在线</span></a>
+      <a href="/knowledge/index.html" class="card"><div class="card-icon">🧠</div><div class="card-name">知识图谱</div><div class="card-desc">洛书九宫·五行生克</div><span class="card-badge local">本地</span></a>
+      <a href="/manifesto/index.html" class="card"><div class="card-icon">📜</div><div class="card-name">主权宣言</div><div class="card-desc">文化主权·信息自主</div><span class="card-badge local">本地</span></a>
+      <a href="/protocol-structure/index.html" class="card"><div class="card-icon">📋</div><div class="card-name">协议文档</div><div class="card-desc">白皮书·审计·隐私规则</div><span class="card-badge local">本地</span></a>
+      <a href="/team-orchestrator/index.html" class="card"><div class="card-icon">🎯</div><div class="card-name">团队编排</div><div class="card-desc">24人格Agent协同</div><span class="card-badge online">在线</span></a>
+      <a href="/video-studio/index.html" class="card"><div class="card-icon">🎬</div><div class="card-name">视频工坊</div><div class="card-desc">AI视频·配音·字幕</div><span class="card-badge local">本地</span></a>
+      <a href="/warp-lab/index.html" class="card"><div class="card-icon">🌀</div><div class="card-name">数字人实验室</div><div class="card-desc">数字人·语音合成·动画</div><span class="card-badge local">本地</span></a>
+      <a href="/seven-factor-identity/index.html" class="card"><div class="card-icon">🔐</div><div class="card-name">七因子身份</div><div class="card-desc">设备指纹·行为DNA验证</div><span class="card-badge local">本地</span></a>
+      <a href="/rite-blade/index.html" class="card"><div class="card-icon">🗡️</div><div class="card-name">礼仪之刃</div><div class="card-desc">AI交互礼仪·反PUA</div><span class="card-badge local">本地</span></a>
+      <a href="/mental-immune/index.html" class="card"><div class="card-icon">🧿</div><div class="card-name">心理免疫</div><div class="card-desc">焦虑检测·五类话术</div><span class="card-badge local">本地</span></a>
+      <a href="/soft-culture/index.html" class="card"><div class="card-icon">🎨</div><div class="card-name">软实力文化</div><div class="card-desc">文化输出·内容创作</div><span class="card-badge local">本地</span></a>
+      <a href="/civil-audit/index.html" class="card"><div class="card-icon">🏛️</div><div class="card-name">人民审计</div><div class="card-desc">公民审计·公共监督</div><span class="card-badge local">本地</span></a>
+      <a href="/evolution/index.html" class="card"><div class="card-icon">🌱</div><div class="card-name">系统进化</div><div class="card-desc">版本历史·能力增长</div><span class="card-badge local">本地</span></a>
+    </div>
+  </section>
+
+  <!-- === 国家魂 === -->
+  <section class="cat-section" data-cat="national">
+    <div class="cat-title"><span class="cat-icon">🇨🇳</span> 国家魂门户</div>
+    <div class="grid">
+      <a href="/national-soul/index.html" class="card"><div class="card-icon">🏯</div><div class="card-name">国家魂·首页</div><div class="card-desc">15大板块·民族记忆</div><span class="card-badge online">在线</span></a>
+      <a href="/national-soul/memorial.html" class="card"><div class="card-icon">🪦</div><div class="card-name">刻名入碑</div><div class="card-desc">数字丰碑·永垂不朽</div><span class="card-badge online">在线</span></a>
+      <a href="/national-soul/today.html" class="card"><div class="card-icon">🔥</div><div class="card-name">今日历史</div><div class="card-desc">薪火相传·勿忘国耻</div><span class="card-badge online">在线</span></a>
+      <a href="/national-soul/behavioral-crypto-whitepaper.html" class="card template-card"><div class="card-icon">🔬</div><div class="card-name">行为密码学白皮书</div><div class="card-desc">七因子·数据主权·五级防御</div><span class="card-badge local">白皮书</span></a>
+      <a href="/national-soul/longhun-constitution.html" class="card template-card"><div class="card-icon">📜</div><div class="card-name">龍魂宪章</div><div class="card-desc">P0-ETERNAL·根本大法·13条</div><span class="card-badge local">宪法</span></a>
+    </div>
+  </section>
+
+  <!-- === 中国文化 === -->
+  <section class="cat-section" data-cat="china">
+    <div class="cat-title"><span class="cat-icon">🏛️</span> 中国文化 <span class="cat-count">/ china</span></div>
+    <div class="grid">
+      <a href="/china/yijing/index.html" class="card"><div class="card-icon">☯️</div><div class="card-name">易经</div><div class="card-desc">六十四卦·变化之道</div></a>
+      <a href="/china/daodejing/index.html" class="card"><div class="card-icon">📿</div><div class="card-name">道德经</div><div class="card-desc">老子·道法自然</div></a>
+      <a href="/china/taiji/index.html" class="card"><div class="card-icon">🌀</div><div class="card-name">太极</div><div class="card-desc">阴阳·两仪四象</div></a>
+      <a href="/china/liushisigua/index.html" class="card"><div class="card-icon">🔮</div><div class="card-name">六十四卦</div><div class="card-desc">卦象详解·占卜</div></a>
+      <a href="/china/shanhaijing/index.html" class="card"><div class="card-icon">🐉</div><div class="card-name">山海经</div><div class="card-desc">上古神兽·地理志</div></a>
+      <a href="/china/jieqi/index.html" class="card"><div class="card-icon">🌿</div><div class="card-name">二十四节气</div><div class="card-desc">节气·物候·农时</div></a>
+      <a href="/china/hetu-luoshu/index.html" class="card"><div class="card-icon">🔢</div><div class="card-name">河图洛书</div><div class="card-desc">九宫格·369不动点</div></a>
+      <a href="/china/sunzibingfa/index.html" class="card"><div class="card-icon">⚔️</div><div class="card-name">孙子兵法</div><div class="card-desc">三十六计·兵家</div></a>
+      <a href="/china/huangdineijing/index.html" class="card"><div class="card-icon">💊</div><div class="card-name">黄帝内经</div><div class="card-desc">中医经典·养生</div></a>
+      <a href="/china/zhuangzi/index.html" class="card"><div class="card-icon">🦋</div><div class="card-name">庄子</div><div class="card-desc">逍遥游·齐物论</div></a>
+      <a href="/china/chachan/index.html" class="card"><div class="card-icon">🍵</div><div class="card-name">茶禅</div><div class="card-desc">茶道·禅修</div></a>
+      <a href="/china/chanzong/index.html" class="card"><div class="card-icon">🧘</div><div class="card-name">禅宗</div><div class="card-desc">明心见性·顿悟</div></a>
+      <a href="/china/shufa/index.html" class="card"><div class="card-icon">🖌️</div><div class="card-name">书法</div><div class="card-desc">汉字艺术·笔墨</div></a>
+      <a href="/china/zengshiqiang/index.html" class="card"><div class="card-icon">🎓</div><div class="card-name">曾仕强</div><div class="card-desc">国学大师·易经</div></a>
+      <a href="/china/sancai-369/index.html" class="card"><div class="card-icon">✨</div><div class="card-name">三才369</div><div class="card-desc">天地人·洛书数理</div></a>
+    </div>
+  </section>
+
+  <!-- === 中国文化·龍魂注释版 === -->
+  <section class="cat-section" data-cat="china-annotated">
+    <div class="cat-title"><span class="cat-icon">📝</span> 龍魂注释版 <span class="cat-count">/ china · 工程映射</span></div>
+    <div class="grid">
+      <a href="/china/yijing-longhun-annotated-v1.0.html" class="card template-card"><div class="card-icon">☯️</div><div class="card-name">易经·六十四卦映射</div><div class="card-desc">卦象→系统状态向量·人格路由·审计状态</div><span class="card-badge local">注释版</span></a>
+      <a href="/china/daodejing-longhun-annotated-v1.0.html" class="card template-card"><div class="card-icon">📿</div><div class="card-name">道德经·底层锚</div><div class="card-desc">81章→AI场景锚点·递归生成·无为工程实现</div><span class="card-badge local">注释版</span></a>
+      <a href="/china/tiangandizhi-longhun-v1.0.html" class="card template-card"><div class="card-icon">📅</div><div class="card-name">天干地支·时间DNA</div><div class="card-desc">干支→五行·梅花易数起卦·LU-Time Engine</div><span class="card-badge local">注释版</span></a>
+    </div>
+  </section>
+
+  <!-- === 可视化 === -->
+  <section class="cat-section" data-cat="viz">
+    <div class="cat-title"><span class="cat-icon">🌊</span> 可视化 <span class="cat-count">/ visualizations</span></div>
+    <div class="grid">
+      <a href="/visualizations/flow-field/v9.html" class="card"><div class="card-icon">🌪️</div><div class="card-name">流场可视化 v9</div><div class="card-desc">数字流场动态渲染</div></a>
+      <a href="/visualizations/luoshu-vortex/index.html" class="card"><div class="card-icon">🌀</div><div class="card-name">洛书漩涡</div><div class="card-desc">九宫格动态涡旋</div></a>
+      <a href="/visualizations/neural-net/v2.html" class="card"><div class="card-icon">🕸️</div><div class="card-name">神经网络3D</div><div class="card-desc">L0-L9拓扑可视化</div></a>
+      <a href="/visualizations/cnsh-star/index.html" class="card"><div class="card-icon">⭐</div><div class="card-name">星宿知识图</div><div class="card-desc">二十八宿·天文</div></a>
+      <a href="/visualizations/knowledge-matrix/3d.html" class="card"><div class="card-icon">🧊</div><div class="card-name">知识矩阵3D</div><div class="card-desc">沉浸式知识浏览</div></a>
+      <a href="/visualizations/28mansions/v1.html" class="card"><div class="card-icon">🏠</div><div class="card-name">二十八宿</div><div class="card-desc">星宿阵列·天文</div></a>
+      <a href="/visualizations/sancai-flow/index.html" class="card"><div class="card-icon">🌊</div><div class="card-name">三才流场</div><div class="card-desc">天·地·人数据流</div></a>
+      <a href="/visualizations/unified-v9.html" class="card"><div class="card-icon">🔗</div><div class="card-name">统一流场 v9</div><div class="card-desc">全系统流场总览</div></a>
+      <a href="/visualizations/master-control.html" class="card"><div class="card-icon">🎛️</div><div class="card-name">总控面板</div><div class="card-desc">流场主控制台</div></a>
+    </div>
+  </section>
+
+  <!-- === 工具 === -->
+  <section class="cat-section" data-cat="tools">
+    <div class="cat-title"><span class="cat-icon">🔧</span> 工具 <span class="cat-count">/ tools</span></div>
+    <div class="grid">
+      <a href="/tools/memory-editor/index.html" class="card"><div class="card-icon">💾</div><div class="card-name">记忆编辑器</div><div class="card-desc">跨会话记忆管理</div></a>
+      <a href="/tools/sandbox/index.html" class="card"><div class="card-icon">📦</div><div class="card-name">沙箱面板</div><div class="card-desc">安全测试隔离环境</div></a>
+      <a href="/dna-generator/index.html" class="card"><div class="card-icon">🧬</div><div class="card-name">DNA生成器</div><div class="card-desc">v∞干支卦追溯码</div></a>
+      <a href="/data-radar/index.html" class="card"><div class="card-icon">📡</div><div class="card-name">数据雷达</div><div class="card-desc">数据流监控面板</div></a>
+      <a href="/cnsh-ruyi/index.html" class="card"><div class="card-icon">✏️</div><div class="card-name">CNSH如意</div><div class="card-desc">中文编程IDE</div></a>
+      <a href="/longhun-font.html" class="card"><div class="card-icon">🔤</div><div class="card-name">龍魂字体</div><div class="card-desc">繁体龍字体系</div></a>
+    </div>
+  </section>
+
+  <!-- === 报告 & 文章 === -->
+  <section class="cat-section" data-cat="report">
+    <div class="cat-title"><span class="cat-icon">📄</span> 报告 & 文章 <span class="cat-count">/ articles + reports</span></div>
+    <div class="grid">
+      <a href="/articles/behavioral-crypto-v3.0.html" class="card"><div class="card-icon">🔬</div><div class="card-name">行为密码学 v3.0</div><div class="card-desc">统一框架·七因子追溯</div></a>
+      <a href="/articles/behavioral-crypto-v3.0-en.html" class="card"><div class="card-icon">🌐</div><div class="card-name">BC Unified (EN)</div><div class="card-desc">英文版·学术论文</div></a>
+      <a href="/articles/behavioral-crypto-seven-factor-v2.0.html" class="card"><div class="card-icon">📐</div><div class="card-name">七因子框架 v2.0</div><div class="card-desc">行为密码·追溯框架</div></a>
+      <a href="/articles/dao-lead-values-map.html" class="card"><div class="card-icon">🗺️</div><div class="card-name">道引·价值观地图</div><div class="card-desc">中国开源模型·价值观对齐</div></a>
+      <a href="/articles/three-layer-binding.html" class="card"><div class="card-icon">🔗</div><div class="card-name">三层绑定架构</div><div class="card-desc">覆写码·可视化版</div></a>
+      <a href="/articles/world-model-math-v1.0.html" class="card"><div class="card-icon">🌍</div><div class="card-name">世界模型·数理</div><div class="card-desc">数学物理框架 v1.0</div></a>
+      <a href="/articles/paper-luoshu-369-v1.0.html" class="card template-card"><div class="card-icon">🔢</div><div class="card-name">洛书369不变量</div><div class="card-desc">数字根收敛·AI决策锚点·98.7%检出</div><span class="card-badge local">🆕论文</span></a>
+      <a href="/articles/paper-daodejing-recursion-v1.0.html" class="card template-card"><div class="card-icon">📿</div><div class="card-name">道德经递归生成</div><div class="card-desc">道生一→图灵完备·无为收敛定理</div><span class="card-badge local">🆕论文</span></a>
+      <a href="/articles/paper-wuxing-group-v1.0.html" class="card template-card"><div class="card-icon">🔄</div><div class="card-name">五行循环群定理</div><div class="card-desc">ℤ₅群同构·生克=+1/+2 mod 5</div><span class="card-badge local">🆕论文</span></a>
+      <a href="/articles/paper-ant-colony-v1.0.html" class="card template-card"><div class="card-icon">🐜</div><div class="card-name">蚁群架构</div><div class="card-desc">五种群·信息素协议·通信-73%</div><span class="card-badge local">🆕论文</span></a>
+      <a href="/articles/paper-cnsh-flow-v1.0.html" class="card template-card"><div class="card-icon">💻</div><div class="card-name">CNSH流场压缩核</div><div class="card-desc">六维翻译·1:16.6M压缩率</div><span class="card-badge local">🆕论文</span></a>
+      <a href="/reports/index.html" class="card"><div class="card-icon">📊</div><div class="card-name">报告总览</div><div class="card-desc">系统报告索引</div></a>
+      <a href="/reports/shenzhen-dna-2026.html" class="card"><div class="card-icon">🧬</div><div class="card-name">深圳DNA存储报告</div><div class="card-desc">DNA存储·2026</div></a>
+      <a href="/api-docs.html" class="card"><div class="card-icon">📚</div><div class="card-name">API文档</div><div class="card-desc">OpenAPI 3.1·5套规范</div></a>
+      <a href="/behavioral-crypto.html" class="card"><div class="card-icon">🔐</div><div class="card-name">行为密码学门户</div><div class="card-desc">行为密码学·主页</div></a>
+    </div>
+  </section>
+
+  <!-- === 排版模板 === -->
+  <section class="cat-section" data-cat="templates">
+    <div class="cat-title"><span class="cat-icon">📝</span> 排版模板 <span class="cat-count">/ templates</span></div>
+    <div class="grid">
+      <a href="/templates/article-template.html" class="card template-card"><div class="card-icon">📰</div><div class="card-name">文章排版模板</div><div class="card-desc">CSDN/公众号/博客·含代码高亮·表格·引用·标签</div><span class="card-badge local">模板</span></a>
+      <a href="/templates/paper-template.html" class="card template-card"><div class="card-icon">📜</div><div class="card-name">学术论文模板</div><div class="card-desc">摘要·公式·定理·参考文献·附录·双栏·打印样式</div><span class="card-badge local">模板</span></a>
+      <a href="/templates/page-template.html" class="card template-card"><div class="card-icon">🌐</div><div class="card-name">网站页面模板</div><div class="card-desc">导航·头部·卡片·CTA·页脚·响应式·暗色主题</div><span class="card-badge local">模板</span></a>
+    </div>
+  </section>
+
+  <!-- === 模板示例 === -->
+  <section class="cat-section" data-cat="template-examples">
+    <div class="cat-title"><span class="cat-icon">🎨</span> 模板示例 <span class="cat-count">/ templates · 填入真实内容</span></div>
+    <div class="grid">
+      <a href="/templates/example-article-behavioral-crypto.html" class="card template-card"><div class="card-icon">🔬</div><div class="card-name">文章模板·示例</div><div class="card-desc">行为密码学·七因子·含代码块·表格·引用</div><span class="card-badge wip">示例</span></a>
+      <a href="/templates/example-paper-luoshu-369.html" class="card template-card"><div class="card-icon">🔢</div><div class="card-name">论文模板·示例</div><div class="card-desc">洛书369·摘要·定理·证明·参考文献</div><span class="card-badge wip">示例</span></a>
+      <a href="/templates/example-page-overview.html" class="card template-card"><div class="card-icon">🐉</div><div class="card-name">页面模板·示例</div><div class="card-desc">龍魂系统概览·导航·卡片·CTA·页脚</div><span class="card-badge wip">示例</span></a>
+    </div>
+  </section>
+
+  <!-- === 快速入口 === -->
+  <section class="cat-section" data-cat="quick">
+    <div class="cat-title"><span class="cat-icon">⚡</span> 快速入口</div>
+    <div class="grid">
+      <a href="/index.html" class="card"><div class="card-icon">🏠</div><div class="card-name">龍魂首页</div><div class="card-desc">系统主入口</div></a>
+      <a href="/home/index.html" class="card"><div class="card-icon">🏡</div><div class="card-name">Home新版</div><div class="card-desc">新版首页</div></a>
+      <a href="/apps/console/hub-v5.0.html" class="card"><div class="card-icon">🎛️</div><div class="card-name">智能中枢 v5.0</div><div class="card-desc">全套一体化操作台</div></a>
+      <a href="/apps/console/main.html" class="card"><div class="card-icon">🖥️</div><div class="card-name">主控制台</div><div class="card-desc">系统操作中心</div></a>
+      <a href="/apps/persona-baobao/index.html" class="card"><div class="card-icon">👶</div><div class="card-name">宝宝人格配置</div><div class="card-desc">P02情感温度引擎</div></a>
+      <a href="/apps/monitor/unified.html" class="card"><div class="card-icon">📡</div><div class="card-name">统一监控</div><div class="card-desc">全系统监控面板</div></a>
+      <a href="/building-blocks.html" class="card"><div class="card-icon">🧱</div><div class="card-name">积木工具箱</div><div class="card-desc">可复用UI组件</div></a>
+      <a href="/chat-widget-v3.html" class="card"><div class="card-icon">💬</div><div class="card-name">聊天组件 v3</div><div class="card-desc">嵌入式AI对话</div></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>
+    龍魂系统 · 统一门户导航 v2.0 · 5论文+3注释+3示例+2国家魂<br>
+    创建者: 诸葛鑫（UID9622）· DNA: #龍芯⚡️2026-08-07-PORTAL-INDEX<br>
+    协议: CC BY-NC-SA 4.0（思想层）/ MulanPSL v2（工程层）· GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  </p>
+</footer>
+
+<script>
+// 统计入口数量
+document.getElementById('totalCount').textContent = document.querySelectorAll('.card').length;
+
+// 搜索过滤
+function filterCards() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  document.querySelectorAll('.card').forEach(card => {
+    const text = (card.querySelector('.card-name')?.textContent || '') + ' ' +
+                 (card.querySelector('.card-desc')?.textContent || '');
+    card.style.display = text.toLowerCase().includes(q) ? '' : 'none';
+  });
+  // 隐藏空分类
+  document.querySelectorAll('.cat-section').forEach(sec => {
+    const visible = sec.querySelectorAll('.card[style*="display:none"]').length;
+    const total = sec.querySelectorAll('.card').length;
+    sec.style.display = visible === total ? 'none' : '';
+  });
+}
+</script>
+
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
+<style>
+#lh-eco-popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-eco-popup-overlay.active { display: flex; }
+.lh-popup-card {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
+    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
+    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+}
+.lh-popup-title {
+    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.lh-popup-subtitle {
+    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
+}
+.lh-status-badge {
+    display: inline-block; padding: 6px 18px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
+}
+.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
+.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
+.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
+.lh-popup-btn {
+    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
+    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+.lh-btn-primary {
+    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+}
+.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
+.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
+.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
+.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
+</style>
+
+<div id="lh-eco-popup-overlay">
+    <div class="lh-popup-card">
+        <div class="lh-popup-title">🌐 龍魂生态</div>
+        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
+        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
+        <div class="lh-popup-detail" id="lh-popup-detail"></div>
+        <div>
+            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
+            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
+        </div>
+        <div class="lh-popup-footer">
+            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var API_BASE = '/api/eco';
+    var popup = document.getElementById('lh-eco-popup-overlay');
+    var lastShown = localStorage.getItem('lh_eco_popup_last');
+    var now = Date.now();
+    
+    // 24小时内不重复弹窗
+    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
+    
+    function showPopup() {
+        if (popup) popup.classList.add('active');
+        localStorage.setItem('lh_eco_popup_last', now.toString());
+    }
+    
+    function fetchStatus() {
+        fetch(API_BASE + '/alive-status')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var badge = document.getElementById('lh-status-badge');
+                var detail = document.getElementById('lh-popup-detail');
+                if (!badge || !detail) return;
+                
+                if (data.status === 'alive') {
+                    badge.textContent = '🟢 生态内';
+                    badge.className = 'lh-status-badge lh-status-alive';
+                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
+                    // 生态内不弹窗
+                } else if (data.status === 'builder') {
+                    badge.textContent = '⚪ 共建者';
+                    badge.className = 'lh-status-badge lh-status-builder';
+                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
+                } else {
+                    badge.textContent = '🟡 生态外';
+                    badge.className = 'lh-status-badge lh-status-expired';
+                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
+                    showPopup();
+                }
+            })
+            .catch(function() {
+                // API不可达时不弹窗
+            });
+    }
+    
+    // 页面加载后2秒检查
+    setTimeout(fetchStatus, 2000);
+    
+    // 暴露全局函数
+    window.lhEcoRenew = function() {
+        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.qr_code || data.payment_url) {
+                    window.open(data.payment_url || data.qr_code, '_blank');
+                }
+                if (popup) popup.classList.remove('active');
+                setTimeout(fetchStatus, 3000);
+            });
+    };
+    window.lhEcoClose = function() {
+        if (popup) popup.classList.remove('active');
+    };
+})();
+</script>
+<!-- /龍魂生态准入弹窗 -->
+</body>
+</html>

@@ -1,0 +1,3526 @@
+{
+  "dna": "#龍芯⚡️丙午·丙酉·癸亥·丑时·䷫姤-AGENT-SWARM-UID9622-22CA772F",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "timestamp": "2026-08-12T01:38:34.537503",
+  "agents": [
+    {
+      "agent": "审计员",
+      "dna": "#龍芯⚡️丙午·丙酉·癸亥·丑时·䷫姤-AGENT-AUDITOR-UID9622-7F20BF6A",
+      "started_at": "2026-08-12T01:38:33.365597",
+      "completed_at": "2026-08-12T01:38:33.422088",
+      "summary": {
+        "missing_dna": 100,
+        "missing_sig": 100,
+        "invalid_sig": 50
+      },
+      "findings": [
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/.claude.json",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/automations/automation/memory.md",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/automations/automation-2/memory.md",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/automations/automation-4/memory.md",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/automations/notion/memory.md",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/cnsh_semantic_protocol.md",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/cnsh_semantic_protocol.txt",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/memory/2025-08-09.md",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/memory/2026-07-10-feed-iw-ecb-v2.md",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/memory/2026-07-19.md",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/memory/2026-07-20.md",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/memory/2026-07-22.md",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/memory/2026-07-23.md",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/memory/2026-08-07.md",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/memory/2026-08-08.md",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/memory/2026-08-09.md",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/memory/CLAUDE_OBSERVATIONS.md",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/skills/LibTV AI 创作/scripts/_send_long_prompt.py",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/teams/cnsh-v25-upgrade/config.json",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".codebuddy/teams/cnsh-v25-upgrade/inboxes/team-lead.json",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".commander/registry.json",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/.github/workflows/android-ci.yml",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/.github/workflows/cmake-windows.yml",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/.github/workflows/cmake.yml",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/.github/workflows/ios.yml",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/.github/workflows/msvc.yml",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/.github/workflows/ohos.yml",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/.github/workflows/release.yml",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/CMakeLists.txt",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/INSTALL.md",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/aes.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/asm.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/asn1.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/base64.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/block_cipher.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/bn.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/cms.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/digest.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/dylib.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/ec.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/endian.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/error.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/file.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/gf128.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/ghash.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/hash256.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/hex.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/hkdf.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/hmac.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/http.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/kyber.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/lms.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/lms_cl.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/mem.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/ocsp.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/oid.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/passwd.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/pbkdf2.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/pem.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/pkcs8.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/quic.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/rand.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/rdrand.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/rsa.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sct.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sdf.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/secp256r1.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/secp384r1.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sha1.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sha2.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sha3.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/skf.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm2.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm2_z256.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm3.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm3_x8_avx2.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm4.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm4_cbc_mac.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm4_cl.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm9.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm9_z256.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/socket.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sphincs.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/tls.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/version.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/x509.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/x509_alg.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/x509_cer.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/x509_crl.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/x509_ext.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/x509_key.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/x509_req.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/xmss.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/xmss_cl.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/zuc.h",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/src/aes.c",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/src/asn1.c",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/src/base64.c",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/src/block_cipher.c",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少DNA",
+          "file_path": ".daoyin_workspace/GmSSL/src/bn.c",
+          "title": "code_doc 文件缺少 DNA",
+          "detail": "位于 other",
+          "suggestion": "生成并写入 DNA 追溯码"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".codebuddy/cnsh_semantic_protocol.txt",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".codebuddy/memory/daily_log_structured.jsonl",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".codebuddy/rules/archive/RULE-REGISTRY.local.jsonl",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/CMakeLists.txt",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/aes.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/asm.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/asn1.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/base64.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/block_cipher.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/bn.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/cms.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/digest.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/dylib.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/ec.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/endian.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/error.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/file.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/gf128.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/ghash.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/hash256.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/hex.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/hkdf.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/hmac.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/http.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/kyber.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/lms.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/lms_cl.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/mem.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/ocsp.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/oid.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/passwd.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/pbkdf2.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/pem.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/pkcs8.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/quic.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/rand.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/rdrand.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/rsa.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sct.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sdf.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/secp256r1.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/secp384r1.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sha1.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sha2.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sha3.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/skf.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm2.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm2_z256.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm3.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm3_x8_avx2.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm4.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm4_cbc_mac.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm4_cl.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm9.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sm9_z256.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/socket.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/sphincs.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/tls.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/version.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/x509.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/x509_alg.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/x509_cer.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/x509_crl.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/x509_ext.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/x509_key.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/x509_req.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/xmss.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/xmss_cl.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/include/gmssl/zuc.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/aes.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/asn1.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/base64.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/block_cipher.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/bn.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/cl.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/cl.h",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/cms.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/debug.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/digest.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/ec.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/file.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/gf128.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/gf128_arm64.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/gf128_avx.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/ghash.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/hex.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/hkdf.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/hmac.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/http.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/http_win.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/kyber.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/lms.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/lms_cl.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/ocsp.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/passwd.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/pbkdf2.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/pem.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/pkcs8.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/quic.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🔴",
+          "category": "缺少GPG签名",
+          "file_path": ".daoyin_workspace/GmSSL/src/rand.c",
+          "title": "code_doc 文件缺少 GPG 签名",
+          "detail": "位于 other",
+          "suggestion": "GPG 签名该文件"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/AI_COLLABORATION_BRIDGE.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/longhun_neural_net.json",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/2026-07-08.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/2026-07-10.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/2026-07-12.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/2026-07-14.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/2026-07-16.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/2026-07-17.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/2026-07-21.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/2026-07-22.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/2026-07-28.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/2026-07-31.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/2026-08-01.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/2026-08-02.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/2026-08-05.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/2026-08-06.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/2026-08-07.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/2026-08-11.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".codebuddy/memory/MEMORY.md",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".longhun/dna-audit/.last_scan.json",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".longhun/dna-audit/dna_registry.json",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": ".longhun/dna-audit/v2.2_behavior_test.json",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/ANTENNA-8GATE/connector/longhun_bridge.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/ANTENNA-8GATE/core/antenna_mesh.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/ANTENNA-8GATE/core/antenna_mesh_v2.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/ANTENNA-8GATE/core/bagua_router.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/ANTENNA-8GATE/core/energy_saver.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/ANTENNA-8GATE/core/semantic_encoder.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/ANTENNA-8GATE/install.sh",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/ANTENNA-8GATE/scheduler/wuxing_scheduler.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/ANTENNA-8GATE/scheduler/wuxing_scheduler_v2.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/ANTENNA-8GATE/tests/bench_v1v2_slim.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/ANTENNA-8GATE/tests/benchmark_quick.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/ANTENNA-8GATE/tests/benchmark_real_inference.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/ANTENNA-8GATE/tests/benchmark_report.json",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/ANTENNA-8GATE/tests/benchmark_v1v2.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/ANTENNA-8GATE/tests/test_integration.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/ANTENNA-8GATE/training_data/gen_training_data.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/LH-BLACKBOX-AUDIT-MANIFEST-v2.0.json",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/LH-CREATOR-PROTECTION-v1.0.anchoring.json",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/LH-CREATOR-PROTECTION-v1.0.confirmation.json",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/LH-CREATOR-PROTECTION-v1.0.layer2.json",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/LH-CREATOR-PROTECTION-v1.0.sha256.json",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/audit_protocol_v2.0/manifest.json",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/contracts/BCDE12_胖东来分成契约_20260722.json",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/downloads_archive/Kimi_Agent_龍魂根协议自动化/cnsh_n8n_workflow.json",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/downloads_archive/Kimi_Agent_龙魂训练协议/gm_crypto.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/downloads_archive/Kimi_Agent_龙魂训练协议/國密核心.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/downloads_archive/Kimi_Agent_龙魂训练协议/訓練數據優化器.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        },
+        {
+          "agent": "审计员",
+          "severity": "🟡",
+          "category": "GPG签名无效",
+          "file_path": "01_protocols/downloads_archive/Kimi_Agent_龙魂训练协议/龍魂訓練數據優化器_v3.1.0.py",
+          "title": "GPG 签名验证失败",
+          "detail": "",
+          "suggestion": "重新签名或检查公钥"
+        }
+      ]
+    },
+    {
+      "agent": "图书管理员",
+      "dna": "#龍芯⚡️丙午·丙酉·癸亥·丑时·䷫姤-AGENT-LIBRARIAN-UID9622-AC987DD8",
+      "started_at": "2026-08-12T01:38:33.422111",
+      "completed_at": "2026-08-12T01:38:34.487309",
+      "summary": {
+        "dna_type_counts": {
+          "other": 346795,
+          "ganzhi": 56704,
+          "confirm": 16012,
+          "seal": 27
+        }
+      },
+      "findings": [
+        {
+          "agent": "图书管理员",
+          "severity": "🟢",
+          "category": "层级统计",
+          "file_path": "",
+          "title": "other 有 145679 个 code_doc 文件",
+          "detail": "",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟢",
+          "category": "层级统计",
+          "file_path": "",
+          "title": "05_ENGINES 有 34915 个 code_doc 文件",
+          "detail": "",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟢",
+          "category": "层级统计",
+          "file_path": "",
+          "title": "01_protocols 有 1193 个 code_doc 文件",
+          "detail": "",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟢",
+          "category": "层级统计",
+          "file_path": "",
+          "title": "08_BIN 有 1108 个 code_doc 文件",
+          "detail": "",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟢",
+          "category": "层级统计",
+          "file_path": "",
+          "title": "09_TOOLS 有 779 个 code_doc 文件",
+          "detail": "",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟢",
+          "category": "层级统计",
+          "file_path": "",
+          "title": "03_LAYERS 有 631 个 code_doc 文件",
+          "detail": "",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟢",
+          "category": "层级统计",
+          "file_path": "",
+          "title": "archive 有 575 个 code_doc 文件",
+          "detail": "",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟢",
+          "category": "层级统计",
+          "file_path": "",
+          "title": "02_SKILLS 有 415 个 code_doc 文件",
+          "detail": "",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟢",
+          "category": "层级统计",
+          "file_path": "",
+          "title": "scripts 有 178 个 code_doc 文件",
+          "detail": "",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟢",
+          "category": "层级统计",
+          "file_path": "",
+          "title": "03_KNOWLEDGE_GRAPH 有 115 个 code_doc 文件",
+          "detail": "",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟢",
+          "category": "层级统计",
+          "file_path": "",
+          "title": "07_AUDIT 有 85 个 code_doc 文件",
+          "detail": "",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟢",
+          "category": "层级统计",
+          "file_path": "",
+          "title": "config 有 29 个 code_doc 文件",
+          "detail": "",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟢",
+          "category": "层级统计",
+          "file_path": "",
+          "title": "core 有 19 个 code_doc 文件",
+          "detail": "",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟢",
+          "category": "层级统计",
+          "file_path": "",
+          "title": "04_ENGINES 有 15 个 code_doc 文件",
+          "detail": "",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟢",
+          "category": "层级统计",
+          "file_path": "",
+          "title": "04_SERVICES 有 15 个 code_doc 文件",
+          "detail": "",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟢",
+          "category": "层级统计",
+          "file_path": "",
+          "title": "06_HOUTU_OS 有 14 个 code_doc 文件",
+          "detail": "",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟡",
+          "category": "层级DNA覆盖不足",
+          "file_path": "",
+          "title": "01_protocols 有 10 个 code_doc 文件无 DNA",
+          "detail": "建议批量补签",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟡",
+          "category": "层级DNA覆盖不足",
+          "file_path": "",
+          "title": "02_SKILLS 有 6 个 code_doc 文件无 DNA",
+          "detail": "建议批量补签",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟡",
+          "category": "层级DNA覆盖不足",
+          "file_path": "",
+          "title": "03_KNOWLEDGE_GRAPH 有 2 个 code_doc 文件无 DNA",
+          "detail": "建议批量补签",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟡",
+          "category": "层级DNA覆盖不足",
+          "file_path": "",
+          "title": "03_LAYERS 有 20 个 code_doc 文件无 DNA",
+          "detail": "建议批量补签",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟡",
+          "category": "层级DNA覆盖不足",
+          "file_path": "",
+          "title": "04_ENGINES 有 2 个 code_doc 文件无 DNA",
+          "detail": "建议批量补签",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟡",
+          "category": "层级DNA覆盖不足",
+          "file_path": "",
+          "title": "04_SERVICES 有 1 个 code_doc 文件无 DNA",
+          "detail": "建议批量补签",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟡",
+          "category": "层级DNA覆盖不足",
+          "file_path": "",
+          "title": "05_ENGINES 有 34518 个 code_doc 文件无 DNA",
+          "detail": "建议批量补签",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟡",
+          "category": "层级DNA覆盖不足",
+          "file_path": "",
+          "title": "08_BIN 有 2 个 code_doc 文件无 DNA",
+          "detail": "建议批量补签",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟡",
+          "category": "层级DNA覆盖不足",
+          "file_path": "",
+          "title": "09_TOOLS 有 23 个 code_doc 文件无 DNA",
+          "detail": "建议批量补签",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟡",
+          "category": "层级DNA覆盖不足",
+          "file_path": "",
+          "title": "archive 有 121 个 code_doc 文件无 DNA",
+          "detail": "建议批量补签",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟡",
+          "category": "层级DNA覆盖不足",
+          "file_path": "",
+          "title": "config 有 2 个 code_doc 文件无 DNA",
+          "detail": "建议批量补签",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟡",
+          "category": "层级DNA覆盖不足",
+          "file_path": "",
+          "title": "core 有 1 个 code_doc 文件无 DNA",
+          "detail": "建议批量补签",
+          "suggestion": ""
+        },
+        {
+          "agent": "图书管理员",
+          "severity": "🟡",
+          "category": "层级DNA覆盖不足",
+          "file_path": "",
+          "title": "other 有 96885 个 code_doc 文件无 DNA",
+          "detail": "建议批量补签",
+          "suggestion": ""
+        }
+      ]
+    },
+    {
+      "agent": "哲学家",
+      "dna": "#龍芯⚡️丙午·丙酉·癸亥·丑时·䷫姤-AGENT-PHILOSOPHER-UID9622-D0FFEBF0",
+      "started_at": "2026-08-12T01:38:34.487336",
+      "completed_at": "2026-08-12T01:38:34.499794",
+      "summary": {
+        "core_docs_found": 20
+      },
+      "findings": [
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-AUDIT-BACKLOG-CLASSIFIER-v1.0.md",
+          "title": "协议文件: LH-AUDIT-BACKLOG-CLASSIFIER-v1.0.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-ALIGN-REPORT-20260811.md",
+          "title": "协议文件: LH-ALIGN-REPORT-20260811.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-ALIGN-ITERATION-20260811.md",
+          "title": "协议文件: LH-ALIGN-ITERATION-20260811.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-ASI-CEILING-PROTOCOL-v1.0.md",
+          "title": "协议文件: LH-ASI-CEILING-PROTOCOL-v1.0.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-KUNPENG-AUTO-AI-SOP-v1.0.md",
+          "title": "协议文件: LH-KUNPENG-AUTO-AI-SOP-v1.0.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-CODEBUDDY-ALIGNMENT-v2.0.md",
+          "title": "协议文件: LH-CODEBUDDY-ALIGNMENT-v2.0.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-CODEBUDDY-MASTER-INDEX-v1.0.md",
+          "title": "协议文件: LH-CODEBUDDY-MASTER-INDEX-v1.0.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-FLOW-CONTROL-v1.1.md",
+          "title": "协议文件: LH-FLOW-CONTROL-v1.1.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-ASSET-CENTER-v1.1.md",
+          "title": "协议文件: LH-ASSET-CENTER-v1.1.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-FAMILY-ROSTER-FRAMEWORK-v1.0.md",
+          "title": "协议文件: LH-FAMILY-ROSTER-FRAMEWORK-v1.0.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-ECOSYSTEM-ACCESS-PROTOCOL-v1.0.md",
+          "title": "协议文件: LH-ECOSYSTEM-ACCESS-PROTOCOL-v1.0.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-PRIVACY-DNA-MECHANISM-v5.0.md",
+          "title": "协议文件: LH-PRIVACY-DNA-MECHANISM-v5.0.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-FULL-REPAIR-PROCEDURE-v1.0.md",
+          "title": "协议文件: LH-FULL-REPAIR-PROCEDURE-v1.0.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-TRUST-CHAIN-DELIVERY-v1.0.md",
+          "title": "协议文件: LH-TRUST-CHAIN-DELIVERY-v1.0.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-TRUST-CHAIN-DELIVERY-v1.1.md",
+          "title": "协议文件: LH-TRUST-CHAIN-DELIVERY-v1.1.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-WEIGHT-PARAMETERS-v1.1.md",
+          "title": "协议文件: LH-WEIGHT-PARAMETERS-v1.1.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/LH-SESSION-TEMPLATES-v1.0.md",
+          "title": "协议文件: LH-SESSION-TEMPLATES-v1.0.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-memory/記憶_20260805_123556_2026-08-05_UID9622.cnsh.md",
+          "title": "协议文件: 記憶_20260805_123556_2026-08-05_UID9622.cnsh.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-memory/記憶_20260805_045712_2026-08-05_UID9622.cnsh.md",
+          "title": "协议文件: 記憶_20260805_045712_2026-08-05_UID9622.cnsh.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-memory/記憶_20260805_045410_2026-08-05_UID9622.cnsh.md",
+          "title": "协议文件: 記憶_20260805_045410_2026-08-05_UID9622.cnsh.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-memory/記憶_20260805_045303_2026-08-05_UID9622.cnsh.md",
+          "title": "协议文件: 記憶_20260805_045303_2026-08-05_UID9622.cnsh.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-memory/記憶_20260805_045233_2026-08-05_UID9622.cnsh.md",
+          "title": "协议文件: 記憶_20260805_045233_2026-08-05_UID9622.cnsh.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-memory/index.json",
+          "title": "协议文件: index.json",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/README.md",
+          "title": "协议文件: README.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/99_索引与自适应锁/sync_longhun_knowledge_desktop.py",
+          "title": "协议文件: sync_longhun_knowledge_desktop.py",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/99_索引与自适应锁/sync_index.json",
+          "title": "协议文件: sync_index.json",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/daemon_state.json",
+          "title": "协议文件: daemon_state.json",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/behavior_notion_sync.py",
+          "title": "协议文件: behavior_notion_sync.py",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/lh_foundation_launcher_auto.py",
+          "title": "协议文件: lh_foundation_launcher_auto.py",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/AGENTS.md",
+          "title": "协议文件: AGENTS.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/lh_task_executor_live_v1.py",
+          "title": "协议文件: lh_task_executor_live_v1.py",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/manifest.json",
+          "title": "协议文件: manifest.json",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/orchestrator.py",
+          "title": "协议文件: orchestrator.py",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/AI-Agent-基础架构实现方案.md",
+          "title": "协议文件: AI-Agent-基础架构实现方案.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/knowledge_file_registry.json",
+          "title": "协议文件: knowledge_file_registry.json",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/① Agent Instructions · 龍慧通心译 P14 v1 0 34d7125a9c9f81b1a34fcff91c4598d7.md",
+          "title": "协议文件: ① Agent Instructions · 龍慧通心译 P14 v1 0 34d7125a9c9f81b1a34fcff91c4598d7.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/lh_notion_sync_auto.py",
+          "title": "协议文件: lh_notion_sync_auto.py",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/lh_agent_eco_adapter.py",
+          "title": "协议文件: lh_agent_eco_adapter.py",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/lh_agent_daemon.py",
+          "title": "协议文件: lh_agent_daemon.py",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/lh_orchestrator.py",
+          "title": "协议文件: lh_orchestrator.py",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/codebuddy_sovereignty_v1.0.md",
+          "title": "协议文件: codebuddy_sovereignty_v1.0.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/lh_xpay_core_auto.py",
+          "title": "协议文件: lh_xpay_core_auto.py",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/AGENT_ORCHESTRATION_SPEC.md",
+          "title": "协议文件: AGENT_ORCHESTRATION_SPEC.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/brain_notion_sync.py",
+          "title": "协议文件: brain_notion_sync.py",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/16_技术文档与CHANGELOG/DAILY_REVIEW_QUICKSTART.md",
+          "title": "协议文件: DAILY_REVIEW_QUICKSTART.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/16_技术文档与CHANGELOG/LONGHUN_STARTUP_COMPLETE_GUIDE.md",
+          "title": "协议文件: LONGHUN_STARTUP_COMPLETE_GUIDE.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/16_技术文档与CHANGELOG/DAILY_REVIEW_SETUP.md",
+          "title": "协议文件: DAILY_REVIEW_SETUP.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/16_技术文档与CHANGELOG/MASTER_SYSTEMS_REFERENCE_GUIDE.md",
+          "title": "协议文件: MASTER_SYSTEMS_REFERENCE_GUIDE.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/16_技术文档与CHANGELOG/CRON_AUTOMATION_SETUP.md",
+          "title": "协议文件: CRON_AUTOMATION_SETUP.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "协议文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/16_技术文档与CHANGELOG/QUICKSTART.md",
+          "title": "协议文件: QUICKSTART.md",
+          "detail": "承载逻辑哲学规则",
+          "suggestion": "持续审计并版本化"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/LH-VISION-CONSTITUTION-v1.0.md",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/LH-VISION-CONSTITUTION-v1.0.md.asc",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/LH-VISION-CONSTITUTION-v1.1.md",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/LH-VISION-CONSTITUTION-v1.1.md.asc",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/01_主权与协议/LH-VISION-CONSTITUTION-v1.0.md",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/01_主权与协议/LH-VISION-CONSTITUTION-v1.0.md.asc",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/01_主权与协议/🌍 龙魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主 dbd80124942b49b8b8e2b9517a509ad1.md",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/01_主权与协议/🌍 龙魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主 dbd80124942b49b8b8e2b9517a509ad1.md.asc",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/01_主权与协议/📘 龍芯家族花名册·设备主人主权铁律 v1 0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9 142168c7f03942e696e8c499d2914e47.md",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/01_主权与协议/📘 龍芯家族花名册·设备主人主权铁律 v1 0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9 142168c7f03942e696e8c499d2914e47.md.asc",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/01_主权与协议/🔐 龙魂数据安全五铁律｜终端入口·DNA绑定·确认码不可复制·云端只读DNA·隐私主权在用户 6e8ca57a113640f0873f7077967de0d1.md",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/01_主权与协议/🔐 龙魂数据安全五铁律｜终端入口·DNA绑定·确认码不可复制·云端只读DNA·隐私主权在用户 6e8ca57a113640f0873f7077967de0d1.md.asc",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/02_洛书九宫底座/📜 龍魂系统宪法 v1 0 CNSH Constitution 8ad36909a4504f0aae24cbaea3c4ea9f.md",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/02_洛书九宫底座/📜 龍魂系统宪法 v1 0 CNSH Constitution 8ad36909a4504f0aae24cbaea3c4ea9f.md.asc",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/04_三色审计与决策/🛡️ 宪法合规审计报告 Constitution Compliance Audit e0d66f81b4de49698497e349c328d883.md",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/04_三色审计与决策/🛡️ 宪法合规审计报告 Constitution Compliance Audit e0d66f81b4de49698497e349c328d883.md.asc",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/CNSH-AI行为标准-接入铁律.md",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/CNSH-AI行为标准-接入铁律.md.asc",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/14_执行记录与系统报告/CONSTITUTION.md",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        },
+        {
+          "agent": "哲学家",
+          "severity": "🟢",
+          "category": "核心哲学文件",
+          "file_path": "01_protocols/desktop-knowledge-matrix/14_执行记录与系统报告/CONSTITUTION.md.asc",
+          "title": "发现核心哲学/铁律文件",
+          "detail": "",
+          "suggestion": "确保 GPG 签名与 DNA 完整"
+        }
+      ]
+    },
+    {
+      "agent": "工程师",
+      "dna": "#龍芯⚡️丙午·丙酉·癸亥·丑时·䷫姤-AGENT-ENGINEER-UID9622-82B53524",
+      "started_at": "2026-08-12T01:38:34.499812",
+      "completed_at": "2026-08-12T01:38:34.523079",
+      "summary": {
+        "pending_sign": 20
+      },
+      "findings": [
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/.claude.json",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/.claude.json'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/automations/automation/memory.md",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/automations/automation/memory.md'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/automations/automation-2/memory.md",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/automations/automation-2/memory.md'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/automations/automation-4/memory.md",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/automations/automation-4/memory.md'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/automations/notion/memory.md",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/automations/notion/memory.md'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/cnsh_semantic_protocol.md",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/cnsh_semantic_protocol.md'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/cnsh_semantic_protocol.txt",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/cnsh_semantic_protocol.txt'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/memory/2025-08-09.md",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/memory/2025-08-09.md'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/memory/2026-07-10-feed-iw-ecb-v2.md",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/memory/2026-07-10-feed-iw-ecb-v2.md'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/memory/2026-07-19.md",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/memory/2026-07-19.md'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/memory/2026-07-20.md",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/memory/2026-07-20.md'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/memory/2026-07-22.md",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/memory/2026-07-22.md'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/memory/2026-07-23.md",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/memory/2026-07-23.md'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/memory/2026-08-07.md",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/memory/2026-08-07.md'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/memory/2026-08-08.md",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/memory/2026-08-08.md'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/memory/2026-08-09.md",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/memory/2026-08-09.md'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/memory/CLAUDE_OBSERVATIONS.md",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/memory/CLAUDE_OBSERVATIONS.md'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/memory/daily_log_structured.jsonl",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/memory/daily_log_structured.jsonl'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/rules/archive/RULE-REGISTRY.local.jsonl",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/rules/archive/RULE-REGISTRY.local.jsonl'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "待签名",
+          "file_path": ".codebuddy/skills/LibTV AI 创作/scripts/_send_long_prompt.py",
+          "title": "other 文件待签名",
+          "detail": "",
+          "suggestion": "cd /Users/zuimeidedeyihan/longhun-system && gpg --armor --detach-sign --default-key A2D0092CEE2E5BA87035600924C3704A8CC26D5F '.codebuddy/skills/LibTV AI 创作/scripts/_send_long_prompt.py'"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "缺少脚本入口",
+          "file_path": "01_protocols",
+          "title": "01_protocols 没有 08_BIN 脚本入口",
+          "detail": "",
+          "suggestion": "为 01_protocols 设计专属 CLI 脚本"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "缺少脚本入口",
+          "file_path": "02_SKILLS",
+          "title": "02_SKILLS 没有 08_BIN 脚本入口",
+          "detail": "",
+          "suggestion": "为 02_SKILLS 设计专属 CLI 脚本"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "缺少脚本入口",
+          "file_path": "03_KNOWLEDGE_GRAPH",
+          "title": "03_KNOWLEDGE_GRAPH 没有 08_BIN 脚本入口",
+          "detail": "",
+          "suggestion": "为 03_KNOWLEDGE_GRAPH 设计专属 CLI 脚本"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "缺少脚本入口",
+          "file_path": "03_LAYERS",
+          "title": "03_LAYERS 没有 08_BIN 脚本入口",
+          "detail": "",
+          "suggestion": "为 03_LAYERS 设计专属 CLI 脚本"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "缺少脚本入口",
+          "file_path": "04_ENGINES",
+          "title": "04_ENGINES 没有 08_BIN 脚本入口",
+          "detail": "",
+          "suggestion": "为 04_ENGINES 设计专属 CLI 脚本"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "缺少脚本入口",
+          "file_path": "04_SERVICES",
+          "title": "04_SERVICES 没有 08_BIN 脚本入口",
+          "detail": "",
+          "suggestion": "为 04_SERVICES 设计专属 CLI 脚本"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "缺少脚本入口",
+          "file_path": "05_ENGINES",
+          "title": "05_ENGINES 没有 08_BIN 脚本入口",
+          "detail": "",
+          "suggestion": "为 05_ENGINES 设计专属 CLI 脚本"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "缺少脚本入口",
+          "file_path": "06_HOUTU_OS",
+          "title": "06_HOUTU_OS 没有 08_BIN 脚本入口",
+          "detail": "",
+          "suggestion": "为 06_HOUTU_OS 设计专属 CLI 脚本"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "缺少脚本入口",
+          "file_path": "07_AUDIT",
+          "title": "07_AUDIT 没有 08_BIN 脚本入口",
+          "detail": "",
+          "suggestion": "为 07_AUDIT 设计专属 CLI 脚本"
+        },
+        {
+          "agent": "工程师",
+          "severity": "🟡",
+          "category": "缺少脚本入口",
+          "file_path": "09_TOOLS",
+          "title": "09_TOOLS 没有 08_BIN 脚本入口",
+          "detail": "",
+          "suggestion": "为 09_TOOLS 设计专属 CLI 脚本"
+        }
+      ]
+    },
+    {
+      "agent": "外交官",
+      "dna": "#龍芯⚡️丙午·丙酉·癸亥·丑时·䷫姤-AGENT-DIPLOMAT-UID9622-9D9A3AC6",
+      "started_at": "2026-08-12T01:38:34.523098",
+      "completed_at": "2026-08-12T01:38:34.537389",
+      "summary": {
+        "github_repos": 4,
+        "notion_md_count": 8314
+      },
+      "findings": [
+        {
+          "agent": "外交官",
+          "severity": "🟢",
+          "category": "GitHub仓库本地状态",
+          "file_path": "/Users/zuimeidedeyihan/longhun-anti-colonial",
+          "title": "longhun-anti-colonial 本地存在",
+          "detail": "",
+          "suggestion": "缺失则 clone 到本地并建立 LONGHUN_VERIFICATION.md"
+        },
+        {
+          "agent": "外交官",
+          "severity": "🟡",
+          "category": "GitHub仓库本地状态",
+          "file_path": "/Users/zuimeidedeyihan/ai-truth-protocol",
+          "title": "ai-truth-protocol 本地缺失",
+          "detail": "",
+          "suggestion": "缺失则 clone 到本地并建立 LONGHUN_VERIFICATION.md"
+        },
+        {
+          "agent": "外交官",
+          "severity": "🟡",
+          "category": "GitHub仓库本地状态",
+          "file_path": "/Users/zuimeidedeyihan/CNSH",
+          "title": "CNSH 本地缺失",
+          "detail": "",
+          "suggestion": "缺失则 clone 到本地并建立 LONGHUN_VERIFICATION.md"
+        },
+        {
+          "agent": "外交官",
+          "severity": "🟡",
+          "category": "GitHub仓库本地状态",
+          "file_path": "/Users/zuimeidedeyihan/longhun-identity-system",
+          "title": "longhun-identity-system 本地缺失",
+          "detail": "",
+          "suggestion": "缺失则 clone 到本地并建立 LONGHUN_VERIFICATION.md"
+        },
+        {
+          "agent": "外交官",
+          "severity": "🟢",
+          "category": "Notion镜像",
+          "file_path": "/Users/zuimeidedeyihan/longhun-system/12_DOCS/notion_mirror",
+          "title": "Notion 镜像已有 8314 个 Markdown 文件",
+          "detail": "",
+          "suggestion": ""
+        }
+      ]
+    }
+  ]
+}

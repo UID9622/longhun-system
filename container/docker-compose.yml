@@ -1,0 +1,47 @@
+# 🐉 龍魂系统 · Docker Compose
+# DNA: #龍芯⚡️丙午·丙酉·壬戌·亥时·䷬萃-LONGHUN-COMPOSE-v1.0-UID9622
+
+services:
+  longhun:
+    build:
+      context: ..
+      dockerfile: container/Dockerfile
+    image: longhun-system:v1.0
+    container_name: longhun-core
+    volumes:
+      # 持久化数据：Notion 镜像、工作间索引、日志
+      - longhun-data:/app/data
+      - ../12_DOCS:/app/12_DOCS:rw
+      - ../07_AUDIT:/app/07_AUDIT:rw
+      - ../logs:/app/logs:rw
+      # 沙盒：挂载本地未完成内容到容器隔离区
+      - ../_work:/app/sandbox/work:ro
+    environment:
+      - LONGHUN_ROOT=/app
+      - LONGHUN_DATA=/app/data
+      - LONGHUN_LOGS=/app/logs
+      - LONGHUN_SANDBOX=/app/sandbox
+    working_dir: /app
+    command: ["python3", "/app/08_BIN/lh_notion.py", "--help"]
+
+  # 定时任务服务：每天归档 Notion
+  longhun-cron:
+    build:
+      context: ..
+      dockerfile: container/Dockerfile
+    image: longhun-system:v1.0
+    container_name: longhun-cron
+    profiles:
+      - cron
+    volumes:
+      - longhun-data:/app/data
+      - ../12_DOCS:/app/12_DOCS:rw
+      - ../config:/app/config:ro
+    environment:
+      - LONGHUN_ROOT=/app
+    working_dir: /app
+    command: >
+      sh -c "echo '0 2 * * * cd /app && python3 08_BIN/lh_notion.py archive' | crontab - && cron -f"
+
+volumes:
+  longhun-data:
