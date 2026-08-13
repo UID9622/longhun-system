@@ -30,3 +30,6 @@
 {"action": "record", "persona": "P05", "task": "核心锚学习回路接入·lh入口路由审计", "result": "success", "at": "2026-08-13T17:27:24", "dna": "#龍芯⚡️丙午·丙申·己未·亥时·䷕贲-LIFE-LOG"}
 {"action": "record", "persona": "P72", "task": "核心锚学习回路接入·主权锚保护验证", "result": "success", "at": "2026-08-13T17:27:25", "dna": "#龍芯⚡️丙午·丙申·己未·亥时·䷕贲-LIFE-LOG"}
 {"action": "learn", "persona": "P05", "lesson": "lh入口--persona/--task参数会被顶层REMAINDER flag劫持", "kind": "process", "at": "2026-08-13T17:28:33", "dna": "#龍芯⚡️丙午·丙申·己未·亥时·䷕贲-LIFE-LOG"}
+{"action": "record", "persona": "P77", "task": "P77安全排查", "result": "success", "at": "2026-08-13T17:57:43", "dna": "#龍芯⚡️丙午·丙申·己未·亥时·䷕贲-LIFE-LOG"}
+{"action": "record", "persona": "P77", "task": "跨AI窗口协作链路安全排查", "result": "success", "at": "2026-08-13T18:06:33", "dna": "#龍芯⚡️丙午·丙申·己未·亥时·䷕贲-LIFE-LOG"}
+{"action": "record", "persona": "P04", "task": "实装lh handoff CLI+修模板引擎+发布英文预言v1.2", "result": "success", "at": "2026-08-13T18:06:33", "dna": "#龍芯⚡️丙午·丙申·己未·亥时·䷕贲-LIFE-LOG"}
