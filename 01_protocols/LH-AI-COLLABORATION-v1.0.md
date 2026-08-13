@@ -35,7 +35,7 @@
 
 ## 🧠 核心逻辑
 
-三步循环（每轮不可跳过）：
+四步循环（每轮不可跳过）：
 
 【第一步 · 编辑】在文档内增量追加/修订，不覆盖历史。每次改动：版本号递增、迭代日志追加一条、旧内容留档不删。
 
@@ -47,12 +47,19 @@
 
 【第三步 · 迭代】验证闭环：audit 审计 + validate 校验 + verify-dna/verify-confirm/check-timestamp 三连验证 → 全绿才允许入库。
 
-【第四步 · 归档】登记 COMMAND_INDEX.md + 写工作记忆 + 落盘对应目录（协议→01_protocols/，脚本→bin/）。
+【第四步 · 归档】登记 COMMAND_INDEX.md + 写工作记忆 + 落盘对应目录（协议→01_protocols/，脚本→bin/）+ **人格履职归档（若本任务真实调用了人格执行器）**。
+
+> 人格归档命令（融合 `AGENTS.md` 人格自然激活机制）：
+> ```bash
+> lh persona-life record --who <Pxx> --task "任务简述" --result success --note "关键产出" --capability <能力标签>
+> lh persona-life learn --who <Pxx> --lesson "坑点" --improve "改进" --kind process --task "任务名"
+> ```
+> 真实履职才 record，禁止 `--wake` 批量灌经验。
 
 
 ## 🌊 数据流向
 
-输入JSON → lh_template_engine.py generate → 输出文档(md/html) → GPG签名(.asc同目录) → verify-dna/verify-confirm/check-timestamp 三验证 → 全绿 → COMMAND_INDEX登记 → 记忆归档
+输入JSON → lh_template_engine.py generate → 输出文档(md/html) → GPG签名(.asc同目录) → verify-dna/verify-confirm/check-timestamp 三验证 → 全绿 → COMMAND_INDEX登记 → 人格履职归档（如有） → 记忆归档
 
 
 ## 📐 关键数据结构

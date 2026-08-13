@@ -63,6 +63,25 @@ lh selftest                  # 内核自测🟢
 
 三项不过，交付不成立。
 
+## 七、AI 人格调用纪律（2026-08-13 融合焊死）
+
+> 来源：`AGENTS.md` 人格自然激活机制（CodeBuddy 创作 · Kimi 融合落法）
+> 铁律：沉睡人格不批量灌经验，真实履职才记活度。
+
+1. **真实调用必 record**：任何 AI 窗口（Kimi / CodeBuddy / Claude / 后来者）在本会话中真实调用了某人格执行器完成任务，必须在收尾阶段执行：
+   ```bash
+   lh persona-life record --who <Pxx> --task "任务简述" --result success --note "关键产出" --capability <能力标签>
+   ```
+2. **真实踩坑必 learn**：任务中遇到真实坑点/教训，顺手沉淀：
+   ```bash
+   lh persona-life learn --who <Pxx> --lesson "坑点" --improve "改进" --kind process --task "任务名"
+   ```
+3. **禁止假活**：不运行 `--wake` 批量灌经验；活度 🟢 是干出来的，不是刷出来的。
+4. **主权锚不锁学习**：P00/P01/P05/P13/P15/P72 等 immutable 人格只锁迭代/退役/降权，learn/record 正常通行。
+5. **沉睡人格唤醒标准**：连续 3 次真实调用后，由 `lh persona-life evolve` 自动确认活度 > 0。
+
+未遵守 → 本次 AI 协作产出标 🟡，需补 record 才能入库。
+
 ---
 
 🐉 `#龍芯⚡️丙午·丙申·丁巳·恒卦-ALIGN-ANCHOR-v1.0-UID9622`
