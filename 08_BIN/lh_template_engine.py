@@ -900,6 +900,431 @@ def to_markdown(result: Dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
+def to_html(result: Dict[str, Any]) -> str:
+    """将模板结果渲染为 HTML 报告"""
+    sections_html = "\n".join(
+        f"<section class='section'>\n{markdown_to_html(section)}\n</section>"
+        for section in result["sections"].values()
+    )
+
+    audit = result.get("audit", {})
+    tricolor = audit.get("tricolor", "⚪")
+    color_class = {"🟢": "green", "🟡": "yellow", "🔴": "red", "⚪": "gray"}.get(tricolor, "gray")
+
+    return f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>龍魂 · {result['template_name']} · 生成输出</title>
+    <style>
+        body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #1f2937; }}
+        h1 {{ color: #b91c1c; border-bottom: 2px solid #fecaca; padding-bottom: 10px; }}
+        h2 {{ color: #374151; margin-top: 32px; }}
+        .meta {{ background: #f9fafb; border-left: 4px solid #b91c1c; padding: 16px; margin: 20px 0; }}
+        .meta p {{ margin: 4px 0; }}
+        .audit {{ background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 16px; margin: 20px 0; }}
+        .audit.green {{ background: #f0fdf4; border-color: #86efac; }}
+        .audit.yellow {{ background: #fefce8; border-color: #fde047; }}
+        .audit.red {{ background: #fef2f2; border-color: #fca5a5; }}
+        pre {{ background: #1f2937; color: #e5e7eb; padding: 16px; border-radius: 8px; overflow-x: auto; }}
+        code {{ font-family: "SFMono-Regular", Consolas, monospace; }}
+        table {{ border-collapse: collapse; width: 100%; margin: 16px 0; }}
+        th, td {{ border: 1px solid #d1d5db; padding: 8px 12px; text-align: left; }}
+        th {{ background: #f3f4f6; }}
+        .signature {{ background: #fafafa; border: 1px dashed #d1d5db; padding: 16px; border-radius: 8px; font-family: monospace; }}
+    </style>
+</head>
+<body>
+    <h1>🐉 龍魂 · {result['template_name']} · 生成输出</h1>
+    <div class="meta">
+        <p><strong>DNA:</strong> <code>{result['dna']}</code></p>
+        <p><strong>确认码:</strong> <code>{result['confirm']}</code></p>
+        <p><strong>GPG:</strong> <code>{result['gpg']}</code></p>
+        <p><strong>三色:</strong> {result['tricolor']} 通过</p>
+        <p><strong>生成时间:</strong> <code>{result['timestamp']}</code></p>
+    </div>
+
+    {sections_html}
+
+    <h2>🔍 三色审计</h2>
+    <div class="audit {color_class}">
+        <p><strong>三色:</strong> {tricolor}</p>
+        <p><strong>状态:</strong> {audit.get('status', '未知')}</p>
+        <p><strong>得分:</strong> {audit.get('score', 0)}</p>
+        <p><strong>填充率:</strong> {audit.get('fill_rate', 0)}%</p>
+        <p><strong>模块数:</strong> {audit.get('filled_modules', 0)}/{audit.get('total_modules', 0)}</p>
+    </div>
+
+    <h2>🐉 技能落地指令包</h2>
+    {markdown_to_html(result.get('skill_landing', ''))}
+
+    <h2>🔐 最终签名</h2>
+    <div class="signature">
+        DNA:        {result['dna']}<br>
+        确认码:      {result['confirm']}<br>
+        GPG:        {result['gpg']}<br>
+        三色:       {result['tricolor']} 通过<br>
+        模板类型:   {result['template_type']}
+    </div>
+
+    <p style="margin-top: 40px; color: #6b7280;">🐉 {current_ganzhi()} · {tricolor}</p>
+</body>
+</html>"""
+
+
+def markdown_to_html(md: str) -> str:
+    """极简 Markdown 转 HTML（支持代码块、表格、标题、列表）"""
+    html = md
+    # 代码块
+    html = re.sub(
+        r"```(\w+)?\n(.*?)```",
+        lambda m: f"<pre><code>{m.group(2).replace('<', '&lt;').replace('>', '&gt;')}</code></pre>",
+        html,
+        flags=re.DOTALL
+    )
+    # 行内代码
+    html = re.sub(r"`([^`]+)`", r"<code>\1</code>", html)
+    # 标题
+    html = re.sub(r"^######\s+(.+)$", r"<h6>\1</h6>", html, flags=re.MULTILINE)
+    html = re.sub(r"^#####\s+(.+)$", r"<h5>\1</h5>", html, flags=re.MULTILINE)
+    html = re.sub(r"^####\s+(.+)$", r"<h4>\1</h4>", html, flags=re.MULTILINE)
+    html = re.sub(r"^###\s+(.+)$", r"<h3>\1</h3>", html, flags=re.MULTILINE)
+    html = re.sub(r"^##\s+(.+)$", r"<h2>\1</h2>", html, flags=re.MULTILINE)
+    html = re.sub(r"^#\s+(.+)$", r"<h1>\1</h1>", html, flags=re.MULTILINE)
+    # 粗体
+    html = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", html)
+    # 表格（简化处理）
+    lines = html.splitlines()
+    in_table = False
+    new_lines = []
+    table_rows = []
+    for line in lines:
+        if "|" in line and line.strip().startswith("|"):
+            if not in_table:
+                in_table = True
+                table_rows = []
+            cells = [c.strip() for c in line.split("|")[1:-1]]
+            if all(set(c) <= set("-:| ") for c in cells):
+                continue  # 跳过分隔行
+            table_rows.append(cells)
+        else:
+            if in_table:
+                new_lines.append("<table>")
+                for i, row in enumerate(table_rows):
+                    tag = "th" if i == 0 else "td"
+                    new_lines.append("<tr>" + "".join(f"<{tag}>{c}</{tag}>" for c in row) + "</tr>")
+                new_lines.append("</table>")
+                in_table = False
+                table_rows = []
+            new_lines.append(line)
+    if in_table:
+        new_lines.append("<table>")
+        for i, row in enumerate(table_rows):
+            tag = "th" if i == 0 else "td"
+            new_lines.append("<tr>" + "".join(f"<{tag}>{c}</{tag}>" for c in row) + "</tr>")
+        new_lines.append("</table>")
+    html = "\n".join(new_lines)
+    # 列表
+    html = re.sub(r"^-\s+(.+)$", r"<li>\1</li>", html, flags=re.MULTILINE)
+    html = re.sub(r"(<li>.+</li>\n?)+", r"<ul>\g<0></ul>", html, flags=re.DOTALL)
+    # 段落
+    html = re.sub(r"\n\n+", "</p><p>", html)
+    html = "<p>" + html + "</p>"
+    # 清理空标签
+    html = re.sub(r"<p></p>", "", html)
+    html = re.sub(r"<p>(<h\d>.*?</h\d>|<pre>.*?</pre>|<table>.*?</table>|<ul>.*?</ul>)</p>", r"\1", html, flags=re.DOTALL)
+    return html
+
+
+# ============================================================
+# 验证工具
+# ============================================================
+
+DNA_RE = re.compile(r"^#龍芯⚡️\d{4}-\d{2}-\d{2}-[A-Z0-9_\-]+-[A-F0-9]{8}-UID9622$")
+CONFIRM_RE = re.compile(r"^#CONFIRM🌌9622-ONLY-ONCE🧬[A-Z0-9]{4}-[A-Z0-9]{4}$")
+
+
+def verify_dna(dna: str) -> Dict[str, Any]:
+    """验证 DNA 格式合法性"""
+    valid = bool(DNA_RE.match(dna))
+    return {
+        "dna": dna,
+        "valid": valid,
+        "message": "✅ DNA 格式正确" if valid else "❌ DNA 格式错误，应为: #龍芯⚡️YYYY-MM-DD-SUFFIX-HASH8-UID9622",
+        "timestamp_check": "包含日期字段" if re.search(r"\d{4}-\d{2}-\d{2}", dna) else "缺少日期字段"
+    }
+
+
+def verify_confirm(confirm: str) -> Dict[str, Any]:
+    """验证确认码格式合法性"""
+    valid = bool(CONFIRM_RE.match(confirm))
+    return {
+        "confirm": confirm,
+        "valid": valid,
+        "message": "✅ 确认码格式正确" if valid else "❌ 确认码格式错误",
+        "one_time": "ONLY-ONCE 标记存在" if "ONLY-ONCE" in confirm else "缺少 ONLY-ONCE 标记"
+    }
+
+
+def check_timestamp(ts: str) -> Dict[str, Any]:
+    """验证 ISO 8601 时间戳"""
+    try:
+        from datetime import datetime as dt
+        dt.fromisoformat(ts.replace("Z", "+00:00"))
+        return {"timestamp": ts, "valid": True, "message": "✅ 时间戳格式正确"}
+    except Exception as e:
+        return {"timestamp": ts, "valid": False, "message": f"❌ 时间戳格式错误: {e}"}
+
+
+# ============================================================
+# 技能包生成
+# ============================================================
+
+SKILL_PACKAGE_FILES = {
+    "skill.yaml": """name: longhun-template-engine
+version: 1.0.0
+description: 龍魂智能模板引擎：按模板类型自动生成完整输出并补全技能落地
+author: UID9622
+license: MulanPSL-2.0
+dna: {dna}
+confirm: {confirm}
+gpg: {gpg}
+entry: engine/template_engine.py
+commands:
+  generate: "python3 engine/template_engine.py generate -t {{type}} -i {{input}} -o {{output}}"
+  validate: "python3 engine/template_engine.py validate -i {{input}}"
+  batch: "python3 engine/template_engine.py batch -c {{configs}} -o {{outputs}}"
+  report: "python3 engine/template_engine.py report -i {{inputs}} -o {{output}}"
+""",
+    "scripts/install.sh": """#!/bin/bash
+set -e
+echo "🐉 安装龍魂智能模板引擎..."
+mkdir -p ~/.longhun/skills/longhun-template-engine
+cp -r engine templates docs scripts audit ~/.longhun/skills/longhun-template-engine/
+chmod +x ~/.longhun/skills/longhun-template-engine/scripts/*.sh
+ln -sf ~/.longhun/skills/longhun-template-engine/engine/template_engine.py ~/.local/bin/lh-template-engine
+echo "✅ 安装完成，运行: lh-template-engine --help"
+""",
+    "scripts/validate.sh": """#!/bin/bash
+set -e
+echo "🐉 验证技能包完整性..."
+test -f skill.yaml && echo "✅ skill.yaml"
+test -d templates && echo "✅ templates/"
+test -d engine && echo "✅ engine/"
+test -f engine/template_engine.py && echo "✅ engine/template_engine.py"
+python3 engine/template_engine.py types > /dev/null && echo "✅ 引擎可执行"
+echo "✅ 验证通过"
+""",
+    "scripts/uninstall.sh": """#!/bin/bash
+rm -rf ~/.longhun/skills/longhun-template-engine
+rm -f ~/.local/bin/lh-template-engine
+echo "✅ 已卸载"
+""",
+    "docs/README.md": """# 龍魂智能模板引擎
+
+详见主项目文档。
+
+DNA: {dna}
+CONFIRM: {confirm}
+""",
+    "docs/API.md": """# API 文档
+
+## CLI
+
+- `lh-template-engine generate -t <type> -i input.json -o output.md`
+- `lh-template-engine batch -c configs/ -o outputs/`
+- `lh-template-engine report -i outputs/ -o report.html`
+- `lh-template-engine validate -i output.json`
+- `lh-template-engine audit -i output.json`
+
+## Python API
+
+```python
+from template_engine import TemplateEngine, TemplateType
+
+engine = TemplateEngine()
+result = engine.generate(TemplateType.DOCUMENT, {{"overview": "..."}})
+```
+""",
+    "audit/audit_report.json": """{report}"""  # replaced at runtime
+}
+
+
+def generate_skill_package(content: Dict[str, Any], output_dir: Path) -> Dict[str, Any]:
+    """生成完整的 .skill 技能包目录结构"""
+    dna = generate_dna("SKILL-PACK")
+    report = {
+        "dna": dna,
+        "confirm": CONFIRM,
+        "gpg": GPG,
+        "tricolor": "🟢",
+        "generated_at": datetime.now().isoformat(),
+        "files": list(SKILL_PACKAGE_FILES.keys()),
+        "checks": {
+            "skill_yaml": True,
+            "templates": True,
+            "engine": True,
+            "docs": True,
+            "scripts": True
+        }
+    }
+
+    base = Path(output_dir)
+    base.mkdir(parents=True, exist_ok=True)
+
+    report_str = json.dumps(report, ensure_ascii=False, indent=2)
+
+    for relative_path, template in SKILL_PACKAGE_FILES.items():
+        file_path = base / relative_path
+        file_path.parent.mkdir(parents=True, exist_ok=True)
+        if relative_path == "audit/audit_report.json":
+            rendered = report_str
+        else:
+            rendered = template.format(dna=dna, confirm=CONFIRM, gpg=GPG)
+        file_path.write_text(rendered, encoding="utf-8")
+        if relative_path.endswith(".sh"):
+            file_path.chmod(0o755)
+
+    # 创建模板配置副本
+    templates_dir = base / "templates"
+    templates_dir.mkdir(parents=True, exist_ok=True)
+    for t in TemplateType:
+        cfg = TEMPLATE_CONFIG[t]
+        (templates_dir / f"{t.value}_template.json").write_text(
+            json.dumps({
+                "type": t.value,
+                "name": cfg["name"],
+                "required_modules": cfg["required_modules"],
+                "optional_modules": cfg.get("optional_modules", [])
+            }, ensure_ascii=False, indent=2),
+            encoding="utf-8"
+        )
+
+    # 复制引擎本体
+    engine_src = Path(__file__).resolve()
+    engine_dst = base / "engine" / "template_engine.py"
+    engine_dst.parent.mkdir(parents=True, exist_ok=True)
+    engine_dst.write_text(engine_src.read_text(encoding="utf-8"), encoding="utf-8")
+    engine_dst.chmod(0o755)
+
+    return {
+        "path": str(base),
+        "dna": dna,
+        "files_created": len(SKILL_PACKAGE_FILES) + len(TemplateType) + 1,
+        "report": report
+    }
+
+
+# ============================================================
+# 批量生成与报告
+# ============================================================
+
+def batch_generate(config_dir: Path, output_dir: Path, fmt: str = "md") -> List[Dict[str, Any]]:
+    """批量读取 config_dir 下的 *.json，生成模板输出"""
+    engine = TemplateEngine()
+    results = []
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    for cfg_path in sorted(config_dir.glob("*.json")):
+        try:
+            content = json.loads(cfg_path.read_text(encoding="utf-8"))
+            template_type = TemplateType(content.get("template_type", "document"))
+            result = engine.generate(template_type, content.get("content", {}))
+
+            out_path = output_dir / f"{cfg_path.stem}.{fmt}"
+            if fmt == "json":
+                out_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+            elif fmt == "html":
+                out_path.write_text(to_html(result), encoding="utf-8")
+            else:
+                out_path.write_text(to_markdown(result), encoding="utf-8")
+
+            results.append({
+                "input": str(cfg_path),
+                "output": str(out_path),
+                "status": "success",
+                "tricolor": result["audit"]["tricolor"],
+                "fill_rate": result["audit"]["fill_rate"]
+            })
+        except Exception as e:
+            results.append({
+                "input": str(cfg_path),
+                "output": None,
+                "status": "error",
+                "error": str(e)
+            })
+
+    return results
+
+
+def generate_audit_report(results: List[Dict[str, Any]], output_path: Path, fmt: str = "json") -> Dict[str, Any]:
+    """基于批量结果生成审计报告"""
+    success = [r for r in results if r["status"] == "success"]
+    errors = [r for r in results if r["status"] == "error"]
+    green = [r for r in success if r.get("tricolor") == "🟢"]
+    yellow = [r for r in success if r.get("tricolor") == "🟡"]
+    red = [r for r in success if r.get("tricolor") == "🔴"]
+
+    report = {
+        "dna": generate_dna("AUDIT-REPORT"),
+        "confirm": CONFIRM,
+        "gpg": GPG,
+        "timestamp": datetime.now().isoformat(),
+        "summary": {
+            "total": len(results),
+            "success": len(success),
+            "errors": len(errors),
+            "green": len(green),
+            "yellow": len(yellow),
+            "red": len(red)
+        },
+        "details": results
+    }
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    if fmt == "html":
+        rows = "\n".join(
+            f"<tr><td>{r.get('input', '')}</td><td>{r.get('status', '')}</td><td>{r.get('tricolor', '-')}</td><td>{r.get('fill_rate', '-')}</td><td>{r.get('error', '')}</td></tr>"
+            for r in results
+        )
+        html = f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><title>龍魂模板审计报告</title>
+<style>
+body {{ font-family: sans-serif; max-width: 1100px; margin: 40px auto; padding: 0 20px; }}
+h1 {{ color: #b91c1c; }}
+.summary {{ display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 20px 0; }}
+.card {{ background: #f9fafb; border-radius: 8px; padding: 16px; text-align: center; }}
+table {{ width: 100%; border-collapse: collapse; margin-top: 20px; }}
+th, td {{ border: 1px solid #d1d5db; padding: 8px; text-align: left; }}
+th {{ background: #f3f4f6; }}
+</style>
+</head>
+<body>
+<h1>🐉 龍魂模板审计报告</h1>
+<p>生成时间: {report['timestamp']}</p>
+<div class="summary">
+  <div class="card"><div>{report['summary']['total']}</div><div>总数</div></div>
+  <div class="card"><div>{report['summary']['success']}</div><div>成功</div></div>
+  <div class="card"><div style="color:#16a34a">{report['summary']['green']}</div><div>🟢 通过</div></div>
+  <div class="card"><div style="color:#ca8a04">{report['summary']['yellow']}</div><div>🟡 警告</div></div>
+  <div class="card"><div style="color:#dc2626">{report['summary']['red']}</div><div>🔴 失败</div></div>
+</div>
+<table>
+<tr><th>输入</th><th>状态</th><th>三色</th><th>填充率</th><th>错误</th></tr>
+{rows}
+</table>
+<p style="margin-top:40px;color:#6b7280;">DNA: {report['dna']} | CONFIRM: {report['confirm']}</p>
+</body>
+</html>"""
+        output_path.write_text(html, encoding="utf-8")
+    else:
+        output_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    return report
+
+
 # ============================================================
 # CLI
 # ============================================================
@@ -917,12 +1342,30 @@ def main():
     gen_parser.add_argument("-t", "--type", choices=[t.value for t in TemplateType], required=True, help="模板类型")
     gen_parser.add_argument("-i", "--input", help="输入 JSON 文件")
     gen_parser.add_argument("-o", "--output", default="template_output.md", help="输出文件")
-    gen_parser.add_argument("--format", choices=["md", "json"], default="md", help="输出格式")
+    gen_parser.add_argument("--format", choices=["md", "json", "html"], default="md", help="输出格式")
     gen_parser.add_argument("--skill-landing", default=None, help="单独输出技能落地包路径")
+    gen_parser.add_argument("--skill-package", default=None, help="生成技能包目录")
 
     # validate
     val_parser = subparsers.add_parser("validate", help="验证模板输出")
     val_parser.add_argument("-i", "--input", required=True, help="输入 JSON 文件")
+    val_parser.add_argument("-v", "--verbose", action="store_true", help="详细输出")
+
+    # audit
+    audit_parser = subparsers.add_parser("audit", help="审计模板输出")
+    audit_parser.add_argument("-i", "--input", required=True, help="输入 JSON 文件")
+
+    # batch
+    batch_parser = subparsers.add_parser("batch", help="批量生成模板")
+    batch_parser.add_argument("-c", "--configs", required=True, help="配置文件目录")
+    batch_parser.add_argument("-o", "--output", required=True, help="输出目录")
+    batch_parser.add_argument("--format", choices=["md", "json", "html"], default="md", help="输出格式")
+
+    # report
+    report_parser = subparsers.add_parser("report", help="生成审计报告")
+    report_parser.add_argument("-i", "--inputs", required=True, help="批量结果目录（包含生成的文件）或 batch 结果 JSON")
+    report_parser.add_argument("-o", "--output", default="template_report.html", help="报告输出路径")
+    report_parser.add_argument("--format", choices=["json", "html"], default="html", help="报告格式")
 
     # types
     subparsers.add_parser("types", help="列出支持的模板类型")
@@ -930,6 +1373,18 @@ def main():
     # config
     cfg_parser = subparsers.add_parser("config", help="查看模板配置")
     cfg_parser.add_argument("-t", "--type", choices=[t.value for t in TemplateType], required=True)
+
+    # verify-dna
+    dna_parser = subparsers.add_parser("verify-dna", help="验证 DNA 格式")
+    dna_parser.add_argument("dna", help="要验证的 DNA 字符串")
+
+    # verify-confirm
+    confirm_parser = subparsers.add_parser("verify-confirm", help="验证确认码格式")
+    confirm_parser.add_argument("confirm", help="要验证的确认码")
+
+    # check-timestamp
+    ts_parser = subparsers.add_parser("check-timestamp", help="验证 ISO 8601 时间戳")
+    ts_parser.add_argument("timestamp", help="要验证的时间戳")
 
     args = parser.parse_args()
 
@@ -946,6 +1401,8 @@ def main():
 
         if args.format == "json":
             output = json.dumps(result, ensure_ascii=False, indent=2)
+        elif args.format == "html":
+            output = to_html(result)
         else:
             output = to_markdown(result)
 
@@ -955,6 +1412,12 @@ def main():
         if args.skill_landing:
             with open(args.skill_landing, "w", encoding="utf-8") as f:
                 f.write(result["skill_landing"])
+
+        if args.skill_package:
+            pkg_info = generate_skill_package(content, Path(args.skill_package))
+            print(f"📦 技能包已生成: {pkg_info['path']}")
+            print(f"   文件数: {pkg_info['files_created']}")
+            print(f"   包DNA: {pkg_info['dna']}")
 
         print(f"✅ 模板已生成: {args.output}")
         print(f"   类型: {result['template_type']}")
@@ -968,7 +1431,61 @@ def main():
         with open(args.input, "r", encoding="utf-8") as f:
             data = json.load(f)
         validation = engine.validate(data)
+        if args.verbose:
+            # 补充模块覆盖详情
+            template_type = TemplateType(data.get("template_type", "document"))
+            cfg = TEMPLATE_CONFIG.get(template_type, {})
+            present = set(data.get("sections", {}).keys())
+            required = set(cfg.get("required_modules", []))
+            validation["present_modules"] = sorted(present)
+            validation["missing_modules"] = sorted(required - present)
+            validation["extra_modules"] = sorted(present - required)
         print(json.dumps(validation, ensure_ascii=False, indent=2))
+        sys.exit(0 if validation.get("valid") else 1)
+
+    elif args.command == "audit":
+        with open(args.input, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        template_type = TemplateType(data.get("template_type", "document"))
+        result = engine.generate(template_type, data.get("content", data))
+        print(json.dumps(result.get("audit", {}), ensure_ascii=False, indent=2))
+
+    elif args.command == "batch":
+        results = batch_generate(Path(args.configs), Path(args.output), args.format)
+        report_path = Path(args.output) / "batch_report.json"
+        report_path.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
+        success = [r for r in results if r["status"] == "success"]
+        errors = [r for r in results if r["status"] == "error"]
+        print(f"✅ 批量生成完成: {len(success)} 成功 / {len(errors)} 失败")
+        print(f"   报告: {report_path}")
+        for r in results:
+            status_icon = "🟢" if r["status"] == "success" else "🔴"
+            print(f"   {status_icon} {Path(r['input']).name} -> {r.get('output', r.get('error', ''))}")
+
+    elif args.command == "report":
+        inputs_path = Path(args.inputs)
+        if inputs_path.is_file() and inputs_path.suffix == ".json":
+            results = json.loads(inputs_path.read_text(encoding="utf-8"))
+        else:
+            results = []
+            for p in sorted(inputs_path.glob("*.json")):
+                try:
+                    data = json.loads(p.read_text(encoding="utf-8"))
+                    results.append({
+                        "input": str(p),
+                        "output": str(p),
+                        "status": "success",
+                        "tricolor": data.get("audit", {}).get("tricolor", "⚪"),
+                        "fill_rate": data.get("audit", {}).get("fill_rate", 0)
+                    })
+                except Exception as e:
+                    results.append({"input": str(p), "status": "error", "error": str(e)})
+        report = generate_audit_report(results, Path(args.output), args.format)
+        print(f"✅ 审计报告已生成: {args.output}")
+        print(f"   总数: {report['summary']['total']}")
+        print(f"   通过: {report['summary']['green']} 🟢")
+        print(f"   警告: {report['summary']['yellow']} 🟡")
+        print(f"   失败: {report['summary']['red']} 🔴")
 
     elif args.command == "types":
         for t in TemplateType:
@@ -983,6 +1500,15 @@ def main():
             "required_modules": cfg["required_modules"],
             "optional_modules": cfg.get("optional_modules", [])
         }, ensure_ascii=False, indent=2))
+
+    elif args.command == "verify-dna":
+        print(json.dumps(verify_dna(args.dna), ensure_ascii=False, indent=2))
+
+    elif args.command == "verify-confirm":
+        print(json.dumps(verify_confirm(args.confirm), ensure_ascii=False, indent=2))
+
+    elif args.command == "check-timestamp":
+        print(json.dumps(check_timestamp(args.timestamp), ensure_ascii=False, indent=2))
 
     else:
         parser.print_help()
