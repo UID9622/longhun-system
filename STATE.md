@@ -48,6 +48,7 @@
 | ☯️ **风水场博弈论引擎** | ✅ **`05_ENGINES/lh_fengshui_game_engine.py`**·养德/摆阵/无为三策略·纳什均衡·Banach不动点 |
 | 🔥 **longhun-core v1.0.0 低算力内核** | ✅ **`core/dist/longhun-core-1.0.0.tar.gz`**·29KB·零依赖·CLI `lh-core` 已安装·5/5 自检·基准全绿·`--help`/`-h`/`help` 独立帮助入口已上线 |
 | 🔗 **lh → lh-core 桥接** | ✅ **`bin/lh`**·`version/bench/dna/audit/root/chain/info/help` 轻量命令优先走 `lh-core`·新增 `lh core <cmd>` 统一前缀入口·`lh --help` 已增加内核命令专区 |
+| 🔗 **龍魂信任链 v1.2** 🔥 | ✅ **`02_SKILLS/trust-chain.md`** + **`08_BIN/lh_trust_chain.py`**·demo/deploy/verify/docs/status·GPG签名·已接入 `lh trust-chain`/`lh 信任链` |
 | 💰 **估值报告模板引擎 v1.1** 🔥 | ✅ **`core/valuation/lh_valuation_template.py`**·模板`+`配置一键生成报告·`--validate`/`--strict`/`--init`·`--config`+`--excel`联动·正则预编译·单层`{{#each}}`·GPG签名 |
 | 🚀 **鲲鹏共生体快捷入口** 🔥 | ✅ **`08_BIN/lh_kunpeng.sh`**·已安装 `lh-kunpeng`·`status/check/sync/task/demo/monitor`·本地发号·鲲鹏 21人格执行·SSH直联 |
 | 🐉 **龍魂一键启动入口** 🔥 | ✅ **`08_BIN/lh_start.sh`**·已安装 `lh-start`·`lh-start`进控制台·`--kunpeng`/`--status`/`--all`/`--time` 一键直达 |

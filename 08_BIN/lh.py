@@ -204,6 +204,7 @@ MODULES = {
             {"id": "4", "label": "创新溯源查询", "cmd": "python3 bin/lh_innovation_tracer.py --menu", "desc": "查谁先自研的某项技术"},
             {"id": "5", "label": "DNA唯一性守卫", "cmd": "echo '🟡 已冻结·DNA唯一性由人工审计确保'", "desc": "[冻结] 防止DNA重复/冲突"},
             {"id": "6", "label": "DNA登记修复", "cmd": "python3 bin/lh_registry_extend.py", "desc": "批量修复DNA登记问题"},
+            {"id": "7", "label": "🔗 龍魂信任链", "cmd": "python3 bin/lh_trust_chain.py demo", "desc": "demo/deploy/verify/docs · 防篡改签章链"},
         ]
     },
     "📊 检测 & 分析": {
@@ -896,6 +897,8 @@ SUB_DISPATCH = {
     'dna-gen':              ('lh_dna_generator.py',           '🧬', 'DNA生成(完整名)', [], '--title'),
     # ⛓️ DNA接龙链引擎 v1.0 — 只追加·不覆盖·不删除·行为密码学注链·跨人格接龙
     'dna-chain':            ('lh_dna_chain.py',               '⛓️', 'DNA接龙链·init/append/verify/show/scan/auto'),
+    # 🔗 龍魂信任链 v1.2 — 哈希签章链·GPG分离签名·防篡改·CI/CD闸门
+    'trust-chain':          ('lh_trust_chain.py',             '🔗', '龍魂信任链·demo/deploy/verify/docs', [], 'demo'),
     # 📦 AI归集Hub v2.0 — KFPP七因子过滤·跨工具索引·符号链接归集
     'hub':                  ('lh_ai_hub.py',                  '📦', 'AI归集Hub·build/search/link/status（含KFPP过滤）'),
     # 🐉 透明审计AI Hub — 多模型对话·对比·审计仪表盘·DNA追溯
@@ -960,6 +963,8 @@ SUB_DISPATCH = {
     'load-test':            ('lh_load_test.py',                 '🔥', 'HTTP压力测试·并发/QPS/延迟分布·--concurrency/--duration/--endpoint', [], ''),
     # 📤 跨AI窗口交接 — save/load/list·LH-AI-HANDOFF-v1.0 协议 CLI 落地（2026-08-13 修复）
     'handoff':              ('lh_handoff.py',                   '📤', 'AI窗口交接·save/load/list·跨会话无缝衔接不丢上下文', [], 'list'),
+    # 📎 CNSH 智能贴入插件 v1.1 — 粘贴即锚定·DNA+设备指纹+数字根压缩包·三色审计+史官+耻辱墙（2026-08-13 审查修正版）
+    'cnsh-stamp':           ('lh_cnsh_plugin.py',               '📎', 'CNSH贴入锚定·-i/-o/--verify/--device-info/--doctor/--version', [], ''),
 }
 
 

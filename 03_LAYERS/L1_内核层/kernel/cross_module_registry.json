@@ -5,7 +5,7 @@
     "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     "description": "龍魂系统跨模块联动感知注册表。记录每条数据/模块/API的上下游依赖关系，是联动感知引擎的知识底座。",
     "version": "v1.0",
-    "last_updated": "2026-08-11T20:21:55.914973"
+    "last_updated": "2026-08-13T18:47:53.784364"
   },
   "dependency_graph": {
     "L5_服务层/services/portal/portal/data/persona_report.json": {
@@ -7056,6 +7056,282 @@
       "name": "lh_asi_system_builder.py",
       "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
       "added": "2026-08-11T20:21:55.912591",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "asi_test_runner.py",
+      "description": "DNA: #龍芯⚡️丙午·庚申·丙寅·未时·䷐随-ASI-TEST-RUNNER-v1.1-UID9622",
+      "added": "2026-08-13T18:47:53.778773",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "backup_to_guizhou_cloud.py",
+      "description": "DNA: #龍芯⚡️丙午·庚申·丙寅·未时·䷐随-GZCLOUD-BACKUP-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.778854",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "build_cnsh_app.py",
+      "description": "DNA: #龍芯⚡️丙午·丙酉·癸亥·巳时·䷫姤-CNSH-IDE-BUILD-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.778916",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "civilization_archive.py",
+      "description": "DNA: #龍芯⚡️丙午·庚申·丙寅·未时·䷐随-CIVILIZATION-ARCHIVE-v1.1-UID9622",
+      "added": "2026-08-13T18:47:53.779016",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "cnsh_ai_providers.py",
+      "description": "DNA: #龍芯⚡️丙午·丙酉·癸亥·巳时·䷫姤-CNSH-AI-PROVIDERS-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.779088",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "cnsh_bagua_router.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·丙寅·午时·䷐随-CNSH-BAGUA-ROUTER-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.779152",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "cnsh_ide.py",
+      "description": "DNA: #龍芯⚡️丙午·丙酉·癸亥·巳时·䷫姤-CNSH-IDE-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.779252",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "cnsh_knowledge_hub.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-13T18:47:53.779331",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "cnsh_web_ide.py",
+      "description": "DNA: #龍芯⚡️丙午·丙酉·癸亥·巳时·䷫姤-CNSH-WEB-IDE-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.779464",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "compliance_sandbox.py",
+      "description": "DNA: #龍芯⚡️丙午·庚申·丙寅·未时·䷐随-COMPLIANCE-SANDBOX-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.779550",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "deploy_dashboard_kunpeng.py",
+      "description": "🐉 龍魂仪表盘 · 鲲鹏服务器部署脚本 v1.0 P5 · 外网仪表盘 · 多节点数据同步 DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-DASHBOARD-DEPLOY-KUNPENG-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.779621",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_agent_cosmos.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·丙寅·午时·䷐随-AGENT-COSMOS-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.779721",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_agent_daemon.py",
+      "description": "🐉 龍魂 Agent 编排器守护进程 v1.0 P2 · 常驻监听事件总线 · 自动路由 · 多 Agent 协作触发 DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-AGENT-DAEMON-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.779776",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_agent_orchestrator.py",
+      "description": "🐉 龍魂 Agent 编排器 v1.0 P1 · 技能自动发现 · 事件路由 · 多 Agent 协作 DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-AGENT-ORCHESTRATOR-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.779850",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_agent_swarm.py",
+      "description": "DNA: #龍芯⚡️丙午·丙酉·壬戌·亥时·䷬萃-AGENT-SWARM-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.779912",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_align_fix_batch.py",
+      "description": "DNA: #龍芯⚡️丙午·丙酉·壬戌·戌时·䷬萃-ALIGN-FIX-BATCH-v1.0-UID9622-6A1CDB2A",
+      "added": "2026-08-13T18:47:53.779964",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_audit_backlog_classifier.py",
+      "description": "DNA: #龍芯⚡️丙午·丙酉·壬戌·亥时·䷬萃-AUDIT-BACKLOG-CLASSIFIER-v1.0-UID9622-2970C690",
+      "added": "2026-08-13T18:47:53.780049",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_audit_backlog_fixer.py",
+      "description": "DNA: #龍芯⚡️丙午·丙酉·壬戌·亥时·䷬萃-AUDIT-BACKLOG-FIXER-v1.0-UID9622-8F2A1B3C",
+      "added": "2026-08-13T18:47:53.780101",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_calendar_feed.py",
+      "description": "龍魂·万年历通知引擎 v1.0 —— 篡改警告/系统事件 → 标准 ICS 订阅源（苹果/鸿蒙日历通用） DNA: #龍芯⚡️丙午·丙申·戊午·未时·䷐随-CALENDAR-FEED-v1.0-UID9622 创建者: 诸葛鑫（UID962",
+      "added": "2026-08-13T18:47:53.780155",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_civilization_map.py",
+      "description": "SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+      "added": "2026-08-13T18:47:53.780241",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_content_reader.py",
+      "description": "DNA: #龍芯⚡️丙午·丙酉·壬戌·亥时·䷬萃-CONTENT-READER-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.780318",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dashboard_web.py",
+      "description": "🐉 龍魂系统可视化仪表盘 v1.0 P4 · Web 监控 · 事件流 · 工作流 · 触发器 · 技能生态 DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-DASHBOARD-WEB-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.780356",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_day_gua_verify.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·戊午·巳时·䷕贲-DAY-GUA-VERIFY-CB-001-a1b2c3d4",
+      "added": "2026-08-13T18:47:53.780418",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_dna_scan.py",
+      "description": "龍魂·历史DNA全量扫描器 v1.0 —— CB-002 篡改检测 + 四柱重算差异报告 DNA: #龍芯⚡️丙午·丙申·戊午·未时·䷐随-DNA-SCAN-v1.0-UID9622 创建者: 诸葛鑫（UID9622） 协议: CC BY-",
+      "added": "2026-08-13T18:47:53.780487",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_governed_exec.py",
+      "description": "DNA: #龍芯⚡️丙午·丙戌·乙丑·卯时·䷯井-GOVERNED-EXEC-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.780538",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_handoff.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·己未·酉时-HANDOFF-CLI-v2.0-UID9622",
+      "added": "2026-08-13T18:47:53.780595",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_iron_law_gate.py",
+      "description": "DNA: #龍芯⚡️丙午·丙戌·乙丑·卯时·䷯井-IRON-LAW-GATE-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.780643",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion.py",
+      "description": "DNA: #龍芯⚡️丙午·丙酉·壬戌·亥时·䷬萃-NOTION-CLI-v1.0-UID9622-B18B81B3",
+      "added": "2026-08-13T18:47:53.780746",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_notion_command_registry.py",
+      "description": "DNA: #龍芯⚡️丙午·丙酉·癸亥·子时·䷮困-NOTION-CMD-REGISTRY-v2.0-UID9622",
+      "added": "2026-08-13T18:47:53.780914",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_openclaw_self_heal.py",
+      "description": "License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)",
+      "added": "2026-08-13T18:47:53.780984",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_persona_life.py",
+      "description": "DNA: #龍芯⚡️丙午·丙申·己未·亥时·䷕贲-PERSONA-LIFE-ENGINE-v2.0-HASH9F2C",
+      "added": "2026-08-13T18:47:53.781083",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_sancai_dna_compress.py",
+      "description": "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "added": "2026-08-13T18:47:53.781199",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_self-heal.py",
+      "description": "龍魂系统 · 自动生成占位脚本",
+      "added": "2026-08-13T18:47:53.781223",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_session_boot.py",
+      "description": "DNA: #龍芯⚡️丙午·丙酉·癸亥·子时·䷮困-SESSION-BOOT-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.781268",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_skill_pipeline.py",
+      "description": "DNA: #龍芯⚡️2026-08-13-SKILL-PIPELINE-ENGINE-3F9C21D7-UID9622",
+      "added": "2026-08-13T18:47:53.781349",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_template_engine.py",
+      "description": "🐉 龍魂 · 智能模板引擎 v1.0 DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-TEMPLATE-ENGINE-UID9622 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z GPG: A2D0092CEE2",
+      "added": "2026-08-13T18:47:53.781508",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_trigger_engine.py",
+      "description": "🐉 龍魂工作流触发器引擎 v1.0 P3 · 文件变更 / 定时 / 事件 三类触发 · 跨技能事件链 DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-TRIGGER-ENGINE-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.781583",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_trust_chain.py",
+      "description": "龍魂 · 信任链统一入口 v1.2.0 DNA: #龍芯⚡️丙午·丙申·己未·癸酉-TRUST-CHAIN-ENTRY-v1.2-UID9622 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z SEAL",
+      "added": "2026-08-13T18:47:53.781641",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_trust_protocol.py",
+      "description": "DNA: #龍芯⚡️丙午·丙戌·乙丑·卯时·䷯井-TRUST-PROTOCOL-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.781754",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_workflow_engine.py",
+      "description": "🐉 龍魂多 Agent 协作工作流引擎 v1.0 P2 · 人格链式编排 · 事件驱动 · 审计归档 DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-WORKFLOW-ENGINE-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.781844",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_workflow_transparent.py",
+      "description": "DNA: #龍芯⚡️丙午·丙戌·乙丑·卯时·䷯井-WORKFLOW-TRANSPARENT-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.781906",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "lh_workspace_indexer.py",
+      "description": "DNA: #龍芯⚡️丙午·丙酉·壬戌·亥时·䷬萃-WORKSPACE-INDEXER-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.781979",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "parse_asi_suite.py",
+      "description": "从 ASI_TEST_SUITE_v2.md 解析表格，生成结构化 JSON。",
+      "added": "2026-08-13T18:47:53.782016",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "asi_watchdog.sh",
+      "description": "DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-ASI-WATCHDOG-v1.0-UID9622",
+      "added": "2026-08-13T18:47:53.782046",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "deploy_kunpeng.sh",
+      "description": "DNA: #龍芯⚡️丙午·丙申·戊午·午时·䷐随-CNSH-IDE-DEPLOY-KUNPENG-v2.0-UID9622",
+      "added": "2026-08-13T18:47:53.782100",
+      "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+    },
+    {
+      "name": "kunpeng_disk_monitor.sh",
+      "description": "DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-DISK-MONITOR-UID9622",
+      "added": "2026-08-13T18:47:53.782133",
       "dna": "#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
     }
   ],
