@@ -214,6 +214,7 @@ python3 bin/lh_anti_tamper.py scan "<外部AI给出的文本>"
 - DNA: `#龍芯⚡️丙午·丙申·癸丑·午时·需-AGENTS-DNA-FORMAT-LOCKDOWN-BF8BA356`
 - 引擎: `#龍芯⚡️2026-06-22-LAYERED-GOVERNANCE-ENGINE-v1.0`
 - 更新: `2026-07-08` — **DNA格式焊死v∞干支卦 + 农历时间戳铁律** · 类型检查工作流·语义路由·人格分发·祖传底座锚定
+- 更新: `2026-08-13` — 🟢 **人格自然激活机制焊死**：真实履职才 record·不批量灌经验·避坑命令(--who/引擎本体) · 配套 lh.py 位置子命令优先分发修复
 
 ---
 
@@ -445,6 +446,45 @@ P15 乔前辈 → 写入 02_執行記錄/ 日志
   ↓
 P05 上帝之眼 → 三色审计最终确认
 ```
+
+---
+
+## 🟢 人格自然激活机制（2026-08-13 焊死）
+
+> **沉睡人格不批量灌经验，在真实任务里被调用才自然醒来。**
+> 背景：活人格引擎 v2.0「记→学→进→评」回路，一度 25 个人格从未履职（活度 ☠️）。
+> 已验证：P00/P01/P05/P72 四核心锚 learn+record 激活链路通畅（☠️→🟢 0.44）。
+
+### 触发规则
+
+| # | 场景 | 动作 |
+|:---:|------|------|
+| 1 | 本会话**真实调用**某人格执行器完成任务 | 顺手 `record` 一条履职记录 |
+| 2 | 任务中踩坑/学到的真实经验 | 顺手 `learn` 一条沉淀 |
+| 3 | 连续 3 次真实调用某沉睡人格 | 唤醒确认（活度 > 0） |
+
+### 执行命令（避坑版）
+
+```bash
+# 从 lh 入口：子命令参数用 --who（--persona 会被顶层 flag 劫持，lh.py 已修复优先分发）
+lh persona-life learn --who P04 --lesson "..." --improve "..." --kind process --task "..."
+lh persona-life record --who P04 --task "..." --result success --note "..." --capability <cap>
+
+# 直接调用引擎本体：可用 --persona（绕过 lh.py 顶层 REMAINDER flag 劫持）
+python3 08_BIN/lh_persona_life.py learn --persona P04 --lesson "..." --improve "..." --kind process --task "..."
+python3 08_BIN/lh_persona_life.py record --persona P04 --task "..." --result success --note "..." --capability <cap>
+
+# 全人格体检（看沉睡数）
+python3 08_BIN/lh_persona_life.py evolve
+```
+
+### 铁律
+
+- ✅ 只有**真实履职**才 record，宁缺毋滥，不灌水经验
+- ✅ 经验必须是本次任务真实发生的踩坑/教训，不编造
+- ✅ 主权锚（P00/P01/P05/P13/P15/P72 等 immutable）**不锁学习回路**，可正常 learn/record
+- ❌ 不批量 `--wake` 灌经验（那是假活，沉睡→🟢 但没有真实积累）
+- ❌ 不改人格 immutable 属性 / 不退役 / 不降权（被主权锚锁死）
 
 ---
 

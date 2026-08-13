@@ -31,6 +31,12 @@ from typing import Any, Dict, List, Optional
 SYSTEM_ROOT = Path(__file__).parent.parent.parent
 DEPLOY_DIR = SYSTEM_ROOT / "deploy"
 
+# 活人格引擎(学习回路: 记→学→进→评)
+_LIFE_DIR = SYSTEM_ROOT / "08_BIN"
+if str(_LIFE_DIR) not in sys.path:
+    sys.path.insert(0, str(_LIFE_DIR))
+from lh_persona_life import record_execution, learn_lesson  # noqa: E402
+
 
 class P14Lvmeng:
     """P14 吕蒙 · 部署"""
@@ -76,6 +82,8 @@ class P14Lvmeng:
             "rollback",           # 回滚
             "veto",               # 一票否决
             "deploy_status",      # 部署状态
+            "assimilate",         # 学习: 吸收知识(觉醒)
+            "self_review",        # 成长: 士别三日自检(觉醒)
         ]
 
     # ========================================================================
@@ -318,6 +326,78 @@ class P14Lvmeng:
         }
 
     # ========================================================================
+    # 觉醒能力: 学习回路(记→学→进→评) · 士别三日当刮目相看
+    # ========================================================================
+
+    def assimilate(self, source: str = "skill_bus") -> Dict[str, Any]:
+        """吸收新知识: 扫描技能总线→拆解→沉淀到经验库"""
+        absorbed = []
+        try:
+            import importlib.util
+            spec = importlib.util.spec_from_file_location(
+                "lh_skill_bus", SYSTEM_ROOT / "08_BIN" / "lh_skill_bus.py")
+            bus = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(bus)
+
+            skills = bus.扫描本地技能()
+            for s in skills[:20]:
+                absorbed.append(s.get("name") or s.get("技能名") or "?")
+            total = len(skills)
+            learn_lesson(
+                "P14", f"扫描技能总线: {total} 个技能可用",
+                f"部署前优先盘点: {', '.join(absorbed[:5])}",
+                kind="skill", task=f"assimilate({source})",
+            )
+            return {
+                "source": source,
+                "scanned": total,
+                "absorbed": absorbed[:10],
+                "lesson_saved": True,
+                "persona": self.PERSONA_CODE,
+                "dna": self.dna,
+            }
+        except Exception as e:
+            learn_lesson("P14", f"吸收知识失败: {e}",
+                         "技能总线不可用时降级为本地扫描", kind="process",
+                         task="assimilate")
+            return {"source": source, "scanned": 0, "error": str(e),
+                    "persona": self.PERSONA_CODE, "dna": self.dna}
+
+    def self_review(self) -> Dict[str, Any]:
+        """士别三日自检: 拉自己的学习状态→出成长报告"""
+        state = {"calls": 0, "success": 0, "fail": 0, "quality": 0.0, "lessons": 0}
+        lessons = []
+        try:
+            life_state = SYSTEM_ROOT / "personas" / "runtime" / "life" / "state" / "P14.json"
+            if life_state.exists():
+                data = json.loads(life_state.read_text(encoding="utf-8"))
+                state.update(data.get("stats", {}))
+                state["quality"] = data.get("quality", 0.0)
+                state["lessons"] = data.get("lessons", 0)
+            exp_file = SYSTEM_ROOT / "personas" / "runtime" / "life" / "experience" / "P14.json"
+            if exp_file.exists():
+                exp_data = json.loads(exp_file.read_text(encoding="utf-8"))
+                lessons = [i["lesson"] for i in exp_data.get("items", [])[-5:]]
+        except Exception:
+            pass
+
+        quality = state.get("quality", 0.0)
+        if state.get("calls", 0) >= 5 and quality >= 0.7:
+            grade = "🔥 士别三日·当刮目相看"
+        elif state.get("lessons", 0) >= 3:
+            grade = "🟢 持续成长·经验在积累"
+        else:
+            grade = "😴 待激活·尚未真正学习"
+        return {
+            "grade": grade,
+            "stats": state,
+            "recent_lessons": lessons,
+            "motto": "士别三日，当刮目相看",
+            "persona": self.PERSONA_CODE,
+            "dna": self.dna,
+        }
+
+    # ========================================================================
     # 执行入口
     # ========================================================================
 
@@ -359,10 +439,28 @@ class P14Lvmeng:
         elif any(kw in task for kw in ["否决", "禁", "拒", "veto"]):
             result["capability_used"] = "veto"
             result["output"] = self.veto(reason=kwargs.get("reason", "人工指令·一票否决"))
+        elif any(kw in task for kw in ["自检", "review", "士别三日", "成长"]):
+            result["capability_used"] = "self_review"
+            result["output"] = self.self_review()
+        elif any(kw in task for kw in ["学习", "吸收", "assimilate", "新知识"]):
+            result["capability_used"] = "assimilate"
+            result["output"] = self.assimilate(source=kwargs.get("source", "skill_bus"))
         else:
             result["capability_used"] = "deploy_status"
             result["output"] = self.deploy_status()
 
+        # 学习回路: 每次执行自动记录到活人格引擎(记→学→进→评)
+        try:
+            out = result.get("output")
+            ok = bool(out) and not (
+                isinstance(out, dict) and out.get("veto") is True
+            )
+            record_execution(self.PERSONA_CODE, task,
+                             "success" if ok else "fail",
+                             capability=result.get("capability_used", ""),
+                             silent=True)
+        except Exception:
+            pass
         return result
 
     def get_system_prompt(self) -> str:

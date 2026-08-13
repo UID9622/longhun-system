@@ -1,0 +1,32 @@
+{
+  "persona": "P14",
+  "items": [
+    {
+      "id": "E-20260813-001",
+      "at": "2026-08-13T17:16:15",
+      "kind": "skill",
+      "lesson": "扫描技能总线: 19 个技能可用",
+      "improve": "部署前优先盘点: ?, ?, ?, ?, ?",
+      "applied": false,
+      "source_task": "assimilate(skill_bus)"
+    },
+    {
+      "id": "E-20260813-002",
+      "at": "2026-08-13T17:16:23",
+      "kind": "process",
+      "lesson": "回滚脚本超时",
+      "improve": "超时阈值调大+加进度日志",
+      "applied": false,
+      "source_task": ""
+    },
+    {
+      "id": "E-20260813-003",
+      "at": "2026-08-13T17:16:36",
+      "kind": "process",
+      "lesson": "回滚脚本超时",
+      "improve": "超时阈值调大+加进度日志",
+      "applied": false,
+      "source_task": ""
+    }
+  ]
+}
