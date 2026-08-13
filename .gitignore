@@ -301,3 +301,31 @@ config/engine_protection.weld.*.json
 
 # 嵌入式 git 子模块（外部视频编解码器仓库）
 05_ENGINES/video/
+
+# ═══════════════════════════════════════════════════════════
+# 🐋 大文件与构建产物 · 防止仓库继续膨胀
+# 说明：以下目录/文件已存在于历史中，新增规则仅阻止未来入仓
+# 历史清理需使用 BFG/git-filter-repo（会破坏 GPG 签名）
+# ═══════════════════════════════════════════════════════════
+# IDE 构建产物（含 Mach-O 二进制、Python.framework）
+build_ide/
+dist_ide/
+
+# 临时下载/留证区域
+_downloads_staging/
+
+# 运行时生成的大报告（已归档到历史即可）
+12_DOCS/workspace_orphans_*.csv
+
+# 个人本地缓存与输出
+output/
+experiments/turbulence/output/
+
+# 第三方字体缓存（如有官方 CDN 或独立发布渠道）
+# 注意：龍魂字体(LonghunFont)为项目资产，保留；此处仅标记外部/vendor字体副本
+10_PORTAL/warp-lab/vendor/fonts/
+
+# 大型本地数据缓存
+*.lhdc.tmp
+*.tar.gz.tmp
+*.zip.tmp
