@@ -18,7 +18,7 @@
 [![Audit](https://img.shields.io/badge/三色审计-🟢_通过-brightgreen)](https://uid9622.cn/)
 [![Stars](https://img.shields.io/github/stars/UID9622/longhun-system?style=social)](https://github.com/UID9622/longhun-system/stargazers)
 
-> 🚀 **5 分钟上手**: `bash install.sh` → `python3 bin/龍魂体系v5-一键启动.py`
+> 🚀 **5 分钟上手**: `bash bin/install.sh` → `python3 bin/龍魂体系v5-一键启动.py`
 > 
 > 📖 [快速入门](./QUICKSTART.md) · 🤝 [参与贡献](./CONTRIBUTING.md) · 💬 [社区讨论](https://github.com/UID9622/longhun-system/discussions)
 
@@ -59,6 +59,45 @@ find . -type f -name '*.asc' -not -path './.git/*' | sed 's/\.asc$//' | xargs -I
 - **签名密钥指纹**: `...SozCbV8`（UID9622）
 - **签名策略**: 协议/代码/配置/文档四类文件强制签名，审计日志与临时数据除外
 - **验证失败处理**: 参见 [`SECURITY.md`](./SECURITY.md) 的「完整性事件响应」
+
+### 🖥️ 透明看板 · Transparent Dashboard
+
+> **君子协议的可视化契约**：把「德在技术前 · 信息主权不可让渡」从口号变成打开浏览器就能看见的东西。
+> **The visual covenant of the Gentlemen's Protocol** — governance events, shame wall, honor wall, shadow AI detection, agent binding, chronicler records and knowledge graph, all real-time.
+
+```bash
+./scripts/start_transparent_dashboard.sh          # 本地安全访问 http://127.0.0.1:8080（默认）
+./scripts/start_transparent_dashboard.sh 0.0.0.0 8080  # 网络内公开（谨慎）
+```
+
+| 模块 | 数据来源 | 意义 |
+|:---|:---|:---|
+| 📜 治理事件 | `.state/industry_governance/governance.sqlite` | 八大痛点每次评估/执行都有记录 |
+| 🚫 耻辱墙 | `shame_wall` | 违规记录永久公开 |
+| 🏆 荣誉墙 | `honor_wall` | 贡献者公开表彰 |
+| 👤 影子AI检测 | `unauthorized_ai` | 未授权工具检测公开 |
+| 🔗 Agent绑定 | `agent_identities` | 法定身份绑定统计 |
+| 📜 史官记录 | `~/.longhun/04_AUDIT/*.jsonl` | 系统操作日志 |
+| 📚 知识图谱 | `knowledge/graph/graph.json` | 节点/关系统计 |
+
+> 实现：`08_BIN/lh_transparent_dashboard.py`（FastAPI·只读不写回·默认 127.0.0.1）· 测试 `13_TESTS/test_transparent_dashboard.py` · 知识图谱 `03_KNOWLEDGE_GRAPH/03_透明看板_..._TRANSPARENT-DASHBOARD-v1.0.md`
+
+---
+
+## 🏆 揭榜挂帅自检 · Open Source Readiness
+
+> 面向评估方/揭榜挂帅评审的六维自检表。每个维度均提供**可验证入口**。
+
+| 维度 | 状态 | 缺口 → 已补 | 验证入口 |
+|:---|:---:|:---|:---|
+| 🔬 技术公开可验证 | ✅ | ✅ 复现指南 | [`docs/REPRODUCE.md`](./docs/REPRODUCE.md) |
+| 🔄 持续维护 | ✅ | ✅ Issue/PR 流程 | [`CONTRIBUTING.md`](./CONTRIBUTING.md) · [`.github/ISSUE_TEMPLATE/`](./.github/ISSUE_TEMPLATE/) |
+| 👥 社区生态 | 🟡 | ✅ 贡献指南 + 使用案例 | [`CONTRIBUTING.md`](./CONTRIBUTING.md) · [`docs/USE_CASES.md`](./docs/USE_CASES.md) |
+| 📚 标准化文档 | ✅ | ✅ 系统化技术白皮书 | [`docs/LONGHUN-TECHNICAL-WHITEPAPER-v1.0.md`](./docs/LONGHUN-TECHNICAL-WHITEPAPER-v1.0.md) |
+| 📦 第三方可调用 | ✅ | ✅ SDK 可安装（PyPI 已发布） | [`docs/SDK-GUIDE.md`](./docs/SDK-GUIDE.md) · [`sdk/README.md`](./sdk/README.md) |
+| 🏗️ 应用案例 | ✅ | ✅ 完整落地案例 | [`docs/CASE_STUDIES.md`](./docs/CASE_STUDIES.md) |
+
+> 🐉 **一键复现**：`bash bin/install.sh` → `lh --help` → `python3 bin/lh_self_heal.py --quick` → `pytest tests/`
 
 ---
 
@@ -147,6 +186,11 @@ python3 08_BIN/build_cnsh_app.py
 | 🛠 [docs/DEVELOPMENT.md](./docs/DEVELOPMENT.md) | 开发者文档·调试·测试·发布 |
 | 🗺 [docs/DIRECTORY_MAP.md](./docs/DIRECTORY_MAP.md) | 目录地图·文件应该放哪里 |
 | 📋 [docs/SYSTEM_STRUCTURE_AUDIT_v1.0.md](./docs/SYSTEM_STRUCTURE_AUDIT_v1.0.md) | 系统结构审计与重组方案 |
+| 🔬 [docs/REPRODUCE.md](./docs/REPRODUCE.md) | 复现指南（揭榜挂帅） |
+| 📚 [docs/LONGHUN-TECHNICAL-WHITEPAPER-v1.0.md](./docs/LONGHUN-TECHNICAL-WHITEPAPER-v1.0.md) | 系统化技术白皮书 v1.0 |
+| 📦 [docs/SDK-GUIDE.md](./docs/SDK-GUIDE.md) | SDK 第三方对接指南（pip/npm） |
+| 🏗️ [docs/CASE_STUDIES.md](./docs/CASE_STUDIES.md) | 完整落地案例 |
+| 💡 [docs/USE_CASES.md](./docs/USE_CASES.md) | 使用案例 |
 
 ### 治理与协议
 | 文件 | 内容 |
@@ -217,7 +261,7 @@ python3 08_BIN/build_cnsh_app.py
 
 ```bash
 # 第一步：一键安装
-bash install.sh
+bash bin/install.sh
 
 # 第二步：启动系统
 python3 bin/龍魂体系v5-一键启动.py
@@ -262,6 +306,7 @@ lh health         # 健康检查
 | 🧬 DNA Traceability | Every operation carries a unique verifiable signature |
 | 🎨 Three-Color Audit | 🟢Pass / 🟡Warn / 🔴Reject real-time decisions |
 | 🔢 369 Math Anchor | Digital root + Five Elements + Luoshu mathematical system |
+| 🖥️ Transparent Dashboard | Visual covenant of the Gentlemen's Protocol — governance events, shame/honor walls, shadow AI detection, all real-time (`./scripts/start_transparent_dashboard.sh` → http://127.0.0.1:8080) |
 
 **Principle:** Technology serves the people. Sovereignty is not for sale.
 

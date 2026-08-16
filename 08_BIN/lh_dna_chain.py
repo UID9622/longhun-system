@@ -165,6 +165,9 @@ def _build_dna_line(version: int, ts: str, persona: str, action: str, note: str,
     prefix, _, _, is_multiline = EMBED.get(fmt, EMBED["shell"])
     dna = f"DNA:V{version}|{ts}|{persona}|{action}|{note}|bhash:{bhash}|chash:{chash}|←{prev}"
     
+    if fmt == "json":
+        # JSON 数组元素必须是合法 JSON 字符串（带引号），否则整个 JSON 文件会被破坏
+        return f'{prefix}"{dna}"'
     if is_multiline:
         return f"{prefix}{dna}"
     else:
@@ -192,7 +195,35 @@ def append_chain(filepath: str, persona: str = "P04鲁班", action: str = "修�
     chash_val = get_chash(filepath)
     
     dna_line = _build_dna_line(version, ts, persona, action, note, bhash_val, chash_val, prev_chash, fmt)
-    
+
+    if fmt == "json":
+        # JSON 安全模式：解析→更新 _dna_chain key→写回，保证文件永远是合法 JSON
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception as e:
+            return {"success": False, "error": f"JSON 解析失败: {e}"}
+        if not isinstance(data, dict):
+            return {"success": False, "error": "JSON 根必须是对象"}
+        chain = data.get("_dna_chain")
+        if not isinstance(chain, list):
+            chain = []
+        # dna_line 形如 `  "DNA:V1|..."`，转为纯字符串入数组
+        entry = dna_line.strip().strip('"')
+        chain.append(entry)
+        data["_dna_chain"] = chain
+        try:
+            with open(filepath, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+                f.write("\n")
+        except Exception as e:
+            return {"success": False, "error": f"写入失败: {e}"}
+        return {
+            "success": True, "version": version, "filepath": filepath,
+            "persona": persona, "action": action, "note": note,
+            "bhash": bhash_val, "chash": chash_val, "prev": prev_chash,
+        }
+
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             content = f.read()

@@ -1,0 +1,173 @@
+{
+  "meta": {
+    "dna": "#龍芯⚡️丙午·丙申·丁酉·卯时-BILINGUAL-CMD-MAP-UID9622",
+    "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "version": "v1.0",
+    "updated": "2026-08-17T07:30:00",
+    "desc": "龍魂命令中英双语映射·设备原生语言 + English 双轨并行·计算机底座不绑定中文",
+    "principle": "英文为规范名(canonical)·中文/其他语言为别名(alias)·解析时双向归一",
+    "env": "LH_BILINGUAL_CMD_FILE（自定义映射文件路径·默认本文件）"
+  },
+  "commands": {
+    "assess": {
+      "zh": [
+        "评估",
+        "评价",
+        "诊断"
+      ],
+      "en": [
+        "assess",
+        "evaluate",
+        "diagnose"
+      ]
+    },
+    "act": {
+      "zh": [
+        "执行",
+        "行动",
+        "治理"
+      ],
+      "en": [
+        "act",
+        "do",
+        "execute"
+      ]
+    },
+    "report": {
+      "zh": [
+        "报告",
+        "联合报告"
+      ],
+      "en": [
+        "report",
+        "combined-report"
+      ]
+    },
+    "dashboard": {
+      "zh": [
+        "看板",
+        "仪表盘",
+        "面板"
+      ],
+      "en": [
+        "dashboard",
+        "board",
+        "panel"
+      ]
+    },
+    "all-assess": {
+      "zh": [
+        "全评估",
+        "批量评估",
+        "全部评估"
+      ],
+      "en": [
+        "all-assess",
+        "batch-assess",
+        "all-evaluate"
+      ]
+    }
+  },
+  "pain_points": {
+    "auto_factory": {
+      "zh": [
+        "AI落地高投入低回报",
+        "自动工厂",
+        "AI ROI"
+      ],
+      "en": [
+        "auto_factory",
+        "auto-factory",
+        "ai-roi",
+        "ai-landing"
+      ]
+    },
+    "agent_control": {
+      "zh": [
+        "Agent失控无追责",
+        "智能体管控",
+        "Agent管控"
+      ],
+      "en": [
+        "agent_control",
+        "agent-control",
+        "agent-governance"
+      ]
+    },
+    "data_sovereignty": {
+      "zh": [
+        "数据主权被侵蚀",
+        "数据主权",
+        "数据安全"
+      ],
+      "en": [
+        "data_sovereignty",
+        "data-sovereignty",
+        "data-sovereign"
+      ]
+    },
+    "context": {
+      "zh": [
+        "上下文能力缺失",
+        "上下文缺失",
+        "认知索引"
+      ],
+      "en": [
+        "context",
+        "context-missing",
+        "cognitive-index"
+      ]
+    },
+    "open_source": {
+      "zh": [
+        "开源生态被饿死",
+        "开源治理",
+        "开源生态"
+      ],
+      "en": [
+        "open_source",
+        "open-source",
+        "opensource-governance"
+      ]
+    },
+    "sovereign_gateway": {
+      "zh": [
+        "数字霸权技术殖民",
+        "主权网关",
+        "数字霸权"
+      ],
+      "en": [
+        "sovereign_gateway",
+        "sovereign-gateway",
+        "digital-hegemony"
+      ]
+    },
+    "rule_engine": {
+      "zh": [
+        "AI治理规则碎片化",
+        "规则引擎",
+        "治理规则"
+      ],
+      "en": [
+        "rule_engine",
+        "rule-engine",
+        "ai-governance-rules"
+      ]
+    },
+    "shadow_ai": {
+      "zh": [
+        "影子AI横行",
+        "影子AI",
+        "未授权AI"
+      ],
+      "en": [
+        "shadow_ai",
+        "shadow-ai",
+        "unauthorized-ai"
+      ]
+    }
+  },
+  "_dna_chain": [
+    "DNA:V1|丙午·丙申·癸亥·辰时·䷗复|P04鲁班|创建|透明看板+双语路由封装|bhash:4c149d10|chash:46872e27|←GENESIS"
+  ]
+}
