@@ -329,3 +329,14 @@ experiments/turbulence/output/
 *.lhdc.tmp
 *.tar.gz.tmp
 *.zip.tmp
+
+# ═══════════════════════════════════════════════════════════
+# 🐉 龍字规范化备份 + 浏览器运行时数据 + 模型 tokenizer（2026-08-17 焊死）
+# ═══════════════════════════════════════════════════════════
+# 龍字规范化任务自动生成的备份（每文件一份·易膨胀·审计可回溯）
+*.glyph-backup
+# 浏览器自动化运行时用户数据（Chrome profile·非项目资产）
+08_BIN/browser_profile/
+# 下载的基础模型 tokenizer/配置（权重类·禁止入git·规则6.7）
+models/longhun-small-v1.0/
+models/qwen-1.5b/
