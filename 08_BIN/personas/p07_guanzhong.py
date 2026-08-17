@@ -372,6 +372,20 @@ class P07Guanzhong:
             "dna": self._gen_dna(),
         }
 
+    # ─── 统一执行入口（orchestrator 对接·2026-08-17 补） ──────────
+
+    def execute(self, task: str, **kwargs: Any) -> Dict[str, Any]:
+        """统一执行入口: 返回管仲状态报告与调度能力"""
+        return {
+            "persona": "P07",
+            "name": "管仲",
+            "status": "ok",
+            "result": {
+                "status": self.get_status(),
+                "budget_check": "schedule/check_budget 可用",
+            },
+        }
+
     # ─── 四民分业统计 ────────────────────────────
 
     def category_stats(self) -> Dict[str, int]:

@@ -42,7 +42,9 @@ SYSTEM_ROOT = Path(__file__).parent.parent
 
 INTENT_ROUTE_MAP: List[Dict[str, Any]] = [
     # (觸發關鍵詞, 主人格, 輔助人格, 動作描述, 落地狀態)
-    {"keywords": ["檢查", "審計", "安全嗎", "有沒有問題", "三色", "五色"], "primary": "P05", "assist": [], "action": "三色審計 → 差異報告", "落地": "🟢"},
+    {"keywords": ["檢查", "審計", "审计", "安全嗎", "有沒有問題", "三色", "五色"], "primary": "P05", "assist": [], "action": "三色審計 → 差異報告", "落地": "🟢"},
+    {"keywords": ["代碼", "代碼", "代码", "寫代碼", "写代码", "開發", "开发", "架構", "架构", "重構", "重构", "修bug", "實現", "实现", "工程"], "primary": "P04", "assist": ["P05"], "action": "工程實現 → 代碼審查 → 驗證", "落地": "🟢"},
+    {"keywords": ["文檔", "文档", "歸檔", "归档", "整理", "四簽", "四签", "驗收", "验收", "知識入庫", "知识入库", "結構化", "结构化"], "primary": "P03", "assist": ["P15"], "action": "結構化歸檔 → 四簽驗證 → 德字閘", "落地": "🟢"},
     {"keywords": ["修一下", "改好", "修復", "不報錯", "fix", "修正"], "primary": "P02", "assist": ["P05"], "action": "執行修復 → 驗證", "落地": "🟢"},
     {"keywords": ["同步", "聯動", "串起來", "歸檔", "索引", "關聯"], "primary": "P15", "assist": [], "action": "歸檔索引 → 入網註冊", "落地": "🟡"},
     {"keywords": ["自動化", "補代碼", "喬接", "qiaojie", "Mac自動", "快捷指令", "開機自啟"], "primary": "P15", "assist": ["P02"], "action": "代碼補全 → 自動化 → 橋接", "落地": "🟡"},
@@ -56,8 +58,8 @@ INTENT_ROUTE_MAP: List[Dict[str, Any]] = [
     {"keywords": ["借用", "引用", "來源", "署名", "歸屬", "蒸餾", "原創"], "primary": "P05", "assist": ["P11"], "action": "借用合規 → 來源審計", "落地": "🟡"},
     {"keywords": ["主權分級", "國管國", "上級紅線", "下級自由"], "primary": "P00", "assist": ["P11"], "action": "分級主權 → 微調規則", "落地": "🔴"},
     {"keywords": ["接火", "水印", "後果自負", "傳播"], "primary": "P03", "assist": ["P15"], "action": "接火流程 → 水印打標", "落地": "🟢"},
-    {"keywords": ["家族", "幾代", "親屬", "誰死誰活"], "primary": "P00", "assist": ["P17"], "action": "家族事實追問", "落地": "🟡"},
-    {"keywords": ["防卡", "太緊", "接力包", "SOS"], "primary": "P02", "assist": ["P17"], "action": "防卡自檢 → 接力處置", "落地": "🟢"},
+    {"keywords": ["家族", "幾代", "親屬", "誰死誰活"], "primary": "P00", "assist": ["P03"], "action": "家族事實追問", "落地": "🟡"},
+    {"keywords": ["防卡", "太緊", "接力包", "SOS"], "primary": "P02", "assist": ["P15"], "action": "防卡自檢 → 接力處置", "落地": "🟢"},
     {"keywords": ["外部AI", "裸吞", "ChatGPT報告", "Kimi報告"], "primary": "P05", "assist": ["P77"], "action": "三色打標 → 實證複核", "落地": "🟢"},
     {"keywords": ["太籠統", "空話", "裝逼", "5字段"], "primary": "P05", "assist": ["P02"], "action": "5字段熔斷 → 證據鏈補全", "落地": "🟢"},
     {"keywords": ["歷史", "篡改", "顛倒是非", "勿忘國恥"], "primary": "P00", "assist": ["P05"], "action": "史記鐵律 → 永恆證據鏈", "落地": "🟡"},
@@ -68,7 +70,7 @@ INTENT_ROUTE_MAP: List[Dict[str, Any]] = [
     {"keywords": ["許願池", "人民資源池", "一元公益"], "primary": "P01", "assist": ["P05", "P13"], "action": "經濟治理底座", "落地": "🔴"},
     {"keywords": ["撿德", "曾仕強", "師德傳承", "德字閘"], "primary": "P00", "assist": ["P11", "P17"], "action": "德字閘檢測", "落地": "🟡"},
     {"keywords": ["道引", "開源吸收", "引入開源", "daoyin"], "primary": "P09", "assist": ["P01", "P11"], "action": "來源識別 → 許可檢查 → 防篡改 → 德字閘 → 參數壓縮 → IPA綁定", "落地": "🟢"},
-    {"keywords": ["自驅", "事事有回應", "開干"], "primary": "P02", "assist": ["P17"], "action": "自驅響應", "落地": "🟢"},
+    {"keywords": ["自驅", "事事有回應", "開干"], "primary": "P02", "assist": [], "action": "自驅響應", "落地": "🟢"},
     {"keywords": ["大白話", "術語", "行話", "人話"], "primary": "P00", "assist": ["P02"], "action": "行話前大白話", "落地": "🟡"},
     {"keywords": ["流場", "節點流向", "邊重於節點"], "primary": "P13", "assist": ["P06"], "action": "流場邊驗證", "落地": "🟢"},
     {"keywords": ["鑽石", "都一樣嗎", "主幹合併"], "primary": "P13", "assist": ["P01"], "action": "鑽石識別 → 正本選定", "落地": "🟡"},
@@ -87,12 +89,23 @@ INTENT_ROUTE_MAP: List[Dict[str, Any]] = [
     {"keywords": ["道陽佛陰", "太極平衡"], "primary": "P00", "assist": ["P05"], "action": "陰陽平衡審計", "落地": "🟡"},
     {"keywords": ["二次元之眼", "全局態勢"], "primary": "P77", "assist": ["P05"], "action": "全局態勢感知", "落地": "🟡"},
     {"keywords": ["一槌定音", "收網"], "primary": "P05", "assist": ["P77"], "action": "證據完整性驗證", "落地": "🟡"},
-    {"keywords": ["傳承契約", "接著受著守著"], "primary": "P00", "assist": ["P17"], "action": "契約驗證", "落地": "🟡"},
+    {"keywords": ["傳承契約", "接著受著守著"], "primary": "P00", "assist": ["P15"], "action": "契約驗證", "落地": "🟡"},
     {"keywords": ["開源三戒"], "primary": "P01", "assist": ["P15"], "action": "三戒提醒", "落地": "🟡"},
     {"keywords": ["DNA登記", "註冊資產", "基因登記", "registry", "asset dna"], "primary": "P18", "assist": ["P19"], "action": "SHA256註冊·Merkle根·黑戶檢測·歸屬驗證", "落地": "🟢"},
     {"keywords": ["極簡審計", "UI審計", "8項審計", "registry audit", "審計DNA", "審計登記"], "primary": "P19", "assist": ["P05"], "action": "8項清單(CSS/焦點/徽章/校驗/錯誤/placeholder/無障礙/留白)·一票否決", "落地": "🟢"},
     {"keywords": ["信任積分", "貢獻公證", "trust ledger", "政審參考", "國資入職", "算力優先", "國際互認"], "primary": "P20", "assist": ["P18"], "action": "三分桶(技術/社會/公益)·六場景矩陣·時間衰減·不可交易", "落地": "🟢"},
     {"keywords": ["溯源", "誰先自研", "innovation trace"], "primary": "P05", "assist": ["P01", "P13"], "action": "創新溯源報告", "落地": "🟡"},
+    # ── 2026-08-17 Phase2 补全: P07/P08/P09补充/P10/P12 + S1/S2/S3 触发词（对齐唯一口径表）──
+    {"keywords": ["成本", "資源", "預算", "經濟", "ROI", "性價比", "劃算", "管錢"], "primary": "P07", "assist": ["P01"], "action": "成本核算 → 資源優化 → 經濟可行性", "落地": "🟢"},
+    {"keywords": ["命名", "起名", "術語", "CNSH", "符號", "通心譯", "翻譯成人話"], "primary": "P08", "assist": ["P02"], "action": "CNSH命名 → 術語橋接 → 通心譯", "落地": "🟢"},
+    {"keywords": ["健康", "診斷", "體檢", "自檢", "治未病", "系統狀態"], "primary": "P09", "assist": ["P05"], "action": "系統診斷 → 健康檢查 → 治未病", "落地": "🟢"},
+    {"keywords": ["衝突", "矛盾", "調解", "化解", "吵架", "溝通", "和解"], "primary": "P10", "assist": [], "action": "衝突調解 → 溝通橋樑 → 人文視角", "落地": "🟢"},
+    {"keywords": ["底線", "底线", "原則", "原则", "紅線", "红线", "不可破", "能不能做", "價值觀", "价值观", "邊界", "边界"], "primary": "P12", "assist": ["P72"], "action": "六誓驗證 → 底線判定 → P0天條守衛", "落地": "🟢"},
+    {"keywords": ["創意", "创意", "破局", "靈感", "灵感", "腦洞", "脑洞", "比喻", "類比", "类比", "舉個例子", "举个例子"], "primary": "P11", "assist": ["P08"], "action": "創意爆發 → 破局方案 → 類比教學", "落地": "🟢"},
+    {"keywords": ["權限", "权限", "授權", "授权", "註冊", "注册", "封神榜", "派位", "新模塊上線", "新模块上线"], "primary": "P13", "assist": ["P15"], "action": "封神榜權限 → 模塊註冊 → 九宮派位", "落地": "🟢"},
+    {"keywords": ["法條", "法條", "法規", "法条", "法规", "合規", "合规", "合同", "勞動法", "劳动法", "消費者權益", "消费者权益"], "primary": "S1", "assist": ["P05"], "action": "法條檢索 → 合規分析（標注僅供參考）", "落地": "🟡"},
+    {"keywords": ["洛書", "369", "深層數理", "數理推演"], "primary": "S2", "assist": ["P06"], "action": "洛書九宮 → 369不動點推演", "落地": "🟡"},
+    {"keywords": ["維權", "投訴", "被坑", "12315", "勞動仲裁", "討薪"], "primary": "S3", "assist": ["S1"], "action": "維權路徑 → 投訴渠道 → 強制免責聲明", "落地": "🟡"},
 ]
 
 
@@ -303,7 +316,7 @@ class PersonaOrchestrator:
                 persona_status[assist]["routes"] += 1
 
         # 檢查哪些人格有實際執行器
-        executable_personas = ["P01", "P02", "P03", "P05", "P06", "P09", "P14", "P18", "P19", "P20"]
+        executable_personas = ["P00", "P01", "P02", "P03", "P04", "P05", "P06", "P07", "P08", "P09", "P10", "P11", "P12", "P13", "P14", "P15", "P18", "P19", "P20", "P72", "P77", "S1", "S2", "S3"]
         for code in executable_personas:
             if code in persona_status:
                 persona_status[code]["executor_exists"] = True

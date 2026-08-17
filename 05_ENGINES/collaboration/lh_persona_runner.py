@@ -37,8 +37,8 @@ PERSONA_MATRIX = {
     "P01": {"name": "诸葛亮", "role": "strategic_reasoning", "layer": "strategic", "motto": "运筹帷幄"},
 
     # 执行层 (Executive) — 落地执行
-    "P02": {"name": "龍芯", "role": "mathematical_engine", "layer": "executive", "motto": "精算致知"},
-    "P03": {"name": "墨子", "role": "archivist", "layer": "executive", "motto": "兼爱非攻"},
+    "P02": {"name": "宝宝", "role": "emotional_temperature", "layer": "executive", "motto": "温度共情"},
+    "P03": {"name": "雯雯", "role": "archivist", "layer": "executive", "motto": "四签归档"},
     "P04": {"name": "鲁班", "role": "engineer", "layer": "executive", "motto": "匠心独运"},
     "P07": {"name": "管仲", "role": "economist", "layer": "executive", "motto": "通货积财"},
     "P14": {"name": "吕蒙", "role": "deployer", "layer": "executive", "motto": "刮目相看"},
@@ -224,8 +224,8 @@ class PersonaRunner:
         CLASS_MAP = {
             "P00": ("bin.personas.p00_wenxin", "P00Wenxin"),
             "P01": ("bin.personas.p01_zhugeliang", "P01Zhugeliang"),
-            "P02": ("bin.personas.p02_longxin", "P02Longxin"),
-            "P03": ("bin.personas.p03_mozi", "P03Mozi"),
+            "P02": ("bin.personas.p02_baobao", "P02Longxin"),
+            "P03": ("bin.personas.p03_wenwen", "P03Mozi"),
             "P04": ("bin.personas.p04_luban", "P04Luban"),
             "P05": ("bin.personas.p05_godseye", "P05Godseye"),
             "P06": ("bin.personas.p06_mathmaster", "P06Mathmaster"),

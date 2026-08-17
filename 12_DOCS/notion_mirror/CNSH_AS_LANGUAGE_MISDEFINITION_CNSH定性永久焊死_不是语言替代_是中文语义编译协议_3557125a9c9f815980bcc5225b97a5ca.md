@@ -1,6 +1,0 @@
-# CNSH_AS_LANGUAGE_MISDEFINITION · CNSH定性永久焊死·不是语言替代·是中文语义编译协议
-
-> Notion URL: https://app.notion.com/p/CNSH_AS_LANGUAGE_MISDEFINITION-CNSH-3557125a9c9f815980bcc5225b97a5ca
-> Created: 2026-05-03T22:18:00.000Z
-> Last edited: 2026-07-01T14:39:00.000Z
-> Archived at: 2026-08-12T01:40:45.558086

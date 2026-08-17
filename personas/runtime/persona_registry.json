@@ -1,13 +1,12 @@
 # DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-{
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL{
   "_meta": {
     "DNA": "#龍芯⚡️2026-07-07-PERSONA-REGISTRY-v2.3",
     "GPG": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
-    "description": "龍魂人格内阁注册表 - 本地可执行人格路由 · 18人格+宝宝P17入口+P77黑天使军团(四天使编制)",
-    "last_updated": "2026-08-04T05:12:42.874427+00:00",
-    "version": "v3.1",
+    "description": "龍魂人格内阁注册表 - 本地可执行人格路由 · 24人格(20核心+1安全+3子系统) · P16/P17杂牌已冻结 · 对齐20_CONFIG/persona-canonical-table.md",
+    "last_updated": "2026-08-17T09:42:35.711233+00:00",
+    "version": "v4.0",
     "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     "changes": "v2.0 具名升级：44个PF-*从'桶1~桶N'升级为具名人格（中国文化意象命名）",
     "eternal_anchor": {
@@ -44,7 +43,10 @@
         "P14: 新增(吕蒙·部署)",
         "P19: 新增(极简审计官)",
         "P20: 新增(贡献公证官)",
-        "批量: 0PH + 0PF → planned"
+        "批量: 0PH + 0PF → planned",
+        "v4.0: 编号错位修正(对齐唯一口径表)",
+        "v4.0: P16小艺/P17宝宝入口 retired冻结",
+        "v4.0: P18凤凰·反思者→基因登记官"
       ],
       "dna": "#龍芯⚡️丙午·丙申·丙辰·午时·需-REGISTRY-AUDIT-FIX"
     }
@@ -106,7 +108,7 @@
     },
     "P02": {
       "code": "P02",
-      "name": "龍芯修复师",
+      "name": "宝宝",
       "name_en": "LongXin Fixer",
       "role": "repair_executor+mathematical_engine",
       "weight": 0.93,
@@ -164,7 +166,7 @@
     },
     "P03": {
       "code": "P03",
-      "name": "墨子",
+      "name": "雯雯",
       "name_en": "Mozi",
       "role": "logic_verification+structure_organizer",
       "weight": 0.94,
@@ -321,7 +323,7 @@
     },
     "P05": {
       "code": "P05",
-      "name": "执行外设(系统级)",
+      "name": "上帝之眼",
       "name_en": "Executor+GodsEye",
       "role": "meta_controller+tri_color_auditor",
       "weight": 1.0,
@@ -471,7 +473,7 @@
     },
     "P07": {
       "code": "P07",
-      "name": "开源守门人",
+      "name": "管仲",
       "name_en": "Open Source Guardian",
       "role": "open_source_governance",
       "weight": 0.95,
@@ -523,7 +525,7 @@
     },
     "P08": {
       "code": "P08",
-      "name": "密钥管家",
+      "name": "仓颉",
       "name_en": "Keymaster",
       "role": "credential_management",
       "weight": 0.98,
@@ -576,7 +578,7 @@
     },
     "P09": {
       "code": "P09",
-      "name": "龍魂法务",
+      "name": "孙思邈",
       "name_en": "LongHun Legal Counsel",
       "role": "legal_compliance",
       "weight": 0.92,
@@ -680,7 +682,7 @@
     },
     "P10": {
       "code": "P10",
-      "name": "侦察兵·信息猎手",
+      "name": "苏东坡",
       "name_en": "Scout Info Hunter",
       "alias": "scout",
       "role": "information_recon",
@@ -743,7 +745,7 @@
     },
     "P11": {
       "code": "P11",
-      "name": "架构师·构建者",
+      "name": "李白",
       "name_en": "Architect Builder",
       "alias": "architect",
       "role": "system_architect",
@@ -794,7 +796,7 @@
     },
     "P12": {
       "code": "P12",
-      "name": "同步官·数据管理员",
+      "name": "屈原",
       "name_en": "Syncer Data Manager",
       "alias": "syncer",
       "role": "data_sync_manager",
@@ -845,7 +847,7 @@
     },
     "P13": {
       "code": "P13",
-      "name": "龍芯·姜子牙",
+      "name": "姜子牙",
       "name_en": "Jiang Ziya",
       "alias": "jiangziya",
       "role": "merit_gatekeeper",
@@ -955,7 +957,7 @@
       "success_rate": 1.0,
       "executions": 1,
       "priority": 2,
-      "status": "active",
+      "status": "retired",
       "triggers": [
         "小艺",
         "华为",
@@ -993,7 +995,10 @@
       },
       "verified_runtime": true,
       "last_executed_at": "2026-07-07T20:37:19.756394+00:00",
-      "last_response_hash": "e52c342d9e44f968"
+      "last_response_hash": "e52c342d9e44f968",
+      "_frozen": true,
+      "_frozen_reason": "小艺·杂牌·0调用☠️·无定义无执行器",
+      "_frozen_date": "2026-08-17"
     },
     "P17": {
       "code": "P17",
@@ -1005,7 +1010,7 @@
       "success_rate": 1.0,
       "executions": 1,
       "priority": 1,
-      "status": "active",
+      "status": "retired",
       "triggers": [
         "宝宝",
         "帮我",
@@ -1045,14 +1050,17 @@
       },
       "verified_runtime": true,
       "last_executed_at": "2026-07-07T20:37:19.758634+00:00",
-      "last_response_hash": "10d7974bc4e906f3"
+      "last_response_hash": "10d7974bc4e906f3",
+      "_frozen": true,
+      "_frozen_reason": "宝宝入口·杂牌·0调用☠️·与P02撞名",
+      "_frozen_date": "2026-08-17"
     },
     "P18": {
       "code": "P18",
-      "name": "凤凰·反思者",
-      "name_en": "Phoenix Reflector",
+      "name": "基因登记官",
+      "name_en": "Gene Registrar",
       "alias": "fenghuang",
-      "role": "reflective_correction",
+      "role": "registrar",
       "weight": 0.92,
       "success_rate": 1.0,
       "executions": 1,
@@ -1115,7 +1123,8 @@
       },
       "verified_runtime": true,
       "last_executed_at": "2026-07-07T20:37:19.761379+00:00",
-      "last_response_hash": "ffed3245710a13ad"
+      "last_response_hash": "ffed3245710a13ad",
+      "_legacy_fenghuang": "凤凰·反思者"
     },
     "P77": {
       "code": "P77",

@@ -1,6 +1,0 @@
-# PERSONA_INTEGRATION_COMPLETE.md
-
-> Notion URL: https://app.notion.com/p/PERSONA_INTEGRATION_COMPLETE-md-39f7125a9c9f81bd9510facd7e3eebf1
-> Created: 2026-07-16T00:40:00.000Z
-> Last edited: 2026-07-16T00:40:00.000Z
-> Archived at: 2026-08-12T01:40:45.558086

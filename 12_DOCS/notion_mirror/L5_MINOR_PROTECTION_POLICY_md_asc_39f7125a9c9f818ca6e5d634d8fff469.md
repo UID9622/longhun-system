@@ -1,6 +1,0 @@
-# L5_MINOR_PROTECTION_POLICY.md.asc
-
-> Notion URL: https://app.notion.com/p/L5_MINOR_PROTECTION_POLICY-md-asc-39f7125a9c9f818ca6e5d634d8fff469
-> Created: 2026-07-16T00:43:00.000Z
-> Last edited: 2026-07-16T00:43:00.000Z
-> Archived at: 2026-08-12T01:40:45.558086
