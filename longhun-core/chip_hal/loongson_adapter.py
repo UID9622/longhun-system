@@ -7,7 +7,7 @@
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # 创建者: 诸葛鑫（UID9622）
 """
-龍魂·龙芯适配器 · 中科院龙芯3A5000/3A6000
+龍魂·龍芯适配器 · 中科院龍芯3A5000/3A6000
 LoongArch · 完全自主指令集架构 · LA464 微架构
 """
 
@@ -17,7 +17,7 @@ from dataclasses import dataclass
 
 @dataclass
 class LoongsonConfig:
-    """龙芯优化配置"""
+    """龍芯优化配置"""
     arch: str = "loongarch64"
     march_flags: str = "-march=loongarch64"
     abi: str = "lp64d"  # LP64 + double float
@@ -25,7 +25,7 @@ class LoongsonConfig:
 
 
 class LoongsonAdapter:
-    """龙芯适配器"""
+    """龍芯适配器"""
 
     def __init__(self):
         self.config = LoongsonConfig()

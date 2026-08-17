@@ -1,5 +1,5 @@
 name: longhun_bridge
-description: 🐉 龙魂·鸿蒙核心通信桥接插件 - 提供MethodChannel和EventChannel统一封装，自带DNA追溯、三色审计、主权锚定
+description: 🐉 龍魂·鸿蒙核心通信桥接插件 - 提供MethodChannel和EventChannel统一封装，自带DNA追溯、三色审计、主权锚定
 version: 2.0.0
 homepage: https://github.com/UID9622/longhun-system
 repository: https://github.com/UID9622/longhun-system

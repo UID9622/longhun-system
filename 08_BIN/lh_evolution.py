@@ -73,9 +73,9 @@ def cmd_puzzle():
     print("═" * 50)
     r = hub.puzzle_report()
     print(f"  总碎片: {r['total']}  |  孤立: {r['isolated']}  |  链接: {r['linked']}")
-    print(f"  可合龙: {r['assemblable']}  |  已合龙: {r['merged']}")
+    print(f"  可合龍: {r['assemblable']}  |  已合龍: {r['merged']}")
     if r["clusters"]:
-        print(f"\n  发现 {len(r['clusters'])} 个可合龙集群:")
+        print(f"\n  发现 {len(r['clusters'])} 个可合龍集群:")
         for c in r["clusters"]:
             print(f"\n  📦 {c['id']} ({c['size']}碎片)")
             print(f"     模块: {', '.join(c['modules'])}")
@@ -84,7 +84,7 @@ def cmd_puzzle():
                 print(f"     · {frag['content'][:60]}")
             print(f"     💡 {c['suggestion'][:120]}")
     else:
-        print("\n  暂无可合龙集群。继续跳跃，系统自动拼图。")
+        print("\n  暂无可合龍集群。继续跳跃，系统自动拼图。")
 
 
 def cmd_jump(content: str, tags: str = "", module: str = "general"):
@@ -131,7 +131,7 @@ def cmd_demo():
 
     print("\n── 4. 全景拼图 ──")
     pr = hub.puzzle_report()
-    print(f"   总碎片: {pr['total']}  |  可合龙集群: {len(pr['clusters'])}")
+    print(f"   总碎片: {pr['total']}  |  可合龍集群: {len(pr['clusters'])}")
     for c in pr["clusters"]:
         print(f"     {c['id']}: {c['size']}碎片 → {c['suggestion'][:80]}")
 

@@ -9,7 +9,7 @@
 - English: Invite multi‑party AIs and developers to co‑develop the LU × Meta‑Guardian draft through collaboration, integration, and consensus.
 ### 初步结构 / Initial Structure
 - LU 指令体系（Logic Union）= Logic × Unity × 文化灵性
-- 神兽元认知（Meta‑Guardian）：麒麟/青龙/白虎/朱雀/玄武 ↔ LU‑CORE/VALUE/ACTION/COMM/LEARN
+- 神兽元认知（Meta‑Guardian）：麒麟/青龍/白虎/朱雀/玄武 ↔ LU‑CORE/VALUE/ACTION/COMM/LEARN
 - 参考草案 / Draft Reference：LU 统一指令体系 × 神兽元认知守护结构 — Draft v0.1 | LU Universal Command System & Meta-Guardian Protocol
 ### 协作邀请 / Call for Participation
 - 中文：

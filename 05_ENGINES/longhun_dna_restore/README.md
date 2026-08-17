@@ -13,7 +13,7 @@
 
 **AI可读的代码版本革命**——记录"为什么改"而非"改了什么"。
 
-170:1 ~ 640:1 极致压缩 · 语义diff让AI理解变更意图 · 哈希链不可篡改 · 多AI签章接龙
+170:1 ~ 640:1 极致压缩 · 语义diff让AI理解变更意图 · 哈希链不可篡改 · 多AI签章接龍
 
 ---
 
@@ -50,7 +50,7 @@ python3 -c "from engines.longhun_dna_restore import MultiAISignatureChain; Multi
 | `DNAStamp` | `dna_stamp.py` | 签章数据结构 + 格式验证 | ✅ |
 | `DNAStampGenerator` | `dna_stamp_generator.py` | 签章链生成器 | ✅ |
 | `DNARestoreEngine` | `dna_restore_engine.py` | 三层还原引擎 + 哈希链验证 | ✅ |
-| `MultiAISignatureChain` | `multi_ai_signature_chain.py` | 多AI签章接龙 + GPG验证 | ✅ |
+| `MultiAISignatureChain` | `multi_ai_signature_chain.py` | 多AI签章接龍 + GPG验证 | ✅ |
 | `SemanticParser` | `semantic_parser.py` | 语义→结构化变更解析 | ✅ |
 | 测试套件 | `tests/dna_restore_engine/` | 7大测试类 · 25+用例 | ✅ |
 
@@ -64,7 +64,7 @@ engines/longhun_dna_restore/
 ├── dna_stamp.py                 # DNA签章数据结构
 ├── dna_stamp_generator.py       # 签章生成器
 ├── dna_restore_engine.py        # 还原引擎（三层架构）
-├── multi_ai_signature_chain.py  # 多AI签章接龙
+├── multi_ai_signature_chain.py  # 多AI签章接龍
 ├── semantic_parser.py           # 语义摘要解析器
 ├── pyproject.toml               # 项目配置
 └── README.md                    # 本文件

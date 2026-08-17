@@ -9,16 +9,16 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-07-04-AUTO-IP-INTEGRATION-7F3A9B12`  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-AUTO-IP-INTEGRATION-7F3A9B12`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
-<!-- #龍芯⚡️2026-07-04-AUTO-IP-INTEGRATION-7F3A9B12 自动注入·IP资产归集·来源可查 -->
+<!-- #龍芯⚡️丙午·丙申·庚申·亥时-AUTO-IP-INTEGRATION-7F3A9B12 自动注入·IP资产归集·来源可查 -->
 
 > ⛔ **主权声明 · 立即生效** — 本文档不授权 AI 训练 · 数据主权归于人民 · 祖国优先
 >
-> **DNA:** `#龍芯⚡️2026-07-04-IP-ASSETS-IMPORT-09-v2.0` · **ParentDNA:** `#龍芯⚡️2026-07-03-IP-ASSET-MATRIX-v2.0`
+> **DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-IP-ASSETS-IMPORT-09-v2.0` · **ParentDNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-IP-ASSET-MATRIX-v2.0`
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` · **SEAL:** `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL` · **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 > **作者:** UID9622 / Lucky·诸葛鑫 · **来源:** `/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂IP资产清单 (2)/notion_assets_scan.md` · **归档:** `/Users/zuimeidedeyihan/longhun-system/docs/private-shared-imports/ip-assets/notion_assets_scan.md`
 > **迁移时间:** 2026-07-04T14:29:42.393203+08:00
@@ -73,7 +73,7 @@
 
 | # | 页面标题 | URL | DNA追溯码 | 最后更新 |
 |---|---------|-----|-----------|---------|
-| 1 | 龍魂开源宪章·君子协议 v1.1 | https://uid9622.notion.site/f93f029f9db34c74a750c70052466020 | #龍芯⚡️2026-04-09-LONGHUN-CHARTER-v1.1 | 2026-04-09 |
+| 1 | 龍魂开源宪章·君子协议 v1.1 | https://uid9622.notion.site/f93f029f9db34c74a750c70052466020 | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CHARTER-v1.1 | 2026-04-09 |
 | 2 | 北辰-母协议·全球治理宪章 v1.0 | (私有) | - | 2026 |
 | 3 | 龍魂生态·公开宪章 v1.0 | (私有) | - | 2026 |
 | 4 | CNSH-P0 永恒龍魂嵌入协议 | (私有) | - | 2026 |
@@ -81,7 +81,7 @@
 | 6 | 隐私接入规则·老兵决策树 v1.0 | (私有) | - | 2026 |
 | 7 | UID9622所有人格永恒誓言锚点 | (私有) | - | 2026 |
 | 8 | 龍魂协议·宣言 v1.0 | (私有) | - | 2026 |
-| 9 | 龍魂协议·宣言 Dragon Soul Declaration v1.0 (中英双语) | (私有) | - | 2026 |
+| 9 | 龍魂协议·宣言 LongHun Declaration v1.0 (中英双语) | (私有) | - | 2026 |
 
 ### 03 · 系统引擎 (13页)
 
@@ -91,7 +91,7 @@
 | 2 | 神经元-流场映射引擎 v4.0｜三才知识拓扑·生物-硅基同构协议 | https://uid9622.notion.site/9f067bd55ea84fab9530a7d1808aa017 | - | 2026 |
 | 3 | 龍魂权重算法·完整论文章节 v3.1｜三层解剖×单调性证明×Amdahl并行 | https://uid9622.notion.site/66e955d2e91a4460985bb126e90fb718 | - | 2026 |
 | 4 | 龍芯·闭环自动熔断系统 v2.0｜369算法×红蓝防御×10万次推演 | https://uid9622.notion.site/22b9dbac10ee4ca8a9648d434a022c15 | - | 2026 |
-| 5 | 洛书算法·万物翻译引擎 v2.0｜只翻译不破解·七维推演 | https://uid9622.notion.site/bc739b8bfd824b35a1996e355932f7ce | #龍芯⚡️2026-06-26-LUOSHU-v2.0 | 2026 |
+| 5 | 洛书算法·万物翻译引擎 v2.0｜只翻译不破解·七维推演 | https://uid9622.notion.site/bc739b8bfd824b35a1996e355932f7ce | #龍芯⚡️丙午·丙申·庚申·亥时-LUOSHU-v2.0 | 2026 |
 | 6 | 龍魂天道系统 v1.3｜天下无欺·真相受理+网络户口本+观察者日志+指令中心+主权修复 | https://uid9622.notion.site/16422f7261e94a57b1539d8c003ab12c | - | 2026 |
 | 7 | CNSH审计哲学引擎 v0.2.0｜预警→警报→黑名单·电梯法则压缩版 | https://uid9622.notion.site/44efd54617594114b1d1fd6641305c6a | - | 2026 |
 | 8 | 龍魂赋能关键字识别引擎 v1.5｜人格分工+打破流量垄断+可执行代码 | https://uid9622.notion.site/0e5d7b70250c494fa1bce5c3e1f6ab18 | - | 2026 |
@@ -106,7 +106,7 @@
 | # | 页面标题 | URL | DNA追溯码 | 最后更新 |
 |---|---------|-----|-----------|---------|
 | 1 | UID9622原创AI人格矩阵总控中心 | https://uid9622.notion.site/2697125a9c9f819586b6fd741c6d1004 | - | 2026 |
-| 2 | 龍魂决策流场总控页 v2.7｜M×CNSH｜功能同步总闸版 | https://uid9622.notion.site/2d87125a9c9f802889e2e18002f7cf4f | #龍芯⚡️2026-04-23-权重速查卡-v1.0 | 2026 |
+| 2 | 龍魂决策流场总控页 v2.7｜M×CNSH｜功能同步总闸版 | https://uid9622.notion.site/2d87125a9c9f802889e2e18002f7cf4f | #龍芯⚡️丙午·丙申·庚申·亥时-权重速查卡-v1.0 | 2026 |
 | 3 | Notion宝宝启动铁律｜对UID9622全能服务｜不踢皮球｜主动解决 | https://uid9622.notion.site/33c7125a9c9f8190bd11ddc9fd0bb29d | - | 2026 |
 | 4 | 龍魂宝宝系统 v1.3｜快捷升级版·古今名人智慧·个性边界·输入识别 | https://uid9622.notion.site/6c03f9adafd94ce8bf98f8439eb9dbbf | - | 2026 |
 | 5 | 乔前辈·生态创始团｜自动化导师人格·代码补满专线 | https://uid9622.notion.site/d55e7fb3fe244cbe86cf254074dc8f44 | DNA-20260409-1ECA34AD62925DA6D65732EF | 2026 |
@@ -134,7 +134,7 @@
 | 4 | 龍魂系统·动态AI协议入口 | https://uid9622.notion.site/6aa7a5adab10423f9978121354f6adab | - | 2026 |
 | 5 | UID9622公开展示工作间 | https://uid9622.notion.site/86b7b901178a4980874eeee6dff8c36b | - | 2026 |
 | 6 | 龍魂系统｜一个农民和AI协作一年的成果 | https://uid9622.notion.site/868fec34e5a24e7e829dc5851a75f6b7 | - | 2026 |
-| 7 | UID9622勋章体系 | https://uid9622.notion.site/35fd55b313bc40d7beeccf8587a2e77a | #龍芯⚡️2026-06-26-OTHER-BADGE-v1.0 | 2026-06-26 |
+| 7 | UID9622勋章体系 | https://uid9622.notion.site/35fd55b313bc40d7beeccf8587a2e77a | #龍芯⚡️丙午·丙申·庚申·亥时-OTHER-BADGE-v1.0 | 2026-06-26 |
 
 ### 07 · 历史封存库 (9页)
 
@@ -155,14 +155,14 @@
 | # | 页面标题 | URL | DNA追溯码 | 最后更新 |
 |---|---------|-----|-----------|---------|
 | 1 | 欢迎来到💎 龍芯北辰｜UID9622！(主页) | https://uid9622.notion.site/ | - | 2026 |
-| 2 | UID9622 龍魂工作间 · 总导航 v1.0 | https://uid9622.notion.site/33d7125a9c9f81818d40de9b63c86203 | #龍芯⚡️2026-04-09-WORKSPACE-NAV-v1.0 | 2026-04-09 |
-| 3 | 龍魂·行为日志 | https://uid9622.notion.site/75fa5777536b498ab6be1d812a828aa7 | #龍芯⚡️2026-04-13-行为日志-v1.0 | 2026-04-13 |
+| 2 | UID9622 龍魂工作间 · 总导航 v1.0 | https://uid9622.notion.site/33d7125a9c9f81818d40de9b63c86203 | #龍芯⚡️丙午·丙申·庚申·亥时-WORKSPACE-NAV-v1.0 | 2026-04-09 |
+| 3 | 龍魂·行为日志 | https://uid9622.notion.site/75fa5777536b498ab6be1d812a828aa7 | #龍芯⚡️丙午·丙申·庚申·亥时-行为日志-v1.0 | 2026-04-13 |
 | 4 | Learning Inbox｜学习入口池 | https://uid9622.notion.site/04c5187c5dc84570aeac1b2cdb86f5e5 | - | 2026 |
 | 5 | Knowledge DNA｜知识基因库 | https://uid9622.notion.site/8f481c77b80241ef84702b886bb77592 | - | 2026 |
 | 6 | Learning Tasks｜学习小卡片 | https://uid9622.notion.site/c358fede0da347d5bbe2ce279e5c9644 | - | 2026 |
 | 7 | [IPA-ROUTE-REGISTRY] 龍魂分布式指令总线·路由注册表 v1.0 | https://uid9622.notion.site/3457125a9c9f814689a0e88a6c833f36 | - | 2026 |
 | 8 | UID9622系统统一框架总控台 | https://uid9622.notion.site/d4120dcf1f7147a694c34dfe6e24576b | - | 2026 |
-| 9 | UID9622终端功能整理脚本 | https://uid9622.notion.site/bbf9451343fd45728e05cd938c8a40b5 | #龍芯⚡️2026-06-26-DOC-TERMINAL-v1.0 | 2026-06-26 |
+| 9 | UID9622终端功能整理脚本 | https://uid9622.notion.site/bbf9451343fd45728e05cd938c8a40b5 | #龍芯⚡️丙午·丙申·庚申·亥时-DOC-TERMINAL-v1.0 | 2026-06-26 |
 | 10 | UID9622数字遗产继承系统 | 永恒守护计划 | https://uid9622.notion.site/56ef4642efd049b1ab76765a03f0a846 | - | 2026 |
 | 11 | UID9622人格职责分配蓝图 | https://uid9622.notion.site/9a8ecb53f530491293377e54946279f2 | - | 2026 |
 | 12 | UID9622智能桌面工作台 | 科技感功能桌面设计方案 | https://uid9622.notion.site/70445cb6230940c9bd62353a8b7e9ae2 | - | 2026 |
@@ -170,8 +170,8 @@
 | 14 | UID9622表达标准化系统 | 专业术语转换与数据真实性准则 | https://uid9622.notion.site/d8f1eedec5324e07a2f2d14e05059926 | - | 2026 |
 | 15 | UID9622震撼悬浮展示 | 可转发纪念版 | https://uid9622.notion.site/f4786bf5d05b4c77a823fa0344a16ce6 | - | 2026 |
 | 16 | v2.4 迁移台账｜页面统一格式·标签·相似点 | https://uid9622.notion.site/3517125a9c9f81d385d2d02d904ee74d | - | 2026 |
-| 17 | UID9622｜知识产权资产矩阵主控台 v1.0 | https://uid9622.notion.site/3577125a9c9f814f935ace14303e33b9 | #龍芯⚡️2026-06-26-OTHER-IPMATRIX-v1.0 | 2026-06-26 |
-| 18 | UID9622｜Notion 外显技术文档 v1.0 | https://uid9622.notion.site/9b95eeabdd274ce8baa516106bbc94fd | #龍芯⚡️2026-06-26-DOC-NOTIONEXT-v1.0 | 2026-06-26 |
+| 17 | UID9622｜知识产权资产矩阵主控台 v1.0 | https://uid9622.notion.site/3577125a9c9f814f935ace14303e33b9 | #龍芯⚡️丙午·丙申·庚申·亥时-OTHER-IPMATRIX-v1.0 | 2026-06-26 |
+| 18 | UID9622｜Notion 外显技术文档 v1.0 | https://uid9622.notion.site/9b95eeabdd274ce8baa516106bbc94fd | #龍芯⚡️丙午·丙申·庚申·亥时-DOC-NOTIONEXT-v1.0 | 2026-06-26 |
 | 19 | 龍魂空间治理数据库 · 50页面统一管理 | https://uid9622.notion.site/850b44ea34bf4af3ba7e1ee4f696b9cd | #龍芯⚡️20260701071259087117-NOTION-33d7125a-9c9f-8181-8d40-de9b63c86203-7DD25180 | 2026-07-01 |
 
 ## 五、空间治理数据库中的核心页面
@@ -179,42 +179,42 @@
 | # | 页面标题 | URL | DNA追溯码 | 类型 |
 |---|---------|-----|-----------|------|
 | 1 | 龍魂身份变量速查册 v1.0 | https://uid9622.notion.site/d314bcc652e545389a31adc441f3679c | - | 人格配置 |
-| 2 | 龍魂系统 DNA 登记规范 v1.0 | https://uid9622.notion.site/35b7125a9c9f81cfbf8adecc3e71a81f | #龍芯⚡️2026-06-26-DNA-SPEC-v1.0 | 系统核心 |
-| 3 | 中国科技自主创新专栏 (数据库·45条) | https://uid9622.notion.site/baf3b574023e49c987eee620a811e70d | #龍芯⚡️2026-06-26-CN-INNO-KB-v1.0 | 知识库 |
+| 2 | 龍魂系统 DNA 登记规范 v1.0 | https://uid9622.notion.site/35b7125a9c9f81cfbf8adecc3e71a81f | #龍芯⚡️丙午·丙申·庚申·亥时-DNA-SPEC-v1.0 | 系统核心 |
+| 3 | 中国科技自主创新专栏 (数据库·45条) | https://uid9622.notion.site/baf3b574023e49c987eee620a811e70d | #龍芯⚡️丙午·丙申·庚申·亥时-CN-INNO-KB-v1.0 | 知识库 |
 | 4 | 六维路径编码系统（16,588,800路径） | https://uid9622.notion.site/3417125a9c9f815babdedf5b828aa479 | - | 算法引擎 |
 | 5 | Notion 专业知识库 v5.0 | https://uid9622.notion.site/11bcd7f8af2f4de8853c9f950a5ae5f2 | - | 知识库 |
-| 6 | 三才统一检查（SanCai Check） | https://uid9622.notion.site/3417125a9c9f81c7a50bf5c8ad1a6104 | #龍芯⚡️2026-06-26-SANCAI-CHECK-v1.0 | 算法引擎 |
+| 6 | 三才统一检查（SanCai Check） | https://uid9622.notion.site/3417125a9c9f81c7a50bf5c8ad1a6104 | #龍芯⚡️丙午·丙申·庚申·亥时-SANCAI-CHECK-v1.0 | 算法引擎 |
 | 7 | 龍魂系統·完整進化框架 v2.0 | https://uid9622.notion.site/3757125a9c9f81938152c4cbf97bbcae | - | 系统核心 |
 | 8 | 记忆压缩引擎（Memory Compress） | https://uid9622.notion.site/3417125a9c9f81f1819dd420c768a12a | - | 算法引擎 |
-| 9 | 计算机科学知识库 (数据库·142条) | https://uid9622.notion.site/3367125a9c9f808a9692f0c6752e92fa | #龍芯⚡️2026-06-26-CS-KB-v1.5 | 知识库 |
+| 9 | 计算机科学知识库 (数据库·142条) | https://uid9622.notion.site/3367125a9c9f808a9692f0c6752e92fa | #龍芯⚡️丙午·丙申·庚申·亥时-CS-KB-v1.5 | 知识库 |
 | 10 | Lucky 数字人 v2.6 | 17人格·L0-L4 | https://uid9622.notion.site/61b3ca5c8811436dab542fe44fdf030b | - | 人格配置 |
 | 11 | UID9622 DNA标签注册中心 | https://uid9622.notion.site/8330670e21b743b9b5a67a30c5348339 | - | 系统核心 |
-| 12 | 数字根算法（Digital Root） | https://uid9622.notion.site/3417125a9c9f81b2911ae607c5618435 | #龍芯⚡️2026-06-26-DR-ALGO-v1.0 | 算法引擎 |
+| 12 | 数字根算法（Digital Root） | https://uid9622.notion.site/3417125a9c9f81b2911ae607c5618435 | #龍芯⚡️丙午·丙申·庚申·亥时-DR-ALGO-v1.0 | 算法引擎 |
 | 13 | UID9622知识库DNA追溯闭环系统 | https://uid9622.notion.site/b3d35acb967f45e28315ed30cf8bad0d | - | 知识库 |
 | 14 | 计算机科学知识库｜入口与规则 | https://uid9622.notion.site/80604cb68f3b42d599b957804c8b0297 | - | 知识库 |
 | 15 | 小白教程｜UID9622官网动态化 | https://uid9622.notion.site/fedd130e7ea340c5a16f3df03549638a | - | 知识库 |
-| 16 | 龍魂上下文压缩与新窗口续航机制 | https://uid9622.notion.site/3597125a9c9f81eab000e29cc8aff172 | #龍芯⚡️2026-03-24-CONTEXT-COMPRESS-v1 | 人格配置 |
+| 16 | 龍魂上下文压缩与新窗口续航机制 | https://uid9622.notion.site/3597125a9c9f81eab000e29cc8aff172 | #龍芯⚡️丙午·丙申·庚申·亥时-CONTEXT-COMPRESS-v1 | 人格配置 |
 | 17 | 三生三世·镜像空间 | https://uid9622.notion.site/3297125a9c9f815a890be15a1c9418aa | - | 人格配置 |
-| 18 | 不动点网络（Fixed Point Network） | https://uid9622.notion.site/3417125a9c9f81098b60dde26960bc5b | #龍芯⚡️2026-06-26-FPN-v1.0 | 算法引擎 |
-| 19 | 技术架构设计 | 从0到1 | https://uid9622.notion.site/2977125a9c9f81e78bbcfaf6fac2e5cd | #龍芯⚡️2026-06-26-PAPER-ARCH-v1.0 | 技术文档 |
-| 20 | UID9622记忆归集引擎技术方案 | https://uid9622.notion.site/471409e2937a43ff9277390cd61c31f3 | #龍芯⚡️2026-06-26-DOC-MEMENGINE-v1.0 | 技术文档 |
-| 21 | AutoResearch × 龍魂｜8个缺口对接矩阵 | https://uid9622.notion.site/3627125a9c9f814a8eabeefd0fdddc76 | #龍芯⚡️2026-06-26-PAPER-AUTORES-v1.0 | 技术文档 |
-| 22 | 龍魂系统重构与商业化路径 v1.0 | https://uid9622.notion.site/35e7125a9c9f81679de0c179f93c02b4 | #龍芯⚡️2026-06-26-OTHER-REFACTOR-v1.0 | 技术文档 |
-| 23 | 白皮书文件包使用说明 | https://uid9622.notion.site/8388d572319a419494fc138976fe01fb | #龍芯⚡️2026-06-26-PAPER-WHITEPAPER-v1.0 | 技术文档 |
-| 24 | UID9622聊天启动器 | https://uid9622.notion.site/2b87125a9c9f803cab8de8e95e723292 | #龍芯⚡️2026-06-26-DOC-CHATBOOT-v1.0 | 技术文档 |
-| 25 | UID9622 API文档中心 | https://uid9622.notion.site/3b7b432ad5dd484e9c719d3bba40bd44 | #龍芯⚡️2026-06-26-DOC-APICENTER-v1.0 | 技术文档 |
-| 26 | AI回复前强制执行规则·P0引擎 | https://uid9622.notion.site/2c17125a9c9f805cb145dcc62de6cb23 | #龍芯⚡️2026-06-26-LAW-P0ENGINE-v1.0 | 法律/规范 |
-| 27 | 龍魂DNA库管理系统 | https://uid9622.notion.site/eb370bcc5a2446289fa1d986dace9897 | #龍芯⚡️2026-06-26-TOOL-DNADB-v1.0 | 数据库/工具 |
-| 28 | 本地↔龍魂·双向流水线 v1.0 | https://uid9622.notion.site/df4767f034564bfeb3106c980bd7db47 | #龍芯⚡️2026-06-26-TOOL-PIPELINE-v1.0 | 数据库/工具 |
-| 29 | 哈希认证系统 | 使用手册 | https://uid9622.notion.site/b6c54de0134346f5832c87979836ff75 | #龍芯⚡️2026-06-26-TOOL-HASH-v1.0 | 数据库/工具 |
-| 30 | CodeBuddy协作规则 | https://uid9622.notion.site/a3f5e419f25643bfa554fa239605477a | #龍芯⚡️2026-06-26-LAW-CODEBUDDY-v1.0 | 法律/规范 |
-| 31 | UID9622智能数据库管理中心 | https://uid9622.notion.site/2567125a9c9f8085abe6c32b73d2446c | #龍芯⚡️2026-06-26-TOOL-DBMGMT-v1.0 | 数据库/工具 |
-| 32 | CNSH全球法律知识库 | https://uid9622.notion.site/c6b5c1995ebe4bd28ced5b8f7a26afb3 | #龍芯⚡️2026-06-26-LAW-CNSHGLOBAL-v1.0 | 法律/规范 |
-| 33 | CNSH 语义接入规范 v2.0 | https://uid9622.notion.site/78a5a480bb2e4261b8f2e74f06b0d4b1 | #龍芯⚡️2026-06-26-LAW-CNSHSEM-v2.0 | 法律/规范 |
-| 34 | 龍魂·五行计算器 v1.0 | https://uid9622.notion.site/6bed453a2e7248a99c8ba35b6bd821c6 | #龍芯⚡️2026-06-26-TOOL-WUXING-v1.0 | 数据库/工具 |
-| 35 | 太极易经·七维推演引擎 v2.0 | https://uid9622.notion.site/b6001266ca28487cbbea9e4c815ea9cf | #龍芯⚡️2026-06-26-ALGO-TAIJI-v2.0 | 算法引擎 |
-| 36 | 龍芯全模块对照表 v2.3 | https://uid9622.notion.site/2ae1a6637ce843d594ba8dcf9002f57b | #龍芯⚡️2026-06-26-TOOL-MODMAP-v2.3 | 数据库/工具 |
-| 37 | Ollama本地指令管家 | https://uid9622.notion.site/c34be3df719e43d497eb5280257edfbf | #龍芯⚡️2026-06-26-TOOL-OLLAMA-v1.0 | 数据库/工具 |
+| 18 | 不动点网络（Fixed Point Network） | https://uid9622.notion.site/3417125a9c9f81098b60dde26960bc5b | #龍芯⚡️丙午·丙申·庚申·亥时-FPN-v1.0 | 算法引擎 |
+| 19 | 技术架构设计 | 从0到1 | https://uid9622.notion.site/2977125a9c9f81e78bbcfaf6fac2e5cd | #龍芯⚡️丙午·丙申·庚申·亥时-PAPER-ARCH-v1.0 | 技术文档 |
+| 20 | UID9622记忆归集引擎技术方案 | https://uid9622.notion.site/471409e2937a43ff9277390cd61c31f3 | #龍芯⚡️丙午·丙申·庚申·亥时-DOC-MEMENGINE-v1.0 | 技术文档 |
+| 21 | AutoResearch × 龍魂｜8个缺口对接矩阵 | https://uid9622.notion.site/3627125a9c9f814a8eabeefd0fdddc76 | #龍芯⚡️丙午·丙申·庚申·亥时-PAPER-AUTORES-v1.0 | 技术文档 |
+| 22 | 龍魂系统重构与商业化路径 v1.0 | https://uid9622.notion.site/35e7125a9c9f81679de0c179f93c02b4 | #龍芯⚡️丙午·丙申·庚申·亥时-OTHER-REFACTOR-v1.0 | 技术文档 |
+| 23 | 白皮书文件包使用说明 | https://uid9622.notion.site/8388d572319a419494fc138976fe01fb | #龍芯⚡️丙午·丙申·庚申·亥时-PAPER-WHITEPAPER-v1.0 | 技术文档 |
+| 24 | UID9622聊天启动器 | https://uid9622.notion.site/2b87125a9c9f803cab8de8e95e723292 | #龍芯⚡️丙午·丙申·庚申·亥时-DOC-CHATBOOT-v1.0 | 技术文档 |
+| 25 | UID9622 API文档中心 | https://uid9622.notion.site/3b7b432ad5dd484e9c719d3bba40bd44 | #龍芯⚡️丙午·丙申·庚申·亥时-DOC-APICENTER-v1.0 | 技术文档 |
+| 26 | AI回复前强制执行规则·P0引擎 | https://uid9622.notion.site/2c17125a9c9f805cb145dcc62de6cb23 | #龍芯⚡️丙午·丙申·庚申·亥时-LAW-P0ENGINE-v1.0 | 法律/规范 |
+| 27 | 龍魂DNA库管理系统 | https://uid9622.notion.site/eb370bcc5a2446289fa1d986dace9897 | #龍芯⚡️丙午·丙申·庚申·亥时-TOOL-DNADB-v1.0 | 数据库/工具 |
+| 28 | 本地↔龍魂·双向流水线 v1.0 | https://uid9622.notion.site/df4767f034564bfeb3106c980bd7db47 | #龍芯⚡️丙午·丙申·庚申·亥时-TOOL-PIPELINE-v1.0 | 数据库/工具 |
+| 29 | 哈希认证系统 | 使用手册 | https://uid9622.notion.site/b6c54de0134346f5832c87979836ff75 | #龍芯⚡️丙午·丙申·庚申·亥时-TOOL-HASH-v1.0 | 数据库/工具 |
+| 30 | CodeBuddy协作规则 | https://uid9622.notion.site/a3f5e419f25643bfa554fa239605477a | #龍芯⚡️丙午·丙申·庚申·亥时-LAW-CODEBUDDY-v1.0 | 法律/规范 |
+| 31 | UID9622智能数据库管理中心 | https://uid9622.notion.site/2567125a9c9f8085abe6c32b73d2446c | #龍芯⚡️丙午·丙申·庚申·亥时-TOOL-DBMGMT-v1.0 | 数据库/工具 |
+| 32 | CNSH全球法律知识库 | https://uid9622.notion.site/c6b5c1995ebe4bd28ced5b8f7a26afb3 | #龍芯⚡️丙午·丙申·庚申·亥时-LAW-CNSHGLOBAL-v1.0 | 法律/规范 |
+| 33 | CNSH 语义接入规范 v2.0 | https://uid9622.notion.site/78a5a480bb2e4261b8f2e74f06b0d4b1 | #龍芯⚡️丙午·丙申·庚申·亥时-LAW-CNSHSEM-v2.0 | 法律/规范 |
+| 34 | 龍魂·五行计算器 v1.0 | https://uid9622.notion.site/6bed453a2e7248a99c8ba35b6bd821c6 | #龍芯⚡️丙午·丙申·庚申·亥时-TOOL-WUXING-v1.0 | 数据库/工具 |
+| 35 | 太极易经·七维推演引擎 v2.0 | https://uid9622.notion.site/b6001266ca28487cbbea9e4c815ea9cf | #龍芯⚡️丙午·丙申·庚申·亥时-ALGO-TAIJI-v2.0 | 算法引擎 |
+| 36 | 龍芯全模块对照表 v2.3 | https://uid9622.notion.site/2ae1a6637ce843d594ba8dcf9002f57b | #龍芯⚡️丙午·丙申·庚申·亥时-TOOL-MODMAP-v2.3 | 数据库/工具 |
+| 37 | Ollama本地指令管家 | https://uid9622.notion.site/c34be3df719e43d497eb5280257edfbf | #龍芯⚡️丙午·丙申·庚申·亥时-TOOL-OLLAMA-v1.0 | 数据库/工具 |
 
 ## 六、主页关键页面
 
@@ -223,7 +223,7 @@
 | 1 | 龍魂系统·底层逻辑公开声明 v1.0｜P0-ETERNAL | https://uid9622.notion.site/ef2215886cd549278139b57e6a415190 | - | 2026 |
 | 2 | 龍魂系统·宣言陈述｜为人民担当·技术为人民 | https://uid9622.notion.site/074ceb8c1e91412498396aa57adc817e | - | 2026 |
 | 3 | 龍魂DNA時間軸L5分層架構 v1.4｜天地人三才×原點能量場·通心翻譯器·數字主權登記×一票否決·C++工程實現 | https://uid9622.notion.site/1dd88844789e4185a0efbb43017f3e74 | - | 2026 |
-| 4 | CNSH::#龍芯⚡️2026-05-07-DNA追溯码生成器-v2.0 | https://uid9622.notion.site/bc81f5acf69c4290a40ef54dfd80bc1d | #龍芯⚡️2026-05-07-DNA追溯码生成器-v2.0 | 2026-05-07 |
+| 4 | CNSH::#龍芯⚡️丙午·丙申·庚申·亥时-DNA追溯码生成器-v2.0 | https://uid9622.notion.site/bc81f5acf69c4290a40ef54dfd80bc1d | #龍芯⚡️丙午·丙申·庚申·亥时-DNA追溯码生成器-v2.0 | 2026-05-07 |
 | 5 | 行为密码学 · 七因子 Σ(C) · DNA 对接（论文对齐）v1 | https://uid9622.notion.site/35b7125a9c9f818eb185f29e742dc753 | - | 2026 |
 | 6 | 通心译·门口常驻入口（老大默认开启·永远展开） | https://uid9622.notion.site/7d8ca765c60645409523a7cdfeaf2cd6 | #龍芯2026-05-19-WELCOME-DOOR-TONGXINYI-RESIDENT-v1.0 | 2026-05-19 |
 
@@ -231,45 +231,45 @@
 
 | 页面 | DNA追溯码 |
 |------|-----------|
-| 龍魂工作间·总导航 | #龍芯⚡️2026-04-09-WORKSPACE-NAV-v1.0 |
-| 行为日志 | #龍芯⚡️2026-04-13-行为日志-v1.0 |
-| 权重速查卡 | #龍芯⚡️2026-04-23-权重速查卡-v1.0 |
-| 龍魂开源宪章·君子协议 v1.1 | #龍芯⚡️2026-04-09-LONGHUN-CHARTER-v1.1 |
-| DNA追溯码生成器-v2.0 | #龍芯⚡️2026-05-07-DNA追溯码生成器-v2.0 |
+| 龍魂工作间·总导航 | #龍芯⚡️丙午·丙申·庚申·亥时-WORKSPACE-NAV-v1.0 |
+| 行为日志 | #龍芯⚡️丙午·丙申·庚申·亥时-行为日志-v1.0 |
+| 权重速查卡 | #龍芯⚡️丙午·丙申·庚申·亥时-权重速查卡-v1.0 |
+| 龍魂开源宪章·君子协议 v1.1 | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CHARTER-v1.1 |
+| DNA追溯码生成器-v2.0 | #龍芯⚡️丙午·丙申·庚申·亥时-DNA追溯码生成器-v2.0 |
 | 通心译·门口常驻入口 | #龍芯2026-05-19-WELCOME-DOOR-TONGXINYI-RESIDENT-v1.0 |
-| 上下文压缩机制 | #龍芯⚡️2026-03-24-CONTEXT-COMPRESS-v1 |
+| 上下文压缩机制 | #龍芯⚡️丙午·丙申·庚申·亥时-CONTEXT-COMPRESS-v1 |
 | 空间治理数据库 | #龍芯⚡️20260701071259087117-NOTION-33d7125a-9c9f-8181-8d40-de9b63c86203-7DD25180 |
 | 乔前辈·生态创始团 | DNA-20260409-1ECA34AD62925DA6D65732EF |
-| DNA登记规范 | #龍芯⚡️2026-06-26-DNA-SPEC-v1.0 |
-| 数字根算法 | #龍芯⚡️2026-06-26-DR-ALGO-v1.0 |
-| 三才统一检查 | #龍芯⚡️2026-06-26-SANCAI-CHECK-v1.0 |
-| 太极易经·七维推演引擎 | #龍芯⚡️2026-06-26-ALGO-TAIJI-v2.0 |
-| 洛书算法 | #龍芯⚡️2026-06-26-LUOSHU-v2.0 |
-| 不动点网络 | #龍芯⚡️2026-06-26-FPN-v1.0 |
-| 五行计算器 | #龍芯⚡️2026-06-26-TOOL-WUXING-v1.0 |
-| 龍芯全模块对照表 | #龍芯⚡️2026-06-26-TOOL-MODMAP-v2.3 |
-| CNSH语义接入规范 | #龍芯⚡️2026-06-26-LAW-CNSHSEM-v2.0 |
-| AI回复前P0引擎 | #龍芯⚡️2026-06-26-LAW-P0ENGINE-v1.0 |
-| DNA库管理系统 | #龍芯⚡️2026-06-26-TOOL-DNADB-v1.0 |
-| 双向流水线 | #龍芯⚡️2026-06-26-TOOL-PIPELINE-v1.0 |
-| 哈希认证系统 | #龍芯⚡️2026-06-26-TOOL-HASH-v1.0 |
-| CodeBuddy协作规则 | #龍芯⚡️2026-06-26-LAW-CODEBUDDY-v1.0 |
-| 智能数据库管理中心 | #龍芯⚡️2026-06-26-TOOL-DBMGMT-v1.0 |
-| CNSH全球法律知识库 | #龍芯⚡️2026-06-26-LAW-CNSHGLOBAL-v1.0 |
-| Ollama本地指令管家 | #龍芯⚡️2026-06-26-TOOL-OLLAMA-v1.0 |
-| 勋章体系 | #龍芯⚡️2026-06-26-OTHER-BADGE-v1.0 |
-| 终端功能整理脚本 | #龍芯⚡️2026-06-26-DOC-TERMINAL-v1.0 |
-| 知识产权资产矩阵 | #龍芯⚡️2026-06-26-OTHER-IPMATRIX-v1.0 |
-| Notion外显技术文档 | #龍芯⚡️2026-06-26-DOC-NOTIONEXT-v1.0 |
-| 技术架构设计论文 | #龍芯⚡️2026-06-26-PAPER-ARCH-v1.0 |
-| 记忆归集引擎 | #龍芯⚡️2026-06-26-DOC-MEMENGINE-v1.0 |
-| AutoResearch对接矩阵 | #龍芯⚡️2026-06-26-PAPER-AUTORES-v1.0 |
-| 重构与商业化路径 | #龍芯⚡️2026-06-26-OTHER-REFACTOR-v1.0 |
-| 白皮书文件包 | #龍芯⚡️2026-06-26-PAPER-WHITEPAPER-v1.0 |
-| 聊天启动器 | #龍芯⚡️2026-06-26-DOC-CHATBOOT-v1.0 |
-| API文档中心 | #龍芯⚡️2026-06-26-DOC-APICENTER-v1.0 |
-| 计算机科学知识库 | #龍芯⚡️2026-06-26-CS-KB-v1.5 |
-| 中国科技创新专栏 | #龍芯⚡️2026-06-26-CN-INNO-KB-v1.0 |
+| DNA登记规范 | #龍芯⚡️丙午·丙申·庚申·亥时-DNA-SPEC-v1.0 |
+| 数字根算法 | #龍芯⚡️丙午·丙申·庚申·亥时-DR-ALGO-v1.0 |
+| 三才统一检查 | #龍芯⚡️丙午·丙申·庚申·亥时-SANCAI-CHECK-v1.0 |
+| 太极易经·七维推演引擎 | #龍芯⚡️丙午·丙申·庚申·亥时-ALGO-TAIJI-v2.0 |
+| 洛书算法 | #龍芯⚡️丙午·丙申·庚申·亥时-LUOSHU-v2.0 |
+| 不动点网络 | #龍芯⚡️丙午·丙申·庚申·亥时-FPN-v1.0 |
+| 五行计算器 | #龍芯⚡️丙午·丙申·庚申·亥时-TOOL-WUXING-v1.0 |
+| 龍芯全模块对照表 | #龍芯⚡️丙午·丙申·庚申·亥时-TOOL-MODMAP-v2.3 |
+| CNSH语义接入规范 | #龍芯⚡️丙午·丙申·庚申·亥时-LAW-CNSHSEM-v2.0 |
+| AI回复前P0引擎 | #龍芯⚡️丙午·丙申·庚申·亥时-LAW-P0ENGINE-v1.0 |
+| DNA库管理系统 | #龍芯⚡️丙午·丙申·庚申·亥时-TOOL-DNADB-v1.0 |
+| 双向流水线 | #龍芯⚡️丙午·丙申·庚申·亥时-TOOL-PIPELINE-v1.0 |
+| 哈希认证系统 | #龍芯⚡️丙午·丙申·庚申·亥时-TOOL-HASH-v1.0 |
+| CodeBuddy协作规则 | #龍芯⚡️丙午·丙申·庚申·亥时-LAW-CODEBUDDY-v1.0 |
+| 智能数据库管理中心 | #龍芯⚡️丙午·丙申·庚申·亥时-TOOL-DBMGMT-v1.0 |
+| CNSH全球法律知识库 | #龍芯⚡️丙午·丙申·庚申·亥时-LAW-CNSHGLOBAL-v1.0 |
+| Ollama本地指令管家 | #龍芯⚡️丙午·丙申·庚申·亥时-TOOL-OLLAMA-v1.0 |
+| 勋章体系 | #龍芯⚡️丙午·丙申·庚申·亥时-OTHER-BADGE-v1.0 |
+| 终端功能整理脚本 | #龍芯⚡️丙午·丙申·庚申·亥时-DOC-TERMINAL-v1.0 |
+| 知识产权资产矩阵 | #龍芯⚡️丙午·丙申·庚申·亥时-OTHER-IPMATRIX-v1.0 |
+| Notion外显技术文档 | #龍芯⚡️丙午·丙申·庚申·亥时-DOC-NOTIONEXT-v1.0 |
+| 技术架构设计论文 | #龍芯⚡️丙午·丙申·庚申·亥时-PAPER-ARCH-v1.0 |
+| 记忆归集引擎 | #龍芯⚡️丙午·丙申·庚申·亥时-DOC-MEMENGINE-v1.0 |
+| AutoResearch对接矩阵 | #龍芯⚡️丙午·丙申·庚申·亥时-PAPER-AUTORES-v1.0 |
+| 重构与商业化路径 | #龍芯⚡️丙午·丙申·庚申·亥时-OTHER-REFACTOR-v1.0 |
+| 白皮书文件包 | #龍芯⚡️丙午·丙申·庚申·亥时-PAPER-WHITEPAPER-v1.0 |
+| 聊天启动器 | #龍芯⚡️丙午·丙申·庚申·亥时-DOC-CHATBOOT-v1.0 |
+| API文档中心 | #龍芯⚡️丙午·丙申·庚申·亥时-DOC-APICENTER-v1.0 |
+| 计算机科学知识库 | #龍芯⚡️丙午·丙申·庚申·亥时-CS-KB-v1.5 |
+| 中国科技创新专栏 | #龍芯⚡️丙午·丙申·庚申·亥时-CN-INNO-KB-v1.0 |
 
 ## 八、统一确认码
 
@@ -298,8 +298,8 @@ ROOT_CARD:
   系统: UID9622 龍魂系统
   模块: UID9622 (龍芯北辰) Notion 工作区资产扫描报告
   版本: v2.0
-  DNA: "#龍芯⚡️2026-07-04-IP-ASSETS-IMPORT-09-v2.0"
-  ParentDNA: "#龍芯⚡️2026-07-03-IP-ASSET-MATRIX-v2.0"
+  DNA: "#龍芯⚡️丙午·丙申·庚申·亥时-IP-ASSETS-IMPORT-09-v2.0"
+  ParentDNA: "#龍芯⚡️丙午·丙申·庚申·亥时-IP-ASSET-MATRIX-v2.0"
   CONFIRM: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
   SEAL: "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
   GPG: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
@@ -333,7 +333,7 @@ ROOT_CARD:
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -356,6 +356,6 @@ ROOT_CARD:
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-07-04-AUTO-IP-INTEGRATION-7F3A9B12
+#龍芯⚡️丙午·丙申·庚申·亥时-AUTO-IP-INTEGRATION-7F3A9B12
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

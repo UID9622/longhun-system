@@ -1,6 +1,6 @@
 #!/bin/bash
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# 🐲 龙魂记忆编辑器 · 一键安装脚本 v3.1
+# 🐲 龍魂记忆编辑器 · 一键安装脚本 v3.1
 # DNA: #龍芯⚡️2026-08-05-INSTALL-UID9622
 # 创建者: 诸葛鑫（UID9622）
 # 协议: MulanPSL v2
@@ -13,7 +13,7 @@ TOOLS_DIR="$TARGET_DIR/tools"
 BACKUP_DIR="$TARGET_DIR/备份"
 HTML_TARGET="$HOME/Desktop/龍魂记忆编辑器_完整集成版.html"
 
-echo "🐲 龙魂记忆编辑器 v3.1 · 天干地支版 · 安装部署"
+echo "🐲 龍魂记忆编辑器 v3.1 · 天干地支版 · 安装部署"
 echo "================================================"
 
 # 检查 Python
@@ -49,7 +49,7 @@ echo "✅ Python 工具已安装: $TOOLS_DIR"
 # 创建快速命令（避免重复添加）
 BASHRC="$HOME/.bashrc"
 ZSHRC="$HOME/.zshrc"
-MARKER="# 龙魂记忆快捷命令 v3.1"
+MARKER="# 龍魂记忆快捷命令 v3.1"
 
 add_aliases() {
     local rcfile="$1"

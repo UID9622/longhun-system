@@ -8,7 +8,7 @@ license: CC BY-NC-SA 4.0
 metadata:
   author: UID9622 · 龍芯北辰
   version: "v1.0"
-  dna: "#龍芯⚡️2026-07-03-LONGHUN-PERSONA-ROUTER-v1.0"
+  dna: "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PERSONA-ROUTER-v1.0"
   confirm_code: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
   gpg_fingerprint: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
   updated: "2026-07-03"
@@ -31,7 +31,7 @@ metadata:
     - "五大人格实体"
     - "tech dragon"
     - "edu translator"
-    - "military dragon soul"
+    - "military LongHun"
     - "phi gentleman"
     - "law auditor"
   id: longhun-persona-router
@@ -48,7 +48,7 @@ metadata:
       - "五大人格实体"
       - "tech dragon"
       - "edu translator"
-      - "military dragon soul"
+      - "military LongHun"
       - "phi gentleman"
       - "law auditor"
     context: 五大人格实体路由、人格配置、鲲鹏人格路由
@@ -56,7 +56,7 @@ metadata:
 
 <!-- ============================================================
      龍魂·人格路由系統 · longhun-persona-router
-     DNA: #龍芯⚡️2026-07-03-LONGHUN-PERSONA-ROUTER-v1.0
+     DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PERSONA-ROUTER-v1.0
      确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
      签名: UID9622 · 龍芯北辰
      硬件靶标: 華為TaiShan 200 2280 | 鯤鵬920 ARM64 | SN: 2102314UJFN0S3102797
@@ -78,7 +78,7 @@ metadata:
 | **定位** | 五大人格实体的加权关键词路由与熔断配置中心 |
 | **一句话** | 识别请求气质 → 匹配最合适人格 → 按规则熔断或放行 |
 | **核心能力** | 加权关键词匹配 · 语义相似度 · 历史偏好 · 三层监督器 · 五行平衡检查 · 三才验证 |
-| **DNA签名** | `#龍芯⚡️2026-07-03-LONGHUN-PERSONA-ROUTER-v1.0` |
+| **DNA签名** | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PERSONA-ROUTER-v1.0` |
 | **确认码** | `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` |
 | **硬件靶标** | 華為 TaiShan 200 2280 / 鯤鵬920 ARM64 / SN: 2102314UJFN0S3102797 |
 
@@ -168,7 +168,7 @@ longhun-persona-router/
 │   ├── 人格路由演示.py               # 加载配置并演示路由
 │   └── 路由检查器.py                 # 验证配置完整性与 DNA 签名
 └── docs/
-    └── 龙魂人格路由架构_鲲鹏版.md     # 架构设计原文
+    └── 龍魂人格路由架构_鲲鹏版.md     # 架构设计原文
 ```
 
 ---
@@ -208,7 +208,7 @@ for pid, persona in config["personas"].items():
 
 ```
 #龍芯⚡️{YYYY-MM-DD}-{项目}-{模块}-{版本}`
-例: #龍芯⚡️2026-07-03-LONGHUN-PERSONA-ROUTER-v1.0
+例: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PERSONA-ROUTER-v1.0
 ```
 
 人格内部 DNA：
@@ -226,7 +226,7 @@ for pid, persona in config["personas"].items():
 
 > 签署：UID9622 · 龍芯北辰
 
-<!-- DNA: #龍芯⚡️2026-07-03-LONGHUN-PERSONA-ROUTER-v1.0 -->
+<!-- DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PERSONA-ROUTER-v1.0 -->
 <!-- AUTHOR: UID9622 · 龍芯北辰 -->
 
 
@@ -234,10 +234,10 @@ for pid, persona in config["personas"].items():
 
 ## 附录：龍魂协议与路由来源
 
-本技能收录了来自 `/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龙魂协议与路由` 的素材：
+本技能收录了来自 `/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂协议与路由` 的素材：
 
 - **内容**：`persona_router_config.json`、`龍魂人格路由架構_鯤鵬版.md`
-- **中央整合 DNA**：`#龍芯⚡️2026-07-03-LONGHUN-PROTOCOL-ROUTE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PROTOCOL-ROUTE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 `references/龍魂协议与路由/`，嵌入 DNA 追溯链，与 `longhun-persona-router` 人格路由能力联动。
 
 ---
@@ -247,5 +247,5 @@ for pid, persona in config["personas"].items():
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：05-AI人格-Agent（宝宝人格配置、AI 术语对照、智能中枢）
-- **中央整合 DNA**：`#龍芯⚡️2026-07-03-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

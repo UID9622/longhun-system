@@ -10,7 +10,7 @@
 龍魂·适配器工厂 · 自动选择最佳芯片适配器
 
 按优先级尝试:
-  Apple Silicon → 鲲鹏 → 昇腾 → 飞腾 → 龙芯 → 申威 → 通用降级
+  Apple Silicon → 鲲鹏 → 昇腾 → 飞腾 → 龍芯 → 申威 → 通用降级
 """
 from typing import Union
 
@@ -49,7 +49,7 @@ def get_best_adapter() -> AdapterType:
     chip = detect_chip()
     vendor = chip.vendor
     
-    # 优先级: Apple > 华为(鲲鹏+昇腾) > 飞腾 > 龙芯 > 申威 > 通用
+    # 优先级: Apple > 华为(鲲鹏+昇腾) > 飞腾 > 龍芯 > 申威 > 通用
     if vendor == ChipVendor.APPLE:
         adapter = AppleSiliconAdapter()
         if adapter.is_supported():

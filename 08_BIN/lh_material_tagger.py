@@ -185,7 +185,7 @@ def heuristic_tag(row: dict) -> dict:
         'code': ['代码', 'code', '编程', 'github'],
         'architecture': ['架构', 'arch', '系统', '拓扑', 'flow', '流程'],
         'security': ['安全', 'security', '加密', '密钥', '漏洞', 'audit'],
-        'culture': ['文化', '易经', '道德经', '哲学', '传统', '龙'],
+        'culture': ['文化', '易经', '道德经', '哲学', '传统', '龍'],
         'deploy': ['部署', 'deploy', '鲲鹏', 'docker', 'k8s', '服务器'],
         'ai': ['AI', '模型', 'model', '智能', 'agent', '网络', 'neural'],
         'video': ['视频', 'video', '帧', '画面', '场景', 'scene'],

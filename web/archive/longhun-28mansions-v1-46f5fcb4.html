@@ -181,7 +181,7 @@ canvas { display:block; position:fixed; top:0; left:0; }
 <!-- Moon Tracker -->
 <div id="moon-tracker">
   <div class="mt-main">月在 <span id="mt-name" style="color:#ffd700">角宿</span> · 第 <span id="mt-day">1</span> 天</div>
-  <div class="mt-sub">当值星宿 · <span id="mt-xiang">东方青龙</span></div>
+  <div class="mt-sub">当值星宿 · <span id="mt-xiang">东方青龍</span></div>
 </div>
 
 <!-- Info Panel -->
@@ -189,8 +189,8 @@ canvas { display:block; position:fixed; top:0; left:0; }
   <button id="ip-close">✕</button>
   <div id="ip-char" style="color:#00ff88">角</div>
   <div id="ip-meaning">Jiǎo · Horn · 东方第一宿</div>
-  <div class="ip-badge" id="ip-badge" style="background:rgba(0,255,136,0.15);color:#00ff88;border:1px solid rgba(0,255,136,0.4)">东方青龙</div>
-  <div id="ip-desc">东方青龙首宿，主木，春生之气。</div>
+  <div class="ip-badge" id="ip-badge" style="background:rgba(0,255,136,0.15);color:#00ff88;border:1px solid rgba(0,255,136,0.4)">东方青龍</div>
+  <div id="ip-desc">东方青龍首宿，主木，春生之气。</div>
   <div id="ip-star">α Vir (Spica)</div>
   <div id="ip-formula">
     <div class="ip-formula-label">// 龍魂·洛书映射</div>
@@ -203,7 +203,7 @@ canvas { display:block; position:fixed; top:0; left:0; }
 <div id="xiang-legend">
   <div class="xl-item">
     <div class="xl-dot" style="background:#00ff88;color:#00ff88"></div>
-    <span class="xl-text" style="color:#00cc66">🐉 东方青龙 · 角亢氐房心尾箕</span>
+    <span class="xl-text" style="color:#00cc66">🐉 东方青龍 · 角亢氐房心尾箕</span>
   </div>
   <div class="xl-item">
     <div class="xl-dot" style="background:#4488ff;color:#4488ff"></div>
@@ -242,20 +242,20 @@ const T0_SCALE = 18;        // center core radius
 
 // Four Divine Beasts colors (hex)
 const XIANG_HEX   = [0x00ff88, 0x4488ff, 0xddeeff, 0xff4422];
-const XIANG_NAMES = ['东方青龙','北方玄武','西方白虎','南方朱雀'];
+const XIANG_NAMES = ['东方青龍','北方玄武','西方白虎','南方朱雀'];
 const XIANG_CSS   = ['#00ff88','#4477ee','#ccddff','#ff5533'];
 const XIANG_BADGE_BG = ['rgba(0,255,136,0.12)','rgba(68,136,255,0.12)','rgba(200,220,255,0.1)','rgba(255,68,34,0.12)'];
 const XIANG_BADGE_BORDER = ['rgba(0,255,136,0.4)','rgba(68,136,255,0.4)','rgba(200,220,255,0.3)','rgba(255,68,34,0.4)'];
 
 // ── 28 LUNAR MANSIONS DATA ─────────────────────────────────────────
 const MANSIONS = [
-  // 0-6 东方青龙 East Azure Dragon
-  {id:0, name:'角', py:'Jiǎo · Horn',       xiang:0, star:'α Vir (Spica)',     size:14, desc:'东方青龙首宿，主木，春生之气。角为天门，日月出入之道。两星如牛角，主东方正气初升。'},
-  {id:1, name:'亢', py:'Kàng · Neck',       xiang:0, star:'κ Vir',             size:10, desc:'主疾疫，主朝廷。亢宿为青龙之颈，太过则刚硬，古人以此占疾病流行。'},
-  {id:2, name:'氐', py:'Dī · Root',         xiang:0, star:'α² Lib',            size:11, desc:'主根基，地之底蕴。氐宿主土地房屋，是青龙的胸部，基础稳固之象。'},
+  // 0-6 东方青龍 East Azure Dragon
+  {id:0, name:'角', py:'Jiǎo · Horn',       xiang:0, star:'α Vir (Spica)',     size:14, desc:'东方青龍首宿，主木，春生之气。角为天门，日月出入之道。两星如牛角，主东方正气初升。'},
+  {id:1, name:'亢', py:'Kàng · Neck',       xiang:0, star:'κ Vir',             size:10, desc:'主疾疫，主朝廷。亢宿为青龍之颈，太过则刚硬，古人以此占疾病流行。'},
+  {id:2, name:'氐', py:'Dī · Root',         xiang:0, star:'α² Lib',            size:11, desc:'主根基，地之底蕴。氐宿主土地房屋，是青龍的胸部，基础稳固之象。'},
   {id:3, name:'房', py:'Fáng · Room',       xiang:0, star:'π Sco',             size:12, desc:'主明堂，天子之正位。四辅星如同皇帝宰相，主政令出行与军事。'},
   {id:4, name:'心', py:'Xīn · Heart',       xiang:0, star:'σ Sco · Antares',   size:22, desc:'心宿三星·天蝎座心脏·即大火星（Antares）。诸葛亮借东风时观测此星，判断季风方向。天之大火，帝王之星，主国运兴衰。'},
-  {id:5, name:'尾', py:'Wěi · Tail',        xiang:0, star:'μ¹ Sco',            size:11, desc:'主宫妃，青龙之尾。九星如龙尾摆动，主水患与繁衍，吉凶相间。'},
+  {id:5, name:'尾', py:'Wěi · Tail',        xiang:0, star:'μ¹ Sco',            size:11, desc:'主宫妃，青龍之尾。九星如龍尾摆动，主水患与繁衍，吉凶相间。'},
   {id:6, name:'箕', py:'Jī · Basket',       xiang:0, star:'γ Sgr (Alnasl)',    size:10, desc:'主风，“月离于箕，风扬沙”。古人用此宿预测大风天气，箕星好风。'},
   // 7-13 北方玄武 North Black Tortoise
   {id:7,  name:'斗', py:'Dǒu · Dipper',    xiang:1, star:'φ Sgr',             size:14, desc:'南斗六星，主寿命。“南斗注生，北斗注死”——与北斗共掌命运之书，天道枢纽。'},

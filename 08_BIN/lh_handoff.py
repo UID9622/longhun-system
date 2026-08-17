@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·己未·酉时-HANDOFF-CLI-v2.0-UID9622
+# DNA: #龍芯⚡️丙午·丙申·己未·亥时-HANDOFF-CLI-v2.1-UID9622
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
@@ -10,6 +10,8 @@ lh_handoff — 跨 AI 窗口会话交接引擎（Kimi/CodeBuddy/Claude/任何后
 
 v2.0 新增: save 自动推送鲲鹏共享中枢 · load/list 支持 --remote 跨设备接续
            （任何设备进场都能拿到最新交接包，不再依赖本地）
+v2.1 新增: 路径统一配置源读取（lh_config.load_config · ~/.longhun/lh.env）
+           🔴 修正: 硬编码 KUNPENG_HOST/KEY/REMOTE_HANDOFF_DIR → 配置化
 
 用法:
     python3 08_BIN/lh_handoff.py save --from kimi --summary "..." --next "..."
@@ -18,22 +20,27 @@ v2.0 新增: save 自动推送鲲鹏共享中枢 · load/list 支持 --remote �
     python3 08_BIN/lh_handoff.py list [--remote]
 """
 import argparse
-import shutil
 import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
+
+# ── 统一配置源（v2.1 新增 · lh_config.py 同目录）──
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from lh_config import load_config  # noqa: E402
+
+CONFIG = load_config()
 
 ROOT = Path(__file__).resolve().parent.parent
 HANDOFF_DIR = ROOT / "12_DOCS" / "handoffs"
 GPG_KEY = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
-# ── 鲲鹏共享中枢（唯一真相来源）──
-KUNPENG_HOST = "root@119.13.90.27"
-KUNPENG_PORT = "22"
-KUNPENG_KEY = str(Path.home() / ".ssh" / "longhun_kunpeng_ed25519")
-REMOTE_HANDOFF_DIR = "/opt/longhun/shared/handoffs"
+# ── 鲲鹏共享中枢（唯一真相来源 · v2.1 改读统一配置，含内置默认兜底）──
+KUNPENG_HOST = CONFIG.get("KUNPENG_HOST", "root@119.13.90.27")
+KUNPENG_PORT = CONFIG.get("KUNPENG_PORT", "22")
+KUNPENG_KEY = CONFIG.get("KUNPENG_IDENTITY", str(Path.home() / ".ssh" / "longhun_kunpeng_ed25519"))
+REMOTE_HANDOFF_DIR = CONFIG.get("SHARED_ROOT", "/opt/longhun/shared") + "/handoffs"
 
 
 def _load_rizhu():
@@ -226,7 +233,7 @@ def cmd_list(args) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="龍魂跨AI窗口交接引擎 v2.0 · 协作中枢落地 · 上位协议 LH-AI-HANDOFF-v1.0",
+        description="龍魂跨AI窗口交接引擎 v2.1 · 统一配置源 · 上位协议 LH-AI-HANDOFF-v1.0",
         add_help=False, allow_abbrev=False)
     sub = parser.add_subparsers(dest="cmd")
 

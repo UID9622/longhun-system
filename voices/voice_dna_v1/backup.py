@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂声纹备份与导出模块
-Dragon Soul Voice Backup & Export
+LongHun Voice Backup & Export
 
 功能（321 原则）：
   - 本地备份：每天自动备份 manifest.json 到 ~/.龍魂/voice_anchors/backup/

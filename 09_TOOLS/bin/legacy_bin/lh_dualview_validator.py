@@ -220,7 +220,7 @@ def CNSH_双版同步(中文版本: str, 镜像版本: str, 中文段数: int, �
 def CNSH_三锚准入(dna: Optional[str], confirm: Optional[str], seal: Optional[str]) -> dict[str, Any]:
     """
     三锚与门判定，fail-closed：缺一即拒。
-    DNA必须用繁体「龍」，简体「龙芯」非法。
+    DNA必须用繁体「龍」，简体「龍芯」非法。
     """
     缺 = []
     if not (dna and DNA_RE.match(dna)):
@@ -229,9 +229,9 @@ def CNSH_三锚准入(dna: Optional[str], confirm: Optional[str], seal: Optional
         缺.append("CONFIRM")
     if not (seal and seal.startswith(SEAL前缀)):
         缺.append("SEAL")
-    # 简体龙芯检测
-    if "龙芯" in (dna or ""):
-        return {"准入": False, "缺": ["DNA(简体非法)"], "状态": "🔴 DNA简体龙芯，格式非法"}
+    # 简体龍芯检测
+    if "龍芯" in (dna or ""):
+        return {"准入": False, "缺": ["DNA(简体非法)"], "状态": "🔴 DNA简体龍芯，格式非法"}
     if 缺:
         return {"准入": False, "缺": 缺, "状态": "🔴 三锚缺一即拒"}
     return {"准入": True, "状态": "🟢 三锚齐全"}
@@ -297,7 +297,7 @@ def CNSH_双段封装(m段: Optional[str], c段: Optional[str]) -> dict[str, Any
     "01_技能庫", "01_protocols", "02_執行記錄", "02_rules",
     "03_后土OS", "03_知識圖譜", "03_compiler", "04_決策日誌",
     "05_系統報告", "06_技術文檔",
-    "法律引擎", "龙魂日记本-iOS", "人民维权助手",
+    "法律引擎", "龍魂日记本-iOS", "人民维权助手",
     "字体", "引擎", "日志",
     "agents", "bin", "capabilities",
 }
@@ -410,10 +410,10 @@ def 跑测试向量() -> dict[str, Any]:
     通过_t09 = not r["准入"] and "SEAL" in str(r.get("缺", []))
     结果.append({"id": "T09", "场景": "缺SEAL", "期望": "🔴拒绝", "实际": r["状态"], "通过": 通过_t09})
 
-    # T10: DNA简体龙芯非法
-    r = CNSH_三锚准入("#龙芯⚡️2026-07-21-TEST-v1.0", CONFIRM锚, SEAL前缀 + "TEST")
+    # T10: DNA简体龍芯非法
+    r = CNSH_三锚准入("#龍芯⚡️2026-07-21-TEST-v1.0", CONFIRM锚, SEAL前缀 + "TEST")
     通过_t10 = not r["准入"] and "简体" in r["状态"]
-    结果.append({"id": "T10", "场景": "DNA简体龙芯", "期望": "🔴非法", "实际": r["状态"], "通过": 通过_t10})
+    结果.append({"id": "T10", "场景": "DNA简体龍芯", "期望": "🔴非法", "实际": r["状态"], "通过": 通过_t10})
 
     # T11: 迁移模拟（用V2_V3对照表自测）
     all_found = all(v3 in V2_V3.values() for v3 in V2_V3.values())

@@ -3,7 +3,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
-龙魂蚁群守护进程 v2.0 · Ant Colony Daemon
+龍魂蚁群守护进程 v2.0 · Ant Colony Daemon
 一键启动/管理蚁群引擎后台服务。
 
 DNA: #龍芯⚡️丙午·辛未·ANT-COLONY-DAEMON-v2.0
@@ -75,7 +75,7 @@ def cmd_start(args):
 
     print(f"""
 ╔══════════════════════════════════════════════════════════╗
-║     🐜 龙魂蚁群守护进程 v2.0 · 已启动                  ║
+║     🐜 龍魂蚁群守护进程 v2.0 · 已启动                  ║
 ╠══════════════════════════════════════════════════════════╣
 ║     PID: {os.getpid():<6}    Tick: {runtime.TICK_INTERVAL}s                    ║
 ║     {DNA}
@@ -155,7 +155,7 @@ def cmd_dashboard(args):
 
     print(f"""
 ╔{'═'*w}╗
-║{'🐜 龙魂蚁群仪表盘 v2.0':^{w}}║
+║{'🐜 龍魂蚁群仪表盘 v2.0':^{w}}║
 ╠{'═'*w}╣
 ║  Tick: {state.tick_count:<6}  {'运行中 🟢' if is_running() else '已停止 🔴':>{w-24}}║
 ║  涌现质量: E={state.emergence_E:.4f} ({state.emergence_grade}){'':>{w-29-len(state.emergence_grade)}}║
@@ -304,7 +304,7 @@ def cmd_serve(args):
     mode_str = '安静' if quiet else '调试（console 有输出）'
     print(f"""
 ╔══════════════════════════════════════════════════════════╗
-║     🐜 龙魂蚁群 HTTP 调试控制台 v2.1                   ║
+║     🐜 龍魂蚁群 HTTP 调试控制台 v2.1                   ║
 ╠══════════════════════════════════════════════════════════╣
 ║     {url:<52} ║
 ╠══════════════════════════════════════════════════════════╣
@@ -378,7 +378,7 @@ def _dashboard_html(state, config) -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🐜 龙魂蚁群调试控制台</title>
+<title>🐜 龍魂蚁群调试控制台</title>
 <style>
 *{{margin:0;padding:0;box-sizing:border-box}}
 body{{background:#0a0a1a;color:#e0e0e0;font-family:-apple-system,system-ui,sans-serif;padding:20px;min-height:100vh}}
@@ -410,7 +410,7 @@ textarea{{background:#0a0a1a;border:1px solid #333;color:#e0e0e0;padding:8px;bor
 </style>
 </head>
 <body>
-<h1>🐜 龙魂蚁群调试控制台 v2.1</h1>
+<h1>🐜 龍魂蚁群调试控制台 v2.1</h1>
 <div class="sub">Tick #{state.tick_count} · E={state.emergence_E:.4f} ({state.emergence_grade}) · 模块 {state.active_modules} · <span class="live">● LIVE</span></div>
 
 <div class="row">
@@ -528,7 +528,7 @@ setTimeout(()=>location.reload(), 8000);
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🐜 龙魂蚁群守护进程 v2.0",
+        description="🐜 龍魂蚁群守护进程 v2.0",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:

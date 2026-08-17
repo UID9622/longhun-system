@@ -316,6 +316,10 @@ body {
     <button class="btn btn-primary" onclick="doTranslate()" id="btnTranslate">🔮 翻译·注入DNA</button>
     <button class="btn btn-secondary" onclick="pasteContent()">📋 重新贴入</button>
   </div>
+  <div class="btn-row">
+    <button class="btn btn-outline" onclick="saveToVault()">📦 保存到龍魂容器</button>
+    <button class="btn btn-outline" onclick="window.open(`${VAULT_API_BASE}/static/clipboard_vault.html`, '_blank')">🗂️ 打开容器浏览器</button>
+  </div>
 
   <!-- 结果 -->
   <div id="resultArea"></div>
@@ -333,6 +337,8 @@ body {
 const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? 'http://127.0.0.1:9622'
   : `http://${window.location.hostname}:8777`;
+
+const VAULT_API_BASE = 'http://127.0.0.1:8444';
 
 let currentText = '';
 let currentResult = null;
@@ -710,6 +716,26 @@ function copyFull() {
   navigator.clipboard.writeText(json).then(() => {
     showToast('✅ JSON包已复制', 'success');
   }).catch(() => showToast('❌ 复制失败', 'error'));
+}
+
+// ── 保存到龍魂剪贴板容器 ──
+async function saveToVault() {
+  if (!currentText) {
+    showToast('⚠️ 请先贴入内容', 'error');
+    return;
+  }
+  try {
+    const resp = await fetch(`${VAULT_API_BASE}/api/clipboard-vault/save`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({content: currentText, source: 'clipboard-pwa'})
+    });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+    showToast(`✅ 已入容器: ${data.result.topic}`, 'success');
+  } catch(e) {
+    showToast(`❌ 容器保存失败: ${e.message}`, 'error');
+  }
 }
 
 function showToast(msg, type) {

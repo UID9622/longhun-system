@@ -698,7 +698,7 @@ DELEGATION(委派)·FUSION(融合)·WATCHDOG(監察)
 
 | 公式 | 表達式 |
 |------|------|
-| 龍魂J-lens | `J_w^(l)[Longhun] = ∂logit_w/∂h^(l) · φ_sovereignty(h^(l)) · ψ_persona(w)` |
+| 龍魂J-lens | `J_w^(l)[LongHun] = ∂logit_w/∂h^(l) · φ_sovereignty(h^(l)) · ψ_persona(w)` |
 | 三才意識指數 | `τ(c) = ³√(天(c) · 地(c) · 人(c))` |
 | 人格權重坍縮 | `top-3 concentration = Σ softmax(⟨W_i,c⟩/T)_i ≥ 0.7` |
 | 不動點方程 | `f(UID9622) = UID9622` |

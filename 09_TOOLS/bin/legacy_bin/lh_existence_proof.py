@@ -147,7 +147,7 @@ def record_existence(
     content: str,
     title: str = "",
     content_type: str = "text",
-    source: str = "龙魂·数字存在证明",
+    source: str = "龍魂·数字存在证明",
     uid: str = "UID9622",
     recorded_at: str = None,  # ISO格式·事件发生时间
     location: str = None,     # 可选位置描述

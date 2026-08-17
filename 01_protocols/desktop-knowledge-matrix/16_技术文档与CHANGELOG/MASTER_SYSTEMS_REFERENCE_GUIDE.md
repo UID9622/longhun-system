@@ -1,5 +1,5 @@
 # 龍魂系統·主控參考指南
-**DNA**:#龍芯⚡️2026-06-09-MASTER-SYSTEMS-REFERENCE-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-MASTER-SYSTEMS-REFERENCE-v1.0
 **版本**: 2.0 · 生產級
 **最後更新**: 2026-06-09
 **理論指導**: 曾仕強老師（永恆顯示）
@@ -328,7 +328,7 @@ with log_operation("任務", "tool", persona="P01"):
 | 服務 | 端口 | 狀態 | 功能 |
 |------|------|------|------|
 | **Persona API** | 9001 | ✅ | 15 人格·3 端點 |
-| **Longhun API** | 8000 | ⚠️ | Skills 框架 |
+| **LongHun API** | 8000 | ⚠️ | Skills 框架 |
 | **OpenHub REST** | 10088 | ✅ | AI Claw API |
 | **OpenHub WS** | 10087 | ✅ | WebSocket |
 
@@ -500,7 +500,7 @@ crontab -e
   "persona": "P03雯雯",
   "duration": 2.1,
   "result": "執行結果",
-  "dna": "#龍芯⚡️2026-06-09-ACTION"
+  "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-ACTION"
 }
 ```
 
@@ -948,7 +948,7 @@ python3 ~/longhun-system/daily_review_enhanced.py --help
 ## 🔏 DNA 簽署
 
 ```
-DNA:#龍芯⚡️2026-06-09-MASTER-SYSTEMS-REFERENCE-v1.0
+DNA:#龍芯⚡️丙午·丙申·庚申·亥时-MASTER-SYSTEMS-REFERENCE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 SEAL: #ZHUGEXIN⚡️2026-06-09-MASTER-REFERENCE-COMPLETE
 

@@ -347,11 +347,11 @@
         "全栈开发"
       ]
     },
-    "L6_集成层/龙魂系统_API接口完整实现_v1.0.py": {
+    "L6_集成层/龍魂系统_API接口完整实现_v1.0.py": {
       "ipa_route": "IPA-L6-001",
       "module_class": "L6::Integration",
       "produced_by": [
-        "L6_集成层/龙魂系统_API接口完整实现_v1.0.py"
+        "L6_集成层/龍魂系统_API接口完整实现_v1.0.py"
       ],
       "consumed_by": [
         {
@@ -893,7 +893,7 @@
     },
     {
       "node_id": "IPA-L6-001",
-      "local_path": "L6_集成层/龙魂系统_API接口完整实现_v1.0.py",
+      "local_path": "L6_集成层/龍魂系统_API接口完整实现_v1.0.py",
       "layer": "L6",
       "status": "active",
       "module_class": "L6::Integration"

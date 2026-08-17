@@ -200,6 +200,16 @@ def generate_dna(module: str = "CORE", action: str = "AUTO", extra: str = "") ->
     return _get_engine().stamp(module=module, action=action, extra=extra)["dna"]
 
 
+def 生成DNA(模块: str = "CORE", 动作: str = "AUTO", 备注: str = "") -> str:
+    """中文别名：兼容Kimi/外部引擎调用习惯（等价 generate_dna）"""
+    return generate_dna(module=模块, action=动作, extra=备注)
+
+
+def 短身份码(文本: str) -> str:
+    """中文别名：8位大写哈希短码"""
+    return hashlib.sha256(str(文本).encode("utf-8")).hexdigest()[:8].upper()
+
+
 def parse_dna(dna: str) -> Optional[Dict]:
     """解析 DNA 字符串"""
     return _get_engine().verify(dna)

@@ -30,7 +30,7 @@ DNA: #龍芯⚡️2026-07-21-RIEMANN-ZETA-ENGINE-v1.0
 import sys, math, cmath, os
 from pathlib import Path
 
-# 确保能导入龙魂引擎
+# 确保能导入龍魂引擎
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 DNA = "#龍芯⚡️2026-07-21-RIEMANN-ZETA-ENGINE-v1.0"

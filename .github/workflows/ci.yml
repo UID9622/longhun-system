@@ -10,7 +10,7 @@
 # 链路: Python检查→Rust检查→交叉编译→三色审计→GPG签名→Release→通知
 # v3.1 修复: PYTHONPATH/ruff exit-zero/x86_64交叉编译/审计条件判断
 
-name: 🐉 龙魂 CI/CD · 七阶段审计流水线
+name: 🐉 龍魂 CI/CD · 七阶段审计流水线
 
 on:
   push:

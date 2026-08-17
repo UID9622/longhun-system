@@ -155,7 +155,7 @@ def audit(task: str,
     # 4. 龍 不可写为 龍 (简体)
     if "龍" in str(task):
         veto = "DRAGON_SIMPLIFIED_VETO"
-        issues.append("检测到简体'龙'字，必须使用繁体'龍'")
+        issues.append("检测到简体'龍'字，必须使用繁体'龍'")
 
     # 5. 不上传 / 不开后门 / 不接受躲着的对抗者
     forbidden = ["上传", "后门", "backdoor", "upload", "躲着", "hidden adversary"]

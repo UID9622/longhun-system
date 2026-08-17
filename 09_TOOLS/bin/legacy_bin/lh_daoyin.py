@@ -847,7 +847,7 @@ def hunt_github(query: str, max_results: int = 10, auto_absorb: bool = False) ->
     # 使用 GitHub 搜索 API（无需认证即可搜索仓库）
     search_url = f"https://api.github.com/search/repositories?q={urllib.request.quote(query)}&sort=stars&order=desc&per_page={max_results}"
     
-    req = urllib.request.Request(search_url, headers={"Accept": "application/vnd.github.v3+json", "User-Agent": "Longhun-Daoyin/2.0"})
+    req = urllib.request.Request(search_url, headers={"Accept": "application/vnd.github.v3+json", "User-Agent": "LongHun-Daoyin/2.0"})
     
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:

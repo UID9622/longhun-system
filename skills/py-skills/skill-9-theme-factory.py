@@ -6,7 +6,7 @@
 
 """
 龍魂主题工厂 v1.0
-Longhun Theme Factory
+LongHun Theme Factory
 
 DNA:#龍芯⚡️2026-06-07-THEME-FACTORY-FILE2-v1.0
 """

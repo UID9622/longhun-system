@@ -55,7 +55,7 @@ metadata:
 |------|------|
 | **技能名称** | longhun-cross-platform（龍魂跨平台互通） |
 | **版本** | v5.4 |
-| **所属体系** | 龍魂体系（Longhun System） |
+| **所属体系** | 龍魂体系（LongHun System） |
 | **DNA** | `#龍芯⚡️2026-06-29-LONGHUN-CROSS-PLATFORM-v5.4` |
 | **致敬** | `#致敬⚡️SteveJobs+Concept·跨平台互通` |
 | **目标平台** | iOS + 华为鸿蒙（HarmonyOS）+ macOS + Linux |
@@ -555,7 +555,7 @@ longhun-cross-platform/
 
 ```
 ================================================================================
-龍魂跨平台互通 · 君子协议 (Longhun Cross-Platform Gentleman's Agreement)
+龍魂跨平台互通 · 君子协议 (LongHun Cross-Platform Gentleman's Agreement)
 ================================================================================
 
 第一条 主权归属

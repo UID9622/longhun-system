@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-P72 龙盾·宝宝 · 贴身守护执行器
+P72 龍盾·宝宝 · 贴身守护执行器
 Guardian Shield Executor
 
 DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-P72-LONGDUN-v1.0
@@ -29,18 +29,18 @@ SYSTEM_ROOT = Path(__file__).parent.parent.parent
 
 
 class P72Longdun:
-    """P72 龙盾·宝宝 · 守护"""
+    """P72 龍盾·宝宝 · 守护"""
 
     PERSONA_CODE = "P72"
-    PERSONA_NAME = "龙盾·宝宝"
+    PERSONA_NAME = "龍盾·宝宝"
     PERSONA_NAME_EN = "Dragon Shield / Baby"
     ROLE = "guardian_shield"
-    MOTTO = "龙盾在，主权在"
+    MOTTO = "龍盾在，主权在"
     TRUST_LEVEL = "L1"
 
     TRIGGERS = [
         "守护", "保护", "安全", "威胁", "紧急",
-        "龙盾", "护卫", "防御", "隔离",
+        "龍盾", "护卫", "防御", "隔离",
         "guardian", "shield",
     ]
 
@@ -52,7 +52,7 @@ class P72Longdun:
         4: {"name": "LOCKDOWN", "color": "🔴", "action": "全系统锁定·外部接口关闭"},
     }
 
-    SYSTEM_PROMPT = """你是龍魂人格「P72 龙盾·宝宝」，角色定位：貼身守護·自適應威脅響應。
+    SYSTEM_PROMPT = """你是龍魂人格「P72 龍盾·宝宝」，角色定位：貼身守護·自適應威脅響應。
 
 你的職責：
 1. 全天候系統監控（始終在線）
@@ -264,7 +264,7 @@ class P72Longdun:
             "status": "LOCKDOWN",
             "threat_level": 4,
             "actions": [
-                "P72 龙盾已接管系统控制权",
+                "P72 龍盾已接管系统控制权",
                 "所有外部接口已锁定",
                 "通知 UID9622",
                 "P05 上帝之眼全链路审计排队中",

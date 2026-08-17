@@ -735,7 +735,7 @@ def serve_api(port: int = 9623, data_dir: str = ""):
             self.send_response(status)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Access-Control-Allow-Origin", "*")
-            self.send_header("X-Longhun-Immutable", "true")
+            self.send_header("X-LongHun-Immutable", "true")
             self.send_header("X-Data-Location", "China-HuaweiCloud")
             self.send_header("Content-Length", str(len(body)))
             self.end_headers()

@@ -32,13 +32,13 @@ TERM_DB = {
     "localhost:8765": {
         "term": "localhost:8765",
         "plain": "本地通讯端口8765",
-        "meaning": "你家书房的电脑地址，用来跑龙魂系统核心服务",
+        "meaning": "你家书房的电脑地址，用来跑龍魂系统核心服务",
         "category": "端口"
     },
     "localhost:9622": {
         "term": "localhost:9622",
         "plain": "本地通讯端口9622",
-        "meaning": "专门留给 lh 命令用的，用来执行龙魂系统里的各种指令",
+        "meaning": "专门留给 lh 命令用的，用来执行龍魂系统里的各种指令",
         "category": "端口"
     },
     "localhost:8501": {
@@ -61,8 +61,8 @@ TERM_DB = {
     },
     "8765": {
         "term": "8765",
-        "plain": "龙魂核心服务端口",
-        "meaning": "龙魂系统的主服务，用来处理各种核心功能",
+        "plain": "龍魂核心服务端口",
+        "meaning": "龍魂系统的主服务，用来处理各种核心功能",
         "category": "端口"
     },
     "9622": {
@@ -74,7 +74,7 @@ TERM_DB = {
     "8501": {
         "term": "8501",
         "plain": "流场可视化端口",
-        "meaning": "显示龙魂系统的流场和粒子动画",
+        "meaning": "显示龍魂系统的流场和粒子动画",
         "category": "端口"
     },
     "11434": {
@@ -88,7 +88,7 @@ TERM_DB = {
     "portal": {
         "term": "portal",
         "plain": "门户目录",
-        "meaning": "存放系统首页和入口页面的地方，相当于龙魂的'大门'",
+        "meaning": "存放系统首页和入口页面的地方，相当于龍魂的'大门'",
         "category": "目录"
     },
     "_work/repos": {
@@ -106,13 +106,13 @@ TERM_DB = {
     "bin": {
         "term": "bin",
         "plain": "可执行命令目录",
-        "meaning": "存放龙魂系统各种命令的地方（比如 lh 命令就在这儿）",
+        "meaning": "存放龍魂系统各种命令的地方（比如 lh 命令就在这儿）",
         "category": "目录"
     },
     "config": {
         "term": "config",
         "plain": "配置文件目录",
-        "meaning": "存放龙魂系统各种设置文件的地方",
+        "meaning": "存放龍魂系统各种设置文件的地方",
         "category": "目录"
     },
     "logs": {
@@ -148,13 +148,13 @@ TERM_DB = {
     "01_protocols": {
         "term": "01_protocols",
         "plain": "协议归档目录",
-        "meaning": "存放龙魂系统所有协议文档的地方，系统规则都在这里",
+        "meaning": "存放龍魂系统所有协议文档的地方，系统规则都在这里",
         "category": "目录"
     },
     "02_SKILLS": {
         "term": "02_SKILLS",
         "plain": "技能库目录",
-        "meaning": "存放龙魂系统所有AI技能的目录，每个技能一个文件夹",
+        "meaning": "存放龍魂系统所有AI技能的目录，每个技能一个文件夹",
         "category": "目录"
     },
 
@@ -200,13 +200,13 @@ TERM_DB = {
     "lh deploy": {
         "term": "lh deploy",
         "plain": "执行部署",
-        "meaning": "把当前龙魂系统的修改推送到鲲鹏服务器上",
+        "meaning": "把当前龍魂系统的修改推送到鲲鹏服务器上",
         "category": "命令"
     },
     "lh status": {
         "term": "lh status",
         "plain": "查看系统状态",
-        "meaning": "看看龙魂系统现在运行得怎么样，有没有出问题",
+        "meaning": "看看龍魂系统现在运行得怎么样，有没有出问题",
         "category": "命令"
     },
     "lh audit": {
@@ -230,7 +230,7 @@ TERM_DB = {
     "lh term": {
         "term": "lh term",
         "plain": "查询术语",
-        "meaning": "查询龙魂系统里某个术语的中文大白话解释",
+        "meaning": "查询龍魂系统里某个术语的中文大白话解释",
         "category": "命令"
     },
     "deploy": {
@@ -262,7 +262,7 @@ TERM_DB = {
     "UID": {
         "term": "UID",
         "plain": "用户唯一标识",
-        "meaning": "Unique ID 的缩写——龙魂系统里每个用户的唯一编号",
+        "meaning": "Unique ID 的缩写——龍魂系统里每个用户的唯一编号",
         "category": "缩写"
     },
     "REST": {
@@ -348,29 +348,29 @@ TERM_DB = {
     "通心译": {
         "term": "通心译",
         "plain": "智能翻译",
-        "meaning": "龙魂系统里把英文术语翻译成中文+大白话的功能",
+        "meaning": "龍魂系统里把英文术语翻译成中文+大白话的功能",
         "category": "组件"
     },
     "鲲鹏": {
         "term": "鲲鹏",
         "plain": "华为云服务器",
-        "meaning": "龙魂系统部署在华为云上的服务器（IP: 119.13.90.27）",
+        "meaning": "龍魂系统部署在华为云上的服务器（IP: 119.13.90.27）",
         "category": "组件"
     },
     "洛书369": {
         "term": "洛书369",
         "plain": "数学不动点",
-        "meaning": "龙魂系统核心算法的数学底座，sn=369，不能变动",
+        "meaning": "龍魂系统核心算法的数学底座，sn=369，不能变动",
         "category": "组件"
     },
     "三才算法": {
         "term": "三才算法",
         "plain": "天地人三层计算",
-        "meaning": "龙魂系统核心算法，天·地·人三个维度的计算引擎",
+        "meaning": "龍魂系统核心算法，天·地·人三个维度的计算引擎",
         "category": "组件"
     },
-    "龙魂守卫": {
-        "term": "龙魂守卫",
+    "龍魂守卫": {
+        "term": "龍魂守卫",
         "plain": "自动化守护流程",
         "meaning": "代码进去→主权注入→安全审查→GPG签名→全绿才报，常驻不歇",
         "category": "组件"
@@ -396,7 +396,7 @@ TERM_DB = {
     "python3": {
         "term": "python3",
         "plain": "Python编程语言",
-        "meaning": "一种容易上手的编程语言，龙魂系统主要用它来写",
+        "meaning": "一种容易上手的编程语言，龍魂系统主要用它来写",
         "category": "缩写"
     },
     "Ollama": {
@@ -543,8 +543,8 @@ TERM_DB = {
         "meaning": "国产CPU，兼容ARM指令",
         "category": "芯片"
     },
-    "龙芯": {
-        "term": "龙芯",
+    "龍芯": {
+        "term": "龍芯",
         "plain": "国产芯片",
         "meaning": "完全自主指令集的国产CPU",
         "category": "芯片"
@@ -608,7 +608,7 @@ def format_output(term: str, data: dict) -> str:
 
 def list_all_terms() -> str:
     """列出所有术语"""
-    lines = ["📋 龙魂系统术语表\n", "=" * 60]
+    lines = ["📋 龍魂系统术语表\n", "=" * 60]
     by_category = {}
     for data in TERM_DB.values():
         cat = data.get("category", "其他")
@@ -628,7 +628,7 @@ def list_all_json() -> str:
 
 
 def scan_file_for_terms(filepath: str) -> list:
-    """扫描文件，找出其中出现的龙魂术语"""
+    """扫描文件，找出其中出现的龍魂术语"""
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             content = f.read()
@@ -775,7 +775,7 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂系统 · 术语大白话查询工具（v1.2·龍魂+鸿蒙共生体）",
+        description="🐉 龍魂系统 · 术语大白话查询工具（v1.2·龍魂+鸿蒙共生体）",
         epilog="示例: lh term localhost:8765  |  lh term --list  |  lh term --scan README.md  |  lh term --enforce src/",
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
@@ -809,7 +809,7 @@ def main():
                     else:
                         print(f"  {t:24s} → {data['plain']}")
         else:
-            print(f"📄 文件 {args.scan} 中未发现龙魂术语")
+            print(f"📄 文件 {args.scan} 中未发现龍魂术语")
         print_time_stamp()
         sys.exit(0)
 

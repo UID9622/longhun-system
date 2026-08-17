@@ -241,7 +241,7 @@ See it clearly. Then spend. No regrets.
 
 > **DNA:** `#龍芯⚡️2026-07-05-CONSUMER-FIRE-FINAL-v1.0-388f4ade`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
-> **Attribution:** Longhun System · UID9622 · Zhuge Xin  
+> **Attribution:** LongHun System · UID9622 · Zhuge Xin  
 > **Status:** 🟢 Public · Shareable · Keep DNA and attribution intact
 
 **Chinese don't cheat Chinese. Chinese don't burn Chinese.**

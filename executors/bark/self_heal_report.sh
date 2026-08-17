@@ -3,7 +3,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # ╔═══════════════════════════════════════════════════════════════╗
-# ║  🐉 龙魂·自愈报告 v1.0 — 自动修复后推送结果                     ║
+# ║  🐉 龍魂·自愈报告 v1.0 — 自动修复后推送结果                     ║
 # ║  Self-Heal Report · 修复了什么 · 修好了没                      ║
 # ╠═══════════════════════════════════════════════════════════════╣
 # ║  DNA: #龍芯⚡️2026-07-12-BARK-SELF-HEAL-REPORT-v1.0           ║
@@ -51,10 +51,10 @@ done
 
 # ── 构造推送 ──
 if [ ${FAILED_COUNT} -eq 0 ]; then
-    TITLE="✅ 龙魂自愈 · 全部正常"
+    TITLE="✅ 龍魂自愈 · 全部正常"
     LEVEL="green"
 else
-    TITLE="⚠️ 龙魂自愈 · ${FAILED_COUNT}个服务异常"
+    TITLE="⚠️ 龍魂自愈 · ${FAILED_COUNT}个服务异常"
     LEVEL="red"
 fi
 
@@ -97,5 +97,5 @@ BODY="${BODY}
 ━━━━━━━━━━━━━━━━━━
 ${TS} · 鲲鹏 · 自愈引擎"
 
-echo "${BODY}" | python3 "${BARK_SENDER}" "${TITLE}" --stdin --group "龙魂自愈" 2>&1
+echo "${BODY}" | python3 "${BARK_SENDER}" "${TITLE}" --stdin --group "龍魂自愈" 2>&1
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] 自愈报告已推送 · 异常 ${FAILED_COUNT}" >> "${LOG_DIR}/self_heal.log"

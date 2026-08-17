@@ -4,7 +4,7 @@
 {
   "schema_version": "v1.0",
   "name": "UID9622 CSDN 外部博客源·统一引用注册",
-  "description": "龙魂系统对外发布的CSDN博客源注册表·系统内组件通过此表引用已发布的外部内容",
+  "description": "龍魂系统对外发布的CSDN博客源注册表·系统内组件通过此表引用已发布的外部内容",
   "dna": "#龍芯⚡️2026-07-12-CSDN-EXTERNAL-SOURCES-v1.0",
 
   "sources": [

@@ -194,7 +194,7 @@ def _module_header_version(content: Dict[str, Any]) -> str:
 
 @register_module("header_data_source")
 def _module_header_data_source(content: Dict[str, Any]) -> str:
-    return f"**数据源:** {content.get('data_source', '龙魂系统')}"
+    return f"**数据源:** {content.get('data_source', '龍魂系统')}"
 
 
 @register_module("header_generated_time")
@@ -240,7 +240,7 @@ def _module_imports(content: Dict[str, Any]) -> str:
         parts.append("\n**第三方库：**")
         parts.extend(f"```python\n{chr(10).join(third)}\n```".splitlines())
     if local:
-        parts.append("\n**龙魂本地库：**")
+        parts.append("\n**龍魂本地库：**")
         parts.extend(f"```python\n{chr(10).join(local)}\n```".splitlines())
     return "\n".join(parts) + "\n"
 
@@ -710,7 +710,7 @@ def generate_skill_landing(content: Dict[str, Any], output_dir: Optional[Path] =
     返回 Markdown 字符串
     """
     dna = generate_dna("SKILL-LANDING")
-    title = content.get("skill_title", content.get("overview", "龙魂技能"))
+    title = content.get("skill_title", content.get("overview", "龍魂技能"))
     command = content.get("quick_start", "python3 main.py")
     install_steps = content.get("install_steps", [])
     verify_steps = content.get("verify_steps", [])

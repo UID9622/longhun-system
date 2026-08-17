@@ -7,7 +7,7 @@
 > 平台：GitHub
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-06-21-PROTOCOL-CNSH-GITHUB-README-v1.0``  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-CNSH-GITHUB-README-v1.0``  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -23,12 +23,12 @@
 > 平台：GitHub
 > 審核狀態：草稿
 
-**DNA**: `#龍芯⚡️2026-06-21-PROTOCOL-CNSH-GITHUB-README-v1.0`  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-CNSH-GITHUB-README-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
-<!--#龍芯⚡️2026-06-21-PROTOCOL-CNSH-GITHUB-README-v1.0 -->
+<!--#龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-CNSH-GITHUB-README-v1.0 -->
 <!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
 
 # 📄 CNSH GitHub README
@@ -200,7 +200,7 @@ CNSH内置三色审计，自动检测代码安全性：
 
 ### 贡献者公约
 
-参与本项目请遵守[龙魂底线协议](docs/code-of-conduct.md)：
+参与本项目请遵守[龍魂底线协议](docs/code-of-conduct.md)：
 
 - ✅ 私域自由 - 本地使用完全自由
 - ✅ 公域共治 - 公开分享遵守规则
@@ -340,7 +340,7 @@ GitHub license
 
 **创建者：** 💎 Lucky｜UID9622
 
-**系统：** 🐉 龙魂系统 CNSH
+**系统：** 🐉 龍魂系统 CNSH
 
 **状态：** ✅ 可用
 
@@ -348,7 +348,7 @@ GitHub license
 
 <p align="center">
 
-<strong>🐉 CNSH龙魂系统 | UID9622 🐉</strong>
+<strong>🐉 CNSH龍魂系统 | UID9622 🐉</strong>
 
 <em>传承中华智慧，创造工程奇迹</em>
 
@@ -371,7 +371,7 @@ GitHub license
 - 本文檔引用或參考了以下來源：
   - [1] （請填寫）
 - 相關龍魂系統文檔：
-  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 誠實局限
 
@@ -394,7 +394,7 @@ GitHub license
 ## DNA 簽名
 
 ```
-#龍芯⚡️2026-06-21-PROTOCOL-CNSH-GITHUB-README-v1.0
+#龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-CNSH-GITHUB-README-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```
 
@@ -414,7 +414,7 @@ GitHub license
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -437,6 +437,6 @@ GitHub license
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-06-21-PROTOCOL-CNSH-GITHUB-README-v1.0`
+#龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-CNSH-GITHUB-README-v1.0`
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

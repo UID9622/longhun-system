@@ -61,32 +61,27 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 # 焊死常量
 # ═══════════════════════════════════════════════════════════
 
-PORT = 8799
+PORT = 18899
 HOST = "127.0.0.1"
-VERSION = "1.0.0"
-DNA = "#龍芯⚡️丙午·乙未·壬戌·屯-XIAOYI-HUB-8799-v1.0"
+VERSION = "1.0.1"
+DNA = "#龍芯⚡️丙午·丙申·庚申·亥时-XIAOYI-HUB-v1.0-UID9622"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 GPG = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 CST = timezone(timedelta(hours=8))
 
 # ── 后端降级链（有序）──
+# 修复：Ollama 实际端口为 11434；v2 桥接在 18799；避免 8799/9622 冲突。
 BACKENDS: List[Dict[str, Any]] = [
     {
-        "name": "9622操作台",
-        "url": "http://localhost:9622/api/xiaoyi/ask",
-        "health_url": "http://localhost:9622/health",
-        "timeout": 15,
-    },
-    {
-        "name": "8765GPT",
-        "url": "http://localhost:8765/api/xiaoyi/ask",
-        "health_url": "http://localhost:8765/health",
+        "name": "18799龍魂桥接",
+        "url": "http://localhost:18799/api/v1/chat",
+        "health_url": "http://localhost:18799/api/v1/xiaoyi/health",
         "timeout": 60,
     },
     {
-        "name": "Ollama",
-        "url": "http://localhost:11435/api/generate",
-        "health_url": "http://localhost:11435/api/tags",
+        "name": "Ollama本地",
+        "url": "http://localhost:11434/api/generate",
+        "health_url": "http://localhost:11434/api/tags",
         "timeout": 60,
         "ollama_format": True,
     },

@@ -7,7 +7,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-06-21-GOVERNANCE-_AI_2FFF-v1.0``  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-GOVERNANCE-_AI_2FFF-v1.0``  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -23,12 +23,12 @@
 > 平台：本地
 > 審核狀態：草稿
 
-**DNA**: `#龍芯⚡️2026-06-21-GOVERNANCE-_AI_2FFF-v1.0`  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-GOVERNANCE-_AI_2FFF-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
-<!--#龍芯⚡️2026-06-21-GOVERNANCE-_AI_2FFF-v1.0 -->
+<!--#龍芯⚡️丙午·丙申·庚申·亥时-GOVERNANCE-_AI_2FFF-v1.0 -->
 <!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
 
 # ⚖️ 龍魂七維AI治理×數字主權執行表 v1.0
@@ -59,7 +59,7 @@
 |--------|------|---------------|
 | `治理項目名稱` | 治理事件或資產的簡明標題 | `Kimi接入·算法透明度審計` |
 | `DNA層級` | 該事件在龍魂 DNA 分層中的層級 | `L2 仲裁层` / `L4 记忆层` / `L5 演化层` 等 |
-| `DNA追溯碼` | 唯一追溯標識，格式為 `#龍芯⚡YYYY-MM-DD-模組-序號` | `#龍芯⚡2026-03-26-算法透明-002` |
+| `DNA追溯碼` | 唯一追溯標識，格式為 `#龍芯⚡YYYY-MM-DD-模組-序號` | `#龍芯⚡️丙午·丙申·庚申·亥时-算法透明-002` |
 | `I值_影響系數` | 事件重要性（Impact），取值 0–1 | `0.72` 表示較重要 |
 | `R值_風險系數` | 風險或影響範圍係數（Risk/Range），取值 0–1 | `0.88` 表示高風險 |
 | `一票否決` | 是否觸發 UID9622 一票否決權 | `Yes` / `No` |
@@ -118,7 +118,7 @@
 ## 使用建議
 
 - 可將本 CSV 直接導入 `cnsh-core/governance/` 的治理引擎，作為七維審計的初始數據集。
-- 與 `docs/private-shared-imports/governance/龍魂开源宪章-君子协议-v1.1.md`、`龙魂全球治理框架.md` 等文件一起閱讀，可形成從原則到執行的完整治理視圖。
+- 與 `docs/private-shared-imports/governance/龍魂开源宪章-君子协议-v1.1.md`、`龍魂全球治理框架.md` 等文件一起閱讀，可形成從原則到執行的完整治理視圖。
 - 後續可擴展 Relation 字段，與 `security-audit/`、`persona-tools/`、`api-integration/` 等目錄中的文檔建立跨庫關聯。
 
 ---
@@ -149,7 +149,7 @@
 - 本文檔引用或參考了以下來源：
   - [1] （請填寫）
 - 相關龍魂系統文檔：
-  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 誠實局限
 
@@ -172,7 +172,7 @@
 ## DNA 簽名
 
 ```
-#龍芯⚡️2026-06-21-GOVERNANCE-_AI_2FFF-v1.0
+#龍芯⚡️丙午·丙申·庚申·亥时-GOVERNANCE-_AI_2FFF-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```
 
@@ -192,7 +192,7 @@
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -215,6 +215,6 @@
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-06-21-GOVERNANCE-_AI_2FFF-v1.0`
+#龍芯⚡️丙午·丙申·庚申·亥时-GOVERNANCE-_AI_2FFF-v1.0`
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

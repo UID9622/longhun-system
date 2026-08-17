@@ -1,7 +1,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# Longhun System · Contributing Guide · English Edition
+# LongHun System · Contributing Guide · English Edition
 
-**Longhun System is created, owned, and controlled by UID9622.**
+**LongHun System is created, owned, and controlled by UID9622.**
 
 **Want to contribute? Follow this. No other way.**
 
@@ -28,11 +28,11 @@ Before submitting any code, documentation, or ideas, you **MUST**:
 
 ```
 TO: [YOUR UPDATED EMAIL]
-SUBJECT: [Longhun Contribution Application] [Contribution Type] [Your Name]
+SUBJECT: [LongHun Contribution Application] [Contribution Type] [Your Name]
 
 Content:
 ================================
-I want to contribute to Longhun System:
+I want to contribute to LongHun System:
 
 【CONTRIBUTION TYPE】
 - Bug fix
@@ -52,7 +52,7 @@ Brief description of what you plan to do (200 words max)
 
 【COMMITMENT】
 I agree to:
-☑ Follow all Longhun system rules
+☑ Follow all LongHun system rules
 ☑ Acknowledge UID9622's final decision authority
 ☑ Accept that contributions don't change ownership
 ☑ Accept original creator DNA marker in all code
@@ -165,9 +165,9 @@ UID9622 reserves right to reject any improvement he considers "inappropriate".
 
 ```
 New algorithms or systems must:
-  1. Be completely independent from Longhun core
-  2. Not modify any Longhun components
-  3. Clearly credit "Based on Longhun System"
+  1. Be completely independent from LongHun core
+  2. Not modify any LongHun components
+  3. Clearly credit "Based on LongHun System"
   4. Separately apply for patent/copyright
 
 This is actually "derivative creation" requiring special commercial agreement.
@@ -316,7 +316,7 @@ Possible Results:
 2. **Delete or modify DNA markers**
    - Result: Delete PR, legal notice
 
-3. **Claim you created any part of Longhun**
+3. **Claim you created any part of LongHun**
    - Result: Delete everything, permanent blacklist, legal lawsuit
 
 4. **Try to bypass review process**
@@ -338,9 +338,9 @@ Possible Results:
 Once blacklisted, you:
 
 ```
-❌ Can never contribute to Longhun
+❌ Can never contribute to LongHun
 ❌ Cannot get any form of authorization
-❌ Cannot use Longhun system
+❌ Cannot use LongHun system
 ❌ May face legal lawsuit
 ❌ Name may be publicly exposed (if law violated)
 ```
@@ -361,7 +361,7 @@ Once blacklisted, you:
 
 ```
 ✅ Acknowledge UID9622's complete ownership and control
-✅ Cannot claim ownership of any Longhun component
+✅ Cannot claim ownership of any LongHun component
 ✅ If contributed code is original, must provide source proof
 ✅ Agree your contribution released under same license (decided by UID9622)
 ```
@@ -388,7 +388,7 @@ No appeal mechanism.
 ### Q: Can I submit improvement to other projects?
 
 **A**: Yes, but must:
-- ✅ Clearly state it's based on Longhun improvement
+- ✅ Clearly state it's based on LongHun improvement
 - ✅ Keep original creator info in code (DNA marker)
 - ✅ If other party requests removal, cannot approve (needs UID9622 permission)
 
@@ -423,7 +423,7 @@ No negotiation, no exceptions.
 
 **This is not democracy, this is autocracy.**
 
-But that's the only way Longhun protects itself.
+But that's the only way LongHun protects itself.
 
 ---
 

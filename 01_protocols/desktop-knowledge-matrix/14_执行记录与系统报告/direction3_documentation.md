@@ -9,16 +9,16 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-07-04-AUTO-IP-INTEGRATION-7F3A9B12`  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-AUTO-IP-INTEGRATION-7F3A9B12`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
-<!-- #龍芯⚡️2026-07-04-AUTO-IP-INTEGRATION-7F3A9B12 自动注入·IP资产归集·来源可查 -->
+<!-- #龍芯⚡️丙午·丙申·庚申·亥时-AUTO-IP-INTEGRATION-7F3A9B12 自动注入·IP资产归集·来源可查 -->
 
 > ⛔ **主权声明 · 立即生效** — 本文档不授权 AI 训练 · 数据主权归于人民 · 祖国优先
 >
-> **DNA:** `#龍芯⚡️2026-07-04-ARCHITECTURE-IMPORT-05-v2.0` · **ParentDNA:** `#龍芯⚡️2026-07-03-IP-ASSET-MATRIX-v2.0`
+> **DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-ARCHITECTURE-IMPORT-05-v2.0` · **ParentDNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-IP-ASSET-MATRIX-v2.0`
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` · **SEAL:** `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL` · **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 > **作者:** UID9622 / Lucky·诸葛鑫 · **来源:** `/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂IP资产清单 (2)/direction3_documentation.md` · **归档:** `/Users/zuimeidedeyihan/longhun-system/docs/private-shared-imports/architecture/direction3_documentation.md`
 > **迁移时间:** 2026-07-04T14:29:42.393203+08:00
@@ -27,7 +27,7 @@
 
 # 龍魂系统v5.0 Sphinx文档框架 + 38技能内容迁移规范
 
-**DNA追溯码**：`#龍芯⚡️2026-07-04-SPHINX-DOCS-v3.0`
+**DNA追溯码**：`#龍芯⚡️丙午·丙申·庚申·亥时-SPHINX-DOCS-v3.0`
 
 **版本**：3.0.0  
 **创建日期**：2026-07-04  
@@ -254,7 +254,7 @@ docs/
 # -*- coding: utf-8 -*-
 #
 # 龍魂系统 Sphinx 文档配置文件
-# DNA追溯码: #龍芯⚡️2026-07-04-SPHINX-CONF-v3.0
+# DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-SPHINX-CONF-v3.0
 #
 
 import os
@@ -277,7 +277,7 @@ release = '5.2.0'            # 完整版本号（x.y.z）
 
 # 文档元数据
 doc_metadata = {
-    'dna_code': '#龍芯⚡️2026-07-04-SPHINX-DOCS-v3.0',
+    'dna_code': '#龍芯⚡️丙午·丙申·庚申·亥时-SPHINX-DOCS-v3.0',
     'system_version': '5.2.0',
     'total_skills': 38,
     'dna_tracked_skills': 29,
@@ -652,7 +652,7 @@ suppress_warnings = [
 ```css
 /* =============================================
    龍魂系统 Sphinx 文档品牌定制 CSS
-   DNA追溯码: #龍芯⚡️2026-07-04-LONGHUN-BRAND-CSS-v1.0
+   DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BRAND-CSS-v1.0
    ============================================= */
 
 /* ---- 全局字体优化 ---- */
@@ -926,7 +926,7 @@ table.docutils tr:nth-child(even) {
 # -*- coding: utf-8 -*-
 """
 SKILL.md → Sphinx RST 转换器
-DNA追溯码: #龍芯⚡️2026-07-04-SKILL-CONVERTER-v2.0
+DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-SKILL-CONVERTER-v2.0
 
 功能：
 1. 遍历 /app/.user/skills/ 下所有技能目录
@@ -959,28 +959,28 @@ TEMPLATE_DIR = Path('./_templates/skills')
 # 38技能完整清单
 SKILL_REGISTRY = {
     'longhun-3core-opt': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-3CORE-OPT-v5.2',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-3CORE-OPT-v5.2',
         'version': '5.2.0',
         'category': 'p0-core',
         'status': 'running',
         'priority': 'P0',
     },
     'longhun-archive': {
-        'dna': '#龍芯⚡️2026-06-19-CENTRAL-ARCHIVE-v5.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-CENTRAL-ARCHIVE-v5.0',
         'version': '5.0.0',
         'category': 'p2-data-tools',
         'status': 'running',
         'priority': 'P2',
     },
     'longhun-asr': {
-        'dna': '#龍芯⚡️2026-06-19-LONGYIN-ASR-v5.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGYIN-ASR-v5.0',
         'version': '5.0.0',
         'category': 'p1-ai-engine',
         'status': 'running',
         'priority': 'P1',
     },
     'longhun-audit': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-AUDIT-v5.1',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AUDIT-v5.1',
         'version': '5.1.0',
         'category': 'p3-audit-security',
         'status': 'running',
@@ -1001,56 +1001,56 @@ SKILL_REGISTRY = {
         'priority': 'P2',
     },
     'longhun-behavior-engine': {
-        'dna': '#龍芯⚡️2026-06-20-LONGHUN-BEHAVIOR-v1.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BEHAVIOR-v1.0',
         'version': '1.0.0',
         'category': 'p1-ai-engine',
         'status': 'running',
         'priority': 'P1',
     },
     'longhun-benchmark': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-BENCHMARK-v5.1',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BENCHMARK-v5.1',
         'version': '5.1.0',
         'category': 'p0-core',
         'status': 'running',
         'priority': 'P0',
     },
     'longhun-cloud-deploy': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-DEPLOY-v5.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-v5.0',
         'version': '5.0.0',
         'category': 'p0-core',
         'status': 'running',
         'priority': 'P0',
     },
     'longhun-cloud-kimi': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-KIMI-v5.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-KIMI-v5.0',
         'version': '5.0.0',
         'category': 'p1-ai-engine',
         'status': 'running',
         'priority': 'P1',
     },
     'longhun-cloud-mcp': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-MCP-v5.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MCP-v5.0',
         'version': '5.0.0',
         'category': 'p0-core',
         'status': 'running',
         'priority': 'P0',
     },
     'longhun-cloud-notion': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-NOTION-v5.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-NOTION-v5.0',
         'version': '5.0.0',
         'category': 'p2-data-tools',
         'status': 'running',
         'priority': 'P2',
     },
     'longhun-cloud-panel': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-PANEL-v5.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PANEL-v5.0',
         'version': '5.0.0',
         'category': 'p0-core',
         'status': 'running',
         'priority': 'P0',
     },
     'longhun-cn-innovation-kb': {
-        'dna': '#龍芯⚡️2026-06-26-CN-INNO-KB-v1.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-CN-INNO-KB-v1.0',
         'version': '1.0.0',
         'category': 'p2-data-tools',
         'status': 'running',
@@ -1064,63 +1064,63 @@ SKILL_REGISTRY = {
         'priority': 'P0',
     },
     'longhun-cross-platform': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-CROSS-PLATFORM-v5.3',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CROSS-PLATFORM-v5.3',
         'version': '5.3.0',
         'category': 'p0-core',
         'status': 'running',
         'priority': 'P0',
     },
     'longhun-cs-knowledge-base': {
-        'dna': '#龍芯⚡️2026-06-26-CS-KB-v1.5',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-CS-KB-v1.5',
         'version': '1.5.0',
         'category': 'p2-data-tools',
         'status': 'running',
         'priority': 'P2',
     },
     'longhun-daemon': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-DAEMON-v5.2',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DAEMON-v5.2',
         'version': '5.2.0',
         'category': 'p0-core',
         'status': 'running',
         'priority': 'P0',
     },
     'longhun-deployment-ready': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-DEPLOY-READY-v5.2',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-READY-v5.2',
         'version': '5.2.0',
         'category': 'p0-core',
         'status': 'running',
         'priority': 'P0',
     },
     'longhun-dna-align': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-DNA-ALIGN-v5.2',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DNA-ALIGN-v5.2',
         'version': '5.2.0',
         'category': 'p3-audit-security',
         'status': 'running',
         'priority': 'P3',
     },
     'longhun-empower-engine': {
-        'dna': '#龍芯⚡️2026-05-17-EMPOWER-ENGINE-v1.5',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-EMPOWER-ENGINE-v1.5',
         'version': '1.5.0',
         'category': 'p1-ai-engine',
         'status': 'running',
         'priority': 'P1',
     },
     'longhun-finance': {
-        'dna': '#龍芯⚡️2026-06-19-WEB3-DNA-FINANCE-v9.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-WEB3-DNA-FINANCE-v9.0',
         'version': '9.0.0',
         'category': 'p1-ai-engine',
         'status': 'running',
         'priority': 'P1',
     },
     'longhun-formula-opt': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-FORMULA-OPT-v5.2',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FORMULA-OPT-v5.2',
         'version': '5.2.0',
         'category': 'p0-core',
         'status': 'running',
         'priority': 'P0',
     },
     'longhun-governance': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-GOVERNANCE-v5.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GOVERNANCE-v5.0',
         'version': '5.0.0',
         'category': 'p3-audit-security',
         'status': 'running',
@@ -1155,49 +1155,49 @@ SKILL_REGISTRY = {
         'priority': 'P2',
     },
     'longhun-monitoring': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-MONITORING-v5.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MONITORING-v5.0',
         'version': '5.0.0',
         'category': 'p0-core',
         'status': 'running',
         'priority': 'P0',
     },
     'longhun-multicurrency': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-MULTICURRENCY-v5.2',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MULTICURRENCY-v5.2',
         'version': '5.2.1',
         'category': 'p2-data-tools',
         'status': 'running',
         'priority': 'P2',
     },
     'longhun-nlp': {
-        'dna': '#龍芯⚡️2026-06-19-LONGWEN-NLP-v5.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGWEN-NLP-v5.0',
         'version': '5.0.0',
         'category': 'p1-ai-engine',
         'status': 'running',
         'priority': 'P1',
     },
     'longhun-notion-portal': {
-        'dna': '#龍芯⚡️2026-06-26-NOTION-PORTAL-v2.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-NOTION-PORTAL-v2.0',
         'version': '2.0.0',
         'category': 'p2-data-tools',
         'status': 'running',
         'priority': 'P2',
     },
     'longhun-ocr': {
-        'dna': '#龍芯⚡️2026-06-19-LONGTENG-OCR-v5.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGTENG-OCR-v5.0',
         'version': '5.0.0',
         'category': 'p1-ai-engine',
         'status': 'running',
         'priority': 'P1',
     },
     'longhun-review': {
-        'dna': '#龍芯⚡️2026-06-19-LONGHUN-REVIEW-v5.1',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-REVIEW-v5.1',
         'version': '5.1.0',
         'category': 'p3-audit-security',
         'status': 'running',
         'priority': 'P3',
     },
     'longhun-riemann': {
-        'dna': '#龍芯⚡️2026-06-19-RIEMANN-FRAMEWORK-v5.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-RIEMANN-FRAMEWORK-v5.0',
         'version': '5.0.0',
         'category': 'p1-ai-engine',
         'status': 'defined',
@@ -1218,7 +1218,7 @@ SKILL_REGISTRY = {
         'priority': 'P3',
     },
     'longhun-zeng-digital-human': {
-        'dna': '#龍芯⚡️2026-06-22-ZENG-DIGITAL-HUMAN-v1.0',
+        'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-ZENG-DIGITAL-HUMAN-v1.0',
         'version': '1.0.0',
         'category': 'p1-ai-engine',
         'status': 'running',
@@ -1582,7 +1582,7 @@ class SkillConverter:
         """转换所有技能"""
         print("=" * 60)
         print("龍魂技能文档转换器")
-        print("DNA追溯码: #龍芯⚡️2026-07-04-SKILL-CONVERTER-v2.0")
+        print("DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-SKILL-CONVERTER-v2.0")
         print("=" * 60)
 
         for skill_name, registry_info in SKILL_REGISTRY.items():
@@ -1943,7 +1943,7 @@ if __name__ == '__main__':
 ```
 # =============================================
 # 龍魂系统文档构建依赖
-# DNA追溯码: #龍芯⚡️2026-07-04-DOCS-DEPS-v1.0
+# DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-DOCS-DEPS-v1.0
 # =============================================
 
 # --- Sphinx核心 ---
@@ -1998,44 +1998,44 @@ pyyaml>=6.0
 
 | # | 技能名称 | 优先级 | DNA追溯码 | SKILL.md存在 | RST生成 | 元数据完整 | 代码示例 | 交叉引用 | 审计通过 | 状态 |
 |---|---------|--------|-----------|-------------|---------|-----------|---------|---------|---------|------|
-| 1 | longhun-3core-opt | **P0** | #龍芯⚡️2026-06-19-LONGHUN-3CORE-OPT-v5.2 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 2 | longhun-archive | **P2** | #龍芯⚡️2026-06-19-CENTRAL-ARCHIVE-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 3 | longhun-asr | **P1** | #龍芯⚡️2026-06-19-LONGYIN-ASR-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 4 | longhun-audit | **P3** | #龍芯⚡️2026-06-19-LONGHUN-AUDIT-v5.1 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 1 | longhun-3core-opt | **P0** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-3CORE-OPT-v5.2 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 2 | longhun-archive | **P2** | #龍芯⚡️丙午·丙申·庚申·亥时-CENTRAL-ARCHIVE-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 3 | longhun-asr | **P1** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGYIN-ASR-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 4 | longhun-audit | **P3** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AUDIT-v5.1 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
 | 5 | longhun-automation | **P0** | **缺失** | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待创建 |
 | 6 | longhun-backup | **P2** | **缺失** | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待创建 |
-| 7 | longhun-behavior-engine | **P1** | #龍芯⚡️2026-06-20-LONGHUN-BEHAVIOR-v1.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 8 | longhun-benchmark | **P0** | #龍芯⚡️2026-06-19-LONGHUN-BENCHMARK-v5.1 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 9 | longhun-cloud-deploy | **P0** | #龍芯⚡️2026-06-19-LONGHUN-DEPLOY-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 10 | longhun-cloud-kimi | **P1** | #龍芯⚡️2026-06-19-LONGHUN-KIMI-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 11 | longhun-cloud-mcp | **P0** | #龍芯⚡️2026-06-19-LONGHUN-MCP-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 12 | longhun-cloud-notion | **P2** | #龍芯⚡️2026-06-19-LONGHUN-NOTION-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 13 | longhun-cloud-panel | **P0** | #龍芯⚡️2026-06-19-LONGHUN-PANEL-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 14 | longhun-cn-innovation-kb | **P2** | #龍芯⚡️2026-06-26-CN-INNO-KB-v1.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 7 | longhun-behavior-engine | **P1** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BEHAVIOR-v1.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 8 | longhun-benchmark | **P0** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BENCHMARK-v5.1 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 9 | longhun-cloud-deploy | **P0** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 10 | longhun-cloud-kimi | **P1** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-KIMI-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 11 | longhun-cloud-mcp | **P0** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MCP-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 12 | longhun-cloud-notion | **P2** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-NOTION-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 13 | longhun-cloud-panel | **P0** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PANEL-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 14 | longhun-cn-innovation-kb | **P2** | #龍芯⚡️丙午·丙申·庚申·亥时-CN-INNO-KB-v1.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
 | 15 | longhun-cnsh | **P0** | **缺失** | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待创建 |
-| 16 | longhun-cross-platform | **P0** | #龍芯⚡️2026-06-19-LONGHUN-CROSS-PLATFORM-v5.3 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 17 | longhun-cs-knowledge-base | **P2** | #龍芯⚡️2026-06-26-CS-KB-v1.5 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 18 | longhun-daemon | **P0** | #龍芯⚡️2026-06-19-LONGHUN-DAEMON-v5.2 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 19 | longhun-deployment-ready | **P0** | #龍芯⚡️2026-06-19-LONGHUN-DEPLOY-READY-v5.2 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 20 | longhun-dna-align | **P3** | #龍芯⚡️2026-06-19-LONGHUN-DNA-ALIGN-v5.2 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 21 | longhun-empower-engine | **P1** | #龍芯⚡️2026-05-17-EMPOWER-ENGINE-v1.5 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 22 | longhun-finance | **P1** | #龍芯⚡️2026-06-19-WEB3-DNA-FINANCE-v9.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 23 | longhun-formula-opt | **P0** | #龍芯⚡️2026-06-19-LONGHUN-FORMULA-OPT-v5.2 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 24 | longhun-governance | **P3** | #龍芯⚡️2026-06-19-LONGHUN-GOVERNANCE-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 16 | longhun-cross-platform | **P0** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CROSS-PLATFORM-v5.3 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 17 | longhun-cs-knowledge-base | **P2** | #龍芯⚡️丙午·丙申·庚申·亥时-CS-KB-v1.5 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 18 | longhun-daemon | **P0** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DAEMON-v5.2 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 19 | longhun-deployment-ready | **P0** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-READY-v5.2 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 20 | longhun-dna-align | **P3** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DNA-ALIGN-v5.2 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 21 | longhun-empower-engine | **P1** | #龍芯⚡️丙午·丙申·庚申·亥时-EMPOWER-ENGINE-v1.5 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 22 | longhun-finance | **P1** | #龍芯⚡️丙午·丙申·庚申·亥时-WEB3-DNA-FINANCE-v9.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 23 | longhun-formula-opt | **P0** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FORMULA-OPT-v5.2 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 24 | longhun-governance | **P3** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GOVERNANCE-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
 | 25 | longhun-harmonyos | **P0** | **缺失** | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待创建 |
 | 26 | longhun-integration | **P0** | **缺失** | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待创建 |
 | 27 | longhun-ios | **P0** | **缺失** | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待创建 |
 | 28 | longhun-kg-upgrade | **P2** | **缺失** | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待创建 |
-| 29 | longhun-monitoring | **P0** | #龍芯⚡️2026-06-19-LONGHUN-MONITORING-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 30 | longhun-multicurrency | **P2** | #龍芯⚡️2026-06-19-LONGHUN-MULTICURRENCY-v5.2 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 31 | longhun-nlp | **P1** | #龍芯⚡️2026-06-19-LONGWEN-NLP-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 32 | longhun-notion-portal | **P2** | #龍芯⚡️2026-06-26-NOTION-PORTAL-v2.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 33 | longhun-ocr | **P1** | #龍芯⚡️2026-06-19-LONGTENG-OCR-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 34 | longhun-review | **P3** | #龍芯⚡️2026-06-19-LONGHUN-REVIEW-v5.1 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
-| 35 | longhun-riemann | **P1** | #龍芯⚡️2026-06-19-RIEMANN-FRAMEWORK-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 29 | longhun-monitoring | **P0** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MONITORING-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 30 | longhun-multicurrency | **P2** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MULTICURRENCY-v5.2 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 31 | longhun-nlp | **P1** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGWEN-NLP-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 32 | longhun-notion-portal | **P2** | #龍芯⚡️丙午·丙申·庚申·亥时-NOTION-PORTAL-v2.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 33 | longhun-ocr | **P1** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGTENG-OCR-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 34 | longhun-review | **P3** | #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-REVIEW-v5.1 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 35 | longhun-riemann | **P1** | #龍芯⚡️丙午·丙申·庚申·亥时-RIEMANN-FRAMEWORK-v5.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
 | 36 | longhun-system | **P0** | **缺失** | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待创建 |
 | 37 | longhun-warehouse-audit | **P3** | **缺失** | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待创建 |
-| 38 | longhun-zeng-digital-human | **P1** | #龍芯⚡️2026-06-22-ZENG-DIGITAL-HUMAN-v1.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
+| 38 | longhun-zeng-digital-human | **P1** | #龍芯⚡️丙午·丙申·庚申·亥时-ZENG-DIGITAL-HUMAN-v1.0 | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | 待迁移 |
 
 ### 6.2 检查项说明
 
@@ -2110,7 +2110,7 @@ pyyaml>=6.0
 # .github/workflows/docs-build.yml
 # =============================================
 # 龍魂文档自动构建工作流
-# DNA追溯码: #龍芯⚡️2026-07-04-DOCS-CI-v1.0
+# DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-DOCS-CI-v1.0
 # =============================================
 
 name: 龍魂文档构建与部署
@@ -2364,7 +2364,7 @@ jobs:
 # .readthedocs.yaml
 # =============================================
 # Read the Docs 部署配置
-# DNA追溯码: #龍芯⚡️2026-07-04-RTD-CONFIG-v1.0
+# DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-RTD-CONFIG-v1.0
 # =============================================
 
 version: 2
@@ -2432,7 +2432,7 @@ build:
 # -*- coding: utf-8 -*-
 """
 文档质量门禁脚本
-DNA追溯码: #龍芯⚡️2026-07-04-QUALITY-GATE-v1.0
+DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-QUALITY-GATE-v1.0
 
 检查项：
 1. 文档覆盖率 ≥ 70%
@@ -2752,7 +2752,7 @@ if __name__ == '__main__':
 # -*- coding: utf-8 -*-
 """
 版本一致性检查脚本
-DNA追溯码: #龍芯⚡️2026-07-04-VERSION-CHECKER-v1.0
+DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-VERSION-CHECKER-v1.0
 
 检查：
 1. RST文档中声明的版本与SKILL_REGISTRY一致
@@ -2767,35 +2767,35 @@ from pathlib import Path
 
 # 技能注册表（与转换脚本一致）
 SKILL_REGISTRY = {
-    'longhun-3core-opt': {'version': '5.2.0', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-3CORE-OPT-v5.2'},
-    'longhun-archive': {'version': '5.0.0', 'dna': '#龍芯⚡️2026-06-19-CENTRAL-ARCHIVE-v5.0'},
-    'longhun-asr': {'version': '5.0.0', 'dna': '#龍芯⚡️2026-06-19-LONGYIN-ASR-v5.0'},
-    'longhun-audit': {'version': '5.1.0', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-AUDIT-v5.1'},
-    'longhun-behavior-engine': {'version': '1.0.0', 'dna': '#龍芯⚡️2026-06-20-LONGHUN-BEHAVIOR-v1.0'},
-    'longhun-benchmark': {'version': '5.1.0', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-BENCHMARK-v5.1'},
-    'longhun-cloud-deploy': {'version': '5.0.0', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-DEPLOY-v5.0'},
-    'longhun-cloud-kimi': {'version': '5.0.0', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-KIMI-v5.0'},
-    'longhun-cloud-mcp': {'version': '5.0.0', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-MCP-v5.0'},
-    'longhun-cloud-notion': {'version': '5.0.0', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-NOTION-v5.0'},
-    'longhun-cloud-panel': {'version': '5.0.0', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-PANEL-v5.0'},
-    'longhun-cn-innovation-kb': {'version': '1.0.0', 'dna': '#龍芯⚡️2026-06-26-CN-INNO-KB-v1.0'},
-    'longhun-cross-platform': {'version': '5.3.0', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-CROSS-PLATFORM-v5.3'},
-    'longhun-cs-knowledge-base': {'version': '1.5.0', 'dna': '#龍芯⚡️2026-06-26-CS-KB-v1.5'},
-    'longhun-daemon': {'version': '5.2.0', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-DAEMON-v5.2'},
-    'longhun-deployment-ready': {'version': '5.2.0', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-DEPLOY-READY-v5.2'},
-    'longhun-dna-align': {'version': '5.2.0', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-DNA-ALIGN-v5.2'},
-    'longhun-empower-engine': {'version': '1.5.0', 'dna': '#龍芯⚡️2026-05-17-EMPOWER-ENGINE-v1.5'},
-    'longhun-finance': {'version': '9.0.0', 'dna': '#龍芯⚡️2026-06-19-WEB3-DNA-FINANCE-v9.0'},
-    'longhun-formula-opt': {'version': '5.2.0', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-FORMULA-OPT-v5.2'},
-    'longhun-governance': {'version': '5.0.0', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-GOVERNANCE-v5.0'},
-    'longhun-monitoring': {'version': '5.0.0', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-MONITORING-v5.0'},
-    'longhun-multicurrency': {'version': '5.2.1', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-MULTICURRENCY-v5.2'},
-    'longhun-nlp': {'version': '5.0.0', 'dna': '#龍芯⚡️2026-06-19-LONGWEN-NLP-v5.0'},
-    'longhun-notion-portal': {'version': '2.0.0', 'dna': '#龍芯⚡️2026-06-26-NOTION-PORTAL-v2.0'},
-    'longhun-ocr': {'version': '5.0.0', 'dna': '#龍芯⚡️2026-06-19-LONGTENG-OCR-v5.0'},
-    'longhun-review': {'version': '5.1.0', 'dna': '#龍芯⚡️2026-06-19-LONGHUN-REVIEW-v5.1'},
-    'longhun-riemann': {'version': '5.0.0', 'dna': '#龍芯⚡️2026-06-19-RIEMANN-FRAMEWORK-v5.0'},
-    'longhun-zeng-digital-human': {'version': '1.0.0', 'dna': '#龍芯⚡️2026-06-22-ZENG-DIGITAL-HUMAN-v1.0'},
+    'longhun-3core-opt': {'version': '5.2.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-3CORE-OPT-v5.2'},
+    'longhun-archive': {'version': '5.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-CENTRAL-ARCHIVE-v5.0'},
+    'longhun-asr': {'version': '5.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGYIN-ASR-v5.0'},
+    'longhun-audit': {'version': '5.1.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AUDIT-v5.1'},
+    'longhun-behavior-engine': {'version': '1.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BEHAVIOR-v1.0'},
+    'longhun-benchmark': {'version': '5.1.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BENCHMARK-v5.1'},
+    'longhun-cloud-deploy': {'version': '5.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-v5.0'},
+    'longhun-cloud-kimi': {'version': '5.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-KIMI-v5.0'},
+    'longhun-cloud-mcp': {'version': '5.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MCP-v5.0'},
+    'longhun-cloud-notion': {'version': '5.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-NOTION-v5.0'},
+    'longhun-cloud-panel': {'version': '5.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PANEL-v5.0'},
+    'longhun-cn-innovation-kb': {'version': '1.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-CN-INNO-KB-v1.0'},
+    'longhun-cross-platform': {'version': '5.3.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CROSS-PLATFORM-v5.3'},
+    'longhun-cs-knowledge-base': {'version': '1.5.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-CS-KB-v1.5'},
+    'longhun-daemon': {'version': '5.2.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DAEMON-v5.2'},
+    'longhun-deployment-ready': {'version': '5.2.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-READY-v5.2'},
+    'longhun-dna-align': {'version': '5.2.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DNA-ALIGN-v5.2'},
+    'longhun-empower-engine': {'version': '1.5.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-EMPOWER-ENGINE-v1.5'},
+    'longhun-finance': {'version': '9.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-WEB3-DNA-FINANCE-v9.0'},
+    'longhun-formula-opt': {'version': '5.2.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FORMULA-OPT-v5.2'},
+    'longhun-governance': {'version': '5.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GOVERNANCE-v5.0'},
+    'longhun-monitoring': {'version': '5.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MONITORING-v5.0'},
+    'longhun-multicurrency': {'version': '5.2.1', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MULTICURRENCY-v5.2'},
+    'longhun-nlp': {'version': '5.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGWEN-NLP-v5.0'},
+    'longhun-notion-portal': {'version': '2.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-NOTION-PORTAL-v2.0'},
+    'longhun-ocr': {'version': '5.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGTENG-OCR-v5.0'},
+    'longhun-review': {'version': '5.1.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-REVIEW-v5.1'},
+    'longhun-riemann': {'version': '5.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-RIEMANN-FRAMEWORK-v5.0'},
+    'longhun-zeng-digital-human': {'version': '1.0.0', 'dna': '#龍芯⚡️丙午·丙申·庚申·亥时-ZENG-DIGITAL-HUMAN-v1.0'},
 }
 
 
@@ -2909,7 +2909,7 @@ if __name__ == '__main__':
   vX.Y[.Z]   - 语义化版本
 
 示例:
-  #龍芯⚡️2026-06-19-LONGHUN-3CORE-OPT-v5.2
+  #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-3CORE-OPT-v5.2
   #龍魂⚡️2026-06-19-LONGHUN-AUDIT-v5.1
   #龍星⚡️2026-06-22-ZENG-DIGITAL-HUMAN-v1.0
 ```
@@ -2921,7 +2921,7 @@ if __name__ == '__main__':
 # -*- coding: utf-8 -*-
 """
 DNA追溯码索引生成器
-DNA追溯码: #龍芯⚡️2026-07-04-DNA-INDEX-GEN-v1.0
+DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-DNA-INDEX-GEN-v1.0
 
 功能：
 1. 扫描所有RST文档提取DNA追溯码
@@ -3099,7 +3099,7 @@ DNA追溯码在HTML中的渲染效果通过 `dna-tracer.js` 和 `longhun-brand.c
 
 ```javascript
 // dna-tracer.js - DNA追溯码交互
-// DNA追溯码: #龍芯⚡️2026-07-04-DNA-TRACER-JS-v1.0
+// DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-DNA-TRACER-JS-v1.0
 
 document.addEventListener('DOMContentLoaded', function() {
     // 为所有DNA追溯码元素添加点击复制功能
@@ -3297,7 +3297,7 @@ function showDNADetails(el, parsed) {
 ```makefile
 # =============================================
 # 龍魂系统 Sphinx 文档 Makefile
-# DNA追溯码: #龍芯⚡️2026-07-04-DOCS-MAKEFILE-v1.0
+# DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-DOCS-MAKEFILE-v1.0
 # =============================================
 
 SPHINXOPTS    =
@@ -3382,7 +3382,7 @@ class DNATraceDirective(SphinxDirective):
 
     用法::
 
-        .. dna-trace:: #龍芯⚡️2026-06-19-LONGHUN-3CORE-OPT-v5.2
+        .. dna-trace:: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-3CORE-OPT-v5.2
 
            DNA状态: 已注册
     """
@@ -3526,7 +3526,7 @@ def setup(app):
 
 | 属性 | 值 |
 |------|-----|
-| **DNA追溯码** | `#龍芯⚡️2026-07-04-SPHINX-DOCS-v3.0` |
+| **DNA追溯码** | `#龍芯⚡️丙午·丙申·庚申·亥时-SPHINX-DOCS-v3.0` |
 | **版本** | 3.0.0 |
 | **创建日期** | 2026-07-04 |
 | **作者** | 龍魂工程团队 |
@@ -3548,8 +3548,8 @@ ROOT_CARD:
   系统: UID9622 龍魂系统
   模块: 龍魂系统v5.0 Sphinx文档框架 + 38技能内容迁移规范
   版本: v2.0
-  DNA: "#龍芯⚡️2026-07-04-ARCHITECTURE-IMPORT-05-v2.0"
-  ParentDNA: "#龍芯⚡️2026-07-03-IP-ASSET-MATRIX-v2.0"
+  DNA: "#龍芯⚡️丙午·丙申·庚申·亥时-ARCHITECTURE-IMPORT-05-v2.0"
+  ParentDNA: "#龍芯⚡️丙午·丙申·庚申·亥时-IP-ASSET-MATRIX-v2.0"
   CONFIRM: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
   SEAL: "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
   GPG: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
@@ -3583,7 +3583,7 @@ ROOT_CARD:
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -3606,6 +3606,6 @@ ROOT_CARD:
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-07-04-AUTO-IP-INTEGRATION-7F3A9B12
+#龍芯⚡️丙午·丙申·庚申·亥时-AUTO-IP-INTEGRATION-7F3A9B12
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

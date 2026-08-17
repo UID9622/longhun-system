@@ -7,12 +7,12 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-06-21-DOC-UID9622-_-_-CONSTITUTION-LANDING_EBF7-v1.0``  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-DOC-UID9622-_-_-CONSTITUTION-LANDING_EBF7-v1.0``  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
-# 🌍 UID9622 龙魂系统｜公开总入口（Constitution / Landing）
+# 🌍 UID9622 龍魂系统｜公开总入口（Constitution / Landing）
 
 > 本文檔按《龍魂文檔標準模板 v1.0》整理。
 > 性質：技術文檔 · 未經同行評審（如適用）
@@ -23,20 +23,20 @@
 > 平台：本地
 > 審核狀態：草稿
 
-**DNA**: `#龍芯⚡️2026-06-21-DOC-UID9622-_-_-CONSTITUTION-LANDING_EBF7-v1.0`  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-DOC-UID9622-_-_-CONSTITUTION-LANDING_EBF7-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
-<!--#龍芯⚡️2026-06-21-DOC-UID9622-_-_-CONSTITUTION-LANDING_EBF7-v1.0 -->
+<!--#龍芯⚡️丙午·丙申·庚申·亥时-DOC-UID9622-_-_-CONSTITUTION-LANDING_EBF7-v1.0 -->
 <!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
 
-# 🌍 UID9622 龙魂系统｜公开总入口（Constitution / Landing）
+# 🌍 UID9622 龍魂系统｜公开总入口（Constitution / Landing）
 
 <aside>
 💎
 
-**愿景锚**：基于龙魂，贡献全世界。
+**愿景锚**：基于龍魂，贡献全世界。
 
 **目标**：打造一个可自运行、让人安心放心的系统。
 
@@ -48,7 +48,7 @@
 
 ## 0. 这是什么（给第一次来的人）
 
-UID9622（龙魂）是一套以 **“人民为本、可追溯、可审计、可停止”** 为底层约束的系统化方法与工程体系。
+UID9622（龍魂）是一套以 **“人民为本、可追溯、可审计、可停止”** 为底层约束的系统化方法与工程体系。
 
 它关注的不只是“AI 能做什么”，更关注：
 
@@ -210,7 +210,7 @@ UID9622（龙魂）是一套以 **“人民为本、可追溯、可审计、可�
 - 本文檔引用或參考了以下來源：
   - [1] （請填寫）
 - 相關龍魂系統文檔：
-  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 誠實局限
 
@@ -233,7 +233,7 @@ UID9622（龙魂）是一套以 **“人民为本、可追溯、可审计、可�
 ## DNA 簽名
 
 ```
-#龍芯⚡️2026-06-21-DOC-UID9622-_-_-CONSTITUTION-LANDING_EBF7-v1.0
+#龍芯⚡️丙午·丙申·庚申·亥时-DOC-UID9622-_-_-CONSTITUTION-LANDING_EBF7-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```
 
@@ -253,7 +253,7 @@ UID9622（龙魂）是一套以 **“人民为本、可追溯、可审计、可�
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -276,6 +276,6 @@ UID9622（龙魂）是一套以 **“人民为本、可追溯、可审计、可�
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-06-21-DOC-UID9622-_-_-CONSTITUTION-LANDING_EBF7-v1.0`
+#龍芯⚡️丙午·丙申·庚申·亥时-DOC-UID9622-_-_-CONSTITUTION-LANDING_EBF7-v1.0`
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

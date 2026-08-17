@@ -123,7 +123,7 @@ What NO legitimate program can promise:
 
 ## The Founder's Personal Experience
 
-UID9622 (Lucky), founder of the Longhun System:
+UID9622 (Lucky), founder of the LongHun System:
 
 > "I am a retired veteran. Junior high education. I don't know how to code.
 >

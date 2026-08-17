@@ -8,7 +8,7 @@
 """
 ================================================================================
 龍魂多Agent协同架构引擎 v1.0（已集成入 05_ENGINES）
-Longhun Multi-Agent Collaboration Architecture Engine
+LongHun Multi-Agent Collaboration Architecture Engine
 ================================================================================
 来源: ~/Desktop/龍魂智能体/longhun_multiagent_arch_engine_v1.py
 去西方化设计：所有术语中文原生，对应龍魂P0-P4协议

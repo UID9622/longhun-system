@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🇨🇳 中国科技自主创新专栏 · 知识图谱</title>
+<!-- DNA: #龍芯⚡️丙午·丙申·庚申·酉时·䷼中孚-CN-INNOVATION-KG-PORTAL-v1.0 -->
+<!-- CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z -->
+<style>
+:root {
+  --bg:#08080f; --bg2:#0c0c1a; --card:#12122a; --card2:#181836;
+  --border:#2a2a4a; --gold:#c9a84c; --gold-dim:rgba(201,168,76,0.12);
+  --accent:#a78bfa; --cyan:#22d3ee; --green:#4ade80; --orange:#fb923c; --red:#f87171;
+  --text:#d4d4d8; --dim:#71717a; --bright:#f0f0f0;
+  --radius:12px; --radius-sm:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;min-height:100vh;line-height:1.6}
+a{color:var(--cyan);text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:20px 16px 40px}
+
+.header{text-align:center;padding:32px 0 24px;border-bottom:1px solid var(--border);margin-bottom:24px}
+.header .logo{font-size:1.9rem;font-weight:900;color:var(--gold);margin-bottom:6px}
+.header .sub{font-size:0.85rem;color:var(--dim)}
+.header .dna{font-size:0.68rem;color:var(--dim);font-family:"SF Mono",monospace;margin-top:8px;word-break:break-all}
+
+.search-row{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.search-row input{flex:1;min-width:240px;background:var(--card);border:1px solid var(--border);color:var(--text);padding:10px 14px;border-radius:var(--radius-sm);font-size:0.95rem}
+.search-row input:focus{outline:none;border-color:var(--gold)}
+.search-row button{padding:10px 18px;background:var(--gold-dim);border:1px solid var(--gold);color:#fff;border-radius:var(--radius-sm);cursor:pointer;font-size:0.9rem}
+.search-row button:hover{background:var(--gold)}
+
+.dash{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+.metric{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-align:center}
+.metric .val{font-size:1.6rem;font-weight:700;color:var(--gold)}
+.metric .lbl{font-size:0.7rem;color:var(--dim);margin-top:4px}
+
+.section{margin-bottom:24px}
+.section h2{font-size:0.95rem;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.section h2::before{content:'';width:3px;height:16px;background:var(--gold);border-radius:2px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--card2);border:1px solid var(--border);border-radius:20px;padding:5px 12px;font-size:0.78rem;cursor:pointer;transition:all .2s}
+.chip:hover{border-color:var(--gold);color:var(--gold)}
+.chip.active{background:var(--gold-dim);border-color:var(--gold);color:#fff}
+.chip .count{color:var(--dim);margin-left:4px}
+
+.articles{display:grid;gap:12px}
+.article{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;cursor:pointer;transition:all .2s}
+.article:hover{border-color:var(--gold-border);transform:translateY(-1px)}
+.article .title{font-size:1rem;font-weight:700;color:var(--bright);margin-bottom:6px}
+.article .meta{font-size:0.72rem;color:var(--dim);margin-bottom:8px;display:flex;gap:10px;flex-wrap:wrap}
+.article .meta span{padding:2px 8px;border-radius:4px;background:var(--card2)}
+.article .summary{font-size:0.85rem;color:var(--text);line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+.empty{text-align:center;color:var(--dim);padding:40px 0;font-size:0.9rem}
+
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;z-index:100;padding:16px}
+.modal.open{display:flex}
+.modal-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);max-width:720px;width:100%;max-height:90vh;overflow:auto;padding:24px}
+.modal-box .close{float:right;color:var(--dim);cursor:pointer;font-size:1.4rem;line-height:1}
+.modal-box .close:hover{color:var(--gold)}
+.modal-box h3{font-size:1.15rem;color:var(--gold);margin-bottom:12px;padding-right:30px}
+.modal-box .kv{display:grid;grid-template-columns:max-content 1fr;gap:8px 16px;font-size:0.85rem;margin-bottom:16px}
+.modal-box .kv dt{color:var(--dim)}
+.modal-box .kv dd{color:var(--text);word-break:break-word}
+.modal-box h4{font-size:0.9rem;color:var(--cyan);margin:16px 0 8px}
+.neighbor-list{display:flex;flex-wrap:wrap;gap:8px}
+.neighbor{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:6px 10px;font-size:0.78rem}
+.neighbor .rel{color:var(--dim);margin-right:6px}
+
+.footer{text-align:center;padding:28px 0 12px;border-top:1px solid var(--border);margin-top:8px;font-size:0.72rem;color:var(--dim)}
+
+@media(max-width:600px){
+  .header .logo{font-size:1.5rem}
+  .dash{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="logo">🇨🇳 中国科技自主创新专栏 · 知识图谱</div>
+    <div class="sub">本地 Neo4j 驱动 · 45 篇专栏 · 115 节点 · 449 边</div>
+    <div class="dna">DNA: #龍芯⚡️丙午·丙申·庚申·酉时·䷼中孚-CN-INNOVATION-KG-PORTAL-v1.0</div>
+  </div>
+
+  <div class="search-row">
+    <input type="text" id="q" placeholder="搜索标题 / 摘要 / IPA / DNA…" onkeydown="if(event.key==='Enter')search()">
+    <button onclick="search()">搜索</button>
+    <button onclick="resetFilters()">重置</button>
+  </div>
+
+  <div class="dash" id="stats"></div>
+
+  <div class="section"><h2>领域</h2><div class="chips" id="fields"></div></div>
+  <div class="section"><h2>人格路由</h2><div class="chips" id="personas"></div></div>
+  <div class="section"><h2>内容标签</h2><div class="chips" id="tags"></div></div>
+  <div class="section"><h2>顶刊目标</h2><div class="chips" id="venues"></div></div>
+
+  <div class="section"><h2>论文列表</h2><div class="articles" id="articles"></div></div>
+
+  <div class="footer">
+    数据来源: longhun-cn-innovation-kb | API: /api/cn-innovation-kg | 协议: CC BY-NC-SA 4.0 / MulanPSL v2
+  </div>
+</div>
+
+<div class="modal" id="modal" onclick="closeModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <span class="close" onclick="closeModalPanel()">&times;</span>
+    <h3 id="mTitle"></h3>
+    <dl class="kv" id="mKv"></dl>
+    <h4>关联</h4>
+    <div class="neighbor-list" id="mNeighbors"></div>
+  </div>
+</div>
+
+<script>
+const API = "http://localhost:8444/api/cn-innovation-kg";
+let activeFilter = {};
+
+async function get(path) {
+  const r = await fetch(API + path);
+  if (!r.ok) throw new Error(await r.text());
+  return r.json();
+}
+
+function badgeClass(val) {
+  if (!val) return "";
+  if (val.includes("核心")) return "color:#f87171";
+  if (val.includes("重要")) return "color:#fb923c";
+  if (val.includes("补充")) return "color:#4ade80";
+  return "";
+}
+
+async function loadStats() {
+  const s = await get("/stats");
+  const el = document.getElementById("stats");
+  const nodeTotal = Object.values(s.nodes).reduce((a,b)=>a+b,0);
+  const edgeTotal = Object.values(s.edges).reduce((a,b)=>a+b,0);
+  el.innerHTML = `
+    <div class="metric"><div class="val">${nodeTotal}</div><div class="lbl">节点</div></div>
+    <div class="metric"><div class="val">${edgeTotal}</div><div class="lbl">边</div></div>
+    <div class="metric"><div class="val">${s.nodes.Article||0}</div><div class="lbl">论文</div></div>
+    <div class="metric"><div class="val">${s.nodes.Field||0}</div><div class="lbl">领域</div></div>
+    <div class="metric"><div class="val">${s.nodes.Tag||0}</div><div class="lbl">标签</div></div>
+    <div class="metric"><div class="val">${s.nodes.Venue||0}</div><div class="lbl">顶刊</div></div>
+  `;
+}
+
+function escapeJs(str) {
+  return String(str).replace(/\\/g,"\\\\").replace(/'/g,"\\'");
+}
+
+function chip(name, count, type, value) {
+  const active = activeFilter[type] === value;
+  return `<span class="chip ${active?'active':''}" onclick="setFilter('${type}','${escapeJs(value)}')">${name}<span class="count">${count}</span></span>`;
+}
+
+function buildURLParams() {
+  const params = new URLSearchParams();
+  if (activeFilter.q) params.set("q", activeFilter.q);
+  if (activeFilter.field) params.set("field", activeFilter.field);
+  if (activeFilter.tag) params.set("tag", activeFilter.tag);
+  if (activeFilter.persona) params.set("persona", activeFilter.persona);
+  if (activeFilter.venue) params.set("venue", activeFilter.venue);
+  if (activeFilter.wuxing) params.set("wuxing", activeFilter.wuxing);
+  if (activeFilter.layer) params.set("layer", activeFilter.layer);
+  if (activeFilter.status) params.set("status", activeFilter.status);
+  if (activeFilter.importance) params.set("importance", activeFilter.importance);
+  return params;
+}
+
+function updateURL(push = true) {
+  const params = buildURLParams();
+  const qs = params.toString();
+  const url = qs ? "?" + qs : location.pathname;
+  if (push) history.pushState({}, "", url);
+  else history.replaceState({}, "", url);
+}
+
+function applyFromURL() {
+  const params = new URLSearchParams(location.search);
+  activeFilter = {};
+  ["q","field","tag","persona","venue","wuxing","layer","status","importance"].forEach(k=>{
+    const v = params.get(k);
+    if (v) activeFilter[k] = v;
+  });
+  document.getElementById("q").value = activeFilter.q || "";
+}
+
+async function loadFacets() {
+  const f = await get("/facets");
+  document.getElementById("fields").innerHTML = f.facets.fields.map(x=>chip(x.label,x.cnt,"field",x.label)).join("") || "无";
+  document.getElementById("personas").innerHTML = f.facets.personas.map(x=>chip(x.label,x.cnt,"persona",x.label)).join("") || "无";
+  document.getElementById("tags").innerHTML = f.facets.tags.map(x=>chip(x.label,x.cnt,"tag",x.label)).join("") || "无";
+  document.getElementById("venues").innerHTML = f.facets.venues.map(x=>chip(x.label,x.cnt,"venue",x.label)).join("") || "无";
+}
+
+async function loadArticles() {
+  const params = buildURLParams();
+  params.set("limit", "200");
+  const data = await get("/articles?" + params.toString());
+  const el = document.getElementById("articles");
+  if (!data.articles.length) {
+    el.innerHTML = `<div class="empty">未找到匹配的论文</div>`;
+    return;
+  }
+  el.innerHTML = data.articles.map(a => `
+    <div class="article" onclick="openArticle('${escapeJs(a.id)}')">
+      <div class="title">${a.title}</div>
+      <div class="meta">
+        <span>${a.id}</span>
+        <span style="${badgeClass(a.importance)}">${a.importance||"-"}</span>
+        <span>${a.status||"-"}</span>
+        <span>${a.ipa||"-"}</span>
+      </div>
+      <div class="summary">${a.summary||"暂无摘要"}</div>
+    </div>
+  `).join("");
+}
+
+function search() {
+  activeFilter.q = document.getElementById("q").value.trim();
+  updateURL(true);
+  loadArticles();
+}
+
+function setFilter(type, value) {
+  if (activeFilter[type] === value) delete activeFilter[type];
+  else activeFilter[type] = value;
+  updateURL(true);
+  loadFacets();
+  loadArticles();
+}
+
+function resetFilters() {
+  activeFilter = {};
+  document.getElementById("q").value = "";
+  updateURL(true);
+  loadFacets();
+  loadArticles();
+}
+
+async function openArticle(id) {
+  const params = buildURLParams();
+  params.set("article", id);
+  history.pushState({}, "", "?" + params.toString());
+  const d = await get("/article/" + encodeURIComponent(id));
+  const a = d.article;
+  document.getElementById("mTitle").textContent = a.title;
+  const kv = document.getElementById("mKv");
+  const fields = [
+    ["ID", a.id], ["状态", a.status], ["重要程度", a.importance], ["IPA", a.ipa],
+    ["五行·宫位", a.dr], ["α三义", a.alpha], ["易经锚点", a.yijing], ["来源", a.source], ["DNA", a.dna]
+  ];
+  kv.innerHTML = fields.filter(([k,v])=>v).map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("") +
+                 `<dt>摘要</dt><dd>${a.summary||"-"}</dd>`;
+  const neigh = document.getElementById("mNeighbors");
+  if (a.neighbors && a.neighbors.length) {
+    neigh.innerHTML = a.neighbors.map(n=>`<span class="neighbor"><span class="rel">${n.rel}</span>${n.target_label}</span>`).join("");
+  } else {
+    neigh.innerHTML = "无";
+  }
+  document.getElementById("modal").classList.add("open");
+}
+
+function closeModalPanel() {
+  document.getElementById("modal").classList.remove("open");
+  const params = buildURLParams();
+  const qs = params.toString();
+  history.pushState({}, "", qs ? "?" + qs : location.pathname);
+}
+
+function closeModal(e) {
+  if (e.target.id === "modal") closeModalPanel();
+}
+
+window.addEventListener("popstate", () => {
+  applyFromURL();
+  loadFacets();
+  loadArticles();
+  const params = new URLSearchParams(location.search);
+  const article = params.get("article");
+  if (article) openArticle(article);
+  else document.getElementById("modal").classList.remove("open");
+});
+
+async function init() {
+  try {
+    applyFromURL();
+    await loadStats();
+    await loadFacets();
+    await loadArticles();
+    const params = new URLSearchParams(location.search);
+    const article = params.get("article");
+    if (article) await openArticle(article);
+  } catch (err) {
+    document.getElementById("articles").innerHTML = `<div class="empty">加载失败：${err.message}<br>请确认 API 服务已启动于 ${API}</div>`;
+  }
+}
+init();
+</script>
+</body>
+</html>

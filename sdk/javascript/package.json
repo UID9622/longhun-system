@@ -1,7 +1,7 @@
 {
   "name": "@longhun/tricolor",
   "version": "1.1.0",
-  "description": "🐉 龙魂·三色审计 JS SDK — 中国AI合规参考标准",
+  "description": "🐉 龍魂·三色审计 JS SDK — 中国AI合规参考标准",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -25,7 +25,7 @@
     "audit",
     "compliance",
     "longhun",
-    "龙魂"
+    "龍魂"
   ],
   "repository": {
     "type": "git",

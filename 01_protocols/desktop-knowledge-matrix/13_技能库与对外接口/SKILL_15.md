@@ -12,7 +12,7 @@ metadata:
   display_name: 龍魂通心译
   version: "2.0"
   author: UID9622
-  dna: "#龍芯⚡️2026-07-01-LONGHUN-TONGXINYI-v2.0-TAGS-VARS-WELDED-L0"
+  dna: "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-TONGXINYI-v2.0-TAGS-VARS-WELDED-L0"
   category: local
   level: "L0-L1"
   status: active
@@ -25,9 +25,9 @@ metadata:
 
 # longhun-tongxinyi | 龍魂前置翻译技能·通心译 v2.0
 
-> 主干 DNA：`#龍芯⚡️2026-07-01-TONGXIN-TRANSLATION-v2.0`  
-> 标签 DNA：`#龍芯⚡️2026-07-01-LONGHUN-TAG-SYSTEM-v1.0`  
-> 技能 DNA：`#龍芯⚡️2026-07-01-LONGHUN-TONGXINYI-v2.0-TAGS-VARS-WELDED-L0`  
+> 主干 DNA：`#龍芯⚡️丙午·丙申·庚申·亥时-TONGXIN-TRANSLATION-v2.0`  
+> 标签 DNA：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-TAG-SYSTEM-v1.0`  
+> 技能 DNA：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-TONGXINYI-v2.0-TAGS-VARS-WELDED-L0`  
 > 状态：🟢 生产就绪 · L0 核心锁死 · v2.0 扩展层开放
 
 ---
@@ -53,7 +53,7 @@ v2.0 升级：
 python3 ~/.kimi-code/skills/longhun-tongxinyi/scripts/tongxin_cli.py
 
 # 常用命令
-python3 .../tongxin_cli.py translate "画龙点睛"
+python3 .../tongxin_cli.py translate "画龍点睛"
 python3 .../tongxin_cli.py eval --limit 5
 python3 .../tongxin_cli.py tag 火·旺 HTML
 python3 .../tongxin_cli.py tag-search 启动
@@ -220,7 +220,7 @@ DRAWERS = json.load(open(
 1. **火气通心译层**：脏话/火气 → 方言拼音 / emoji / 通心译编码
    - 例："他妈的" → 温州话 "ni na" / emoji "🌿" / 通心译 "真是让人火大"
 2. **涉密语义库**：中国核心技术 → 内部代号
-   - 例："龙芯 CPU" → "北辰"（北极星）
+   - 例："龍芯 CPU" → "北辰"（北极星）
    - 例："鸿蒙 OS" → "洪荒"
 3. **反语义注入闸**：外部概念病毒 → 识别并熔断
    - 熔断词：技术无国界、灵活处理、国际接轨、商业化需要等

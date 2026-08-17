@@ -97,11 +97,11 @@ def _audit_battle_hook(endpoint: str, problem: str, solution: str, response):
         score = result.get("score", {})
         color_map = {"🟢": "green", "🟡": "yellow", "🔴": "red"}
         raw_color = score.get("color", "")
-        response.headers["X-Longhun-Audit-Score"] = str(score.get("overall", "-"))
-        response.headers["X-Longhun-Audit-Color"] = color_map.get(raw_color, raw_color)
-        response.headers["X-Longhun-Audit-Consensus"] = str(result.get("duel", {}).get("consensus", False))
+        response.headers["X-LongHun-Audit-Score"] = str(score.get("overall", "-"))
+        response.headers["X-LongHun-Audit-Color"] = color_map.get(raw_color, raw_color)
+        response.headers["X-LongHun-Audit-Consensus"] = str(result.get("duel", {}).get("consensus", False))
     except Exception as e:
-        response.headers["X-Longhun-Audit-Error"] = str(e)
+        response.headers["X-LongHun-Audit-Error"] = str(e)
     return response
 
 

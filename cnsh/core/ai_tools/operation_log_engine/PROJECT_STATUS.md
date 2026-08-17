@@ -24,7 +24,7 @@
 ## 🎯 项目概况
 
 ### 项目名称
-龍魂操作日记引擎 (Longhun Operation Log Engine)
+龍魂操作日记引擎 (LongHun Operation Log Engine)
 
 ### 项目目标
 构建一个完整的**本地去中心化身份系统**，通过：

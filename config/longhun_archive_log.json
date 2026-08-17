@@ -20,7 +20,7 @@
     "L2_技能层": ["longhun-algorithms-cnsh-v1.0.md"],
     "03_知識圖譜": [
       "三才算法发微_为曾老师正名.md",
-      "龙魂数字主权体系_学术论文_v2.0.md",
+      "龍魂数字主权体系_学术论文_v2.0.md",
       "longhun-immutable-philosophy.md",
       "行为密码学csdn.md",
       "LH-CDNA-v1.2-需求文档.md"
@@ -66,7 +66,7 @@
       "龍魂审核过滤系统-完整规则规格书.html"
     ],
     "bin": ["parse_notion.py", "session_end.sh", "本地_search.sh", "local_search.sh", "init_cnsh_structure.sh"],
-    "L6_集成层": ["龙魂系统_API接口完整实现_v1.0.py"],
+    "L6_集成层": ["龍魂系统_API接口完整实现_v1.0.py"],
     "audit": ["audit_engine.py"],
     "cnsh-core": ["cnsh_gateway.py"],
     "brain": ["deploy_brain.sh", "longhun_brain.py"],

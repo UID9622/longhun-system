@@ -37,8 +37,8 @@ import subprocess
 
 # 文化锚点：这些词不翻译，直接保留（文化主权）
 CULTURAL_ANCHORS = {
-    "龍魂": "Longhun",
-    "龍魂": "Longhun",
+    "龍魂": "LongHun",
+    "龍魂": "LongHun",
     "UID9622": "UID9622",
     "诸葛鑫": "Zhuge Xin",
     "龍芯北辰": "Longxin Beichen",

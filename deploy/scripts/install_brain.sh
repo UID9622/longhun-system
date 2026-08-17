@@ -76,7 +76,7 @@ echo "[✓] 本地 search 测试 (搜 'CLAUDE.md'):"
 bash "$REPO_ROOT/bin/本地_search.sh" "CLAUDE.md" 2>/dev/null | head -10
 
 # 字符律
-SIMP=$(grep -c "龙" "$REPO_ROOT/CLAUDE.md" 2>/dev/null)
+SIMP=$(grep -c "龍" "$REPO_ROOT/CLAUDE.md" 2>/dev/null)
 SIMP="${SIMP:-0}"
 if [ "$SIMP" -eq 0 ]; then
     echo "[✓] 龍字符律守住·无简体污染"

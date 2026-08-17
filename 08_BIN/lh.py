@@ -798,17 +798,123 @@ def _run_fixed_cmd(cmd: str):
 # smart_default: 当用户传自由文本时自动插入的子命令（如 search engine 需要 "search" 子命令）
 SUB_DISPATCH = {
     'search':               ('lh_search_engine.py',           '🔍', '搜索引擎', [], 'search'),
+    # 💤 技能调度器 v1.0 — 技能用完即休·用时即唤·不常驻省算力（2026-08-16）
+    'skill':                ('lh_skill_scheduler.py',         '💤', '技能调度·list/wake/sleep/autosleep/stats（用完休眠·用前唤醒·省CPU）', [], 'status'),
+    'skill-list':           ('lh_skill_scheduler.py',         '📋', '技能调度·清单', [], 'list'),
+    'skill-wake':           ('lh_skill_scheduler.py',         '✅', '技能调度·唤醒', [], 'wake'),
+    'skill-sleep':          ('lh_skill_scheduler.py',         '💤', '技能调度·休眠', [], 'sleep'),
+    # 🪖 军事调度引擎 v1.0 — 龍芯家族花名册·树状编制·点名·令行禁止·该野该静该守（2026-08-16）
+    # 默认子命令放第4位(default_args)，否则 smart_default 取 rest[0] 空列表不生效
+    'military':             ('lh_military.py',                '🪖', '军事调度·态势/花名册/兵种/点名/军令/节奏（龍魂=一支部队）', ['status']),
+    'military-status':      ('lh_military.py',                '📊', '军事调度·全军态势', ['status']),
+    'military-roster':      ('lh_military.py',                '📜', '军事调度·花名册(树状编制)', ['roster']),
+    'military-branch':      ('lh_military.py',                '🪖', '军事调度·兵种查看', ['branch']),
+    'military-rollcall':    ('lh_military.py',                '🫡', '军事调度·全军点名(阵亡检测)', ['rollcall']),
+    'military-order':       ('lh_military.py',                '⚡', '军事调度·下达军令(令行禁止)', ['order']),
+    'military-orders':      ('lh_military.py',                '📋', '军事调度·最近军令', ['orders']),
+    'military-phase':       ('lh_military.py',                '🎭', '军事调度·该野该静该守节奏', ['phase']),
+    'military-collab':      ('lh_military.py',                '🤝', '军事调度·协同矩阵(谁呼叫谁)', ['collab']),
+    'military-test':        ('lh_military.py',                '🛡️', '军事调度·全自动自测(参数/路径/协同/数字根)', ['test']),
+    'military-help':        ('lh_military.py',                '❓', '军事调度·帮助', ['help']),
+    # ⚡ 快速检索引擎 v1.0 — 协议/代码秒查·索引锚·冲突检测·迭代归档（2026-08-15）
+    'quick':                ('../08_BIN/lh_quick_retrieval.py', '⚡', '快速检索·协议/代码秒查·search/get/check/iterate/index/stats', [], 'stats'),
+    'qfind':                ('../08_BIN/lh_quick_retrieval.py', '⚡', '快速检索(简)·同 quick', [], 'stats'),
+    # 🧬 快速索引流水线 v1.0 — 五层认知索引(主动感知/多维锚定/动态演化/协同涌现/无意识检索)·build/search/touch/suggest/rank/status（2026-08-16）
+    'idx':                  ('lh_index_pipeline.py',            '🧬', '认知索引·五层快速索引·build/search/touch/suggest/rank/status', [], 'status'),
+    'idx-build':            ('lh_index_pipeline.py',            '🏗️', '认知索引·全量构建', ['build']),
+    'idx-search':           ('lh_index_pipeline.py',            '🔍', '认知索引·自然语言搜索', [], 'search'),
+    'idx-touch':            ('lh_index_pipeline.py',            '👣', '认知索引·记录访问(动态演化)', ['touch']),
+    'idx-suggest':          ('lh_index_pipeline.py',            '🔮', '认知索引·无意识推送', ['suggest'], 'suggest'),
+    'idx-rank':             ('lh_index_pipeline.py',            '📈', '认知索引·热榜', ['rank']),
+    'idx-status':           ('lh_index_pipeline.py',            '📊', '认知索引·状态', ['status']),
+    # 🧬 快速索引底座 v2.0 — 五层认知索引引擎(主动感知/多维锚定/动态演化/协同涌现/无意识检索)·SQLite持久化·Ollama向量·鲲鹏ARM64优化（2026-08-16）
+    'fast-index':           ('../05_ENGINES/lh_fast_index_core.py', '🧬', '快速索引底座·init/index/search/push/dashboard/serve/watch', [], 'dashboard'),
+    'fast-index-init':      ('../05_ENGINES/lh_fast_index_core.py', '🚀', '快速索引·初始化', ['init']),
+    'fast-index-index':     ('../05_ENGINES/lh_fast_index_core.py', '🏗️', '快速索引·索引项目(--dir --pattern --force)', ['index']),
+    'fast-index-search':    ('../05_ENGINES/lh_fast_index_core.py', '🔍', '快速索引·统一搜索', [], 'search'),
+    'fast-index-push':      ('../05_ENGINES/lh_fast_index_core.py', '📤', '快速索引·零点击推送', [], 'push'),
+    'fast-index-dashboard': ('../05_ENGINES/lh_fast_index_core.py', '📊', '快速索引·看板', ['dashboard']),
+    'fast-index-serve':     ('../05_ENGINES/lh_fast_index_core.py', '🌐', '快速索引·HTTP API服务(--port)', ['serve']),
+    'fast-index-watch':     ('../05_ENGINES/lh_fast_index_core.py', '👀', '快速索引·会话监听(--duration)', ['watch']),
+    # 📚 lh 命令分类目录 v1.0 — AST解析302命令·十二大类·别名/旧引擎标归档·cat/cat-new/cat-old/cat-gen（2026-08-16）
+    'cat':                  ('lh_command_catalog.py',           '📚', '命令分类目录·全部命令十二大类总览', [], 'all'),
+    'cat-new':              ('lh_command_catalog.py',           '✨', '命令分类目录·只看最新命令', ['new']),
+    'cat-old':              ('lh_command_catalog.py',           '📦', '命令分类目录·只看归档命令(旧+别名)', ['old']),
+    'cat-gen':              ('lh_command_catalog.py',           '🗂️', '命令分类目录·生成归档清单JSON', ['gen']),
+    # 🛡️ lh 阈值触发引擎 v2.1 — 21守卫·三色审计·阈值触发非定时·launchd每10分钟驱动（2026-08-16）
+    'threshold':            ('lh_threshold_trigger.py',     '🛡️', '阈值触发·21守卫三色审计检查(全跑)', ['--check', 'all']),
+    'threshold-status':     ('lh_threshold_trigger.py',     '📊', '阈值触发·触发历史审计留痕', ['--status']),
+    'threshold-list':       ('lh_threshold_trigger.py',     '📋', '阈值触发·列出全部21守卫', ['--list']),
+    'threshold-repair':     ('lh_threshold_trigger.py',     '🔧', '阈值触发·检测并自动修复', ['--check', 'all', '--repair']),
+    'threshold-deploy':     ('lh_threshold_trigger.py',     '🚀', '阈值触发·部署launchd守护', ['--deploy']),
+    # 🌐 CNSH知识图谱引擎 v2.0 — 三才(天/地/人)·60领域·修复接口·CNSH导出·API:8767（2026-08-15）
+    'kg':                   ('../08_BIN/lh_knowledge_graph_v2.py', '🌐', 'CNSH知识图谱·三才分类·kg 关键词直达搜索·init/status/search/repair/export/tree/path/clipboard/mermaid/server', ['--status']),
+    'kg-init':              ('../08_BIN/lh_knowledge_graph_v2.py', '🚀', '知识图谱·初始化60领域(幂等)', ['--init']),
+    'kg-status':            ('../08_BIN/lh_knowledge_graph_v2.py', '📊', '知识图谱·状态', ['--status']),
+    'kg-search':            ('../08_BIN/lh_knowledge_graph_v2.py', '🔍', '知识图谱·搜索', [], '--search'),
+    'kg-repair':            ('../08_BIN/lh_knowledge_graph_v2.py', '🔧', '知识图谱·修复建议(AI可调)', ['--repair']),
+    'kg-export':            ('../08_BIN/lh_knowledge_graph_v2.py', '📤', '知识图谱·导出CNSH', ['--export']),
+    'kg-tree':              ('../08_BIN/lh_knowledge_graph_v2.py', '🌳', '知识图谱·知识树', [], '--tree'),
+    'kg-path':              ('../08_BIN/lh_knowledge_graph_v2.py', '🧭', '知识图谱·根路径追溯', [], '--path'),
+    'kg-mermaid':           ('../08_BIN/lh_knowledge_graph_v2.py', '📈', '知识图谱·Mermaid可视化', [], '--mermaid'),
+    'kg-clipboard':         ('../08_BIN/lh_knowledge_graph_v2.py', '📋', '知识图谱·剪贴板导出', [], '--clipboard'),
+    'kg-server':            ('../08_BIN/lh_knowledge_graph_v2.py', '🌐', '知识图谱·API服务(8767)', ['--server']),
+    # 🐉 完整测试套件 v1.0 — 代码审计/功能评估/冒烟/自动迭代/报告（2026-08-15）
+    'test':                 ('../tests/run_all_tests.py',       '🧪', '完整测试套件·默认v1.0四文件(--audit/--smoke/--auto/--all/--report)', ['--report']),
+    'test-orch':            ('../tests/test_orchestrator.py',   '🎼', '测试流程调度器·四阶段依赖执行+重试', []),
+    'test-report':          ('../tests/generate_report.py',     '📄', '测试报告·生成Markdown+三色审计', []),
+    'test-audit':           ('../tests/run_all_tests.py',       '🔍', '代码审计·只跑audit', [], '--audit'),
+    'test-smoke':           ('../tests/run_all_tests.py',       '🔥', '冒烟测试·只跑smoke', [], '--smoke'),
+    'test-data':            ('../tests/test_data_manager.py',   '🗃️', '测试数据管理·生成/脱敏/自检', []),
+    'test-cov':             ('../tests/coverage_check.py',      '📊', '覆盖率门禁·coverage_check [file] [阈值]', []),
+    # 🏭 全自动工厂 v2.1 — 造零件→质检→门禁→修复→发布→部署→反馈·run/status/artifacts/learn/monitor/gate/release/rollback/circuit（2026-08-15）
+    'factory':              ('../08_BIN/lh_auto_factory.py',    '🏭', '全自动工厂·run [路径]/status/artifacts/learn/monitor/gate/release/rollback/versions/circuit/kunpeng', ['status'], ''),
+    'factory-run':          ('../08_BIN/lh_auto_factory.py',    '🏭', '工厂·运行完整流程', ['--run']),
+    'factory-status':       ('../08_BIN/lh_auto_factory.py',    '📊', '工厂·状态', ['--status']),
+    'factory-gate':         ('../08_BIN/lh_auto_factory.py',    '🚧', '工厂·质量门禁规则', ['--gate']),
+    'factory-release':      ('../08_BIN/lh_auto_factory.py',    '🚀', '工厂·发布策略(canary/gray/full)', ['--release']),
+    'factory-rollback':     ('../08_BIN/lh_auto_factory.py',    '⏪', '工厂·回滚', ['--rollback']),
+    'factory-monitor':      ('../08_BIN/lh_auto_factory.py',    '🔬', '工厂·自监控', ['--monitor']),
+    'factory-learn':        ('../08_BIN/lh_auto_factory.py',    '🧠', '工厂·学习模式', ['--learn']),
+    # 🐉 Mac全应用互通引擎 v2.0 — 环境变量/配置/记忆/状态统一·软链接+热加载守护（2026-08-15）
+    'unify':                ('../08_BIN/lh_unify.py',          '🔄', 'Mac全应用互通引擎·install/sync/status/backup/daemon/uninstall/restore', ['--status']),
+    'unify-install':        ('../08_BIN/lh_unify.py',          '🚀', '互通引擎·安装', ['--install']),
+    'unify-sync':           ('../08_BIN/lh_unify.py',          '🔄', '互通引擎·同步所有应用配置', ['--sync']),
+    'unify-backup':         ('../08_BIN/lh_unify.py',          '💾', '互通引擎·手动备份', ['--backup']),
+    'unify-daemon':         ('../08_BIN/lh_unify.py',          '👁️', '互通引擎·热加载守护', ['--daemon']),
+    'unify-restore':        ('../08_BIN/lh_unify.py',          '🧊', '互通引擎·从冻结恢复', ['--restore']),
     'video':                ('lh_video_studio.py',            '🎬', '视频工坊'),
     'material':             ('lh_material_search.py',          '🎞️', '素材库', [], 'search'),
     'material-scan':        ('lh_material_scanner.py',         '📂', '素材扫描入库'),
     'material-tag':         ('lh_material_tagger.py',          '🏷️', '素材自动打标'),
     'material-match':       ('lh_material_video_bridge.py',    '🎬', '视频场景匹配'),
     'video-clean':          ('lh_video_cleaner.py',            '🧹', '视频素材清洗(帧提取·去重·打标)', [], 'test'),
+    # 📥 统一AI对话采集容器 v1.0 — 所有AI对话→一个容器·DNA追溯·跨AI检索（2026-08-15）
+    'capture':              ('../08_BIN/lh_conversation_capture.py', '📥', '统一AI对话采集·capture/search/stats/recent/topic/import-jsonl/import-deepseek/dedup/health/cleanup/audit/capture-all/merge-report/merge/server', ['stats']),
+    'capture-serve':        ('../08_BIN/lh_conversation_capture.py', '🌐', '对话采集·启动HTTP服务(8769·浏览器扩展入口)', ['server']),
+    'capture-all':          ('../08_BIN/lh_conversation_capture.py', '📥', '对话采集·一键采集已知产出(Kimi/DeepSeek/CodeBuddy)', ['capture-all']),
+    'capture-merge':        ('../08_BIN/lh_conversation_capture.py', '🧬', '对话采集·生成合并报告', ['merge-report']),
+    'merge':                ('../08_BIN/lh_conversation_capture.py', '🧬', '统一合并(capture-all+合并报告·含所有AI对话)', ['merge']),
+    # 🧬 语义合并引擎 v2.0 — 通心译转译·语义相似度·分组合并·三色审计·史官·回滚·自动归档（2026-08-15）
+    'semantic-merge':       ('../08_BIN/lh_semantic_merge.py', '🧬', '语义合并·通心译映射/语义分组/智能合并/三色审计/史官/回滚/知识图谱反哺', ['--status']),
+    'smerge':               ('../08_BIN/lh_semantic_merge.py', '🧬', '语义合并(别名·同 semantic-merge)', ['--status']),
     'merchant':             ('lh_merchant_api_gateway.py',     '🏪', '国产商户API平台(注册·审核·密钥·网关)', [], 'test'),
     'merchant-serve':       ('lh_merchant_api_gateway.py',     '🚀', '启动商户API网关', ['serve']),
     'gateway-quickstart':   ('lh_merchant_gateway_quickstart.py', '⚡', '商户API一键启动+测试+接入信息', ['--full']),
     'pipeline_3d':           ('lh_3d_pipeline.py',             '🎨', '3D管线'),
     'browser':              ('lh_browser_historian.py',       '📖', '浏览器史官'),
+    # 🐉 Mac浏览器开发者模式 v1.0 — Chrome CDP零依赖·参数/功能/安全防御/监控/史官/HTTP服务（2026-08-15）
+    'browser-dev':          ('../08_BIN/lh_browser_controller.py', '🖥️', '浏览器开发者模式·start/stop/status/snapshot/open/参数/反指纹/隐私/server(9766)', ['--status']),
+    'browserctl':           ('../08_BIN/lh_browser_controller.py', '🖥️', '浏览器开发者模式(别名·同 browser-dev)', ['--status']),
+    'browser-dev-start':    ('../08_BIN/lh_browser_controller.py', '🚀', '浏览器开发者模式·启动(带开发者工具)', ['--start', '--devtools']),
+    'browser-dev-stop':     ('../08_BIN/lh_browser_controller.py', '🛑', '浏览器开发者模式·停止', ['--stop']),
+    'browser-dev-status':   ('../08_BIN/lh_browser_controller.py', '📊', '浏览器开发者模式·状态', ['--status']),
+    'browser-dev-config':   ('../08_BIN/lh_browser_controller.py', '⚙️', '浏览器开发者模式·查看配置', ['--config']),
+    'browser-dev-kill':     ('../08_BIN/lh_browser_controller.py', '💀', '浏览器开发者模式·强制终止', ['--kill']),
+    'browser-dev-serve':    ('../08_BIN/lh_browser_controller.py', '🌐', '浏览器开发者模式·HTTP服务(9766·供鲲鹏网关)', ['--server', '9766']),
+    # 🐉 浏览器指令网关（鲲鹏端）— 小艺/Kimi/CodeBuddy→鲲鹏:8768→Mac:9766（2026-08-15）
+    'browser-gw':           ('../08_BIN/lh_browser_gateway.py', '🌐', '浏览器指令网关(鲲鹏端·通心译·转发Mac·史官·--status看配置)', ['--status']),
+    'browser-gw-serve':     ('../08_BIN/lh_browser_gateway.py', '🚀', '启动浏览器指令网关(:8768)', ['--serve']),
     'cnsh':                 ('cnsh_compiler.py',              '🀄', 'CNSH编译器'),
     'cnsh_runtime':         ('lh_cnsh_runtime_math.py',        '⚡', 'CNSH运行时数学', [], 'status'),
     'cnsh_complete':        ('cnsh_complete.py',              '☯️', 'CNSH完整版', [], '--interactive'),
@@ -819,6 +925,7 @@ SUB_DISPATCH = {
     'cnsh_transpile':       ('lh_cnsh_transpiler.py',         '🔄', 'CNSH轻量双向转换·批量/管道', [], '--info'),
     'cnsh_ui':              ('cnsh_ui.py',                    '🖥️', 'CNSH UI'),
     'seven_dimension':      ('lh_seven_dimension_engine_v2.py','🌌', '七维推演引擎', [], '--interactive'),
+    'xue':                  ('lh_learn_engine.py',            '🎓', '学习协作引擎·缺口审计+人格分配写作+左右互搏(五步流水线)', [], '--help'),
     'three_color':          ('lh_three_color_audit.py',       '🔴', '三色审计引擎', [], 'audit'),
     'loyalty':              ('lh_loyalty_scan.py',            '🐉', '忠义数据铁律自检（永不收集用户数据）', [], 'scan'),
     'uv':                   ('lh_unified_visual.py',          '🎨', '统一视觉色彩引擎(八色)', [], 'judge'),
@@ -848,7 +955,7 @@ SUB_DISPATCH = {
     'compliance':           ('lh_compliance.py',              '⚖️', '合规证据包（法律+国密+等保+AI合规）', ['--export']),
     'syntax':               ('lh_syntax_lint.py',              '📐', '语法规范校验·DNA/确认码/缩进/龍字/三色/许可·依据v3.0', [], '.'),
     'syntax-lint':          ('lh_syntax_lint.py',              '📐', '语法规范校验(全写)·同上', [], '.'),
-    'syntax-fix':           ('lh_syntax_lint.py',              '🔧', '自动修正「龙」→「龍」品牌标识', ['--fix-dragon']),
+    'syntax-fix':           ('lh_syntax_lint.py',              '🔧', '自动修正「龍」→「龍」品牌标识', ['--fix-dragon']),
     'status':               ('lh_unified_brain.py',           '📊', '全系统状态', ['status']),
     '掀黑箱':               ('lh_掀黑箱.py',                  '📦', '掀黑箱审计', ['.']),
     'imprint':              ('lh_digital_imprint.py',        '🧬', '数字人印记'),
@@ -858,6 +965,8 @@ SUB_DISPATCH = {
     'notion-architect':     ('lh_notion_architect.py',        '🏗️', 'Notion架构管理器'),
     'notion-link':          ('lh_notion_autolinker.py',        '🔗', 'Notion自动关联器'),
     'notion-bridge':        ('lh_notion_chat_bridge.py',       '💬', 'Notion对话桥', [], 'serve'),
+    'landing':              ('lh_landing_engine.py',           '🛬', '落地焊死引擎·知识→落地→执行(scan/run/dashboard)', [], 'dashboard'),
+    'naming':               ('lh_naming_engine.py',            '📛', '统一命名引擎·检查/修复/cnsh映射(check/fix/convert/dashboard)', [], 'dashboard'),
     'portal':               ('lh_portal_api.py',               '🌐', '统一门户官网', [], '--port 8778'),
     'mode':                 ('lh_universal_mode.py',           '🧬', '统一AI执行模式·ROOT_CARD审计', [], ''),
     'learn':                ('lh_learning_engine.py',          '🧠', '自主学习引擎·知识DNA·数字大军', [], ''),
@@ -885,7 +994,7 @@ SUB_DISPATCH = {
     'time-engine':          ('lh_time_engine.py',             '🐉', '时间引擎·天干地支·64卦·审计链·输出戳', [], 'stamp'),
     'te':                   ('lh_time_engine.py',             '🐉', '时间引擎(简)·天干地支·64卦', [], 'stamp'),
     # 🐉 道德经知识引擎 v2.0 — 可编程·可查询·蚁群定锚·五行生克·DNA全链路
-    'ddj':                  ('lh_daodejing_engine.py',         '📖', '道德经引擎·查询/定锚/导出/统计·81章龙魂解读', [], ''),
+    'ddj':                  ('lh_daodejing_engine.py',         '📖', '道德经引擎·查询/定锚/导出/统计·81章龍魂解读', [], ''),
     'daodejing':            ('lh_daodejing_engine.py',         '📖', '道德经引擎(全写)·同上', [], ''),
     # 🔥 知识矩阵 v1.0 — 全维度知识索引聚合·协议·论文·CSDN·引擎·图谱
     'matrix':               ('lh_knowledge_matrix.py',        '🧬', '知识矩阵·全维度知识索引聚合', [], '--pretty'),
@@ -896,12 +1005,22 @@ SUB_DISPATCH = {
     # 🧬 DNA追溯码生成 — 自动化时空标签·五行·64卦·ROOT_CARD
     'dna':                  ('lh_dna_generator.py',           '🧬', 'DNA追溯码生成·五行·64卦·ROOT_CARD', [], '--title'),
     'dna-gen':              ('lh_dna_generator.py',           '🧬', 'DNA生成(完整名)', [], '--title'),
-    # ⛓️ DNA接龙链引擎 v1.0 — 只追加·不覆盖·不删除·行为密码学注链·跨人格接龙
-    'dna-chain':            ('lh_dna_chain.py',               '⛓️', 'DNA接龙链·init/append/verify/show/scan/auto'),
+    # ⛓️ DNA接龍链引擎 v1.0 — 只追加·不覆盖·不删除·行为密码学注链·跨人格接龍
+    'dna-chain':            ('lh_dna_chain.py',               '⛓️', 'DNA接龍链·init/append/verify/show/scan/auto'),
     # 🔗 龍魂信任链 v1.2 — 哈希签章链·GPG分离签名·防篡改·CI/CD闸门
     'trust-chain':          ('lh_trust_chain.py',             '🔗', '龍魂信任链·demo/deploy/verify/docs', [], 'demo'),
     # 🐉 透明审计与冲突仲裁 v2.2 — 多引擎事实级仲裁·三色/R值双尺·年轮链
     'transparent-audit':    ('lh_transparent_audit.py',       '🐉', '透明审计仲裁·demo/audit/api/verify', [], 'demo'),
+    # 🛠️ launchd 服务生命周期控制台 — 冻结/唤醒/状态/日志 · 可视化按钮
+    'service-control':      ('lh_service_control.py',         '🛠️', '服务控制台·status/freeze/wake/api', [], 'status'),
+    # 🌊 流场拓扑引擎 — 全系统节点/协作链路/算法公式/实时日志 · 可视化流场图
+    'flow-field':           ('lh_flow_field.py',              '🌊', '流场拓扑·status/node/api', [], 'status'),
+    # 🧠 会话自动上下文引擎 — 分工矩阵+最近记忆+待办 一键打包 · AI进门必读
+    'auto-context':         ('lh_auto_context.py',            '🧠', '会话自动上下文·--days/--json', [], ''),
+    # 🏦 数据保险柜引擎 — 个人数据压缩归档·全量存鲲鹏 · P07管仲
+    'vault':                ('lh_data_vault.py',              '🏦', '数据保险柜·status/scan/compress/pack/push', [], 'status'),
+    # 🧩 人格分工矩阵 — 谁负责什么·焊死·自动路由
+    'duty':                 ('lh_duty_view.py',               '🧩', '人格分工·matrix/view', [], 'matrix'),
     # 📦 AI归集Hub v2.0 — KFPP七因子过滤·跨工具索引·符号链接归集
     'hub':                  ('lh_ai_hub.py',                  '📦', 'AI归集Hub·build/search/link/status（含KFPP过滤）'),
     # 🐉 透明审计AI Hub — 多模型对话·对比·审计仪表盘·DNA追溯
@@ -1153,7 +1272,7 @@ def main():
     parser.add_argument('--complete', type=str, help='命令自动补全 (lh --complete "部")')
     parser.add_argument('--repo', nargs=argparse.REMAINDER, help='开源项目模板生成 (lh --repo 或 lh --repo --dry-run 或 lh --repo -o ~/my-project)')
     parser.add_argument('--dna', nargs=argparse.REMAINDER, help='DNA生成与管理 (lh --dna generate/lookup/inherit/family/verify/stats)')
-    parser.add_argument('--dna-chain', dest='dna_chain', nargs=argparse.REMAINDER, help='⛓️ DNA接龙链 (lh --dna-chain init/append/verify/show/scan/auto)')
+    parser.add_argument('--dna-chain', dest='dna_chain', nargs=argparse.REMAINDER, help='⛓️ DNA接龍链 (lh --dna-chain init/append/verify/show/scan/auto)')
     parser.add_argument('--eco', nargs=argparse.REMAINDER, help='🌐 生态接入·月度活人验证 (lh --eco alive/export/passport)')
     parser.add_argument('--passport', dest='passport_cmd', nargs=argparse.REMAINDER, help='🧬 生态通行证 (lh --passport create/auto/show/status)')
     parser.add_argument('--xpay', nargs=argparse.REMAINDER, help='💰 XPay支付网关 (lh --xpay pay/wish/balance)')
@@ -1995,14 +2114,21 @@ def main():
             if _v is not None:
                 extra += [f'--{_flag}'] + list(_v)
         script, emoji, desc, *rest = SUB_DISPATCH[subcmd]
-        smart_default = rest[0] if rest else None
+        # 🔧 修正: rest = (default_args, smart_default) — 取最后一个作为 smart_default
+        #   例: 'fast-index': (..., [], 'dashboard') → smart_default='dashboard'
+        #        'fast-index-search': (..., [], 'search') → smart_default='search'
+        smart_default = rest[-1] if rest else None
         if not extra and smart_default and isinstance(smart_default, (list, str)):
             if isinstance(smart_default, str):
                 extra = [smart_default]
             else:
                 extra = list(smart_default)
         no_header = '--json' in extra
-        _run_subcommand(script, extra, emoji, desc, suppress_header=no_header, command_name=subcmd)
+        # 🔧 别名命令才插入 smart_default（如 fast-index-search → 插入 search）
+        #   主命令 + 显式子命令（fast-index search x）不插入，避免误插默认值
+        sd = smart_default if (isinstance(smart_default, str) and smart_default
+                               and subcmd.endswith(smart_default)) else ''
+        _run_subcommand(script, extra, emoji, desc, sd, suppress_header=no_header, command_name=subcmd)
         return
 
     # === 调度表子命令统一处理（30+ 引擎一行处理） ===
@@ -2029,7 +2155,10 @@ def main():
             extra = list(val) if val else list(default_args)
             # 检测 --json 参数，抑制 header 以避免污染管道输出
             no_header = '--json' in (extra or [])
-            _run_subcommand(script, extra, emoji, desc, smart_default, suppress_header=no_header, command_name=flag)
+            # 🔧 别名命令才插入 smart_default（同位置子命令分支逻辑）
+            sd = smart_default if (isinstance(smart_default, str) and smart_default
+                                   and flag.endswith(smart_default)) else ''
+            _run_subcommand(script, extra, emoji, desc, sd, suppress_header=no_header, command_name=flag)
             return
 
     if args.health:

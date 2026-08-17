@@ -1626,7 +1626,7 @@ CNSH语言的意义：
 ---
 DNA追溯码： #ZHUGEXIN⚡️2025-12-31-CNSH快速开始指南-v1.0
 创建者： Lucky·UID9622
-系统： 龙魂系统
+系统： 龍魂系统
 状态： ✅ 可用
 #!/usr/bin/env node
 /**

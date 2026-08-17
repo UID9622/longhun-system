@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # DNA: #龍芯⚡️丙午·乙未·乙丑·明夷-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-"""Persona routing service for Longhun content generation."""
+"""Persona routing service for LongHun content generation."""
 
 import json
 import subprocess
@@ -19,7 +19,7 @@ from config import get_settings
 
 
 class PersonaService:
-    """Manage Longhun personas and route tasks to appropriate persona."""
+    """Manage LongHun personas and route tasks to appropriate persona."""
 
     def __init__(self):
         self.settings = get_settings()

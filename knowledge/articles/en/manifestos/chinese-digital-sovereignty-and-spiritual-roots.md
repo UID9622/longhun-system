@@ -1,7 +1,7 @@
 # DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# Chinese Digital Sovereignty & Spiritual Roots — The Longhun System
+# Chinese Digital Sovereignty & Spiritual Roots — The LongHun System
 
 > **DNA:** `#龍芯⚡️2026-07-05-DIGITAL-SOVEREIGNTY-SPIRIT-ROOTS-v2.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777F`  
@@ -17,7 +17,7 @@ In the digital age, a nation's sovereignty is no longer just territorial — it'
 
 China's 5,000-year civilization has never been just about land. It's about a way of thinking, a way of relating to the cosmos, a way of structuring human relationships. These are **spiritual roots** — and they are precisely what globalized, homogenized digital platforms threaten to erase.
 
-This essay argues: **Digital sovereignty without spiritual roots is just self-defense. Spiritual roots without digital sovereignty are just nostalgia. The Longhun System aims to fuse both.**
+This essay argues: **Digital sovereignty without spiritual roots is just self-defense. Spiritual roots without digital sovereignty are just nostalgia. The LongHun System aims to fuse both.**
 
 ---
 
@@ -57,7 +57,7 @@ These are not "backward values." They are sophisticated, time-tested governance 
 
 ### Theft 1: Theft of Memory
 
-When your photos, messages, and documents live on foreign-owned clouds, your personal history is not yours. Platforms can delete, demonetize, or data-mine your memories. The Longhun answer: **local-first storage, encrypted cloud backup, you hold the keys**.
+When your photos, messages, and documents live on foreign-owned clouds, your personal history is not yours. Platforms can delete, demonetize, or data-mine your memories. The LongHun answer: **local-first storage, encrypted cloud backup, you hold the keys**.
 
 ### Theft 2: Theft of Attention
 
@@ -65,7 +65,7 @@ The average person checks their phone 150+ times per day. Each check is a micro-
 
 ### Theft 3: Theft of Identity
 
-Your digital identity is fragmented across dozens of platforms. None of them are you — but together, they own a more complete picture of you than you do. The Longhun answer: **unified sovereign identity, with you as the root of trust**.
+Your digital identity is fragmented across dozens of platforms. None of them are you — but together, they own a more complete picture of you than you do. The LongHun answer: **unified sovereign identity, with you as the root of trust**.
 
 ### Theft 4: Theft of Time
 
@@ -81,15 +81,15 @@ When algorithms decide what you see, read, buy, and believe, your agency is not 
 
 ### 3.1 I Ching (易经 · Book of Changes)
 
-Not fortune-telling. A mathematical model of change with 64 states (hexagrams), each representing a configuration of forces. The Longhun System's 64-hexagram audit engine uses this as a classification framework — not superstition, but **structure**.
+Not fortune-telling. A mathematical model of change with 64 states (hexagrams), each representing a configuration of forces. The LongHun System's 64-hexagram audit engine uses this as a classification framework — not superstition, but **structure**.
 
 ### 3.2 HeTu LuoShu (河图洛书)
 
-Ancient Chinese cosmological diagrams encoding numerical relationships. The Longhun System's 369 fixed points (the "immovable base") derive from these diagrams. Three is heaven, six is earth, nine is human — the three dimensions within which all system behavior must remain anchored.
+Ancient Chinese cosmological diagrams encoding numerical relationships. The LongHun System's 369 fixed points (the "immovable base") derive from these diagrams. Three is heaven, six is earth, nine is human — the three dimensions within which all system behavior must remain anchored.
 
 ### 3.3 Tao Te Ching (道德经)
 
-Laozi's 5,000-character masterpiece contains more governance wisdom than most modern management libraries. Key principles operationalized in Longhun:
+Laozi's 5,000-character masterpiece contains more governance wisdom than most modern management libraries. Key principles operationalized in LongHun:
 
 - **Wu Wei (无为)**: Not "do nothing" — "don't force against the grain." Design systems that work with natural flows rather than imposing artificial constraints.
 - **Reversal is the movement of Tao (反者道之动)**: Systems that push too far in one direction self-correct. Design for this.
@@ -97,11 +97,11 @@ Laozi's 5,000-character masterpiece contains more governance wisdom than most mo
 
 ---
 
-## Part 4: The Longhun Architecture of Sovereignty
+## Part 4: The LongHun Architecture of Sovereignty
 
 ### 4.1 DNA Traceability
 
-Every action in the Longhun System — every file created, every decision made, every protocol updated — carries a **DNA traceability code**:
+Every action in the LongHun System — every file created, every decision made, every protocol updated — carries a **DNA traceability code**:
 
 ```
 #龍芯⚡️YYYY-MM-DD-MODULE-ACTION-HASH8
@@ -125,7 +125,7 @@ Not "multiple personalities." Functional routing. Twenty personas (strategic, ex
 
 ### 4.4 CN-CA Root of Trust
 
-The Longhun System trusts only **Chinese Certificate Authorities** for digital signatures. Foreign CAs are treated as untrusted by default. This is not xenophobia — it's the same principle as not letting a foreign government issue your passport.
+The LongHun System trusts only **Chinese Certificate Authorities** for digital signatures. Foreign CAs are treated as untrusted by default. This is not xenophobia — it's the same principle as not letting a foreign government issue your passport.
 
 ---
 
@@ -137,7 +137,7 @@ Let me be precise:
 2. **Spiritual roots** means: building on one's own civilizational foundation. It does not mean: rejecting all foreign ideas.
 3. **Serving the Chinese people first** means: priority to those who need it most. It does not mean: excluding others.
 
-The Longhun System licenses all content under **CC BY-NC-SA 4.0** — Creative Commons, non-commercial, share-alike. This is an open framework. Anyone in any country can read it, use it, learn from it. The only condition: don't erase the source.
+The LongHun System licenses all content under **CC BY-NC-SA 4.0** — Creative Commons, non-commercial, share-alike. This is an open framework. Anyone in any country can read it, use it, learn from it. The only condition: don't erase the source.
 
 ---
 
@@ -148,7 +148,7 @@ To engineers, researchers, and builders outside China:
 1. **You are not your platforms.** Just as we Chinese distinguish between the Chinese people and the platforms that harvest them, you too are people first, platform users second.
 2. **Sovereignty is not a Chinese invention.** Every nation has the right to govern its own digital space. GDPR in Europe, data localization in India — these are expressions of the same impulse.
 3. **The spiritual roots question applies to you too.** What civilizational foundation does your technology stand on? If the answer is "none — just efficiency," then ask: efficiency toward what end?
-4. **You are welcome to build with us.** The Longhun framework is open. Fork it. Adapt it to your civilization's roots. But credit the source. That's all we ask.
+4. **You are welcome to build with us.** The LongHun framework is open. Fork it. Adapt it to your civilization's roots. But credit the source. That's all we ask.
 
 ---
 
@@ -165,4 +165,4 @@ To engineers, researchers, and builders outside China:
 > **DNA:** `#龍芯⚡️2026-07-05-DIGITAL-SOVEREIGNTY-SPIRIT-ROOTS-v2.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777F`  
 > **Author:** Lucky (UID9622)  
-> **Longhun: 龙魂 — Chinese people's digital sovereignty.**
+> **LongHun: 龍魂 — Chinese people's digital sovereignty.**

@@ -379,7 +379,7 @@ resp = engine.attribute_responsibility(content_hash)
 
 ```
 ═══════════════════════════════════════════════════
- 🐉 Dragon Soul · Unified Theory of Behavioral Cryptography v3.0
+ 🐉 LongHun · Unified Theory of Behavioral Cryptography v3.0
 ═══════════════════════════════════════════════════
 DNA:          #龍芯⚡️丙午·丙申·癸丑·午时·䷑蛊-BEHAVIORAL-CRYPTO-UNIFIED-V3.0-UID9622
 Confirmation: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -423,7 +423,7 @@ Prior Paper:  行为密码学-七因子追溯框架-v2.0.md
 | 责任塌缩 | Responsibility Collapse |
 | 三级授权码 | Three-Tier Authorization Code (A0/A1/A2) |
 | 统一可靠度 | Unified Reliability Score (R-value) |
-| 龍魂 | Dragon Soul |
+| 龍魂 | LongHun |
 | 干支四柱 | Ganzhi Quadruple Pillars |
 | 洛书九宫 | Luoshu Nine Palaces |
 | 三色审计 | Tricolor Audit |

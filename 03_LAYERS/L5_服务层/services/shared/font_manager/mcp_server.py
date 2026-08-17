@@ -120,7 +120,7 @@ class LonghunFontMCPServer:
         return self.engine.get_font_by_format(fmt)
 
     def _get_by_family(self, params: dict[str, Any]) -> list[Any]:
-        family = params.get("family", "Longhun")
+        family = params.get("family", "LongHun")
         return self.engine.get_font_by_family(family)
 
     def _get_by_style(self, params: dict[str, Any]) -> list[Any]:
@@ -195,7 +195,7 @@ if __name__ == "__main__":
     test_requests = [
         {"method": "list_fonts", "params": {}},
         {"method": "get_summary", "params": {}},
-        {"method": "get_font", "params": {"name": "Longhun-Regular"}},
+        {"method": "get_font", "params": {"name": "LongHun-Regular"}},
         {"method": "get_by_format", "params": {"format": "otf"}},
         {"method": "verify", "params": {}},
     ]

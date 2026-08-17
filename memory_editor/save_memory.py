@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🐲 龙魂记忆编辑器 · 命令行保存工具 v3.1
+🐲 龍魂记忆编辑器 · 命令行保存工具 v3.1
 DNA: #龍芯⚡️2026-08-05-CLI-SAVE-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: MulanPSL v2
@@ -240,7 +240,7 @@ def format_memory(e: dict, idx: int = None) -> str:
 # ═══════════════ 主入口 ═══════════════
 def main():
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂记忆编辑器 · CLI 保存工具（天干地支 DNA 版）",
+        description="🐉 龍魂记忆编辑器 · CLI 保存工具（天干地支 DNA 版）",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:

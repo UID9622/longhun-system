@@ -49,7 +49,7 @@ def download(url: str, dest: Path, timeout: int = 300) -> bool:
     """使用 urllib 下载文件，返回是否成功。"""
     try:
         print(f"   ⬇️  开始下载: {url}")
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Longhun-ENSP-Downloader/1.0)"})
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (LongHun-ENSP-Downloader/1.0)"})
         with urllib.request.urlopen(req, timeout=timeout) as response:
             total = response.headers.get("Content-Length")
             total = int(total) if total else None

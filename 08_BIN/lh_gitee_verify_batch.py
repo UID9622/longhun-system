@@ -42,7 +42,7 @@ def api_get(path):
     else:
         url += f"?access_token={TOKEN}"
     req = urllib.request.Request(url)
-    req.add_header("User-Agent", "Longhun-Daoyin/2.0")
+    req.add_header("User-Agent", "LongHun-Daoyin/2.0")
     try:
         with urllib.request.urlopen(req, timeout=15) as resp:
             return resp.getcode(), json.loads(resp.read())

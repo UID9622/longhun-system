@@ -55,7 +55,12 @@ class KnowledgeGraph:
         for eid, entity in self.entities.items():
             name = entity.get("name", "")
             for word in re.findall(r'[\u4e00-\u9fff]+|[a-zA-Z]+', name):
-                self.inverted_index[word.lower()].add(eid)
+                word_l = word.lower()
+                self.inverted_index[word_l].add(eid)
+                # 中文 2-gram 增强（2026-08-15）：让「牢笼」「组件」「四层」等子词可命中
+                if re.match(r'^[\u4e00-\u9fff]+$', word) and len(word) >= 2:
+                    for i in range(len(word) - 1):
+                        self.inverted_index[word[i:i + 2]].add(eid)
 
     def add_entity(self, entity_id: str, entity_type: str, name: str, properties: Dict = None):
         self.entities[entity_id] = {
@@ -72,9 +77,15 @@ class KnowledgeGraph:
     def search(self, query: str, top_k: int = 10) -> List[Dict]:
         """语义搜索实体"""
         words = re.findall(r'[\u4e00-\u9fff]+|[a-zA-Z]+', query.lower())
-        candidate_ids: Set[str] = set()
+        grams: Set[str] = set()
         for w in words:
-            candidate_ids.update(self.inverted_index.get(w, set()))
+            grams.add(w)
+            if re.match(r'^[\u4e00-\u9fff]+$', w) and len(w) >= 2:
+                for i in range(len(w) - 1):
+                    grams.add(w[i:i + 2])
+        candidate_ids: Set[str] = set()
+        for g in grams:
+            candidate_ids.update(self.inverted_index.get(g, set()))
 
         results = []
         for eid in candidate_ids:

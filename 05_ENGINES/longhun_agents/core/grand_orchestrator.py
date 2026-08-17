@@ -17,7 +17,7 @@ DNA: #龍芯⚡️2026-08-04-GRAND-ORCHESTRATOR-UID9622
 
 用法:
   go = GrandOrchestrator()
-  result = go.run("分析龙魂系统架构", mode="full")   # 全量模式
+  result = go.run("分析龍魂系统架构", mode="full")   # 全量模式
   result = go.run("审计一下代码", mode="audit")        # 审计模式
   result = go.run("快速检查", mode="quick")             # 快速模式
   go.demo()  # 演示
@@ -470,7 +470,7 @@ class GrandOrchestrator:
 ║  🟢 24人格完整落地·蚁群协同·黑板主编                       ║
 ╚══════════════════════════════════════════════════════╝
 """)
-        demo_task = "请分析龙魂系统的架构安全性并进行审计"
+        demo_task = "请分析龍魂系统的架构安全性并进行审计"
 
         print("【演示1】意图解析...")
         intent = self.parse_intent(demo_task)

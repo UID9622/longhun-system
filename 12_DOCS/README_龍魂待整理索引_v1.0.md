@@ -72,7 +72,7 @@
 | 关键文件 | 大小 | 状态 | 迁移建议 |
 |---------|------|------|---------|
 | `龍魂DNA身份系统-功能规格书.html` | 56 KB | 较完整 | 迁移到 `L8_治理层/governance/dna/` |
-| `龙魂数字主权体系_学术论文_v2.0.md` | 50 KB | 完整 | 迁移到 `docs/papers/` |
+| `龍魂数字主权体系_学术论文_v2.0.md` | 50 KB | 完整 | 迁移到 `docs/papers/` |
 | `LH-CDNA-v1.2-需求文档.md` | 31 KB | 较完整 | 迁移到 `L8_治理层/governance/dna/` |
 | `🧬 网络户口本.html` | 21 KB | 较完整 | 迁移到 `L5_服务层/services/portal/` |
 
@@ -108,7 +108,7 @@
 
 | 关键文件 | 大小 | 状态 | 迁移建议 |
 |---------|------|------|---------|
-| `龍魂API/龙魂系统_API接口完整实现_v1.0.py` | 28 KB | 较完整 | 评估后迁移到 `backend/` |
+| `龍魂API/龍魂系统_API接口完整实现_v1.0.py` | 28 KB | 较完整 | 评估后迁移到 `backend/` |
 | `parse_notion.py` | 4 KB | 工具 | 评估后迁移到 `bin/` |
 | `kimi-webbridge-extension/` | 子目录 | 完整 | 迁移到 `L5_服务层/services/extensions/` |
 

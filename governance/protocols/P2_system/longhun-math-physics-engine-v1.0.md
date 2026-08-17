@@ -335,7 +335,7 @@ function optimizePersonaWeights(
 ```typescript
 // 仿真引擎
 interface SimulationEngine {
-  // ODE求解器（龙格-库塔）
+  // ODE求解器（龍格-库塔）
   rungeKutta4(f: (t: number, y: Vector) => Vector, y0: Vector, t0: number, tf: number, h: number): { t: number[]; y: Vector[] };
   // 有限差分法
   finiteDifference(f: (x: number) => number, x: number[], boundary: string): number[];

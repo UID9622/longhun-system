@@ -119,7 +119,7 @@ Response: Independent research has a documented tradition in foundational AI con
 - Coq proofs can be machine-verified
 - Experimental results can be replicated from the published dataset and code
 - Expert panel validation (12 scholars, 6 traditions) provides independent corroboration
-The Longhun System's governance framework was developed through approximately 12 months of iterative human-AI collaboration, with all design decisions documented in the provenance ledger. This development process is itself a proof-of-concept for the Zero Barrier principle.
+The LongHun System's governance framework was developed through approximately 12 months of iterative human-AI collaboration, with all design decisions documented in the provenance ledger. This development process is itself a proof-of-concept for the Zero Barrier principle.
 ---
 # Part XVIII — Ethical Considerations
 Required by AIES 2026, AAAI 2026, and IEEE T-AI. Must be included verbatim in submission.
@@ -152,7 +152,7 @@ The CNSH-64 system is deterministic. All stochasticity in reported results arise
 Standard section required by all target venues.
 The primary researcher, Lucky Zhuge (诸葛鑫), thanks:
 - The 12 cross-cultural expert scholars who participated in the hexagram semantic validation panel (anonymized per standard peer review practices; full list available upon acceptance)
-- The Longhun System community for feedback on early framework versions
+- The LongHun System community for feedback on early framework versions
 - The open-source formal verification community, whose Coq libraries made machine-checked proofs accessible to independent researchers
 - Notion, for providing the knowledge management infrastructure used throughout the development process
 - Claude (Anthropic), for formalization assistance, with the explicit acknowledgment that all conceptual decisions, design choices, and intellectual contributions originate with the primary researcher

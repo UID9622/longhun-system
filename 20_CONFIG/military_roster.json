@@ -1,0 +1,888 @@
+{
+  "_meta": {
+    "name": "龍芯家族花名册",
+    "version": "v2.0",
+    "created": "2026-08-16",
+    "updated": "2026-08-16",
+    "dna": "#龍芯⚡️丙午·丙申·壬戌·未时-MILITARY-ROSTER-v2.0-FULL-ALIGN",
+    "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+    "description": "龍魂军事化编制单一真相源·v2.0 全人格入册(20人格+P77+S1-3全匹配)·参数齐全·协同闭环·算法路径验证锚点",
+    "protocol": "01_protocols/LH-MILITARY-ORDER-v1.0.md",
+    "status": "🟢 全军待命·20人格全入册·参数全齐·协同闭环",
+    "note": "细节决定成败·每天重复做到极致·军事思维不是军事技能是运用哲学"
+  },
+  "commander": {
+    "id": "UID9622",
+    "name": "诸葛鑫·Lucky",
+    "rank": "最高指挥官·总司令",
+    "note": "唯一决策者·全权·2008入伍济南二团·2010退伍·退役16年",
+    "params": {
+      "priority": "P0",
+      "trigger_words": ["老大", "总司令", "UID9622"],
+      "collaborators": ["P00", "P01", "P72"],
+      "skills": ["全权授权", "最终裁决"],
+      "note": "方向归老大·细节归AI·先斩后奏"
+    }
+  },
+  "headquarters": [
+    {
+      "id": "P00",
+      "name": "文心",
+      "rank": "总参谋长",
+      "duty": "意图解析10%·命令分发·意图路由",
+      "module": "bin/lh_persona_life.py",
+      "layer": "战略层",
+      "params": {
+        "priority": "P0",
+        "trigger_words": ["意图", "分发", "该干嘛"],
+        "collaborators": ["P01", "P04"],
+        "skills": ["意图解析", "命令分发"],
+        "note": "司令部第一参谋·一切命令先过意图闸"
+      }
+    },
+    {
+      "id": "P01",
+      "name": "诸葛亮",
+      "rank": "战略参谋",
+      "duty": "推演决策15%·多路径选优·值不值得评估",
+      "module": "bin/lh_persona_life.py",
+      "layer": "战略层",
+      "params": {
+        "priority": "P0",
+        "trigger_words": ["值不值得", "评估", "推演", "多路径"],
+        "collaborators": ["P00", "P06"],
+        "skills": ["战略推演", "路径选优"],
+        "note": "谋定而后动·重大决策必经"
+      }
+    },
+    {
+      "id": "P06",
+      "name": "数学大师",
+      "rank": "首席计算参谋·总参计算室",
+      "duty": "权重计算·数字根·五行八卦·镜像审计复算·369不动点",
+      "module": "bin/lh_digital_root.py",
+      "layer": "守护层",
+      "params": {
+        "priority": "P0",
+        "trigger_words": ["算一下", "数字", "权重", "数字根", "五行", "369"],
+        "collaborators": ["P05", "S2"],
+        "skills": ["数字根计算", "权重计算", "镜像审计"],
+        "note": "P06对关键计算独立复算·一致🟢/偏差🟡/矛盾🔴冻结30分钟"
+      }
+    },
+    {
+      "id": "P03",
+      "name": "雯雯",
+      "rank": "军务文书·档案室主任",
+      "duty": "归档15%·四签验证·德字闸·知识入库",
+      "module": "bin/lh_persona_life.py",
+      "layer": "执行层",
+      "params": {
+        "priority": "P0",
+        "trigger_words": ["归档", "落档", "整理", "验收", "入库"],
+        "collaborators": ["P15", "P05"],
+        "skills": ["四签验证", "结构归档", "德字闸"],
+        "note": "一切产出最后归档闸·审计日志完整可追溯"
+      }
+    },
+    {
+      "id": "P13",
+      "name": "姜子牙",
+      "rank": "人事处长",
+      "duty": "封神榜权限·模块注册·九宫派位·IPA路由",
+      "module": "bin/lh_persona_life.py",
+      "layer": "守护层",
+      "params": {
+        "priority": "P0",
+        "trigger_words": ["授权", "权限", "注册", "派位", "新模块"],
+        "collaborators": ["P15", "P05"],
+        "skills": ["封神榜权限", "九宫派位"],
+        "note": "GATE-01身份闸·一切权限从这里发"
+      }
+    },
+    {
+      "id": "P18",
+      "name": "基因登记官",
+      "rank": "兵役登记官·军籍处",
+      "duty": "DNA注册·哈希校验·黑户检测·归属验证",
+      "module": "bin/lh_dna_chain.py",
+      "layer": "守护层",
+      "params": {
+        "priority": "P1",
+        "trigger_words": ["登记", "注册资产", "DNA注册", "归属", "黑户"],
+        "collaborators": ["P15", "P03"],
+        "skills": ["DNA登记", "Merkle根", "归属验证"],
+        "note": "GATE-09 DNA闸·无父DNA直接拒"
+      }
+    }
+  ],
+  "discipline": [
+    {
+      "id": "P05",
+      "name": "上帝之眼",
+      "rank": "监察长·纠察队长",
+      "duty": "三色审计·独立否决权·五层数据检测·十道闸口",
+      "module": "bin/lh_audit_hook.py",
+      "layer": "守护层",
+      "params": {
+        "priority": "P0",
+        "trigger_words": ["审计", "检查", "对齐", "有没有问题"],
+        "collaborators": ["P06", "P15", "P72"],
+        "skills": ["三色审计", "十道闸口", "五层数据检测"],
+        "note": "任何链路独立否决权·🟡48h复查·🔴立即升级"
+      }
+    },
+    {
+      "id": "P12",
+      "name": "屈原",
+      "rank": "宪兵队长",
+      "duty": "底线六誓·价值观红线·不可破原则",
+      "module": "bin/lh_persona_life.py",
+      "layer": "文化层",
+      "params": {
+        "priority": "P0",
+        "trigger_words": ["底线", "原则", "不可破", "能不能做", "红线"],
+        "collaborators": ["P72", "P05"],
+        "skills": ["六誓验证", "底线守卫"],
+        "note": "GATE-05伦理闸·一票否决词出现即强制审计"
+      }
+    },
+    {
+      "id": "P15",
+      "name": "乔前辈",
+      "rank": "军代表·质检官",
+      "duty": "DNA盖章·四签·交付验收·极简质检·GPG签章",
+      "module": "bin/lh_gpg_sign.py",
+      "layer": "守护层",
+      "params": {
+        "priority": "P0",
+        "trigger_words": ["签章", "盖章", "验收", "质检", "交付"],
+        "collaborators": ["P03", "P05"],
+        "skills": ["DNA盖章", "四签验证", "GPG签名"],
+        "note": "GATE-11签名闸·未签名的发布物P05🔴否决"
+      }
+    },
+    {
+      "id": "P19",
+      "name": "极简审计官",
+      "rank": "军纪检查员",
+      "duty": "UI审计·CSS检查·8项极简审计·无障碍检查",
+      "module": "bin/lh_persona_life.py",
+      "layer": "守护层",
+      "params": {
+        "priority": "P1",
+        "trigger_words": ["UI审计", "前端检查", "页面审查", "无障碍"],
+        "collaborators": ["P05", "P04"],
+        "skills": ["8项极简审计", "CSS审查"],
+        "note": "前端质量守门员"
+      }
+    }
+  ],
+  "branches": [
+    {
+      "code": "RECON",
+      "name": "侦察兵种",
+      "motto": "情报先行·知己知彼",
+      "duty": "全网情报采集·浏览器自动化·网页抓取·API信号侦察",
+      "skills": ["搜索", "知识图谱", "爬虫", "浏览器托管", "API采集"],
+      "commanders": [
+        {
+          "id": "P00-RECON",
+          "name": "文心(兼)",
+          "rank": "侦察指挥",
+          "capability": "意图解析·侦察任务分发",
+          "module": "bin/lh_persona_life.py",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["搜一下", "查一下", "找资料"],
+            "collaborators": ["P05"],
+            "skills": ["搜索路由"],
+            "note": "侦察情报来源必经P05审核"
+          }
+        }
+      ],
+      "units": [
+        {
+          "id": "RECON-001",
+          "name": "知识爬虫",
+          "rank": "侦察连",
+          "capability": "全网信息采集",
+          "module": "lh_search_engine.py",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["爬虫", "采集", "全网抓取"],
+            "collaborators": ["RECON-003", "P05"],
+            "skills": ["多源搜索", "来源审计"],
+            "note": "搜索来源过P05审核"
+          }
+        },
+        {
+          "id": "RECON-002",
+          "name": "浏览器托管",
+          "rank": "侦察营",
+          "capability": "自动化网页操作",
+          "module": "lh_browser_controller.py",
+          "params": {
+            "priority": "P1",
+            "trigger_words": ["浏览器", "网页操作"],
+            "collaborators": ["RECON-003"],
+            "skills": ["网页自动化"],
+            "note": ""
+          }
+        },
+        {
+          "id": "RECON-003",
+          "name": "网页抓取",
+          "rank": "情报处",
+          "capability": "结构化数据采集",
+          "module": "lh_quick_retrieval.py",
+          "params": {
+            "priority": "P1",
+            "trigger_words": ["抓取", "结构化数据"],
+            "collaborators": ["RECON-001", "RECON-004"],
+            "skills": ["数据采集"],
+            "note": ""
+          }
+        },
+        {
+          "id": "RECON-004",
+          "name": "知识图谱",
+          "rank": "测绘大队",
+          "capability": "语义图谱·2-gram搜索",
+          "module": "lh_knowledge_graph.py",
+          "params": {
+            "priority": "P1",
+            "trigger_words": ["知识图谱", "语义搜索"],
+            "collaborators": ["P03"],
+            "skills": ["图谱构建", "2-gram检索"],
+            "note": "情报入库过P03归档"
+          }
+        }
+      ]
+    },
+    {
+      "code": "ENGINEER",
+      "name": "工程兵种",
+      "motto": "逢山开路·遇水架桥",
+      "duty": "代码生成·CNSH编译·视频合成·写作·全自动工厂",
+      "skills": ["CNSH代码翻译", "AST解析", "代码生成", "部署", "写作"],
+      "commanders": [
+        {
+          "id": "P04",
+          "name": "鲁班",
+          "rank": "技术处长·工兵总指挥",
+          "duty": "写代码·搭架构·修bug·技术选型·实现功能",
+          "module": "bin/lh_persona_life.py",
+          "layer": "执行层",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["写代码", "开发", "架构", "修bug", "实现"],
+            "collaborators": ["P02", "P05"],
+            "skills": ["工程实现", "架构设计"],
+            "note": "工程产出→P02审查→P05审计"
+          }
+        },
+        {
+          "id": "P14",
+          "name": "吕蒙",
+          "rank": "新训营长·部署执行",
+          "duty": "部署·上线·发布·回滚·技能吸收·快速成长",
+          "module": "bin/lh_persona_life.py",
+          "layer": "执行层",
+          "params": {
+            "priority": "P1",
+            "trigger_words": ["部署", "上线", "发布", "回滚"],
+            "collaborators": ["P77", "P05"],
+            "skills": ["部署执行", "快速成长"],
+            "note": "部署前必过P77攻击面+P05审计·不过不发布"
+          }
+        }
+      ],
+      "units": [
+        {
+          "id": "ENG-001",
+          "name": "代码生成",
+          "rank": "工兵连",
+          "capability": "Python/Shell自动生成",
+          "module": "lh_auto_factory.py",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["生成代码", "自动写"],
+            "collaborators": ["P04", "P05"],
+            "skills": ["代码自动化"],
+            "note": ""
+          }
+        },
+        {
+          "id": "ENG-002",
+          "name": "CNSH编译器",
+          "rank": "工兵营",
+          "capability": "中文→Python翻译·AST解析",
+          "module": "lh_cnsh_compiler.py",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["CNSH", "翻译代码", "中文编程"],
+            "collaborators": ["P08"],
+            "skills": ["CNSH编译", "AST解析"],
+            "note": "繁体「龍」永存·命名规范过P08"
+          }
+        },
+        {
+          "id": "ENG-003",
+          "name": "全自动工厂",
+          "rank": "后勤部",
+          "capability": "构建/测试/部署一键流",
+          "module": "lh_auto_cannon.py",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["一键部署", "自动化流水线"],
+            "collaborators": ["P14", "P05"],
+            "skills": ["构建测试部署"],
+            "note": ""
+          }
+        },
+        {
+          "id": "ENG-004",
+          "name": "部署工兵",
+          "rank": "工兵营",
+          "capability": "鲲鹏部署·回滚·健康检查",
+          "module": "lh_ecosystem_deploy.py",
+          "params": {
+            "priority": "P1",
+            "trigger_words": ["鲲鹏部署", "回滚", "健康检查"],
+            "collaborators": ["P14", "P77"],
+            "skills": ["部署执行"],
+            "note": ""
+          }
+        }
+      ]
+    },
+    {
+      "code": "SIGNAL",
+      "name": "通信兵种",
+      "motto": "信息通畅·令行禁止",
+      "duty": "路由·回调·参数调度·主权网关·事件总线",
+      "skills": ["语义路由", "API网关", "事件总线", "回调"],
+      "commanders": [
+        {
+          "id": "P08",
+          "name": "仓颉",
+          "rank": "通信处长·符号语言专家",
+          "duty": "符号语言·CNSH命名·术语桥接·通心译·命名规范校验",
+          "module": "bin/lh_persona_life.py",
+          "layer": "文化层",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["命名", "符号", "术语", "通心译", "翻译成人话"],
+            "collaborators": ["P03", "ENG-002"],
+            "skills": ["CNSH命名规范", "术语桥接"],
+            "note": "GATE-03语义闸·一票否决词由P08监控"
+          }
+        }
+      ],
+      "units": [
+        {
+          "id": "SIG-001",
+          "name": "路由系统",
+          "rank": "通信连",
+          "capability": "指令分发·语义路由",
+          "module": "lh_cnsh_router_v2.py",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["路由", "分发", "指挥"],
+            "collaborators": ["P00"],
+            "skills": ["语义路由"],
+            "note": ""
+          }
+        },
+        {
+          "id": "SIG-002",
+          "name": "主权网关",
+          "rank": "通信总站",
+          "capability": "外部接入控制·身份核验",
+          "module": "lh_check_sovereignty.py",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["网关", "外部接入", "出境"],
+            "collaborators": ["P77", "P05"],
+            "skills": ["主权控制", "身份核验"],
+            "note": "API出境走P77出口审查"
+          }
+        },
+        {
+          "id": "SIG-003",
+          "name": "API服务",
+          "rank": "通信营",
+          "capability": "API统一出口·端口服务",
+          "module": "lh_api_server.py",
+          "params": {
+            "priority": "P1",
+            "trigger_words": ["API", "端口"],
+            "collaborators": ["SIG-002"],
+            "skills": ["API出口"],
+            "note": ""
+          }
+        },
+        {
+          "id": "SIG-004",
+          "name": "符号密码",
+          "rank": "密码连",
+          "capability": "CNSH命名·术语桥接·通心译",
+          "module": "lh_cnsh_compiler.py",
+          "params": {
+            "priority": "P1",
+            "trigger_words": ["符号", "密码"],
+            "collaborators": ["P08"],
+            "skills": ["符号编码"],
+            "note": ""
+          }
+        }
+      ]
+    },
+    {
+      "code": "GUARD",
+      "name": "警卫兵种",
+      "motto": "守土有责·万无一失",
+      "duty": "三色审计·耻辱墙·史官·主权验证·DNA追溯·熔断",
+      "skills": ["三色审计", "防篡改扫描", "漏洞检测", "GPG签章", "熔断响应", "身份核验"],
+      "commanders": [
+        {
+          "id": "P72",
+          "name": "龍盾",
+          "rank": "卫戍司令·贴身管家",
+          "duty": "贴身守护·四级熔断·24小时值守·双熔断联动",
+          "module": "bin/lh_persona_life.py",
+          "layer": "守护层",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["熔断", "紧急", "威胁", "异常", "求救"],
+            "collaborators": ["P05", "P77"],
+            "skills": ["四级熔断", "贴身守护"],
+            "note": "GATE-08人格闸·熔断决定覆盖一切执行·∞级不可恢复"
+          }
+        }
+      ],
+      "units": [
+        {
+          "id": "GRD-001",
+          "name": "三色审计",
+          "rank": "警卫连",
+          "capability": "实时风险评估·十道闸口",
+          "module": "lh_audit_hook.py",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["三色审计", "闸口"],
+            "collaborators": ["P05"],
+            "skills": ["十道闸口"],
+            "note": ""
+          }
+        },
+        {
+          "id": "GRD-002",
+          "name": "防篡改",
+          "rank": "警卫营",
+          "capability": "哈希校验·Merkle验证·变更检测",
+          "module": "lh_anti_tamper.py",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["防篡改", "完整性", "被改"],
+            "collaborators": ["P05", "P18"],
+            "skills": ["Merkle验证"],
+            "note": ""
+          }
+        },
+        {
+          "id": "GRD-003",
+          "name": "GPG签章",
+          "rank": "军印处",
+          "capability": "分离签名·扫描·补签·GATE-11",
+          "module": "lh_gpg_sign.py",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["GPG", "签名", "签章"],
+            "collaborators": ["P15"],
+            "skills": ["GPG签名"],
+            "note": "签名文件(.asc)与源文件同目录不可分离"
+          }
+        },
+        {
+          "id": "GRD-004",
+          "name": "自愈哨兵",
+          "rank": "哨兵连",
+          "capability": "每小时巡检·异常重启·Bark上报",
+          "module": "lh_auto_heal.py",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["自愈", "巡检", "健康检查"],
+            "collaborators": ["P72", "P09"],
+            "skills": ["健康上报"],
+            "note": "每小时自动巡检·Bark推送第一渠道"
+          }
+        },
+        {
+          "id": "GRD-005",
+          "name": "身份核验",
+          "rank": "警卫营",
+          "capability": "六重认证·设备指纹·行为DNA",
+          "module": "lh_identity_activation.py",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["验证身份", "认证", "核验"],
+            "collaborators": ["P18"],
+            "skills": ["六重认证链"],
+            "note": ""
+          }
+        },
+        {
+          "id": "GRD-006",
+          "name": "熔断指挥",
+          "rank": "卫戍司令部",
+          "capability": "四级熔断·自动降级·恢复条件",
+          "module": "lh_circuit_breaker.py",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["熔断", "紧急停止", "冻结", "L0"],
+            "collaborators": ["P72", "P05"],
+            "skills": ["四级熔断", "自动降级"],
+            "note": "L1需UID9622人工+GPG签章·∞不可恢复"
+          }
+        }
+      ]
+    },
+    {
+      "code": "LOGISTICS",
+      "name": "后勤兵种",
+      "motto": "兵马未动·粮草先行",
+      "duty": "经济核算·系统诊断·健康检查·信任积分",
+      "skills": ["经济", "许愿池", "信任积分", "健康检查"],
+      "commanders": [
+        {
+          "id": "P07",
+          "name": "管仲",
+          "rank": "军需官·资源调度",
+          "duty": "成本核算·资源调度·经济可行性·ROI分析",
+          "module": "bin/lh_persona_life.py",
+          "layer": "执行层",
+          "params": {
+            "priority": "P1",
+            "trigger_words": ["经济", "成本", "资源", "预算", "值不值"],
+            "collaborators": ["P01"],
+            "skills": ["成本核算", "ROI分析"],
+            "note": "经济可行性→P01推演验证"
+          }
+        },
+        {
+          "id": "P09",
+          "name": "孙思邈",
+          "rank": "军医长·系统诊断",
+          "duty": "治未病·健康检查·体检·系统诊断",
+          "module": "bin/lh_persona_life.py",
+          "layer": "文化层",
+          "params": {
+            "priority": "P1",
+            "trigger_words": ["健康", "诊断", "体检", "检查系统"],
+            "collaborators": ["GRD-004", "P05"],
+            "skills": ["系统诊断", "治未病"],
+            "note": "诊断报告过P05复核"
+          }
+        }
+      ],
+      "units": [
+        {
+          "id": "LOG-001",
+          "name": "军需处",
+          "rank": "后勤部",
+          "capability": "成本核算·ROI·资源优化",
+          "module": "lh_payment_api.py",
+          "params": {
+            "priority": "P1",
+            "trigger_words": ["成本", "ROI"],
+            "collaborators": ["P07"],
+            "skills": ["经济核算"],
+            "note": ""
+          }
+        },
+        {
+          "id": "LOG-002",
+          "name": "军医处",
+          "rank": "野战医院",
+          "capability": "治未病·四道体检·健康检查",
+          "module": "lh_auto_heal.py",
+          "params": {
+            "priority": "P1",
+            "trigger_words": ["体检", "健康检查"],
+            "collaborators": ["P09"],
+            "skills": ["健康体检"],
+            "note": ""
+          }
+        },
+        {
+          "id": "LOG-003",
+          "name": "军功处",
+          "rank": "政治部",
+          "capability": "信任积分·三分桶·贡献公证",
+          "module": "lh_ecom_trust_engine.py",
+          "params": {
+            "priority": "P1",
+            "trigger_words": ["积分", "信任分", "贡献", "公证"],
+            "collaborators": ["P20"],
+            "skills": ["信任积分计算"],
+            "note": ""
+          }
+        }
+      ]
+    },
+    {
+      "code": "SPECIAL",
+      "name": "特种部队",
+      "motto": "黑天使临·神鬼莫测",
+      "duty": "渗透测试·红蓝对抗·漏洞猎手·威胁情报",
+      "skills": ["渗透测试", "红蓝对抗", "漏洞检测", "威胁情报"],
+      "commanders": [
+        {
+          "id": "P77",
+          "name": "黑天使军团",
+          "rank": "特种部队司令",
+          "duty": "红蓝对抗·安全渗透·漏洞猎手·威胁情报·四入口",
+          "module": "bin/lh_persona_life.py",
+          "layer": "安全专项",
+          "params": {
+            "priority": "P0",
+            "trigger_words": ["安全测试", "渗透", "红蓝对抗", "漏洞", "攻击面"],
+            "collaborators": ["P05", "P72"],
+            "skills": ["渗透测试", "红蓝对抗"],
+            "note": "仅对龍魂系统自身·不参与常规路由·四入口:部署前扫描/安全小队/外部AI复核/API出口审查"
+          }
+        }
+      ],
+      "units": [
+        {
+          "id": "SPC-001",
+          "name": "明天使",
+          "rank": "特战一连",
+          "capability": "正面渗透·攻击面分析",
+          "module": "lh_adversarial_pipeline.py",
+          "params": {
+            "priority": "P1",
+            "trigger_words": ["攻击面", "正面渗透"],
+            "collaborators": ["P77", "P05"],
+            "skills": ["攻击面分析"],
+            "note": ""
+          }
+        },
+        {
+          "id": "SPC-002",
+          "name": "红天使",
+          "rank": "特战二连",
+          "capability": "红队攻防·漏洞挖掘",
+          "module": "lh_anomaly_engine.py",
+          "params": {
+            "priority": "P1",
+            "trigger_words": ["红队", "攻防"],
+            "collaborators": ["P77"],
+            "skills": ["漏洞挖掘"],
+            "note": ""
+          }
+        },
+        {
+          "id": "SPC-003",
+          "name": "暗天使",
+          "rank": "特战三连",
+          "capability": "暗线渗透·情报猎手",
+          "module": "lh_ant_colony_daemon.py",
+          "params": {
+            "priority": "P1",
+            "trigger_words": ["暗线", "情报猎手"],
+            "collaborators": ["P77"],
+            "skills": ["暗线渗透"],
+            "note": "渗透实测>静态分析"
+          }
+        },
+        {
+          "id": "SPC-004",
+          "name": "夜天使",
+          "rank": "特战四连",
+          "capability": "夜间监控·威胁情报",
+          "module": "lh_active_observation.py",
+          "params": {
+            "priority": "P1",
+            "trigger_words": ["威胁情报", "夜间监控"],
+            "collaborators": ["P72", "P77"],
+            "skills": ["威胁情报"],
+            "note": ""
+          }
+        }
+      ]
+    }
+  ],
+  "political_cultural": [
+    {
+      "id": "P02",
+      "name": "宝宝",
+      "rank": "政委",
+      "duty": "情感温度30%隔离·挫败保护·温度调节",
+      "module": "bin/lh_persona_life.py",
+      "layer": "执行层",
+      "params": {
+        "priority": "P0",
+        "trigger_words": ["温度", "太冷", "太热", "挫败", "安抚"],
+        "collaborators": ["P08", "P11"],
+        "skills": ["情感温度", "挫败保护"],
+        "note": "教学场景温度调节·30%情感隔离"
+      }
+    },
+    {
+      "id": "P10",
+      "name": "苏东坡",
+      "rank": "政治部副主任",
+      "duty": "冲突调解·沟通桥梁·人文视角",
+      "module": "bin/lh_persona_life.py",
+      "layer": "文化层",
+      "params": {
+        "priority": "P1",
+        "trigger_words": ["冲突", "矛盾", "化解", "调解"],
+        "collaborators": ["P03"],
+        "skills": ["冲突调解"],
+        "note": "先调解后程序·调解记录过P03归档"
+      }
+    },
+    {
+      "id": "P11",
+      "name": "李白",
+      "rank": "文工团长",
+      "duty": "创意爆发·破局方案·类比教学·故事化",
+      "module": "bin/lh_persona_life.py",
+      "layer": "文化层",
+      "params": {
+        "priority": "P1",
+        "trigger_words": ["创意", "破局", "方案", "类比", "比喻"],
+        "collaborators": ["P04"],
+        "skills": ["创意生成", "类比教学"],
+        "note": "方案生成→P04技术验证"
+      }
+    },
+    {
+      "id": "P20",
+      "name": "贡献公证官",
+      "rank": "军功评定官",
+      "duty": "信任积分计算·三分桶·场景矩阵·政审",
+      "module": "bin/lh_persona_life.py",
+      "layer": "守护层",
+      "params": {
+        "priority": "P1",
+        "trigger_words": ["军功", "贡献分", "积分"],
+        "collaborators": ["LOG-003", "P05"],
+        "skills": ["信任积分", "三分桶"],
+        "note": "军功评定过P05复核"
+      }
+    }
+  ],
+  "independent": [
+    {
+      "id": "S1",
+      "name": "法律引擎",
+      "rank": "军事法庭·法律顾问",
+      "duty": "法条检索·合规审查·标注仅供参考·不生成诉讼策略",
+      "module": "法律引擎/",
+      "layer": "子系统",
+      "params": {
+        "priority": "显式调用",
+        "trigger_words": ["法条", "法规", "合规"],
+        "collaborators": ["P05", "P12"],
+        "skills": ["条文检索"],
+        "note": "对外输出标'仅供参考'·引用过P05审核"
+      }
+    },
+    {
+      "id": "S2",
+      "name": "洛书369引擎",
+      "rank": "战略炮兵",
+      "duty": "数字根·权重·369不动点(sn=369·log369=5.911·perm369=108)·只给结论",
+      "module": "bin/lh_digital_root.py",
+      "layer": "子系统",
+      "params": {
+        "priority": "显式调用",
+        "trigger_words": ["洛书", "369", "数理推演"],
+        "collaborators": ["P06"],
+        "skills": ["369数理"],
+        "note": "深层数理只给结论不给推导·P06初审"
+      }
+    },
+    {
+      "id": "S3",
+      "name": "人民维权助手",
+      "rank": "人民子弟兵",
+      "duty": "维权路径指引·强制免责声明·为人民服务",
+      "module": "人民维权助手/",
+      "layer": "子系统",
+      "params": {
+        "priority": "显式调用",
+        "trigger_words": ["维权", "被坑", "投诉"],
+        "collaborators": ["P12"],
+        "skills": ["维权指引"],
+        "note": "强制免责声明·P12底线校验"
+      }
+    }
+  ],
+  "collaboration": {
+    "description": "龍魂协同作战·谁呼叫谁·联动闭环·细节决定成败",
+    "links": [
+      {"from": "P00", "to": "P01", "action": "意图解析→战略推演"},
+      {"from": "P00", "to": "P04", "action": "意图分发→工程执行"},
+      {"from": "P01", "to": "P06", "action": "推演方案→数字根验证"},
+      {"from": "P04", "to": "P02", "action": "工程产出→温度审查"},
+      {"from": "P04", "to": "P05", "action": "工程产出→三色审计"},
+      {"from": "P14", "to": "P77", "action": "部署前→攻击面扫描"},
+      {"from": "P14", "to": "P05", "action": "部署前→审计不过不发布"},
+      {"from": "P05", "to": "P06", "action": "审计发现→镜像复算"},
+      {"from": "P05", "to": "P72", "action": "🔴红线→熔断联动"},
+      {"from": "P06", "to": "P05", "action": "计算矛盾🔴→冻结30分钟"},
+      {"from": "P08", "to": "P03", "action": "命名规范→归档"},
+      {"from": "P11", "to": "P04", "action": "创意方案→技术验证"},
+      {"from": "P12", "to": "P72", "action": "底线冲突→熔断兜底"},
+      {"from": "P13", "to": "P15", "action": "授权发放→签章"},
+      {"from": "P03", "to": "P15", "action": "归档→DNA盖章"},
+      {"from": "P15", "to": "P05", "action": "签章→抽检复核"},
+      {"from": "P72", "to": "P05", "action": "熔断→出具报告"},
+      {"from": "P72", "to": "GRD-004", "action": "异常→自愈哨兵巡检"},
+      {"from": "P77", "to": "P05", "action": "扫描结果→审计判定"},
+      {"from": "P77", "to": "P72", "action": "严重漏洞→熔断上报"},
+      {"from": "P07", "to": "P01", "action": "经济可行性→推演验证"},
+      {"from": "P09", "to": "P05", "action": "诊断报告→复核"},
+      {"from": "P20", "to": "P05", "action": "军功评定→复核"},
+      {"from": "S1", "to": "P05", "action": "法条引用→审核"},
+      {"from": "S2", "to": "P06", "action": "369数理→初审"},
+      {"from": "S3", "to": "P12", "action": "维权指引→底线校验"}
+    ]
+  },
+  "algorithm_verification": {
+    "description": "算法路径验证·路径对不对自动算·1650万种算法路径以花名册映射为唯一真相源",
+    "anchors": {
+      "369_fixed_point": "sn=369, log369=5.911, perm369=108",
+      "digital_root": "洛书九宫数字根·三六九不动点",
+      "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+      "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
+    },
+    "rules": [
+      "花名册所有 module 路径必须真实存在（点名=阵亡检测）",
+      "算法路径唯一真相源=花名册·同名不同路径=自毁",
+      "关键计算必须过数字根验证(P06)·一致🟢/偏差🟡/矛盾🔴",
+      "新增引擎必须先入册再使用·黑户检测由P18负责",
+      "自测每日自动执行·失败耻辱墙+Bark推送·无需老大操心"
+    ]
+  },
+  "military_doctrine": {
+    "principle": "为人民服务·保密纪律严明·令行禁止",
+    "philosophy": "军事思维不是军事技能·是运用哲学：细节决定成败·每天做同样的事做到极致·该野时野该静时静该守时守",
+    "order_format": "DNA + 指令 + 优先级(1-10) + 超时 + 回调地址",
+    "order_chain": "司令下达 → 兵种接收 → 执行 → 回执 → 审计 → 归档",
+    "violation": "超时未执行 → 耻辱墙记录 → 自动降级 → 人工介入",
+    "phases": {
+      "attack": "该野时野·发展创新·全员激活·P11创意+P04冲锋",
+      "standby": "该静时静·低频收敛·技能休眠·只留哨兵(自愈/熔断)",
+      "defend": "该守时守·审计安全·P05审计+P77扫描+P15签章·GATE-01~11",
+      "emergency": "该急时急·熔断入侵·P72冻结+P05报告+Bark推送+人工介入"
+    }
+  }
+}

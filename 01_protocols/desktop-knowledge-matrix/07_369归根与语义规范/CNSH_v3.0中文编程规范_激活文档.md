@@ -1,4 +1,4 @@
-<!--#龍芯⚡️2026-06-21-DOC-CNSH_V3-0_9DAD-v1.0 -->
+<!--#龍芯⚡️丙午·丙申·庚申·亥时-DOC-CNSH_V3-0_9DAD-v1.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # CNSH v3.0 中文原生脚本编程规范 · 激活文档
@@ -395,7 +395,7 @@ def 处理数据(self, d1, d2, flag):
 # ═══════════════════════════════════════════
 def 生成龍魂ID(self, 指纹图像: str, 身份证号: str, 设备指纹: str) -> 龍魂ID:
     """
-    [通心译] Generate a Dragon Soul Eternal Unique ID
+    [通心译] Generate a LongHun Eternal Unique ID
     
     基于生物特征和易经卦象生成永世唯一标识符。
     Generates an eternal unique identifier based on biometric features
@@ -418,7 +418,7 @@ def 生成龍魂ID(self, 指纹图像: str, 身份证号: str, 设备指纹: str
 class 三色审计引擎:
     """
     三色审计引擎 — 龍魂系统的核心审计组件
-    Three-Color Audit Engine — Core audit component of the Dragon Soul System
+    Three-Color Audit Engine — Core audit component of the LongHun System
 
     ## 概述 Overview
 
@@ -502,7 +502,7 @@ class DNA签名:
     """
     DNA签名 — 每个龍魂对象的唯一基因标识
     
-    DNA Signature — Unique genetic identifier for each Dragon Soul object.
+    DNA Signature — Unique genetic identifier for each LongHun object.
     包含创建者UID、时间戳、设备指纹三重签名。
     Contains creator UID, timestamp, and device fingerprint triple signature.
     """
@@ -530,7 +530,7 @@ class 龍魂ID:
     """
     龍魂永世唯一ID — 龍魂系统的核心身份标识
     
-    Dragon Soul Eternal Unique ID — Core identity of the Dragon Soul System.
+    LongHun Eternal Unique ID — Core identity of the LongHun System.
     由生物哈希、卦象编码、DNA签名三部分组成，确保全局唯一性。
     """
     生物哈希: str
@@ -1246,7 +1246,7 @@ class 国密加密引擎:
 class 龍魂永世唯一ID生成器:
     """
     龍魂永世唯一ID生成器
-    Dragon Soul Eternal Unique ID Generator
+    LongHun Eternal Unique ID Generator
     
     生成基于生物特征和易经卦象的永世唯一标识符。
     整合L2中文命名、L3通心译注释、L4系统模块。
@@ -1276,7 +1276,7 @@ class 龍魂永世唯一ID生成器:
         3. DNA签名生成
         4. 三色审计验证
         
-        Dragon Soul ID Generation Main Function
+        LongHun ID Generation Main Function
         """
         # 第一步：生物特征哈希
         生物哈希 = self._计算生物哈希(指纹图像)
@@ -1700,7 +1700,7 @@ import unittest
 class 龍魂ID生成器测试(unittest.TestCase):
     """
     龍魂ID生成器单元测试
-    Unit Tests for Dragon Soul ID Generator
+    Unit Tests for LongHun ID Generator
     """
     
     def setUp(self):

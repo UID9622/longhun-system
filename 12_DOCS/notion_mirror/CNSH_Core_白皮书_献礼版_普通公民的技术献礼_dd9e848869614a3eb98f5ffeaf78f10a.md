@@ -10,7 +10,7 @@ CNSH（Chinese Native Semantic + Human-first）= 中文原生语义 + 人性优�
 一套让普通人也能安心使用的 AI 协作系统：
 - 💾 数据主权归个人：所有数据本地存储，用户完全拥有
 - 🔐 透明可审计：每个决策可追溯，拒绝黑箱算法
-- 🇨🇳 国产生态兼容：支持鸿蒙、统信UOS、龙芯/鲲鹏芯片、国密算法
+- 🇨🇳 国产生态兼容：支持鸿蒙、统信UOS、龍芯/鲲鹏芯片、国密算法
 - ❤️ 人性优先：技术服务于人，而非控制人
 ---
 ## 🏗️ 系统架构（MVP版本）
@@ -46,7 +46,7 @@ CNSH（Chinese Native Semantic + Human-first）= 中文原生语义 + 人性优�
 - 📋 用户可查询"AI 为什么这么做"
 ### 3. 国产生态优先适配
 - 🇨🇳 操作系统：鸿蒙 HarmonyOS、统信 UOS、麒麟 Kylin
-- 🇨🇳 芯片架构：龙芯 LoongArch、鲲鹏 Kunpeng、海光 Hygon
+- 🇨🇳 芯片架构：龍芯 LoongArch、鲲鹏 Kunpeng、海光 Hygon
 - 🇨🇳 加密算法：国密 SM2/SM3/SM4（可选）
 - 🇨🇳 支付体系：数字人民币 e-CNY（唯一支付通道）
 ---

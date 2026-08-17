@@ -9,7 +9,7 @@
 ---
 ## 📋 核心元数据
 ---
-## 🎯 核心对齐（龙魂系统映射）
+## 🎯 核心对齐（龍魂系统映射）
 ---
 ## 🏗️ 系统架构
 ### 目录结构
@@ -44,7 +44,7 @@ uid: "9622"                    # 用户唯一标识
 
 DNA追溯码: #STAR⚡️2026-02-23-UID9622-INIT
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬STAR-001
-创建者: 诸葛鑫 | UID9622 | 龙芯北辰
+创建者: 诸葛鑫 | UID9622 | 龍芯北辰
 """
 
 import os
@@ -426,7 +426,7 @@ python star.py init
 ### 3. 添加记忆
 ```bash
 python star.py add \
-  --title "龙魂系统定义" \
+  --title "龍魂系统定义" \
   --content "本地主权AI架构" \
   --tags "core,architecture"
 ```
@@ -436,7 +436,7 @@ python star.py add \
 python star.py search --tag core
 
 # 按关键词搜索
-python star.py search --keyword "龙魂"
+python star.py search --keyword "龍魂"
 ```
 ### 5. 注入记忆（显式输出）
 ```bash
@@ -481,7 +481,7 @@ if config.get("require_confirm_inject") and confirm:
 - INJECT：注入操作
 日志格式：
 ```javascript
-2026-02-23T00:35:51.502+08:00 | ADD      | STAR-2026-02-23-001         | title=龙魂系统定义, type=concept
+2026-02-23T00:35:51.502+08:00 | ADD      | STAR-2026-02-23-001         | title=龍魂系统定义, type=concept
 2026-02-23T00:36:12.123+08:00 | SEARCH   | *                           | tag=core
 2026-02-23T00:37:30.456+08:00 | INJECT   | STAR-2026-02-23-001         | dna=#STAR⚡️STAR-2026-02-23-001-9622-A1B2C3D4
 ```
@@ -508,7 +508,7 @@ def generate_dna_trace(memory_id: str) -> str:
 ```bash
 # 1. 保存重要对话
 python star.py add \
-  --title "2026-02-23对话：龙魂架构讨论" \
+  --title "2026-02-23对话：龍魂架构讨论" \
   --content "今天讨论了三色审计、DNA追溯等核心机制..." \
   --tags "对话记录,架构"
 
@@ -524,13 +524,13 @@ python star.py inject STAR-2026-02-23-001
 ```bash
 # 添加知识条目（自动生成版本号）
 python star.py add \
-  --title "龙魂三色审计v1.0" \
+  --title "龍魂三色审计v1.0" \
   --content "🟢绿色=安全 🟡黄色=警告 🔴红色=熔断" \
   --tags "核心机制,v1.0"
 
 # 更新知识（不覆盖，创建新版本）
 python star.py add \
-  --title "龙魂三色审计v1.1" \
+  --title "龍魂三色审计v1.1" \
   --content "🟢绿色=安全 🟡黄色=警告 🔴红色=熔断 ⚪白色=待定" \
   --tags "核心机制,v1.1"
 
@@ -563,7 +563,7 @@ python star.py search --type task
 {
   "id": "STAR-2026-02-23-001",
   "type": "concept",
-  "title": "龙魂系统定义",
+  "title": "龍魂系统定义",
   "content": "本地主权AI架构",
   "tags": ["core", "architecture"],
   "source": "",
@@ -580,7 +580,7 @@ python star.py search --type task
     "path": ".star-memory/vault/2026/STAR-2026-02-23-001.json",
     "tags": ["core", "architecture"],
     "type": "concept",
-    "title": "龙魂系统定义",
+    "title": "龍魂系统定义",
     "created_at": "2026-02-23T00:35:51.502+08:00"
   }
 }
@@ -637,7 +637,7 @@ flake8 star.py
 - 🔗 保留DNA追溯码
 ---
 ## 💬 联系方式
-创建者：诸葛鑫 | UID9622 | 龙芯北辰
+创建者：诸葛鑫 | UID9622 | 龍芯北辰
 GitHub仓库：（待创建）
 技术文档：（本页面）
 问题反馈：GitHub Issues

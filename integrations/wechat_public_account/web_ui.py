@@ -3,7 +3,7 @@
 # DNA: #龍芯⚡️丙午·乙未·乙丑·大有-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-"""Web UI for Longhun WeChat Public Account integration."""
+"""Web UI for LongHun WeChat Public Account integration."""
 
 import json
 from pathlib import Path
@@ -325,7 +325,7 @@ def _escape_html(text: str) -> str:
 @app.get("/api/longhun/articles")
 @app.get("/api/articles")
 async def api_longhun_articles():
-    """List available Longhun articles for mini program and web."""
+    """List available LongHun articles for mini program and web."""
     try:
         root = get_settings().LONGHUN_SYSTEM_ROOT / "01_protocols"
         articles = []
@@ -366,7 +366,7 @@ async def api_longhun_articles():
 @app.get("/api/longhun/article")
 @app.get("/api/articles/{article_id:path}")
 async def api_longhun_article(path: Optional[str] = None, article_id: Optional[str] = None):
-    """Get content of a Longhun article."""
+    """Get content of a LongHun article."""
     try:
         target = path or article_id
         if not target:

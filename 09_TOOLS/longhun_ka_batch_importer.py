@@ -96,7 +96,7 @@ def compute_bloodline_score(text: str) -> int:
     strong_markers = [
         "龍魂", "龍芯", "CNSH", "UID9622", "君子协议", "DNA", "河图洛书",
         "易经", "太极", "五行", "八卦", "六十四卦", "洛书", "通心译",
-        "longhun", "dragon soul", "德者永生殿", "铁律", "主权",
+        "longhun", "LongHun", "德者永生殿", "铁律", "主权",
         "魂灵", "星闪", "鸿蒙", "北斗", "龍芯", "数字人", "曾老师",
     ]
     weak_markers = [

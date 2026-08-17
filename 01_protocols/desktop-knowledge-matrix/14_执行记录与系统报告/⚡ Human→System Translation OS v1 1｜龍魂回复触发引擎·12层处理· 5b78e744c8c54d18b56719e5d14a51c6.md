@@ -5,7 +5,7 @@
 
 **版本:** v1.1 · 2026-04-05 · 优化整合版（原v1.0 by 宝宝 #PERSONA-BAOBAO-001）
 
-**DNA追溯码：**#龍芯⚡️2026-04-05-TRANSLATION-OS_CE18-v1.1-整合优化
+**DNA追溯码：**#龍芯⚡️丙午·丙申·庚申·亥时-TRANSLATION-OS_CE18-v1.1-整合优化
 
 **确认码：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
@@ -257,7 +257,7 @@
 <aside>
 🐉
 
-**DNA追溯码：**#龍芯⚡️2026-04-05-TRANSLATION-OS-v1.1-整合优化
+**DNA追溯码：**#龍芯⚡️丙午·丙申·庚申·亥时-TRANSLATION-OS-v1.1-整合优化
 
 **GPG指纹：** A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 

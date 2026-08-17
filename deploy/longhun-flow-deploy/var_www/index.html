@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- #龍芯⚡️丙午·丙申·己未·乙亥时·䷞旅-SPA-HOME-v1.0-UID9622
+     CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+     GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+     SPDX-License-Identifier: CC-BY-NC-SA-4.0
+     龍魂 · 占位首页 (低饱和暖色调) -->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>龍魂 · LONGHUN · uid9622.cn</title>
+<style>
+  :root {
+    /* 低饱和暖色: 米白底 / 暖棕主 / 暗金缀 */
+    --bg:      #f5f0e8;
+    --panel:   #efe7da;
+    --ink:     #4a3f33;
+    --ink-sub: #7d6f5e;
+    --accent:  #a67c52;
+    --gold:    #b89968;
+    --ok:      #7a9a6d;
+    --warn:    #c2a14d;
+    --bad:     #b26a5a;
+    --line:    #ddd2c0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Noto Serif SC", "Songti SC", serif;
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 2rem;
+  }
+  .card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 12px; max-width: 720px; width: 100%;
+    padding: 2.5rem; box-shadow: 0 4px 24px rgba(74, 63, 51, .08);
+  }
+  h1 { font-size: 2rem; letter-spacing: .15em; color: var(--accent); }
+  h1 .emblem { margin-right: .4em; }
+  .sub { color: var(--ink-sub); margin-top: .5rem; font-size: .95rem; }
+  .divider { border: none; border-top: 1px solid var(--line); margin: 1.6rem 0; }
+  .status-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .8rem; }
+  .status {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+    padding: .9rem; text-align: center; font-size: .9rem;
+  }
+  .dot { display: inline-block; width: .7em; height: .7em; border-radius: 50%;
+         margin-right: .4em; }
+  .dot.g { background: var(--ok); }  .dot.y { background: var(--warn); }
+  .dot.r { background: var(--bad); }
+  .mono { font-family: "JetBrains Mono", monospace; font-size: .78rem;
+          word-break: break-all; color: var(--ink-sub); }
+  .heads li { margin: .5rem 0; list-style: none; }
+  .heads b { color: var(--accent); }
+  footer { margin-top: 1.8rem; font-size: .8rem; color: var(--ink-sub); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1><span class="emblem">🐉</span>龍魂 · LONGHUN</h1>
+    <p class="sub">流量拓扑与执行流场 · uid9622.cn · P0 主权系统占位首页</p>
+    <hr class="divider">
+
+    <div class="status-grid">
+      <div class="status"><span class="dot g"></span>API 网关<br><span class="mono">:8970</span></div>
+      <div class="status"><span class="dot g"></span>协作中枢<br><span class="mono">:19622</span></div>
+      <div class="status"><span class="dot y"></span>对话桥接<br><span class="mono">:18799 (依赖 Ollama)</span></div>
+    </div>
+    <p class="sub" style="margin-top:.8rem">三色口径: 🟢 通过 · 🟡 待验/降级 · 🔴 阻断 (运行态以 /health 实测为准)</p>
+
+    <hr class="divider">
+    <h2 style="font-size:1rem;color:var(--accent)">主权响应头说明 (nginx 注入)</h2>
+    <ul class="heads mono">
+      <li><b>X-LongHun-DNA</b> —— 龍芯追溯码 (生成器算法输出, 一文件一功能码)</li>
+      <li><b>X-LongHun-Confirm</b> —— 确认码 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</li>
+      <li><b>X-LongHun-Tricolor</b> —— 当前三色裁决</li>
+      <li><b>X-LongHun-Sovereign</b> —— 主权绑定声明</li>
+      <li><b>X-LongHun-GPG</b> —— A2D0092CEE2E5BA87035600924C3704A8CC26D5F</li>
+    </ul>
+    <p class="sub" style="margin-top:.8rem">API 请求须携带 <span class="mono">X-Dragon-DNA</span> 审计标记头，缺失返回 403；鉴权由 nginx auth_request 子请求到 API 网关 /auth/verify 完成。</p>
+
+    <footer>
+      思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL-2.0<br>
+      #龍芯⚡️丙午·丙申·己未·乙亥时·䷞旅-SPA-HOME-v1.0-UID9622
+    </footer>
+  </div>
+</body>
+</html>

@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 
 """
-龍魂脚本管理器 (Longhun Script Manager)
+龍魂脚本管理器 (LongHun Script Manager)
 自动扫描、对齐、验证所有系统脚本
 
 DNA:#龍芯⚡️2026-06-02-SCRIPT-MANAGER-FILE1-v1.0

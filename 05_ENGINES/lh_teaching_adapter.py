@@ -422,7 +422,7 @@ class TeachingAdapter:
         if tier in (TeachTier.L1_SPROUT, TeachTier.L2_GROWING):
             # 大白话版
             simple = {
-                "龍魂": "龙魂（咱中国人的AI系统·外面没有·自己研发的）",
+                "龍魂": "龍魂（咱中国人的AI系统·外面没有·自己研发的）",
                 "三才": "三才（天·地·人，中国古人看待世界的三个角度）",
                 "洛书": "洛书（九个数字组成的神秘方阵·来自四千年前的中国）",
                 "道德经": "道德经（两千五百年前老子写的·81篇小短文汇成的一本书）",
@@ -573,4 +573,4 @@ if __name__ == "__main__":
         ["不懂", "还是不懂", "算了不学了"], TeachTier.L3_MATURE)
     print(f"挫败: frustrated={check.frustrated} action={check.action} → {check.new_tier}")
 
-    print("\n✅ 龙魂教学适配器 v1.0 自检通过")
+    print("\n✅ 龍魂教学适配器 v1.0 自检通过")

@@ -3,7 +3,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # ╔═══════════════════════════════════════════════════════════════╗
-# ║  🐉 龙魂·知识图谱变更通知 v1.0                                 ║
+# ║  🐉 龍魂·知识图谱变更通知 v1.0                                 ║
 # ║  Knowledge Graph Change Notify · 规则入库/降级/封存推送        ║
 # ╠═══════════════════════════════════════════════════════════════╣
 # ║  DNA: #龍芯⚡️2026-07-12-BARK-KG-CHANGE-v1.0                 ║
@@ -58,6 +58,6 @@ fi
 BODY="${BODY}
 
 ━━━━━━━━━━━━━━━━━━
-${TS} · 龙魂知识矩阵"
+${TS} · 龍魂知识矩阵"
 
-echo "${BODY}" | python3 "${BARK_SENDER}" "${TITLE}" --stdin --group "龙魂知识" 2>&1
+echo "${BODY}" | python3 "${BARK_SENDER}" "${TITLE}" --stdin --group "龍魂知识" 2>&1

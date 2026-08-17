@@ -7,7 +7,7 @@ description: '龍魂MCP服務 v5.0 — FastMCP集成+工具定義+Dockerfile自�
 metadata:
   author: 龍魂体系-技能打包专家
   version: 5.0.0
-  dna: '#龍芯⚡️2026-06-19-LONGHUN-MCP-v5.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MCP-v5.0'
   category: cloud
   tags:
   - mcp
@@ -51,7 +51,7 @@ metadata:
 | **名稱** | 龍魂 MCP 服務 |
 | **版本** | 5.0.0 |
 | **分類** | cloud |
-| **DNA** | `#龍芯⚡️2026-06-19-LONGHUN-MCP-v5.0` |
+| **DNA** | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MCP-v5.0` |
 | **協議** | 君子協議·不免責 |
 | **責任人** | UID9622 |
 | **質量指標** | 12區塊完整度 100% |
@@ -169,7 +169,7 @@ metadata:
   │     ├── /dockerfile → Dockerfile 生成
   │     └── /compose → Compose 生成
   ├── 處理請求
-  ├── 生成響應（含 X-Longhun-DNA 頭）
+  ├── 生成響應（含 X-LongHun-DNA 頭）
   └── 返回 JSON
 ```
 
@@ -370,7 +370,7 @@ curl -X POST http://api:8443/mcp/tools/register \
 
 | 特性 | 狀態 |
 |------|------|
-| X-Longhun-DNA 響應頭 | ✅ |
+| X-LongHun-DNA 響應頭 | ✅ |
 | 請求超時處理 | ✅ |
 | 錯誤信息脫敏（非調試模式） | ✅ |
 | 速率限制框架 | 🟡 |
@@ -432,7 +432,7 @@ curl -X POST http://api:8443/mcp/tools/register \
 ## 13. DNA 追溯鏈
 
 ```
-#龍芯⚡️2026-06-19-LONGHUN-MCP-v5.0
+#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MCP-v5.0
 ├── 技能名稱: longhun-cloud-mcp
 ├── 技能描述: 龍魂MCP服務 v5.0
 ├── 版本: 5.0.0
@@ -490,7 +490,7 @@ curl -X POST http://api:8443/mcp/tools/register \
 
 ---
 
-**DNA**: `#龍芯⚡️2026-06-19-LONGHUN-MCP-v5.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MCP-v5.0`
 **確認**: `#CONFIRM🌌9622-ONLY-ONCE🧬MCP5-2026`
 **簽章**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
 **責任**: UID9622 · 不免責

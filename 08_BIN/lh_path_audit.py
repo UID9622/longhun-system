@@ -140,10 +140,13 @@ VALID_PYTHON_DIRS = {
 ROOT_LEVEL_WHITELIST = {
     # 核心宪法/锁（含 .asc 签名）
     "AGENTS.md", "AGENTS.md.asc",
+    # 仓库最高对齐法 (AGENTS.md 明引「仓库根目录」, 根级合法)
+    "LONGHUN_ALIGN.md", "LONGHUN_ALIGN.md.asc",
     "CONSTITUTION.md", "CONSTITUTION.md.asc",
     "P0_ETERNAL_LOCK.md", "P0_ETERNAL_LOCK.md.asc",
     # 项目标准文档（含 .asc 签名）
     "README.md", "README.md.asc",
+    "CNSH_IDE.md", "CNSH_IDE.md.asc",
     "CHANGELOG.md", "CHANGELOG.md.asc",
     "CONTRIBUTING.md", "CONTRIBUTING.md.asc",
     "CODE_OF_CONDUCT.md", "CODE_OF_CONDUCT.md.asc",
@@ -170,10 +173,10 @@ ROOT_LEVEL_WHITELIST = {
     "requirements.txt", "requirements-base.txt", "requirements.lock.txt",
     ".gitignore", ".gitignore.asc", ".env", ".env.example", ".env.example.asc",
     ".bandit.yaml", ".bandit.yaml.asc",
-    ".dockerignore", ".gitlab-ci.yml",
+    ".dockerignore", ".gitlab-ci.yml", ".gitlab-ci.yml.asc",
     ".pre-commit-config.yaml", ".audit-whitelist",
     "pytest.ini", ".inventory.json", ".inventory.json.asc",
-    ".dev_env.json", ".pre-commit-config.yaml.asc",
+    ".dev_env.json", ".dev_env.json.asc", ".pre-commit-config.yaml.asc",
     # CI / 审计日志 / 库存
     "sync_log.jsonl", "audit_log.jsonl",
     "NOTICE", "NOTICE.asc",
@@ -187,6 +190,8 @@ ROOT_LEVEL_WHITELIST = {
     # LongHun桥接/进化引擎
     "longhun_bridge.py", "longhun_bridge.py.asc",
     "longhun_evolution_engine.py", "longhun_evolution_engine.py.asc",
+    # 根级服务入口 (start_all.sh 相对路径引用 + auto_cannon 生成/探测)
+    "web_server.py", "web_server.py.asc",
     # DNA相关根级文件
     "dna_master_key.json", "dna_master_key.json.asc",
     "system_registry.json", "system_registry.json.asc",
@@ -194,7 +199,7 @@ ROOT_LEVEL_WHITELIST = {
     "code_with_dna_1785820178.py", "code_with_dna_1785820178.py.asc",
     "code_with_dna_1785852438.py", "code_with_dna_1785852438.py.asc",
     # Docker/部署
-    "docker-compose.yml", "Dockerfile.cnsh.asc",
+    "docker-compose.yml", "docker-compose.yml.asc", "Dockerfile.cnsh.asc",
     # GPG公钥
     "lh_public_key.asc",
     # 演示/测试文件

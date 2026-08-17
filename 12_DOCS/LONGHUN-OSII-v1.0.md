@@ -45,7 +45,7 @@ to sovereign infrastructure without vendor lock-in.
 
 #### 3.1 Authentication
 ```
-Header: X-Longhun-Auth
+Header: X-LongHun-Auth
 Format: HMAC-SM3(uid + timestamp + nonce)
 Key Exchange: SM2 Elliptic Curve
 ```

@@ -3,7 +3,7 @@
 # 协议: MulanPSL v2 (工程层)
 #
 # Rust 交叉编译链接器配置
-# 支持: Android (JNI) · 鸿蒙 (NAPI) · 鲲鹏 · Apple Silicon · 龙芯 · 申威
+# 支持: Android (JNI) · 鸿蒙 (NAPI) · 鲲鹏 · Apple Silicon · 龍芯 · 申威
 
 [target.aarch64-linux-android]
 linker = "aarch64-linux-android21-clang"

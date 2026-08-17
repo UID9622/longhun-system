@@ -12,7 +12,7 @@
 ## 🐙 公开仓库 (6个)
 
 ### 1. longhun-anti-colonial ⭐
-**龙魂反殖民算法工具集** · Python 58.7% / JS 31% / HTML 10.3%
+**龍魂反殖民算法工具集** · Python 58.7% / JS 31% / HTML 10.3%
 - URL: https://github.com/UID9622/longhun-anti-colonial
 - 描述: 用技术对抗数字殖民，守护数据主权
 - 三大工具: 数据导出 · 算法透明度检测 · 信息流重构浏览器插件
@@ -37,7 +37,7 @@
 - 三色审计体系: 🔴红线(禁止英文变量) · 🟡黄线(贝塞尔+JSON/SVG) · 🟢绿线(可运行)
 
 ### 4. longhun-identity-system ⭐
-**龙魂永世唯一身份系统 v3.0**
+**龍魂永世唯一身份系统 v3.0**
 - URL: https://github.com/UID9622/longhun-identity-system
 - 描述: 64卦×甲骨文×生物特征 · Chinese Digital Identity System
 - 状态: 核心文件通过 test_transcript_sample.json 暴露

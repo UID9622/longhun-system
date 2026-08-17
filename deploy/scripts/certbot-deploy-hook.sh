@@ -3,7 +3,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # ╔═══════════════════════════════════════════════════════════════╗
-# ║  🐉 龙魂系统 · certbot deploy钩子 · nginx重载               ║
+# ║  🐉 龍魂系统 · certbot deploy钩子 · nginx重载               ║
 # ║  版本: v1.0                                                  ║
 # ║  DNA: #龍芯⚡️丙午·乙未·丙申·亥时·☵坎-CERT-DEPLOY-HOOK-v1.0 ║
 # ║  路径: /etc/letsencrypt/renewal-hooks/deploy/nginx-reload.sh ║

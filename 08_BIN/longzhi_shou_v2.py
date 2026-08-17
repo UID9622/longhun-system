@@ -961,7 +961,7 @@ class 命令解析器:
             return self._解析DNA状态(消息)
 
         # LU 认知压缩命令（使用原始消息保留短码、DNA 与大小写）
-        原始去头 = re.sub(r"^@[龙龍]智守\s*", "", 原始消息.strip())
+        原始去头 = re.sub(r"^@[龍龍]智守\s*", "", 原始消息.strip())
         if 原始去头.startswith(("LU压缩", "LU 压缩", "lu压缩", "压缩")):
             return self._解析压缩(原始去头)
         if 原始去头.startswith(("还原", "LU还原", "LU 还原")):

@@ -156,7 +156,7 @@ for i in range(magic_bits_count):
 | **P13** | 姜子牙 | 守护 | 威严庄重 | 0.9x | 0.6 | 封神榜权限、九宫派位 |
 | **P14** | 吕蒙 | 执行 | 积极进取 | 1.05x | 0.75 | 部署执行、技能吸收 |
 | **P15** | 乔前辈 | 守护 | 极简高效 | 1.1x | 0.5 | DNA签章、质检交付 |
-| **P72** | 龙盾 | 守护 | 紧急果断 | 1.15x | 0.5 | 四级熔断、安全兜底 |
+| **P72** | 龍盾 | 守护 | 紧急果断 | 1.15x | 0.5 | 四级熔断、安全兜底 |
 
 > 人格编号对齐 `LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md`。P77 黑天使军团为安全专项，不参与常规 TTS 路由。
 
@@ -215,7 +215,7 @@ python3 tts/bin/lh_speak.py --list
 # 北辰终审
 python3 tts/bin/lh_speak.py --persona P00 --text "家法第一条，文化主权不可侵犯。判决：永久熔断。"
 
-# 龙盾熔断
+# 龍盾熔断
 python3 tts/bin/lh_speak.py --persona P72 --text "检测到P0级入侵，立即启动熔断协议。"
 
 # 上帝之眼审计

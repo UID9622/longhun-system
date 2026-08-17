@@ -508,7 +508,7 @@ flowchart LR
 ```javascript
 🟡 7 项 v1.0 旧候补（msg 181 焊点·延续·见 §9）：
    ① §3.9.17 Authorship as Sovereign Continuity
-   ② §4 Longhun System POC 完整展开
+   ② §4 LongHun System POC 完整展开
    ③ §5-§9 后续章节(Conclusion/Future Work/Acknowledgments)
    ④ Appendix A Pseudocode
    ⑤ Appendix B Threat Model 扩展

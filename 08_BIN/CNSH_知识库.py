@@ -33,6 +33,7 @@ from CNSH_国密工具 import SM3
 class CNSH_知识库:
     def __init__(self, 路径: str = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "CNSH_知识库.json")):
         self.路径 = Path(路径)
+        self._头部: List[str] = []  # DNA/SEAL/CONFIRM 注释头·保存时回写
         self._数据 = self._加载()
 
     def _加载(self) -> Dict[str, Any]:
@@ -44,7 +45,11 @@ class CNSH_知识库:
                 "条目": [],
             }
         with open(self.路径, "r", encoding="utf-8") as f:
-            return json.load(f)
+            raw = f.read()
+        lines = raw.splitlines()
+        self._头部 = [ln for ln in lines if ln.startswith("#")]
+        body = "\n".join(ln for ln in lines if not ln.startswith("#"))
+        return json.loads(body)
 
     def 追加(
         self,
@@ -74,6 +79,8 @@ class CNSH_知识库:
 
     def _保存(self):
         with open(self.路径, "w", encoding="utf-8") as f:
+            if self._头部:
+                f.write("\n".join(self._头部) + "\n")
             json.dump(self._数据, f, ensure_ascii=False, indent=2)
 
     def 查询(self, 关键词: str) -> List[Dict[str, Any]]:

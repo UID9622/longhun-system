@@ -5,7 +5,7 @@
   "$schema": "https://longhun-system/neural-knowledge-matrix/v1.0",
   "meta": {
     "name": "龍魂神经知识矩阵",
-    "name_en": "Longhun Neural Knowledge Matrix",
+    "name_en": "LongHun Neural Knowledge Matrix",
     "version": "v1.1",
     "updated": "丙午·乙未·己未·申时",
     "created": "丙午·乙未·戊午·申时",
@@ -190,7 +190,7 @@
     "P13_姜子牙":   { "role": "九宫派位·Agent编排", "ipa_nodes": ["PALACE-ROUTER"],                 "layer_owner": ["L3", "L8"] },
     "P14_吕蒙":    { "role": "部署执行·一票否决",   "ipa_nodes": [],                                "layer_owner": [] },
     "P15_乔前辈":   { "role": "父子链·自动化桥接",   "ipa_nodes": ["DNA-CHAIN"],                     "layer_owner": ["L2", "L6", "L9"] },
-    "P72_龙盾":    { "role": "熔断独立权",          "ipa_nodes": [],                                "layer_owner": [] },
+    "P72_龍盾":    { "role": "熔断独立权",          "ipa_nodes": [],                                "layer_owner": [] },
     "P77_黑天使":   { "role": "漏洞检测·渗透测试",   "ipa_nodes": [],                                "layer_owner": [] }
   },
 

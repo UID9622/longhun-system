@@ -5,7 +5,7 @@
 龍魂 · 北辰协议独立引擎 + Deliberative Alignment
 ============================================================
 论文: CNSH × 北辰P0治理协议 (IEEE白皮书)
-      + Longhun Deliberative Alignment (LDA文化锚点对齐)
+      + LongHun Deliberative Alignment (LDA文化锚点对齐)
 DNA: #龍芯⚡️2026-07-07-BEICHEN-ENGINE-v1.0
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 来源: 北辰母协议 + IEEE 白皮书公式全落地

@@ -8,7 +8,7 @@
 # -*- coding: utf-8 -*-
 """
 蚁群运行时引擎 v2.0 · AntColonyRuntime
-将蚁群引擎接入龙魂实际运行链路
+将蚁群引擎接入龍魂实际运行链路
 
 DNA: #龍芯⚡️丙午·辛未·ANT-COLONY-RUNTIME-v2.0
 
@@ -79,7 +79,7 @@ class ColonyState:
 
     def summary(self) -> str:
         lines = [
-            f"🐜 龙魂蚁群运行时 v2.0",
+            f"🐜 龍魂蚁群运行时 v2.0",
             f"  tick: {self.tick_count}  活跃: {self.active_modules}/{len(self.population_distribution)}",
             f"  信号: 发送{self.total_signals_sent} 阻断{self.total_signals_blocked}",
             f"  信息素轨迹: {self.pheromone_trails} 条",
@@ -621,7 +621,7 @@ def ant_colony_lifecycle_hook(ctx: Dict[str, Any]) -> Dict[str, Any]:
 
 def main():
     import argparse
-    parser = argparse.ArgumentParser(description="🐜 龙魂蚁群运行时")
+    parser = argparse.ArgumentParser(description="🐜 龍魂蚁群运行时")
     parser.add_argument("--start", action="store_true", help="启动后台运行时")
     parser.add_argument("--status", action="store_true", help="查看状态")
     parser.add_argument("--metrics", action="store_true", help="完整指标")

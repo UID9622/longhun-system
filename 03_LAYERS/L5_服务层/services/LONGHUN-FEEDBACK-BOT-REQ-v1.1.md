@@ -1138,7 +1138,7 @@
 
 | 术语 | 英文 | 解释 |
 |:---|:---|:---|
-| 龍魂 | Longhun / Dragon Soul | 社区自治治理体系名称 |
+| 龍魂 | LongHun / LongHun | 社区自治治理体系名称 |
 | DNA追溯 | DNA Traceability | 龍魂独有的标识追溯机制 |
 | 三层监督 | Three-Layer Supervision | 感知层→认知层→决策层的监督机制 |
 | 三色审计 | Three-Color Audit | 🟢🟡🔴三色标记的审计体系 |

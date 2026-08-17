@@ -328,7 +328,7 @@ An EUV lithography case study demonstrates practical utility: the seven-factor d
 
 This work exemplifies human-AI research collaboration: human-directed problem solving, AI-assisted formalization and computation, and rigorous verification at every step. The v3.1 update demonstrates that the framework remains dynamically relevant as industry conditions evolve—providing not just a static paper, but a living methodology.
 
-**Reproducibility:** All algorithms are Church-Turing computable in $O(1)$ or $O(n)$ space. Python 3 reference implementation available under the Longhun open-source protocol: https://github.com/UID9622/longhun-system/tree/main/papers
+**Reproducibility:** All algorithms are Church-Turing computable in $O(1)$ or $O(n)$ space. Python 3 reference implementation available under the LongHun open-source protocol: https://github.com/UID9622/longhun-system/tree/main/papers
 
 ---
 

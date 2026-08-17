@@ -37,4 +37,4 @@ python3 bin/syntax_lookup.py --search "merge"     # 模糊搜索
 
 几百个不同脚本和语法 → 一个 JSON 总表 → 中文关键字 → 20种目标语言。
 
-**DNA**: `#龍芯⚡️2026-07-08-SYNTAX-LIBRARY-v1.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-SYNTAX-LIBRARY-v1.0`

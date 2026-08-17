@@ -148,7 +148,7 @@ HUMAN_NATURE_SENSITIVITY = {
         HumanDimension.COGNITION: 0.65,
         HumanDimension.SYMBOL: 0.55,
     },
-    "P72": {  # 龙盾·宝宝
+    "P72": {  # 龍盾·宝宝
         HumanDimension.SAFETY: 0.98,
         HumanDimension.VULNERABILITY: 0.75,
         HumanDimension.MORALITY: 0.70,
@@ -176,7 +176,7 @@ PERSONA_INFO = {
     "P13": {"name": "姜子牙", "role": "封神榜权限·模块注册·九宫派位", "layer": "守护层", "bio": "权力分配——人类社会组织的基本逻辑"},
     "P14": {"name": "吕蒙", "role": "快速成长·技能吸收·部署执行", "layer": "文化层", "bio": "人的成长本能——士别三日刮目相看"},
     "P15": {"name": "乔前辈", "role": "极简工程·DNA盖章·四签验收", "layer": "守护层", "bio": "人类追求本质的极简本能"},
-    "P72": {"name": "龙盾·宝宝", "role": "贴身管家·自适应威胁响应·双熔断联动", "layer": "守护层", "bio": "人类最深层的安全需求——马斯洛金字塔底层"},
+    "P72": {"name": "龍盾·宝宝", "role": "贴身管家·自适应威胁响应·双熔断联动", "layer": "守护层", "bio": "人类最深层的安全需求——马斯洛金字塔底层"},
 }
 
 # 意图→人性维度映射
@@ -248,7 +248,7 @@ class ThinkCycle:
 
 class HumanBrainEngine:
     """
-    龙魂人脑神经网络引擎
+    龍魂人脑神经网络引擎
     
     16个人格 = 16个神经元，会思考、会反思、懂人性。
     """
@@ -647,7 +647,7 @@ class HumanBrainEngine:
         
         lines = []
         lines.append("╔══════════════════════════════════════════════════════╗")
-        lines.append("║        🧠 龙魂人脑神经网络 · 综合思考输出            ║")
+        lines.append("║        🧠 龍魂人脑神经网络 · 综合思考输出            ║")
         lines.append("╚══════════════════════════════════════════════════════╝")
         lines.append("")
         
@@ -806,7 +806,7 @@ def main():
     else:
         # 默认：对输入进行完整思考
         input_text = " ".join(sys.argv[1:])
-        print(f"🧠 龙魂人脑神经网络 · 开始思考...\n")
+        print(f"🧠 龍魂人脑神经网络 · 开始思考...\n")
         print(f"输入: {input_text}")
         print(f"{'='*60}\n")
         

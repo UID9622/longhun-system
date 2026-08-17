@@ -13,7 +13,7 @@
   - 鲲鹏 920 (HiSilicon Kunpeng) — ARMv8.2+ · 华为服务器
   - 昇腾 310/910 (Ascend) — NPU · 华为AI加速
   - 飞腾 S2500 (Phytium) — ARMv8 · 天津飞腾
-  - 龙芯 3A5000/3A6000 (Loongson) — LoongArch · 中科院
+  - 龍芯 3A5000/3A6000 (Loongson) — LoongArch · 中科院
   - 申威 SW26010 (Sunway) — Sunway64 · 无锡超级计算
   - Apple Silicon (M1/M2/M3) — ARMv8.5+ · Mac本地开发
   - 通用 ARM64 / x86_64 — 降级兜底
@@ -57,7 +57,7 @@ class ChipVendor(Enum):
     """芯片厂商"""
     HUAWEI  = "huawei"       # 鲲鹏 / 昇腾
     PHYTIUM = "phytium"      # 飞腾
-    LOONGSON = "loongson"    # 龙芯
+    LOONGSON = "loongson"    # 龍芯
     SUNWAY  = "sunway"       # 申威
     APPLE   = "apple"        # Apple Silicon
     INTEL   = "intel"
@@ -186,13 +186,13 @@ def _detect_vendor(cpuinfo: Dict[str, Any], machine: str) -> tuple:
         arch = ChipArch.LoongArch
         vendor = ChipVendor.LOONGSON
         if "3A6000" in model_name or "3A6000" in cpu_arch_str:
-            model = "龙芯3A6000"
+            model = "龍芯3A6000"
         elif "3A5000" in model_name or "3A5000" in cpu_arch_str:
-            model = "龙芯3A5000"
+            model = "龍芯3A5000"
         elif "3B" in model_name:
-            model = "龙芯3B系列"
+            model = "龍芯3B系列"
         else:
-            model = "龙芯（LoongArch）"
+            model = "龍芯（LoongArch）"
         return vendor, model, arch, model_name
     
     # ── 华为鲲鹏检测 ──
@@ -379,7 +379,7 @@ def _detect_boost() -> bool:
 def detect_chip() -> ChipInfo:
     """
     检测当前 CPU 架构并返回最佳配置。
-    自动识别: 鲲鹏920·昇腾910·飞腾S2500·龙芯3A6000·申威SW26010·Apple Silicon
+    自动识别: 鲲鹏920·昇腾910·飞腾S2500·龍芯3A6000·申威SW26010·Apple Silicon
     降级: 通用 ARM64 或 x86_64
     """
     machine = platform.machine().lower()

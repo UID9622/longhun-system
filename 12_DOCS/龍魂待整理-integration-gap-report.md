@@ -41,7 +41,7 @@
 |--------|--------|---------|
 | `私人与共享` | 4,344 | 治理、DNA、IP、任务、审计、决策、个人档案 |
 | `CNSH｜UID9622` | 1,945 | 协议、标准、AI 教育、P0 不可变规则、执行引擎 |
-| `☰ 龍🇨🇳魂 ☷ Dragon Soul Open Hub` | 1,014 | 公开入口、IPA 人格对齐、MCP 规范、教程 |
+| `☰ 龍🇨🇳魂 ☷ LongHun Open Hub` | 1,014 | 公开入口、IPA 人格对齐、MCP 规范、教程 |
 | `龍魂技术全站` | 383 | 元宇宙、数据库、技术蓝图 |
 | `UID9622·托管区` | 299 | 主控台、人格矩阵、安全、起源理论 |
 | `易学堂` | 29 | 教育课程、DNA 注册表、个人主权档案 |
@@ -256,7 +256,7 @@ ls -la ~/longhun-system/cnsh-core/rules-engine/ai-response-enforcement-rules/
 | 工作区 | 风险等级 | 扫描文件数 | 融入文件数 | 目标目录 | 状态 |
 |--------|----------|------------|------------|----------|------|
 | `龍魂技术全站` | low | 383 | 101 | `docs/longhun-tech/` | ✅ 已融入 |
-| `☰ 龍🇨🇳魂 ☷ Dragon Soul Open Hub` | low | 998 | 146 | `docs/dragon-soul-open-hub/` | ✅ 已融入 |
+| `☰ 龍🇨🇳魂 ☷ LongHun Open Hub` | low | 998 | 146 | `docs/dragon-soul-open-hub/` | ✅ 已融入 |
 | `UID9622·托管区` | high | 292 | 108 | `docs/uid9622-hosted/` | ✅ 已融入 |
 | `宝宝这是我们的家` | high | 11 | 4 | `docs/dragon-soul-philosophy/` | ✅ 已融入（仅技术/哲学档案） |
 | `易学堂` | high | 29 | 2 | `docs/yixuetang/` | ✅ 已融入（仅公开教学/架构） |

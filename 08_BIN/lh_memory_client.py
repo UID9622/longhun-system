@@ -77,7 +77,7 @@ def api_get(host: str, port: int, path: str, token: str = "") -> dict:
     """调用记忆 API"""
     url = f"http://{host}:{port}{path}"
     req = urllib.request.Request(url)
-    req.add_header("User-Agent", "Longhun-Memory-Client/1.0")
+    req.add_header("User-Agent", "LongHun-Memory-Client/1.0")
     req.add_header("Accept", "application/json")
     if token:
         req.add_header("X-API-Token", token)

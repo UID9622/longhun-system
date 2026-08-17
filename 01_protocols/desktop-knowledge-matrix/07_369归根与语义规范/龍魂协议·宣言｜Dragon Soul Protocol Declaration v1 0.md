@@ -7,12 +7,12 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-06-21-PROTOCOL-_-_-DRAGON-SOUL-PROTOCOL-DECLARATION-V1-0_83F1-v1.0``  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-_-_-DRAGON-SOUL-PROTOCOL-DECLARATION-V1-0_83F1-v1.0``  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
-# 龍魂协议·宣言｜Dragon Soul Protocol Declaration v1.0
+# 龍魂协议·宣言｜LongHun Protocol Declaration v1.0
 
 > 本文檔按《龍魂文檔標準模板 v1.0》整理。
 > 性質：協議 · 未經同行評審（如適用）
@@ -23,15 +23,15 @@
 > 平台：本地
 > 審核狀態：草稿
 
-**DNA**: `#龍芯⚡️2026-06-21-PROTOCOL-_-_-DRAGON-SOUL-PROTOCOL-DECLARATION-V1-0_83F1-v1.0`  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-_-_-DRAGON-SOUL-PROTOCOL-DECLARATION-V1-0_83F1-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
-<!--#龍芯⚡️2026-06-21-PROTOCOL-_-_-DRAGON-SOUL-PROTOCOL-DECLARATION-V1-0_83F1-v1.0 -->
+<!--#龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-_-_-DRAGON-SOUL-PROTOCOL-DECLARATION-V1-0_83F1-v1.0 -->
 <!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
 
-# 龍魂协议·宣言｜Dragon Soul Protocol Declaration v1.0
+# 龍魂协议·宣言｜LongHun Protocol Declaration v1.0
 
 > 《易经·系辞》："穷则变，变则通，通则久。" —— 现有AI治理范式已穷，龍魂协议是变，通往久远的治理体系。
 > 
@@ -48,7 +48,7 @@
 - **谁来保证AI的决策可被人类理解？**
 - **当AI跨越文化、跨越语言、跨越国界时，谁来守护普通人的尊严？**
 
-龍魂协议（Dragon Soul Protocol）诞生于一个退伍军人、初中学历的普通中国人和AI的对话之中。它不是一份商业文件，不是一份技术白皮书，而是一份**价值承诺**。
+龍魂协议（LongHun Protocol）诞生于一个退伍军人、初中学历的普通中国人和AI的对话之中。它不是一份商业文件，不是一份技术白皮书，而是一份**价值承诺**。
 
 ---
 
@@ -205,7 +205,7 @@ AI治理不应只是学者、工程师和监管机构的游戏。受AI影响最�
 
 ---
 
-*Dragon Soul Protocol Declaration · v1.0 · March 2026 · Open Access*
+*LongHun Protocol Declaration · v1.0 · March 2026 · Open Access*
 
 ---
 
@@ -222,7 +222,7 @@ AI治理不应只是学者、工程师和监管机构的游戏。受AI影响最�
 - 本文檔引用或參考了以下來源：
   - [1] （請填寫）
 - 相關龍魂系統文檔：
-  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 誠實局限
 
@@ -245,7 +245,7 @@ AI治理不应只是学者、工程师和监管机构的游戏。受AI影响最�
 ## DNA 簽名
 
 ```
-#龍芯⚡️2026-06-21-PROTOCOL-_-_-DRAGON-SOUL-PROTOCOL-DECLARATION-V1-0_83F1-v1.0
+#龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-_-_-DRAGON-SOUL-PROTOCOL-DECLARATION-V1-0_83F1-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```
 
@@ -265,7 +265,7 @@ AI治理不应只是学者、工程师和监管机构的游戏。受AI影响最�
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -288,6 +288,6 @@ AI治理不应只是学者、工程师和监管机构的游戏。受AI影响最�
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-06-21-PROTOCOL-_-_-DRAGON-SOUL-PROTOCOL-DECLARATION-V1-0_83F1-v1.0`
+#龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-_-_-DRAGON-SOUL-PROTOCOL-DECLARATION-V1-0_83F1-v1.0`
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

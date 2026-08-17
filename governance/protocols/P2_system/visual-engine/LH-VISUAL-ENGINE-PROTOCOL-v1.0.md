@@ -708,7 +708,7 @@ class ThreeJSRenderer implements Renderer {
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x0F0F1A);
 
-// 龍魂Logo - 六芒星 + 龙环绕
+// 龍魂Logo - 六芒星 + 龍环绕
 const geometry = new THREE.TorusKnotGeometry(1, 0.3, 100, 16);
 const material = new THREE.MeshStandardMaterial({
   color: 0x6B46C1,

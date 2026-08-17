@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 龍魂设备发现器 — mDNS/Bonjour 本地网络发现

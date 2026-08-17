@@ -12,7 +12,7 @@ TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 """
 触角信号协议 v2.0 · AntennaSignal
-基于 LACA v1.0 论文，深度整合龙魂系统
+基于 LACA v1.0 论文，深度整合龍魂系统
 
 DNA: #龍芯⚡️丙午·辛未·ANTENNA-SIGNAL-v2.0
 # STATUS: ⚠️ DEPRECATED · 本目录为旧版蚁群实现，功能由 engines/ant_colony/ 与 bin/lh_ant_colony_orchestrator.py 统一接管
@@ -393,7 +393,7 @@ def aggregate_signal(sender: str, topic: str, participants: list[Any], duration:
 # === 测试 ===
 if __name__ == "__main__":
     print("=" * 60)
-    print("🐜 龙魂蚁群引擎 v2.0 · AntennaSignal 测试")
+    print("🐜 龍魂蚁群引擎 v2.0 · AntennaSignal 测试")
     print("=" * 60)
     
     # 测试1：基础信号

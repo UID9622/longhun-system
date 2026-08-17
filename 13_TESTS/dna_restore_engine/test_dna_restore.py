@@ -219,7 +219,7 @@ class TestDNARestoreEngine(unittest.TestCase):
 
 
 class TestMultiAISignatureChain(unittest.TestCase):
-    """多AI签章接龙测试"""
+    """多AI签章接龍测试"""
 
     def setUp(self):
         self.stamp = DNAStamp("v1.0.0", "UID9622", "测试多AI签名")

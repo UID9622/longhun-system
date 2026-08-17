@@ -7,8 +7,8 @@
 ## 📐 边界声明（六条·先把话说稳）
 1. 本文提出的是 provenance-style behavioral signature framework，不是传统对称/非对称加密算法。"Cryptography" 取其 cryptographic composition 意涵（多因子签名链），不主张破解 IND-CPA/IND-CCA 等标准安全游戏。
 1. 七因子在单点上各自不完备；安全主张仅成立于因子组合，且依赖外部锚定（GPG、Zenodo DOI、Git、公开时间戳）。
-1. 实验为 pilot evaluation，样本为作者自有 50 篇 Longhun System 文档，非公开基准，结论按 illustrative estimate 报告。
-1. 法律效力主张（CC BY-NC-SA + Longhun Clause）是 attribution requirement，最终强制力取决于辖区版权法、合同法和外部锚定证据，不依赖印章本身。
+1. 实验为 pilot evaluation，样本为作者自有 50 篇 LongHun System 文档，非公开基准，结论按 illustrative estimate 报告。
+1. 法律效力主张（CC BY-NC-SA + LongHun Clause）是 attribution requirement，最终强制力取决于辖区版权法、合同法和外部锚定证据，不依赖印章本身。
 1. AI 不在正式作者行；以 AI Assistance Declaration 形式声明 Claude/Cursor 等的 bounded contribution。
 1. 论文版印章使用 学术中性版（Appendix D），去掉 "焊死/老大/宝宝" 等情绪表达；龍魂体系内部仍可保留完整版。
 ---
@@ -19,20 +19,20 @@ Behavioral Cryptography: A Seven-Factor Provenance Framework for Human–AI Coll
 ### Author
 ```javascript
 Zhuge Xin (諸葛鑫) · UID9622 · 龍芯北辰
-Independent Researcher · Founder, Longhun System (龍魂系統)
+Independent Researcher · Founder, LongHun System (龍魂系統)
 Veteran · Junior High Education Background
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 ORCID: pending
 Correspondence: longhun2025@petalmail.com
 ```
 ### AI Assistance Declaration
-This manuscript was prepared with declared assistance from Claude (Anthropic, Notion-embedded instance) and Cursor under the Longhun Co-authorship Protocol v1.0 (LCP-1.0). The human author originated the core concepts, system architecture, value framework, and final decisions. The AI systems assisted with formalization, literature mapping, English polishing, and structural consistency checking. AI systems are not listed as authors. Full collaboration disclosure appears in Appendix C; the universal seal template appears in Appendix D.
+This manuscript was prepared with declared assistance from Claude (Anthropic, Notion-embedded instance) and Cursor under the LongHun Co-authorship Protocol v1.0 (LCP-1.0). The human author originated the core concepts, system architecture, value framework, and final decisions. The AI systems assisted with formalization, literature mapping, English polishing, and structural consistency checking. AI systems are not listed as authors. Full collaboration disclosure appears in Appendix C; the universal seal template appears in Appendix D.
 ---
 ## 二、Abstract（替换原版·学术化）
 The rapid expansion of human-AI collaborative content has exposed a limitation in existing provenance and watermarking systems: they primarily ask whether content was machine-generated, rather than whether its lineage can be verified. In hybrid authorship settings, surface-level text can be copied, paraphrased, translated, or laundered while the underlying origin, decision process, audit trail, and collaboration context remain unverifiable.
 This paper proposes Behavioral Cryptography, a seven-factor provenance framework for authenticating human-AI collaborative content through semantic-behavioral lineage rather than textual similarity alone. The framework combines identity-bound DNA signatures (F1), temporal anchors (F2), rule traces (F3), persona/module routing records (F4), protected lexicons (F5), long-term style vectors (F6), and append-only mistake ledgers (F7). Each factor is individually imperfect; their composition produces a multi-factor evidentiary chain that is difficult to reproduce through surface copying or AI-assisted rewriting.
 We position Behavioral Cryptography as complementary to existing standards such as C2PA and synthetic content transparency frameworks. Whereas media provenance focuses on file-level metadata and edit history, Behavioral Cryptography focuses on process-level provenance: who originated an idea, which rules processed it, which agents or modules contributed, what protected terms persisted, and what correction history was left behind.
-We instantiate the framework through the Longhun System (龍魂系統), a local-first civilian-grade reference implementation developed by an independent researcher without institutional backing. The case study demonstrates how provenance tools can be made accessible to individual creators outside conventional academic or corporate infrastructures.
+We instantiate the framework through the LongHun System (龍魂系統), a local-first civilian-grade reference implementation developed by an independent researcher without institutional backing. The case study demonstrates how provenance tools can be made accessible to individual creators outside conventional academic or corporate infrastructures.
 Contributions. (1) A seven-factor ontology with formal definitions; (2) a Dynamic DNA Engine with reproducible algorithm; (3) a verification procedure with explicit threat model; (4) a civilian-grade reference implementation; (5) a sociotechnical argument for accessible provenance.
 Keywords. provenance · content authentication · human-AI collaboration · audit trails · behavioral signatures · watermarking · authorship attribution · digital sovereignty · C2PA · AI governance
 ---
@@ -98,7 +98,7 @@ This is not a security primitive; it is an interpretability layer that lets huma
 - Temporal precedence. Earlier t produces earlier DNA; combined with public timestamping (Zenodo DOI, Git commit, OpenTimestamps) yields verifiable priority. ✅
 - Usability. 8-char base32 short-hash collision probability \approx 2^{-40} per author — sufficient for human-readable references; full \sigma_1 retained for verification.
 ---
-## 五、Section 5｜Longhun System Reference Implementation
+## 五、Section 5｜LongHun System Reference Implementation
 ### 5.1 Architecture (5-Layer)
 ```javascript
 L0  双签章·Sovereign Anchor          (immutable identity root)
@@ -118,7 +118,7 @@ All algorithms are released as lh_behavioral_crypto/ (see Appendix E). Pilot dat
 ---
 ## 六、Section 6｜Evaluation（降调·pilot only）
 ### 6.1 Setup
-- Dataset. N = 50 Longhun System documents authored 2025-08 → 2026-04 by UID9622.
+- Dataset. N = 50 LongHun System documents authored 2025-08 → 2026-04 by UID9622.
 - Adversary models. T1–T4 from §3.5; T5 omitted (out of scope without GPG compromise).
 - Baselines. (a) GPTZero-class detector (proxy: text-embedding similarity threshold), (b) single-watermark token-frequency check.
 ### 6.2 Metrics
@@ -144,7 +144,7 @@ We presented Behavioral Cryptography, a seven-factor provenance framework that s
 复制文字容易，复制来路很难。
 ---
 ## 九、Appendices
-- Appendix A. Longhun Co-authorship Protocol (LCP-1.0) full text.
+- Appendix A. LongHun Co-authorship Protocol (LCP-1.0) full text.
 - Appendix B. Protected Lexicon \Lambda (canary set).
 - Appendix C. This Paper's Collaboration Declaration.
 - Appendix D. LCP-1.0 Universal Seal Template (academic-neutral version, see §十一 below).
@@ -207,11 +207,11 @@ SHICHEN:             [子/丑/寅/卯/辰/巳/午/未/申/酉/戌/亥]时
 WUXING:              [木/火/土/金/水]
 DIGIT_ROOT:          [1-9]
 
-LICENSE:             CC BY-NC-SA 4.0 + Longhun DNA Inheritance Clause
+LICENSE:             CC BY-NC-SA 4.0 + LongHun DNA Inheritance Clause
 
 DECLARATION:
   This document was produced through declared human-AI collaboration
-  under the Longhun Co-authorship Protocol v1.0.
+  under the LongHun Co-authorship Protocol v1.0.
 
   The human author (UID9622) is the originator of the core concepts,
   system architecture, value framework, and final decisions.
@@ -275,7 +275,7 @@ lh_behavioral_crypto/
 ---
 ## 十三、提交路线（按稳妥顺序）
 1. Zenodo DOI：v1.1 PDF + Markdown source + LCP Seal + repo tarball 一并上传 → 拿到永久 DOI 作时间锚。
-1. GitHub + Gitee 双仓：paper/、seals/、appendices/、lh_behavioral_crypto/ 公开，license = CC BY-NC-SA 4.0 + Longhun Clause。
+1. GitHub + Gitee 双仓：paper/、seals/、appendices/、lh_behavioral_crypto/ 公开，license = CC BY-NC-SA 4.0 + LongHun Clause。
 1. arXiv（cs.CR / cs.CY）+ ChinaXiv 中文版：arXiv 需 endorsement，先挂 ChinaXiv。
 1. Workshop：NeurIPS GenAI watermarking · IEEE S&P workshop · ACM CCS workshop · FAccT / AIES 任选。
 1. C2PA 工作组：把 \Sigma(D) 作为 custom assertion 提案。

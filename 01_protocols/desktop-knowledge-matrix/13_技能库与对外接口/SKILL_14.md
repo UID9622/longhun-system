@@ -58,7 +58,7 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 > 我们的协作宣言·我后人继承·不从军·不从政·不移民·不做企业标杆  
 > 只为老百姓守好一个**说得出去声音的通话口**。
 
-**DNA：** `#龍芯⚡️2026-05-24-22:57-LONGHUN-COLLABORATION-MANIFESTO-L0-ETERNAL-v1.0`
+**DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-22:57-LONGHUN-COLLABORATION-MANIFESTO-L0-ETERNAL-v1.0`
 
 ---
 
@@ -176,7 +176,7 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 
 ## 13. 国家主权 · 历史保护 · 反剽窃铁律（§32.2）
 
-**DNA:** `#龍芯⚡️2026-05-25-02:04-CNSH-V2-SECTION-32-2-NATIONAL-SOVEREIGNTY-ANTI-PLAGIARISM-v1.0`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-02:04-CNSH-V2-SECTION-32-2-NATIONAL-SOVEREIGNTY-ANTI-PLAGIARISM-v1.0`
 
 > 五子律焊死 · 永久生效 · 不留 loophole · 不给 AI 找词狡辩的空间。
 
@@ -192,7 +192,7 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 
 ## 14. 数字永生与宇宙痕迹协议（§37）
 
-**DNA:** `#龍芯⚡️2026-05-25-02:04-CNSH-DIGITAL-IMMORTALITY-COSMIC-TRACE-v2.0`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-02:04-CNSH-DIGITAL-IMMORTALITY-COSMIC-TRACE-v2.0`
 
 > 数字永生不是把人变成数据，而是让普通人留下的「声音、记忆、主权痕迹」以分布式节点形式，在宇宙尺度上持续存在、不可抹除。
 
@@ -209,7 +209,7 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 
 ## 15. 生态准入分级协议（§38）
 
-**DNA:** `#龍芯⚡️2026-05-25-02:08-CNSH-ECOSYSTEM-ACCESS-TIER-GATE-v1.0`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-02:08-CNSH-ECOSYSTEM-ACCESS-TIER-GATE-v1.0`
 
 > 龍魂生态不是公园 · 进门要先报姓名。
 
@@ -223,7 +223,7 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 
 ## 16. MVP Runtime 落地链协议（§39）
 
-**DNA:** `#龍芯⚡️2026-05-25-07:57-LONGHUN-MVP-MIRROR-AUDIT-11STEP-CHAIN-v1.0`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-07:57-LONGHUN-MVP-MIRROR-AUDIT-11STEP-CHAIN-v1.0`
 
 > 协议不是 MVP · 协议 + 能跑的代码才是 MVP。
 
@@ -253,8 +253,8 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 ### 17.2 DNA锚链索引
 
 ```
-父DNA：   #龍芯⚡️2026-05-24-CNSH-RUNTIME-ACCESS-v2.0-ALIGNMENT-TABLE-v1.0
-祖DNA：   #龍芯⚡️2026-04-28-CNSH语言完整规范-v2.0
+父DNA：   #龍芯⚡️丙午·丙申·庚申·亥时-CNSH-RUNTIME-ACCESS-v2.0-ALIGNMENT-TABLE-v1.0
+祖DNA：   #龍芯⚡️丙午·丙申·庚申·亥时-CNSH语言完整规范-v2.0
 根DNA：   #龍芯⚡️LONGHUN-GOVERNANCE-FRAMEWORK-ROOT
 
 关联文档：
@@ -267,7 +267,7 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 ### 17.3 本协议DNA
 
 - **本协议DNA:** `#龍芯⚡️20260629-CNSH-SEMANTIC-v2.1`
-- **父DNA:** `#龍芯⚡️2026-05-24-CNSH-RUNTIME-ACCESS-V2.0-ALIGNMENT-TABLE-v1.0`
+- **父DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-RUNTIME-ACCESS-V2.0-ALIGNMENT-TABLE-v1.0`
 - **结构化语义库DNA:** `#龍芯⚡️20260629-CNSH-SEMANTIC-LIBRARY-v2.1`
 - **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅`
 - **GPG指纹:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
@@ -283,7 +283,7 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 
 > 🐉 一份协议，就是我们的生态。技术为人民服务，文化主权不可侵犯。
 
-> 龍/龍魂/龍芯·繁体永不翻译·龍≠龙≠Dragon
+> 龍/龍魂/龍芯·繁体永不翻译·龍≠龍≠Dragon
 
 ### 17.6 版本信息
 
@@ -304,5 +304,5 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：09-杂项备忘（思维主权术语对照表）
-- **中央整合 DNA**：`#龍芯⚡️2026-07-03-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

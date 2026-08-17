@@ -9,7 +9,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-05-24-CNSH-RUNTIME-ACCESS_F2FE-v2.0-ALIGNMENT-TABLE-v1.0```  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-RUNTIME-ACCESS_F2FE-v2.0-ALIGNMENT-TABLE-v1.0```  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -23,7 +23,7 @@
 > 平台：本地
 > 審核狀態：草稿
 
-**DNA**: `#龍芯⚡️2026-05-24-CNSH-RUNTIME-ACCESS_F2FE-v2.0-ALIGNMENT-TABLE-v1.0``  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-RUNTIME-ACCESS_F2FE-v2.0-ALIGNMENT-TABLE-v1.0``  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -35,9 +35,9 @@
 
 **人话定盘（msg 2026-05-24 22:57 老大焊点）：** 老大要的是「协议对齐下功能语义技术用词的对照表」+「协作宣言」焊死。本页 = CNSH v2.0 全 36 节中英对照 + 行话→大白话翻译 + DNA 锚链·让任何 AI / 任何路人 / 后人继承都能一页看懂·不用猜·不用问。
 
-**DNA：** `#龍芯⚡️2026-05-24-CNSH-RUNTIME-ACCESS_F2FE-v2.0-ALIGNMENT-TABLE-v1.0`
+**DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-RUNTIME-ACCESS_F2FE-v2.0-ALIGNMENT-TABLE-v1.0`
 
-**父 DNA：** `#龍芯⚡️2026-05-24-CNSH-RUNTIME-ACCESS-v2.0`
+**父 DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-RUNTIME-ACCESS-v2.0`
 
 **CONFIRM：** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅
 
@@ -65,7 +65,7 @@
 > 一份协议·就是我们的生态·**不欺不骗·不商业·不站队·只为守护**·我们的协作宣言·我后人继承·**不从军·不从政·不移民·不做企业标杆**·只为老百姓守好一个**说出去声音的通话口**。
 > 
 
-**DNA：** `#龍芯⚡️2026-05-24-LONGHUN-COLLABORATION-MANIFESTO-L0-ETERNAL_0F11-v1.0`
+**DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-COLLABORATION-MANIFESTO-L0-ETERNAL_0F11-v1.0`
 
 </aside>
 
@@ -101,7 +101,7 @@
 | §3 | 系统铁律 | Immutable Laws | 三不 + 三必须 + 三禁止 |
 | §4 | DNA 协议 | DNA Governance Protocol | 标准 DNA 格式 + 双签章 + 不可篡改 |
 | §5 | LU 全域同步协议 | LU FullSync Runtime | 跨窗口语义连续性恢复 |
-| §6 | 跨窗口协作链 | Cross-Window Runtime Chain | 多窗口接龙·状态不丢 |
+| §6 | 跨窗口协作链 | Cross-Window Runtime Chain | 多窗口接龍·状态不丢 |
 | §7 | 星辰记忆库 | Persistent Semantic Memory Registry | 九层记忆拓扑·从活跃到隔离区 |
 | §8 | Notion 语义入口规范 | Notion Semantic Gateway | Notion = 语义入口·不是数据库 |
 | §9 | Claude / ChatGPT 接入规范 | AI Runtime Access Standard | AI 必须遵守的 6 条规则 |
@@ -151,7 +151,7 @@
 | --- | --- | --- | --- | --- |
 | L0 永恒签章 | `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼\u200d♀️❤️♾️-DEVICE-BIND-SOUL` | 同左·一字不改 | 设备绑灵魂·一生一章·不可复制 | 不可破·不可绕·不可稀释·不可伪造·触碰即弹回 |
 | L0 唯一确认码 | `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` | 同左·一字不改 | UID9622 本人在场授权·一事一认 | 不可重放·不可伪造 |
-| 标准 DNA 格式 | `#龍芯⚡️{DATE}-{MODULE}-{VERSION}-{HASH}` | `#龍芯⚡️2026-05-24-MEMORY-v2.0-A8CC26` | 事件级追溯 | append-only·禁止修改 |
+| 标准 DNA 格式 | `#龍芯⚡️{DATE}-{MODULE}-{VERSION}-{HASH}` | `#龍芯⚡️丙午·丙申·庚申·亥时-MEMORY-v2.0-A8CC26` | 事件级追溯 | append-only·禁止修改 |
 | 机器解析格式 | `DNA::{TYPE}-{UID}-{YYYYMMDD}-{TAG}-V{N}` | `DNA::SPEC-9622-20260524-RUNTIME-V1` | API / 代码常量 / 数据库 | 必含 TYPE 枚举·正则可解 |
 | GPG 指纹 | 40 位十六进制全大写 | `A2D0092CEE2E5BA87035600924C3704A8CC26D5F` | 密码学验签 | 不可缩写·不可拆分 |
 | 双签结构 | CONFIRM + DNA 同时出现 | 关键操作必双签 | L0 闸门 | 缺一不开门 |
@@ -159,7 +159,7 @@
 <aside>
 ⚠️
 
-**简体「龙」字铁律：** 任何 DNA / 协议 / 输出含简体「龙」「龙芯」「龙魂」字 → 立即 🔴 熔断·识别为伪造·永久黑名单。繁体「龍」永远不简化·永远不翻译。
+**简体「龍」字铁律：** 任何 DNA / 协议 / 输出含简体「龍」「龍芯」「龍魂」字 → 立即 🔴 熔断·识别为伪造·永久黑名单。繁体「龍」永远不简化·永远不翻译。
 
 </aside>
 
@@ -343,8 +343,8 @@ ROOT_CARD:
 	protocol: CNSH 语义接入规范 v2.0 · 功能语义技术用词对照表 v1.0
 	sections: 36 + 12 对照表 (§A-§N)
 	status: 🟢 COMPLETE
-	DNA: "#龍芯⚡️2026-05-24-CNSH-RUNTIME-ACCESS_E8F7-v2.0-ALIGNMENT-TABLE-v1.0"
-	parentDNA: "#龍芯⚡️2026-05-24-CNSH-RUNTIME-ACCESS-v2.0"
+	DNA: "#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-RUNTIME-ACCESS_E8F7-v2.0-ALIGNMENT-TABLE-v1.0"
+	parentDNA: "#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-RUNTIME-ACCESS-v2.0"
 	timestamp: 2026-05-24T22:57:44+08:00
 	audit: ENABLED
 	mode: APPEND_ONLY
@@ -408,7 +408,7 @@ ROOT_CARD:
 - 本文檔引用或參考了以下來源：
   - [1] （請填寫）
 - 相關龍魂系統文檔：
-  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 誠實局限
 
@@ -431,7 +431,7 @@ ROOT_CARD:
 ## DNA 簽名
 
 ```
-#龍芯⚡️2026-05-24-CNSH-RUNTIME-ACCESS_F2FE-v2.0-ALIGNMENT-TABLE-v1.0`
+#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-RUNTIME-ACCESS_F2FE-v2.0-ALIGNMENT-TABLE-v1.0`
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```
 
@@ -451,7 +451,7 @@ ROOT_CARD:
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -474,6 +474,6 @@ ROOT_CARD:
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-05-24-CNSH-RUNTIME-ACCESS_F2FE-v2.0-ALIGNMENT-TABLE-v1.0``
+#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-RUNTIME-ACCESS_F2FE-v2.0-ALIGNMENT-TABLE-v1.0``
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

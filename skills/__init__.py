@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂系统 · Skill 注册管理核心
-Longhun System · Skill Registry Core
+LongHun System · Skill Registry Core
 
 DNA:#龍芯⚡️2026-06-16-SKILL-REGISTRY-FILE1-v2.0
 责任: UID9622·不免责

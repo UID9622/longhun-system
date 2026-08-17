@@ -40,7 +40,7 @@
 
 为了让鸿蒙开发者能够直观理解 Axios 的工程化概念，我们将通用技术术语转化为**龍魂语法**：
 
-| **通用名 (Common)** | **龍魂语法名 (Longhun-Syntax)** | **五行属性** | **解释** |
+| **通用名 (Common)** | **龍魂语法名 (LongHun-Syntax)** | **五行属性** | **解释** |
 | :--- | :--- | :--- | :--- |
 | Axios Instance | **龍魂信使** (longhun-messenger) | 木 | 单例化的网络请求核心实例，负责收发信息。 |
 | Request Interceptor | **守门员** (gatekeeper) | 金 | 请求发出前的"守门员"，负责注入Token与公共参数。 |

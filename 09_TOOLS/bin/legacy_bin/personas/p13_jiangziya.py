@@ -228,7 +228,7 @@ class P13Jiang:
             "IPA-FLOW-GATE-DR", "IPA-FLOW-GATE-SANCAI",
             "IPA-FLOW-GATE-SHENGKE", "IPA-FLOW-PALACE-ROUTER",
             "IPA-MCP-SANCAI-v4.0", "IPA-DICTIONARY",
-            "IPA-MATH-FORMULA", "IPA-KERNEL-龙魂",
+            "IPA-MATH-FORMULA", "IPA-KERNEL-龍魂",
             "IPA-AITHINKING-v2",
         ]
 

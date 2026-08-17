@@ -7,7 +7,7 @@
 DNA: #龍芯⚡️2026-07-25-VISUAL-ENGINE-v1.0
 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0
 人格: 李白（P11·创意守护）— 美学不动点守护
-铁律: 极夜黑#080808+龙魂金#C9A84C焊死·图腾位置焊死·效果参数焊死
+铁律: 极夜黑#080808+龍魂金#C9A84C焊死·图腾位置焊死·效果参数焊死
 """
 
 import os
@@ -22,7 +22,7 @@ DNA = "#龍芯⚡️2026-07-25-VISUAL-ENGINE-v1.0-DARK-GOLDEN"
 # P0 焊死色彩常量
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SE_JI_YE_HEI = "#080808"       # 极夜黑 — 永不更改
-SE_LONG_HUN_JIN = "#C9A84C"    # 龙魂金 — 永不更改
+SE_LONG_HUN_JIN = "#C9A84C"    # 龍魂金 — 永不更改
 SE_AN_HUI = "#6B6B6B"          # 暗灰
 SE_XUE_HONG = "#FF4444"        # 血红
 SE_GUO_DU = "#1A1A2E"          # 深蓝过渡
@@ -159,7 +159,7 @@ class Wen_Zi_Xiao_Guo:
 
     def pan_duan_xiao_guo(self, wen_zi, jin_ci_biao):
         """根据关键词自动判断效果"""
-        ran_shao_ci = {"离火运", "国耻", "先烈", "牺牲", "铜墙铁壁", "龙脉", "觉醒"}
+        ran_shao_ci = {"离火运", "国耻", "先烈", "牺牲", "铜墙铁壁", "龍脉", "觉醒"}
         jing_gao_ci = {"红线", "违规", "不可破", "焊死", "熔断", "背后捅刀"}
 
         for ci in ran_shao_ci:
@@ -328,7 +328,7 @@ def cnsh_jie_xi(ming_ling):
         h = h.strip()
         if '极夜黑' in h or '#080808' in h:
             jie_guo["bei_jing_se"] = SE_JI_YE_HEI
-        if '龙魂金' in h or '#C9A84C' in h:
+        if '龍魂金' in h or '#C9A84C' in h:
             jie_guo["wen_zi_se"] = SE_LONG_HUN_JIN
 
     return jie_guo
@@ -351,7 +351,7 @@ def cmd_selftest(args):
     try:
         yq = Shi_Jue_Yin_Qing()
         assert yq.yan_se.bei_jing == "#080808", "背景色不是极夜黑"
-        assert yq.yan_se.jin == "#C9A84C", "金色不是龙魂金"
+        assert yq.yan_se.jin == "#C9A84C", "金色不是龍魂金"
         tong_guo += 1
         print("  ✅ 色彩常量焊死验证通过")
     except AssertionError as e:
@@ -426,7 +426,7 @@ def cmd_selftest(args):
     try:
         cnsh_ml = """
         设 背景 为 极夜黑 #080808
-        设 文字 为 龙魂金 #C9A84C
+        设 文字 为 龍魂金 #C9A84C
         """
         jg = cnsh_jie_xi(cnsh_ml)
         assert jg["bei_jing_se"] == "#080808"

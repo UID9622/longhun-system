@@ -1,4 +1,4 @@
-# 龙魂·鸿蒙DNA注册与干支时间戳引擎 V1.0
+# 龍魂·鸿蒙DNA注册与干支时间戳引擎 V1.0
 
 > CSDN原文: https://blog.csdn.net/UID9622/article/details/163531603
 > DNA: #龍芯⚡️丙午·丙申·戊申·亥时·䷗复-HARMONY-DNA-REGISTRY-v1.0
@@ -10,7 +10,7 @@
 
 ## 一、设计目标
 
-面向 HarmonyOS NEXT 的龙魂 DNA 注册与干支时间戳引擎：
+面向 HarmonyOS NEXT 的龍魂 DNA 注册与干支时间戳引擎：
 - **DNA 生成**：v∞格式DNA生成，含干支四柱+八卦+哈希8位
 - **干支时间戳**：中国传统干支纪年法实现，梅花易数起卦
 - **主权验证**：GPG验签 + 设备指纹绑定 + DNA链验证
@@ -49,7 +49,7 @@ import { DnaRecord, DnaGenerateRequest, SovereigntyProof } from './models/DnaMod
 import crypto from '@ohos.security.crypto';
 
 /**
- * 龙魂 DNA 注册引擎 — HarmonyOS 原生
+ * 龍魂 DNA 注册引擎 — HarmonyOS 原生
  * DNA: #龍芯⚡️UID9622-HARMONY-DNA-REGISTRY
  * 协议: MulanPSL v2
  */
@@ -162,7 +162,7 @@ export class DnaRegistryEngine {
 
 ```typescript
 /**
- * 龙魂干支时间戳引擎 — HarmonyOS 原生
+ * 龍魂干支时间戳引擎 — HarmonyOS 原生
  * 包含天干地支计算 + 梅花易数起卦
  * DNA: #龍芯⚡️UID9622-TIMESTAMP-ENGINE
  * 协议: MulanPSL v2
@@ -273,7 +273,7 @@ import { SovereigntyProof } from './models/DnaModels';
 import deviceInfo from '@ohos.deviceInfo';
 
 /**
- * 龙魂主权验证器 — 设备指纹 + DNA 链
+ * 龍魂主权验证器 — 设备指纹 + DNA 链
  * DNA: #龍芯⚡️UID9622-SOVEREIGNTY-VERIFIER
  */
 export class SovereigntyVerifier {
@@ -331,7 +331,7 @@ import { DnaRecord } from './models/DnaModels';
 import relationalStore from '@ohos.data.relationalStore';
 
 /**
- * 龙魂 DNA 数据库 — RDB 持久化
+ * 龍魂 DNA 数据库 — RDB 持久化
  */
 export class DatabaseHelper {
   private store: any;
@@ -438,7 +438,7 @@ export class DatabaseHelper {
 
 ```typescript
 /**
- * 龙魂 DNA 数据模型
+ * 龍魂 DNA 数据模型
  * 协议: MulanPSL v2
  */
 
@@ -608,7 +608,7 @@ struct RegistryPage {
 | 加密 | RDB S2 安全级别 |
 | DNA 格式 | v∞标准：#龍芯⚡️干支四柱·卦-模块-动作-哈希8 |
 | 干支算法 | 天干地支标准公式，梅花易数时间起卦法 |
-| 声明 | 仅用于龙魂系统内部 |
+| 声明 | 仅用于龍魂系统内部 |
 
 ---
 

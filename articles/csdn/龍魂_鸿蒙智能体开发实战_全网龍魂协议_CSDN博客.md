@@ -69,7 +69,7 @@ const CONFIRM_SEAL = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z";
 
 // === 协议版本 ===
 export const PROTOCOL_VERSION = "1.0.0";
-export const PROTOCOL_NAME = "Longhun-Agent-Protocol";
+export const PROTOCOL_NAME = "LongHun-Agent-Protocol";
 
 // === 消息类型 ===
 export enum MessageType {
@@ -1251,7 +1251,7 @@ const MASTER_UID = "9622";
 
 | 位置 | 内容 |
 |------|------|
-| 协议名称 | Longhun-Agent-Protocol v1.0.0 |
+| 协议名称 | LongHun-Agent-Protocol v1.0.0 |
 | 应用名称 | 龍魂智能体协议 |
 | 标题栏 | 🐉 龍魂智能体协议 |
 | 底部标识 | UID:9622 |

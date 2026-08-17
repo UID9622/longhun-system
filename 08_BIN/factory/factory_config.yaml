@@ -1,0 +1,60 @@
+# 🐉 龍魂 · 工厂配置 v2.1
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# DNA: #龍芯⚡️丙午·丙酉·丙寅·申时-FACTORY-CONFIG-UID9622
+# 创建者: 诸葛鑫（UID9622）
+
+factory:
+  name: "龍魂全自动工厂"
+  version: "2.1"
+  workspace: "~/.longhun/factory"
+  brand: "龍"          # 品牌「龍」永不简化
+
+quality_gate:
+  rules:
+    - name: "测试通过率"
+      condition: "passed"
+      threshold: 0.95
+      severity: "critical"
+    - name: "代码覆盖率"
+      condition: "coverage"
+      threshold: 0.80
+      severity: "high"
+    - name: "三色审计"
+      condition: "tricolor"
+      threshold: 1.0
+      severity: "critical"
+
+release:
+  strategy: "canary"
+  auto_promote: true
+  error_threshold: 0.02
+  canary_duration: 300
+  gray_duration: 1800
+
+circuit_breaker:
+  l3_threshold: 3
+  l3_cooldown: 300
+  l2_threshold: 2
+  l1_threshold: 1
+
+monitor:
+  interval: 60
+  alert_threshold:
+    disk: 75
+    memory: 75
+
+notifications:
+  enabled: true
+  channels:
+    - type: "log"
+      level: "info"
+    - type: "file"
+      path: "~/.longhun/factory/logs/factory.log"
+    # - type: "bark"    # 需环境变量 BARK_KEY
+    # - type: "feishu"  # 需环境变量 FEISHU_WEBHOOK
+
+kunpeng:
+  host: "119.13.90.27"
+  user: "root"
+  remote_dir: "/opt/longhun/releases"
+  ssh_key: "~/.ssh/longhun_kunpeng_ed25519"

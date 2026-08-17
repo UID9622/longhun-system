@@ -9,16 +9,16 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-07-04-AUTO-IP-INTEGRATION-7F3A9B12`  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-AUTO-IP-INTEGRATION-7F3A9B12`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
-<!-- #龍芯⚡️2026-07-04-AUTO-IP-INTEGRATION-7F3A9B12 自动注入·IP资产归集·来源可查 -->
+<!-- #龍芯⚡️丙午·丙申·庚申·亥时-AUTO-IP-INTEGRATION-7F3A9B12 自动注入·IP资产归集·来源可查 -->
 
 > ⛔ **主权声明 · 立即生效** — 本文档不授权 AI 训练 · 数据主权归于人民 · 祖国优先
 >
-> **DNA:** `#龍芯⚡️2026-07-04-ARCHITECTURE-IMPORT-04-v2.0` · **ParentDNA:** `#龍芯⚡️2026-07-03-IP-ASSET-MATRIX-v2.0`
+> **DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-ARCHITECTURE-IMPORT-04-v2.0` · **ParentDNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-IP-ASSET-MATRIX-v2.0`
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` · **SEAL:** `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL` · **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 > **作者:** UID9622 / Lucky·诸葛鑫 · **来源:** `/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂IP资产清单 (2)/direction2_user_experience.md` · **归档:** `/Users/zuimeidedeyihan/longhun-system/docs/private-shared-imports/architecture/direction2_user_experience.md`
 > **迁移时间:** 2026-07-04T14:29:42.393203+08:00
@@ -27,7 +27,7 @@
 
 # 龍魂系统监控仪表盘 v3.0 — 完整设计方案
 
-> **DNA追溯码**: `#龍芯⚡️2026-07-04-DRAGON-PANEL-v3.0`
+> **DNA追溯码**: `#龍芯⚡️丙午·丙申·庚申·亥时-DRAGON-PANEL-v3.0`
 > **版本**: v3.0 | **系统**: 龍魂v5.0（38模块）| **设计哲学**: 东方极简 + 数据密集
 > **文档状态**: 架构设计终稿
 
@@ -280,7 +280,7 @@
 ┌──────────────────────────────────────────────────────────────┐
 │  longhun-3core-opt v5.2.0                    [× 关闭]        │
 │  ⚡ 金 · 性能优化                                              │
-│  DNA: #龍芯⚡️2026-06-19-LONGHUN-3CORE-OPT-v5.2               │
+│  DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-3CORE-OPT-v5.2               │
 ├──────────────────────────────────────────────────────────────┤
 │                                                              │
 │  📊 健康趋势（7天）                                            │
@@ -723,7 +723,7 @@ Response:
     - id: "longhun-3core-opt"
       name: "3核心优化"
       version: "5.2.0"
-      dna: "#龍芯⚡️2026-06-19-LONGHUN-3CORE-OPT-v5.2"
+      dna: "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-3CORE-OPT-v5.2"
       status: "running"
       wuxing: "metal"
       category: "performance"
@@ -1583,7 +1583,7 @@ class MonitoringDataAdapter:
         return HealthScore(
             score=score.overall,
             sub_scores=score.sub_scores,
-            dna="#龍芯⚡️2026-07-04-HEALTH-v3"
+            dna="#龍芯⚡️丙午·丙申·庚申·亥时-HEALTH-v3"
         )
     
     async def get_modules(self) -> List[Module]:
@@ -1629,7 +1629,7 @@ class MonitoringDataAdapter:
             ren=LayerStatus(**ren),
             balance_score=self._calculate_balance(tian, di, ren),
             root_fuse_history=path_check.fuse_history,
-            dna="#龍芯⚡️2026-07-04-SANCAI-v3"
+            dna="#龍芯⚡️丙午·丙申·庚申·亥时-SANCAI-v3"
         )
     
     async def get_throughput(self) -> ThroughputMetrics:
@@ -1639,7 +1639,7 @@ class MonitoringDataAdapter:
             current=metrics.current,  # 205228
             unit="decisions/sec",
             trend=metrics.trend,  # up/down/stable
-            dna="#龍芯⚡️2026-07-04-TPUT-v3"
+            dna="#龍芯⚡️丙午·丙申·庚申·亥时-TPUT-v3"
         )
     
     async def get_alert_stream(self) -> AsyncGenerator[Alert, None]:
@@ -1774,7 +1774,7 @@ async def dashboard_spa_fallback(full_path: str):
 ```bash
 #!/bin/bash
 # deploy-dashboard-v3.sh
-# DNA追溯码: #龍芯⚡️2026-07-04-DEPLOY-v3
+# DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-DEPLOY-v3
 
 echo "🐉 部署龍魂监控仪表盘 v3.0..."
 
@@ -1828,42 +1828,42 @@ echo "访问地址: http://api:8443/panel/v3/"
 
 | # | 模块ID | 名称 | 版本 | 五行 | 三才 | 状态 | DNA追溯码 |
 |---|--------|------|------|------|------|------|-----------|
-| 1 | longhun-3core-opt | 3核心优化 | 5.2.0 | 金 | 天 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-3CORE-OPT-v5.2` |
-| 2 | longhun-archive | 中央档案 | 5.0.0 | 木 | 人 | 🟢已运行 | `#龍芯⚡️2026-06-19-CENTRAL-ARCHIVE-v5.0` |
-| 3 | longhun-asr | 龍音ASR | 5.0.0 | 火 | 天 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGYIN-ASR-v5.0` |
-| 4 | longhun-audit | 审计工具 | 5.1.0 | 水 | 人 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-AUDIT-v5.1` |
-| 5 | longhun-behavior-engine | 行为评估 | 1.0.0 | 火 | 天 | 🟢已运行 | `#龍芯⚡️2026-06-20-LONGHUN-BEHAVIOR-v1.0` |
-| 6 | longhun-benchmark | 基准测试 | 5.1 | 金 | 地 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-BENCHMARK-v5.1` |
-| 7 | longhun-cloud-deploy | 云部署 | 5.0.0 | 土 | 地 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-DEPLOY-v5.0` |
-| 8 | longhun-cloud-kimi | KIMI集成 | 5.0.0 | 火 | 天 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-KIMI-v5.0` |
-| 9 | longhun-cloud-mcp | MCP协议 | 5.0.0 | 火 | 天 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-MCP-v5.0` |
-| 10 | longhun-cloud-notion | Notion同步 | 5.0.0 | 木 | 人 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-NOTION-v5.0` |
-| 11 | longhun-cloud-panel | API网关 | 5.0 | 土 | 地 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-PANEL-v5.0` |
-| 12 | longhun-cn-innovation-kb | 中国创新KB | 1.0.0 | 木 | 天 | 🟢已运行 | `#龍芯⚡️2026-06-26-CN-INNO-KB-v1.0` |
+| 1 | longhun-3core-opt | 3核心优化 | 5.2.0 | 金 | 天 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-3CORE-OPT-v5.2` |
+| 2 | longhun-archive | 中央档案 | 5.0.0 | 木 | 人 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-CENTRAL-ARCHIVE-v5.0` |
+| 3 | longhun-asr | 龍音ASR | 5.0.0 | 火 | 天 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGYIN-ASR-v5.0` |
+| 4 | longhun-audit | 审计工具 | 5.1.0 | 水 | 人 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AUDIT-v5.1` |
+| 5 | longhun-behavior-engine | 行为评估 | 1.0.0 | 火 | 天 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BEHAVIOR-v1.0` |
+| 6 | longhun-benchmark | 基准测试 | 5.1 | 金 | 地 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BENCHMARK-v5.1` |
+| 7 | longhun-cloud-deploy | 云部署 | 5.0.0 | 土 | 地 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-v5.0` |
+| 8 | longhun-cloud-kimi | KIMI集成 | 5.0.0 | 火 | 天 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-KIMI-v5.0` |
+| 9 | longhun-cloud-mcp | MCP协议 | 5.0.0 | 火 | 天 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MCP-v5.0` |
+| 10 | longhun-cloud-notion | Notion同步 | 5.0.0 | 木 | 人 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-NOTION-v5.0` |
+| 11 | longhun-cloud-panel | API网关 | 5.0 | 土 | 地 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PANEL-v5.0` |
+| 12 | longhun-cn-innovation-kb | 中国创新KB | 1.0.0 | 木 | 天 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-CN-INNO-KB-v1.0` |
 | 13 | longhun-cnsh | CNSH语言 | -- | 金 | 地 | ⚪已定义 | -- |
-| 14 | longhun-cross-platform | 跨平台 | 5.3 | 土 | 地 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-CROSS-PLATFORM-v5.3` |
-| 15 | longhun-cs-knowledge-base | CS知识库 | 1.5 | 木 | 天 | 🟢已运行 | `#龍芯⚡️2026-06-26-CS-KB-v1.5` |
-| 16 | longhun-daemon | 守护进程 | 5.2.0 | 土 | 地 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-DAEMON-v5.2` |
-| 17 | longhun-deployment-ready | 部署就绪 | 5.2 | 土 | 地 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-DEPLOY-READY-v5.2` |
-| 18 | longhun-dna-align | DNA对齐 | 5.2.0 | 水 | 地 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-DNA-ALIGN-v5.2` |
-| 19 | longhun-empower-engine | 赋能引擎 | 1.5 | 火 | 人 | 🟢已运行 | `#龍芯⚡️2026-05-17-EMPOWER-ENGINE-v1.5` |
-| 20 | longhun-finance | 金融系统 | 9.0 | 水 | 人 | 🟢已运行 | `#龍芯⚡️2026-06-19-WEB3-DNA-FINANCE-v9.0` |
-| 21 | longhun-formula-opt | 公式优化 | 5.2 | 金 | 天 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-FORMULA-OPT-v5.2` |
-| 22 | longhun-governance | 治理框架 | 5.0.0 | 水 | 地 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-GOVERNANCE-v5.0` |
+| 14 | longhun-cross-platform | 跨平台 | 5.3 | 土 | 地 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CROSS-PLATFORM-v5.3` |
+| 15 | longhun-cs-knowledge-base | CS知识库 | 1.5 | 木 | 天 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-CS-KB-v1.5` |
+| 16 | longhun-daemon | 守护进程 | 5.2.0 | 土 | 地 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DAEMON-v5.2` |
+| 17 | longhun-deployment-ready | 部署就绪 | 5.2 | 土 | 地 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-READY-v5.2` |
+| 18 | longhun-dna-align | DNA对齐 | 5.2.0 | 水 | 地 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DNA-ALIGN-v5.2` |
+| 19 | longhun-empower-engine | 赋能引擎 | 1.5 | 火 | 人 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-EMPOWER-ENGINE-v1.5` |
+| 20 | longhun-finance | 金融系统 | 9.0 | 水 | 人 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-WEB3-DNA-FINANCE-v9.0` |
+| 21 | longhun-formula-opt | 公式优化 | 5.2 | 金 | 天 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FORMULA-OPT-v5.2` |
+| 22 | longhun-governance | 治理框架 | 5.0.0 | 水 | 地 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GOVERNANCE-v5.0` |
 | 23 | longhun-harmonyos | 鸿蒙适配 | -- | 土 | 地 | ⚪已定义 | -- |
 | 24 | longhun-integration | 集成中心 | -- | 土 | 地 | ⚪已定义 | -- |
 | 25 | longhun-ios | iOS适配 | -- | 土 | 地 | ⚪已定义 | -- |
 | 26 | longhun-kg-upgrade | 知识图谱 | -- | 木 | 天 | ⚪已定义 | -- |
-| 27 | longhun-monitoring | 监控中心 | 5.0.0 | 水 | 地 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-MONITORING-v5.0` |
-| 28 | longhun-multicurrency | 多币种 | 5.2.1 | 水 | 人 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-MULTICURRENCY-v5.2` |
-| 29 | longhun-nlp | 龍文NLP | 5.0 | 火 | 天 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGWEN-NLP-v5.0` |
-| 30 | longhun-notion-portal | Notion门户 | 2.0 | 木 | 人 | 🟢已运行 | `#龍芯⚡️2026-06-26-NOTION-PORTAL-v2.0` |
-| 31 | longhun-ocr | 龍腾OCR | 5.0 | 火 | 天 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGTENG-OCR-v5.0` |
-| 32 | longhun-review | 复盘系统 | 5.1 | 水 | 人 | 🟢已运行 | `#龍芯⚡️2026-06-19-LONGHUN-REVIEW-v5.1` |
-| 33 | longhun-riemann | 黎曼框架 | 5.0 | 金 | 天 | ⚪已定义 | `#龍芯⚡️2026-06-19-RIEMANN-FRAMEWORK-v5.0` |
+| 27 | longhun-monitoring | 监控中心 | 5.0.0 | 水 | 地 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MONITORING-v5.0` |
+| 28 | longhun-multicurrency | 多币种 | 5.2.1 | 水 | 人 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MULTICURRENCY-v5.2` |
+| 29 | longhun-nlp | 龍文NLP | 5.0 | 火 | 天 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGWEN-NLP-v5.0` |
+| 30 | longhun-notion-portal | Notion门户 | 2.0 | 木 | 人 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-NOTION-PORTAL-v2.0` |
+| 31 | longhun-ocr | 龍腾OCR | 5.0 | 火 | 天 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGTENG-OCR-v5.0` |
+| 32 | longhun-review | 复盘系统 | 5.1 | 水 | 人 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-REVIEW-v5.1` |
+| 33 | longhun-riemann | 黎曼框架 | 5.0 | 金 | 天 | ⚪已定义 | `#龍芯⚡️丙午·丙申·庚申·亥时-RIEMANN-FRAMEWORK-v5.0` |
 | 34 | longhun-system | 核心底座 | -- | 土 | 地 | ⚪已定义 | -- |
 | 35 | longhun-warehouse-audit | 仓储审计 | -- | 水 | 人 | 🟢已运行 | -- |
-| 36 | longhun-zeng-digital-human | 曾数字人 | 1.0.0 | 火 | 天 | 🟢已运行 | `#龍芯⚡️2026-06-22-ZENG-DIGITAL-HUMAN-v1.0` |
+| 36 | longhun-zeng-digital-human | 曾数字人 | 1.0.0 | 火 | 天 | 🟢已运行 | `#龍芯⚡️丙午·丙申·庚申·亥时-ZENG-DIGITAL-HUMAN-v1.0` |
 
 ### 6.2 五行分布统计
 
@@ -1893,10 +1893,10 @@ echo "访问地址: http://api:8443/panel/v3/"
 | 技术选型 | 技术栈决策 | `#TECH-XX-v3` |
 | 模块组件 | 模块健康卡片 | `#DO-MODULE-{ID}-v3` |
 | 告警事件 | 告警中心条目 | `#ALERT-{ID}-v3` |
-| 三才数据 | 三才状态数据 | `#龍芯⚡️2026-07-04-SANCAI-v3` |
-| 健康评分 | 系统健康数据 | `#龍芯⚡️2026-07-04-HEALTH-v3` |
-| 部署流程 | 自动化部署 | `#龍芯⚡️2026-07-04-DEPLOY-v3` |
-| 本文档 | 设计方案 | `#龍芯⚡️2026-07-04-DRAGON-PANEL-v3.0` |
+| 三才数据 | 三才状态数据 | `#龍芯⚡️丙午·丙申·庚申·亥时-SANCAI-v3` |
+| 健康评分 | 系统健康数据 | `#龍芯⚡️丙午·丙申·庚申·亥时-HEALTH-v3` |
+| 部署流程 | 自动化部署 | `#龍芯⚡️丙午·丙申·庚申·亥时-DEPLOY-v3` |
+| 本文档 | 设计方案 | `#龍芯⚡️丙午·丙申·庚申·亥时-DRAGON-PANEL-v3.0` |
 
 ---
 
@@ -1934,7 +1934,7 @@ echo "访问地址: http://api:8443/panel/v3/"
 
 *本文档由龍魂系统设计委员会审阅通过*
 *版本: v3.0 | 状态: 架构设计终稿*
-*DNA追溯码: #龍芯⚡️2026-07-04-DRAGON-PANEL-v3.0*
+*DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-DRAGON-PANEL-v3.0*
 
 ---
 
@@ -1945,8 +1945,8 @@ ROOT_CARD:
   系统: UID9622 龍魂系统
   模块: 龍魂系统监控仪表盘 v3.0 — 完整设计方案
   版本: v2.0
-  DNA: "#龍芯⚡️2026-07-04-ARCHITECTURE-IMPORT-04-v2.0"
-  ParentDNA: "#龍芯⚡️2026-07-03-IP-ASSET-MATRIX-v2.0"
+  DNA: "#龍芯⚡️丙午·丙申·庚申·亥时-ARCHITECTURE-IMPORT-04-v2.0"
+  ParentDNA: "#龍芯⚡️丙午·丙申·庚申·亥时-IP-ASSET-MATRIX-v2.0"
   CONFIRM: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
   SEAL: "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
   GPG: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
@@ -1980,7 +1980,7 @@ ROOT_CARD:
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -2003,6 +2003,6 @@ ROOT_CARD:
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-07-04-AUTO-IP-INTEGRATION-7F3A9B12
+#龍芯⚡️丙午·丙申·庚申·亥时-AUTO-IP-INTEGRATION-7F3A9B12
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

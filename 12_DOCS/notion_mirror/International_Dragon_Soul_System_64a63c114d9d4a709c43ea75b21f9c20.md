@@ -1,4 +1,4 @@
-# International | Dragon Soul System
+# International | LongHun System
 
 > Notion URL: https://app.notion.com/p/International-Dragon-Soul-System-64a63c114d9d4a709c43ea75b21f9c20
 > Created: 2026-03-24T21:49:00.000Z

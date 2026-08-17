@@ -6,8 +6,8 @@
 > Archived at: 2026-08-12T01:40:45.558086
 ---
 ## Abstract
-> "My ignorance allows AI to fill the gaps; my AI enables me to remain ignorant — yet the outcome is universally recognized. Longhun System: where every ignorant mind can rest in peace."
-> "我的无知可以让AI补全 · 我的AI可以让我完全无知 · 得出的结果是公认的 · 龙魂系统，让所有无知的人安心"
+> "My ignorance allows AI to fill the gaps; my AI enables me to remain ignorant — yet the outcome is universally recognized. LongHun System: where every ignorant mind can rest in peace."
+> "我的无知可以让AI补全 · 我的AI可以让我完全无知 · 得出的结果是公认的 · 龍魂系统，让所有无知的人安心"
 Ensuring safety, consistency, and explainability in AI decision-making remains a fundamental challenge, particularly in open-ended and high-risk interaction scenarios. This paper introduces CNSH-64 (Cultural-Normative Symbolic Hierarchy, 64-State), a governance-aware symbolic decision framework that unifies structured state modeling, multi-dimensional risk evaluation, and formally verifiable ethical constraints into a single, auditable computational pipeline.
 Inspired by the 64 hexagrams of the I-Ching (Yijing, 易经), CNSH-64 models interaction contexts as compositional symbolic states within a finite 64-state space ( S \times S = 8 \times 8 ), enabling explicit reasoning over decision boundaries and cross-cultural sensitivity. The framework comprises three core mechanisms:
 - A multi-dimensional risk evaluation function:
@@ -23,7 +23,7 @@ Key Results:
 - Explainability: human rating 4.2/5 vs. 2.1/5 for GPT-4
 - Zero ethical violations across 12,800+ simulated interactions — formally verified via Z3 theorem prover and Coq proof scripts
 CNSH-64 demonstrates that meaningful governance can emerge from symbolic structure, not just data-driven heuristics — offering a path toward truly trustworthy, inclusive, and human-centered AI systems.
-Keywords: AI Governance · Symbolic Reasoning · Ethical Decision-Making · Cross-Cultural Explainability · Formal Verification · Yijing-Inspired AI · Democratization of Research · Dragon Soul System
+Keywords: AI Governance · Symbolic Reasoning · Ethical Decision-Making · Cross-Cultural Explainability · Formal Verification · Yijing-Inspired AI · Democratization of Research · LongHun System
 ---
 # Part I — Introduction
 ## 1.1 Motivation（动机）
@@ -76,11 +76,11 @@ Eth: A \rightarrow \{0,1\}
 1. Section I — Introduction: 动机、研究缺口、贡献概述（本节）
 1. Section II — Background & Related Work: 回顾符号AI、AI治理、跨文化解释等领域进展与不足
 1. Section III — CNSH-64 Framework Design: 状态空间、风险函数、伦理机制的数学构造
-1. Section IV — Implementation & Integration: 工程架构图、GPG签名流程、龙魂系统接口规范
+1. Section IV — Implementation & Integration: 工程架构图、GPG签名流程、龍魂系统接口规范
 1. Section V — Experimental Evaluation: 安全率、一致性、解释性、鲁棒性多维度测试
 1. Section VI — Formal Verification & Proof: Coq完成核心伦理命题的形式化证明
 1. Section VII — Discussion: 文化偏见、可扩展性、未来演化路径
-1. Section VIII — Conclusion & Future Work: 成果总结与"龙魂协议"标准化愿景
+1. Section VIII — Conclusion & Future Work: 成果总结与"龍魂协议"标准化愿景
 ---
 ---
 # Part II — Background & Related Work
@@ -329,7 +329,7 @@ class CNSH64System:
 ## 7.3 Future Roadmap
 - v2.0: 动态参数校准 + 多智能体扩展（512状态）
 - v3.0: 分布式部署 + 本地LLM集成（Ollama兼容）
-- 标准化愿景: 推动CNSH-64成为ISO/IEEE AI治理标准候选框架，即"龙魂协议"国际标准化
+- 标准化愿景: 推动CNSH-64成为ISO/IEEE AI治理标准候选框架，即"龍魂协议"国际标准化
 ---
 # Part VIII — Conclusion & Future Work
 ## 8.1 Summary
@@ -341,13 +341,13 @@ CNSH-64 demonstrates that governance in AI systems can be both formalized and hu
 Paradigm Shift:
 > From post-hoc content moderation to preemptive governance-by-design
 ## 8.2 Broader Impact
-CNSH-64 establishes a proof-of-concept for the 龙魂协议（Dragon Soul Protocol）: a vision where AI governance is not a corporate policy document, but a mathematically verifiable, culturally inclusive, and cryptographically anchored computational standard accessible to all.
+CNSH-64 establishes a proof-of-concept for the 龍魂协议（LongHun Protocol）: a vision where AI governance is not a corporate policy document, but a mathematically verifiable, culturally inclusive, and cryptographically anchored computational standard accessible to all.
 > 《易经·系辞》："穷则变，变则通，通则久。" — 现有AI治理范式已穷，CNSH-64是变，通往久远的治理体系。
-龙魂系统的证明:
+龍魂系统的证明:
 ```javascript
 初中文化 + AI = 顶会级论文
 无知的人 + AI = 专业结果
-这就是龙魂系统的力量
+这就是龍魂系统的力量
 ```
 ---
 # References
@@ -363,16 +363,16 @@ CNSH-64 establishes a proof-of-concept for the 龙魂协议（Dragon Soul Protoc
 ---
 # Appendix A: 64-State → 64-Hexagram Mapping
 完整映射表见补充材料。
-# Appendix C: Longhun System — Research Philosophy
-> "In the age of AI, ignorance is not a barrier — it is a starting point. The Longhun System demonstrates that structured human-AI collaboration can produce formally verifiable, internationally recognized research, regardless of the author's educational background."
-Original Manifesto (龙魂系统灵魂宣言 · 永久保留):
+# Appendix C: LongHun System — Research Philosophy
+> "In the age of AI, ignorance is not a barrier — it is a starting point. The LongHun System demonstrates that structured human-AI collaboration can produce formally verifiable, internationally recognized research, regardless of the author's educational background."
+Original Manifesto (龍魂系统灵魂宣言 · 永久保留):
 > 我的无知可以让AI补全 · 我的AI可以让我完全无知 · 得出的结果是公认的
-> 龙魂系统，让所有无知的人安心
+> 龍魂系统，让所有无知的人安心
 Value Proposition:
 - 初中文化 → AI → 顶会级论文 (Middle-school education → AI → Top-conference paper)
 - 不懂英文 → AI → 国际标准 (No English proficiency → AI → International standard)
 - 退伍军人 → AI → 数学形式化 (Veteran → AI → Mathematical formalization)
-This appendix is preserved as a testament to the democratization potential of AI-assisted research, consistent with the mission of the Longhun System (龙魂系统) and its Dragon Soul Protocol.
+This appendix is preserved as a testament to the democratization potential of AI-assisted research, consistent with the mission of the LongHun System (龍魂系统) and its LongHun Protocol.
 ---
 # Appendix B: Submission Materials
 推荐投稿目标 (Top-Tier):

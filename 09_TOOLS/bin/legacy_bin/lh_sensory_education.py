@@ -277,7 +277,7 @@ class SensoryEducationEngine:
         avg_score = sum(module_scores.values()) / max(len(module_scores), 1)
 
         K = avg_score
-        V = 0.85  # 龙魂3D可视化质量
+        V = 0.85  # 龍魂3D可视化质量
         S = max(0.1, 0.8 - (len(module_scores) / 6))
         M = max(0.05, 1.0 - (len(module_scores) / 6))
 

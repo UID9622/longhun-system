@@ -1,4 +1,4 @@
-# 🐉 龍魂系统 · 开放白皮书 v1.0 | Dragon Soul Open White Paper
+# 🐉 龍魂系统 · 开放白皮书 v1.0 | LongHun Open White Paper
 
 > Notion URL: https://app.notion.com/p/v1-0-Dragon-Soul-Open-White-Paper-961f39cf59aa40b5bdc8c29563ec5a66
 > Created: 2026-04-16T15:23:00.000Z
@@ -8,7 +8,7 @@
 ## 🆗 一句话定义（Elevator Pitch）
 > 龍魂系统 = 数字时代的社会契约执行引擎。
 不监控思想，但记录行为；不审判人品，但用规则画出红线；不拦截创作，但让每个输出都有来处。
-> Dragon Soul = Digital social contract execution engine.
+> LongHun = Digital social contract execution engine.
 Records behavior, not thoughts. Draws red lines with rules, not judgments. Lets every output be traceable.
 ---
 ## 🌐 多语言关键词对照表（所有翻译人员可在此维护）

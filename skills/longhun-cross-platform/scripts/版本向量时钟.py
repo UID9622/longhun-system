@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 龍魂版本向量时钟 — 双设备并发控制与一致性保证
 ================================================
-DNA:#龍芯⚡️2026-06-19-SYNC-MSG-FILE25-v1.0
+DNA: #龍芯⚡️2026-06-19-SYNC-MSG-v1.0
 致敬: #致敬⚡️SteveJobs+Concept·跨平台互通
 
 原理: 版本向量(Version Vector)是分布式系统中跟踪数据版本、
@@ -88,7 +85,7 @@ class 版本向量时钟:
         self.本机标识: Optional[str] = None
         
         # 历史版本记录（用于追溯）
-        self._历史: list[Any] = []
+        self._历史: list = []
         
         logger.info("🟢 [初始化] 版本向量时钟")
         logger.info("🟢 [设备] %s ↔ %s", 设备A, 设备B)
@@ -214,8 +211,8 @@ class 版本向量时钟:
     
     def 检测冲突(
         self,
-        本地数据: Dict[str, Any],
-        远程数据: Dict[str, Any],
+        本地数据: Dict,
+        远程数据: Dict,
         本地向量: Dict[str, int],
         远程向量: Dict[str, int]
     ) -> Tuple[bool, 时钟状态]:
@@ -246,8 +243,8 @@ class 版本向量时钟:
     
     def 分析冲突细节(
         self,
-        本地数据: Dict[str, Any],
-        远程数据: Dict[str, Any]
+        本地数据: Dict,
+        远程数据: Dict
     ) -> Dict[str, Any]:
         """
         分析冲突的具体差异
@@ -303,7 +300,7 @@ class 版本向量时钟:
     # 诊断
     # ============================================================
     
-    def 获取历史(self) -> list[Any]:
+    def 获取历史(self) -> list:
         """获取版本向量操作历史"""
         return copy.deepcopy(self._历史)
     

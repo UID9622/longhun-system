@@ -1,7 +1,6 @@
+#!/bin/bash
 # #龍芯⚡️2026-07-03-MODULE-LONGHUN-v1.0
 # 君子協議: 本文件受龍魂DNA追溯保護
-
-#!/bin/bash
 # 🐉 龍魂统一交互入口 · LH 看板（系统级 longhun 代理）
 # DNA: #龍芯⚡️20260629-LONGHUN-LONGHUN-PROXY-v2.0
 # 新增：lh search / video / distill / audit / status / logs / web / schedule
@@ -542,6 +541,18 @@ if [ "$FIRST_ARG" = "iron-door" ] || [ "$FIRST_ARG" = "irondoor" ] || [ "$FIRST_
   exec python3 "$HOME/longhun-system/bin/lh_iron_door.py" "$@"
 fi
 
+# ─── 龍魂 · 视频生态系统 v1.0 ───
+if [ "$FIRST_ARG" = "video-eco" ] || [ "$FIRST_ARG" = "veco" ] || [ "$FIRST_ARG" = "视频生态" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_video_ecosystem.py" "$@"
+fi
+
+# ─── 龍魂 · CNSH 套件 v1.0 ───
+if [ "$FIRST_ARG" = "cnsh-suite" ] || [ "$FIRST_ARG" = "cnsh" ] || [ "$FIRST_ARG" = "cns" ]; then
+  shift
+  PYTHONPATH="$HOME/longhun-system/packages:$PYTHONPATH" exec python3 -c "from cnsh_suite.cli import main; main()" "$@"
+fi
+
 for cmd in $CTL_COMMANDS; do
   if [ "$FIRST_ARG" = "$cmd" ]; then
     exec python3 "$HOME/longhun-system/bin/lh_ctl.py" "$@"
@@ -591,6 +602,24 @@ if [ "$FIRST_ARG" = "event" ] || [ "$FIRST_ARG" = "事件" ]; then
   exec python3 "$HOME/longhun-system/08_BIN/lh_event_bus.py" "$@"
 fi
 
+# ─── 🐉 AI互通总线 lh bus v1.0（所有AI共用入口·Kimi/CodeBuddy/DeepSeek...） ───
+if [ "$FIRST_ARG" = "bus" ] || [ "$FIRST_ARG" = "互通" ] || [ "$FIRST_ARG" = "mesh" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_bus.py" "$@"
+fi
+
+# ─── 🧠 認知索引 lh index v1.0（AI大腦地圖·不理解的先查地圖再動手） ───
+if [ "$FIRST_ARG" = "index" ] || [ "$FIRST_ARG" = "认知" ] || [ "$FIRST_ARG" = "map" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_cognitive_index.py" "$@"
+fi
+
+# ─── 🐉 P0全自动化 lh p0 v1.0（Mac主权版·主权人格直接操作本机·非代理·不外放） ───
+if [ "$FIRST_ARG" = "p0" ] || [ "$FIRST_ARG" = "主权" ] || [ "$FIRST_ARG" = "全自动" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_p0_automation.py" "$@"
+fi
+
 # ─── 龍魂治理流水线执行器 v1.0 ───
 if [ "$FIRST_ARG" = "governed" ] || [ "$FIRST_ARG" = "治理" ]; then
   shift
@@ -637,6 +666,52 @@ fi
 if [ "$FIRST_ARG" = "sancai-compress" ] || [ "$FIRST_ARG" = "三才压缩" ] || [ "$FIRST_ARG" = "dna-compress" ]; then
   shift
   exec python3 "$HOME/longhun-system/08_BIN/lh_sancai_dna_compress.py" "$@"
+fi
+
+# ─── 龍魂 · 协议与代码快速检索与迭代引擎 v1.0 ───
+if [ "$FIRST_ARG" = "quick" ] || [ "$FIRST_ARG" = "检索" ] || [ "$FIRST_ARG" = "索引" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_quick_retrieval.py" "$@"
+fi
+
+# ─── 龍魂 · 情绪纠偏与意图自动执行引擎 v1.1 ───
+if [ "$FIRST_ARG" = "emotion" ] || [ "$FIRST_ARG" = "纠偏" ] || [ "$FIRST_ARG" = "执行" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_emotion_engine.py" "$@"
+fi
+
+# ─── 龍魂 · 开源工具主权引入与CNSH转译系统 v1.0 ───
+if [ "$FIRST_ARG" = "bridge" ] || [ "$FIRST_ARG" = "osb" ] || [ "$FIRST_ARG" = "开源桥" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_open_source_bridge.py" "$@"
+fi
+
+# ─── 龍魂 · 神经拓扑集成架构 v1.0 ───
+if [ "$FIRST_ARG" = "neuro" ] || [ "$FIRST_ARG" = "神经拓扑" ] || [ "$FIRST_ARG" = "nt" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_neuro_boot.py" "$@"
+fi
+
+if [ "$FIRST_ARG" = "asinet" ] || [ "$FIRST_ARG" = "asi-net" ] || [ "$FIRST_ARG" = "ASN" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/08_BIN/lh_asi_boot.py" "$@"
+fi
+
+if [ "$FIRST_ARG" = "agent-exec" ] || [ "$FIRST_ARG" = "ae" ] || [ "$FIRST_ARG" = "智能体执行" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/05_ENGINES/lh_agent_executor.py" "$@"
+fi
+
+# ─── 龍魂 · 全自动工厂系统 v2.1 ───
+if [ "$FIRST_ARG" = "factory" ] || [ "$FIRST_ARG" = "工厂" ]; then
+  shift
+  exec bash "$HOME/longhun-system/08_BIN/lh_factory.sh" "$@"
+fi
+
+# 🐉 自然语言意图引擎 v1.0：lh natural "你说人话"
+if [ "$FIRST_ARG" = "natural" ] || [ "$FIRST_ARG" = "ask" ] || [ "$FIRST_ARG" = "问" ]; then
+  shift
+  exec python3 "$HOME/longhun-system/bin/lh_natural.py" "$@"
 fi
 
 # 兜底：任何非 flag 且非已知命令的参数，视为自然语言查询

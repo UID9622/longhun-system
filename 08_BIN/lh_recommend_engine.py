@@ -184,7 +184,7 @@ def detect_dna_level(uid: str = "", dna_signature: str = "",
         return DNALevel.L0_本尊, info
 
     # L1: 中国·已验证DNA
-    china_keywords = ["🇨🇳", "中国", "CN", "zh", "龙", "龍", "华"]
+    china_keywords = ["🇨🇳", "中国", "CN", "zh", "龍", "龍", "华"]
     # 境外关键词（优先检测）
     overseas_keywords = ["境外", "海外", "overseas", "US", "UK", "JP", "KR", "EU"]
     is_overseas = any(kw.lower() in location_hint.lower() for kw in overseas_keywords)

@@ -796,7 +796,13 @@ class 三色审计引擎:
         闸口结果列表 = []
         if self.启用闸口:
             raw_gates = 闸口检测器.全量检测(被审计对象, dna, 上下文)
-            闸口结果列表 = [asdict(g) for g in raw_gates]
+            # 修复(2026-08-16): Enum 不可 JSON 序列化 → asdict 后显式转字符串
+            闸口结果列表 = []
+            for g in raw_gates:
+                _g = asdict(g)
+                _g["闸口"] = g.闸口.value
+                _g["状态"] = g.状态.value
+                闸口结果列表.append(_g)
             # 闸口红色 → 升级
             for g in raw_gates:
                 if g.状态 == 三色.红色 and 规则结果["颜色"] != 三色.红色:
@@ -1142,7 +1148,9 @@ def main():
                 if 红色闸 or 黄色闸:
                     print(f"\n🚪 闸口异常:")
                     for g in 红色闸 + 黄色闸:
-                        print(f"   {g.get('状态','')} {g.get('闸口名','')}: {g.get('详情','')[:60]}")
+                        _闸口 = g.get("闸口", "")
+                        _名 = _闸口[1] if isinstance(_闸口, (tuple, list)) and len(_闸口) > 1 else str(_闸口)
+                        print(f"   {g.get('状态','')} {_名}: {g.get('详情','')[:60]}")
 
             if 裁决.交叉验证:
                 print(f"\n🔍 P05交叉验证: {裁决.交叉验证}")

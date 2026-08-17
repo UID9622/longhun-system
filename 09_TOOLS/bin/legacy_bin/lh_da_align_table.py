@@ -114,7 +114,7 @@ ALIGN_DIMENSIONS: list[dict[str, Any]] = [
         "id": "DA-008",
         "dimension": "繁简归一",
         "core_indicator": "龍字规范化",
-        "acceptance_criteria": "「龍」繁体为规范形式；「龙」简体等价接收自动归一，不熔断",
+        "acceptance_criteria": "「龍」繁体为规范形式；「龍」简体等价接收自动归一，不熔断",
         "check_pattern": "cnsh_char",
         "auto_fixable": True,
         "scope": ["python", "markdown", "html", "json"],
@@ -247,9 +247,9 @@ def check_cnsh_char(filepath: Path) -> dict[str, Any]:
     except Exception:
         return {"dimension_id": "DA-008", "status": "🟡", "issues": [{"level": "warn", "msg": "无法读取文件"}]}
 
-    # 检查是否使用简体「龙」而非繁体「龍」
-    if '龙魂' in content:
-        issues.append({"level": "warn", "msg": "使用了简体「龙魂」应为繁体「龍魂」"})
+    # 检查是否使用简体「龍」而非繁体「龍」
+    if '龍魂' in content:
+        issues.append({"level": "warn", "msg": "使用了简体「龍魂」应为繁体「龍魂」"})
 
     status = "🟢" if not issues else "🟡"
     return {"dimension_id": "DA-008", "status": status, "issues": issues}
@@ -441,8 +441,8 @@ def main() -> int:
                         filepath = ROOT / item["file"]
                         try:
                             content = filepath.read_text(encoding="utf-8")
-                            if "龙魂" in content:
-                                new_content = content.replace("龙魂", "龍魂")
+                            if "龍魂" in content:
+                                new_content = content.replace("龍魂", "龍魂")
                                 filepath.write_text(new_content, encoding="utf-8")
                                 fixed += 1
                                 print(f"  ✅ 繁简归一: {item['file']}")

@@ -554,7 +554,7 @@ if __name__ == "__main__":
     print(f"  相同文本: {result.verdict} (置信度: {result.combined_confidence:.2%})")
 
     # 修改後文本
-    modified = test_texts[0].replace("龍魂", "龙魂").replace("隱私", "隐私")
+    modified = test_texts[0].replace("龍魂", "龍魂").replace("隱私", "隐私")
     result2 = engine.verify_identity(identity, modified)
     print(f"  簡化字替換: {result2.verdict} (置信度: {result2.combined_confidence:.2%})")
 

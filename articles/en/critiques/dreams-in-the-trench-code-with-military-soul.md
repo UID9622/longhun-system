@@ -19,7 +19,7 @@ There's a kind of alertness that never leaves a soldier.
 
 You can take the man out of the barracks, but you can't take the barracks out of the man. I've been retired for years now, but when I code at 3 AM and the build succeeds on the first try — I don't celebrate. I check again. Because in the military, when something seems too easy, you've missed something.
 
-The Longhun System was built on this instinct. Not paranoia. **Professional skepticism.** Technology is not neutral. Code is not innocent. And AI without rules of engagement is just a weapon without a safety catch.
+The LongHun System was built on this instinct. Not paranoia. **Professional skepticism.** Technology is not neutral. Code is not innocent. And AI without rules of engagement is just a weapon without a safety catch.
 
 ---
 
@@ -31,7 +31,7 @@ The Longhun System was built on this instinct. Not paranoia. **Professional skep
 Military: Every soldier knows who gives orders and who takes them.
 Tech: Every AI company says "trust us" but can't answer: who's in charge when the AI makes a harmful decision?
 
-Longhun answer: The Persona Cabinet. Twenty defined roles, clear escalation paths.
+LongHun answer: The Persona Cabinet. Twenty defined roles, clear escalation paths.
 No decision without an accountable human. No "the algorithm did it."
 ```
 
@@ -41,7 +41,7 @@ No decision without an accountable human. No "the algorithm did it."
 Military: You don't fire without identifying the target.
 Tech: AI models output whatever the prompt asks, without checking if the output is harmful.
 
-Longhun answer: Three-Color Audit. Green = go. Yellow = flag + review. Red = freeze + investigate.
+LongHun answer: Three-Color Audit. Green = go. Yellow = flag + review. Red = freeze + investigate.
 Every output passes through gates. No exception. No "but it's just a prototype."
 ```
 
@@ -51,7 +51,7 @@ Every output passes through gates. No exception. No "but it's just a prototype."
 Military: After every operation, you debrief. What went right? What went wrong? What do we change?
 Tech: AI companies ship, then apologize. There's no systematic learning from failures.
 
-Longhun answer: DNA Traceability. Every action logged. Every decision traceable. Every failure reviewable.
+LongHun answer: DNA Traceability. Every action logged. Every decision traceable. Every failure reviewable.
 You don't get to forget your mistakes here.
 ```
 
@@ -61,7 +61,7 @@ You don't get to forget your mistakes here.
 Military: You don't abandon your people.
 Tech: Platforms ban users without explanation. Algorithms ghost creators without notice.
 
-Longhun answer: No deletion, only freezing. Every frozen account gets a reason code.
+LongHun answer: No deletion, only freezing. Every frozen account gets a reason code.
 Every appeal gets a human review. No algorithmic abandonment.
 ```
 
@@ -73,7 +73,7 @@ Here's something civilians don't always understand about soldiers:
 
 We've seen "smart systems" fail in the field. GPS jamming. Comms blackout. Friend-or-foe misidentification. When the smart system fails, you fall back on training — on muscle memory, on protocol, on the basics.
 
-**The Longhun System is built for when the "smart" part fails.**
+**The LongHun System is built for when the "smart" part fails.**
 
 - If the AI hallucinates → the audit system catches it.
 - If the persona router misfires → the fallback persona takes over.
@@ -121,7 +121,7 @@ Hire veterans. Not as a diversity metric. Because they bring something you despe
 
 Your "move fast and break things" philosophy sounds a lot different to someone who has seen what happens when things break in the real world.
 
-The Longhun System proves: a veteran with no coding background can build a governance framework that professional engineers respect. The barrier to entry in tech is not intelligence. It's the gatekeeping that tells people like me "you don't belong here."
+The LongHun System proves: a veteran with no coding background can build a governance framework that professional engineers respect. The barrier to entry in tech is not intelligence. It's the gatekeeping that tells people like me "you don't belong here."
 
 ---
 
@@ -131,7 +131,7 @@ Sometimes I dream I'm back in uniform. But instead of a rifle, I'm holding a lap
 
 Same fight. Different battlefield.
 
-This is why the Longhun System exists. Not to make money. Not to win awards. To be a **digital trench** — a defensive position from which the Chinese people can build their digital future without fear of being harvested, manipulated, or erased.
+This is why the LongHun System exists. Not to make money. Not to win awards. To be a **digital trench** — a defensive position from which the Chinese people can build their digital future without fear of being harvested, manipulated, or erased.
 
 ---
 

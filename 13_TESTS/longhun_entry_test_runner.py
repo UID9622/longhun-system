@@ -5,7 +5,7 @@ from __future__ import annotations
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║     🐉 龍魂·通用收口指令 v1.0 · 测试执行器                                ║
-║     Longhun Entry Protocol v1.0 · Test Runner                             ║
+║     LongHun Entry Protocol v1.0 · Test Runner                             ║
 ╠══════════════════════════════════════════════════════════════════════════╣
 ║  DNA:  #龍芯⚡️丙午·辛未·乙酉·酉时·讼-ENTRY-TEST-RUNNER-v1.0            ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                          ║

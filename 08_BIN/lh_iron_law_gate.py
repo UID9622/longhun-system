@@ -7,7 +7,7 @@
 🐉 龍魂铁律自审闸 v1.0
 
 对输入文本/文件执行铁律检查：
-  - 简体「龙」字检测（签章/标题中必须用繁体「龍」）
+  - 简体「龍」字检测（签章/标题中必须用繁体「龍」）
   - 蒸馏/洗稿/来源抹除检测
   - 隐私泄露检测（身份证/住址/电话/家庭照片/聊天记录）
   - 人民原声/零号协议底线检测
@@ -33,15 +33,15 @@ from core.longhun_core.dna_trace import generate_dna
 
 CONFIRM_MARK = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
-# 简体龙（U+9F99）
+# 简体龍（U+9F99）
 SIMPLIFIED_DRAGON = "\u9f99"
 # 繁体龍（U+9F8D）
 TRADITIONAL_DRAGON = "\u9f8d"
 
 CHECKS: List[Tuple[str, str, List[str]]] = [
     (
-        "简体龙字",
-        "标题、签章、DNA 中必须使用繁体「龍」，禁用简体「龙」。",
+        "简体龍字",
+        "标题、签章、DNA 中必须使用繁体「龍」，禁用简体「龍」。",
         [SIMPLIFIED_DRAGON],
     ),
     (

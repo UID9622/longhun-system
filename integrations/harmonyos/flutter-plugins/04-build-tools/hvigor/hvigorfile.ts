@@ -1,4 +1,4 @@
-// 🐉 龙魂·鸿蒙构建优化插件
+// 🐉 龍魂·鸿蒙构建优化插件
 // DNA: #龍芯⚡️2026-08-06-HVIGOR-PLUGIN-V2.0-UID9622
 // 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 // License: MulanPSL v2
@@ -13,11 +13,11 @@ function longhunPreBuildAudit() {
       node.registerTask({
         name: 'preBuildAudit',
         run() {
-          console.info('\n🐉 [龙魂] 构建前审计开始...');
+          console.info('\n🐉 [龍魂] 构建前审计开始...');
           console.info('  🔐 主权声明: UID9622 | ZHUGEXIN');
           console.info('  🧬 DNA: #龍芯⚡️' + new Date().toISOString().slice(0, 10) + '-AUDIT-UID9622');
           console.info('  🟢🟡🔴 三色审计: 通过');
-          console.info('🐉 [龙魂] ✅ 构建前审计通过\n');
+          console.info('🐉 [龍魂] ✅ 构建前审计通过\n');
         },
       });
     },
@@ -32,10 +32,10 @@ function longhunSizeAnalyzer() {
       node.registerTask({
         name: 'analyzeSize',
         run() {
-          console.info('\n📦 [龙魂] 包体积分析...');
+          console.info('\n📦 [龍魂] 包体积分析...');
           console.info('  📊 总大小: ~15.2 MB (估算)');
           console.info('  ✅ 在合理范围内 (< 20MB)');
-          console.info('📦 [龙魂] ✅ 体积分析完成\n');
+          console.info('📦 [龍魂] ✅ 体积分析完成\n');
         },
       });
     },
@@ -50,7 +50,7 @@ function longhunPermissionChecker() {
       node.registerTask({
         name: 'checkPermissions',
         run() {
-          console.info('\n🔐 [龙魂] 权限检查...');
+          console.info('\n🔐 [龍魂] 权限检查...');
           const required = [
             'ohos.permission.INTERNET',
             'ohos.permission.GET_NETWORK_INFO',
@@ -58,7 +58,7 @@ function longhunPermissionChecker() {
           ];
           console.info('  📋 必需权限:');
           required.forEach(p => console.info('    ✅ ' + p));
-          console.info('🔐 [龙魂] ✅ 权限检查通过\n');
+          console.info('🔐 [龍魂] ✅ 权限检查通过\n');
         },
       });
     },

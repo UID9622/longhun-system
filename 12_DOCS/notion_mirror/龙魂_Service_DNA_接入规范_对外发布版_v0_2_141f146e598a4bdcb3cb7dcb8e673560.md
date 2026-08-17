@@ -1,4 +1,4 @@
-# 📄 龙魂·Service DNA 接入规范（对外发布版）v0.2
+# 📄 龍魂·Service DNA 接入规范（对外发布版）v0.2
 
 > Notion URL: https://app.notion.com/p/Service-DNA-v0-2-141f146e598a4bdcb3cb7dcb8e673560
 > Created: 2026-01-18T03:07:00.000Z
@@ -12,9 +12,9 @@
 - 输入一份标准JSON
 - 产出 🟢🟡🔴 三色审计结果
 - 记录日志与统计
-就能把“龙魂内核”接进你们的AI里。
+就能把“龍魂内核”接进你们的AI里。
 版本： v0.2
-DNA追溯码： #龙芯⚡️2026-01-18-ServiceDNA-接入规范-v0.2
+DNA追溯码： #龍芯⚡️2026-01-18-ServiceDNA-接入规范-v0.2
 GPG指纹： A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 SHA256指纹： b83c74d108660082581f9ebbb9506f65849d9d48d21d328daf13f7c4d66cf6c1
 确认码： #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

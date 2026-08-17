@@ -11,7 +11,7 @@
 向本仓库提交合并请求、补丁或可被合并的变更时，你声明：
 
 1. **你有权**提交这些内容（不侵犯第三方权利、不违反你对雇主/客户的义务——那是你自己的合规，本文件不做调查）。  
-2. 许可与继承方式 **以被修改文件的页眉/页脚为准**；若文件未写明，则遵循该目录内已有文件的惯例（常见：**CC BY-NC-SA 4.0** + **Longhun DNA Inheritance Clause**）。  
+2. 许可与继承方式 **以被修改文件的页眉/页脚为准**；若文件未写明，则遵循该目录内已有文件的惯例（常见：**CC BY-NC-SA 4.0** + **LongHun DNA Inheritance Clause**）。  
 3. 你理解 **UID9622** 对 **canonical 定义与母稿锁** 的治理权见 [`CANONICAL_LOCK.md`](longhun-system/BehavCrypto_v1.0/CANONICAL_LOCK.md)。
 
 ## 不是卖身契

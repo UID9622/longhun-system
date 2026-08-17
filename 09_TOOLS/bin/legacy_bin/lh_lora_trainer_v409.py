@@ -270,7 +270,7 @@ def test_model():
         ("longhun-memory-bootstrap 技能是做什么的？", "技能记忆"),
         ("星辰记忆系统是什么？", "星辰记忆"),
         ("UID9622 是谁？", "人格记忆"),
-        ("What is Longhun system?", "英文记忆"),
+        ("What is LongHun system?", "英文记忆"),
     ]
     passed = 0
     for prompt, label in prompts:

@@ -34,7 +34,7 @@ DNA: "#龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-CNSH-GLOBAL-PACT-v3.0-
 | 术语 | 定义 | 英文对照 |
 |:-----|:-----|:---------|
 | **CNSH** | 中文原生脚本语法（Chinese Native Script Host），以中文为逻辑表达语言的开放语法框架 | CNSH |
-| **龍魂系统** | 发布本协议的技术主权体，UID9622，LU × CNSH | Longhun System |
+| **龍魂系统** | 发布本协议的技术主权体，UID9622，LU × CNSH | LongHun System |
 | **宪法层** | 龍魂系统的最高裁决层，不可修改、不可绕过、不可豁免 | Constitutional Layer |
 | **知道不说者** | 已掌握中文编辑技术/语义驱动逻辑/AI治理框架，故意不公开、不共享、利用其制造技术门槛的个人或组织 | Know-But-Silent |
 | **自动熔断** | 系统检测到违规行为时，无需人工干预即自动执行的阻断动作 | Auto-Circuit-Breaker |

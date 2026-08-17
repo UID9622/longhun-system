@@ -4,8 +4,8 @@
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
-龙魂蚁群引擎 v2.0 · Ant Colony Engine
-基于 LACA 论文 v1.0 的完整工程实现，深度整合龙魂系统架构
+龍魂蚁群引擎 v2.0 · Ant Colony Engine
+基于 LACA 论文 v1.0 的完整工程实现，深度整合龍魂系统架构
 
 DNA: #龍芯⚡️丙午·辛未·LACA-v2.0
 融合点:

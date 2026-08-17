@@ -30,6 +30,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 # 挂载新路由
 from model_router import router as model_router
 from knowledge_api import router as knowledge_router, _get_graph, _archive_docs_list
+from cn_innovation_kg_api import router as cn_innovation_kg_router
+from clipboard_vault_api import router as clipboard_vault_router
 
 # 确保能找到 static 目录
 STATIC_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
@@ -76,6 +78,8 @@ app.add_middleware(
 # 挂载新路由
 app.include_router(model_router)
 app.include_router(knowledge_router)
+app.include_router(cn_innovation_kg_router)
+app.include_router(clipboard_vault_router)
 
 # 挂载静态页面
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
@@ -184,6 +188,11 @@ def api_docs():
             {"path": "/api/graph/edges", "method": "GET", "desc": "知识图谱边"},
             {"path": "/api/graph/query", "method": "POST", "desc": "节点子图查询"},
             {"path": "/api/graph/stats", "method": "GET", "desc": "图谱统计"},
+            {"path": "/api/clipboard-vault/stats", "method": "GET", "desc": "剪贴板容器统计"},
+            {"path": "/api/clipboard-vault/items", "method": "GET", "desc": "列出容器剪贴项"},
+            {"path": "/api/clipboard-vault/save", "method": "POST", "desc": "保存剪贴内容到容器"},
+            {"path": "/api/clipboard-vault/sync-to-kg", "method": "POST", "desc": "容器内容同步到知识图谱"},
+            {"path": "/api/clipboard-vault/kg-ready", "method": "GET", "desc": "导出 KG 就绪 JSON"},
         ],
     }
 

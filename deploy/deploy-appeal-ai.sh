@@ -119,7 +119,7 @@ if [[ -f "$NGINX_CONF" ]]; then
     elif grep -q "longhun-v4.js" "$NGINX_CONF"; then
         echo -e "  ${GREEN}✅${NC} Nginx: 已是 v4"
     else
-        echo -e "  ${YELLOW}⚠️${NC} Nginx配置中未找到龙魂JS引用，请手动添加"
+        echo -e "  ${YELLOW}⚠️${NC} Nginx配置中未找到龍魂JS引用，请手动添加"
     fi
 
     # 测试并重载

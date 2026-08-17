@@ -339,7 +339,7 @@
   },
 
   "part_5_flow_decision_10_gates": {
-    "description": "龙魂流场决策核 v4.1 · 10道闸完整流程",
+    "description": "龍魂流场决策核 v4.1 · 10道闸完整流程",
 
     "pipeline": [
       {"gate": 1, "name": "签章闸", "id": "IPA-FLOW-GATE-SIGN", "check": "confirm_code + GPG 验证", "persona": "P05", "fuse": "签章不匹配→🔴熔断"},
@@ -603,7 +603,7 @@
   },
 
   "part_12_computation_pipeline": {
-    "description": "完整计算链路：从输入到三色判定的一条龙",
+    "description": "完整计算链路：从输入到三色判定的一条龍",
 
     "pipeline": [
       {"step": 0, "name": "会话记忆加载", "action": "python3 bin/lh_memory_load.py"},

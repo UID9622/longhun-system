@@ -27,7 +27,7 @@ class DNAStamp:
       - semantic_diff: 自然语言变更描述（AI可读），传统diff是"改了什么"，
         语义diff是"为什么改"
       - parent_hash: 链式结构，任何中间节点被篡改整条链失效
-      - signatures: 多AI接龙，每个AI只签自己参与的部分
+      - signatures: 多AI接龍，每个AI只签自己参与的部分
       - behavior_proof: 行为密码学七因子，证明"谁在什么情境下做了什么"
       - conflicts: 冲突显式记录，不悄悄覆盖
     """

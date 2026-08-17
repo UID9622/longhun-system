@@ -21,6 +21,12 @@ PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT / "bin"))
 
+# 脚本式测试文件（设计为 `python3 tests/test_xxx.py` 独立入口，顶层 sys.exit，
+# 无法被 pytest 收集）→ 从 pytest 收集范围排除（2026-08-15 工程适配）
+collect_ignore = [
+    "test_cnsh_model_router.py",
+]
+
 
 # ═══════════════════════════════════════════════
 # 路径 Fixtures
@@ -114,3 +120,65 @@ def pytest_configure(config):
     config.addinivalue_line(
         "markers", "jspace: J-space 意识空间测试"
     )
+    # ═══════════════════════════════════════════════
+    # v1.0 完整测试套件 markers (2026-08-15 追加)
+    # ═══════════════════════════════════════════════
+    config.addinivalue_line("markers", "audit: 代码审计测试 (P05)")
+    config.addinivalue_line("markers", "functional: 功能评估测试 (P04)")
+    config.addinivalue_line("markers", "smoke: 冒烟测试 (P14)")
+    config.addinivalue_line("markers", "auto_iteration: 自动迭代测试 (P04)")
+    config.addinivalue_line("markers", "benchmark: 性能基准测试 (P06)")
+    config.addinivalue_line("markers", "api: API端到端测试 (P14)")
+
+
+# ═══════════════════════════════════════════════
+# v1.0 测试套件 fixtures (2026-08-15 追加)
+# ═══════════════════════════════════════════════
+
+@pytest.fixture(scope="session")
+def test_env() -> Dict[str, Any]:
+    """测试环境 fixture — 隔离目录 + 核心目录速查"""
+    import os
+    os.environ["LONGHUN_TEST_MODE"] = "true"
+    return {
+        "root": PROJECT_ROOT,
+        "bin": PROJECT_ROOT / "08_BIN",
+        "engines": PROJECT_ROOT / "05_ENGINES",
+        "protocols": PROJECT_ROOT / "01_protocols",
+        "temp_dir": Path(tempfile.mkdtemp(prefix="longhun_test_env_")),
+    }
+
+
+@pytest.fixture(scope="function")
+def clean_env(test_env) -> Generator[None, None, None]:
+    """清理测试环境（每个测试函数后）"""
+    yield
+    import shutil
+    shutil.rmtree(test_env["temp_dir"], ignore_errors=True)
+
+
+@pytest.fixture
+def dna_check():
+    """DNA追溯码检查 fixture"""
+    import re
+    def _check(content: str) -> bool:
+        return bool(re.search(r'#龍芯⚡️', content))
+    return _check
+
+
+@pytest.fixture(scope="session", autouse=True)
+def test_environment_setup() -> Generator[None, None, None]:
+    """v1.1 测试环境自动设置与清理（session级·隔离真实数据）"""
+    import os
+    import shutil
+    test_home = Path(tempfile.gettempdir()) / "longhun_test_env"
+    test_home.mkdir(parents=True, exist_ok=True)
+    os.environ["LONGHUN_HOME"] = str(test_home)
+    os.environ["LONGHUN_TEST_MODE"] = "true"
+
+    (test_home / "memory").mkdir(exist_ok=True)
+    (test_home / "knowledge_graph").mkdir(exist_ok=True)
+
+    yield
+
+    shutil.rmtree(test_home, ignore_errors=True)

@@ -74,7 +74,7 @@
       "id": "dragon-soul-agent",
       "name": "dragon-soul-agent",
       "version": "1.0",
-      "description": "当用户提及 UID9622、龍魂、Dragon Soul、CNSH、中文编程、中文命名规范、 通心译、Tongxin Translation、三色审计、DNA追溯、龍芯、君子协议、 六层来源链、干掉Cloud 5、自主云、中文原生脚本、中文AI术语映射、 龍魂治理、CNSH_前缀、繁体龍字规范时激活此技能。 提供中文语义理解能力、CNSH中文命名规范检查、通心译实时翻译、 龍魂治理框架审计与DNA追溯。 适用于中文编程项目、AI系统治理、开源项目审计、中文技术文档翻译。",
+      "description": "当用户提及 UID9622、龍魂、LongHun、CNSH、中文编程、中文命名规范、 通心译、Tongxin Translation、三色审计、DNA追溯、龍芯、君子协议、 六层来源链、干掉Cloud 5、自主云、中文原生脚本、中文AI术语映射、 龍魂治理、CNSH_前缀、繁体龍字规范时激活此技能。 提供中文语义理解能力、CNSH中文命名规范检查、通心译实时翻译、 龍魂治理框架审计与DNA追溯。 适用于中文编程项目、AI系统治理、开源项目审计、中文技术文档翻译。",
       "scope": "project",
       "type": "python",
       "scripts": [
@@ -203,7 +203,7 @@
       "id": "longhun-backup",
       "name": "longhun-backup",
       "version": "1.0",
-      "description": "龍魂备份恢复系统 (Longhun Backup & Recovery v5.1)。 提供三层分级备份策略（L1协议文件 / L2五层脚本 / L3配置文件）、 全量备份、增量备份、定时备份调度、快照恢复、版本回退、完整性验证等功能。 适用于龍魂v5技能栈的备份保护与灾难恢复场景。 当用户需要备份龍魂系统、恢复先前版本、验证备份完整性、 或设置自动备份策略时使用此技能。 DNA: #龍芯⚡️2026-06-19-LONGHUN-BACKUP-v5.1",
+      "description": "龍魂备份恢复系统 (LongHun Backup & Recovery v5.1)。 提供三层分级备份策略（L1协议文件 / L2五层脚本 / L3配置文件）、 全量备份、增量备份、定时备份调度、快照恢复、版本回退、完整性验证等功能。 适用于龍魂v5技能栈的备份保护与灾难恢复场景。 当用户需要备份龍魂系统、恢复先前版本、验证备份完整性、 或设置自动备份策略时使用此技能。 DNA: #龍芯⚡️2026-06-19-LONGHUN-BACKUP-v5.1",
       "scope": "project",
       "type": "python",
       "scripts": [
@@ -234,7 +234,7 @@
       "id": "longhun-benchmark",
       "name": "longhun-benchmark",
       "version": "5.1",
-      "description": "Longhun Formula System performance benchmark engine with 16 test scenarios across Core layer (8 items), Chain layer (5 items), and Batch tests (3 items). Includes comparison analysis between v1.0 and v2.0, trend analysis, regression detection, and report generation. Achieves 205,228 decisions/sec throughput with audit trail overhead quantified at 5-20%.",
+      "description": "LongHun Formula System performance benchmark engine with 16 test scenarios across Core layer (8 items), Chain layer (5 items), and Batch tests (3 items). Includes comparison analysis between v1.0 and v2.0, trend analysis, regression detection, and report generation. Achieves 205,228 decisions/sec throughput with audit trail overhead quantified at 5-20%.",
       "scope": "project",
       "type": "python",
       "scripts": [

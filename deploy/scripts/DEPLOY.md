@@ -1,7 +1,7 @@
 # DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# 🐉 龙魂系统 · 鲲鹏服务器部署手册
+# 🐉 龍魂系统 · 鲲鹏服务器部署手册
 
 > **DNA**: `#龍芯⚡️2026-07-13-KUNPENG-DEPLOY-BARK-v1.2`
 > **适用**: UID9622 · 诸葛鑫
@@ -17,8 +17,8 @@
 | 鲲鹏状态 | 部署入口 | 说明 |
 |----------|----------|------|
 | 刚开机，系统全新 | `deploy/openeuler-deploy.sh` | 1000+行，全自动环境准备+部署 |
-| 系统已有，只差龙魂 | `deploy/longhun-bootstrap.sh` | 27步终极引导部署 |
-| 龙魂代码已拉，配服务 | `deploy/scripts/monitor_setup.sh` | systemd+定时任务+监控 |
+| 系统已有，只差龍魂 | `deploy/longhun-bootstrap.sh` | 27步终极引导部署 |
+| 龍魂代码已拉，配服务 | `deploy/scripts/monitor_setup.sh` | systemd+定时任务+监控 |
 | Docker 方式 | `docker-compose up -d` | 容器化部署 |
 
 ---
@@ -64,7 +64,7 @@ mkdir -p /data && mount /dev/sdb /data
 echo "/dev/sdb /data ext4 defaults 0 0" >> /etc/fstab
 ```
 
-### 第七步：拉取龙魂代码
+### 第七步：拉取龍魂代码
 ```bash
 cd /data
 git clone https://github.com/UID9622/longhun-system.git /opt/longhun-system
@@ -113,7 +113,7 @@ echo 'export BARK_SERVER="http://华为云公网IP:8080"' >> /etc/environment
 echo 'export BARK_KEY="你的iOS设备Key"' >> /etc/environment
 source /etc/environment
 
-# 5. 加载龙魂 Bark 插件
+# 5. 加载龍魂 Bark 插件
 source /opt/longhun-system/executors/bark/longhun_bark_plugin.sh
 init_bark    # 初始化检测
 bark_test    # 测试推送
@@ -156,7 +156,7 @@ export FEISHU_WEBHOOK_URL="https://open.feishu.cn/open-apis/bot/v2/hook/xxx"
 ### 第十步：验证
 ```bash
 longhun-status                        # 一键查看全系统状态
-systemctl list-units | grep longhun   # 查看所有龙魂服务
+systemctl list-units | grep longhun   # 查看所有龍魂服务
 curl http://localhost:8080/health     # 验证技能总线
 ```
 

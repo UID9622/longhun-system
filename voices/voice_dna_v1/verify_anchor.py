@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂声纹验证与审计模块（多用户版）
-Dragon Soul Voice Anchor Verification & Audit - Multi-User
+LongHun Voice Anchor Verification & Audit - Multi-User
 
 功能：
   - 输入数字人ID + 待验证声纹

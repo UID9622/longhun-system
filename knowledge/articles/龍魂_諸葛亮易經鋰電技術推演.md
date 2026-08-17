@@ -6,7 +6,7 @@
 > - Output Type: Strategic Technology Forecast with I Ching Framework
 > - Methodology: Wuxing (Five Elements) + 64 Hexagrams + Sancai (Three Powers) Analysis
 > - Data Classification: Simulated/Synthetic — All numeric projections labeled as「推演數據·僅供參考」
-> - Creative Attribution: Original methodology「龍魂鋰電九轉訣」— Longhun Li-Battery Nine-Turn Methodology
+> - Creative Attribution: Original methodology「龍魂鋰電九轉訣」— LongHun Li-Battery Nine-Turn Methodology
 > - License: CC BY-NC-SA 4.0 (君子協議)
 > - Language: Bilingual (Traditional Chinese + English Technical Terms)
 > - Untranslatable Terms: 龍芯, 龍魂, 龍, UID9622, 三色審計, DNA追溯碼

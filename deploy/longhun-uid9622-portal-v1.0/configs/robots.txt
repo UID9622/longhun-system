@@ -1,0 +1,19 @@
+# 龍魂系统 robots.txt
+# DNA: #龍芯⚡️丙午·甲申·丁未·离为火-robots-v1.0
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /accessible.html
+Allow: /developer.html
+Allow: /portal/
+
+Disallow: /api/
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /private/
+Disallow: /tmp/
+
+Crawl-delay: 10
+
+Sitemap: https://www.uid9622.cn/sitemap.xml

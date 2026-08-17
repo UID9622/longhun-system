@@ -60,11 +60,11 @@ THEMES: Dict[str, Dict] = {
             "蚁群架构", "触角协议", "人格矩阵", "人格路由",
             "宪法铁律", "不可修订", "底座不动", "数字永生",
             "CNSH-64", "三才算法", "主权派生",
-            "龙魂系统", "龙芯核心", "longhun system",
+            "龍魂系统", "龍芯核心", "longhun system",
         ],
         "keywords_normal": [
             # 普通权重(1分): 辅助匹配
-            "龍魂", "龙魂", "longhun", "CNSH",
+            "龍魂", "龍魂", "longhun", "CNSH",
             "架构v", "引擎v", "engine", "内核",
             "persona", "neural", "registry",
             "編譯器", "编译器", "compiler",

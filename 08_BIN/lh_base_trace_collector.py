@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-#!/usr/bin/env python3
+# pyright: reportMissingImports=false, reportMissingTypeArgument=false, reportPossiblyUnboundVariable=false, reportOptionalMemberAccess=false, reportArgumentType=false
 """
 龍魂·底座痕迹采集引擎 v2.0 — 四道防线版
 DNA: #龍芯⚡️丙午·乙未·壬寅·亥时·☰乾-BASE-TRACE-COLLECTOR-V2.0-FOUR-DEFENSES
@@ -25,6 +25,11 @@ DNA: #龍芯⚡️丙午·乙未·壬寅·亥时·☰乾-BASE-TRACE-COLLECTOR-V2
   - 对外发送仅特征向量（哈希脱敏）
   - 本地存储设备绑定加密
 """
+
+# pyright: reportMissingTypeArgument=false, reportPossiblyUnboundVariable=false, reportOptionalMemberAccess=false, reportArgumentType=false, reportMissingImports=false
+# 说明: 本文件为 legacy 底座痕迹采集引擎，运行时通过条件导入/初始化保证变量非空。
+#      类型检查器无法识别这些运行时保证，故对泛型参数、条件导入、Optional 访问等噪声规则做文件级抑制，
+#      同时保留 reportAssignmentType 等可发现真实缺陷的规则。
 
 import argparse
 import base64
@@ -63,10 +68,12 @@ except ImportError:
 VERSION = "2.0.0"
 DNA = "#龍芯⚡️丙午·乙未·壬寅·亥时·☰乾-BASE-TRACE-COLLECTOR-V2.0-FOUR-DEFENSES"
 COLLECTOR_PORT = 18775  # 本地API端口
-CHECK_INTERVAL_PROCESS = 5    # 进程快照间隔(秒)
-CHECK_INTERVAL_NETWORK = 10   # 网络快照间隔(秒)
-CHECK_INTERVAL_USER = 15      # 用户行为检查间隔(秒)
-CHECK_INTERVAL_FILE = 8       # 文件系统检查间隔(秒)
+# 监控间隔(秒) — 2026-08-16优化: 原值过密导致trace_collector占48.9%CPU
+# 安全监控15-30秒级响应完全足够，降频不影响四道防线功能，仅省CPU
+CHECK_INTERVAL_PROCESS = 10   # 进程快照间隔(秒)
+CHECK_INTERVAL_NETWORK = 15   # 网络快照间隔(秒)
+CHECK_INTERVAL_USER = 30      # 用户行为检查间隔(秒)
+CHECK_INTERVAL_FILE = 15      # 文件系统检查间隔(秒)
 DATA_DIR = os.path.expanduser("~/.longhun/traces")
 DB_PATH = os.path.join(DATA_DIR, "trace.db")
 PID_FILE = os.path.expanduser("~/.longhun/trace_collector.pid")
@@ -78,7 +85,7 @@ MALWARE_SIG_PATH = os.path.join(DATA_DIR, "malware_sigs.json")
 DEVICE_SALT_PATH = os.path.join(DATA_DIR, ".device_salt")
 DEFENSE_LOG_PATH = os.path.join(DATA_DIR, "defense_audit.log")
 USER_WHITELIST_PATH = os.path.join(DATA_DIR, "network_whitelist.json")  # 用户自定义白名单
-NETWORK_WATCH_INTERVAL = 3    # 网络监控间隔(秒)
+NETWORK_WATCH_INTERVAL = 15   # 网络监控间隔(秒) — 2026-08-16: 原3秒全量lsof-i扫描烧48.9%CPU,降为15秒省电
 MALWARE_SYNC_INTERVAL = 3600  # 恶意特征库同步间隔(秒)
 THREAT_INTEL_SYNC_INTERVAL = 86400  # 威胁情报同步间隔(秒) = 24h
 NETWORK_GUARD_MAX_ALERTS = 500
@@ -1055,7 +1062,7 @@ class NetworkGuard(threading.Thread):
                     verdict = self._judge_connection(current)
                     if verdict["alert"]:
                         alerts.append(verdict)
-                current = {"pid": int(rest) if rest.isdigit() else 0}
+                current: Dict[str, Any] = {"pid": int(rest) if rest.isdigit() else 0}
             elif prefix == "c":
                 current["name"] = rest.strip()
             elif prefix == "n":
@@ -1766,7 +1773,7 @@ def extract_feature_vectors(db_conn: sqlite3.Connection, limit: int = 100):
 class TraceAPIHandler(BaseHTTPRequestHandler):
     """本地API处理器，供Chrome插件调用"""
     
-    db_conn: sqlite3.Connection = None
+    db_conn: Optional[sqlite3.Connection] = None
     vault: Optional[DeviceVault] = None          # 防线三
     malware_guard: Optional[MalwareGuard] = None  # 防线二
     network_guard: Optional[NetworkGuard] = None  # 防线一

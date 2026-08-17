@@ -139,8 +139,8 @@ class AuditLogger:
     """代理审计日志器
 
     每个请求:
-      请求头注入: X-Longhun-DNA
-      响应头注入: X-Longhun-Audit: 🟢|🟡|🔴
+      请求头注入: X-LongHun-DNA
+      响应头注入: X-LongHun-Audit: 🟢|🟡|🔴
       审计日志: ~/.longhun/proxy/audit/{日期}.lhm (SM4加密)
 
     用法:
@@ -170,7 +170,7 @@ class AuditLogger:
                       temperature: float = 0.7) -> str:
         """请求开始 → 生成 DNA
 
-        Returns: DNA 追溯码（注入 X-Longhun-DNA 头）
+        Returns: DNA 追溯码（注入 X-LongHun-DNA 头）
         """
         dna = _make_dna("REQUEST")
         self._pending[dna] = {
@@ -188,7 +188,7 @@ class AuditLogger:
                     latency_ms: float = 0, error: str = "") -> str:
         """请求结束 → 审计标记 + 写加密日志
 
-        Returns: 审计字符串（注入 X-Longhun-Audit 响应头）
+        Returns: 审计字符串（注入 X-LongHun-Audit 响应头）
         """
         entry = self._pending.pop(dna, {"dna": dna, "ts_start": time.time()})
         elapsed = (time.time() - entry.get("ts_start", time.time())) * 1000
@@ -279,7 +279,7 @@ class AuditLogger:
 
 if __name__ == "__main__":
     key = b"test-key-1234567"
-    data = "Hello, Longhun Audit! 龙魂审计日志SM4测试".encode()
+    data = "Hello, LongHun Audit! 龍魂审计日志SM4测试".encode()
     enc = _SM4.encrypt_ecb(data, key)
     dec = _SM4.decrypt_ecb(enc, key)
     assert dec == data, f"SM4 roundtrip fail"

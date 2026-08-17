@@ -224,7 +224,7 @@
     "统一词典": [
       {"cn": "确认码正式", "en": "confirm_formal", "py": "确认码正式", "note": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z·🌌正式"},
       {"cn": "确认码断代", "en": "confirm_legacy", "py": "确认码断代", "note": "#CONFIRM🌀9622-ONLY-ONCE🧬LK9X-772Z·🌀仅断代"},
-      {"cn": "DNA文化格式", "en": "dna_culture_format", "py": "DNA文化格式", "note": "#龍芯⚡️...·简体'龙'=🔴熔断"},
+      {"cn": "DNA文化格式", "en": "dna_culture_format", "py": "DNA文化格式", "note": "#龍芯⚡️...·简体'龍'=🔴熔断"},
       {"cn": "DNA机器格式", "en": "dna_machine_format", "py": "DNA机器格式", "note": "DNA::TYPE-9622-YYYYMMDD-TAG-VX.Y·缺前缀=🟡"},
       {"cn": "人格编号规范", "en": "persona_id_norm", "py": "人格编号规范", "note": "P00-P99·无编号=🟡待补"},
       {"cn": "路由编号规范", "en": "route_id_norm", "py": "路由编号规范", "note": "UID9622-{ROLE}-{NNN}·非标准=🟡"},

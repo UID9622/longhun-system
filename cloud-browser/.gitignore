@@ -1,0 +1,6 @@
+# 🔐 强 Token 与密钥绝不入库
+.env
+*.env
+!*.env.example
+__pycache__/
+*.pyc

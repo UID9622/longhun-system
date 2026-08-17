@@ -7,7 +7,7 @@ dependencies = [
     "mcp>=1.0.0",
     "httpx>=0.24.0",
 ]
-license = {text = "龙魂数字主权协议 (LONGHUN DIGITAL SOVEREIGNTY LICENSE)"}
+license = {text = "龍魂数字主权协议 (LONGHUN DIGITAL SOVEREIGNTY LICENSE)"}
 authors = [
     {name = "UID9622 (诸葛鑫·Lucky)", email = "longhun@longhun-system.local"},
 ]

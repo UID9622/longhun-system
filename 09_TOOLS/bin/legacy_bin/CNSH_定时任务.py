@@ -129,7 +129,7 @@ class CNSH_定时任务:
             问题 = []
             if "#龍芯⚡️" not in 内容 and 路径.suffix in (".py", ".md"):
                 问题.append("缺失 #龍芯⚡️ DNA 标记")
-            if re.search(r"(?i)(龙芯|龙魂|龙字)", 内容):
+            if re.search(r"(?i)(龍芯|龍魂|龍字)", 内容):
                 问题.append("繁体龍字被简化")
             for 词 in 抹痕关键词:
                 if 词.lower() in 内容.lower():

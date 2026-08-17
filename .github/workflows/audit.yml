@@ -41,7 +41,7 @@ jobs:
             --fail-level critical \
             --scope changed
         env:
-          CI_AUDIT_WHITELIST: "uid9622.cn,longhun888.com,119.13.90.27,longhun-system,龙魂,DragonSoul,github.com,gitee.com,gitcode.com,notion.so,feishu.cn,larksuite.com,api.openai.com,api.anthropic.com,api.deepseek.com,cryptography.hazmat,cryptography.fernet,paramiko,pynacl"
+          CI_AUDIT_WHITELIST: "uid9622.cn,longhun888.com,119.13.90.27,longhun-system,龍魂,DragonSoul,github.com,gitee.com,gitcode.com,notion.so,feishu.cn,larksuite.com,api.openai.com,api.anthropic.com,api.deepseek.com,cryptography.hazmat,cryptography.fernet,paramiko,pynacl"
           CI_AUDIT_SCOPE: changed
           PR_NUMBER: ${{ github.event.pull_request.number }}
 
@@ -60,7 +60,7 @@ jobs:
           script: |
             const prNumber = context.payload.pull_request?.number;
             if (!prNumber) return;
-            const message = `## 🐉 掀黑箱审计失败\n\n检测到技术主权风险，请查看 CI 日志中的详细发现。\n\n⚠️ PR 被自动阻断，请修复后重新提交。\n\n_Powered by 龙魂系统 · 掀黑箱引擎_`;
+            const message = `## 🐉 掀黑箱审计失败\n\n检测到技术主权风险，请查看 CI 日志中的详细发现。\n\n⚠️ PR 被自动阻断，请修复后重新提交。\n\n_Powered by 龍魂系统 · 掀黑箱引擎_`;
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,

@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂声纹开放注册模块
-Dragon Soul Voice Open Registration
+LongHun Voice Open Registration
 
 功能：
   - 对外提供用户声纹注册入口

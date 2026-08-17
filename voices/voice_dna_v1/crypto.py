@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂声纹本地加密模块
-Dragon Soul Voice Local Encryption
+LongHun Voice Local Encryption
 
 功能：
   - 本地生成并管理 Fernet 主密钥与 HMAC 密钥

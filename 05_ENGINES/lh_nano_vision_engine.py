@@ -116,7 +116,7 @@ if TORCH_OK:
             "P04鲁班", "P05上帝之眼", "P06数学大师", "P07管仲",
             "P08仓颉", "P09孙思邈", "P10苏东坡", "P11李白",
             "P12屈原", "P13姜子牙", "P14吕蒙", "P15乔前辈",
-            "P72龙盾", "P77黑天使", "S1法律引擎", "S2洛书369",
+            "P72龍盾", "P77黑天使", "S1法律引擎", "S2洛书369",
         ]
 
         def __init__(self, 通道数: int = 64):
@@ -156,7 +156,7 @@ if TORCH_OK:
                 nn.Sequential(nn.Conv2d(通道数, _c, 3, padding=1), nn.ReLU(), nn.Conv2d(_c, _c, 3, padding=1)),
                 # P15 乔前辈: 1x1 DNA哈希
                 nn.Sequential(nn.Conv2d(通道数, _c, 1), nn.ReLU(), nn.Conv2d(_c, _c, 1)),
-                # P72 龙盾: 全局池化+熔断
+                # P72 龍盾: 全局池化+熔断
                 nn.Sequential(nn.AdaptiveAvgPool2d(4), nn.Conv2d(通道数, _c, 1), nn.ReLU()),
                 # P77 黑天使: 对抗增强
                 nn.Sequential(nn.Conv2d(通道数, _c, 3, padding=1), nn.ReLU(), nn.Dropout2d(0.05)),

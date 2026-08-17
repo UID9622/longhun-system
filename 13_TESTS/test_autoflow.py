@@ -4,7 +4,7 @@
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║     🐉 龍魂·AutoFlow 测试用例集 v1.0                                     ║
-║     Longhun AutoFlow Test Suite                                          ║
+║     LongHun AutoFlow Test Suite                                          ║
 ╠══════════════════════════════════════════════════════════════════════════╣
 ║  DNA:  #龍芯⚡️丙午·辛未·乙酉·酉时·讼-AUTOFLOW-TEST-SUITE-v1.0        ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                          ║

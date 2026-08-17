@@ -33,7 +33,7 @@ LOCAL_KB_BASE = Path(os.environ.get("HOME", "/tmp")) / "longhun-system/data/know
 VERSION_FILE = "kb_version.json"
 MAX_RETRIES = 3
 REQUEST_TIMEOUT = 30
-USER_AGENT = "Longhun-Knowledge-Hub/2.0 (UID9622; +https://uid9622.cn)"
+USER_AGENT = "LongHun-Knowledge-Hub/2.0 (UID9622; +https://uid9622.cn)"
 FETCH_INTERVAL_HOURS = 6
 
 # ──────────────────────────────────────────────────────────────

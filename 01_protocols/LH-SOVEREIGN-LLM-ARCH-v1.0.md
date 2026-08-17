@@ -19,7 +19,7 @@
 ```
 ┌─────────────────────────────────────────────────────────┐
 │  中国芯超级安全大模型 =                                    │
-│  国产芯片(鲲鹏/昇腾/龙芯/飞腾)                              │
+│  国产芯片(鲲鹏/昇腾/龍芯/飞腾)                              │
 │  × 纯本地推理(Ollama/MLX/llama.cpp)                       │
 │  × 国产模型(Qwen/DeepSeek-本地版/自有微调)                  │
 │  × 国密全链路加密(SM2/SM3/SM4)                             │
@@ -74,7 +74,7 @@
 ├──────────┼──────────┼──────────┼──────────┼──────────┤
 │ 昇腾910B  │ DaVinci  │ FP16/INT8│ 72B      │ ⚡⚡⚡⚡  │
 │ 鲲鹏920   │ ARMv8.2  │ INT8/INT4│ 14B      │ ⚡⚡⚡    │
-│ 龙芯3A6000│ LoongArch│ INT8     │ 7B       │ ⚡⚡      │
+│ 龍芯3A6000│ LoongArch│ INT8     │ 7B       │ ⚡⚡      │
 │ 飞腾S5000C│ ARMv8    │ INT8     │ 14B      │ ⚡⚡⚡    │
 │ 海光Dhyana│ x86-64   │ FP16     │ 32B      │ ⚡⚡⚡    │
 │ 摩尔线程   │ MUSA     │ FP16     │ 32B      │ ⚡⚡⚡⚡  │
@@ -83,7 +83,7 @@
 推荐配置:
   生产环境: 昇腾910B + Qwen2.5-72B-INT4 = 最优中文体验
   边缘部署: 鲲鹏920 + Qwen2.5-14B-INT4 = 平衡性能
-  个人开发: 龙芯3A6000 + Qwen2.5-7B-INT4 = 最小可用
+  个人开发: 龍芯3A6000 + Qwen2.5-7B-INT4 = 最小可用
   桌面部署: Mac M系列 + MLX = 开发测试
 ```
 
@@ -116,7 +116,7 @@
 
 ```
 L1 物理层: 芯片门禁
-  ├── 完美层: 昇腾/鲲鹏/龙芯/飞腾 → 100%功能
+  ├── 完美层: 昇腾/鲲鹏/龍芯/飞腾 → 100%功能
   ├── 可用层: 海光/兆芯 → 85%功能
   ├── 受限层: x86通用 → 60%功能
   └── 拒绝层: 非国产 → 0%功能·熔断
@@ -187,7 +187,7 @@ IWCB v2.0 · 無限权重熔断
   推荐部署:
     昇腾: Ascend NPU + vLLM + Qwen2.5-72B
     鲲鹏: llama.cpp + GGUF + Qwen2.5-14B
-    龙芯: llama.cpp + GGUF + Qwen2.5-7B
+    龍芯: llama.cpp + GGUF + Qwen2.5-7B
     Mac:  MLX + Ollama + Qwen2.5-32B
 ```
 
@@ -291,7 +291,7 @@ bash deploy/ascend-deploy.sh
   → 下载 Qwen2.5-72B
   → 启动昇腾推理服务 :8766
 
-# 龙芯 (自主可控)
+# 龍芯 (自主可控)
 bash deploy/loongson-deploy.sh
   → 安装 llama.cpp (LoongArch 编译)
   → 下载 Qwen2.5-7B-GGUF
@@ -307,21 +307,21 @@ bash deploy/phytium-deploy.sh
 ### 5.2 最小硬件要求
 
 ```
-最小可用配置 (龙魂个人版):
-  CPU: 龙芯3A6000 或 鲲鹏920 或 Mac M1
+最小可用配置 (龍魂个人版):
+  CPU: 龍芯3A6000 或 鲲鹏920 或 Mac M1
   RAM: 16GB+
   存储: 50GB+ (模型文件)
   系统: openEuler 22.03 / macOS 14+ / Debian 12
   模型: Qwen2.5-7B-INT4 (约4.5GB)
 
-推荐配置 (龙魂标准版):
+推荐配置 (龍魂标准版):
   CPU: 鲲鹏920 64核 或 昇腾910B
   RAM: 64GB+
   存储: 200GB+ NVMe
   系统: openEuler 22.03
   模型: Qwen2.5-32B-INT4 (约18GB)
 
-旗舰配置 (龙魂企业版):
+旗舰配置 (龍魂企业版):
   NPU: 昇腾910B ×8
   RAM: 512GB+
   存储: 2TB+ NVMe RAID
@@ -405,7 +405,7 @@ Phase 2: 安全增强 (2周)
 
 Phase 3: 国产适配 (2周)
 ├── 🔲 昇腾 NPU 适配
-├── 🔲 龙芯 LoongArch 编译
+├── 🔲 龍芯 LoongArch 编译
 ├── 🔲 飞腾 ARM NEON 优化
 ├── 🔲 摩尔线程 MUSA 适配
 └── 🔲 麒麟OS/统信UOS 认证
@@ -455,7 +455,7 @@ Qwen2.5-14B-INT4 @ 鲲鹏920 (64核):
   生成速度: 8 tokens/s
   并发: 4
 
-Qwen2.5-7B-INT4 @ 龙芯3A6000:
+Qwen2.5-7B-INT4 @ 龍芯3A6000:
   首token: 2.5s
   生成速度: 3 tokens/s
   并发: 1

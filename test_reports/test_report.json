@@ -1,0 +1,18 @@
+{
+  "total": 1,
+  "passed": 1,
+  "failed": 0,
+  "skipped": 0,
+  "error": 0,
+  "results": [
+    {
+      "test_name": "complete_test_suite",
+      "status": "passed",
+      "message": "============================= test session starts ==============================\nplatform darwin -- Python 3.14.3, pytest-9.0.2, pluggy-1.6.0 -- /usr/local/bin/python3\ncachedir: .pytest_cache\nrootdir: /Users/zuimeidedeyihan/longhun-system\nconfigfile: pytest.ini (WARNING: ignoring pytest config in pyproject.toml!)\nplugins: locust-2.43.3, anyio-4.14.1, langsmith-0.7.23\ncollecting ... collected 23 items\n\ntests/test_code_audit.py::test_audit_all_files \n📊 存量代码审计报告: 356/2363 通过 (15.1%) 待补强: 2007\nPASSE",
+      "details": {},
+      "timestamp": "2026-08-15T14:00:22.811193",
+      "dna": "#龍芯⚡️丙午·丙酉·丙寅·申时-TEST-REPORT-UID9622"
+    }
+  ],
+  "timestamp": "2026-08-15T14:00:22.811207"
+}

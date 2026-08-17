@@ -6,14 +6,14 @@
   4 技术层 Technology    : Open Source
   5 系统层 System        : UID9622
   6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
-  DNA追溯码:#龍芯⚡️2026-06-03-DRAGON-MULTICURRENCY-UPGRADE-PLAN-FILE1-v1.0
+  DNA追溯码:#龍芯⚡️丙午·丙申·庚申·亥时-DRAGON-MULTICURRENCY-UPGRADE-PLAN-FILE1-v1.0
   铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
   文件: DRAGON_MULTICURRENCY_UPGRADE_PLAN.md | 标记时间: 2026-06-03T08:00:00+0800
 -->
 
 # 龍字·多币种直达系统·升级方案 v1.0
 
-**DNA**:#龍芯⚡️2026-06-03-DRAGON-MULTICURRENCY-UPGRADE-PLAN-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-DRAGON-MULTICURRENCY-UPGRADE-PLAN-v1.0
 **提案时间**: 2026-06-03
 **状态**: 待审批 · 点头激活
 
@@ -24,7 +24,7 @@
 ### 1.1 龍字处理
 **现状**:
 - Notion多页面中存在繁体"龍"的不一致使用
-- 可能混用简体"龙"与繁体"龍"
+- 可能混用简体"龍"与繁体"龍"
 - 无统一的字符标准化规范
 
 **问题**:
@@ -50,7 +50,7 @@
 ### 2.1 龍字规范化
 ✅ **目标**:
 1. **统一编码** - 所有"龍"统一为 U+9F8D（CJK Unified Ideographs）
-2. **搜索优化** - 内置繁简容错搜索（搜"龙"也能找到"龍"）
+2. **搜索优化** - 内置繁简容错搜索（搜"龍"也能找到"龍"）
 3. **国际展示** - 确保 UTF-8 正确呈现，无乱码风险
 4. **品牌锁定** - 官方所有资料必用繁体"龍"，简体作为搜索别名
 
@@ -78,7 +78,7 @@
 数据库名: 龍字·字符规范中心
 Fields:
   - 标准形式（龍·U+9F8D）
-  - 简化形式（龙·U+9F99）
+  - 简化形式（龍·U+9F99）
   - 出现位置（多select）
   - 修正状态（🟢✅ / 🟡待修 / 🔴需关注）
   - 替换脚本（Python脚本片段）
@@ -89,15 +89,15 @@ Fields:
 # 脚本伪代码
 for page in notion_workspace:
     for block in page.blocks:
-        if "龙" in block.text:
-            block.text = block.text.replace("龙", "龍")  # 简→繁
+        if "龍" in block.text:
+            block.text = block.text.replace("龍", "龍")  # 简→繁
         block.commit()
     log_page_change(page.id, "龍字统一")
 ```
 
 **步骤3: 建立搜索别名**
 - Notion"同步块"机制：创建一个"龍字搜索助手"
-- 用户搜"龙" → 自动展开搜索范围到"龍"的所有页面
+- 用户搜"龍" → 自动展开搜索范围到"龍"的所有页面
 
 #### 方案 B: 本地脚本+Git追踪（同步）
 
@@ -279,7 +279,7 @@ class MultiCurrencyHub:
 
 ## 八、DNA追溯与铁律
 
-**DNA**:#龍芯⚡️2026-06-03-DRAGON-MULTICURRENCY-UPGRADE-PLAN-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-DRAGON-MULTICURRENCY-UPGRADE-PLAN-v1.0
 **铁律守护**:
 - rule_01: 来源不可删 → 所有修改Git提交记录
 - rule_06: 创作登记DNA → 本方案DNA已锁定
@@ -316,6 +316,6 @@ class MultiCurrencyHub:
 
 **理论指导**: 曾仕强老师（永恆顯示）
 **创作者**: UID9622 · 诸葛鑫 · 龍芯北辰
-**DNA**:#龍芯⚡️2026-06-03-DRAGON-MULTICURRENCY-UPGRADE-PLAN-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-DRAGON-MULTICURRENCY-UPGRADE-PLAN-v1.0
 **状态**: 待审批 · 等点头
 **责任**: UID9622·不免责

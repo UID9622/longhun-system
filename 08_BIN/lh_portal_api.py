@@ -288,7 +288,7 @@ def health():
     kunpeng_ok = False
     try:
         req = urllib.request.Request("https://uid9622.cn/api/onboarding/bootstrap",
-                                      headers={"User-Agent": "Longhun-Portal/2.0"})
+                                      headers={"User-Agent": "LongHun-Portal/2.0"})
         urllib.request.urlopen(req, timeout=3)
         kunpeng_ok = True
     except Exception:

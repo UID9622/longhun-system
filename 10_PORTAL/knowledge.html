@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐉 龍魂 · 知识图谱 + 节点文档</title>
+    <meta name="description" content="龍魂系统动态知识图谱 · 192引擎 · 20人格 · 45技能 · 点击节点查看DNA追溯·详细文档·相关链接·关联模块">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐉</text></svg>">
+
+    <!-- ECharts 本地化 (无境外CDN · 数据主权) -->
+    <script src="/apps/assets/js/echarts.min.js"></script>
+
+    <style>
+        /* ===== 全局 · 龍魂暗金主题 ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: #0a0a14;
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* ===== 导航栏 ===== */
+        .navbar {
+            background: rgba(10, 10, 20, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 16px 40px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar .logo { font-size: 24px; font-weight: 700; color: #d4af37; }
+        .navbar .logo span { color: #8a8a9a; font-weight: 400; font-size: 14px; }
+        .navbar .nav-links { display: flex; gap: 32px; list-style: none; }
+        .navbar .nav-links a { color: rgba(255,255,255,0.6); font-size: 14px; transition: color .3s; }
+        .navbar .nav-links a:hover, .navbar .nav-links a.active { color: #d4af37; }
+
+        /* ===== 主体容器 ===== */
+        .graph-container { max-width: 1600px; margin: 0 auto; padding: 24px 40px 40px; }
+        .graph-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 20px; flex-wrap: wrap; gap: 12px;
+        }
+        .graph-header h1 { color: #d4af37; font-size: 26px; font-weight: 700; }
+        .graph-header h1 .sub { color: rgba(255,255,255,0.3); font-size: 15px; font-weight: 400; }
+        .graph-header .meta { font-size: 13px; color: rgba(255,255,255,0.35); }
+        .graph-header .meta b { color: #d4af37; }
+
+        /* ===== 控制条: 搜索 + 类别筛选 ===== */
+        .controls {
+            display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        .search-box {
+            flex: 1; min-width: 220px; max-width: 360px; position: relative;
+        }
+        .search-box input {
+            width: 100%; padding: 9px 14px 9px 36px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212,175,55,0.15);
+            border-radius: 10px; color: #e0e0e0; font-size: 13px; outline: none;
+            transition: border-color .3s;
+        }
+        .search-box input:focus { border-color: rgba(212,175,55,0.5); }
+        .search-box .search-icon {
+            position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+            color: rgba(255,255,255,0.3); font-size: 14px;
+        }
+        .filter-group { display: flex; gap: 6px; flex-wrap: wrap; }
+        .filter-btn {
+            padding: 6px 14px; font-size: 12px; border-radius: 8px; cursor: pointer;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.55); transition: all .25s;
+        }
+        .filter-btn:hover { color: #d4af37; border-color: rgba(212,175,55,0.4); }
+        .filter-btn.active {
+            background: rgba(212,175,55,0.15); color: #d4af37;
+            border-color: rgba(212,175,55,0.45);
+        }
+
+        /* ===== 图谱 + 文档 左右布局 ===== */
+        .main-layout { display: flex; gap: 20px; min-height: 620px; }
+        .graph-wrapper { flex: 2; min-width: 0; display: flex; flex-direction: column; }
+        #knowledge-graph {
+            width: 100%; height: 620px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(212,175,55,0.1);
+            border-radius: 16px; overflow: hidden;
+        }
+        .legend {
+            display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+            margin-top: 12px; padding: 10px 16px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 10px;
+        }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.5); }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+        /* ===== 文档面板 ===== */
+        .doc-panel {
+            flex: 1; min-width: 320px; max-width: 460px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(212,175,55,0.12);
+            border-radius: 16px; padding: 22px;
+            overflow-y: auto; max-height: 620px;
+            transition: all .3s ease;
+        }
+        .doc-panel .empty-state {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            height: 100%; min-height: 400px; color: rgba(255,255,255,0.15);
+            text-align: center; padding: 40px 20px;
+        }
+        .doc-panel .empty-state .icon { font-size: 48px; margin-bottom: 16px; }
+        .doc-panel .empty-state .hint { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.25); }
+
+        .doc-content { display: none; }
+        .doc-content.active { display: block; }
+
+        .doc-dna {
+            font-size: 11px; color: rgba(212,175,55,0.55);
+            font-family: monospace; margin-bottom: 8px; word-break: break-all;
+        }
+        .doc-name { font-size: 22px; font-weight: 700; color: #d4af37; margin-bottom: 4px; }
+        .doc-category { font-size: 12px; color: rgba(255,255,255,0.3); margin-bottom: 14px; }
+        .doc-category .badge {
+            display: inline-block; padding: 3px 12px; border-radius: 12px; font-size: 11px;
+            background: rgba(212,175,55,0.15); color: #d4af37;
+        }
+        .doc-divider { border: none; border-top: 1px solid rgba(212,175,55,0.1); margin: 14px 0; }
+        .doc-description { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.75); margin-bottom: 14px; }
+        .doc-detail {
+            font-size: 13px; line-height: 1.85; color: rgba(255,255,255,0.6);
+            margin-bottom: 14px; padding: 14px 16px;
+            background: rgba(255,255,255,0.03); border-radius: 10px;
+            border-left: 2px solid rgba(212,175,55,0.25);
+            white-space: pre-line;  /* 保留详细文档换行 */
+        }
+        .doc-section-title {
+            font-size: 12px; color: rgba(212,175,55,0.6); margin-bottom: 10px;
+            font-weight: 600; letter-spacing: .5px;
+        }
+
+        /* 相关链接 */
+        .doc-links { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+        .doc-links a {
+            color: rgba(212,175,55,0.75); font-size: 12px; padding: 4px 0;
+            transition: color .2s; display: flex; align-items: center; gap: 8px;
+            word-break: break-all;
+        }
+        .doc-links a:hover { color: #d4af37; }
+        .doc-links .link-label {
+            color: rgba(255,255,255,0.35); font-size: 11px; min-width: 42px;
+            flex-shrink: 0;
+        }
+        .doc-links .link-local {
+            color: rgba(255,255,255,0.4); font-size: 12px; padding: 4px 0;
+            display: flex; align-items: center; gap: 8px; word-break: break-all;
+        }
+        .doc-links .link-local .link-label { color: rgba(255,255,255,0.35); }
+        .doc-links .link-local .path { font-family: monospace; font-size: 11px; color: rgba(255,255,255,0.35); }
+
+        /* 关联模块 */
+        .doc-related { display: flex; flex-wrap: wrap; gap: 8px; }
+        .rel-chip {
+            padding: 5px 12px; font-size: 12px; border-radius: 14px; cursor: pointer;
+            background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.6);
+            border: 1px solid rgba(255,255,255,0.08); transition: all .25s;
+        }
+        .rel-chip:hover { background: rgba(212,175,55,0.15); color: #d4af37; border-color: rgba(212,175,55,0.4); }
+        .rel-chip .dot { margin-right: 5px; font-size: 10px; }
+        .rel-empty { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+        /* ===== 状态栏 ===== */
+        .status-bar {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-top: 16px; padding: 12px 20px;
+            background: rgba(255,255,255,0.03); border-radius: 10px;
+            font-size: 12px; color: rgba(255,255,255,0.35); flex-wrap: wrap; gap: 8px;
+        }
+        .status-bar .dna { color: rgba(212,175,55,0.55); font-family: monospace; }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 1100px) {
+            .main-layout { flex-direction: column; }
+            .doc-panel { max-width: 100%; max-height: 420px; }
+            #knowledge-graph { height: 480px; }
+        }
+        @media (max-width: 768px) {
+            .navbar { padding: 12px 16px; flex-wrap: wrap; gap: 8px; }
+            .navbar .nav-links { gap: 16px; }
+            .graph-container { padding: 12px 16px 24px; }
+            #knowledge-graph { height: 380px; }
+            .doc-panel { padding: 16px; max-height: 380px; }
+            .graph-header h1 { font-size: 20px; }
+            .search-box { max-width: 100%; }
+        }
+
+        /* ===== 滚动条美化 ===== */
+        .doc-panel::-webkit-scrollbar { width: 4px; }
+        .doc-panel::-webkit-scrollbar-track { background: transparent; }
+        .doc-panel::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.2); border-radius: 2px; }
+    </style>
+</head>
+<body>
+
+    <!-- ===== 导航栏 ===== -->
+    <nav class="navbar">
+        <a href="/apps/index.html" class="logo">🐉 龍魂<span> · UID9622</span></a>
+        <ul class="nav-links">
+            <li><a href="/apps/index.html">首页</a></li>
+            <li><a href="/apps/knowledge.html" class="active">知识图谱</a></li>
+            <li><a href="/apps/apps.html">应用广场</a></li>
+            <li><a href="https://blog.csdn.net/uid9622" target="_blank">CSDN</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== 图谱主体 ===== -->
+    <div class="graph-container">
+        <div class="graph-header">
+            <h1>🧬 知识图谱 + 节点文档 <span class="sub">— 点击节点查看 DNA / 文档 / 链接 / 关联</span></h1>
+            <div class="meta"><b id="nodeCount">0</b> 节点 · <b id="edgeCount">0</b> 连接 · <b id="docCount">0</b> 篇文档</div>
+        </div>
+
+        <!-- 控制条 -->
+        <div class="controls">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="搜索节点名称…">
+            </div>
+            <div class="filter-group" id="filterGroup"></div>
+        </div>
+
+        <div class="main-layout">
+            <!-- 图谱 -->
+            <div class="graph-wrapper">
+                <div id="knowledge-graph"></div>
+                <div class="legend" id="legend"></div>
+            </div>
+
+            <!-- 文档面板 -->
+            <div class="doc-panel" id="docPanel">
+                <div class="empty-state" id="emptyState">
+                    <div class="icon">🔍</div>
+                    <div class="hint">点击图谱中的节点<br>查看 DNA 追溯 · 详细文档 · 相关链接 · 关联模块</div>
+                </div>
+                <div class="doc-content" id="docContent">
+                    <div class="doc-dna" id="docDna">🧬 …</div>
+                    <div class="doc-name" id="docName">节点名称</div>
+                    <div class="doc-category"><span class="badge" id="docBadge">核心能力</span></div>
+                    <hr class="doc-divider">
+                    <div class="doc-description" id="docDesc"></div>
+                    <div class="doc-detail" id="docDetail"></div>
+                    <hr class="doc-divider">
+                    <div class="doc-section-title">🔗 相关链接</div>
+                    <div class="doc-links" id="docLinks"></div>
+                    <div class="doc-section-title">🔗 关联模块</div>
+                    <div class="doc-related" id="docRelated"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <span class="dna">🧬 #龍芯⚡️丙午·丙申·庚申·亥时-KG-DOCS-UID9622</span>
+            <span>🟢 动态更新 · 点击节点查看文档 · 数据: data/knowledge_graph_web.json</span>
+        </div>
+    </div>
+
+    <script>
+        // ============================================================
+        // 🐉 龍魂 · 知识图谱 + 节点文档系统
+        // 数据动态加载自 data/knowledge_graph_web.json
+        // ============================================================
+
+        // ---------- 1. 类别映射 ----------
+        const colorMap = {
+            root: '#d4af37',       // 根节点 · 金色
+            core: '#4facfe',       // 核心能力 · 蓝
+            protocol: '#43e97b',   // 协议层 · 绿
+            engine: '#fa709a',     // 引擎层 · 粉
+            tool: '#f9d423',       // 工具层 · 黄
+            knowledge: '#a78bfa',  // 知识主题 · 紫
+            checklist: '#22d3ee',  // 清单 · 青
+            archive: '#94a3b8',    // 归档 · 灰
+        };
+        const categoryLabels = {
+            root: '根节点', core: '核心能力', protocol: '协议层',
+            engine: '引擎层', tool: '工具层',
+            knowledge: '知识主题', checklist: '清单', archive: '归档',
+        };
+
+        // ---------- 2. 全局状态 ----------
+        let graphData = { nodes: [], edges: [] };
+        let allNodes = [];
+        let currentFilter = 'all';
+        let currentSearch = '';
+        let selectedId = null;
+        let myChart = null;
+
+        // ---------- 3. 初始化 ----------
+        const chartDom = document.getElementById('knowledge-graph');
+        myChart = echarts.init(chartDom);
+
+        // ---------- 4. 加载数据 ----------
+        async function loadData() {
+            try {
+                const res = await fetch('data/knowledge_graph_web.json?t=' + Date.now());
+                graphData = await res.json();
+                allNodes = graphData.nodes;
+                initFilters();
+                initLegend();
+                renderGraph();
+                // 默认选中根节点
+                const root = allNodes.find(n => n.category === 'root');
+                if (root) selectNode(root.id);
+                updateCounts();
+            } catch (e) {
+                const empty = document.getElementById('emptyState');
+                empty.style.display = 'flex';
+                empty.innerHTML = '<div class="icon">⚠️</div>' +
+                    '<div class="hint">数据加载失败<br>' + e.message + '</div>' +
+                    '<button onclick="loadData()" style="margin-top:16px;padding:8px 22px;border-radius:8px;' +
+                    'border:1px solid rgba(212,175,55,0.4);background:rgba(212,175,55,0.1);color:#d4af37;' +
+                    'cursor:pointer;font-size:13px;">🔄 重试</button>';
+            }
+        }
+
+        // ---------- 5. 筛选按钮 ----------
+        function initFilters() {
+            const group = document.getElementById('filterGroup');
+            const cats = ['all', ...new Set(allNodes.map(n => n.category))];
+            group.innerHTML = '';
+            cats.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn' + (cat === 'all' ? ' active' : '');
+                btn.textContent = cat === 'all' ? '全部' : (categoryLabels[cat] || cat);
+                btn.dataset.cat = cat;
+                btn.addEventListener('click', () => {
+                    currentFilter = cat;
+                    group.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderGraph();
+                });
+                group.appendChild(btn);
+            });
+        }
+
+        // ---------- 6. 图例 ----------
+        function initLegend() {
+            const legend = document.getElementById('legend');
+            legend.innerHTML = '';
+            Object.keys(colorMap).forEach(cat => {
+                const item = document.createElement('div');
+                item.className = 'legend-item';
+                item.innerHTML = '<span class="legend-dot" style="background:' + colorMap[cat] + '"></span>' +
+                    (categoryLabels[cat] || cat);
+                legend.appendChild(item);
+            });
+        }
+
+        // ---------- 7. 搜索 (防抖 300ms, 避免每次输入都重排布局) ----------
+        let searchTimer = null;
+        document.getElementById('searchInput').addEventListener('input', function() {
+            clearTimeout(searchTimer);
+            const val = this.value;
+            searchTimer = setTimeout(() => {
+                currentSearch = val.trim().toLowerCase();
+                renderGraph();
+            }, 300);
+        });
+
+        // ---------- 8. 渲染图谱 ----------
+        function renderGraph() {
+            // 过滤节点
+            let visible = allNodes.filter(n => {
+                const okCat = currentFilter === 'all' || n.category === currentFilter;
+                const okSearch = !currentSearch ||
+                    (n.name || '').toLowerCase().includes(currentSearch) ||
+                    (n.desc || '').toLowerCase().includes(currentSearch);
+                return okCat && okSearch;
+            });
+            const visibleIds = new Set(visible.map(n => n.id));
+            // 边仅保留两端可见
+            let visibleEdges = graphData.edges.filter(e =>
+                visibleIds.has(e.source) && visibleIds.has(e.target));
+
+            // 若选中节点被过滤掉, 将其与直接邻居一并拉回, 维持上下文且不留孤立边
+            if (selectedId && !visibleIds.has(selectedId)) {
+                const sel = allNodes.find(n => n.id === selectedId);
+                if (sel) {
+                    const neighborIds = new Set();
+                    graphData.edges.forEach(e => {
+                        if (e.source === selectedId) neighborIds.add(e.target);
+                        if (e.target === selectedId) neighborIds.add(e.source);
+                    });
+                    const extra = allNodes.filter(n =>
+                        n.id === selectedId || neighborIds.has(n.id));
+                    extra.forEach(n => visibleIds.add(n.id));
+                    visible = visible.concat(extra);
+                    visibleEdges = graphData.edges.filter(e =>
+                        visibleIds.has(e.source) && visibleIds.has(e.target));
+                }
+            }
+
+            const option = {
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'item',
+                    backgroundColor: 'rgba(10,10,20,0.92)',
+                    borderColor: 'rgba(212,175,55,0.3)',
+                    borderWidth: 1,
+                    textStyle: { color: '#e0e0e0' },
+                    formatter: function(params) {
+                        if (params.dataType !== 'node') return '';
+                        const n = params.data;
+                        return '<div style="font-size:15px;font-weight:600;color:#d4af37;">' + (n.name || '') + '</div>' +
+                            '<div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:4px;">类别: ' +
+                            (categoryLabels[n.category] || n.category) + '</div>' +
+                            (n.desc ? '<div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;max-width:260px;">' + n.desc + '</div>' : '') +
+                            (n.detail ? '<div style="font-size:12px;color:#d4af37;margin-top:6px;">🖱️ 点击查看文档</div>' :
+                                '<div style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:6px;">🖱️ 点击查看信息</div>');
+                    }
+                },
+                series: [{
+                    type: 'graph',
+                    layout: 'force',
+                    roam: true,
+                    draggable: true,
+                    zoom: 0.85,
+                    data: visible.map(n => ({
+                        id: n.id, name: n.name, category: n.category,
+                        value: n.symbolSize,
+                        symbolSize: n.symbolSize,
+                        isDoc: !!n.detail,
+                        desc: n.desc || '',   // 注入 desc 供 tooltip 显示
+                        itemStyle: {
+                            color: colorMap[n.category] || '#666',
+                            shadowBlur: n.id === selectedId ? 22 : 8,
+                            shadowColor: n.id === selectedId ? 'rgba(212,175,55,0.7)' : 'rgba(212,175,55,0.2)',
+                            borderColor: n.id === selectedId ? '#d4af37' : 'transparent',
+                            borderWidth: n.id === selectedId ? 2 : 0,
+                        },
+                        label: {
+                            show: true, position: 'bottom',
+                            color: '#e0e0e0',
+                            fontSize: n.category === 'root' ? 13 : (n.symbolSize > 26 ? 11 : 10),
+                            fontWeight: n.category === 'root' ? 700 : 400,
+                        },
+                        emphasis: { focus: 'adjacency' }
+                    })),
+                    edges: visibleEdges.map(e => ({
+                        source: e.source, target: e.target,
+                        lineStyle: {
+                            color: 'rgba(255,255,255,0.14)',
+                            width: e.source === selectedId || e.target === selectedId ? 2.5 : 1.2,
+                            curveness: 0.2,
+                        },
+                        emphasis: { lineStyle: { color: 'rgba(212,175,55,0.6)', width: 2 } }
+                    })),
+                    categories: Object.keys(colorMap).map(c => ({
+                        name: c, itemStyle: { color: colorMap[c] }
+                    })),
+                    force: {
+                        repulsion: 320,
+                        edgeLength: [90, 200],
+                        gravity: 0.1,
+                        friction: 0.1,
+                        layoutAnimation: true,
+                    },
+                    animationDuration: 1200,
+                    animationEasing: 'cubicOut',
+                }]
+            };
+            // merge 模式增量更新: 保留视图(缩放/平移)与已有节点 force 位置,
+            // 点击节点不再全量重建导致跳回原点
+            myChart.setOption(option);
+        }
+
+        // ---------- 9. 更新统计 ----------
+        function updateCounts() {
+            document.getElementById('nodeCount').textContent = allNodes.length;
+            document.getElementById('edgeCount').textContent = graphData.edges.length;
+            document.getElementById('docCount').textContent =
+                allNodes.filter(n => n.detail).length;
+        }
+
+        // ---------- 10. 渲染链接 ----------
+        function renderLinks(node) {
+            const el = document.getElementById('docLinks');
+            el.innerHTML = '';
+            if (node.links && node.links.length) {
+                node.links.forEach(link => {
+                    const isWeb = link.type === 'web' || /^https?:\/\//.test(link.url || '');
+                    if (isWeb) {
+                        const a = document.createElement('a');
+                        a.href = link.url;
+                        a.target = '_blank';
+                        a.rel = 'noopener';
+                        a.innerHTML = '<span class="link-label">' + (link.label || '链接') + '</span> ' + link.url;
+                        el.appendChild(a);
+                    } else {
+                        const div = document.createElement('div');
+                        div.className = 'link-local';
+                        div.innerHTML = '<span class="link-label">' + (link.label || '路径') + '</span>' +
+                            '<span class="path">📂 ' + link.url + '</span>';
+                        el.appendChild(div);
+                    }
+                });
+            } else {
+                el.innerHTML = '<div class="rel-empty">暂无相关链接</div>';
+            }
+        }
+
+        // ---------- 11. 渲染关联模块 ----------
+        function renderRelated(node) {
+            const el = document.getElementById('docRelated');
+            el.innerHTML = '';
+            const neighbors = new Set();
+            graphData.edges.forEach(e => {
+                if (e.source === node.id) neighbors.add(e.target);
+                if (e.target === node.id) neighbors.add(e.source);
+            });
+            const related = allNodes.filter(n => neighbors.has(n.id));
+            if (!related.length) {
+                el.innerHTML = '<div class="rel-empty">暂无关联模块</div>';
+                return;
+            }
+            related.forEach(r => {
+                const chip = document.createElement('div');
+                chip.className = 'rel-chip';
+                const dotColor = colorMap[r.category] || '#666';
+                chip.innerHTML = '<span class="dot" style="color:' + dotColor + '">●</span>' +
+                    (r.name || r.id);
+                chip.title = '点击查看: ' + (r.name || r.id);
+                chip.addEventListener('click', () => selectNode(r.id));
+                el.appendChild(chip);
+            });
+        }
+
+        // ---------- 12. 显示文档 / 选中节点 ----------
+        function selectNode(nodeId) {
+            const node = allNodes.find(n => n.id === nodeId);
+            if (!node) return;
+            selectedId = nodeId;
+
+            // 面板
+            document.getElementById('emptyState').style.display = 'none';
+            document.getElementById('docContent').classList.add('active');
+            // 核心节点带固定DNA; 动态节点诚实标注来源, 不编造干支卦格式
+            const dnaText = node.dna ||
+                ('（动态节点 · 无固定DNA · 来源: ' + (node.src || '动态图谱') + '）');
+            document.getElementById('docDna').textContent = '🧬 ' + dnaText;
+            document.getElementById('docName').textContent = node.name || node.id;
+            document.getElementById('docBadge').textContent = categoryLabels[node.category] || node.category;
+            document.getElementById('docDesc').textContent = node.desc || '';
+            document.getElementById('docDetail').textContent =
+                node.detail || '（此节点暂无详细文档 · 数据来源: ' + (node.src || '动态图谱') + '）';
+
+            renderLinks(node);
+            renderRelated(node);
+            renderGraph(); // 重新渲染以更新高亮 + 邻居边加粗
+
+            // 滚动到面板顶部; 窄屏下面板在图谱下方, 平滑滚动到面板
+            const panel = document.getElementById('docPanel');
+            panel.scrollTop = 0;
+            if (window.innerWidth <= 1100) {
+                panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        // ---------- 13. 点击事件 ----------
+        myChart.on('click', function(params) {
+            if (params.dataType === 'node' && params.data && params.data.id) {
+                selectNode(params.data.id);
+            }
+        });
+
+        // ---------- 14. 自适应 ----------
+        window.addEventListener('resize', function() {
+            myChart.resize();
+        });
+
+        // ---------- 15. 启动 ----------
+        loadData();
+        console.log('🐉 龍魂知识图谱 + 节点文档已加载');
+        console.log('📖 点击任意节点查看 DNA / 文档 / 链接 / 关联');
+        console.log('   DNA: #龍芯⚡️丙午·丙申·庚申·亥时-KG-DOCS-UID9622');
+    </script>
+</body>
+</html>

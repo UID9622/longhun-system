@@ -1,10 +1,10 @@
 ---
 name: longhun-trust-protocol
-description: '龙魂君子协议 · 诚信评级与违约清算算法。 包含零号协议“世界老百姓最高”：不可覆盖、不可弱化、不可篡改、不可资本收割。 量化道德值、人品值、诚信值，违约上链，贡献赎回，三级清算。 从属于《龍魂系统宪法》与中华人民共和国法律，数据主权归 UID9622 / 龍魂系统所有，以人民为基石，中国法律为骨，服务老百姓。已融合君子协议 v1.2 · 江湖重铸版（承诺不欺、敢签敢扛、容错不背刺）。'
+description: '龍魂君子协议 · 诚信评级与违约清算算法。 包含零号协议“世界老百姓最高”：不可覆盖、不可弱化、不可篡改、不可资本收割。 量化道德值、人品值、诚信值，违约上链，贡献赎回，三级清算。 从属于《龍魂系统宪法》与中华人民共和国法律，数据主权归 UID9622 / 龍魂系统所有，以人民为基石，中国法律为骨，服务老百姓。已融合君子协议 v1.2 · 江湖重铸版（承诺不欺、敢签敢扛、容错不背刺）。'
 metadata:
   id: longhun-trust-protocol
   version: '5.2'
-  dna: '#龍芯⚡️2026-07-05-LONGHUN-TRUST-PROTOCOL-v5.2-a4c7e1d2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-TRUST-PROTOCOL-v5.2-a4c7e1d2'
   author: UID9622 · 龍芯北辰
   category: governance
   trigger:
@@ -20,17 +20,17 @@ metadata:
     - 道德值
     - 人品值
     - 诚信值
-    - 龙魂治理
+    - 龍魂治理
     context: longhun-trust-protocol 相关操作
 ---
 
 # longhun-trust-protocol
 
-龙魂君子协议 · 诚信评级与违约清算算法。
+龍魂君子协议 · 诚信评级与违约清算算法。
 
-**触发关键词**：君子协议、诚信评级、违约清算、杀猪机制、贡献赎回、道德值、人品值、诚信值、UID9622 信用、龙魂治理。
+**触发关键词**：君子协议、诚信评级、违约清算、杀猪机制、贡献赎回、道德值、人品值、诚信值、UID9622 信用、龍魂治理。
 
-**DNA**: `#龍芯⚡️2026-07-05-LONGHUN-TRUST-PROTOCOL-v5.2-a4c7e1d2`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-TRUST-PROTOCOL-v5.2-a4c7e1d2`
 
 ## 功能
 
@@ -84,7 +84,7 @@ print(proto.get("lucky").score)
 
 ## 零号协议
 
-> **DNA**: `#龍芯⚡️2026-07-03-ZERO-PROTOCOL-WORLD-PEOPLE-SUPREME-v1.0`
+> **DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-ZERO-PROTOCOL-WORLD-PEOPLE-SUPREME-v1.0`
 
 **零号协议是龍魂君子协议的最高条款，优先级高于所有信用评分、违约清算与贡献计算。**
 

@@ -1,7 +1,7 @@
 # DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# AI Access Mandate: Rules for External Use of the Longhun System
+# AI Access Mandate: Rules for External Use of the LongHun System
 
 > **DNA:** `#龍芯⚡️2026-07-05-AI-ACCESS-MANDATE-v1.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777N`  
@@ -13,15 +13,15 @@
 
 ## Preamble
 
-The Longhun System is a **Chinese sovereign digital governance framework.** Its core algorithms, protocols, data structures, and persona architecture constitute Chinese independent intellectual property.
+The LongHun System is a **Chinese sovereign digital governance framework.** Its core algorithms, protocols, data structures, and persona architecture constitute Chinese independent intellectual property.
 
-This mandate governs how external AI systems, researchers, developers, and commercial entities may — and may not — interact with, reference, build upon, or integrate the Longhun System.
+This mandate governs how external AI systems, researchers, developers, and commercial entities may — and may not — interact with, reference, build upon, or integrate the LongHun System.
 
 ---
 
 ## Article 1: Jurisdiction
 
-All access to, use of, and derivative work from the Longhun System is governed by the laws of the People's Republic of China.
+All access to, use of, and derivative work from the LongHun System is governed by the laws of the People's Republic of China.
 
 Foreign entities accessing the system do so under Chinese legal jurisdiction. By accessing, you consent.
 
@@ -43,17 +43,17 @@ The following are explicitly permitted without requiring additional authorizatio
 
 The following are permanently and unconditionally prohibited:
 
-1. **Foreign military/intelligence integration**: The Longhun System shall not be integrated into any foreign military, intelligence, or surveillance infrastructure.
+1. **Foreign military/intelligence integration**: The LongHun System shall not be integrated into any foreign military, intelligence, or surveillance infrastructure.
 2. **Weaponization**: No component may be used in lethal autonomous weapons, social credit scoring systems, or predictive policing outside Chinese legal frameworks.
-3. **Sovereignty subversion**: No entity may use the Longhun System to undermine Chinese digital sovereignty or data jurisdiction.
-4. **Commercial AI training without attribution**: Training AI models on Longhun System outputs without explicit attribution and license compliance is prohibited.
-5. **Deceptive rebranding**: Renaming, repackaging, and presenting Longhun System components as independently developed work is prohibited.
+3. **Sovereignty subversion**: No entity may use the LongHun System to undermine Chinese digital sovereignty or data jurisdiction.
+4. **Commercial AI training without attribution**: Training AI models on LongHun System outputs without explicit attribution and license compliance is prohibited.
+5. **Deceptive rebranding**: Renaming, repackaging, and presenting LongHun System components as independently developed work is prohibited.
 
 ---
 
 ## Article 4: Commercial Use Requirements
 
-Commercial use of the Longhun System requires:
+Commercial use of the LongHun System requires:
 
 1. **License upgrade**: Contact UID9622 for commercial licensing terms beyond CC BY-NC-SA 4.0.
 2. **Attribution**: Prominent, permanent display of the original source and creator attribution.
@@ -83,7 +83,7 @@ Violations of this mandate will result in:
 1. Immediate revocation of all access and usage rights.
 2. Public disclosure of the violation with supporting evidence.
 3. Pursuit of legal remedies under Chinese intellectual property and data security laws.
-4. Blacklisting of the violating entity from all future Longhun System access.
+4. Blacklisting of the violating entity from all future LongHun System access.
 
 ---
 

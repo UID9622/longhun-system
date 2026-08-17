@@ -4,7 +4,7 @@
 <!--#龍芯⚡️2026-06-21-DOC-README-FILE6-v1.0-7 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
-# Longhun System · 龍魂
+# LongHun System · 龍魂
 
 Independent governance, protocol, and provenance artifacts for **UID9622** (Zhuge Xin / 诸葛鑫).
 
@@ -52,13 +52,13 @@ git checkout release-snapshot
 
 ## License & boundaries
 
-Rights follow **each file’s own header** (typical manuscript license: **CC BY-NC-SA 4.0** plus **Longhun DNA Inheritance Clause** where stated). Nothing here is legal advice; protocols and papers are **normative documents**, not substitute for counsel or platform ToS.
+Rights follow **each file’s own header** (typical manuscript license: **CC BY-NC-SA 4.0** plus **LongHun DNA Inheritance Clause** where stated). Nothing here is legal advice; protocols and papers are **normative documents**, not substitute for counsel or platform ToS.
 
 ---
 
 ## 中文摘要
 
-本仓库为 **龍魂 / Longhun** 的精选快照：根目录刻意极简，正文与协议集中在 **`longhun-system/`**。当前可见主干包括 **北辰母协议 v2.0** 与 **行为密码学** 论文正文草稿；运行日志仅作排障参考。
+本仓库为 **龍魂 / LongHun** 的精选快照：根目录刻意极简，正文与协议集中在 **`longhun-system/`**。当前可见主干包括 **北辰母协议 v2.0** 与 **行为密码学** 论文正文草稿；运行日志仅作排障参考。
 
 ---
 

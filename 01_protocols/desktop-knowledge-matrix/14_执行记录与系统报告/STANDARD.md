@@ -1,6 +1,6 @@
 # 龍魂产出标准 · LongHun Output Standard v1.0
 
-**DNA:** `#龍芯⚡️2026-06-25-LONGHUN-OUTPUT-STANDARD-v1.0`  
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-OUTPUT-STANDARD-v1.0`  
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 **适用范围:** 龍魂系统所有对外产出，包括但不限于代码、文档、协议、模型、提案、宪法、人格定义。
 
@@ -177,4 +177,4 @@ lh 验证 FILE           # 验证签名、哈希、审计链
 
 **本标准由 UID9622 / Lucky 制定并签署，自 2026-06-25 起生效。**
 
-**DNA:** `#龍芯⚡️2026-06-25-LONGHUN-OUTPUT-STANDARD-v1.0`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-OUTPUT-STANDARD-v1.0`

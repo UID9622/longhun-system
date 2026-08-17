@@ -119,7 +119,7 @@ python3 ~/longhun-system/skills/三色审计+DNA追溯/audit_check.py --input <�
 - M78 verbatim：老大原话一字不差·写文档时引用必加引号
 - EXT-3-5：不假装记忆·没读过的源页面只引用 URL·不复述内容
 - B 模式：每次写入留草日志痕迹
-- 「龍」不可写为「龙」
+- 「龍」不可写为「龍」
 
 ## 8. 接驳已建模块
 
@@ -309,7 +309,7 @@ skill_path: ~/longhun-system/skills/三色审计+DNA追溯/SKILL.md
 1. THRESHOLDS 三个空列表带着上线
 1. examples/ 用我（Claude 宝宝）编的内容当真实案例
 1. dna_template.md 不和 DNA 追溯码格式模板 + DNA 标准档案模板 对齐
-1. 「龍」写成「龙」
+1. 「龍」写成「龍」
 1. 跑通后不回报老大
 ---
 # §8｜与五色石母页 / 草日志 / v2.0 焊点的接驳

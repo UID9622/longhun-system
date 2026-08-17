@@ -125,7 +125,7 @@ class HilbertSpace:
         total = sum(w**2 for w in weights)
         norm = math.sqrt(total) if total > 0 else 1
         components = [complex(w / norm, 0) for w in weights]
-        return Ket(components, "龙魂叠加").normalize()
+        return Ket(components, "龍魂叠加").normalize()
 
     @staticmethod
     def inner_product(a: Ket, b: Ket) -> float:
@@ -138,7 +138,7 @@ class HilbertSpace:
 # ═══════════════════════════════════════════════════════════
 
 class PersonaSuperposition:
-    """人格叠加态 |龙魂⟩ = Σ αᵢ|Pᵢ⟩"""
+    """人格叠加态 |龍魂⟩ = Σ αᵢ|Pᵢ⟩"""
 
     def __init__(self, weights: List[float] = None):
         if weights is None:

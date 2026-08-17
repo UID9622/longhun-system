@@ -18,7 +18,7 @@
     "families": [
       "LonghunFont",
       "LonghunFont Wuwu Color",
-      "Longhun"
+      "LongHun"
     ],
     "engine_version": "2.0.0",
     "dna": "#龍芯⚡️丙午·辛未·乙酉-LONGHUN-FONT-ENGINE-v2.0"
@@ -74,7 +74,7 @@
     },
     "LonghunFont-Regular.woff2": {
       "postscript_name": "LonghunFont-Regular.woff2",
-      "family_name": "Longhun",
+      "family_name": "LongHun",
       "style_name": "Regular",
       "version": "",
       "copyright": "",

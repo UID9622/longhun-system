@@ -1,29 +1,41 @@
-# DNA: #龍芯⚡️丙午·丙申·己未·大壮卦-SKILL-TRANSPARENT-AUDIT-v22-UID9622
+# DNA: #龍芯⚡️丙午·丙申·己未·大壮卦-SKILL-TRANSPARENT-AUDIT-v23-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # /transparent-audit
 
 > 本文档按《龍魂文档标准模板 v1.0》整理。
 > 性质：技能说明 · 未经同行评审（如适用）
-> 版本：v2.2.0
+> 版本：v2.3.0
 > 作者：UID9622 · 诸葛鑫
 > 授权：CC BY-NC-SA 4.0 · 科技主权归属 UID9622 · 中华人民共和国
 > 平台：本地
 > 审核状态：已核验
 
-**DNA(v∞)**: `#龍芯⚡️丙午·丙申·己未·大壮卦-SKILL-TRANSPARENT-AUDIT-v22-UID9622`  
+**DNA(v∞)**: `#龍芯⚡️丙午·丙申·己未·大壮卦-SKILL-TRANSPARENT-AUDIT-v23-UID9622`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
-<!--#龍芯⚡️丙午·丙申·己未·大壮卦-SKILL-TRANSPARENT-AUDIT-v22-UID9622 -->
+<!--#龍芯⚡️丙午·丙申·己未·大壮卦-SKILL-TRANSPARENT-AUDIT-v23-UID9622 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 ---
 skill_id: /transparent-audit
-synced_at: 2026-08-13T20:00:00+00:00
+synced_at: 2026-08-13T21:00:00+00:00
 source: longhun-system
 ---
+
+# v2.3 变更记录（2026-08-13 · AI 鲁班实机审查后升级）
+
+| 项 | v2.2（Kimi 落地） | v2.3（实机审查修复） |
+|:---|:---|:---|
+| 引擎 | 🔴 三个全是假数据（本地硬编码 + kimi/deepseek 模拟文本） | 🟢 默认接本地 Ollama 真实模型（longhun-v3.8 / qwen2.5:7b），实测 3-7s 响应；云端适配器需配置 KEY 才启用；ollama 不可达时降级**明确标注"模拟"**，绝不冒充真实 AI（诚实不编造） |
+| 史官链 | 🔴 纯内存，进程结束链即失 | 🟢 持久化 `logs/transparent_audit.db`，跨进程可验链（实测重启后 `verify` 完整 🟢） |
+| 审计历史 | 🔴 刷新即失 | 🟢 `/history` API + CLI `history`，SQLite 落盘 |
+| 前端链卡 | 🟡 API 不返回 `chain`，显示"—" | 🟢 `/audit` 返回 `chain` 验链结果 |
+| 引擎开关 | 🟡 硬编码三个假开关 | 🟢 从 `/health` 动态加载真实模型，`engines` 参数过滤（实测单引擎审计生效） |
+| R值 | 🟡 阈值随意 | 🟢 规则校准文档化（冲突12/极性8/失败8/缺口2起4） |
+| 常驻 | 🟡 需手动起 API | 🟢 launchd `com.longhun.transparent-audit`（KeepAlive，页面即开即用） |
 
 # /transparent-audit
 

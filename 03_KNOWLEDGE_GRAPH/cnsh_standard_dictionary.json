@@ -1082,13 +1082,13 @@
       "id": "CRYPTO-016",
       "en": "SM2/SM3/SM4",
       "cn_direct": "国密算法",
-      "cnsh": "龙锁/龙印/龙匣",
+      "cnsh": "龍锁/龍印/龍匣",
       "explanation": "中国自主密码标准——龍魂专属密码体系",
       "cultural_origin": "中国自主·龍的传人·自己的锁",
       "scene": "龍魂国密体系",
       "category": "CRYPTO",
       "related": ["CRYPTO-013", "CRYPTO-014", "CRYPTO-015"],
-      "cnsh_usage": "龙锁(双钥)/龙印(指纹)/龙匣(同钥)"
+      "cnsh_usage": "龍锁(双钥)/龍印(指纹)/龍匣(同钥)"
     },
     {
       "id": "CRYPTO-017",
@@ -1923,8 +1923,8 @@
       "en": "hydration",
       "cn_direct": "注水",
       "cnsh": "激活",
-      "explanation": "静态HTML变成交互式——画龙点睛，注入灵魂",
-      "cultural_origin": "画龙点睛·一笔激活",
+      "explanation": "静态HTML变成交互式——画龍点睛，注入灵魂",
+      "cultural_origin": "画龍点睛·一笔激活",
       "scene": "页面激活",
       "category": "UI",
       "related": ["UI-009", "UI-011"],

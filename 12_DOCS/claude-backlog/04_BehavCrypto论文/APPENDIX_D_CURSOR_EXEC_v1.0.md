@@ -267,7 +267,7 @@ SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-
   v2.0 = 接入实时AI对话流的拦截版
 
 License:
-  CC BY-NC-SA 4.0 + Longhun DNA Inheritance Clause
+  CC BY-NC-SA 4.0 + LongHun DNA Inheritance Clause
 ```
 
 ---

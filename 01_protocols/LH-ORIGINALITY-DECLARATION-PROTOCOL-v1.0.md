@@ -18,7 +18,7 @@
 # 龍魂·原创声明输出协议 v1.0
 
 > **不是死模板，是活链路。**
-> 每次龙魂系统对外输出——协议、文章、代码、评论——自动挂上对应的原创声明模板。
+> 每次龍魂系统对外输出——协议、文章、代码、评论——自动挂上对应的原创声明模板。
 > 哪个功能触发的、哪几个人格协作完成的、谁签的章，全部透明。
 
 ---
@@ -104,7 +104,7 @@ P03雯雯 → 归档入库
 ```
 ────────────────────────────────────────────────────────
 🐉 龍魂系统原创声明与衍生使用条款
-Longhun Originality & Derivative Use Notice
+LongHun Originality & Derivative Use Notice
 ────────────────────────────────────────────────────────
 
 本文及其相关思想体系，由诸葛鑫（Lucky）·龍芯北辰·UID9622 独立提出、整理、验证并持续迭代。
@@ -134,7 +134,7 @@ SHA256指纹：{{FILE_SHA256}}
 
 ────────────────────────────────────────────────────────
 © {{YEAR}} 諸葛鑫（Lucky）· UID9622 · 龍芯北辰
-龍魂系统 Longhun System · All rights reserved where applicable.
+龍魂系统 LongHun System · All rights reserved where applicable.
 ────────────────────────────────────────────────────────
 
 ─── 签章区 ───
@@ -297,11 +297,11 @@ DNA生成引擎 → 绑定DNA（代码级追溯）
 
 ```python
 # ============================================================
-# 🐉 Longhun System Originality Notice
+# 🐉 LongHun System Originality Notice
 # ============================================================
 #
 # Core inspiration and framework originated from:
-# Longhun System · Lucky (UID9622)
+# LongHun System · Lucky (UID9622)
 #
 # Founder:
 # Zhuge Xin (Lucky) · 龍芯北辰
@@ -320,7 +320,7 @@ DNA生成引擎 → 绑定DNA（代码级追溯）
 #
 # Any derivative implementation, model upgrade, product development,
 # commercial use, technical documentation, or public material based on
-# this framework should retain clear attribution to Longhun System
+# this framework should retain clear attribution to LongHun System
 # and UID9622.
 #
 # Copying text is easy. Copying lineage is hard.
@@ -447,6 +447,6 @@ DNA生成引擎 → 绑定DNA（代码级追溯）
 ---
 
 > **最后一句：**
-> 龙魂系统的每一次对外输出，都带着身份证。
+> 龍魂系统的每一次对外输出，都带着身份证。
 > 不是偷偷摸摸挂个名字——是哪个功能触发的、哪几个人格签的章、哪条链路审计的，全部透明。
 > **复制代码容易，复制DNA链上的每一环，不可能。**

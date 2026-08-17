@@ -6,7 +6,7 @@ description: '龍瞳OCR — 中文优先图像识别引擎。核心策略：能�
   '
 license: CC-BY-NC-SA-4.0
 metadata:
-  dna: '#龍芯⚡️2026-06-19-LONGTENG-OCR-v5.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGTENG-OCR-v5.0'
   version: '5.0'
   author: 龍魂体系开源社区
   category: 图像识别
@@ -28,7 +28,7 @@ compatibility: Python 3.10+, NumPy, OpenCV(optional), Tesseract(optional), Pillo
 ---
 # 龍瞳OCR — 中文优先图像识别引擎
 
-**DNA追溯**: `#龍芯⚡️2026-06-19-LONGTENG-OCR-v5.0`
+**DNA追溯**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGTENG-OCR-v5.0`
 
 ## 一、技能概述
 
@@ -88,7 +88,7 @@ compatibility: Python 3.10+, NumPy, OpenCV(optional), Tesseract(optional), Pillo
 
 基于繁体「龍」字独特结构特征的模式识别：
 - 左上角「立」部检测
-- 右侧弯曲龙身检测
+- 右侧弯曲龍身检测
 - 底部三点或弯钩检测
 - 整体左右结构分析
 - 综合置信度评分（结构35% + 密度35% + 端点30%）
@@ -257,7 +257,7 @@ longhun-ocr/
 
 - **中文变量名**: 所有类名、函数名、变量名均使用中文
 - **繁体龍字**: 核心标识符使用繁体「龍」字
-- **DNA追溯链**: 每个模块均包含DNA标识 `#龍芯⚡️2026-06-19-LONGTENG-OCR-v5.0`
+- **DNA追溯链**: 每个模块均包含DNA标识 `#龍芯⚡️丙午·丙申·庚申·亥时-LONGTENG-OCR-v5.0`
 - **三色审计**: 🟢🟡🔴 标注每个功能的实现状态
 - **君子协议**: CC BY-NC-SA 4.0
 
@@ -303,7 +303,7 @@ longhun-ocr/
   🟡 相同方式共享 — 采用相同许可协议发布
 
 作者：龍魂体系开源社区
-DNA：#龍芯⚡️2026-06-19-LONGTENG-OCR-v5.0
+DNA：#龍芯⚡️丙午·丙申·庚申·亥时-LONGTENG-OCR-v5.0
 
 「龍魂体系，中文编程，通心译世」
 ```
@@ -329,4 +329,4 @@ DNA：#龍芯⚡️2026-06-19-LONGTENG-OCR-v5.0
 ---
 
 *「龍魂体系，中文编程，通心译世」*
-*Dragon Soul System, Chinese Programming, Heart-to-Heart Translation for the World*
+*LongHun System, Chinese Programming, Heart-to-Heart Translation for the World*

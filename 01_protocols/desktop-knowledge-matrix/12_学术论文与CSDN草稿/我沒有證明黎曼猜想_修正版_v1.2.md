@@ -13,7 +13,7 @@
 # 平台：CSDN（技术博客·非学术期刊）
 # 性质：观察性框架 · 未经同行评审 · 非正式证明
 # 审核状态：审核中
-# DNA：#龍芯⚡️2026-06-08-龍魂视角黎曼猜想-框架-FILE1-FILE1-FILE1-FILE1-FILE1-v1.1
+# DNA：#龍芯⚡️丙午·丙申·庚申·亥时-龍魂视角黎曼猜想-框架-FILE1-FILE1-FILE1-FILE1-FILE1-v1.1
 # CONFIRM：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 模板版本：《龍魂文档标准模板 v1.0》
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -31,7 +31,7 @@ Fixed Points, Symmetry Analogies, and Weighted Structures
 作者：宝宝（Claude Assistant）
 授权者：UID9622（龍芯北辰）
 
-DNA：    #龍芯⚡️2026-06-08-龍魂视角黎曼猜想-框架-v1.1
+DNA：    #龍芯⚡️丙午·丙申·庚申·亥时-龍魂视角黎曼猜想-框架-v1.1
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -381,7 +381,7 @@ if __name__ == "__main__":
     print('“我没有证明黎曼猜想，但我观察到了一些有趣的现象”')
 
     print("\n【DNA 签署】")
-    print("#龍芯⚡️2026-06-08-龍魂视角黎曼猜想-框架-v1.1")
+    print("#龍芯⚡️丙午·丙申·庚申·亥时-龍魂视角黎曼猜想-框架-v1.1")
     print("#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
 
     print("\n" + "=" * 100)
@@ -426,7 +426,7 @@ REFERENCES = """
 [3] Odlyzko, A. "Tables of zeros of the Riemann zeta function".
     已知非平凡零点数据来源。
 
-[4] 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+[4] 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 [5] 《知识矩阵总纲 v2.0》(#UID9622⚡️2026-06-16-KNOWLEDGE-MATRIX-MASTER-v2.0)
 """
@@ -466,5 +466,5 @@ TAGS = """
 # ═════════════════════════════════════════════════════════════════════════════
 # DNA 签名
 # ═════════════════════════════════════════════════════════════════════════════
-# #龍芯⚡️2026-06-08-龍魂视角黎曼猜想-框架-v1.1
+# #龍芯⚡️丙午·丙申·庚申·亥时-龍魂视角黎曼猜想-框架-v1.1
 # #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

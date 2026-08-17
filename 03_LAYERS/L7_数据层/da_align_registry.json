@@ -788,7 +788,7 @@
       "id": "DA-008",
       "dimension": "繁简归一",
       "core_indicator": "龍字规范化",
-      "acceptance_criteria": "「龍」繁体为规范形式；「龙」简体等价接收自动归一，不熔断",
+      "acceptance_criteria": "「龍」繁体为规范形式；「龍」简体等价接收自动归一，不熔断",
       "auto_fixable": true,
       "files_checked": 200,
       "status": "🟡",
@@ -798,7 +798,7 @@
           "issues": [
             {
               "level": "warn",
-              "msg": "使用了简体「龙魂」应为繁体「龍魂」"
+              "msg": "使用了简体「龍魂」应为繁体「龍魂」"
             }
           ]
         },
@@ -807,7 +807,7 @@
           "issues": [
             {
               "level": "warn",
-              "msg": "使用了简体「龙魂」应为繁体「龍魂」"
+              "msg": "使用了简体「龍魂」应为繁体「龍魂」"
             }
           ]
         }

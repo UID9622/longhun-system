@@ -91,7 +91,7 @@ Every piece of content — code, article, video, artwork, music — carries with
 
 This protocol is not law. It is a **social contract**. Creators who adopt it signal to platforms: these are our minimum terms. Platforms that respect it signal to creators: we see you as partners, not livestock.
 
-The Longhun System implements this protocol in its own governance. Every creator contributing to Longhun does so under these protections.
+The LongHun System implements this protocol in its own governance. Every creator contributing to LongHun does so under these protections.
 
 ---
 

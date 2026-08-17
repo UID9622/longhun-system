@@ -286,7 +286,7 @@ class FixedPoint:
     uid: str = UID
     identity: Dict[str, Any] = field(default_factory=lambda: {
         "name": "龍芯北辰", "real_name": "诸葛鑫·Lucky",
-        "born": "2008济南二团退伍军人", "zodiac": "88年属龙",
+        "born": "2008济南二团退伍军人", "zodiac": "88年属龍",
         "role": "创始人/UID9622",
     })
     values: List[str] = field(default_factory=lambda: [

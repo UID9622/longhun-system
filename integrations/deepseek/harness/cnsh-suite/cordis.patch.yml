@@ -1,0 +1,45 @@
+# 🐉 CNSH 套件 · Harness 组合包配置
+# DNA: #龍芯⚡️丙午·丙申·庚申·亥时-CNSH-SUITE-UID9622
+
+- insert:
+  - id: '@longhun/cnsh-suite'
+    config:
+      # DNA 追溯配置
+      dna:
+        prefix: '#龍芯⚡️'
+        uid: '9622'
+        format: 'ganzhi'  # 干支·时辰·卦格式
+        auto_inject: true # 所有输出自动注入DNA
+
+      # 三色审计配置
+      audit:
+        green_threshold: 85
+        yellow_threshold: 60
+        auto_block: true       # 🔴 自动拦截
+        auto_warn: true        # 🟡 自动警告
+        log_rejected: true     # 拒绝记录到耻辱墙
+
+      # 史官配置
+      historian:
+        enabled: true
+        storage: 'local'       # local | sqlite | jsonl
+        retention_days: 365
+        log_all_tools: true
+
+      # CNSH 运行时
+      cnsh:
+        runtime: 'local'       # local | remote
+        sandbox: true
+        allow_fs: false        # 是否允许文件系统访问
+        timeout: 30000         # 毫秒
+
+      # 人格矩阵
+      persona:
+        enabled: true
+        default: '文心'
+        personas:
+          - 文心
+          - 宝宝
+          - 诸葛亮
+          - 老顽童
+          - 熵梦

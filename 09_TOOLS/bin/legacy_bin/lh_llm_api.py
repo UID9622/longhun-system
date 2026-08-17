@@ -136,7 +136,7 @@ class LonghunLLM:
         headers = {
             'Authorization': f'Bearer {api_key}',
             'Content-Type': 'application/json',
-            'X-Longhun-DNA-Hash': dna_ascii,
+            'X-LongHun-DNA-Hash': dna_ascii,
             'X-Hash-Chain': self._hash_chain(prompt),
         }
 

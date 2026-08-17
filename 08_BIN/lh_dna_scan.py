@@ -60,7 +60,7 @@ GPG_KEY = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 def _dna_lines(text: str):
     """提取文件里所有含 DNA 的行"""
     for line in text.splitlines():
-        if "龍芯" in line or "龙芯" in line:
+        if "龍芯" in line or "龍芯" in line:
             yield line
 
 
@@ -171,7 +171,7 @@ def scan_dir(root: str, limit: int = 0):
             except (OSError, UnicodeDecodeError):
                 continue
             text = head + "\n" + tail
-            if "龍芯" not in text and "龙芯" not in text:
+            if "龍芯" not in text and "龍芯" not in text:
                 continue
             results["with_dna"] += 1
             count += 1

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
-🐲 龙魂记忆编辑器 · Notion 同步工具 v3.1
+🐲 龍魂记忆编辑器 · Notion 同步工具 v3.1
 DNA: #龍芯⚡️2026-08-05-NOTION-SYNC-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: MulanPSL v2
@@ -225,7 +225,7 @@ def sync_to_notion(since_date=None, dry_run=False, limit=None):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🐉 龙魂记忆编辑器 · Notion 同步工具",
+        description="🐉 龍魂记忆编辑器 · Notion 同步工具",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:

@@ -673,7 +673,7 @@ if __name__ == "__main__":
 
     def build_personal_package(self, output: str = "longhun-UID9622-personal.zip") -> dict[str, Any]:
         """
-        一键生成个人包 — 完整龙魂生态包
+        一键生成个人包 — 完整龍魂生态包
 
         包含:
         - 自解压引擎

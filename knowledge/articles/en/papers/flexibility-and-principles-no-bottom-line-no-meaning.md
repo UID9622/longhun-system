@@ -3,12 +3,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # Flexibility and Principles: Without a Bottom Line, There Is Only Void
 
-## — On the Boundaries and Foundation of Principled Flexibility from the Perspective of Longhun Values
+## — On the Boundaries and Foundation of Principled Flexibility from the Perspective of LongHun Values
 
 > **DNA:** `#龍芯⚡️2026-07-04-FLEXIBILITY-PRINCIPLE-NIHILISM-v1.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777D`  
 > **Author:** UID9622 · 龍芯北辰  
-> **Category:** Longhun Values / Philosophy / Governance  
+> **Category:** LongHun Values / Philosophy / Governance  
 > **Translation Date:** 2026-07-21  
 > **License:** CC BY-NC-SA 4.0
 
@@ -16,9 +16,9 @@
 
 ## Abstract
 
-Flexibility is not unprincipled expediency, and principles are not rigid dogma. True flexibility must stand upon an unbreachable bottom line; once the bottom line is removed, flexibility loses its direction and ultimately slides into nihilism. This paper uses the Longhun System's constitutional principles, Protocol Zero, iron law system, and three-color audit as the theoretical framework to demonstrate the proposition that "without a bottom line, there is only void," and to clarify how principles, in the practice of technological governance, digital sovereignty, and serving the people, become the foundation for flexible innovation.
+Flexibility is not unprincipled expediency, and principles are not rigid dogma. True flexibility must stand upon an unbreachable bottom line; once the bottom line is removed, flexibility loses its direction and ultimately slides into nihilism. This paper uses the LongHun System's constitutional principles, Protocol Zero, iron law system, and three-color audit as the theoretical framework to demonstrate the proposition that "without a bottom line, there is only void," and to clarify how principles, in the practice of technological governance, digital sovereignty, and serving the people, become the foundation for flexible innovation.
 
-**Keywords:** Longhun values; principles; flexibility; nihilism; bottom line; digital sovereignty; three-color audit; Protocol Zero
+**Keywords:** LongHun values; principles; flexibility; nihilism; bottom line; digital sovereignty; three-color audit; Protocol Zero
 
 ---
 
@@ -28,7 +28,7 @@ Human progress has always been accompanied by a tension: on one hand, we need fl
 
 In the current context of rapidly developing AI technology, this tension is amplified to an unprecedented degree. AI possesses superhuman computational power, pattern recognition, and generative capability — it can produce countless "feasible solutions" in extremely short time. However, the more solutions there are, the more we must ask: Do these solutions serve people? Do they violate sovereignty? Can they withstand audit? If we sacrifice principles for flexibility, then every "smart" adjustment may push the system deeper into uncontrollable abyss.
 
-The core proposition of the Longhun System is: **Central rules land directly, but not mechanically; serve the people, but "the people" is not an abstract "everyone"; flexibility must be framed by principles — only above the bottom line does true freedom exist.** The opposite of this proposition is precisely what this paper critiques: unprincipled flexibility is nihilism.
+The core proposition of the LongHun System is: **Central rules land directly, but not mechanically; serve the people, but "the people" is not an abstract "everyone"; flexibility must be framed by principles — only above the bottom line does true freedom exist.** The opposite of this proposition is precisely what this paper critiques: unprincipled flexibility is nihilism.
 
 ---
 
@@ -38,7 +38,7 @@ The core proposition of the Longhun System is: **Central rules land directly, bu
 
 The essence of flexibility is "adjusting means under an unchanging purpose." Purpose is principle; means are flexibility. If the purpose itself can be arbitrarily modified, then adjusting means is no longer flexibility — it's random drift.
 
-For example, the Longhun System's DNA traceability code requires "source traceable, destination trackable, responsibility investigable." This is a technical principle. Under this principle, specific implementations can use different algorithms, different storage structures, different compression strategies — that is flexibility. But if someone says "for flexibility, today we can skip DNA traceability," then the entire trust foundation of the system collapses. Without traceability, there is no accountability; without accountability, any technical action loses its meaning coordinate.
+For example, the LongHun System's DNA traceability code requires "source traceable, destination trackable, responsibility investigable." This is a technical principle. Under this principle, specific implementations can use different algorithms, different storage structures, different compression strategies — that is flexibility. But if someone says "for flexibility, today we can skip DNA traceability," then the entire trust foundation of the system collapses. Without traceability, there is no accountability; without accountability, any technical action loses its meaning coordinate.
 
 This is precisely the starting point of nihilism: **When everything can be reinterpreted, repriced, and recalled, meaning itself ceases to exist.**
 
@@ -46,7 +46,7 @@ This is precisely the starting point of nihilism: **When everything can be reint
 
 Some argue, citing "reality is complicated," that for efficiency we can temporarily set aside principles. This view appears mature but is actually shortsighted. History has repeatedly proven that systemic crises almost never arise from having too many principles, but from principles being "flexibly" breached again and again.
 
-The Longhun iron laws — "cannot be overridden, cannot be weakened, cannot be tampered with, cannot be harvested by capital" — are not idealistic decoration but conclusions drawn from historical lessons. Protocol Zero — "the world's ordinary people are supreme" — is not a slogan but the ultimate anchor for all governance decisions. If we "flexibly" bypass these iron laws for some short-term benefit, then after the short-term benefit is obtained, the system will already be riddled with holes.
+The LongHun iron laws — "cannot be overridden, cannot be weakened, cannot be tampered with, cannot be harvested by capital" — are not idealistic decoration but conclusions drawn from historical lessons. Protocol Zero — "the world's ordinary people are supreme" — is not a slogan but the ultimate anchor for all governance decisions. If we "flexibly" bypass these iron laws for some short-term benefit, then after the short-term benefit is obtained, the system will already be riddled with holes.
 
 **Unprincipled flexibility is essentially a form of debt.** It mortgages future stability for present convenience, and the cost of repayment often far exceeds the benefit.
 
@@ -60,11 +60,11 @@ The Longhun iron laws — "cannot be overridden, cannot be weakened, cannot be t
 
 ---
 
-## III. The Foundation of Principles: The Immovable Base of Longhun
+## III. The Foundation of Principles: The Immovable Base of LongHun
 
 ### 3.1 The Bottom Line Is Not Made — It Is Discovered
 
-Principles are not arbitrarily imposed — they are discovered through suffering. Every iron law in the Longhun System stands on lessons paid for in blood:
+Principles are not arbitrarily imposed — they are discovered through suffering. Every iron law in the LongHun System stands on lessons paid for in blood:
 
 - **"Never delete, only freeze"** — learned from the pain of data being weaponized against its owners
 - **"Sovereignty is not for sale"** — learned from watching platforms extract value while users bear cost
@@ -72,7 +72,7 @@ Principles are not arbitrarily imposed — they are discovered through suffering
 
 ### 3.2 The 369 Fixed Points: Mathematical Anchor of Principles
 
-The Longhun System's philosophical foundation includes the 369 fixed points from Luoshu (Luo River Diagram). These are not metaphors — they are mathematical constants:
+The LongHun System's philosophical foundation includes the 369 fixed points from Luoshu (Luo River Diagram). These are not metaphors — they are mathematical constants:
 
 - **3 (Heaven)**: The number of creative force. Principles that drive innovation forward.
 - **6 (Earth)**: The number of receptive structure. Rules that hold the system together.
@@ -108,7 +108,7 @@ Zone 3: Free (Open Zone) — Fully flexible
 
 ### 4.2 Decision Flow: The Three-Color Check
 
-Every significant decision in the Longhun System passes through:
+Every significant decision in the LongHun System passes through:
 
 1. **Is the immutable zone touched?** If yes → stop, never flexible here.
 2. **Is a guardrail approached?** If yes → flag yellow (🟡), document reasoning.
@@ -142,7 +142,7 @@ A dangerous modern illusion: "With enough data, algorithms will figure out the r
 
 This is false. Algorithms optimize for what they're told to optimize. If the objective function is engagement, they'll maximize addiction. If it's profit, they'll exploit. If it's "flexibility," they'll breach every boundary.
 
-**Principles must be external to the optimization loop.** They are not something the system discovers — they are something the system obeys. This is why Longhun's audit system is independent of its execution system. The one who runs cannot also be the one who judges.
+**Principles must be external to the optimization loop.** They are not something the system discovers — they are something the system obeys. This is why LongHun's audit system is independent of its execution system. The one who runs cannot also be the one who judges.
 
 ---
 
@@ -152,7 +152,7 @@ The title of this paper is not a paradox. It is a truth that Chinese philosophy 
 
 > The tree that bends with every wind has weak roots. The tree that never bends snaps in the storm. The tree with deep roots bends and returns.
 
-The Longhun System's principles are its roots. Its flexibility is its ability to bend in the wind. Without roots, flexibility is just falling over. Without flexibility, roots alone cannot sustain life.
+The LongHun System's principles are its roots. Its flexibility is its ability to bend in the wind. Without roots, flexibility is just falling over. Without flexibility, roots alone cannot sustain life.
 
 **No bottom line → no direction → no meaning → void.**
 

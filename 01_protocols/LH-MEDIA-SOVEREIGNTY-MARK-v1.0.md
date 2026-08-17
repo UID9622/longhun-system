@@ -29,7 +29,7 @@
 
 | 媒体 | 标记方式 | 提取方式 | 抗攻击能力 |
 |:---|:---|:---|:---|
-| **字体** | U+E200 龙纹缩微水印 + name 表 DNA | 校验 PUA 字形 + 读取 name 表 | 改文件名无法移除 |
+| **字体** | U+E200 龍纹缩微水印 + name 表 DNA | 校验 PUA 字形 + 读取 name 表 | 改文件名无法移除 |
 | **图像** | LSB 最低有效位 + DCT 频域隐写 | 优先 LSB，失败 fallback DCT | 抗轻度压缩、裁剪 |
 | **视频** | **帧级 DCT 扩频指纹（主）+ 音频轨 Patchwork 指纹（副）** | 优先帧级 DCT 投票提取，失败 fallback 音频 | 抗 H.264/H.265 重编码、录屏、AAC 压缩 |
 | **音频** | 时域 LSB + 3 重复码（普通版）/ 频域 DSSS + 三频带副本（鲁棒版） | 3 取多数解码 / 相关检测 + 跨块投票 | 抗轻度裁剪、噪声 / 抗 AAC/MP3 压缩 |
@@ -56,7 +56,7 @@
 
 ```bash
 # 标记字体
-python3 engines/lh_media_sovereignty_marker.py mark 龙魂字体-Regular.otf \
+python3 engines/lh_media_sovereignty_marker.py mark 龍魂字体-Regular.otf \
   --type font --dna "龍魂DNA#UID9622#FONT-001" --output 字体-已标记.otf
 
 # 标记图像

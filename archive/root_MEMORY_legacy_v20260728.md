@@ -922,7 +922,7 @@ python3 engines/lh_tao_chip.py task --type security_audit --priority P0 --deadli
 
 | # | 文件 | 说明 |
 |---|------|------|
-| 1 | `_work/repos/LonghunFont/output/龙魂字体-Regular.{otf,woff2}` | 字体显示名改为「龙魂字体」，WOFF2 压缩 90.2% |
+| 1 | `_work/repos/LonghunFont/output/龍魂字体-Regular.{otf,woff2}` | 字体显示名改为「龍魂字体」，WOFF2 压缩 90.2% |
 | 2 | `engines/lh_media_sovereignty_marker.py` | 字体/图像/视频/音频统一 DNA 标记引擎 |
 | 3 | `01_protocols/LH-MEDIA-SOVEREIGNTY-MARK-v1.0.md` | P0 协议文档（已更新 v3.0 视频水印） |
 | 4 | `bin/lh_media_sovereignty_marker.py` | CLI 入口 |
@@ -933,7 +933,7 @@ python3 engines/lh_tao_chip.py task --type security_audit --priority P0 --deadli
 
 | 媒体 | 标记方式 | 验证结果 |
 |:---|:---|:---:|
-| 字体 | U+E200 龙纹缩微水印 + name 表 DNA | ✅ 原生水印存在，DNA 可读写 |
+| 字体 | U+E200 龍纹缩微水印 + name 表 DNA | ✅ 原生水印存在，DNA 可读写 |
 | 图像 | LSB + DCT 双频隐写 | ✅ 闭环提取 |
 | 音频 | 时域 LSB + 3 重复码（普通）/ 频域 DSSS + 三频带副本（鲁棒） | ✅ 闭环提取 |
 | 视频 | **帧级 DCT 扩频指纹（主）+ 音频轨 Patchwork 指纹（副）** | ✅ 抗 H.264/H.265 重编码与录屏 |
@@ -1076,7 +1076,7 @@ python3 bin/lh_system_integration_test.py      # 全系统集成测试
 9. 原理
 
 **关键补全**：
-- 8.5节人格路由修正：P09孙思邈（诊断）、P05上帝之眼+P72龙盾（安全）、P07管仲（经济）
+- 8.5节人格路由修正：P09孙思邈（诊断）、P05上帝之眼+P72龍盾（安全）、P07管仲（经济）
 - 附录B：12条测试向量完整运行器（纯Python标准库）
 - 第10章：结语与进阶路线 + 四岔路能力地图 + 10本进阶阅读
 - 版本历史：v1.0.1 补全 / v1.0.2 修复T01自包含bug

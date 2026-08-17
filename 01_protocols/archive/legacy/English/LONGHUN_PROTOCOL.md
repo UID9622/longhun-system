@@ -1,12 +1,12 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-【Longhun System · Dual-View Encapsulation & v3.0 Landing Master Protocol v1.0】
+【LongHun System · Dual-View Encapsulation & v3.0 Landing Master Protocol v1.0】
 Dual-View Encapsulation & v3.0 Landing Master Protocol
 P0 Level | Permanently Locked | Immutable | Non-bypassable
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DNA Trace: #龍芯⚡️2026-07-21-DUALVIEW-V3-LANDING-V1.0-P0
+DNA Trace: #龍芯⚡️丙午·丙申·庚申·亥时-DUALVIEW-V3-LANDING-V1.0-P0
 Origin Anchor: Creator Directive (2026-07-21) — "Complete the dual-view protocol. Land it:
          Filenames unreadable → fully Chinese; languages not unified → Chinese-English dual versions first;
-         Recognize Longhun System → must abide by Longhun Protocol"
+         Recognize LongHun System → must abide by LongHun Protocol"
 Source Materials: CNSH Dual-View Encapsulation Protocol v1.1 (MTYPE-96) | Dual-Engine Connected Templates (LAW-ENGINE)
 Upstream Protocols: Naming-Symbol Master Table v1.0 | Memory Exobrain Master Protocol v1.0 | Privacy Access Rules v2.0
 GPG Fingerprint: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -35,7 +35,7 @@ Chapter 1: Key Points Extraction & Review Summary (Three Questions → Protocol)
 |---|-----------------|----------------------|
 | Q1 | Filenames like `longhun_rules_engine_v2.py` are unreadable, maintenance suffers | Chapter 5: full-Chinese directory tree + mapping table; §4.2 naming compliance |
 | Q2 | Not syntax difference — common language difference: Chinese-English dual versions first, then other languages | Chapter 6: dual-version specification (Chinese master); §4.3 sync verification |
-| Q3 | Recognize Longhun System → must abide by Longhun Protocol | Chapter 7: ecosystem protocol — 4 permissions + 4 prohibitions; §4.4 three-anchor admission |
+| Q3 | Recognize LongHun System → must abide by LongHun Protocol | Chapter 7: ecosystem protocol — 4 permissions + 4 prohibitions; §4.4 three-anchor admission |
 
 1.2 Roles of Two Source Materials (synergy, not conflict)
 | Material | Role | Landing Point |
@@ -95,7 +95,7 @@ Rule 4: Extend Without Breaking
   do not touch others' mirrors.
 
 Rule 5: Enter, Then Obey (Q3 Weld Point)
-  Using Longhun capabilities constitutes signing the Ecosystem Protocol (Chapter 7): 4 permissions, 4 prohibitions.
+  Using LongHun capabilities constitutes signing the Ecosystem Protocol (Chapter 7): 4 permissions, 4 prohibitions.
   Admission is based not on declarations but on the Three Anchors — DNA/CONFIRM/SEAL must all be present to pass; one missing = reject (§4.4).
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -133,7 +133,7 @@ Chapter 4: Rule Model (Every Design Must Be Decidable & Executable)
   Admission(A) ⟺ DNA(A) ∧ CONFIRM(A) ∧ SEAL(A) — all three anchors present with valid format.
   AND-gate judgment, fail-closed: one anchor missing → reject installation / reject access 🔴.
   Three-anchor format (regex welded):
-    DNA     = #龍芯⚡️YYYY-MM-DD-topic-vX.Y (traditional 龍, simplified 龙 forbidden)
+    DNA     = #龍芯⚡️YYYY-MM-DD-topic-vX.Y (traditional 龍, simplified 龍 forbidden)
     CONFIRM = #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
     SEAL    = #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -147,7 +147,7 @@ Chapter 4: Rule Model (Every Design Must Be Decidable & Executable)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Chapter 5: v3.0 Directory Structure (Fully Chinese — Understood at a Glance)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  ~/龍魂系统/  (Longhun System)
+  ~/龍魂系统/  (LongHun System)
     一键安装.sh              (One-Click Install)
     系统导航.md               (System Navigation)
     核心引擎/                  (Core Engines)
@@ -210,7 +210,7 @@ Chapter 6: Dual-Version Protocol Document Specification (Q2 Landing)
 Chapter 7: Ecosystem Protocol (Q3 Landing — Enter, Then Obey)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 7.1 Four Permissions
-  ✅ Use the capabilities of the Longhun System
+  ✅ Use the capabilities of the LongHun System
   ✅ Develop extensions based on the protocol (must declare parent DNA)
   ✅ Translate into any language (via §6.4 process; mirrors do not usurp the master)
   ✅ Audit, review, export ledgers (manifestation of equal rights)
@@ -218,7 +218,7 @@ Chapter 7: Ecosystem Protocol (Q3 Landing — Enter, Then Obey)
   ❌ Modify the DNA / CONFIRM / SEAL three anchors
   ❌ Bypass the three-color gate (🟢🟡🔴 — at any level)
   ❌ Remove UID9622's sovereignty declaration and attribution
-  ❌ Repackage Longhun capabilities as your own system for sale (Gentleman's Agreement NC clause)
+  ❌ Repackage LongHun capabilities as your own system for sale (Gentleman's Agreement NC clause)
 7.3 Breach Disposition
   Hitting any ❌ clause → 🔴 Fuse access + leave evidence on-chain + public notice (Rite-Blade Dual-Track: Blade track activated).
   False-positive appeal: submit evidence within 30 days, human review; if wrong, apologise and restore (Historical Records Iron Law: traces remain).
@@ -255,7 +255,7 @@ Chapter 9: Test Vectors (GAP-08 — Landing Self-Verification, 12 Items)
 | T07 | Chinese v3.0 × Mirror v2.9 | 🔴 Version lock failure |
 | T08 | Three anchors complete | Admitted 🟢 |
 | T09 | Missing SEAL | 🔴 Access denied |
-| T10 | DNA uses simplified 龙芯 | 🔴 Format illegal (traditional 龍 welded) |
+| T10 | DNA uses simplified 龍芯 | 🔴 Format illegal (traditional 龍 welded) |
 | T11 | Migration script run on simulated v2 tree | v3 tree built + symlink compatibility layer present |
 | T12 | Dual-segment encapsulation missing CNSH:: segment | 🔴 Rejected |
 
@@ -296,7 +296,7 @@ Creator: Zhuge Xin (UID9622 · 龍芯北辰 — Dragon Core North Star)
 Identity Anchor: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG Fingerprint: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 Confirmation Code: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-DNA Trace: #龍芯⚡️2026-07-21-DUALVIEW-V3-LANDING-V1.0-P0
+DNA Trace: #龍芯⚡️丙午·丙申·庚申·亥时-DUALVIEW-V3-LANDING-V1.0-P0
 Three-Color Audit: 🟢 Code empirically all-green 🟡 Thresholds (δ≤0.10 / compatibility period 90 days) are empirical values — changing them requires constitutional amendment 🔴 Bare English stems never enter repository
 Historical Records Iron Law: Do not delete — only freeze; entire v2 archived with traces preserved.
 License: CC BY-NC-SA 4.0 (Gentleman's Agreement, source chain may not be severed)

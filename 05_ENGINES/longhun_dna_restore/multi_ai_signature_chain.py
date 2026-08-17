@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
-🐉 龍魂 多AI签章接龙引擎 v1.1
+🐉 龍魂 多AI签章接龍引擎 v1.1
 DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-MULTI-AI-SIGNATURE-V1.1-UID9622
 创建者: 诸葛鑫（UID9622）
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
-多AI签章接龙：每个AI签自己的部分，不支持覆盖只支持追加。
+多AI签章接龍：每个AI签自己的部分，不支持覆盖只支持追加。
 支持GPG签名验证 + 时间戳连续性检测 + 贡献报告。
 """
 
@@ -20,7 +20,7 @@ from .dna_stamp import DNAStamp
 
 class MultiAISignatureChain:
     """
-    多 AI 签章接龙
+    多 AI 签章接龍
 
     规则:
     - 每个 AI 签自己的部分
@@ -226,10 +226,10 @@ class MultiAISignatureChain:
     def get_ai_contribution_report(self) -> str:
         """生成 AI 贡献报告"""
         if not self._ai_registry:
-            return "🐉 多 AI 签章接龙贡献报告\n" + "=" * 60 + "\n\n暂无 AI 参与签章\n"
+            return "🐉 多 AI 签章接龍贡献报告\n" + "=" * 60 + "\n\n暂无 AI 参与签章\n"
 
         lines = [
-            "🐉 多 AI 签章接龙贡献报告",
+            "🐉 多 AI 签章接龍贡献报告",
             "=" * 60,
             "",
         ]
@@ -267,7 +267,7 @@ class MultiAISignatureChain:
         """
         from .dna_stamp import DNAStamp
 
-        print("\n🐉 多 AI 签章接龙实战示例")
+        print("\n🐉 多 AI 签章接龍实战示例")
         print("=" * 60)
 
         # 1. 创建 DNA 签章

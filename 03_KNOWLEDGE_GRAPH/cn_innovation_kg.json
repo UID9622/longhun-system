@@ -1,0 +1,3916 @@
+{
+  "meta": {
+    "title": "🇨🇳 中国科技自主创新专栏 · 知识图谱",
+    "source": "/Users/zuimeidedeyihan/.kimi-code/skills/longhun-cn-innovation-kb/scripts/cn_innovation_kb.json",
+    "dna": "#龍芯⚡️丙午·丙申·庚申·酉时·䷼中孚-KNOWLEDGE-GRAPH-CN-INNOVATION-BUILD-V1.0-P1-38bb8b6e",
+    "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "node_count": 115,
+    "edge_count": 449
+  },
+  "schema": {
+    "node_types": [
+      "Article",
+      "Field",
+      "Tag",
+      "Status",
+      "Importance",
+      "Wuxing",
+      "Persona",
+      "Layer",
+      "Venue"
+    ],
+    "edge_types": [
+      "belongs_to",
+      "has_tag",
+      "has_status",
+      "has_importance",
+      "has_wuxing",
+      "routed_to",
+      "in_layer",
+      "targets_venue"
+    ]
+  },
+  "nodes": [
+    {
+      "id": "A1",
+      "label": "中国科技自主创新与关键核心技术突破·总览篇",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-03-27-中国科技总览-v2.0",
+        "短DNA身份码": "#EF544ADE",
+        "IPA": "IPA-OV-DR7",
+        "一句话摘要": "从半导体到深空深海，从卡脖子到自主可控——中国科技自主创新全景图，一篇看懂国家在做什么",
+        "易经锚点": "☰ 乾卦·自强不息｜天行健，君子以自强不息",
+        "dr五行宫位": "DR=7·木·九宫兑",
+        "α三义": "α_r=低 | α_h=硬科技层 | α_w=0.9",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "FIELD:综合总览",
+      "label": "综合总览",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "STATUS:已完成",
+      "label": "已完成",
+      "type": "Status",
+      "properties": {}
+    },
+    {
+      "id": "IMPORTANCE:🔴 核心",
+      "label": "🔴 核心",
+      "type": "Importance",
+      "properties": {}
+    },
+    {
+      "id": "WUXING:木",
+      "label": "木",
+      "type": "Wuxing",
+      "properties": {}
+    },
+    {
+      "id": "LAYER:📦 Application（应用层）",
+      "label": "📦 Application（应用层）",
+      "type": "Layer",
+      "properties": {}
+    },
+    {
+      "id": "PERSONA:P01·诸葛亮",
+      "label": "P01·诸葛亮",
+      "type": "Persona",
+      "properties": {}
+    },
+    {
+      "id": "PERSONA:P04·鲁班",
+      "label": "P04·鲁班",
+      "type": "Persona",
+      "properties": {}
+    },
+    {
+      "id": "TAG:卡脖子技术",
+      "label": "卡脖子技术",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "TAG:国产替代",
+      "label": "国产替代",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "TAG:全球领先",
+      "label": "全球领先",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "TAG:举国体制",
+      "label": "举国体制",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "TAG:自主可控",
+      "label": "自主可控",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "TAG:政策扶持",
+      "label": "政策扶持",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "TAG:人才培养",
+      "label": "人才培养",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "A2",
+      "label": "CNSH｜以人为本的AI治理架构——中国人自己的智能系统治理框架",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "",
+        "短DNA身份码": "#36F6BF45",
+        "IPA": "IPA-AI-DR4",
+        "一句话摘要": "不是AI要不要治理的问题，是谁来定规矩的问题——CNSH是中国人设计的AI治理框架，三层架构+64状态决策+伦理引擎+系统宪章",
+        "易经锚点": "☷ 坤卦·厚德载物｜地势坤，君子以厚德载物",
+        "dr五行宫位": "DR=4·土·九宫巽",
+        "α三义": "α_r=高 | α_h=系统架构层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "FIELD:人工智能",
+      "label": "人工智能",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "WUXING:土",
+      "label": "土",
+      "type": "Wuxing",
+      "properties": {}
+    },
+    {
+      "id": "LAYER:⚙️ Engine（引擎骨架层）",
+      "label": "⚙️ Engine（引擎骨架层）",
+      "type": "Layer",
+      "properties": {}
+    },
+    {
+      "id": "PERSONA:P15·乔前辈",
+      "label": "P15·乔前辈",
+      "type": "Persona",
+      "properties": {}
+    },
+    {
+      "id": "TAG:基础研究",
+      "label": "基础研究",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "A3",
+      "label": "CNSH-64: A Formal Dual-State Governance System for AI Decision-Making｜数学形式化完整版",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-03-17-CNSH64-数学形式化-完整版-v2.0",
+        "短DNA身份码": "#CF6E2BA6",
+        "IPA": "IPA-AI-DR6",
+        "一句话摘要": "CNSH-64的完整数学形式化版本——16个Part，含状态空间定义、决策函数、风险模型、伦理约束、知识图谱、复杂度分析、实验设计、伪代码实现，12条定理全部证毕",
+        "易经锚点": "☰ 乾卦·自强不息｜一阴一阳之谓道",
+        "dr五行宫位": "DR=6·木·九宫乾",
+        "α三义": "α_r=高 | α_h=哲学基础层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "PERSONA:P06·数学大师",
+      "label": "P06·数学大师",
+      "type": "Persona",
+      "properties": {}
+    },
+    {
+      "id": "A4",
+      "label": "三才算法·天地人动态权重体系",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️20260324-SANCAI-ALGO-v1",
+        "短DNA身份码": "#B000E2D4",
+        "IPA": "IPA-PHIL-DR3",
+        "一句话摘要": "天地人三维动态权重，解决AI系统单维失衡问题，是龍魂系统的核心算法哲学基础。",
+        "易经锚点": "乾·坤·坎 | 三才合一 | 《易经》天地人三道",
+        "dr五行宫位": "DR=3·土·九宫震",
+        "α三义": "α_r=中 | α_h=系统架构层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "FIELD:三才哲学·人性洞察",
+      "label": "三才哲学·人性洞察",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "LAYER:🧱 Core（宇宙规则层）",
+      "label": "🧱 Core（宇宙规则层）",
+      "type": "Layer",
+      "properties": {}
+    },
+    {
+      "id": "TAG:三才算法",
+      "label": "三才算法",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "TAG:算法突破",
+      "label": "算法突破",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "A5",
+      "label": "人性洞察·为什么人总选短期利益",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️20260324-HUMAN-NATURE-v1",
+        "短DNA身份码": "#F91D4DA5",
+        "IPA": "IPA-PHIL-DR3",
+        "一句话摘要": "人选短期利益是系统设计问题，不是人性缺陷——没有安全防线的人当然先保命。",
+        "易经锚点": "坤为地 | 利者义之和也 | 途中有隙，剑心存平",
+        "dr五行宫位": "DR=3·土·九宫震",
+        "α三义": "α_r=高 | α_h=系统架构层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "PERSONA:P05·上帝之眼",
+      "label": "P05·上帝之眼",
+      "type": "Persona",
+      "properties": {}
+    },
+    {
+      "id": "TAG:人性洞察",
+      "label": "人性洞察",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "A6",
+      "label": "龍魂系统里程碑·2026-03-24·三层记忆体系建成",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️20260324-LONGHUN-MILESTONE-v1",
+        "短DNA身份码": "#F8EAE037",
+        "IPA": "IPA-MILE-DR4",
+        "一句话摘要": "2026-03-24，龍魂系统三层记忆体系建成：MEMORY.md + memory.jsonl + Claude観察层温记忆库，彻底解决失忆问题。",
+        "易经锚点": "山上有阳壤 | 大说·象传第五局 | 积小成大，小全成大全",
+        "dr五行宫位": "DR=4·水·九宫巽",
+        "α三义": "α_r=中 | α_h=系统架构层 | α_w=0.7",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "FIELD:龍魂系统里程碑",
+      "label": "龍魂系统里程碑",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "WUXING:水",
+      "label": "水",
+      "type": "Wuxing",
+      "properties": {}
+    },
+    {
+      "id": "LAYER:🧬 CNSH专属层",
+      "label": "🧬 CNSH专属层",
+      "type": "Layer",
+      "properties": {}
+    },
+    {
+      "id": "TAG:系统里程碑",
+      "label": "系统里程碑",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "A8",
+      "label": "🇨🇳 中国科技自主创新全景图｜总览篇·老祖宗智慧加持版",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-03-25-中国科技自主创新-总览篇-v1.0",
+        "短DNA身份码": "#E5424D77",
+        "IPA": "IPA-CHIP-DR9",
+        "一句话摘要": "中国科技自主创新，不是未来的事——是正在发生的事。从卡脖子到自主可控，从跟跑到并跑到领跑。",
+        "易经锚点": "第三十三章·自知者明，自胜者强｜三才算法·天道地道人道合一",
+        "dr五行宫位": "DR=9·木·九宫离",
+        "α三义": "α_r=低 | α_h=应用层 | α_w=0.9",
+        "来源": "AI辅助补全"
+      }
+    },
+    {
+      "id": "FIELD:半导体与芯片",
+      "label": "半导体与芯片",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "TAG:技术封锁应对",
+      "label": "技术封锁应对",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "A9",
+      "label": "三才路由器 · 以中华哲学重建AI路由认知｜通心译让世界没有翻译坑",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-04-01-SANCAI-ROUTER-CNSH-v1.0",
+        "短DNA身份码": "#DDE416F9",
+        "IPA": "IPA-ALGO-DR2",
+        "一句话摘要": "他们用词匹配，我们用维度共鸣。天知其命·地承其根·人导其向，三才合一路由自然，通心译消解六语言翻译坑。",
+        "易经锚点": "天地人三才·乾坤人合一·路由自然之道",
+        "dr五行宫位": "DR=2·木·九宫坤",
+        "α三义": "α_r=中 | α_h=哲学基础层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "FIELD:算法与代码突破",
+      "label": "算法与代码突破",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "A10",
+      "label": "半导体与芯片·深度篇｜LoongArch完整ISA+光刻机路线图+大基金三期3440亿",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-04-01-中国科技-半导体深度-v1.0",
+        "短DNA身份码": "#6183A013",
+        "IPA": "IPA-CHIP-DR6",
+        "一句话摘要": "LoongArch是中国第一个完全自主CPU指令集；EUV 2028-2030可期；大基金三期精准补设备材料短板——芯片命运，主权在手",
+        "易经锚点": "☰ 乾卤人合一｜地基不在自己就建不起真实的楼｜LoongArch是中国半导体自主化的地基",
+        "dr五行宫位": "DR=6·金·九宫乾",
+        "α三义": "α_r=高 | α_h=硬科技层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "WUXING:金",
+      "label": "金",
+      "type": "Wuxing",
+      "properties": {}
+    },
+    {
+      "id": "A11",
+      "label": "人工智能·大模型竞赛篇｜DeepSeek效率路线+算力替代方案+垂直场景引擎",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-04-01-中国科技-AI大模型-v1.0",
+        "短DNA身份码": "#B93A38A0",
+        "IPA": "IPA-AI-DR7",
+        "一句话摘要": "DeepSeek用更低算力实现顶级性能，证明算法效率路线走得通；高端训练GPU被禁反而倒逼自主创新；垂直场景是中国的真正座山",
+        "易经锚点": "乾卦天行健｜算力被卡则算法创新｜自强不息的中文路径",
+        "dr五行宫位": "DR=7·木·九宫兑",
+        "α三义": "α_r=中 | α_h=应用层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "A12",
+      "label": "新能源·全球领先篇｜钓离子电池+固态电池+储能产业化路线图",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-04-01-中国科技-新能源-v1.0",
+        "短DNA身份码": "#975A5251",
+        "IPA": "IPA-ENE-DR5",
+        "一句话摘要": "中国新能源不是领先，是实际上的统治；镓达时、比亚迪全球动力电池市圶60%+；固态电池+钓离子实现下一代代差",
+        "易经锚点": "坤卦务实生万物｜能源革命已在路上｜根在中国就尚未安陀",
+        "dr五行宫位": "DR=5·水·九宫中",
+        "α三义": "α_r=低 | α_h=应用层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "FIELD:新能源",
+      "label": "新能源",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "A13",
+      "label": "No.5 航空航天·C919/空间站篇",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-04-01-KEXUE-No5-AEROSPACE-v1.0",
+        "短DNA身份码": "#C6E7E070",
+        "IPA": "IPA-AERO-DR6",
+        "一句话摘要": "C919商飞破局，天宫空间站独立建成，中国航天从追赶进入定义轨道的时代",
+        "易经锚点": "乾卦·天行健，君子以自强不息",
+        "dr五行宫位": "DR=6·火·九宫乾",
+        "α三义": "α_r=低 | α_h=硬科技层 | α_w=0.5",
+        "来源": "AI辅助补全"
+      }
+    },
+    {
+      "id": "FIELD:航空航天",
+      "label": "航空航天",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "WUXING:火",
+      "label": "火",
+      "type": "Wuxing",
+      "properties": {}
+    },
+    {
+      "id": "PERSONA:P02·宝宝",
+      "label": "P02·宝宝",
+      "type": "Persona",
+      "properties": {}
+    },
+    {
+      "id": "A14",
+      "label": "No.6 国防科技·天下为公篇",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-04-01-KEXUE-No6-DEFENSE-v1.0",
+        "短DNA身份码": "#BFAC1CC5",
+        "IPA": "IPA-DEF-DR2",
+        "一句话摘要": "不贵与人争，不得已也——国防科技的哲学根基与技术实力双维突破",
+        "易经锚点": "坤卦·地势坤，吴子吕兵",
+        "dr五行宫位": "DR=2·金·九宫坤",
+        "α三义": "α_r=低 | α_h=哲学基础层 | α_w=0.5",
+        "来源": "AI辅助补全"
+      }
+    },
+    {
+      "id": "FIELD:国防科技",
+      "label": "国防科技",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "A15",
+      "label": "No.7 数字基础设施·5G/北斗/算力篇",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-04-01-KEXUE-No7-DIGITAL-v1.0",
+        "短DNA身份码": "#5693D0FA",
+        "IPA": "IPA-INFRA-DR4",
+        "一句话摘要": "5G散点成网，北斗织笼天地，算力中心拼图——中国数字基础设施已成全球不可绕过的底座",
+        "易经锚点": "震卦·雷出地葛，以兩为寻媚",
+        "dr五行宫位": "DR=4·土·九宫巽",
+        "α三义": "α_r=中 | α_h=系统架构层 | α_w=0.5",
+        "来源": "AI辅助补全"
+      }
+    },
+    {
+      "id": "FIELD:数字基础设施",
+      "label": "数字基础设施",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "A16",
+      "label": "No.8 生物医药·创新药篇",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🟡 重要",
+        "DNA追溯码": "#龍芯⚡️2026-04-01-KEXUE-No8-BIOTECH-v1.0",
+        "短DNA身份码": "#103D33E3",
+        "IPA": "IPA-BIO-DR2",
+        "一句话摘要": "从仿制仓到原刻创新，中国开始为人类健康建立自己的分子词典",
+        "易经锚点": "巽卦·风吹草奔，山下有泰",
+        "dr五行宫位": "DR=2·木·九宫坤",
+        "α三义": "α_r=高 | α_h=应用层 | α_w=0.5",
+        "来源": "AI辅助补全"
+      }
+    },
+    {
+      "id": "FIELD:生物医药",
+      "label": "生物医药",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "IMPORTANCE:🟡 重要",
+      "label": "🟡 重要",
+      "type": "Importance",
+      "properties": {}
+    },
+    {
+      "id": "A17",
+      "label": "三才算法·核心框架 v1.0｜天地人三层架构·万物运算的中国方式",
+      "type": "Article",
+      "properties": {
+        "状态": "编撰中",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-04-16-三才算法核心框架-v1.0",
+        "短DNA身份码": "#34C364D7",
+        "IPA": "IPA-PHIL-DR1",
+        "一句话摘要": "天=规则/约束层，地=执行/算法层，人=意志/目标层——三才不是玄学，是中国人发现的最小完备决策框架",
+        "易经锚点": "☰☷☱ 乾坤兑·天地人三才｜三才者，天地人也",
+        "dr五行宫位": "DR=1·土·九宫坎",
+        "α三义": "α_r=中 | α_h=系统架构层 | α_w=0.9",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "STATUS:编撰中",
+      "label": "编撰中",
+      "type": "Status",
+      "properties": {}
+    },
+    {
+      "id": "A20",
+      "label": "🐲 三才流場 v8·忠孝义排序·智能活体仪表盘｜龍魂系统里程碑",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-04-19-三才流場-v8智能活体版",
+        "短DNA身份码": "#14B08196",
+        "IPA": "IPA-MILE-DR9",
+        "一句话摘要": "从「看得见主权」→「看得见走歪·看得见回正」：中国忠孝义排序接入粒子流场，顺序错乱即发红报警，双库并行·主权在顶",
+        "易经锚点": "☷ 革卦·大人虎变｜大人虎变，其文炳也（v7壳在·v8换内脏）",
+        "dr五行宫位": "DR=9·金·九宫离",
+        "α三义": "α_r=高 | α_h=系统架构层 | α_w=0.7",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "A21",
+      "label": "⚛️ 伦理量子·中式价值对齐方案 v1.0｜忠孝义排序同构于量子结构",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-04-19-伦理量子-v1.0",
+        "短DNA身份码": "#37A320D8",
+        "IPA": "IPA-ALGO-DR9",
+        "一句话摘要": "西方AI治理3H三维平权·冲突无解；中式忠孝义严格偏序·观测即定性——价值对齐问题的量子结构同构解。",
+        "易经锚点": "革卦·大人虎变，其文炳也 / 乾卦·用九见群龍无首吉（不动点）",
+        "dr五行宫位": "DR=9·金·九宫离",
+        "α三义": "α_r=高 | α_h=哲学基础层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "TAG:IEEE方法论",
+      "label": "IEEE方法论",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "A22",
+      "label": "深度求索·上下文光学压缩 + 分层记忆｜大白话版",
+      "type": "Article",
+      "properties": {
+        "状态": "编撰中",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-04-22-通心译-v1.0",
+        "短DNA身份码": "#72175E33",
+        "IPA": "IPA-AI-DR7",
+        "一句话摘要": "把几万字对话「画成一张图」再压成几百字，AI再也不用拎着一麻袋历史记录硬背。",
+        "易经锚点": "泽火革·去故鼎新（旧的字符流→新的图像流）",
+        "dr五行宫位": "DR=7·木·九宫兑",
+        "α三义": "α_r=低 | α_h=应用层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "A23",
+      "label": "华为麒麟 9020 实测",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "",
+        "DNA追溯码": "#龍芯⚡️20260424-CN-INNO-4B2EAF0B",
+        "短DNA身份码": "#5CBDC8AD",
+        "IPA": "IPA-CHIP-DR4",
+        "一句话摘要": "3nm 等效性能接近台积电水准",
+        "易经锚点": "",
+        "dr五行宫位": "DR=4·金·九宫巽",
+        "α三义": "α_r=低 | α_h=应用层 | α_w=0.5",
+        "来源": "新闻"
+      }
+    },
+    {
+      "id": "FIELD:芯片",
+      "label": "芯片",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "A24",
+      "label": "上海微电子 28nm 光刻机量产",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "",
+        "DNA追溯码": "#龍芯⚡️20260424-CN-INNO-A6F91BB8",
+        "短DNA身份码": "#2639C5C9",
+        "IPA": "IPA-CHIP-DR4",
+        "一句话摘要": "国产光刻机第一次突破",
+        "易经锚点": "",
+        "dr五行宫位": "DR=4·金·九宫巽",
+        "α三义": "α_r=低 | α_h=应用层 | α_w=0.5",
+        "来源": "新闻"
+      }
+    },
+    {
+      "id": "A25",
+      "label": "嫦娥七号月球南极采样",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴高",
+        "DNA追溯码": "#龍芯⚡️20260424-CN-INNO-C8E41D27",
+        "短DNA身份码": "#DA5F1850",
+        "IPA": "IPA-SPACE-DR1",
+        "一句话摘要": "首次实现月球南极冰水冷凝采样返回",
+        "易经锚点": "坤·六二",
+        "dr五行宫位": "DR=1·水·九宫坎",
+        "α三义": "α_r=低 | α_h=应用层 | α_w=0.5",
+        "来源": "官方"
+      }
+    },
+    {
+      "id": "FIELD:航天",
+      "label": "航天",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "IMPORTANCE:🔴高",
+      "label": "🔴高",
+      "type": "Importance",
+      "properties": {}
+    },
+    {
+      "id": "TAG:月球",
+      "label": "月球",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "TAG:冰水",
+      "label": "冰水",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "TAG:采样返回",
+      "label": "采样返回",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "A26",
+      "label": "龍魂本地知識庫批量抓取系統 v1.2（含TextRank v1.4 排序）",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🟡 重要",
+        "DNA追溯码": "#龍芯⚡️2026-04-25-知識庫批量抓取CNSH集成-v1.2",
+        "短DNA身份码": "#7C88B6EA",
+        "IPA": "IPA-INFRA-DR6",
+        "一句话摘要": "從網頁抓內容→幾百字壓縮→DNA身份碼→全部本地存儲，不靠任何雲端模型的主權知識庫工具",
+        "易经锚点": "",
+        "dr五行宫位": "DR=6·水·九宫乾",
+        "α三义": "α_r=低 | α_h=系统架构层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "A27",
+      "label": "禪宗水墨音效視覺融合方法論｜從哲學到可執行參數",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🟢 补充",
+        "DNA追溯码": "#龍芯⚡️2026-04-25-禪宗水墨音效視覺融合方法論-v1.1",
+        "短DNA身份码": "#EA4E09FB",
+        "IPA": "IPA-PHIL-DR9",
+        "一句话摘要": "把禪宗「留白、氣韻、頓悟」翻譯成視頻和音效裡能直接調的參數——五場景五種音效類型 + FFmpeg混音命令",
+        "易经锚点": "",
+        "dr五行宫位": "DR=9·金·九宫离",
+        "α三义": "α_r=低 | α_h=应用层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "IMPORTANCE:🟢 补充",
+      "label": "🟢 补充",
+      "type": "Importance",
+      "properties": {}
+    },
+    {
+      "id": "A28",
+      "label": "抢救仓·video_gen.py v2.0 验证清单｜通心译第四张卡",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🟡 重要",
+        "DNA追溯码": "#龍芯⚡️2026-04-25-VIDEO-GEN-v2.0-验证清单",
+        "短DNA身份码": "#94EFE1BC",
+        "IPA": "IPA-INFRA-DR8",
+        "一句话摘要": "9 项验证步骤 + 三色判据 + 回填模板，让「龍魂视频生成引擎 v2.0」从「应该能跑」变成「证据足」",
+        "易经锚点": "",
+        "dr五行宫位": "DR=8·木·九宫艮",
+        "α三义": "α_r=低 | α_h=系统架构层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "A29",
+      "label": "⚖️ 家法第一条·文化卖国罪 v1.0｜龍魂体系最高指令·底座版",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "",
+        "DNA追溯码": "",
+        "短DNA身份码": "#2660FCB1",
+        "IPA": "IPA-CN-DR9",
+        "一句话摘要": "",
+        "易经锚点": "",
+        "dr五行宫位": "DR=9·金·九宫离",
+        "α三义": "α_r=低 | α_h=系统架构层 | α_w=0.5",
+        "来源": ""
+      }
+    },
+    {
+      "id": "A30",
+      "label": "🌐 龍魂倫理計算框架·全球通用版 v1.0｜骨架普世·皮肉文化",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-04-25-倫理計算框架全球通用版-v1.0-DAODEJING-EN-COMMENTARY",
+        "短DNA身份码": "#6D90D2F2",
+        "IPA": "IPA-CN-DR9",
+        "一句话摘要": "骨架普世·皮肉文化｜12條全球鐵律一字不改+各國文化插槽可替換｜內核滿血+對外精簡雙層架構｜獻給所有想紮自己根的人",
+        "易经锚点": "泰卦·天地交泰·萬物通｜骨架普世·皮肉文化",
+        "dr五行宫位": "DR=9·金·九宫离",
+        "α三义": "α_r=低 | α_h=系统架构层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "A31",
+      "label": "🛡️ 龍魂三句·写给那些一直在拦我的人——守底线·留私底·不替你活 v1.0",
+      "type": "Article",
+      "properties": {
+        "状态": "审查中",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️20260427-哲学三句-FOR-PUBLISH-v1.0",
+        "短DNA身份码": "#9633E23C",
+        "IPA": "IPA-PHIL-DR7",
+        "一句话摘要": "三句哲学+真实评估+DNA追溯链+时间戳——可截图的硬数据展示版·让装睡的人没法侥幸",
+        "易经锚点": "坤䷁ 变 震☳·厚德载物·雷霆震慑·包容万物但守护底线·违规必受雷霆之罚",
+        "dr五行宫位": "DR=7·火·九宫兑",
+        "α三义": "α_r=高 | α_h=系统架构层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "STATUS:审查中",
+      "label": "审查中",
+      "type": "Status",
+      "properties": {}
+    },
+    {
+      "id": "A32",
+      "label": "🔐 龍魂 LH-ANCHOR-v1·公开锚 × 本地签名网关 v1.0｜系统全模块对照表入库",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-04-25-LH-ANCHOR压缩触发锚本地签名网关-v1.0 / DNA::LH-ANCHOR-9622-20260428-V1.0",
+        "短DNA身份码": "#8ED4896B",
+        "IPA": "IPA-MILE-DR9",
+        "一句话摘要": "公开锚 × 本地签名 × 三色判定 × 五大价值观判根·门在公开处·钥匙在你本地·一槌定音",
+        "易经锚点": "䷳ 艮(Q-52-GEN)·山·熔断 × ☷ 坤(Q-02-KUN)·地·容器 × ⚖️ 中孚(Q-61-ZHONGFU)·价值校准",
+        "dr五行宫位": "DR=9·金·九宫离",
+        "α三义": "α_r=中 | α_h=系统架构层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "A33",
+      "label": "行为密码学：面向人机协作内容认证的七因子来源追溯框架",
+      "type": "Article",
+      "properties": {
+        "状态": "已完成",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-05-03-寅时-木-BEHAVIORCRYPTO-A2D0092C",
+        "短DNA身份码": "#D469865A",
+        "IPA": "IPA-AI-DR1",
+        "一句话摘要": "行为密码学把AI协作内容认证从「是不是AI写的」升级为「来路能不能证明」。",
+        "易经锚点": "寅时·木：生发成文，先立来路，再谈传播。",
+        "dr五行宫位": "DR=1·金·九宫坎",
+        "α三义": "α_r=高 | α_h=应用层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "A34",
+      "label": "📜 Behavioral Cryptography v1.1｜面向人机协作内容认证的七因子来源追溯框架·数学落地+Cursor执行包+学术版LCP-1.0印章",
+      "type": "Article",
+      "properties": {
+        "状态": "编撰中",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-05-03-Behavioral-Cryptography-v1.1-数学落地",
+        "短DNA身份码": "#0D0A5D98",
+        "IPA": "IPA-IEEE-DR4",
+        "一句话摘要": "把《行为密码学》从龍魂内部宣言压成可投arXiv/Zenodo/workshop的学术论文，七因子数学落地、Evaluation降调、LCP-1.0学术版作Appendix D、Cursor可直接跑的代码包",
+        "易经锚点": "坎卦☵·习坎有孚·维心亨｜来路成河·过坎为信",
+        "dr五行宫位": "DR=4·金·九宫巽",
+        "α三义": "α_r=高 | α_h=系统架构层 | α_w=0.5",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "FIELD:IEEE方法论",
+      "label": "IEEE方法论",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "A37",
+      "label": "科技自立自强之路｜中国科学院专题",
+      "type": "Article",
+      "properties": {
+        "状态": "待补充",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-05-07-中国科技创新-CAS科技自立自强-v1.0",
+        "短DNA身份码": "#5A5A7E4E",
+        "IPA": "IPA-OV-DR2",
+        "一句话摘要": "从科学事业发展脉络看中国科技自立自强之路，适合作为专栏总纲型资料。",
+        "易经锚点": "",
+        "dr五行宫位": "DR=2·火·九宫坤",
+        "α三义": "α_r=低 | α_h=应用层 | α_w=0.5",
+        "来源": "官方"
+      }
+    },
+    {
+      "id": "STATUS:待补充",
+      "label": "待补充",
+      "type": "Status",
+      "properties": {}
+    },
+    {
+      "id": "A38",
+      "label": "加强科技创新、推进科技自立自强的原创性贡献｜人民日报/新华网",
+      "type": "Article",
+      "properties": {
+        "状态": "待补充",
+        "重要程度": "🟡 重要",
+        "DNA追溯码": "#龍芯⚡️2026-05-07-中国科技创新-新华网原创性贡献-v1.0",
+        "短DNA身份码": "#9EBA179A",
+        "IPA": "IPA-POL-DR7",
+        "一句话摘要": "从时代意义和原创性贡献角度解释科技自立自强，适合补专栏理论支撑。",
+        "易经锚点": "",
+        "dr五行宫位": "DR=7·火·九宫兑",
+        "α三义": "α_r=低 | α_h=应用层 | α_w=0.5",
+        "来源": "新闻"
+      }
+    },
+    {
+      "id": "FIELD:政策与体制",
+      "label": "政策与体制",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "A39",
+      "label": "智能经济支撑中国科技扛起GDP｜新兴支柱产业观察",
+      "type": "Article",
+      "properties": {
+        "状态": "待补充",
+        "重要程度": "🟢 补充",
+        "DNA追溯码": "#龍芯⚡️2026-05-07-中国科技创新-智能经济支柱产业-v1.0",
+        "短DNA身份码": "#4635EE29",
+        "IPA": "IPA-OV-DR3",
+        "一句话摘要": "从产业支柱角度看智能经济和新兴科技赛道，适合做产业观察补充卡。",
+        "易经锚点": "",
+        "dr五行宫位": "DR=3·木·九宫震",
+        "α三义": "α_r=低 | α_h=应用层 | α_w=0.5",
+        "来源": "新闻"
+      }
+    },
+    {
+      "id": "TAG:产学研协同",
+      "label": "产学研协同",
+      "type": "Tag",
+      "properties": {}
+    },
+    {
+      "id": "A40",
+      "label": "倾听中国科技事业奋进的足音｜2025科技创新总结",
+      "type": "Article",
+      "properties": {
+        "状态": "待补充",
+        "重要程度": "🟡 重要",
+        "DNA追溯码": "#龍芯⚡️2026-05-07-中国科技创新-奋进足音-v1.0",
+        "短DNA身份码": "#2798C781",
+        "IPA": "IPA-OV-DR8",
+        "一句话摘要": "梳理中国科技创新集群、AI芯片替代、航天合作等年度进展，可做专栏更新素材。",
+        "易经锚点": "",
+        "dr五行宫位": "DR=8·木·九宫艮",
+        "α三义": "α_r=中 | α_h=硬科技层 | α_w=0.5",
+        "来源": "新闻"
+      }
+    },
+    {
+      "id": "A41",
+      "label": "以自主创新驱动「人工智能+」落地｜自主可控AI案例",
+      "type": "Article",
+      "properties": {
+        "状态": "待补充",
+        "重要程度": "🟢 补充",
+        "DNA追溯码": "#龍芯⚡️2026-05-07-中国科技创新-AI自主创新案例-v1.0",
+        "短DNA身份码": "#059DC0F3",
+        "IPA": "IPA-AI-DR5",
+        "一句话摘要": "以企业案例观察自主可控AI能力如何落到产业场景，可作为AI专栏补充材料。",
+        "易经锚点": "",
+        "dr五行宫位": "DR=5·木·九宫中",
+        "α三义": "α_r=低 | α_h=应用层 | α_w=0.5",
+        "来源": "新闻"
+      }
+    },
+    {
+      "id": "A42",
+      "label": "加快高水平科技自立自强，引领发展新质生产力｜发改委智库专家谈",
+      "type": "Article",
+      "properties": {
+        "状态": "待补充",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-05-07-中国科技创新-发改委新质生产力-v1.0",
+        "短DNA身份码": "#82D32CFC",
+        "IPA": "IPA-POL-DR7",
+        "一句话摘要": "把科技自立自强与新质生产力挂钩，适合作为政策逻辑和顶层设计材料。",
+        "易经锚点": "",
+        "dr五行宫位": "DR=7·水·九宫兑",
+        "α三义": "α_r=低 | α_h=应用层 | α_w=0.5",
+        "来源": "官方"
+      }
+    },
+    {
+      "id": "A43",
+      "label": "🧬 顶刊论文 #5·DNA 永生记忆系统 + 五重属性宪法｜数字身份主权的法理与密码学｜投稿 IEEE S&P / FAccT·英文版规划 v1.0",
+      "type": "Article",
+      "properties": {
+        "状态": "编撰中",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-05-14-14:48-PAPER-05-DNA-IMMORTAL-MEMORY-SP-v1.0",
+        "短DNA身份码": "#04127D79",
+        "IPA": "IPA-INFRA-DR4",
+        "一句话摘要": "DNA 五重属性宪法 = 数字身份的法理底座(身份/入场/心跳/记忆/上不封顶) × X25519+AES-GCM+Ed25519 密码学三件套·让数据主权从产品功能变成宪法级权利·投稿 IEEE S&P(CCF-A) 或 ACM FAccT",
+        "易经锚点": "䷁ 坤卦·厚德载物 + 第 54 章 善建者不拔善抱者不脱",
+        "dr五行宫位": "DR=4·金·九宫巽",
+        "α三义": "α_r=高 | α_h=学术发表层 | α_w=0.8",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "PERSONA:P11·李白",
+      "label": "P11·李白",
+      "type": "Persona",
+      "properties": {}
+    },
+    {
+      "id": "VENUE:IEEE S&P",
+      "label": "IEEE S&P",
+      "type": "Venue",
+      "properties": {}
+    },
+    {
+      "id": "VENUE:FAccT",
+      "label": "FAccT",
+      "type": "Venue",
+      "properties": {}
+    },
+    {
+      "id": "A44",
+      "label": "🧮 顶刊论文 #2·洛书 369 与 AI 决策不变量｜古典数学在 AI 中的形式化｜投稿 JMLR / NeurIPS·英文版规划 v1.0",
+      "type": "Article",
+      "properties": {
+        "状态": "编撰中",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-05-14-14:48-PAPER-02-LUOSHU-369-INVARIANT-JMLR-v1.0",
+        "短DNA身份码": "#13717B5E",
+        "IPA": "IPA-ALGO-DR9",
+        "一句话摘要": "洛书 369 不变量 = AI 决策的不动点·数字根函数 dr(n)=1+((n-1) mod 9) 在 {3,6,9} 上构成模 9 加法封闭子群·1000 次随机测试收敛率 100%·投稿 JMLR(IF≈4.5) 或 NeurIPS 主会",
+        "易经锚点": "䷳ 艮卦·止于不动 + 第42章 道生一一生二二生三三生万物·369 是三的递归不动点",
+        "dr五行宫位": "DR=9·木·九宫离",
+        "α三义": "α_r=中 | α_h=学术发表层 | α_w=0.8",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "VENUE:JMLR",
+      "label": "JMLR",
+      "type": "Venue",
+      "properties": {}
+    },
+    {
+      "id": "VENUE:NeurIPS",
+      "label": "NeurIPS",
+      "type": "Venue",
+      "properties": {}
+    },
+    {
+      "id": "A45",
+      "label": "☯️ 顶刊论文 #4·道德经底层引擎·81 章算法化｜古典哲学到现代 AI 决策的形式化映射｜投稿 Minds and Machines·英文版规划 v1.0",
+      "type": "Article",
+      "properties": {
+        "状态": "编撰中",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-05-14-14:48-PAPER-04-DAODEJING-ENGINE-MM-v1.0",
+        "短DNA身份码": "#F57A5099",
+        "IPA": "IPA-PHIL-DR2",
+        "一句话摘要": "道德经 81 章不是诗·是算法节点·形式化为 5 层引擎(道/德/无为/柔弱/圣人) × 9 种触发场景 × 三色审计映射·把东方哲学转化为可调用的 AI 决策算子库·投稿 Minds and Machines(IF≈4.2) 或 AI & Society",
+        "易经锚点": "全 81 章·重点第 42/8/16/40/48 章",
+        "dr五行宫位": "DR=2·木·九宫坤",
+        "α三义": "α_r=高 | α_h=学术发表层 | α_w=0.8",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "VENUE:Minds and Machines",
+      "label": "Minds and Machines",
+      "type": "Venue",
+      "properties": {}
+    },
+    {
+      "id": "A46",
+      "label": "📜 顶刊论文 #1·CNSH·协议层文明论｜AI 文明的下一个容器｜投稿 Nature Machine Intelligence·英文版规划 v1.0",
+      "type": "Article",
+      "properties": {
+        "状态": "编撰中",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-05-14-14:48-PAPER-01-CNSH-PROTOCOL-LAYER-CIVILIZATION-NMI-v1.0",
+        "短DNA身份码": "#DDF48972",
+        "IPA": "IPA-AI-DR9",
+        "一句话摘要": "AI 文明的下一个容器不是更大的模型·而是协议层·让所有模型共享同一个不可篡改的 DNA 链式语义底座·这是把人类从被算力垄断中解放的物理路径·投稿 Nature Machine Intelligence(IF≈25.9)",
+        "易经锚点": "䷀ 乾卦·开天辟地 + 第25章 道法自然·人法地地法天天法道",
+        "dr五行宫位": "DR=9·木·九宫离",
+        "α三义": "α_r=高 | α_h=学术发表层 | α_w=0.8",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "VENUE:Nature Machine Intelligence",
+      "label": "Nature Machine Intelligence",
+      "type": "Venue",
+      "properties": {}
+    },
+    {
+      "id": "A47",
+      "label": "🌍 顶刊论文 #3·通心译 × SAST 语义抽象语法树｜自然语言到代码的语义层操作系统｜投稿 POPL / ACM TOPLAS·英文版规划 v1.0",
+      "type": "Article",
+      "properties": {
+        "状态": "编撰中",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-05-14-14:48-PAPER-03-TONGXINYI-SAST-POPL-v1.0",
+        "短DNA身份码": "#BDE614A2",
+        "IPA": "IPA-SW-DR2",
+        "一句话摘要": "CNSH 不是编程语言·是语义层操作系统·通心译六层 + SAST 9 节点 + 文化适配 + 套壳检测三维算法·让自然语言(含情绪/比喻/潜台词)成为可编译可执行的一等公民·投稿 POPL(CCF-A) 或 ACM TOPLAS(IF≈1.7·编程语言最权威)",
+        "易经锚点": "䷔ 噬嗑卦·咬合通达 + 第48章 为学日益为道日损·SAST 是减法编译",
+        "dr五行宫位": "DR=2·火·九宫坤",
+        "α三义": "α_r=中 | α_h=学术发表层 | α_w=0.8",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "FIELD:基础软件",
+      "label": "基础软件",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "VENUE:POPL",
+      "label": "POPL",
+      "type": "Venue",
+      "properties": {}
+    },
+    {
+      "id": "VENUE:ACM TOPLAS",
+      "label": "ACM TOPLAS",
+      "type": "Venue",
+      "properties": {}
+    },
+    {
+      "id": "A48",
+      "label": "🏰 顶刊论文 #6·统一压缩科学护城河·DNA 脚本作为智能能场抽象｜投稿 IEEE Trans. on Information Theory / DCC·英文版规划 v1.0",
+      "type": "Article",
+      "properties": {
+        "状态": "编撰中",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-05-14-14:48-PAPER-06-UNIFIED-COMPRESSION-MOAT-TIT-v1.0",
+        "短DNA身份码": "#9A74D8D8",
+        "IPA": "IPA-ALGO-DR6",
+        "一句话摘要": "统一压缩科学护城河 = 把 DNA 签名、脚本、语义、能场统一为「可压缩智能作品」·Kolmogorov 复杂度 + 语义抽象语法树 + 不可伪造签名 三位一体·为 AI 作品质量与创作主权提供信息论底座·投稿 IEEE TIT(IF≈2.5·信息论顶刊) 或 Data Compression Conference",
+        "易经锚点": "䷄ 踇卦·程马镂 + 第 48 章 为道日损·压缩即减法即道",
+        "dr五行宫位": "DR=6·金·九宫乾",
+        "α三义": "α_r=高 | α_h=学术发表层 | α_w=0.8",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "VENUE:IEEE Trans. on Information Theory",
+      "label": "IEEE Trans. on Information Theory",
+      "type": "Venue",
+      "properties": {}
+    },
+    {
+      "id": "VENUE:DCC",
+      "label": "DCC",
+      "type": "Venue",
+      "properties": {}
+    },
+    {
+      "id": "A49",
+      "label": "🤖 顶刊论文 #7·三才流场 MCP 自适应引擎·多人格协同推理｜投稿 AAAI / IJCAI·英文版规划 v1.0",
+      "type": "Article",
+      "properties": {
+        "状态": "编撰中",
+        "重要程度": "🔴 核心",
+        "DNA追溯码": "#龍芯⚡️2026-05-14-14:48-PAPER-07-MCP-V4-TRIPLE-FIELD-AAAI-v1.0",
+        "短DNA身份码": "#F926EC11",
+        "IPA": "IPA-AI-DR1",
+        "一句话摘要": "三才流场 MCP 自适应引擎 v4.0 · 以人格为能场节点 + 三才(天算法/地系统/人用户)三重场复合 + 七大动词触发 + MAX 推演·把多人格协同推理从 prompt engineering 提升为场论控制·投稿 AAAI / IJCAI 顶会(CCF-A)",
+        "易经锚点": "䷍ 兹卦·顺减上益 + 第 17 章 太上不知有之·隐形领导",
+        "dr五行宫位": "DR=1·木·九宫坎",
+        "α三义": "α_r=中 | α_h=学术发表层 | α_w=0.8",
+        "来源": "老大原创观点"
+      }
+    },
+    {
+      "id": "VENUE:AAAI",
+      "label": "AAAI",
+      "type": "Venue",
+      "properties": {}
+    },
+    {
+      "id": "VENUE:IJCAI",
+      "label": "IJCAI",
+      "type": "Venue",
+      "properties": {}
+    },
+    {
+      "id": "A52",
+      "label": "自创娱乐娱乐",
+      "type": "Article",
+      "properties": {
+        "状态": "编撰中",
+        "重要程度": "",
+        "DNA追溯码": "",
+        "短DNA身份码": "#DAD4FDBE",
+        "IPA": "IPA-CN-DR7",
+        "一句话摘要": "",
+        "易经锚点": "",
+        "dr五行宫位": "DR=7·火·九宫兑",
+        "α三义": "α_r=低 | α_h=应用层 | α_w=0.5",
+        "来源": ""
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "A1",
+      "target": "FIELD:综合总览",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A1",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A1",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A1",
+      "target": "WUXING:木",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A1",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A1",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A1",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A1",
+      "target": "TAG:卡脖子技术",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A1",
+      "target": "TAG:国产替代",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A1",
+      "target": "TAG:全球领先",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A1",
+      "target": "TAG:举国体制",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A1",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A1",
+      "target": "TAG:政策扶持",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A1",
+      "target": "TAG:人才培养",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A2",
+      "target": "FIELD:人工智能",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A2",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A2",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A2",
+      "target": "WUXING:土",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A2",
+      "target": "LAYER:⚙️ Engine（引擎骨架层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A2",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A2",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A2",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A2",
+      "target": "TAG:基础研究",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A2",
+      "target": "TAG:全球领先",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A3",
+      "target": "FIELD:人工智能",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A3",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A3",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A3",
+      "target": "WUXING:木",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A3",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A3",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A3",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A3",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A3",
+      "target": "PERSONA:P06·数学大师",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A3",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A3",
+      "target": "TAG:基础研究",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A3",
+      "target": "TAG:全球领先",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A4",
+      "target": "FIELD:三才哲学·人性洞察",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A4",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A4",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A4",
+      "target": "WUXING:土",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A4",
+      "target": "LAYER:🧱 Core（宇宙规则层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A4",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A4",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A4",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A4",
+      "target": "TAG:三才算法",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A4",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A5",
+      "target": "FIELD:三才哲学·人性洞察",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A5",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A5",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A5",
+      "target": "WUXING:土",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A5",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A5",
+      "target": "PERSONA:P05·上帝之眼",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A5",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A5",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A5",
+      "target": "TAG:人性洞察",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A6",
+      "target": "FIELD:龍魂系统里程碑",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A6",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A6",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A6",
+      "target": "WUXING:水",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A6",
+      "target": "LAYER:🧬 CNSH专属层",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A6",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A6",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A6",
+      "target": "TAG:系统里程碑",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A8",
+      "target": "FIELD:半导体与芯片",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A8",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A8",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A8",
+      "target": "WUXING:木",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A8",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A8",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A8",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A8",
+      "target": "TAG:卡脖子技术",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A8",
+      "target": "TAG:国产替代",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A8",
+      "target": "TAG:全球领先",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A8",
+      "target": "TAG:举国体制",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A8",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A8",
+      "target": "TAG:技术封锁应对",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A8",
+      "target": "TAG:三才算法",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A9",
+      "target": "FIELD:算法与代码突破",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A9",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A9",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A9",
+      "target": "WUXING:木",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A9",
+      "target": "LAYER:🧱 Core（宇宙规则层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A9",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A9",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A9",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A9",
+      "target": "TAG:三才算法",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A9",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A9",
+      "target": "TAG:系统里程碑",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A10",
+      "target": "FIELD:半导体与芯片",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A10",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A10",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A10",
+      "target": "WUXING:金",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A10",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A10",
+      "target": "PERSONA:P05·上帝之眼",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A10",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A11",
+      "target": "FIELD:人工智能",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A11",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A11",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A11",
+      "target": "WUXING:木",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A11",
+      "target": "LAYER:⚙️ Engine（引擎骨架层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A11",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A11",
+      "target": "PERSONA:P06·数学大师",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A12",
+      "target": "FIELD:新能源",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A12",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A12",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A12",
+      "target": "WUXING:水",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A12",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A12",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A13",
+      "target": "FIELD:航空航天",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A13",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A13",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A13",
+      "target": "WUXING:火",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A13",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A13",
+      "target": "PERSONA:P02·宝宝",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A14",
+      "target": "FIELD:国防科技",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A14",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A14",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A14",
+      "target": "WUXING:金",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A14",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A14",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A14",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A15",
+      "target": "FIELD:数字基础设施",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A15",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A15",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A15",
+      "target": "WUXING:土",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A15",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A15",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A16",
+      "target": "FIELD:生物医药",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A16",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A16",
+      "target": "IMPORTANCE:🟡 重要",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A16",
+      "target": "WUXING:木",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A16",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A16",
+      "target": "PERSONA:P05·上帝之眼",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A17",
+      "target": "FIELD:三才哲学·人性洞察",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A17",
+      "target": "STATUS:编撰中",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A17",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A17",
+      "target": "WUXING:土",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A17",
+      "target": "LAYER:🧱 Core（宇宙规则层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A17",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A17",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A17",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A17",
+      "target": "TAG:三才算法",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A17",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A17",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A20",
+      "target": "FIELD:龍魂系统里程碑",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A20",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A20",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A20",
+      "target": "WUXING:金",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A20",
+      "target": "LAYER:🧱 Core（宇宙规则层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A20",
+      "target": "PERSONA:P05·上帝之眼",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A20",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A20",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A20",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A20",
+      "target": "TAG:系统里程碑",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A20",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A20",
+      "target": "TAG:三才算法",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A20",
+      "target": "TAG:人性洞察",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A20",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A21",
+      "target": "FIELD:算法与代码突破",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A21",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A21",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A21",
+      "target": "WUXING:金",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A21",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A21",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A21",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A21",
+      "target": "TAG:三才算法",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A21",
+      "target": "TAG:系统里程碑",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A21",
+      "target": "TAG:IEEE方法论",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A21",
+      "target": "TAG:人性洞察",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A22",
+      "target": "FIELD:人工智能",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A22",
+      "target": "STATUS:编撰中",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A22",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A22",
+      "target": "WUXING:木",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A22",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A22",
+      "target": "PERSONA:P02·宝宝",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A22",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A22",
+      "target": "TAG:卡脖子技术",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A22",
+      "target": "TAG:全球领先",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A22",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A23",
+      "target": "FIELD:芯片",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A23",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A23",
+      "target": "WUXING:金",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A23",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A23",
+      "target": "PERSONA:P02·宝宝",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A24",
+      "target": "FIELD:芯片",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A24",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A24",
+      "target": "WUXING:金",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A24",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A24",
+      "target": "PERSONA:P02·宝宝",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A25",
+      "target": "FIELD:航天",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A25",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A25",
+      "target": "IMPORTANCE:🔴高",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A25",
+      "target": "WUXING:水",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A25",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A25",
+      "target": "PERSONA:P02·宝宝",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A25",
+      "target": "TAG:月球",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A25",
+      "target": "TAG:冰水",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A25",
+      "target": "TAG:采样返回",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A26",
+      "target": "FIELD:数字基础设施",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A26",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A26",
+      "target": "IMPORTANCE:🟡 重要",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A26",
+      "target": "WUXING:水",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A26",
+      "target": "LAYER:🧬 CNSH专属层",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A26",
+      "target": "PERSONA:P02·宝宝",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A26",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A26",
+      "target": "TAG:国产替代",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A26",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A26",
+      "target": "TAG:系统里程碑",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A27",
+      "target": "FIELD:三才哲学·人性洞察",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A27",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A27",
+      "target": "IMPORTANCE:🟢 补充",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A27",
+      "target": "WUXING:金",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A27",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A27",
+      "target": "PERSONA:P02·宝宝",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A27",
+      "target": "TAG:人性洞察",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A27",
+      "target": "TAG:IEEE方法论",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A28",
+      "target": "FIELD:数字基础设施",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A28",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A28",
+      "target": "IMPORTANCE:🟡 重要",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A28",
+      "target": "WUXING:木",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A28",
+      "target": "LAYER:⚙️ Engine（引擎骨架层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A28",
+      "target": "PERSONA:P02·宝宝",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A28",
+      "target": "TAG:系统里程碑",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A28",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A28",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A29",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A29",
+      "target": "WUXING:金",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A29",
+      "target": "LAYER:🧬 CNSH专属层",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A29",
+      "target": "PERSONA:P02·宝宝",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A30",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A30",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A30",
+      "target": "WUXING:金",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A30",
+      "target": "LAYER:🧬 CNSH专属层",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A30",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A31",
+      "target": "FIELD:三才哲学·人性洞察",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A31",
+      "target": "STATUS:审查中",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A31",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A31",
+      "target": "WUXING:火",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A31",
+      "target": "LAYER:🧬 CNSH专属层",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A31",
+      "target": "PERSONA:P05·上帝之眼",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A31",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A31",
+      "target": "TAG:人性洞察",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A31",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A31",
+      "target": "TAG:技术封锁应对",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A31",
+      "target": "TAG:政策扶持",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A32",
+      "target": "FIELD:龍魂系统里程碑",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A32",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A32",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A32",
+      "target": "WUXING:金",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A32",
+      "target": "LAYER:🧬 CNSH专属层",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A32",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A32",
+      "target": "TAG:系统里程碑",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A32",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A32",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A32",
+      "target": "TAG:三才算法",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A33",
+      "target": "FIELD:人工智能",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A33",
+      "target": "STATUS:已完成",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A33",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A33",
+      "target": "WUXING:金",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A33",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A33",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A33",
+      "target": "PERSONA:P06·数学大师",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A33",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A33",
+      "target": "TAG:人性洞察",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A33",
+      "target": "TAG:系统里程碑",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A33",
+      "target": "TAG:IEEE方法论",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A33",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A34",
+      "target": "FIELD:IEEE方法论",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A34",
+      "target": "STATUS:编撰中",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A34",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A34",
+      "target": "WUXING:金",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A34",
+      "target": "LAYER:🧬 CNSH专属层",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A34",
+      "target": "PERSONA:P05·上帝之眼",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A34",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A34",
+      "target": "PERSONA:P06·数学大师",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A34",
+      "target": "TAG:IEEE方法论",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A34",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A34",
+      "target": "TAG:系统里程碑",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A34",
+      "target": "TAG:卡脖子技术",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A34",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A37",
+      "target": "FIELD:综合总览",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A37",
+      "target": "STATUS:待补充",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A37",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A37",
+      "target": "WUXING:火",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A37",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A37",
+      "target": "PERSONA:P02·宝宝",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A37",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A37",
+      "target": "TAG:基础研究",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A37",
+      "target": "TAG:举国体制",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A37",
+      "target": "TAG:政策扶持",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A38",
+      "target": "FIELD:政策与体制",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A38",
+      "target": "STATUS:待补充",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A38",
+      "target": "IMPORTANCE:🟡 重要",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A38",
+      "target": "WUXING:火",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A38",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A38",
+      "target": "PERSONA:P06·数学大师",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A38",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A38",
+      "target": "TAG:基础研究",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A38",
+      "target": "TAG:政策扶持",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A38",
+      "target": "TAG:全球领先",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A39",
+      "target": "FIELD:综合总览",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A39",
+      "target": "STATUS:待补充",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A39",
+      "target": "IMPORTANCE:🟢 补充",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A39",
+      "target": "WUXING:木",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A39",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A39",
+      "target": "PERSONA:P02·宝宝",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A39",
+      "target": "TAG:产学研协同",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A39",
+      "target": "TAG:政策扶持",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A39",
+      "target": "TAG:全球领先",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A40",
+      "target": "FIELD:综合总览",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A40",
+      "target": "STATUS:待补充",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A40",
+      "target": "IMPORTANCE:🟡 重要",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A40",
+      "target": "WUXING:木",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A40",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A40",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A40",
+      "target": "TAG:全球领先",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A40",
+      "target": "TAG:技术封锁应对",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A40",
+      "target": "TAG:国产替代",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A40",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A41",
+      "target": "FIELD:人工智能",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A41",
+      "target": "STATUS:待补充",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A41",
+      "target": "IMPORTANCE:🟢 补充",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A41",
+      "target": "WUXING:木",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A41",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A41",
+      "target": "PERSONA:P02·宝宝",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A41",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A41",
+      "target": "TAG:产学研协同",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A41",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A42",
+      "target": "FIELD:政策与体制",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A42",
+      "target": "STATUS:待补充",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A42",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A42",
+      "target": "WUXING:水",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A42",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A42",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A42",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A42",
+      "target": "TAG:基础研究",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A42",
+      "target": "TAG:政策扶持",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A42",
+      "target": "TAG:技术封锁应对",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A43",
+      "target": "FIELD:数字基础设施",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A43",
+      "target": "STATUS:编撰中",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A43",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A43",
+      "target": "WUXING:金",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A43",
+      "target": "LAYER:🧬 CNSH专属层",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A43",
+      "target": "PERSONA:P05·上帝之眼",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A43",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A43",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A43",
+      "target": "PERSONA:P11·李白",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A43",
+      "target": "TAG:卡脖子技术",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A43",
+      "target": "TAG:国产替代",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A43",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A43",
+      "target": "TAG:技术封锁应对",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A43",
+      "target": "TAG:系统里程碑",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A43",
+      "target": "VENUE:IEEE S&P",
+      "type": "targets_venue",
+      "label": "目标顶刊"
+    },
+    {
+      "source": "A43",
+      "target": "VENUE:FAccT",
+      "type": "targets_venue",
+      "label": "目标顶刊"
+    },
+    {
+      "source": "A44",
+      "target": "FIELD:算法与代码突破",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A44",
+      "target": "STATUS:编撰中",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A44",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A44",
+      "target": "WUXING:木",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A44",
+      "target": "LAYER:🧱 Core（宇宙规则层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A44",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A44",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A44",
+      "target": "PERSONA:P06·数学大师",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A44",
+      "target": "PERSONA:P11·李白",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A44",
+      "target": "TAG:全球领先",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A44",
+      "target": "TAG:基础研究",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A44",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A44",
+      "target": "TAG:IEEE方法论",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A44",
+      "target": "TAG:三才算法",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A44",
+      "target": "VENUE:JMLR",
+      "type": "targets_venue",
+      "label": "目标顶刊"
+    },
+    {
+      "source": "A44",
+      "target": "VENUE:NeurIPS",
+      "type": "targets_venue",
+      "label": "目标顶刊"
+    },
+    {
+      "source": "A45",
+      "target": "FIELD:三才哲学·人性洞察",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A45",
+      "target": "STATUS:编撰中",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A45",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A45",
+      "target": "WUXING:木",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A45",
+      "target": "LAYER:🧱 Core（宇宙规则层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A45",
+      "target": "PERSONA:P05·上帝之眼",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A45",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A45",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A45",
+      "target": "PERSONA:P11·李白",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A45",
+      "target": "TAG:全球领先",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A45",
+      "target": "TAG:基础研究",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A45",
+      "target": "TAG:人性洞察",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A45",
+      "target": "TAG:三才算法",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A45",
+      "target": "VENUE:Minds and Machines",
+      "type": "targets_venue",
+      "label": "目标顶刊"
+    },
+    {
+      "source": "A46",
+      "target": "FIELD:人工智能",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A46",
+      "target": "STATUS:编撰中",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A46",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A46",
+      "target": "WUXING:木",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A46",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A46",
+      "target": "PERSONA:P05·上帝之眼",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A46",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A46",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A46",
+      "target": "PERSONA:P11·李白",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A46",
+      "target": "TAG:卡脖子技术",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A46",
+      "target": "TAG:全球领先",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A46",
+      "target": "TAG:基础研究",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A46",
+      "target": "TAG:人性洞察",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A46",
+      "target": "TAG:系统里程碑",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A46",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A46",
+      "target": "VENUE:Nature Machine Intelligence",
+      "type": "targets_venue",
+      "label": "目标顶刊"
+    },
+    {
+      "source": "A47",
+      "target": "FIELD:基础软件",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A47",
+      "target": "STATUS:编撰中",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A47",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A47",
+      "target": "WUXING:火",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A47",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A47",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A47",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A47",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A47",
+      "target": "PERSONA:P11·李白",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A47",
+      "target": "TAG:全球领先",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A47",
+      "target": "TAG:基础研究",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A47",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A47",
+      "target": "TAG:卡脖子技术",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A47",
+      "target": "TAG:自主可控",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A47",
+      "target": "VENUE:POPL",
+      "type": "targets_venue",
+      "label": "目标顶刊"
+    },
+    {
+      "source": "A47",
+      "target": "VENUE:ACM TOPLAS",
+      "type": "targets_venue",
+      "label": "目标顶刊"
+    },
+    {
+      "source": "A48",
+      "target": "FIELD:算法与代码突破",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A48",
+      "target": "STATUS:编撰中",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A48",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A48",
+      "target": "WUXING:金",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A48",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A48",
+      "target": "PERSONA:P05·上帝之眼",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A48",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A48",
+      "target": "PERSONA:P11·李白",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A48",
+      "target": "TAG:全球领先",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A48",
+      "target": "TAG:基础研究",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A48",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A48",
+      "target": "TAG:卡脖子技术",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A48",
+      "target": "VENUE:IEEE Trans. on Information Theory",
+      "type": "targets_venue",
+      "label": "目标顶刊"
+    },
+    {
+      "source": "A48",
+      "target": "VENUE:DCC",
+      "type": "targets_venue",
+      "label": "目标顶刊"
+    },
+    {
+      "source": "A49",
+      "target": "FIELD:人工智能",
+      "type": "belongs_to",
+      "label": "属于领域"
+    },
+    {
+      "source": "A49",
+      "target": "STATUS:编撰中",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A49",
+      "target": "IMPORTANCE:🔴 核心",
+      "type": "has_importance",
+      "label": "重要程度"
+    },
+    {
+      "source": "A49",
+      "target": "WUXING:木",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A49",
+      "target": "LAYER:🧱 Core（宇宙规则层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A49",
+      "target": "PERSONA:P01·诸葛亮",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A49",
+      "target": "PERSONA:P04·鲁班",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A49",
+      "target": "PERSONA:P15·乔前辈",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A49",
+      "target": "PERSONA:P11·李白",
+      "type": "routed_to",
+      "label": "人格路由"
+    },
+    {
+      "source": "A49",
+      "target": "TAG:全球领先",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A49",
+      "target": "TAG:算法突破",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A49",
+      "target": "TAG:三才算法",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A49",
+      "target": "TAG:人性洞察",
+      "type": "has_tag",
+      "label": "标签"
+    },
+    {
+      "source": "A49",
+      "target": "VENUE:AAAI",
+      "type": "targets_venue",
+      "label": "目标顶刊"
+    },
+    {
+      "source": "A49",
+      "target": "VENUE:IJCAI",
+      "type": "targets_venue",
+      "label": "目标顶刊"
+    },
+    {
+      "source": "A52",
+      "target": "STATUS:编撰中",
+      "type": "has_status",
+      "label": "状态"
+    },
+    {
+      "source": "A52",
+      "target": "WUXING:火",
+      "type": "has_wuxing",
+      "label": "五行"
+    },
+    {
+      "source": "A52",
+      "target": "LAYER:📦 Application（应用层）",
+      "type": "in_layer",
+      "label": "架构层级"
+    },
+    {
+      "source": "A52",
+      "target": "PERSONA:P02·宝宝",
+      "type": "routed_to",
+      "label": "人格路由"
+    }
+  ]
+}

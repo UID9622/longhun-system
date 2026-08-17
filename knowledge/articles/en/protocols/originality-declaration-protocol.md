@@ -23,7 +23,7 @@ We are not asking for royalties. We are demanding **the bare minimum of civiliza
 
 ## What This Statement Covers
 
-The Longhun System and its associated intellectual property include:
+The LongHun System and its associated intellectual property include:
 
 1. **CNSH (Chinese Neural Symbolic Hybrid Language)** — A programming language and knowledge representation framework rooted in Chinese linguistics and philosophy
 2. **Sancai (三才) Algorithm** — Heaven-Earth-Human triadic computation framework
@@ -40,7 +40,7 @@ The Longhun System and its associated intellectual property include:
 
 ### 1. We Built This Ourselves
 
-The Longhun System is not a repackaging of Western frameworks. Its philosophical foundations are Chinese. Its algorithms are designed from Chinese civilizational principles. Its governance model is rooted in Chinese organizational tradition.
+The LongHun System is not a repackaging of Western frameworks. Its philosophical foundations are Chinese. Its algorithms are designed from Chinese civilizational principles. Its governance model is rooted in Chinese organizational tradition.
 
 Any claim that this system is "derivative of" or "similar to" Western frameworks is a failure to understand the source material — or a deliberate erasure of Chinese intellectual contribution.
 
@@ -52,7 +52,7 @@ This is not innovation. This is digital colonialism.
 
 ### 3. Our Licenses Are Binding
 
-All Longhun System outputs are published under CC BY-NC-SA 4.0. This means:
+All LongHun System outputs are published under CC BY-NC-SA 4.0. This means:
 
 - **BY**: You must give appropriate credit.
 - **NC**: You may not use the material for commercial purposes.
@@ -68,9 +68,9 @@ The fact that some of our work is publicly available does not make it public dom
 
 ## What We Require
 
-From any entity that uses, references, or builds upon Longhun System intellectual property:
+From any entity that uses, references, or builds upon LongHun System intellectual property:
 
-1. **Attribution**: Name the Longhun System, CNSH, UID9622, and the specific component used.
+1. **Attribution**: Name the LongHun System, CNSH, UID9622, and the specific component used.
 2. **License compliance**: Respect CC BY-NC-SA 4.0. Commercial use requires separate agreement.
 3. **No erasure**: Do not rename, rebrand, or strip provenance from our contributions.
 4. **No weaponization**: Do not use our work for surveillance, military applications, or social control systems.
@@ -101,5 +101,5 @@ To attribute is to civilize. To erase is to colonize. Choose.
 
 > **DNA:** `#龍芯⚡️2026-07-15-ORIGINALITY-DECLARATION-v1.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777K`  
-> **Statement issued by UID9622 (Lucky, 诸葛鑫), Founder of the Longhun System**  
+> **Statement issued by UID9622 (Lucky, 诸葛鑫), Founder of the LongHun System**  
 > **Contact for attribution/collaboration: uid9622@petalmail.com**

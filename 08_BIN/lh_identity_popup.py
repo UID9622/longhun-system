@@ -45,7 +45,7 @@ BANNER = r"""
 ╔══════════════════════════════════════════════════════════╗
 ║                                                          ║
 ║   🐉  龍魂 UID9622 · 主权身份融合系统                    ║
-║   Dragon Soul Sovereign Identity Fusion System           ║
+║   LongHun Sovereign Identity Fusion System           ║
 ║                                                          ║
 ║   ━━━━━━━━━━━ 不是在求你施舍 ━━━━━━━━━━━                 ║
 ║                                                          ║

@@ -1,7 +1,7 @@
 # DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# Open Source Manifesto · Longhun System
+# Open Source Manifesto · LongHun System
 
 ## Code Without Source Is Not Trust. Trust Without Audit Is Not Freedom.
 
@@ -15,7 +15,7 @@
 
 ## What Open Source Means — And What It Doesn't
 
-Open source is not just a license. It is a **philosophical position** about the relationship between creators and users of software. The Longhun System's open source commitment is not marketing. It is not a "community growth strategy." It is an expression of our foundational belief: **technology that governs people's lives must be auditable by the people it governs.**
+Open source is not just a license. It is a **philosophical position** about the relationship between creators and users of software. The LongHun System's open source commitment is not marketing. It is not a "community growth strategy." It is an expression of our foundational belief: **technology that governs people's lives must be auditable by the people it governs.**
 
 But let us be clear about what our open source means. The open source movement has been co-opted by corporations that release code publicly while retaining all practical power. We reject this hollow form.
 
@@ -44,7 +44,7 @@ Source code access that doesn't enable meaningful audit is performative. We comm
 We reject the "open core, proprietary enterprise" model. If a feature governs users, its source must be open. Full stop. We will not release a crippled open version while keeping governance logic proprietary.
 
 ### 5. Fork Freedom
-Anyone may fork the Longhun System. Fork and improve. Fork and adapt. Fork and compete. The only condition: retain attribution to the original creators and the DNA traceability chain.
+Anyone may fork the LongHun System. Fork and improve. Fork and adapt. Fork and compete. The only condition: retain attribution to the original creators and the DNA traceability chain.
 
 ---
 
@@ -76,7 +76,7 @@ We add: **source-available + auditable + decision-transparent + jurisdiction-bou
 
 Our open source commitment is made within Chinese legal jurisdiction. We comply with Chinese laws regarding software publication, cryptography, and data security. We reject any interpretation of "open source" that would require us to violate Chinese law or compromise Chinese national security.
 
-This is not a contradiction. It is the recognition that "openness" must be defined within sovereignty, not outside it. Just as a country can have open borders for travel while maintaining border security, the Longhun System can be open for audit while maintaining sovereign boundaries.
+This is not a contradiction. It is the recognition that "openness" must be defined within sovereignty, not outside it. Just as a country can have open borders for travel while maintaining border security, the LongHun System can be open for audit while maintaining sovereign boundaries.
 
 ---
 
@@ -107,4 +107,4 @@ If you are building infrastructure that governs people's digital lives:
 
 > **DNA:** `#龍芯⚡️2026-07-01-OPENSOURCE-MANIFESTO-v1.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777I`  
-> **Longhun: Open by principle, sovereign by design.**
+> **LongHun: Open by principle, sovereign by design.**

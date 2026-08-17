@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂·不可篡改历史引擎 v1.0
-Dragon Soul Immutable History Engine
+LongHun Immutable History Engine
 
 DNA: #龍芯⚡️丙午·乙未·丁酉·午时·既济-IMMUTABLE-HISTORY-v1.0
 创建者: UID9622 · 龍芯北辰

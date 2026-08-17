@@ -1,4 +1,4 @@
-# 🐉 龙魂·鸿蒙插件全家桶 v2.0
+# 🐉 龍魂·鸿蒙插件全家桶 v2.0
 
 > **DNA:** `#龍芯⚡️2026-08-06-HARMONY-PLUGINS-V2.0-UID9622`
 > **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
@@ -71,7 +71,7 @@ print('审计: ${audit.status} (${audit.score}/100)');
 
 ```dart
 MaterialApp(
-  theme: LonghunTheme.dark,  // 龙魂暗金主题
+  theme: LonghunTheme.dark,  // 龍魂暗金主题
   home: YourHomePage(),
 );
 ```

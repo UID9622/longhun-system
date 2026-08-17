@@ -295,8 +295,8 @@ def sancai_check(text, context="", year=2026):
 ### #KB-YIJING-ENGINE-013-B：71人格协作子模块
 - 功能：并行推演 + 冲突检测
 - 执行：ThreadPoolExecutor并发
-- 仲裁：龙魂价值观权重40%
-### #KB-YIJING-ENGINE-013-C：龙魂仲裁子模块
+- 仲裁：龍魂价值观权重40%
+### #KB-YIJING-ENGINE-013-C：龍魂仲裁子模块
 - 功能：价值观守护 + 智能仲裁
 - 权重：价值观40% + 历史30% + 易经30%
 - 模式：灰度校验（4档）
@@ -341,9 +341,9 @@ def sancai_check(text, context="", year=2026):
      ↓
    71人格并行推演 (parallel_personas_analysis_v3)
      ↓
-   冲突检测 → 龙魂仲裁 (dragon_soul_arbitration)
+   冲突检测 → 龍魂仲裁 (dragon_soul_arbitration)
      ↓
-   龙魂价值观校验 (check_dragon_soul_values_v3)
+   龍魂价值观校验 (check_dragon_soul_values_v3)
      ↓
    最终结果整合
      ↓
@@ -364,7 +364,7 @@ def sancai_check(text, context="", year=2026):
 - 下次更新：按需迭代，重大更新季度发布
 2️⃣ 人格追溯
 - 创建者：🎯 诸葛亮（战略推演）+ 📚 曾老师（易经算法）
-- 审核者：⚖️ 审判长（合规审计）+ 🐉 龙魂（价值观审计）
+- 审核者：⚖️ 审判长（合规审计）+ 🐉 龍魂（价值观审计）
 - 维护者：UID9622系统架构团队
 - 使用者：所有需要易经推演功能的系统模块
 3️⃣ 卦象追溯
@@ -382,7 +382,7 @@ def sancai_check(text, context="", year=2026):
    ↓ [派生]
 ├─ #KB-YIJING-ENGINE-013-A (中文语义子模块)
 ├─ #KB-YIJING-ENGINE-013-B (71人格协作子模块)
-├─ #KB-YIJING-ENGINE-013-C (龙魂仲裁子模块)
+├─ #KB-YIJING-ENGINE-013-C (龍魂仲裁子模块)
 └─ #KB-YIJING-ENGINE-013-D (时空因子子模块)
 ```
 与其他知识库的协作：
@@ -402,7 +402,7 @@ def sancai_check(text, context="", year=2026):
 [分析失败案例]
  - 案例1：中文语义理解偏差 → 优化BERT模型
  - 案例2：时空因子权重不当 → 调整加权算法
- - 案例3：龙魂价值观误判 → 增加灰度档位
+ - 案例3：龍魂价值观误判 → 增加灰度档位
    ↓
 [回馈优化] 更新算法 → 生成 v3.1
    ↓
@@ -473,7 +473,7 @@ def test_chinese_nlp():
     assert "成语" in result
     assert result["confidence"] > 0.85
 ```
-### 用例3：龙魂价值观测试
+### 用例3：龍魂价值观测试
 ```python
 def test_dragon_soul_alignment():
     from uid9622_yijing_engine_v3 import check_dragon_soul_values_v3
@@ -489,19 +489,19 @@ def test_dragon_soul_alignment():
 ---
 ## 📊 版本历史
 ---
-## 🐉 龙魂价值观对齐声明
+## 🐉 龍魂价值观对齐声明
 ✅ 技术平权：中文语义深度理解，服务中文用户
 ✅ 本地优先：所有计算本地执行，数据主权保护
 ✅ 可追溯性：完整DNA追溯链，版本可回溯
 ✅ 为人民服务：71人格协作，多维度价值判断
 ✅ 守法有边界：灰度校验机制，符合伦理规范
-龙魂对齐度：100% ✅
+龍魂对齐度：100% ✅
 ---
 ## 📞 维护联系
 负责人格：
 - 🎯 诸葛亮（战略推演）
 - 📚 曾老师（易经算法）
-- 🐉 龙魂（价值观守护）
+- 🐉 龍魂（价值观守护）
 技术支持：UID9622系统架构团队
 更新频率：按需迭代，重大更新季度发布
 ---

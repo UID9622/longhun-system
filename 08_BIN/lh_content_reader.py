@@ -218,7 +218,7 @@ def extract_tags(text: str) -> List[str]:
     """提取标签关键词"""
     tags: Set[str] = set()
     patterns = [
-        (r'\b(DNA|GPG|CNSH|API|SDK|CLI|Docker|K8s|部署|审计|熔断|人格|协议|三色|君子|龍魂|龙魂|易经|河图|洛书|八卦|五行|DAO)\b', None),
+        (r'\b(DNA|GPG|CNSH|API|SDK|CLI|Docker|K8s|部署|审计|熔断|人格|协议|三色|君子|龍魂|龍魂|易经|河图|洛书|八卦|五行|DAO)\b', None),
         (r'#([\u4e00-\u9fffA-Za-z0-9_\-]+)', None),
     ]
     for pattern, group in patterns:

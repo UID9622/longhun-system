@@ -9,12 +9,12 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-06-21-DOC-_-PLUGIN_TEMPLATE-SH_1DAE-v1.0`  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-DOC-_-PLUGIN_TEMPLATE-SH_1DAE-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
-<!--#龍芯⚡️2026-06-21-DOC-_-PLUGIN_TEMPLATE-SH_1DAE-v1.0 -->
+<!--#龍芯⚡️丙午·丙申·庚申·亥时-DOC-_-PLUGIN_TEMPLATE-SH_1DAE-v1.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # ✅ 插件模板脚本（⁠ plugin_template.sh ⁠）
@@ -377,7 +377,7 @@ source ~/.zshrc
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -400,6 +400,6 @@ source ~/.zshrc
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-06-21-DOC-_-PLUGIN_TEMPLATE-SH_1DAE-v1.0
+#龍芯⚡️丙午·丙申·庚申·亥时-DOC-_-PLUGIN_TEMPLATE-SH_1DAE-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

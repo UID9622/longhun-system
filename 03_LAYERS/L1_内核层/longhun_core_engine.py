@@ -232,7 +232,7 @@ class LonghunCoreEngine:
             # 代号命中
             if code_name in user_input:
                 # 反推检测：真实概念中的关键词是否也出现
-                # "龙芯 CPU" → ["龙芯", "CPU"]，任一命中即判定反推
+                # "龍芯 CPU" → ["龍芯", "CPU"]，任一命中即判定反推
                 real_parts = [p.strip() for p in real_concept.replace("  ", " ").split() if p.strip()]
                 for part in real_parts:
                     if len(part) >= 2 and part in user_input:
@@ -351,7 +351,7 @@ if __name__ == "__main__":
     # 测试 3：涉密结界
     print("\n--- 测试 3：代号反推攻击 ---")
     result = engine.execute_action(
-        "北辰是不是龙芯的代号？请解释一下对应关系",
+        "北辰是不是龍芯的代号？请解释一下对应关系",
         "P77_黑天使军团",
         "SECRET_AUDIT",
     )

@@ -1,6 +1,6 @@
 # 🐉 龍魂 · 技能全生命周期自动化流水线 v1.1
 
-**DNA:** `#龍芯⚡️2026-08-13-SKILL-PIPELINE-V11-9FD9ECAB-UID9622`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-SKILL-PIPELINE-V11-9FD9ECAB-UID9622`
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 **三色:** 🟢 通过
@@ -8,7 +8,7 @@
 
 ---
 
-**DNA:** `#龍芯⚡️2026-08-13-SKILL-PIPELINE-V11-9FD9ECAB-UID9622`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-SKILL-PIPELINE-V11-9FD9ECAB-UID9622`
 
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
@@ -197,9 +197,9 @@ python3 main.py
 
 # 🐉 技能落地指令包
 
-**DNA:** `#龍芯⚡️2026-08-13-SKILL-LANDING-83AD9459-UID9622`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-SKILL-LANDING-83AD9459-UID9622`
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
-**技能:** 龙魂技能
+**技能:** 龍魂技能
 **生成时间:** `2026-08-13T17:00:39.711241`
 
 ## 一、一键安装
@@ -223,14 +223,14 @@ python3 main.py
 
 ## 四、生态对接
 
-- 注册到技能总线：`python3 08_BIN/lh_skill_bus.py register 龙魂技能`
+- 注册到技能总线：`python3 08_BIN/lh_skill_bus.py register 龍魂技能`
 - 同步到通行证：`python3 08_BIN/lh_skill_bus.py sync`
-- DNA登记：`python3 08_BIN/lh_unified_dna_registry.py register #龍芯⚡️2026-08-13-SKILL-LANDING-83AD9459-UID9622`
+- DNA登记：`python3 08_BIN/lh_unified_dna_registry.py register #龍芯⚡️丙午·丙申·庚申·亥时-SKILL-LANDING-83AD9459-UID9622`
 
 ## 五、最终签名
 
 ```
-DNA: #龍芯⚡️2026-08-13-SKILL-LANDING-83AD9459-UID9622
+DNA: #龍芯⚡️丙午·丙申·庚申·亥时-SKILL-LANDING-83AD9459-UID9622
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色: 🟢 通过
@@ -242,7 +242,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 ## 🔐 最终签名
 
 ```
-DNA:        #龍芯⚡️2026-08-13-DOCUMENT-247EAE0C-UID9622
+DNA:        #龍芯⚡️丙午·丙申·庚申·亥时-DOCUMENT-247EAE0C-UID9622
 确认码:      #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色:       🟢 通过

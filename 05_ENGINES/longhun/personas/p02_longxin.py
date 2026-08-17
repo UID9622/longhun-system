@@ -23,7 +23,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-# ── 龙魂教学适配器桥接 ──
+# ── 龍魂教学适配器桥接 ──
 try:
     from engines.lh_teaching_adapter import TeachingAdapter, TeachTier, get_adapter
     _HAS_TEACHING_ADAPTER = True

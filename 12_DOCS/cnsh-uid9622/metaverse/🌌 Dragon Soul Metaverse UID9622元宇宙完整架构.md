@@ -1,7 +1,7 @@
 # DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# 🌌 Dragon Soul Metaverse | UID9622元宇宙完整架构
+# 🌌 LongHun Metaverse | UID9622元宇宙完整架构
 
 > 本文档按《龍魂文档标准模板 v1.0》整理。
 > 性质：技术文档 · 未经同行评审（如适用）
@@ -20,9 +20,9 @@
 <!--#龍芯⚡️2026-06-21-CNSH-DRAGON-SOUL-METAVERSE-UID9622_4DF4-v1.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
-# 🌌 Dragon Soul Metaverse | UID9622元宇宙完整架构
+# 🌌 LongHun Metaverse | UID9622元宇宙完整架构
 
-# 🌌 Dragon Soul Metaverse
+# 🌌 LongHun Metaverse
 
 <aside>
 🐉

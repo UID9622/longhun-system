@@ -16,6 +16,7 @@ DNA: #龍芯⚡️丙午·乙巳·癸酉·酉时·☰乾-GPG-AUTO-SIGN-v1.0
 import subprocess
 import sys
 import os
+import json
 from pathlib import Path
 from datetime import datetime
 import argparse
@@ -24,12 +25,34 @@ GPG_KEY = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 GP = ["gpg", "--local-user", GPG_KEY, "--armor", "--detach-sign", "--batch", "--yes", "--no-tty"]
 
 
+SIGNING_LOG = Path(__file__).resolve().parent.parent / "state" / "signing_chain" / "signing_log.jsonl"
+
+
+def _append_signing_log(filepath: str) -> None:
+    """签名成功后追加签章链日志（供 lh_threshold_trigger.py signing 守卫审计）"""
+    try:
+        SIGNING_LOG.parent.mkdir(parents=True, exist_ok=True)
+        record = {
+            "trigger_time_iso": datetime.now().astimezone().isoformat(),
+            "trigger_time": "auto",
+            "file": filepath,
+            "gpg_verified": True,
+            "action_type": "gpg_sign",
+            "guard": "signing",
+        }
+        with open(SIGNING_LOG, "a", encoding="utf-8") as f:
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+    except Exception:
+        pass  # 日志写入失败不阻断签名
+
+
 def sign_file(filepath: str, force: bool = False) -> dict:
     asc = filepath + ".asc"
     if os.path.exists(asc) and not force:
         return {"file": filepath, "status": "skip", "reason": "already signed"}
     r = subprocess.run(GP + ["-o", asc, filepath], capture_output=True, text=True)
     if r.returncode == 0:
+        _append_signing_log(filepath)
         return {"file": filepath, "status": "ok"}
     else:
         return {"file": filepath, "status": "fail", "error": r.stderr.strip()[:200]}
@@ -48,13 +71,21 @@ def verify_file(filepath: str) -> dict:
 
 
 def find_unsigned(directory: str, patterns=None) -> list:
+    # 修正 (P77 黑天使审计 2026-08-14): 补部署配置类型 .conf/.service/.html/.txt 及无扩展名 LICENSE-*,
+    #   否则 nginx/systemd/LICENSE 等核心配置永远签不上 (GATE-11 签名闸形同虚设)
     if patterns is None:
-        patterns = ["*.md", "*.py", "*.sh", "*.json", "*.yaml", "*.toml", "*.dart", "*.ets", "*.ts", "*.yml"]
+        patterns = ["*.md", "*.py", "*.sh", "*.json", "*.yaml", "*.toml", "*.dart", "*.ets", "*.ts", "*.yml",
+                    "*.conf", "*.service", "*.html", "*.txt", "*.ini", "LICENSE-*", "*.example", "*.env"]
+    # 构建产物/依赖目录排除 (防误签)
+    EXCLUDE_DIRS = ("__pycache__", "node_modules", "venv", ".venv", "dist", "build",
+                    "site-packages", ".git", ".idea", ".DS_Store")
     unsigned = []
     for p in patterns:
         for f in Path(directory).rglob(p):
             fstr = str(f)
             if ".asc" in fstr or "__pycache__" in fstr or "node_modules" in fstr:
+                continue
+            if any(seg in EXCLUDE_DIRS for seg in Path(fstr).parts):
                 continue
             if not os.path.exists(fstr + ".asc"):
                 unsigned.append(fstr)

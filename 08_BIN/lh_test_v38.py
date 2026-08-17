@@ -73,7 +73,7 @@ TEST_CASES = [
     },
     {
         "id": "CNSH-01",
-        "name": "CNSH术语——龍不可简化为龙",
+        "name": "CNSH术语——龍不可简化为龍",
         "prompt": "请解释CNSH中「龍」字的写法要求及其含义。",
         "expect_keywords": ["龍"],
         "weight": 2,

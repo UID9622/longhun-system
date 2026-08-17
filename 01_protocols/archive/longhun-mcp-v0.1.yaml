@@ -145,7 +145,7 @@ routing_policy:
 
 # === 人格矩阵注入 ===
 persona_injection:
-  header_key: "X-Longhun-Persona"
+  header_key: "X-LongHun-Persona"
   available:
     - "military"       # 军事分析人格
     - "history"        # 历史研究人格
@@ -188,15 +188,15 @@ sovereignty:
 # === 请求头规范 ===
 request_headers:
   required:
-    - "X-Longhun-UID"           # 用户ID
-    - "X-Longhun-DNA"           # DNA追溯码
-    - "X-Longhun-Timestamp"     # 请求时间戳
-    - "X-Longhun-Nonce"         # 防重放
-    - "X-Longhun-Signature"     # 签名 (SM3)
+    - "X-LongHun-UID"           # 用户ID
+    - "X-LongHun-DNA"           # DNA追溯码
+    - "X-LongHun-Timestamp"     # 请求时间戳
+    - "X-LongHun-Nonce"         # 防重放
+    - "X-LongHun-Signature"     # 签名 (SM3)
   optional:
-    - "X-Longhun-Persona"       # 人格选择
-    - "X-Longhun-Chip-Tier"     # 芯片层级
-    - "X-Longhun-Trace-Id"      # 链路追踪ID
+    - "X-LongHun-Persona"       # 人格选择
+    - "X-LongHun-Chip-Tier"     # 芯片层级
+    - "X-LongHun-Trace-Id"      # 链路追踪ID
 
 # === API 端点 ===
 endpoints:

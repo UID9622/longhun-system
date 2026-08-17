@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂系统 · DNA修复与补全工具
-Longhun DNA Repair Tool v1.0
+LongHun DNA Repair Tool v1.0
 
 功能：
 - 扫描孤立文件（无DNA或DNA不完整）

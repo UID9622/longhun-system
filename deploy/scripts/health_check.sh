@@ -10,7 +10,7 @@ if [ -f /opt/longhun-system/.env.kunpeng ]; then
 fi
 
 # ╔═══════════════════════════════════════════════════════════════╗
-# ║  🐉 龙魂系统 · 健康检查 + Apple Mail 推送                     ║
+# ║  🐉 龍魂系统 · 健康检查 + Apple Mail 推送                     ║
 # ║  🏷️  版本: v1.3 · Apple Mail                                ║
 # ║  🧬  DNA: #龍芯⚡️2026-08-02-HEALTHCHECK-MAIL-v1.3           ║
 # ║  👤  适用: UID9622 · 诸葛鑫                                  ║
@@ -62,7 +62,7 @@ FEISHU_WEBHOOK="${FEISHU_WEBHOOK_URL:-}"
 DEDUP_MINUTES=30
 
 # 服务列表（加新服务在这里加）
-SERVICES=("longhun-ant-colony" "longhun-api" "longhun-audit" "longhun-calendar" "longhun-core" "longhun-dashboard" "longhun-deepseek-executor" "longhun-gatekeeper" "longhun-local-gateway" "longhun-longzhishou" "longhun-orders" "longhun-portal" "longhun-sovereignty" "longhun-symbiote" "longhun-wechat" "longhun888")
+SERVICES=("longhun-ant-colony" "longhun-api" "longhun-audit" "longhun-calendar" "longhun-core" "longhun-dashboard" "longhun-deepseek-executor" "longhun-dev-ecosystem" "longhun-gatekeeper" "longhun-local-gateway" "longhun-longzhishou" "longhun-orders" "longhun-portal" "longhun-sovereignty" "longhun-symbiote" "longhun-wechat" "longhun888")
 SERVICE_PORTS=(80 443 8080 8081 8443 8444 8446 8777 9622 9623 9627 9677)
 
 # ────────────────────────────────────────────────────────────────
@@ -119,11 +119,11 @@ send_mail() {
     fi
 
     # 构造标题
-    local title="🐉 龙魂系统告警"
+    local title="🐉 龍魂系统告警"
     case "${ALARM_LEVEL}" in
-        red)    title="🔴 龙魂系统 · ${ALARM_COUNT}条严重告警" ;;
-        yellow) title="🟡 龙魂系统 · ${ALARM_COUNT}条警告" ;;
-        green)  title="🟢 龙魂系统 · 一切正常" ;;
+        red)    title="🔴 龍魂系统 · ${ALARM_COUNT}条严重告警" ;;
+        yellow) title="🟡 龍魂系统 · ${ALARM_COUNT}条警告" ;;
+        green)  title="🟢 龍魂系统 · 一切正常" ;;
     esac
 
     # 构造详情
@@ -361,7 +361,7 @@ check_mount() {
 }
 
 # ────────────────────────────────────────────────────────────────
-# 5. 龙魂引擎自检
+# 5. 龍魂引擎自检
 # ────────────────────────────────────────────────────────────────
 check_longhun_engine() {
     if [ -f "${BASE_DIR}/bin/lh_auto_heal.py" ]; then
@@ -432,7 +432,7 @@ check_ssl_certs() {
 main() {
     echo ""
     echo "══════════════════════════════════════════════════"
-    echo "  🐉 龙魂系统 · 鲲鹏健康检查"
+    echo "  🐉 龍魂系统 · 鲲鹏健康检查"
     echo "  ${TS}"
     echo "══════════════════════════════════════════════════"
     echo ""

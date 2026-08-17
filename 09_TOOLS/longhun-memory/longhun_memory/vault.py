@@ -366,8 +366,8 @@ class MemoryVault:
 
 if __name__ == "__main__":
     messages = [
-        {"role": "user", "content": "你好，帮我记住：项目代号'龙魂'"},
-        {"role": "assistant", "content": "已记住：项目代号'龙魂'"},
+        {"role": "user", "content": "你好，帮我记住：项目代号'龍魂'"},
+        {"role": "assistant", "content": "已记住：项目代号'龍魂'"},
         {"role": "user", "content": "目标是保护数据主权"},
         {"role": "assistant", "content": "了解：目标是保护数据主权"},
         {"role": "user", "content": "技术栈是 Python + SM4 加密"},

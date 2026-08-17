@@ -6,7 +6,7 @@
 
 ⚖️ 三色审计·龍魂系统集成模块 v1.0
 
-Three-Color Audit System Integration with Longhun Ecosystem
+Three-Color Audit System Integration with LongHun Ecosystem
 
 ═══════════════════════════════════════════════════════════════════════════════
 

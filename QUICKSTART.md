@@ -29,7 +29,7 @@ git clone https://github.com/UID9622/longhun-system.git
 cd longhun-system
 
 # 一键安装
-bash install.sh
+bash bin/install.sh
 ```
 
 安装脚本会自动：
@@ -55,7 +55,7 @@ lh start
 
 ```bash
 # 三色审计自检
-python3 bin/longhun-self-heal.py --quick
+python3 bin/lh_self_heal.py --quick
 
 # MCP Server 测试（让 AI 调用 CNSH 工具）
 python3 integrations/mcp/cnsh_syntax_mcp_server.py --test

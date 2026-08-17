@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # DNA: #龍芯⚡️丙午·乙未·乙丑·大有-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-"""Configuration management for Longhun WeChat Public Account integration."""
+"""Configuration management for LongHun WeChat Public Account integration."""
 
 import json
 import os
@@ -18,7 +18,7 @@ if ENV_PATH.exists():
 
 
 def _load_from_vault(key_name: str) -> Optional, Any[str]:
-    """Load a credential from Longhun vault plaintext JSON fallback.
+    """Load a credential from LongHun vault plaintext JSON fallback.
 
     The vault is managed by the 龍魂密钥管家 persona. Plaintext files are
     local-only (permission 600) and should not be committed.

@@ -4,7 +4,7 @@
 # 创建者: 诸葛鑫（UID9622）
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
-龙魂·算力省钱代理 v1.0
+龍魂·算力省钱代理 v1.0
 
 帮开发者省 AI 调用成本的本地代理：
   - 智能路由：本地 Ollama 优先 → 云端兜底

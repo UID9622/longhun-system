@@ -55,7 +55,7 @@ location /universe/ {
     # 缓存策略
     expires 7d;
     add_header Cache-Control "public, immutable";
-    add_header X-Longhun-Universe "1650万路径";
+    add_header X-LongHun-Universe "1650万路径";
     add_header X-Data-Sovereignty "China-HuaweiCloud-Kunpeng";
     add_header X-UID "9622-Lucky";
 }

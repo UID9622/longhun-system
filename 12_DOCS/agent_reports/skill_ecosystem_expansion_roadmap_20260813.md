@@ -167,7 +167,7 @@ creator/author 产出内容
     ↓
 workflow-transparent(记录 15 步)
     ↓
-iron-laws(简体龙/蒸馏/隐私检查)
+iron-laws(简体龍/蒸馏/隐私检查)
     ↓
 trust-protocol(给作者/AI 记贡献/违约)
     ↓

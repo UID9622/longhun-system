@@ -1,6 +1,6 @@
 # 🔧 龍魂引擎去重清单
 
-> DNA: #龍芯⚡️2026-07-06-ENGINE-DEDUP-MANIFEST-v1.0
+> DNA: #龍芯⚡️丙午·丙申·庚申·亥时-ENGINE-DEDUP-MANIFEST-v1.0
 > 操作者: CodeBuddy
 > 原则: 不删除，只标记权威源与副本关系
 

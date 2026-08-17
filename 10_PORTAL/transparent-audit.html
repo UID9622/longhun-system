@@ -298,20 +298,9 @@
                     <textarea id="question" rows="3" placeholder="例如：数据主权到底归谁？"></textarea>
                 </div>
                 <div class="input-group">
-                    <label>参与引擎</label>
-                    <div class="engine-toggles">
-                        <label class="engine-toggle">
-                            <input type="checkbox" id="engine-longhun" checked>
-                            <span>龍魂(本地)</span>
-                        </label>
-                        <label class="engine-toggle">
-                            <input type="checkbox" id="engine-kimi" checked>
-                            <span>kimi</span>
-                        </label>
-                        <label class="engine-toggle">
-                            <input type="checkbox" id="engine-deepseek" checked>
-                            <span>deepseek</span>
-                        </label>
+                    <label>参与引擎 <span id="engine-hint" style="font-size:0.7rem;color:#666;"></span></label>
+                    <div class="engine-toggles" id="engine-toggles">
+                        <span style="font-size:0.75rem;color:#888;">引擎列表来自 /health（本地 Ollama 真实模型）…</span>
                     </div>
                 </div>
                 <div class="btn-row">
@@ -531,6 +520,30 @@
             document.getElementById("question").value = "数据主权到底归谁？";
         }
 
+        async function loadEngines() {
+            try {
+                const res = await fetch(`${API_BASE}/health`, { method: "GET", mode: "cors" });
+                const data = await res.json();
+                const box = document.getElementById("engine-toggles");
+                const names = data["engines"] || [];
+                if (!names.length) return;
+                box.innerHTML = names.map((n, i) => `
+                    <label class="engine-toggle">
+                        <input type="checkbox" class="engine-chk" data-model="${n.split("(")[0].trim()}" checked>
+                        <span>${n}</span>
+                    </label>
+                `).join("");
+                const hint = document.getElementById("engine-hint");
+                hint.textContent = data["real"] ? "本地真实模型" : "降级模拟（Ollama 不可达）";
+            } catch (e) {}
+        }
+
+        function selectedEngines() {
+            return Array.from(document.querySelectorAll(".engine-chk:checked"))
+                .map(c => c.dataset.model)
+                .join(",");
+        }
+
         async function runAudit() {
             const q = document.getElementById("question").value.trim();
             if (!q) { alert("请输入审计问题"); return; }
@@ -541,7 +554,7 @@
                 const res = await fetch(`${API_BASE}/audit`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ question: q }),
+                    body: JSON.stringify({ question: q, engines: selectedEngines() }),
                 });
                 const data = await res.json();
                 lastReport = data;
@@ -681,27 +694,50 @@
             `;
         }
 
+        function historyItem(h) {
+            const ts = h["时间"] ? new Date(h["时间"] * 1000).toLocaleString() : "—";
+            const r = h["R值"] ?? "—";
+            const color = h["三色"] === "🟢" ? "green" : h["三色"] === "🟡" ? "yellow" : "red";
+            return `
+                <div class="card" style="margin-bottom:10px;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+                        <div>
+                            <strong>${h["问题"] || "—"}</strong>
+                            <div class="meta">${ts} · 引擎${h["引擎数"] ?? "—"} · 失败${h["失败数"] ?? "—"}</div>
+                        </div>
+                        <div class="badge ${color}">${h["三色"]} R${r}</div>
+                    </div>
+                    <div class="content" style="margin-top:8px;">${h["摘要"] || ""}</div>
+                </div>`;
+        }
+
+        async function loadHistory() {
+            try {
+                const res = await fetch(`${API_BASE}/history?limit=10`, { method: "GET", mode: "cors" });
+                const rows = await res.json();
+                if (!rows || !rows.length) return;
+                const list = document.getElementById("history-list");
+                list.classList.remove("empty-state");
+                list.innerHTML = rows.map(historyItem).join("");
+            } catch (e) {}
+        }
+
         function addHistory(data) {
             const list = document.getElementById("history-list");
             if (list.classList.contains("empty-state")) {
                 list.classList.remove("empty-state");
                 list.innerHTML = "";
             }
-            const item = document.createElement("div");
-            item.className = "card";
-            item.style.marginBottom = "10px";
-            const summary = data["摘要"] || {};
-            item.innerHTML = `
-                <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-                    <div>
-                        <strong>${data["问题"]}</strong>
-                        <div class="meta">${new Date(data["时间"] * 1000).toLocaleString()}</div>
-                    </div>
-                    <div class="badge ${data["三色"] === "🟢" ? "green" : data["三色"] === "🟡" ? "yellow" : "red"}">${data["三色"]} R值${(data["归档"] || {})["R值审计"]?.["R值"] ?? "—"}</div>
-                </div>
-                <div class="content" style="margin-top:8px;">${summary["一句话结论"] || ""}</div>
-            `;
-            list.prepend(item);
+            const h = {
+                "问题": data["问题"],
+                "时间": data["时间"],
+                "三色": data["三色"],
+                "R值": (data["归档"] || {})["R值审计"]?.["R值"],
+                "摘要": (data["摘要"] || {})["一句话结论"] || "",
+                "引擎数": (data["回答"] || []).length,
+                "失败数": data["失败数"] ?? 0,
+            };
+            list.prepend(historyItem(h));
         }
 
         async function verifyChain() {
@@ -713,7 +749,7 @@
         }
 
         function startApi() {
-            alert("请在终端执行：\npython3 08_BIN/lh_transparent_audit.py api\n\n本页将自动检测 API 状态。");
+            alert("API 已注册为常驻服务 com.longhun.transparent-audit（launchd 自动拉起）。\n\n如未运行，请执行：\npython3 08_BIN/lh_service_control.py wake transparent-audit\n\n本页将自动检测 API 状态。");
         }
 
         function exportReport() {
@@ -728,7 +764,7 @@
         }
 
         // 初始化检测
-        checkApi().then(() => checkChain());
+        checkApi().then(() => { checkChain(); loadEngines(); loadHistory(); });
         setInterval(() => { checkApi(); checkChain(); }, 10000);
     </script>
 </body>

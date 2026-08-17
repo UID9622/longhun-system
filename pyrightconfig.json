@@ -1,0 +1,9 @@
+{
+  "venv": ".venv",
+  "venvPath": ".",
+  "pythonVersion": "3.12",
+  "extraPaths": ["bin", "08_BIN", "05_ENGINES", "engines", "core"],
+  "include": ["bin", "08_BIN", "05_ENGINES", "engines", "core", "tests"],
+  "exclude": ["**/__pycache__", "**/.venv", "**/node_modules", "**/*.pyc"],
+  "typeCheckingMode": "standard"
+}

@@ -8,7 +8,7 @@
 ║         8大脑区→8个人格映射 · 动态路径生成 · 双向反馈 · 并行执行               ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
-DNA: #龙芯⚡️丙午·丙申·丙辰·未时·需-CNSH-NEURAL-BRAIN-ROUTER-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·未时·需-CNSH-NEURAL-BRAIN-ROUTER-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 架构: 8脑区 → P01/P02/P03/P04/P05/P06/P07/P18 人格映射
 
@@ -90,7 +90,7 @@ class PerceptionLayer:
         "c":         [r"#include\s*<", r"\bprintf\(", r"\bscanf\(", r"\bmalloc\(", r"->\s*\w+"],
     }
 
-    DNA_PATTERNS = ["#ZHUGEXIN⚡️", "#龙芯⚡️", "dna追溯码", "DNA追溯码"]
+    DNA_PATTERNS = ["#ZHUGEXIN⚡️", "#龍芯⚡️", "dna追溯码", "DNA追溯码"]
 
     SUSPICIOUS_MARKERS: List[str] = [
         "TODO:", "placeholder", "stub", "FIXME", "HACK:",
@@ -418,7 +418,7 @@ class BrainDispatcher:
         "B3": "P18",  # 来源追溯 → 凤凰
         "B4": "P04",  # CNSH翻译 → 鲁班
         "B5": "P06",  # 数学验证 → 数学大师
-        "B6": "P02",  # 代码优化 → 龙芯修复师
+        "B6": "P02",  # 代码优化 → 龍芯修复师
         "B7": "P05",  # 质量检查 → 上帝之眼
         "B8": "P01",  # DNA追溯 → 诸葛亮
     }
@@ -621,7 +621,7 @@ class CNSHNeuralBrainHub:
         path = result["decision"]["path"]
         content = json.dumps(result["input_features"], sort_keys=True)
         short_hash = hashlib.sha256(content.encode()).hexdigest()[:8].upper()
-        return f"#龙芯⚡️丙午·丙申·丙辰·未时·需-CNSH-{path}-{short_hash}"
+        return f"#龍芯⚡️丙午·丙申·丙辰·未时·需-CNSH-{path}-{short_hash}"
 
     def _learn(self, features: InputFeatures, decision: Dict[str, Any], result: Dict[str, Any]):
         """学習模块：记录决策效果"""

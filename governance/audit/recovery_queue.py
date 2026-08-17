@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂恢复队列 (Longhun Recovery Queue)
+龍魂恢复队列 (LongHun Recovery Queue)
 DNA: #龍芯⚡️2026-06-29-LONGHUN-RECOVERY-QUEUE-v3.0
 
 模块三：带 DNA 校验的恢复队列

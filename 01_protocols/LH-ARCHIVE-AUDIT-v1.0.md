@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂待整理深度分析报告 · v1.0
 
-DNA: #龍芯⚡️2026-07-23-ARCHIVE-AUDIT-v1.0-e3d7f1a2
+DNA: #龍芯⚡️丙午·丙申·庚申·亥时-ARCHIVE-AUDIT-v1.0-e3d7f1a2
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -55,7 +55,7 @@ DNA: #龍芯⚡️2026-07-23-ARCHIVE-AUDIT-v1.0-e3d7f1a2
 |:---|:---|:---:|:---|:---|
 | `UID9622_龍魂流场总控_v2.0.md` | md | 38KB | 🆕 | L0-L9全链路流场·369节点·三闸门状态机 | ⚡迁移 |
 | `UID9622_龍魂流场总控_v2.0_1.md` | md | 33KB | 🆕 | 补充版·五行权重·时序推演·状态转换图 | 与上合并 |
-| `extraction-report-v8.md` | md | 18KB | 🆕 | Claude→龙魂知识萃取v8·10领域·精确率98% | ⚡迁移 |
+| `extraction-report-v8.md` | md | 18KB | 🆕 | Claude→龍魂知识萃取v8·10领域·精确率98% | ⚡迁移 |
 | `notion-scan-report-v8.md` | md | 22KB | 🆕 | Notion扫描报告·413页面·5.2MB·13领域聚类 | ⚡迁移 |
 | `三才算法发微_为曾老师正名.md` | md | 45KB | ✅已迁移 | 三才算法哲学论文·5章 | 保留 |
 | `longhun_wuxing_mvp.py` | py | 8.3KB | ✅已有→bin/ | 五行推断·洛书方阵·数字根 | 保留现有 |
@@ -70,7 +70,7 @@ DNA: #龍芯⚡️2026-07-23-ARCHIVE-AUDIT-v1.0-e3d7f1a2
 |:---|:---|:---:|:---|:---|
 | `ATTRIBUTION.md` | md | 4KB | ✅已迁移 | 曾老师贡献声明 | 保留 |
 | `LH-CDNA-v1.2-需求文档.md` | md | 22KB | ✅已迁移 | CDNA需求·5层DNA·离线激活·数字人民币绑定 | 保留 |
-| `龙魂数字主权体系_学术论文_v2.0.md` | md | 58KB | ✅已迁移 | 学术论文·20章·主权三支柱·技术蓝图 | 保留 |
+| `龍魂数字主权体系_学术论文_v2.0.md` | md | 58KB | ✅已迁移 | 学术论文·20章·主权三支柱·技术蓝图 | 保留 |
 | `龍魂DNA身份系统-功能规格书.html` | html | 58KB | 🆕 | DNA系统完整UI/UX规格·8Tab·注册页·验证页·追溯页 | ⚡迁移 |
 | `🧬 网络户口本.html` | html | 42KB | 🆕 | 去中心身份(DID)原型·生物识别+身份证·ERC-725参考 | ⚡迁移 |
 | `dna_ecny_offline_activation.py` | py | 14KB | ✅已有→bin/ | DNA-数字货币离线激活·7步验证 | 保留现有 |
@@ -110,7 +110,7 @@ DNA: #龍芯⚡️2026-07-23-ARCHIVE-AUDIT-v1.0-e3d7f1a2
 
 | 文件 | 类型 | 状态 | 核心价值 | 动作 |
 |:---|:---|:---:|:---|:---|
-| `龙魂系统_API接口完整实现_v1.0.py` | py | 189KB | 🆕 | **完整API实现**·Ollama/ChromaDB/Notion三端·FastAPI·15端点 | ⚡迁移 |
+| `龍魂系统_API接口完整实现_v1.0.py` | py | 189KB | 🆕 | **完整API实现**·Ollama/ChromaDB/Notion三端·FastAPI·15端点 | ⚡迁移 |
 | `parse_notion.py` | py | 4.5KB | ✅已有→bin/ | Notion知识点解析 | 保留现有 |
 | `session_end.sh` | sh | 2.1KB | ✅已有→bin/ | 会话归档脚本 | 保留现有 |
 | `local_search.sh` | sh | 3.2KB | 🆕 | 本地知识库全文搜索·ripgrep+grep | ⚡迁移 |
@@ -150,7 +150,7 @@ DNA: #龍芯⚡️2026-07-23-ARCHIVE-AUDIT-v1.0-e3d7f1a2
 |:---|:---|:---|
 | `ATTRIBUTION.md` | `01_protocols/` | 同版 |
 | `LH-CDNA-v1.2-需求文档.md` | `01_protocols/` | 同版 |
-| `龙魂数字主权体系_学术论文_v2.0.md` | `01_protocols/` | 同版 |
+| `龍魂数字主权体系_学术论文_v2.0.md` | `01_protocols/` | 同版 |
 | `CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md` | `01_protocols/` | 同版 |
 | `longhun-algorithms-cnsh-v1.0.md` | `01_protocols/` | 同版 |
 | `三才算法发微_为曾老师正名.md` | `01_protocols/` | 同版 |
@@ -172,7 +172,7 @@ DNA: #龍芯⚡️2026-07-23-ARCHIVE-AUDIT-v1.0-e3d7f1a2
 | P0 | `龍魂数学公式体系v2.0.html` | 78KB | `01_protocols/` | 🔴 | 数学底座 |
 | P0 | `CNSH · 中文语法全景.html` | 28KB | `01_protocols/` | 🔴 | CNSH v3全景 |
 | P0 | `思维主权系统-术语对照表.html` | 36KB | `01_protocols/` | 🔴 | 体系对标 |
-| P0 | `龙魂系统_API接口完整实现_v1.0.py` | 189KB | `bin/` | 🔴 | 完整API参考 |
+| P0 | `龍魂系统_API接口完整实现_v1.0.py` | 189KB | `bin/` | 🔴 | 完整API参考 |
 | P1 | `UID9622_龍魂流场总控_v2.0.md` | 38KB | `01_protocols/` | 🟠 | 流场总控 |
 | P1 | `extraction-report-v8.md` | 18KB | `docs/` | 🟠 | 知识萃取 |
 | P1 | `notion-scan-report-v8.md` | 22KB | `docs/` | 🟠 | Notion扫描 |
@@ -250,7 +250,7 @@ DNA: #龍芯⚡️2026-07-23-ARCHIVE-AUDIT-v1.0-e3d7f1a2
 | 2 | `09-杂项备忘/龍魂数学公式体系v2.0.html` | `01_protocols/LH-MATH-FOUNDATIONS-v2.0.md` | 转换md+归档 |
 | 3 | `01-CNSH-协议规范/CNSH语法全景.html` | `01_protocols/CNSH-SYNTAX-PANORAMA-v3.0.md` | 转换md+归档 |
 | 4 | `09-杂项备忘/思维主权系统-术语对照表.html` | `01_protocols/LH-SOVEREIGNTY-BENCHMARK-v1.0.md` | 转换md+归档 |
-| 5 | `06-工具脚本/龙魂系统_API接口完整实现_v1.0.py` | `bin/lh_api_full_reference_v1.0.py` | 复制+审查 |
+| 5 | `06-工具脚本/龍魂系统_API接口完整实现_v1.0.py` | `bin/lh_api_full_reference_v1.0.py` | 复制+审查 |
 | 6 | `01-CNSH-协议规范/通心译·对齐标准.html` | `01_protocols/CNSH-TONGXINYI-ALIGN-v2.0.md` | 转换md+归档 |
 | 7 | `01-CNSH-协议规范/CNSH数学骨架与量子层.html` | `01_protocols/CNSH-MATH-SKELETON-v1.0.md` | 转换md+归档 |
 

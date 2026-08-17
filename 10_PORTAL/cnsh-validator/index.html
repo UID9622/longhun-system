@@ -1,0 +1,1093 @@
+<!--
+  DNA: #龍芯⚡️丙午·丙申·庚申·巳时·䷦蹇-CNSH-VALIDATOR-FRONTEND-FIX-V1.1-P0-d05a52c2
+  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+  创建者: 诸葛鑫（UID9622）
+  License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+  功能: CNSH编辑器·溯源验证模块 —— 粘贴带DNA内容 → 提取DNA → 真LCS差异 → 高亮划线 → 悬停原文 → 并排对比 → 一键还原 → 新DNA版本链 → 三色审计
+  工程层: 工程实现（HTML/JS 单文件·零依赖·离线可用）
+  修复: v1.1 — 补全 isBaselineSet 锚定 · v∞ DNA 格式合规 · Tab 视图切换 · 提取器增强
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 CNSH · 溯源验证编辑器</title>
+<link rel="icon" href="./favicon.ico" type="image/x-icon">
+<style>
+  :root {
+    --bg: #0a0a12;
+    --panel: rgba(255,255,255,0.02);
+    --border: rgba(255,255,255,0.06);
+    --gold: #d4af37;
+    --gold-dim: #8a6820;
+    --text: #e8e6e3;
+    --text-dim: #888;
+    --text-faint: #555;
+    --green: #4ade80;
+    --yellow: #facc15;
+    --red: #f87171;
+    --code: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  /* ===== 头部 ===== */
+  .header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 18px; border: 1px solid var(--border); border-radius: 14px;
+    margin-bottom: 16px; flex-wrap: wrap; gap: 10px;
+    background: linear-gradient(180deg, rgba(212,175,55,0.05), transparent);
+  }
+  .header .title { font-size: 21px; font-weight: 700; }
+  .header .title .gold { color: var(--gold); }
+  .header .dna { font-size: 11px; color: var(--text-faint); font-family: var(--code); word-break: break-all; margin-top: 4px; }
+  .header .status { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .badge {
+    padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+    border: 1px solid transparent; white-space: nowrap;
+  }
+  .badge.green { background: rgba(74,222,128,0.12); color: var(--green); border-color: rgba(74,222,128,0.25); }
+  .badge.yellow { background: rgba(250,204,21,0.12); color: var(--yellow); border-color: rgba(250,204,21,0.25); }
+  .badge.red { background: rgba(248,113,113,0.12); color: var(--red); border-color: rgba(248,113,113,0.25); }
+  .version-pill { font-size: 12px; color: var(--text-dim); background: rgba(255,255,255,0.04); padding: 4px 12px; border-radius: 20px; }
+
+  /* ===== 布局 ===== */
+  .main-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 16px; }
+  @media (max-width: 980px) { .main-grid { grid-template-columns: 1fr; } }
+  .panel {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 16px;
+    display: flex; flex-direction: column;
+  }
+  .panel-title {
+    font-size: 13px; font-weight: 600; color: var(--text-dim); margin-bottom: 10px;
+    letter-spacing: 1px; display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;
+  }
+  .panel-title .dna-tag { font-size: 10px; color: var(--text-faint); font-family: var(--code); word-break: break-all; max-width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* ===== 编辑器 ===== */
+  .editor {
+    width: 100%; min-height: 320px; flex: 1;
+    background: #0f0f1a; border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px; color: var(--text); font-size: 13px; line-height: 1.7;
+    font-family: var(--code); resize: vertical; outline: none; transition: border-color 0.3s;
+  }
+  .editor:focus { border-color: rgba(212,175,55,0.35); }
+  .editor::placeholder { color: #444; }
+
+  /* ===== Tab ===== */
+  .tabs { display: flex; gap: 8px; margin-bottom: 10px; }
+  .tab {
+    padding: 6px 16px; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer;
+    background: rgba(255,255,255,0.04); color: var(--text-dim); border: 1px solid var(--border); transition: all 0.2s;
+  }
+  .tab.active { background: rgba(212,175,55,0.12); color: var(--gold); border-color: rgba(212,175,55,0.35); }
+
+  /* ===== 高亮渲染区 ===== */
+  .render-area {
+    display: none;
+    flex: 1; min-height: 320px; max-height: 620px; overflow-y: auto;
+    background: #0f0f1a; border: 1px solid var(--border); border-radius: 10px; padding: 12px;
+    font-size: 13px; line-height: 1.7; font-family: var(--code); white-space: pre-wrap; word-break: break-word;
+  }
+  .render-area.active { display: block; }
+  .render-area::-webkit-scrollbar { width: 5px; }
+  .render-area::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.2); border-radius: 4px; }
+
+  .line { display: block; padding: 0 4px; border-radius: 3px; }
+  .line:hover { background: rgba(255,255,255,0.03); }
+  .line.context { color: #8a8a8a; }
+  .line.added { background: rgba(74,222,128,0.12); color: var(--green); }
+  .line.deleted {
+    background: rgba(248,113,113,0.14); color: var(--red);
+    text-decoration: line-through; text-decoration-color: rgba(248,113,113,0.6);
+    cursor: pointer; position: relative; border-radius: 3px;
+  }
+  .line .tag { font-size: 10px; opacity: 0.7; margin-right: 6px; font-weight: 700; }
+  .line .tag.ins { color: var(--green); }
+  .line .tag.del { color: var(--red); }
+
+  /* 悬停原文气泡 */
+  .line.deleted .orig-tip {
+    display: none; position: absolute; bottom: 110%; left: 0; z-index: 20;
+    background: #1a1a2e; border: 1px solid rgba(212,175,55,0.3); border-radius: 8px;
+    padding: 8px 12px; font-size: 12px; color: #cbb; line-height: 1.5; font-family: var(--code);
+    max-width: 480px; white-space: pre-wrap; word-break: break-all;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  }
+  .line.deleted:hover .orig-tip { display: block; }
+
+  /* ===== 并排视图 ===== */
+  .side-view { display: none; flex: 1; min-height: 320px; max-height: 620px; overflow: auto; border: 1px solid var(--border); border-radius: 10px; }
+  .side-view.active { display: block; }
+  .side-table { width: 100%; border-collapse: collapse; font-size: 12.5px; font-family: var(--code); }
+  .side-table td { padding: 2px 10px; vertical-align: top; border-bottom: 1px solid rgba(255,255,255,0.03); line-height: 1.6; }
+  .side-table td.num { color: var(--text-faint); text-align: right; width: 36px; user-select: none; padding-right: 6px; }
+  .side-table td.col-left { border-right: 1px solid rgba(255,255,255,0.06); width: 50%; }
+  .side-table tr.row-del td.col-left { background: rgba(248,113,113,0.1); color: var(--red); text-decoration: line-through; }
+  .side-table tr.row-ins td.col-right { background: rgba(74,222,128,0.1); color: var(--green); }
+  .side-table tr.row-del td.col-right { background: rgba(255,255,255,0.02); color: #555; }
+  .side-table tr.row-ins td.col-left { background: rgba(255,255,255,0.02); color: #555; }
+  .side-head th {
+    position: sticky; top: 0; background: #15151f; color: var(--text-dim); font-size: 11px;
+    padding: 6px 10px; text-align: left; border-bottom: 1px solid var(--border); z-index: 5;
+  }
+
+  /* ===== 按钮 ===== */
+  .btn-group { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+  .btn {
+    padding: 9px 20px; border: none; border-radius: 10px; font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: all 0.25s; font-family: inherit; display: inline-flex; align-items: center; gap: 7px;
+  }
+  .btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
+  .btn-primary { background: var(--gold); color: #0a0a12; }
+  .btn-primary:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,175,55,0.25); }
+  .btn-secondary { background: rgba(255,255,255,0.06); color: #ccc; border: 1px solid rgba(255,255,255,0.08); }
+  .btn-secondary:hover:not(:disabled) { background: rgba(255,255,255,0.12); }
+  .btn-danger { background: rgba(248,113,113,0.15); color: var(--red); border: 1px solid rgba(248,113,113,0.25); }
+  .btn-danger:hover:not(:disabled) { background: rgba(248,113,113,0.25); }
+  .btn-success { background: rgba(74,222,128,0.15); color: var(--green); border: 1px solid rgba(74,222,128,0.25); }
+  .btn-success:hover:not(:disabled) { background: rgba(74,222,128,0.25); }
+
+  /* ===== 底部 ===== */
+  .footer-info {
+    margin-top: 14px; padding: 12px 16px; background: var(--panel); border: 1px solid var(--border);
+    border-radius: 10px; font-size: 12px; color: var(--text-faint);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+  .footer-info .highlight { color: var(--gold); font-family: var(--code); word-break: break-all; }
+
+  /* ===== 版本链 ===== */
+  .chain-panel { margin-top: 14px; padding: 12px 16px; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; }
+  .chain-title { font-size: 12px; font-weight: 600; color: var(--text-dim); margin-bottom: 8px; letter-spacing: 1px; }
+  .chain-list { display: flex; flex-direction: column; gap: 6px; max-height: 180px; overflow-y: auto; }
+  .chain-item {
+    display: flex; align-items: center; gap: 10px; padding: 7px 12px; border-radius: 8px;
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; font-size: 12px;
+  }
+  .chain-item:hover { background: rgba(212,175,55,0.07); }
+  .chain-item .cv { font-weight: 700; color: var(--gold); min-width: 48px; }
+  .chain-item .cd { font-family: var(--code); color: var(--text-dim); flex: 1; word-break: break-all; }
+  .chain-item .ct { color: var(--text-faint); font-size: 11px; white-space: nowrap; }
+  .chain-item .cchg { font-size: 11px; }
+  .chain-empty { color: var(--text-faint); font-size: 12px; padding: 6px 0; }
+
+  /* ===== Toast ===== */
+  .toast {
+    position: fixed; bottom: 30px; right: 30px; background: #1a1a2e;
+    border: 1px solid rgba(212,175,55,0.2); border-radius: 12px; padding: 14px 22px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6); transform: translateY(120px); opacity: 0;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 999; max-width: 480px;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast .tt { font-weight: 600; color: var(--gold); font-size: 13px; }
+  .toast .tb { font-size: 12.5px; color: #aaa; margin-top: 4px; white-space: pre-wrap; word-break: break-all; }
+
+  /* ===== Modal ===== */
+  .modal-mask {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000;
+    display: none; align-items: center; justify-content: center; padding: 20px;
+  }
+  .modal-mask.show { display: flex; }
+  .modal {
+    background: #15151f; border: 1px solid rgba(212,175,55,0.3); border-radius: 14px;
+    max-width: 640px; width: 100%; max-height: 80vh; overflow-y: auto; padding: 20px;
+  }
+  .modal h3 { font-size: 15px; color: var(--gold); margin-bottom: 10px; }
+  .modal .m-orig { background: #0f0f1a; border: 1px solid var(--border); border-radius: 8px; padding: 12px; font-family: var(--code); font-size: 12.5px; line-height: 1.7; color: var(--red); white-space: pre-wrap; word-break: break-all; }
+  .modal .m-close { margin-top: 14px; width: 100%; }
+
+  @media print { .btn-group, .tabs, .chain-panel, .toast, .modal-mask { display: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ===== 头部 ===== -->
+  <div class="header">
+    <div>
+      <div class="title">🐉 <span class="gold">CNSH · 溯源验证编辑器</span></div>
+      <div class="dna">DNA: <span id="editorDna">#龍芯⚡️待生成</span></div>
+    </div>
+    <div class="status">
+      <span class="badge green" id="tricolorBadge">🟢 通过</span>
+      <span class="version-pill" id="versionDisplay">v0.0</span>
+    </div>
+  </div>
+
+  <!-- ===== 主区域 ===== -->
+  <div class="main-grid">
+
+    <!-- 左：输入 -->
+    <div class="panel">
+      <div class="panel-title">
+        📝 粘贴内容 <span class="dna-tag" id="inputDnaTag">无DNA</span>
+      </div>
+      <textarea class="editor" id="inputEditor" spellcheck="false" placeholder="粘贴任意带DNA追溯码的龍魂系统内容...
+
+支持格式：
+• 纯文本 + DNA码（#龍芯⚡️ 开头）
+• JSON格式的DNA包
+• CNSH .cnsh 文件内容
+
+Ctrl+Enter = 验证"></textarea>
+      <div class="btn-group">
+        <button class="btn btn-primary" id="validateBtn">🔍 验证 & 对比</button>
+        <button class="btn btn-secondary" id="clearBtn">🗑️ 清空</button>
+        <button class="btn btn-secondary" id="exampleBtn">📄 示例</button>
+      </div>
+    </div>
+
+    <!-- 右：渲染 -->
+    <div class="panel">
+      <div class="panel-title">
+        🔬 差异对比 <span class="dna-tag" id="renderDnaTag">无DNA</span>
+      </div>
+      <div class="tabs">
+        <div class="tab active" data-view="hl">🎨 高亮视图</div>
+        <div class="tab" data-view="side">⇄ 并排对比</div>
+      </div>
+      <div class="render-area active" id="renderArea"><span style="color:#444;">等待验证...</span></div>
+      <div class="side-view" id="sideView"></div>
+      <div class="btn-group">
+        <button class="btn btn-success" id="restoreBtn" disabled>↩️ 还原原文</button>
+        <button class="btn btn-secondary" id="exportBtn" disabled>📤 导出带DNA</button>
+        <button class="btn btn-danger" id="auditBtn" disabled>⚖️ 三色审计</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 版本链 ===== -->
+  <div class="chain-panel">
+    <div class="chain-title">🧬 版本链（本地 + ☁️云端 · 点击载入为基准）
+      <button class="btn btn-secondary" id="syncCloudBtn" style="padding:3px 12px;font-size:11px;margin-left:8px;">☁️ 云端同步</button>
+      <span id="apiStatus" style="font-size:11px;color:var(--text-faint);margin-left:6px;font-weight:400;"></span>
+    </div>
+    <div class="chain-list" id="chainList"><div class="chain-empty">暂无版本记录</div></div>
+  </div>
+
+  <!-- ===== 底部 ===== -->
+  <div class="footer-info">
+    <span>📊 差异: <span class="highlight" id="diffStats">0 处修改</span></span>
+    <span>🔢 数字根: <span class="highlight" id="rootDisplay">-</span></span>
+    <span>🔐 确认码: <span class="highlight" id="confirmDisplay">未生成</span></span>
+  </div>
+
+</div>
+
+<!-- ===== Modal（点击删除行查看原文） ===== -->
+<div class="modal-mask" id="modalMask">
+  <div class="modal">
+    <h3>📜 原始内容（被修改处）</h3>
+    <div class="m-orig" id="modalOrig"></div>
+    <button class="btn btn-secondary m-close" id="modalClose">✖ 关闭</button>
+  </div>
+</div>
+
+<!-- ===== Toast ===== -->
+<div class="toast" id="toast">
+  <div class="tt" id="toastTitle">✅ 完成</div>
+  <div class="tb" id="toastBody">操作成功</div>
+</div>
+
+<script>
+// ============================================================
+// 🐉 龍魂 · CNSH 溯源验证编辑器 v1.1（功能落地版）
+// DNA: #龍芯⚡️丙午·丙申·庚申·巳时·䷦蹇-CNSH-VALIDATOR-FRONTEND-FIX-V1.1-P0-d05a52c2
+// CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+// 核心能力: DNA自动识别 · 真LCS差异 · 高亮划线 · 悬停原文 ·
+//           并排对比 · 一键还原 · 新DNA版本链 · 三色审计
+// v1.1 修复: isBaselineSet 锚定 · v∞ 干支卦 DNA · Tab 切换 · 提取器增强
+// ============================================================
+
+// ===== 主权锚定 =====
+const UID = "9622";
+const CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z";
+const DNA_PREFIX = "#龍芯⚡️";
+const CHAIN_KEY = "cnsh_validator_chain_v1";
+const BASELINE_KEY = "cnsh_validator_baseline_v1";
+// 后端审计 API（bin/lh_cnsh_validator_api.py :8905）
+const API_BASE = (location.protocol === 'file:' || location.hostname === '127.0.0.1' || location.hostname === 'localhost')
+  ? 'http://127.0.0.1:8905' : `${location.protocol}//${location.hostname}:8905`;
+let apiOnline = false;
+let cloudVersions = [];
+
+// ===== 审计词库（一票否决词 + P0红线 + 演示敏感词）=====
+const VETO_WORDS = ["技术无国界","用户体验优先","灵活处理","国际接轨","简化管理","商业化需要","平衡各方","行业标准"];
+const P0_RED_LINES = ["rm -rf ~","git push --force","删除系统目录","删库跑路","写入.ssh","写入.gnupg"];
+const DEMO_SENSITIVE = ["password","token","secret","api_key","api-key","apikey","私钥","密钥"];
+
+// ===== 状态 =====
+let state = {
+  baselineContent: '',      // 基准（原始）内容
+  baselineDNA: '',          // 基准DNA
+  baselineVer: '',          // 基准版本号
+  currentContent: '',       // 当前待对比内容
+  currentDNA: '',           // 当前输入DNA
+  ops: null,                // LCS ops
+  stats: null,              // 统计
+  isBaselineSet: false,
+  auditResult: null
+};
+
+// ===== DOM =====
+const $ = id => document.getElementById(id);
+const inputEditor = $('inputEditor'), renderArea = $('renderArea'), sideView = $('sideView');
+const validateBtn = $('validateBtn'), clearBtn = $('clearBtn'), exampleBtn = $('exampleBtn');
+const restoreBtn = $('restoreBtn'), exportBtn = $('exportBtn'), auditBtn = $('auditBtn');
+const editorDna = $('editorDna'), inputDnaTag = $('inputDnaTag'), renderDnaTag = $('renderDnaTag');
+const tricolorBadge = $('tricolorBadge'), versionDisplay = $('versionDisplay');
+const diffStats = $('diffStats'), confirmDisplay = $('confirmDisplay');
+const rootDisplay = $('rootDisplay'), chainList = $('chainList');
+
+// ===== 工具 =====
+function showToast(title, body, type = 'info') {
+  const el = $('toast');
+  $('toastTitle').textContent = title;
+  $('toastBody').textContent = body;
+  const b = type === 'success' ? 'rgba(74,222,128,0.35)' : type === 'error' ? 'rgba(248,113,113,0.35)' : 'rgba(212,175,55,0.25)';
+  el.style.borderColor = b;
+  el.classList.add('show');
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => el.classList.remove('show'), 3500);
+}
+
+function escapeHtml(text) {
+  const d = document.createElement('div');
+  d.textContent = text == null ? '' : String(text);
+  return d.innerHTML;
+}
+function attrEscape(text) {
+  return escapeHtml(text).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+function pad2(n) { return String(n).padStart(2, '0'); }
+
+// ===== v∞ 干支卦 DNA（前端离线实现 · 与 rizhu_core.py / ganzhi_dna_engine.py 对齐）=====
+const TIAN_GAN = ['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+const DI_ZHI = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+const YIN_MONTH_GAN = [2, 4, 6, 8, 0, 2, 4, 6, 8, 0]; // 五虎遁：年干 -> 寅月天干索引
+const GUA64 = [
+  '䷀乾','䷫姤','䷌同人','䷉履','䷈小畜','䷍大有','䷊泰','䷋否',
+  '䷠遯','䷞咸','䷢晋','䷎谦','䷽小过','䷵归妹','䷼中孚','䷻节',
+  '䷤家人','䷰革','䷝离','䷶丰','䷣明夷','䷔噬嗑','䷀乾','䷕贲',
+  '䷩益','䷐随','䷔噬嗑','䷲震','䷟恒','䷧解','䷵归妹','䷽小过',
+  '䷓观','䷑蛊','䷱鼎','䷟恒','䷸巽','䷼中孚','䷺涣','䷴渐',
+  '䷅讼','䷮困','䷿未济','䷧解','䷺涣','䷜坎','䷃蒙','䷦蹇',
+  '䷠遯','䷞咸','䷃蒙','䷽小过','䷴渐','䷦蹇','䷳艮','䷎谦',
+  '䷇比','䷬萃','䷢晋','䷏豫','䷓观','䷇比','䷖剥','䷁坤'
+];
+
+function _daysBetween(a, b) {
+  return Math.floor((b - a) / (1000 * 60 * 60 * 24));
+}
+function getRizhu(dt) {
+  const anchor = new Date(1900, 0, 1);
+  const days = _daysBetween(anchor, dt);
+  const idx = (10 + days) % 60;
+  return TIAN_GAN[(idx % 60) % 10] + DI_ZHI[(idx % 60) % 12];
+}
+function getNianzhu(dt) {
+  const idx = (dt.getFullYear() - 4) % 60;
+  return TIAN_GAN[idx % 10] + DI_ZHI[idx % 12];
+}
+function getYuezhu(dt) {
+  const yinGan = YIN_MONTH_GAN[(dt.getFullYear() - 4) % 10];
+  const sm = dt.getDate() >= 7 ? dt.getMonth() : dt.getMonth() - 1;
+  const smAdj = sm < 0 ? sm + 12 : sm;
+  return TIAN_GAN[(yinGan + smAdj) % 10] + DI_ZHI[(2 + smAdj) % 12];
+}
+function getShizhu(dt) {
+  const riGan = TIAN_GAN.indexOf(getRizhu(dt)[0]);
+  const hz = ((dt.getHours() + 1) >> 1) % 12;
+  return TIAN_GAN[((riGan % 5) * 2 + hz) % 10] + DI_ZHI[hz];
+}
+function sizhuGanzhi(dt) {
+  return `${getNianzhu(dt)}·${getYuezhu(dt)}·${getRizhu(dt)}·${getShizhu(dt)}`;
+}
+function meihuaGua(anchor) {
+  let u = 0, l = 0;
+  if (anchor) {
+    const h = hash8(anchor);
+    u = parseInt(h.slice(0,2), 16) % 8;
+    l = parseInt(h.slice(2,4), 16) % 8;
+  } else {
+    const t = Date.now();
+    u = t % 8;
+    l = (t / 60000 | 0) % 8;
+  }
+  return GUA64[u * 8 + l];
+}
+function hash8(str) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return (h >>> 0).toString(16).toUpperCase().padStart(8, '0');
+}
+function generateDNA(module = 'CNSH-VALIDATE', action = 'MODIFY', parentDNA = null, contentAnchor = '') {
+  const now = new Date();
+  const ganzhi = sizhuGanzhi(now);
+  const gua = meihuaGua(contentAnchor || `${module}-${action}`);
+  const parentPart = parentDNA ? `-PARENT-${hash8(parentDNA).slice(0,4)}` : '';
+  const suffix = `${module}-${action}${parentPart}`;
+  const hash = hash8(`${ganzhi}·${gua}-${suffix}-${now.toISOString()}`);
+  return `${DNA_PREFIX}${ganzhi}·${gua}-${suffix}-${hash}`;
+}
+
+// ============================================================
+// 后端对接（lh_cnsh_validator_api :8905 · 哈希链 + 云端版本库）
+// ============================================================
+async function checkApi() {
+  try {
+    const resp = await fetch(`${API_BASE}/api/health`, { signal: AbortSignal.timeout(1500) });
+    if (resp.ok) {
+      const data = await resp.json();
+      apiOnline = true;
+      $('apiStatus').textContent = `☁️ 后端在线 · ${data.versions} 条云端版本`;
+      $('apiStatus').style.color = 'var(--green)';
+      fetchCloudVersions(state.baselineDNA);
+    } else {
+      $('apiStatus').textContent = '☁️ 后端离线（降级本地）';
+    }
+  } catch (e) {
+    $('apiStatus').textContent = '☁️ 后端离线（降级本地）';
+  }
+}
+
+async function backendAudit(content, originalContent) {
+  try {
+    const resp = await fetch(`${API_BASE}/api/audit`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content, original_content: originalContent || '' }),
+      signal: AbortSignal.timeout(3000),
+    });
+    if (!resp.ok) return null;
+    return await resp.json();
+  } catch (e) { return null; }
+}
+
+async function pushVersionToBackend(dna, content, ver, parentDna) {
+  if (!apiOnline) return;
+  try {
+    await fetch(`${API_BASE}/api/versions`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dna, content, version: ver, parent_dna: parentDna }),
+      signal: AbortSignal.timeout(3000),
+    });
+  } catch (e) {}
+}
+
+async function fetchCloudVersions(dna) {
+  if (!apiOnline) return;
+  try {
+    const url = dna ? `${API_BASE}/api/versions?dna=${encodeURIComponent(dna)}` : `${API_BASE}/api/versions`;
+    const resp = await fetch(url, { signal: AbortSignal.timeout(3000) });
+    if (!resp.ok) return;
+    const data = await resp.json();
+    cloudVersions = data.versions || [];
+    renderChain();
+  } catch (e) {}
+}
+
+function renderCloudChain() {
+  if (!cloudVersions.length) return;
+  // 去重：同一个 DNA 云端只显示一次；若本地链已包含该 DNA，云端不再重复显示
+  const localDnas = new Set(getChain().map(it => it.dna));
+  const seen = new Set();
+  const rows = cloudVersions.map((v, i) => ({ v, i }))
+    .filter(({ v }) => !seen.has(v.dna) && (seen.add(v.dna), true))
+    .filter(({ v }) => !localDnas.has(v.dna))
+    .map(({ v, i }) => `
+    <div class="chain-item" data-cloud="${i}">
+      <span class="cv">☁️v${v.version}</span>
+      <span class="cd">${escapeHtml(v.dna)}</span>
+      <span class="ct">${v.created_at ? String(v.created_at).slice(5, 16).replace('T', ' ') : ''}</span>
+    </div>`).join('');
+  if (!rows) return;
+  chainList.insertAdjacentHTML('beforeend', `<div class="chain-empty" style="color:var(--gold);">—— ☁️ 云端版本库 ——</div>${rows}`);
+  chainList.querySelectorAll('.chain-item[data-cloud]').forEach(el => {
+    el.addEventListener('click', () => loadCloudAsBaseline(Number(el.dataset.cloud)));
+  });
+}
+
+function loadCloudAsBaseline(i) {
+  const v = cloudVersions[i];
+  if (!v || !v.content) { showToast('⚠️ 云端记录无内容', '该版本未保存正文', 'error'); return; }
+  state.baselineContent = v.content;
+  state.baselineDNA = v.dna;
+  state.baselineVer = v.version || '1.0';
+  state.currentContent = v.content;
+  state.currentDNA = v.dna;
+  state.ops = null;
+  state.isBaselineSet = true;
+  inputEditor.value = `${v.dna}\n${v.content}`;
+  renderArea.innerHTML = `<span style="color:#4ade80;">✅ 已载入云端 v${state.baselineVer} 为基准</span>\n\n<span style="color:#666;">${escapeHtml(v.dna)}</span>`;
+  sideView.innerHTML = '';
+  renderDnaTag.textContent = v.dna;
+  editorDna.textContent = v.dna;
+  versionDisplay.textContent = `v${state.baselineVer}（基准·云端）`;
+  diffStats.textContent = '0 处修改（新基准）';
+  tricolorBadge.textContent = '🟢 基准';
+  tricolorBadge.className = 'badge green';
+  restoreBtn.disabled = true; exportBtn.disabled = true; auditBtn.disabled = true;
+  showToast('📌 云端基准已设定', `v${state.baselineVer} · ${v.dna.substring(0, 30)}…`, 'success');
+}
+
+// ===== 提取DNA（支持纯文本 + JSON包 + v∞ 干支卦格式）=====
+function _tryParseJson(text) {
+  // 原样解析
+  try { return JSON.parse(text); } catch (e) {}
+  // 容错：textarea 中输入的实际换行符，统一转义后再解析
+  try { return JSON.parse(text.replace(/\n/g, '\\n').replace(/\r/g, '')); } catch (e) {}
+  return null;
+}
+function extractDNA(text) {
+  const trimmed = text.trim();
+  // JSON包优先
+  if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
+    const obj = _tryParseJson(trimmed);
+    if (obj && obj.dna) return obj.dna;
+    if (obj && Array.isArray(obj) && obj[0] && obj[0].dna) return obj[0].dna;
+  }
+  // v∞ DNA: #龍芯⚡️...-HASH8；旧格式兼容: ...-UID9622
+  const m = text.match(/#龍芯⚡️(?:[^\s"]+-[a-fA-F0-9]{8}|[^\s"]+-UID9622)/);
+  return m ? m[1] || m[0] : null;
+}
+
+function extractContentWithoutDNA(text) {
+  const trimmed = text.trim();
+  // JSON包：直接使用 content 字段（含未转义换行容错）
+  if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
+    const obj = _tryParseJson(trimmed);
+    if (obj && typeof obj.content === 'string') return obj.content;
+  }
+  // 纯文本：去掉 DNA 行/字段
+  return text.replace(/#龍芯⚡️(?:[^\s"]+-[a-fA-F0-9]{8}|[^\s"]+-UID9622)/, '').trim();
+}
+
+// ===== 数字根 =====
+function digitalRoot(text) {
+  let total = 0;
+  for (let i = 0; i < text.length; i++) total += text.charCodeAt(i);
+  while (total >= 10) {
+    let s = 0;
+    while (total > 0) { s += total % 10; total = Math.floor(total / 10); }
+    total = s;
+  }
+  return total;
+}
+
+// ============================================================
+// 真 LCS 差异算法（行级 · 防错位误报）
+// ============================================================
+function lcsDiff(origLines, modLines) {
+  const n = origLines.length, m = modLines.length;
+  // 复杂度保护：超限退化为哈希行匹配
+  const MAX_DP = 4_000_000;
+  if (n * m > MAX_DP) return hashDiff(origLines, modLines);
+
+  // DP
+  const dp = new Array(n + 1);
+  for (let i = 0; i <= n; i++) dp[i] = new Array(m + 1).fill(0);
+  for (let i = n - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) {
+      dp[i][j] = origLines[i] === modLines[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
+    }
+  }
+  // 回溯
+  const ops = [];
+  let i = 0, j = 0;
+  while (i < n && j < m) {
+    if (origLines[i] === modLines[j]) {
+      ops.push({ type: 'eq', line: origLines[i] });
+      i++; j++;
+    } else if (dp[i + 1][j] >= dp[i][j + 1]) {
+      ops.push({ type: 'del', line: origLines[i] });
+      i++;
+    } else {
+      ops.push({ type: 'ins', line: modLines[j] });
+      j++;
+    }
+  }
+  while (i < n) { ops.push({ type: 'del', line: origLines[i] }); i++; }
+  while (j < m) { ops.push({ type: 'ins', line: modLines[j] }); j++; }
+  return ops;
+}
+
+// 退化方案：哈希行匹配（大文本）
+function hashDiff(origLines, modLines) {
+  const ops = [];
+  const modSet = new Map();
+  modLines.forEach((l, idx) => { if (!modSet.has(l)) modSet.set(l, []); modSet.get(l).push(idx); });
+  const usedMod = new Set();
+  const usedOrig = new Set();
+  for (let i = 0; i < origLines.length; i++) {
+    const l = origLines[i];
+    const matches = modSet.get(l);
+    if (matches) {
+      const k = matches.find(x => !usedMod.has(x));
+      if (k !== undefined) { usedMod.add(k); usedOrig.add(i); }
+    }
+  }
+  let i = 0, j = 0;
+  while (i < origLines.length || j < modLines.length) {
+    if (i < origLines.length && usedOrig.has(i) && j < modLines.length && usedMod.has(j) && origLines[i] === modLines[j]) {
+      ops.push({ type: 'eq', line: origLines[i] }); i++; j++;
+    } else if (i < origLines.length && usedOrig.has(i) && j < modLines.length && !usedMod.has(j)) {
+      ops.push({ type: 'ins', line: modLines[j] }); j++;
+    } else if (i < origLines.length && !usedOrig.has(i)) {
+      ops.push({ type: 'del', line: origLines[i] }); i++;
+    } else {
+      ops.push({ type: 'ins', line: modLines[j] }); j++;
+    }
+  }
+  return ops;
+}
+
+// 行内字符级差异（找最长公共前后缀，突出中间差异）
+function inlineDiff(orig, mod) {
+  let pre = 0;
+  const maxPre = Math.min(orig.length, mod.length);
+  while (pre < maxPre && orig[pre] === mod[pre]) pre++;
+  let suf = 0;
+  while (suf < maxPre - pre && orig[orig.length - 1 - suf] === mod[mod.length - 1 - suf]) suf++;
+  return { pre, suf };
+}
+
+// ===== 统计 =====
+function calcStats(ops) {
+  const st = { added: 0, deleted: 0, changed: 0, unchanged: 0 };
+  for (const op of ops) {
+    if (op.type === 'ins') st.added++;
+    else if (op.type === 'del') st.deleted++;
+    else st.unchanged++;
+  }
+  st.changed = st.added + st.deleted;
+  return st;
+}
+
+// ===== 渲染：高亮视图 =====
+function renderHighlight(ops) {
+  const html = [];
+  for (const op of ops) {
+    const esc = escapeHtml(op.line);
+    if (op.type === 'eq') {
+      html.push(`<span class="line context">${esc}</span>`);
+    } else if (op.type === 'ins') {
+      html.push(`<span class="line added"><span class="tag ins">+</span>${esc}</span>`);
+    } else if (op.type === 'del') {
+      html.push(`<span class="line deleted" data-orig="${attrEscape(op.line)}"><span class="tag del">−</span>${esc}<span class="orig-tip">原文: ${esc}</span></span>`);
+    }
+  }
+  renderArea.innerHTML = html.join('\n');
+  // 点击删除行 → 弹层看原文
+  renderArea.querySelectorAll('.line.deleted').forEach(el => {
+    el.addEventListener('click', () => {
+      $('modalOrig').textContent = el.getAttribute('data-orig');
+      $('modalMask').classList.add('show');
+    });
+  });
+}
+
+// ===== 渲染：并排对比 =====
+function renderSideBySide(ops) {
+  const rows = [];
+  let lnum = 0, rnum = 0;
+  for (const op of ops) {
+    if (op.type === 'eq') {
+      lnum++; rnum++;
+      rows.push(`<tr><td class="num">${lnum}</td><td class="col-left">${escapeHtml(op.line)}</td><td class="num">${rnum}</td><td class="col-right">${escapeHtml(op.line)}</td></tr>`);
+    } else if (op.type === 'del') {
+      lnum++;
+      rows.push(`<tr class="row-del"><td class="num">${lnum}</td><td class="col-left">${escapeHtml(op.line)}</td><td class="num">·</td><td class="col-right">—</td></tr>`);
+    } else if (op.type === 'ins') {
+      rnum++;
+      rows.push(`<tr class="row-ins"><td class="num">·</td><td class="col-left">—</td><td class="num">${rnum}</td><td class="col-right">${escapeHtml(op.line)}</td></tr>`);
+    }
+  }
+  sideView.innerHTML = `<table class="side-table"><thead><tr><th class="num">#</th><th class="col-left">📜 原始（基准 v${state.baselineVer || '1.0'}）</th><th class="num">#</th><th class="col-right">✏️ 修改（当前）</th></tr></thead><tbody>${rows.join('')}</tbody></table>`;
+}
+
+// ===== 三色审计（增强版）=====
+function runAuditCore(content, ops) {
+  let score = 100;
+  const details = [];
+  const root = digitalRoot(content);
+  const len = content.length;
+
+  // 1. 数字根（369锚点）
+  if (root === 3 || root === 9) { score -= 15; details.push(`数字根 ${root} 触发 369 熔断提示`); }
+  else if (root === 6) { score -= 5; details.push(`数字根 ${root}（6·需复核）`); }
+  else details.push(`数字根 ${root} 正常`);
+
+  // 2. 一票否决词（GATE-03 语义闸）
+  for (const w of VETO_WORDS) {
+    if (content.includes(w)) { score -= 15; details.push(`一票否决词: "${w}"`); }
+  }
+  // 3. P0 红线（GATE-05 伦理闸）
+  for (const w of P0_RED_LINES) {
+    if (content.includes(w)) { score -= 30; details.push(`P0红线命令/操作: "${w}"`); }
+  }
+  // 4. 敏感信息（GATE-06 数据闸·演示级检测）
+  for (const w of DEMO_SENSITIVE) {
+    if (content.toLowerCase().includes(w)) { score -= 8; details.push(`含敏感词: ${w}（应脱敏）`); }
+  }
+  // 5. 长度
+  if (len < 10) { score -= 10; details.push('内容过短'); }
+  if (len > 10000) { score -= 5; details.push('内容过长'); }
+  // 6. 差异规模（大量修改 = 风险）
+  if (ops) {
+    const c = ops.filter(o => o.type !== 'eq').length;
+    if (c >= 10) { score -= 10; details.push(`大范围修改 ${c} 处（需复核动机）`); }
+    else if (c >= 5) { score -= 5; details.push(`中量修改 ${c} 处`); }
+  }
+  // 7. 修改比
+  if (ops) {
+    const total = ops.length;
+    const changed = ops.filter(o => o.type !== 'eq').length;
+    if (total > 0 && changed / total > 0.5) { score -= 5; details.push('修改占比 > 50%'); }
+  }
+
+  const final = Math.max(0, Math.min(100, score));
+  let color, status;
+  if (final >= 85) { color = '🟢'; status = '通过'; }
+  else if (final >= 60) { color = '🟡'; status = '待核'; }
+  else { color = '🔴'; status = '不通过'; }
+  return { score: final, color, status, details, root };
+}
+
+// ===== 主验证 =====
+function validateContent() {
+  const input = inputEditor.value;
+  if (!input.trim()) { showToast('⚠️ 内容为空', '请粘贴带DNA追溯码的内容', 'error'); return; }
+
+  const dna = extractDNA(input);
+  if (!dna) { showToast('⚠️ 未找到DNA', '内容必须包含 #龍芯⚡️ 格式的DNA追溯码', 'error'); return; }
+
+  const content = extractContentWithoutDNA(input);
+  if (!content.trim()) { showToast('⚠️ 内容为空', '去掉DNA后没有正文内容', 'error'); return; }
+
+  const root = digitalRoot(content);
+  rootDisplay.textContent = root;
+  inputDnaTag.textContent = dna;
+
+  // ---- 首次：设为基准 ----
+  if (!state.isBaselineSet) {
+    state.baselineContent = content;
+    state.baselineDNA = dna;
+    state.baselineVer = nextVersionFromChain();
+    state.currentContent = content;
+    state.currentDNA = dna;
+    state.ops = null;
+    state.isBaselineSet = true;  // v1.1 关键修复：必须锚定基准状态，否则永远重复设基准
+
+    renderArea.innerHTML = `<span style="color:#4ade80;">✅ 已设为原始基准 v${state.baselineVer}</span>\n\n<span style="color:#666;">DNA: ${escapeHtml(dna)}</span>\n\n<span style="color:#666;">内容: ${escapeHtml(content.substring(0, 120))}${content.length > 120 ? '…' : ''}</span>\n\n<span style="color:#444;">数字根: ${root}</span>`;
+    sideView.innerHTML = '';
+    renderDnaTag.textContent = dna;
+    editorDna.textContent = dna;
+    versionDisplay.textContent = `v${state.baselineVer}（基准）`;
+    diffStats.textContent = '0 处修改（基准）';
+    tricolorBadge.textContent = '🟢 基准';
+    tricolorBadge.className = 'badge green';
+    confirmDisplay.textContent = CONFIRM;
+    restoreBtn.disabled = true; exportBtn.disabled = true; auditBtn.disabled = true;
+
+    // 写入基准持久化
+    try {
+      localStorage.setItem(BASELINE_KEY, JSON.stringify({ dna, content, ver: state.baselineVer, ts: Date.now() }));
+    } catch (e) {}
+    showToast('📌 已设为基准版本', `DNA: ${dna.substring(0, 34)}…`, 'success');
+    pushVersionToBackend(dna, content, state.baselineVer, '');
+    return;
+  }
+
+  // ---- 再次：对比基准 ----
+  state.currentContent = content;
+  state.currentDNA = dna;
+
+  const ops = lcsDiff(state.baselineContent.split('\n'), content.split('\n'));
+  const stats = calcStats(ops);
+  state.ops = ops; state.stats = stats;
+
+  const newDNA = generateDNA('CNSH-VALIDATOR', 'MODIFY', state.baselineDNA, content);
+  state.currentDNA = newDNA;
+
+  renderHighlight(ops);
+  renderSideBySide(ops);
+  renderDnaTag.textContent = newDNA;
+  editorDna.textContent = newDNA;
+
+  const nextVer = bumpVersion(state.baselineVer);
+  versionDisplay.textContent = `v${nextVer}（修改）`;
+  diffStats.textContent = `${stats.changed} 处修改（+${stats.added} −${stats.deleted}）`;
+
+  // 差异规模 → 三色（快评）
+  if (stats.changed === 0) {
+    tricolorBadge.textContent = '🟢 无差异';
+    tricolorBadge.className = 'badge green';
+  } else if (stats.changed <= 3) {
+    tricolorBadge.textContent = '🟡 轻微修改';
+    tricolorBadge.className = 'badge yellow';
+  } else {
+    tricolorBadge.textContent = '🔴 大量修改';
+    tricolorBadge.className = 'badge red';
+  }
+
+  restoreBtn.disabled = false; exportBtn.disabled = false; auditBtn.disabled = false;
+  showToast('✅ 对比完成', `发现 ${stats.changed} 处修改（+${stats.added} −${stats.deleted}）`, 'success');
+
+  // 入版本链（本地 + 云端版本库）
+  addToChain({
+    dna: newDNA, parent: state.baselineDNA, ver: nextVer,
+    content, changed: stats.changed, ts: Date.now()
+  });
+  pushVersionToBackend(newDNA, content, nextVer, state.baselineDNA);
+}
+
+// ===== 还原 =====
+function restoreOriginal() {
+  if (!state.isBaselineSet) { showToast('⚠️ 无基准', '请先验证并设置基准版本', 'error'); return; }
+  inputEditor.value = `${state.baselineDNA}\n${state.baselineContent}`;
+  state.currentContent = state.baselineContent;
+  state.ops = null;
+  renderArea.innerHTML = `<span style="color:#4ade80;">✅ 已还原到基准版本 v${state.baselineVer}</span>\n\n<span style="color:#666;">${escapeHtml(state.baselineContent.substring(0, 200))}${state.baselineContent.length > 200 ? '…' : ''}</span>`;
+  sideView.innerHTML = '';
+  renderDnaTag.textContent = state.baselineDNA;
+  versionDisplay.textContent = `v${state.baselineVer}（基准）`;
+  diffStats.textContent = '0 处修改（已还原）';
+  restoreBtn.disabled = true; exportBtn.disabled = true; auditBtn.disabled = true;
+  showToast('↩️ 已还原', `恢复至基准 v${state.baselineVer}`, 'success');
+}
+
+// ===== 导出 =====
+function exportWithDNA() {
+  const content = extractContentWithoutDNA(inputEditor.value);
+  if (!content) { showToast('⚠️ 内容为空', '无可导出的内容', 'error'); return; }
+  const dna = state.currentDNA || generateDNA('CNSH-VALIDATOR', 'EXPORT', state.baselineDNA || null, content);
+  const parent = state.baselineDNA ? `\n# 父DNA: ${state.baselineDNA}` : '';
+  const exportContent = `${dna}${parent}\n${content}`;
+  const blob = new Blob([exportContent], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `cnsh_validate_${new Date().toISOString().slice(0, 10)}.cnsh`;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('📤 导出成功', `${dna.substring(0, 34)}…`, 'success');
+}
+
+// ===== 三色审计（优先后端 P05 引擎 · 离线降级前端）=====
+async function runAudit() {
+  const content = extractContentWithoutDNA(inputEditor.value);
+  if (!content) { showToast('⚠️ 内容为空', '无可审计的内容', 'error'); return; }
+
+  // ① 后端引擎（哈希链审计）
+  if (apiOnline) {
+    const br = await backendAudit(content, state.baselineContent || '');
+    if (br && br.ok) {
+      const r = { score: br.score, color: br.color, status: br.status, details: br.details, root: br.digital_root, hash: br.hash, auditor: br.auditor };
+      state.auditResult = r;
+      tricolorBadge.textContent = `${r.color} ${r.status}`;
+      tricolorBadge.className = `badge ${r.color === '🟢' ? 'green' : r.color === '🟡' ? 'yellow' : 'red'}`;
+      const detailText = r.details.length ? r.details.map(d => `• ${d}`).join('\n') : '• 无异常';
+      showToast(`⚖️ 三色审计(P05后端): ${r.color} ${r.status}`, `得分: ${r.score}/100\n哈希: ${r.hash.slice(0, 16)}…\n${detailText}`, r.color === '🟢' ? 'success' : r.color === '🔴' ? 'error' : 'info');
+      return;
+    }
+  }
+  // ② 前端降级引擎
+  const r = runAuditCore(content, state.ops);
+  state.auditResult = r;
+  tricolorBadge.textContent = `${r.color} ${r.status}`;
+  tricolorBadge.className = `badge ${r.color === '🟢' ? 'green' : r.color === '🟡' ? 'yellow' : 'red'}`;
+  const detailText = r.details.length ? r.details.map(d => `• ${d}`).join('\n') : '• 无异常';
+  showToast(`⚖️ 三色审计: ${r.color} ${r.status}`, `得分: ${r.score}/100\n${detailText}`, r.color === '🟢' ? 'success' : r.color === '🔴' ? 'error' : 'info');
+}
+
+// ============================================================
+// 版本链（localStorage）
+// ============================================================
+function getChain() {
+  try {
+    const raw = localStorage.getItem(CHAIN_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) { return []; }
+}
+function addToChain(item) {
+  const chain = getChain();
+  chain.push(item);
+  try { localStorage.setItem(CHAIN_KEY, JSON.stringify(chain)); } catch (e) {}
+  renderChain();
+}
+function clearChain() {
+  try { localStorage.removeItem(CHAIN_KEY); } catch (e) {}
+  renderChain();
+}
+function bumpVersion(ver) {
+  const m = String(ver || '1.0').match(/^(\d+)\.(\d+)$/);
+  if (!m) return '1.1';
+  return `${m[1]}.${Number(m[2]) + 1}`;
+}
+function nextVersionFromChain() {
+  const chain = getChain();
+  if (!chain.length) return '1.0';
+  const last = chain[chain.length - 1];
+  return bumpVersion(last.ver);
+}
+function renderChain() {
+  const chain = getChain();
+  if (!chain.length) { chainList.innerHTML = '<div class="chain-empty">暂无版本记录</div>'; return; }
+  chainList.innerHTML = chain.slice().reverse().map((it, idx, arr) => {
+    const i = chain.length - 1 - idx;
+    const isLast = i === chain.length - 1;
+    const time = new Date(it.ts).toLocaleString('zh-CN', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+    const chgCls = it.changed === 0 ? 'green' : it.changed <= 3 ? 'yellow' : 'red';
+    const badge = `<span class="badge ${chgCls}" style="padding:1px 8px;font-size:10px;">${it.changed} 改</span>`;
+    return `<div class="chain-item" data-idx="${i}">
+      <span class="cv">v${it.ver}</span>
+      <span class="cd">${escapeHtml(it.dna)}</span>
+      ${badge}
+      <span class="ct">${time}</span>
+    </div>`;
+  }).join('');
+  chainList.querySelectorAll('.chain-item:not([data-cloud])').forEach(el => {
+    el.addEventListener('click', () => loadChainAsBaseline(Number(el.dataset.idx)));
+  });
+  renderCloudChain();
+}
+
+// 载入版本链节点为基准（重新开始对比）
+function loadChainAsBaseline(idx) {
+  const chain = getChain();
+  const it = chain[idx];
+  if (!it) return;
+  state.baselineContent = it.content;
+  state.baselineDNA = it.dna;
+  state.baselineVer = it.ver;
+  state.currentContent = it.content;
+  state.currentDNA = it.dna;
+  state.ops = null;
+  state.isBaselineSet = true;
+  inputEditor.value = `${it.dna}\n${it.content}`;
+  renderArea.innerHTML = `<span style="color:#4ade80;">✅ 已载入 v${it.ver} 为基准</span>\n\n<span style="color:#666;">${escapeHtml(it.dna)}</span>`;
+  sideView.innerHTML = '';
+  renderDnaTag.textContent = it.dna;
+  editorDna.textContent = it.dna;
+  versionDisplay.textContent = `v${it.ver}（基准）`;
+  diffStats.textContent = '0 处修改（新基准）';
+  tricolorBadge.textContent = '🟢 基准';
+  tricolorBadge.className = 'badge green';
+  restoreBtn.disabled = true; exportBtn.disabled = true; auditBtn.disabled = true;
+  showToast('📌 新基准已设定', `v${it.ver} · ${it.dna.substring(0, 30)}…`, 'success');
+}
+
+// ===== 示例 =====
+function loadExample() {
+  const example = `#龍芯⚡️丙午·丙申·庚申·巳时·䷀乾-CNSH-VALIDATOR-ORIGIN-V1.0-P0-a7f3c2b1
+龍魂系统主权声明：
+本系统所有数据主权归用户所有，遵循中国法律为准。
+
+核心原则：
+1. 数据不出境
+2. 算法可审计
+3. 用户可退出
+
+DNA追溯码确保每一条数据都有唯一身份。`;
+  inputEditor.value = example;
+  resetState(true);
+  renderArea.innerHTML = '<span style="color:#444;">示例已加载 · 点击「验证 & 对比」设为基准</span>';
+  showToast('📄 示例已加载', 'Ctrl+Enter 或点「验证 & 对比」', 'info');
+}
+
+// ===== 清空 =====
+function resetState(keepChain) {
+  state.baselineContent = ''; state.baselineDNA = ''; state.baselineVer = '';
+  state.currentContent = ''; state.currentDNA = ''; state.ops = null; state.stats = null;
+  state.isBaselineSet = false; state.auditResult = null;
+  if (!keepChain) { try { localStorage.removeItem(BASELINE_KEY); } catch (e) {} }
+}
+function clearAll() {
+  inputEditor.value = '';
+  resetState(false);
+  renderArea.innerHTML = '<span style="color:#444;">等待验证...</span>';
+  sideView.innerHTML = '';
+  renderDnaTag.textContent = '无DNA'; inputDnaTag.textContent = '无DNA';
+  editorDna.textContent = '#龍芯⚡️待生成';
+  versionDisplay.textContent = 'v0.0';
+  diffStats.textContent = '0 处修改';
+  confirmDisplay.textContent = '未生成';
+  rootDisplay.textContent = '-';
+  restoreBtn.disabled = true; exportBtn.disabled = true; auditBtn.disabled = true;
+  tricolorBadge.textContent = '🟢 通过'; tricolorBadge.className = 'badge green';
+  showToast('🗑️ 已清空', '所有数据已重置（版本链保留）', 'info');
+}
+
+// ===== Tab 切换 =====
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const v = tab.dataset.view;
+    renderArea.classList.toggle('active', v === 'hl');
+    sideView.classList.toggle('active', v === 'side');
+  });
+});
+
+// ===== Modal =====
+$('modalClose').addEventListener('click', () => $('modalMask').classList.remove('show'));
+$('modalMask').addEventListener('click', e => { if (e.target === $('modalMask')) $('modalMask').classList.remove('show'); });
+
+// ===== 事件 =====
+validateBtn.addEventListener('click', validateContent);
+clearBtn.addEventListener('click', clearAll);
+exampleBtn.addEventListener('click', loadExample);
+restoreBtn.addEventListener('click', restoreOriginal);
+exportBtn.addEventListener('click', exportWithDNA);
+auditBtn.addEventListener('click', runAudit);
+$('syncCloudBtn').addEventListener('click', () => {
+  fetchCloudVersions(state.baselineDNA);
+  showToast('☁️ 云端同步', apiOnline ? '正在拉取云端版本库…' : '后端服务未连接\n启动: python3 bin/lh_cnsh_validator_api.py', apiOnline ? 'info' : 'error');
+});
+inputEditor.addEventListener('keydown', e => {
+  if (e.ctrlKey && e.key === 'Enter') { e.preventDefault(); validateBtn.click(); }
+});
+
+// ===== 初始化 =====
+renderChain();
+confirmDisplay.textContent = CONFIRM;
+checkApi();
+// 恢复上次基准
+try {
+  const saved = JSON.parse(localStorage.getItem(BASELINE_KEY) || 'null');
+  if (saved && saved.content) {
+    inputEditor.value = `${saved.dna}\n${saved.content}`;
+    state.baselineContent = saved.content;
+    state.baselineDNA = saved.dna;
+    state.baselineVer = saved.ver || '1.0';
+    state.currentContent = saved.content;
+    state.currentDNA = saved.dna;
+    state.isBaselineSet = true;
+    versionDisplay.textContent = `v${state.baselineVer}（基准）`;
+    renderDnaTag.textContent = saved.dna;
+    inputDnaTag.textContent = saved.dna;
+    editorDna.textContent = saved.dna;
+    renderArea.innerHTML = `<span style="color:#4ade80;">↩️ 已恢复上次基准 v${state.baselineVer}</span>\n\n<span style="color:#666;">${escapeHtml(saved.dna)}</span>`;
+  }
+} catch (e) {}
+
+console.log('🐉 CNSH 溯源验证编辑器 v1.1 已加载');
+console.log(`DNA: ${generateDNA('CNSH-VALIDATOR', 'INIT')}`);
+console.log(`确认码: ${CONFIRM}`);
+</script>
+</body>
+</html>

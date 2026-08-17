@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂声纹DNA锚定模块（多用户注册版）
-Dragon Soul Voice DNA Anchor - Multi-User Registration
+LongHun Voice DNA Anchor - Multi-User Registration
 
 功能：
   - 录入声纹特征（麦克风采集，16kHz）

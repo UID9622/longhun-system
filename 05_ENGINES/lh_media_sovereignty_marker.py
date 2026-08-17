@@ -139,7 +139,7 @@ class FontMarker:
     """字体主权标记器
 
     当前实现：
-      - 校验 U+E200 龙纹缩微水印是否存在
+      - 校验 U+E200 龍纹缩微水印是否存在
       - 在 name 表中写入 DNA 追溯字段（vendor URL / license description）
       - 生成带 DNA 的副本
     """
@@ -156,7 +156,7 @@ class FontMarker:
         return self.TTFont(str(self.font_path))
 
     def verify_native_watermark(self, sample_chars: Optional[List[str]] = None) -> dict:
-        """验证原生龙纹水印是否存在"""
+        """验证原生龍纹水印是否存在"""
         font = self._load()
         cmap = font['cmap'].getBestCmap()
         report = {

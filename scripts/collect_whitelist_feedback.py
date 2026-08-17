@@ -4,8 +4,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 '''
-🐉 龙魂 · 白名单反馈收集器 v1.0
-DNA: #龙芯202608010008-白名单反馈-v1.0-UID9622
+🐉 龍魂 · 白名单反馈收集器 v1.0
+DNA: #龍芯202608010008-白名单反馈-v1.0-UID9622
 
 功能：
   - 从审计日志中提取高频误报
@@ -72,7 +72,7 @@ def parse_audit_logs(log_dir: Path) -> Counter:
 def generate_suggestions(counter: Counter, top_n: int = 20) -> str:
     '''生成白名单建议'''
     lines = []
-    lines.append("# 🐉 龙魂 · 白名单建议")
+    lines.append("# 🐉 龍魂 · 白名单建议")
     lines.append(f"*生成时间: {datetime.now().isoformat()}*")
     lines.append("")
     lines.append("以下是从审计日志中提取的高频误报，请人工审查后添加到 `.audit-whitelist`：")
@@ -100,12 +100,12 @@ def generate_suggestions(counter: Counter, top_n: int = 20) -> str:
     lines.append("2. 运行 `lh 掀黑箱` 验证是否还有误报")
     lines.append("3. 提交白名单更新到仓库")
     lines.append("")
-    lines.append(f"*DNA: #龙芯{datetime.now().strftime('%Y%m%d%H%M%S')}-白名单反馈-UID9622*")
+    lines.append(f"*DNA: #龍芯{datetime.now().strftime('%Y%m%d%H%M%S')}-白名单反馈-UID9622*")
 
     return "\n".join(lines)
 
 def main():
-    parser = argparse.ArgumentParser(description="龙魂 · 白名单反馈收集器")
+    parser = argparse.ArgumentParser(description="龍魂 · 白名单反馈收集器")
     parser.add_argument("--logs", type=Path, help="审计日志目录")
     parser.add_argument("--output", type=Path, help="输出文件路径")
     parser.add_argument("--top", type=int, default=20, help="显示前N个高频项")

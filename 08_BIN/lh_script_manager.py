@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🐉 龍魂脚本管理器 (Longhun Script Manager)
+🐉 龍魂脚本管理器 (LongHun Script Manager)
 自动扫描·对齐·验证·修复·审计·签名——全链路一体
 
 DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
@@ -165,7 +165,7 @@ class CNSHAlignEngine:
     # ── 文件名检测 ──
     # 龍魂标准: lh_<模块>_<功能>.py / lh_<功能>.py
     LH_NAME_RE = re.compile(r'^lh_[a-z][a-z0-9_]*(?:_[a-z][a-z0-9_]*)*\.(py|sh)$')
-    # 检测是否含繁体「龍」（应为「龍」而非「龙」）
+    # 检测是否含繁体「龍」（应为「龍」而非「龍」）
     LONG_SIMP_RE = re.compile(r'龍魂|龍芯|龍盾')
 
     # ── 一票否决词（来自对齐规则第十层）──
@@ -312,7 +312,7 @@ class CNSHAlignEngine:
         # 检测繁体「龍」
         long_simp = cls.LONG_SIMP_RE.findall(content)
         if long_simp:
-            info.issues.append(f"发现简体「龙」: {set(long_simp)}，应为繁体「龍」")
+            info.issues.append(f"发现简体「龍」: {set(long_simp)}，应为繁体「龍」")
             info.suggestions.append("将「龍魂/龍芯/龍盾」改为「龍魂/龍芯/龍盾」")
 
         # ── 5. 一票否决词检测 ──

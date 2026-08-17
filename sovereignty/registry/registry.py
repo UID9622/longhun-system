@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂 UID9622 主权身份注册核心
-Dragon Soul UID9622 Sovereign Identity Registry Core
+LongHun UID9622 Sovereign Identity Registry Core
 
 功能：
   - 生成唯一 UID9622-XXXXXX 编号

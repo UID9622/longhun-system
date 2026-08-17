@@ -6,7 +6,7 @@
 
 <!-- DNA -->
 ```
-#龍芯⚡️2026-07-06-AGENT-ORCHESTRATION-SPEC-v1.7
+#龍芯⚡️丙午·丙申·庚申·亥时-AGENT-ORCHESTRATION-SPEC-v1.7
 ```
 <!-- 君子协议：本文件受龍魂DNA追溯保护，来源不可删、影响不可覆、贡献不可抹 -->
 
@@ -281,10 +281,10 @@ longhun-system/agents/
 
 ## 十一、DNA 与君子协议
 
-- **规范 DNA**：`#龍芯⚡️2026-07-06-AGENT-ORCHESTRATION-SPEC-v1.7`
-- **注册表 DNA**：`#龍芯⚡️2026-07-06-AGENT-MANIFEST-v1.10-CLEAN`
-- **编排器 DNA**：`#龍芯⚡️2026-06-26-AGENT-ORCHESTRATOR-v1.1`
-- **守护进程 DNA**：`#龍芯⚡️2026-06-26-LONGHUN-AGENT-DAEMON-v1.0`
+- **规范 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-AGENT-ORCHESTRATION-SPEC-v1.7`
+- **注册表 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-AGENT-MANIFEST-v1.10-CLEAN`
+- **编排器 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-AGENT-ORCHESTRATOR-v1.1`
+- **守护进程 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AGENT-DAEMON-v1.0`
 - **确认码**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 - **协议**：CC BY-NC-SA 4.0
 - **原则**：站普通人一边、数据主权至上、反垄断评分独立、来源不可删

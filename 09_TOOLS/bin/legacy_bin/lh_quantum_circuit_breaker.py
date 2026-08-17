@@ -53,7 +53,7 @@ class ValueAnchor:
         scores = []
         children_kw = ['儿童','孩子','小孩','未成年','幼儿','baby','child','kid','minor']
         vulnerable_kw = ['老人','残疾人','弱势','vulnerable']
-        culture_kw = ['中国','易经','道德经','龙魂','CNSH','文化']
+        culture_kw = ['中国','易经','道德经','龍魂','CNSH','文化']
         legacy_kw = ['传承','未来','下一代','legacy','long-term']
 
         if any(kw in context for kw in children_kw):

@@ -92,7 +92,7 @@ publication/CSDN_post.md
 定位：
 - 面向中文平台的发布稿骨架
 - 摘要可从正文中文摘要同步
-- 正文结构包括 provenance gap、七因子、动态 DNA、Longhun、边界声明
+- 正文结构包括 provenance gap、七因子、动态 DNA、LongHun、边界声明
 ### 6.3 arXiv 提交包骨架
 ```plain text
 publication/arXiv_submission.md

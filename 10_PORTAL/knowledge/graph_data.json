@@ -3695,10 +3695,10 @@
       "label": "角木蛟",
       "type": "astronomy",
       "dna": "#龍芯⚡️2026-07-08-KNOWLEDGE-CRAWL-C4ADEB68",
-      "description": "角宿，东方青龙第一宿，为龙角。主春生之机。",
+      "description": "角宿，东方青龍第一宿，为龍角。主春生之机。",
       "source": "crawler",
       "category": "星宿",
-      "direction": "东方青龙",
+      "direction": "东方青龍",
       "element": "木",
       "related_nodes": [
         "knowledge/wuxing"
@@ -3706,13 +3706,13 @@
     },
     "knowledge/xingxiu/亢": {
       "node_id": "knowledge/xingxiu/亢",
-      "label": "亢金龙",
+      "label": "亢金龍",
       "type": "astronomy",
       "dna": "#龍芯⚡️2026-07-08-KNOWLEDGE-CRAWL-FB7D7B5C",
-      "description": "亢宿，东方青龙第二宿，为龙颈。主风雨调和。",
+      "description": "亢宿，东方青龍第二宿，为龍颈。主风雨调和。",
       "source": "crawler",
       "category": "星宿",
-      "direction": "东方青龙",
+      "direction": "东方青龍",
       "element": "金",
       "related_nodes": [
         "knowledge/wuxing"
@@ -3723,10 +3723,10 @@
       "label": "氐土貉",
       "type": "astronomy",
       "dna": "#龍芯⚡️2026-07-08-KNOWLEDGE-CRAWL-51A5A85B",
-      "description": "氐宿，东方青龙第三宿，为龙胸。主根基稳固。",
+      "description": "氐宿，东方青龍第三宿，为龍胸。主根基稳固。",
       "source": "crawler",
       "category": "星宿",
-      "direction": "东方青龙",
+      "direction": "东方青龍",
       "element": "土",
       "related_nodes": [
         "knowledge/wuxing"
@@ -3737,10 +3737,10 @@
       "label": "房日兔",
       "type": "astronomy",
       "dna": "#龍芯⚡️2026-07-08-KNOWLEDGE-CRAWL-11109B6E",
-      "description": "房宿，东方青龙第四宿，为龙腹。主明堂政令。",
+      "description": "房宿，东方青龍第四宿，为龍腹。主明堂政令。",
       "source": "crawler",
       "category": "星宿",
-      "direction": "东方青龙",
+      "direction": "东方青龍",
       "element": "日",
       "related_nodes": [
         "knowledge/wuxing"
@@ -3751,10 +3751,10 @@
       "label": "心月狐",
       "type": "astronomy",
       "dna": "#龍芯⚡️2026-07-08-KNOWLEDGE-CRAWL-216B9DC5",
-      "description": "心宿，东方青龙第五宿，为龙心。主帝王之星。",
+      "description": "心宿，东方青龍第五宿，为龍心。主帝王之星。",
       "source": "crawler",
       "category": "星宿",
-      "direction": "东方青龙",
+      "direction": "东方青龍",
       "element": "月",
       "related_nodes": [
         "knowledge/wuxing"
@@ -3765,10 +3765,10 @@
       "label": "尾火虎",
       "type": "astronomy",
       "dna": "#龍芯⚡️2026-07-08-KNOWLEDGE-CRAWL-4C543E30",
-      "description": "尾宿，东方青龙第六宿，为龙尾。主子孙繁衍。",
+      "description": "尾宿，东方青龍第六宿，为龍尾。主子孙繁衍。",
       "source": "crawler",
       "category": "星宿",
-      "direction": "东方青龙",
+      "direction": "东方青龍",
       "element": "火",
       "related_nodes": [
         "knowledge/wuxing"
@@ -3779,10 +3779,10 @@
       "label": "箕水豹",
       "type": "astronomy",
       "dna": "#龍芯⚡️2026-07-08-KNOWLEDGE-CRAWL-587688BB",
-      "description": "箕宿，东方青龙第七宿，为龙粪。主风伯飞扬。",
+      "description": "箕宿，东方青龍第七宿，为龍粪。主风伯飞扬。",
       "source": "crawler",
       "category": "星宿",
-      "direction": "东方青龙",
+      "direction": "东方青龍",
       "element": "水",
       "related_nodes": [
         "knowledge/wuxing"

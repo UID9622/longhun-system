@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂·云浏览器控制台 v2.0</title>
+<style>
+  body { background:#0d0f14; color:#e8e2d0; font-family: system-ui; margin:0; padding:24px; }
+  h1 { font-size:20px; color:#d4af37; margin:0 0 16px; }
+  h2 { font-size:14px; color:#d4af37; margin:18px 0 8px; border-left:3px solid #d4af37; padding-left:8px; }
+  .bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+  input, select, button { background:#1a1e28; color:#e8e2d0; border:1px solid #333b4d; border-radius:8px; padding:8px 12px; font-size:13px; }
+  button { background:#d4af37; color:#0d0f14; font-weight:700; border:none; cursor:pointer; }
+  button:hover { opacity:.85; }
+  button.ghost { background:transparent; border:1px solid #d4af37; color:#d4af37; }
+  #shot { max-width:100%; border:1px solid #333b4d; border-radius:10px; display:none; margin-top:12px; }
+  #snap { white-space:pre-wrap; background:#1a1e28; border:1px solid #333b4d; border-radius:10px; padding:14px; font-size:12px; margin-top:12px; max-height:480px; overflow:auto; }
+  .dim { color:#7a8499; font-size:12px; }
+  .plat-grid { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0; }
+  .plat-chip { background:rgba(212,175,55,.08); border:1px solid rgba(212,175,55,.3); color:#d4af37; padding:3px 10px; border-radius:20px; font-size:11px; }
+  .cat-title { font-size:12px; color:#7a8499; margin:10px 0 4px; font-weight:700; }
+  .exec-input { flex:1; min-width:280px; }
+  .tag { display:inline-block; font-size:10px; padding:1px 6px; border-radius:4px; margin-left:6px; vertical-align:middle; }
+  .tag-ok { background:#1b3a2a; color:#4ade80; }
+  .tag-fail { background:#3a1b1b; color:#f87171; }
+</style>
+</head>
+<body>
+<h1>🐉 龍魂·云浏览器控制台 v2.0 <span class="dim">全平台生态版</span></h1>
+
+<div class="bar">
+  <input id="token" placeholder="API Token(强Token·找AI要)" style="width:240px">
+</div>
+
+<h2>🗣️ 一句话执行（自然语言 · 全平台调度）</h2>
+<div class="bar">
+  <input id="cmd" class="exec-input" placeholder="例：打开阿里云开通短信服务 / 在CSDN发布文章 / 同步代码到GitHub和Gitee / 搜索龍魂系统">
+  <button onclick="execCmd()">⚡ 执行</button>
+  <button class="ghost" onclick="listPlatforms()">📋 39平台列表</button>
+</div>
+
+<h2>🖱️ 手动操作（精细化）</h2>
+<div class="bar">
+  <input id="profile" placeholder="档案名(站点别名)" value="aliyun" style="width:120px">
+  <input id="url" placeholder="https://..." value="https://account.aliyun.com" style="width:280px">
+  <button onclick="openBrowser()">🚀 打开</button>
+  <button onclick="shot()">📷 截图</button>
+  <button onclick="snap()">📄 页面快照</button>
+  <button class="ghost" onclick="listProfiles()">🗂 档案列表</button>
+</div>
+<div class="dim">① 填 Token ② 选档案名 ③ 打开后操作页面 ④ 截图/快照确认登录态</div>
+
+<img id="shot" alt="screenshot">
+<pre id="snap">（点「⚡执行」说一句话，或「📋平台列表」查看已接入平台）</pre>
+<script>
+const API = location.origin.replace(/:\d+$/, "") + "/browser";
+async function call(path, opts={}) {
+  const token = document.getElementById("token").value.trim();
+  const res = await fetch(API + path, {
+    headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
+    ...opts,
+  });
+  if (!res.ok) { const e = await res.json().catch(()=>({})); alert(e.detail || res.status); throw new Error(e.detail); }
+  return res;
+}
+function show(obj) {
+  document.getElementById("snap").textContent = typeof obj === "string" ? obj : JSON.stringify(obj, null, 2);
+}
+// 一句话执行
+async function execCmd() {
+  const cmd = document.getElementById("cmd").value.trim();
+  if (!cmd) return alert("先输入指令，如：打开阿里云开通短信服务");
+  const r = await call("/api/execute", { method: "POST", body: JSON.stringify({ command: cmd })});
+  show(r);
+}
+// 平台列表（按类目）
+async function listPlatforms() {
+  const r = await call("/api/platforms");
+  const d = await r.json();
+  const names = { content:"内容创作", code:"代码开源", cloud:"云平台与AI", knowledge:"知识管理",
+                  collaboration:"协作办公", social:"社区社交", tool:"工具服务", ai:"AI平台" };
+  let html = `平台总数: ${d.total}\n`;
+  for (const [cat, items] of Object.entries(d.categories)) {
+    html += `\n【${names[cat] || cat}】${items.length}个\n`;
+    html += items.map(p => `  ${p.name} → ${p.url}`).join("\n") + "\n";
+  }
+  show(html);
+}
+// 手动操作
+async function openBrowser() {
+  const r = await call("/api/browser/open", { method: "POST", body: JSON.stringify({
+    profile: document.getElementById("profile").value.trim(),
+    url: document.getElementById("url").value.trim(),
+  })});
+  show(r);
+}
+async function shot() {
+  const profile = document.getElementById("profile").value.trim();
+  const token = document.getElementById("token").value.trim();
+  const res = await fetch(`${API}/api/browser/screenshot?profile=${encodeURIComponent(profile)}`, {
+    headers: { "Authorization": "Bearer " + token },
+  });
+  if (!res.ok) return alert("截图失败 " + res.status);
+  const blob = await res.blob();
+  const img = document.getElementById("shot");
+  img.src = URL.createObjectURL(blob);
+  img.style.display = "block";
+}
+async function snap() {
+  const r = await call("/api/browser/action", { method: "POST", body: JSON.stringify({
+    profile: document.getElementById("profile").value.trim(),
+    action: "snapshot",
+  })});
+  show(r);
+}
+async function listProfiles() {
+  const r = await call("/api/profiles");
+  show(await r.json());
+}
+</script>
+</body>
+</html>

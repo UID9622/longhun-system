@@ -148,9 +148,9 @@ python3 bin/lh_video_studio.py \
 | 产物 | 路径 | 格式要求 |
 |:---|:---|:---|
 | 解说稿 | `logs/narration_*.txt` | 含DNA+三行头 |
-| 视频成品 | `~/Desktop/龙魂视频/{标题}_{风格}_{时间戳}.mp4` | H.264+AAC·元数据JSON |
-| 临时素材 | `~/Desktop/龙魂视频/_temp/` | 自动清理 |
-| 视频索引 | `~/Desktop/龙魂视频/index.json` | lh_video_index.py自动维护 |
+| 视频成品 | `~/Desktop/龍魂视频/{标题}_{风格}_{时间戳}.mp4` | H.264+AAC·元数据JSON |
+| 临时素材 | `~/Desktop/龍魂视频/_temp/` | 自动清理 |
+| 视频索引 | `~/Desktop/龍魂视频/index.json` | lh_video_index.py自动维护 |
 | GPG签名 | 同目录 `.asc` | `python3 bin/lh_gpg_sign.py sign` |
 
 ---

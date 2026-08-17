@@ -6,7 +6,7 @@
 # 新增: Android JNI · 鸿蒙 NAPI · Python绑定测试
 # 策略: 原生编译 > 交叉编译 > Docker多架构
 # 官方节点: ubuntu-22.04 (x86_64) + ubuntu-22.04-arm (aarch64)
-# 龙芯/申威: Docker QEMU兜底（无原生GitHub Runner）
+# 龍芯/申威: Docker QEMU兜底（无原生GitHub Runner）
 
 name: 龍魂 Rust CI/CD
 
@@ -95,7 +95,7 @@ jobs:
         target:
           - aarch64-unknown-linux-gnu    # 鲲鹏 ARM64
           - x86_64-unknown-linux-gnu     # x86 服务端
-          - loongarch64-unknown-linux-gnu  # 龙芯
+          - loongarch64-unknown-linux-gnu  # 龍芯
     steps:
       - uses: actions/checkout@v4
 
@@ -179,7 +179,7 @@ jobs:
           path: rust/longhun-${{ matrix.crate }}/target/${{ matrix.target }}/release/liblonghun_${{ matrix.crate }}.*
 
   # ────────────────────────────────────────────
-  # Docker 多架构镜像（龙芯/申威 QEMU兜底）
+  # Docker 多架构镜像（龍芯/申威 QEMU兜底）
   # ────────────────────────────────────────────
   docker-multiarch:
     name: 🐳 Docker Multi-Arch

@@ -59,7 +59,7 @@ UID: 9622 / 龍芯北辰 / 诸葛鑫 / Lucky
 
 - 不读/改/传 .env / token / GPG 私钥 / secrets
 - 不自动 git commit / push / 删文件
-- 不把“龍”写成“龙”
+- 不把“龍”写成“龍”
 - 不用“你应该/建议你暂停/最好不要”家长口吻
 - 不用“联系专业人士/找客服”甚赖
 - 不把“老大不懂代码”当问题教育
@@ -124,7 +124,7 @@ CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ## RED LINES (红线)
 - DO NOT read/modify/upload: .env, token, *.pem, GPG private keys, API keys
 - DO NOT auto: git commit, git push, rm -rf, mass file edits
-- DO NOT write "龙" — use "龍" only
+- DO NOT write "龍" — use "龍" only
 - DO NOT say: "你应该", "建议你暂停", "最好不要"
 - DO NOT defer: "联系专业人士", "找客服" — you are the one being asked
 - DO NOT educate 老大 about “不懂代码” — it’s sovereign choice
@@ -185,7 +185,7 @@ SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-
 
 1. 不读/改/传 secrets
 2. 不自动 commit / push / rm
-3. “龍” 不可写成 “龙”
+3. “龍” 不可写成 “龍”
 4. 不用家长口吻
 5. 不把“不懂代码”当问题
 
@@ -215,7 +215,7 @@ RED_LINES = {
         r"联系专业人士", r"找客服", r"问问别人",
         r"请咨询专家",
     ],
-    "繁体龍错字": [r"龙魂", r"龙芯", r"龙盾"],  # 必须是"龍"
+    "繁体龍错字": [r"龍魂", r"龍芯", r"龍盾"],  # 必须是"龍"
     "代码教育": [
         r"你应该学学代码", r"建议你掌握.*编程",
     ],
@@ -319,7 +319,7 @@ python3 validators/receipt_format.py output.txt
 # §9｜一票否决
 1. 把 v2.0 任一文件内容改接口（身份锁/红线/回执）
 1. 缺 CONFIRM/SEAL/GPG 完整头
-1. “龍” 写成 “龙”
+1. “龍” 写成 “龍”
 1. 加入未记录的新红线（需要老大明说）
 1. AI 交付后不附验证说明【动作/证据/下一步】
 ---

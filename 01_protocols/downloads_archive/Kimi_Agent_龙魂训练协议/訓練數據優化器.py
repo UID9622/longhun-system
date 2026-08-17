@@ -9,7 +9,7 @@
 
 ╔══════════════════════════════════════════════════════════════════╗
 ║         龍 魂 系 統 — 訓 練 數 據 優 化 器                       ║
-║         Dragon Soul System — Training Data Optimizer             ║
+║         LongHun System — Training Data Optimizer             ║
 ║         龍魂體系治理框架 v3.1.0 | UID9622                       ║
 ╠══════════════════════════════════════════════════════════════════╣
 ║  模塊清單:                                                       ║
@@ -1254,7 +1254,7 @@ class 訓練數據優化器:
 if __name__ == "__main__":
     print("=" * 80)
     print("  龍 魂 系 統 — 訓 練 數 據 優 化 器")
-    print(f"  Dragon Soul Training Data Optimizer v{龍魂系統版本}")
+    print(f"  LongHun Training Data Optimizer v{龍魂系統版本}")
     print(f"  系統UID: {龍魂系統UID}")
     print("=" * 80)
     print()

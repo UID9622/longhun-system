@@ -132,7 +132,7 @@ python skill-6-mcp-builder.py
 
 ### 7️⃣ /skill-creator · 技能创建框架
 
-**功能**: Longhun 技能的快速创建和测试框架
+**功能**: LongHun 技能的快速创建和测试框架
 
 **功能模块**:
 - ✅ Skill 基类（元数据·执行器·验证器）

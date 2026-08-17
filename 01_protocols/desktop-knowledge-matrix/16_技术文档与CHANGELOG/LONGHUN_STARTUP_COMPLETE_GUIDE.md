@@ -1,10 +1,10 @@
-<!--#龍芯⚡️2026-06-21-DOC-LONGHUN_STARTUP_COMPLETE_GUIDE-v1.0 -->
+<!--#龍芯⚡️丙午·丙申·庚申·亥时-DOC-LONGHUN_STARTUP_COMPLETE_GUIDE-v1.0 -->
 <!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
 
 # 🐉 龍魂系統開機啟動完整指南
 
 ```
-DNA: #龍芯⚡️2026-06-07-LONGHUN-STARTUP-COMPLETE-GUIDE
+DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-STARTUP-COMPLETE-GUIDE
 時間: 2026-06-07
 版本: v1.0
 ```
@@ -507,7 +507,7 @@ pkill -f 'monitoring_server.py'
 驗證:
   bash ~/longhun-system/longhun_system_startup_check.sh
 
-DNA: #龍芯⚡️2026-06-07-LONGHUN-STARTUP-COMPLETE-GUIDE
+DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-STARTUP-COMPLETE-GUIDE
 天下無欺。🐉
 ════════════════════════════════════════════════════════════
 ```

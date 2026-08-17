@@ -16,7 +16,7 @@
 ---
 ## 📋 工具清单HTML模板结构
 ### 参考您的导航中心：
-file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-v1.0-完整实现/龙魂主页-导航中心.html
+file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-v1.0-完整实现/龍魂主页-导航中心.html
 ### 宝宝要创建的新模板：
 ```html
 <!DOCTYPE html>
@@ -26,7 +26,7 @@ file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🛠️ CNSH工具集 | DNA验证解锁系统</title>
     <style>
-        /* 龙魂配色 */
+        /* 龍魂配色 */
         :root {
             --dragon-red: #C41E3A;
             --emperor-gold: #FFD700;
@@ -211,7 +211,7 @@ file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-
                     将中文CNSH代码编译成C语言，变量名自动混淆保护
                 </div>
                 <div class="dna-code">
-                    DNA: #龙芯⚡️CNSH-COMPILER-v1.0
+                    DNA: #龍芯⚡️CNSH-COMPILER-v1.0
                 </div>
                 <button class="use-btn" onclick="openTool('compiler')">🚀 启动编译器</button>
             </div>
@@ -223,7 +223,7 @@ file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-
                     CNSH → JavaScript / Python / C，三色审计集成
                 </div>
                 <div class="dna-code">
-                    DNA: #龙芯⚡️CNSH-TRANSLATOR-v1.0
+                    DNA: #龍芯⚡️CNSH-TRANSLATOR-v1.0
                 </div>
                 <button class="use-btn" onclick="openTool('translator')">🚀 启动翻译器</button>
             </div>
@@ -235,7 +235,7 @@ file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-
                     绿/黄/红三级风险检测，代码/命令/内容安全拦截
                 </div>
                 <div class="dna-code">
-                    DNA: #龙芯⚡️THREE-COLOR-AUDIT-v2.0
+                    DNA: #龍芯⚡️THREE-COLOR-AUDIT-v2.0
                 </div>
                 <button class="use-btn" onclick="openTool('audit')">🚀 启动审计</button>
             </div>
@@ -247,7 +247,7 @@ file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-
                     为你的代码/文档生成唯一DNA，GPG签名+时间戳
                 </div>
                 <div class="dna-code">
-                    DNA: #龙芯⚡️DNA-GENERATOR-v1.0
+                    DNA: #龍芯⚡️DNA-GENERATOR-v1.0
                 </div>
                 <button class="use-btn" onclick="openTool('dna')">🚀 生成DNA</button>
             </div>
@@ -259,7 +259,7 @@ file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-
                     所有对话/创作本地存储，数据100%属于你
                 </div>
                 <div class="dna-code">
-                    DNA: #龙芯⚡️LOCAL-MEMORY-v1.0
+                    DNA: #龍芯⚡️LOCAL-MEMORY-v1.0
                 </div>
                 <button class="use-btn" onclick="openTool('memory')">🚀 管理记忆</button>
             </div>
@@ -271,7 +271,7 @@ file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-
                     GPG+指纹捆绑，防止未授权传播和报复性泄露
                 </div>
                 <div class="dna-code">
-                    DNA: #龙芯⚡️PRIVACY-SHIELD-v1.0
+                    DNA: #龍芯⚡️PRIVACY-SHIELD-v1.0
                 </div>
                 <button class="use-btn" onclick="openTool('privacy')">🚀 保护隐私</button>
             </div>
@@ -291,7 +291,7 @@ file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-
             // 生成专属DNA追溯码
             const timestamp = new Date().toISOString().split('T')[0];
             const userHash = simpleHash(userInput);
-            const dnaCode = `#龙芯⚡️${timestamp}-USER-${userHash.substring(0, 8).toUpperCase()}-v1.0`;
+            const dnaCode = `#龍芯⚡️${timestamp}-USER-${userHash.substring(0, 8).toUpperCase()}-v1.0`;
             
             // 显示DNA
             document.getElementById('dnaDisplay').innerHTML = `
@@ -416,14 +416,14 @@ file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-
   时间戳 = 当前日期()
   用户哈希 = SHA256(姓名或UID)
   
-  DNA格式 = "#龙芯⚡️" + 时间戳 + "-USER-" + 用户哈希前8位 + "-v1.0"
+  DNA格式 = "#龍芯⚡️" + 时间戳 + "-USER-" + 用户哈希前8位 + "-v1.0"
   
   返回 DNA格式
 }
 
 # 示例：
 # 输入：张三
-# 输出：#龙芯⚡️2026-01-28-USER-A7F3B2E1-v1.0
+# 输出：#龍芯⚡️2026-01-28-USER-A7F3B2E1-v1.0
 ```
 ### 规则3：工具使用DNA验证
 ```javascript
@@ -668,6 +668,6 @@ function syncToWPS(content, userDNA) {
 - ✅ 微量收费：仅数字人民币，一点点即可
 - ✅ 本地优先：工具本地运行，不依赖云端
 ---
-DNA追溯码： #龙芯⚡️2026-01-28-CNSH工具集模板系统-v1.0  
+DNA追溯码： #龍芯⚡️2026-01-28-CNSH工具集模板系统-v1.0  
 GPG签名： A2D0...6D5F (Lucky·UID9622)  
 确认码： #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅

@@ -42,7 +42,7 @@
     },
     "P72": {
       "code": "P72",
-      "name": "龙盾",
+      "name": "龍盾",
       "role": "fuse_guardian·四级熔断",
       "layer": "guard",
       "immutable": true,

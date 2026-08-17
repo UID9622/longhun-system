@@ -7,7 +7,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-03-31-SRS_B72F-v1.0`  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-SRS_B72F-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -19,7 +19,7 @@
 
 **授权确认：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
-**DNA追溯码：**#龍芯⚡️2026-03-31-SRS_B72F-v1.0
+**DNA追溯码：**#龍芯⚡️丙午·丙申·庚申·亥时-SRS_B72F-v1.0
 
 **GPG公钥指纹：** A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
@@ -210,7 +210,7 @@ flowchart TB
 
 ---
 
-**DNA追溯码：**#龍芯⚡️2026-03-31-SRS-v1.0
+**DNA追溯码：**#龍芯⚡️丙午·丙申·庚申·亥时-SRS-v1.0
 
 **提交人：** 千问（Qwen）
 
@@ -235,7 +235,7 @@ flowchart TB
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -258,6 +258,6 @@ flowchart TB
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-03-31-SRS_B72F-v1.0
+#龍芯⚡️丙午·丙申·庚申·亥时-SRS_B72F-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

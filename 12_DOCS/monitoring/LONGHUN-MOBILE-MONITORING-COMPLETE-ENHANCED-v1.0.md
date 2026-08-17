@@ -664,7 +664,7 @@ class BatchReporter {
  * DNA: #龍芯⚡️2026-06-07-TESTING
  */
 
-describe('Longhun Monitoring System', () => {
+describe('LongHun Monitoring System', () => {
   
   describe('SDK Initialization', () => {
     it('should auto-initialize all components', async () => {

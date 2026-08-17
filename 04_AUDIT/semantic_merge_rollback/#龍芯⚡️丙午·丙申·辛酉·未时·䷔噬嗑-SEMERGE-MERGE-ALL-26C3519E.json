@@ -1,0 +1,97 @@
+{
+  "merge_dna": "#龍芯⚡️丙午·丙申·辛酉·未时·䷔噬嗑-SEMERGE-MERGE-ALL-26C3519E",
+  "taken_at": "2026-08-15T14:43:35.457505",
+  "sources": {
+    "kimi": [
+      {
+        "id": "CONV-1786775564842-ff0c7cba2ad98a2a",
+        "source": "kimi",
+        "role": "assistant",
+        "content": "#!/usr/bin/env python3\n# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL\n# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\n# -*- coding: utf-8 -*-\n\"\"\"\n🐉 龍魂 · 视频创作智能体 v1.0\nDNA: #龍芯⚡️丙午·丙酉·丙寅·申时-VIDEO-AGENT-UID9622\n确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\nGPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F\n三色: 🟢 通过\n\n功能:\n  1. 编剧Agent: 从素材生成解说稿\n  2. 导演Agent: 规划分镜和节奏\n  3. 解说Agent: 生成旁白/配音稿\n  4. 剪辑Agent: 规划剪辑方案\n  5. 审核Agent: 三色审计内容\n\"\"\"\n\nimport json\nimport hashlib\nimport time\nimport sys\nfrom pathlib import Path\nfrom datetime import datetime\nfrom typing import Dict, List, Optional\nfrom dataclasses import dataclass, field, asdict\n\n# ============================================================\n# 主权锚定\n# ============================================================\n\nUID = \"9622\"\nCONFIRM = \"#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\"\nGPG = \"A2D0092CEE2E5BA87035600924C3704A8CC26D5F\"\n\n\ndef generate_dna(suffix: str = \"VIDEO-AGENT\") -> str:\n    timestamp = datetime.now().strftime(\"%Y%m%d%H%M%S\")\n    rand = hashlib.sha256(f\"{suffix}{timestamp}{time.time()}\".encode()).hexdigest()[:8].upper()\n    return f\"#龍芯⚡️{timestamp}-{suffix}-{rand}-{UID}\"\n\n\n# ============================================================\n# 数据模型\n# ============================================================\n\n@dataclass\nclass Script:\n    \"\"\"解说稿\"\"\"\n    title: str\n    scenes: List[Dict]\n    narration: str\n    style: str\n    dna: str = field(default_factory=lambda: generate_dna(\"SCRIPT\"))\n    created_at: str = field(default_factory=lambda: date",
+        "topic": "视频创作智能体 v1.0",
+        "project": "视频生态",
+        "dna": "#龍芯⚡️丙午·丙申·辛酉·未时·䷔噬嗑-CAPTURE-CONV-90B2FC71",
+        "timestamp": "2026-08-15T14:32:44.916155",
+        "metadata": {
+          "file": "05_ENGINES/lh_video_agent.py",
+          "size": 8630,
+          "sha256": "0e22dd3e0e31c1d5",
+          "type": "code_asset"
+        },
+        "parent_dna": null,
+        "_date": "2026-08-15"
+      },
+      {
+        "id": "CONV-1786775564917-ff0c7cba2ad98a2a",
+        "source": "kimi",
+        "role": "assistant",
+        "content": "#!/usr/bin/env python3\n# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL\n# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\n# -*- coding: utf-8 -*-\n\"\"\"\n🐉 龍魂 · 视频工具集成层 v1.0\nDNA: #龍芯⚡️丙午·丙酉·丙寅·申时-VIDEO-TOOLS-UID9622\n确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\nGPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F\n三色: 🟢 通过\n\n功能: 对接外部 AI 视频创作工具，统一接口、DNA追溯、三色审计。\n支持工具:\n  - StoryFab: 本地AI影视解说\n  - NarratoAI: 一键解说并剪辑视频\n  - Vynaro: 7步全自动AI影视解说\n  - VideoClaw: AI全自动化视频生成\n  - video-recap-skills: 自然语言视频解说\n\n注意: 本层只做接口封装与调用编排，实际外部工具需按各自仓库独立安装。\n\"\"\"\n\nimport json\nimport subprocess\nimport argparse\nfrom pathlib import Path\nfrom typing import Dict, List, Optional\n\n\nclass VideoTools:\n    \"\"\"视频工具集成\"\"\"\n\n    TOOLS = {\n        \"storyfab\": {\n            \"name\": \"StoryFab\",\n            \"desc\": \"本地AI影视解说 (Tauri 2 + Rust)\",\n            \"cmd\": [\"npm\", \"run\", \"tauri\", \"--\", \"dev\"],\n        },\n        \"narratoai\": {\n            \"name\": \"NarratoAI\",\n            \"desc\": \"一键解说并剪辑视频\",\n            \"cmd\": [\"python3\", \"narratoai/main.py\"],\n        },\n        \"vynaro\": {\n            \"name\": \"Vynaro\",\n            \"desc\": \"7步全自动AI影视解说\",\n            \"cmd\": [\"python3\", \"vynaro/main.py\"],\n        },\n        \"videoclaw\": {\n            \"name\": \"VideoClaw\",\n            \"desc\": \"AI全自动化视频生成员工\",\n            \"cmd\": [\"python3\", \"videoclaw/main.py\"],\n        },\n        \"video-recap\": {\n            \"name\": \"video-recap-skills\",\n            \"desc\": \"自然语言视频解说\",\n            \"cmd\": [\"python3\", \"video_recap/main.py\"],\n        },\n    }\n\n    @classmet",
+        "topic": "视频工具集成层 v1.0",
+        "project": "视频生态",
+        "dna": "#龍芯⚡️丙午·丙申·辛酉·未时·䷔噬嗑-CAPTURE-CONV-89394C31",
+        "timestamp": "2026-08-15T14:32:44.918102",
+        "metadata": {
+          "file": "08_BIN/lh_video_tools.py",
+          "size": 5029,
+          "sha256": "b421f3568e9bfb3b",
+          "type": "code_asset"
+        },
+        "parent_dna": null,
+        "_date": "2026-08-15"
+      },
+      {
+        "id": "CONV-1786775564918-ff0c7cba2ad98a2a",
+        "source": "kimi",
+        "role": "assistant",
+        "content": "#!/usr/bin/env python3\n# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL\n# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\n# -*- coding: utf-8 -*-\n\"\"\"\n🐉 龍魂 · 视频生态主控制器 v1.0\nDNA: #龍芯⚡️丙午·丙酉·丙寅·申时-VIDEO-ECOSYSTEM-UID9622\n确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\nGPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F\n三色: 🟢 通过\n\n功能:\n  1. 内容索引 → 素材检索\n  2. 智能体创作 → 解说稿/分镜/剪辑方案\n  3. 视频工具集成 → 对接外部视频生成/剪辑工具\n  4. 审计发布 → 三色审计 + DNA追溯\n\"\"\"\n\nimport json\nimport hashlib\nimport time\nimport sys\nimport argparse\nfrom pathlib import Path\nfrom datetime import datetime\nfrom typing import Dict, List, Optional\n\n# 引入同级目录与 engines 目录\n_LONGHUN_ROOT = Path(__file__).resolve().parent.parent\nsys.path.insert(0, str(_LONGHUN_ROOT / \"08_BIN\"))\nsys.path.insert(0, str(_LONGHUN_ROOT / \"05_ENGINES\"))\n\nfrom lh_video_knowledge import VideoKnowledgeIndex, VideoMaterial\nfrom lh_video_agent import VideoAgent, Script, Storyboard\nfrom lh_video_tools import VideoTools\n\n\n# ============================================================\n# 主权锚定\n# ============================================================\n\nUID = \"9622\"\nCONFIRM = \"#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\"\nGPG = \"A2D0092CEE2E5BA87035600924C3704A8CC26D5F\"\n\n\ndef generate_dna(suffix: str = \"VIDEO-ECOSYSTEM\") -> str:\n    timestamp = datetime.now().strftime(\"%Y%m%d%H%M%S\")\n    rand = hashlib.sha256(f\"{suffix}{timestamp}{time.time()}\".encode()).hexdigest()[:8].upper()\n    return f\"#龍芯⚡️{timestamp}-{suffix}-{rand}-{UID}\"\n\n\n# ============================================================\n#",
+        "topic": "视频生态主控制器 v1.0",
+        "project": "视频生态",
+        "dna": "#龍芯⚡️丙午·丙申·辛酉·未时·䷔噬嗑-CAPTURE-CONV-D0F13C86",
+        "timestamp": "2026-08-15T14:32:44.918538",
+        "metadata": {
+          "file": "08_BIN/lh_video_ecosystem.py",
+          "size": 8860,
+          "sha256": "24c62aea1ea8a8ca",
+          "type": "code_asset"
+        },
+        "parent_dna": null,
+        "_date": "2026-08-15"
+      }
+    ],
+    "deepseek": [
+      {
+        "id": "CONV-1786775695511-82d9a07e0caa3944",
+        "source": "deepseek",
+        "role": "user",
+        "content": "龍魂系统架构升级讨论: 统一对话采集是第一步",
+        "topic": "架构讨论",
+        "project": null,
+        "dna": "#龍芯⚡️丙午·丙申·辛酉·未时·䷔噬嗑-CAPTURE-CONV-02E7F721",
+        "timestamp": "2026-08-15T14:34:55.593664",
+        "metadata": {},
+        "parent_dna": null,
+        "_date": "2026-08-15"
+      }
+    ],
+    "codebuddy": [
+      {
+        "id": "CONV-1786775564918-ff0c7cba2ad98a2a",
+        "source": "codebuddy",
+        "role": "assistant",
+        "content": "#!/usr/bin/env python3\n# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL\n# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\n# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)\n# -*- coding: utf-8 -*-\n\"\"\"\n🐉 龍魂 · 统一AI对话采集器 v1.0\nDNA: #龍芯⚡️丙午·丙申·辛酉·未时·䷔噬嗑-CONVERSATION-CAPTURE-UID9622\n创建者: 诸葛鑫（UID9622）\n协议: MulanPSL v2（工程实现层）\n确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\nGPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F\n三色: 🟡 待实测（实测全绿后改🟢）\n\n功能:\n  1. 统一采集 Kimi/DeepSeek/CodeBuddy 对话 → 03_MEMORY/ai_conversations/\n  2. 统一格式 JSONL + 索引 _index.json + DNA 追溯\n  3. 跨AI检索 search / 按话题聚合 get-topic / 统计 stats\n  4. 本地 HTTP 服务 :8769（浏览器扩展注入入口）\n  5. 智能去重 dedup（SHA-256 内容哈希 + 重复耻辱墙）\n  6. 事件审计 capture_audit（04_AUDIT/capture_audit.jsonl）\n  7. 健康检查 health / 过期归档 cleanup（默认保留30天）\n  8. capture-all 一键采集已知产出 + merge-report 合并报告\n\n用法:\n  python3 08_BIN/lh_conversation_capture.py capture --source kimi --role assistant --content \"...\" --topic \"视频生态\"\n  python3 08_BIN/lh_conversation_capture.py --server --port 8769\n  python3 08_BIN/lh_conversation_capture.py --search \"视频\" --source deepseek\n  python3 08_BIN/lh_conversation_capture.py --stats\n  python3 08_BIN/lh_conversation_capture.py --import-jsonl <file> --source deepseek\n  python3 08_BIN/lh_conversation_capture.py --dedup\n  python3 08_BIN/lh_conversation_capture.py --health\n  python3 08_BIN/lh_conversation_capture.py --capture-all --merge-report\n\"\"\"\n\nimport argparse\nimport hashlib\nimport json\nimport shutil\nimport sys\nimport time\nfrom datetime import datetim",
+        "topic": "统一AI对话采集器 v1.0",
+        "project": "对话采集",
+        "dna": "#龍芯⚡️丙午·丙申·辛酉·未时·䷔噬嗑-CAPTURE-CONV-8A430CAD",
+        "timestamp": "2026-08-15T14:32:44.918965",
+        "metadata": {
+          "file": "08_BIN/lh_conversation_capture.py",
+          "size": 31177,
+          "sha256": "30fc43a1ef34a416",
+          "type": "code_asset"
+        },
+        "parent_dna": null,
+        "_date": "2026-08-15"
+      }
+    ]
+  }
+}

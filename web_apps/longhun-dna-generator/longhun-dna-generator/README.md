@@ -34,7 +34,7 @@ python3 bin/lh_dna_generator.py ganzhi
 python3 bin/lh_dna_generator.py recover --dna "#龍芯⚡️丙午·丁酉·己酉·未时·䷗复-DNA-GENERATOR-SPEC-v2.0-0001-d7ea5f95"
 
 # 4. 旧DNA登记（冻结不改写）
-python3 bin/lh_dna_generator.py register   --dna "#龙芯⚡️2026-01-31-君子协议-v2.0" --title "君子协议" --category protocol
+python3 bin/lh_dna_generator.py register   --dna "#龍芯⚡️2026-01-31-君子协议-v2.0" --title "君子协议" --category protocol
 
 # 5. 每晚自动归档（crontab 加一行）
 0 23 * * * cd ~/longhun-dna-generator && python3 bin/lh_dna_generator.py compress

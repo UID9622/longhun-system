@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂声纹DNA锚定链 · 官网开放注册 API
-Dragon Soul Voice DNA Web Registration API
+LongHun Voice DNA Web Registration API
 
 提供 RESTful 接口供官网调用：
   - POST /voice/register        用户注册声纹

@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "🐉 龍魂 · DeepSeek 对话采集器",
+  "version": "1.0.0",
+  "description": "自动采集 DeepSeek 浏览器对话，同步到龍魂统一对话容器（本地服务 http://127.0.0.1:8769）",
+  "permissions": ["storage", "alarms"],
+  "host_permissions": ["http://127.0.0.1:8769/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://chat.deepseek.com/*", "*://deepseek.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "🐉 龍魂 · DeepSeek 对话采集器"
+  }
+}

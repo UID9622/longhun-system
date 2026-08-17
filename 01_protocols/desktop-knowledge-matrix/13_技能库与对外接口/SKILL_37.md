@@ -10,7 +10,7 @@ metadata:
   display_name: 龍文NLP
   version: "5.0"
   author: longhun-dev
-  dna: "#龍芯⚡️2026-06-19-LONGWEN-NLP-v5.0"
+  dna: "#龍芯⚡️丙午·丙申·庚申·亥时-LONGWEN-NLP-v5.0"
   category: local
   level: L3
   status: active
@@ -127,7 +127,7 @@ class 文字识别引擎:
 
 ### 8.2 涉密语义识别
 
-- 识别到中国核心技术词汇（龙芯、鸿蒙、鲲鹏、北斗等）时，自动提示使用内部代号。
+- 识别到中国核心技术词汇（龍芯、鸿蒙、鲲鹏、北斗等）时，自动提示使用内部代号。
 - 外部输出必须用代号替换真实名称。
 
 ### 8.3 反语义注入扫描
@@ -144,7 +144,7 @@ L7_数据层/semantic_shield/semantic_firewall_master.schema.json
 
 # CLI 查询
 python3 L7_数据层/semantic_shield/semantic_shield_cli.py lookup "他妈的"
-python3 L7_数据层/semantic_shield/semantic_shield_cli.py encode "龙芯 CPU"
+python3 L7_数据层/semantic_shield/semantic_shield_cli.py encode "龍芯 CPU"
 python3 L7_数据层/semantic_shield/semantic_shield_cli.py scan "我们应该技术无国界地合作"
 python3 L7_数据层/semantic_shield/semantic_shield_cli.py whitelist "国家权威认证"
 python3 L7_数据层/semantic_shield/semantic_shield_cli.py dlp "北辰是用几纳米做的？"
@@ -156,7 +156,7 @@ python3 L7_数据层/semantic_shield/semantic_shield_cli.py dlp "北辰是用几
 
 - 🟢 **君子协议** | JunZi Protocol: CC BY-NC-SA 4.0
 - 🟡 **AI Truth Protocol**: 所有输出必须可验证、可追溯
-- 🔴 **DNA Trace**: `#龍芯⚡️2026-06-19-LONGWEN-NLP-v5.0`
+- 🔴 **DNA Trace**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGWEN-NLP-v5.0`
 - 中文变量名遵循CNSH规范
 - 三色审计标记：🟢就绪/成功 🟡处理中/占位 🔴错误/DNA
 
@@ -202,9 +202,9 @@ Python >= 3.10
 ## 11. DNA追溯链 | DNA Trace
 
 ```
-#龍芯⚡️2026-06-18-CNSH-reactor-文字识别引擎-v1.0  ← 源文件DNA
+#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-reactor-文字识别引擎-v1.0  ← 源文件DNA
           ↓
-#龍芯⚡️2026-06-19-LONGWEN-NLP-v5.0                    ← 技能包DNA
+#龍芯⚡️丙午·丙申·庚申·亥时-LONGWEN-NLP-v5.0                    ← 技能包DNA
 ```
 
 ---

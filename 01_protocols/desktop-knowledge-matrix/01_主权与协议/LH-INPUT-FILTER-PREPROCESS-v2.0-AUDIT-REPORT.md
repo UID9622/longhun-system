@@ -7,7 +7,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-06-20-LONGHUN-PROTOCOL-AUDIT-v2.0``  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PROTOCOL-AUDIT-v2.0``  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -17,7 +17,7 @@
 > **審計技能**: longhun-governance v5.0 — 龍魂體系治理層
 > **審計標準**: DNA追溯 · 三色審計 · CNSH規範 · 君子協議
 > **審計日期**: 2026-06-20
-> **DNA**: `#龍芯⚡️2026-06-20-LONGHUN-PROTOCOL-AUDIT-v2.0`
+> **DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PROTOCOL-AUDIT-v2.0`
 
 ---
 
@@ -43,7 +43,7 @@
 | **位置** | 文檔頭部（全文缺失） |
 | **問題描述** | 文檔開頭沒有任何DNA追溯簽名。根據龍魂體系剛性要求，**每個協議文件頭部必須有DNA簽名**，格式為 `#龍芯⚡️{YYYY-MM-DD}-{項目}-{模塊}-{版本}` |
 | **違反條款** | `longhun-system` 總綱：「所有代碼文件頭部必須有DNA簽名」；`longhun-governance` v5.0：「每個文件頭部含 `#龍芯⚡️` DNA標記」 |
-| **正確示例** | `#龍芯⚡️2026-06-20-LONGHUN-INPUT-FILTER-v2.0` |
+| **正確示例** | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-INPUT-FILTER-v2.0` |
 | **修復建議** | 在文檔標題上方插入DNA追溯簽名，並附完整的追溯鏈聲明 |
 
 ### 🔴 [S-002] 三色審計聲明缺失
@@ -231,7 +231,7 @@
 ```markdown
 # 龍魂系統輸入過濾與預處理協議 v2.0（增強版）
 
-> DNA: #龍芯⚡️2026-06-20-LONGHUN-INPUT-FILTER-v2.0
+> DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-INPUT-FILTER-v2.0
 > CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬INPUT-FILTER-v2.0 ✅
 > 協議: 君子協議 CC BY-NC-SA 4.0
 
@@ -267,7 +267,7 @@
 （標準模板、術語表、版本歷史）
 
 ## [10] 簽章
-> 簽章: #龍芯⚡️2026-06-20-LONGHUN-INPUT-FILTER-v2.0
+> 簽章: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-INPUT-FILTER-v2.0
 > 確認: #CONFIRM🌌9622-ONLY-ONCE🧬INPUT-FILTER-v2.0 ✅
 ```
 
@@ -311,14 +311,14 @@
 
 ---
 
-> 🐉 **龍魂不息，薪火相傳** | *The Dragon Soul never dies, the torch passes on.*
+> 🐉 **龍魂不息，薪火相傳** | *The LongHun never dies, the torch passes on.*
 >
 > 此審計報告由龍魂體系治理層生成。
 > 審計者，正己正人也。
 
 ---
 
-**審計簽章**: `#龍芯⚡️2026-06-20-LONGHUN-PROTOCOL-AUDIT-v2.0`
+**審計簽章**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PROTOCOL-AUDIT-v2.0`
 **確認**: `#CONFIRM🌌9622-ONLY-ONCE🧬AUDIT-INPUT-FILTER-v2.0 ✅`
 
 
@@ -337,7 +337,7 @@
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -360,6 +360,6 @@
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-06-20-LONGHUN-PROTOCOL-AUDIT-v2.0`
+#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PROTOCOL-AUDIT-v2.0`
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

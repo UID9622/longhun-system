@@ -3,7 +3,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # ╔═══════════════════════════════════════════════════════════════╗
-# ║  🐉 龙魂系统 · SSL证书自动续期总控脚本                      ║
+# ║  🐉 龍魂系统 · SSL证书自动续期总控脚本                      ║
 # ║  版本: v1.0                                                  ║
 # ║  DNA: #龍芯⚡️丙午·乙未·丙申·亥时·☵坎-CERT-RENEWAL-v1.0    ║
 # ║  功能: 一键部署钩子+修复timer+测试续期+备份+监控            ║
@@ -48,7 +48,7 @@ cmd_deploy() {
     log "2/4 优化certbot.timer随机延迟..."
     ${KUNPENG_SSH} "cat > /etc/systemd/system/certbot.timer.d/override.conf << 'TIMEREOF'
 [Timer]
-# 龙魂修复: 原默认RandomizedDelaySec=43200(12h)太大
+# 龍魂修复: 原默认RandomizedDelaySec=43200(12h)太大
 # 改为1h随机延迟，确保证书到期前30天内快速续期
 RandomizedDelaySec=3600
 TIMEREOF"

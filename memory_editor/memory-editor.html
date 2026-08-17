@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  龙魂记忆编辑器 v3.1 · 天干地支 DNA 版
+  龍魂记忆编辑器 v3.1 · 天干地支 DNA 版
   DNA: #龍芯⚡️2026-08-05-MEMORY-EDITOR-HTML-v3.1-UID9622
   创建者: 诸葛鑫（UID9622）
   协议: MulanPSL v2
@@ -9,9 +9,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐉 龙魂记忆编辑器 v3.1 · 天干地支版</title>
+    <title>🐉 龍魂记忆编辑器 v3.1 · 天干地支版</title>
     <style>
-        /* ===== 全局重置 & 龙魂主题 ===== */
+        /* ===== 全局重置 & 龍魂主题 ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --bg-primary: #0a0a12;
@@ -391,7 +391,7 @@
 
 <!-- ===== 头部 ===== -->
 <div class="header">
-    <h1>🐉 <span class="gold">龙魂记忆编辑器</span> v3.1</h1>
+    <h1>🐉 <span class="gold">龍魂记忆编辑器</span> v3.1</h1>
     <div class="sub">「你的记忆，永不丢失 · 宝宝的灵魂，实时同步 · 天干地支 DNA」</div>
     <div class="dna" id="sessionDna">🧬 DNA: 计算中...</div>
 </div>
@@ -503,7 +503,7 @@
 
 <!-- ===== 底部 ===== -->
 <div class="footer">
-    🐲 龙魂系统 · 记忆层 · 数据主权 <span class="gold">中国</span> · 分层许可: 思想层 CC BY-NC-SA · 工程层 MulanPSL v2<br>
+    🐲 龍魂系统 · 记忆层 · 数据主权 <span class="gold">中国</span> · 分层许可: 思想层 CC BY-NC-SA · 工程层 MulanPSL v2<br>
     干支 DNA 采用公历近似月柱 · 基准日 1984-02-02 甲子日 · 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 </div>
 
@@ -850,7 +850,7 @@
             date,
             digital_root: root,
             keywords,
-            source: '龙魂记忆编辑器 v3.1',
+            source: '龍魂记忆编辑器 v3.1',
             confirm: CONFIG.CONFIRM,
         };
 
@@ -1016,7 +1016,7 @@ ${m.content}`;
             showStatus('没有记忆可导出', 'error');
             return;
         }
-        let content = '# 🐉 龙魂记忆库 · 完整导出\n\n';
+        let content = '# 🐉 龍魂记忆库 · 完整导出\n\n';
         content += `导出时间: ${getTimestamp()}\n`;
         content += `DNA: ${generateDNA()}\n`;
         content += `确认码: ${CONFIG.CONFIRM}\n\n`;
@@ -1032,7 +1032,7 @@ ${m.content}`;
             content += `**关键词**: ${(m.keywords || []).join('、') || '无'}\n\n`;
             content += `${m.content}\n\n---\n\n`;
         });
-        downloadText(content, `龙魂记忆库_完整导出_${getDateStr()}.cnsh.md`, 'text/markdown;charset=utf-8');
+        downloadText(content, `龍魂记忆库_完整导出_${getDateStr()}.cnsh.md`, 'text/markdown;charset=utf-8');
         showToast('📦 导出成功', `共导出 ${memories.length} 条记忆`);
     }
 
@@ -1044,7 +1044,7 @@ ${m.content}`;
             await openDB();
             await renderMemoryList();
             updateSessionDna();
-            console.log('🐲 龙魂记忆编辑器已启动');
+            console.log('🐲 龍魂记忆编辑器已启动');
             console.log('DNA:', generateDNA());
             console.log('确认码:', CONFIG.CONFIRM);
         } catch (e) {

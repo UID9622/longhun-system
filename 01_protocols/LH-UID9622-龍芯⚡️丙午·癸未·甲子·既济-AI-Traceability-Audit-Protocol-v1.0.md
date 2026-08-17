@@ -434,7 +434,7 @@ Every artifact and operation receives one of three audit marks:
 |:---|:---|
 | Physical | `LH`, `CNSH`, `SCT`, `LONGHUN`, `AI` |
 | Identity | `UID9622`, `SYS`, `PUB`, `AI` |
-| Sovereignty | Must contain `龍芯` or `龙芯` |
+| Sovereignty | Must contain `龍芯` or `龍芯` |
 | Execution | Any non-empty action descriptor |
 
 ### 8.3 Name Validation Regex

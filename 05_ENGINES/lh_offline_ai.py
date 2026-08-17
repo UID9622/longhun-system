@@ -46,7 +46,7 @@ LOCAL_MODELS = [
 ]
 # 模型降级链：当前模型不行就按这个顺序依次尝试
 # v4.1.x(Yi-9B GGUF)已知推理退化，标记为跳过
-MODEL_FALLBACK_CHAIN = ["qwen2.5:1.5b"]  # 龙魂模型恢复后再把 v4.1.1 放回来
+MODEL_FALLBACK_CHAIN = ["qwen2.5:1.5b"]  # 龍魂模型恢复后再把 v4.1.1 放回来
 MODEL_SKIP_LIST = ["longhun-v4.1.4", "longhun-v4.1.1"]  # 已知退化模型
 
 

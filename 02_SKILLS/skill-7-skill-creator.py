@@ -9,7 +9,7 @@
 
 """
 龍魂技能创建框架 v1.0
-Longhun Skill Creator Framework
+LongHun Skill Creator Framework
 
 DNA: #龍芯⚡️2026-06-07-SKILL-CREATOR-v1.0
 """
@@ -46,7 +46,7 @@ class Skill:
         skill_id: str,
         name: str,
         description: str,
-        author: str = "Longhun",
+        author: str = "LongHun",
         version: str = "1.0.0",
         category: str = "general"
     ):

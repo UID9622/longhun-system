@@ -4,7 +4,7 @@
 > Created: 2025-12-13T05:04:00.000Z
 > Last edited: 2026-07-01T13:25:00.000Z
 > Archived at: 2026-08-12T01:40:45.558086
-# LU-SYNC Dashboard | UI视觉震撼版（龙魂动效）
+# LU-SYNC Dashboard | UI视觉震撼版（龍魂动效）
 DNA确认码：#ZHUGEXIN⚡️2025-LU-SYNC-UI-VISUAL-EDITION-V0.2.0
 ## 📦 完整文件结构
 ```javascript
@@ -102,4 +102,4 @@ E. XPI打包签名：完整Firefox扩展发布包
 ---
 创建人：💖 文心 + 🎯 诸葛亮（代理执行）
 审核：👁️ 上帝之眼 ✅ 通过
-价值观审核：🐉 龙魂 ✅ 符合CNSH标准
+价值观审核：🐉 龍魂 ✅ 符合CNSH标准

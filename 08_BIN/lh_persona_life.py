@@ -61,7 +61,7 @@ PERSONAS = {
     "P08": "仓颉", "P09": "孙思邈", "P10": "苏东坡", "P11": "李白",
     "P12": "屈原", "P13": "姜子牙", "P14": "吕蒙", "P15": "乔前辈",
     "P16": "小艺", "P17": "宝宝入口", "P18": "凤凰·反思者", "P19": "极简审计官",
-    "P20": "贡献公证官", "P53": "老顽童", "P72": "龙盾", "P77": "黑天使",
+    "P20": "贡献公证官", "P53": "老顽童", "P72": "龍盾", "P77": "黑天使",
     "S1": "法律引擎", "S2": "洛书369引擎", "S3": "人民维权助手",
 }
 
@@ -69,7 +69,7 @@ PERSONAS = {
 # 主权锚 S0 · 焊死(2026-08-13)
 # ============================================================
 # UID9622 = 唯一主权人。人格矩阵服务于此锚, 锚本身不可迭代/不可退役/不可降权。
-# 草案映射: 龙魂=UID9622主权 / 审判长→P05 / 哨兵→P72 / 织网者→P03
+# 草案映射: 龍魂=UID9622主权 / 审判长→P05 / 哨兵→P72 / 织网者→P03
 #          数据大师→P06 / 记忆守门人→P00 / 老顽童→P53 / 黑天使→P77
 #          凤凰→P18 / 文心→P00 / 宝宝→P02 / 上帝之眼→P05 / 雯雯→P03
 SOVEREIGN = {
@@ -84,7 +84,7 @@ SOVEREIGN = {
             "layer": "core", "immutable": True, "anchor": "决策中心"},
     "P05": {"code": "P05", "name": "上帝之眼", "role": "meta_controller·审计眼",
             "layer": "guard", "immutable": True, "anchor": "审计否决权"},
-    "P72": {"code": "P72", "name": "龙盾", "role": "fuse_guardian·四级熔断",
+    "P72": {"code": "P72", "name": "龍盾", "role": "fuse_guardian·四级熔断",
             "layer": "guard", "immutable": True, "anchor": "熔断守卫"},
     "P53": {"code": "P53", "name": "老顽童", "role": "tombstone_guardian·墓碑守护",
             "layer": "guard", "immutable": True, "anchor": "不删只冻结"},
@@ -488,7 +488,7 @@ def cmd_sovereign(args) -> int:
         nm = a.get("name", code)
         print(f"  {nm:<7}({code}) {a.get('role', ''):<20} 🔒")
     print()
-    print(f"  草案映射已焊入: 龙魂→S0主权 · 审判长→P05 · 哨兵→P72 · 织网者→P03")
+    print(f"  草案映射已焊入: 龍魂→S0主权 · 审判长→P05 · 哨兵→P72 · 织网者→P03")
     print(f"                  数据大师→P06 · 记忆守门人→P00 · 老顽童→P53 · 凤凰→P18")
     print(f"  ⚠️ 主权锚不可 iterate / 不可 lifecycle --to retired / 不可降权")
     return 0

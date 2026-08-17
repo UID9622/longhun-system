@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
-🐉 龙魂·花名册调度中心 v1.0
+🐉 龍魂·花名册调度中心 v1.0
 ================================
 子命令:
   menu            交互式花名册查询菜单
@@ -63,7 +63,7 @@ def save_roster(data):
 
 def generate_short_dna(persona_code: str, canonical_name: str) -> str:
     """生成短DNA（8位十六进制哈希）"""
-    seed = f"{persona_code}:{canonical_name}:{TIMESTAMP_SHORT}:龙魂花名册v3.0"
+    seed = f"{persona_code}:{canonical_name}:{TIMESTAMP_SHORT}:龍魂花名册v3.0"
     return hashlib.sha256(seed.encode('utf-8')).hexdigest()[:8]
 
 
@@ -547,7 +547,7 @@ def cmd_show(args):
 
 def main():
     parser = argparse.ArgumentParser(
-        description='🐉 龙魂·花名册调度中心 v1.0',
+        description='🐉 龍魂·花名册调度中心 v1.0',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:

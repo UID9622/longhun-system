@@ -28,9 +28,9 @@ flowchart TD
 ### 2.1 完整字元定义结构
 ```json
 {
-  "来源标注": "#ZHUGEXIN⚡️ | UID9622 龙魂体系",
+  "来源标注": "#ZHUGEXIN⚡️ | UID9622 龍魂体系",
   "字体元信息_cnsh9622": {
-    "名称": "龙魂字元库",
+    "名称": "龍魂字元库",
     "版本": "v2.0",
     "创建者": "UID9622",
     "DNA追溯码": "#ZHUGEXIN⚡️-CNSH-CORE"
@@ -45,7 +45,7 @@ flowchart TD
   },
   "字元ID": "CNSH-DRAGON-0001",
   "字符集_cnsh9622": {
-    "字符": "龙",
+    "字符": "龍",
     "DNA追溯": {
       "创建者": "UID9622",
       "创建时间": "2026-03-31",
@@ -295,19 +295,19 @@ CNSH_Font_OS
 ```
 ### 4.2 Font API 调用示例
 ```python
-# 来源标注: #ZHUGEXIN⚡️ | UID9622 龙魂体系
+# 来源标注: #ZHUGEXIN⚡️ | UID9622 龍魂体系
 
 引擎 = CNSH字元引擎_v3_UID9622()
 引擎.载入_cnsh数据("data/characters/dragon.cnsh")
 
 # 单字元渲染
-引擎.输出SVG("龙", "output/svg/龙.svg")
+引擎.输出SVG("龍", "output/svg/龍.svg")
 
 # 批量渲染整个字库
 引擎.执行渲染("output/svg/")
 
 # 组合渲染（横向/纵向排布）
-引擎.渲染组合("龙魂", "output/svg/龙魂.svg")
+引擎.渲染组合("龍魂", "output/svg/龍魂.svg")
 ```
 ---
 ## 五、🌐 CNSH UCN 全球字元网络（网络层）
@@ -324,7 +324,7 @@ flowchart LR
 全球字元注册·CID格式：
 ```json
 {
-  "cid": "cnsh:han:龙:0001",
+  "cid": "cnsh:han:龍:0001",
   "glyph_hash": "a91f23d2",
   "creator": "UID9622",
   "dna_sig": "#ZHUGEXIN⚡️-CNSH-DRAGON-0001",
@@ -347,7 +347,7 @@ CNSH_Font_OS/
 │
 ├─ data/
 │   ├─ characters/
-│   │   ├─ 龙.cnsh
+│   │   ├─ 龍.cnsh
 │   │   ├─ 中.cnsh
 │   │   ├─ 华.cnsh
 │   │   ├─ 民.cnsh
@@ -355,7 +355,7 @@ CNSH_Font_OS/
 │   │   └─ 国.cnsh
 │   ├─ combos/
 │   │   ├─ 中华.cnsh
-│   │   └─ 龙魂.cnsh
+│   │   └─ 龍魂.cnsh
 │   └─ library_index.json
 │
 ├─ output/
@@ -386,9 +386,9 @@ sys.path.insert(0, "engine")
 from cnsh_font_engine_v3_uid9622 import CNSH字元引擎_v3_UID9622
 
 引擎 = CNSH字元引擎_v3_UID9622()
-引擎.载入_cnsh数据("data/characters/龙.cnsh")
-引擎.输出SVG("龙", "output/svg/龙.svg")
-print("✅ 龙.svg 生成成功")
+引擎.载入_cnsh数据("data/characters/龍.cnsh")
+引擎.输出SVG("龍", "output/svg/龍.svg")
+print("✅ 龍.svg 生成成功")
 ```
 ---
 ## 十、📊 CNSH × 龍魂系统·联动关系
@@ -401,7 +401,7 @@ flowchart TD
         OS["🖥️ Font OS"]
     end
     CNSH -->|"字元DNA追溯"| DNA["🧬 DNA L5分层架构 v1.4\nL3日常层·字元存档"]
-    CNSH -->|"字体武器库更新"| 鲁班["🔨 鲁班字匠·龙魂版\n开源字体白名单增CNSH"]
+    CNSH -->|"字体武器库更新"| 鲁班["🔨 鲁班字匠·龍魂版\n开源字体白名单增CNSH"]
     CNSH -->|"字体渲染工具"| MCP["🤖 三才流场MCP引擎 v4.0\n雯雯P03归档字元文件"]
     CNSH -->|"知识入库"| P72["🛡️ P72·龍盾\n自动归档字元成果"]
 ```

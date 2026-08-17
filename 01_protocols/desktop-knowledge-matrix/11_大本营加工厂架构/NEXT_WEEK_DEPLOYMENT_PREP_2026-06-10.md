@@ -1,6 +1,6 @@
 # 🚀 下周部署准备计划
 # 日期: 2026-06-10 (周三)
-# DNA:#龍芯⚡️2026-06-10-NEXT-WEEK-DEPLOYMENT-PREP-v1.0
+# DNA:#龍芯⚡️丙午·丙申·庚申·亥时-NEXT-WEEK-DEPLOYMENT-PREP-v1.0
 # 版本: 1.0·执行版
 
 ---
@@ -93,7 +93,7 @@ curl -X GET "https://api.datadoghq.com/api/v1/validate" \
 # 测试 Slack
 curl -X POST "${SLACK_WEBHOOK_URL}" \
   -H 'Content-type: application/json' \
-  -d '{"text":"Test from Longhun"}'
+  -d '{"text":"Test from LongHun"}'
 
 # 测试 PagerDuty
 curl -X GET "https://api.pagerduty.com/users" \
@@ -570,7 +570,7 @@ source ~/.longhun/secrets.env
 
 ---
 
-**DNA**:#龍芯⚡️2026-06-10-NEXT-WEEK-DEPLOYMENT-PREP-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-NEXT-WEEK-DEPLOYMENT-PREP-v1.0
 **确认码**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **版本**: 1.0 (执行版)
 **有效期**: 有效至 2026-06-17

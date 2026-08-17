@@ -1,0 +1,6 @@
+#!/bin/bash
+# 🐉 龍魂 · 良心支付统计看板
+# DNA: #龍芯⚡️丙午·丙申·壬戌·巳时-LIANGXIN-PAY-STATS-UID9622
+echo "🐉 龍魂 · 良心支付看板"
+echo "========================================"
+python3 "$HOME/longhun-system/05_ENGINES/payment/lh_payment.py" --stats

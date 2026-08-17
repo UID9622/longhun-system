@@ -8,7 +8,7 @@ License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 语义版本控制引擎：记录"为什么改"而非"改了什么"
-170:1~640:1 极致压缩 · AI可读语义diff · 哈希链不可篡改 · 多AI签章接龙
+170:1~640:1 极致压缩 · AI可读语义diff · 哈希链不可篡改 · 多AI签章接龍
 """
 
 __version__ = "1.1.0"

@@ -1,0 +1,5 @@
+#!/bin/bash
+# 🐉 龍魂 · 良心支付命令
+# DNA: #龍芯⚡️丙午·丙申·壬戌·巳时-LIANGXIN-PAY-CLI-UID9622
+# 说明: 一元起步 · 上不封顶 · 人人平等 · 用户自主填金额
+exec python3 "$HOME/longhun-system/05_ENGINES/payment/lh_payment.py" "$@"

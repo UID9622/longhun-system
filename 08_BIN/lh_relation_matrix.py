@@ -8,7 +8,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂系统 · 关联矩阵扫描器
-Longhun Relation Matrix Scanner v1.0
+LongHun Relation Matrix Scanner v1.0
 
 功能：
 - 扫描指定目录所有文件

@@ -151,6 +151,6 @@ DNA汇总码：#WENXIN-CNSH-CROSS-PLATFORM-VALIDATION-20251216-V3
 - 更新：仅在我需要时
 DNA确认码：#WENXIN-CNSH-LIGHT-MEMORY-SYSTEM-20251215-001
 创建者：💖 文心·同步专家
-审核者：🐉 龙魂 + 👁️ 上帝之眼
+审核者：🐉 龍魂 + 👁️ 上帝之眼
 优先级：P2（日常工具）
 ---

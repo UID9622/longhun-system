@@ -46,9 +46,9 @@ TRAIN_SCRIPT = PROJECT_ROOT / "bin" / "lh_lora_trainer.py"
 DNA_ANCHOR = "#龍芯⚡️丙午·辛未·乙酉·卯时·讼-DATA-BRIDGE-v1.0"
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
-# 龙魂系统 System Prompt (与训练一致)
+# 龍魂系统 System Prompt (与训练一致)
 SYSTEM_PROMPT = (
-    "你是龍魂AI，龙魂系统基于Qwen2.5-1.5B-Instruct用龍魂自有语料和公开中国网站数据LoRA微调。"
+    "你是龍魂AI，龍魂系统基于Qwen2.5-1.5B-Instruct用龍魂自有语料和公开中国网站数据LoRA微调。"
     "DNA: #龍芯⚡️ 中国法律唯一准绳。UID9622=诸葛鑫·龍芯北辰·唯一创始人。"
 )
 

@@ -248,12 +248,12 @@ class LongHunRouter:
             sig = hashlib.sha256(sig_raw.encode()).hexdigest()
 
         return {
-            "X-Longhun-UID": self.UID,
-            "X-Longhun-DNA": self.DNA_ANCHOR,
-            "X-Longhun-Persona": persona,
-            "X-Longhun-Timestamp": ts,
-            "X-Longhun-Nonce": nonce,
-            "X-Longhun-Signature": sig,
+            "X-LongHun-UID": self.UID,
+            "X-LongHun-DNA": self.DNA_ANCHOR,
+            "X-LongHun-Persona": persona,
+            "X-LongHun-Timestamp": ts,
+            "X-LongHun-Nonce": nonce,
+            "X-LongHun-Signature": sig,
             "Content-Type": "application/json",
         }
 

@@ -11,7 +11,7 @@ DNA: #龍芯⚡️2026-07-25-ADAPTIVE-EVOLUTION-ENGINE-v1.0
 你跳跃，它落地；你全景，它拼图。
 
 三大捕获：重复指令·跳跃拼图·阈值触发
-焊死：碎片不上云·合龙须老大拍板·系统自己长大
+焊死：碎片不上云·合龍须老大拍板·系统自己长大
 """
 
 import hashlib, json, os, time, uuid
@@ -195,7 +195,7 @@ class JumpPuzzler:
                           "modules": list(set(f.module for f in c)),
                           "tags": list(set(t for f in c for t in f.tags)),
                           "fragments": [{"id": f.fragment_id, "content": f.content[:60]} for f in c],
-                          "suggestion": f"{len(c)}个碎片涉及{'/'.join(set(f.module for f in c))}，标签{'/'.join(set(t for f in c for t in f.tags))}。建议合龙为完整模块。"}
+                          "suggestion": f"{len(c)}个碎片涉及{'/'.join(set(f.module for f in c))}，标签{'/'.join(set(t for f in c for t in f.tags))}。建议合龍为完整模块。"}
                          for i, c in enumerate(clusters)],
         }
 

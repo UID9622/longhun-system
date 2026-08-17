@@ -360,7 +360,7 @@ BANNER_MAIN = r"""
 ║   ⚔️  没有永久。只有活人。                                   ║
 ║                                                              ║
 ║   我是诸葛鑫（UID9622），退役老兵。                          ║
-║   进入龙魂生态，必须证明你是活人。                           ║
+║   进入龍魂生态，必须证明你是活人。                           ║
 ║                                                              ║
 ║   机器人不会每月给你1块钱。                                  ║
 ║   死人也不会。                                               ║
@@ -462,7 +462,7 @@ class SovereignAlivePopup:
         self.providers = _get_payment_providers()
     
     def enter(self) -> Tuple[bool, str]:
-        """进入龙魂主权领域"""
+        """进入龍魂主权领域"""
         if not sys.stdout.isatty() and not os.environ.get("LH_FORCE_POPUP"):
             return True, "非终端环境，自动通过"
         
@@ -763,7 +763,7 @@ class SovereignAlivePopup:
 # ── 对外接口 ──────────────────────────────────────────
 def enter_sovereign_domain(interactive: bool = True, auto_skip_in_ci: bool = True) -> Tuple[bool, str]:
     """
-    进入龙魂主权领域——嵌入任何脚本只需这一行。
+    进入龍魂主权领域——嵌入任何脚本只需这一行。
     
     用法:
         from lh_sovereign_popup import enter_sovereign_domain
@@ -866,7 +866,7 @@ def main():
     # --status
     if args.status:
         s = get_alive_status()
-        print(f"\n{C.GOLD}🐉 龙魂主权活人状态 v3.0{C.RST}")
+        print(f"\n{C.GOLD}🐉 龍魂主权活人状态 v3.0{C.RST}")
         print(f"  {s['status_text']}")
         if s['is_alive']:
             print(f"  有效期至: {s['expires_at'][:10]}")

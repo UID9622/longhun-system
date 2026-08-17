@@ -142,8 +142,8 @@ def create_app(
             response["x-saved"] = True
             resp = JSONResponse(response)
             # 🔥 注入审计响应头
-            resp.headers["X-Longhun-DNA"] = request_dna
-            resp.headers["X-Longhun-Audit"] = audit_mark
+            resp.headers["X-LongHun-DNA"] = request_dna
+            resp.headers["X-LongHun-Audit"] = audit_mark
             return resp
 
         # Step 2: 路由决策
@@ -194,8 +194,8 @@ def create_app(
 
         resp = JSONResponse(resp_data)
         # 🔥 注入审计响应头
-        resp.headers["X-Longhun-DNA"] = request_dna
-        resp.headers["X-Longhun-Audit"] = audit_mark
+        resp.headers["X-LongHun-DNA"] = request_dna
+        resp.headers["X-LongHun-Audit"] = audit_mark
         return resp
 
     @app.get("/stats")

@@ -5,21 +5,21 @@
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 **三色:** 🟢 通过
 **上一窗口:** codebuddy
-**交接时间:** `2026-08-13T18:35:29`
+**交接时间:** `2026-08-13T18:59:01`
 
 ---
 
 ## 一、会话摘要
 
-鲲鹏协作中枢落地：/opt/longhun/shared/ 唯一真相源 + Web /collab/ 导航 + sync-collab.sh 双向同步 + lh handoff v2.0 自动推送
+协作中枢配置统一 v1.2 全量落地
 
 ## 二、TODO 状态
 
-①COMMAND_INDEX补collab命令 ②分支整合 ③Gitee体积超限待Compact
+（待填写）
 
 ## 三、关键上下文
 
-collab四件套: README/NAVIGATION/DOCUMENT_MATRIX/index.html；nginx已加/collab/；引擎v2.0支持--remote
+（待填写）
 
 ## 四、未验证假设
 
@@ -29,19 +29,37 @@ collab四件套: README/NAVIGATION/DOCUMENT_MATRIX/index.html；nginx已加/coll
 
 ```
 ## orphan_main
-M 01_protocols/LH-AI-HANDOFF-v1.0.md
-M 01_protocols/LH-AI-HANDOFF-v1.0.md.asc
+M 08_BIN/kunpeng_disk_monitor.sh
 M 08_BIN/lh_handoff.py
 M 08_BIN/lh_handoff.py.asc
-M personas/runtime/life/life_log.jsonl
-?? 12_DOCS/collab/
-?? deploy/sync-collab.sh
-?? deploy/sync-collab.sh.asc
+M 12_DOCS/collab/DOCUMENT_MATRIX.md
+M 12_DOCS/collab/DOCUMENT_MATRIX.md.asc
+M deploy/sync-collab.sh
+M deploy/sync-collab.sh.asc
+?? 04_SERVICES/backend_legacy/config.py
+?? 04_SERVICES/backend_legacy/main.py
+?? 04_SERVICES/backend_legacy/routes.py
+?? 08_BIN/lh_cnsh_plugin.py
+?? 08_BIN/lh_cnsh_plugin.py.asc
+?? 08_BIN/lh_config.py
+?? 08_BIN/lh_config.py.asc
+?? 08_BIN/lh_self-heal.py
+?? 12_DOCS/agent_reports/notion_command_registry_run_20260813_184006.json
+?? 12_DOCS/collab/CNSH-STAMP-PLUGIN-v1.1.md
+?? 12_DOCS/collab/CNSH-STAMP-PLUGIN-v1.1.md.asc
+?? 12_DOCS/collab/COLLAB-CONFIG-UNIFY-v1.1.md
+?? 12_DOCS/collab/COLLAB-CONFIG-UNIFY-v1.1.md.asc
+?? deploy/scripts/lh_nginx_collab_patch.py
+?? deploy/scripts/lh_nginx_collab_patch.py.asc
+?? lib/
+?? reports/CANNON_REPORT_20260813_184426.json
+?? reports/CANNON_REPORT_20260813_184426.md
+?? web_server.py
 ```
 
 ## 六、下一步建议
 
-新窗口先进门: 读/collab/ → lh handoff load --remote → sync-collab.sh pull
+lh.env已建(600) | lh_config.sh/py加载器实测 | sync-collab.sh v2.0(push/status全绿) | lh_handoff.py v2.1 | nginx增量改造(health 200/audit 403/三色头) | .audit checksums 32行 | 全部GPG签名+已推鲲鹏
 
 ---
 

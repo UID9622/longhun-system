@@ -3,7 +3,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # ╔═══════════════════════════════════════════════════════════════╗
-# ║  🐉 龙魂系统 · 鲲鹏服务监控配置脚本                          ║
+# ║  🐉 龍魂系统 · 鲲鹏服务监控配置脚本                          ║
 # ║  🏷️  版本: v1.1 · Bark                                       ║
 # ║  🧬  DNA: #龍芯⚡️2026-07-11-KUNPENG-MONITOR-BARK-v1.1        ║
 # ║  👤  适用: UID9622 · 诸葛鑫                                   ║
@@ -100,7 +100,7 @@ generate_systemd_services() {
 
         cat > "${service_file}" << EOF
 [Unit]
-Description=龙魂系统 - ${name} 服务
+Description=龍魂系统 - ${name} 服务
 Documentation=https://uid9622.notion.site
 After=network.target
 Wants=network.target
@@ -142,7 +142,7 @@ EOF
 # 第三步：启用并启动所有服务
 # ────────────────────────────────────────────────────────────────
 enable_and_start_services() {
-    log_info "启用并启动所有龙魂服务..."
+    log_info "启用并启动所有龍魂服务..."
 
     for service_def in "${SERVICES[@]}"; do
         IFS=':' read -r name port cmd <<< "${service_def}"
@@ -171,13 +171,13 @@ setup_cron_jobs() {
     # 先导出已有的 crontab
     crontab -l > /tmp/cron_backup.tmp 2>/dev/null || true
 
-    # 移除旧的龙魂定时任务（避免重复）
+    # 移除旧的龍魂定时任务（避免重复）
     sed -i '/longhun/d' /tmp/cron_backup.tmp 2>/dev/null || true
 
     # 添加新的定时任务
     cat >> /tmp/cron_backup.tmp << EOF
 
-# ── 龙魂系统定时任务 ──
+# ── 龍魂系统定时任务 ──
 # 每30分钟：自愈引擎巡检
 */30 * * * * cd ${BASE_DIR} && ${PYTHON} bin/lh_auto_heal.py --quiet >> ${LOG_DIR}/auto_heal.log 2>&1
 
@@ -210,7 +210,7 @@ generate_health_check_script() {
 
     cat > "${BASE_DIR}/scripts/health_check.sh" << 'SCRIPT'
 #!/bin/bash
-# 龙魂系统 · 服务健康检查脚本（简版，完整版见 deploy/scripts/health_check.sh）
+# 龍魂系统 · 服务健康检查脚本（简版，完整版见 deploy/scripts/health_check.sh）
 # 此脚本由 monitor_setup.sh 自动生成，加新服务请改 monitor_setup.sh 中的 SERVICES 数组
 
 BASE_DIR="/opt/longhun-system"
@@ -290,7 +290,7 @@ fi
 
 # ── Bark 推送 ──
 if [ -n "${BARK_KEY}" ] && [ ${ALARM_COUNT} -gt 0 ]; then
-    TITLE="🔴 龙魂系统 · ${ALARM_COUNT}条告警"
+    TITLE="🔴 龍魂系统 · ${ALARM_COUNT}条告警"
     BODY=""
     for alert in "${ALARM_ITEMS[@]}"; do
         IFS='|' read -r level text <<< "${alert}"
@@ -299,7 +299,7 @@ if [ -n "${BARK_KEY}" ] && [ ${ALARM_COUNT} -gt 0 ]; then
     BODY="${BODY}\n\n📊 CPU:${CPU_USAGE}% MEM:${MEM_USAGE}% DISK:${DISK_USAGE}%\n${TS} · 鲲鹏 TaiShan 200"
     ENC_TITLE=$(echo -n "${TITLE}" | python3 -c "import sys,urllib.parse; print(urllib.parse.quote(sys.stdin.read()))" 2>/dev/null || echo "${TITLE}")
     ENC_BODY=$(echo -n "${BODY}" | python3 -c "import sys,urllib.parse; print(urllib.parse.quote(sys.stdin.read()))" 2>/dev/null || echo "${BODY}")
-    curl -s "${BARK_URL}/${ENC_TITLE}/${ENC_BODY}?group=龙魂系统&sound=alarm" > /dev/null 2>&1
+    curl -s "${BARK_URL}/${ENC_TITLE}/${ENC_BODY}?group=龍魂系统&sound=alarm" > /dev/null 2>&1
 fi
 
 echo "[CHECK] $(date '+%Y-%m-%d %H:%M:%S') 健康检查完成" >> "${LOG_DIR}/health_check.log"
@@ -323,7 +323,7 @@ generate_archive_script() {
 
     cat > "${BASE_DIR}/scripts/archive_logs.sh" << 'SCRIPT'
 #!/bin/bash
-# 龙魂系统 · 日志归档脚本
+# 龍魂系统 · 日志归档脚本
 
 LOG_DIR="/var/log/longhun"
 ARCHIVE_DIR="${LOG_DIR}/archive"
@@ -358,7 +358,7 @@ generate_backup_script() {
 
     cat > "${BASE_DIR}/scripts/backup_data.sh" << 'SCRIPT'
 #!/bin/bash
-# 龙魂系统 · 数据备份脚本
+# 龍魂系统 · 数据备份脚本
 
 BACKUP_DIR="/var/lib/longhun/backups"
 DATE_TAG=$(date '+%Y%m%d_%H%M%S')
@@ -397,11 +397,11 @@ SCRIPT
 # 第八步：生成一键状态查看命令
 # ────────────────────────────────────────────────────────────────
 generate_status_command() {
-    log_info "生成龙魂状态查看命令..."
+    log_info "生成龍魂状态查看命令..."
 
     cat > /usr/local/bin/longhun-status << 'CMD'
 #!/bin/bash
-# 龙魂系统 · 一键查看状态
+# 龍魂系统 · 一键查看状态
 # 用法: longhun-status
 
 RED='\033[0;31m'
@@ -411,7 +411,7 @@ CYAN='\033[0;36m'
 NC='\033[0m'
 
 echo -e "${CYAN}════════════════════════════════════════════${NC}"
-echo -e "${CYAN}  🐉 龙魂系统 · 鲲鹏运行状态              ${NC}"
+echo -e "${CYAN}  🐉 龍魂系统 · 鲲鹏运行状态              ${NC}"
 echo -e "${CYAN}  $(date '+%Y-%m-%d %H:%M:%S')              ${NC}"
 echo -e "${CYAN}════════════════════════════════════════════${NC}"
 echo ""
@@ -462,12 +462,12 @@ fi
 
 echo ""
 echo -e "${CYAN}════════════════════════════════════════════${NC}"
-echo -e "${CYAN}  UID9622 · 诸葛鑫 · 龙魂系统              ${NC}"
+echo -e "${CYAN}  UID9622 · 诸葛鑫 · 龍魂系统              ${NC}"
 echo -e "${CYAN}════════════════════════════════════════════${NC}"
 CMD
 
     chmod +x /usr/local/bin/longhun-status
-    log_info "龙魂状态查看命令已安装: longhun-status"
+    log_info "龍魂状态查看命令已安装: longhun-status"
 }
 
 # ────────────────────────────────────────────────────────────────
@@ -478,7 +478,7 @@ generate_deploy_script() {
 
     cat > "${BASE_DIR}/deploy.sh" << 'DEPLOY'
 #!/bin/bash
-# 🐉 龙魂系统 · 鲲鹏一键部署脚本
+# 🐉 龍魂系统 · 鲲鹏一键部署脚本
 # 用法: sudo bash deploy.sh
 
 set -e
@@ -487,7 +487,7 @@ BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "${BASE_DIR}"
 
 echo "╔══════════════════════════════════════════════════╗"
-echo "║  🐉 龙魂系统 · 鲲鹏一键部署                      ║"
+echo "║  🐉 龍魂系统 · 鲲鹏一键部署                      ║"
 echo "╚══════════════════════════════════════════════════╝"
 
 # 1. 检测环境
@@ -511,7 +511,7 @@ echo "  ✅ 服务监控配置完成"
 
 # 4. 启动服务
 echo ""
-echo "[4/6] 启动龙魂服务..."
+echo "[4/6] 启动龍魂服务..."
 systemctl daemon-reload
 for svc in longhun-skillbus longhun-digitalhuman longhun-persona longhun-dna longhun-ecosystem; do
     systemctl enable "${svc}" 2>/dev/null
@@ -550,7 +550,7 @@ DEPLOY
 main() {
     echo ""
     echo -e "${CYAN}══════════════════════════════════════════════════${NC}"
-    echo -e "${CYAN}  🐉 龙魂系统 · 鲲鹏服务监控配置                  ${NC}"
+    echo -e "${CYAN}  🐉 龍魂系统 · 鲲鹏服务监控配置                  ${NC}"
     echo -e "${CYAN}  DNA: #龍芯⚡️2026-07-11-KUNPENG-MONITOR-v1.0    ${NC}"
     echo -e "${CYAN}══════════════════════════════════════════════════${NC}"
     echo ""
@@ -563,8 +563,8 @@ main() {
 
     # 检查基础目录
     if [ ! -d "${BASE_DIR}" ]; then
-        log_error "龙魂系统目录不存在: ${BASE_DIR}"
-        log_error "请先 git clone 龙魂系统到 ${BASE_DIR}"
+        log_error "龍魂系统目录不存在: ${BASE_DIR}"
+        log_error "请先 git clone 龍魂系统到 ${BASE_DIR}"
         exit 1
     fi
 
@@ -580,7 +580,7 @@ main() {
 
     echo ""
     echo -e "${GREEN}══════════════════════════════════════════════════${NC}"
-    echo -e "${GREEN}  ✅ 龙魂系统服务监控配置完成！                    ${NC}"
+    echo -e "${GREEN}  ✅ 龍魂系统服务监控配置完成！                    ${NC}"
     echo -e "${GREEN}══════════════════════════════════════════════════${NC}"
     echo ""
     echo -e "  ${CYAN}查看状态:${NC}  longhun-status"

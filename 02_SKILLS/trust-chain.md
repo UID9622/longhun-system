@@ -55,11 +55,11 @@ source: longhun-system
 
 - 本文档引用或参考了以下来源：
   - [1] `01_protocols/LH-TRUST-CHAIN-DELIVERY-v1.2.md` · 龍魂信任链完整落地执行包 v1.2.0
-  - [2] `01_protocols/LH-DNA-CHAIN-PROTOCOL-v1.0.md` · DNA接龙链协议
+  - [2] `01_protocols/LH-DNA-CHAIN-PROTOCOL-v1.0.md` · DNA接龍链协议
   - [3] `10_PORTAL/trust-chain.html` · 对外展示页面
 - 相关龍魂系统文档：
   - 《龍魂文档标准模板 v1.0》
-  - `bin/lh_dna_chain.py` — DNA接龙链引擎
+  - `bin/lh_dna_chain.py` — DNA接龍链引擎
   - `bin/lh_trust_chain.py` — 信任链统一入口
 
 ---

@@ -20,7 +20,7 @@ SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-# ── 龙魂教学适配器桥接 ──
+# ── 龍魂教学适配器桥接 ──
 try:
     from engines.lh_teaching_adapter import TeachingAdapter, TeachTier, get_adapter
     _HAS_TEACHING_ADAPTER = True
@@ -127,7 +127,7 @@ class P11Libai:
         ideas = []
         for i, tmpl in enumerate(templates[:5]):
             idea = tmpl.format(
-                domain=domain or "龙魂系统",
+                domain=domain or "龍魂系统",
                 module=brief,
                 problem=brief,
             )

@@ -41,6 +41,8 @@
 | 🐉 **主权守护引擎** 🔥 | ✅ **v1.0**·`bin/lh_sovereignty_guard.py`·法律边界+一票否决+数据主权·系统在协议在 |
 | 🐉 **LU-Time Engine v4.0** 🔥 | ✅ **`bin/lh_time_engine.py`**·天干地支·64卦·梅花易数·每句输出戳·审计链·`lh te` |
 | 🌐 **生态接入协议 v1.0** 🔥 | ✅ **`01_protocols/LH-ECOSYSTEM-ACCESS-PROTOCOL-v1.0.md`**·P1-CORE·月度活人验证·三态身份(生态内/外/共建者)·不可剥夺三权·铁律三则 |
+| 🔌 **CNSH-Harness 插件套件 v1.0** 🔥 | ✅ **`01_protocols/LH-CNSH-HARNESS-ARCH-v1.0.md`** + **`integrations/deepseek/harness/cnsh-suite/`**·DNA/三色审计/CNSH执行/史官/人格路由·10能力·13文件·GPG签名 |
+| 🐉 **协议层统一收口 v1.0** 🔥 | ✅ **19 个未合并协议已归集**: P0=10 / P1=4 / P2=5·全部补全 v∞ DNA/CONFIRM/GPG·`01_protocols/INDEX.md` 已更新·历史顶层 228 个协议标记为「历史顶层协议」·不删除旧版 |
 | 🗄️ **历史资产管理中心 v1.1** | ✅ **`01_protocols/LH-ASSET-CENTER-v1.1.md`**·14章·5项冲突修正焊死·SQLite+FTS5+SM3链·7端点API·GPG签章 |
 | 🐉 **CodeBuddy 生态总索引 v1.0** | ✅ **`01_protocols/LH-CODEBUDDY-MASTER-INDEX-v1.0.md`**·规则/配置/产出/工具/备份/审计统一入口 |
 | 🛠️ **CodeBuddy 技能生成器 v1.1** | ✅ **`08_BIN/lh_generate_codebuddy_skills.py`**·v∞ DNA·入口脚本存在性校验·`--force`/`--validate-only` |
@@ -49,8 +51,21 @@
 | 🔥 **longhun-core v1.0.0 低算力内核** | ✅ **`core/dist/longhun-core-1.0.0.tar.gz`**·29KB·零依赖·CLI `lh-core` 已安装·5/5 自检·基准全绿·`--help`/`-h`/`help` 独立帮助入口已上线 |
 | 🔗 **lh → lh-core 桥接** | ✅ **`bin/lh`**·`version/bench/dna/audit/root/chain/info/help` 轻量命令优先走 `lh-core`·新增 `lh core <cmd>` 统一前缀入口·`lh --help` 已增加内核命令专区 |
 | 🔗 **龍魂信任链 v1.2** 🔥 | ✅ **`02_SKILLS/trust-chain.md`** + **`08_BIN/lh_trust_chain.py`**·demo/deploy/verify/docs/status·GPG签名·已接入 `lh trust-chain`/`lh 信任链` |
+| 🌐 **跨设备记忆互通 v1.2** 🔥 | ✅ **`08_BIN/lh_cross_device_server.sh`** + **`08_BIN/sync_memory.sh`** + **`xsync_workflow.py` 扩展 serve/sync-memory/sync-file/health** + **`integrations/harmonyos/longhun-bridge/LongHunBridge.ets` SDK** + **`01_protocols/LH-CROSS-DEVICE-PROTOCOL-v1.0.md`**·A/B/C 三路全绿：TCP加密同步 / HTTP REST同步 / HTTP/1.1 chunked 真 SSE 流式对话·SM4+ECDH·mDNS·端口冲突修复·GPG签名·**2026-08-14 CodeBuddy接线：`xsync_workflow.py` v2.0 全套(8文件)从 `~/.kimi-code/` 同步入库（旧版冻结 `scripts_legacy_0809/`），两脚本路径改指仓库·服务实测 19622/19623/18799 三端口运行中·sync-memory loopback 拉取 11 条 ✅** |
+| 🧹 **历史顶层协议去重审计 v1.0** 🆕 | ✅ **`01_protocols/TOP_PROTOCOL_DEDUP_AUDIT_20260814.md`**·顶层 231→199·归档 32 个文件（中文历史协议 30 + 过短草稿 2）到 `01_protocols/archive/`·生成 `TOMBSTONE_TOP_PROTOCOLS_20260814.md`·全部 GPG 签名 |
+| 🧼 **正文旧 DNA 清洗 v1.0** 🆕 | ✅ **`01_protocols/DNA_CLEAN_REPORT_20260814.md`**·清洗 925 个 `.md` 文件·替换 5301 处旧 `YYYY-MM-DD` 格式 DNA 为 v∞ 干支·时辰·卦格式·全目录 GPG 重签 |
+| 🧭 **官网应用广场 v1.0** 🆕 | ✅ **`10_PORTAL/apps.html`**·70+ 页面清爽分组导航+即时搜索·**`index.html` 导航升级为分组下拉(平台/工具/审计/论文/更多)+移动端汉堡**·修复 hero 死链·**部署 uid9622.cn/apps/**（nginx 新增 `/apps/` 静态路由 alias `/opt/longhun-system/portal/`）·dashboard 首页加入口·全链实测 200·GPG 签名 |
+| 🏠 **官网首页 v4.0 挂根 + SEO 三件套** 🆕 | ✅ **`uid9622.cn/` = v4.0 品牌首页**（nginx `location /` 改静态 alias `/opt/longhun-system/portal/`）·**dashboard(9600) 挪 `/dashboard/`**（proxy 剥离前缀·代码 2 处路径改相对 + `/static` mount 移到模块级修复）·**sitemap.xml(115 URL)+robots.txt+JSON-LD(canonical+Organization+WebSite)** 上线·og:image 修复·nginx 配置括号结构修复(历史被改坏)·全链实测 15 条 200·GPG 签名 |
+| 🐉 **一元主权开发者系统 v2.0·月度确认金** 🆕 | ✅ **`longhun-dev-ecosystem/`**（FastAPI :8800 · SQLite）·**月度主权确认金公约 v1.0**（`01_protocols/LH-DEVELOPER-FEE-CONVENTION-v1.0.md`）：**每月1元起步·上不封顶·杜绝一毛不拔**·连续3月未缴 DNA 冻结·补缴恢复·**正规支付网关层** `backend/gateway.py`（sandbox 默认验签闭环+微信/支付宝/数币注册位·HMAC-SHA256 验签·回调幂等入账·金额核对）·订单持久化 `payment_orders`+月费账本 `monthly_fee_records`·**历史账单查询+4类导出**（缴费/贡献/代码DNA/名册 CSV+JSON·管理员Token鉴权）·企业自愿上浮字段·注册/注入/支付贡献分联动·crontab 每月1日自动冻结·本地30项+HTTP10项+公网6项全绿·GPG 签名 |
+| 🎭 **24人格 NPC 引擎 v1.0** 🆕 | ✅ **`05_ENGINES/lh_npc_engine/`**·行为层+对话层+记忆层·零依赖·SQLite 持久化·24人格模板·GPG签名 |
+| 🎬 **AI 短剧二开全案 v1.1** 🆕 | ✅ **`01_protocols/LH-AI-DRAMA-FORK-v1.1.md`**·MoneyPrinterTurbo+novelvids 合并·DNA 植入·三色审计·GPG签名 |
+| 💰 **战略估值报告 v1.1** 🆕 | ✅ **`reports/LH-STRATEGIC-VALUATION-v1.1.md`** + `.xlsx`·修正加权/区间矛盾·落地概率折价×0.3·GPG签名 |
+| 📋 **三色审计归集总页面 v1.0** 🆕 | ✅ **`10_PORTAL/三色审计页面结构_v1.0.md`**·`~/Pictures/Kimi_Agent_三色审计页面结构完善 (1)` 去重/修复/落地总览·9 文件已迁移签名·GPG签名 |
 | 🐉 **透明审计与冲突仲裁 v2.2** 🔥 | ✅ **`02_SKILLS/transparent-audit.md`** + **`08_BIN/lh_transparent_audit.py`** + **`10_PORTAL/transparent-audit.html`**·多引擎事实级仲裁·三色/R值双尺·年轮链·已接入 `lh transparent-audit` |
 | 💰 **估值报告模板引擎 v1.1** 🔥 | ✅ **`core/valuation/lh_valuation_template.py`**·模板`+`配置一键生成报告·`--validate`/`--strict`/`--init`·`--config`+`--excel`联动·正则预编译·单层`{{#each}}`·GPG签名 |
+| 🐉 **CNSH 溯源验证编辑器 v1.1** 🔥 | ✅ **`10_PORTAL/cnsh-validator/index.html`**·差异对比·v∞ DNA·三色审计·云端版本链·GPG签名·审计报告已归档 |
+| 🎬 **龍魂全媒体播放器 v1.1** 🆕 | ✅ **`bin/lh_media_player.py`**·argparse 子命令·ASR/OCR 缓存·真实时间戳 WebVTT·OCR 去重·可点击文稿/搜索/响应式播放器·10/10 测试通过·GPG签名·DNA: `#龍芯⚡️丙午·丙申·辛酉·酉时·䷟恒-MEDIA-PLAYER-STATE-UPDATE-V1.1-P0-261d7698` |
+| 📋 **剪贴板容器 v1.2** 🆕 | ✅ **`06_CONTAINERS/clipboard-vault/`** + **`08_BIN/lh_clipboard_hub.py`** + **`08_BIN/lh_clipboard_agent_*.py`**·复制自动落盘·全局内容哈希去重·WebSocket 容器中心（SM4-CBC 加密·token 校验·限流）·macOS/Windows 本地代理（断线重连·占位替换防输入法回传）·自动进 Neo4j·systemd/launchd 部署模板·GPG签名 |
 | 🚀 **鲲鹏共生体快捷入口** 🔥 | ✅ **`08_BIN/lh_kunpeng.sh`**·已安装 `lh-kunpeng`·`status/check/sync/task/demo/monitor`·本地发号·鲲鹏 21人格执行·SSH直联 |
 | 🐉 **龍魂一键启动入口** 🔥 | ✅ **`08_BIN/lh_start.sh`**·已安装 `lh-start`·`lh-start`进控制台·`--kunpeng`/`--status`/`--all`/`--time` 一键直达 |
 | 📋 **鲲鹏自动AI调取 SOP** 🔥 | ✅ **`01_protocols/LH-KUNPENG-AUTO-AI-SOP-v1.0.md`**·常用启动指令·周期巡检·故障排查·已落地 |
@@ -88,7 +103,7 @@
 | 📝 Topic页面充实 | ✅ 18个GitCode Topic页面全部填充·1,526行内容·哲学+数学+工程全覆盖
 | 🧪 SCT数学建模论文 🔥 | ✅ `papers/反奶头乐共生理论_数学建模_v1.0.md`·9章·8模型·28公式·10章Python代码 |
 | ⚙️ SCT仿真引擎 🔥 | ✅ `engines/lh_symbiotic_cognition_engine.py`·7组仿真全绿·共生成长vs顺从退化·DNA链验证 |
-| 🐉 **龍魂字体** 🔥 | ✅ 显示名改为「龙魂字体」·WOFF2 2.46MB（压缩90.2%）·U+E200 龙纹水印·GitHub Release v1.001 |
+| 🐉 **龍魂字体** 🔥 | ✅ 显示名改为「龍魂字体」·WOFF2 2.46MB（压缩90.2%）·U+E200 龍纹水印·GitHub Release v1.001 |
 | 🧬 **媒体主权标记引擎** 🔥 | ✅ `engines/lh_media_sovereignty_marker.py`·字体/图像/音频闭环验证通过·视频v1.0部分支持 |
 | 📜 **媒体主权标记协议** 🔥 | ✅ `01_protocols/LH-MEDIA-SOVEREIGNTY-MARK-v1.0.md`·P0·六层来源链 |
 | 🎬 **视频解说稿自动生成引擎** 🆕 | ✅ `bin/lh_video_commentary_engine.py`·v1.0·主题/脚本/文章→解说稿+配音+视频·dry-run·人格路由·DNA签章·全路径验证通过 |
@@ -192,8 +207,8 @@ infra:
   mac: AC charging
   kunpeng: 119.13.90.27·SSH key ~/.ssh/longhun_kunpeng_ed25519·FRP已通
   domain: uid9622.cn (Let's Encrypt wildcard 7/17→10/15)
-  launchd: 52 services
-  systemd: 11 services
+  launchd: 44 services (龍魂37·实测2026-08-16)
+  systemd: 56 services (龍魂56·总76·实测2026-08-16)
   ollama_models:
     - longhun-v4.1.1-bind (Yi-1.5-9B·17.7 GB·Val 0.9659·DNA捆绑)
     - longhun-v4.1.1 (Yi-1.5-9B·17.7 GB·Val 0.8097)
@@ -276,6 +291,8 @@ UID:      9622 (诸葛鑫·Lucky·唯一决策者)
 - [ ] 鲲鹏部署脚本（deploy/scripts/有完整脚本·待执行验证）
 - [x] 命名冲突目录合并（engine→engines, persona→personas/runtime, software-dna→software_dna/src, integrated-modules symlink→real dir） ✅
 - [x] cnsht碎片目录整合（6目录→cnsh/） + protocols/废弃目录清理（归档→01_protocols/archive/） ✅
+- [x] 🧪 完整测试套件 v1.0 落地 ✅（tests/ 12文件+CI·`lh test`全绿 19passed/4skipped·调度器4阶段✅·报告三色🟢·GPG 17签名·详见记忆8/15第9条）
+- [x] 🏭 全自动工厂 v2.1 落地 ✅（15文件·`lh factory run`全链路7步全绿·质量门禁/回滚/发布/自监控/四级熔断/通知/鲲鹏联动·GPG签名·详见记忆8/15第10条）
 
 ### ✅ 已完成 (7/21+2今日)
 - [x] v4.1.3 corrupt adapter bug 修复 (model.save_weights → mx.save_safetensors LoRA only)
@@ -355,6 +372,20 @@ UID:      9622 (诸葛鑫·Lucky·唯一决策者)
 
 | 时间 | 操作 | 影响 | 状态 |
 |:---|:---|:---|:---:|
+| 2026-08-14 | 中国科技自主创新专栏知识图谱落地：从 `longhun-cn-innovation-kb` 45 条结构化记录生成标准 KG，含 115 节点 / 449 边，输出 `cn_innovation_kg.{json,md,cypher}` 并 GPG 签名；顶刊论文 #1~#7  venue 节点全部抽取 | Notion 专栏数据在本地形成可查询、可导入 Neo4j、可可视化的知识图谱；与 CNSH 语义底座联动 | 🟢 |
+| 2026-08-14 | 知识图谱 Neo4j 实测导入：Homebrew 安装 Neo4j Community，`cypher-shell` 导入 115 节点 / 449 边，抽查顶刊目标关系与领域分布均与源数据一致；浏览器 http://localhost:7474 可访问 | KG 从文件态进入可查询数据库态，支持 Cypher 查询与可视化 | 🟢 |
+| 2026-08-14 | 知识图谱 Portal 搜索/查询/接口落地：新增 `sovereignty/portal/cn_innovation_kg_api.py` FastAPI 路由（Neo4j HTTP 查询）+ 前端页面 `static/cn_innovation_kg.html`；`04_SERVICES/portal/index.html` 新增入口卡片；API 服务 `:8444` 已启动，stats/search/articles/expand 等端点实测通过 | 用户可在 portal 上按领域/标签/人格/顶刊/五行等多维度搜索浏览中国科技创新专栏知识图谱 | 🟢 |
+| 2026-08-14 | 跨设备记忆互通落地调试：补全 `integrations/harmonyos/longhun-bridge/LongHunBridge.ets` SDK；实测 Mac 端 `lh_cross_device_server.sh` 启动成功；sync health (19623) 与 bridge health (18799) 均返回正常；服务可停可启 | 鸿蒙端 SDK + Mac 服务端形成完整闭环；具备同 WiFi 下记忆同步与对话能力 | 🟢 |
+| 2026-08-14 | **CodeBuddy 跨设备接线**：`xsync_workflow.py` v2.0 全套 8 文件从 `~/.kimi-code/` 同步入库 `skills/longhun-cross-platform/scripts/`（旧版冻结 `scripts_legacy_0809/`）；`lh_cross_device_server.sh`/`sync_memory.sh` 路径改指仓库；实测 19622/19623/18799 三端口运行中、`/health` running、sync-memory loopback 拉取 11 条记忆 ✅；GPG 重签 3 文件 | Kimi 产出与 CodeBuddy 仓库完成链接，跨设备互通不依赖 `~/.kimi-code/` | 🟢 |
+| 2026-08-14 | **🧭 官网应用广场上线**：`10_PORTAL/apps.html`（70+ 页面·7 大领域分组·即时搜索·清爽卡片导航）+ `index.html` 导航升级分组下拉（平台/工具/审计/论文/更多 + 移动端汉堡菜单）+ 修复 2 处 hero 死链；nginx 新增 `location /apps/` 静态路由（alias `/opt/longhun-system/portal/`）·备份配置·dashboard 首页(9600)右上角加「🧭 全部应用」入口并重启；实测 `uid9622.cn/`、`/apps/apps.html`、`/apps/dashboard/`、深链 8 条全部 200；GPG 重签 apps.html/index.html | 官网从单页旧版升级为全站应用广场导航；112 个页面首次可公网直达 | 🟢 |
+| 2026-08-15 | **🏠 官网首页 v4.0 挂根 + SEO 三件套**：`uid9622.cn/` 由 dashboard 动态页换为 v4.0 品牌首页（nginx `location /` 改静态 alias `/opt/longhun-system/portal/`）；dashboard(9600) 挪至 `/dashboard/`（proxy 剥离前缀，代码 css_url + 5 处 api() 改相对路径，`/static` mount 从 `__main__` 移到模块级修复历史 bug）；**sitemap.xml（115 URL）+ robots.txt + JSON-LD（canonical + Organization + WebSite）** 上线；og:image 死链修复；顺带修复 nginx 配置括号结构（历史被 flow 部署改坏·嵌套 location 未闭合·删 2 个多余 `}`）；全链实测 15 条 200；GPG 签名 | 官网根路径升级为品牌首页；SEO 可被百度/必应收录；dashboard 功能完整保留 | 🟢 |
+| 2026-08-15 | **🐉 一元主权开发者系统 v1.0 上线**：`longhun-dev-ecosystem/` 全新项目（FastAPI :8800 + SQLite·零外依赖）·**注册→1元模拟支付→开发者DNA→代码DNA注入→贡献追踪→Top50榜单** 全闭环·开发者面板（查询/代码列表/贡献记录/排行榜/复制DNA）·CLI 批量注入（13 语言注释模板·幂等·API地址可配）+ Git pre-commit 钩子（缺DNA阻止提交）·前端相对路径设计（nginx 剥离前缀兼容本地/线上）·**部署 uid9622.cn/developer/**（nginx `/developer/`→8800 剥离前缀·systemd 服务·健康检查纳入）·修复规格 8 坑（hashlib缺导入/CONFIRM从错误模块导入/FastAPI 无效参数/CORS *+credentials 冲突/支付 order_id 参数错位/旧记录冻结跨开发者串扰/注册贡献分未同步字段/dashboard 缺失补全）·本地 14 项断言+公网 4 步全绿·GPG 签名 13 文件 | 开发者生态首个可公网注册的入口；一元主权=1元永久身份；贡献分机制成型 | 🟢 |
+| 2026-08-15 | **🐉 月度主权确认金 v2.0 焊死**：协议 `01_protocols/LH-DEVELOPER-FEE-CONVENTION-v1.0.md`（1元/月起步·上不封顶·杜绝一毛不拔·连续3月未缴冻结·补缴恢复·企业自愿上浮）·**正规支付网关层** `backend/gateway.py`（sandbox 验签闭环 HMAC-SHA256 + wechat/alipay/cbpay 注册位·回调幂等入账·金额核对防篡改·`payment_orders` 订单持久化）·月费账本 `monthly_fee_records`+开发者 6 新字段（monthly_fee_status/last_paid_month/fee_arrears/total_contributed/fee_start_month/is_enterprise）·**4 类导出**（缴费/贡献/代码DNA/名册 CSV+JSON·`LONGHUN_DEV_ADMIN_TOKEN` 鉴权·CSV 带 BOM）·API：bill/pay-monthly/pay/notify/fee-status/fee-history/fee-stats/export×4·代码注入月费状态闸（宽限/冻结禁新注入）·前端注册页企业上浮选项+面板月费卡片/历史账单/导出按钮·crontab 每月1日自动冻结·**本地函数 30 项+HTTP 10 项+公网 6 项全绿**·鲲鹏 systemd 重启+迁移兼容已有库·GPG 签名 13 文件 | 月费从"1元永久"升级为"1元/月主权确认"；支付接口正规化·换真实网关仅需改 config；历史账单可查可导出 | 🟢 |
+| 2026-08-14 | 正文旧 DNA 格式清洗：扫描 `01_protocols/` 下 925 个 `.md` 文件，替换 5301 处旧 `YYYY-MM-DD` 格式 DNA 为 v∞ 干支·时辰·卦格式；生成 `DNA_CLEAN_REPORT_20260814.md`；全目录 GPG 重签 | 系统内所有协议 DNA 格式统一；无旧日期格式残留 | 🟢 |
+| 2026-08-14 | 历史顶层协议去重审计：生成 `TOP_PROTOCOL_DEDUP_AUDIT_20260814.md`；顶层协议从 231 个精简到 199 个；归档 32 个文件（中文历史协议 30 + 过短草稿 2）到 `01_protocols/archive/`，并生成 `TOMBSTONE_TOP_PROTOCOLS_20260814.md` | 顶层协议目录清爽；中文历史协议集中冻结；保留 LH- 标准协议与系统索引 | 🟢 |
+| 2026-08-14 | CNSH-Harness 插件套件落地：架构协议 `LH-CNSH-HARNESS-ARCH-v1.0.md` + 完整 TypeScript 插件项目 `integrations/deepseek/harness/cnsh-suite/`（13 文件）；覆盖 DNA 追溯、三色审计、CNSH 执行、史官、人格路由；全部 GPG 签名 | CNSH 主权底座以插件形式焊入 DeepSeek Harness；Model + Harness = Agent 升级为 Model + Harness + CNSH = 龍魂 Agent | 🟢 |
+| 2026-08-14 | 协议层统一收口：19 个 Markdown 协议从 `~/Pictures/Kimi_Agent_三色审计页面结构完善 (1)/龍魂未合并协议技能包/` 归集到 `01_protocols/P0_永恒级(10) / P1_宪法级(4) / P2_系统级(5)`；补全 v∞ DNA/CONFIRM/GPG；`INDEX.md` + `PROTOCOL_MERGE_REPORT_20260814.md` 生成并签名 | 系统协议层无散落；新旧协议分层清晰；历史顶层 228 个协议保留并标注 | 🟢 |
+| 2026-08-14 | 跨设备记忆互通 A/B/C 三路全绿：修复 SSE 响应头 Unicode 编码错误，升级 HTTP/1.1 chunked 真流式；`lh_xiaoyi_bridge_v2.py`/`xsync_workflow.py`/`LongHunBridge.ets`/协议/脚本 GPG 重签 | Mac ↔ 鸿蒙可同时走 TCP 加密、HTTP REST、SSE 流式对话 | 🟢 |
 | 2026-08-10 | 修复 `~/.longhun/scripts/longhun_memory_bootstrap.py` 性能瓶颈：正则替换 sanitize、deque 流式读尾、Kimi session 只读最近 5 个活跃 session | 记忆启动不再卡死在大 wire 日志上 | 🟢 |
 | 2026-08-10 | CodeBuddy 路径统一收尾：`~/ai-outputs/codebuddy/` 数据文件迁往 `longhun-system/11_DATA/codebuddy-outputs/`，旧位置仅保留 README + TOMBSTONE；`.zshrc` 去重 CodeBuddy PATH 并声明 `CODEBUDDY_HOME` | 单一真相源、环境变量统一 | 🟢 |
 | 2026-08-10 | 过期备份全面归档：6 处散乱备份（记忆/local/repair/vault/CodeBuddy）迁往 `longhun-system/11_DATA/backups/`，原位置立 TOMBSTONE；敏感证据与系统依赖备份保留原处 | 备份统一归集、不删文件铁律落实 | 🟢 |

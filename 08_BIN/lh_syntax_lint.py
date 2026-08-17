@@ -303,12 +303,12 @@ def parse_args():
     parser.add_argument('--verbose', '-v', action='store_true',
                         help='详细输出')
     parser.add_argument('--fix-dragon', action='store_true',
-                        help='自动修正简体「龙」→繁体「龍」（仅品牌标识）')
+                        help='自动修正简体「龍」→繁体「龍」（仅品牌标识）')
     return parser.parse_args()
 
 
 def auto_fix_dragon(target_dir: Path):
-    """自动修正品牌「龙」→「龍」"""
+    """自动修正品牌「龍」→「龍」"""
     fixed = 0
     files_touched = 0
 
@@ -351,7 +351,7 @@ def main():
 
     # 自动修正模式
     if args.fix_dragon:
-        print(f"🐉 自动修正「龙」→「龍」（品牌标识）")
+        print(f"🐉 自动修正「龍」→「龍」（品牌标识）")
         print(f"目标: {target}")
         print("═" * 50)
         auto_fix_dragon(target)

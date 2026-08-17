@@ -4,7 +4,7 @@
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║      🐉 龍魂·小艺桥接引擎 v2.0 — XiaoYi Bridge · 唯一AI接口              ║
-║      Longhun ↔ Huawei XiaoYi · 模型的唯一入口·调度+推理一体化             ║
+║      LongHun ↔ Huawei XiaoYi · 模型的唯一入口·调度+推理一体化             ║
 ╠══════════════════════════════════════════════════════════════════════════╣
 ║                                                                          ║
 ║  DNA:  #龍芯⚡️丙午·乙未·丙申·亥时·☰乾-XIAOYI-BRIDGE-v2.0-ai-router   ║
@@ -152,14 +152,14 @@ def get_best_chat_model() -> Optional[str]:
 
 
 def query_ollama(model: str, prompt: str, system: str = "", stream: bool = False) -> Dict:
-    """查询Ollama模型"""
+    """查询Ollama模型（非流式）"""
     if not HAS_REQUESTS:
         return {"error": "requests未安装", "response": ""}
 
     payload = {
         "model": model,
         "prompt": prompt,
-        "stream": stream,
+        "stream": False,
     }
     if system:
         payload["system"] = system
@@ -173,6 +173,46 @@ def query_ollama(model: str, prompt: str, system: str = "", stream: bool = False
         return {"success": False, "error": "Ollama超时(120s)", "response": ""}
     except Exception as e:
         return {"success": False, "error": str(e), "response": ""}
+
+
+def query_ollama_stream(model: str, prompt: str, system: str = ""):
+    """流式查询Ollama模型，返回 SSE 数据块生成器。"""
+    if not HAS_REQUESTS:
+        yield 'data: {"error": "requests未安装"}\n\n'
+        return
+
+    payload = {
+        "model": model,
+        "prompt": prompt,
+        "stream": True,
+    }
+    if system:
+        payload["system"] = system
+
+    try:
+        with requests.post(f"{OLLAMA_BASE}/api/generate", json=payload, stream=True, timeout=120) as r:
+            if r.status_code != 200:
+                yield f'data: {{"error": "Ollama HTTP {r.status_code}"}}\n\n'
+                return
+            for line in r.iter_lines(decode_unicode=True):
+                if not line:
+                    continue
+                try:
+                    chunk = json.loads(line)
+                    response_text = chunk.get("response", "")
+                    if response_text:
+                        sse_data = json.dumps({"response": response_text, "done": chunk.get("done", False)}, ensure_ascii=False)
+                        yield f'data: {sse_data}\n\n'
+                    if chunk.get("done"):
+                        break
+                except json.JSONDecodeError:
+                    continue
+    except requests.exceptions.Timeout:
+        yield 'data: {"error": "Ollama超时(120s)"}\n\n'
+    except Exception as e:
+        yield f'data: {{"error": {json.dumps(str(e), ensure_ascii=False)}}}\n\n'
+    finally:
+        yield 'data: [DONE]\n\n'
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -349,10 +389,17 @@ h1{font-size:2em;color:#d4a017;margin-bottom:4px}
 class XiaoYiHandler(BaseHTTPRequestHandler):
     """小艺桥接 HTTP 处理器"""
 
-    server_version = "Longhun-XiaoYi-Bridge/2.0"
+    protocol_version = "HTTP/1.1"
+    server_version = "LongHun-XiaoYi-Bridge/2.0"
 
     def log_message(self, fmt, *args):
         pass  # 静默日志
+
+    def _write_chunk(self, data: bytes):
+        """HTTP/1.1 chunked encoding 写入一块数据。"""
+        chunk = f"{len(data):x}\r\n".encode("ascii") + data + b"\r\n"
+        self.wfile.write(chunk)
+        self.wfile.flush()
 
     def _send_json(self, data: Dict, code: int = 200):
         body = json.dumps(data, ensure_ascii=False).encode("utf-8")
@@ -501,10 +548,43 @@ class XiaoYiHandler(BaseHTTPRequestHandler):
                 self._send_json({"success": False, "error": "缺少prompt/message参数"}, 400)
                 return
 
-            _audit("chat", "processing", f"model={model} prompt_len={len(prompt)}")
+            _audit("chat", "processing", f"model={model} prompt_len={len(prompt)} stream={stream}")
 
-            # 查询Ollama
-            result = query_ollama(model, prompt, system, stream)
+            # 🌊 SSE 流式响应
+            if stream:
+                self.send_response(200)
+                self.send_header("Content-Type", "text/event-stream; charset=utf-8")
+                self.send_header("Cache-Control", "no-cache")
+                self.send_header("Connection", "keep-alive")
+                self.send_header("Access-Control-Allow-Origin", "*")
+                self.send_header("Transfer-Encoding", "chunked")
+                # HTTP 头只能传 ASCII；DNA 通过首个 SSE 事件携带
+                self.send_header("X-LongHun-DNA-ASCII", "longhun-xiaoyi-bridge-v2")
+                self.end_headers()
+
+                full_response = []
+                # 首个事件：主权 DNA 与确认码
+                self._write_chunk(f"data: {json.dumps({'dna': DNA_BASE, 'confirm': CONFIRM_CODE}, ensure_ascii=False)}\n\n".encode("utf-8"))
+                for sse_data in query_ollama_stream(model, prompt, system):
+                    try:
+                        self._write_chunk(sse_data.encode("utf-8"))
+                    except (BrokenPipeError, ConnectionResetError):
+                        break
+                    # 累计回复用于审计
+                    if sse_data.startswith("data: ") and "[DONE]" not in sse_data:
+                        try:
+                            chunk = json.loads(sse_data[6:])
+                            full_response.append(chunk.get("response", ""))
+                        except Exception:
+                            pass
+
+                # chunked 终止块
+                self._write_chunk(b"")
+                _audit("chat_stream", "success", f"model={model} resp_len={len(''.join(full_response))}")
+                return
+
+            # 普通非流式响应
+            result = query_ollama(model, prompt, system)
 
             if result.get("success"):
                 _audit("chat", "success", f"model={model} resp_len={len(result['response'])}")

@@ -1,6 +1,6 @@
-# 🐉 龙魂·三色审计 Python SDK
+# 🐉 龍魂·三色审计 Python SDK
 
-`longhun-tricolor` 是龙魂三色审计标准的 Python 客户端 SDK。
+`longhun-tricolor` 是龍魂三色审计标准的 Python 客户端 SDK。
 
 ## 安装
 

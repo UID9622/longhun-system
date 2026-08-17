@@ -1,4 +1,4 @@
-# 🌍 UID9622 龙魂系统｜公开总入口（Constitution / Landing）
+# 🌍 UID9622 龍魂系统｜公开总入口（Constitution / Landing）
 
 > Notion URL: https://app.notion.com/p/UID9622-Constitution-Landing-cea2baac90f24e75a3b02d2c7725a899
 > Created: 2025-12-23T21:39:00.000Z
@@ -6,7 +6,7 @@
 > Archived at: 2026-08-12T01:40:45.558086
 ---
 ## 0. 这是什么（给第一次来的人）
-UID9622（龙魂）是一套以 “人民为本、可追溯、可审计、可停止” 为底层约束的系统化方法与工程体系。
+UID9622（龍魂）是一套以 “人民为本、可追溯、可审计、可停止” 为底层约束的系统化方法与工程体系。
 它关注的不只是“AI 能做什么”，更关注：
 - AI 在什么边界内做事
 - AI 如何拒绝与如何降级

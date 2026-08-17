@@ -623,7 +623,7 @@ def generate_report() -> Dict[str, Any]:
 
     report = {
         "report_time": now,
-        "system": "龙魂·华为云OBS不可删除备份",
+        "system": "龍魂·华为云OBS不可删除备份",
         "dna": "#龍芯⚡️2026-07-12-OBS-IMMUTABLE-BACKUP-v1.0",
         "primary_region": OBS_PRIMARY["region"],
         "dr_region": OBS_DR["region"],

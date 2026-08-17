@@ -13,11 +13,11 @@
 
 ## What Are the Iron Rules?
 
-The Longhun System operates on a battlefield, not a playground. The battlefield is digital sovereignty. The enemy is data theft, algorithmic manipulation, and technological colonization.
+The LongHun System operates on a battlefield, not a playground. The battlefield is digital sovereignty. The enemy is data theft, algorithmic manipulation, and technological colonization.
 
 On a battlefield, rules are not suggestions. They are **conditions of survival.**
 
-These iron rules are welded into the Longhun System's governance. They cannot be overridden by convenience, "agility," or "business needs."
+These iron rules are welded into the LongHun System's governance. They cannot be overridden by convenience, "agility," or "business needs."
 
 ---
 

@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# DNA: #龍芯⚡️丙午·丙申·庚申·辰时·䷓观-PARSE-ASI-SUITE-v1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 从 ASI_TEST_SUITE_v2.md 解析表格，生成结构化 JSON。
 """

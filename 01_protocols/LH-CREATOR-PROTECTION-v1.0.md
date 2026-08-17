@@ -10,17 +10,17 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-06-20-LONGHUN-CREATOR-PROTECTION-v1.0``  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CREATOR-PROTECTION-v1.0``  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
 # 龍魂创作者保护协议 · 不可篡改条款
 
-**DNA**: `#龍芯⚡️2026-06-20-LONGHUN-CREATOR-PROTECTION-v1.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CREATOR-PROTECTION-v1.0`
 **立约人**: UID9622 · 龍芯北辰 · 诸葛鑫
 **性质**: 君子协议 · 非商业 · 有规矩 · 不是白用
-**来源链**: `#龍芯⚡️2026-06-19-LONGHUN-GOVERNANCE-v5.0` → `#龍芯⚡️2026-06-20-LONGHUN-CREATOR-PROTECTION-v1.0`
+**来源链**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GOVERNANCE-v5.0` → `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CREATOR-PROTECTION-v1.0`
 **类型**: 原创
 **状态**: 🔴 焊死 · 永不可改
 **协议生效时间**: 2024年（溯及既往）— 永久有效
@@ -209,7 +209,7 @@ Record_N.hash = SHA256(Record_N.content + Record_{N-1}.hash)
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -232,6 +232,6 @@ Record_N.hash = SHA256(Record_N.content + Record_{N-1}.hash)
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-06-20-LONGHUN-CREATOR-PROTECTION-v1.0`
+#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CREATOR-PROTECTION-v1.0`
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

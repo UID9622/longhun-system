@@ -6,7 +6,7 @@
 """
 龍魂·剪贴板意图守护进程 v1.0
 ==========================
-DNA: #龍芯⚡️丙午·癸未·丁未·申时·☴巽-CLIPBOARD-DAEMON-v1.0
+DNA: #龍芯⚡️丙午·丙申·庚申·子时·䷃蒙-CLIPBOARD-DAEMON-V1.1-P1-a9383988
 
 你复制/粘贴的每一段文字，系统都自动读、自动分析、自动触发引擎。
 默认 dry-run（只看不执行），加 --execute 才真正动作。
@@ -56,6 +56,7 @@ def main():
                 last_content = content
                 print(f"🔔 检测到新剪贴板内容 ({len(content)} 字符)")
                 print(f"    前50字: {content[:50].replace(chr(10), ' ')}...")
+
                 result = run(content, dry_run=not args.execute)
                 from engines.lh_auto_intent import _format_report
                 print(_format_report(result))

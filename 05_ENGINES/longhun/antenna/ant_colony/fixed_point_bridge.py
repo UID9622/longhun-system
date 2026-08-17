@@ -8,7 +8,7 @@
 # -*- coding: utf-8 -*-
 """
 不动点桥接层 v2.0 · FixedPointBridge
-将 LACA 蚁群架构的 L1-L5 不动点层级与龙魂现有不动点系统深度融合
+将 LACA 蚁群架构的 L1-L5 不动点层级与龍魂现有不动点系统深度融合
 
 DNA: #龍芯⚡️丙午·辛未·FIXED-POINT-BRIDGE-v2.0
 
@@ -540,7 +540,7 @@ class WuxingPheromoneCoupling:
 def run_integration_demo():
     """运行不动点桥接层完整演示"""
     print("=" * 70)
-    print("🐜 龙魂蚁群引擎 v2.0 · 不动点桥接层集成演示")
+    print("🐜 龍魂蚁群引擎 v2.0 · 不动点桥接层集成演示")
     print("=" * 70)
     
     # 1. 七色不动点 ↔ 信息素映射

@@ -14,7 +14,7 @@
 
 ## Executive Summary
 
-"The Lazy Prison" is a six-part critique of how modern technology platforms systematically exploit human proclivity for convenience to build invisible cages. Published in July 2026 by UID9622 (Lucky), founder of the Longhun System, it deconstructs the mechanisms by which "free," "one-click," "smart" products turn users into harvestable assets.
+"The Lazy Prison" is a six-part critique of how modern technology platforms systematically exploit human proclivity for convenience to build invisible cages. Published in July 2026 by UID9622 (Lucky), founder of the LongHun System, it deconstructs the mechanisms by which "free," "one-click," "smart" products turn users into harvestable assets.
 
 This English translation captures the core argument of each chapter. For the full Chinese text, see the original: `articles/龍魂_懒的牢房_全六篇_v3.1.md`.
 
@@ -167,7 +167,7 @@ This chapter is not hopeless. It names the escape routes:
 
 While written from a Chinese perspective, the lazy prison is global infrastructure. Silicon Valley perfected these techniques. They are now exported worldwide. The mechanisms described here apply equally to users in New York, Nairobi, and New Delhi.
 
-The difference is only this: **China has the sovereign will to build alternatives.** The Longhun System is one such alternative — a governance framework where the user owns their data, the algorithm is auditable, and convenience never comes at the cost of freedom.
+The difference is only this: **China has the sovereign will to build alternatives.** The LongHun System is one such alternative — a governance framework where the user owns their data, the algorithm is auditable, and convenience never comes at the cost of freedom.
 
 ---
 

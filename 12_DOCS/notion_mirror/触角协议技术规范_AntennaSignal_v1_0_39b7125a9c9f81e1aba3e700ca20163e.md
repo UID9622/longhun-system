@@ -159,7 +159,7 @@
 ### Python 实现规范
 ```python
 """
-AntennaSignal v1.0 - 龙魂蚁群架构统一通信协议
+AntennaSignal v1.0 - 龍魂蚁群架构统一通信协议
 所有模块间的信号传递必须使用此格式
 """
 

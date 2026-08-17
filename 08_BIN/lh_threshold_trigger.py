@@ -653,10 +653,15 @@ def check_git_guard() -> Optional[str]:
 @guard("health", interval_min=5, desc="关键服务健康心跳检查", priority="P1",
        dependencies=["network"])
 def check_health_guard() -> Optional[str]:
-    """检查关键服务是否存活"""
+    """检查关键服务是否存活（2026-08-16 端口校准：Portal 8888→8445 实际端口）
+    阈值触发：服务离线才触发告警/修复，正常静默。新增服务在此登记。"""
     key_services = {
         "伦理锚点API": 9630,
-        "龍魂Portal": 8888,
+        "龍魂Portal": 8445,
+        "统一记忆": 8771,
+        "透明审计": 8970,
+        "服务控制": 8971,
+        "流场拓扑": 8972,
     }
     dead = []
     for name, port in key_services.items():

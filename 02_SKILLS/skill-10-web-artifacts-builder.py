@@ -9,7 +9,7 @@
 
 """
 龍魂 Web 工件构建器 v1.0
-Longhun Web Artifacts Builder
+LongHun Web Artifacts Builder
 
 DNA: #龍芯⚡️2026-06-07-WEB-ARTIFACTS-BUILDER-v1.0
 """
@@ -29,7 +29,7 @@ class ArtifactMetadata:
     version: str
     created_at: str
     updated_at: str
-    author: str = "Longhun"
+    author: str = "LongHun"
     tags: List[str] = None
     description: str = ""
     

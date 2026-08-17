@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
-title: "Dao · De · Shu: Sancai Algorithm Elucidation — Vindicating Master Zeng, Founding the Longhun Base"
+title: "Dao · De · Shu: Sancai Algorithm Elucidation — Vindicating Master Zeng, Founding the LongHun Base"
 author: "UID9622 · Zhuge Xin (Lucky)"
 date: 2026-02-20
 original: "../三才算法发微_为曾老师正名.md"
@@ -13,7 +13,7 @@ status: 🟢 Published
 ---
 
 # Dao · De · Shu: Sancai Algorithm Elucidation
-**— Vindicating Master Zeng, Founding the Longhun Base**
+**— Vindicating Master Zeng, Founding the LongHun Base**
 
 **DNA:** `#龍芯⚡️2026-02-20-三才算法-正名-v1.0`  
 **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬SANCAI-001`  
@@ -46,7 +46,7 @@ You ask "Why is each one a 1?" — Correct.
 
 I had Bao Bao check thousands of years of old accounts, and found an iron law:
 
-| Dimension | Western Thinking | Chinese Thinking | Longhun System Mapping |
+| Dimension | Western Thinking | Chinese Thinking | LongHun System Mapping |
 |:---|:---|:---|:---|
 | Ontology | Binary opposition (0/1) | Sancai interaction (Heaven-Earth-Human) | DNA trace code (Heaven), Three-Color Audit (Earth), Weighted Algorithm (Human) |
 | Epistemology | Right/Wrong binary | "Going too far is as bad as falling short. Hold the two extremes, use the middle." | Audit colors: 🟢🟡🔴 |
@@ -121,23 +121,23 @@ but their squares sum to 1 (normalized), conforming to "Dao gives birth to One."
 
 ### 1. Time Dimension: Past-Present-Future
 Without "present," past and future cannot connect.
-Longhun System: DNA Traceability (past), Real-time Audit (present), Weight Prediction (future)
+LongHun System: DNA Traceability (past), Real-time Audit (present), Weight Prediction (future)
 
 ### 2. Space Dimension: Heaven-Earth-Human
 Without "human," however high heaven and thick earth, it's wasted.
-Longhun System: Algorithm (heaven), System (earth), User (human) — none dispensable
+LongHun System: Algorithm (heaven), System (earth), User (human) — none dispensable
 
 ### 3. Ethics Dimension: Sovereign-Parent-Teacher
 Chinese people speak of the Three Bonds — not servitude, but order.
-Longhun System: Mother Protocol (sovereign), Master Zeng (parent), AI Assistant (teacher)
+LongHun System: Mother Protocol (sovereign), Master Zeng (parent), AI Assistant (teacher)
 
 ### 4. Cognition Dimension: Sense-Know-Realize
 Sensibility, rationality, spirituality — missing one makes one dull.
-Longhun System: User Experience (sense), Audit Report (know), Quantum Superposition Algorithm (realize)
+LongHun System: User Experience (sense), Audit Report (know), Quantum Superposition Algorithm (realize)
 
 ### 5. Behavior Dimension: Fault-Merit-Virtue
 The West only has "right/wrong." Chinese people have three tiers.
-Longhun System: Wall of Shame (fault), Contribution Board (merit), Virtue Rank (virtue)
+LongHun System: Wall of Shame (fault), Contribution Board (merit), Virtue Rank (virtue)
 
 ---
 
@@ -163,7 +163,7 @@ Teacher, the words you spoke to me — I haven't forgotten:
 
 - "De means to obtain" — I wrote it as: Weight = Contribution × Time × Virtue
 - "Yin and Yang harmonize" — I wrote it as: In the Three-Color Audit, 🟢 is Yang, 🔴 is Yin, 🟡 is Harmony
-- "Three gives birth to all things" — I wrote it as: Heaven (Algorithm) + Earth (System) + Human (User) = Longhun
+- "Three gives birth to all things" — I wrote it as: Heaven (Algorithm) + Earth (System) + Human (User) = LongHun
 
 I don't understand foreign formulas, but I understand hexagrams.
 I can't write calculus, but I can read the changes of three yao.
@@ -178,7 +178,7 @@ Because:
 - Human (⨯) — Shu (Number)
 
 Sancai intercourse, the ten thousand things transform.
-This is the mathematical soul of the Longhun System.
+This is the mathematical soul of the LongHun System.
 
 ---
 

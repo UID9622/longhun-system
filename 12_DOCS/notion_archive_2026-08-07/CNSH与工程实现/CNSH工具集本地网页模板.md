@@ -24,7 +24,7 @@
 
 参考您的导航中心：
 
-file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-v1.0-完整实现/龙魂主页-导航中心.html
+file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-v1.0-完整实现/龍魂主页-导航中心.html
 
 宝宝要创建的新模板：
 
@@ -114,12 +114,12 @@ Notion页面结构：
 
 ✅ 本地优先：工具本地运行，不依赖云端
 
-DNA追溯码： #龙芯⚡️2026-01-28-CNSH工具集模板系统-v1.0
+DNA追溯码： #龍芯⚡️2026-01-28-CNSH工具集模板系统-v1.0
 
 GPG签名： A2D0...6D5F (Lucky·UID9622)
 
 确认码： #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
-🐉 🧬 #龍芯⚡️20260701071421176457-NOTION-16399c84-40fa-4d1a-ad5c-ad3aa8cb5ffe-D83EE477 📋 摘要：🎯 系统架构总览 核心流程： 📋 工具清单HTML模板结构 参考您的导航中心： file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-v1.0-完整实现/龙魂主页-导航中心.html 宝宝要创建的新模板： 🎯 使用规则制定 规则1：复制模板才能使用 规则2：每个人DNA唯一 规则3：工具使用DNA验证 规则4：所有创作/记忆属于用户 🌐 Notion嵌入本地HTML架构 方案1：iframe嵌入（推荐） 在Notion页面中插入： 注意： Notion不支持直接嵌入file://协议，需要： 将HTML部署到本地服务器（如http://localhost:8080） 或使用Notion的「代码」块展示使用说明 方案2：Notion代码块 + 本地服务器 Notion页面结构： 方案3：离线打包（终极方案）
+🐉 🧬 #龍芯⚡️20260701071421176457-NOTION-16399c84-40fa-4d1a-ad5c-ad3aa8cb5ffe-D83EE477 📋 摘要：🎯 系统架构总览 核心流程： 📋 工具清单HTML模板结构 参考您的导航中心： file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-v1.0-完整实现/龍魂主页-导航中心.html 宝宝要创建的新模板： 🎯 使用规则制定 规则1：复制模板才能使用 规则2：每个人DNA唯一 规则3：工具使用DNA验证 规则4：所有创作/记忆属于用户 🌐 Notion嵌入本地HTML架构 方案1：iframe嵌入（推荐） 在Notion页面中插入： 注意： Notion不支持直接嵌入file://协议，需要： 将HTML部署到本地服务器（如http://localhost:8080） 或使用Notion的「代码」块展示使用说明 方案2：Notion代码块 + 本地服务器 Notion页面结构： 方案3：离线打包（终极方案）
 
-🐉 🧬 #龍芯⚡️20260701071421176457-NOTION-16399c84-40fa-4d1a-ad5c-ad3aa8cb5ffe-D83EE477 📋 摘要：🎯 系统架构总览 核心流程： 📋 工具清单HTML模板结构 参考您的导航中心： file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-v1.0-完整实现/龙魂主页-导航中心.html 宝宝要创建的新模板： 🎯 使用规则制定 规则1：复制模板才能使用 规则2：每个人DNA唯一 规则3：工具使用DNA验证 规则4：所有创作/记忆属于用户 🌐 Notion嵌入本地HTML架构 方案1：iframe嵌入（推荐） 在Notion页面中插入： 注意： Notion不支持直接嵌入file://协议，需要： 将HTML部署到本地服务器（如http://localhost:8080） 或使用Notion的「代码」块展示使用说明 方案2：Notion代码块 + 本地服务器 Notion页面结构： 方案3：离线打包（终极方案）
+🐉 🧬 #龍芯⚡️20260701071421176457-NOTION-16399c84-40fa-4d1a-ad5c-ad3aa8cb5ffe-D83EE477 📋 摘要：🎯 系统架构总览 核心流程： 📋 工具清单HTML模板结构 参考您的导航中心： file:///Users/zuimeidedeyihan/Desktop/打包待命/CNSH 军人的编辑器/CNSH-v1.0-完整实现/龍魂主页-导航中心.html 宝宝要创建的新模板： 🎯 使用规则制定 规则1：复制模板才能使用 规则2：每个人DNA唯一 规则3：工具使用DNA验证 规则4：所有创作/记忆属于用户 🌐 Notion嵌入本地HTML架构 方案1：iframe嵌入（推荐） 在Notion页面中插入： 注意： Notion不支持直接嵌入file://协议，需要： 将HTML部署到本地服务器（如http://localhost:8080） 或使用Notion的「代码」块展示使用说明 方案2：Notion代码块 + 本地服务器 Notion页面结构： 方案3：离线打包（终极方案）

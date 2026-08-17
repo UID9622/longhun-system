@@ -266,7 +266,7 @@ class ContentAnalyzer:
         "哲学/文化": ["哲学", "philosophy", "易经", "道德经", "太极", "五行",
                     "八卦", "洛书", "三才", "369", "文化"],
         "身份/IP": ["UID9622", "IP", "身份", "identity", "DNA", "诸葛鑫",
-                   "龙芯北辰", "花名册", "profile", "about"],
+                   "龍芯北辰", "花名册", "profile", "about"],
         "论文/学术": ["论文", "paper", "IEEE", "白皮书", "whitepaper",
                     "学术", "academic", "发表"],
         "笔记/日记": ["笔记", "日记", "log", "记录", "note", "memo",

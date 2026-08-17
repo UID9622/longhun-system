@@ -1,6 +1,6 @@
 ---
 name: longhun-benchmark
-description: Longhun Formula System performance benchmark engine with 16 test scenarios
+description: LongHun Formula System performance benchmark engine with 16 test scenarios
   across Core layer (8 items), Chain layer (5 items), and Batch tests (3 items). Includes
   comparison analysis between v1.0 and v2.0, trend analysis, regression detection,
   and report generation. Achieves 205,228 decisions/sec throughput with audit trail
@@ -11,9 +11,9 @@ allowed-tools:
 - ipython
 - shell
 metadata:
-  author: Longhun Team
+  author: LongHun Team
   version: 5.1
-  dna: '#龍芯⚡️2026-06-19-LONGHUN-BENCHMARK-v5.1'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BENCHMARK-v5.1'
   tags:
   - benchmark
   - performance
@@ -24,7 +24,7 @@ metadata:
   trigger:
     keywords:
     - benchmark
-    - Longhun
+    - LongHun
     - Formula
     - System
     - performance
@@ -338,5 +338,5 @@ for finding in report.findings:
 
 ---
 
-**DNA**: `#龍芯⚡️2026-06-19-LONGHUN-BENCHMARK-v5.1`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BENCHMARK-v5.1`
 **狀態**: 測試完成·驗証通過·生產就緒

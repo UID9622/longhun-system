@@ -86,9 +86,9 @@ python3 -m http.server 8080 -d ~/longhun-system/baobao-guardian/public
 ```
 
 ### 🧬 DNA信息
-- **项目DNA**:#龍芯⚡️2026-06-04-WUXING-v3.2
-- **计算器DNA**:#龍芯⚡️2026-05-07-WUXING_V3-v3.2-渲染层
-- **API DNA**:#龍芯⚡️2026-06-04-API-WUXING-v3.2
+- **项目DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-WUXING-v3.2
+- **计算器DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-WUXING_V3-v3.2-渲染层
+- **API DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-API-WUXING-v3.2
 
 ### 📝 Next Steps（可选）
 1. 集成到龍魂系统主路由

@@ -9,7 +9,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-07-15-lh-qiye-deng-tech-arch-v20`  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-lh-qiye-deng-tech-arch-v20`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -31,7 +31,7 @@
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -54,6 +54,6 @@
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-07-15-lh-qiye-deng-tech-arch-v20
+#龍芯⚡️丙午·丙申·庚申·亥时-lh-qiye-deng-tech-arch-v20
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

@@ -1,0 +1,86 @@
+# 🐉 龍魂 · DeepSeek Harness 鲲鹏 ARM64 编排
+# DNA: #龍芯⚡️丙午·丙申·辛酉·丙申·䷉履-DSH-KUNPENG-COMPOSE-UID9622
+
+services:
+  ollama:
+    # 建议锁版本避免漂移: 如 ollama/ollama:0.6.5 (以官方 tag 为准)
+    image: ollama/ollama:latest
+    container_name: longhun-ollama
+    restart: unless-stopped
+    volumes:
+      - ./data/ollama:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0:11434
+      # 仅允许 compose 内部 dsh/dashboard 跨域访问, 不开放通配
+      - OLLAMA_ORIGINS=http://127.0.0.1:2283,http://localhost:2283,http://127.0.0.1:2285
+    networks:
+      - dsh-net
+    # 鲲鹏 ARM64 限制：不启用 GPU，纯 CPU 推理
+    deploy:
+      resources:
+        limits:
+          cpus: '3.0'
+          memory: 6G
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  dsh:
+    # 社区 ARM64 镜像；如不可用，可替换为官方镜像或自行构建
+    image: ghcr.io/alliottech/deepseek-harness:0.1.0-rc.6.2
+    container_name: longhun-dsh
+    restart: unless-stopped
+    depends_on:
+      ollama:
+        condition: service_healthy
+    ports:
+      # 仅绑定 127.0.0.1，外部访问必须走 SSH 隧道
+      - "127.0.0.1:2283:2283"
+      - "127.0.0.1:2284:2284"
+    volumes:
+      - ./data/dsh:/app/data
+      - ./configs/longhun-system-prompt.md:/app/prompts/system.md:ro
+    env_file:
+      # 由 deploy-kunpeng.sh 生成; 模型切换 = 改此文件 + up -d --force-recreate dsh
+      - ./configs/dsh-kunpeng.env
+    environment:
+      - NODE_ENV=production
+      - DSH_OLLAMA_BASE_URL=http://ollama:11434
+      - DSH_SYSTEM_PROMPT_FILE=/app/prompts/system.md
+      - DSH_LOG_LEVEL=info
+    networks:
+      - dsh-net
+    # 注意: 本容器不含 ollama CLI, 模型拉取由 deploy 脚本在 ollama 容器内完成
+    command: ["node", "dist/server.js", "--host", "0.0.0.0", "--port", "2283"]
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+
+  dashboard:
+    # 轻量看板: 独立 python 镜像, 读取 Ollama API 显示模型状态
+    image: python:3.11-alpine
+    container_name: longhun-dsh-dashboard
+    restart: unless-stopped
+    depends_on:
+      - ollama
+    ports:
+      - "127.0.0.1:2285:8080"
+    volumes:
+      - ./scripts/dashboard.py:/dashboard.py:ro
+    networks:
+      - dsh-net
+    command: ["python", "/dashboard.py"]
+    profiles:
+      - dashboard
+
+networks:
+  dsh-net:
+    driver: bridge

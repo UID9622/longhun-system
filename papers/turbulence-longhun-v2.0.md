@@ -15,7 +15,7 @@ GPG签章: -----BEGIN PGP SIGNATURE-----...
 
 # 湍流难题与龍魂算法：锚点优先的推演范式
 
-# Turbulence and the Longhun Algorithm: An Anchor-First Projection Paradigm
+# Turbulence and the LongHun Algorithm: An Anchor-First Projection Paradigm
 
 ---
 

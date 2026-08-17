@@ -25,7 +25,7 @@
 
 ### 1️⃣ 主干固定升級協議·五層架構完整部署
 
-**DNA**:#龍芯⚡️2026-06-07-MAIN-TRUNK-UPGRADE-DEPLOYMENT-COMPLETE-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-MAIN-TRUNK-UPGRADE-DEPLOYMENT-COMPLETE-v1.0
 
 ```
 ✅ L0 宣言守卫 (priority=1.0)
@@ -77,7 +77,7 @@
 
 ### 2️⃣ 協議焊死·永久保護
 
-**DNA**: #龍芯⚡️2026-06-07-PROTOCOL-LOCKDOWN-COMPLETE
+**DNA**: #龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-LOCKDOWN-COMPLETE
 
 ```
 ✅ 協議文件
@@ -105,7 +105,7 @@
 
 ### 3️⃣ 備份災難恢復系統
 
-**DNA**: #龍芯⚇️2026-06-07-INITIAL-SNAPSHOT-BACKUP-v1.0 +#龍芯⚡️2026-06-07-CRON-WEEKLY-BACKUP-v1.0
+**DNA**: #龍芯⚇️2026-06-07-INITIAL-SNAPSHOT-BACKUP-v1.0 +#龍芯⚡️丙午·丙申·庚申·亥时-CRON-WEEKLY-BACKUP-v1.0
 
 ```
 ✅ 初始快照 (三層)
@@ -133,7 +133,7 @@
 
 ### 4️⃣ 依賴安全更新
 
-**DNA**:#龍芯⚡️2026-06-07-DEPENDENCY-UPDATE-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-DEPENDENCY-UPDATE-v1.0
 
 ```
 ✅ Python 依賴更新

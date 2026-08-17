@@ -91,7 +91,7 @@ SYSTEM_CONFIG = {
         "雯雯": {"role": "内容整理执行者"},
         "凤凰": {"role": "创造力"},
         "老顽童": {"role": "创意"},
-        "龙叔": {"role": "安全"},
+        "龍叔": {"role": "安全"},
         "战略分析师": {"role": "市场规划"},
         "数据大师": {"role": "数据分析"},
         "风险评估员": {"role": "风险评估"},
@@ -99,7 +99,7 @@ SYSTEM_CONFIG = {
     "task_mapping": {
         "文案整理": {"primary": "雯雯", "assist": ["知识分类师"], "monitor": ["质量检测官"]},
         "市场规划": {"primary": "战略分析师", "assist": ["数据大师"], "monitor": ["风险评估员"]},
-        "创意设计": {"primary": "凤凰", "assist": ["老顽童"], "monitor": ["龙叔"]},
+        "创意设计": {"primary": "凤凰", "assist": ["老顽童"], "monitor": ["龍叔"]},
         "技术开发": {"primary": "技术顾问团", "assist": ["流程专家"], "monitor": ["系统审查员"]},
         "数据分析": {"primary": "数据大师", "assist": ["统计分析师"], "monitor": ["准确性监督"]},
         "默认": {"primary": "宝宝", "assist": [], "monitor": []}

@@ -44,7 +44,7 @@
 ### 登记册位置
 
 ```
-龙魂系统/
+龍魂系统/
 ├── L7_数据层/
 │   ├── dna_registry.jsonl     ← §200 登记主册（只追加·不删除）
 │   └── dna_registry_index.json ← 索引·快速查询
@@ -166,7 +166,7 @@ SEAL:    🐉龍魂·有痕开源·DNA登记·不可变·本地主权·Hash可�
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 

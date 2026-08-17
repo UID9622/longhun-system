@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂 · Notion资产同步模块 v1.1 (自动版)
-Longhun Notion Sync Module v1.1 (Auto Mode)
+LongHun Notion Sync Module v1.1 (Auto Mode)
 
 自动模式：无需手动配置，自动检测和验证
 

@@ -1,8 +1,3 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-> #龍芯⚡️丙午·丙申·乙卯·丙戌·䷷旅-SUGGESTION-TODO-PROTOCOL-v1.0
-
 {
   "version": "1.0.0",
   "owner": "UID9622",
@@ -16,28 +11,28 @@
   ],
   "suggestions": [
     {
-      "id": "SG-2026-07-10-001",
-      "source": "Kimi / AI 建议",
-      "content": "Gitee 是龍魂最佳阵地，继续深入提取 DragonSoulPack 子模块和其他仓库完整代码",
+      "id": "SG-2026-08-14-0451",
+      "source": "AI",
+      "content": "CNSH溯源验证编辑器(10_PORTAL/cnsh-validator)后续增强：对接后端lh_audit.py审计哈希链+版本库真实比对（当前仅前端localStorage）",
       "status": "done",
       "count": 1,
-      "first_seen": "2026-07-10T20:43:00+08:00",
-      "last_seen": "2026-07-10T20:48:00+08:00",
-      "executed_at": "2026-07-10T20:48:00+08:00",
-      "execution_dna": "#龍芯⚡️丙午·丙申·乙卯·丙戌·䷷旅-DRAGONSOULPACK-FULL-EXTRACT-v1.0-b7c5491f",
-      "notes": "已组装 DragonSoulPack 完整镜像，为其余 5 个仓库创建占位和同步脚本"
+      "first_seen": "2026-08-14T01:27:16.940318+00:00",
+      "last_seen": "2026-08-14T01:27:16.940318+00:00",
+      "executed_at": "2026-08-14T01:49:20.573061+00:00",
+      "execution_dna": "#龍芯⚡️2026-08-14-CNSH-VALIDATOR-API-v1.0-UID9622",
+      "notes": "后端审计API已落地:bin/lh_cnsh_validator_api.py(:8905)+前端对接"
     },
     {
-      "id": "SG-2026-07-10-002",
-      "source": "UID9622 直接指令",
-      "content": "鸿蒙设备行为审计SDK：国密SM2+七因子行为签名+数字人民币打赏，可下载可推送",
+      "id": "SG-2026-08-14-A821",
+      "source": "AI",
+      "content": "排查生产遗留：/(9627)与/portal/(8789) 502 + longhun-api.service auto-restart(ExecStart失效路径)",
       "status": "done",
       "count": 1,
-      "first_seen": "2026-07-10T21:00:00+08:00",
-      "last_seen": "2026-07-10T21:05:00+08:00",
-      "executed_at": "2026-07-10T21:05:00+08:00",
-      "execution_dna": "#龍芯⚡️丙午·丙申·乙卯·丁亥·䷷旅-HARMONYOS-BEHAVIORAL-AUDIT-SDK-v1.0-b02d9b4e",
-      "notes": "24文件完整SDK，含SM2Crypto/SM3Hash/SevenFactorSigner/DeviceFingerprint/BehaviorCollector/CNYDonateDialog/BehavioralAuditSDK，7项API交付检查全部通过，推送脚本就绪"
+      "first_seen": "2026-08-14T01:27:16.975274+00:00",
+      "last_seen": "2026-08-14T01:27:16.975274+00:00",
+      "executed_at": "2026-08-14T01:49:20.608764+00:00",
+      "execution_dna": "#龍芯⚡️2026-08-14-KUNPENG-FIX-v1.0-UID9622",
+      "notes": "修复/→200 /portal/→200 冻结longhun-api死服务"
     }
   ]
 }

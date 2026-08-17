@@ -231,14 +231,14 @@ def batch_json_to_cnsh(input_path: str, output_path: str,
 if __name__ == "__main__":
     # 测试 JSON → CNSH → JSON 往返
     messages = [
-        {"role": "user", "content": "你好，帮我记住：项目代号'龙魂'"},
-        {"role": "assistant", "content": "已记住：项目代号'龙魂'"},
+        {"role": "user", "content": "你好，帮我记住：项目代号'龍魂'"},
+        {"role": "assistant", "content": "已记住：项目代号'龍魂'"},
         {"role": "user", "content": "目标是保护数据主权"},
         {"role": "assistant", "content": "了解：目标是保护数据主权"},
     ]
 
     # 编码
-    cnsh = json_to_cnsh(messages, keywords=["龙魂","数据主权"])
+    cnsh = json_to_cnsh(messages, keywords=["龍魂","数据主权"])
     print("=== CNSH 文本 ===")
     print(cnsh)
 

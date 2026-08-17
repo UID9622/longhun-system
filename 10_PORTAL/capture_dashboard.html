@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂 · 对话采集看板</title>
+<style>
+  :root {
+    --bg: #0a0a12; --card: rgba(255,255,255,.03);
+    --border: rgba(255,255,255,.07); --text: #e8e6e3; --muted: #888;
+    --gold: #d4af37; --green: #4ade80; --yellow: #facc15; --red: #f87171;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'PingFang SC','Microsoft YaHei',sans-serif; padding: 24px; min-height: 100vh; }
+  h1 { font-size: 22px; color: var(--gold); margin-bottom: 4px; }
+  .sub { color: var(--muted); font-size: 12px; margin-bottom: 20px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 12px; margin-bottom: 20px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+  .stat .num { font-size: 30px; font-weight: 700; color: var(--gold); }
+  .stat .label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .stat .sub2 { font-size: 11px; color: var(--muted); }
+  .panel { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 20px; }
+  .panel h3 { font-size: 14px; margin-bottom: 12px; color: var(--gold); }
+  .row { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+  input[type=text] { flex: 1; min-width: 200px; padding: 9px 12px; border-radius: 8px;
+    border: 1px solid var(--border); background: rgba(255,255,255,.04); color: var(--text); font-size: 13px; }
+  select, button { padding: 9px 14px; border-radius: 8px; border: 1px solid var(--border);
+    background: rgba(255,255,255,.04); color: var(--text); font-size: 13px; cursor: pointer; }
+  button { border-color: rgba(212,175,55,.45); color: var(--gold); }
+  button:hover { background: rgba(212,175,55,.1); }
+  .list-item { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; line-height: 1.6; }
+  .list-item:last-child { border-bottom: none; }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 11px; margin-right: 6px; }
+  .kimi { background: rgba(212,175,55,.15); color: var(--gold); }
+  .deepseek { background: rgba(74,222,128,.15); color: var(--green); }
+  .codebuddy { background: rgba(74,144,226,.15); color: #4a90e2; }
+  .browser, .manual { background: rgba(255,255,255,.1); color: var(--muted); }
+  .meta { color: var(--muted); font-size: 11px; margin-top: 3px; }
+  .dna { color: var(--muted); font-size: 11px; word-break: break-all; }
+  .empty { color: var(--muted); text-align: center; padding: 20px 0; }
+  .tricolor { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+  .g { background: var(--green); } .y { background: var(--yellow); } .r { background: var(--red); }
+  .err { color: var(--red); font-size: 12px; margin-top: 8px; }
+</style>
+</head>
+<body>
+  <h1>🐉 龍魂 · 统一AI对话采集看板</h1>
+  <div class="sub">Kimi + DeepSeek + CodeBuddy → 一个容器 · DNA追溯 · 跨AI检索</div>
+
+  <div class="stats">
+    <div class="card stat"><div class="num" id="total">—</div><div class="label">总对话(JSONL行)</div></div>
+    <div class="card stat"><div class="num" id="kimi">—</div><div class="label">Kimi</div></div>
+    <div class="card stat"><div class="num" id="deepseek">—</div><div class="label">DeepSeek</div></div>
+    <div class="card stat"><div class="num" id="codebuddy">—</div><div class="label">CodeBuddy</div></div>
+    <div class="card stat"><div class="num" id="status">—</div><div class="label">服务状态</div></div>
+  </div>
+
+  <div class="panel">
+    <h3>🔍 跨AI搜索</h3>
+    <div class="row">
+      <input type="text" id="query" placeholder="输入关键词，如：视频 / 架构 / DNA">
+      <select id="source">
+        <option value="">全部来源</option>
+        <option value="kimi">Kimi</option>
+        <option value="deepseek">DeepSeek</option>
+        <option value="codebuddy">CodeBuddy</option>
+        <option value="browser">浏览器</option>
+      </select>
+      <button id="searchBtn">搜索</button>
+    </div>
+    <div id="results"></div>
+  </div>
+
+  <div class="panel">
+    <h3>📋 最近采集</h3>
+    <div id="recent"></div>
+  </div>
+
+<script>
+const API = "http://127.0.0.1:8769";
+
+function tag(src) {
+  return `<span class="tag ${src}">${src}</span>`;
+}
+
+function renderList(el, items) {
+  if (!items || !items.length) {
+    el.innerHTML = '<div class="empty">暂无数据 — 请先启动采集服务并采集对话</div>';
+    return;
+  }
+  el.innerHTML = items.map(e => `
+    <div class="list-item">
+      ${tag(e.source || 'manual')}<strong>${e.topic || '未分类'}</strong>
+      <span class="meta">${(e.timestamp || '').slice(0, 19).replace('T', ' ')}</span>
+      <div>${(e.content || '').slice(0, 160)}${(e.content || '').length > 160 ? '…' : ''}</div>
+      <div class="dna">${e.dna || ''}</div>
+    </div>`).join('');
+}
+
+async function loadStats() {
+  try {
+    const r = await fetch(`${API}/api/stats`);
+    const d = await r.json();
+    const total = Object.values(d.sources || {}).reduce((a, b) => a + b, 0);
+    document.getElementById('total').textContent = total;
+    document.getElementById('kimi').textContent = (d.sources && d.sources.kimi) || 0;
+    document.getElementById('deepseek').textContent = (d.sources && d.sources.deepseek) || 0;
+    document.getElementById('codebuddy').textContent = (d.sources && d.sources.codebuddy) || 0;
+    document.getElementById('status').innerHTML = '<span class="tricolor g"></span>在线';
+    return true;
+  } catch (e) {
+    document.getElementById('status').innerHTML = '<span class="tricolor r"></span>离线';
+    return false;
+  }
+}
+
+async function loadRecent() {
+  try {
+    const r = await fetch(`${API}/api/recent?limit=10`);
+    const d = await r.json();
+    renderList(document.getElementById('recent'), d.entries);
+  } catch (e) { /* 离线 */ }
+}
+
+async function doSearch() {
+  const q = document.getElementById('query').value.trim();
+  const src = document.getElementById('source').value;
+  const el = document.getElementById('results');
+  if (!q) { el.innerHTML = '<div class="empty">请输入关键词</div>'; return; }
+  try {
+    const r = await fetch(`${API}/api/search?q=${encodeURIComponent(q)}&source=${src}&limit=20`);
+    const d = await r.json();
+    renderList(el, d.results);
+  } catch (e) {
+    el.innerHTML = '<div class="err">⚠️ 搜索失败：采集服务未启动（lh capture server 或 python3 08_BIN/lh_conversation_capture.py server）</div>';
+  }
+}
+
+document.getElementById('searchBtn').addEventListener('click', doSearch);
+document.getElementById('query').addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+
+loadStats().then(ok => { if (ok) loadRecent(); });
+setInterval(() => loadStats().then(ok => { if (ok) loadRecent(); }), 15000);
+</script>
+</body>
+</html>

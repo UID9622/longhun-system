@@ -153,7 +153,7 @@ if __name__ == "__main__":
         pem = f.name
     subprocess.run(["openssl", "req", "-x509", "-newkey", "rsa:2048", "-nodes",
                     "-keyout", "/dev/null", "-out", pem, "-days", "365",
-                    "-subj", "/CN=龙魂自测"], check=True, capture_output=True)
+                    "-subj", "/CN=龍魂自测"], check=True, capture_output=True)
     data = open(pem, "rb").read()
     os.unlink(pem)
     r = validate_cert(data)

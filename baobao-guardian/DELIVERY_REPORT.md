@@ -285,7 +285,7 @@ Git                   # 版本控制
 - ✅ 所有源文件都有 DNA 签证
 - ✅ 完整的 TypeScript 类型检查
 - ✅ 中文注释清晰明了
-- ✅ 遵循 Dragon Soul 规范
+- ✅ 遵循 LongHun 规范
 
 ### 测试覆盖
 

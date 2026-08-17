@@ -15,7 +15,7 @@ existing_ipa = {r['node_id'] for r in routes}
 
 NEW_ENTRIES = {
     # L6 集成层
-    "L6_集成层/龙魂系统_API接口完整实现_v1.0.py": {"ipa_route":"IPA-L6-001","module_class":"L6::Integration","status":"active","layer":"L6","consumed_by":[{"file":"L5_服务层/services/dashboard/web/","rel":"api_backend"}]},
+    "L6_集成层/龍魂系统_API接口完整实现_v1.0.py": {"ipa_route":"IPA-L6-001","module_class":"L6::Integration","status":"active","layer":"L6","consumed_by":[{"file":"L5_服务层/services/dashboard/web/","rel":"api_backend"}]},
     "L6_集成层/content_sovereignty_protocol_v2.1.py": {"ipa_route":"IPA-L6-002","module_class":"L6::Sovereignty","status":"active","layer":"L6","consumed_by":[{"file":"01_protocols/LH-GOV-DATA-SOVEREIGNTY-v1.0.md","rel":"protocol_anchor"}]},
     "L6_集成层/claude_runtime_wrapper.py": {"ipa_route":"IPA-L6-003","module_class":"L6::RuntimeBridge","status":"active","layer":"L6","consumed_by":[{"file":"AGENTS.md","rel":"runtime_anchor"}]},
     "L6_集成层/longhun_braket.py": {"ipa_route":"IPA-L6-004","module_class":"L6::QuantumBridge","status":"active","layer":"L6","consumed_by":[{"file":"L1_内核层/","rel":"quantum_core"}]},

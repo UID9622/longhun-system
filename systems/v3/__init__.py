@@ -3,7 +3,7 @@
 from __future__ import annotations
 """
 龍魂系统 · v3.0 核心模块集成包
-Longhun System · v3.0 Core Modules Integration Package
+LongHun System · v3.0 Core Modules Integration Package
 
 DNA:#龍芯⚡️2026-06-16-V3-SYSTEMS-INTEGRATION-v1.0
 责任: UID9622·不免责

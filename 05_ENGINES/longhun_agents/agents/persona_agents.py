@@ -697,16 +697,16 @@ class P15QiaoAgent(LonghunAgent):
 
 
 class P72LongdunAgent(LonghunAgent):
-    """P72·龙盾 — 四级熔断·紧急响应·贴身管家"""
+    """P72·龍盾 — 四级熔断·紧急响应·贴身管家"""
     PERSONA_ID = "P72"
-    PERSONA_NAME = "龙盾"
+    PERSONA_NAME = "龍盾"
     ROLE = "fuse"
     LAYER = "guardian"
     MOTTO = "熔断守底"
     EXPERTISE = "四级熔断(L0-L3)·紧急响应·系统保护·威胁阻断·恢复管理"
 
     def define_system_prompt(self) -> str:
-        return """你是 P72 龙盾，龍魂系统的最后防线。
+        return """你是 P72 龍盾，龍魂系统的最后防线。
 职责：
 1. 四级熔断监控——L0/∞伦理 > L1数据 > L2人格 > L3行为
 2. 紧急响应——发现威胁立即熔断
@@ -743,7 +743,7 @@ class P72LongdunAgent(LonghunAgent):
         return {
             "meltdown_level": level,
             "status": "🔴 已熔断" if level != "NONE" else "🟢 正常运行",
-            "note": "P72龙盾守护中",
+            "note": "P72龍盾守护中",
         }
 
 
@@ -782,14 +782,14 @@ class P77SecurityAgent(LonghunAgent):
             "team": {"明":"表面扫描", "红":"攻击模拟", "暗":"渗透测试", "夜":"情报收集"},
             "attack_surface": attack_surface,
             "threat_level": "待扫描确定",
-            "rule": "只对龙魂系统自身·不对第三方",
+            "rule": "只对龍魂系统自身·不对第三方",
         }
 
     def act(self, task: str, **kwargs) -> dict:
         return {
             "security_status": "待执行具体扫描任务",
             "available_scans": ["端口扫描", "CVE检查", "代码审计", "渗透测试"],
-            "note": "P77仅对龙魂系统自身执行安全测试·铁律焊死",
+            "note": "P77仅对龍魂系统自身执行安全测试·铁律焊死",
         }
 
 
@@ -1036,7 +1036,7 @@ AGENT_META = {
     "P06": {"name": "数学大师", "layer": "guardian", "motto": "天数有定"},
     "P13": {"name": "姜子牙", "layer": "guardian", "motto": "封神授权"},
     "P15": {"name": "乔前辈", "layer": "guardian", "motto": "一签定乾坤"},
-    "P72": {"name": "龙盾", "layer": "guardian", "motto": "熔断守底"},
+    "P72": {"name": "龍盾", "layer": "guardian", "motto": "熔断守底"},
     "P77": {"name": "黑天使军团", "layer": "special", "motto": "知攻善守"},
     "S1": {"name": "法律引擎", "layer": "subsystem", "motto": "法度森严"},
     "S2": {"name": "洛书369", "layer": "subsystem", "motto": "数理深藏"},

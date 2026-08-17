@@ -181,7 +181,7 @@
       "rule": "🌌正式·🌀仅断代"
     },
     "dna_format": {
-      "culture": {"format": "#龍芯⚡️YYYY-MM-DD-MODULE-vX.Y", "rule": "简体'龙'=🔴熔断"},
+      "culture": {"format": "#龍芯⚡️YYYY-MM-DD-MODULE-vX.Y", "rule": "简体'龍'=🔴熔断"},
       "machine": {"format": "DNA::TYPE-9622-YYYYMMDD-TAG-VX.Y", "rule": "缺DNA::前缀=🟡"}
     },
     "persona_id": {"format": "P00-P99", "rule": "无编号=🟡待补"},

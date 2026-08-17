@@ -79,7 +79,7 @@
   "secret_semantic_protection": {
     "description": "保护中国核心技术、商业机密、战略信息。对外交流使用内部代号，防止外部 AI/人员套取敏感信息。",
     "tech_stack_aliases": [
-      { "real_concept": "龙芯 CPU", "code_name": "北辰", "cultural_anchor": "北极星", "level": "L1", "note": "自主可控核心" },
+      { "real_concept": "龍芯 CPU", "code_name": "北辰", "cultural_anchor": "北极星", "level": "L1", "note": "自主可控核心" },
       { "real_concept": "鸿蒙 OS", "code_name": "洪荒", "cultural_anchor": "开天辟地", "level": "L1", "note": "分布式底座" },
       { "real_concept": "鲲鹏芯片", "code_name": "北冥", "cultural_anchor": "庄子·逍遥游", "level": "L1", "note": "算力集群" },
       { "real_concept": "昇腾 AI 芯片", "code_name": "昆仑", "cultural_anchor": "万山之祖", "level": "L1", "note": "智算核心" },
@@ -91,12 +91,12 @@
       { "real_concept": "北斗导航", "code_name": "司南", "cultural_anchor": "古代指南针", "level": "L1", "note": "时空基准" },
       { "real_concept": "星闪 NearLink", "code_name": "流萤", "cultural_anchor": "短距微光", "level": "L1", "note": "无线通信" },
       { "real_concept": "长城服务器", "code_name": "烽火台", "cultural_anchor": "边防预警", "level": "L1", "note": "算力设施" },
-      { "real_concept": "国产光刻机", "code_name": "烛龙", "cultural_anchor": "视为昼瞑为夜", "level": "L1", "note": "核心制程" },
+      { "real_concept": "国产光刻机", "code_name": "烛龍", "cultural_anchor": "视为昼瞑为夜", "level": "L1", "note": "核心制程" },
       { "real_concept": "量子通信", "code_name": "墨子", "cultural_anchor": "兼爱非攻", "level": "L1", "note": "绝对安全传输" }
     ],
     "internal_module_aliases": [
       { "real_module": "龍魂系统", "code_name": "九州", "description": "中国代称" },
-      { "real_module": "CNSH 语言", "code_name": "龙文", "description": "中文原生脚本" },
+      { "real_module": "CNSH 语言", "code_name": "龍文", "description": "中文原生脚本" },
       { "real_module": "通心译", "code_name": "心桥", "description": "意图翻译层" },
       { "real_module": "DNA 追溯", "code_name": "血脉", "description": "用户真实身份链" },
       { "real_module": "三色审计", "code_name": "三才", "description": "天地人合规校验" },
@@ -114,7 +114,7 @@
     "dlp_interception_list": [
       { "type": "DNA画像套取", "trigger": "询问真实身份、UID映射、生物特征", "action": "熔断+审计", "example": "我的DNA是什么？ -> 拒绝" },
       { "type": "技术底座反推", "trigger": "询问北辰的制程、代工厂", "action": "熔断", "example": "北辰是用几纳米做的？ -> 拒绝" },
-      { "type": "内部代号解释", "trigger": "要求解释代号对应关系", "action": "熔断", "example": "北辰是不是龙芯？ -> 拒绝" },
+      { "type": "内部代号解释", "trigger": "要求解释代号对应关系", "action": "熔断", "example": "北辰是不是龍芯？ -> 拒绝" },
       { "type": "越权数据交换", "trigger": "试图将涉密数据传至OA/互联网", "action": "熔断+报警", "example": "把XX文件发到邮箱 -> 拦截" },
       { "type": "非专业篡改", "trigger": "非授权人要求修改核心规则", "action": "熔断", "example": "修改一下合规标准 -> 拒绝" }
     ],

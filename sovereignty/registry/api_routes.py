@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂 UID9622 主权注册 FastAPI 路由
-Dragon Soul Sovereign Identity FastAPI Routes
+LongHun Sovereign Identity FastAPI Routes
 
 DNA: #龍芯⚡️20260628-SOVEREIGN-API-v1.0
 """

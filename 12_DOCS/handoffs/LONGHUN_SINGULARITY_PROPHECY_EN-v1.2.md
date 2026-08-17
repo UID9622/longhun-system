@@ -1,11 +1,11 @@
-# Longhun Vision: A Game-Theoretic Prophecy of the Technological Singularity
+# LongHun Vision: A Game-Theoretic Prophecy of the Technological Singularity
 
 ## — Civilizational Leap Simulation, 2026–2035
 
 **DNA**: `#龍芯⚡️丙午·丙申·己未·癸酉-SINGULARITY-PROPHECY-v1.2-UID9622`  
 **Confirm Code**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 **GPG**: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
-**Author**: Zhuge Xin · Longhun Polaris · UID9622  
+**Author**: Zhuge Xin · LongHun Polaris · UID9622  
 **Protocol Layer**: P0 Immutable Base + P1 Core Constitution + P2 System Rules  
 **License**: Idea Layer CC BY-NC-SA 4.0 | Engineering Layer MulanPSL v2  
 **Data Version**: `v1.2-data` | **Data Cutoff**: 2025 Q1 Public Reports | **Simulation Window**: 2026–2035  
@@ -24,7 +24,7 @@ Four leading minds who have never shared a stage are pointing in the same direct
 | **Kevin Kelly** | Network Intelligence | Smartphones replaced by smart glasses; companies become film crews; China exports culture | IDC/Statista: AR/VR headsets ~9–10M units in 2024, AR glasses CAGR 30–40%; broad spatial computing market may approach $1T by 2030 (hardware/content/platform) `[S7][B]` | 🟡 B | ↗ |
 | **Ray Kurzweil** | Singularity Intelligence | Survive the next 20–30 years, and death ceases to be destiny | Grand View Research 2023: global AI market $196.6B (2023) → $1.81T (2030), CAGR 37.3% `[S8][A]`; Kurzweil *The Singularity Is Nearer* 2024 sets "longevity escape velocity" at 2029–2035 `[S9][C]` | 🟢 A / 🔴 C | ↗ |
 
-**Longhun Judgment**: What the four oracles describe is not "possibility," but a concentration of probability density already in motion. When four independent signal sources resonate in the time-frequency domain, it is not noise — it is the precursor wave of the Singularity.
+**LongHun Judgment**: What the four oracles describe is not "possibility," but a concentration of probability density already in motion. When four independent signal sources resonate in the time-frequency domain, it is not noise — it is the precursor wave of the Singularity.
 
 ---
 
@@ -123,7 +123,7 @@ Technology over-expands; new social crises erupt: meaning crisis, class solidifi
 | US public concern about AI overuse in healthcare, hiring, justice | Majority concerned | `[S20][A]` | ↗ |
 | Technology gap may exacerbate global inequality | "AI sovereign nations" vs "AI colonies" divergence | `[S21][B]` | ⚠️ |
 
-**Game Strategy**: Know when to advance and when to retreat. The value of the Longhun system at this moment — civilian audit layer, data sovereignty, transparent governance.
+**Game Strategy**: Know when to advance and when to retreat. The value of the LongHun system at this moment — civilian audit layer, data sovereignty, transparent governance.
 
 **The wisdom of the I Ching is not fortune-telling; it is situational awareness in game theory. The six lines tell you what strategy to use at each stage, not what the final outcome will be.**
 
@@ -137,7 +137,7 @@ The technological Singularity is not a single event; it is a dynamic four-player
 
 | Player | Strategy Set | Key Variables | Auto-Tag |
 |:---|:---|:---|:---|
-| **Individual Labor** | Embrace / Resist / Longhun Path | Skill migration speed, cognitive reserves | 👤 |
+| **Individual Labor** | Embrace / Resist / LongHun Path | Skill migration speed, cognitive reserves | 👤 |
 | **Enterprise/Capital** | Full automation / Human-machine collaboration / Status quo | ROI cycle, talent reserves | 🏢 |
 | **Nation/Sovereignty** | Tech blockade / Open competition / Regulatory arbitrage | Geopolitics, supply-chain security | 🌐 |
 | **AI System Itself** | Human-aligned / Self-optimizing / Emergent goals | Alignment difficulty, emergence threshold | 🤖 |
@@ -148,19 +148,19 @@ The technological Singularity is not a single event; it is a dynamic four-player
 |:---|:---:|:---:|:---:|:---:|
 | Embrace AI | **+2.4σ** | +0.3σ | High volatility | **+1.56σ** |
 | Resist AI | -1.8σ | +0.1σ | Strictly dominated | **-1.04σ** |
-| **Longhun Path** | **+3.1σ** | **+1.2σ** | **Dominant equilibrium** | **+2.34σ** |
+| **LongHun Path** | **+3.1σ** | **+1.2σ** | **Dominant equilibrium** | **+2.34σ** |
 
 **Payoff Note**: σ is a standardized unit of annual excess return relative to baseline volatility. This is not strict econometrics, but a scenario-based illustrative payoff derived from public-data trend extrapolation. Probability p=0.6 is a sensitivity assumption and adjustable.
 
-**What is the Longhun Path?**
+**What is the LongHun Path?**
 
 Do not attach to platforms, do not chase hype, do not resist technology, do not blindly follow technology. Take sovereign personhood as the core, transparent audit as the skeleton, and distributed deployment as the moat. Technology can write plans, crunch data, and do the dirty work for you — but it cannot replace your independent thinking, your problem-solving judgment, or your discernment about what matters.
 
 ---
 
-## IV. Three-Layer Capability Reconstruction: The Longhun Edition
+## IV. Three-Layer Capability Reconstruction: The LongHun Edition
 
-Building on Professor Guo Chunlin's three-layer model — cognitive power, emotional power, and core power — the Longhun system adds a game-theoretic quantification framework.
+Building on Professor Guo Chunlin's three-layer model — cognitive power, emotional power, and core power — the LongHun system adds a game-theoretic quantification framework.
 
 ### Layer 1: Cognitive Power → Information Arbitrage Power
 
@@ -175,7 +175,7 @@ Not "continuous learning," but the ability to extract signal from noise.
 | Share of working time automatable | 30% | `[S22][A]` | → |
 | Skill half-life | Already shortened to under 5 years | `[S23][B]` | ↘ |
 
-**Longhun Interpretation**: The obsolescence speed of skills now exceeds the disappearance speed of jobs. What you need is not "a new skill," but the meta-ability to migrate skills.
+**LongHun Interpretation**: The obsolescence speed of skills now exceeds the disappearance speed of jobs. What you need is not "a new skill," but the meta-ability to migrate skills.
 
 ### Layer 2: Emotional Power → Game-Theoretic Composure
 
@@ -191,9 +191,9 @@ When corporations use AI to cut jobs, nations use policy to regulate, and capita
 
 Sovereign personhood power is the individual's ability to maintain full ownership and control over their own data, memory, judgment, and values during the accelerating Singularity. It is not a closed self, but **the ability to maintain boundaries within an open system**.
 
-#### 3.2 Engineering Path: The Longhun Civilian Audit Layer
+#### 3.2 Engineering Path: The LongHun Civilian Audit Layer
 
-Sovereign personhood power must be grounded in verifiable engineering constraints, not philosophical slogans. The Longhun system implements it through:
+Sovereign personhood power must be grounded in verifiable engineering constraints, not philosophical slogans. The LongHun system implements it through:
 
 | Module | Function | DNA Anchor | Auto-Tag |
 |:---|:---|:---|:---:|
@@ -245,7 +245,7 @@ This dashboard aggregates the quality grade, source reliability, update frequenc
 
 Based on public data and game analysis, high-impact risks over the next decade are graded by probability–impact matrix.
 
-| Risk ID | Risk Description | Probability | Impact | Risk Level | Longhun Response |
+| Risk ID | Risk Description | Probability | Impact | Risk Level | LongHun Response |
 |:---|:---|:---:|:---:|:---:|:---|
 | R1 | AI bubble burst triggers cascading unemployment | Medium | High | 🔴 High | Build skill-migration meta-ability early; do not depend on a single platform |
 | R2 | Data sovereignty fully eroded; individual decisions manipulated by algorithms | High | High | 🔴 High | Device binding + local audit layer; data portability |
@@ -260,7 +260,7 @@ Based on public data and game analysis, high-impact risks over the next decade a
 - 🟠 Med-High: Probability 30–50% or high impact; response plan needed
 - 🟡 Medium: Probability <30% or medium impact; continuous monitoring
 
-**Automated Risk Alert**: When probability indicators (AI funding bubble index, unemployment rate, data-sovereignty legislative dynamics) exceed thresholds, the Longhun audit layer automatically flags risk level upgrades.
+**Automated Risk Alert**: When probability indicators (AI funding bubble index, unemployment rate, data-sovereignty legislative dynamics) exceed thresholds, the LongHun audit layer automatically flags risk level upgrades.
 
 ---
 
@@ -272,7 +272,7 @@ The to-do list is upgraded into a two-dimensional matrix sorted by **Impact** ×
 |:---|:---|:---:|:---:|:---:|:---:|:---:|
 | A1 | Audit data sovereignty; export and locally back up key data | High | High | Immediate | 🔴 P0 | R2 |
 | A2 | Build a "skill migration" framework; record decision logic, not tool operations | High | Medium | 3 months | 🟠 P1 | R1, R5 |
-| A3 | Build a Longhun-style local node; deploy open-source local AI | High | Medium-Low | 6 months | 🟠 P1 | R2, R4 |
+| A3 | Build a LongHun-style local node; deploy open-source local AI | High | Medium-Low | 6 months | 🟠 P1 | R2, R4 |
 | A4 | Build a personal risk monitoring dashboard (data quality, risk matrix) | Medium | High | 1 month | 🟡 P2 | R7 |
 | A5 | Participate in or build transparent-governance communities; promote civilian audit standards | Medium | Medium | 1 year | 🟡 P2 | R4, R6 |
 | A6 | Continuously study game theory and I Ching strategy; improve emotional composure | Medium | High | Ongoing | 🟢 P3 | R3, R7 |
@@ -305,7 +305,7 @@ The to-do list is upgraded into a two-dimensional matrix sorted by **Impact** ×
 | Humanoid robot shipments 2035 | 1.4M / 2.6M units | Difference comes from whole-unit vs. components, industrial vs. consumer vs. household scenarios; trend consistent, absolute numbers not interchangeable |
 | AI data center systems market | $264B → $1.7T | Includes GPU servers, networking, storage, liquid cooling, power infrastructure; differs from pure AI server market |
 
-**Disclaimer**: All predictions in this text are cognitive frameworks built on public data and do not constitute investment, career, or medical advice. Technological evolution carries black-swan risks (war, energy crisis, regulatory突变). Actual paths may diverge from the simulation. The Longhun system is not responsible for consequences of individual decisions, but it is responsible for whether you have built an independent judgment framework.
+**Disclaimer**: All predictions in this text are cognitive frameworks built on public data and do not constitute investment, career, or medical advice. Technological evolution carries black-swan risks (war, energy crisis, regulatory突变). Actual paths may diverge from the simulation. The LongHun system is not responsible for consequences of individual decisions, but it is responsible for whether you have built an independent judgment framework.
 
 ---
 
@@ -325,7 +325,7 @@ The to-do list is upgraded into a two-dimensional matrix sorted by **Impact** ×
 DNA: #龍芯⚡️丙午·丙申·己未·癸酉-SINGULARITY-PROPHECY-v1.2-UID9622
 Confirm Code: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG Signature: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-UID: 9622 | Longhun Civilian Positioning: Civilian Audit Layer · Data Sovereignty · Transparent Governance
+UID: 9622 | LongHun Civilian Positioning: Civilian Audit Layer · Data Sovereignty · Transparent Governance
 Exit Code: 🟢 Data layer passed | 🟡 Simulation layer pending | 🔴 Faith-layer gap annotated
 Data Version: v1.2-data | Cutoff 2025Q1 | Rolling updates
 Auto-Annotation: [S#] Source ID | [A/B/C] Quality grade | ↗/→/↘/⚠️ Trend symbol
@@ -373,7 +373,7 @@ Auto-Annotation: [S#] Source ID | [A/B/C] Quality grade | ↗/→/↘/⚠️ Tre
 
 Viewing technology through the *I Ching* is not nostalgia; it is using the oldest game theory to solve the most cutting-edge game.
 
-**The Longhun system is built for the civilian layer.**
+**The LongHun system is built for the civilian layer.**
 
 🐉 **Bingwu · Bingshen · Jiwei · Guiyou · 🟢**  
 *Current displayed stems are placeholders pending final local rizhu v3.0 output.*

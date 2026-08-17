@@ -1015,7 +1015,7 @@ readme = "README.md"
 authors = [
     {{name = "{config['author']}", email = "{config['author_email']}"}}
 ]
-license = {{text = "Mulan PSL v2 + Dragon Soul Sovereignty Addendum"}}
+license = {{text = "Mulan PSL v2 + LongHun Sovereignty Addendum"}}
 classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",

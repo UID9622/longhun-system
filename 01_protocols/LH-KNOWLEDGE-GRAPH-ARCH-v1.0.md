@@ -230,7 +230,7 @@ POST /v1/knowledge/ingest  (内部·知识入库)
       "relevance": 0.95,
       "source": "chroma",
       "related": ["两仪", "阴阳", "道"],
-      "dna": "#龍芯⚡️2026-07-23-PHILOSOPHY-TAIJI-v1.0-a1b2c3d4"
+      "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-PHILOSOPHY-TAIJI-v1.0-a1b2c3d4"
     }
   ],
   "meta": {

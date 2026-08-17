@@ -1,4 +1,4 @@
-<!--#龍芯⚡️2026-06-21-DOC-DEPLOYMENT_RUNBOOK_FOR_TEAM-v1.0 -->
+<!--#龍芯⚡️丙午·丙申·庚申·亥时-DOC-DEPLOYMENT_RUNBOOK_FOR_TEAM-v1.0 -->
 <!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
 
 # 🐉 龍魂系統 · 生產部署手冊 v1.0

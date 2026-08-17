@@ -31,7 +31,7 @@
 ### 登记册位置
 
 ```
-龙魂系统/
+龍魂系统/
 ├── L7_数据层/
 │   ├── dna_registry.jsonl     ← §200 登记主册（只追加·不删除）
 │   └── dna_registry_index.json ← 索引·快速查询

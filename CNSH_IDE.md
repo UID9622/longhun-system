@@ -273,7 +273,7 @@ python3 08_BIN/lh_agent_cosmos.py --run --steps 3 --topic "设计一个 CNSH 新
 # 通过 IDE API 触发（零费用，纯本地）
 curl -X POST http://127.0.0.1:8848/api/cosmos/run \
   -H 'Content-Type: application/json' \
-  -d '{"topic":"帮我写一份龙魂审计报告","steps":2}'
+  -d '{"topic":"帮我写一份龍魂审计报告","steps":2}'
 ```
 
 ### 自治循环说明

@@ -1,0 +1,37 @@
+{
+  "name": "cnsh-editor-mac",
+  "version": "1.0.0",
+  "description": "🐉 龍魂 · Mac中文代码编辑器（CNSH·中文原生脚本·DNA追溯·三色审计）",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:mac": "electron-builder --mac"
+  },
+  "author": "UID9622 (诸葛鑫)",
+  "license": "MulanPSL-2.0",
+  "dependencies": {
+    "electron": "^28.0.0",
+    "monaco-editor": "^0.39.0",
+    "fs-extra": "^11.2.0"
+  },
+  "devDependencies": {
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.longhun.cnsh-editor",
+    "productName": "龍魂CNSH编辑器",
+    "icon": "assets/icon.icns",
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": ["dmg", "zip"]
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "assets/**/*",
+      "node_modules/monaco-editor/min/**/*"
+    ]
+  }
+}

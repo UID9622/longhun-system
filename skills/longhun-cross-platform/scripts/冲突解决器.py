@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 龍魂冲突解决器 — 双设备并发修改冲突处理
 ================================================
-DNA:#龍芯⚡️2026-06-19-SYNC-MSG-FILE26-v1.0
+DNA: #龍芯⚡️2026-06-19-SYNC-MSG-v1.0
 致敬: #致敬⚡️SteveJobs+Concept·跨平台互通
 
 冲突场景:
@@ -78,7 +75,7 @@ class 解决结果:
     类型: 解决类型
     结果数据: Dict[str, Any]
     冲突详情: Optional[Dict] = None
-    审计日志: list[Any] = field(default_factory=list)
+    审计日志: list = field(default_factory=list)
     时间戳: int = 0
     dna: str = ""
 
@@ -96,7 +93,7 @@ class 冲突解决器:
     def __init__(self, 默认策略: 冲突策略 = 冲突策略.DNA时间戳优先):
         print(君子协议)
         self.默认策略 = 默认策略
-        self._冲突历史: list[Any] = []
+        self._冲突历史: list = []
         self._人工确认回调: Optional[Callable] = None
         
         logger.info("🟢 [初始化] 冲突解决器 — 策略: %s", 默认策略.value)
@@ -189,9 +186,9 @@ class 冲突解决器:
     
     def _时间戳优先解决(
         self,
-        本地数据: Dict[str, Any],
-        远程数据: Dict[str, Any],
-        冲突详情: Dict[str, Any]
+        本地数据: Dict,
+        远程数据: Dict,
+        冲突详情: Dict
     ) -> 解决结果:
         """
         策略: 以时间戳较新的数据为准
@@ -242,9 +239,9 @@ class 冲突解决器:
     
     def _字段级合并解决(
         self,
-        本地数据: Dict[str, Any],
-        远程数据: Dict[str, Any],
-        冲突详情: Dict[str, Any]
+        本地数据: Dict,
+        远程数据: Dict,
+        冲突详情: Dict
     ) -> 解决结果:
         """
         策略: 字段级智能合并
@@ -299,9 +296,9 @@ class 冲突解决器:
     
     def _人工确认解决(
         self,
-        本地数据: Dict[str, Any],
-        远程数据: Dict[str, Any],
-        冲突详情: Dict[str, Any]
+        本地数据: Dict,
+        远程数据: Dict,
+        冲突详情: Dict
     ) -> 解决结果:
         """
         策略: 标记为需要人工确认
@@ -343,9 +340,9 @@ class 冲突解决器:
     
     def _双方保留解决(
         self,
-        本地数据: Dict[str, Any],
-        远程数据: Dict[str, Any],
-        冲突详情: Dict[str, Any]
+        本地数据: Dict,
+        远程数据: Dict,
+        冲突详情: Dict
     ) -> 解决结果:
         """
         策略: 保留两个版本
@@ -387,7 +384,7 @@ class 冲突解决器:
     # 辅助方法
     # ============================================================
     
-    def _分析冲突(self, 本地: Dict[str, Any], 远程: Dict[str, Any]) -> Dict[str, Any]:
+    def _分析冲突(self, 本地: Dict, 远程: Dict) -> Dict:
         """分析冲突的具体差异"""
         本地键 = set(本地.keys())
         远程键 = set(远程.keys())
@@ -415,7 +412,7 @@ class 冲突解决器:
             "冲突摘要": f"{len(冲突字段)}字段冲突, {len(仅本地)}仅本地, {len(仅远程)}仅远程"
         }
     
-    def _提取时间戳(self, 数据: Dict[str, Any]) -> int:
+    def _提取时间戳(self, 数据: Dict) -> int:
         """从数据中提取时间戳"""
         时间戳字段 = ["sync_time", "updated_at", "timestamp", "modified_at", "time", "created_at"]
         for 字段 in 时间戳字段:
@@ -454,7 +451,7 @@ class 冲突解决器:
         """设置人工确认通知回调"""
         self._人工确认回调 = 回调
     
-    def 人工确认解决(self, 冲突ID: str, 选择: str, 本地数据: Dict[str, Any], 远程数据: Dict[str, Any]) -> 解决结果:
+    def 人工确认解决(self, 冲突ID: str, 选择: str, 本地数据: Dict, 远程数据: Dict) -> 解决结果:
         """
         用户人工选择解决冲突
         
@@ -505,7 +502,7 @@ class 冲突解决器:
     # 统计与诊断
     # ============================================================
     
-    def 获取历史(self) -> list[Any]:
+    def 获取历史(self) -> list:
         """获取冲突解决历史"""
         return copy.deepcopy(self._冲突历史)
     

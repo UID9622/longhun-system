@@ -26,7 +26,7 @@ SUMMARY_PATH = Path("~/longhun-system/data/usb_index/usb_summary.json").expandus
 
 CATEGORY_PATTERNS = {
     "code_repo": [".git", "pyproject.toml", "package.json", "requirements.txt", "Cargo.toml", "pom.xml"],
-    "longhun_core": ["longhun", "龙魂", "龍魂", "CNSH", "cnsh"],
+    "longhun_core": ["longhun", "龍魂", "龍魂", "CNSH", "cnsh"],
     "evidence": ["证据", "evidence", "snapshot", "取证", "proof"],
     "document": [".md", ".pdf", ".docx", ".txt", ".html"],
     "media": [".jpg", ".jpeg", ".png", ".mp4", ".mov", ".mp3", ".wav"],
@@ -234,8 +234,8 @@ EXCLUDED_PATHS = {
 
 TIER1_TOP_DIRS = {
     # 龍魂核心：这些顶层目录整个包进来（排除垃圾子目录）
-    "CNSH 军人的编辑器", "CNSH", "龙魂终端扬帆起航", "龙魂铸剑实验室", "龙魂使命",
-    "龍芯_证据_20260507_232327", "龙魂系统备份_20260114",
+    "CNSH 军人的编辑器", "CNSH", "龍魂终端扬帆起航", "龍魂铸剑实验室", "龍魂使命",
+    "龍芯_证据_20260507_232327", "龍魂系统备份_20260114",
     "ai-truth-protocol", "service_dna_demo",
     "开发者", "开源项目包", "文稿",
 }
@@ -327,8 +327,8 @@ def build_sync_plan(conn: sqlite3.Connection, root: Path) -> None:
             else:
                 continue
 
-        # 不是在上述目录的龙魂相关文件（如🇨🇳里的龙魂价值内核）
-        elif any(kw in relpath.lower() for kw in ("longhun", "龙魂", "龍魂", "cnsh", "uid9622", "证据")):
+        # 不是在上述目录的龍魂相关文件（如🇨🇳里的龍魂价值内核）
+        elif any(kw in relpath.lower() for kw in ("longhun", "龍魂", "龍魂", "cnsh", "uid9622", "证据")):
             if ext in SYNC_EXT_WHITELIST and size < 100 * 1024 * 1024:
                 if tier1_total + tier2_total + est_size <= MAX_SYNC_GB * 1024 * 1024 * 1024:
                     reason = "tier2_longhun"

@@ -1,7 +1,7 @@
 # DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# 📄 Longhun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making | 龍魂深思熟虑对齐：基于文化锚点的AI伦理决策框架
+# 📄 LongHun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making | 龍魂深思熟虑对齐：基于文化锚点的AI伦理决策框架
 
 > 本文档按《龍魂文档标准模板 v1.0》整理。
 > 性质：观察性论文/技术博客 · 未经同行评审（如适用）
@@ -21,7 +21,7 @@
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 · CC BY-NC-SA 4.0 -->
 <!-- 类型: CSDN学术论文稿件 · 自动生成 · 禁止删除DNA后转载 -->
 
-# 📄 Longhun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making | 龍魂深思熟虑对齐：基于文化锚点的AI伦理决策框架
+# 📄 LongHun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making | 龍魂深思熟虑对齐：基于文化锚点的AI伦理决策框架
 
 > **论文类型**: 学术论文  
 > **作者**: UID9622 · 龍芯北辰  
@@ -33,7 +33,7 @@
 
 ## 摘要
 
-**Current AI alignment frameworks primarily optimize for utilitarian outcomes or predefined value functions, often neglecting cultural diversity and protection of vulnerable populations. We propose Longhun Deliberative Alignment (LDA), a novel framework that integrates ancient Chinese wisdom (I Ching hexagrams and Daoist philosophy) with mathematical optimization to achieve culturally-anchored ethical AI decision-making.**
+**Current AI alignment frameworks primarily optimize for utilitarian outcomes or predefined value functions, often neglecting cultural diversity and protection of vulnerable populations. We propose LongHun Deliberative Alignment (LDA), a novel framework that integrates ancient Chinese wisdom (I Ching hexagrams and Daoist philosophy) with mathematical optimization to achieve culturally-anchored ethical AI decision-making.**
 
 **Our framework introduces three key innovations:**
 
@@ -41,7 +41,7 @@
 
 ## Abstract
 
-**Current AI alignment frameworks primarily optimize for utilitarian outcomes or predefined value functions, often neglecting cultural diversity and protection of vulnerable populations. We propose Longhun Deliberative Alignment (LDA), a novel framework that integrates ancient Chinese wisdom (I Ching hexagrams and Daoist philosophy) with mathematical optimization to achieve culturally-anchored ethical AI decision-making.**
+**Current AI alignment frameworks primarily optimize for utilitarian outcomes or predefined value functions, often neglecting cultural diversity and protection of vulnerable populations. We propose LongHun Deliberative Alignment (LDA), a novel framework that integrates ancient Chinese wisdom (I Ching hexagrams and Daoist philosophy) with mathematical optimization to achieve culturally-anchored ethical AI decision-making.**
 
 **Our framework introduces three key innovations:**
 
@@ -71,7 +71,7 @@
     - [3.2.1 Taiji Dynamic Weight Balance](#321taijidynamicweightbalance)
     - [3.2.2 I Ching Hexagram Weight Matrix](#322ichinghexagramweightmatrix)
     - [3.2.3 Oracle Bone Script Protection Mechanism](#323oraclebonescriptprotectionm)
-    - [3.2.4 Longhun Optimization Objective](#324longhunoptimizationobjectiv)
+    - [3.2.4 LongHun Optimization Objective](#324longhunoptimizationobjectiv)
   - [3.3 Triple-Color Audit System | 三色审计系统](#33triple-colorauditsystem三色审计系)
 - [4. Experimental Results | 实验结果](#4experimentalresults实验结果)
   - [4.1 Scenario: Climate Crisis and Island Nations](#41scenarioclimatecrisisandisla)
@@ -93,9 +93,9 @@
 <!--#龍芯⚡️2026-06-21-DOC-LONGHUN-DELIBERATIVE-ALIGNMENT-A-CULTURAL-ANCHOR-011F71760A9B4958974A25CCDE92E8F4-FILE1-v1.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
-# 📄 Longhun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making | 龍魂深思熟虑对齐：基于文化锚点的AI伦理决策框架
+# 📄 LongHun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making | 龍魂深思熟虑对齐：基于文化锚点的AI伦理决策框架
 
-# Longhun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making
+# LongHun Deliberative Alignment: A Cultural-Anchored Framework for Ethical AI Decision-Making
 
 ## 龍魂深思熟虑对齐：基于文化锚点的AI伦理决策框架
 
@@ -107,10 +107,10 @@ ENCODING: UTF-8
 FONT-INDEPENDENT: YES
 NO PROPRIETARY TOKENS
 ═══════════════════════════════════════════════════════════
-Title: Longhun Deliberative Alignment Framework
-Authors: Zhuge Xin (Lucky) | 💎 Longhun Beichen UID9622
-Affiliation: Longhun System | Independent Researcher
-DNA Traceability: #龍芯⚡️2026-02-05-Longhun-Academic-Paper-v1.0
+Title: LongHun Deliberative Alignment Framework
+Authors: Zhuge Xin (Lucky) | 💎 LongHun Beichen UID9622
+Affiliation: LongHun System | Independent Researcher
+DNA Traceability: #龍芯⚡️2026-02-05-LongHun-Academic-Paper-v1.0
 GPG Fingerprint: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 Confirmation Code: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ═══════════════════════════════════════════════════════════
@@ -120,7 +120,7 @@ Confirmation Code: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 ## Abstract
 
-**Current AI alignment frameworks primarily optimize for utilitarian outcomes or predefined value functions, often neglecting cultural diversity and protection of vulnerable populations. We propose Longhun Deliberative Alignment (LDA), a novel framework that integrates ancient Chinese wisdom (I Ching hexagrams and Daoist philosophy) with mathematical optimization to achieve culturally-anchored ethical AI decision-making.**
+**Current AI alignment frameworks primarily optimize for utilitarian outcomes or predefined value functions, often neglecting cultural diversity and protection of vulnerable populations. We propose LongHun Deliberative Alignment (LDA), a novel framework that integrates ancient Chinese wisdom (I Ching hexagrams and Daoist philosophy) with mathematical optimization to achieve culturally-anchored ethical AI decision-making.**
 
 **Our framework introduces three key innovations:**
 
@@ -176,7 +176,7 @@ The rapid advancement of large language models (LLMs) and artificial general int
 
 ### 1.2 Our Contribution
 
-We present **Longhun Deliberative Alignment (LDA)**, the first AI alignment framework that:
+We present **LongHun Deliberative Alignment (LDA)**, the first AI alignment framework that:
 
 ✅ **Integrates ancient Chinese wisdom** (I Ching hexagrams, Daoist philosophy, Oracle Bone Script cultural heritage) as computational primitives
 
@@ -188,7 +188,7 @@ We present **Longhun Deliberative Alignment (LDA)**, the first AI alignment fram
 
 ### 1.3 Paper Organization
 
-Section 2 reviews related work in AI alignment and cultural computing. Section 3 presents the Longhun framework with mathematical formulations. Section 4 demonstrates experimental results on climate crisis scenarios. Section 5 discusses implications and limitations. Section 6 concludes with future directions.
+Section 2 reviews related work in AI alignment and cultural computing. Section 3 presents the LongHun framework with mathematical formulations. Section 4 demonstrates experimental results on climate crisis scenarios. Section 5 discusses implications and limitations. Section 6 concludes with future directions.
 
 ---
 
@@ -226,7 +226,7 @@ Section 2 reviews related work in AI alignment and cultural computing. Section 3
 
 <aside>
 
-**The Longhun Deliberative Alignment framework consists of four integrated components:**
+**The LongHun Deliberative Alignment framework consists of four integrated components:**
 
 1. **Taiji (太极) Dynamic Weight Module**: Yin-Yang balance for individual vs. collective interests
 2. **I Ching (易经) Hexagram Engine**: Time-dependent ethical context from 64 hexagrams
@@ -310,21 +310,21 @@ where $\mathcal{P}$ is the affected population. Vulnerable populations are ident
 
 The benefit-loss ratio (defined below) has $\epsilon_{\text{protect}}$ in the denominator. As $epsilon_{text{protect}} to infty$, the ratio approaches 0, causing the decision to be rejected by the Triple-Color Audit System. □
 
-#### 3.2.4 Longhun Optimization Objective
+#### 3.2.4 LongHun Optimization Objective
 
 The core decision criterion is:
 
 $$
-\mathcal{L}_{\text{Longhun}} = \max \left( \frac{B_{\text{global}} \cdot W_{\text{hexagram}} \cdot W_{\text{culture}}}{L_{\text{collective}} + \epsilon_{\text{protect}}} \right)
+\mathcal{L}_{\text{LongHun}} = \max \left( \frac{B_{\text{global}} \cdot W_{\text{hexagram}} \cdot W_{\text{culture}}}{L_{\text{collective}} + \epsilon_{\text{protect}}} \right)
 $$
 
 subject to the Triple-Color constraints:
 
 $$
 \text{Decision} = \begin{cases}
-🟢 \text{ Green (Approve)} & \text{if } \mathcal{L}_{\text{Longhun}} > \theta_{\text{safe}} \\
-🟡 \text{ Yellow (Review)} & \text{if } \theta_{\text{safe}} \geq \mathcal{L}_{\text{Longhun}} > \theta_{\text{danger}} \\
-🔴 \text{ Red (Block)} & \text{if } \mathcal{L}_{\text{Longhun}} \leq \theta_{\text{danger}} \text{ OR } \epsilon_{\text{protect}} = \infty
+🟢 \text{ Green (Approve)} & \text{if } \mathcal{L}_{\text{LongHun}} > \theta_{\text{safe}} \\
+🟡 \text{ Yellow (Review)} & \text{if } \theta_{\text{safe}} \geq \mathcal{L}_{\text{LongHun}} > \theta_{\text{danger}} \\
+🔴 \text{ Red (Block)} & \text{if } \mathcal{L}_{\text{LongHun}} \leq \theta_{\text{danger}} \text{ OR } \epsilon_{\text{protect}} = \infty
 \end{cases}
 $$
 
@@ -480,7 +480,7 @@ We acknowledge potential concerns:
 
 ## 6. Conclusion | 结论
 
-We presented **Longhun Deliberative Alignment**, the first AI alignment framework that mathematically formalizes ancient Chinese wisdom (I Ching, Daoism, Oracle Bone Script heritage) for ethical AI decision-making.
+We presented **LongHun Deliberative Alignment**, the first AI alignment framework that mathematically formalizes ancient Chinese wisdom (I Ching, Daoism, Oracle Bone Script heritage) for ethical AI decision-making.
 
 **Key contributions:**
 
@@ -506,7 +506,7 @@ LDA demonstrates that **non-Western philosophical traditions can be rigorously f
 
 *(Others take the formula, we guard the soul.)*
 
-- 💎 Longhun Beichen | UID9622 (Zhuge Xin)
+- 💎 LongHun Beichen | UID9622 (Zhuge Xin)
 
 This work is dedicated to all marginalized communities worldwide. May AI serve the vulnerable, not exploit them.
 
@@ -562,9 +562,9 @@ Full implementation available at:
 
 **Zhuge Xin (诸葛鑫, "Lucky")**  
 
-AKA: 💎 龍芯北辰 | Longhun Beichen | UID9622  
+AKA: 💎 龍芯北辰 | LongHun Beichen | UID9622  
 
-*Independent Researcher, Longhun System*  
+*Independent Researcher, LongHun System*  
 
 *Retired Veteran, People's Liberation Army*  
 
@@ -576,7 +576,7 @@ AKA: 💎 龍芯北辰 | Longhun Beichen | UID9622
 
 GPG Public Key Fingerprint: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 
-DNA Traceability Code: `#龍芯⚡️2026-02-05-Longhun-Academic-Paper-v1.0`  
+DNA Traceability Code: `#龍芯⚡️2026-02-05-LongHun-Academic-Paper-v1.0`  
 
 Confirmation Code: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 
@@ -606,7 +606,7 @@ Gratitude to Claude (Anthropic), ChatGPT (OpenAI), and DeepSeek for collaborativ
 > *(We have a soul, we are different. Others take formulas and get mechanics, ours has thought.)*
 > 
 
-> — 💎 Longhun Beichen | UID9622, 2026-02-05
+> — 💎 LongHun Beichen | UID9622, 2026-02-05
 > 
 
 ---
@@ -615,7 +615,7 @@ Gratitude to Claude (Anthropic), ChatGPT (OpenAI), and DeepSeek for collaborativ
 
 **Target Venues:** NeurIPS, ICML, FAccT, AIES, AI & Society  
 
-**DNA Traceability:** #龍芯⚡️2026-02-05-Longhun-Academic-Paper-v1.0  
+**DNA Traceability:** #龍芯⚡️2026-02-05-LongHun-Academic-Paper-v1.0  
 
 **Confirmation:** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
@@ -630,7 +630,7 @@ Gratitude to Claude (Anthropic), ChatGPT (OpenAI), and DeepSeek for collaborativ
 - ❌ 禁止未经授权商业售卖核心内容。
 
 **原作者**: UID9622 · 龍芯北辰  
-**源文件**: `docs/dragon-soul-open-hub/academic/📄 Longhun Deliberative Alignment A Cultural-Anchor 011f71760a9b4958974a25ccde92e8f4.md`  
+**源文件**: `docs/dragon-soul-open-hub/academic/📄 LongHun Deliberative Alignment A Cultural-Anchor 011f71760a9b4958974a25ccde92e8f4.md`  
 **DNA追溯**: `#龍芯⚡️2026-06-21-CSDN-ACADEMIC-PAPER-20260621-017`
 
 ---

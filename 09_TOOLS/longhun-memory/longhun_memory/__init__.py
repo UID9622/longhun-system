@@ -4,7 +4,7 @@
 # 创建者: 诸葛鑫（UID9622）
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
-龙魂·记忆压缩+国密加密 SDK v1.0
+龍魂·记忆压缩+国密加密 SDK v1.0
 
 给开发者的对话记忆工具包：
   - 智能压缩：保留关键信息，压缩冗余上下文

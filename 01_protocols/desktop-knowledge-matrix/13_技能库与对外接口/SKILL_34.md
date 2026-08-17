@@ -4,7 +4,7 @@ description: '龍魂每日復盤引擎，三色審計體系，支持郵件發送
 metadata:
   version: '5.1'
   author: 龍魂體系
-  dna: '#龍芯⚡️2026-07-03-LONGHUN-REVIEW-v5.1'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-REVIEW-v5.1'
   id: longhun-review
   trigger:
     keywords:
@@ -19,7 +19,7 @@ metadata:
 ---
 # 🐉 龍魂每日復盤引擎 (longhun-review)
 
-**DNA**: `#龍芯⚡️2026-06-19-LONGHUN-REVIEW-v5.1`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-REVIEW-v5.1`
 **版本**: v5.1
 **路徑**: `~/longhun-system/scripts/復盤引擎.py`
 **功能**: 三色審計 · 郵件發送 · 復盤報告 · 歷史趨勢 · 改進建議
@@ -194,7 +194,7 @@ def 審計_文件完整性() -> 三色結果:
 
 ---
 
-**DNA**: `#龍芯⚡️2026-06-19-LONGHUN-REVIEW-v5.1`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-REVIEW-v5.1`
 **確認**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅`
 
 ---

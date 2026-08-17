@@ -1,4 +1,4 @@
-<!--#龍芯⚡️2026-06-21-DOC-PROTOCOL_SIMPLIFICATION_COMPLETION_V2-v1.0 -->
+<!--#龍芯⚡️丙午·丙申·庚申·亥时-DOC-PROTOCOL_SIMPLIFICATION_COMPLETION_V2-v1.0 -->
 <!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
 
 # 🐉 龍魂协议·简体化统一完成报告 v2.0

@@ -3,7 +3,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # ╔═══════════════════════════════════════════════════════════════╗
-# ║  🐉 龙魂·每日早报 v1.0 — 每天8:00推送                         ║
+# ║  🐉 龍魂·每日早报 v1.0 — 每天8:00推送                         ║
 # ║  Daily Report · 服务器状态 · 服务概览 · 资源使用               ║
 # ╠═══════════════════════════════════════════════════════════════╣
 # ║  DNA: #龍芯⚡️2026-07-12-BARK-DAILY-REPORT-v1.0               ║
@@ -114,12 +114,12 @@ BODY="${BODY}
 ${TOP_PROCESSES}
 
 ━━━━━━━━━━━━━━━━━━
-${TS} · 鲲鹏 · 龙魂系统
+${TS} · 鲲鹏 · 龍魂系统
 UID9622 · 诸葛鑫"
 
 # ── 发送 ──
-TITLE="🐉 龙魂早报 · ${DATE_CN}"
+TITLE="🐉 龍魂早报 · ${DATE_CN}"
 
-echo "${BODY}" | python3 "${BARK_SENDER}" "${TITLE}" --stdin --group "龙魂日报" 2>&1 | tee -a "${LOG_DIR}/daily_report.log"
+echo "${BODY}" | python3 "${BARK_SENDER}" "${TITLE}" --stdin --group "龍魂日报" 2>&1 | tee -a "${LOG_DIR}/daily_report.log"
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] 早报已推送 · 服务 ${RUNNING_COUNT}/${#SERVICES[@]} · CPU ${CPU_USAGE}%" >> "${LOG_DIR}/daily_report.log"

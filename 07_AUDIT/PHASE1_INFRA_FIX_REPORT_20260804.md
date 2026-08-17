@@ -132,7 +132,7 @@ curl -s http://127.0.0.1:8771/health   # {"status":"🟢 记忆API在线",...}
 当前同时运行 3 个 Python 版本：
 - Python 3.9（Xcode）: 心谈 API
 - Python 3.12（homebrew）: 绝大多数龍魂服务
-- Python 3.14（homebrew python3 默认）: 注册表、龙魂 Web 面板
+- Python 3.14（homebrew python3 默认）: 注册表、龍魂 Web 面板
 
 **建议**:
 - 统一使用 `/Users/zuimeidedeyihan/.longhun/bin/python3`，它指向 Python 3.12 且已安装所有依赖。

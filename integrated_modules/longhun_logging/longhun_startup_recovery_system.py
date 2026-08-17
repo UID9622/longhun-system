@@ -6,7 +6,7 @@
 
 """
 龍魂 启动初始化系统 v1.0
-Longhun Startup & Log Recovery System
+LongHun Startup & Log Recovery System
 
 DNA:#龍芯⚡️2026-06-07-STARTUP-RECOVERY-v1.0
 """

@@ -6,7 +6,7 @@
 
 """
 龍魂系统 · 标准化计算框架 v1.0
-Longhun System · Standardized Calculation Framework
+LongHun System · Standardized Calculation Framework
 
 DNA:#龍芯⚡️2026-06-07-STANDARD-CALCULATION-FRAMEWORK-FILE4-v1.0
 核心目标: 统一计算方式·固定Skill结构·自动化检验·一致规范
@@ -140,7 +140,7 @@ class SkillMetadata:
     tags: List[str] = field(default_factory=list)  # 标签
     
     # 创建信息
-    author: str = "Longhun"
+    author: str = "LongHun"
     created_date: str = ""
     last_updated: str = ""
     

@@ -17,7 +17,7 @@ description: '龍魂记忆启动器：中国自主可控的多平台记忆归集
 metadata:
   id: longhun-memory-bootstrap
   version: '5.1'
-  dna: '#龍芯⚡️2026-07-03-LONGHUN-MEMORY-BOOTSTRAP-v5.1'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MEMORY-BOOTSTRAP-v5.1'
   trigger:
     keywords:
     - memorybootstrap
@@ -147,5 +147,5 @@ python3 ~/.longhun/scripts/longhun_senses/senses_cli.py soul "要情感化的文
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：09-杂项备忘（memory-editor、记忆压缩系统、当前任务记录）
-- **中央整合 DNA**：`#龍芯⚡️2026-07-03-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

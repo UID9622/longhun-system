@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
-龍魂·DNA接龙链引擎 v1.0
+龍魂·DNA接龍链引擎 v1.0
 只追加·不覆盖·不删除·焊死铁律
 每个AI/人格的每次修改都接在链尾·行为密码学指纹嵌入每节
 
@@ -46,13 +46,13 @@ def get_file_format(filepath: str) -> str:
 # ═══════════════════════════════════════
 EMBED = {
     # (comment_prefix,  block_start,  block_end,  is_multiline)
-    "python":    ("# ",  "\n# ⛓️ 龍魂DNA接龙链 " + "─"*30 + "\n",
-                        "\n# ⛓️ 龍魂DNA接龙末端 " + "─"*30 + "\n", True),
+    "python":    ("# ",  "\n# ⛓️ 龍魂DNA接龍链 " + "─"*30 + "\n",
+                        "\n# ⛓️ 龍魂DNA接龍末端 " + "─"*30 + "\n", True),
     "markdown":  ("",    "\n<!-- ⛓️DNA-CHAIN\n",
                         "\n⛓️END-->\n", True),
     "html":      ("",    "\n<!-- ⛓️DNA-CHAIN\n",
                         "\n⛓️END-->\n", True),
-    "jsdoc":     (" * ", "\n/**\n * ⛓️ 龍魂DNA接龙链\n",
+    "jsdoc":     (" * ", "\n/**\n * ⛓️ 龍魂DNA接龍链\n",
                         "\n * ⛓️END\n */\n", True),
     "shell":     ("# ⛓️ ", "", "", False),
     "yaml":      ("#   - ", "\n# ⛓️DNA-CHAIN\n",
@@ -125,9 +125,9 @@ def _strip_chain(text: str) -> str:
     """移除所有DNA链标记"""
     # 移除各种格式的DNA链
     patterns = [
-        r'# ⛓️ 龍魂DNA接龙链 .*?# ⛓️ 龍魂DNA接龙末端[^\n]*\n?',
+        r'# ⛓️ 龍魂DNA接龍链 .*?# ⛓️ 龍魂DNA接龍末端[^\n]*\n?',
         r'<!-- ⛓️DNA-CHAIN.*?⛓️END-->\n?',
-        r'/\*\*\n \* ⛓️ 龍魂DNA接龙链.*?\* ⛓️END\n \*/\n?',
+        r'/\*\*\n \* ⛓️ 龍魂DNA接龍链.*?\* ⛓️END\n \*/\n?',
         r'/\* ⛓️DNA-CHAIN.*?⛓️END\*/\n?',
         r'"_dna_chain":\s*\[[^\]]*\],?\n?',
         r'# ⛓️DNA-CHAIN\n.*?# ⛓️END\n?',
@@ -270,7 +270,7 @@ def append_chain(filepath: str, persona: str = "P04鲁班", action: str = "修�
 def verify_chain(filepath: str) -> dict:
     entries = parse_chain(filepath)
     if not entries:
-        return {"has_chain": False, "status": "🟡", "message": "无DNA接龙链"}
+        return {"has_chain": False, "status": "🟡", "message": "无DNA接龍链"}
     
     issues = []
     current_chash = get_chash(filepath)
@@ -294,7 +294,7 @@ def verify_chain(filepath: str) -> dict:
 def show_chain(filepath: str) -> dict:
     entries = parse_chain(filepath)
     if not entries:
-        return {"has_chain": False, "message": "无DNA接龙链"}
+        return {"has_chain": False, "message": "无DNA接龍链"}
     return {
         "has_chain": True, "filepath": filepath, "total_versions": len(entries),
         "personas": sorted(set(e["persona"] for e in entries)),
@@ -349,7 +349,7 @@ def auto_append(filepath: str, note: str = "自动检测变更") -> Optional[dic
 # ═══════════════════════════════════════
 def main():
     import argparse
-    p = argparse.ArgumentParser(description="龍魂·DNA接龙链引擎 v1.0",
+    p = argparse.ArgumentParser(description="龍魂·DNA接龍链引擎 v1.0",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="只追加·不覆盖·不删除\n例: lh dna-chain init main.py\n    lh dna-chain append main.py -p P05 -a 审计 -n \"五问通过\"\n    lh dna-chain verify main.py\n    lh dna-chain show main.py\n    lh dna-chain scan bin/")
     
@@ -404,7 +404,7 @@ def main():
                     if os.path.splitext(file)[1].lower() in FORMAT_MAP:
                         r = auto_append(fp, args.note)
                         if r: print(f"⛓️ V{r['version']} → {fp}"); count += 1
-            print(f"\n✅ {count}文件自动接龙")
+            print(f"\n✅ {count}文件自动接龍")
         else:
             r = auto_append(args.path, args.note)
             print(f"⛓️ V{r['version']} → {args.path}" if r else "🟢 无变更")
@@ -413,6 +413,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-# ⛓️ 龍魂DNA接龙链 ──────────────────────────────
-# DNA:V1|丙午·丙申·癸丑·亥时·䷓观|P04鲁班|创建|DNA接龙链引擎v1.0·十种格式·只追加不覆盖|bhash:35d3996b|chash:05f16491|←GENESIS
-# ⛓️ 龍魂DNA接龙末端 ──────────────────────────────
+# ⛓️ 龍魂DNA接龍链 ──────────────────────────────
+# DNA:V1|丙午·丙申·癸丑·亥时·䷓观|P04鲁班|创建|DNA接龍链引擎v1.0·十种格式·只追加不覆盖|bhash:35d3996b|chash:05f16491|←GENESIS
+# ⛓️ 龍魂DNA接龍末端 ──────────────────────────────

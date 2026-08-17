@@ -3,7 +3,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 """
-龍魂文章包装器 (Longhun Article Wrapper)
+龍魂文章包装器 (LongHun Article Wrapper)
 把用户粘贴的 raw 文章自动套入标准化模板，生成可直接发布/投喂的 MD 文件。
 
 用法:

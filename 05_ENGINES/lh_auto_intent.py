@@ -151,6 +151,16 @@ def run(query: str, dry_run: bool = False) -> Dict[str, Any]:
     router = NaturalLanguageRouter()
     route_result = router.route(query)
 
+    # 0. 默认动作：任何非 dry-run 输入都先保存到本地剪贴板容器
+    vault_result: Dict[str, Any] = {"status": "skipped", "reason": "dry-run"}
+    if not dry_run and query and len(query.strip()) > 3:
+        try:
+            from engines.lh_clipboard_vault import save
+            vault_result = save(query.strip(), source="auto-intent")
+        except Exception as e:
+            vault_result = {"status": "error", "reason": str(e)}
+    route_result["容器保存"] = vault_result
+
     # 1. 执行 L4 建议动作
     action_results = []
     for action in route_result.get("建议动作", []):
@@ -217,6 +227,17 @@ def _format_report(result: Dict[str, Any]) -> str:
             status = pe["result"].get("status", "?")
             emoji = "✅" if status == "ok" else "⚠️"
             lines.append(f"    {emoji} {pe['ipa']}: {status}")
+
+    # 容器保存
+    vault = result.get("容器保存", {})
+    if vault:
+        status = vault.get("status", "")
+        if status == "saved":
+            lines.append(f"\n  📦 容器保存: ✅ {vault.get('path', '')} [{vault.get('topic', '')}]")
+        elif status == "error":
+            lines.append(f"\n  📦 容器保存: ⚠️ {vault.get('reason', '未知错误')}")
+        else:
+            lines.append(f"\n  📦 容器保存: ⏸️ {vault.get('reason', 'dry-run')}")
 
     # 建议动作
     actions = result.get("建议动作", [])

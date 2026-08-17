@@ -144,7 +144,7 @@ python3 bin/lh_cross_module_awareness.py --auto-fix
 
 ## 九、待迭代清单
 
-1. **技能生成器 DNA 格式**：当前生成 `#龍芯⚡️2026-08-04-SKILL-...`，需改为 v∞ 干支卦格式。
+1. **技能生成器 DNA 格式**：当前生成 `#龍芯⚡️丙午·丙申·庚申·亥时-SKILL-...`，需改为 v∞ 干支卦格式。
 2. **缺失入口脚本**：`lh_identity_positioning.py`、`lh_wuxing_engine.py`、`lh_dao_de_jing_anchor.py`、`lh_vuln_detect.py`、`lh_trust_score.py`、`lh_xpay_engine.py`、`lh_cnsh_translate.py` 7 个脚本未实装，技能入口需标记为“规划中”或补脚本。
 3. **对齐规则 DNA**：`LH-CODEBUDDY-ALIGNMENT-v2.0.md` 使用旧格里历 DNA，需修成 v∞。
 4. **技能版本对齐**：项目级技能版本统一为 v1.0，待实测后按语义升级。

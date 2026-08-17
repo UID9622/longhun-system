@@ -388,7 +388,7 @@ def ingest_english_memories():
 
         title = p.stem
         samples.append(make_sample(
-            f"What is '{title}' in Longhun system?",
+            f"What is '{title}' in LongHun system?",
             truncate(text, 1200),
             "english_memory",
         ))

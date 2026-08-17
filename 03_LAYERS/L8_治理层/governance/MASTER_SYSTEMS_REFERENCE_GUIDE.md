@@ -328,7 +328,7 @@ with log_operation("任务", "tool", persona="P01"):
 | 服务 | 端口 | 状态 | 功能 |
 |------|------|------|------|
 | **Persona API** | 9001 | ✅ | 15 人格·3 端点 |
-| **Longhun API** | 8000 | ⚠️ | Skills 框架 |
+| **LongHun API** | 8000 | ⚠️ | Skills 框架 |
 | **OpenHub REST** | 10088 | ✅ | AI Claw API |
 | **OpenHub WS** | 10087 | ✅ | WebSocket |
 

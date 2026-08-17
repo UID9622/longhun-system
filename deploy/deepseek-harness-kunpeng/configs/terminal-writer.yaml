@@ -1,0 +1,59 @@
+# 🐉 龍魂 · 多模型终端写作引擎配置
+# DNA: #龍芯⚡️丙午·丙申·丁酉·子时-TERMINAL-WRITER-CONFIG-UID9622
+# 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+
+confirm_code: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+timeout: 8
+fallback_chain:
+  - dsh
+  - ollama
+  - kimi
+  - codebuddy
+  - custom
+
+providers:
+  dsh:
+    enabled: true
+    url: "http://127.0.0.1:2284/api/headless"
+    model: "deepseek-r1:14b"
+
+  ollama:
+    enabled: true
+    url: "http://127.0.0.1:11434/api/generate"
+    model: "deepseek-r1:14b"
+
+  kimi:
+    enabled: false
+    url: "https://api.moonshot.cn/v1/chat/completions"
+    api_key: "${KIMI_API_KEY}"
+    model: "moonshot-v1-8k"
+
+  codebuddy:
+    enabled: false
+    mode: "vscode_command"
+    command: "codebuddy.terminal.write"
+
+  custom:
+    enabled: false
+    url: "${CUSTOM_MODEL_URL}"
+    api_key: "${CUSTOM_API_KEY}"
+    model: "custom-model"
+
+auto_trigger:
+  enabled: true
+  watch_dirs:
+    - "."
+    - "docs"
+    - "12_DOCS"
+  patterns:
+    - "*.md"
+    - "*.txt"
+  keywords:
+    - "TODO"
+    - "FIXME"
+    - "待补充"
+  on_git_commit: true
+  cooldown_seconds: 60
+
+system_prompt_file: "~/.longhun/configs/longhun-system-prompt.md"

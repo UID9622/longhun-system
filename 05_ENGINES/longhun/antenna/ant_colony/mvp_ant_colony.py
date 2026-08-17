@@ -331,7 +331,7 @@ class MVPColony:
             print(f"📋 生成了 {n} 个演示任务")
 
         print(f"\n{'='*60}")
-        print(f"🐜 龙魂MVP蚁群 启动")
+        print(f"🐜 龍魂MVP蚁群 启动")
         print(f"   工蚁: {len(self.workers)} 只 | 侦察蚁: {len(self.scouts)} 只")
         print(f"   信息素: RECRUIT + TRAIL | 不动点: L1-L3")
         print(f"   目标: 跑通协作闭环 | DNA: {DNA}")

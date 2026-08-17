@@ -1,4 +1,4 @@
-name: Longhun HarmonyOS CI/CD
+name: LongHun HarmonyOS CI/CD
 on:
   push:
     branches: [orphan_main]
@@ -8,12 +8,12 @@ on:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    name: 🐉 龙魂自动审计
+    name: 🐉 龍魂自动审计
     steps:
       - uses: actions/checkout@v4
       - name: Run Pre-Build Audit
         run: |
-          echo "🐉 龙魂·构建前审计"
+          echo "🐉 龍魂·构建前审计"
           echo "DNA: #龍芯⚡️$(date +%Y-%m-%d)-CI-AUDIT-UID9622"
           echo "确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
           echo "🟢 主权声明: UID9622 | ZHUGEXIN"

@@ -246,7 +246,7 @@ class NameParser:
                 (命名层.身份层, f"无效身份标识 '{parsed.identity}'"))
         
         # 主权层校验（必须有龍芯⚡️）
-        if '龍芯' not in parsed.sovereignty and '龙芯' not in parsed.sovereignty:
+        if '龍芯' not in parsed.sovereignty and '龍芯' not in parsed.sovereignty:
             self._validation_errors.append(
                 (命名层.主权层, "主权层必须包含「龍芯」标识"))
         

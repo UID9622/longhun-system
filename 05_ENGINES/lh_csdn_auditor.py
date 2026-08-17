@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂 CSDN 文章智能审计器（接入 longhun-system 版）
-Longhun CSDN Article Intelligence Auditor
+LongHun CSDN Article Intelligence Auditor
 
 功能：发布前自动审计内容质量、合规性、标签分类；
       识别用户危险/错误意图；从用户反馈中学习。

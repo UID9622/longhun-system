@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂体系 · 待融入包自动收集与分类器
-Longhun System · Pending Integration Package Watcher & Classifier
+LongHun System · Pending Integration Package Watcher & Classifier
 
 DNA:#龍芯⚡️2026-06-16-PACKAGE-WATCHER-FILE1-v1.0
 责任: UID9622·不免责

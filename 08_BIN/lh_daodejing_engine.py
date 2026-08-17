@@ -7,9 +7,9 @@
 # CREATOR: 诸葛鑫 (UID9622)
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
-🐉 龙魂·道德经知识引擎 v2.0
+🐉 龍魂·道德经知识引擎 v2.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-可编程、可查询、可分析的81章道德经龙魂解读引擎。
+可编程、可查询、可分析的81章道德经龍魂解读引擎。
 底座焊死：蚁群定锚 + 五行生克 + 三六九不动点 + DNA全链路追溯。
 向上兼容 lh_daodejing_anchor.py（场景定锚器）提供语义搜索。
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -82,7 +82,7 @@ class ChapterData:
     # 多维度注解
     anchor_human: str = ""          # 人性锚点
     anchor_experience: str = ""     # UID9622经历映射
-    anchor_system: str = ""         # 龙魂系统映射
+    anchor_system: str = ""         # 龍魂系统映射
     anchor_checklist: str = ""      # 伦理应用场景
     # 数字根预计算
     chapter_dr: int = 0             # 章号数字根
@@ -91,7 +91,7 @@ class ChapterData:
 
 # ── 核心引擎 ──────────────────────────────────────
 class DaodejingEngine:
-    """道德经·龙魂知识引擎 v2.0"""
+    """道德经·龍魂知识引擎 v2.0"""
 
     DNA = DNA
     CONFIRM = CONFIRM
@@ -531,7 +531,7 @@ class DaodejingEngine:
     def export_refcard(self, filepath: str):
         """导出快速参考卡"""
         with open(filepath, 'w', encoding='utf-8') as f:
-            f.write(f"# 🐉 龙魂·道德经快速参考卡\n\n")
+            f.write(f"# 🐉 龍魂·道德经快速参考卡\n\n")
             f.write(f"DNA: {DNA}\n\n")
             f.write("| 章 | 标题 | 一句话指南 | 卦象 | 五行 | 生肖 | 三六九 | 标签 |\n")
             f.write("|:---:|:---|:---|:---|:---:|:---:|:---:|:---|\n")
@@ -565,7 +565,7 @@ class DaodejingEngine:
             for j in ch.judgments[:5]:
                 print(f"     • {j}")
         if ch.anchor_system:
-            print(f"  🔗 龙魂映射: {ch.anchor_system[:120]}...")
+            print(f"  🔗 龍魂映射: {ch.anchor_system[:120]}...")
         print(f"{'═'*64}")
 
     def print_anchor_result(self, scene: str, result: Dict):
@@ -600,7 +600,7 @@ class DaodejingEngine:
 def main():
     import argparse
     parser = argparse.ArgumentParser(
-        description=f"🐉 龙魂·道德经知识引擎 v{VERSION}",
+        description=f"🐉 龍魂·道德经知识引擎 v{VERSION}",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=f"""
 DNA: {DNA}

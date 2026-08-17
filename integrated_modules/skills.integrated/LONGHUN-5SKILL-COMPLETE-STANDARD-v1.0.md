@@ -25,7 +25,7 @@ DNA:#龍芯⚡️2026-06-07-MOD_5SKILL-COMPLETE-STANDARD-FILE1_3209-v1.0
 | **标签** | art, visualization, algorithm, p5js |
 | **创建日期** | 2026-06-07 |
 | **最后更新** | 2026-06-07 |
-| **作者** | Longhun / UID9622 |
+| **作者** | LongHun / UID9622 |
 | **质量级别** | production |
 | **测试覆盖** | 95% |
 | **可靠性评分** | 98/100 |

@@ -1,0 +1,29 @@
+#龍芯⚡️丙午·丙申·己未·乙亥时·䷞旅-LICENSE-DOC-v1.0-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+
+龍魂工程包 · 思想层/文档层许可说明
+================================================================
+
+本工程包内所有文档、手册、架构说明、HTML 页面文案等"思想层"内容
+（包括但不限于 README_DEPLOY.md、var_www/index.html、配置注释中的
+说明性文字），采用：
+
+    知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议
+    Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+    International License (CC BY-NC-SA 4.0)
+
+许可要点（非法律文本，法律效力以协议全文为准）：
+
+1. 署名 (BY)        —— 必须给出适当署名，提供本协议链接，并标明是否做了修改。
+2. 非商业性使用 (NC) —— 不得将本材料用于商业目的。
+3. 相同方式共享 (SA) —— 若再混合、转换或基于本材料创作，必须基于与原先
+                       许可协议相同的许可协议分发其贡献。
+4. 没有附加限制     —— 不得适用法律术语或技术措施，限制他人做本协议允许的事。
+
+协议全文：
+    https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-hans
+
+工程层代码（*.sh / *.py / *.service / nginx 配置等）适用 MulanPSL-2.0，
+见同目录 LICENSE-CODE 文件。

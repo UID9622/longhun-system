@@ -7,7 +7,7 @@ allowed-tools:
 compatibility: Python 3.9+, macOS, iOS (via libimobiledevice), HarmonyOS (via hdc), Kunpeng ARM64
 metadata:
   version: '1.1'
-  dna: '#龍芯⚡️2026-07-03-LONGHUN-DEVICE-ECOSYSTEM-v1.1'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEVICE-ECOSYSTEM-v1.1'
   tribute: '#致敬⚡️SteveJobs+华为鸿蒙·鲲鹏·设备生态'
   platforms:
   - ios
@@ -39,7 +39,7 @@ metadata:
 ---
 # SKILL.md — longhun-device-ecosystem（龍魂设备生态）
 
-**DNA**: `#龍芯⚡️2026-07-03-LONGHUN-DEVICE-ECOSYSTEM-v1.1`  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEVICE-ECOSYSTEM-v1.1`  
 **致敬**: `#致敬⚡️SteveJobs+华为鸿蒙·鲲鹏·设备生态`
 
 ---
@@ -50,7 +50,7 @@ metadata:
 |------|------|
 | **技能名称** | longhun-device-ecosystem（龍魂设备生态） |
 | **版本** | v1.1 |
-| **所属体系** | 龍魂体系（Longhun System） |
+| **所属体系** | 龍魂体系（LongHun System） |
 | **目标平台** | iOS / macOS / 华为鸿蒙（HarmonyOS） / 鲲鹏服务器（ARM64） |
 | **开发语言** | Python 3.9+ |
 | **适用场景** | 普通人不会点的系统设置、备份、字体渲染、开发坑位一键查询 |
@@ -226,10 +226,10 @@ python3 .../device_ecosystem_cli.py 坑位 hdc 版本
 
 ## 附录：龍魂协议与路由来源
 
-本技能收录了来自 `/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龙魂协议与路由` 的素材：
+本技能收录了来自 `/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂协议与路由` 的素材：
 
 - **内容**：`鯤鵬服務器硬件對接.md`
-- **中央整合 DNA**：`#龍芯⚡️2026-07-03-LONGHUN-PROTOCOL-ROUTE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PROTOCOL-ROUTE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 `references/龍魂协议与路由/`，嵌入 DNA 追溯链，与 `longhun-device-ecosystem` 硬件对接能力联动。
 
 ---
@@ -239,5 +239,5 @@ python3 .../device_ecosystem_cli.py 坑位 hdc 版本
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：09-杂项备忘（浏览器字体包、开源宣言）
-- **中央整合 DNA**：`#龍芯⚡️2026-07-03-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

@@ -250,7 +250,7 @@ if __name__ == "__main__":
         pem = f.name
     subprocess.run(["openssl", "req", "-x509", "-newkey", "rsa:2048", "-nodes",
                     "-keyout", "/dev/null", "-out", pem, "-days", "365",
-                    "-subj", "/CN=龙魂自测证书"], check=True, capture_output=True)
+                    "-subj", "/CN=龍魂自测证书"], check=True, capture_output=True)
     r1 = eng.analyze_signature(applicant="自检", cert_pem=open(pem, "rb").read())
     print("电子签 verdict:", r1["meta"]["verdict"], "| conf:", r1["meta"].get("esign_confidence"))
     # 自测2: 照片(PIL生成JPEG)

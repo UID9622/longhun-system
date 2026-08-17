@@ -1,10 +1,10 @@
-# 🌍 International｜Dragon Soul System
+# 🌍 International｜LongHun System
 
 > Notion URL: https://app.notion.com/p/International-Dragon-Soul-System-987d940c5dd248899e0624e3de4615ee
 > Created: 2026-01-30T15:31:00.000Z
 > Last edited: 2026-07-01T15:18:00.000Z
 > Archived at: 2026-08-12T01:40:45.558086
-# 🌍 Welcome to Dragon Soul System
+# 🌍 Welcome to LongHun System
 > Tao Te Ching, Chapter 8:
 > "The highest good is like water, which benefits all things without contention."
 Core Values: Serve the People · Data Sovereignty · Truth & Transparency
@@ -24,7 +24,7 @@ Positive-Sum Game · No Deception
 ---
 ## 👤 About Founder
 🪪 UID9622·身份信息源头 | 一改全同步
-Lucky (Zhuge Xin) | Chinese Veteran | Founder of Dragon Soul System
+Lucky (Zhuge Xin) | Chinese Veteran | Founder of LongHun System
 ---
 DNA Trace Code: #LONGHUN⚡️2026-01-30-International-Nav-v1.0
 GPG Fingerprint: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

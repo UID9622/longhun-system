@@ -223,7 +223,7 @@ rust_available = lambda: _bridge.available
 
 if __name__ == "__main__":
     key = b"0123456789abcdef"
-    data = "Hello from Python FFI! 龙魂 SM4/SM3 测试".encode("utf-8")
+    data = "Hello from Python FFI! 龍魂 SM4/SM3 测试".encode("utf-8")
 
     # 检查 Rust 可用性
     print(f"Rust FFI: {'🟢 可用' if rust_available() else '🟡 回退纯Python'}")

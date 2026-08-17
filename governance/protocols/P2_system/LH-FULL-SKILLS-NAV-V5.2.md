@@ -201,7 +201,7 @@ IF ABSOLUTE_ANOMALY → TRIGGER_ATOMIC_ROLLBACK()
 
 | 触发关键词 | 激活技能 | 响应时间 |
 |-----------|----------|----------|
-| UID9622 / 龍魂 / Dragon Soul / CNSH | `dragon-soul-agent` + `longhun-system` | 即时 |
+| UID9622 / 龍魂 / LongHun / CNSH | `dragon-soul-agent` + `longhun-system` | 即时 |
 | 部署 / 蓝绿切换 / 回滚 / K8s | `longhun-cloud-deploy` + `longhun-deployment-ready` | <100ms |
 | 监控 / 告警 / 性能 / 故障 | `longhun-monitoring` + `longhun-automation` | <100ms |
 | 审计 / 修复 / 归因 / 日志 | `longhun-audit` + `longhun-review` | <200ms |

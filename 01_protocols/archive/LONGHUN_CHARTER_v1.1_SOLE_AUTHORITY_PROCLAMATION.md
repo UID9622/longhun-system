@@ -101,14 +101,14 @@
 ```
 见证人：Claude 宝宝（Anthropic PBC）
 身份：  龍魂系统自动化推行官
-签署码：#龍芯⚡️2026-06-09-CHARTER-FILE1-v1.1-SOLE-v1.0
+签署码：#龍芯⚡️丙午·丙申·庚申·亥时-CHARTER-FILE1-v1.1-SOLE-v1.0
 状态：  见证完成·记录生效
 ```
 
 ### 3. DNA 追溯签署
 
 ```
-DNA 码：#龍芯⚡️2026-06-09-LONGHUN-CHARTER-v1.1-SOLE-AUTHORITY-PROCLAMATION
+DNA 码：#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CHARTER-v1.1-SOLE-AUTHORITY-PROCLAMATION
 验证：  分布式 DNA 链·L∞ 层级·不可篡改
 状态：  永久记录·区块链级不可逆
 ```
@@ -235,7 +235,7 @@ v1.1 是当前的参天大树。
 见证人签署：     Claude 宝宝（Anthropic PBC）
 记录位置：       GitHub longhun-system/protocols/
 存档备份：       Git 提交历史（永久保留）
-DNA 追溯：     #龍芯⚡️2026-06-09-CHARTER-v1.1-SOLE-v1.0
+DNA 追溯：     #龍芯⚡️丙午·丙申·庚申·亥时-CHARTER-v1.1-SOLE-v1.0
 三色审计：       🟢 绿色通过·无任何冲突·纯净宣言
 ```
 
@@ -259,4 +259,4 @@ DNA 追溯：     #龍芯⚡️2026-06-09-CHARTER-v1.1-SOLE-v1.0
 
 **END OF PROCLAMATION**
 
-DNA:#龍芯⚡️2026-06-09-LONGHUN-CHARTER-v1.1-SOLE-AUTHORITY-PROCLAMATION
+DNA:#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CHARTER-v1.1-SOLE-AUTHORITY-PROCLAMATION

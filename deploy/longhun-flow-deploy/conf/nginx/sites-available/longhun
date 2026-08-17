@@ -1,0 +1,318 @@
+#龍芯⚡️丙午·丙申·己未·乙亥时·䷞旅-SITE-CONFIG-v1.0-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+# SPDX-License-Identifier: MulanPSL-2.0
+# /etc/nginx/sites-available/longhun —— 龍魂 · 站点主配置
+#
+# 本配置已落实审查修正:
+#   修正3  error_page 403 = @p0_denied (default_type application/json)
+#   修正4  凡有自有 add_header 的 location 重复全部 P0/安全头
+#   修正5  X-Dragon-DNA 仅为审计标记头(存在性检查), 鉴权走 auth_request → API网关 /auth/verify
+#   修正7  collab/handoffs 加 auth_request; Cache-Control no-store 防 CDN 缓存; GET-only
+#   修正8  /collab/ 静态只读 + /collab/api/ 反代 19622 双路由
+#   修正9  /chat 精确匹配, 消除 proxy_pass 路径拼接 bug
+#   修正24 删 X-XSS-Protection, 加 HSTS; http2 指令由 deploy.sh 按 nginx 版本自适应注入
+#   修正28 listen 443 行改为 @LISTEN_443@ 占位 token, deploy.sh 部署时按 nginx -v 版本替换:
+#         nginx ≥ 1.25.1 → listen 443 ssl; + http2 on; (独立指令)
+#         nginx < 1.25.1 → listen 443 ssl http2; (legacy 参数式, 带 deprecated 告警🟡但能用)
+#   修正27 location ^~ /.well-known/ 放行 (certbot webroot 续期)
+
+# ===== HTTP 80: ACME 挑战放行 + 强制跳转 HTTPS =====
+server {
+    listen 80;
+    listen [::]:80;
+    server_name uid9622.cn www.uid9622.cn;
+
+    # certbot webroot 挑战 (修正27: ^~ 前缀优先于下方的 location ~ /\.)
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+        default_type text/plain;
+        try_files $uri =404;
+    }
+
+    location / {
+        return 301 https://$server_name$request_uri;
+    }
+}
+
+# ===== HTTPS 443 主站点 =====
+server {
+    @LISTEN_443@
+    server_name uid9622.cn www.uid9622.cn;
+
+    # ===== SSL 配置 =====
+    ssl_certificate /etc/letsencrypt/live/uid9622.cn/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/uid9622.cn/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384;
+    ssl_prefer_server_ciphers off;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 1d;
+    ssl_session_tickets off;
+
+    # ===== 安全头部 (修正24: 删 X-XSS-Protection, 加 HSTS) =====
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+    # ===== 龍魂主权头部 (P0) =====
+    add_header X-Longhun-DNA "#龍芯⚡️丙午·丙申·己未·乙亥时·䷞旅-NGINX-WELD-v1.0-UID9622" always;
+    add_header X-Longhun-Confirm "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z" always;
+    add_header X-Longhun-Tricolor "🟢" always;
+    add_header X-Longhun-Sovereign "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL" always;
+    add_header X-Longhun-GPG "A2D0092CEE2E5BA87035600924C3704A8CC26D5F" always;
+
+    # ===== 全局限流 =====
+    limit_req zone=global_limit burst=50 nodelay;
+    limit_conn conn_limit 20;
+
+    # ===== 修正3: 403 统一走命名 location, JSON 输出 =====
+    error_page 403 = @p0_denied;
+    location @p0_denied {
+        default_type application/json;
+        return 403 '{"error":"P0协议要求: 缺少DNA追溯码"}';
+        # 修正4: 命名 location 不继承 server 级 add_header, 需重复
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+        add_header X-Longhun-DNA "#龍芯⚡️丙午·丙申·己未·乙亥时·䷞旅-NGINX-WELD-v1.0-UID9622" always;
+        add_header X-Longhun-Confirm "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z" always;
+        add_header X-Longhun-Tricolor "🟢" always;
+        add_header X-Longhun-Sovereign "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL" always;
+        add_header X-Longhun-GPG "A2D0092CEE2E5BA87035600924C3704A8CC26D5F" always;
+    }
+
+    # ===== auth_request 子请求端点 (修正5/7: 内部反代 API 网关鉴权) =====
+    location = /auth/verify {
+        internal;
+        proxy_pass http://longhun_api/auth/verify;
+        proxy_pass_request_body off;
+        proxy_set_header Content-Length "";
+        proxy_set_header X-Original-URI $request_uri;
+        proxy_set_header X-Dragon-DNA $http_x_dragon_dna;
+        proxy_connect_timeout 5s;
+        proxy_read_timeout 5s;
+    }
+
+    # ===== 健康检查端点 (不记录日志) =====
+    location = /health {
+        access_log off;
+        default_type text/plain;
+        return 200 "🐉 龙魂系统运行正常\n";
+        # 修正4: 重复全部 P0/安全头
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+        add_header X-Longhun-DNA "#龍芯⚡️丙午·丙申·己未·乙亥时·䷞旅-NGINX-WELD-v1.0-UID9622" always;
+        add_header X-Longhun-Confirm "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z" always;
+        add_header X-Longhun-Tricolor "🟢" always;
+        add_header X-Longhun-Sovereign "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL" always;
+        add_header X-Longhun-GPG "A2D0092CEE2E5BA87035600924C3704A8CC26D5F" always;
+    }
+
+    # ===== stub_status 仅供本机 exporter 抓取 (修正2: 不产生业务 metric, 整体标🟡) =====
+    location = /nginx_status {
+        stub_status on;
+        access_log off;
+        allow 127.0.0.1;
+        deny all;
+    }
+
+    # ===== 前端静态文件 (SPA) =====
+    location / {
+        root /var/www/longhun;
+        try_files $uri $uri/ /index.html;
+        index index.html;
+
+        # 静态资源缓存 (修正4: 自有 add_header → 重复全部 P0/安全头)
+        location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf)$ {
+            expires 1y;
+            add_header Cache-Control "public, immutable";
+            add_header X-Frame-Options "SAMEORIGIN" always;
+            add_header X-Content-Type-Options "nosniff" always;
+            add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+            add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+            add_header X-Longhun-DNA "#龍芯⚡️丙午·丙申·己未·乙亥时·䷞旅-NGINX-WELD-v1.0-UID9622" always;
+            add_header X-Longhun-Confirm "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z" always;
+            add_header X-Longhun-Tricolor "🟢" always;
+            add_header X-Longhun-Sovereign "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL" always;
+            add_header X-Longhun-GPG "A2D0092CEE2E5BA87035600924C3704A8CC26D5F" always;
+        }
+    }
+
+    # ===== API 反向代理 :8970 =====
+    location /api/ {
+        # 修正5: 仅存在性审计标记检查(map 定义在 nginx.conf http 块); 真鉴权见 auth_request
+        if ($p0_dna_missing) {
+            return 403;
+        }
+
+        limit_req zone=api_limit burst=20 nodelay;
+        proxy_pass http://longhun_api/;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Dragon-DNA $http_x_dragon_dna;
+
+        proxy_connect_timeout 60s;
+        proxy_send_timeout 60s;
+        proxy_read_timeout 60s;
+        proxy_buffering off;
+        proxy_cache off;
+    }
+
+    # ===== 修正8: /collab/api/ 反代协作中枢 :19622 (须先于 /collab/ 匹配) =====
+    location /collab/api/ {
+        auth_request /auth/verify;
+        limit_req zone=api_limit burst=20 nodelay;
+        proxy_pass http://longhun_collab/;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Dragon-DNA $http_x_dragon_dna;
+        proxy_connect_timeout 60s;
+        proxy_send_timeout 60s;
+        proxy_read_timeout 60s;
+    }
+
+    # ===== 修正7/8: /collab/ 静态只读 + auth_request + 禁止 CDN 缓存 =====
+    location /collab/ {
+        auth_request /auth/verify;
+        alias /opt/longhun/shared/collab/;
+        autoindex on;
+        autoindex_exact_size off;
+        autoindex_localtime on;
+        charset utf-8;
+
+        limit_except GET HEAD {
+            deny all;
+        }
+
+        # 修正7: 防 CDN 缓存协作文件
+        add_header Cache-Control "no-store" always;
+        # 修正4: 重复全部 P0/安全头
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+        add_header X-Longhun-DNA "#龍芯⚡️丙午·丙申·己未·乙亥时·䷞旅-NGINX-WELD-v1.0-UID9622" always;
+        add_header X-Longhun-Confirm "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z" always;
+        add_header X-Longhun-Tricolor "🟢" always;
+        add_header X-Longhun-Sovereign "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL" always;
+        add_header X-Longhun-GPG "A2D0092CEE2E5BA87035600924C3704A8CC26D5F" always;
+    }
+
+    # ===== 交接包入口 (修正7: auth_request + GET-only + no-store) =====
+    location /handoffs/ {
+        auth_request /auth/verify;
+        alias /opt/longhun/shared/handoffs/;
+        autoindex on;
+        autoindex_exact_size off;
+        autoindex_localtime on;
+        charset utf-8;
+
+        limit_except GET HEAD {
+            deny all;
+        }
+
+        add_header Cache-Control "no-store" always;
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+        add_header X-Longhun-DNA "#龍芯⚡️丙午·丙申·己未·乙亥时·䷞旅-NGINX-WELD-v1.0-UID9622" always;
+        add_header X-Longhun-Confirm "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z" always;
+        add_header X-Longhun-Tricolor "🟢" always;
+        add_header X-Longhun-Sovereign "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL" always;
+        add_header X-Longhun-GPG "A2D0092CEE2E5BA87035600924C3704A8CC26D5F" always;
+    }
+
+    # ===== 协议入口 =====
+    location /protocols/ {
+        auth_request /auth/verify;
+        alias /opt/longhun/shared/collaboration/;
+        autoindex on;
+        autoindex_exact_size off;
+        autoindex_localtime on;
+        charset utf-8;
+
+        limit_except GET HEAD {
+            deny all;
+        }
+
+        add_header Cache-Control "no-store" always;
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+        add_header X-Longhun-DNA "#龍芯⚡️丙午·丙申·己未·乙亥时·䷞旅-NGINX-WELD-v1.0-UID9622" always;
+        add_header X-Longhun-Confirm "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z" always;
+        add_header X-Longhun-Tricolor "🟢" always;
+        add_header X-Longhun-Sovereign "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL" always;
+        add_header X-Longhun-GPG "A2D0092CEE2E5BA87035600924C3704A8CC26D5F" always;
+    }
+
+    # ===== 对话桥接 :18799 (修正9: 精确匹配消除路径拼接 bug; 修正18: chat_limit 5r/s) =====
+    # 修正29 (黑天使 P77 审计): /chat 原先无鉴权, 公网裸暴露 → 补 auth_request, 与其余敏感路径对齐
+    location = /chat {
+        auth_request /auth/verify;
+        limit_req zone=chat_limit burst=10 nodelay;
+        proxy_pass http://longhun_bridge/api/v1/chat;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Dragon-DNA $http_x_dragon_dna;
+
+        proxy_connect_timeout 120s;
+        proxy_send_timeout 120s;
+        proxy_read_timeout 120s;
+        proxy_buffering off;
+    }
+
+    location /chat/ {
+        auth_request /auth/verify;
+        limit_req zone=chat_limit burst=10 nodelay;
+        proxy_pass http://longhun_bridge/api/v1/chat/;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Dragon-DNA $http_x_dragon_dna;
+
+        proxy_connect_timeout 120s;
+        proxy_send_timeout 120s;
+        proxy_read_timeout 120s;
+        proxy_buffering off;
+    }
+
+    # ===== certbot 续期 webroot 放行 (修正27) =====
+    location ^~ /.well-known/ {
+        root /var/www/certbot;
+        default_type text/plain;
+        try_files $uri =404;
+    }
+
+    # ===== 禁止访问敏感目录/文件 =====
+    location ~ /\. {
+        deny all;
+    }
+
+    location ~ /(\.git|\.env|config\.json|\.htaccess) {
+        deny all;
+        return 404;
+    }
+}

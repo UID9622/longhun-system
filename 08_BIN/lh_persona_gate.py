@@ -63,7 +63,7 @@ PERSONA_DEFINITIONS: Dict[str, Dict[str, str]] = {
     "P13": {"name": "姜子牙", "layer": "守护层", "role": "封神榜权限·模块注册·九宫派位", "emoji": "📋"},
     "P14": {"name": "吕蒙", "layer": "执行层", "role": "部署执行·快速成长·士别三日", "emoji": "🚀"},
     "P15": {"name": "乔前辈", "layer": "守护层", "role": "极简工程·DNA签章·质检交付", "emoji": "✅"},
-    "P72": {"name": "龙盾", "layer": "守护层", "role": "贴身管家·熔断决策·24h守护", "emoji": "🛡️"},
+    "P72": {"name": "龍盾", "layer": "守护层", "role": "贴身管家·熔断决策·24h守护", "emoji": "🛡️"},
     "P77": {"name": "黑天使军团", "layer": "安全专项", "role": "红蓝对抗·安全渗透·漏洞猎手", "emoji": "🖤"},
 }
 
@@ -143,7 +143,7 @@ COMMAND_PERSONA_MAP: Dict[str, Tuple[str, List[str]]] = {
     "dna":                  ("P06", ["P15"]),       # DNA生成
     "dna-gen":              ("P06", ["P15"]),
     "dna_validate":         ("P06", ["P15"]),       # DNA校验
-    "dna-chain":            ("P15", ["P06"]),       # DNA接龙链
+    "dna-chain":            ("P15", ["P06"]),       # DNA接龍链
 
     # ── 时间 & 文化 ──
     "time-engine":          ("P06", []),           # 时间引擎

@@ -114,7 +114,7 @@ async def run_skill_creator(payload: Dict[str, Any]) -> Dict[str, Any]:
     description = payload.get("description", "Auto-created skill")
     category = payload.get("category", "general")
 
-    skill = skill_creator_mod.Skill(skill_id, name, description, author="Longhun", category=category)
+    skill = skill_creator_mod.Skill(skill_id, name, description, author="LongHun", category=category)
 
     def executor(**kwargs: Any) -> Dict[str, Any]:
         return {"status": "ok", "echo": kwargs}
@@ -192,7 +192,7 @@ def run_web_artifacts_builder(payload: Dict[str, Any]) -> Dict[str, Any]:
     artifact_id = payload.get("artifact_id", "demo-page")
     name = payload.get("name", "Demo Page")
     artifact_type = payload.get("type", "html")
-    code = payload.get("code", "<h1>Hello Longhun</h1>")
+    code = payload.get("code", "<h1>Hello LongHun</h1>")
 
     artifact = web_mod.WebArtifact(artifact_id, name, artifact_type, code=code)
 

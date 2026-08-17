@@ -7,14 +7,14 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-07-08-IRON-PERSONA-SEMANTIC-UNIFIED-MAPPING-v1.0``  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-IRON-PERSONA-SEMANTIC-UNIFIED-MAPPING-v1.0``  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
 # 🐉 铁律→人格→语义·联合统一映射协议 v1.0
 
-> DNA: `#龍芯⚡️2026-07-08-IRON-PERSONA-SEMANTIC-UNIFIED-MAPPING-v1.0`
+> DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-IRON-PERSONA-SEMANTIC-UNIFIED-MAPPING-v1.0`
 > 来源：P0铁律总目录 §9.16~§9.41 → 人格矩阵 → 语义抽屉 → 执行命令
 > 性质：P0 级协议 · 焊死 · 只追加不替换
 
@@ -50,7 +50,7 @@
 | 铁律编号 | 铁律名 | 负责人格 | 语义抽屉 | 触发词示例 | 命令 |
 |:--:|------|:--:|------|------|------|
 | §S-25-EXT | DNA L0 父级铁律·双签章物理锚 | P00+P06 | L0父级锚 | 双签章/L0永恒/不可破/不可绕/不可稀释/不可伪造/触碰弹回 | `L0父级` |
-| §S-25-EXT-2 | 意念引擎v3.0·七源合一 | P13+P01+P00 | 七源合一 | 七源/意念/龙魂大统一/碎片采集/单点突破/结合 | `意念引擎` |
+| §S-25-EXT-2 | 意念引擎v3.0·七源合一 | P13+P01+P00 | 七源合一 | 七源/意念/龍魂大统一/碎片采集/单点突破/结合 | `意念引擎` |
 
 ### 1.3 对外伦理命门 (§S-25-EXT-3 主律 + 子律链)
 
@@ -294,7 +294,7 @@
 |------|------|------|
 | v1.0 | 2026-07-08 11:45 | 首焊·36个新语义抽屉映射·12人格操作域补全·26铁律模块完整映射 |
 
-**DNA**: `#龍芯⚡️2026-07-08-IRON-PERSONA-SEMANTIC-UNIFIED-MAPPING-v1.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-IRON-PERSONA-SEMANTIC-UNIFIED-MAPPING-v1.0`
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **SEAL**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
 **GPG**: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
@@ -317,7 +317,7 @@
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -340,6 +340,6 @@
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-07-08-IRON-PERSONA-SEMANTIC-UNIFIED-MAPPING-v1.0`
+#龍芯⚡️丙午·丙申·庚申·亥时-IRON-PERSONA-SEMANTIC-UNIFIED-MAPPING-v1.0`
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

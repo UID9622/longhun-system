@@ -237,9 +237,9 @@
       "03_KNOWLEDGE_GRAPH/龍魂系统_知识矩阵总纲_v2.0.md",
       "_archive/downloads-inbox/misc/龍魂系统_知识矩阵总纲_v2.0.md"
     ],
-    "龙魂数字主权体系_学术论文": [
-      "03_KNOWLEDGE_GRAPH/龙魂数字主权体系_学术论文_v2.0.md",
-      "articles/龙魂数字主权体系_学术论文_v2.0.md"
+    "龍魂数字主权体系_学术论文": [
+      "03_KNOWLEDGE_GRAPH/龍魂数字主权体系_学术论文_v2.0.md",
+      "articles/龍魂数字主权体系_学术论文_v2.0.md"
     ],
     "longhun_mvp_executor": [
       "L9_子系统/subsystems/longhun_mvp_executor_v1.0.py",
@@ -382,9 +382,9 @@
       "L1_内核层/kernel/algorithms/longhun-algorithms-cnsh-v1.0.md",
       "L2_技能层/longhun-algorithms-cnsh-v1.0.md"
     ],
-    "龙魂系统_API接口完整实现": [
-      "L6_集成层/龙魂系统_API接口完整实现_v1.0.py",
-      "cnsh-core/api/longhun-api/龙魂系统_API接口完整实现_v1.0.py"
+    "龍魂系统_API接口完整实现": [
+      "L6_集成层/龍魂系统_API接口完整实现_v1.0.py",
+      "cnsh-core/api/longhun-api/龍魂系统_API接口完整实现_v1.0.py"
     ],
     "CNSH": [
       "L8_治理层/governance/tech-docs/CNSH_v1.0_FULL_ARCHITECTURE.md",
@@ -622,30 +622,30 @@
       "tests/cnsh-v1.0/签名与终端系统-v2.0-完成报告.md",
       "tests/cnsh-v1.0/签名与终端系统-v2.0-完整指南.md"
     ],
-    "龙魂终端v3.0-完成报告.md": [
-      "_archive/cnsh-history/CNSH-v1.0-完整实现/龙魂终端v3.0-完成报告.md",
-      "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/龙魂终端v3.0-完成报告.md",
-      "tests/cnsh-v1.0/龙魂终端v3.0-完成报告.md"
+    "龍魂终端v3.0-完成报告.md": [
+      "_archive/cnsh-history/CNSH-v1.0-完整实现/龍魂终端v3.0-完成报告.md",
+      "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/龍魂终端v3.0-完成报告.md",
+      "tests/cnsh-v1.0/龍魂终端v3.0-完成报告.md"
     ],
-    "龙魂签名管理系统": [
-      "_archive/cnsh-history/CNSH-v1.0-完整实现/龙魂签名管理系统-v2.0.html",
-      "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/龙魂签名管理系统-v2.0.html",
-      "tests/cnsh-v1.0/龙魂签名管理系统-v2.0.html"
+    "龍魂签名管理系统": [
+      "_archive/cnsh-history/CNSH-v1.0-完整实现/龍魂签名管理系统-v2.0.html",
+      "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/龍魂签名管理系统-v2.0.html",
+      "tests/cnsh-v1.0/龍魂签名管理系统-v2.0.html"
     ],
-    "龙魂智能终端": [
-      "_archive/cnsh-history/CNSH-v1.0-完整实现/龙魂智能终端-v3.0-漂移版.html",
-      "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/龙魂智能终端-v3.0-漂移版.html",
-      "tests/cnsh-v1.0/龙魂智能终端-v3.0-漂移版.html"
+    "龍魂智能终端": [
+      "_archive/cnsh-history/CNSH-v1.0-完整实现/龍魂智能终端-v3.0-漂移版.html",
+      "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/龍魂智能终端-v3.0-漂移版.html",
+      "tests/cnsh-v1.0/龍魂智能终端-v3.0-漂移版.html"
     ],
     "CNSH智能终端": [
       "_archive/cnsh-history/CNSH-v1.0-完整实现/CNSH智能终端-v2.0.html",
       "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/CNSH智能终端-v2.0.html",
       "tests/cnsh-v1.0/CNSH智能终端-v2.0.html"
     ],
-    "龙魂终端v3.0-使用指南.md": [
-      "_archive/cnsh-history/CNSH-v1.0-完整实现/龙魂终端v3.0-使用指南.md",
-      "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/龙魂终端v3.0-使用指南.md",
-      "tests/cnsh-v1.0/龙魂终端v3.0-使用指南.md"
+    "龍魂终端v3.0-使用指南.md": [
+      "_archive/cnsh-history/CNSH-v1.0-完整实现/龍魂终端v3.0-使用指南.md",
+      "_archive/cnsh-history/CNSH_备份_20260211/CNSH-v1.0-完整实现/龍魂终端v3.0-使用指南.md",
+      "tests/cnsh-v1.0/龍魂终端v3.0-使用指南.md"
     ],
     "LongHun_Ecosystem_Complete_Implementation": [
       "agents/downloads-imports/龍魂网关/LongHun_Complete_Ecosystem_v1.0 2/LongHun_Ecosystem_Complete_Implementation_v1.0.py",
@@ -795,19 +795,19 @@
       "L7_数据层/desktop_archive/articles/20260704_2026-07-04-龍魂隐私白皮书_v2.0.md",
       "docs/articles_desktop/20260704_2026-07-04-龍魂隐私白皮书_v2.0.md"
     ],
-    "20260708_CNSH_2026-07-08_XSL_龙魂数字主权体系_学术论文": [
-      "L7_数据层/desktop_archive/articles/20260708_CNSH_2026-07-08_XSL_龙魂数字主权体系_学术论文_v2.0.md",
-      "docs/articles_desktop/20260708_CNSH_2026-07-08_XSL_龙魂数字主权体系_学术论文_v2.0.md"
+    "20260708_CNSH_2026-07-08_XSL_龍魂数字主权体系_学术论文": [
+      "L7_数据层/desktop_archive/articles/20260708_CNSH_2026-07-08_XSL_龍魂数字主权体系_学术论文_v2.0.md",
+      "docs/articles_desktop/20260708_CNSH_2026-07-08_XSL_龍魂数字主权体系_学术论文_v2.0.md"
     ],
     "CNSH_本地人格配置": [
       "_archive/legacy/cnsh-core.backup/language/CNSH_本地人格配置_v1.0.md",
       "cnsh-core/language/CNSH_本地人格配置_v1.0.md",
       "docs/claude-backlog/02_CNSH语言/CNSH_本地人格配置_v1.0.md"
     ],
-    "CNSH_龙魂底线协议_双轨治理": [
-      "_archive/legacy/cnsh-core.backup/language/CNSH_龙魂底线协议_双轨治理_v1.0.md",
-      "cnsh-core/language/CNSH_龙魂底线协议_双轨治理_v1.0.md",
-      "docs/claude-backlog/02_CNSH语言/CNSH_龙魂底线协议_双轨治理_v1.0.md"
+    "CNSH_龍魂底线协议_双轨治理": [
+      "_archive/legacy/cnsh-core.backup/language/CNSH_龍魂底线协议_双轨治理_v1.0.md",
+      "cnsh-core/language/CNSH_龍魂底线协议_双轨治理_v1.0.md",
+      "docs/claude-backlog/02_CNSH语言/CNSH_龍魂底线协议_双轨治理_v1.0.md"
     ],
     "隐私照片防传播-技术规范": [
       "_archive/cnsh-history/CNSH-v1.0-完整实现/隐私照片防传播-技术规范-v1.0.md",

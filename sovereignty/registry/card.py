@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂 UID9622 主权身份卡生成器
-Dragon Soul Sovereign Identity Card Generator
+LongHun Sovereign Identity Card Generator
 
 功能：
   - 生成 PNG 主权身份卡（含 QR 码、UID、DNA、姓名、注册时间）

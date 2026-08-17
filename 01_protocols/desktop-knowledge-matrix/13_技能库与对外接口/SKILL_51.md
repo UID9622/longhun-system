@@ -5,7 +5,7 @@ metadata:
   display_name: 龍魂多币种直达系统
   version: 5.2.1
   author: 龍魂工程師
-  dna: '#龍芯⚡️2026-06-19-LONGHUN-MULTICURRENCY-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MULTICURRENCY-v5.2'
   tags:
   - finance
   - currency
@@ -27,7 +27,7 @@ compatibility: Python 3.8+, Linux/macOS/Windows
 ---
 # 🐉 龍魂多币种直达系统 (longhun-multicurrency)
 
-**DNA**: `#龍芯⚡️2026-06-19-LONGHUN-MULTICURRENCY-v5.2`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MULTICURRENCY-v5.2`
 
 ---
 
@@ -111,7 +111,7 @@ python3 scripts/汇率转换器.py --ecny 10000 USD
 ### 5.5 龍字規範化
 
 ```bash
-python3 scripts/龍字规范化器.py --normalize "龙魂多币种系统"
+python3 scripts/龍字规范化器.py --normalize "龍魂多币种系统"
 python3 scripts/龍字规范化器.py --panel
 ```
 
@@ -177,14 +177,14 @@ from scripts.龍字规范化器 import 龍字規範化器
 規範化器 = 龍字規範化器()
 
 # 規範化文本（龍字統一為 U+9F8D）
-結果 = 規範化器.規範化("龙魂体系")  # → "龍魂體系"
+結果 = 規範化器.規範化("龍魂体系")  # → "龍魂體系"
 
 # 分析文本
-分析 = 規範化器.分析文本("龙魂龙币")
+分析 = 規範化器.分析文本("龍魂龍币")
 print(f"發現 {len(分析.發現的龍字)} 個龍字")
 
 # 容錯搜索
-匹配 = 規範化器.容錯搜索("龍魂", "龙魂体系介绍")
+匹配 = 規範化器.容錯搜索("龍魂", "龍魂体系介绍")
 
 # 生成DNA校驗碼
 DNA = 規範化器.生成龍字DNA("龍魂多币种系统")
@@ -285,7 +285,7 @@ DNA = 規範化器.生成龍字DNA("龍魂多币种系统")
 ## 12. 君子协议 (License)
 
 ```
-龍魂開源誓約 (Dragon Soul Open Source Pledge)
+龍魂開源誓約 (LongHun Open Source Pledge)
 ═══════════════════════════════════════════════
 
 本軟體遵循龍魂開源誓約發布：
@@ -296,7 +296,7 @@ DNA = 規範化器.生成龍字DNA("龍魂多币种系统")
 4. 所有交易記錄留痕，可追溯可審計
 5. 使用本軟體即表示同意以上條款
 
-DNA: #龍芯⚡️2026-06-19-LONGHUN-MULTICURRENCY-v5.2
+DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MULTICURRENCY-v5.2
 ```
 
 ---

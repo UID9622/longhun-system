@@ -30,6 +30,8 @@ DEFAULT_TARGET_DIR = Path.home() / "longhun-system"
 EXCLUDE_DIRS = {
     ".git", "__pycache__", ".venv", "venv", "node_modules",
     ".idea", ".vscode", "dist", "build", "egg-info",
+    # 修正 (P77 黑天使审计 2026-08-14): 归档目录按"不删除只冻结"保留但不得当活动代码审计
+    "_archive", "quarantine", "deprecated",
 }
 EXCLUDE_FILES = {"setup.py", "conftest.py", "__init__.py"}
 
@@ -56,6 +58,11 @@ def _load_shared_exclusions():
 _HARDCODED_SKIP_SCAN_DIRS = {
     "L7_数据层", "L1_内核层", "L8_治理层",
     "L4_数据层", "L3_数据层", "L6_记忆层", "L9_子系统",
+    # 修正 (P77 黑天使审计 2026-08-14): 03_LAYERS 下的层实现区同样排除 (SKIP 裸名匹配不到 03_LAYERS/ 前缀)
+    "03_LAYERS/L1_内核层", "03_LAYERS/L2_主权层", "03_LAYERS/L3_语义层", "03_LAYERS/L3_执行层",
+    "03_LAYERS/L4_数据层", "03_LAYERS/L5_服务层", "03_LAYERS/L6_同步层", "03_LAYERS/L6_记忆层",
+    "03_LAYERS/L7_数据层", "03_LAYERS/L7_表达层", "03_LAYERS/L8_分发层", "03_LAYERS/L8_治理层",
+    "03_LAYERS/L9_子系统",
     "CNSH_颜色历史", "CNSH_加工输出", "CNSH_修复输出", "CNSH_监管数据", "CNSH_护盾数据",
     "05_ENGINES/gpt_sovits", "05_ENGINES/video",
     "engines/core", "09_TOOLS/bin/legacy_bin",
@@ -69,6 +76,12 @@ _HARDCODED_SKIP_SCAN_DIRS = {
     "docs/claude-backlog",
     "data/training/home_absorb/sources/claude搭建待整理",
     "data/training/home_absorb/workspace/Desktop/龍魂系统-知识库/_archive",
+    # 修正 (P77 黑天使审计 2026-08-14): 实际路径是 11_DATA/ 前缀 + 简体「龍」; training 整目录为数据吸收区非活动代码
+    "11_DATA/training/home_absorb/workspace/Desktop/龍魂系统-知识库/_archive",
+    "11_DATA/training/home_absorb/workspace/Desktop/龍魂系统-知识库/_archive",
+    "11_DATA/training",
+    # 修正 (P77 黑天使审计 2026-08-14): 下载导入区/外部导入区/数据区均为吸收区非活动代码
+    "cnsh/core/downloads_imports", "imports/", "11_DATA",
     "data/training/home_absorb/workspace/Desktop/桌面项目箱",
     "data/training/home_absorb/workspace/_work",
     "tombstone_vault", "integrated_modules",

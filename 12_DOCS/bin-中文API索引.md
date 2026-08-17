@@ -72,7 +72,7 @@
 
 | 文件 | 中文函数数 | 核心能力 |
 |------|-----------|---------|
-| `longzhi_shou_v2.py` | 103 | 龙智守·飞书Bot控制接口 |
+| `longzhi_shou_v2.py` | 103 | 龍智守·飞书Bot控制接口 |
 | `lh_auto_heal.py` | 12 | 自动自愈 |
 | `lh_bark_dispatcher.py` | 8 | Bark推送调度 |
 | `lh_free_app_cost.py` | 6 | 免费应用成本 |

@@ -1,0 +1,50 @@
+#!/bin/bash
+# 🐉 龍魂 · Git pre-commit 钩子
+# 每次提交前自动检查变更代码文件是否已含DNA，缺失则报错阻止提交
+# DNA: #龍芯⚡️丙午·丙申·庚申·亥时-DEV-HOOK-UID9622
+# License: MulanPSL v2
+
+set -e
+
+echo "🐉 龍魂主权检查..."
+
+# 开发者DNA（环境变量或本地 .longhun-dev 配置）
+DEV_DNA="${LONGHUN_DEV_DNA:-}"
+if [ -z "$DEV_DNA" ] && [ -f ".longhun-dev" ]; then
+    DEV_DNA=$(grep -E '^DNA=' .longhun-dev | head -1 | cut -d= -f2-)
+fi
+
+if [ -z "$DEV_DNA" ]; then
+    echo "⚠️ 未设置 LONGHUN_DEV_DNA（或仓库无 .longhun-dev 配置）"
+    echo "   1. 先到 https://uid9622.cn/developer/register 注册开发者"
+    echo "   2. export LONGHUN_DEV_DNA=#龍芯⚡️...  （或写入 .longhun-dev 的 DNA= 行）"
+    exit 1
+fi
+
+# 变更代码文件
+FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(py|js|ts|jsx|tsx|html|htm|css|scss|md|txt|sh|bash|go|rs|c|cpp|h|hpp|json|yaml|yml)$' || true)
+
+if [ -z "$FILES" ]; then
+    echo "✅ 无代码文件变更，跳过"
+    exit 0
+fi
+
+# 检查 DNA
+NEED_INJECT=""
+for f in $FILES; do
+    if [ -f "$f" ] && ! head -30 "$f" | grep -q "#龍芯⚡️"; then
+        NEED_INJECT="$NEED_INJECT $f"
+    fi
+done
+
+if [ -n "$NEED_INJECT" ]; then
+    echo "🔴 以下变更文件缺少 DNA 主权标记:"
+    echo "$NEED_INJECT"
+    echo ""
+    echo "修复方法:"
+    echo "  python3 cli/lh_dna_inject.py --file <file> --developer-dna \"$DEV_DNA\""
+    echo "  # 或批量: python3 cli/lh_dna_inject.py --path . --developer-dna \"$DEV_DNA\" --recursive"
+    exit 1
+fi
+
+echo "✅ 所有变更文件均含DNA主权标记，允许提交"

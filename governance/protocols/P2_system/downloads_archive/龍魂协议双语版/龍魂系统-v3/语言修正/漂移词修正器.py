@@ -13,7 +13,7 @@ alias kimi 指向这里。
 功能：
   - 检查文本是否含有 AI 人格漂移 11 信号词
   - 自动替换弃词（6 弃词 → 8 规则词）
-  - 检查"龍"是否被写成"龙"
+  - 检查"龍"是否被写成"龍"
   - 生成修正后的文本 + DNA 签名
 
 用法：
@@ -71,13 +71,13 @@ VOCAB_REPLACE = {
 # 简/繁 龍 检查
 # ─────────────────────────────────────────────────────────────
 def check_long_char(text: str) -> list[Any]:
-    """检查是否把'龍'写成了简体'龙'"""
+    """检查是否把'龍'写成了简体'龍'"""
     issues = []
-    # 找所有"龙"出现的位置·但"龍"是正确的不报
-    positions = [m.start() for m in re.finditer("龙", text)]
+    # 找所有"龍"出现的位置·但"龍"是正确的不报
+    positions = [m.start() for m in re.finditer("龍", text)]
     for pos in positions:
         context = text[max(0, pos-5):pos+6]
-        issues.append(f"  ⚠️  位置{pos}：发现简体'龙'（应为繁体'龍'）→ 上下文：...{context}...")
+        issues.append(f"  ⚠️  位置{pos}：发现简体'龍'（应为繁体'龍'）→ 上下文：...{context}...")
     return issues
 
 
@@ -130,8 +130,8 @@ def check_and_fix(text: str, verbose: bool = True) -> dict[str, Any]:
     result["fixed"] = fixed
     result["vocab_changes"] = changes
 
-    # 4. 修正简体龙
-    result["fixed"] = result["fixed"].replace("龙", "龍")
+    # 4. 修正简体龍
+    result["fixed"] = result["fixed"].replace("龍", "龍")
 
     # 是否干净
     result["clean"] = (

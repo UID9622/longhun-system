@@ -13,7 +13,7 @@
 **适用对象**：乡镇派出所、退役军人事务站、民政办、司法所、县级公安局  
 **生效日期**：2026-06-25  
 **协议状态**：试行  
-**DNA**：`#龍芯⚡️2026-06-25-LONGHUN-GRASSROOTS-REALITY-FULL-v1.0`
+**DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GRASSROOTS-REALITY-FULL-v1.0`
 
 ---
 
@@ -344,7 +344,7 @@
 
 **协议发起方**：龍魂系统 · 基层治理观察组  
 **创始人签名**：UID9622 / Lucky（退伍军人）  
-**DNA**：`#龍芯⚡️2026-06-25-LONGHUN-GRASSROOTS-REALITY-FULL-v1.0`
+**DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GRASSROOTS-REALITY-FULL-v1.0`
 
 ---
 

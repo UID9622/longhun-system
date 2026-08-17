@@ -319,7 +319,7 @@ def _handle_dna_validate(args: dict[str, Any]) -> dict[str, Any]:
             "has_dragon": "龍" in dna,
             "has_lightning": "⚡️" in dna or "⚡" in dna,
             "min_length": len(dna) > 10,
-            "standard_prefix": dna.startswith("#龍芯⚡️") or dna.startswith("#龙芯⚡️"),
+            "standard_prefix": dna.startswith("#龍芯⚡️") or dna.startswith("#龍芯⚡️"),
         }
     }
 

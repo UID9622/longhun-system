@@ -35,7 +35,7 @@ SYNC_TARGETS_CONFIG = CONFIG_DIR / "feishu_wiki_targets.json"
 STATE_FILE = Path.home() / ".longhun" / "data" / "feishu_wiki_state.json"
 MAX_RETRIES = 3
 REQUEST_TIMEOUT = 30
-USER_AGENT = "Longhun-Feishu-Wiki-Sync/2.0 (UID9622; +https://uid9622.cn)"
+USER_AGENT = "LongHun-Feishu-Wiki-Sync/2.0 (UID9622; +https://uid9622.cn)"
 
 DNA = "#龍芯⚡️丙午·丙申·癸丑·亥时·䷗复-FEISHU-WIKI-SYNC-v2.0"
 OFFICIAL_DOMAIN = "https://uid9622.cn"

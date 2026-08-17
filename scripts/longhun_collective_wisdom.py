@@ -223,7 +223,7 @@ class CollectiveWisdomEngine:
         try:
             self._kg_conn.execute(
                 "INSERT OR REPLACE INTO sources(id, name, description, record_count, last_synced_at) VALUES(?,?,?,?,?)",
-                ("collective_wisdom", "集思广益", "Longhun Collective Wisdom", 0, _now()),
+                ("collective_wisdom", "集思广益", "LongHun Collective Wisdom", 0, _now()),
             )
             node_id = f"cw:{record['idea_code']}"
             self._kg_conn.execute(

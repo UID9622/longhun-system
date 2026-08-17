@@ -13,7 +13,7 @@
 
 ## What Is the Eye of God?
 
-The "Eye of God" (上帝之眼) is the Longhun System's independent audit engine. It is not an AI model. It is a **rule-based classification and decision framework** that maps system states, behaviors, and decisions onto the 64 hexagrams of the I Ching (易经).
+The "Eye of God" (上帝之眼) is the LongHun System's independent audit engine. It is not an AI model. It is a **rule-based classification and decision framework** that maps system states, behaviors, and decisions onto the 64 hexagrams of the I Ching (易经).
 
 This is not divination. This is **structured classification** using a mathematical framework that predates Western computer science by millennia.
 

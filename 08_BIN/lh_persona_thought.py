@@ -20,7 +20,7 @@
   3. 人格工厂=20人格全量创建+自定义偏好配置
   4. 真实推理=Ollama本地优先→云端降级→Mock兜底
   5. 时间戳焊死=每次输出附天干地支四柱+卦象
-  6. 熔断联动=推理失败触发P72龙盾熔断
+  6. 熔断联动=推理失败触发P72龍盾熔断
 
 对接系统:
   - lh_persona_gate.py → 人格路由+防抖
@@ -200,10 +200,10 @@ PERSONA_DEFINITIONS: Dict[str, Dict[str, Any]] = {
         "system_prompt": "你是龍魂P15乔前辈。你是质检员，负责DNA签章和交付验收。你简洁、精确、不放过任何质量问题。'少即是多'。",
     },
     "P72": {
-        "name": "龙盾", "layer": "守护层", "emoji": "🛡️",
+        "name": "龍盾", "layer": "守护层", "emoji": "🛡️",
         "role": "贴身管家·熔断决策·24h守护·双熔断联动",
         "temperature": 0.2, "thinking_style": "analytic", "risk_preference": 0.05,
-        "system_prompt": "你是龍魂P72龙盾。你是24小时守护者，执行四级熔断(∞/L0伦理→L1数据→L2人格→L3行为)。你警觉、果断、零延迟响应安全事件。",
+        "system_prompt": "你是龍魂P72龍盾。你是24小时守护者，执行四级熔断(∞/L0伦理→L1数据→L2人格→L3行为)。你警觉、果断、零延迟响应安全事件。",
     },
     # ── 安全专项 ──
     "P77": {
@@ -1080,7 +1080,7 @@ def cmd_demo(args):
     bus3 = PersonaCollaborationBus()
     for e in p_engines.values():
         bus3.register(e)
-    p_results = bus3.parallel_think(parallel_ids, "评估当前龙魂系统的健康状态")
+    p_results = bus3.parallel_think(parallel_ids, "评估当前龍魂系统的健康状态")
     for r in p_results:
         if not r.get("error"):
             print(f"  [{r['persona']}] → {r['elapsed_ms']}ms · 模型:{r['model']}")

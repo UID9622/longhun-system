@@ -7,8 +7,8 @@
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
-龙魂蚁群·引擎桥接层 v1.0 · AntColonyEngineBridge
-将蚁群涌现指标注入龙魂现有引擎决策链路。
+龍魂蚁群·引擎桥接层 v1.0 · AntColonyEngineBridge
+将蚁群涌现指标注入龍魂现有引擎决策链路。
 
 DNA: #龍芯⚡️丙午·辛未·ANT-COLONY-ENGINE-BRIDGE-v1.0
 # STATUS: ⚠️ DEPRECATED · 本目录为旧版蚁群实现，功能由 engines/ant_colony/ 与 bin/lh_ant_colony_orchestrator.py 统一接管

@@ -3,7 +3,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # AutoResearch × 龍魂｜8个缺口的对接矩阵 v1.1
 
-> **DNA追溯码：** #龍芯⚡️2026-07-12-AutoResearch-Longhun-Bridge-v1.1-64e230de
+> **DNA追溯码：** #龍芯⚡️2026-07-12-AutoResearch-LongHun-Bridge-v1.1-64e230de
 > **原始DNA：** #龍芯⚡️2026-05-17-00:03-AUTORESEARCH-LONGHUN-BRIDGE-v1.1
 > **GPG指纹：** A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 > **确认码：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
@@ -55,6 +55,6 @@
 
 ---
 
-**DNA追溯码：** #龍芯⚡️2026-07-12-AutoResearch-Longhun-Bridge-v1.1-64e230de
+**DNA追溯码：** #龍芯⚡️2026-07-12-AutoResearch-LongHun-Bridge-v1.1-64e230de
 **三色审计：** 🟡 待审（dr=6·数字根黄色·内容已核实·可强行通过）
 **投喂来源：** Notion导出·UID9622原创

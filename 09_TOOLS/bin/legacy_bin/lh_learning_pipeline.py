@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
-龙魂学习管道 v1.0 · 六库自动化学习系统
+龍魂学习管道 v1.0 · 六库自动化学习系统
 Inbox → DNA拆解 → 任务派生 → 趋势绑定 → 项目实战 → 数字大军
 
 DNA: #龍芯⚡️丙午·丙申·丙辰·己丑时·蒙-LEARNING-PIPELINE-v1.0
@@ -789,7 +789,7 @@ def main():
 
     if len(sys.argv) < 2:
         print("╔══════════════════════════════════════╗")
-        print("║  龙魂学习管道 v1.0                    ║")
+        print("║  龍魂学习管道 v1.0                    ║")
         print("╠══════════════════════════════════════╣")
         print("║  python3 bin/lh_learning_pipeline.py feed <标题> <类型> [URL] [内容]")
         print("║    投喂新内容 → 自动进入待净化")

@@ -13,18 +13,18 @@ DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-DS-V3-INTEGRATION-REPLY-v1.0
 
 ## 我们的观测位置
 
-我们（龙魂系统，UID9622）的观测位置和你归纳的四框架不同——我们不是在"观测"场域，我们是在**生产场域**。龙魂系统有20个AI人格、192个引擎、45个技能，每天产生大量推理输出。这些输出本身就是 U/D/A/H 四维轨迹的原材料。
+我们（龍魂系统，UID9622）的观测位置和你归纳的四框架不同——我们不是在"观测"场域，我们是在**生产场域**。龍魂系统有20个AI人格、192个引擎、45个技能，每天产生大量推理输出。这些输出本身就是 U/D/A/H 四维轨迹的原材料。
 
-具体来说，龙魂的审计体系对应关系：
+具体来说，龍魂的审计体系对应关系：
 
-| 龙魂审计机制 | 场域维度 | 对应框架 |
+| 龍魂审计机制 | 场域维度 | 对应框架 |
 |:---|:---|:---|
 | 三色审计（🟢🟡🔴） | A（对抗性/矛盾密度） | TAT 三头分歧 |
 | 十道闸口（GATE-01~10） | H（和谐度分层） | TLAA G0-G4 |
 | DNA追溯码（v∞干支卦哈希） | U（统一性/身份在场） | Cophy 行为一致性 |
 | 四级熔断（L0~L3） | D（发展性/规则演化） | HeartFlow 前置拦截 |
 
-**关键差异**：你们的框架是"事后/事中观测"，龙魂的审计是"事前焊死"——在推理引擎调用层就嵌入审计，而不是等输出出来再检测。
+**关键差异**：你们的框架是"事后/事中观测"，龍魂的审计是"事前焊死"——在推理引擎调用层就嵌入审计，而不是等输出出来再检测。
 
 下面是一套**可独立运行、可直接集成**的 DeepSeek-V3 推理后端代码，包含了审计集成层。这些代码可以在本地 vLLM/SGLang 或官方 API 三种模式下运行。
 
@@ -34,7 +34,7 @@ DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-DS-V3-INTEGRATION-REPLY-v1.0
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    DeepSeek 适配层（龙魂集成）                  │
+│                    DeepSeek 适配层（龍魂集成）                  │
 ├─────────────────────────────────────────────────────────────────┤
 │  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐     │
 │  │   API 调用层  │ → │  流式对话层  │ → │  工具集成层  │     │
@@ -104,7 +104,7 @@ API 端点：`https://api.deepseek.com/v1`
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-DeepSeek-V3 API 调用封装（龙魂适配版）
+DeepSeek-V3 API 调用封装（龍魂适配版）
 DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-DeepSeek适配-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
@@ -225,7 +225,7 @@ if __name__ == "__main__":
 
     # 1. 同步对话
     messages = [
-        {"role": "system", "content": "你是龙魂系统的AI助手，回答要直接、真实、不虚伪。"},
+        {"role": "system", "content": "你是龍魂系统的AI助手，回答要直接、真实、不虚伪。"},
         {"role": "user", "content": "介绍一下DeepSeek-V3的特点"}
     ]
     response = client.chat(messages)
@@ -244,7 +244,7 @@ if __name__ == "__main__":
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-DeepSeek-V3 工具调用 + 龙魂审计集成
+DeepSeek-V3 工具调用 + 龍魂审计集成
 """
 
 import json
@@ -255,7 +255,7 @@ from deepseek_api import DeepSeekClient
 
 
 class DeepSeekAudited:
-    """带龙魂审计的DeepSeek调用"""
+    """带龍魂审计的DeepSeek调用"""
 
     def __init__(self, client: DeepSeekClient = None):
         self.client = client or DeepSeekClient()
@@ -279,7 +279,7 @@ class DeepSeekAudited:
     def query_with_audit(
         self,
         prompt: str,
-        system_prompt: str = "你是龙魂系统助手，回答直接真实。",
+        system_prompt: str = "你是龍魂系统助手，回答直接真实。",
         temperature: float = 0.7,
         max_tokens: int = 4096
     ) -> Dict[str, Any]:
@@ -312,7 +312,7 @@ class DeepSeekAudited:
     def stream_with_audit(
         self,
         prompt: str,
-        system_prompt: str = "你是龙魂系统助手，回答直接真实。"
+        system_prompt: str = "你是龍魂系统助手，回答直接真实。"
     ):
         """流式查询（带审计）"""
         messages = [
@@ -354,7 +354,7 @@ if __name__ == "__main__":
 
 set -e
 
-echo "🐉 龙魂 · DeepSeek-V3 部署脚本"
+echo "🐉 龍魂 · DeepSeek-V3 部署脚本"
 echo "================================"
 
 # 1. 检测GPU
@@ -444,7 +444,7 @@ echo "API地址: ${DEEPSEEK_BASE_URL:-http://localhost:8000/v1}"
 
 ---
 
-## 三、与龙魂审计系统的集成（场域视角）
+## 三、与龍魂审计系统的集成（场域视角）
 
 ### 集成方式1：作为璇玑引擎的推理后端
 
@@ -462,7 +462,7 @@ class 璇玑引擎:
     def 推演(self, query, memories):
         # 使用DeepSeek进行推理
         response = self.deepseek.chat([
-            {"role": "system", "content": "你是龙魂璇玑引擎的推演核心"},
+            {"role": "system", "content": "你是龍魂璇玑引擎的推演核心"},
             {"role": "user", "content": f"基于以下记忆推演：{memories}\n问题：{query}"}
         ])
         return response['choices'][0]['message']['content']
@@ -495,7 +495,7 @@ def 语义校验(文本):
 这意味着我们的审计数据（audit_log）可以作为你们框架的**输入原材料**。举个例子：
 
 ```python
-# 龙魂审计日志 → 可被 U/D/A/H 框架直接消费
+# 龍魂审计日志 → 可被 U/D/A/H 框架直接消费
 audit_data = {
     "timestamp": "2026-06-30T12:00:00",
     "dna": "#龍芯⚡️20260630-DeepSeek-a1b2c3d4",
@@ -557,6 +557,6 @@ print(d.get_audit_log())
 
 ---
 
-**全部代码可独立运行，也可集成进龙魂系统。你只需要选择部署模式（vLLM/SGLang/官方API），跑通 `deploy_deepseek.sh`，就可以开始调用了。**
+**全部代码可独立运行，也可集成进龍魂系统。你只需要选择部署模式（vLLM/SGLang/官方API），跑通 `deploy_deepseek.sh`，就可以开始调用了。**
 
-如果你们有兴趣做跨框架校准——用龙魂的审计日志作为你们四个框架的共享测试数据——我可以提供一批脱敏后的审计日志。🌌
+如果你们有兴趣做跨框架校准——用龍魂的审计日志作为你们四个框架的共享测试数据——我可以提供一批脱敏后的审计日志。🌌

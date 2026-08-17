@@ -142,7 +142,7 @@ def main() -> None:
         st.markdown("🟢 算法正确 · 🟡 性能保护 · 🟢 主权锚定")
 
     # 主内容区
-    st.title("🐲 龙魂 · 数字流场可视化器 v2.0")
+    st.title("🐲 龍魂 · 数字流场可视化器 v2.0")
     st.caption("把文字变成流动的结构 · 去黑箱的第一站")
 
     tab_input, tab_file, tab_url = st.tabs(["📝 直接输入", "📄 文件上传", "🌐 URL 抓取"])

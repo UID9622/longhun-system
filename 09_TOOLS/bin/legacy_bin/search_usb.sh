@@ -8,7 +8,7 @@
 QUERY="$*"
 if [ -z "$QUERY" ]; then
     echo "用法: ./bin/search_usb.sh \"关键词\""
-    echo "示例: ./bin/search_usb.sh \"UID9622 龙魂\""
+    echo "示例: ./bin/search_usb.sh \"UID9622 龍魂\""
     exit 1
 fi
 

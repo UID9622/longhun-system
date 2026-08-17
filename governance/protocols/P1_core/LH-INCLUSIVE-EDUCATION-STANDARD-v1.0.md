@@ -254,7 +254,7 @@ CNSH 概念 ←→ 通心译引擎 ←→ 目标语言表达
 
 | CNSH 原文 | 国际表达 | 理由 |
 |:---|:---|:---|
-| 龍魂 | Lónghún (Dragon Soul System) | 「龙」的西方意象 ≠ 中国龍 |
+| 龍魂 | Lónghún (LongHun System) | 「龍」的西方意象 ≠ 中国龍 |
 | 三才 | SānCái (Tri-Factor) | 「Trinity」有基督色彩 |
 | 洛书 | Luòshū (Lo Shu) | 不可被 Magic Square 替代 |
 | 道德经 | Dào Dé Jīng (Tao Te Ching) | 文化锚不可翻译 |

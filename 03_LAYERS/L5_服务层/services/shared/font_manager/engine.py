@@ -99,7 +99,7 @@ class LonghunFontEngine:
             self._register_font(font_file)
 
         if self.font_registry:
-            print(f"[字体引擎] 已注册 {len(self.font_registry)} 个龙魂字体变体")
+            print(f"[字体引擎] 已注册 {len(self.font_registry)} 个龍魂字体变体")
 
     def _register_font(self, font_path: Path) -> Optional[dict[str, Any]]:
         """使用 fontTools 解析单个字体并注册"""
@@ -152,7 +152,7 @@ class LonghunFontEngine:
 
             entry = {
                 "postscript_name": postscript_name,
-                "family_name": family_name or "Longhun",
+                "family_name": family_name or "LongHun",
                 "style_name": subfamily_name or "Regular",
                 "version": version_str or "",
                 "copyright": copyright_str or "",
@@ -171,7 +171,7 @@ class LonghunFontEngine:
 
             # 更新索引
             self._format_index.setdefault(fmt, []).append(file_key)
-            fam = family_name or "Longhun"
+            fam = family_name or "LongHun"
             self._family_index.setdefault(fam, []).append(file_key)
             self._ps_index.setdefault(postscript_name.lower(), []).append(file_key)
 
@@ -184,7 +184,7 @@ class LonghunFontEngine:
             file_size = font_path.stat().st_size if font_path.exists() else 0
             entry = {
                 "postscript_name": font_path.stem,
-                "family_name": "Longhun (damaged)",
+                "family_name": "LongHun (damaged)",
                 "style_name": "Regular",
                 "version": "",
                 "copyright": "",
@@ -210,7 +210,7 @@ class LonghunFontEngine:
 
         entry = {
             "postscript_name": file_key,
-            "family_name": "Longhun",
+            "family_name": "LongHun",
             "style_name": "Regular",
             "version": "",
             "copyright": "",
@@ -226,7 +226,7 @@ class LonghunFontEngine:
         }
         self.font_registry[file_key] = entry
         self._format_index.setdefault("woff2", []).append(file_key)
-        self._family_index.setdefault("Longhun", []).append(file_key)
+        self._family_index.setdefault("LongHun", []).append(file_key)
         self._ps_index.setdefault(file_key.lower(), []).append(file_key)
         return entry
 

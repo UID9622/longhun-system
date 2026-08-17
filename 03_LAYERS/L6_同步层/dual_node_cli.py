@@ -119,7 +119,7 @@ def api_call(endpoint: str, method: str = "GET", data: Dict = None,
         if use_auth:
             auth = load_auth()
             if auth:
-                req.add_header("X-Longhun-API-Key", auth.get("api_key", ""))
+                req.add_header("X-LongHun-API-Key", auth.get("api_key", ""))
         try:
             resp = urlopen(req, timeout=30)
             return json.loads(resp.read().decode())

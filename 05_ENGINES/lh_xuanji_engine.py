@@ -11,7 +11,7 @@ DNA: #龍芯⚡️丙午·癸未·丁未·亥时·☰乾-XUANJI-ENGINE-v5.0-DUAL
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 四象闭环:
-  青龙·溯源 → 朱雀·齐政 → 白虎·验真 → 玄武·烙印 → 熔断判定
+  青龍·溯源 → 朱雀·齐政 → 白虎·验真 → 玄武·烙印 → 熔断判定
 
 升级要点（v5.0 vs DeepSeek v4.1.5）:
   ① 七因子双轨制: 查询七因子（时空/设备/操作/内容/情绪/关系）
@@ -100,7 +100,7 @@ _chroma_collection = None
 _vector_available = False
 
 # ──────────────────────────────────────────────
-# 第一象 · 青龙·溯源 — 七因子解析 + 双检索引
+# 第一象 · 青龍·溯源 — 七因子解析 + 双检索引
 # ──────────────────────────────────────────────
 
 def _parse_seven_factors(query: str) -> Dict[str, Any]:
@@ -157,7 +157,7 @@ def _parse_seven_factors(query: str) -> Dict[str, Any]:
     # ── 关系因子 ──
     relation_kw = {"老大": ["UID9622", "诸葛鑫"],
                    "宝宝": ["P02"], "雯雯": ["P03"], "鲁班": ["P04"],
-                   "龙盾": ["P72"], "黑天使": ["P77"],
+                   "龍盾": ["P72"], "黑天使": ["P77"],
                    "我自己": ["UID9622", "self"]}
     relation_factor = ["UID9622"]  # 默认
     for kw, rels in relation_kw.items():
@@ -678,7 +678,7 @@ def _vector_search(query: str, top_k: int = 5) -> List[Dict]:
 
 def aozora_trace(query: str, deep: bool = False,
                  memory_sources: Optional[List[str]] = None) -> Tuple[Dict, List[Dict]]:
-    """青龙·溯源 — 七因子解析 + 多源记忆检索"""
+    """青龍·溯源 — 七因子解析 + 多源记忆检索"""
     # 1. 查询上下文七因子
     factors = _parse_seven_factors(query)
 
@@ -1145,7 +1145,7 @@ class XuanjiEngine:
         """四象完整运转"""
         self.session_count += 1
 
-        # 象一·青龙·溯源
+        # 象一·青龍·溯源
         factors, memories = aozora_trace(query, deep=deep,
                                          memory_sources=memory_sources)
 

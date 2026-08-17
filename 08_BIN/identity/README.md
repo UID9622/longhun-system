@@ -116,7 +116,7 @@ python3 bin/identity/lh_identity_server.py --host 0.0.0.0 --port 8772
 ```ini
 # /etc/systemd/system/longhun-identity.service
 [Unit]
-Description=Longhun Sovereign Identity Service
+Description=LongHun Sovereign Identity Service
 After=network.target
 
 [Service]

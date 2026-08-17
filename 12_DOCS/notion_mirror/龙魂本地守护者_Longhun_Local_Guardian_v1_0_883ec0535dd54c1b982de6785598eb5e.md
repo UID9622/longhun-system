@@ -1,6 +1,6 @@
-# 🐉 龙魂本地守护者 | Longhun Local Guardian v1.0
+# 🐉 龍魂本地守护者 | LongHun Local Guardian v1.0
 
-> Notion URL: https://app.notion.com/p/Longhun-Local-Guardian-v1-0-883ec0535dd54c1b982de6785598eb5e
+> Notion URL: https://app.notion.com/p/LongHun-Local-Guardian-v1-0-883ec0535dd54c1b982de6785598eb5e
 > Created: 2026-02-03T17:00:00.000Z
 > Last edited: 2026-07-01T15:15:00.000Z
 > Archived at: 2026-08-12T01:40:45.558086
@@ -44,7 +44,7 @@
       └── 私密/ (🔒加密存储)
 
 📂 系统文件/
-  ├── 龙魂配置/
+  ├── 龍魂配置/
   ├── DNA注册表/
   └── 加密密钥/ (🔒最高级加密)
 
@@ -68,7 +68,7 @@ Mac设备:
   - 使用TEE可信执行环境
   - 硬件级保护
 ```
-### 第2层：龙魂DNA加密
+### 第2层：龍魂DNA加密
 ```javascript
 特点:
 1. 只有UID9622能解密
@@ -92,7 +92,7 @@ AI帮你管理文件，但AI看不到内容
 3. 敏感内容标记为"encrypted"，AI跳过
 ```
 ---
-## 🛡️ 反摄像字体设计（龙魂专属）
+## 🛡️ 反摄像字体设计（龍魂专属）
 ### 原理说明
 ```javascript
 反摄像字体的核心逻辑:
@@ -131,7 +131,7 @@ AI帮你管理文件，但AI看不到内容
    └─────────────────────────────────────────┘
 
 3. CNSH字体工程集成:
-   - 在龙魂字体中内置反摄像层
+   - 在龍魂字体中内置反摄像层
    - 用户选择"隐私模式"自动启用
    - 只有本机屏幕能正常显示
 ```
@@ -244,10 +244,10 @@ class VideoAuthorization:
    - AI验证签名真伪
 ```
 ---
-## 💬 龙魂社交平台·安全对话传输
+## 💬 龍魂社交平台·安全对话传输
 ### 安全对话架构
 ```javascript
-龙魂社交平台·消息传输流程:
+龍魂社交平台·消息传输流程:
 
 发送方（用户A）                    接收方（用户B）
     │                                  │
@@ -287,12 +287,12 @@ pip install cryptography watchdog
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # ═══════════════════════════════════════════════════════════
-# 龙芯体系 | 龙魂本地守护者 v1.0
+# 龍芯体系 | 龍魂本地守护者 v1.0
 # ═══════════════════════════════════════════════════════════
 # ENCODING: UTF-8
-# DNA追溯码: #龙魂⚡️2026-02-03-本地守护者-v1.0
+# DNA追溯码: #龍魂⚡️2026-02-03-本地守护者-v1.0
 # GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-# 创建者: 💎 龙芯北辰｜UID9622
+# 创建者: 💎 龍芯北辰｜UID9622
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LOCAL-GUARDIAN
 # ═══════════════════════════════════════════════════════════
 
@@ -309,13 +309,13 @@ from watchdog.events import FileSystemEventHandler
 
 
 class LonghunLocalGuardian:
-    """龙魂本地守护者主类"""
+    """龍魂本地守护者主类"""
     
     def __init__(self, workspace_dir=None):
         print("""
         ╔══════════════════════════════════════════════╗
-        ║   🐉 龙魂本地守护者 v1.0                      ║
-        ║   Longhun Local Guardian                     ║
+        ║   🐉 龍魂本地守护者 v1.0                      ║
+        ║   LongHun Local Guardian                     ║
         ║                                              ║
         ║   核心承诺:                                   ║
         ║   ✅ 100%本地运行                            ║
@@ -325,7 +325,7 @@ class LonghunLocalGuardian:
         ╚══════════════════════════════════════════════╝
         """)
         
-        self.workspace = workspace_dir or os.path.expanduser("~/龙魂工作空间")
+        self.workspace = workspace_dir or os.path.expanduser("~/龍魂工作空间")
         self.init_directories()
         self.device_id = self.get_device_id()
         self.uid = "UID9622"
@@ -400,7 +400,7 @@ class LonghunLocalGuardian:
                 time.sleep(1)
         except KeyboardInterrupt:
             observer.stop()
-            print("\n\n👋 龙魂本地守护者已停止")
+            print("\n\n👋 龍魂本地守护者已停止")
         
         observer.join()
 
@@ -421,7 +421,7 @@ class FileChangeHandler(FileSystemEventHandler):
 
 
 class LonghunEncryptor:
-    """龙魂加密器"""
+    """龍魂加密器"""
     
     def __init__(self, device_id, uid):
         self.device_id = device_id
@@ -453,7 +453,7 @@ class LonghunEncryptor:
 
 
 class LonghunBlindAI:
-    """龙魂盲AI - 不看内容，只看属性"""
+    """龍魂盲AI - 不看内容，只看属性"""
     
     def __init__(self, encryptor):
         self.encryptor = encryptor
@@ -515,7 +515,7 @@ class LonghunBlindAI:
     
     def _get_private_dir(self, category):
         """获取私密区目录"""
-        base = os.path.expanduser("~/龙魂工作空间/私密区🔒")
+        base = os.path.expanduser("~/龍魂工作空间/私密区🔒")
         if category == "照片":
             return os.path.join(base, "照片")
         elif category == "视频":
@@ -526,15 +526,15 @@ class LonghunBlindAI:
     def _get_normal_dir(self, category):
         """获取普通区目录"""
         if category == "代码":
-            return os.path.expanduser("~/龙魂工作空间/工作文件/代码")
+            return os.path.expanduser("~/龍魂工作空间/工作文件/代码")
         elif category == "文档":
-            return os.path.expanduser("~/龙魂工作空间/工作文件/文档")
+            return os.path.expanduser("~/龍魂工作空间/工作文件/文档")
         elif category == "照片":
-            return os.path.expanduser("~/龙魂工作空间/个人文件/照片")
+            return os.path.expanduser("~/龍魂工作空间/个人文件/照片")
         elif category == "视频":
-            return os.path.expanduser("~/龙魂工作空间/个人文件/视频")
+            return os.path.expanduser("~/龍魂工作空间/个人文件/视频")
         else:
-            return os.path.expanduser("~/龙魂工作空间/个人文件")
+            return os.path.expanduser("~/龍魂工作空间/个人文件")
 
 
 def main():
@@ -558,7 +558,7 @@ python longhun_local_guardian.py
 ```
 ### 步骤3：使用方法
 ```javascript
-将文件拖入 ~/龙魂工作空间/入口区
+将文件拖入 ~/龍魂工作空间/入口区
 
 系统会自动：
   ✅ 识别是否敏感
@@ -589,10 +589,10 @@ python longhun_local_guardian.py
 ```
 ---
 ## ✍️ 创造者实名签署
-创造者：💎 龙芯北辰｜UID9622（Lucky/诸葛鑫）
+创造者：💎 龍芯北辰｜UID9622（Lucky/诸葛鑫）
 网络身份证：T38C89R75U
 GPG公钥指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-DNA追溯码：#龙魂⚡️2026-02-03-本地守护者-v1.0
+DNA追溯码：#龍魂⚡️2026-02-03-本地守护者-v1.0
 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LOCAL-GUARDIAN
 承诺：
 ✅ 对本内容负责，接受批评

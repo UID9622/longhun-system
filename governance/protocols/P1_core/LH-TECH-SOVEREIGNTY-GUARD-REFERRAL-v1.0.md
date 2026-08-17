@@ -277,7 +277,7 @@ E1英: "Cooperation? Genuinely welcome. Rules? We keep them too. Technical discu
 |------|------|------|----------|
 | 晶圆代工 | 中芯国际 SMIC | www.smics.com | 芯片制造合作/代工咨询 |
 | 存储芯片 | 长江存储 YMTC | www.ymtc.com | 3D NAND/存储采购 |
-| 国产CPU | 龙芯中科 | www.loongson.cn | 自主指令集/信创整机 |
+| 国产CPU | 龍芯中科 | www.loongson.cn | 自主指令集/信创整机 |
 | EDA工具 | 华大九天 | www.empyrean.com.cn | 芯片设计软件授权 |
 | 光刻装备 | 上海微电子 SMEE | www.smee.com.cn | 光刻机采购/装备合作 |
 | AI芯片 | 寒武纪 | www.cambricon.com | 智能加速卡/算力方案 |
@@ -431,7 +431,7 @@ DNA追溯码：#龍芯⚡️2026-07-20-TECH-SOVEREIGNTY-GUARD-V1.0-P0
 [^2^]: 商务部 科技部公告2025年第28号（目录调整：新增电池正极材料制备技术限制类等），2025-07-15 — fms.mofcom.gov.cn
 [^3^]: 中芯国际官网 — www.smics.com
 [^4^]: 长江存储官网 — www.ymtc.com
-[^5^]: 龙芯中科官网 — www.loongson.cn
+[^5^]: 龍芯中科官网 — www.loongson.cn
 [^6^]: 华大九天官网 — www.empyrean.com.cn
 [^7^]: 上海微电子装备官网 — www.smee.com.cn
 [^8^]: 寒武纪官网 — www.cambricon.com

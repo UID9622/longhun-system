@@ -158,7 +158,7 @@ sudo nano /etc/systemd/system/longhun-api.service
 
 # 写入以下内容：
 [Unit]
-Description=Longhun API Service
+Description=LongHun API Service
 After=network.target
 
 [Service]

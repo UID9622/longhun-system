@@ -34,4 +34,4 @@
 - 运行前请确认依赖已安装。
 - 建议先阅读源码注释，了解每个脚本的副作用。
 
-**DNA**:#龍芯⚡️2026-06-17-NAME_UPPER_REPLACE_-_REPLACE_-README-FILE1_B626-FILE1-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-NAME_UPPER_REPLACE_-_REPLACE_-README-FILE1_B626-FILE1-v1.0

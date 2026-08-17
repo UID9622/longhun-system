@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 思维主权系统 · 国际对标与术语对照 v1.0
 
-DNA: #龍芯⚡️2026-07-23-SOVEREIGNTY-BENCHMARK-v1.0-f3b7c1e9
+DNA: #龍芯⚡️丙午·丙申·庚申·亥时-SOVEREIGNTY-BENCHMARK-v1.0-f3b7c1e9
 创建者: 诸葛鑫（UID9622）
 来源: `docs/archive_html/sovereignty_benchmark.html`
 协议: CC BY-NC-SA 4.0

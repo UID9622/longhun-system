@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# 🐉 龙魂·三色审计 在线演示
+# 🐉 龍魂·三色审计 在线演示
 # DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-DEMO-V1.1-UID9622
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 创建者: 诸葛鑫（UID9622）
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 """
-龙魂·三色审计在线演示 — FastAPI + 暗色终端风格UI。
+龍魂·三色审计在线演示 — FastAPI + 暗色终端风格UI。
 嵌入三色审计核心引擎，30秒体验六维评分→三色判定的完整流程。
 """
 
@@ -32,7 +32,7 @@ from engine import evaluate, TricolorEngine
 engine = TricolorEngine()
 
 app = FastAPI(
-    title="🐉 龙魂·三色审计 在线演示",
+    title="🐉 龍魂·三色审计 在线演示",
     description="输入六维得分，30秒体验三色判定",
     version="1.1.0",
     docs_url="/docs",
@@ -106,7 +106,7 @@ HTML_PAGE = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🐉 龙魂·三色审计在线演示</title>
+<title>🐉 龍魂·三色审计在线演示</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;background:#0a0a12;color:#e8e6e3;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px}
@@ -172,7 +172,7 @@ input[type="range"]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;b
 <div class="rules" id="resultRules"></div>
 </div>
 <div class="footer">
-<span class="gold">🐉 龙魂系统</span> · 三色审计参考标准 v1.1 · 思想层 CC BY-NC-SA · 工程层 MulanPSL v2
+<span class="gold">🐉 龍魂系统</span> · 三色审计参考标准 v1.1 · 思想层 CC BY-NC-SA · 工程层 MulanPSL v2
 </div>
 </div>
 <script>

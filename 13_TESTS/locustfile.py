@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🐉 龙魂 AI 网关 · 流控模块压测脚本 v1.0
+🐉 龍魂 AI 网关 · 流控模块压测脚本 v1.0
 DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-LOAD-TEST-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -92,14 +92,14 @@ TENANT_CONFIGS = {
 
 # 测试用 prompt（模拟真实请求）
 TEST_PROMPTS = [
-    "请用 200 字介绍一下龙魂 AI 网关的架构设计",
+    "请用 200 字介绍一下龍魂 AI 网关的架构设计",
     "解释一下 TokenBucket 算法的原理",
     "如何实现流式输出的限速控制？",
     "降级策略 passthrough/degrade/block 的区别是什么？",
     "写一个 Python 的 TokenBucket 实现",
     "三色审计的R值计算公式是什么？",
     "DNA追溯码如何保证不可篡改？",
-    "龙魂系统的史官机制是如何工作的？",
+    "龍魂系统的史官机制是如何工作的？",
 ]
 
 
@@ -431,7 +431,7 @@ class TenantIsolationUser(HttpUser):
 def on_test_start(environment, **kwargs):
     """测试开始时打印配置"""
     print("\n" + "=" * 70)
-    print("🐉 龙魂 AI 网关 · 流控模块压测 v1.0")
+    print("🐉 龍魂 AI 网关 · 流控模块压测 v1.0")
     print("=" * 70)
     print(f"DNA: {generate_dna('LOAD-TEST')}")
     print(f"确认码: {CONFIRM}")
@@ -527,7 +527,7 @@ def _generate_tricolor_audit(stats):
 # ============================================================
 
 if __name__ == "__main__":
-    print("🐉 龙魂流控压测脚本")
+    print("🐉 龍魂流控压测脚本")
     print("=" * 50)
     print("用法:")
     print("  locust -f tests/locustfile.py --host=http://localhost:8000")

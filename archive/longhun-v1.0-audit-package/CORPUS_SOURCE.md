@@ -13,7 +13,7 @@
 
 ## 参与文件清单
 
-- data/training/龙魂服务器问题数据集-v1.0.jsonl
+- data/training/龍魂服务器问题数据集-v1.0.jsonl
 - data/training/lh_server_qa_dataset_v1.0.jsonl
 - data/training/lh_deepseek_web_chat_20260702.jsonl
 - data/training/deepseek_web_chat_b37586a6_20260702.jsonl

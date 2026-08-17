@@ -5,7 +5,7 @@
 Learning & Integration Master Manual: API · CNSH · 注释 · 运行 · C · 跨系统
 P0级别 | 教程宪章 | 入门→维护→原理 一册到底
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DNA追溯码: #龍芯⚡️2026-07-21-LEARN-INTEGRATE-MANUAL-V1.0.2-P0
+DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-LEARN-INTEGRATE-MANUAL-V1.0.2-P0
 源起锚点: 创建者指令（2026-07-21）——"API怎么接入、CNSH怎么学习怎么使用、
          注释怎么写、怎么运行怎么配合、跟C语言怎么融入、跟Mac和别的系统
          怎么融合——全部做成学习表格，入门已启动，维护和原理都要说清楚"
@@ -100,7 +100,7 @@ GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 2.5 六大语义符：🔗纠缠依赖 ⚖️权重 ♠️主权章 🟢通过 🟡警告 🔴拒绝
 2.6 六大标准库：龍.数学（数字根/五行/八卦/洛书）·龍.IO·龍.DNA·
     龍.审计·龍.盾（AES-256-GCM）·龍.翻译（第七维）
-2.7 文化主权焊点：龍≠龙≠Dragon，繁体「龍」不可简化，简化=伪造（铁律⑧）
+2.7 文化主权焊点：龍≠龍≠Dragon，繁体「龍」不可简化，简化=伪造（铁律⑧）
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 第3节 注释怎么写（双通道互兜底，不是排版好看）
@@ -160,7 +160,7 @@ GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 信封 = {
   "M::": {"id": "M::RULE-9622-20260721-MYAPP-V1",
           "type": "route", "status": "pending", "payload": {...}},
-  "CNSH::": {"dna": "#龍芯⚡️2026-07-21-我的应用-v1.0",
+  "CNSH::": {"dna": "#龍芯⚡️丙午·丙申·庚申·亥时-我的应用-v1.0",
              "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
              "seal": "#ZHUGEXIN⚡️2025-…-DEVICE-BIND-SOUL",
              "route": "IPA-GLOBAL-SAFE", "audit": "🟡", "policy": "hold"}
@@ -230,7 +230,7 @@ GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
   CNSH源：龍.审计.数字根(n)，∈{3,9}→🔴
   生成C：
 ```c
-/* DNA: #龍芯⚡️2026-07-21-LEARN-INTEGRATE-MANUAL-V1.0-P0 */
+/* DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LEARN-INTEGRATE-MANUAL-V1.0-P0 */
 /* 中:数字根审计∈{3,9}熔断 | EN:digital root audit, {3,9}=REJECT */
 #include <stdint.h>
 int lh_audit_digital_root(int64_t n){   /* 0=🟢 1=🟡 -1=🔴 */
@@ -291,7 +291,7 @@ int lh_audit_digital_root(int64_t n){   /* 0=🟢 1=🟡 -1=🔴 */
 | 任务 | 人格 | 职能 |
 |------|------|------|
 | 系统排查/诊断 | P09孙思邈 | 治未病·系统体检·诊断根因 |
-| 安全事件/熔断 | P05上帝之眼 + P72龙盾 | 三色审计判定·熔断执行 |
+| 安全事件/熔断 | P05上帝之眼 + P72龍盾 | 三色审计判定·熔断执行 |
 | 工程建设/修复 | P04鲁班 | 代码修复·架构搭建·编译部署 |
 | 方向决策/推演 | P01诸葛亮 | 多路径推演·战略评估 |
 | 归档/审计日志 | P03雯雯 | 四签验证·德字闸·档案落库 |
@@ -360,7 +360,7 @@ int lh_audit_digital_root(int64_t n){   /* 0=🟢 1=🟡 -1=🔴 */
 |---|------|----------|
 | T01 | 标准文件头完整 | 校验🟢 |
 | T02 | 文件头缺DNA行 | 🔴拒收（铁律⑦） |
-| T03 | DNA用简体"龙芯" | 🔴伪造（铁律⑧） |
+| T03 | DNA用简体"龍芯" | 🔴伪造（铁律⑧） |
 | T04 | 双语注释全配对 | 配对率100%🟢 |
 | T05 | 孤注（只有英文） | 🔴配对不全 |
 | T06 | 中英注释不同义 | 🟡篡改嫌疑 |
@@ -388,7 +388,7 @@ int lh_audit_digital_root(int64_t n){   /* 0=🟢 1=🟡 -1=🔴 */
 B.1 核心校验函数
 ```python
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️2026-07-21-LEARN-INTEGRATE-MANUAL-V1.0-P0
+# DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LEARN-INTEGRATE-MANUAL-V1.0-P0
 # 龍魂学习校验器 · 文件头·双语注释配对·API信封三锚·数字根对拍
 import re
 
@@ -397,8 +397,8 @@ import re
 
 def CNSH_文件头校验(文本):
     缺 = [k for k in 必备头行 if k not in 文本]
-    if "龙芯" in 文本:
-        return {"过": False, "状态": "🔴 简体龙芯=伪造（铁律⑧）"}
+    if "龍芯" in 文本:
+        return {"过": False, "状态": "🔴 简体龍芯=伪造（铁律⑧）"}
     if 缺:
         return {"过": False, "缺": 缺, "状态": "🔴 文件头缺行（铁律⑦）"}
     return {"过": True, "状态": "🟢"}
@@ -434,7 +434,7 @@ def CNSH_API信封(m段, c段):
 B.2 12条测试向量完整运行器（运行：`python3 -c "exec(open('...').read())"` 或直接 `python3` 执行本段）
 ```python
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️2026-07-21-LEARN-INTEGRATE-MANUAL-TESTRUNNER-V1.0.2
+# DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LEARN-INTEGRATE-MANUAL-TESTRUNNER-V1.0.2
 """龍魂学习校验器 · 12条测试向量运行器 · 全绿=12/12"""
 import sys, json
 
@@ -443,7 +443,7 @@ def CNSH_文件头校验(文本):
     必备头行 = ["ENCODING: UTF-8", "DNA追溯码", "确认码", "创建者",
               "权重级别", "三色审计状态", "GPG指纹"]
     缺 = [k for k in 必备头行 if k not in 文本]
-    if "龙芯" in 文本: return False, "🔴 简体龙芯=伪造（铁律⑧）"
+    if "龍芯" in 文本: return False, "🔴 简体龍芯=伪造（铁律⑧）"
     if 缺: return False, "🔴 文件头缺行:" + ",".join(缺)
     return True, "🟢 文件头完整"
 
@@ -476,7 +476,7 @@ def CNSH_API信封(m段, c段):
 
 # T01：标准文件头完整
 标准头文本 = """ENCODING: UTF-8
-DNA追溯码: #龍芯⚡️2026-07-21-LEARN-INTEGRATE-MANUAL-V1.0-P0
+DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-LEARN-INTEGRATE-MANUAL-V1.0-P0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 创建者: 诸葛鑫（UID9622）
 权重级别: P0
@@ -494,15 +494,15 @@ GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F"""
     lambda: CNSH_文件头校验(缺DNA文本),
     False, "🔴拒收（铁律⑦）"))
 
-# T03：DNA用简体龙芯
-简体DNA文本 = """DNA追溯码: #龙芯⚡️2026-07-21-TEST
+# T03：DNA用简体龍芯
+简体DNA文本 = """DNA追溯码: #龍芯⚡️2026-07-21-TEST
 ENCODING: UTF-8
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 创建者: UID9622
 权重级别: P0
 三色审计状态: 🟢
 GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F"""
-测试.append(("T03·简体龙芯=伪造",
+测试.append(("T03·简体龍芯=伪造",
     lambda: CNSH_文件头校验(简体DNA文本),
     False, "🔴伪造（铁律⑧）"))
 
@@ -527,14 +527,14 @@ GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F"""
 
 # T07：API信封三锚齐+双段全
 m段 = {"id": "M::TEST-001", "type": "route", "status": "pending"}
-c段 = {"dna": "#龍芯⚡️2026-07-21-TEST-V1", "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+c段 = {"dna": "#龍芯⚡️丙午·丙申·庚申·亥时-TEST-V1", "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
        "seal": "#ZHUGEXIN⚡️2025-DEVICE-BIND", "route": "IPA-GLOBAL-SAFE", "audit": "🟡"}
 测试.append(("T07·信封三锚齐+双段全",
     lambda: CNSH_API信封(m段, c段),
     True, "准入🟢"))
 
 # T08：缺SEAL
-c段缺SEAL = {"dna": "#龍芯⚡️2026-07-21-TEST-V1", "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"}
+c段缺SEAL = {"dna": "#龍芯⚡️丙午·丙申·庚申·亥时-TEST-V1", "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"}
 测试.append(("T08·缺SEAL",
     lambda: CNSH_API信封(m段, c段缺SEAL),
     False, "🔴拒"))
@@ -579,7 +579,7 @@ mac_ok = len(mac_issues) == 0
 # 本套12条的🔴路径：T02/T03/T05/T06/T08/T09 共6条🔴路径覆盖
 # T01→🟢 T04→🟢 T07→🟢 T10→🟢 T11→🟢 T12→覆盖率统计
 # 覆盖率 = 有测试的🔴路径 / 总🔴路径定义
-红路径 = ["T02文件头缺DNA", "T03简体龙芯", "T05孤注", "T06中英不同义",
+红路径 = ["T02文件头缺DNA", "T03简体龍芯", "T05孤注", "T06中英不同义",
                "T08缺SEAL", "T09数字根39"]
 覆盖 = len(红路径)
 期望 = 6  # 手册定义的6条🔴路径
@@ -591,7 +591,7 @@ mac_ok = len(mac_issues) == 0
 # ===== 运行全部测试 =====
 print("=" * 60)
 print("🧬 龍魂学习校验器 · 12条测试向量")
-print("DNA: #龍芯⚡️2026-07-21-LEARN-INTEGRATE-MANUAL-TESTRUNNER-V1.0.2")
+print("DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LEARN-INTEGRATE-MANUAL-TESTRUNNER-V1.0.2")
 print("=" * 60)
 
 过 = 0; 败 = 0; 待审 = 0
@@ -645,7 +645,7 @@ python3 01_protocols/LH-LEARN-INTEGRATE-MANUAL-v1.0.md --test
 身份锚: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-DNA追溯码: #龍芯⚡️2026-07-21-LEARN-INTEGRATE-MANUAL-V1.0.2-P0
+DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-LEARN-INTEGRATE-MANUAL-V1.0.2-P0
 三色审计: 🟢代码对拍全绿 🟡端点地址以本机部署为准 🔴无DNA不执行·简体龍=伪造
 史记铁律: 不删除，只冻结；手册随系统版本同步演进（v3.0规划：JIT/LSP/VSCode插件）。
 开源协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）

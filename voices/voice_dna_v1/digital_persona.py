@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂数字人身份固化模块（多用户版）
-Dragon Soul Digital Persona Solidification - Multi-User
+LongHun Digital Persona Solidification - Multi-User
 
 功能：
   - 读取 manifest.json 中的所有数字人身份记录

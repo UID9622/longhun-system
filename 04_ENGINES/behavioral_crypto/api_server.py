@@ -14,10 +14,10 @@ REST API 端點:
   GET  /api/v2/bcm/sovereignty   — 主權驗證信息
 
 每個響應攜帶:
-  - X-Longhun-DNA: 請求追溯碼
-  - X-Longhun-Audit: 三色審計標記
-  - X-Longhun-Sovereignty: 主權簽名
-  - X-Longhun-Timestamp: 時間戳
+  - X-LongHun-DNA: 請求追溯碼
+  - X-LongHun-Audit: 三色審計標記
+  - X-LongHun-Sovereignty: 主權簽名
+  - X-LongHun-Timestamp: 時間戳
 
 啟動: uvicorn 04_ENGINES.behavioral_crypto.api_server:app --host 0.0.0.0 --port 8775
 """
@@ -79,7 +79,7 @@ app.add_middleware(
     allow_origins=["https://uid9622.cn", "http://localhost:*", "http://127.0.0.1:*"],
     allow_credentials=True,
     allow_methods=["GET", "POST"],
-    allow_headers=["*", "X-Longhun-DNA", "X-Longhun-Audit", "X-Longhun-Sovereignty"],
+    allow_headers=["*", "X-LongHun-DNA", "X-LongHun-Audit", "X-LongHun-Sovereignty"],
 )
 app.add_middleware(GZipMiddleware, minimum_size=500)
 
@@ -115,25 +115,25 @@ class ExperimentRequest(BaseModel):
 @app.middleware("http")
 async def sovereignty_middleware(request: Request, call_next):
     """所有響應注入主權標頭"""
-    request_dna = request.headers.get("X-Longhun-DNA", "")
+    request_dna = request.headers.get("X-LongHun-DNA", "")
     request_id = str(uuid.uuid4())[:8]
     
     # 生成請求 DNA（ASCII-safe for HTTP headers）
     ts = datetime.now(timezone.utc)
-    dna_ascii = f"Longhun-BCM-API-{ts.strftime('%Y%m%d')}-{request_id}"
+    dna_ascii = f"LongHun-BCM-API-{ts.strftime('%Y%m%d')}-{request_id}"
     
     # 調用
     response = await call_next(request)
     
     # 注入主權標頭（ASCII-safe）
-    response.headers["X-Longhun-DNA"] = dna_ascii
-    response.headers["X-Longhun-Sovereignty"] = "LONGHUN-CONFIRM-9622"
-    response.headers["X-Longhun-Timestamp"] = ts.isoformat()
-    response.headers["X-Longhun-Jurisdiction"] = "CN"
-    response.headers["X-Longhun-Encryption"] = "SM3-SM4"
+    response.headers["X-LongHun-DNA"] = dna_ascii
+    response.headers["X-LongHun-Sovereignty"] = "LONGHUN-CONFIRM-9622"
+    response.headers["X-LongHun-Timestamp"] = ts.isoformat()
+    response.headers["X-LongHun-Jurisdiction"] = "CN"
+    response.headers["X-LongHun-Encryption"] = "SM3-SM4"
     response.headers["Access-Control-Expose-Headers"] = (
-        "X-Longhun-DNA, X-Longhun-Audit, X-Longhun-Sovereignty, "
-        "X-Longhun-Timestamp, X-Longhun-Jurisdiction, X-Longhun-Encryption"
+        "X-LongHun-DNA, X-LongHun-Audit, X-LongHun-Sovereignty, "
+        "X-LongHun-Timestamp, X-LongHun-Jurisdiction, X-LongHun-Encryption"
     )
     
     return response
@@ -214,7 +214,7 @@ async def extract_fingerprint(req: ExtractRequest):
         
         return JSONResponse(
             content=result,
-            headers={"X-Longhun-Audit": audit_ascii},
+            headers={"X-LongHun-Audit": audit_ascii},
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"提取失敗: {str(e)}")
@@ -237,7 +237,7 @@ async def verify_fingerprint_endpoint(req: VerifyRequest):
         
         return JSONResponse(
             content=result,
-            headers={"X-Longhun-Audit": audit},
+            headers={"X-LongHun-Audit": audit},
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"驗證失敗: {str(e)}")

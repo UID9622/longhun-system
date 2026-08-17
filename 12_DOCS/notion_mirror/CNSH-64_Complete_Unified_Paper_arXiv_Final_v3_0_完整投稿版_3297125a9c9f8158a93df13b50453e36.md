@@ -29,7 +29,7 @@ Representative documented failures:
 - Facial Recognition Systems: 34% error rate for dark-skinned women vs. 1% for white men (MIT Media Lab)
 These failures share a common structure: optimization-driven design without formal governance boundaries. We argue that intelligence should not merely guess cleverly but be correct within verifiable limits.
 ## 1.2 The Seven Properties CNSH-64 Guarantees
-The Longhun System was designed around seven principles that form the complete governance vision:
+The LongHun System was designed around seven principles that form the complete governance vision:
 ## 1.3 Research Gaps
 Core gap: No unified symbolic decision architecture exists that operates in real-world interactions, provides mathematical provability, supports multi-dimensional risk assessment, and achieves cross-cultural ethical mapping simultaneously.
 ## 1.4 Contributions

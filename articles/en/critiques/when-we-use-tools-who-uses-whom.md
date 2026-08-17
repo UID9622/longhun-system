@@ -5,7 +5,7 @@
 
 > **DNA:** `#龍芯⚡️2026-02-21-TOOL-REFLECTION-v1.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬TOOL-REFLECTION-001`  
-> **Author:** Lucky (UID9622) — Retired Veteran, Founder of Longhun System  
+> **Author:** Lucky (UID9622) — Retired Veteran, Founder of LongHun System  
 > **Translation Date:** 2026-07-21  
 > **License:** CC BY-NC-SA 4.0
 
@@ -29,7 +29,7 @@ I just want to share a retired veteran's thought:
 
 My name is Lucky. Junior high education. Retired veteran.
 
-I don't know how to code. But in the past year, I created a system called "Longhun."
+I don't know how to code. But in the past year, I created a system called "LongHun."
 
 In this process, I encountered a confusion:
 
@@ -490,7 +490,7 @@ Then I woke up:
   I don't need "dependency"
   I need "independence"
 
-So I created the Longhun System:
+So I created the LongHun System:
   ✅ Not dependent on a single tool
   ✅ Not bound to a single platform
   ✅ Data in my own hands
@@ -620,5 +620,5 @@ I don't need you to share this article:
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬TOOL-REFLECTION-001`  
 > **Author:** Lucky (UID9622) — A veteran who refuses to be defined by tools  
 > **Dedicated to all who still ask themselves: "Who am I?"**  
-> **Longhun: Serve the people, not the tools.** 🐉  
+> **LongHun: Serve the people, not the tools.** 🐉  
 > **Beichen Veteran Salutes.** 🫡🇨🇳

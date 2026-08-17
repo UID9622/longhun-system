@@ -1,8 +1,8 @@
-# Longhun · Riemann Hypothesis Three-View Observation System
+# LongHun · Riemann Hypothesis Three-View Observation System
 
 **Subtitle:** From Fixed Point · Luoshu Conservation · Sancai Harmony to Triangular Interlock
 
-**Paper Type:** Longhun System · Mathematical Observation Layer Whitepaper
+**Paper Type:** LongHun System · Mathematical Observation Layer Whitepaper
 
 **DNA:** `#龍芯⚡️2026-08-04-RIEMANN-CLOSED-LOOP-v1.0-UID9622`
 
@@ -34,7 +34,7 @@
 
 ### Core Proposition
 
-> **The Riemann Hypothesis is not a mathematical proposition requiring "proof," but a universal constant requiring "observation." The Longhun Three-View Engine provides three independent observation dimensions whose cross-validation constitutes an engineering-grade verification protocol for the Riemann Hypothesis.**
+> **The Riemann Hypothesis is not a mathematical proposition requiring "proof," but a universal constant requiring "observation." The LongHun Three-View Engine provides three independent observation dimensions whose cross-validation constitutes an engineering-grade verification protocol for the Riemann Hypothesis.**
 
 ### Philosophical Positioning of the Three Views
 
@@ -152,7 +152,7 @@ lemma h_luoshu_to_zeta (h : luoshu_conserved) :
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Longhun · Riemann Hypothesis Three-View Engine v1.0
+LongHun · Riemann Hypothesis Three-View Engine v1.0
 DNA: #龍芯⚡️2026-07-21-RIEMANN-ZETA-ENGINE-v1.0
 Creator: Zhuge Xin (UID9622)
 License: Idea Layer CC BY-NC-SA 4.0 · Engineering Layer MulanPSL v2
@@ -387,7 +387,7 @@ class RiemannZetaEngine:
 
     def demo(self):
         print("\n" + "=" * 60)
-        print("Longhun · Riemann Hypothesis Three-View Engine · Demo")
+        print("LongHun · Riemann Hypothesis Three-View Engine · Demo")
         print("DNA:", self.DNA)
         print("=" * 60)
         zeros = self.verify_rh_known_zeros(10)
@@ -454,7 +454,7 @@ def run_tests():
                   "any interlock condition fails"))
 
     print("\n" + "=" * 60)
-    print("Longhun · Riemann Three-View Engine · 15 Test Vectors")
+    print("LongHun · Riemann Three-View Engine · 15 Test Vectors")
     print("=" * 60)
     passed = sum(1 for _, ok, _ in tests if ok)
     for name, ok, detail in tests:
@@ -483,7 +483,7 @@ if __name__ == "__main__":
 
 ```
 ============================================================
-Longhun · Riemann Three-View Engine · 15 Test Vectors
+LongHun · Riemann Three-View Engine · 15 Test Vectors
 ============================================================
 ✅ T01 Luoshu matrix conservation                rows=[15, 15, 15]
 ✅ T02 Luoshu diagonal sum=15                    d1=15, d2=15
@@ -588,14 +588,14 @@ theorem tri_perspective_equivalence :
 
 ### Title
 
-> **"Longhun · Riemann Hypothesis Three-View Engine" — Overturning the Cognitive Boundary of Mathematical Verification with Luoshu Conservation, Sancai Harmony, and Triangular Interlock**
+> **"LongHun · Riemann Hypothesis Three-View Engine" — Overturning the Cognitive Boundary of Mathematical Verification with Luoshu Conservation, Sancai Harmony, and Triangular Interlock**
 
 ### Core Mine Points
 
 1. **"Overturn" does not mean overturning the Riemann Hypothesis, but overturning the cognitive boundary that "only pure mathematical derivation can approach the Riemann Hypothesis"**
 2. **All 15 test vectors pass, proving the three-view system is an operable engineering-grade verification protocol**
 3. **Triangular interlock formally verified in Lean — verify any two views, the third automatically holds**
-4. **Platform audit inaction: OpenAI spent $2000, mathematicians dismissed in one day; Longhun engine 15 tests all green, platform still unreviewed**
+4. **Platform audit inaction: OpenAI spent $2000, mathematicians dismissed in one day; LongHun engine 15 tests all green, platform still unreviewed**
 
 ### Release Strategy
 
@@ -604,7 +604,7 @@ theorem tri_perspective_equivalence :
 3. Wait for organic traffic + search engine indexing
 4. If platform deletes → confirms "platform audit inaction"
 5. If someone reposts → mine explodes, wider spread
-6. Follow-up blade: after more mathematical verification results, release "Longhun Audit Report · Continued"
+6. Follow-up blade: after more mathematical verification results, release "LongHun Audit Report · Continued"
 
 ---
 
@@ -632,6 +632,6 @@ Layered License: Idea Layer CC BY-NC-SA 4.0 · Engineering Layer MulanPSL v2
 | Engineering Validation | 🟢 | Three-paper cross-reference all green |
 | Release Strategy | 🟢 | CSDN mine, post and leave |
 
-**This is not "proving the Riemann Hypothesis" — this is "building an operational, auditable, traceable observation station for the Riemann Hypothesis using the Longhun System."**
+**This is not "proving the Riemann Hypothesis" — this is "building an operational, auditable, traceable observation station for the Riemann Hypothesis using the LongHun System."**
 
 Anyone who reads this paper and wants to refute it? Run the 15 tests first, pass the triangular interlock, sign the GPG — then speak. 🐉🔥

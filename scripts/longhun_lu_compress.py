@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · LU 认知压缩与全文还原引擎
-Longhun LU Compression & Restoration Engine
+LongHun LU Compression & Restoration Engine
 
 DNA:#龍芯⚡️2026-06-30-LONGHUN-LU-COMPRESS-FILE1-v1.0
 
@@ -414,7 +414,7 @@ class LonghunLuMemoryEngine:
             # 注册来源
             self._kg_conn.execute(
                 "INSERT OR REPLACE INTO sources(id, name, description, record_count, last_synced_at) VALUES(?,?,?,?,?)",
-                ("lu_memory", "LU 认知压缩记忆", "Longhun LU Compression Memory", 0, _now()),
+                ("lu_memory", "LU 认知压缩记忆", "LongHun LU Compression Memory", 0, _now()),
             )
             node_id = f"lu:{record['lu_code']}"
             content_preview = record.get("summary", "") + "\n" + " ".join(record.get("keywords", []))

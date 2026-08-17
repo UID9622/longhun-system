@@ -118,7 +118,7 @@ DNA标签： #LUCKY-GLOBAL-ETHICS #TAIJI-2.1-COMPLETE #全球责任法则
 ## 🔗 系统联动
 此宣言关联：
 - 💝 Lucky灵魂锚点
-- 🐉 UID9622龙魂价值内核
+- 🐉 UID9622龍魂价值内核
 - 👑 Lucky主控中枢
 - 🇨🇳 元宇宙国民入口
 DNA标签：

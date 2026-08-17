@@ -29,8 +29,8 @@ def test_char_digital_root_ascii():
 def test_char_digital_root_chinese():
     # '道' = 36947 -> 3+6+9+4+7=29 -> 2+9=11 -> 1+1=2
     assert char_digital_root("道") == 2
-    # '龙' = 40857 -> 4+0+8+5+7=24 -> 2+4=6
-    assert char_digital_root("龙") == 6
+    # '龍' = 40857 -> 4+0+8+5+7=24 -> 2+4=6
+    assert char_digital_root("龍") == 6
 
 
 def test_char_digital_root_emoji():
@@ -65,7 +65,7 @@ def test_analyze_text_uniform_nine_roots():
 
 
 def test_fingerprint_length_and_content():
-    text = "ABC龙魂"
+    text = "ABC龍魂"
     fp = generate_text_fingerprint(text)
     assert len(fp) <= 500
     assert fp.isdigit()

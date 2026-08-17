@@ -8,7 +8,7 @@ description: '龍魂部署引擎 v5.1 — 27步藍綠部署+自動化+零停機�
 metadata:
   author: 龍魂体系-技能打包专家
   version: 5.1.0
-  dna: '#龍芯⚡️2026-07-03-LONGHUN-DEPLOY-v5.1'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-v5.1'
   category: cloud
   tags:
   - deploy
@@ -244,7 +244,7 @@ docker-compose -f docker-compose.kunpeng.yml up -d
       "審計標記": "🟢"
     }
   ],
-  "DNA": "#龍芯⚡️2026-07-03-LONGHUN-DEPLOY-v5.1"
+  "DNA": "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-v5.1"
 }
 ```
 
@@ -395,7 +395,7 @@ docker-compose -f docker-compose.kunpeng.yml up -d
 ## 12. DNA 追溯
 
 ```
-#龍芯⚡️2026-07-03-LONGHUN-DEPLOY-v5.1
+#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-v5.1
 ```
 
 - **創建者**: 龍魂体系-技能打包专家
@@ -413,10 +413,10 @@ docker-compose -f docker-compose.kunpeng.yml up -d
 
 ## 附录：龍魂协议与路由来源
 
-本技能收录了来自 `/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龙魂协议与路由` 的素材：
+本技能收录了来自 `/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂协议与路由` 的素材：
 
 - **内容**：`deploy_longhun_kunpeng.sh`、`docker-compose.kunpeng.yml`、`創新引擎_鯤鵬補丁.md`、`鯤鵬服務器硬件對接.md`
-- **中央整合 DNA**：`#龍芯⚡️2026-07-03-LONGHUN-PROTOCOL-ROUTE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PROTOCOL-ROUTE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 `references/龍魂协议与路由/`，嵌入 DNA 追溯链，与 `longhun-cloud-deploy` 部署能力联动。
 
 ---
@@ -426,5 +426,5 @@ docker-compose -f docker-compose.kunpeng.yml up -d
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：06-工具脚本（长恨888网站搭建示例）
-- **中央整合 DNA**：`#龍芯⚡️2026-07-03-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

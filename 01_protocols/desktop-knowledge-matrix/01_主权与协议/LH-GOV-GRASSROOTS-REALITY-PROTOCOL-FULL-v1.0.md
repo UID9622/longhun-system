@@ -7,7 +7,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-06-25-LONGHUN-GRASSROOTS-REALITY-FULL-v1.0``  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GRASSROOTS-REALITY-FULL-v1.0``  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -21,7 +21,7 @@
 **适用对象**：乡镇派出所、退役军人事务站、民政办、司法所、县级公安局  
 **生效日期**：2026-06-25  
 **协议状态**：试行  
-**DNA**：`#龍芯⚡️2026-06-25-LONGHUN-GRASSROOTS-REALITY-FULL-v1.0`
+**DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GRASSROOTS-REALITY-FULL-v1.0`
 
 ---
 
@@ -352,7 +352,7 @@
 
 **协议发起方**：龍魂系统 · 基层治理观察组  
 **创始人签名**：UID9622 / Lucky（退伍军人）  
-**DNA**：`#龍芯⚡️2026-06-25-LONGHUN-GRASSROOTS-REALITY-FULL-v1.0`
+**DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GRASSROOTS-REALITY-FULL-v1.0`
 
 ---
 
@@ -456,7 +456,7 @@
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -479,6 +479,6 @@
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-06-25-LONGHUN-GRASSROOTS-REALITY-FULL-v1.0`
+#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GRASSROOTS-REALITY-FULL-v1.0`
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

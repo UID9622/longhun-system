@@ -210,10 +210,10 @@ class DualNodeAuth:
         payload_hash = hashlib.sha256(payload.encode()).hexdigest()[:16] if payload else ""
         stamp = self.generate_dna_stamp(scene, payload_hash)
         return {
-            "X-Longhun-API-Key": self.config.api_key,
-            "X-Longhun-DNA": json.dumps(stamp, ensure_ascii=False),
-            "X-Longhun-Node-ID": self.config.node_id,
-            "X-Longhun-Node-Role": self.config.node_role,
+            "X-LongHun-API-Key": self.config.api_key,
+            "X-LongHun-DNA": json.dumps(stamp, ensure_ascii=False),
+            "X-LongHun-Node-ID": self.config.node_id,
+            "X-LongHun-Node-Role": self.config.node_role,
         }
 
 
@@ -238,7 +238,7 @@ try:
                 return await call_next(request)
 
             # L1: API Key
-            api_key = request.headers.get("X-Longhun-API-Key", "")
+            api_key = request.headers.get("X-LongHun-API-Key", "")
             if not self.auth.verify_api_key(api_key):
                 return JSONResponse(
                     status_code=401,
@@ -246,7 +246,7 @@ try:
                 )
 
             # L2: DNA签章
-            dna_header = request.headers.get("X-Longhun-DNA", "")
+            dna_header = request.headers.get("X-LongHun-DNA", "")
             if dna_header:
                 try:
                     stamp = json.loads(dna_header)

@@ -6,7 +6,7 @@ description: 'CNSH语言完整规范v2.0 — 中文母语关键字+龍魂专属�
 metadata:
   id: CNSH-PROTOCOL
   version: '1.0'
-  dna: '#龍芯⚡️2026-06-19-CNSH-PROTOCOL-v2.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-PROTOCOL-v2.0'
   trigger:
     keywords:
     - CNSHPROTOCOL
@@ -21,7 +21,7 @@ metadata:
     context: CNSH-PROTOCOL 规范查询
   category: general
 ---
-<!-- DNA: #龍芯⚡️2026-06-19-CNSH-PROTOCOL-v2.0 -->
+<!-- DNA: #龍芯⚡️丙午·丙申·庚申·亥时-CNSH-PROTOCOL-v2.0 -->
 
 ## 1. 概述
 
@@ -35,7 +35,7 @@ CNSH（Chinese Native Semantic Hierarchy）是中文原生编程语言与AI治�
 - 权重指向焊死——L0-L4五级优先级体系
 - 多目标语言转换——编译至C / Python / JavaScript / 字节码
 
-**文化主权声明：** 龍≠龙≠Dragon，繁体「龍」字不可简化，简化视为伪造。
+**文化主权声明：** 龍≠龍≠Dragon，繁体「龍」字不可简化，简化视为伪造。
 
 ---
 
@@ -236,8 +236,8 @@ CNSH源码 → ①词法分析(Lexer) → ②语法分析(Parser→AST)
 
 ### 12.1 DNA锚链
 
-- **本协议DNA:** `#龍芯⚡️2026-06-19-CNSH-PROTOCOL-v2.0`
-- **父DNA:** `#龍芯⚡️2026-04-28-CNSH语言完整规范-v2.0`
+- **本协议DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-PROTOCOL-v2.0`
+- **父DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH语言完整规范-v2.0`
 - **根DNA:** `#龍芯⚡️LONGHUN-GOVERNANCE-FRAMEWORK-ROOT`
 - **GPG指纹:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 
@@ -252,13 +252,13 @@ CNSH源码 → ①词法分析(Lexer) → ②语法分析(Parser→AST)
 
 > 🐉 技术为人民服务·文化主权不可侵犯·祖国优先·普惠全球·不割韭菜·数据必回家
 
-> 龍/龍魂/龍芯·繁体永不翻译·龍≠龙≠Dragon
+> 龍/龍魂/龍芯·繁体永不翻译·龍≠龍≠Dragon
 
 ### 12.4 版本信息
 
 | 字段 | 内容 |
 |------|------|
 | 版本 | v2.0（2026-06-19）|
-| DNA | `#龍芯⚡️2026-06-19-CNSH-PROTOCOL-v2.0` |
+| DNA | `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-PROTOCOL-v2.0` |
 | 三色审计 | 🟢 通过 |
 | 创建者 | 💎 龍芯北辰｜UID9622（诸葛鑫·Lucky）|

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>龍魂播放器 · demo</title>
+  <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet">
+  <style>
+    body { background: #0a0a0a; color: #eee; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; margin: 0; padding: 20px; }
+    .container { max-width: 960px; margin: 0 auto; }
+    h1 { font-size: 1.4rem; margin-bottom: 10px; }
+    .dna { color: #888; font-size: 0.8rem; margin-bottom: 20px; word-break: break-all; }
+    .video-wrap { border-radius: 8px; overflow: hidden; background: #111; }
+    .panel { background: #161616; border-radius: 8px; padding: 16px; margin-top: 16px; }
+    .panel h2 { font-size: 1rem; margin: 0 0 10px; color: #0f0; }
+    .transcript { line-height: 1.6; font-size: 0.9rem; max-height: 300px; overflow-y: auto; }
+    .transcript-line { cursor: pointer; padding: 4px 0; border-bottom: 1px solid #222; }
+    .transcript-line:hover { background: #1e1e1e; }
+    .transcript-time { color: #0ff; font-size: 0.8rem; margin-right: 8px; }
+    .ocr-item { border-bottom: 1px solid #333; padding: 8px 0; }
+    .ocr-time { color: #0ff; font-size: 0.8rem; }
+    .embed-code { background: #000; padding: 12px; border-radius: 4px; font-family: monospace; font-size: 0.8rem; word-break: break-all; color: #aaa; }
+    .copy-btn { margin-top: 8px; padding: 6px 12px; background: #0f0; color: #000; border: none; border-radius: 4px; cursor: pointer; }
+    .copy-btn:hover { background: #00cc52; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🐉 龍魂播放器 · demo</h1>
+    <div class="dna">#龍芯⚡️丙午·丙申·辛酉·酉时·䷕贲-MEDIA-PLAYER-EMBED-V1.1-P0-9c1b3f3c</div>
+
+    <div class="video-wrap">
+      <video id="longhun-player" class="video-js vjs-big-play-centered" controls preload="auto" width="960" height="540"
+        data-setup='{}'>
+        <source src="demo/demo.mp4" type="video/mp4">
+        <track kind="captions" src="demo/transcript.vtt" srclang="zh" label="中文" default>
+      </video>
+    </div>
+
+    <div class="panel">
+      <h2>🎙️ 语音文稿 (ASR)</h2>
+      <div class="transcript">暂无 ASR 结果</div>
+    </div>
+
+    <div class="panel">
+      <h2>🖼️ 画面文字识别 (OCR)</h2>
+      <div>暂无 OCR 结果</div>
+    </div>
+
+    <div class="panel">
+      <h2>📎 嵌入代码</h2>
+      <div class="embed-code" id="embed-code">&lt;iframe src="./demo.html" width="960" height="800" frameborder="0"&gt;&lt;/iframe&gt;</div>
+      <button class="copy-btn" onclick="copyEmbed()">复制嵌入代码</button>
+    </div>
+  </div>
+
+  <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
+  <script>
+    var player = videojs('longhun-player');
+    function seekTo(t) { player.currentTime(t); player.play(); }
+    function copyEmbed() {
+      var code = document.getElementById('embed-code').textContent;
+      navigator.clipboard.writeText(code).then(function() { alert('嵌入代码已复制'); });
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        if (player.paused()) { player.play(); } else { player.pause(); }
+      }
+    });
+  </script>
+</body>
+</html>

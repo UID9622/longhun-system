@@ -4,7 +4,7 @@ description: '龍魂審計修復系統 v5.2 — Agent修復追踪、根因分析
 metadata:
   author: 龍魂體系·審計修復組
   version: '5.2.0'
-  dna: '#龍芯⚡️2026-07-03-LONGHUN-AUDIT-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AUDIT-v5.2'
   protocol: 君子協議 — 非對抗·非欺瞞·非竊取
   cnsh: true
   category: cloud
@@ -41,14 +41,14 @@ metadata:
 - 🧬 修復報告模板（Markdown/JSON雙格式）
 - ⚔️ 左右互搏審計引擎集成（longhun-innovation 提供保守者/探索者對決）
 
-**DNA**: `#龍芯⚡️2026-07-03-LONGHUN-AUDIT-v5.2`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AUDIT-v5.2`
 
 ---
 
 ## 二、DNA追溯
 
 ```
-#龍芯⚡️2026-07-03-LONGHUN-AUDIT-v5.2
+#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AUDIT-v5.2
 ```
 
 **追溯鏈**：
@@ -415,7 +415,7 @@ python3 scripts/歸檔評估器.py
 
 ---
 
-**簽章**: #龍芯⚡️2026-07-03-LONGHUN-AUDIT-v5.2
+**簽章**: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AUDIT-v5.2
 **確認**: #CONFIRM🌌9622-ONLY-ONCE🧬AUDIT-v5.2
 
 
@@ -426,7 +426,7 @@ python3 scripts/歸檔評估器.py
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：04-审计治理（审核过滤规则、QA/Truth 报告、审计面板）
-- **中央整合 DNA**：`#龍芯⚡️2026-07-03-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。
 
 ---

@@ -178,10 +178,10 @@ class CNSH_代码审计引擎:
                 ))
 
         # 繁体龍字主权检查
-        if re.search(r"(?i)(龙芯|龙魂|龙字)", 代码):
+        if re.search(r"(?i)(龍芯|龍魂|龍字)", 代码):
             行号 = 1
             for idx, 行 in enumerate(行列表, 1):
-                if re.search(r"(?i)(龙芯|龙魂|龙字)", 行):
+                if re.search(r"(?i)(龍芯|龍魂|龍字)", 行):
                     行号 = idx
                     break
             结果.append(审计项(
@@ -192,8 +192,8 @@ class CNSH_代码审计引擎:
                 规则名="繁体龍字被简化",
                 分类="OWN-主权字",
                 CWE="CWE-NA",
-                描述="发现「龙」字简化，违反 CNSH 主权字规范。",
-                原始代码="龙",
+                描述="发现「龍」字简化，违反 CNSH 主权字规范。",
+                原始代码="龍",
                 修复建议="恢复繁体「龍」字，保护文化主权。",
                 不可覆盖=True,
             ))
@@ -316,7 +316,7 @@ class CNSH_代码审计引擎:
             (r"yaml\.load\s*\(", "yaml.safe_load("),
             (r"requests\.get\s*\(([^)]*?)verify\s*=\s*False([^)]*?)\)", r"requests.get(\1verify=True\2)"),
             (r"DEBUG\s*=\s*True", "DEBUG = False"),
-            (r"(?i)(龙芯|龙魂|龙字)", lambda m: m.group().replace("龙", "龍")),
+            (r"(?i)(龍芯|龍魂|龍字)", lambda m: m.group().replace("龍", "龍")),
         ]
 
         for 模式, 替换 in 替换表:
@@ -475,7 +475,7 @@ def run(cmd):
 
 data = yaml.load(open("config.yaml").read())
 r = requests.get("https://api.example.com", verify=False)
-print("龙魂系统启动")
+print("龍魂系统启动")
 '''
 
     演示路径 = "./demo_vulnerable.py"

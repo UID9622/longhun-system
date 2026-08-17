@@ -5,7 +5,7 @@ description: '龍魂DNA對齊審計系統 v5.2 — 全系統DNA掃描·對齊率
 metadata:
   author: 龍魂體系·DNA對齊組
   version: '5.2.0'
-  dna: '#龍芯⚡️2026-07-03-LONGHUN-DNA-ALIGN-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DNA-ALIGN-v5.2'
   protocol: 君子協議 — 非對抗·非欺瞞·非竊取
   cnsh: true
   category: local
@@ -41,14 +41,14 @@ metadata:
 - 📋 修復報告 — 生成詳細的修復前後對比報告
 - 🎯 三色審計 — 🟢健康/🟡警告/🔴危機 分級評估
 
-**DNA**: `#龍芯⚡️2026-06-19-LONGHUN-DNA-ALIGN-v5.2`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DNA-ALIGN-v5.2`
 
 ---
 
 ## 二、DNA追溯
 
 ```
-#龍芯⚡️2026-06-19-LONGHUN-DNA-ALIGN-v5.2
+#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DNA-ALIGN-v5.2
 ```
 
 **追溯鏈**：
@@ -242,19 +242,19 @@ DNA對齊率 = (有DNA文件數 / 總文件數) × 100%
 
 | 文件類型 | 前綴 | 示例 |
 |----------|------|------|
-| Python腳本 | ENGINE | `#龍芯⚡️2026-06-19-ENGINE-CORE-v1.0` |
-| Markdown文檔 | DOC | `#龍芯⚡️2026-06-19-DOC-PROTOCOL-v1.0` |
-| Shell腳本 | TOOL | `#龍芯⚡️2026-06-19-TOOL-DEPLOY-v1.0` |
-| 配置檔案 | CONFIG | `#龍芯⚡️2026-06-19-CONFIG-REGISTRY-v1.0` |
-| 協議規範 | PROTOCOL | `#龍芯⚡️2026-06-19-PROTOCOL-ROOT-v2.0` |
+| Python腳本 | ENGINE | `#龍芯⚡️丙午·丙申·庚申·亥时-ENGINE-CORE-v1.0` |
+| Markdown文檔 | DOC | `#龍芯⚡️丙午·丙申·庚申·亥时-DOC-PROTOCOL-v1.0` |
+| Shell腳本 | TOOL | `#龍芯⚡️丙午·丙申·庚申·亥时-TOOL-DEPLOY-v1.0` |
+| 配置檔案 | CONFIG | `#龍芯⚡️丙午·丙申·庚申·亥时-CONFIG-REGISTRY-v1.0` |
+| 協議規範 | PROTOCOL | `#龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-ROOT-v2.0` |
 
 **DNA生成格式**：
 ```
 #龍芯⚡️YYYY-MM-DD-{前綴}-{模塊名}-v{版本號}
 
 示例:
-#龍芯⚡️2026-06-19-ENGINE-WUXING-v1.0
-#龍芯⚡️2026-06-19-PROTOCOL-CONSTITUTION-v2.0
+#龍芯⚡️丙午·丙申·庚申·亥时-ENGINE-WUXING-v1.0
+#龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-CONSTITUTION-v2.0
 ```
 
 ### 7.4 重複DNA檢測
@@ -462,7 +462,7 @@ python3 scripts/DNA修復器.py
 
 ---
 
-**簽章**: #龍芯⚡️2026-06-19-LONGHUN-DNA-ALIGN-v5.2
+**簽章**: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DNA-ALIGN-v5.2
 **確認**: #CONFIRM🌌9622-ONLY-ONCE🧬DNA-ALIGN-v5.2
 
 
@@ -473,7 +473,7 @@ python3 scripts/DNA修復器.py
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：03-身份安全-DNA（DNA 身份系统、GPG 验证、离线激活）
-- **中央整合 DNA**：`#龍芯⚡️2026-07-03-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。
 
 ---

@@ -1,5 +1,5 @@
 /**
- * 🐉 龙魂·三色审计 JS SDK - 数据模型
+ * 🐉 龍魂·三色审计 JS SDK - 数据模型
  * DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-JS-SDK-MODELS-V1.0-UID9622
  * License: MulanPSL v2
  */

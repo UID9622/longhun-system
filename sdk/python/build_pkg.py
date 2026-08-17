@@ -63,7 +63,7 @@ with zipfile.ZipFile(wheel_path, "w", zipfile.ZIP_DEFLATED) as zf:
         "License: MulanPSL-2.0",
         "Requires-Dist: httpx>=0.24.0",
         "Requires-Python: >=3.8",
-        "Summary: 🐉 龙魂·三色审计 Python SDK — 中国AI合规参考标准",
+        "Summary: 🐉 龍魂·三色审计 Python SDK — 中国AI合规参考标准",
         "Classifier: Programming Language :: Python :: 3",
         "Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
     ]

@@ -33,7 +33,7 @@ DNA: #龍芯⚡️丙午·辛未·LLM-ADAPTER-v1.0
 
 用法:
     adapter = LLMAntennaAdapter(provider="openai", api_key="...")
-    signal = adapter.chat("你好，评价一下龙魂蚁群架构")
+    signal = adapter.chat("你好，评价一下龍魂蚁群架构")
     bus.send(signal)
 """
 
@@ -506,7 +506,7 @@ if __name__ == "__main__":
     # 测试1: 单次对话
     print("\n1️⃣ 单次对话 → 蚁群信号:")
     signals = adapter.chat(
-        "请评价龙魂蚁群架构的创新性",
+        "请评价龍魂蚁群架构的创新性",
         system_prompt="你是AI架构评审专家",
     )
     for sig in signals:

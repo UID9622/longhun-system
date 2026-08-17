@@ -4,9 +4,9 @@
 <!--#龍芯⚡️2026-06-21-DOC-README-FILE4-FILE1-v1.0-5 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
-# ☰ 龍🇨🇳魂 ☷ Dragon Soul Open Hub
+# ☰ 龍🇨🇳魂 ☷ LongHun Open Hub
 
-本目录收录自 Notion 工作区“☰ 龍🇨🇳魂 ☷ Dragon Soul Open Hub”的公开中枢文档，涵盖 CNSH-64 治理感知决策框架、IPA×人格对齐、意图识别、龍魂元宇宙与智能体系统规格、开源模板与学术论文。已过滤明显私人存档与碎片文件。
+本目录收录自 Notion 工作区“☰ 龍🇨🇳魂 ☷ LongHun Open Hub”的公开中枢文档，涵盖 CNSH-64 治理感知决策框架、IPA×人格对齐、意图识别、龍魂元宇宙与智能体系统规格、开源模板与学术论文。已过滤明显私人存档与碎片文件。
 
 - 本目录文件数：146
 
@@ -30,7 +30,7 @@
 - `academic/🏆 CNSH-64 Complete Unified Paper — arXiv Final v3  3297125a9c9f8158a93df13b50453e36.md`
 - `academic/💰 字体版权费·数据统计白皮书｜你手机里每个字，都有人在收费 v1 1 8b5652c312034ef092f708d19365055c.md`
 - `academic/📄 CNSH × 北辰协议 IEEE白皮书 v1 1｜三才算法补全版 3187125a9c9f80a68158d9064f591f26.md`
-- `academic/📄 Longhun Deliberative Alignment A Cultural-Anchor 011f71760a9b4958974a25ccde92e8f4.md`
+- `academic/📄 LongHun Deliberative Alignment A Cultural-Anchor 011f71760a9b4958974a25ccde92e8f4.md`
 - `academic/📄 个人数字创作全周期权益保护白皮书｜执行模板 v1 0 (1) 2f07125a9c9f8094bcf6fc949ce899f6.md`
 - `academic/📄 个人数字创作全周期权益保护白皮书｜执行模板 v1 0 1688ecad050e4d83bf2b668055c823e4.md`
 - `academic/📚 白皮书与技术栈中心 3db183ae51604c14821a50ba052642cf.md`

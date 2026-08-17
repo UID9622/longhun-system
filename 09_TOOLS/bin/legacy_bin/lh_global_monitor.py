@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
-║   🐉 龙魂·全局监控与实时通报引擎 v1.0                                     ║
+║   🐉 龍魂·全局监控与实时通报引擎 v1.0                                     ║
 ║   Global Monitor · 一切动静实时通报 · 无死角                                ║
 ╠══════════════════════════════════════════════════════════════════════════╣
 ║   DNA: #龍芯⚡️丙午·辛未·GLOBAL-MONITOR-v1.0                               ║
@@ -497,7 +497,7 @@ class GitWatcher:
     """Git仓库状态监听器"""
 
     REPOS = [
-        {"path": Path.home() / "longhun-system", "name": "龙魂系统"},
+        {"path": Path.home() / "longhun-system", "name": "龍魂系统"},
         {"path": Path.home() / "longhun-system" / ".codebuddy", "name": "CodeBuddy配置"},
     ]
 

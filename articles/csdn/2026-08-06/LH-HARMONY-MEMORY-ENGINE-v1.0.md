@@ -1,4 +1,4 @@
-# 龙魂·鸿蒙记忆压缩与恢复引擎 v1.0
+# 龍魂·鸿蒙记忆压缩与恢复引擎 v1.0
 
 > CSDN原文: https://blog.csdn.net/UID9622/article/details/163531969
 > DNA: #龍芯⚡️丙午·丙申·戊申·亥时·䷗复-HARMONY-MEMORY-ENGINE-v1.0
@@ -10,7 +10,7 @@
 
 ## 一、设计目标
 
-鸿蒙原生记忆压缩与恢复引擎，面向 HarmonyOS NEXT 上的龙魂系统，提供：
+鸿蒙原生记忆压缩与恢复引擎，面向 HarmonyOS NEXT 上的龍魂系统，提供：
 - **智能记忆压缩**：基于语义相似度与时间衰减的分布式压缩
 - **无损恢复**：压缩后的记忆可完整还原，DNA 链不断
 - **分布式存储**：鸿蒙分布式能力，跨设备记忆同步
@@ -20,7 +20,7 @@
 
 ```
 ┌─────────────────────────────────────────────┐
-│              龙魂记忆层 (Memory Layer)         │
+│              龍魂记忆层 (Memory Layer)         │
 ├─────────────────────────────────────────────┤
 │  MemoryEngine     ← 总控入口                  │
 │  ├─ MemoryCompressor  ← 压缩策略              │
@@ -50,7 +50,7 @@ import { GanzhiTimestamp } from './utils/GanzhiTimestamp';
 import { DNAGenerator } from './utils/DNAGenerator';
 
 /**
- * 龙魂记忆引擎 — HarmonyOS 原生实现
+ * 龍魂记忆引擎 — HarmonyOS 原生实现
  * DNA: #龍芯⚡️UID9622-HARMONY-MEMORY-ENGINE
  * 协议: CC BY-NC-SA 4.0
  */
@@ -415,7 +415,7 @@ export class MemoryStorage {
 
 ```typescript
 /**
- * 龙魂记忆数据模型
+ * 龍魂记忆数据模型
  * DNA: #龍芯⚡️UID9622-MEMORY-MODELS
  * 协议: MulanPSL v2
  */
@@ -573,7 +573,7 @@ export struct MemoryCard {
 {
   "name": "longhun_memory_engine",
   "version": "1.0.0",
-  "description": "龙魂·鸿蒙记忆压缩与恢复引擎",
+  "description": "龍魂·鸿蒙记忆压缩与恢复引擎",
   "main": "index.ets",
   "author": "UID9622",
   "license": "MulanPSL v2",
@@ -588,7 +588,7 @@ export struct MemoryCard {
   "module": {
     "name": "entry",
     "type": "entry",
-    "description": "龙魂记忆引擎入口模块",
+    "description": "龍魂记忆引擎入口模块",
     "mainElement": "EntryAbility",
     "deviceTypes": ["phone", "tablet", "2in1"],
     "deliveryWithInstall": true,
@@ -598,7 +598,7 @@ export struct MemoryCard {
       {
         "name": "EntryAbility",
         "srcEntry": "./ets/entryability/EntryAbility.ets",
-        "description": "龙魂记忆主能力",
+        "description": "龍魂记忆主能力",
         "icon": "$media:longhun_icon",
         "label": "$string:app_name",
         "startWindowIcon": "$media:longhun_icon",
@@ -628,7 +628,7 @@ export struct MemoryCard {
 | 加密 | 分布式 KV 加密存储，AES-256 |
 | DNA 追溯 | 每条记忆生成独立 DNA，链式不可篡改 |
 | 审计 | 压缩/恢复/删除全链路留审计日志 |
-| 声明 | 仅用于龙魂系统内部，不对外提供服务 |
+| 声明 | 仅用于龍魂系统内部，不对外提供服务 |
 
 ---
 

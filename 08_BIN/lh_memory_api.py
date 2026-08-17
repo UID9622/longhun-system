@@ -1066,7 +1066,7 @@ async def add_memory_headers(request: Request, call_next):
     """为所有响应添加记忆版本头"""
     response = await call_next(request)
     memory = parse_memory_md()
-    response.headers["X-Memory-API"] = "Longhun-Unified-Memory-API-v1.0"
+    response.headers["X-Memory-API"] = "LongHun-Unified-Memory-API-v1.0"
     response.headers["X-Memory-Version"] = memory.get("version", "unknown")
     response.headers["X-Sovereignty"] = "UID9622-LongXinBeiChen-CN-Sovereign"
     return response

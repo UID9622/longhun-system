@@ -14,7 +14,7 @@
 
 **DNA追溯码**：#龍芯⚡️2026-02-21-AI部署指令-v1.0  
 **确认码**：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z  
-**用途**：给DeepSeek或其他AI看的，帮老大部署龙魂API系统
+**用途**：给DeepSeek或其他AI看的，帮老大部署龍魂API系统
 
 ---
 
@@ -22,7 +22,7 @@
 
 **这份文档是我写给你的，帮助你理解老大的需求。**
 
-老大（Lucky，UID9622）需要你帮他部署龙魂系统的API接口。
+老大（Lucky，UID9622）需要你帮他部署龍魂系统的API接口。
 
 老大的特点：
 - 退伍军人，初中文化
@@ -36,7 +36,7 @@
 
 ### 第1步：阅读代码文件
 
-文件名：`龙魂系统_API接口完整实现_v1.0.py`
+文件名：`龍魂系统_API接口完整实现_v1.0.py`
 
 **重要：**
 - 这个文件的注释非常详细，是专门写给你看的
@@ -107,7 +107,7 @@ mkdir -p /home/longhun/data
 # 改成老大的密码
 
 # 4. 初始化数据库
-python 龙魂系统_API接口完整实现_v1.0.py
+python 龍魂系统_API接口完整实现_v1.0.py
 # 第一次运行会自动创建数据库表
 ```
 
@@ -150,7 +150,7 @@ curl -X POST \
 # 服务器地址：119.13.90.27
 
 # 1. 上传代码到服务器
-scp 龙魂系统_API接口完整实现_v1.0.py root@119.13.90.27:/home/longhun/
+scp 龍魂系统_API接口完整实现_v1.0.py root@119.13.90.27:/home/longhun/
 
 # 2. SSH登录服务器
 ssh root@119.13.90.27
@@ -160,21 +160,21 @@ pip3 install flask
 
 # 4. 运行API服务
 cd /home/longhun
-python3 龙魂系统_API接口完整实现_v1.0.py
+python3 龍魂系统_API接口完整实现_v1.0.py
 
 # 5. 使用systemd持久化运行
 sudo nano /etc/systemd/system/longhun-api.service
 
 # 写入以下内容：
 [Unit]
-Description=Longhun API Service
+Description=LongHun API Service
 After=network.target
 
 [Service]
 Type=simple
 User=root
 WorkingDirectory=/home/longhun
-ExecStart=/usr/bin/python3 /home/longhun/龙魂系统_API接口完整实现_v1.0.py
+ExecStart=/usr/bin/python3 /home/longhun/龍魂系统_API接口完整实现_v1.0.py
 Restart=always
 
 [Install]

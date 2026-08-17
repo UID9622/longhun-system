@@ -128,7 +128,7 @@ python3 bin/lh_anti_tamper.py scan "<外部AI给出的文本>"
 ## 追溯
 
 - DNA: `#龍芯⚡️丙午·丙申·癸丑·午时·需-AGENTS-DNA-FORMAT-LOCKDOWN-BF8BA356`
-- 引擎: `#龍芯⚡️2026-06-22-LAYERED-GOVERNANCE-ENGINE-v1.0`
+- 引擎: `#龍芯⚡️丙午·丙申·庚申·亥时-LAYERED-GOVERNANCE-ENGINE-v1.0`
 - 更新: `2026-07-08` — **DNA格式焊死v∞干支卦 + 农历时间戳铁律** · 类型检查工作流·语义路由·人格分发·祖传底座锚定
 
 ---
@@ -259,7 +259,7 @@ P05 扫描 → ERROR/WARNING 分级
 |:---:|------|------|
 | **A-001** | UID9622 = 诸葛鑫·Lucky = 唯一决策者 | CONSTITUTION.md |
 | **A-002** | 369 不动点 = 三才算法内核 | P0_ETERNAL_LOCK.md |
-| **A-003** | 龍魂 = Dragon Soul = 文化主权 | CNSH-PROTOCOL.md |
+| **A-003** | 龍魂 = LongHun = 文化主权 | CNSH-PROTOCOL.md |
 | **A-004** | 龍（繁体）为规范形式，永不改为 Long/龍魂 | CNSH 繁简归一 v1.1 |
 | **A-005** | 河图洛书·易经·道德经·28星宿·五行八卦 = 焊死 | AGENTS.md 底座哲学 |
 | **A-006** | 不删除·只冻结/归档 | 铁律 #2 |

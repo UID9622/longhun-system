@@ -56,7 +56,7 @@ DNA(v∞): `#龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-TOTAL-GOAL-v1
 
 | 中文 | English | 说明 |
 |:---|:---|:---|
-| 龍魂 | Dragon Soul | 文化主权AI系统，不可简化为 Dragon/Long |
+| 龍魂 | LongHun | 文化主权AI系统，不可简化为 Dragon/Long |
 | 数据主权 | Data Sovereignty | 数据归谁管，谁说了算 |
 | 平台降级 | Platform Degradation | 平台从必需品降级为可选工具 |
 | CNSH | Chinese Native Script Hub | 中文原生脚本语言，非英文翻译 |

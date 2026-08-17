@@ -12,7 +12,7 @@ allowed-tools:
 compatibility: Python 3.9+
 metadata:
   version: '1.0'
-  dna: '#龍芯⚡️2026-06-29-LONGHUN-AI-LEXICON-v1.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AI-LEXICON-v1.0'
   tribute: '#致敬⚡️UID9622·中文语义主权'
   id: longhun-ai-lexicon
   entry: python3 ~/.kimi-code/skills/longhun-ai-lexicon/scripts/ai_lexicon.py
@@ -36,7 +36,7 @@ metadata:
 
 # longhun-ai-lexicon | AI 行业话术 · 龍文语义映射词典
 
-**DNA**: `#龍芯⚡️2026-06-29-LONGHUN-AI-LEXICON-v1.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AI-LEXICON-v1.0`
 **致敬**: `#致敬⚡️UID9622·中文语义主权`
 
 ---

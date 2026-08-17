@@ -5,7 +5,7 @@ description: '龍魂Kimi集成 v5.2 — Kimi API接入+断路器+故障转移+�
 metadata:
   author: 龍魂体系·云端技能组
   version: 5.2.0
-  dna: '#龍芯⚡️2026-07-05-LONGHUN-KIMI-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-KIMI-v5.2'
   protocol: 君子協議 — 非對抗·非欺瞞·非竊取
   cnsh: true
   category: cloud
@@ -49,15 +49,15 @@ metadata:
 ## 二、DNA追溯
 
 ```
-#龍芯⚡️2026-07-05-LONGHUN-KIMI-v5.2
+#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-KIMI-v5.2
 ```
 
 **追溯鏈**：
 - 父節點：longhun-core-v5.0（龍魂核心）
 - 兄弟節點：longhun-cloud-nova, longhun-cloud-deepseek
 - 子節點：
-  - `#龍芯⚡️2026-07-05-LONGHUN-KIMI-CREATION-MEMORY-v1.0`（Kimi 創作記憶檔案）
-  - `#龍芯⚡️2026-07-03-LONGHUN-ARCHIVE-INTEGRATION-v1.0`（龍魂待整理歸檔）
+  - `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-KIMI-CREATION-MEMORY-v1.0`（Kimi 創作記憶檔案）
+  - `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`（龍魂待整理歸檔）
 - 應用場景：所有需要Kimi AI調用的龍魂任務
 
 ---
@@ -237,7 +237,7 @@ from scripts.Kimi集成器 import 集成模式處理器, 集成模式
 
 📄 `references/kimi_creation_memory.md`
 
-**DNA**: `#龍芯⚡️2026-07-05-LONGHUN-KIMI-CREATION-MEMORY-v1.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-KIMI-CREATION-MEMORY-v1.0`
 
 ### 檔案涵蓋內容
 
@@ -281,5 +281,5 @@ from scripts.Kimi集成器 import 集成模式處理器, 集成模式
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：06-工具脚本（龍魂系统 API 接口完整实现）
-- **中央整合 DNA**：`#龍芯⚡️2026-07-03-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

@@ -443,7 +443,7 @@ DNA：
 存在 → exists
 属于 → in
 
-【龍魂专属 | Longhun Specific】
+【龍魂专属 | LongHun Specific】
 三色审计 → tri_color_audit
 DNA追溯 → dna_trace
 DNA登记 → dna_register
@@ -1077,7 +1077,7 @@ L4 - 扩展模块级（权重：20）：
 
 ```c
 // ═══════════════════════════════════════════
-// Longhun System | CNSH Compiled to C
+// LongHun System | CNSH Compiled to C
 // ═══════════════════════════════════════════
 // DNA Trace:#龍芯⚡️2026-02-21-USER-AUTH-v1.0
 // Confirm: #CONFIRM🌌9622-ONLY-ONCE🧬AUTH-001
@@ -1107,7 +1107,7 @@ typedef struct {
 } AuthResult;
 
 // Global Variables
-// LH = Longhun prefix
+// LH = LongHun prefix
 static void* LH_auth_cache = NULL;
 static void* SYS_failure_count = NULL;
 
@@ -1170,7 +1170,7 @@ AuthResult user_login(const char* username, const char* password) {
 
 // Entry Point
 int main() {
-    printf("Longhun User Authentication Module Started\n");
+    printf("LongHun User Authentication Module Started\n");
     printf("DNA:#龍芯⚡️2026-02-21-USER-AUTH-v1.0\n");
     
     // Test authentication

@@ -1,6 +1,6 @@
 # 龍魂·UID9622 专属驾驶协议 v1.0
 
-**DNA**:#龍芯⚡️2026-06-08-UID9622-EXCLUSIVE-PROTOCOL-FILE1-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-UID9622-EXCLUSIVE-PROTOCOL-FILE1-v1.0
 **CONFIRM**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 **SEAL**: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 
@@ -198,7 +198,7 @@ P2 级（基础优先级）
 
 | 项目 | 值 |
 |------|-----|
-| **DNA** |#龍芯⚡️2026-06-08-UID9622-EXCLUSIVE-PROTOCOL-v1.0 |
+| **DNA** |#龍芯⚡️丙午·丙申·庚申·亥时-UID9622-EXCLUSIVE-PROTOCOL-v1.0 |
 | **CONFIRM** | #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅ |
 | **SEAL** | #ZHUGEXIN⚇️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅ |
 | **状态** | 🟢 已生效·永恒承诺 |

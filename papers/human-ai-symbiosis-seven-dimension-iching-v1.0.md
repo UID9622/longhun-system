@@ -9,7 +9,7 @@
 
 **DNA Traceability**: `#龍芯⚡️丙午·壬申·甲辰·戊辰时·䷜-学术论文-人机共生七维推演-v1.0-98af301c`
 
-**Author**: 💎 龙芯北辰｜UID9622 (Zhuge Xin / Lucky)
+**Author**: 💎 龍芯北辰｜UID9622 (Zhuge Xin / Lucky)
 
 **Institutional Affiliation**: Independent Researcher, DragonSoul System Architect
 
@@ -1227,7 +1227,7 @@ This work was developed through extensive collaboration with the multi-agent per
 
 ## Author Biography
 
-**Zhuge Xin (诸葛鑫)**, known as Lucky or 龙芯北辰, is a Chinese veteran and independent researcher in AI ethics and governance. He is the architect of the DragonSoul System (龙魂系统), a locally-deployable, Chinese-native AI infrastructure focused on data sovereignty, ethical transparency, and cultural grounding. His work integrates classical Chinese philosophy with modern AI engineering, aiming to develop culturally-responsive alternatives to Western AI paradigms. He can be contacted at fireroot.lad@outlook.com.
+**Zhuge Xin (诸葛鑫)**, known as Lucky or 龍芯北辰, is a Chinese veteran and independent researcher in AI ethics and governance. He is the architect of the DragonSoul System (龍魂系统), a locally-deployable, Chinese-native AI infrastructure focused on data sovereignty, ethical transparency, and cultural grounding. His work integrates classical Chinese philosophy with modern AI engineering, aiming to develop culturally-responsive alternatives to Western AI paradigms. He can be contacted at fireroot.lad@outlook.com.
 
 ---
 

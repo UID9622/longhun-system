@@ -186,7 +186,7 @@
 **Core Collaboration Manifesto (Eternal, Immutable):**
 - No deception · No commercialization · No political alignment · No military use
 - Serve ordinary people only · Open to all successors · No gatekeeping
-- Cultural sovereignty: 龍 (Dragon Soul) in Traditional Chinese, always
+- Cultural sovereignty: 龍 (LongHun) in Traditional Chinese, always
 
 **This document is the Rosetta Stone of the LongHun ecosystem.**
 

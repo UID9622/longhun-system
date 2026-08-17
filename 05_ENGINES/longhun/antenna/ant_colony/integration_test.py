@@ -7,7 +7,7 @@
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
-龙魂蚁群引擎 v2.0 · 综合集成测试
+龍魂蚁群引擎 v2.0 · 综合集成测试
 模拟论文中5个场景 + 不动点融合验证
 
 DNA: #龍芯⚡️丙午·辛未·ANT-INTEGRATION-TEST-v2.0
@@ -96,7 +96,7 @@ def scenario_2_alert_escalation():
     bus.send(s2)
     
     print("\n[Step 4] 验证ALERT到达关键模块:")
-    critical = ["P05-上帝之眼", "P72-龙盾", "P12-屈原", "P02-宝宝"]
+    critical = ["P05-上帝之眼", "P72-龍盾", "P12-屈原", "P02-宝宝"]
     total = 0
     for m in critical:
         count = len(bus.peek(m, PheromoneType.ALERT))
@@ -287,7 +287,7 @@ def scenario_7_emergence_quality():
 
 def main():
     print("=" * 70)
-    print("🐜🐜🐜 龙魂蚁群引擎 v2.0 · 综合集成测试 🐜🐜🐜")
+    print("🐜🐜🐜 龍魂蚁群引擎 v2.0 · 综合集成测试 🐜🐜🐜")
     print("=" * 70)
     print("\n测试场景（5个论文场景 + 2个v2.0融合场景）:")
     print("  🟢 场景1: 正常任务执行（工蚁群协作）")
@@ -327,7 +327,7 @@ def main():
     print(f"\n总计: {passed}/{len(results)} 场景通过")
     
     if passed == len(results):
-        print("\n🎉 全部7个场景通过！龙魂蚁群引擎 v2.0 集成验证完成！")
+        print("\n🎉 全部7个场景通过！龍魂蚁群引擎 v2.0 集成验证完成！")
         print("🧬 DNA: #龍芯⚡️丙午·辛未·LACA-v2.0-ALL-PASS")
         return 0
     else:

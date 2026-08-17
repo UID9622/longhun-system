@@ -282,7 +282,7 @@ SKILLS = [
         "desc_short": "龍魂·CNSH代码翻译引擎 v1.0。中文神经符号混合语言·AST解析·Python互译。",
         "desc_full": "龍魂·CNSH代码翻译引擎 v1.0。中华自主编程语言CNSH: 中文→Python翻译+AST解析+语法高亮+错误诊断+命名规范(繁体「龍」永存)。当用户说CNSH、翻译代码、中文编程、CNSH语法——任一种说法都触发。语库: LANGUAGE·CULTURE。",
         "entry": "python3 ~/longhun-system/bin/lh_cnsh_translate.py",
-        "triggers_kw": ["CNSH", "中文编程", "翻译代码", "中文代码", "AST", "语法", "神经符号", "命名规范", "繁体龙", "语言翻译"],
+        "triggers_kw": ["CNSH", "中文编程", "翻译代码", "中文代码", "AST", "语法", "神经符号", "命名规范", "繁体龍", "语言翻译"],
         "triggers_nl": ["翻译这段CNSH代码", "CNSH怎么写", "中文编程翻译", "CNSH语法是什么", "帮我翻译成Python", "AST解析下"],
         "tribute": "致敬⚡️UID9622·CNSH·中国人自己的编程语言·繁体龍永存",
     },

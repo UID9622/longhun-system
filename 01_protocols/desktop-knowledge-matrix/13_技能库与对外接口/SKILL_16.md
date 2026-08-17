@@ -9,7 +9,7 @@ metadata:
   version: '5.2'
   language: python
   author: 龍芯 DevOps Team
-  dna: '#龍芯⚡️2026-06-19-LONGHUN-DEPLOY-READY-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-READY-v5.2'
   keywords:
   - deployment
   - devops
@@ -33,7 +33,7 @@ metadata:
 ---
 # C10 - longhun-deployment-ready (龍魂部署就绪系统)
 
-> **DNA**: `#龍芯⚡️2026-06-19-LONGHUN-DEPLOY-READY-v5.2`  
+> **DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-READY-v5.2`  
 > **Version**: 5.2 | **Category**: Cloud/DevOps | **Level**: Intermediate
 
 ---
@@ -52,7 +52,7 @@ metadata:
 | **Target Platform** | Linux / macOS / Windows (WSL) |
 | **Author** | 龍芯 DevOps Team |
 | **License** | MIT |
-| **DNA** | `#龍芯⚡️2026-06-19-LONGHUN-DEPLOY-READY-v5.2` |
+| **DNA** | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-READY-v5.2` |
 
 ### Description
 
@@ -204,7 +204,7 @@ filepath = checker.save_report(report)
 ```json
 {
   "meta": {
-    "dna": "#龍芯⚡️2026-06-19-LONGHUN-DEPLOY-READY-v5.2",
+    "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-READY-v5.2",
     "version": "5.2",
     "checklist_version": "2026-06-10",
     "timestamp": "2026-06-19T12:00:00",
@@ -468,7 +468,7 @@ deploy:
   本地部署: docs/LOCAL_DEPLOYMENT_GUIDE.md
 
 ══════════════════════════════════════════════════════════════
-  DNA: #龍芯⚡️2026-06-19-LONGHUN-DEPLOY-READY-v5.2
+  DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-READY-v5.2
 ══════════════════════════════════════════════════════════════
 ```
 

@@ -379,7 +379,7 @@ AI Sculpt Assistant 不直接操作底层文件。
 ### 11.2 AI 生成流程
 ```mermaid
 flowchart TD
-    A["用户自然语言<br>把龙角做高一点"] --> B["AI Sculpt Assistant"]
+    A["用户自然语言<br>把龍角做高一点"] --> B["AI Sculpt Assistant"]
     B --> C["生成 CNSH 指令草案"]
     C --> D["Local Shield 审计"]
     D --> E{"三色"}
@@ -389,7 +389,7 @@ flowchart TD
 ```
 ### 11.3 示例
 ```plain text
-用户：把龙角做高一点，力度别太大。
+用户：把龍角做高一点，力度别太大。
 
 AI 生成：
 @SCULPT:RUN

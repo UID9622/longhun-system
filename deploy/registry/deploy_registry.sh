@@ -133,7 +133,7 @@ docker run -d \
   -v "$BASE_DIR/03-sovereign/config.yml:/etc/docker/registry/config.yml:ro" \
   "${TLS_VOL[@]+"${TLS_VOL[@]}"}" \
   -e REGISTRY_AUTH=htpasswd \
-  -e REGISTRY_AUTH_HTPASSWD_REALM="Longhun Registry Realm" \
+  -e REGISTRY_AUTH_HTPASSWD_REALM="LongHun Registry Realm" \
   -e REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd \
   "${TLS_ENV[@]+"${TLS_ENV[@]}"}" \
   registry:2
@@ -142,7 +142,7 @@ echo "[7/8] 容器已启动（--restart=always，开机自启）"
 # ---------- systemd 兜底单元（双保险：即使 docker 未设自启也能拉起） ----------
 cat > "$BASE_DIR/03-sovereign/longhun-registry.service" <<UNIT
 [Unit]
-Description=Longhun Private Docker Registry
+Description=LongHun Private Docker Registry
 After=docker.service
 Requires=docker.service
 [Service]

@@ -130,7 +130,7 @@ def check_persona_scheduler():
 def check_api_services():
     """检查所有 API 服务端口 ⭐ 新增"""
     ports = {
-        8000: "Longhun API",
+        8000: "LongHun API",
         9001: "Persona API",
         10088: "OpenHub REST"
     }

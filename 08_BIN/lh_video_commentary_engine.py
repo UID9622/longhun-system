@@ -165,7 +165,7 @@ def tongxinyi_terms(topic: str) -> List[Dict[str, str]]:
     # 根据主题动态匹配，通用兜底
     base_terms = [
         {"zh": "数据主权", "en": "Data Sovereignty", "note": "人民数据归人民"},
-        {"zh": "龍魂", "en": "Dragon Soul", "note": "文化主权与自主可控"},
+        {"zh": "龍魂", "en": "LongHun", "note": "文化主权与自主可控"},
         {"zh": "通心译", "en": "Tongxin Translation", "note": "中文语义优先的双语映射"},
         {"zh": "DNA追溯", "en": "DNA Traceability", "note": "来源可查、去向可追"},
     ]

@@ -100,8 +100,8 @@ class SemanticShield:
 
         # 检查 Dragon vs 龍
         if re.search(r'\bDragon\b', text, re.IGNORECASE):
-            if "Dragon Soul" in text or "Dragon soul" in text:
-                issues.append("应该用 '龍魂' 而不是 'Dragon Soul'")
+            if "LongHun" in text or "LongHun" in text:
+                issues.append("应该用 '龍魂' 而不是 'LongHun'")
 
         # 检查 Protocol vs 协议
         if re.search(r'Protocol(?!_)', text) and "协议" not in text:

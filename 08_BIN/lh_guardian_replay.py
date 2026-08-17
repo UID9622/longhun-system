@@ -10,7 +10,7 @@ DNA: #龍芯⚡️丙午·甲申·壬子·亥时·䷗复-GUARDIAN-REPLAY-v1.0
   P05 上帝之眼  — 三色审计·全引擎扫描
   P06 数学大师  — 数字根验证·权重校准
   P12 屈原      — 六誓底线·价值观校验
-  P72 龙盾      — 熔断状态·威胁检测
+  P72 龍盾      — 熔断状态·威胁检测
   P77 黑天使    — 安全扫描·漏洞检测
 
 复盘频率:
@@ -196,11 +196,11 @@ def p12_bottom_line(mode: ReplayMode) -> ReplayResult:
     return result
 
 
-# ═══ P72 龙盾·熔断状态 ═══
+# ═══ P72 龍盾·熔断状态 ═══
 def p72_circuit_breaker(mode: ReplayMode) -> ReplayResult:
-    """龙盾：熔断状态检查"""
+    """龍盾：熔断状态检查"""
     start = time.time()
-    result = ReplayResult(guardian="P72-龙盾", status="PASS", score=100)
+    result = ReplayResult(guardian="P72-龍盾", status="PASS", score=100)
 
     # 检查熔断日志
     meltdown_log = PROJECT_ROOT / "logs" / "meltdown.log"

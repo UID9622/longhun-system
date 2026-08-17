@@ -4,10 +4,10 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
-龙魂永世唯一ID生成器 | 完整系统
-版本DNA: #ZHUGEXIN⚡2025-龙魂ID生成器-V3.0-COMPLETE
+龍魂永世唯一ID生成器 | 完整系统
+版本DNA: #ZHUGEXIN⚡2025-龍魂ID生成器-V3.0-COMPLETE
 创建者: 💎 Lucky | UID9622
-镜像来源: https://gitee.com/uid9622/longhun-identity-system/raw/master/龙魂ID生成器.py
+镜像来源: https://gitee.com/uid9622/longhun-identity-system/raw/master/龍魂ID生成器.py
 """
 
 import hashlib
@@ -23,7 +23,7 @@ from core.甲骨文编码器 import 甲骨文编码器
 from core.全球身份互认系统 import 全球身份互认系统
 
 
-class 龙魂永世唯一ID生成器:
+class 龍魂永世唯一ID生成器:
     """整合生物特征、64卦、甲骨文的完整ID生成系统"""
 
     def __init__(self):
@@ -32,12 +32,12 @@ class 龙魂永世唯一ID生成器:
         self.甲骨文编码器 = 甲骨文编码器()
         self.全球互认系统 = 全球身份互认系统()
 
-    def 生成龙魂ID(self,
+    def 生成龍魂ID(self,
                    身份证号: str,
                    国家代码: str = "CN",
                    盐值: str = "UID9622",
                    使用示例模式: bool = True) -> dict[str, Any]:
-        print("🐉 开始生成龙魂永世唯一ID...")
+        print("🐉 开始生成龍魂永世唯一ID...")
 
         if 使用示例模式:
             print("  [1/5] 生成模拟生物特征...")
@@ -55,18 +55,18 @@ class 龙魂永世唯一ID生成器:
         print("  [3/5] 生成甲骨文编码...")
         甲骨文码 = self.甲骨文编码器.编码身份哈希(卦象结果['身份哈希'], 8)
 
-        print("  [4/5] 生成龙魂ID...")
-        龙魂ID = f"LONGHUN-{国家代码}-{卦象结果['卦象ID']}-{甲骨文码}-{卦象结果['身份哈希'][:8].upper()}"
+        print("  [4/5] 生成龍魂ID...")
+        龍魂ID = f"LONGHUN-{国家代码}-{卦象结果['卦象ID']}-{甲骨文码}-{卦象结果['身份哈希'][:8].upper()}"
 
         print("  [5/5] 生成校验码...")
-        校验输入 = f"{龙魂ID}|{盐值}"
+        校验输入 = f"{龍魂ID}|{盐值}"
         校验码 = hashlib.sha256(校验输入.encode()).hexdigest()[:8].upper()
 
-        完整ID = f"{龙魂ID}-{校验码}"
+        完整ID = f"{龍魂ID}-{校验码}"
         全球互认 = self.全球互认系统.生成全球互认ID(完整ID, 国家代码)
 
         结果 = {
-            "龙魂ID": 完整ID,
+            "龍魂ID": 完整ID,
             "生成时间": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "国家代码": 国家代码,
             "卦象序列": 卦象结果['卦象序列'],
@@ -77,22 +77,22 @@ class 龙魂永世唯一ID生成器:
             "全球互认ID": 全球互认.get('全球互认ID', ''),
             "本地身份系统": 全球互认.get('本地身份系统', ''),
             "版本": "v3.0-乾坤屯蒙",
-            "版本DNA": "#ZHUGEXIN⚡2025-龙魂ID-V3.0-COMPLETE",
+            "版本DNA": "#ZHUGEXIN⚡2025-龍魂ID-V3.0-COMPLETE",
             "创建者": "💎 Lucky | UID9622"
         }
 
-        print("✅ 龙魂ID生成完成！")
+        print("✅ 龍魂ID生成完成！")
         return 结果
 
-    def 验证龙魂ID(self, 待验证ID: str, 身份证号: str, 盐值: str = "UID9622") -> dict[str, Any]:
-        重新生成 = self.生成龙魂ID(身份证号, 使用示例模式=True)
+    def 验证龍魂ID(self, 待验证ID: str, 身份证号: str, 盐值: str = "UID9622") -> dict[str, Any]:
+        重新生成 = self.生成龍魂ID(身份证号, 使用示例模式=True)
         ID部分 = 待验证ID.rsplit('-', 1)[0]
         原始校验码 = 待验证ID.rsplit('-', 1)[1]
 
         新校验输入 = f"{ID部分}|{盐值}"
         新校验码 = hashlib.sha256(新校验输入.encode()).hexdigest()[:8].upper()
 
-        验证通过 = (重新生成['龙魂ID'] == 待验证ID) or (新校验码 == 原始校验码)
+        验证通过 = (重新生成['龍魂ID'] == 待验证ID) or (新校验码 == 原始校验码)
 
         return {
             "验证状态": "✅ 通过" if 验证通过 else "❌ 失败",
@@ -101,29 +101,29 @@ class 龙魂永世唯一ID生成器:
             "验证时间": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }
 
-    def 导出证书(self, 龙魂ID信息: dict[str, Any], 输出路径: str | None = None):
+    def 导出证书(self, 龍魂ID信息: dict[str, Any], 输出路径: str | None = None):
         if 输出路径 is None:
             输出目录 = Path.cwd() / "output"
             输出目录.mkdir(parents=True, exist_ok=True)
-            输出路径 = 输出目录 / "龙魂数字身份证书.json"
+            输出路径 = 输出目录 / "龍魂数字身份证书.json"
 
         证书内容 = {
             "证书版本": "v3.0",
-            "证书类型": "龙魂永世唯一数字身份",
-            "发证机构": "龙魂数字身份系统",
-            "发证时间": 龙魂ID信息['生成时间'],
+            "证书类型": "龍魂永世唯一数字身份",
+            "发证机构": "龍魂数字身份系统",
+            "发证时间": 龍魂ID信息['生成时间'],
             "身份信息": {
-                "龙魂ID": 龙魂ID信息['龙魂ID'],
-                "全球互认ID": 龙魂ID信息.get('全球互认ID', ''),
-                "国家代码": 龙魂ID信息['国家代码'],
-                "本地身份系统": 龙魂ID信息.get('本地身份系统', ''),
-                "身份指纹": 龙魂ID信息['身份指纹'],
-                "校验码": 龙魂ID信息['校验码']
+                "龍魂ID": 龍魂ID信息['龍魂ID'],
+                "全球互认ID": 龍魂ID信息.get('全球互认ID', ''),
+                "国家代码": 龍魂ID信息['国家代码'],
+                "本地身份系统": 龍魂ID信息.get('本地身份系统', ''),
+                "身份指纹": 龍魂ID信息['身份指纹'],
+                "校验码": 龍魂ID信息['校验码']
             },
             "文化编码": {
-                "易经卦象": 龙魂ID信息['卦象序列'],
-                "卦象ID": 龙魂ID信息['卦象ID'],
-                "甲骨文编码": 龙魂ID信息['甲骨文编码']
+                "易经卦象": 龍魂ID信息['卦象序列'],
+                "卦象ID": 龍魂ID信息['卦象ID'],
+                "甲骨文编码": 龍魂ID信息['甲骨文编码']
             },
             "安全特性": {
                 "算法": "生物特征 + 64卦 + 甲骨文 + SHA-256 + SM3",
@@ -137,8 +137,8 @@ class 龙魂永世唯一ID生成器:
                 "网络安全法": "符合（本地生成，不上传）"
             },
             "版本信息": {
-                "系统版本": 龙魂ID信息['版本'],
-                "版本DNA": 龙魂ID信息['版本DNA'],
+                "系统版本": 龍魂ID信息['版本'],
+                "版本DNA": 龍魂ID信息['版本DNA'],
                 "开源协议": "木兰宽松许可证 v2.0 (Mulan PSL v2)",
                 "创建者": "💎 Lucky | UID9622"
             }
@@ -152,18 +152,18 @@ class 龙魂永世唯一ID生成器:
         文本路径 = str(输出路径).replace('.json', '.txt')
         with open(文本路径, 'w', encoding='utf-8') as f:
             f.write("=" * 70 + "\n")
-            f.write("🐉 龙魂永世唯一数字身份证书\n")
+            f.write("🐉 龍魂永世唯一数字身份证书\n")
             f.write("=" * 70 + "\n\n")
-            f.write(f"龙魂ID: {龙魂ID信息['龙魂ID']}\n\n")
-            f.write(f"全球互认ID: {龙魂ID信息.get('全球互认ID', '')}\n\n")
-            f.write(f"国家代码: {龙魂ID信息['国家代码']}\n")
-            f.write(f"本地身份系统: {龙魂ID信息.get('本地身份系统', '')}\n\n")
-            f.write(f"易经卦象: {' → '.join(龙魂ID信息['卦象序列'])}\n")
-            f.write(f"甲骨文编码: {龙魂ID信息['甲骨文编码']}\n\n")
-            f.write(f"生成时间: {龙魂ID信息['生成时间']}\n")
-            f.write(f"创建者: {龙魂ID信息['创建者']}\n")
-            f.write(f"版本: {龙魂ID信息['版本']}\n")
-            f.write(f"版本DNA: {龙魂ID信息['版本DNA']}\n")
+            f.write(f"龍魂ID: {龍魂ID信息['龍魂ID']}\n\n")
+            f.write(f"全球互认ID: {龍魂ID信息.get('全球互认ID', '')}\n\n")
+            f.write(f"国家代码: {龍魂ID信息['国家代码']}\n")
+            f.write(f"本地身份系统: {龍魂ID信息.get('本地身份系统', '')}\n\n")
+            f.write(f"易经卦象: {' → '.join(龍魂ID信息['卦象序列'])}\n")
+            f.write(f"甲骨文编码: {龍魂ID信息['甲骨文编码']}\n\n")
+            f.write(f"生成时间: {龍魂ID信息['生成时间']}\n")
+            f.write(f"创建者: {龍魂ID信息['创建者']}\n")
+            f.write(f"版本: {龍魂ID信息['版本']}\n")
+            f.write(f"版本DNA: {龍魂ID信息['版本DNA']}\n")
             f.write("\n" + "=" * 70 + "\n")
             f.write("法律合规: 符合《个人信息保护法》《密码法》《网络安全法》\n")
             f.write("开源协议: 木兰宽松许可证 v2.0 (Mulan PSL v2)\n")
@@ -173,10 +173,10 @@ class 龙魂永世唯一ID生成器:
 
 
 def 主程序():
-    生成器 = 龙魂永世唯一ID生成器()
+    生成器 = 龍魂永世唯一ID生成器()
 
     print("\n" + "=" * 70)
-    print("🐉 龙魂永世唯一身份系统 v3.0")
+    print("🐉 龍魂永世唯一身份系统 v3.0")
     print("   64卦×甲骨文×密码学 | 全球身份互认 | 木兰协议")
     print("=" * 70)
     print("\n模式选择:")
@@ -187,21 +187,21 @@ def 主程序():
     选择 = input("请选择模式 (1/2/3): ").strip()
 
     if 选择 == "1":
-        print("\n--- 生成新龙魂ID ---\n")
+        print("\n--- 生成新龍魂ID ---\n")
         身份证号 = input("请输入身份证号: ").strip()
         国家代码 = input("请输入国家代码 (默认CN): ").strip() or "CN"
         if not 身份证号:
             print("❌ 身份证号不能为空")
             return
-        print("\n正在生成龙魂ID...\n")
-        结果 = 生成器.生成龙魂ID(身份证号=身份证号, 国家代码=国家代码, 使用示例模式=True)
+        print("\n正在生成龍魂ID...\n")
+        结果 = 生成器.生成龍魂ID(身份证号=身份证号, 国家代码=国家代码, 使用示例模式=True)
         if "错误" in 结果:
             print(f"❌ {结果['错误']}")
             return
         print("\n" + "=" * 70)
-        print("🐉 龙魂永世唯一ID 生成结果")
+        print("🐉 龍魂永世唯一ID 生成结果")
         print("=" * 70)
-        print(f"\n龙魂ID:\n  {结果['龙魂ID']}")
+        print(f"\n龍魂ID:\n  {结果['龍魂ID']}")
         print(f"\n全球互认ID:\n  {结果.get('全球互认ID', '')}")
         print(f"\n易经卦象:\n  {' → '.join(结果['卦象序列'])}")
         print(f"\n甲骨文编码:\n  {结果['甲骨文编码']}")
@@ -214,13 +214,13 @@ def 主程序():
             print("\n✅ 证书导出完成！")
 
     elif 选择 == "2":
-        print("\n--- 验证龙魂ID ---\n")
-        待验证ID = input("请输入龙魂ID: ").strip()
+        print("\n--- 验证龍魂ID ---\n")
+        待验证ID = input("请输入龍魂ID: ").strip()
         身份证号 = input("请输入身份证号: ").strip()
         if not 待验证ID or not 身份证号:
             print("❌ ID和身份证号不能为空")
             return
-        验证结果 = 生成器.验证龙魂ID(待验证ID, 身份证号)
+        验证结果 = 生成器.验证龍魂ID(待验证ID, 身份证号)
         print(f"\n验证结果: {验证结果['验证状态']}")
         print(f"验证时间: {验证结果['验证时间']}")
     else:

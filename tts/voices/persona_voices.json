@@ -236,8 +236,8 @@
       "emotion": "极简高效",
       "description": "极简腔，不多说一个字，验收型"
     },
-    "P72_龙盾": {
-      "name": "龙盾·熔断决策",
+    "P72_龍盾": {
+      "name": "龍盾·熔断决策",
       "layer": "守护",
       "ref_audio": "docs/reference_optimized.wav",
       "prompt_text": "检测到P0级威胁。立即执行全系统熔断。所有人停手。",

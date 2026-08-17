@@ -2,9 +2,9 @@
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼♀️❤️♾️-DEVICE-BIND-SOUL
 
-# 🐉 龙魂生态串联方案 · lh-station ↔ 进化引擎
+# 🐉 龍魂生态串联方案 · lh-station ↔ 进化引擎
 
-> 把 lh-station 从独立中转站升级为龙魂生态的核心入口。
+> 把 lh-station 从独立中转站升级为龍魂生态的核心入口。
 
 ## 现有能力全景
 

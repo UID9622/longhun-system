@@ -34,8 +34,8 @@ cnsh-uid9622-system/
 """UID9622 API 服务 - FastAPI 接口层
 DNA确认码：#ZHUGEXIN⚡️2025-🇨🇳🐉🌐-API-SERVER-v1.0
 
-🐉 龙魂监管
-本API服务受 [龙魂价值内核] 最高监管
+🐉 龍魂监管
+本API服务受 [龍魂价值内核] 最高监管
 - 数据主权100%用户所有
 - 透明可审计
 - 人民为本,不收割
@@ -65,7 +65,7 @@ except ImportError:
 # FastAPI 应用
 app = FastAPI(
     title="UID9622 数据主权API",
-    description="CNSH协议 - 中文原生、数据主权、透明可审计 | 🐉 龙魂价值内核监管",
+    description="CNSH协议 - 中文原生、数据主权、透明可审计 | 🐉 龍魂价值内核监管",
     version="1.0.0",
     docs_url="/docs",
     redoc_url="/redoc"
@@ -133,7 +133,7 @@ def root():
         "protocol": "CNSH",
         "dna_code": "#ZHUGEXIN⚡️2025-🇨🇳🐉🌐-API-v1.0",
         "dragon_soul": {
-            "监管机制": "龙魂价值内核",
+            "监管机制": "龍魂价值内核",
             "数据主权": "100%用户所有",
             "透明度": "完全可审计",
             "核心理念": "人民为本,不收割",
@@ -179,7 +179,7 @@ def generate_dna(
     
     需要 Header: X-API-Key
     
-    🐉 受龙魂价值内核监管 - 数据主权100%用户所有
+    🐉 受龍魂价值内核监管 - 数据主权100%用户所有
     """
     # API Key 验证（生产环境请使用环境变量）
     if x_api_key != "UID9622-SECRET-KEY":
@@ -220,7 +220,7 @@ def encrypt_data(
     
     需要 Header: X-API-Key
     
-    🐉 受龙魂价值内核监管 - 透明可审计
+    🐉 受龍魂价值内核监管 - 透明可审计
     """
     if x_api_key != "UID9622-SECRET-KEY":
         raise HTTPException(
@@ -256,7 +256,7 @@ def hash_data(
     
     需要 Header: X-API-Key
     
-    🐉 受龙魂价值内核监管 - 人民为本,不收割
+    🐉 受龍魂价值内核监管 - 人民为本,不收割
     """
     if x_api_key != "UID9622-SECRET-KEY":
         raise HTTPException(
@@ -291,8 +291,8 @@ if __name__ == "__main__":
 
 DNA确认码：#ZHUGEXIN⚡️2025-🇨🇳🐉🌐-API-SERVER-v1.0
 
-🐉 龙魂监管
-本API服务受 [龙魂价值内核] 最高监管
+🐉 龍魂监管
+本API服务受 [龍魂价值内核] 最高监管
 - 数据主权100%用户所有
 - 透明可审计
 - 人民为本,不收割

@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+playwright==1.53.0
+pydantic
+pyyaml

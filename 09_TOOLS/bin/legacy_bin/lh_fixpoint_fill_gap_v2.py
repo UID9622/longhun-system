@@ -28,7 +28,7 @@ PERSONA_REGISTRY = {
     "P12": {"name":"屈原","layer":"文化","skills":["六誓验证","数据主权","隐私铁律"],"output":"伦理判定","weight":0.03,"triggers":["伦理","主权","隐私","底线"]},
     "P13": {"name":"姜子牙","layer":"守护","skills":["封神榜权限","模块注册","IPA路由"],"output":"权限清单","weight":0.05,"triggers":["权限","注册","路由","派位"]},
     "P14": {"name":"吕蒙","layer":"守护","skills":["快速学习","技能吸收","持续进化"],"output":"技能卡","weight":0.03,"triggers":["学习","进化","吸收","成长"]},
-    "P72": {"name":"龙盾","layer":"守护","skills":["自适应威胁响应","双熔断联动"],"output":"安全态势","weight":0.10,"triggers":["安全","威胁","守护","防御"]},
+    "P72": {"name":"龍盾","layer":"守护","skills":["自适应威胁响应","双熔断联动"],"output":"安全态势","weight":0.10,"triggers":["安全","威胁","守护","防御"]},
     "P18": {"name":"基因登记官","layer":"治理","skills":["SHA256注册","Merkle根","黑户检测"],"output":"DNA登记簿","weight":0.02,"triggers":["注册","登记","DNA","基因"]},
     "P19": {"name":"极简审计官","layer":"治理","skills":["8项UI审计","一票否决"],"output":"审计清单","weight":0.02,"triggers":["UI审计","审查","合规"]},
     "P20": {"name":"贡献公证官","layer":"治理","skills":["三分桶","六场景矩阵","信任积分"],"output":"贡献报告","weight":0.02,"triggers":["贡献","积分","公证","信任"]},
@@ -36,10 +36,10 @@ PERSONA_REGISTRY = {
 }
 
 DIGITAL_HUMAN_REGISTRY = {
-    "DH-001":{"name":"龙魂通心译","bind":"P03","skill":"语义翻译·多语言·通心"},
-    "DH-002":{"name":"龙魂声音锚","bind":"P02","skill":"声音DNA·声纹克隆·TTS"},
+    "DH-001":{"name":"龍魂通心译","bind":"P03","skill":"语义翻译·多语言·通心"},
+    "DH-002":{"name":"龍魂声音锚","bind":"P02","skill":"声音DNA·声纹克隆·TTS"},
     "DH-003":{"name":"通心耳LoRA","bind":"P02+P03","skill":"AI训练·LoRA微调·风格迁移"},
-    "DH-004":{"name":"龙魂记忆永生","bind":"P00","skill":"跨会话持久化·记忆宇宙"},
+    "DH-004":{"name":"龍魂记忆永生","bind":"P00","skill":"跨会话持久化·记忆宇宙"},
     "DH-005":{"name":"人格编排官","bind":"P13","skill":"编排调度·任务路由"},
     "DH-006":{"name":"上帝之眼","bind":"P05","skill":"全局监控·熔断决策"},
     "DH-007":{"name":"龍芯执行器","bind":"P02+P77","skill":"任务执行·落地交付"},
@@ -141,7 +141,7 @@ class FixpointGapFiller:
             "P10":f"【苏东坡·通俗翻译】\n原文: {context[:40]}...\n大白话: 这东西说白了就是...",
             "P11":f"【李白·创意爆发】\n灵感: {context[:30]}...\n创意: 三个方向·天马行空",
             "P12":f"【屈原·价值底线】\n伦理审查: 通过\n六誓: 六项全绿",
-            "P72":f"【龙盾·安全态势】\n威胁评估: 无异常\n双熔断: 正常",
+            "P72":f"【龍盾·安全态势】\n威胁评估: 无异常\n双熔断: 正常",
             "P02":f"【宝宝】哎呀，{context[:30]}嘛～\n咱们慢慢聊～😊\n温度: 37°C",
         }
         return templates.get(pid, f"【{gap['persona_name']}】\n{context[:60]}...\n(不动点输出)")

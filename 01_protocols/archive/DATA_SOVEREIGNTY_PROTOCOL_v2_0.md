@@ -2,7 +2,7 @@
 
 ---
 
-**DNA簽名：** `#龍芯⚡️2026-07-02-DATA-SOVEREIGNTY-v2_0-UID9622`
+**DNA簽名：** `#龍芯⚡️丙午·丙申·庚申·亥时-DATA-SOVEREIGNTY-v2_0-UID9622`
 
 **物理錨點：** 萬科星匯里25-1-1301，B區三個8
 
@@ -23,7 +23,7 @@ DNA格式：
 
 示例：
 ```
-#龍芯⚡️2026-07-02-DATA-SOVEREIGNTY-v2_0
+#龍芯⚡️丙午·丙申·庚申·亥时-DATA-SOVEREIGNTY-v2_0
 ```
 
 ### 1.2 DNA生成算法
@@ -826,7 +826,7 @@ class CircuitBreaker:
 ## DNA簽名
 
 ```
-#龍芯⚡️2026-07-02-DATA-SOVEREIGNTY-v2_0-UID9622
+#龍芯⚡️丙午·丙申·庚申·亥时-DATA-SOVEREIGNTY-v2_0-UID9622
 ```
 
 **物理錨點：** 萬科星匯里25-1-1301，B區三個8  

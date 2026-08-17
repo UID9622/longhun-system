@@ -721,7 +721,7 @@ class SmartSuggester:
 graph TB
     A[Lucky投喂内容] --> B[Ollama指令管家]
     B --> C[提取指令+DNA编号]
-    C --> D[龙魂价值观验证]
+    C --> D[龍魂价值观验证]
     D -->|通过| E[同步到Notion数据库]
     D -->|不通过| F[🚫阻止+耻辱记录]
     E --> G[124人格生态分配]
@@ -749,15 +749,15 @@ elif command['category'] == '技术类':
 # 记录到人格协作频率
 allocator.update_collaboration_count(persona)
 ```
-2. 与龙魂价值内核集成
+2. 与龍魂价值内核集成
 ```python
 # 所有指令自动接受价值观校验
 from dragon_soul import ValueChecker
 checker = ValueChecker(protocol_url="🐉 CNSH-P0 永恒龍魂嵌入协议 | 不可降级核心")
 
 if not checker.validate(command):
-    # 触发龙魂红线
-    raise ValueError("指令违反龙魂价值观")
+    # 触发龍魂红线
+    raise ValueError("指令违反龍魂价值观")
     # 自动记录耻辱
     checker.record_shame(command)
 ```
@@ -828,9 +828,9 @@ Ollama模型分析
 - 使用场景
 - 适用人格
 ```
-### 第三层：价值观验证（龙魂守护）
+### 第三层：价值观验证（龍魂守护）
 ```javascript
-龙魂协议检查 [^🐉 CNSH-P0 永恒龍魂嵌入协议 | 不可降级核心]
+龍魂协议检查 [^🐉 CNSH-P0 永恒龍魂嵌入协议 | 不可降级核心]
   ↓
 三重验证：
 - 诚心验证（不欺骗）
@@ -1512,7 +1512,7 @@ curl -H "Authorization: Bearer $NOTION_TOKEN" \
 ### 第三阶段：高级功能（本月）
 ---
 ## 🔐 安全与隐私
-龙魂价值观验证：
+龍魂价值观验证：
 所有指令在同步到Notion前，会经过🐉 CNSH-P0 永恒龍魂嵌入协议 | 不可降级核心验证：
 - 诚心验证（不欺骗）
 - 为民验证（服务人民）

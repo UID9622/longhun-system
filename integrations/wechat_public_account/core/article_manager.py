@@ -218,7 +218,7 @@ class ArticleManager:
         return path.read_text(encoding="utf-8")
 
     def generate_dna(self, action: str = "PUBLISH") -> str:
-        """Generate a Longhun DNA trace code."""
+        """Generate a LongHun DNA trace code."""
         now = datetime.utcnow().strftime("%Y%m%d%H%M%S")
         import hashlib
         import random

@@ -1,0 +1,5 @@
+# model-execution.yaml — L3 执行层：推理请求/流式响应/上下文管理
+# DNA: #龍芯⚡️丙午·丙申·庚申·巽为风-MODEL_EXECUTION-v1.1
+# 🔶 占位：v1.1 仅落地接口约定（见主文档 §3），详细字段规范待 v1.2 补全
+version: "1.1"
+status: "placeholder"

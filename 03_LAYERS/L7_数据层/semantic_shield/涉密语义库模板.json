@@ -10,7 +10,7 @@
     "note": "本文件为模板，真实项目代号应在私有层分配"
   },
   "technology_stack": [
-    {"real": "龙芯 CPU", "code": "北辰", "anchor": "北极星", "level": "L1"},
+    {"real": "龍芯 CPU", "code": "北辰", "anchor": "北极星", "level": "L1"},
     {"real": "鸿蒙 OS", "code": "洪荒", "anchor": "开天辟地", "level": "L1"},
     {"real": "鲲鹏芯片", "code": "北冥", "anchor": "庄子·逍遥游", "level": "L1"},
     {"real": "昇腾 AI 芯片", "code": "昆仑", "anchor": "万山之祖", "level": "L1"},
@@ -25,7 +25,7 @@
   ],
   "longhun_modules": [
     {"real": "龍魂系统", "code": "九州", "description": "中国代称"},
-    {"real": "CNSH 语言", "code": "龙文", "description": "中文原生脚本"},
+    {"real": "CNSH 语言", "code": "龍文", "description": "中文原生脚本"},
     {"real": "通心译", "code": "心桥", "description": "意图翻译层"},
     {"real": "DNA 追溯", "code": "血脉", "description": "追溯链"},
     {"real": "三色审计", "code": "三才", "description": "天地人"},

@@ -11,7 +11,7 @@
 
 """
 🐉 龍魂 10 Skill 自动化补全引擎
-Longhun 10 Skills Auto-Completion & Standardization Engine
+LongHun 10 Skills Auto-Completion & Standardization Engine
 
 DNA:#龍芯⚡️2026-06-07-SKILL-AUTO-COMPLETION-ENGINE-FILE5-v1.0
 功能: 自动检查·智能补全·签章验证·完整性报告

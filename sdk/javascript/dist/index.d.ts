@@ -1,5 +1,5 @@
 /**
- * 🐉 龙魂·三色审计 JS SDK - 数据模型
+ * 🐉 龍魂·三色审计 JS SDK - 数据模型
  * DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-JS-SDK-MODELS-V1.0-UID9622
  * License: MulanPSL v2
  */
@@ -54,7 +54,7 @@ declare class EvidenceChain {
 }
 
 /**
- * 🐉 龙魂·三色审计 JS SDK - 客户端
+ * 🐉 龍魂·三色审计 JS SDK - 客户端
  * DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-JS-SDK-CLIENT-V1.0-UID9622
  * License: MulanPSL v2
  */
@@ -82,7 +82,7 @@ declare class TricolorClient {
 }
 
 /**
- * 🐉 龙魂·三色审计 JS SDK - 异常定义
+ * 🐉 龍魂·三色审计 JS SDK - 异常定义
  * DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-JS-SDK-EXCEPTIONS-V1.0-UID9622
  * License: MulanPSL v2
  */

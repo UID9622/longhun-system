@@ -24,15 +24,15 @@ const resources = {
   zh: {
     translation: {
       "welcome": "欢迎来到UID9622",
-      "slogan": "龙的传人·为人民服务",
-      "core_values": "龙魂价值观"
+      "slogan": "龍的传人·为人民服务",
+      "core_values": "龍魂价值观"
     }
   },
   en: {
     translation: {
       "welcome": "Welcome to UID9622",
       "slogan": "Dragon's Descendant · Serve the People",
-      "core_values": "Longhun Values"
+      "core_values": "LongHun Values"
     }
   }
 };

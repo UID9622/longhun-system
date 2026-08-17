@@ -90,5 +90,5 @@ POST /api/v1/li/chat
 | auditor | 审计师·P05 | 审计/检查/合规/安全 |
 | coder | 架构师·P04 | 写代码/生成/脚本/实现 |
 | philosopher | 哲人·P11 | 卦/易经/哲理/推演 |
-| guardian | 龙盾·P72 | 熔断/威胁/安全事件 |
+| guardian | 龍盾·P72 | 熔断/威胁/安全事件 |
 | teacher | 导师·P02+P11 | 教我/教学/大白话/新手 |

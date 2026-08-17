@@ -472,14 +472,14 @@ class TerminologyDatabase:
              "安全术语"),
         ]
 
-        # ═══════ 龍魂专属术语 (Dragon Soul Exclusive) ═══════
+        # ═══════ 龍魂专属术语 (LongHun Exclusive) ═══════
         dragon_terms = [
             ("CNSH", "龍魂协议",
-             "The proprietary protocol of the Dragon Soul system — not just code, but a philosophy of digital existence",
+             "The proprietary protocol of the LongHun system — not just code, but a philosophy of digital existence",
              "龍魂体系的专有协议，不仅是代码规范，更是一种数字存在的哲学",
              "龍魂专属"),
             ("Dragon Core", "龍芯",
-             "The central processing unit of the Dragon Soul system, like the dragon's heart pumping qi through the entire network",
+             "The central processing unit of the LongHun system, like the dragon's heart pumping qi through the entire network",
              "龍魂体系的中央处理核心，如同龍的心脏，为整个网络泵送真气",
              "龍魂专属"),
             ("Soul Binding", "魂印",

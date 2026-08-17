@@ -9,7 +9,7 @@ B7 · 质量检查脑区 → P05 上帝之眼
 三色审计引擎：🟢通过 / 🟡警告 / 🔴拒绝
 对接现有三色审计体系 (cnsh_code_audit.py)。
 
-DNA: #龙芯⚡️丙午·丙申·丙辰·未时·需-BRAIN-B7-QUALITY-AUDITOR-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·未时·需-BRAIN-B7-QUALITY-AUDITOR-v1.0
 """
 
 import re

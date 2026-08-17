@@ -4,7 +4,7 @@
 Release: v4.1.1-security-hotfix
 Date: 2026-06-07
 Type: Security Patch
-DNA:#龍芯⚡️2026-06-07-SECURITY-HOTFIX-v4.1.1
+DNA:#龍芯⚡️丙午·丙申·庚申·亥时-SECURITY-HOTFIX-v4.1.1
 責任: UID9622 · 不免責
 ```
 
@@ -148,6 +148,6 @@ pip install -r requirements.txt
 
 ---
 
-DNA:#龍芯⚡️2026-06-07-SECURITY-HOTFIX-v4.1.1
+DNA:#龍芯⚡️丙午·丙申·庚申·亥时-SECURITY-HOTFIX-v4.1.1
 責任: UID9622 · 不免責
 天下無欺。🐉

@@ -468,9 +468,9 @@ async def messages_endpoint(req: Request):
     temperature = body.get("temperature", 0.7)
     stream = body.get("stream", False)
 
-    # 提示词库上下文注入：请求带 X-Longhun-Assistant 头(或 ?assistant=)时，
+    # 提示词库上下文注入：请求带 X-LongHun-Assistant 头(或 ?assistant=)时，
     # 自动把该助手的 Notion 提示词模板拼进 system，让 Claude 直接调用。
-    assistant_ctx = req.headers.get("X-Longhun-Assistant") or req.query_params.get("assistant")
+    assistant_ctx = req.headers.get("X-LongHun-Assistant") or req.query_params.get("assistant")
     if assistant_ctx:
         appendix = _prompt_appendix(assistant_ctx, req.query_params.get("prompt_keyword"))
         if appendix:

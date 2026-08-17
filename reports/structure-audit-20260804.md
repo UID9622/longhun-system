@@ -751,7 +751,7 @@
     "target": "portal/unified_entry"
   },
   {
-    "link": "龙魂日记本-iOS",
+    "link": "龍魂日记本-iOS",
     "target": "mobile/longhun-diary-ios"
   }
 ]
@@ -986,7 +986,7 @@
     "_work/repos/ai-truth-protocol/longhun-system/CNSH_备份_20260211/.claude.json",
     "_work/repos/longhun-system/_archive/cnsh-history/CNSH_备份_20260211/.claude.json",
     "data/training/home_absorb/loose_files/.claude.json",
-    "data/training/home_absorb/workspace/Desktop/龙魂系统-知识库/_archive/cnsh-history/CNSH_备份_20260211/.claude.json",
+    "data/training/home_absorb/workspace/Desktop/龍魂系统-知识库/_archive/cnsh-history/CNSH_备份_20260211/.claude.json",
     "data/training/home_absorb/knowledge/Obsidian/龍魂系統/_archive/cnsh-history/CNSH_备份_20260211/.claude.json",
     "data/sources/downloads_20260717_absorb/UID9622_脑子/CNSH 军人的编辑器/.claude.json"
   ],
@@ -994,7 +994,7 @@
     ".codebuddy/rules/archive/RULE-REGISTRY.local.jsonl",
     "_work/repos/longhun-system/02_rules/RULE-REGISTRY.local.jsonl",
     "data/training/home_absorb/workspace/Desktop/龍魂系统·统一知识矩阵/04_三色审计与决策/RULE-REGISTRY.local.jsonl",
-    "data/training/home_absorb/workspace/Desktop/龙魂系统-知识库/02_rules/RULE-REGISTRY.local.jsonl",
+    "data/training/home_absorb/workspace/Desktop/龍魂系统-知识库/02_rules/RULE-REGISTRY.local.jsonl",
     "data/training/home_absorb/workspace/Desktop/桌面项目箱/龍魂系統·統一知識矩陣/04_三色審計與決策/RULE-REGISTRY.local.jsonl",
     "data/training/home_absorb/knowledge/Obsidian/龍魂系統/02_rules/RULE-REGISTRY.local.jsonl"
   ],
@@ -1307,9 +1307,9 @@
     "cnsh/core/runtime_governance/venv_notion/lib/python3.14/site-packages/pip-26.1.1.dist-info/licenses/src/pip/_vendor/platformdirs/LICENSE",
     "cnsh/core/runtime_governance/venv_notion/lib/python3.14/site-packages/notion_client-3.1.0.dist-info/licenses/LICENSE",
     "cnsh/core/runtime_governance/venv_notion/lib/python3.14/site-packages/anyio-4.13.0.dist-info/licenses/LICENSE",
-    "data/training/home_absorb/workspace/Desktop/龙魂系统-知识库/_archive/cnsh-history/CNSH-整理版/LICENSE",
+    "data/training/home_absorb/workspace/Desktop/龍魂系统-知识库/_archive/cnsh-history/CNSH-整理版/LICENSE",
     "data/training/home_absorb/workspace/Desktop/桌面项目箱/龍魂黎曼猜想_投稿包/LICENSE",
-    "data/training/home_absorb/workspace/Desktop/桌面项目箱/打包待命/龙魂万年历-生态入口包/LICENSE",
+    "data/training/home_absorb/workspace/Desktop/桌面项目箱/打包待命/龍魂万年历-生态入口包/LICENSE",
     "data/training/home_absorb/knowledge/Obsidian/龍魂系統/_archive/cnsh-history/CNSH-整理版/LICENSE",
     "data/training/home_absorb/sources/longhun-anti-colonial/LICENSE",
     "data/training/home_absorb/sources/龍芯北辰UID9622签章/LICENSE",

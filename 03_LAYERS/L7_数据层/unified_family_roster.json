@@ -338,7 +338,7 @@
       ],
       "downstream": [
         "P03雯雯",
-        "P72龙盾",
+        "P72龍盾",
         "P12屈原"
       ],
       "collaborators": [],
@@ -565,12 +565,12 @@
       "signals_out": [],
       "gates_owned": [],
       "upstream": [
-        "P72龙盾",
+        "P72龍盾",
         "P05上帝之眼"
       ],
       "downstream": [
         "P05上帝之眼",
-        "P72龙盾"
+        "P72龍盾"
       ],
       "collaborators": [],
       "pipeline_stage": [
@@ -743,7 +743,7 @@
         "UID9622"
       ],
       "downstream": [
-        "P72龙盾",
+        "P72龍盾",
         "UID9622"
       ],
       "collaborators": [],
@@ -1144,7 +1144,7 @@
       ],
       "downstream": [
         "P05上帝之眼",
-        "P72龙盾"
+        "P72龍盾"
       ],
       "collaborators": [],
       "pipeline_stage": [
@@ -4124,7 +4124,7 @@
     },
     "PF-02": {
       "code": "PF-02",
-      "canonical_name": "GitHub 青龙",
+      "canonical_name": "GitHub 青龍",
       "who": "平台服务",
       "department": "平台",
       "employee_id": "UID9622-GITHUB-F02",
@@ -4146,13 +4146,13 @@
       "pipeline_stage": [],
       "status": "active",
       "contribution_score": 0.0,
-      "motto": "代码归仓，青龙守护",
+      "motto": "代码归仓，青龍守护",
       "notes": "",
       "is_in_routing": false,
       "isolated": false,
       "aliases": [
         "github",
-        "青龙",
+        "青龍",
         "qinglong"
       ],
       "role": "代码仓库·版本管理·开源发布",

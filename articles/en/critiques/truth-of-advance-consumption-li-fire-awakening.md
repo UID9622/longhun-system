@@ -100,11 +100,11 @@ How they keep you in debt:
 
 ---
 
-## What This Has to Do With the Longhun System
+## What This Has to Do With the LongHun System
 
-The Longhun System's economic principles (governed by P07 Guan Zhong) include:
+The LongHun System's economic principles (governed by P07 Guan Zhong) include:
 
-1. **Sufficiency over accumulation**: A system that needs infinite growth to function is a pyramid scheme. The Longhun System targets sufficiency.
+1. **Sufficiency over accumulation**: A system that needs infinite growth to function is a pyramid scheme. The LongHun System targets sufficiency.
 2. **Transparency as default**: All costs, all terms, all consequences — visible before commitment. No buried clauses. No fine print.
 3. **No dark patterns**: If a feature's profitability depends on user confusion, the feature is banned. Period.
 4. **Financial sovereignty**: Users own their economic data. Credit decisions are explainable. Debt obligations are understandable.

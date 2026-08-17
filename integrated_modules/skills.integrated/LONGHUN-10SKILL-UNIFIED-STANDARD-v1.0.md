@@ -201,7 +201,7 @@ for block in skill.all_blocks:
 | **标签** | {tags: list} |
 | **创建日期** | YYYY-MM-DD |
 | **最后更新** | YYYY-MM-DD |
-| **作者** | Longhun |
+| **作者** | LongHun |
 | **质量级别** | {production / stable / beta / experimental} |
 | **测试覆盖** | {X}% |
 | **可靠性评分** | {X/100} |

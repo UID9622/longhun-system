@@ -336,7 +336,7 @@
           "drawer_id": "L4-05",
           "name": "AUDIT",
           "aliases": ["审计"],
-          "keywords": ["审计", "校验", "稽核", "盘点", "对账", "龙账本"],
+          "keywords": ["审计", "校验", "稽核", "盘点", "对账", "龍账本"],
           "action": "调用审计引擎，生成报告",
           "triggers_decision_card": true,
           "dna_required": true,

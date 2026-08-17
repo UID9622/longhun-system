@@ -380,7 +380,7 @@ if __name__ == "__main__":
     # 模拟记录
     engine.log_behavior("晨跑", "身体", "公园3公里")
     engine.log_behavior("读书", "心智", "哲学类")
-    engine.log_behavior("泡茶", "休息", "龙井")
+    engine.log_behavior("泡茶", "休息", "龍井")
     engine.log_behavior("晨跑", "身体")
     engine.log_behavior("读书", "心智")
     

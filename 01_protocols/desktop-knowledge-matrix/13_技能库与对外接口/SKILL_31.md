@@ -12,7 +12,7 @@ metadata:
   display_name: 龍魂取证工具包
   version: '1.0'
   author: UID9622
-  dna: '#龍芯⚡️2026-07-03-LONGHUN-FORENSIC-TOOLKIT-v1.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FORENSIC-TOOLKIT-v1.0'
   category: local
   level: "L2"
   status: active

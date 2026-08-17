@@ -1,0 +1,121 @@
+#!/usr/bin/env bash
+# 🐉 龍魂 · DeepSeek Harness 终端命令封装
+# DNA: #龍芯⚡️丙午·丙申·辛酉·丙申·䷉履-DSH-CLI-v1.1-UID9622
+# 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+#
+# 用法:
+#   lh-dsh dsh-tunnel              # 建立 SSH 隧道
+#   lh-dsh dsh                     # 浏览器打开 DSH Web UI
+#   lh-dsh dsh-headless "prompt"   # headless 任务
+#   lh-dsh dsh-model <model>       # 切换模型
+#   lh-dsh dsh-status              # 查看容器状态
+#   lh-dsh dsh-logs                # 查看日志
+#   lh-dsh write "prompt"          # 多模型终端写作（自动故障转移）
+#   lh-dsh write-auto <file>       # 自动触发写作（保存文件/提交前）
+
+set -euo pipefail
+
+CONFIG_DIR="$HOME/.longhun/configs"
+KUNPENG_IP_FILE="$CONFIG_DIR/kunpeng-ip.txt"
+SSH_KEY_FILE="$CONFIG_DIR/kunpeng-ssh-key.txt"
+
+if [ ! -f "$KUNPENG_IP_FILE" ] || [ ! -f "$SSH_KEY_FILE" ]; then
+    echo "❌ 未找到鲲鹏配置，请先运行: ./scripts/local-mac-setup.sh <鲲鹏IP> [SSH密钥]"
+    exit 1
+fi
+
+KUNPENG_IP=$(cat "$KUNPENG_IP_FILE")
+SSH_KEY=$(cat "$SSH_KEY_FILE")
+
+cmd="${1:-}"
+shift || true
+
+case "$cmd" in
+    dsh-tunnel)
+        echo "🔄 建立 SSH 隧道到 $KUNPENG_IP ..."
+        echo "   端口映射: 2283→DSH Web, 2284→DSH Headless, 11434→Ollama"
+        exec ssh -N -L 2283:127.0.0.1:2283 -L 2284:127.0.0.1:2284 -L 11434:127.0.0.1:11434 -i "$SSH_KEY" "root@$KUNPENG_IP"
+        ;;
+    dsh)
+        echo "🌐 打开 DSH Web UI..."
+        exec open http://127.0.0.1:2283
+        ;;
+    dsh-headless)
+        prompt="${*:-}"
+        if [ -z "$prompt" ]; then
+            echo "❌ 用法: lh-dsh dsh-headless '你的提示词'"
+            exit 1
+        fi
+        echo "🧠 发送 headless 任务..."
+        curl -s -X POST http://127.0.0.1:2284/api/headless \
+            -H "Content-Type: application/json" \
+            -d "{\"prompt\":$(printf '%s' "$prompt" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))')}" || \
+            echo "❌ -headless 服务未就绪，请先运行 lh-dsh dsh-tunnel"
+        ;;
+    dsh-model)
+        model="${1:-deepseek-r1:14b}"
+        echo "🔄 切换模型为 $model ..."
+        ssh -i "$SSH_KEY" "root@$KUNPENG_IP" \
+            "sed -i 's/^OLLAMA_MODEL=.*/OLLAMA_MODEL=$model/' /opt/deepseek-harness-kunpeng/configs/dsh-kunpeng.env && \
+             cd /opt/deepseek-harness-kunpeng && docker compose down && docker compose up -d"
+        echo "✅ 模型已切换为 $model，容器重建中..."
+        ;;
+    dsh-status)
+        echo "📊 鲲鹏容器状态:"
+        ssh -i "$SSH_KEY" "root@$KUNPENG_IP" \
+            "cd /opt/deepseek-harness-kunpeng && docker compose ps"
+        ;;
+    dsh-logs)
+        service="${1:-dsh}"
+        echo "📜 $service 日志:"
+        ssh -i "$SSH_KEY" "root@$KUNPENG_IP" \
+            "cd /opt/deepseek-harness-kunpeng && docker compose logs --tail 50 $service"
+        ;;
+    write)
+        prompt="${*:-}"
+        if [ -z "$prompt" ]; then
+            echo "❌ 用法: lh-dsh write '帮我写一段...'"
+            exit 1
+        fi
+        echo "✍️  多模型终端写作..."
+        exec python3 "$HOME/longhun-system/05_ENGINES/lh_terminal_writer.py" ask "$prompt"
+        ;;
+    write-auto)
+        target="${1:-}"
+        if [ -z "$target" ]; then
+            echo "❌ 用法: lh-dsh write-auto <文件路径>"
+            exit 1
+        fi
+        echo "🤖 自动触发写作: $target"
+        exec python3 "$HOME/longhun-system/05_ENGINES/lh_terminal_writer.py" auto "$target"
+        ;;
+    shame-wall)
+        echo "📋 耻辱墙看板（最近10条装死记录）:"
+        exec python3 "$HOME/longhun-system/05_ENGINES/lh_terminal_writer.py" shame-wall "$@"
+        ;;
+    health)
+        echo "🧪 模型健康检查:"
+        exec python3 "$HOME/longhun-system/05_ENGINES/lh_terminal_writer.py" health
+        ;;
+    stats)
+        echo "📊 统计看板（调用次数/成功率/平均耗时）:"
+        exec python3 "$HOME/longhun-system/05_ENGINES/lh_terminal_writer.py" stats
+        ;;
+    *)
+        echo "🐉 龍魂 DeepSeek Harness 终端命令"
+        echo ""
+        echo "用法:"
+        echo "  lh-dsh dsh-tunnel              建立 SSH 隧道"
+        echo "  lh-dsh dsh                     打开 Web UI"
+        echo "  lh-dsh dsh-headless 'prompt'   headless 任务"
+        echo "  lh-dsh dsh-model <model>       切换模型 (默认 deepseek-r1:14b)"
+        echo "  lh-dsh dsh-status              容器状态"
+        echo "  lh-dsh dsh-logs [service]      查看日志"
+        echo "  lh-dsh write 'prompt'          多模型终端写作（自动故障转移）"
+        echo "  lh-dsh write-auto <file>       文件自动触发写作"
+        echo "  lh-dsh shame-wall [--limit N]  耻辱墙看板（最近10条装死记录）"
+        echo "  lh-dsh health                  模型健康检查（所有已启用模型）"
+        echo "  lh-dsh stats                   统计看板（次数/成功率/耗时）"
+        ;;
+esac

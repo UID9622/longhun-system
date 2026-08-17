@@ -4,7 +4,7 @@
 <!--#龍芯⚡️2026-08-04-MULTI-LICENSE-v1.1-LAYERED -->
 <!-- 分层许可: 工程代码 MulanPSL v2 · 数据归用户 -->
 
-# 龍魂多币种系统 · 分层许可证 / Longhun Multicurrency System License
+# 龍魂多币种系统 · 分层许可证 / LongHun Multicurrency System License
 
 **版权所有 © 2026 龍魂系统 (UID9622)**
 **GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F**
@@ -30,7 +30,7 @@
 
 ## English
 
-**Copyright © 2026 Longhun System (UID9622)** | **GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F**
+**Copyright © 2026 LongHun System (UID9622)** | **GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F**
 
 Layered License:
 - **Executable code** (.py/.sh): MulanPSL v2 (commercial use allowed with attribution)

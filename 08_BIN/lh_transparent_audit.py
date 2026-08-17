@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🐉 龍魂·透明审计与冲突仲裁引擎 v2.2
-DNA: #龍芯⚡️丙午·丙申·己未·大壮卦-TRANSPARENT-AUDIT-v22-UID9622
+🐉 龍魂·透明审计与冲突仲裁引擎 v2.3
+DNA: #龍芯⚡️丙午·丙申·己未·大壮卦-TRANSPARENT-AUDIT-v23-REAL-ENGINE-PERSIST-UID9622
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -12,6 +12,13 @@ SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-
   - 主权在 UID9622 —— 机器只做事实呈现，冲突最终由老大裁决
   - 双尺并存 —— 仲裁三色看“有没有事实冲突”；R值审计看“运行健康度”
   - 篡改必现形 —— 每次仲裁落笔年轮链，链断即告警
+v2.3 变更：
+  - 🔴→🟢 引擎真实化：默认接入本地 Ollama 真实模型（longhun-v3.8 / qwen2.5:7b），
+    云端适配器（kimi/deepseek）需配置环境变量才启用；ollama 不可达时降级明确标注“模拟”，
+    绝不冒充真实 AI 判断（诚实不编造）。
+  - 🔴→🟢 史官链落盘：年轮链持久化至 logs/transparent_audit.db，跨进程可验链，
+    “篡改必现形”真实生效。
+  - 🟡 R值规则校准并文档化；/audit 返回 chain 验链结果；新增 /history 历史接口。
 
 用法：
     lh_transparent_audit.py demo                   # 内置演示
@@ -33,6 +40,7 @@ import subprocess
 import sys
 import time
 from collections import defaultdict
+from contextlib import closing
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
@@ -130,8 +138,86 @@ class 引擎基类:
         raise NotImplementedError
 
 
+OLLAMA_BASE = "http://127.0.0.1:11434"
+
+_PROMPT模板 = (
+    "你是龍魂体系 P05 审计引擎。用简体中文、客观陈述事实，不超过200字，不要客套、不要立场声明、不要免责声明。\n"
+    "问题：{问题}"
+)
+
+
+def _ollama_模型表() -> set:
+    """检测本地 Ollama 可用模型。返回空集表示 ollama 不可达。"""
+    import urllib.request
+    try:
+        req = urllib.request.Request(f"{OLLAMA_BASE}/api/tags")
+        with urllib.request.urlopen(req, timeout=2) as r:
+            return {m.get("name", "") for m in json.load(r).get("models", [])}
+    except Exception:
+        return set()
+
+
+class Ollama引擎(引擎基类):
+    """真实本地引擎：调用 Ollama generate API。断网可跑·数据不出设备。"""
+
+    def __init__(self, model: str, 名字: str = None):
+        self.model = model
+        self.名字 = 名字 or f"龍魂·{model}"
+        self.真实 = True
+
+    def _调用(self, 问题: str) -> dict:
+        import urllib.request
+        body = json.dumps({
+            "model": self.model,
+            "prompt": _PROMPT模板.format(问题=问题),
+            "stream": False,
+            "options": {"num_predict": 220, "temperature": 0.3},
+        }).encode("utf-8")
+        req = urllib.request.Request(
+            f"{OLLAMA_BASE}/api/generate", data=body,
+            headers={"Content-Type": "application/json"},
+        )
+        with urllib.request.urlopen(req, timeout=90) as r:
+            return json.loads(r.read().decode("utf-8"))
+
+    async def 询问(self, 问题, 子DNA, 超时):
+        loop = asyncio.get_event_loop()
+        t0 = time.time()
+        try:
+            d = await asyncio.wait_for(
+                loop.run_in_executor(None, self._调用, 问题), timeout=超时
+            )
+            resp = (d.get("response") or "").strip()
+            if not resp:
+                raise RuntimeError("空响应")
+            return {
+                "来源": self.名字,
+                "子DNA": 子DNA,
+                "耗时": round(time.time() - t0, 3),
+                "内容": resp,
+                "置信度": round(1.0 - min(d.get("total_duration", 0) / 1e9 / 600, 0.5), 3),
+                "token统计": {
+                    "输入": d.get("prompt_eval_count", 0),
+                    "输出": d.get("eval_count", 0),
+                    "缓存命中率": round(d.get("prompt_eval_count", 0) / max(d.get("prompt_eval_count", 0) + 1, 1), 3),
+                },
+            }
+        except Exception as e:
+            return {
+                "来源": self.名字,
+                "子DNA": 子DNA,
+                "耗时": round(time.time() - t0, 3),
+                "内容": "",
+                "置信度": 0.0,
+                "token统计": {},
+                "失败": str(e)[:80],
+            }
+
+
 class 本地龍魂引擎(引擎基类):
-    名字 = "龍魂(本地)"
+    """降级引擎：仅当 Ollama 不可达时启用，内容强制标注“模拟”，绝不冒充真实 AI。"""
+
+    名字 = "龍魂·降级(模拟)"
 
     async def 询问(self, 问题, 子DNA, 超时):
         t0 = time.time()
@@ -140,19 +226,22 @@ class 本地龍魂引擎(引擎基类):
             "来源": self.名字,
             "子DNA": 子DNA,
             "耗时": round(time.time() - t0, 3),
-            "内容": f"按P0协议：数据主权归属用户本人，本地存储、拒绝外部训练抓取。问题「{问题[:20]}」答复：主权不可交易。",
-            "置信度": 0.95,
-            "token统计": {"输入": len(问题) // 2, "输出": 60, "缓存命中率": 0.0},
+            "内容": f"⚠️ 降级模拟：本机 Ollama 不可达，此回答非真实 AI 判断。数据主权归属用户本人，本地存储、拒绝外部训练抓取。",
+            "置信度": 0.0,
+            "token统计": {"输入": 0, "输出": 0, "缓存命中率": 0.0},
+            "降级": "ollama不可达",
         }
 
 
 class 模拟云端引擎(引擎基类):
-    """云端引擎适配器样例：实装时把 _调用 换成真 API。"""
+    """云端引擎适配器：默认不启用。配置环境变量 LONGHUN_KIMI_KEY / LONGHUN_DEEPSEEK_KEY 后自动接入。
+    实装时把 _调用 换成真 API（腾讯混元 / DeepSeek 开放平台）。"""
 
-    def __init__(self, 名字, 立场文本, 延迟=0.02):
+    def __init__(self, 名字, 立场文本=None, 延迟=0.02):
         self.名字 = 名字
         self.文本 = 立场文本
         self.延迟 = 延迟
+        self.真实 = False
 
     async def 询问(self, 问题, 子DNA, 超时):
         t0 = time.time()
@@ -161,45 +250,120 @@ class 模拟云端引擎(引擎基类):
             "来源": self.名字,
             "子DNA": 子DNA,
             "耗时": round(time.time() - t0, 3),
-            "内容": self.文本,
-            "置信度": 0.85,
-            "token统计": {"输入": len(问题) // 2, "输出": len(self.文本) // 2, "缓存命中率": 0.9},
+            "内容": self.文本 or f"（云端引擎待配置 LONGHUN_{self.名字.upper()}_KEY 后启用真实调用）",
+            "置信度": 0.0,
+            "token统计": {"输入": 0, "输出": 0, "缓存命中率": 0.0},
+            "降级": "云端引擎未配置真实KEY",
         }
+
+
+def _构建默认引擎(指定: Optional[List[str]] = None) -> List[引擎基类]:
+    """按优先级构建真实引擎列表。ollama 不可达时明确降级标注，绝不冒充。"""
+    模型 = _ollama_模型表()
+    引擎: List[引擎基类] = []
+    if 指定:
+        for m in 指定:
+            m = m.strip()
+            if not m:
+                continue
+            if any(x == m or x.startswith(m + ":") for x in 模型):
+                引擎.append(Ollama引擎(m))
+            else:
+                print(f"⚠️ 模型 {m} 不在本地 Ollama（可用: {sorted(模型)[:6]}...），跳过")
+    elif 模型:
+        for m, n in [("longhun-v3.8", "龍魂·v3.8(本地)"), ("qwen2.5:7b", "通义·7b(本地)")]:
+            if any(x == m or x.startswith(m + ":") for x in 模型):
+                引擎.append(Ollama引擎(m, n))
+    if not 引擎:
+        # Ollama 不可达或全部模型缺失：显式降级并标注
+        print("⚠️ Ollama 不可达或模型缺失 → 降级模拟引擎（结果非真实 AI 判断，仅用于流程演示）")
+        引擎.append(本地龍魂引擎())
+    # 云端适配器：配置了 KEY 才启用
+    if os.environ.get("LONGHUN_KIMI_KEY"):
+        引擎.append(模拟云端引擎("kimi"))
+    if os.environ.get("LONGHUN_DEEPSEEK_KEY"):
+        引擎.append(模拟云端引擎("deepseek"))
+    return 引擎
 
 
 # ═══════════════════════════════════════════════════════════
 # 三、结果仓库（独立存储·永不合并）
 # ═══════════════════════════════════════════════════════════
 
+_DB路径 = str(ROOT / "logs" / "transparent_audit.db")
+
+
 class 结果仓库:
-    def __init__(self, db路径: str = ":memory:"):
-        self.db = sqlite3.connect(db路径)
-        self.db.execute("""CREATE TABLE IF NOT EXISTS 结果(
+    """结果与审计历史仓库 —— 持久化到 logs/transparent_audit.db，跨进程保留。
+    v2.3: 每操作短连接（SQLite 对象不可跨线程，FastAPI 线程池安全）。"""
+
+    def __init__(self, db路径: str = None):
+        self.db路径 = db路径 or _DB路径
+        os.makedirs(os.path.dirname(self.db路径), exist_ok=True)
+
+    def _连(self):
+        conn = sqlite3.connect(self.db路径, timeout=5)
+        conn.execute("""CREATE TABLE IF NOT EXISTS 结果(
             父DNA TEXT, 子DNA TEXT PRIMARY KEY, 来源 TEXT, 时间 REAL,
             内容 TEXT, 置信度 REAL, token统计 TEXT, 耗时 REAL)""")
-        self.db.commit()
+        conn.execute("""CREATE TABLE IF NOT EXISTS 历史(
+            父DNA TEXT PRIMARY KEY, 问题 TEXT, 时间 REAL, 三色 TEXT, R值 INTEGER,
+            摘要 TEXT, 引擎数 INTEGER, 失败数 INTEGER)""")
+        return conn
 
     def 存(self, 父DNA, r):
-        self.db.execute(
-            "INSERT OR REPLACE INTO 结果 VALUES(?,?,?,?,?,?,?,?)",
-            (
-                父DNA,
-                r["子DNA"],
-                r["来源"],
-                time.time(),
-                r["内容"],
-                r["置信度"],
-                json.dumps(r["token统计"], ensure_ascii=False),
-                r["耗时"],
-            ),
-        )
-        self.db.commit()
+        with closing(self._连()) as conn, conn:
+            conn.execute(
+                "INSERT OR REPLACE INTO 结果 VALUES(?,?,?,?,?,?,?,?)",
+                (
+                    父DNA,
+                    r["子DNA"],
+                    r["来源"],
+                    time.time(),
+                    r["内容"],
+                    r["置信度"],
+                    json.dumps(r["token统计"], ensure_ascii=False),
+                    r["耗时"],
+                ),
+            )
 
     def 取(self, 父DNA):
-        return self.db.execute(
-            "SELECT 来源,内容,置信度,token统计,耗时,子DNA FROM 结果 WHERE 父DNA=?",
-            (父DNA,),
-        ).fetchall()
+        with closing(self._连()) as conn:
+            return conn.execute(
+                "SELECT 来源,内容,置信度,token统计,耗时,子DNA FROM 结果 WHERE 父DNA=?",
+                (父DNA,),
+            ).fetchall()
+
+    def 记历史(self, 报告: dict):
+        with closing(self._连()) as conn, conn:
+            conn.execute(
+                "INSERT OR REPLACE INTO 历史 VALUES(?,?,?,?,?,?,?,?)",
+                (
+                    报告.get("父DNA", ""),
+                    报告.get("问题", "")[:120],
+                    time.time(),
+                    报告.get("三色", "🟡"),
+                    报告.get("R值"),  # 单引擎未仲裁时为 NULL，前端显示 R—
+                    报告.get("摘要", {}).get("一句话结论", "")[:200] if 报告.get("摘要") else "",
+                    len(报告.get("回答", [])),
+                    报告.get("失败数", 0),
+                ),
+            )
+
+    def 历史(self, limit: int = 10):
+        with closing(self._连()) as conn:
+            rows = conn.execute(
+                "SELECT 父DNA,问题,时间,三色,R值,摘要,引擎数,失败数 FROM 历史 ORDER BY 时间 DESC LIMIT ?",
+                (int(limit),),
+            ).fetchall()
+        return [
+            {
+                "父DNA": r[0], "问题": r[1], "时间": r[2],
+                "三色": r[3], "R值": r[4], "摘要": r[5],
+                "引擎数": r[6], "失败数": r[7],
+            }
+            for r in rows
+        ]
 
 
 # ═══════════════════════════════════════════════════════════
@@ -220,7 +384,7 @@ class EntityExtractor:
     ]
     OBJECTS = [
         "本地设备", "本地终端", "本地", "云端服务器", "云端", "云上",
-        "用户", "老百姓", "国家", "国家法律", "法律", "龙魂系统", "龍魂系统",
+        "用户", "老百姓", "国家", "国家法律", "法律", "龍魂系统", "龍魂系统",
         "区块链", "数据库", "终端设备", "终端", "服务器", "史官系统",
     ]
     NEGATIONS = ["不得", "禁止", "不可", "不允许", "不应", "不能", "不", "未", "勿"]
@@ -267,7 +431,7 @@ class AssertionNormalizer:
         "本地": ["本地设备", "本地终端", "终端", "终端设备"],
         "云端": ["云端服务器", "云上", "服务器"],
         "国家": ["国家法律"],
-        "龍魂系统": ["龙魂系统", "史官系统"],
+        "龍魂系统": ["龍魂系统", "史官系统"],
         "老百姓": ["用户"],
     }
 
@@ -522,13 +686,21 @@ class ConflictSummary:
 # ═══════════════════════════════════════════════════════════
 
 class R值审计器:
-    """R值审计：与仲裁三色并存的第二把尺，衡量运行健康度。"""
+    """R值审计：与仲裁三色并存的第二把尺，衡量运行健康度。
+
+    扣分规则（v2.3 校准，阈值=超过多少开始扣，罚分=每超1项扣多少）：
+      - 事实冲突数: 阈值0 · 每项扣12   （冲突越多，可采信度越低）
+      - 极性分裂数: 阈值0 · 每项扣8    （需老大裁决类，非纯技术扣分）
+      - 引擎失败数: 阈值0 · 每项扣8    （引擎挂掉=证据链不全）
+      - 覆盖率缺口: 阈值2 · 每项扣4    （前2项缺口可容忍，之后每项扣4）
+    判色：>=85 🟢 · >=60 🟡 · <60 🔴
+    """
 
     规则 = {
-        "事实冲突数": (0, 25),
-        "极性分裂数": (0, 15),
-        "引擎失败数": (0, 10),
-        "覆盖率缺口": (2, 5),
+        "事实冲突数": (0, 12),
+        "极性分裂数": (0, 8),
+        "引擎失败数": (0, 8),
+        "覆盖率缺口": (2, 4),
     }
 
     def audit(self, 指标: Dict[str, int]) -> Dict:
@@ -537,16 +709,48 @@ class R值审计器:
         for key, (threshold, penalty) in self.规则.items():
             value = 指标.get(key, 0)
             if value > threshold:
-                score -= penalty * (value - threshold if key == "覆盖率缺口" else 1)
-                details.append(f"{key}={value} > {threshold}，扣{penalty}分")
+                if key == "覆盖率缺口":
+                    score -= penalty * (value - threshold)
+                    details.append(f"{key}={value} > {threshold}，超{(value - threshold)}项×扣{penalty}分")
+                else:
+                    score -= penalty * value
+                    details.append(f"{key}={value}，×扣{penalty}分/项")
         score = max(0, score)
         color = "🟢" if score >= 85 else ("🟡" if score >= 60 else "🔴")
         return {"R值": score, "三色": color, "明细": details}
 
 
 class 史官集成器:
-    def __init__(self, 链: YearRingChain = None):
-        self.链 = 链 or YearRingChain(name="transparent-audit")
+    """史官集成器 v2.3：年轮链持久化到 logs/transparent_audit.db，跨进程可验链。"""
+
+    def __init__(self, 链: YearRingChain = None, db路径: str = None):
+        self.db路径 = db路径 or _DB路径
+        os.makedirs(os.path.dirname(self.db路径), exist_ok=True)
+        self.链 = 链 or self._加载()
+
+    def _加载(self) -> YearRingChain:
+        """从 SQLite 重建内存链（verify 需要全链在内存逐条哈希复核）。"""
+        链 = YearRingChain(name="transparent-audit")
+        try:
+            conn = sqlite3.connect(self.db路径)
+            conn.execute("""CREATE TABLE IF NOT EXISTS yearring(
+                seq INTEGER PRIMARY KEY, record_json TEXT, ts REAL)""")
+            rows = conn.execute("SELECT record_json FROM yearring ORDER BY seq").fetchall()
+            for (rj,) in rows:
+                链.chain.append(json.loads(rj))
+            conn.close()
+        except Exception:
+            pass
+        return 链
+
+    def _落盘(self, record: dict):
+        conn = sqlite3.connect(self.db路径)
+        conn.execute(
+            "INSERT OR REPLACE INTO yearring(seq, record_json, ts) VALUES(?,?,?)",
+            (record["index"], json.dumps(record, ensure_ascii=False, default=str), time.time()),
+        )
+        conn.commit()
+        conn.close()
 
     def 归档(self, 路由报告: dict, 摘要: dict, 仲裁: dict) -> dict:
         指标 = {
@@ -566,6 +770,7 @@ class 史官集成器:
             "指标": 指标,
             "一句话结论": 摘要.get("一句话结论", ""),
         })
+        self._落盘(条目)
         return {
             "史官条目序号": 条目["index"],
             "条目哈希": 条目["hash"],
@@ -646,6 +851,7 @@ class 全链路路由器(透明路由器):
             摘要 = self.摘要器.build(仲裁, 报告["回答"])
             归档 = self.史官.归档(报告, 摘要, 仲裁)
             报告.update({"摘要": 摘要, "归档": 归档, "R值": 归档["R值审计"]["R值"]})
+        self.仓库.记历史(报告)
         return 报告
 
 
@@ -654,7 +860,7 @@ class 全链路路由器(透明路由器):
 # ═══════════════════════════════════════════════════════════
 
 def 仪表盘V2(报告: dict) -> str:
-    行 = ["=" * 64, f"🐉 龍魂·透明审计仪表盘 v2.2 | {报告['三色']}", f"父DNA: {报告['父DNA']}", "-" * 64]
+    行 = ["=" * 64, f"🐉 龍魂·透明审计仪表盘 v2.3 | {报告['三色']}", f"父DNA: {报告['父DNA']}", "-" * 64]
     for r in 报告["回答"]:
         if "失败" in r:
             行.append(f"  ✗ {r['来源']:<12} 失败降级: {r['失败']}")
@@ -688,13 +894,10 @@ def 仪表盘V2(报告: dict) -> str:
 # 九、FastAPI / stdlib API 服务壳
 # ═══════════════════════════════════════════════════════════
 
-默认引擎 = [
-    本地龍魂引擎(),
-    模拟云端引擎("kimi", "用户数据应保存于云端服务器，数据主权归用户所有。操作记录写入区块链。"),
-    模拟云端引擎("deepseek", "用户数据应存储于本地终端，数据主权归属国家法律。操作记录存档于数据库。"),
-]
+默认引擎 = _构建默认引擎()
 
-全局路由器 = 全链路路由器(默认引擎, 超时=3.0)
+# 超时 90s：真实 Ollama 模型复杂问题可能需要 30-60s
+全局路由器 = 全链路路由器(默认引擎, 超时=90.0)
 
 
 def _清理(报告: dict) -> dict:
@@ -707,32 +910,68 @@ def _清理(报告: dict) -> dict:
     return r
 
 
+def _健康():
+    return {
+        "status": "🟢",
+        "engines": [e.名字 for e in 默认引擎],
+        "engine_count": len(默认引擎),
+        "real": any(getattr(e, "真实", True) for e in 默认引擎),
+        "db": _DB路径,
+    }
+
+
+async def _跑审计_async(问题: str, engines: Optional[str] = None) -> dict:
+    """单次审计 + 附验链结果。engines 为逗号分隔模型名（前端引擎开关），空=全部默认引擎。"""
+    if engines and engines.strip():
+        # 临时路由器：复用全局仓库/史官（同一 SQLite），不污染长驻实例
+        路由器 = 全链路路由器(
+            _构建默认引擎(engines.split(",")),
+            仓库=全局路由器.仓库, 超时=90.0, 史官=全局路由器.史官,
+        )
+    else:
+        路由器 = 全局路由器
+    报告 = await 路由器.路由(问题)
+    报告["chain"] = 路由器.史官.验链()
+    return _清理(报告)
+
+
+def _跑审计(问题: str, engines: Optional[str] = None) -> dict:
+    """同步包装（stdlib 降级模式用）。"""
+    return asyncio.run(_跑审计_async(问题, engines))
+
+
 def _启动_api(host="127.0.0.1", port=8970):
     try:
         from fastapi import FastAPI
         from pydantic import BaseModel
         import uvicorn
 
-        app = FastAPI(title="龍魂·透明仲裁 API", version="2.2")
+        app = FastAPI(title="龍魂·透明仲裁 API", version="2.3")
 
         class Q(BaseModel):
             question: str
+            engines: Optional[str] = None
 
         @app.post("/audit")
         async def audit(q: Q):
-            return _清理(await 全局路由器.路由(q.question))
+            return await _跑审计_async(q.question, q.engines)
 
         @app.get("/chain/verify")
         def verify():
             return 全局路由器.史官.验链()
 
+        @app.get("/history")
+        def history(limit: int = 10):
+            return 全局路由器.仓库.历史(limit)
+
         @app.get("/health")
         def health():
-            return {"status": "🟢", "engines": len(默认引擎)}
+            return _健康()
 
         uvicorn.run(app, host=host, port=port)
     except ImportError:
         from http.server import HTTPServer, BaseHTTPRequestHandler
+        from urllib.parse import urlparse, parse_qs
 
         class H(BaseHTTPRequestHandler):
             def _j(self, obj, code=200):
@@ -740,6 +979,7 @@ def _启动_api(host="127.0.0.1", port=8970):
                 self.send_response(code)
                 self.send_header("Content-Type", "application/json; charset=utf-8")
                 self.send_header("Access-Control-Allow-Origin", "*")
+                self.send_header("Cache-Control", "no-store")
                 self.end_headers()
                 self.wfile.write(b)
 
@@ -751,18 +991,23 @@ def _启动_api(host="127.0.0.1", port=8970):
                 self.end_headers()
 
             def do_GET(self):
-                if self.path == "/health":
-                    self._j({"status": "🟢", "engines": len(默认引擎)})
-                elif self.path == "/chain/verify":
+                path = urlparse(self.path)
+                if path.path == "/health":
+                    self._j(_健康())
+                elif path.path == "/chain/verify":
                     self._j(全局路由器.史官.验链())
+                elif path.path == "/history":
+                    limit = int(parse_qs(path.query).get("limit", ["10"])[0])
+                    self._j(全局路由器.仓库.历史(limit))
                 else:
                     self._j({"error": "not found"}, 404)
 
             def do_POST(self):
-                if self.path == "/audit":
+                path = urlparse(self.path)
+                if path.path == "/audit":
                     n = int(self.headers.get("Content-Length", 0))
-                    q = json.loads(self.rfile.read(n) or b"{}").get("question", "")
-                    self._j(_清理(asyncio.run(全局路由器.路由(q))))
+                    body = json.loads(self.rfile.read(n) or b"{}")
+                    self._j(_跑审计(body.get("question", ""), body.get("engines")))
                 else:
                     self._j({"error": "not found"}, 404)
 
@@ -784,16 +1029,30 @@ def cmd_demo(_args):
 
 
 def cmd_audit(args):
+    global 全局路由器
+    if args.engines:
+        # 用户指定模型组合：重建路由器（跨进程一次性，不影响 API 常驻实例）
+        全局路由器 = 全链路路由器(_构建默认引擎(args.engines.split(",")), 超时=90.0)
     报告 = asyncio.run(全局路由器.路由(args.question))
+    报告["chain"] = 全局路由器.史官.验链()
     if args.json:
         print(json.dumps(_清理(报告), ensure_ascii=False, indent=2))
     else:
         print(仪表盘V2(报告))
+        chain = 报告["chain"]
+        print(f"  🔗 年轮链: {chain['长度']} 条 · {'🟢完整' if chain['完整'] else '🔴链断'} · 根 {chain.get('断点', [])}")
+    return 0
+
+
+def cmd_history(args):
+    for h in 全局路由器.仓库.历史(args.limit):
+        print(f"  {h['时间'] and time.strftime('%m-%d %H:%M', time.localtime(h['时间']))} | {h['三色']} R{h['R值']} | {h['问题'][:40]} | 引擎{h['引擎数']} 失败{h['失败数']}")
     return 0
 
 
 def cmd_api(args):
     print(f"🐉 启动龍魂透明审计 API → http://{args.host}:{args.port}")
+    print(f"  引擎: {[e.名字 for e in 默认引擎]}")
     _启动_api(args.host, args.port)
     return 0
 
@@ -807,18 +1066,20 @@ def cmd_verify(_args):
 def main():
     parser = argparse.ArgumentParser(
         prog="lh_transparent_audit",
-        description="龍魂·透明审计与冲突仲裁引擎 v2.2",
+        description="龍魂·透明审计与冲突仲裁引擎 v2.3（真实引擎+链落盘）",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:
   lh_transparent_audit.py demo
   lh_transparent_audit.py audit "数据主权归谁？"
   lh_transparent_audit.py audit "数据主权归谁？" --json
+  lh_transparent_audit.py audit "数据主权归谁？" --engines qwen2.5:7b
+  lh_transparent_audit.py history
   lh_transparent_audit.py api --port 8970
   lh_transparent_audit.py verify
         """,
     )
-    parser.add_argument("--version", action="version", version="%(prog)s v2.2")
+    parser.add_argument("--version", action="version", version="%(prog)s v2.3")
     sub = parser.add_subparsers(dest="command", required=True)
 
     p_demo = sub.add_parser("demo", help="内置演示")
@@ -827,6 +1088,7 @@ def main():
     p_audit = sub.add_parser("audit", help="单次审计")
     p_audit.add_argument("question", help="审计问题")
     p_audit.add_argument("--json", action="store_true", help="JSON输出")
+    p_audit.add_argument("--engines", default="", help="指定本地模型，逗号分隔（默认 longhun-v3.8,qwen2.5:7b）")
     p_audit.set_defaults(func=cmd_audit)
 
     p_api = sub.add_parser("api", help="启动API服务")
@@ -836,6 +1098,10 @@ def main():
 
     p_verify = sub.add_parser("verify", help="验证年轮链完整性")
     p_verify.set_defaults(func=cmd_verify)
+
+    p_history = sub.add_parser("history", help="查看近期审计历史")
+    p_history.add_argument("--limit", type=int, default=10, help="条数")
+    p_history.set_defaults(func=cmd_history)
 
     args = parser.parse_args()
     sys.exit(args.func(args))

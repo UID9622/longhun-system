@@ -7,7 +7,7 @@
 
 # ╔══════════════════════════════════════════════════════════════════════════════╗
 # ║  龍魂体系 · 全链路DNA追溯系统 v3.0                                              ║
-# ║  DNA Traceability System v3.0 - Dragon Soul Framework                        ║
+# ║  DNA Traceability System v3.0 - LongHun Framework                        ║
 # ╚══════════════════════════════════════════════════════════════════════════════╝
 #
 ##龍芯⚡️2026-06-16-DNA-TRACE-v3.0
@@ -1505,7 +1505,7 @@ def 演示DNA追溯系统():
     """
     print("=" * 80)
     print("龍魂体系 · 全链路DNA追溯系统 v3.0")
-    print("DNA Traceability System v3.0 - Dragon Soul Framework")
+    print("DNA Traceability System v3.0 - LongHun Framework")
     print("=" * 80)
     print(f"UID: {CONST_UID} | 创始人: {CONST_创始人}")
     print(f"设备: {CONST_设备名称_MACBOOK} ({CONST_设备序列号_MACBOOK})")
@@ -1523,7 +1523,7 @@ def 演示DNA追溯系统():
     print("\n[2] L1 文件级追溯演示...")
     演示文件 = "/tmp/dna_demo_file.py"
     with open(演示文件, "w") as f:
-        f.write("# 演示文件\nprint('Hello Dragon Soul')\n")
+        f.write("# 演示文件\nprint('Hello LongHun')\n")
     签名 = 系统.签名文件(演示文件, "MOD-EXEC-02-流场决策")
     print(f"  🟢 文件签名完成")
     print(f"  签名ID: {签名.签名ID}")

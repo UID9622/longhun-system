@@ -9,7 +9,7 @@ B8 · DNA追溯脑区 → P01 诸葛亮
 DNA检测、生成、簽名验证。
 对接现有 hetu_luoshu_dna.py DNA生成系统。
 
-DNA: #龙芯⚡️丙午·丙申·丙辰·未时·需-BRAIN-B8-DNA-TRACER-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·未时·需-BRAIN-B8-DNA-TRACER-v1.0
 """
 
 import re
@@ -24,9 +24,9 @@ from typing import Dict, Any, Optional
 # ── DNA 常量 ──────────────────────────────────────────────────────────────────
 
 DNA_VERSION = "v∞"
-DNA_PREFIX = "#龙芯⚡️"
+DNA_PREFIX = "#龍芯⚡️"
 LEGACY_PREFIX = "#ZHUGEXIN⚡️"
-DNA_PATTERN = r'(?:#龙芯⚡️|#ZHUGEXIN⚡️)[^\n]{8,}'
+DNA_PATTERN = r'(?:#龍芯⚡️|#ZHUGEXIN⚡️)[^\n]{8,}'
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 
@@ -60,7 +60,7 @@ def validate_dna_structure(dna: str) -> Dict[str, Any]:
         result["format"] = "v∞ 干支格式"
         result["version"] = DNA_VERSION
 
-        # 验证v∞格式: #龙芯⚡️年干支·月干支·日干支·时辰·卦名-模块-动作-哈希8位
+        # 验证v∞格式: #龍芯⚡️年干支·月干支·日干支·时辰·卦名-模块-动作-哈希8位
         parts = dna.replace(DNA_PREFIX, "").split("-")
         if len(parts) >= 4:
             result["valid"] = True

@@ -2,11 +2,11 @@
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼♀️❤️♾️-DEVICE-BIND-SOUL
 
-# 🐉 龙魂主权 CI/CD · GitHub Actions
+# 🐉 龍魂主权 CI/CD · GitHub Actions
 # 仓库: UID9622/longhun-system · 主分支: main
 # 每次 push/PR 自动跑 8 步主权管道
 
-name: 🐉 龙魂主权转换
+name: 🐉 龍魂主权转换
 
 on:
   push:
@@ -109,7 +109,7 @@ jobs:
         id: report
         run: |
           cat >> $GITHUB_STEP_SUMMARY << 'EOF'
-          ## 🐉 龙魂主权转换报告
+          ## 🐉 龍魂主权转换报告
           EOF
           echo "| 维度 | 值 |" >> $GITHUB_STEP_SUMMARY
           echo "|------|------|" >> $GITHUB_STEP_SUMMARY
@@ -148,7 +148,7 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            let body = '## 🐉 龙魂主权转换报告\n\n';
+            let body = '## 🐉 龍魂主权转换报告\n\n';
 
             const manifest = JSON.parse(fs.readFileSync('${{ env.LH_OUTPUT }}/manifest.json'));
             body += `| 维度 | 值 |\n|------|------|\n`;
@@ -208,7 +208,7 @@ jobs:
         with:
           files: lh-output/**/*
           body: |
-            ## 🐉 龙魂主权代码发布
+            ## 🐉 龍魂主权代码发布
             
             经完整 8 步管道转换：
             - 🔍 语言检测 ✅

@@ -10,7 +10,7 @@ from __future__ import annotations
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║     🐉 龍魂·一句话全链路自动执行引擎 v1.0                                ║
-║     Longhun AutoFlow — One-Line Full-Chain Execution Engine             ║
+║     LongHun AutoFlow — One-Line Full-Chain Execution Engine             ║
 ╠══════════════════════════════════════════════════════════════════════════╣
 ║                                                                          ║
 ║  「一句话下去，全链路跑完。」                                              ║

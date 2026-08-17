@@ -372,7 +372,7 @@ git push gitee master
 declare -A REPOS=(
     ["cnsh-core"]="CNSH核心库"
     ["uid9622-utils"]="UID9622工具集"
-    ["dragon-soul"]="龙魂系统"
+    ["dragon-soul"]="龍魂系统"
 )
 
 # 循环创建

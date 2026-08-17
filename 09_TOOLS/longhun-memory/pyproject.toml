@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "longhun-memory"
 version = "1.0.0"
-description = "龙魂·记忆压缩+国密加密SDK — 对话记忆压缩·SM4加密·SM3追溯链·DNA溯源"
+description = "龍魂·记忆压缩+国密加密SDK — 对话记忆压缩·SM4加密·SM3追溯链·DNA溯源"
 authors = [{name = "诸葛鑫 (UID9622)", email = "uid9622@uid9622.cn"}]
 license = {text = "MulanPSL v2"}
 readme = "README.md"

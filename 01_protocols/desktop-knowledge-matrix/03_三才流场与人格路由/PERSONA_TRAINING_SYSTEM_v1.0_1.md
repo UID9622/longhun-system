@@ -6,7 +6,7 @@
 > **📻 最新广播**: 参见 [`agents/broadcast/BULLETIN_DNA_v∞_2026-07-08.md`](broadcast/BULLETIN_DNA_v∞_2026-07-08.md)
 > — DNA 格式已从格里历 YYYY-MM-DD 升级为干支时辰 v∞，四代并行兼容。
 
-DNA(v1.0): `#龍芯⚡️2026-06-09-PERSONA-TRAINING-SYSTEM-v1.0`  
+DNA(v1.0): `#龍芯⚡️丙午·丙申·庚申·亥时-PERSONA-TRAINING-SYSTEM-v1.0`  
 DNA(v1.1): `#龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-PERSONA-TRAINING-SYSTEM-v1.1`  
 DNA 修复: `#龍芯⚇️`（圈点·旧符号）→ `#龍芯⚡️`（闪电·标准符号）⎯ 2026-07-08 修复
 

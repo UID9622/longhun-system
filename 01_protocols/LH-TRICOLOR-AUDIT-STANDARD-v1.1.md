@@ -266,7 +266,7 @@ DNA锚链上链
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-三色审计最小实现 · 龙魂标准参考
+三色审计最小实现 · 龍魂标准参考
 """
 
 def tricolor_audit(scores: dict) -> dict:
@@ -510,7 +510,7 @@ print(f"结果: {result['emoji']} {result['status']} (R={result['r_score']})")
 | JavaScript/Node | `@longhun/tricolor` | ✅ 首发 |
 | Java | `cn.uid9622:tricolor-sdk` | 🟡 规划 |
 | Go | `github.com/UID9622/tricolor-go` | 🟡 规划 |
-| C#/.NET | `Longhun.Tricolor` | 🟡 规划 |
+| C#/.NET | `LongHun.Tricolor` | 🟡 规划 |
 | Rust | `tricolor-audit` | 🟡 规划 |
 | CNSH | `三色审计`（原生模块） | ✅ 原生 |
 

@@ -12,7 +12,7 @@ description: >
 metadata:
   id: longhun-warehouse-audit
   version: '5.0'
-  dna: '#龍芯⚡️2026-07-03-LONGHUN-WAREHOUSE-AUDIT-v5.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-WAREHOUSE-AUDIT-v5.0'
   author: UID9622 · 龍魂體系
   category: governance
   trigger:

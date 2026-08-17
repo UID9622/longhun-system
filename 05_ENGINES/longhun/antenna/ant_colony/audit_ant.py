@@ -335,7 +335,7 @@ class AuditAnt:
         # 4. 非安全模块 ALERT 检测
         for node in trace_nodes:
             if node.pheromone_type == "ALERT":
-                if node.module_id not in ("P05-上帝之眼", "P72-龙盾", "P12-屈原", "P13-姜子牙"):
+                if node.module_id not in ("P05-上帝之眼", "P72-龍盾", "P12-屈原", "P13-姜子牙"):
                     anomalies.append(self.ANOMALY_RULES["unexpected_alert"][0])
                     break
 

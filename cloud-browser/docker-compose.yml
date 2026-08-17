@@ -1,0 +1,34 @@
+# 龍魂·云浏览器 docker-compose
+# DNA: #龍芯⚡️丙午-乙巳-癸酉-亥时-☰乾-CLOUD-BROWSER-COMPOSE-v1.0-BUILD
+# License: MulanPSL v2
+# 用法: 在鲲鹏 clone 目录下 docker compose up -d
+# 环境变量: BROWSER_API_TOKEN(必改) / BROWSER_VAULT_KEY(保险柜加密密钥)
+services:
+  cloud-browser:
+    build: .
+    image: longhun-cloud-browser:1.0
+    container_name: longhun-cloud-browser
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8899:8899"   # 只监听本机回环·防外网裸奔（公网访问走 nginx 反代）
+    volumes:
+      - browser-data:/data/browser   # 登录档案持久化卷（数据主权在自己盘上）
+      - ./backend:/app               # 代码挂载·改代码只重启不重建镜像
+    environment:
+      # 🔐 强 Token：从同目录 .env 读取（docker compose 自动加载）· 无默认值·未配置拒绝启动
+      - BROWSER_API_TOKEN=${BROWSER_API_TOKEN}
+      - BROWSER_VAULT_KEY=${BROWSER_VAULT_KEY}
+      - BROWSER_API_PORT=8899
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+          cpus: "1.0"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  browser-data:

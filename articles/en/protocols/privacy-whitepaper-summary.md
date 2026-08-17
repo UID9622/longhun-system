@@ -1,7 +1,7 @@
 # DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# The Privacy Whitepaper of the Longhun System
+# The Privacy Whitepaper of the LongHun System
 
 ## Data Sovereignty, Local-First Architecture, and Five-Layer Data Black Hole Protocol
 
@@ -15,9 +15,9 @@
 
 ## Executive Summary
 
-The Longhun System's privacy architecture is built on a single premise: **user data belongs to the user, not the platform.** Every technical decision flows from this principle.
+The LongHun System's privacy architecture is built on a single premise: **user data belongs to the user, not the platform.** Every technical decision flows from this principle.
 
-This whitepaper (originally 8,000+ Chinese characters) defines the privacy architecture of the Longhun System. Key components:
+This whitepaper (originally 8,000+ Chinese characters) defines the privacy architecture of the LongHun System. Key components:
 
 ---
 

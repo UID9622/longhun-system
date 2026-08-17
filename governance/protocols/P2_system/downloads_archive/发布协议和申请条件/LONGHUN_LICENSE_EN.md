@@ -1,9 +1,9 @@
 # DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# Longhun License v1.0 · English Edition
+# LongHun License v1.0 · English Edition
 
-**© UID9622 · Zhuge Xin · Longhun Creator**  
+**© UID9622 · Zhuge Xin · LongHun Creator**  
 **GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F**  
 **Effective Date: 2026-06-03**  
 **DNA Marker: #龍芯⚡️2026-06-03-LONGHUN-LICENSE-EN-OFFICIAL**
@@ -65,7 +65,7 @@ This system is **NOT** covered by:
 - Creative Commons
 - Any other open source license
 
-This is Longhun's own rules with STRONGER protection.
+This is LongHun's own rules with STRONGER protection.
 
 ---
 
@@ -96,7 +96,7 @@ This is Longhun's own rules with STRONGER protection.
 - **Fee**: Free (requires university proof)
 
 ### Tier 5: Derivative Creation (Paid + Agreement)
-- **Scope**: Create new systems based on Longhun
+- **Scope**: Create new systems based on LongHun
 - **Restrictions**: Must credit, must share benefits
 - **Validity**: Special arrangement
 - **Fee**: Case-by-case negotiation (minimum ¥100,000 one-time)
@@ -173,7 +173,7 @@ This is Longhun's own rules with STRONGER protection.
    - Every file has unique fingerprint
    - Change 1 character = fingerprint changes = identifiable
 
-2. **Execution Logs** (if running in Longhun system)
+2. **Execution Logs** (if running in LongHun system)
    - All execution recorded
    - Cannot delete (append-only)
 
@@ -192,7 +192,7 @@ This is Longhun's own rules with STRONGER protection.
 
 ```
 TO: [YOUR UPDATED EMAIL]
-SUBJECT: [Longhun Authorization Request] [Tier] [Your Name]
+SUBJECT: [LongHun Authorization Request] [Tier] [Your Name]
 
 Content:
 ==========================================

@@ -22,7 +22,7 @@ try:
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
 
-    app = FastAPI(title="Longhun Mobile Monitoring Backend v4.1")
+    app = FastAPI(title="LongHun Mobile Monitoring Backend v4.1")
 
     # 数据模型
     class Event(BaseModel):

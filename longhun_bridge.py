@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
-🐉 龙魂桥接器 — seal.rs ↔ MemoryLifecycle
+🐉 龍魂桥接器 — seal.rs ↔ MemoryLifecycle
 
 用法:
   python3 longhun_bridge.py '<JSON_SEAL_RECORD>'
@@ -10,7 +10,7 @@
   echo '<JSON>' | python3 longhun_bridge.py
 
 功能:
-  将 lh-station seal 记录存入龙魂 MemoryLifecycle 记忆系统，
+  将 lh-station seal 记录存入龍魂 MemoryLifecycle 记忆系统，
   形成不可篡改的审计链路。
 """
 
@@ -26,7 +26,7 @@ from longhun_evolution_engine import MemoryLifecycle, MemoryPriority
 
 def store_seal(json_str: str) -> dict:
     """
-    将 seal JSON 记录存入龙魂记忆系统
+    将 seal JSON 记录存入龍魂记忆系统
 
     Args:
         json_str: seal_record 的 JSON 字符串
@@ -44,7 +44,7 @@ def store_seal(json_str: str) -> dict:
         return {"status": "error", "reason": "缺少 dna 字段"}
 
     # 格式化 content — 生成人类可读的记忆文本
-    content = """🐉 龙魂代码主权转换封印记录
+    content = """🐉 龍魂代码主权转换封印记录
 
 DNA: {dna}
 时间: {transformed_at}

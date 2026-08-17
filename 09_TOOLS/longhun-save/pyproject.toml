@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "longhun-save"
 version = "1.0.0"
-description = "龙魂·算力省钱代理 — AI API智能路由·本地优先·请求缓存·成本统计"
+description = "龍魂·算力省钱代理 — AI API智能路由·本地优先·请求缓存·成本统计"
 authors = [{name = "诸葛鑫 (UID9622)", email = "uid9622@uid9622.cn"}]
 license = {text = "MulanPSL v2"}
 readme = "README.md"

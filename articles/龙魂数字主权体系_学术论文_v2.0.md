@@ -44,7 +44,7 @@
 
 **Abstract**
 
-This paper proposes a tri-unity architecture-based decentralized digital identity and consciousness continuity solution - the Longhun Digital Sovereignty System. The system innovatively integrates three elements: Digital RMB account (state-level identity anchor), DNA tracing chain (behavioral record proof), and device trust network (multi-device verification), constructing a digital sovereignty system that both protects user privacy and supports legal tracing.
+This paper proposes a tri-unity architecture-based decentralized digital identity and consciousness continuity solution - the LongHun Digital Sovereignty System. The system innovatively integrates three elements: Digital RMB account (state-level identity anchor), DNA tracing chain (behavioral record proof), and device trust network (multi-device verification), constructing a digital sovereignty system that both protects user privacy and supports legal tracing.
 
 Core innovations include: (1) Multi-layer redundant identity verification mechanism ensuring no single point of failure; (2) 28-personality AI collaboration matrix based on Master Zeng's Wisdom Algorithm (28 personalities mapping to 64 hexagrams), achieving quantum superposition-style intelligent decision-making; (3) Automatic tracing system for AI-generated content, providing evidence support for victims; (4) Digital immortality mechanism allowing DNA holders' memories and values to continue after death; (5) CNSH Chinese programming language achieving linguistic sovereignty and technological equity.
 

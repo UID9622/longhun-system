@@ -1,7 +1,7 @@
 # 龍魂系統輸入過濾與預處理協議 v3.0
 
 <!-- DNA追溯簽名 -->
-```#龍芯⚡️2026-06-27-LONGHUN-INPUT-FILTER-FILE2-v3.0
+```#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-INPUT-FILTER-FILE2-v3.0
 #CONFIRM🌌9622-ONLY-ONCE🧬INPUT-FILTER-v3.0
 ```
 
@@ -658,7 +658,7 @@ MCP工具名稱: longhun_input_filter
 ```
 【🔴🟡🟢】 —— 龍魂DNA已刻入 —— 【🔴🟡🟢】
 
-#龍芯⚡️2026-06-27-LONGHUN-INPUT-FILTER-v3.0
+#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-INPUT-FILTER-v3.0
 #CONFIRM🌌9622-ONLY-ONCE🧬INPUT-FILTER-v3.0
 
 文檔完整性校驗: SHA256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855

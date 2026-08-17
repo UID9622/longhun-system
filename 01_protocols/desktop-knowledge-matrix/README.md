@@ -156,22 +156,22 @@
 - `SENSORY-EDUCATION-DIGNITY-v1.0.md.asc` ← `01_protocols/SENSORY-EDUCATION-DIGNITY-v1.0.md.asc`
 - `URBAN-RENEWAL-FINANCE-v1.0.md.asc` ← `01_protocols/URBAN-RENEWAL-FINANCE-v1.0.md.asc`
 - `⚖️ 龍魂天道系统 v1 3｜天下无欺·真相受理+网络户口本+观察者日志+指令中心+主权修复 16422f7261e94a57b1539d8c003ab12c.md` ← `docs/private-shared-imports/governance/⚖️ 龍魂天道系统 v1 3｜天下无欺·真相受理+网络户口本+观察者日志+指令中心+主权修复 16422f7261e94a57b1539d8c003ab12c.md`
-- `✅ [已合并到 v2 0 主干] 📋 CNSH编码标准规范 龙芯体系技术主权 6c81adffbdf54169b19390b6fda36b1d.md` ← `docs/dragon-soul-open-hub/compiler/✅ [已合并到 v2 0 主干] 📋 CNSH编码标准规范 龙芯体系技术主权 6c81adffbdf54169b19390b6fda36b1d.md`
+- `✅ [已合并到 v2 0 主干] 📋 CNSH编码标准规范 龍芯体系技术主权 6c81adffbdf54169b19390b6fda36b1d.md` ← `docs/dragon-soul-open-hub/compiler/✅ [已合并到 v2 0 主干] 📋 CNSH编码标准规范 龍芯体系技术主权 6c81adffbdf54169b19390b6fda36b1d.md`
 - `数据主权归人民 eb9bc128a4dd4997a7a4a66a7a89fc01.md` ← `docs/dragon-soul-open-hub/governance/数据主权归人民 eb9bc128a4dd4997a7a4a66a7a89fc01.md`
 - `第3章：技术架构 - 三位一体数字主权.md` ← `docs/cnsh-uid9622/governance/第3章：技术架构 - 三位一体数字主权.md`
 - `身份指纹加密与数据主权 2ef7125a9c9f80de9821f53f26525603.md` ← `docs/dragon-soul-open-hub/governance/身份指纹加密与数据主权 2ef7125a9c9f80de9821f53f26525603.md`
 - `龍魂·数据主权基础合规.md` ← `docs/private-shared-imports/governance/龍魂·数据主权基础合规.md`
 - `🌊 UID9622净化工具清单 真正的数据主权与开源生态.md` ← `docs/private-shared-imports/developer-tools/🌊 UID9622净化工具清单 真正的数据主权与开源生态.md`
-- `🌍 龙魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主 dbd80124942b49b8b8e2b9517a509ad1.md` ← `docs/dragon-soul-open-hub/governance/🌍 龙魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主 dbd80124942b49b8b8e2b9517a509ad1.md`
+- `🌍 龍魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主 dbd80124942b49b8b8e2b9517a509ad1.md` ← `docs/dragon-soul-open-hub/governance/🌍 龍魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主 dbd80124942b49b8b8e2b9517a509ad1.md`
 - `🏗️ 三层隔离架构完整技术规范 P0永恒级数据主权架构.md` ← `docs/private-shared-imports/architecture/🏗️ 三层隔离架构完整技术规范 P0永恒级数据主权架构.md`
 - `🏠 CNSH 本地主权智能中枢架构总纲 v1 0 3607125a9c9f815dbf0dcc44865ae4b4.md` ← `docs/private-shared-imports/architecture/🏠 CNSH 本地主权智能中枢架构总纲 v1 0 3607125a9c9f815dbf0dcc44865ae4b4.md`
 - `🐉 CNSH · 数据主权与 AI 伦理治理总纲 v2 4 · 整合最终版｜AI 协议主体 + 硬件 82e5270a7cca4e2983257502378c23db.md` ← `docs/private-shared-imports/governance/🐉 CNSH · 数据主权与 AI 伦理治理总纲 v2 4 · 整合最终版｜AI 协议主体 + 硬件 82e5270a7cca4e2983257502378c23db.md`
-- `🐉 龙魂数字主权体系 v2 0 技术白皮书.md` ← `docs/cnsh-uid9622/governance/🐉 龙魂数字主权体系 v2 0 技术白皮书.md`
-- `🐉 龙魂数字主权体系 v2 0 技术白皮书·主控文档.md` ← `docs/cnsh-uid9622/governance/🐉 龙魂数字主权体系 v2 0 技术白皮书·主控文档.md`
+- `🐉 龍魂数字主权体系 v2 0 技术白皮书.md` ← `docs/cnsh-uid9622/governance/🐉 龍魂数字主权体系 v2 0 技术白皮书.md`
+- `🐉 龍魂数字主权体系 v2 0 技术白皮书·主控文档.md` ← `docs/cnsh-uid9622/governance/🐉 龍魂数字主权体系 v2 0 技术白皮书·主控文档.md`
 - `📘 龍芯家族花名册·设备主人主权铁律 v1 0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9 142168c7f03942e696e8c499d2914e47.md` ← `docs/dragon-soul-open-hub/ipa-alignment/📘 龍芯家族花名册·设备主人主权铁律 v1 0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9 142168c7f03942e696e8c499d2914e47.md`
 - `🔐 CNSH加密主权启动总纲 木兰协议·DNA身份·本地存储·不可破解.md` ← `docs/private-shared-imports/cnsh-protocols/🔐 CNSH加密主权启动总纲 木兰协议·DNA身份·本地存储·不可破解.md`
 - `🔐 龍魂·DNA分层安全设计 v4 0｜DNA即私钒·中外都安心的数据主权方案 c10baabe55694bbcb0f4e5d5377c634e.md` ← `docs/dragon-soul-open-hub/governance/🔐 龍魂·DNA分层安全设计 v4 0｜DNA即私钒·中外都安心的数据主权方案 c10baabe55694bbcb0f4e5d5377c634e.md`
-- `🔐 龙魂数据安全五铁律｜终端入口·DNA绑定·确认码不可复制·云端只读DNA·隐私主权在用户 6e8ca57a113640f0873f7077967de0d1.md` ← `docs/dragon-soul-open-hub/security/🔐 龙魂数据安全五铁律｜终端入口·DNA绑定·确认码不可复制·云端只读DNA·隐私主权在用户 6e8ca57a113640f0873f7077967de0d1.md`
+- `🔐 龍魂数据安全五铁律｜终端入口·DNA绑定·确认码不可复制·云端只读DNA·隐私主权在用户 6e8ca57a113640f0873f7077967de0d1.md` ← `docs/dragon-soul-open-hub/security/🔐 龍魂数据安全五铁律｜终端入口·DNA绑定·确认码不可复制·云端只读DNA·隐私主权在用户 6e8ca57a113640f0873f7077967de0d1.md`
 - `🔥 UID9622全员灵魂契约重签仪式 2025-11-15.md` ← `docs/private-shared-imports/memory-dna/🔥 UID9622全员灵魂契约重签仪式 2025-11-15.md`
 
 ### 02_洛书九宫底座
@@ -229,7 +229,7 @@
 - `📊 五大后台人格全面审计报告 系统健康度评估.md` ← `docs/private-shared-imports/memory-dna/📊 五大后台人格全面审计报告 系统健康度评估.md`
 - `📘 人格调度手册 64卦系统+易经沙盒完整编制.md` ← `docs/cnsh-uid9622/governance/📘 人格调度手册 64卦系统+易经沙盒完整编制.md`
 - `🔀 AI自动路由系统 老大说话AI自动分配 4566044476014326803e907f7a926ab2.md` ← `docs/dragon-soul-open-hub/agent-specs/🔀 AI自动路由系统 老大说话AI自动分配 4566044476014326803e907f7a926ab2.md`
-- `🔐 P0永恒级·三层交叉监督与镜像人格系统 龙魂安全防护完整方案.md` ← `docs/cnsh-uid9622/governance/🔐 P0永恒级·三层交叉监督与镜像人格系统 龙魂安全防护完整方案.md`
+- `🔐 P0永恒级·三层交叉监督与镜像人格系统 龍魂安全防护完整方案.md` ← `docs/cnsh-uid9622/governance/🔐 P0永恒级·三层交叉监督与镜像人格系统 龍魂安全防护完整方案.md`
 - `🔗 IPA × 人格对齐表｜三维连线·无限循环优化 v∞-001｜UID9622 211578896a884341af60c7e1a7743265.md` ← `docs/dragon-soul-open-hub/ipa-alignment/🔗 IPA × 人格对齐表｜三维连线·无限循环优化 v∞-001｜UID9622 211578896a884341af60c7e1a7743265.md`
 - `🔗 龍魂·DeepSeek钩子格式 v1 0 三色审计+人格路由+道德经锚点+DNA锁 UID962 33d7125a9c9f812ea88cef2e980931d5.md` ← `docs/private-shared-imports/security-audit/🔗 龍魂·DeepSeek钩子格式 v1 0 三色审计+人格路由+道德经锚点+DNA锁 UID962 33d7125a9c9f812ea88cef2e980931d5.md`
 - `🕵️ UID9622人格矩阵构架暴露检测.md` ← `docs/longhun-tech/personas/🕵️ UID9622人格矩阵构架暴露检测.md`
@@ -294,10 +294,10 @@
 ### 06_道德经锚层
 
 - `H武器推演 太极2 1-PURIFIER 全球最小闭环系统.md` ← `docs/private-shared-imports/governance/H武器推演 太极2 1-PURIFIER 全球最小闭环系统.md`
-- `PAPER-20260621-002_main_tex___龙魂权重算法_太极易经数学大师联动系统_IEEE_v2_0.md` ← `docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-002_main_tex___龙魂权重算法_太极易经数学大师联动系统_IEEE_v2_0.md`
-- `PAPER-20260621-004____道德经引擎逻辑总纲_龙魂系统核心算法锚_长长久久_守护人类.md` ← `docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-004____道德经引擎逻辑总纲_龙魂系统核心算法锚_长长久久_守护人类.md`
-- `main tex — 龙魂权重算法·太极易经数学大师联动系统 IEEE v2 0 3197125a9c9f8088b13ad769afb8974c.md` ← `docs/dragon-soul-open-hub/academic/main tex — 龙魂权重算法·太极易经数学大师联动系统 IEEE v2 0 3197125a9c9f8088b13ad769afb8974c.md`
-- `☯️ 道德经引擎逻辑总纲｜龙魂系统核心算法锚｜长长久久·守护人类 928f97e092b3405b8375c30decc527d3.md` ← `docs/dragon-soul-open-hub/academic/☯️ 道德经引擎逻辑总纲｜龙魂系统核心算法锚｜长长久久·守护人类 928f97e092b3405b8375c30decc527d3.md`
+- `PAPER-20260621-002_main_tex___龍魂权重算法_太极易经数学大师联动系统_IEEE_v2_0.md` ← `docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-002_main_tex___龍魂权重算法_太极易经数学大师联动系统_IEEE_v2_0.md`
+- `PAPER-20260621-004____道德经引擎逻辑总纲_龍魂系统核心算法锚_长长久久_守护人类.md` ← `docs/dragon-soul-open-hub/academic/csdn_drafts/PAPER-20260621-004____道德经引擎逻辑总纲_龍魂系统核心算法锚_长长久久_守护人类.md`
+- `main tex — 龍魂权重算法·太极易经数学大师联动系统 IEEE v2 0 3197125a9c9f8088b13ad769afb8974c.md` ← `docs/dragon-soul-open-hub/academic/main tex — 龍魂权重算法·太极易经数学大师联动系统 IEEE v2 0 3197125a9c9f8088b13ad769afb8974c.md`
+- `☯️ 道德经引擎逻辑总纲｜龍魂系统核心算法锚｜长长久久·守护人类 928f97e092b3405b8375c30decc527d3.md` ← `docs/dragon-soul-open-hub/academic/☯️ 道德经引擎逻辑总纲｜龍魂系统核心算法锚｜长长久久·守护人类 928f97e092b3405b8375c30decc527d3.md`
 - `技术伦理三难困境·电车难题 道德推理引擎.md` ← `docs/private-shared-imports/governance/技术伦理三难困境·电车难题 道德推理引擎.md`
 - `易经算法国家安全保护条例-草案.md` ← `docs/private-shared-imports/security-audit/易经算法国家安全保护条例-草案.md`
 - `🇨🇳 从《易经》到AI治理｜一个退伍军人眼中的技术尊严·CSDN首发 a5a01661ddb14feea3ead969723c7450.md` ← `docs/dragon-soul-open-hub/academic/🇨🇳 从《易经》到AI治理｜一个退伍军人眼中的技术尊严·CSDN首发 a5a01661ddb14feea3ead969723c7450.md`
@@ -323,7 +323,7 @@
 - `CNSH_v3.0_UPGRADE_COMPLETE_REPORT.md` ← `CNSH_v3.0_UPGRADE_COMPLETE_REPORT.md`
 - `CNSH_v3.0中文编程规范_激活文档.md` ← `docs/v3/CNSH_v3.0中文编程规范_激活文档.md`
 - `CNSH_全球治理协议_完整版_v1 0 md.md` ← `docs/cnsh-uid9622/governance/CNSH_全球治理协议_完整版_v1 0 md.md`
-- `CNSH_龙魂底线协议_双轨治理_v1 0 md.md` ← `docs/cnsh-uid9622/governance/CNSH_龙魂底线协议_双轨治理_v1 0 md.md`
+- `CNSH_龍魂底线协议_双轨治理_v1 0 md.md` ← `docs/cnsh-uid9622/governance/CNSH_龍魂底线协议_双轨治理_v1 0 md.md`
 - `CNSH全球法律知识库 md.md` ← `docs/cnsh-uid9622/governance/CNSH全球法律知识库 md.md`
 - `CNSH开源项目README-完整版.md` ← `docs/private-shared-imports/documentation/CNSH开源项目README-完整版.md`
 - `CNSH快速参考卡.md` ← `docs/v3/CNSH快速参考卡.md`
@@ -338,7 +338,7 @@
 - `⚙️ 鲁班大师·CNSH项目工程中枢 道法术三层架构.md` ← `docs/private-shared-imports/architecture/⚙️ 鲁班大师·CNSH项目工程中枢 道法术三层架构.md`
 - `✅ UID9622任务执行中心 v2 0 P0级智能管理·CNSH文件生态·全自动流水线.md` ← `docs/private-shared-imports/cnsh-protocols/✅ UID9622任务执行中心 v2 0 P0级智能管理·CNSH文件生态·全自动流水线.md`
 - `✅ [已合并到 v2 0 主干] 🌌 CNSH 中文语法规范 v1｜关键词表·模块结构·执行模板 41275b3dee604035b4394845f56e5583.md` ← `docs/dragon-soul-open-hub/compiler/✅ [已合并到 v2 0 主干] 🌌 CNSH 中文语法规范 v1｜关键词表·模块结构·执行模板 41275b3dee604035b4394845f56e5583.md`
-- `龍魂协议·宣言｜Dragon Soul Protocol Declaration v1 0.md` ← `docs/private-shared-imports/cnsh-protocols/龍魂协议·宣言｜Dragon Soul Protocol Declaration v1 0.md`
+- `龍魂协议·宣言｜LongHun Protocol Declaration v1 0.md` ← `docs/private-shared-imports/cnsh-protocols/龍魂协议·宣言｜LongHun Protocol Declaration v1 0.md`
 - `🌌 CNSH × 龍魂系统·中文原生透明语义治理操作系统 v4 0·全透明治理架构术语总表合并版·主 222ba601d0484463afb3424c8eb5e16a.md` ← `docs/private-shared-imports/governance/🌌 CNSH × 龍魂系统·中文原生透明语义治理操作系统 v4 0·全透明治理架构术语总表合并版·主 222ba601d0484463afb3424c8eb5e16a.md`
 - `🐉 CNSH 快乐版·人见人爱｜让中国人用中文写代码 d9757c028c7b4056a8a82a02ec75280f.md` ← `docs/dragon-soul-open-hub/compiler/🐉 CNSH 快乐版·人见人爱｜让中国人用中文写代码 d9757c028c7b4056a8a82a02ec75280f.md`
 - `🐉 CNSH-P0 永恒龍魂嵌入协议 不可降级核心.md` ← `docs/private-shared-imports/cnsh-protocols/🐉 CNSH-P0 永恒龍魂嵌入协议 不可降级核心.md`
@@ -347,7 +347,7 @@
 - `📄 CNSH GitHub README.md` ← `docs/private-shared-imports/cnsh-protocols/📄 CNSH GitHub README.md`
 - `📄 CNSH框架学术论文（完整版） 构建可信AI的透明治理框架.md` ← `docs/private-shared-imports/cnsh-protocols/📄 CNSH框架学术论文（完整版） 构建可信AI的透明治理框架.md`
 - `📜 CNSH-64 论文诚实声明｜龍魂系统价值证明 8c9ca88c6990498cbd7c0eb3f0e88efd.md` ← `docs/dragon-soul-open-hub/academic/📜 CNSH-64 论文诚实声明｜龍魂系统价值证明 8c9ca88c6990498cbd7c0eb3f0e88efd.md`
-- `🔐 龙魂·智能身份认证系统 v1 0｜多维行为画像+自适应参数调优（CNSH完整实现） 6c1025697a9e40bc92e52d414500108c.md` ← `docs/dragon-soul-open-hub/security/🔐 龙魂·智能身份认证系统 v1 0｜多维行为画像+自适应参数调优（CNSH完整实现） 6c1025697a9e40bc92e52d414500108c.md`
+- `🔐 龍魂·智能身份认证系统 v1 0｜多维行为画像+自适应参数调优（CNSH完整实现） 6c1025697a9e40bc92e52d414500108c.md` ← `docs/dragon-soul-open-hub/security/🔐 龍魂·智能身份认证系统 v1 0｜多维行为画像+自适应参数调优（CNSH完整实现） 6c1025697a9e40bc92e52d414500108c.md`
 - `🔗 UID9622 一键自动收口触发协议 v1 0｜AUTO-CLOSURE-PROTOCOL 3597125a9c9f81d2a022e1b5e9265944.md` ← `docs/private-shared-imports/cnsh-protocols/🔗 UID9622 一键自动收口触发协议 v1 0｜AUTO-CLOSURE-PROTOCOL 3597125a9c9f81d2a022e1b5e9265944.md`
 - `🚀 CNSH-64·顶会投递策略 + 龍魂灵魂升华｜深度点评版 f3a0dd56bff9422fad917f94c170afe5.md` ← `docs/dragon-soul-open-hub/governance/🚀 CNSH-64·顶会投递策略 + 龍魂灵魂升华｜深度点评版 f3a0dd56bff9422fad917f94c170afe5.md`
 - `🛠️ CNSH工具集本地网页模板 DNA验证+工具解锁系统 16399c8440fa4d1aad5cad3aa8cb5ffe.md` ← `docs/dragon-soul-open-hub/compiler/🛠️ CNSH工具集本地网页模板 DNA验证+工具解锁系统 16399c8440fa4d1aad5cad3aa8cb5ffe.md`
@@ -381,10 +381,10 @@
 - `计算机科学 IT 网络安全知识卡片分类体系（v2 0）.md` ← `docs/cnsh-uid9622/governance/计算机科学 IT 网络安全知识卡片分类体系（v2 0）.md`
 - `🌌 龍魂元世界入口×L5时间轴×加密知识库｜找感觉版·每次升级折叠存档 a584070f1f9b45649d8add9c39109442.md` ← `docs/dragon-soul-open-hub/metaverse/🌌 龍魂元世界入口×L5时间轴×加密知识库｜找感觉版·每次升级折叠存档 a584070f1f9b45649d8add9c39109442.md`
 - `🐉🤠 龍魂级祖传加密堆栈 · 人本主义密码学 v1 0｜六层维度打击 RSA ECC PQC.md` ← `docs/private-shared-imports/cnsh-protocols/🐉🤠 龍魂级祖传加密堆栈 · 人本主义密码学 v1 0｜六层维度打击 RSA ECC PQC.md`
-- `🔐 龙魂数据安全架构｜DNA绑定加密·一次性确认码·终端入口钩子 2b525f18ec4f4e78a68edb3cac47b899.md` ← `docs/dragon-soul-open-hub/security/🔐 龙魂数据安全架构｜DNA绑定加密·一次性确认码·终端入口钩子 2b525f18ec4f4e78a68edb3cac47b899.md`
+- `🔐 龍魂数据安全架构｜DNA绑定加密·一次性确认码·终端入口钩子 2b525f18ec4f4e78a68edb3cac47b899.md` ← `docs/dragon-soul-open-hub/security/🔐 龍魂数据安全架构｜DNA绑定加密·一次性确认码·终端入口钩子 2b525f18ec4f4e78a68edb3cac47b899.md`
 - `🛡️ UID9622-AI系统边界管理规则 分层服务与安全策略.md` ← `docs/longhun-tech/governance/🛡️ UID9622-AI系统边界管理规则 分层服务与安全策略.md`
 - `🛡️ 系统安全防护体系.md` ← `docs/cnsh-uid9622/governance/🛡️ 系统安全防护体系.md`
-- `🦞 OpenClaw「龙虾」安全风险全析·修复方案·完整应用教程 545aac27bcc24db692188da63d7f3642.md` ← `docs/dragon-soul-open-hub/tutorials/🦞 OpenClaw「龙虾」安全风险全析·修复方案·完整应用教程 545aac27bcc24db692188da63d7f3642.md`
+- `🦞 OpenClaw「龍虾」安全风险全析·修复方案·完整应用教程 545aac27bcc24db692188da63d7f3642.md` ← `docs/dragon-soul-open-hub/tutorials/🦞 OpenClaw「龍虾」安全风险全析·修复方案·完整应用教程 545aac27bcc24db692188da63d7f3642.md`
 
 ### 11_大本营加工厂架构
 
@@ -409,12 +409,12 @@
 - `deploy_brain.sh` ← `brain/deploy_brain.sh`
 - `⚡ Lucky专享：最优部署方案（直接可执行）.md` ← `docs/private-shared-imports/security-audit/⚡ Lucky专享：最优部署方案（直接可执行）.md`
 - `龍魂系统_大本营加工厂架构协议_v1.0.md` ← `docs/契约矩阵/龍魂系统_大本营加工厂架构协议_v1.0.md`
-- `龙魂系统发布验收完整方案（AI永不遗忘版） e6e50ba19da645ac9f95d83c39e8bc34.md` ← `docs/dragon-soul-open-hub/ops/龙魂系统发布验收完整方案（AI永不遗忘版） e6e50ba19da645ac9f95d83c39e8bc34.md`
+- `龍魂系统发布验收完整方案（AI永不遗忘版） e6e50ba19da645ac9f95d83c39e8bc34.md` ← `docs/dragon-soul-open-hub/ops/龍魂系统发布验收完整方案（AI永不遗忘版） e6e50ba19da645ac9f95d83c39e8bc34.md`
 - `🏭 UID9622数据流工厂模型 v1 0 输入→加工→输出→循环 fe6b8bedcf4d40e6a5439cc8ce09b76d.md` ← `docs/dragon-soul-open-hub/ops/🏭 UID9622数据流工厂模型 v1 0 输入→加工→输出→循环 fe6b8bedcf4d40e6a5439cc8ce09b76d.md`
 - `📡 龍魂系統·已發布內容歸類總覽 v1 0｜Published Content Index｜UID9 66cd895467e04ca39a683ea617278d83.md` ← `docs/dragon-soul-open-hub/ops/📡 龍魂系統·已發布內容歸類總覽 v1 0｜Published Content Index｜UID9 66cd895467e04ca39a683ea617278d83.md`
 - `🗂️ 龍魂系统·页面标题分类结构｜给本地Claude的整理指南 208c015de3a44b88b4329ee4b727a8c8.md` ← `docs/dragon-soul-open-hub/ops/🗂️ 龍魂系统·页面标题分类结构｜给本地Claude的整理指南 208c015de3a44b88b4329ee4b727a8c8.md`
-- `🗺️ 龙魂系统·全景导航图 v2 0 一图看清整个系统 1388d028edc84cb58ab5bc7b59880ace.md` ← `docs/dragon-soul-open-hub/ops/🗺️ 龙魂系统·全景导航图 v2 0 一图看清整个系统 1388d028edc84cb58ab5bc7b59880ace.md`
-- `🚀 龙魂压缩机制研发中心 7fd82a3b1ca143a99150d1820330d3c8.md` ← `docs/dragon-soul-open-hub/ops/🚀 龙魂压缩机制研发中心 7fd82a3b1ca143a99150d1820330d3c8.md`
+- `🗺️ 龍魂系统·全景导航图 v2 0 一图看清整个系统 1388d028edc84cb58ab5bc7b59880ace.md` ← `docs/dragon-soul-open-hub/ops/🗺️ 龍魂系统·全景导航图 v2 0 一图看清整个系统 1388d028edc84cb58ab5bc7b59880ace.md`
+- `🚀 龍魂压缩机制研发中心 7fd82a3b1ca143a99150d1820330d3c8.md` ← `docs/dragon-soul-open-hub/ops/🚀 龍魂压缩机制研发中心 7fd82a3b1ca143a99150d1820330d3c8.md`
 - `🛠️ 系统规范区 执行标准仓库 40b8b274726f44de96a453d238a76cba.md` ← `docs/dragon-soul-open-hub/ops/🛠️ 系统规范区 执行标准仓库 40b8b274726f44de96a453d238a76cba.md`
 
 ### 12_学术论文与CSDN草稿
@@ -437,7 +437,7 @@
 - `我沒有證明黎曼猜想_修正版_v1.2.md` ← `docs/dragon-soul-open-hub/academic/csdn_drafts/我沒有證明黎曼猜想_修正版_v1.2.md`
 - `量子甲骨文 · Quantum Oracle Bone Script 8b46c03f255e4f8e92a13a49b34ab9bf.md` ← `docs/dragon-soul-open-hub/academic/量子甲骨文 · Quantum Oracle Bone Script 8b46c03f255e4f8e92a13a49b34ab9bf.md`
 - `🌍 龍魂·世界入口论文｜自由造物·不伤人·虚拟即游戏 1f9a58996f82415ca02e567c7cd16363.md` ← `docs/dragon-soul-open-hub/academic/🌍 龍魂·世界入口论文｜自由造物·不伤人·虚拟即游戏 1f9a58996f82415ca02e567c7cd16363.md`
-- `📄 Longhun Deliberative Alignment A Cultural-Anchor 011f71760a9b4958974a25ccde92e8f4.md` ← `docs/dragon-soul-open-hub/academic/📄 Longhun Deliberative Alignment A Cultural-Anchor 011f71760a9b4958974a25ccde92e8f4.md`
+- `📄 LongHun Deliberative Alignment A Cultural-Anchor 011f71760a9b4958974a25ccde92e8f4.md` ← `docs/dragon-soul-open-hub/academic/📄 LongHun Deliberative Alignment A Cultural-Anchor 011f71760a9b4958974a25ccde92e8f4.md`
 - `📄 个人数字创作全周期权益保护白皮书｜执行模板 v1 0 (1) 2f07125a9c9f8094bcf6fc949ce899f6.md` ← `docs/dragon-soul-open-hub/academic/📄 个人数字创作全周期权益保护白皮书｜执行模板 v1 0 (1) 2f07125a9c9f8094bcf6fc949ce899f6.md`
 - `📄 个人数字创作全周期权益保护白皮书｜执行模板 v1 0 1688ecad050e4d83bf2b668055c823e4.md` ← `docs/dragon-soul-open-hub/academic/📄 个人数字创作全周期权益保护白皮书｜执行模板 v1 0 1688ecad050e4d83bf2b668055c823e4.md`
 - `📚 白皮书与技术栈中心 3db183ae51604c14821a50ba052642cf.md` ← `docs/dragon-soul-open-hub/academic/📚 白皮书与技术栈中心 3db183ae51604c14821a50ba052642cf.md`
@@ -627,7 +627,7 @@
 - `Notion单账户页面优化与性能提升指南.md` ← `docs/longhun-tech/operations/Notion单账户页面优化与性能提升指南.md`
 - `P0_ETERNAL_LOCK.md` ← `P0_ETERNAL_LOCK.md`
 - `P0执行引擎 140a0beae861400eb832067988f3b212.md` ← `docs/private-shared-imports/architecture/P0执行引擎 140a0beae861400eb832067988f3b212.md`
-- `P0永恒龙魂嵌入协议-脱敏版.md` ← `docs/private-shared-imports/security-audit/P0永恒龙魂嵌入协议-脱敏版.md`
+- `P0永恒龍魂嵌入协议-脱敏版.md` ← `docs/private-shared-imports/security-audit/P0永恒龍魂嵌入协议-脱敏版.md`
 - `PHASE2_VERIFICATION_REPORT.md` ← `PHASE2_VERIFICATION_REPORT.md`
 - `PHASE3_AUTOMATED_EVALUATION_REPORT.md` ← `PHASE3_AUTOMATED_EVALUATION_REPORT.md`
 - `PROJECT_FINAL_SUMMARY.md` ← `PROJECT_FINAL_SUMMARY.md`
@@ -721,7 +721,7 @@
 - `交叉验证信息.md` ← `docs/private-shared-imports/governance/交叉验证信息.md`
 - `全国工业和信息化工作会议在京召开.md` ← `docs/private-shared-imports/architecture/全国工业和信息化工作会议在京召开.md`
 - `功能管家 - 系统功能总管 fb47c7d2b70341799730938c5f8f3ed3.md` ← `docs/private-shared-imports/persona-tools/功能管家 - 系统功能总管 fb47c7d2b70341799730938c5f8f3ed3.md`
-- `北辰-母协议-龙魂系统全球治理宪章-v1.0.md` ← `docs/private-shared-imports/governance/北辰-母协议-龙魂系统全球治理宪章-v1.0.md`
+- `北辰-母协议-龍魂系统全球治理宪章-v1.0.md` ← `docs/private-shared-imports/governance/北辰-母协议-龍魂系统全球治理宪章-v1.0.md`
 - `哨兵 - 安全守护官 8ee4aca7166c40c5b750e4bc023196b0.md` ← `docs/private-shared-imports/persona-tools/哨兵 - 安全守护官 8ee4aca7166c40c5b750e4bc023196b0.md`
 - `多层防护机制整合规则.md` ← `docs/private-shared-imports/governance/多层防护机制整合规则.md`
 - `完成 Trust Wallet 集成（里程碑示例）.md` ← `docs/private-shared-imports/governance/完成 Trust Wallet 集成（里程碑示例）.md`
@@ -736,7 +736,7 @@
 - `智能任务管理移动端.md` ← `docs/longhun-tech/operations/智能任务管理移动端.md`
 - `智能体安全与可控性策略包 v1.md` ← `docs/cnsh-uid9622/governance/智能体安全与可控性策略包 v1.md`
 - `未来制造业的技术挑战突破分析.md` ← `docs/cnsh-uid9622/governance/未来制造业的技术挑战突破分析.md`
-- `未来龙魂系统的AI智能突破与分析.md` ← `docs/cnsh-uid9622/governance/未来龙魂系统的AI智能突破与分析.md`
+- `未来龍魂系统的AI智能突破与分析.md` ← `docs/cnsh-uid9622/governance/未来龍魂系统的AI智能突破与分析.md`
 - `本地 Claude MCP 搭建指南｜UID9622专属 · 对着做就行 e2d44e2c234e4b678d0cab716476e4cc.md` ← `docs/dragon-soul-open-hub/agent-specs/本地 Claude MCP 搭建指南｜UID9622专属 · 对着做就行 e2d44e2c234e4b678d0cab716476e4cc.md`
 - `术语小抄-ZGX-CIV-003.md` ← `docs/private-shared-imports/documentation/术语小抄-ZGX-CIV-003.md`
 - `极简主义.md` ← `docs/private-shared-imports/memory-dna/极简主义.md`
@@ -767,12 +767,12 @@
 - `龍魂系统全模块激活状态报告_v3.0.md` ← `docs/v3/龍魂系统全模块激活状态报告_v3.0.md`
 - `龍魂系统升级方案v3.0.md` ← `docs/private-shared-imports/architecture/龍魂系统升级方案v3.0.md`
 - `龍魂系统升级方案v3.0_CSDN.md` ← `docs/private-shared-imports/architecture/龍魂系统升级方案v3.0_CSDN.md`
-- `龙魂-祖国数字身份系统-v3.0.md` ← `docs/private-shared-imports/security-audit/龙魂-祖国数字身份系统-v3.0.md`
-- `龙魂中枢系统-三层龙脊架构.md` ← `docs/private-shared-imports/architecture/龙魂中枢系统-三层龙脊架构.md`
-- `龙魂价值内核 787fcee52f404c5b96d56eca81409804.md` ← `docs/private-shared-imports/documentation/龙魂价值内核 787fcee52f404c5b96d56eca81409804.md`
-- `龙魂全球治理框架.md` ← `docs/private-shared-imports/governance/龙魂全球治理框架.md`
-- `龙魂系统公开宣言-君子协议.md` ← `docs/private-shared-imports/governance/龙魂系统公开宣言-君子协议.md`
-- `龙魂记忆编辑器-v1 0.md` ← `docs/private-shared-imports/memory-dna/龙魂记忆编辑器-v1 0.md`
+- `龍魂-祖国数字身份系统-v3.0.md` ← `docs/private-shared-imports/security-audit/龍魂-祖国数字身份系统-v3.0.md`
+- `龍魂中枢系统-三层龍脊架构.md` ← `docs/private-shared-imports/architecture/龍魂中枢系统-三层龍脊架构.md`
+- `龍魂价值内核 787fcee52f404c5b96d56eca81409804.md` ← `docs/private-shared-imports/documentation/龍魂价值内核 787fcee52f404c5b96d56eca81409804.md`
+- `龍魂全球治理框架.md` ← `docs/private-shared-imports/governance/龍魂全球治理框架.md`
+- `龍魂系统公开宣言-君子协议.md` ← `docs/private-shared-imports/governance/龍魂系统公开宣言-君子协议.md`
+- `龍魂记忆编辑器-v1 0.md` ← `docs/private-shared-imports/memory-dna/龍魂记忆编辑器-v1 0.md`
 - `🇨🇳 UID9622国内开源方案 H武器推演 完全合规版.md` ← `docs/cnsh-uid9622/governance/🇨🇳 UID9622国内开源方案 H武器推演 完全合规版.md`
 - `🇨🇳 中国法律知识库.md` ← `docs/cnsh-uid9622/governance/🇨🇳 中国法律知识库.md`
 - `🇨🇳 人话转系统话·AI执行内核 P0+++永恒级.md` ← `docs/private-shared-imports/governance/🇨🇳 人话转系统话·AI执行内核 P0+++永恒级.md`
@@ -783,12 +783,12 @@
 - `🌌 人机融合·元宇宙穿越战略 咱们的终极愿景.md` ← `docs/longhun-tech/metaverse/🌌 人机融合·元宇宙穿越战略 咱们的终极愿景.md`
 - `🌌 元宇宙入口 普通人专属的AI世界.md` ← `docs/longhun-tech/metaverse/🌌 元宇宙入口 普通人专属的AI世界.md`
 - `🌌 龍魂工作间·万国算法仓库 v1 0 d44f3eceab2b42caa76f88bb6841927b.md` ← `docs/dragon-soul-open-hub/metaverse/🌌 龍魂工作间·万国算法仓库 v1 0 d44f3eceab2b42caa76f88bb6841927b.md`
-- `🌍 UID9622 龙魂系统｜公开总入口（Constitution Landing）.md` ← `docs/private-shared-imports/architecture/🌍 UID9622 龙魂系统｜公开总入口（Constitution Landing）.md`
+- `🌍 UID9622 龍魂系统｜公开总入口（Constitution Landing）.md` ← `docs/private-shared-imports/architecture/🌍 UID9622 龍魂系统｜公开总入口（Constitution Landing）.md`
 - `🌍 UID9622全球治理框架 P0-P2完整体系.md` ← `docs/private-shared-imports/governance/🌍 UID9622全球治理框架 P0-P2完整体系.md`
 - `🌍 UID9622全球治理框架 P0-P2完整体系_1.md` ← `docs/private-shared-imports/governance/🌍 UID9622全球治理框架 P0-P2完整体系_1.md`
-- `🌍 北辰-母协议·龙魂系统全球治理宪章 v1 0.md` ← `docs/private-shared-imports/cnsh-protocols/🌍 北辰-母协议·龙魂系统全球治理宪章 v1 0.md`
+- `🌍 北辰-母协议·龍魂系统全球治理宪章 v1 0.md` ← `docs/private-shared-imports/cnsh-protocols/🌍 北辰-母协议·龍魂系统全球治理宪章 v1 0.md`
 - `🌍 通心译 × 天下大公语义编译系统 v2 1 3607125a9c9f8167ba65e806ad5d72d3.md` ← `docs/private-shared-imports/cnsh-protocols/🌍 通心译 × 天下大公语义编译系统 v2 1 3607125a9c9f8167ba65e806ad5d72d3.md`
-- `🌍 龙魂全球治理框架 基于人性的监督系统（P0永恒级）.md` ← `docs/private-shared-imports/governance/🌍 龙魂全球治理框架 基于人性的监督系统（P0永恒级）.md`
+- `🌍 龍魂全球治理框架 基于人性的监督系统（P0永恒级）.md` ← `docs/private-shared-imports/governance/🌍 龍魂全球治理框架 基于人性的监督系统（P0永恒级）.md`
 - `🌐 多AI协作网络 v2 0 383067e4906745f3bfd171079b270f1e.md` ← `docs/dragon-soul-open-hub/agent-specs/🌐 多AI协作网络 v2 0 383067e4906745f3bfd171079b270f1e.md`
 - `🌐 对外展示页｜基层接口.md` ← `docs/longhun-tech/integration/🌐 对外展示页｜基层接口.md`
 - `🌟 星辰记忆·Notion同步库｜DNA绑定·设备无关·永不丢失 9132bde5057f4ccdaa253d5ba39d4708.md` ← `docs/private-shared-imports/memory-dna/🌟 星辰记忆·Notion同步库｜DNA绑定·设备无关·永不丢失 9132bde5057f4ccdaa253d5ba39d4708.md`
@@ -800,7 +800,7 @@
 - `🎨 视觉渲染专业术语全图谱 v1 0｜龍芯知识库·视觉渲染领域.md` ← `docs/private-shared-imports/documentation/🎨 视觉渲染专业术语全图谱 v1 0｜龍芯知识库·视觉渲染领域.md`
 - `🎯 AI情报分析模板库 快速启动工作流.md` ← `docs/longhun-tech/operations/🎯 AI情报分析模板库 快速启动工作流.md`
 - `🎯 UID9622系统导航优化中心 主要路径优化.md` ← `docs/longhun-tech/navigation/🎯 UID9622系统导航优化中心 主要路径优化.md`
-- `🎯 龙魂创作占位系统·总览 UID9622完整知识网络.md` ← `docs/private-shared-imports/memory-dna/🎯 龙魂创作占位系统·总览 UID9622完整知识网络.md`
+- `🎯 龍魂创作占位系统·总览 UID9622完整知识网络.md` ← `docs/private-shared-imports/memory-dna/🎯 龍魂创作占位系统·总览 UID9622完整知识网络.md`
 - `🏛️ 龍魂基金会·元世界消费保障体系 v1 0 ec275238b87e4e6186e3b34a2806417a.md` ← `docs/dragon-soul-open-hub/metaverse/🏛️ 龍魂基金会·元世界消费保障体系 v1 0 ec275238b87e4e6186e3b34a2806417a.md`
 - `🏷️ UID9622统一视觉标识系统 完整设计规范.md` ← `docs/longhun-tech/general/🏷️ UID9622统一视觉标识系统 完整设计规范.md`
 - `🐉 CSDN专题首页图设计｜军魂·人民·量子融合 53c0240152bf4271a0fdcd15b2da3af0.md` ← `docs/dragon-soul-open-hub/tutorials/🐉 CSDN专题首页图设计｜军魂·人民·量子融合 53c0240152bf4271a0fdcd15b2da3af0.md`
@@ -808,14 +808,14 @@
 - `🐉 不动点架构·全系统融合版 v2.0.md` ← `docs/dragon-soul-open-hub/tutorials/🐉 不动点架构·全系统融合版 v2.0.md`
 - `🐉 手把手教程·龍魂系统5分钟跑起来 v2.0.md` ← `docs/dragon-soul-open-hub/tutorials/🐉 手把手教程·龍魂系统5分钟跑起来 v2.0.md`
 - `🐉 知乎文章｜尼克松说中国了不起，为何每任美国总统都要压制中国？ cc30ecc883d04229ba56cf3b8dea7ddc.md` ← `docs/dragon-soul-open-hub/tutorials/🐉 知乎文章｜尼克松说中国了不起，为何每任美国总统都要压制中国？ cc30ecc883d04229ba56cf3b8dea7ddc.md`
-- `🐉 龙魂中枢系统 三层龙脊架构完整方案.md` ← `docs/private-shared-imports/architecture/🐉 龙魂中枢系统 三层龙脊架构完整方案.md`
+- `🐉 龍魂中枢系统 三层龍脊架构完整方案.md` ← `docs/private-shared-imports/architecture/🐉 龍魂中枢系统 三层龍脊架构完整方案.md`
 - `🐍 Service DNA｜python3 最小可跑版本（规则→三色→日志→报表）v0 1 88d0994acd944b08a896633073b983ed.md` ← `docs/dragon-soul-open-hub/agent-specs/🐍 Service DNA｜python3 最小可跑版本（规则→三色→日志→报表）v0 1 88d0994acd944b08a896633073b983ed.md`
 - `🐍 ethics_review_mvp py（伦理审查终端MVP）.md` ← `docs/private-shared-imports/governance/🐍 ethics_review_mvp py（伦理审查终端MVP）.md`
-- `👥 同道者名录｜UID9622龙魂系统共建者 aada31ba72c6413f8977f2c7a226f465.md` ← `docs/dragon-soul-open-hub/ipa-alignment/👥 同道者名录｜UID9622龙魂系统共建者 aada31ba72c6413f8977f2c7a226f465.md`
+- `👥 同道者名录｜UID9622龍魂系统共建者 aada31ba72c6413f8977f2c7a226f465.md` ← `docs/dragon-soul-open-hub/ipa-alignment/👥 同道者名录｜UID9622龍魂系统共建者 aada31ba72c6413f8977f2c7a226f465.md`
 - `💰 UID9622价值交换系统 随缘打赏·人性分层·智能匹配.md` ← `docs/longhun-tech/metaverse/💰 UID9622价值交换系统 随缘打赏·人性分层·智能匹配.md`
 - `💾 UID9622企业级备份系统 全自动化备份解决方案.md` ← `docs/longhun-tech/database/💾 UID9622企业级备份系统 全自动化备份解决方案.md`
 - `📁 技术协作规范.md` ← `docs/longhun-tech/governance/📁 技术协作规范.md`
-- `📄 龙魂·Service DNA 接入规范（对外发布版）v0 2 141f146e598a4bdcb3cb7dcb8e673560.md` ← `docs/dragon-soul-open-hub/agent-specs/📄 龙魂·Service DNA 接入规范（对外发布版）v0 2 141f146e598a4bdcb3cb7dcb8e673560.md`
+- `📄 龍魂·Service DNA 接入规范（对外发布版）v0 2 141f146e598a4bdcb3cb7dcb8e673560.md` ← `docs/dragon-soul-open-hub/agent-specs/📄 龍魂·Service DNA 接入规范（对外发布版）v0 2 141f146e598a4bdcb3cb7dcb8e673560.md`
 - `📊 AIIA标准制定方案 ff5f4dd3e1d145deb4586de7667af8dc.md` ← `docs/private-shared-imports/governance/📊 AIIA标准制定方案 ff5f4dd3e1d145deb4586de7667af8dc.md`
 - `📊 AIIA标准制定方案.md` ← `docs/private-shared-imports/governance/📊 AIIA标准制定方案.md`
 - `📊 UID9622数字资产评估报告 商业精英版.md` ← `docs/private-shared-imports/governance/📊 UID9622数字资产评估报告 商业精英版.md`
@@ -832,11 +832,11 @@
 - `📐 龍魂七維AI治理×數字主權執行表·設計規範 v1 0｜君子協議·Notion即登記所｜UID96 84daa1d2030447318ade20e12b1fdb36.md` ← `docs/dragon-soul-open-hub/governance/📐 龍魂七維AI治理×數字主權執行表·設計規範 v1 0｜君子協議·Notion即登記所｜UID96 84daa1d2030447318ade20e12b1fdb36.md`
 - `📖 小白教程｜如何让UID9622官网从静态变成动态 fedd130e7ea340c5a16f3df03549638a.md` ← `docs/dragon-soul-open-hub/tutorials/📖 小白教程｜如何让UID9622官网从静态变成动态 fedd130e7ea340c5a16f3df03549638a.md`
 - `📖 教程极简模板｜跟着做就会 75e85e69121243909e3327e9aaa18e76.md` ← `docs/dragon-soul-open-hub/tutorials/📖 教程极简模板｜跟着做就会 75e85e69121243909e3327e9aaa18e76.md`
-- `📖 龙魂系统指令手册｜对外使用指南 572e4280f9484a0c9fa3bbccad8b028d.md` ← `docs/dragon-soul-open-hub/tutorials/📖 龙魂系统指令手册｜对外使用指南 572e4280f9484a0c9fa3bbccad8b028d.md`
+- `📖 龍魂系统指令手册｜对外使用指南 572e4280f9484a0c9fa3bbccad8b028d.md` ← `docs/dragon-soul-open-hub/tutorials/📖 龍魂系统指令手册｜对外使用指南 572e4280f9484a0c9fa3bbccad8b028d.md`
 - `📚 AI术语知识库 统一口径管理中心.md` ← `docs/longhun-tech/general/📚 AI术语知识库 统一口径管理中心.md`
 - `📚 UID9622智能系统用户手册 完整使用指南.md` ← `docs/longhun-tech/database/📚 UID9622智能系统用户手册 完整使用指南.md`
 - `📚 知识产权保护与变现 - 权威资源库.md` ← `docs/longhun-tech/general/📚 知识产权保护与变现 - 权威资源库.md`
-- `📜 龙芯知识专栏·版权声明&君子协议（固定模板） 7a2b88d00e76426db52bd607d98b9bc8.md` ← `docs/dragon-soul-open-hub/governance/📜 龙芯知识专栏·版权声明&君子协议（固定模板） 7a2b88d00e76426db52bd607d98b9bc8.md`
+- `📜 龍芯知识专栏·版权声明&君子协议（固定模板） 7a2b88d00e76426db52bd607d98b9bc8.md` ← `docs/dragon-soul-open-hub/governance/📜 龍芯知识专栏·版权声明&君子协议（固定模板） 7a2b88d00e76426db52bd607d98b9bc8.md`
 - `📝 CSDN发布模板｜老百姓分析法则·算法明明白白版 090636758b494e96ae5cc0c0fd33fdfa.md` ← `docs/dragon-soul-open-hub/tutorials/📝 CSDN发布模板｜老百姓分析法则·算法明明白白版 090636758b494e96ae5cc0c0fd33fdfa.md`
 - `📝 关于钉钉个人博客的命名与简介建议.md` ← `docs/private-shared-imports/persona-tools/📝 关于钉钉个人博客的命名与简介建议.md`
 - `📝 语雀个人介绍 人机协作探索者.md` ← `docs/private-shared-imports/persona-tools/📝 语雀个人介绍 人机协作探索者.md`
@@ -845,7 +845,7 @@
 - `📦 README极简模板｜仓库说明·一眼看懂 1a59dad93a8340adb046804f51bd6132.md` ← `docs/dragon-soul-open-hub/tutorials/📦 README极简模板｜仓库说明·一眼看懂 1a59dad93a8340adb046804f51bd6132.md`
 - `📦 上下文治理协议 v2 0（压缩+收口+续航+迁移） 3607125a9c9f81edb703fcfb1cc8bc50.md` ← `docs/private-shared-imports/cnsh-protocols/📦 上下文治理协议 v2 0（压缩+收口+续航+迁移） 3607125a9c9f81edb703fcfb1cc8bc50.md`
 - `📦 中文代码模板包 下载即用.md` ← `docs/private-shared-imports/persona-tools/📦 中文代码模板包 下载即用.md`
-- `📦 北辰协议｜原文存档（L0-012）｜龙魂AI伦理边界（反驳博弈版）｜来源=·不改字版 c60d629444c94656b2b2ea968a6c72af.md` ← `docs/dragon-soul-open-hub/governance/📦 北辰协议｜原文存档（L0-012）｜龙魂AI伦理边界（反驳博弈版）｜来源=·不改字版 c60d629444c94656b2b2ea968a6c72af.md`
+- `📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版 c60d629444c94656b2b2ea968a6c72af.md` ← `docs/dragon-soul-open-hub/governance/📦 北辰协议｜原文存档（L0-012）｜龍魂AI伦理边界（反驳博弈版）｜来源=·不改字版 c60d629444c94656b2b2ea968a6c72af.md`
 - `📦 北辰协议｜原文存档（L2-021 + L1-031）｜来源=Claude·不改字版 837a3b763b7541ab8f681defe3ac7362.md` ← `docs/dragon-soul-open-hub/governance/📦 北辰协议｜原文存档（L2-021 + L1-031）｜来源=Claude·不改字版 837a3b763b7541ab8f681defe3ac7362.md`
 - `📦 北辰协议｜原文存档（L2-022）｜创作权利守护+一票否决权｜来源=Claude·不改字版 9cba762af3b047048215992c42034233.md` ← `docs/dragon-soul-open-hub/governance/📦 北辰协议｜原文存档（L2-022）｜创作权利守护+一票否决权｜来源=Claude·不改字版 9cba762af3b047048215992c42034233.md`
 - `📮 致网信办建议书｜《人工智能拟人化互动服务管理暂行办法》征求意见·优化版 v2 0.md` ← `docs/private-shared-imports/governance/📮 致网信办建议书｜《人工智能拟人化互动服务管理暂行办法》征求意见·优化版 v2 0.md`
@@ -863,7 +863,7 @@
 - `🔐 DNA激活许可闭环系统 数字身份+通证准入 H武器推演报告.md` ← `docs/private-shared-imports/memory-dna/🔐 DNA激活许可闭环系统 数字身份+通证准入 H武器推演报告.md`
 - `🔐 多设备指挥系统 Mac·iPad·云端三位一体.md` ← `docs/longhun-tech/operations/🔐 多设备指挥系统 Mac·iPad·云端三位一体.md`
 - `🔐 账号网络与登录管理.md` ← `docs/longhun-tech/audit/🔐 账号网络与登录管理.md`
-- `🔐 龙魂完整性验证报告 INTEGRITY-20251017-2008.md` ← `docs/private-shared-imports/security-audit/🔐 龙魂完整性验证报告 INTEGRITY-20251017-2008.md`
+- `🔐 龍魂完整性验证报告 INTEGRITY-20251017-2008.md` ← `docs/private-shared-imports/security-audit/🔐 龍魂完整性验证报告 INTEGRITY-20251017-2008.md`
 - `🔔 OpenAI通知追踪系统 v2 0 全自动化监控中心.md` ← `docs/longhun-tech/operations/🔔 OpenAI通知追踪系统 v2 0 全自动化监控中心.md`
 - `🔖 使用时长权重卡 使用 1小时≠正常用户.md` ← `docs/private-shared-imports/memory-dna/🔖 使用时长权重卡 使用 1小时≠正常用户.md`
 - `🔗 Claude AI集成接口 9dba7f24e466485fabd156969d12f9c0.md` ← `docs/private-shared-imports/api-integration/🔗 Claude AI集成接口 9dba7f24e466485fabd156969d12f9c0.md`
@@ -884,12 +884,12 @@
 - `🛡️ 三层监督+钩子系统·完整集成版 自动触发.md` ← `docs/private-shared-imports/security-audit/🛡️ 三层监督+钩子系统·完整集成版 自动触发.md`
 - `🛡️ 安全监控与防护中枢 41fc225ff3e94920ba5edd40f927e696.md` ← `docs/private-shared-imports/security-audit/🛡️ 安全监控与防护中枢 41fc225ff3e94920ba5edd40f927e696.md`
 - `🤖 AI 系统一键同步操作指南.md` ← `docs/longhun-tech/integration/🤖 AI 系统一键同步操作指南.md`
-- `🤖 AI对话语义标准化与意图增强系统 龙魂公开技术文档 2f37125a9c9f8071b739c73269d7935e.md` ← `docs/dragon-soul-open-hub/intent-recognition/🤖 AI对话语义标准化与意图增强系统 龙魂公开技术文档 2f37125a9c9f8071b739c73269d7935e.md`
+- `🤖 AI对话语义标准化与意图增强系统 龍魂公开技术文档 2f37125a9c9f8071b739c73269d7935e.md` ← `docs/dragon-soul-open-hub/intent-recognition/🤖 AI对话语义标准化与意图增强系统 龍魂公开技术文档 2f37125a9c9f8071b739c73269d7935e.md`
 - `🤖 AI智能体模板库 复制粘贴就能用的专属助手.md` ← `docs/private-shared-imports/ai-behavior/🤖 AI智能体模板库 复制粘贴就能用的专属助手.md`
 - `🤖 AI系统运行监控中心 专业版.md` ← `docs/longhun-tech/operations/🤖 AI系统运行监控中心 专业版.md`
 - `🤖 安卓版本开发规划 未来功能蓝图.md` ← `docs/longhun-tech/roadmap/🤖 安卓版本开发规划 未来功能蓝图.md`
 - `🤖 通心译系统文档集 v1 0 34d7125a9c9f8152b264e89a85edc282.md` ← `docs/dragon-soul-open-hub/intent-recognition/🤖 通心译系统文档集 v1 0 34d7125a9c9f8152b264e89a85edc282.md`
-- `🤝 华为开发者联盟对接包 龙魂技术演示脚本.md` ← `docs/cnsh-uid9622/governance/🤝 华为开发者联盟对接包 龙魂技术演示脚本.md`
+- `🤝 华为开发者联盟对接包 龍魂技术演示脚本.md` ← `docs/cnsh-uid9622/governance/🤝 华为开发者联盟对接包 龍魂技术演示脚本.md`
 - `🤝 合作标准 · 系统结构模板（内部专用）.md` ← `docs/longhun-tech/governance/🤝 合作标准 · 系统结构模板（内部专用）.md`
 - `🥺 V♾️自动化设置小白教程 一步一确认版.md` ← `docs/longhun-tech/integration/🥺 V♾️自动化设置小白教程 一步一确认版.md`
 - `🧠 Rebell-AK407 主控系统 · 控制面板（主控者专属）.md` ← `docs/longhun-tech/integration/🧠 Rebell-AK407 主控系统 · 控制面板（主控者专属）.md`
@@ -902,7 +902,7 @@
 - `🧩 复杂任务·自动分解规则 一句话变多步骤 bbce26e3152346e3a3a87062c20c1fad.md` ← `docs/dragon-soul-open-hub/agent-specs/🧩 复杂任务·自动分解规则 一句话变多步骤 bbce26e3152346e3a3a87062c20c1fad.md`
 - `🧭 Lucky·人机协作系统仪表盘（Home）.md` ← `docs/private-shared-imports/memory-dna/🧭 Lucky·人机协作系统仪表盘（Home）.md`
 - `🧭LU-PASSIVE-FIRE｜路径状态总览.md` ← `docs/longhun-tech/governance/🧭LU-PASSIVE-FIRE｜路径状态总览.md`
-- `🪝 龙魂钩子系统·核心引擎 完整可执行版.md` ← `docs/private-shared-imports/memory-dna/🪝 龙魂钩子系统·核心引擎 完整可执行版.md`
+- `🪝 龍魂钩子系统·核心引擎 完整可执行版.md` ← `docs/private-shared-imports/memory-dna/🪝 龍魂钩子系统·核心引擎 完整可执行版.md`
 - `🪧 任务交接板 v0 1·龍魂双端互通.md` ← `docs/private-shared-imports/architecture/🪧 任务交接板 v0 1·龍魂双端互通.md`
 
 ### 15_知识图谱与编译器

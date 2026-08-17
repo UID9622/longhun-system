@@ -9,7 +9,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-03-13-ETHICS-COURT-v1.0```  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-ETHICS-COURT-v1.0```  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -23,7 +23,7 @@
 > 平台：本地
 > 審核狀態：草稿
 
-**DNA**: `#龍芯⚡️2026-03-13-ETHICS-COURT-v1.0``  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-ETHICS-COURT-v1.0``  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -368,7 +368,7 @@ AI不得替用户做选择，只提供工具与透明逻辑。
 | 治理层级 | 三层（立法/司法/执行） |
 | 许可协议 | CC BY-NC-ND 4.0 国际许可 |
 | 有效期限 | ♾️永久有效 |
-| DNA 编号 | `#龍芯⚡️2026-03-13-ETHICS-COURT-v1.0` |
+| DNA 编号 | `#龍芯⚡️丙午·丙申·庚申·亥时-ETHICS-COURT-v1.0` |
 
 ---
 
@@ -485,7 +485,7 @@ AI的职责不是干预，而是守护。
 - 本文檔引用或參考了以下來源：
   - [1] （請填寫）
 - 相關龍魂系統文檔：
-  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 誠實局限
 
@@ -508,7 +508,7 @@ AI的职责不是干预，而是守护。
 ## DNA 簽名
 
 ```
-#龍芯⚡️2026-03-13-ETHICS-COURT-v1.0`
+#龍芯⚡️丙午·丙申·庚申·亥时-ETHICS-COURT-v1.0`
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```
 
@@ -528,7 +528,7 @@ AI的职责不是干预，而是守护。
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -551,6 +551,6 @@ AI的职责不是干预，而是守护。
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-03-13-ETHICS-COURT-v1.0``
+#龍芯⚡️丙午·丙申·庚申·亥时-ETHICS-COURT-v1.0``
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

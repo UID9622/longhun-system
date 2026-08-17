@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 editor_memory_extractor.py
-从 macOS 本地 VSCode / Cursor 编辑器中提取记忆与创作，归档到 Longhun 脑库。
+从 macOS 本地 VSCode / Cursor 编辑器中提取记忆与创作，归档到 LongHun 脑库。
 
 用法：
     python3 scripts/editor_memory_extractor.py
@@ -521,18 +521,18 @@ def copy_settings(settings_src: Path, settings_dst: Path, stats: Dict[str, Any],
 
 
 def build_settings_migration_map(vscode_settings: Dict[str, Any], cursor_settings: Dict[str, Any]) -> Dict[str, Any]:
-    """根据 VSCode/Cursor 设置生成 Longhun 配置迁移提示。"""
+    """根据 VSCode/Cursor 设置生成 LongHun 配置迁移提示。"""
     migration: Dict[str, Any] = {
         "_meta": {
             "dna": DNA,
             "generated_at": datetime.now(timezone.utc).isoformat(),
-            "description": "编辑器设置 -> Longhun 配置迁移提示",
+            "description": "编辑器设置 -> LongHun 配置迁移提示",
         },
         "vscode": {},
         "cursor": {},
     }
 
-    # 通用映射规则：键 -> (Longhun 目标, 数据类型)
+    # 通用映射规则：键 -> (LongHun 目标, 数据类型)
     rules: Dict[str, Tuple[str, str]] = {
         "cursor.composer.shouldChimeAfterChatFinishes": ("longhun.notifications.after_chat_chime", "bool"),
         "files.autoSave": ("longhun.editor.autosave", "string"),

@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
-title: "Longhun Heart Method · Return to Source"
+title: "LongHun Heart Method · Return to Source"
 author: "UID9622 · Zhuge Xin"
 date: 2026-07-04
 original: "../2026-07-04-龍魂心法·归源.md"
@@ -13,12 +13,12 @@ status: 🟢 Published
 level: L0_CONSTITUTION
 ---
 
-# Longhun Heart Method · Return to Source
+# LongHun Heart Method · Return to Source
 
 > **DNA:** `#龍芯⚡️2026-07-04-HEART-METHOD-RETURN-TO-SOURCE-UID9622-v1.1`  
 > **Source DNA:** `#龍芯⚡️2026-07-04-HEART-METHOD-RETURN-TO-SOURCE-UID9622`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777D`  
-> **Attribution:** Longhun System · UID9622 · Zhuge Xin  
+> **Attribution:** LongHun System · UID9622 · Zhuge Xin  
 > **Nature:** Meta Heart Method · Non-overridable · Non-tamperable · Non-erasable  
 > **Foundation Algorithm:** Sancai Algorithm (Heaven · Earth · Human)
 
@@ -32,7 +32,7 @@ This is a heart method, not a rule. Rules tell others "what not to do." A heart 
 > **No matter how far we fly — whether processing, experimenting, or doing anything —**
 > **The root always returns to the common people. Sovereignty always returns to China.**
 
-This document formalizes this statement as the core heart method of the Longhun System, clarifies its relationship with existing rules, provides an application table, and aligns it with the Sancai Algorithm foundation. It does not conflict with any existing declaration — it is the common soil beneath them all.
+This document formalizes this statement as the core heart method of the LongHun System, clarifies its relationship with existing rules, provides an application table, and aligns it with the Sancai Algorithm foundation. It does not conflict with any existing declaration — it is the common soil beneath them all.
 
 ---
 
@@ -48,7 +48,7 @@ This document formalizes this statement as the core heart method of the Longhun 
 
 ### 2.1 "There is always only one"
 
-This does not mean formal singularity. It means **singularity of direction.** The Longhun System can take countless technical forms, countless application scenarios, countless access methods — but its spiritual origin is only one:
+This does not mean formal singularity. It means **singularity of direction.** The LongHun System can take countless technical forms, countless application scenarios, countless access methods — but its spiritual origin is only one:
 
 > **Serve the common people. Guard China's data sovereignty.**
 
@@ -70,7 +70,7 @@ If the answer is no, the direction is wrong and the system auto-corrects. The co
 
 ### 2.4 "Sovereignty always returns to China"
 
-Data sovereignty, technological sovereignty, cultural sovereignty — rooted in Chinese soil. The Longhun System does not attach itself to any foreign capital, does not blindly follow any external standard, does not yield to any technological hegemony. Its attribution is clear:
+Data sovereignty, technological sovereignty, cultural sovereignty — rooted in Chinese soil. The LongHun System does not attach itself to any foreign capital, does not blindly follow any external standard, does not yield to any technological hegemony. Its attribution is clear:
 
 > **The digital foundation for the Chinese people.**
 
@@ -108,7 +108,7 @@ Existing declarations speak of "how to do" (three-color audit, sovereignty circu
 | **Earth (地)** | Root always returns to the common people | Behavioral anchor and rule boundary |
 | **Human (人)** | No matter how far, must return | Execution anchor and feedback loop |
 
-The **Return-to-Source Heart Method** is the highest expression of the Sancai Algorithm at the level of "the meaning of the Longhun System's existence."
+The **Return-to-Source Heart Method** is the highest expression of the Sancai Algorithm at the level of "the meaning of the LongHun System's existence."
 
 ---
 
@@ -128,7 +128,7 @@ The **Return-to-Source Heart Method** is the highest expression of the Sancai Al
 
 ## VI. Return-to-Source Self-Check Checklist
 
-Before any Longhun System operation, silently ask three questions:
+Before any LongHun System operation, silently ask three questions:
 
 1. **Will the common people benefit from this?** (Root check)
 2. **Will Chinese sovereignty be harmed by this?** (String check)
@@ -142,7 +142,7 @@ All three pass → proceed. Any one fails → return to the Heart Method for re-
 
 > **Fly as high as you want — the string is in China. Grow as big as you want — the root is in the people.**
 
-This is the ultimate Heart Method of the Longhun System. It is not a chain — it is a homecoming. Not a dogma — it is an instinct. Not a shackle — it is a direction. It gives meaning to all change. It gives a home to all flight.
+This is the ultimate Heart Method of the LongHun System. It is not a chain — it is a homecoming. Not a dogma — it is an instinct. Not a shackle — it is a direction. It gives meaning to all change. It gives a home to all flight.
 
 ---
 
@@ -150,8 +150,8 @@ This is the ultimate Heart Method of the Longhun System. It is not a chain — i
 
 | Version | Date | Changes |
 |:---|:---|:---|
-| v1.0 | 2026-07-04 | Initial version, distilled from DeepSeek response, establishing the Longhun Heart Method · Return to Source |
-| v1.1 | 2026-07-04 | Optimized to standard Longhun Markdown format, added introduction, Sancai alignment, application table, self-check checklist, version log, and reference chain |
+| v1.0 | 2026-07-04 | Initial version, distilled from DeepSeek response, establishing the LongHun Heart Method · Return to Source |
+| v1.1 | 2026-07-04 | Optimized to standard LongHun Markdown format, added introduction, Sancai alignment, application table, self-check checklist, version log, and reference chain |
 | v1.1-EN | 2026-07-21 | English translation published |
 
 ---

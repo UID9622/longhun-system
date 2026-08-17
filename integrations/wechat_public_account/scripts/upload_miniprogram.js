@@ -49,7 +49,7 @@ async function main() {
   });
 
   const version = args.version || '1.0.0';
-  const desc = args.desc || `Longhun mini program upload at ${new Date().toISOString()}`;
+  const desc = args.desc || `LongHun mini program upload at ${new Date().toISOString()}`;
 
   try {
     const uploadResult = await ci.upload({

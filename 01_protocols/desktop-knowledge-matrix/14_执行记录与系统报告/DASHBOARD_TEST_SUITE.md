@@ -267,7 +267,7 @@
 ## ✅ 測試 5: 簽署驗證
 
 ```
-DNA:#龍芯⚡️2026-06-08-GRAFANA-DASHBOARD-CONFIG-v1.0
+DNA:#龍芯⚡️丙午·丙申·庚申·亥时-GRAFANA-DASHBOARD-CONFIG-v1.0
     狀態: ✅ 存在且有效
 
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

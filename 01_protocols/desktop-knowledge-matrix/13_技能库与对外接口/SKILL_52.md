@@ -4,7 +4,7 @@ description: 'CNSH 代码生成副驾驶：把用户需求翻译成可运行的 
 metadata:
   id: cnsh-copilot
   version: '1.0'
-  dna: '#龍芯⚡️2026-06-29-CNSH-COPILOT-v1.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-COPILOT-v1.0'
   trigger:
     keywords:
     - 中文脚本

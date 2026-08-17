@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 龍魂跨平台互通主模块 — iOS与鸿蒙本地网络直连
 ================================================
-DNA:#龍芯⚡️2026-06-19-SYNC-MSG-FILE27-v1.0
+DNA: #龍芯⚡️2026-06-19-SYNC-MSG-v1.0
 致敬: #致敬⚡️SteveJobs+Concept·跨平台互通
 
 核心原则:
@@ -41,7 +38,7 @@ from 主权网关 import 主权网关, 出境判决
 # ============================================================
 君子协议 = """
 ================================================================================
-龍魂跨平台互通 · 君子协议 (Longhun Cross-Platform Gentleman's Agreement)
+龍魂跨平台互通 · 君子协议 (LongHun Cross-Platform Gentleman's Agreement)
 ================================================================================
 1. 本技能仅用于iOS与鸿蒙设备间本地数据互通，绝不用于任何外网传输
 2. 所有数据传输必须先加密再出应用，密钥永不离设备
@@ -107,7 +104,7 @@ class 同步结果:
     耗时毫秒: int = 0
     冲突数: int = 0
     主权检查: bool = False
-    审计日志: list[Any] = field(default_factory=list)
+    审计日志: list = field(default_factory=list)
     DNA: str = "#龍芯⚡️2026-06-19-SYNC-MSG-v1.0"
 
 
@@ -418,12 +415,12 @@ class 跨平台主模块:
         # 实际实现需要调用BLE API
         return b""
     
-    def _获取本地对应数据(self, 远程数据: Dict[str, Any]) -> Dict[str, Any]:
+    def _获取本地对应数据(self, 远程数据: Dict) -> Dict:
         """获取与远程数据对应的本地数据"""
         # 实际实现从本地数据库查询
         return {}
     
-    def _合并数据(self, 本地: Dict[str, Any], 对端: Dict[str, Any]) -> Dict[str, Any]:
+    def _合并数据(self, 本地: Dict, 对端: Dict) -> Dict:
         """合并两设备数据"""
         结果 = dict(本地)
         for 键, 值 in 对端.items():

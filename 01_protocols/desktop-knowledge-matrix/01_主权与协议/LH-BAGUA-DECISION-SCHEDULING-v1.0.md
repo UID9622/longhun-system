@@ -7,14 +7,14 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-06-28-LONGHUN-BAGUA-SCHEDULER-v1.0``  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BAGUA-SCHEDULER-v1.0``  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
 # 龍魂八卦决策调度协议 v1.0（执行指令版）
 
-**DNA:** `#龍芯⚡️2026-06-28-LONGHUN-BAGUA-SCHEDULER-v1.0`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BAGUA-SCHEDULER-v1.0`
 **归属:** 中华人民共和国 · 龍魂系统
 **生效:** 2026-06-28 · 即时执行
 
@@ -140,7 +140,7 @@ lh-bagua dashboard
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -163,6 +163,6 @@ lh-bagua dashboard
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-06-28-LONGHUN-BAGUA-SCHEDULER-v1.0`
+#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BAGUA-SCHEDULER-v1.0`
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

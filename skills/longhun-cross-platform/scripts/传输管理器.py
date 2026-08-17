@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 龍魂传输管理器 — WiFi Direct / 蓝牙BLE / 局域网TCP
 ======================================================
-DNA:#龍芯⚡️2026-06-19-SYNC-MSG-FILE28-v1.0
+DNA: #龍芯⚡️2026-06-19-SYNC-MSG-v1.0
 致敬: #致敬⚡️SteveJobs+Concept·跨平台互通
 
 核心原则: 本地网络直连，绝不经过外网

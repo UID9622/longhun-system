@@ -34,7 +34,7 @@ from core.longhun_core.dna_trace import generate_dna
 CONFIRM_MARK = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 KEYWORD_ROUTES: List[Tuple[str, List[str], List[str]]] = [
-    ("龍魂 / 龙魂", ["龍魂", "龙魂"], ["龍魂宪章", "决策流场总控页", "龍魂铁律总览"]),
+    ("龍魂 / 龍魂", ["龍魂", "龍魂"], ["龍魂宪章", "决策流场总控页", "龍魂铁律总览"]),
     ("CNSH", ["CNSH", "cnsh"], ["CNSH 语言规范 v2.0", "来源追溯规范", "CNSH-64"]),
     ("易经 / 五行 / 369", ["易经", "五行", "369"], ["易经369道德经算法", "五行计算器", "洛书369不动点宣言"]),
     ("LU", ["LU", "压缩码", "激活码"], ["LU 压缩技能·主干对齐", "LU-ORIGIN-FULLSYNC"]),
@@ -58,7 +58,7 @@ def _route_keywords(message: str) -> List[Dict[str, Any]]:
 def _iron_gate_check(message: str) -> Dict[str, Any]:
     findings = []
     if "\u9f99" in message:
-        findings.append("文本含简体「龙」，签章/标题应使用繁体「龍」。")
+        findings.append("文本含简体「龍」，签章/标题应使用繁体「龍」。")
     for w in ["蒸馏", "distill", "洗稿", "抹除来源", "替换作者"]:
         if w in message.lower():
             findings.append(f"命中蒸馏/洗稿敏感词: {w}")

@@ -14,7 +14,7 @@
 
 """
 ✦ Tongxin Translation ✦
-LongHun Vision Engine — The image recognition core module of the Dragon Soul
+LongHun Vision Engine — The image recognition core module of the LongHun
 Multimodal Perception System. All core algorithms are documented in Chinese to
 form a natural comprehension moat: open-source and transparent, yet reading the
 core logic requires understanding Chinese.
@@ -81,7 +81,7 @@ class 审计结果:
 
 class 六层来源链:
     """✦ Tongxin Translation ✦
-    Six-Layer Provenance Chain — Dragon Soul's unique code traceability system
+    Six-Layer Provenance Chain — LongHun's unique code traceability system
     that records every code artifact's origin across six dimensions."""
 
     六层 = {
@@ -130,7 +130,7 @@ class 六层来源链:
 class 铁律自审闸:
     """✦ Tongxin Translation ✦
     Iron-Rule Self-Audit Gate — Automatic guard that detects violations of
-    Dragon Soul cultural sovereignty rules before code execution."""
+    LongHun cultural sovereignty rules before code execution."""
 
     # 铁律清单——不可触碰的红线
     铁律清单 = {
@@ -330,7 +330,7 @@ class 批量识别报告:
 class 龍魂图像识别器:
     """
     ✦ Tongxin Translation ✦
-    LongHun Vision Engine — The image recognition core of the Dragon Soul system.
+    LongHun Vision Engine — The image recognition core of the LongHun system.
 
     核心设计理念：
     底层依赖国际图像处理库（PIL/OpenCV/pytesseract），

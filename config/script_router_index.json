@@ -18861,10 +18861,10 @@
       "signed": true
     },
     {
-      "name": "龙魂系统_API接口完整实现_v1.0.py",
-      "stem": "龙魂系统_API接口完整实现_v1.0",
-      "path": "bin/龙魂系统_API接口完整实现_v1.0.py",
-      "abs_path": "/Users/zuimeidedeyihan/longhun-system/bin/龙魂系统_API接口完整实现_v1.0.py",
+      "name": "龍魂系统_API接口完整实现_v1.0.py",
+      "stem": "龍魂系统_API接口完整实现_v1.0",
+      "path": "bin/龍魂系统_API接口完整实现_v1.0.py",
+      "abs_path": "/Users/zuimeidedeyihan/longhun-system/bin/龍魂系统_API接口完整实现_v1.0.py",
       "size": 29160,
       "mtime": "2026-08-05T20:20:57.919778",
       "summary": "龍魂系统 API接口完整实现 v1.0",
@@ -19795,7 +19795,7 @@
       "web_server.py",
       "模式对比.py",
       "龍魂体系v5-一键启动.py",
-      "龙魂系统_API接口完整实现_v1.0.py"
+      "龍魂系统_API接口完整实现_v1.0.py"
     ]
   }
 }

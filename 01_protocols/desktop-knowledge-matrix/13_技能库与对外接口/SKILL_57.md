@@ -1,15 +1,15 @@
 ---
 name: longhun-backup
-description: '龍魂备份恢复系统 (Longhun Backup & Recovery v5.1)。 提供三层分级备份策略（L1协议文件 / L2五层脚本 / L3配置文件）、 全量备份、增量备份、定时备份调度、快照恢复、版本回退、完整性验证等功能。 适用于龍魂v5技能栈的备份保护与灾难恢复场景。 保护老百姓数据资产，符合中国本地备份标准。 当用户需要备份龍魂系统、恢复先前版本、验证备份完整性、 或设置自动备份策略时使用此技能。'
+description: '龍魂备份恢复系统 (LongHun Backup & Recovery v5.1)。 提供三层分级备份策略（L1协议文件 / L2五层脚本 / L3配置文件）、 全量备份、增量备份、定时备份调度、快照恢复、版本回退、完整性验证等功能。 适用于龍魂v5技能栈的备份保护与灾难恢复场景。 保护老百姓数据资产，符合中国本地备份标准。 当用户需要备份龍魂系统、恢复先前版本、验证备份完整性、 或设置自动备份策略时使用此技能。'
 metadata:
   id: longhun-backup
   version: '5.1'
-  dna: '#龍芯⚡️2026-07-03-LONGHUN-BACKUP-v5.1'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BACKUP-v5.1'
   trigger:
     keywords:
     - backup
     - 龍魂备份恢复系统
-    - (Longhun
+    - (LongHun
     - Backup
     - Recovery
     - v5.1)。
@@ -18,7 +18,7 @@ metadata:
 ---
 # 龍魂备份恢复系统 (L12)
 
-**DNA**: `#龍芯⚡️2026-06-19-LONGHUN-BACKUP-v5.1`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BACKUP-v5.1`
 
 ## 1. 系统概述
 
@@ -36,7 +36,7 @@ metadata:
 ### 1.2 架构定位
 
 ```
-龍魂v5技能栈 (Longhun v5 Skills Stack)
+龍魂v5技能栈 (LongHun v5 Skills Stack)
 ├── L0: 龍芯引擎 (core)
 ├── L1: 时间处理器 (time)
 ├── L2: 知识域控制器 (domain)
@@ -203,7 +203,7 @@ python3 scripts/恢复系统.py selective BH_20260115_120000_abc12345 /tmp/resto
 
 ```json
 {
-  "dna": "#龍芯⚡️2026-06-19-LONGHUN-BACKUP-v5.1",
+  "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BACKUP-v5.1",
   "updated_at": "2026-01-15T12:00:00",
   "snapshots": [
     {
@@ -428,7 +428,7 @@ logging.getLogger("LonghunRecovery").setLevel(logging.DEBUG)
 
 ---
 
-**龍魂备份恢复系统 v5.1** | DNA: `#龍芯⚡️2026-06-19-LONGHUN-BACKUP-v5.1`
+**龍魂备份恢复系统 v5.1** | DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BACKUP-v5.1`
 
 ---
 

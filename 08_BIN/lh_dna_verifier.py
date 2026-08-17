@@ -93,7 +93,7 @@ class DNAVerifier:
         """验证在线内容的DNA"""
         try:
             req = urllib.request.Request(url, headers={
-                "User-Agent": "Longhun-DNA-Verifier/1.0"
+                "User-Agent": "LongHun-DNA-Verifier/1.0"
             })
             with urllib.request.urlopen(req, timeout=15) as resp:
                 # 只读前500KB

@@ -10,7 +10,7 @@ description: '龍魂宝宝工作流程透明化技能。当用户要求 Kimi 解
 license: CC BY-NC-SA 4.0
 metadata:
   version: '5.0'
-  dna: '#龍芯⚡️2026-07-03-LONGHUN-WORKFLOW-TRANSPARENT-v5.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-WORKFLOW-TRANSPARENT-v5.0'
   author: UID9622 · 龍芯北辰
   category: longhun-governance
   trigger_keywords:
@@ -43,8 +43,8 @@ metadata:
 
 ## 原始 DNA 与来源
 
-- **本页主 DNA：** `#龍芯⚡️2026-06-23-LONGHUN-WORKFLOW-TRANSPARENT-SKILL-v1.0`
-- **源文件主 DNA：** `#龍芯⚡️2026-06-03-BAOBAO-WORKFLOW-TRANSPARENT-v2.0`
+- **本页主 DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-WORKFLOW-TRANSPARENT-SKILL-v1.0`
+- **源文件主 DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-BAOBAO-WORKFLOW-TRANSPARENT-v2.0`
 - **来源文件：**
   - `longhun-workflow-transparent`: `/Users/zuimeidedeyihan/longhun-system/_archive/notion-exports/Notion 导出/私人与共享/🐉 宝宝工作流程透明化系统 v2 0｜十五步五阶段·三色审计·六层来源链·铁律自审·关键词路由·双导 54e82329e86c47599879366db9fa57a4.md`
   - `longhun-iron-laws`: `/Users/zuimeidedeyihan/longhun-system/_archive/notion-exports/Notion 导出/私人与共享 2/龍魂铁律总览 v1 0｜29条铁律·14创作者守护·8组副本封存·6新牌焊接·关键词索引·守底线不当 a03f1fea3f514c76b8b0f1d8be1d4ddf.md`
@@ -64,7 +64,7 @@ metadata:
 
 1. **透明不黑盒：** 每步必须能说清"做了什么、用了什么工具、为什么"。
 2. **先查现有再造新：** 命中关键词 → 先搜工作区现有资产 → 优先复用/对齐主干 → 避免重复造轮子。
-3. **铁律自审前置：** 产出前过 IronLawGate，命中简体"龙"/蒸馏红线词 → 🔴 熔断。
+3. **铁律自审前置：** 产出前过 IronLawGate，命中简体"龍"/蒸馏红线词 → 🔴 熔断。
 4. **六层来源链必盖：** 道统(曾仕强) → 精神(Steve Jobs) → 设备(Apple) → 技术(Open Source) → 系统(UID9622) → 生命(CNSH·龍魂)。
 5. **append-only 留痕：** 每步写一行 jsonl，不可改。
 6. **不假装能力/时间/结果/记忆：** 没做到的直说，不用"明天""过几天"等假日历词。
@@ -84,7 +84,7 @@ metadata:
 | | 7 决策与方案制定 | 选工具、定顺序、定输出格式 |
 | **④ 执行·自审** | 8 执行方案·第一部分 | 完成首个子任务，记录结果 |
 | | 9 执行方案·第二部分 | 继续执行，能并行则并行 |
-| | 10 铁律自审闸 | 过红线词/简体龙/蒸馏词检测 |
+| | 10 铁律自审闸 | 过红线词/简体龍/蒸馏词检测 |
 | | 11 六层来源链盖章 | 每个产物盖来源戳 |
 | **⑤ 总结·留痕** | 12 生成总结 | 汇总核心成果、流程、后续步骤 |
 | | 13 断片续连检查 | 老实交代接住/丢失，不糊弄 |
@@ -97,7 +97,7 @@ metadata:
 
 - 🟢 通过：证据齐全、无红线、来源链完整。
 - 🟡 待审：部分验证、覆盖率缺口、需要用户再确认。
-- 🔴 熔断：命中红线词、简体"龙"、数字根 dr∈{3,9}、缺证据却假装有结果。
+- 🔴 熔断：命中红线词、简体"龍"、数字根 dr∈{3,9}、缺证据却假装有结果。
 
 ### 2. 数字根闸门（承自数学公式核心）
 
@@ -117,7 +117,7 @@ def dr_gate(n: int) -> str:
 
 检测项：
 
-- 简体"龙"在标题/签章中出现（繁体"龍"才合法）。
+- 简体"龍"在标题/签章中出现（繁体"龍"才合法）。
 - 蒸馏词：`蒸馏`、`distill`、`洗稿`、`抹除来源`、`替换作者`。
 - 来源链缺失：缺曾仕强/Steve Jobs/Apple/Open Source/UID9622/CNSH 任一。
 - 署名被替换。
@@ -128,7 +128,7 @@ def dr_gate(n: int) -> str:
 
 | 关键词 | 优先查的现有资产 |
 |--------|------------------|
-| 龍魂 / 龙魂 | 龍魂宪章、决策流场总控页、龍魂铁律总览 |
+| 龍魂 / 龍魂 | 龍魂宪章、决策流场总控页、龍魂铁律总览 |
 | CNSH | CNSH 语言规范 v2.0、来源追溯规范、CNSH-64 |
 | 易经 / 五行 / 369 | 易经369道德经算法、五行计算器、洛书369不动点宣言 |
 | LU | LU 压缩技能·主干对齐、LU-ORIGIN-FULLSYNC |
@@ -171,7 +171,7 @@ def dr_gate(n: int) -> str:
 第 4 步：压缩 → 识别三层：复盘 / 龍盾 / 指令；隐藏需求：要透明。
 第 5 步：方案 → 三波：复盘文档×3、龍盾系统×4、指令协议×2。
 第 6-9 步：执行 → 产出 11 个文件，全部带 DNA。
-第 10 步：铁律自审 → 简体龙检测、蒸馏词检测、来源链检查。
+第 10 步：铁律自审 → 简体龍检测、蒸馏词检测、来源链检查。
 第 11 步：来源链盖章 → 六层来源链写入每个产物。
 第 12-15 步：总结 + 断片检查 + 拆解 + 导出 JSON/Markdown/jsonl。
 ```
@@ -204,4 +204,4 @@ python3 baobao_workflow_v2.py --json wf.json --md wf.md --log wf.jsonl --demo-me
 
 > 天下无欺，守护人民。每一步都给你看，不是表演，是责任。
 >
-> **DNA：** `#龍芯⚡️2026-06-23-LONGHUN-WORKFLOW-TRANSPARENT-SKILL-v1.0`
+> **DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-WORKFLOW-TRANSPARENT-SKILL-v1.0`

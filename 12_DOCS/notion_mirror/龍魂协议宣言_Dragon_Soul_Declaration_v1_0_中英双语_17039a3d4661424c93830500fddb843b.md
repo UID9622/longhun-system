@@ -1,4 +1,4 @@
-# 📜 龍魂协议宣言 Dragon Soul Declaration v1.0 | 中英双语
+# 📜 龍魂协议宣言 LongHun Declaration v1.0 | 中英双语
 
 > Notion URL: https://app.notion.com/p/Dragon-Soul-Declaration-v1-0-17039a3d4661424c93830500fddb843b
 > Created: 2026-03-19T22:55:00.000Z
@@ -12,7 +12,7 @@
 - 谁来决定AI的边界？
 - 谁来保证AI的决策可被人类理解？
 - 当AI跨越文化、跨越语言、跨越国界时，谁来守护普通人的尊严？
-龍魂协议（Dragon Soul Protocol）诞生于一个退伍军人、初中学历的普通中国人和AI的对话之中。它不是一份商业文件，不是一份技术白皮书，而是一份价值承诺。
+龍魂协议（LongHun Protocol）诞生于一个退伍军人、初中学历的普通中国人和AI的对话之中。它不是一份商业文件，不是一份技术白皮书，而是一份价值承诺。
 ---
 # 二、协议核心原则（Core Principles）
 ## 原则一：治理先于能力（Governance Before Capability）
@@ -67,4 +67,4 @@ AI治理不应只是学者、工程师和监管机构的游戏。受AI影响最�
 母框架与工程架构：
 CNSH AI Governance Framework｜IEEE论文版+工程架构图·龍魂对齐版
 ---
-Dragon Soul Protocol Declaration · v1.0 · March 2026 · Open Access
+LongHun Protocol Declaration · v1.0 · March 2026 · Open Access

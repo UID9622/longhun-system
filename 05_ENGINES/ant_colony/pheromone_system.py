@@ -8,7 +8,7 @@
 # -*- coding: utf-8 -*-
 """
 信息素系统 v2.0 · PheromoneSystem
-基于 LACA v1.0 论文，深度整合龙魂不动点体系
+基于 LACA v1.0 论文，深度整合龍魂不动点体系
 
 DNA: #龍芯⚡️丙午·辛未·PHEROMONE-SYSTEM-v2.0
 
@@ -440,7 +440,7 @@ def calculate_alert_escalation(current_level: int, new_evidence_severity: int) -
 # === 测试 ===
 if __name__ == "__main__":
     print("=" * 60)
-    print("🐜 龙魂蚁群引擎 v2.0 · 信息素系统测试")
+    print("🐜 龍魂蚁群引擎 v2.0 · 信息素系统测试")
     print("=" * 60)
     
     ps = PheromoneSystem()

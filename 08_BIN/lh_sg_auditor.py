@@ -25,9 +25,23 @@ SCHEMA_PATH = PROTO_DIR / "rule_template_schema.json"
 
 
 def load_json_with_header(path: Path) -> dict:
+    """加载带龍魂头部注释的JSON文件。
+
+    头部注释格式:
+      # CONFIRM: ...
+      # SEAL: ...
+      > DNA: ...
+      > CREATOR: ...
+      > PROTOCOL: ...
+    """
     with open(path, "r", encoding="utf-8") as f:
         lines = f.readlines()
-    body = [line for line in lines if not line.strip().startswith(">") and line.strip()]
+    body = [
+        line for line in lines
+        if line.strip()
+        and not line.strip().startswith(">")
+        and not line.strip().startswith("#")
+    ]
     return json.loads("".join(body))
 
 

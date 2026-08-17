@@ -44,6 +44,8 @@ bash deploy/sync-collab.sh pull
 | **长期记忆** | `.codebuddy/memory/MEMORY.md` | ⚠️ 本地私有·不入共享 | — | 每次会话后追加 |
 | **目录索引** | `12_DOCS/DIRECTORY_INDEX.md` | `/opt/longhun/shared/DIRECTORY_INDEX.md` | — | 结构变更→更新→同步 |
 | **微信域名验证** | — | `/opt/longhun/shared/wechat/MP_verify_vqGTp0pitw7tcP4n.txt` | `https://uid9622.cn/MP_verify_vqGTp0pitw7tcP4n.txt` | 微信后台下载→传鲲鹏→nginx alias→reload |
+| **协作中枢配置统一方案** | `12_DOCS/collab/COLLAB-CONFIG-UNIFY-v1.1.md` | 同步至 shared/collab/ | `/collab/COLLAB-CONFIG-UNIFY-v1.1.md` | 配置源 `~/.longhun/lh.env` · sync v2.0 · nginx 增量 · `.audit/` · 落地后更新状态 |
+| **CNSH 智能贴入插件 v1.1** | `12_DOCS/collab/CNSH-STAMP-PLUGIN-v1.1.md` | 同步至 shared/collab/ | `/collab/CNSH-STAMP-PLUGIN-v1.1.md` | 代码 `08_BIN/lh_cnsh_plugin.py` · 入口 `lh cnsh-stamp` · 粘贴即锚定·DNA+指纹+数字根·审查修正版已实测 |
 
 ## 🔄 更新迭代统一规则（任何 AI 遵守）
 

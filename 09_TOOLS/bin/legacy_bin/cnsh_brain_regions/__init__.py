@@ -3,7 +3,7 @@
 """
 CNSH神经脑区模块包
 
-DNA: #龙芯⚡️丙午·丙申·丙辰·未时·需-CNSH-BRAIN-REGIONS-PKG-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·未时·需-CNSH-BRAIN-REGIONS-PKG-v1.0
 """
 
 __version__ = "1.0.0"

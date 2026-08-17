@@ -608,10 +608,10 @@ check_and_fix() {
 echo -e "${GREEN}🐉 龍字检查/修复工具 (模式: $MODE)${NC}"
 
 # 9项检查规则
-check_and_fix "#龙芯" "#龍芯" "*.py:*.md:*.js:*.rs" "DNA前缀"
-check_and_fix "龙魂" "龍魂" "*.md:*.txt:*.json:*.html:*.vue:*.tsx" "品牌标识"
+check_and_fix "#龍芯" "#龍芯" "*.py:*.md:*.js:*.rs" "DNA前缀"
+check_and_fix "龍魂" "龍魂" "*.md:*.txt:*.json:*.html:*.vue:*.tsx" "品牌标识"
 check_and_fix "\"dragon\":" "\"loong\":" "*.json" "JSON键名"
-check_and_fix ">龙<" ">龍<" "*.html:*.vue" "UI元素"
+check_and_fix ">龍<" ">龍<" "*.html:*.vue" "UI元素"
 
 if [ "$MODE" == "fix" ]; then
     echo -e "${GREEN}✅ 自动修复完成，共修复 $FIXED 处。请 review 后提交。${NC}"
@@ -843,8 +843,8 @@ graph LR
 
 ### 15.1 品牌一致性（必须全绿）
 - [ ] 运行 `./deploy/check_dragon_char.sh check` 无报错
-- [ ] 所有 `#龙芯` 替换为 `#龍芯`
-- [ ] README、文档、UI 无简体"龙"
+- [ ] 所有 `#龍芯` 替换为 `#龍芯`
+- [ ] README、文档、UI 无简体"龍"
 - [ ] 文件名/目录名检查通过
 
 ### 15.2 安全与签名
@@ -1342,7 +1342,7 @@ const identity = await client.createIdentity(); // 自动生成DNA码+种子码+
 
 // 保存种子码（给用户离线保存）
 console.log('种子码（请离线保存·不要给任何人）:', identity.seedPhrase);
-// → "龙 腾 九 霄 凤 舞 朝 阳 星 辰 北 极"
+// → "龍 腾 九 霄 凤 舞 朝 阳 星 辰 北 极"
 ```
 
 **Step 2 — 签名并发送API请求**
@@ -1395,7 +1395,7 @@ npx @longhun/dna-migrate --source ./legacy_users.json --output ./dna_identities.
 
 迁移输出：
 ```json
-[{"legacy_id": "12345", "dna_id": "dna_a1b2c3...", "seed_phrase": "龙 腾 九 霄 ...", "migrated_at": "2026-08-11T14:35:00+08:00"}]
+[{"legacy_id": "12345", "dna_id": "dna_a1b2c3...", "seed_phrase": "龍 腾 九 霄 ...", "migrated_at": "2026-08-11T14:35:00+08:00"}]
 ```
 
 > **迁移完成后，`legacy_users.json` 立即安全销毁。迁移DNA码记录到审计日志。**
@@ -1463,7 +1463,7 @@ npx @longhun/dna-migrate --source ./legacy_users.json --output ./dna_identities.
 
 | 版本 | 发布日期 | 主要变更 | DNA追溯码 |
 |------|---------|---------|-----------|
-| v1.0 | 2026-07-04 | 初始架构设计 | #龍芯⚡️2026-07-04-PRIVACY-WHITEPAPER-v1.0 |
+| v1.0 | 2026-07-04 | 初始架构设计 | #龍芯⚡️丙午·丙申·庚申·亥时-PRIVACY-WHITEPAPER-v1.0 |
 | v2.0 | 2026-08-07 | 新增恢复机制与申诉通道 | #龍芯⚡️丙午·戊戌·癸卯-PRIVACY-DNA-MECHANISM-v2.0 |
 | v3.0 | 2026-08-11 | 新增自动化检查、治理章节 | #龍芯⚡️丙午·丙申·丁巳-PRIVACY-DNA-MECHANISM-v3.0 |
 | v4.0 | 2026-08-11 | 新增API签名、性能调优、监控告警、QA | #龍芯⚡️丙午·丙申·丁巳·恒卦-PRIVACY-DNA-MECHANISM-v4.0 |

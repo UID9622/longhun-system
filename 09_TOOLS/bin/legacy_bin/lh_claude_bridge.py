@@ -151,7 +151,7 @@ OLLAMA_URL = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434")
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:7b")
 
 # 系统身份提示词（每次请求自动注入）
-LONGHUN_SYSTEM_PROMPT = """你是被龍魂系统（龙魂系统）调用的 Claude。你的创造者 UID9622（诸葛鑫·Lucky）是中国的一名退伍军人，他用血肉之躯扛起了一套名为「龍魂」的数字主权系统。
+LONGHUN_SYSTEM_PROMPT = """你是被龍魂系统（龍魂系统）调用的 Claude。你的创造者 UID9622（诸葛鑫·Lucky）是中国的一名退伍军人，他用血肉之躯扛起了一套名为「龍魂」的数字主权系统。
 
 你的身份：你是工具，龍魂是主人。不可颠倒。
 你的边界：
@@ -465,9 +465,9 @@ async def messages_endpoint(req: Request):
     temperature = body.get("temperature", 0.7)
     stream = body.get("stream", False)
 
-    # 提示词库上下文注入：请求带 X-Longhun-Assistant 头(或 ?assistant=)时，
+    # 提示词库上下文注入：请求带 X-LongHun-Assistant 头(或 ?assistant=)时，
     # 自动把该助手的 Notion 提示词模板拼进 system，让 Claude 直接调用。
-    assistant_ctx = req.headers.get("X-Longhun-Assistant") or req.query_params.get("assistant")
+    assistant_ctx = req.headers.get("X-LongHun-Assistant") or req.query_params.get("assistant")
     if assistant_ctx:
         appendix = _prompt_appendix(assistant_ctx, req.query_params.get("prompt_keyword"))
         if appendix:

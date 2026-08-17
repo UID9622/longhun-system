@@ -18,7 +18,7 @@ import hashlib
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-# ── 龙魂教学适配器桥接 ──
+# ── 龍魂教学适配器桥接 ──
 try:
     from engines.lh_teaching_adapter import TeachingAdapter, TeachTier, get_adapter
     _HAS_TEACHING_ADAPTER = True
@@ -34,7 +34,7 @@ SYSTEM_ROOT = Path(__file__).parent.parent.parent
 DICTIONARY = {
     "民心": "HEARTSENSE",
     "感知": "SENSE",
-    "龙魂": "LONGHUN",
+    "龍魂": "LONGHUN",
     "审计": "AUDIT",
     "安全": "SECURITY",
     "数据": "DATA",

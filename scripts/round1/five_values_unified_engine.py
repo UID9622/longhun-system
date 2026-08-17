@@ -6,7 +6,7 @@
 """
 ================================================================================
  龍魂体系 · 五大价值观统一引擎 v2.0
- Dragon Soul Five Core Values Unified Engine v2.0
+ LongHun Five Core Values Unified Engine v2.0
 ================================================================================
 DNA签名:  #龍芯⚡️2026-07-07-FIVE-VALUES-UNIFIED-v2.0
 UID:      UID9622

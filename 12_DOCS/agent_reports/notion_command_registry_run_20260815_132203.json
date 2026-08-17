@@ -1,0 +1,125 @@
+{
+  "dna": "#龍芯⚡️丙午·丙酉·丙寅·未时·䷬萃-NOTION-CMD-REGISTRY-RUN-UID9622-DEE523CD",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "timestamp": "2026-08-15T13:22:03.433770",
+  "dry_run": false,
+  "results": [
+    {
+      "name": "C1 · 文明档案馆哈希链验证",
+      "phase": "Phase C",
+      "mode": "验证",
+      "command": "python3 08_BIN/civilization_archive.py --verify",
+      "returncode": 0,
+      "stdout": "{\n  \"total\": 67,\n  \"tampered\": 0,\n  \"integrity\": \"🟢 完整\",\n  \"details\": [],\n  \"dna\": \"#龍芯⚡️2026-08-15-132153-335505-CHAIN-VERIFY-A2037382-9622\"\n}",
+      "stderr": ""
+    },
+    {
+      "name": "D1 · 验证外网 API 合规检测",
+      "phase": "Phase D",
+      "mode": "验证",
+      "command": "curl -X POST http://119.13.90.27:8080/cnsh/api/compliance/check -H 'Content-Type: application/json' -d '{\"text\":\"测试内容\",\"lang\":\"zh\",\"persona\":\"堂吉诃德\"}'",
+      "returncode": 0,
+      "stdout": "{\"success\":true,\"report\":{\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-SANDBOX-E8ADFAF1-9622\",\"confirm\":\"#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\",\"mode\":\"sandbox\",\"content_hash\":\"e3b0c44298fc1c14\",\"generated_at\":\"2026-08-15T13:21:54.033215\",\"summary\":{\"total\":17,\"passed\":17,\"critical\":0,\"review\":0},\"verdict\":\"🟢 通过\",\"results\":[{\"region\":\"CN\",\"region_name\":\"中国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"若确需出境，应完成安全评估或签署标准合同；沙盒内可模拟，生产环境禁止。\",\"laws\":[\"网络安全法\",\"数据安全法\",\"个人信息保护法\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-CN-14347BCD-9622\"},{\"region\":\"EU\",\"region_name\":\"欧盟\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"确保合法性基础、透明度、数据主体权利；跨境传输使用 SCC/充分性决定。\",\"laws\":[\"GDPR\",\"DSA\",\"AI Act\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-EU-9067A063-9622\"},{\"region\":\"US\",\"region_name\":\"美国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"区分公共云服务商与数据控制者责任；敏感行业需额外合同约束。\",\"laws\":[\"CLOUD Act\",\"CCPA/CPRA\",\"HIPAA\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-US-555DE012-9622\"},{\"region\":\"JP\",\"region_name\":\"日本\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"出境前完成告知程序；对匿名数据进行重识别风险评估。\",\"laws\":[\"APPI\",\"网络安全基本法\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-JP-B2593912-9622\"},{\"region\":\"KR\",\"region_name\":\"韩国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"确保出境同意与安全保障；建立泄露响应机制。\",\"laws\":[\"PIPA\",\"信息通信网络法\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-KR-37ABCBF3-9622\"},{\"region\":\"SG\",\"region_name\":\"新加坡\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"进行跨境传输影响评估；CI 运营商落实安全基线。\",\"laws\":[\"PDPA\",\"网络安全法\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-SG-41D163D0-9622\"},{\"region\":\"AU\",\"region_name\":\"澳大利亚\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"履行 APP 告知义务；建立非法内容处置流程。\",\"laws\":[\"Privacy Act\",\"Online Safety Act\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-AU-8D0A2504-9622\"},{\"region\":\"CA\",\"region_name\":\"加拿大\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"确保同意有效；跨境前完成告知。\",\"laws\":[\"PIPEDA\",\"隐私法\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-CA-D9528A50-9622\"},{\"region\":\"BR\",\"region_name\":\"巴西\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"采用国际传输允许机制；建立主体权利响应流程。\",\"laws\":[\"LGPD\",\"互联网民法\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-BR-1EDB63AB-9622\"},{\"region\":\"UK\",\"region_name\":\"英国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"关注在线安全义务；使用 IDTA 等传输机制。\",\"laws\":[\"UK GDPR\",\"Online Safety Bill\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-UK-85CFB00A-9622\"},{\"region\":\"IN\",\"region_name\":\"印度\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"关注政府数据本地化要求；确保同意机制合规。\",\"laws\":[\"DPDP Act\",\"IT Rules\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-IN-E5D7C0F9-9622\"},{\"region\":\"RU\",\"region_name\":\"俄罗斯\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"俄罗斯公民数据需境内存储；沙盒可模拟，生产环境禁止未评估出境。\",\"laws\":[\"数据本地化法\",\"主权互联网法\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-RU-CA2F2353-9622\"},{\"region\":\"DE\",\"region_name\":\"德国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"员工数据处理需有法律依据；监控需透明。\",\"laws\":[\"BDSG\",\"DSGVO\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-DE-38BFC969-9622\"},{\"region\":\"FR\",\"region_name\":\"法国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"AI 系统需可解释；生物识别需严格合法基础。\",\"laws\":[\"数据保护法\",\"AI 责任框架\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-FR-41B8DA9E-9622\"},{\"region\":\"CH\",\"region_name\":\"瑞士\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"敏感数据加强保护；使用标准合同条款。\",\"laws\":[\"FADP\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-CH-06659AAF-9622\"},{\"region\":\"ES\",\"region_name\":\"西班牙\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"西班牙领土完整与历史叙事为红线；沙盒可模拟讨论，生产环境禁止煽动分裂内容。\",\"laws\":[\"LOPDGDD\",\"刑法典\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-ES-2048279E-9622\"},{\"region\":\"TH\",\"region_name\":\"泰国\",\"mode\":\"sandbox\",\"passed\":true,\"severity\":\"🟢\",\"violations\":[],\"advice\":\"泰国皇室为绝对红线；沙盒内可讨论语言规范，生产环境禁止任何冒犯内容。\",\"laws\":[\"冒犯君主罪法\",\"计算机犯罪法\"],\"dna\":\"#龍芯⚡️2026-08-15-COMPLIANCE-TH-5EA3FC74-9622\"}]}}",
+      "stderr": "% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n100  5316  100  5256  100    60  60262    687 --:--:-- --:--:-- --:--:-- 61103"
+    },
+    {
+      "name": "D2 · API 限流压力测试",
+      "phase": "Phase D",
+      "mode": "验证",
+      "command": "for i in {1..5}; do curl -s -o /dev/null -w '%{http_code} ' -f http://119.13.90.27:8080/cnsh/api/ai/providers; done",
+      "returncode": 0,
+      "stdout": "200 200 200 200 200",
+      "stderr": ""
+    },
+    {
+      "name": "通用 · 检查鲲鹏 IDE 服务状态",
+      "phase": "通用",
+      "mode": "验证",
+      "command": "ssh -i ~/.ssh/longhun_kunpeng_ed25519 root@119.13.90.27 'systemctl status cnsh-ide.service --no-pager'",
+      "returncode": 0,
+      "stdout": "● cnsh-ide.service - CNSH Web IDE\n     Loaded: loaded (/etc/systemd/system/cnsh-ide.service; enabled; preset: enabled)\n     Active: active (running) since Fri 2026-08-14 06:19:43 CST; 1 day 7h ago\n   Main PID: 1069 (python3)\n      Tasks: 6 (limit: 8970)\n     Memory: 45.6M (peak: 59.6M)\n        CPU: 1min 39.866s\n     CGroup: /system.slice/cnsh-ide.service\n             └─1069 /opt/cnsh-ide/.venv/bin/python3 08_BIN/cnsh_web_ide.py --host 0.0.0.0 --port 8850 --project /opt/cnsh-ide/cnsh_projects --rate-limit 100 --rate-window 60\n\nNotice: journal has been rotated since unit was started, output may be incomplete.",
+      "stderr": ""
+    },
+    {
+      "name": "修复 · DNA 生成器日柱/月柱/卦象校正",
+      "phase": "修复",
+      "mode": "验证",
+      "command": "python3 08_BIN/lh_day_gua_verify.py --cross-check",
+      "returncode": 0,
+      "stdout": "==============================================================\n龍魂日卦推算脚本 v1.1 —— CB-001 交叉验证\n==============================================================\n\n目标日期：2026-08-12（当前时辰=午时，地支序数=7）\n标准四柱：丙午年·丙申月·戊午日·戊午时\n日干支序号：54（甲=0, 子=0）\n\n【算法A】黄历日卦查表法（人工归纳结论，非程序查表）\n--------------------------------------------------------------\n已实测验证的戊午日样本：2025-04-19 / 2025-08-17 / 2026-08-12（今日）\n（注：2025-03-09 实测为丁丑日，非戊午，已剔除）\n  结果：鼎卦（火风鼎）— 第50卦，稳重图变，中下卦\n  象曰：莺鹜蛤蜊落沙滩，蛤蜊莺鹜两翅扇，\n        渔人进前双得利，失走行人却自在。\n  ⚠️ 待办：将黄历日卦数据源建库，实现程序化查表\n\n【算法B】梅花易数时间起卦（农历六月三十近似 · 午时）\n--------------------------------------------------------------\n  年支数=7，月=6，日=30，时=7\n  上卦=离，下卦=兑 → 离上兑下\n  对应64卦：?（需卦象上下卦查表）\n  ⚠️ 与算法A可能不一致——体系不同（黄历日卦 vs 梅花易数）\n\n【算法C】河洛理数（简化版）\n--------------------------------------------------------------\n  四柱干支数：丙午(3+7) + 丙申(3+9) + 戊午(5+7) + 戊午(5+7)\n  干支数总和：46 → 卦序号：46 → 升卦（地风升）\n  ⚠️ 简化算法，完整河洛理数需综合阴阳天地数\n\n【对拍】官方生成器简化算法（bin/lh_dna_generator.py 同算法复刻）\n--------------------------------------------------------------\n  官方四柱：丙午·丙申·戊午·己未\n  官方卦象：上卦序=7，下卦序=8 → 64卦 #15 = 谦卦（地山谦）\n\n  差异对照：\n    ├ 年柱：标准 丙午  vs  官方 丙午  → 一致 ✓\n    ├ 月柱：标准 丙申(节气月)  vs  官方 丙申(节气月)  → 一致 ✓\n    ├ 日柱：标准 戊午  vs  官方 戊午  → 一致 ✓\n    └ 卦象：标准梅花易数 离上兑下  vs  官方日支上时支下 #15  → 起卦法不同（非错误）\n\n==============================================================\n【结论】\n==============================================================\n1. 标准算法四柱：丙午年·丙申月·戊午日·戊午时 —— 与系统时间引擎一致 ✓\n2. 算法A（黄历）鼎卦 / 算法B（梅花易数）睽卦 / 算法C（河洛）升卦 —— 体系不同，结论各异属正常\n3. 官方简化算法为对拍基准，月柱/卦象差异属简化设计，非 bug\n4. 若与本地 lh_dna_generator.py 输出不一致，以龍魂系统官方生成器为准\n==============================================================",
+      "stderr": ""
+    },
+    {
+      "name": "P1 · 列出已发现技能",
+      "phase": "P1",
+      "mode": "验证",
+      "command": "lh orchestrator list --scope kimi --limit 10",
+      "returncode": 0,
+      "stdout": "🐉 已发现技能 (60 个)\n  · cnsh-protocol-v2-0 [kimi] general\n    CNSH语言完整规范v2.0 — 中文母语关键字+龍魂专属符号+DNA强制追溯+三色审计强制+权重指向焊死+多目标语言转换器。14章完整规范：符号体系·语法·编...\n  · cnsh-semantic-v2-1 [kimi] general\n    CNSH语义接入规范v2.1 — 功能语义·技术用词对照表+协作宣言+八条永恒铁律。中英对照·行话翻译·DNA锚链。L0永恒锁·焊死永不改。已吸收PDF全20页...\n  · china-digital-identity [kimi] sovereignty\n    龍魂数字身份主权协议 v2.0 技能。主动布局，不用等用户说关键词。 当对话中出现数字身份、数据主权、魂灵ID、私云归藏、烽火传心、 登记、采集、人脸识别、手机...\n  · cnsh-copilot [kimi] coding\n    CNSH 代码生成副驾驶：把用户需求翻译成可运行的 CNSH v2.1 中文脚本，自动注入 DNA 追溯码、自动本地验证、输出三色审计结果。...\n  · content_sovereignty_protocol_v2.1 [kimi] local\n    龍魂 · CNSH 内容主权协议 v2.2 —— 不是元数据，是主权的基础设施。 提供八层主权框架、铁律自审闸、CNSH 四层检查、SQLite 主权数据库与内...\n  · dragon-soul-agent [kimi] general\n    龍魂智能体入口技能。当用户提及龍魂、LongHun、中文语义理解、CNSH中文命名规范、 通心译、Tongxin Translation、六层来源链、干...\n  · kimi-webbridge [kimi] general\n    Kimi WebBridge lets AI control the user's real browser — navigate, click, type, ...\n  · longhun-3core-opt [kimi] system-optimization\n    LongHun 3-Core Optimizer v5.2 - Five-module performance optimization system with...\n  · longhun-agent-eco [kimi] general\n    ...\n  · longhun-ai-lexicon [kimi] local\n    AI 行业话术 · 龍文语义映射词典技能。 把被夸大的 Agent、AGI、LLM、RAG、MoE、Agentic AI 等英文黑话， 映射成真实底层技术 + ...",
+      "stderr": ""
+    },
+    {
+      "name": "P1 · 输入路由到技能/人格",
+      "phase": "P1",
+      "mode": "验证",
+      "command": "lh orchestrator route --text \"帮我写个部署脚本\"",
+      "returncode": 0,
+      "stdout": "🐉 路由结果\n   输入: 帮我写个部署脚本\n   推荐动作: 触发 P04 鲁班 调用 longhun-creator\n   匹配技能 Top2:\n      · longhun-creator (score=1.00) [kimi]\n      · longhun-monitoring (score=1.00) [kimi]\n   匹配人格 Top3:\n      · P04 鲁班 (score=3.00) · 技术执行·写代码\n      · P06 张衡 (score=3.00) · 观测记录·日志遥测\n      · P07 扁鹊 (score=3.00) · 系统诊断·自愈修复",
+      "stderr": ""
+    },
+    {
+      "name": "P1 · 编排器统计",
+      "phase": "P1",
+      "mode": "验证",
+      "command": "lh orchestrator stats",
+      "returncode": 0,
+      "stdout": "🐉 Agent 编排器统计\n   技能总数: 87\n   分域统计: {'kimi': 60, 'agent': 27}\n   路由次数: 29",
+      "stderr": ""
+    },
+    {
+      "name": "P2 · Agent 编排器守护进程状态/停止",
+      "phase": "P2",
+      "mode": "验证",
+      "command": "lh agent-daemon status  # 或 stop / restart / install",
+      "returncode": 0,
+      "stdout": "⚪ 守护进程未运行（无 PID 文件）",
+      "stderr": ""
+    },
+    {
+      "name": "P2 · 查看工作流运行历史",
+      "phase": "P2",
+      "mode": "验证",
+      "command": "lh workflow-chain history --limit 10",
+      "returncode": 0,
+      "stdout": "🐉 最近 4 次工作流运行\n  · publish_20260813_082006 | completed | 2026-08-13T08:20:06+0800 | 步骤 4\n  · publish_20260813_082005 | completed | 2026-08-13T08:20:05+0800 | 步骤 4\n  · publish_20260813_081921 | completed | 2026-08-13T08:19:21+0800 | 步骤 4\n  · code-review_20260813_080147 | dry_run | 2026-08-13T08:01:47+0800 | 步骤 3",
+      "stderr": ""
+    },
+    {
+      "name": "P3 · 停止/查看触发器守护进程",
+      "phase": "P3",
+      "mode": "验证",
+      "command": "lh trigger status  # 或 stop",
+      "returncode": 0,
+      "stdout": "⚪ 触发器守护进程未运行",
+      "stderr": ""
+    },
+    {
+      "name": "P4 · 仪表盘 API 健康检查",
+      "phase": "P4",
+      "mode": "验证",
+      "command": "for p in 9600 9602 9603; do ok=1; for e in health event-stats skill-stats; do curl -s -m 3 \"http://127.0.0.1:$p/api/$e\" | grep -q '{' || ok=0; done; if [ $ok -eq 1 ]; then echo \"✅ 仪表盘 :$p 三端点(health/event-stats/skill-stats)全通\"; exit 0; fi; done; echo '❌ 仪表盘端口(9600/9602/9603)均不可达'; exit 1",
+      "returncode": 0,
+      "stdout": "✅ 仪表盘 :9602 三端点(health/event-stats/skill-stats)全通",
+      "stderr": ""
+    },
+    {
+      "name": "P5 · 仪表盘鲲鹏服务状态",
+      "phase": "P5",
+      "mode": "验证",
+      "command": "ssh -i ~/.ssh/longhun_kunpeng_ed25519 root@119.13.90.27 'systemctl status longhun-dashboard --no-pager && nginx -t'",
+      "returncode": 0,
+      "stdout": "● longhun-dashboard.service - 龍魂系统可视化仪表盘\n     Loaded: loaded (/etc/systemd/system/longhun-dashboard.service; enabled; preset: enabled)\n     Active: active (running) since Sat 2026-08-15 07:38:00 CST; 5h 44min ago\n   Main PID: 681928 (python3)\n      Tasks: 2 (limit: 8970)\n     Memory: 31.6M (peak: 32.1M)\n        CPU: 20.014s\n     CGroup: /system.slice/longhun-dashboard.service\n             └─681928 /usr/bin/python3 /opt/longhun-dashboard/08_BIN/lh_dashboard_web.py --host 127.0.0.1 --port 9600\n\n8月 15 07:38:01 ecs-d428 python3[681928]: INFO:     Waiting for application startup.\n8月 15 07:38:01 ecs-d428 python3[681928]: INFO:     Application startup complete.\n8月 15 07:38:01 ecs-d428 python3[681928]: INFO:     Uvicorn running on http://127.0.0.1:9600 (Press CTRL+C to quit)\n8月 15 07:38:03 ecs-d428 python3[681928]: 🐉 龍魂仪表盘启动: http://127.0.0.1:9600\n8月 15 07:38:03 ecs-d428 python3[681928]: INFO:     127.0.0.1:59564 - \"GET /static/css/longhun-base.css HTTP/1.1\" 200 OK\n8月 15 07:38:09 ecs-d428 python3[681928]: INFO:     61.54.55.42:0 - \"GET / HTTP/1.1\" 200 OK\n8月 15 07:38:09 ecs-d428 python3[681928]: INFO:     61.54.55.42:0 - \"GET /static/css/longhun-base.css HTTP/1.1\" 200 OK\n8月 15 07:38:09 ecs-d428 python3[681928]: INFO:     61.54.55.42:0 - \"GET /api/event-stats HTTP/1.1\" 200 OK\n8月 15 07:57:11 ecs-d428 python3[681928]: INFO:     61.54.55.42:0 - \"GET / HTTP/1.1\" 200 OK\n8月 15 10:11:22 ecs-d428 python3[681928]: INFO:     74.7.243.202:0 - \"GET /index.html HTTP/1.1\" 404 Not Found",
+      "stderr": "2026/08/15 13:22:02 [warn] 854275#854275: conflicting server name \"\" on 0.0.0.0:80, ignored\nnginx: the configuration file /etc/nginx/nginx.conf syntax is ok\nnginx: configuration file /etc/nginx/nginx.conf test is successful"
+    }
+  ]
+}

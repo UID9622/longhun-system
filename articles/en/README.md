@@ -1,7 +1,7 @@
 # DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# Longhun (龍魂) Philosophy · English Articles
+# LongHun (龍魂) Philosophy · English Articles
 
 > **DNA:** `#龍芯⚡️2026-07-21-ARTICLES-EN-INDEX-v1.0`
 > **Author:** Zhuge Xin (UID9622 · 龍芯北辰)
@@ -13,7 +13,7 @@
 
 ## What Is This?
 
-**Longhun (龍魂 · Dragon Soul)** is not a company. It's a **sovereign digital governance framework** born in China — built on indigenous philosophy (I Ching, Luoshu 369, Yin-Yang Five Elements) and hardened cryptography.
+**LongHun (龍魂 · LongHun)** is not a company. It's a **sovereign digital governance framework** born in China — built on indigenous philosophy (I Ching, Luoshu 369, Yin-Yang Five Elements) and hardened cryptography.
 
 These articles translate the core ideas into English for the first time. They answer questions the tech industry would rather you didn't ask:
 
@@ -33,7 +33,7 @@ Three pillars hold the system together:
 | **地 (Earth)** | Systems, Rules, Three-Color Audit |
 | **人 (Human)** | Users, Ethics, Behavioral Sovereignty |
 
-All articles are originally written in Chinese by **UID9622 (Zhuge Xin)** — retired veteran, founder of the Longhun System, creator of CNSH language and the Sancai Algorithm.
+All articles are originally written in Chinese by **UID9622 (Zhuge Xin)** — retired veteran, founder of the LongHun System, creator of CNSH language and the Sancai Algorithm.
 
 ---
 
@@ -41,7 +41,7 @@ All articles are originally written in Chinese by **UID9622 (Zhuge Xin)** — re
 
 **[The Century Lie of Tokens: Multi-Dimensional Dissection & China's Chip Breakthrough](token-century-lie-exposed.md)** — **v2.0 Expanded Edition** (600 lines, +526 from v1.0)
 
-This is the flagship article. It dissects the token economy across seven dimensions — and for every dimension, it presents Longhun's **implemented, running counter-architecture** as the living alternative:
+This is the flagship article. It dissects the token economy across seven dimensions — and for every dimension, it presents LongHun's **implemented, running counter-architecture** as the living alternative:
 
 - **Dimension 1 (Rent Economy)** → Local deployment, one-time investment
 - **Dimension 2 (Desk vs House)** → Exobrain engine, semantic drawers, memory eternal protocol
@@ -63,7 +63,7 @@ Plus: DNA traceability, 20-persona governance, 4-level circuit breaker, 3-color 
 
 | # | Title | Category |
 |:---:|------|:---|
-| 1 | [Longhun Heart Method: Return to Source](longhun-heart-method-return-to-source.md) | Philosophy |
+| 1 | [LongHun Heart Method: Return to Source](longhun-heart-method-return-to-source.md) | Philosophy |
 | 2 | [Sancai Algorithm Elucidation: Vindicating Master Zeng](sancai-algorithm-elucidation.md) | Paper |
 
 ### Indictments of the Tech Industry
@@ -88,7 +88,7 @@ Plus: DNA traceability, 20-persona governance, 4-level circuit breaker, 3-color 
 
 | # | Title | Category |
 |:---:|------|:---|
-| 11 | [Constitution of the Longhun System](manifestos/constitution-of-the-longhun-system.md) | Manifesto |
+| 11 | [Constitution of the LongHun System](manifestos/constitution-of-the-longhun-system.md) | Manifesto |
 | 12 | [Chinese Digital Sovereignty & Spiritual Roots](manifestos/chinese-digital-sovereignty-and-spiritual-roots.md) | Manifesto |
 | 13 | [Open Source Manifesto](manifestos/open-source-manifesto.md) | Manifesto |
 
@@ -116,7 +116,7 @@ Plus: DNA traceability, 20-persona governance, 4-level circuit breaker, 3-color 
 
 > **No matter how far we fly — the root always returns to the common people. Sovereignty always returns to China.**
 
-The Longhun System is not a company. It is a **sovereign digital governance framework** designed to:
+The LongHun System is not a company. It is a **sovereign digital governance framework** designed to:
 - Serve ordinary people, not capital black boxes
 - Keep data sovereignty in the hands of users
 - Make algorithms auditable and transparent

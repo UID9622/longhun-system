@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂 UID9622 主权注册三色审计模块
-Dragon Soul Sovereign Registration Tri-Color Audit
+LongHun Sovereign Registration Tri-Color Audit
 
 DNA: #龍芯⚡️20260628-SOVEREIGN-AUDIT-v1.0
 """

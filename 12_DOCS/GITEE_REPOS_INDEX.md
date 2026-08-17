@@ -18,13 +18,13 @@
 |:---:|:---|:---|:---|:---:|:---:|
 | 1 | **[CNSH](https://gitee.com/uid9622/cnsh)** | 中华人民共和国公民技术献礼·母仓库 | JS 47.5% / Python 30.7% / Shell 21.8% | 31 | 4月前 |
 | 2 | **[cnsh-language](https://gitee.com/uid9622/cnsh-language)** | 🇨🇳 CNSH编程语言 (木兰PSL v2) | JS 100% | 2 | 6月前 |
-| 3 | **[longhun-identity-system](https://gitee.com/uid9622/longhun-identity-system)** | 龙魂永世唯一身份系统 v3.0 | Python 71.7% | 2 | 7月前 |
+| 3 | **[longhun-identity-system](https://gitee.com/uid9622/longhun-identity-system)** | 龍魂永世唯一身份系统 v3.0 | Python 71.7% | 2 | 7月前 |
 
 ### 🟡 L2 整合层 — 可交付包
 
 | # | 仓库 | 描述 | 语言 | 提交 | 更新 |
 |:---:|:---|:---|:---|:---:|:---:|
-| 4 | **[DragonSoulPack](https://gitee.com/uid9622/dragon-soul-pack)** | 龙魂系统整合包·一键安装 | TS 44.1% / JS 34.1% / Python 14.5% | 1 | 6月前 |
+| 4 | **[DragonSoulPack](https://gitee.com/uid9622/dragon-soul-pack)** | 龍魂系统整合包·一键安装 | TS 44.1% / JS 34.1% / Python 14.5% | 1 | 6月前 |
 
 ### 🟢 L3 教育/终端 — 普惠层
 
@@ -112,7 +112,7 @@ DragonSoulPack/
 
 ```
 longhun-identity-system/
-├── 龙魂ID生成器.py               # 主程序入口
+├── 龍魂ID生成器.py               # 主程序入口
 ├── config.json                   # 系统配置(200+国家)
 ├── Dockerfile · requirements.txt
 ├── core/
@@ -120,7 +120,7 @@ longhun-identity-system/
 │   ├── 易经64卦映射器.py          # 哈希→64卦组合
 │   ├── 甲骨文编码器.py            # 甲骨文防伪码
 │   ├── 全球身份互认系统.py        # 200+国家互认
-│   └── 龙魂评估委员会.py          # 争议仲裁机制
+│   └── 龍魂评估委员会.py          # 争议仲裁机制
 ├── docs/ · examples/ · scripts/ · tests/
 └── setup.sh · setup.bat
 ```

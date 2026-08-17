@@ -2232,7 +2232,7 @@
           "agent": "审计员",
           "severity": "🟡",
           "category": "GPG签名无效",
-          "file_path": "01_protocols/downloads_archive/Kimi_Agent_龙魂训练协议/gm_crypto.py",
+          "file_path": "01_protocols/downloads_archive/Kimi_Agent_龍魂训练协议/gm_crypto.py",
           "title": "GPG 签名验证失败",
           "detail": "",
           "suggestion": "重新签名或检查公钥"
@@ -2241,7 +2241,7 @@
           "agent": "审计员",
           "severity": "🟡",
           "category": "GPG签名无效",
-          "file_path": "01_protocols/downloads_archive/Kimi_Agent_龙魂训练协议/國密核心.py",
+          "file_path": "01_protocols/downloads_archive/Kimi_Agent_龍魂训练协议/國密核心.py",
           "title": "GPG 签名验证失败",
           "detail": "",
           "suggestion": "重新签名或检查公钥"
@@ -2250,7 +2250,7 @@
           "agent": "审计员",
           "severity": "🟡",
           "category": "GPG签名无效",
-          "file_path": "01_protocols/downloads_archive/Kimi_Agent_龙魂训练协议/訓練數據優化器.py",
+          "file_path": "01_protocols/downloads_archive/Kimi_Agent_龍魂训练协议/訓練數據優化器.py",
           "title": "GPG 签名验证失败",
           "detail": "",
           "suggestion": "重新签名或检查公钥"
@@ -2259,7 +2259,7 @@
           "agent": "审计员",
           "severity": "🟡",
           "category": "GPG签名无效",
-          "file_path": "01_protocols/downloads_archive/Kimi_Agent_龙魂训练协议/龍魂訓練數據優化器_v3.1.0.py",
+          "file_path": "01_protocols/downloads_archive/Kimi_Agent_龍魂训练协议/龍魂訓練數據優化器_v3.1.0.py",
           "title": "GPG 签名验证失败",
           "detail": "",
           "suggestion": "重新签名或检查公钥"
@@ -3060,7 +3060,7 @@
           "agent": "哲学家",
           "severity": "🟢",
           "category": "核心哲学文件",
-          "file_path": "01_protocols/desktop-knowledge-matrix/01_主权与协议/🌍 龙魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主 dbd80124942b49b8b8e2b9517a509ad1.md",
+          "file_path": "01_protocols/desktop-knowledge-matrix/01_主权与协议/🌍 龍魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主 dbd80124942b49b8b8e2b9517a509ad1.md",
           "title": "发现核心哲学/铁律文件",
           "detail": "",
           "suggestion": "确保 GPG 签名与 DNA 完整"
@@ -3069,7 +3069,7 @@
           "agent": "哲学家",
           "severity": "🟢",
           "category": "核心哲学文件",
-          "file_path": "01_protocols/desktop-knowledge-matrix/01_主权与协议/🌍 龙魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主 dbd80124942b49b8b8e2b9517a509ad1.md.asc",
+          "file_path": "01_protocols/desktop-knowledge-matrix/01_主权与协议/🌍 龍魂元宇宙七大支柱宪法｜教育平权·文化主权·主权支付·工具免费·数据自主 dbd80124942b49b8b8e2b9517a509ad1.md.asc",
           "title": "发现核心哲学/铁律文件",
           "detail": "",
           "suggestion": "确保 GPG 签名与 DNA 完整"
@@ -3096,7 +3096,7 @@
           "agent": "哲学家",
           "severity": "🟢",
           "category": "核心哲学文件",
-          "file_path": "01_protocols/desktop-knowledge-matrix/01_主权与协议/🔐 龙魂数据安全五铁律｜终端入口·DNA绑定·确认码不可复制·云端只读DNA·隐私主权在用户 6e8ca57a113640f0873f7077967de0d1.md",
+          "file_path": "01_protocols/desktop-knowledge-matrix/01_主权与协议/🔐 龍魂数据安全五铁律｜终端入口·DNA绑定·确认码不可复制·云端只读DNA·隐私主权在用户 6e8ca57a113640f0873f7077967de0d1.md",
           "title": "发现核心哲学/铁律文件",
           "detail": "",
           "suggestion": "确保 GPG 签名与 DNA 完整"
@@ -3105,7 +3105,7 @@
           "agent": "哲学家",
           "severity": "🟢",
           "category": "核心哲学文件",
-          "file_path": "01_protocols/desktop-knowledge-matrix/01_主权与协议/🔐 龙魂数据安全五铁律｜终端入口·DNA绑定·确认码不可复制·云端只读DNA·隐私主权在用户 6e8ca57a113640f0873f7077967de0d1.md.asc",
+          "file_path": "01_protocols/desktop-knowledge-matrix/01_主权与协议/🔐 龍魂数据安全五铁律｜终端入口·DNA绑定·确认码不可复制·云端只读DNA·隐私主权在用户 6e8ca57a113640f0873f7077967de0d1.md.asc",
           "title": "发现核心哲学/铁律文件",
           "detail": "",
           "suggestion": "确保 GPG 签名与 DNA 完整"

@@ -173,7 +173,7 @@ Point-to-point, clean, traceable, tamper-proof.
 │         ↓ (Settlement Confirmed)                             │
 │                                                              │
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │  第4层: 龍魂系统集成层 (Longhun Integration)        │   │
+│  │  第4层: 龍魂系统集成层 (LongHun Integration)        │   │
 │  ├─────────────────────────────────────────────────────┤   │
 │  │  • DNA时间戳 (Immutable Timestamp)                  │   │
 │  │  • DNA哈希链 (Hash Chain)                           │   │

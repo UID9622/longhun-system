@@ -258,7 +258,7 @@
     {
       "chapter": 43,
       "source": "https://www.gushiwen.cn/guwen/book_43.aspx",
-      "title": "文心雕龙",
+      "title": "文心雕龍",
       "content": ""
     },
     {
@@ -348,7 +348,7 @@
     {
       "chapter": 58,
       "source": "https://www.gushiwen.cn/guwen/book_58.aspx",
-      "title": "公孙龙子",
+      "title": "公孙龍子",
       "content": ""
     },
     {
@@ -1009,50 +1009,50 @@
       "full_name": "角木蛟",
       "short_name": "角",
       "element": "木",
-      "direction": "东方青龙",
-      "description": "角宿，东方青龙第一宿，为龙角。主春生之机。"
+      "direction": "东方青龍",
+      "description": "角宿，东方青龍第一宿，为龍角。主春生之机。"
     },
     {
-      "full_name": "亢金龙",
+      "full_name": "亢金龍",
       "short_name": "亢",
       "element": "金",
-      "direction": "东方青龙",
-      "description": "亢宿，东方青龙第二宿，为龙颈。主风雨调和。"
+      "direction": "东方青龍",
+      "description": "亢宿，东方青龍第二宿，为龍颈。主风雨调和。"
     },
     {
       "full_name": "氐土貉",
       "short_name": "氐",
       "element": "土",
-      "direction": "东方青龙",
-      "description": "氐宿，东方青龙第三宿，为龙胸。主根基稳固。"
+      "direction": "东方青龍",
+      "description": "氐宿，东方青龍第三宿，为龍胸。主根基稳固。"
     },
     {
       "full_name": "房日兔",
       "short_name": "房",
       "element": "日",
-      "direction": "东方青龙",
-      "description": "房宿，东方青龙第四宿，为龙腹。主明堂政令。"
+      "direction": "东方青龍",
+      "description": "房宿，东方青龍第四宿，为龍腹。主明堂政令。"
     },
     {
       "full_name": "心月狐",
       "short_name": "心",
       "element": "月",
-      "direction": "东方青龙",
-      "description": "心宿，东方青龙第五宿，为龙心。主帝王之星。"
+      "direction": "东方青龍",
+      "description": "心宿，东方青龍第五宿，为龍心。主帝王之星。"
     },
     {
       "full_name": "尾火虎",
       "short_name": "尾",
       "element": "火",
-      "direction": "东方青龙",
-      "description": "尾宿，东方青龙第六宿，为龙尾。主子孙繁衍。"
+      "direction": "东方青龍",
+      "description": "尾宿，东方青龍第六宿，为龍尾。主子孙繁衍。"
     },
     {
       "full_name": "箕水豹",
       "short_name": "箕",
       "element": "水",
-      "direction": "东方青龙",
-      "description": "箕宿，东方青龙第七宿，为龙粪。主风伯飞扬。"
+      "direction": "东方青龍",
+      "description": "箕宿，东方青龍第七宿，为龍粪。主风伯飞扬。"
     },
     {
       "full_name": "斗木獬",
@@ -1442,7 +1442,7 @@
       },
       {
         "name": "辰",
-        "animal": "龙",
+        "animal": "龍",
         "element": "土",
         "time": "7-9",
         "month": 3

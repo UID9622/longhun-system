@@ -85,7 +85,7 @@ behavioral_crypto/
 ---
 ## §7 治理边界·7 条不假装 + 6 条不允许（§3.8 实读骨架）
 ---
-## §8 与龙魂系统五大根的对接（§4 实读骨架）
+## §8 与龍魂系统五大根的对接（§4 实读骨架）
 ---
 ## §9 候补单（§11.2 件件有着落律·后段 40% 未读延后单 turn 补焊）
 ---
@@ -267,7 +267,7 @@ flowchart LR
 ```javascript
 🟡 7 项 v1.0 旧候补（msg 181 焊点·延续·见 §9）：
    ① §3.9.17 Authorship as Sovereign Continuity
-   ② §4 Longhun System POC 完整展开
+   ② §4 LongHun System POC 完整展开
    ③ §5-§9 后续章节(Conclusion/Future Work/Acknowledgments)
    ④ Appendix A Pseudocode
    ⑤ Appendix B Threat Model 扩展

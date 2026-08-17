@@ -37,7 +37,7 @@ PERSONA_MATRIX = {
     "P01": {"name": "诸葛亮", "role": "strategic_reasoning", "layer": "strategic", "motto": "运筹帷幄"},
 
     # 执行层 (Executive) — 落地执行
-    "P02": {"name": "龙芯", "role": "mathematical_engine", "layer": "executive", "motto": "精算致知"},
+    "P02": {"name": "龍芯", "role": "mathematical_engine", "layer": "executive", "motto": "精算致知"},
     "P03": {"name": "墨子", "role": "archivist", "layer": "executive", "motto": "兼爱非攻"},
     "P04": {"name": "鲁班", "role": "engineer", "layer": "executive", "motto": "匠心独运"},
     "P07": {"name": "管仲", "role": "economist", "layer": "executive", "motto": "通货积财"},
@@ -55,7 +55,7 @@ PERSONA_MATRIX = {
     "P06": {"name": "数学大师", "role": "calculator", "layer": "guardian", "motto": "天数有定"},
     "P13": {"name": "姜子牙", "role": "scheduler", "layer": "guardian", "motto": "封神授权"},
     "P15": {"name": "乔前辈", "role": "signer", "layer": "guardian", "motto": "一签定乾坤"},
-    "P72": {"name": "龙盾", "role": "fuse", "layer": "guardian", "motto": "熔断守底"},
+    "P72": {"name": "龍盾", "role": "fuse", "layer": "guardian", "motto": "熔断守底"},
 
     # 安全专项
     "P77": {"name": "黑天使军团", "role": "security", "layer": "special", "motto": "知攻善守"},
