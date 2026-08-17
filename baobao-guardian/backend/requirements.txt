@@ -2,7 +2,7 @@
 # 君子协议: 本文件受龍魂DNA追溯保护
 
 fastapi==0.109.0
-uvicorn[standard]==0.27.0
+uvicorn[standard]==0.52.3
 websockets==12.0
 python-dotenv==1.2.2
 pydantic==2.5.3
