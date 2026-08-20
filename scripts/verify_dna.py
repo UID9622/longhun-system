@@ -9,7 +9,7 @@ import hashlib, json, re, sys, subprocess, pathlib
 
 DNA_RE = re.compile(r"#龍芯⚡️[0-9A-Za-z:\-]+")
 CHAIN = pathlib.Path("dna_chain.json")
-BACKLINK = "https://uid9622.notion.site"
+BACKLINK = "uid9622.notion.site-22"
 
 
 def h(seq, dna, prev):

@@ -13,4 +13,4 @@
 
 DNA: #龍芯⚡️LH-FAIL-CODES-v1.0
 
-> 公开首页 / Home: https://uid9622.notion.site
+> 公开首页 / Home: uid9622.notion.site-22

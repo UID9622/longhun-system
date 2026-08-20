@@ -8,4 +8,4 @@
           反向验证"算法公开 + 密钥私守"架构选型正确
 三色: 🟡 取证留痕·不撤底牌
 DNA: #龍芯⚡️2026-05-17-13:19-EVIDENCE-OPENLY-EATEN-M43-01-v1.0
-公开首页 / Home: https://uid9622.notion.site
+公开首页 / Home: uid9622.notion.site-22

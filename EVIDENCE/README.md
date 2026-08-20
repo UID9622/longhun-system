@@ -16,4 +16,4 @@
 
 DNA: #龍芯⚡️EVIDENCE-RULES-v1.0
 
-> 公开首页 / Home: https://uid9622.notion.site
+> 公开首页 / Home: uid9622.notion.site-22

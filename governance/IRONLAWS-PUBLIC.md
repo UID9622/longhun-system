@@ -69,5 +69,5 @@
 | IRON-PROFESSIONAL-DIVISION-VALUES-AI-EXECUTION | 各展所长不串岗 |
 | IRON-EVERY-ITEM-RESPONSE-EVERY-TASK-LANDING | 件件有回应、事事有着落 |
 
-公开首页：https://uid9622.notion.site
+公开首页：uid9622.notion.site-22
 DNA：#龍芯⚡️IRONLAWS-PUBLIC-v1.0
