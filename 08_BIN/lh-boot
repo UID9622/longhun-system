@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# 龍魂统一启动自检·任何 AI 开工前跑一遍
+R="$HOME/longhun-system"
+for f in SOVEREIGN_IDENTITY.md config/persona_routes.yaml BOOT.md \
+         MEMORY_SNAPSHOT.md 12_DOCS/DB_REGISTRY.md ALIGN_LEDGER.csv \
+         CONVERSATIONS/LATEST.md; do
+  if [ -s "$R/$f" ]; then
+    printf "\033[32m✅ %-34s %8s B\033[0m\n" "$f" "$(wc -c < "$R/$f" | tr -d ' ')"
+  else
+    printf "\033[31m❌ %-34s 缺失或零字节\033[0m\n" "$f"
+  fi
+done
+echo "---- 主权锁 ----"
+grep -m1 "^id:" "$R/SOVEREIGN_IDENTITY.md" 2>/dev/null || echo "⚠️ 主权锚未读到"
+grep -c "^  - {id:" "$R/config/persona_routes.yaml" 2>/dev/null \
+  | xargs -I{} echo "人格条目数: {}"
+echo "---- 主权源裁决 ----"
+[ -f "$HOME/.龍魂/sovereign_registry/CANONICAL.json" ] \
+  && echo "✅ 已裁决 canonical=$(python3 -c 'import json,os;print(json.load(open(os.path.expanduser("~/.龍魂/sovereign_registry/CANONICAL.json")))["canonical_hash_prefix"])')" \
+  || echo "⚠️ 未裁决：缺 CANONICAL.json"
