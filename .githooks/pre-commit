@@ -32,11 +32,17 @@ echo -e "${GREEN}🔑 阶段一 · 密钥硬编码扫描${NC}"
 SECRET_PATTERNS=(
   'ntn_[0-9a-zA-Z]{20,}'
   'sk-[A-Za-z0-9]{30,}'
+  'sk-ant-[A-Za-z0-9_-]{40,}'
   'ghp_[A-Za-z0-9]{30,}'
   'gho_[A-Za-z0-9]{30,}'
+  'ghu_[A-Za-z0-9]{30,}'
+  'ghs_[A-Za-z0-9]{30,}'
+  'ghr_[A-Za-z0-9]{30,}'
+  'github_pat_[A-Za-z0-9_]{22,}'
   'AKIA[A-Za-z0-9]{16,}'
   'AIza[A-Za-z0-9_-]{30,}'
   'ya29\.[A-Za-z0-9_-]{50,}'
+  '-----BEGIN [A-Z ]*PRIVATE KEY-----'
 )
 
 KEY_BLOCKED=0
@@ -65,6 +71,33 @@ if [ "$KEY_BLOCKED" -eq 1 ]; then
   TOTAL_EXIT=1
 else
   echo -e "${GREEN}[✓] 阶段一通过${NC}"
+fi
+
+# ============================================================
+# 阶段一b · lh_secret_guard 精确扫描（v1.0 · 2026-08-17 焊死）
+#   同样的错不能放第二次：模式 + 已泄露值黑名单 双查
+# ============================================================
+echo ""
+echo -e "${GREEN}🔐 阶段一b · 密钥泄露防护引擎（lh_secret_guard）${NC}"
+
+SECRET_GUARD="$REPO_ROOT/bin/lh_secret_guard.py"
+if [ -f "$SECRET_GUARD" ]; then
+  set +e
+  python3 "$SECRET_GUARD" scan --staged >/tmp/lh_secret_guard_precommit.log 2>&1
+  guard_exit=$?
+  set -e
+  cat /tmp/lh_secret_guard_precommit.log | tail -25
+  if [ $guard_exit -eq 1 ]; then
+    echo -e "${RED}[x] 阶段一b失败：检测到泄露密钥/黑名单值 · 提交已阻止${NC}"
+    echo -e "${RED}    处理: 移除明文 → 改用 bin/lh_secrets_loader.py 读取${NC}"
+    TOTAL_EXIT=1
+  elif [ $guard_exit -eq 2 ] || [ $guard_exit -eq 3 ]; then
+    echo -e "${YELLOW}[!] 阶段一b异常（exit=$guard_exit）· 不阻塞提交但请检查${NC}"
+  else
+    echo -e "${GREEN}[✓] 阶段一b通过 · 暂存区无泄露${NC}"
+  fi
+else
+  echo -e "${YELLOW}[!] lh_secret_guard.py 未找到，跳过精确扫描${NC}"
 fi
 
 # ============================================================
@@ -349,6 +382,11 @@ print('🟡')
 else
   echo -e "${YELLOW}[!] lh_align.py 未找到，跳过对齐扫描${NC}"
 fi
+
+# ============================================================
+# 阶段四挂载 · G3 DNA链/零宽/硬回滚（pre-commit-phase4.sh）
+# ============================================================
+source "$HOOK_DIR/pre-commit-phase4.sh"
 
 # ============================================================
 # 最终裁决

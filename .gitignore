@@ -340,3 +340,18 @@ experiments/turbulence/output/
 # 下载的基础模型 tokenizer/配置（权重类·禁止入git·规则6.7）
 models/longhun-small-v1.0/
 models/qwen-1.5b/
+
+# ═══════════════════════════════════════════════════════════
+# 🔐 密钥泄露防护（2026-08-17 焊死 · LH-SECRET-LEAK-PREVENTION-v1.0）
+# ═══════════════════════════════════════════════════════════
+# Notion 镜像库：含真实凭证(ntn_/sk-/cookie)·452MB·冻结留档不删文件但禁入git
+12_DOCS/notion_mirror/
+# token/密钥 落位文件（本地与鲲鹏专用·永不入仓库）
+git-tokens.sh
+~/.uid9622/git-tokens.sh
+*.secrets.env
+secrets.env
+
+# --- 密钥落位文件（禁入 git·协议20 密钥防泄露） ---
+config/notion_config.json
+_QUARANTINE/

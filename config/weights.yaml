@@ -1,0 +1,42 @@
+# 龍魂系统 · 动态权重配置 v1.0
+# DNA: #龍芯⚡️2026-08-20-WEIGHTS-SCHEMA-v1.0
+version: "1.0"
+
+# ---- 责任塌缩七因子权重（R 系数）----
+responsibility:
+  F2_reward_visible:      0.4    # 善行可见回报
+  F6_identity_alignment:  0.4    # 身份认同一致度
+  F3_social_support:      0.2    # 社会支持度
+  F1_risk_cost:          -0.5    # 风险成本（负权重）
+  F5_diffusion:          -0.3    # 责任扩散（负权重）
+  exponent_x:             1.0    # x ∈ [0.5, 3.0] 环境敏感指数
+
+# ---- 时间衰减 α（与灵魂档案 L0/L1/L2 同源）----
+decay:
+  L0_eternal: 0.0     # 永不衰减
+  L1_century: 0.01
+  L2_decade:  0.1
+
+# ---- 家人系数 γ_family ----
+gamma_family:
+  distant_relative: 1
+  parent_spouse:    10
+  child:            "inf"
+
+# ---- 三色审计阈值 ----
+tricolor:
+  green_min: 0.70
+  yellow_min: 0.40
+  # < yellow_min => red (熔断)
+
+# ---- 黄历六维时戳修正子（可选·默认关闭）----
+huangli_modifier:
+  enabled: false
+  max_adjust: 0.05    # 修正幅度上限 ±5%，绝不反转结论
+  dims: [year, month, day, hour, wuxing, ganzhi]
+
+# ---- 成本熔断 ----
+cost_fuse:
+  max_tokens_per_task: 200000
+  max_retries: 3
+  score_drop_rounds_before_rollback: 2
