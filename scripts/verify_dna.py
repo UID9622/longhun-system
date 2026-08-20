@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""龍魂 DNA 链验签 v1.0 — chain_hash 一致性校验
-DNA: #龍芯⚡️VERIFY-DNA-CHAIN-v1.0
+"""龍魂 DNA 链验签 v1.1 — chain_hash 一致性校验
+DNA: #龍芯⚡️VERIFY-DNA-CHAIN-v1.1
 用法: python3 scripts/verify_dna.py [--staged]
 规则: 每条 DNA 记录 = {seq, dna, prev_hash, hash}
       hash = sha256(seq | dna | prev_hash)
+v1.1: DNA_RE 放宽为 \S+，兼容干支格式 DNA（如 #龍芯⚡️丙午·丙申·丁卯·…）
+      修复口径见 governance/DNA-GANZHI-CORRECTION-2026-08-21.md
 """
 import hashlib, json, re, sys, subprocess, pathlib
 
-DNA_RE = re.compile(r"#龍芯⚡️[0-9A-Za-z:\-]+")
+DNA_RE = re.compile(r"#龍芯⚡️\S+")
 CHAIN = pathlib.Path("dna_chain.json")
 BACKLINK = "https://uid9622.notion.site"
 

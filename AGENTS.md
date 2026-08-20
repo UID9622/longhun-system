@@ -40,8 +40,9 @@ please attribute the author and link this repository. See ATTRIBUTION.md.
 | `governance/IRONLAWS-PUBLIC-EN.md` | 治理铁律英文版 | Public governance rules (English) |
 | `governance/LH-FAIL-CODES.md` | 失败编码表 LH-FAIL-01~07 | Failure code table |
 | `governance/DNA-GANZHI-CORRECTION-2026-08-21.md` | DNA 干支校正令 v1.0（月柱走节气·入口双码律） | Ganzhi correction order + entry seal rule |
+| `root/PURELAND_AND_TRUTH.md` | 净土36条 v2.1 + 讲实话技能 v1.2 合并版（月柱已节气校正） | Pureland 36 rules + TRUTH skill (merged, corrected) |
 | `config/weights.yaml` | 动态权重 + 黄历修正子 schema | Dynamic weights config schema |
-| `scripts/verify_dna.py` | DNA 链验签 + 回链巡检 | DNA chain verifier + backlink check |
+| `scripts/verify_dna.py` | DNA 链验签 + 回链巡检（v1.1 兼容干支 DNA） | DNA chain verifier + backlink check (ganzhi-aware) |
 | `src/responsibility_collapse.py` | 责任塌缩 v2.0 可运行实现 | Responsibility-collapse model (runnable) |
 | `EVIDENCE/` | 公开取证规则与存证 | Public evidence rules & records |
 | `12_DOCS/BEHAVIORAL-CRYPTO-BRIDGE.md` | 行为密码学桥接（空壳待论文） | Behavioral-cryptography bridge (shell) |
@@ -87,4 +88,4 @@ and grant no access by themselves.
 
 ---
 
-DNA: #龍芯⚡️丙午·丙申·丁卯·[卦名待lh_dna_generator校正]-AGENTS-MD-ENTRY-SEAL-v2.1
+DNA: #龍芯⚡️丙午·丙申·丁卯·[卦名待lh_dna_generator校正]-AGENTS-MD-ENTRY-SEAL-v2.2
