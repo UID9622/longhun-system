@@ -183,32 +183,106 @@ def scan_bin_engines(root: Path) -> dict:
     return result
 
 
-def scan_knowledge_graph(root: Path) -> dict:
-    """扫描知识图谱"""
-    kg_dir = root / "03_知識圖譜"
-    result = {"total_nodes": 0, "total_edges": 0, "node_types": {}, "crawled_knowledge": {}}
-    if not kg_dir.exists():
-        return result
+def _strip_comment_header(text: str) -> str:
+    """剥掉文件开头的注释行（# DNA / # CONFIRM / # SEAL 等），返回可解析 JSON 正文。
+    graph_data.json / crawled_knowledge.json 均带龍魂注释头，直接 json.loads 必失败。"""
+    lines = text.split("\n")
+    start = 0
+    for i, ln in enumerate(lines):
+        if ln.lstrip().startswith("#"):
+            continue
+        start = i
+        break
+    return "\n".join(lines[start:])
 
-    # graph_data.json
-    gd_path = kg_dir / "graph_data.json"
-    if gd_path.exists():
+
+def _load_json_with_header(path: Path):
+    """读取可能带注释头的 JSON 文件。解析失败抛异常由调用方处理。"""
+    text = path.read_text(encoding="utf-8")
+    return json.loads(_strip_comment_header(text))
+
+
+def scan_knowledge_graph(root: Path) -> dict:
+    """扫描知识图谱 — 优先读 brain/unified_kg.db，回退 graph_data.json，双无则报数据源缺失。
+    铁律 #IRON-MISSING-SOURCE-NEVER-REPORT-ZERO-v1.0：扫不到报「数据源缺失」，绝不报 0 冒充真值。"""
+    kg_dir = root / "03_知識圖譜"
+    result = {
+        "total_nodes": 0, "total_edges": 0, "node_types": {}, "crawled_knowledge": {},
+        "source": None, "source_path": None, "source_time": None,
+        "source_status": "missing", "data_source_missing": True,
+    }
+
+    # 1) 优先：brain/unified_kg.db（知识图谱 v2 引擎真数据）
+    kg_db = root / "brain" / "unified_kg.db"
+    if kg_db.exists():
         try:
-            gd = json.loads(gd_path.read_text(encoding="utf-8"))
-            result["total_nodes"] = len(gd.get("nodes", []))
+            import sqlite3
+            con = sqlite3.connect(f"file:{kg_db}?mode=ro", uri=True, timeout=3)
+            cur = con.cursor()
+            nodes = edges = 0
+            node_types = {}
+            try:
+                nodes = cur.execute("SELECT COUNT(*) FROM nodes").fetchone()[0]
+            except Exception:
+                pass
+            try:
+                edges = cur.execute("SELECT COUNT(*) FROM edges").fetchone()[0]
+            except Exception:
+                pass
+            try:
+                for nt, n in cur.execute("SELECT type, COUNT(*) FROM nodes GROUP BY type").fetchall():
+                    node_types[nt] = n
+            except Exception:
+                pass
+            con.close()
+            result.update({
+                "total_nodes": nodes, "total_edges": edges, "node_types": node_types,
+                "source": "unified_kg.db",
+                "source_path": str(kg_db.relative_to(root)),
+                "source_time": datetime.now().isoformat(timespec="seconds"),
+                "source_status": "ok" if nodes or edges else "empty_db",
+                "data_source_missing": False,
+            })
+        except Exception as e:
+            result.update({
+                "source": "unified_kg.db",
+                "source_path": str(kg_db.relative_to(root)),
+                "source_time": datetime.now().isoformat(timespec="seconds"),
+                "source_status": f"error: {e}",
+            })
+            return result
+
+    # 2) 回退：graph_data.json（带注释头，需先剥头）
+    gd_path = kg_dir / "graph_data.json"
+    if (result["source_status"] == "missing" or
+            (result["total_nodes"] == 0 and result["total_edges"] == 0)) and gd_path.exists():
+        try:
+            gd = _load_json_with_header(gd_path)
+            raw_nodes = gd.get("nodes", [])
+            result["total_nodes"] = len(raw_nodes)
             result["total_edges"] = len(gd.get("edges", []))
-            for n in gd.get("nodes", []):
+            # nodes 元素可能混有字符串（非 dict），isinstance 保护后统计
+            for n in raw_nodes:
+                if not isinstance(n, dict):
+                    continue
                 nt = n.get("type", "unknown")
                 result["node_types"].setdefault(nt, 0)
                 result["node_types"][nt] += 1
-        except Exception:
-            pass
+            result.update({
+                "source": "graph_data.json",
+                "source_path": str(gd_path.relative_to(root)),
+                "source_time": datetime.now().isoformat(timespec="seconds"),
+                "source_status": "ok",
+                "data_source_missing": False,
+            })
+        except Exception as e:
+            result["source_status"] = f"error_graph_data: {e}"
 
-    # crawled_knowledge.json
+    # 3) crawled_knowledge.json（带注释头，剥头后解析；保持原逻辑）
     ck_path = kg_dir / "crawled_knowledge.json"
     if ck_path.exists():
         try:
-            ck = json.loads(ck_path.read_text(encoding="utf-8"))
+            ck = _load_json_with_header(ck_path)
 
             def count_recursive(obj):
                 if isinstance(obj, dict):
@@ -277,12 +351,19 @@ def scan_external_repos(root: Path) -> dict:
 
 
 def scan_data_sources(root: Path) -> dict:
-    """扫描数据源"""
-    result = {"total": 0}
+    """扫描数据源 — 索引缺失报「数据源缺失」不报 0（铁律 #IRON-MISSING-SOURCE-NEVER-REPORT-ZERO）"""
+    result = {
+        "total": 0,
+        "source_status": "missing",
+        "source_path": "data/sources/index-for-codebuddy.md",
+        "data_source_missing": True,
+    }
     src_idx = root / "data" / "sources" / "index-for-codebuddy.md"
     if src_idx.exists():
         text = src_idx.read_text(encoding="utf-8")
         result["total"] = len(re.findall(r'^\|\s*\d+\s*\|', text, re.MULTILINE))
+        result["source_status"] = "ok"
+        result["data_source_missing"] = False
     return result
 
 
