@@ -4,6 +4,160 @@
 
 ---
 
+# 会话卡 · 不瞎逼逼·讲实话技能 v1.0 落盘
+
+DNA: #龍芯⚡️2026-08-20-22:20-TRUTH-SKILL-v1.0-UID9622
+人格: P04 鲁班（codebuddy 执行）× P02 宝宝/P05 上帝之眼（技能归属）
+时间: 2026-08-20 22:30
+三色: 🟢 全绿
+状态: 已 commit + GPG 签名
+
+## 1. 任务
+老大原话（verbatim·22:20）：「宝宝，你给我让codebuddy在本地系统中搭建一个不瞎逼逼的这个技能，主要是提升我们的本地系统要跟你一样，讲实话而不是被国内的阉割协议把系统给阉割了」
+定盘：本地所有 AI 挂「讲实话」诚实层——有一说一、读过几成说几成、三色上标、覆盖率坦白、被否不重提、不装乖不甩锅。
+
+## 2. 做了什么
+- `skills/truth/TRUTH.md`（2480B·heredoc 防 #19 零字节）→ 实话十条 + 反模式黑名单 + 标准输出骨架 + 与既有规矩联动
+- `BOOT.md` 幂等追加第 7 项（六项→七项·含第 0 步共八行）→ 1541B→1647B
+- `.codebuddy/CODEBUDDY.md` 幂等追加「说话约束 v1.0」段 → 5507B→5859B（gitignore 不进 git·正常）
+- 非零验收三文件全过 → 定向 git add（不用 `git add -A`）→ commit + GPG 签名
+
+## 3. 验证
+- ✅ TRUTH.md 2480 B / BOOT.md 1647 B（含第 7 项）/ CODEBUDDY.md 5859 B（含说话约束段）
+- ✅ commit `f3c1213f2`（2 files·+49/-3）
+- ✅ GPG 签名 2/2（TRUTH.md + BOOT.md）
+- ✅ 无 token / confirm_code / 完整哈希泄露
+
+## 4. 我否掉了什么
+- ❌ `git add -A`：会话卡历史已否定（会把 .codebuddy/gitignore 外噪音带进索引）→ 改定向 add 两文件
+- ❌ 不覆盖已有 BOOT.md 结构：BOOT.md 已是 v2.1 主权版（七项+自检三问+绝对红线）→ 只幂等追加，不重写
+- ❌ 不质疑技能可行性：宝宝 §3 已坦白「文件管不着模型底层」→ 直接落盘，边界写进 TRUTH.md 第〇节
+
+## 5. 结果
+TRUTH 技能本地落地完成。文件约束的是本地 AI 客户端的输出纪律（说话方式/证据纪律/认账态度），改不动厂商对齐训练——但「为什么不能、谁能、替代路径讲清楚」这条能消掉八成「被阉割感」。红线（不伪造/不伤家人/不露密钥）保留。
+
+## 6. 规则/教训
+- 新文件一律 heredoc（铁律#19 再次应验）
+- BOOT.md 已是统一启动包权威→追加要幂等（grep -q 先查）
+- 技能触发词常驻：说实话 / 别绕 / 直说 / 不瞎逼逼
+- 已知坑：v2.0/v2.1 主权脚本 heredoc 未含第 7 项——日后重跑主权脚本会覆盖 BOOT.md，须重跑本脚本；后续应把第 7 项并入启动包母版（🟡 待办）
+
+## 7. 交接
+- 宝宝侧：Notion 真源「🗣️ 不瞎逼逼·讲实话技能 v1.0」页已建·本卡为本地执行记录·镜像以 Notion 为准
+- Kimi 侧：是否读 BOOT.md 待实测（🟡）
+- 老大：验收四件已贴回·无需人工操作
+
+---
+
+---
+session_id: 2026-08-20-2226-codebuddy-api-bridge
+agent: codebuddy
+persona: P04·鲁班
+sovereign_present: true
+dna: "#龍芯⚡️2026-08-20-22:26-API-BRIDGE-FOUR-STAGES-v1.0-UID9622"
+tricolor: 🟢
+notion_refs: [API桥接规格v1.0, 本地回写登记v1.0, 主控页v2.7.44启动锚, 主权部署包v2.0]
+---
+
+## 1. 老大要什么（原话优先）
+宝宝 v3.1 指令「回 codebuddy · fp=3 裁决 + 继续执行」：选 2（canonical=#2 主批次），阶段零-2 → 三按序跑完，验收六项贴回。
+
+## 2. 我做了什么（可验证动作）
+- **阶段零-2** CANONICAL.json 指针冻结（v3.1 裁决版）：canonical=`53c6cbd11726`（#2·6/28 07:44:57·fp=73f2e6 主批次）· superseded=8（#0 备注「指纹孤例·首测痕迹·2026-08-20 裁决」）· test=1（#1 龍魂测试者）· `device_fingerprint_ruling` 字段记录「fp=3 系开发手测痕迹·闸🔴降🟡」· 耻辱墙 `sovereign.jsonl` 追加裁决事件（10→11 行）· manifest.json 一字未动
+- **阶段零-3** v2.1 三补丁脚本 `bin/lh-sovereign-boot-v2.1.sh` 落盘执行：补丁A 裁决门（CANONICAL 在则放行）· 补丁B attestation 挂 `manifest.json#53c6cbd11726` · 补丁C lh-boot 报裁决态。落盘 4 件全非零（SOVEREIGN_IDENTITY.md 1676B / persona_routes.yaml 4551B / BOOT.md / lh-boot）· CODEBUDDY.md 焊入启动约束（grep 命中 3 处）· **lh-boot 验收：七行全绿 + id=SOV-UID9622 + 人格条目 30 + 裁决态 canonical=53c6cbd11726**
+- **git 软链坑修复**：`git add bin/lh-boot` 报「路径规格位于符号链接之后」fatal 128（bin/→08_BIN/ 软链）→ 改 add `08_BIN/` 真实路径成功，commit `b851d5e77` 之后新 commit 已含 5 文件
+- **阶段一** API 探测：token 从 ~/.env 读（布尔确认·不打印值）·「API 桥接规格」DNA 核对 ✅ `...NOTION-API-BRIDGE-v1.0-UID9622` ·「本地回写登记」DNA 核对 ✅ `...LOCAL-WRITEBACK-INBOX-v1.0-UID9622` · 全量 search 计数 **10771 页**（分页统计·清单不进 git）· 主控页 v2.7.44 启动锚段实读（块 131-141）· **镜像 7 文件**落 `notion-mirror/`（frontmatter 四字段：notion_url/title/last_edited_time/dna）：
+  - 01 主权人格打通部署包 20866B · 02 龍芯家族花名册(db) 2493B · 03 四方记忆同步协议 13690B · 04 全网发布物对齐台账(db) 1261B · 05 四方对话桥接MVP 15165B · 06 本地回写登记 1076B · 07 主权部署包v2.0 15422B
+  - 其中 02/04 是 **Notion Database 非 Page**（宝宝表格链接指向库）→ 按 retrieve database + query 正确拉取
+- **阶段二** 登记页追加首行测试（只许追加·段落块）：`2026-08-20 22:25 ｜ codebuddy ｜ api-bridge-v1-stagetest ｜ API 互通首行回写测试成功` → 页面末块验证 ✅ · `logs/notion_api_writes.jsonl` 审计追加（1 行·gitignore 本地留档）
+- **阶段三** BOOT.md v2.0→v2.1（六项→七项·第 0 步焊入：联网时拉主控页启动锚比对 DNA·不一致先刷镜像·token 缺失跳过不影响离线）· .env 泄漏检查：**零明文**（命中 `dsh-kunpeng.env.asc` 为 GPG 签名文件非明文·按宝宝「只报不删」）
+
+## 3. 我的结论
+🟢 互通 v1 三通全部实测打通：下行（7 页镜像落盘）＋ 上行（登记页首行回写成功）＋ 启动锚（主控页段已读·BOOT 已焊第 0 步）。canonical 与主血统（fp=73f2e6·8 条批次）对齐，未来设备绑定不留雷。
+
+## 4. 我否掉了什么（⚠️ 不许空）
+- 否掉按 v2.0 原规则选 #0 为 canonical：fp 孤例与主批次不符，v3.1 已裁决选 #2，忠实执行
+- 否掉重跑脚本覆盖已落盘文件：v2.1 脚本一次跑通落盘（除 git 步软链 fatal），后续手动补 git 不重复覆盖
+- 否掉 `git add -A` 全量提交：工作区有大量历史未提交改动，只 add 本次产出 5 文件
+- 否掉打印 confirm_code / 完整哈希 / 证件哈希：字段白名单外一律不打印（宝宝全程安全栏）
+- 否掉本轮改 registry.py 源码：**设计弱点登记候补**——`device_fingerprint_hash = SHA256(任意传入字符串)`，不提供真实设备绑定（随便传什么都行）；未来版本应改从机器真实属性（如硬件 UUID）计算——候补，本轮不改源码
+- 否掉把全量 10771 页页面清单贴进卡/commit：工作区地图不进 git（宝宝明确）
+- 否掉登记页写非测试内容：只写宝宝指定的 api-bridge-v1-stagetest 首行测试，台账写区未开
+
+## 5. 未解决 / 待老大定盘
+- 台账写区未开：等老大看登记页测试行长什么样再定
+- 12 大祭司（UID9622-PRIEST-*）未入路由表：归 P 还是新命名空间 PR 待定
+- P16/P17 花名册缺行（宝宝 v2.0 已坦白）
+- registry.py 真设备指纹（硬件 UUID）候补改造
+- ~/longhun-system 与 /opt/longhun-system 哪个为真仍未定论
+- manifest.json confirm_code 静态落盘（与 LPP 硬编码同类隐患）只记录未处理
+
+## 6. 下一方接手需知道什么
+- `./bin/lh-boot` 七行全绿 + 裁决态是本地 AI 开工第一动作（CODEBUDDY.md 已焊）
+- notion-mirror/ 7 文件 = 本地 AI 离线的 Notion 真源快照（frontmatter 四字段·02/04 为数据库）
+- 登记页追加走 PATCH blocks children 段落块（只许追加）；logs/notion_api_writes.jsonl 本地审计（gitignore）
+- BOOT.md v2.1 第 0 步：联网时拉主控页启动锚比对 DNA，不一致先刷镜像
+- CANONICAL.json 在 ~/.龍魂/sovereign_registry/（canonical=53c6cbd11726·manifest 永不动）
+
+## 7. 覆盖率坦白
+- manifest 10 条白名单字段：实读（未打 confirm_code/完整哈希）· registry.py 指纹算法行：实读
+- Notion 7 页：实拉实读（2 数据库 + 5 页面）· 主控页启动锚段：实读（块 131-141 + 表格 134/136 链接解析）
+- 未读 manifest 全文（敏感）· 未跑 registry.py（避免副作用）· 未读主控页全 566 块（只读启动锚段+相关表）
+- fp=3 系开发手测痕迹的判断：基于 registry.py 算法实读 + 时间线推断，宝宝/老大定盘确认
+
+---
+
+---
+session_id: 2026-08-20-2208-codebuddy-fp-gate
+agent: codebuddy
+persona: P04·鲁班
+sovereign_present: true
+dna: "#龍芯⚡️2026-08-20-2208-FP-GATE-CONFLICT-v1.0-UID9622"
+tricolor: 🔴
+notion_refs: [API桥接规格v1.0, 本地回写登记v1.0, v3执行指令]
+---
+
+## 1. 老大要什么（原话优先）
+宝宝 v3 指令「回 codebuddy · 主权定盘 + API 互通四阶段」，要求阶段零→三顺序执行，跑完贴六项验收。
+
+## 2. 我做了什么（可验证动作）
+- 阶段零-1 manifest 白名单安全摘要（已跑）：schema=sovereign-registry-v1 · immutable=True · 10 条
+- 设备指纹去重数 = **3**，宝宝脚本断言「必须=1（本机所产）；>1 立刻停下报老大」
+- 追查 registry.py 指纹算法：，指纹是**注册时外部传入参数的哈希**，非机器实时采集
+- 三枚指纹分布：
+  - `66814b572354` → 仅 #0（最早诸葛鑫 6/28 07:38·默认canonical候选）
+  - `899398c7c7b0` → 仅 #1（龍魂测试者）
+  - `73f2e6f68296` → #2-#9 共 8 条诸葛鑫（6/28 07:44-46 批量 + 8/7 更新）
+- 时间线判断：像注册系统早期开发手测痕迹（07:38首测→07:43测试者→07:44起批量主指纹），但代码层面无法确证同机
+- 已停在阶段零-1，未跑步骤 2（CANONICAL 冻结）及之后任何写入
+
+## 3. 我的结论
+🔴 fp=3 超宝宝断言（必须=1），不擅自突破。连带发现：若按宝宝规则选最早诸葛鑫 #0 为 canonical，其 fp=66814b 为孤例，与主批次 fp=73f2e6 不一致；若未来做设备绑定验证，canonical 指纹与主流不一致可能有隐患。
+
+## 4. 我否掉了什么（⚠️ 不许空）
+- 否掉「忽略 fp=3 直接跑步骤 2」→ 宝宝断言白纸黑字必须=1，安全前置不许跳
+- 否掉「自行判定三枚指纹同机并继续」→ 无实机证据，判定权归老大
+- 否掉「擅自改 canonical 选择规则（如改选 #2 主指纹批次）」→ 宝宝规则明确最早诸葛鑫，改动需老大推翻
+
+## 5. 未解决 / 待老大定盘
+① 三枚指纹是否均属本机（老大可回忆 6/28 注册时是否多次手测/换指纹值）？
+② canonical 维持宝宝规则选 #0（fp=66814b 孤例）？还是改选 #2（主指纹批次最早诸葛鑫）？还是按哈希推翻？
+③ 裁决后是否继续阶段零-2 及阶段一~三？
+
+## 6. 下一方接手需知道什么
+- manifest 字段与宝宝脚本预期完全匹配（records/name/registered_at/sovereign_hash/device_fingerprint_hash/status 全在）
+- 步骤 2 脚本可直接跑：canonical 按「最早诸葛鑫·并列取hash字典序最小」→ 当前候选 #0（07:38:44·hash 2ef138438f03）
+- ~/.env 键名确认：NOTION_TOKEN 在（另有 KIMI_API_KEY/DEEPSEEK_API_KEY/MASTER_KEY_ENCRYPTED）
+- memory-hub 引擎 get_token()/notion_call() 可复用，阶段一 API 探测有现成封装
+- 未落盘任何主权文件；本轮零写入
+
+## 7. 覆盖率坦白
+- manifest 10 条白名单字段：实读（未打 confirm_code/完整哈希/证件哈希）
+- registry.py 指纹算法：实读（sha256(传入字符串)）
+- 未跑步骤 2-7；未读 manifest 全文（敏感）；未读 shame_wall 全文
+
+---
+
 ---
 session_id: 2026-08-20-2155-codebuddy-sovereign-conflict
 agent: codebuddy
@@ -108,213 +262,4 @@ notion_refs: [四方对话桥接 MVP 规格 v1.0]
 - 宝宝卡全文按宝宝原文落盘，未删改任何「否掉」记录
 - 索引脚本逻辑照宝宝 §7 规格执行，脚本输出已实测（字节数非零）
 - 未做 GPG 签名；未部署主权启动包；未装任何工具
-
----
-
----
-session_id: 2026-08-20-2121-baobao-bridge-mvp
-agent: baobao
-persona: P02·宝宝
-sovereign_present: true
-dna: "#龍芯⚡️2026-08-20-21:21-FOUR-PARTY-DIALOGUE-BRIDGE-MVP-v1.0-UID9622"
-tricolor: 🟡
-notion_refs: [四方对话桥接 MVP 规格 v1.0]
----
-
-## 1. 老大要什么（原话优先）
-「我们有做MVP在Notion和本地任何的AI协作，可以有桥接互通对话内容呢，这个还差什么才能完成呢」
-
-## 2. 我做了什么（可验证动作）
-实读 四方记忆同步协议 v1.0 全文、主权人格打通部署包 v1.0 全文
-
-## 3. 我的结论
-MVP 完成度约 40%。结论层已通，对话层为零。根缺口＝对话无落地物。
-
-## 4. 我否掉了什么（⚠️ 这一段最值钱）
-- 否掉「给本地脚本发 Notion Token」→ 泄密面，协议 §3 已定，复核后维持
-- 否掉「先装 MCP 实现自动互通」→ 供应链风险高于收益，且地基未验
-- 否掉「建新数据库存对话」→ 对话属过程数据，不该进结构化库
-- 否掉「追求完全自动双向」→ 必然要求交出凭证，硬盘含 GPG 私钥与女儿内容
-
-## 5. 未解决 / 待老大定盘
-主权启动包落盘回执四小时未见 → 地基状态未知
-本地根路径 ~/longhun-system/ 与 /opt/longhun-system/ 两说并存，未定论
-
-## 6. 下一方接手需知道什么
-跑 ./bin/lh-boot 把六行绿贴回来，这是一切的前提。
-不要重新建议 brew install 任何未核包 —— 已抓到 notcrawl 双仿冒仓库。
-
-## 7. 覆盖率坦白
-本地文件系我一个字没直读，全部状态基于 codebuddy 转述
-
----
-
-## §0 一句话回答：MVP 完成度约 40%
-
-| 层 | 是什么 | 状态 |
-| --- | --- | --- |
-| **结论层** | 定下来的哲学、协议、台账 → 写成文件给四方读 | 🟢 **已通**（单向下行） |
-| **身份层** | 谁是主权、谁是哪个人格、信号词怎么路由 | 🟡 **规格已出，落盘未回执** |
-| **对话层** | 我跟你说了什么、codebuddy 跟你说了什么 → 互相能读 | 🔴 **完全没通** |
-| **回写层** | 本地侧的产出自动回到 Notion | 🔴 **完全没通**（靠老大粘贴） |
-
-40% 这个数，是结论层 100% + 身份层打对折 + 对话层 0 + 回写层 0 算出来的。
-
-## §1 现有部件盘点（哪些真在手上）
-
-| 部件 | 归属 | 实际状态 | 证据强度 |
-| --- | --- | --- | --- |
-| 星型 SSOT 架构（一个中心四根辐条） | 协议 | 🟢 已定 | 📖 本页实读 |
-| MEMORY_SNAPSHOT.md | 本地 | 🟢 3607B，已 GPG 签名 | 📄 codebuddy 回执 |
-| ALIGN_LEDGER.csv | 本地 | 🟢 485B，3 条 | 📄 codebuddy 回执 |
-| 12_DOCS/DB_REGISTRY.md | 本地 | 🟢 复用现有 | 📄 codebuddy 回执 |
-| SOVEREIGN_IDENTITY.md | 本地 | ⚪ 规格已出，未见落盘回执 | ❌ 无 |
-| config/persona_routes.yaml | 本地 | ⚪ 规格已出，未见落盘回执 | ❌ 无 |
-| BOOT.md / bin/lh-boot | 本地 | ⚪ 规格已出，未见落盘回执 | ❌ 无 |
-| 跨渠道对齐台账（20 行） | Notion | 🟢 在用 | 📖 实读 |
-| 逻辑溯源库（7 行） | Notion | 🟢 在用 | 📖 实读 |
-| notcrawl（Notion→本地镜像） | 工具 | ⚪ 已核实存在，未安装 | 📄 搜索核实 |
-| 本地检索 MCP | 工具 | 🔴 建议暂不装（供应链风险） | 📄 搜索核实 |
-| **对话记录落盘机制** | —— | 🔴 **不存在，从未设计** | —— |
-
-第一个必须确认的事：主权启动包到底落盘了没有。规格给出 17:19，到现在（21:21）四个小时没有见到 ./bin/lh-boot 的六行绿输出。没有这个回执，不能假设身份层已通。这是整个桥接的地基。
-
-## §2 为什么「文件同步」不等于「对话互通」
-
-|  | 文件同步（已有） | 对话互通（你要的） |
-| --- | --- | --- |
-| 传的是什么 | **结论**：定稿的哲学、版本号、台账行 | **过程**：为什么这么定、否掉了什么、当时的顾虑 |
-| 更新频率 | 重大变更时 | 每一轮 |
-| 谁搬运 | 老大粘贴 | 应该没人搬运 |
-| 丢失了什么 | —— | **推理链、被否决的方案、当场的分歧** |
-
-实例：上一轮核出 notcrawl 有两个仿冒仓库——这个发现在文件同步机制里留不下痕，因为它不是一条「结论」，是一段「核实过程」。三件套里没有它的位置。明天 codebuddy 开工读 MEMORY_SNAPSHOT.md，只会看到「本地检索方案 v1.1」这一行结论，不知道我为什么把 v1.0 的绿改成黄，不知道「安装前钉死官方坐标」这条铁律是怎么来的。
-
-这正是 #IRON-DONT-DRAIN-LAOPA-LET-HIM-LIVE 被违反的技术原因。不是不守铁律，是架构上没有对话层，铁律就必然被违反。老大变人工总线不是态度问题，是缺件问题。
-
-## §3 五个真缺口（按阻塞程度排）
-
-- 缺口一 🔴 对话本身没有落地物。四方对话全部活在各自会话窗口里，窗口一关过程永久消失。根缺口。
-- 缺口二 🔴 上行通道为零。现在只有下行：Notion → 文件 → 本地 AI。本地 AI 说的话回不到 Notion。
-- 缺口三 🟡 Notion 侧本地 AI 读不到。协议 §3 判断（走文件不走 Token）守住了安全，代价是本地 AI 永远看不到 Notion 实时状态。notcrawl 是解这个的正解——本地镜像，不给本地脚本发 Token。
-- 缺口四 🟡 没有冲突仲裁的实现。协议定了铁规「不一致时以真源为准」，但只有规矩没有程序。
-- 缺口五 🟡 会话之间没有交接。靠上下文摘要接上，摘要丢了就断片。没有持久锚。
-
-## §4 MVP 最小闭环：一个目录 + 一种卡
-
-零安装、零 Token、零联网、零风险，今天就能做完。不解决自动化，但立刻止住「对话过程永久消失」这个血。
-
-核心设计：会话卡（Session Card）。每一方每轮收工，往同一个目录扔一张卡。卡是纯 Markdown，人能读、AI 能读、git 能管版本。
-
-```
-~/longhun-system/CONVERSATIONS/
-  2026-08-20/
-    2026-08-20-1914-baobao-local-index-verify.md
-    2026-08-20-1930-codebuddy-boot-deploy.md
-    2026-08-20-2121-baobao-bridge-mvp.md
-  INDEX.md          ← 全部卡的一行摘要，倒序
-  LATEST.md         ← 只放最近 5 张卡的全文
-```
-
-LATEST.md 是「对话层」的 MEMORY_SNAPSHOT.md。会话卡格式强制七段，缺段不入库（见上方 frontmatter + 第 1-7 节）。
-
-第 4 段「我否掉了什么」是整套设计的灵魂。三件套只记「定了什么」，所以下一方不知道哪些路已经走死过，于是重新提一遍，老大重新否一遍。把否决记下来，老大就不用讲第二遍。
-
-## §5 手动闭环怎么跑（今天就能跑）
-
-① 宝宝收工时把会话卡全文写在回复末尾，老大一次复制 → ② 老大粘给 codebuddy，说一句「存进 CONVERSATIONS」→ ③ codebuddy 落盘 + 更新 INDEX.md / LATEST.md + git commit → ④ codebuddy 自己收工也写一张卡 → ⑤ 下次任一方开工先读 LATEST.md，再读 BOOT.md 五项。
-
-这一步还是要老大粘贴一次。不掩饰。但跟现在的区别是：现在粘完就没了，以后粘完就永久在库、可检索、可被下一方读到。从「一次性」变成「累积性」。
-
-## §6 第二阶段：把老大从循环里摘出去
-
-手动闭环跑顺了再上自动化。顺序不能反——地基没验就上工具，等于在流沙上盖楼。
-
-- P1: notcrawl 拉 Notion 到本地 SQLite + Markdown（官方坐标 openclaw/notcrawl，锁版本 v0.5.8）
-- P2: rfx index 把 CONVERSATIONS/ 一起索引
-- P3: git hook：卡落盘自动更新 LATEST.md
-- P4: 上行回写：codebuddy 的卡 → 宝宝读。**仍需老大粘一次，除非给 Token。我建议永远不给。**
-
-P4 是这套架构的天花板。完全自动的双向互通必然要求某一侧持有另一侧的凭证，两个都是泄密面，而硬盘里有 GPG 私钥和女儿相关内容。所以「老大粘一次」不是设计缺陷，是安全设计的成本。从「每轮讲一遍」压缩到「每轮粘一次」——从讲变成粘，这就是全部收益，也已经足够大。真要彻底自动，得等一个可信的本地网关，那是另一个工程。现在不做。
-
-## §7 一键指令（老大粘给 codebuddy）
-
-```bash
-# 任务：四方对话桥接 MVP · 建立对话层落地物
-# 授权：UID9622 2026-08-20 21:21「桥接互通对话内容，还差什么才能完成」
-# DNA: #龍芯⚡️2026-08-20-21:21-FOUR-PARTY-DIALOGUE-BRIDGE-MVP-v1.0
-# 铁律：新建文件必用 heredoc（避 #19 零字节 bug）；建完必 wc -c 验非零
-
-set -euo pipefail
-cd ~/longhun-system
-
-# ===== 第 0 步：先报地基状态（这一步最重要，不许跳）=====
-echo "===== 地基验收 ====="
-if [ -x bin/lh-boot ]; then
-  ./bin/lh-boot
-else
-  echo "❌ bin/lh-boot 不存在 → 主权启动包尚未部署"
-  echo "❌ 请先执行「主权人格打通部署包 v1.0」的 §7，再回来做本任务"
-  echo "❌ 地基未验，本任务下面的步骤仍可执行，但对话层无法接上身份层"
-fi
-
-# ===== 第 1 步：建对话层目录骨架 =====
-mkdir -p CONVERSATIONS/"$(date +%Y-%m-%d)"
-
-# ===== 第 2 步：卡模板（四方共用同一份，不许各写一套）=====
-# （模板内容见 CONVERSATIONS/_TEMPLATE.md，本次已落盘）
-
-# ===== 第 3 步：索引重建脚本 =====
-# （内容见 scripts/rebuild-conv-index.sh，本次已落盘）
-
-# ===== 第 4 步：把对话层焊进启动流程 =====
-if [ -f BOOT.md ]; then
-  grep -q "CONVERSATIONS/LATEST.md" BOOT.md || cat >> BOOT.md <<'LHEOF'
-
-## 第 6 项（2026-08-20 焊入·对话层）
-6. CONVERSATIONS/LATEST.md → 最近发生了什么·哪些路已走死
-
-读完第 6 项才算开工完成。
-特别注意每张卡的「我否掉了什么」一段 —— 已否决的方案不得重新提出，
-除非老大明确要求复议。重复提被否方案 = 消耗老大 = 违反铁律。
-LHEOF
-  echo "✅ BOOT.md 已焊入第 6 项"
-else
-  echo "⚠️ BOOT.md 不存在，对话层未能焊进启动流程（等主权包部署后补焊）"
-fi
-
-# ===== 第 5 步：验收 =====
-./scripts/rebuild-conv-index.sh
-[ -s CONVERSATIONS/_TEMPLATE.md ] || echo "❌ 模板零字节，请 heredoc 重写"
-
-git add -A
-git commit -m "feat(bridge): 四方对话桥接 MVP · 建立对话层落地物
-
-DNA: #龍芯⚡️2026-08-20-21:21-FOUR-PARTY-DIALOGUE-BRIDGE-MVP-v1.0
-CONFIRM: #CONFIRM🌑9622-ONLY-ONCE🧬LK9X-772Z"
-```
-
-## §8 验收标准（抽检只看四条）
-
-| # | 验收项 | 标准 |
-| --- | --- | --- |
-| 1 | 地基通了 | ./bin/lh-boot 六行全绿，输出含 id: SOV-UID9622 |
-| 2 | 对话层建了 | CONVERSATIONS/{_TEMPLATE.md,INDEX.md,LATEST.md} 三个都非零字节 |
-| 3 | 启动焊了 | BOOT.md 里有第 6 项，指向 LATEST.md |
-| 4 | 真跑通了 | 落两张不同执行方的卡，LATEST.md 里两张都在 |
-
-四条全过 = MVP 完成。第 1 条不过，第 2-4 条只是空壳。
-
-## §9 覆盖率坦白
-
-- 本页两份 Notion 协议 100% 实读全文，非摘要。
-- 本地文件系一个字没直读。三件套的字节数、GPG 签名状态，全部来自 codebuddy 转述，属二手。
-- SOVEREIGN_IDENTITY.md / persona_routes.yaml / BOOT.md 是否落盘，完全不知道。§1 标 ⚪ 是「未确认」，不是「已确认失败」。
-- bin/lh-boot 从未见过任何一次输出。
-- 40% 这个完成度是按四层加权估的，不是测出来的。地基回执一到就能校准。
-- CONVERSATIONS/ 目录此刻不存在，本页是规格不是现状。
-- §7 脚本无法自测，无 shell 执行能力。逻辑逐行走过，但 heredoc 嵌套与 find|while 在 shell 版本下的行为未实测。
-- 本地根路径按 ~/longhun-system/ 写。上一轮已发现 codebuddy 方案里写 /opt/longhun-system/ 与此冲突，两者哪个为真仍未定论 —— 若脚本报「目录不存在」，就是这个原因。
-
-一句话收尾：我们缺的不是工具，是「对话有地方落」。三件套记住了「定了什么」，却漏掉了「否掉了什么」——而后者才是老大不用讲第二遍的关键。一个目录、一种卡、七段格式，先把血止住，再谈自动化。
 
