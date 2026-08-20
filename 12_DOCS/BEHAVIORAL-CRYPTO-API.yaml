@@ -1,0 +1,728 @@
+openapi: 3.0.3
+info:
+  title: 龍魂·行為密碼學主權API / Longhun Behavioral Cryptography Sovereignty API
+  description: |
+    Seven-factor behavioral fingerprint extraction, verification, and attack simulation.
+
+    **Based on:** "Behavioral Cryptography: A Multi-Factor Provenance Framework for
+    Human-AI Collaborative Content Authentication" — Zhuge Xin (UID9622), May 2026.
+
+    **Core thesis / 核心主张:**
+    > Others benchmark speed, APIs, PKI. I benchmark the protocol.
+    > 别人照速度、照API、照PKI；我们照的是协议。
+    >
+    > Keep AI from running wild — that is the point of governance.
+    > 管好AI不要乱来。
+    >
+    > I have been my own living testbed for nearly two years.
+    > 我自己当实验品当快两年了。
+    > — UID9622, 2026-08-20 23:44
+
+    **Seven Behavioral Factors (七因子行为指纹):**
+
+    | ID | English Name | 中文名 | Weight | Forge Difficulty |
+    |----|-------------|--------|--------|------------------|
+    | f1 | Identity DNA | 身份DNA | 0.20 | 0.95 |
+    | f2 | Time Anchor | 时间锚定 | 0.15 | 0.92 |
+    | f3 | Content Hash | 内容哈希 | 0.18 | 0.90 |
+    | f4 | Style Vector | 风格向量 | 0.17 | 0.78 |
+    | f5 | Protected Vocabulary | 保护词汇 | 0.12 | 0.85 |
+    | f6 | Long-term Style | 长期风格 | 0.10 | 0.88 |
+    | f7 | Error Correction Ledger | 纠错账本 | 0.08 | 0.93 |
+
+    **Key insight:** Copying text is easy. Copying the verified behavioral lineage is hard.
+    (抄文字容易，抄血统难；洗稿容易，洗掉全过程难。)
+
+    **Sovereignty Response Headers** (每个响应携带主权标头):
+    - `X-Longhun-DNA`: Request traceability code
+    - `X-Longhun-Audit`: Three-color audit mark (GREEN / YELLOW / RED)
+    - `X-Longhun-Sovereignty`: LONGHUN-CONFIRM-9622
+    - `X-Longhun-Timestamp`: ISO 8601 timestamp
+    - `X-Longhun-Jurisdiction`: CN
+    - `X-Longhun-Encryption`: SM3-SM4
+
+    **Sovereignty anchor / 主权锚:**
+    ```
+    Confirm: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+    GPG:     A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+    ```
+
+    **Startup command / 启动命令:**
+    ```bash
+    uvicorn 04_ENGINES.behavioral_crypto.api_server:app --host 0.0.0.0 --port 8775
+    ```
+
+    **Interactive docs:** http://localhost:8775/api/v2/bcm/docs
+    **ReDoc:** http://localhost:8775/api/v2/bcm/redoc
+    **OpenAPI JSON:** http://localhost:8775/api/v2/bcm/openapi.json
+
+    Public home: https://uid9622.notion.site
+    DNA: #龍芯⚡️丙午·丙申·丙寅·恒卦-BCM-API-SPEC-V2.0-UID9622
+    License (engineering): MulanPSL v2
+    License (thought layer): CC BY-NC-SA 4.0
+  version: 2.0.0
+  contact:
+    name: UID9622 龍芯北辰 / Zhuge Xin
+    url: https://uid9622.notion.site
+  license:
+    name: MulanPSL v2 (engineering) / CC BY-NC-SA 4.0 (thought layer)
+    url: https://license.coscl.org.cn/MulanPSL2
+
+servers:
+  - url: http://localhost:8775
+    description: Local development (本地开发)
+  - url: https://uid9622.cn
+    description: Production (生产环境 — when deployed)
+
+tags:
+  - name: health
+    description: Health and status checks (健康与状态检查)
+  - name: fingerprint
+    description: Extract and verify behavioral fingerprints (七因子指纹提取与验证)
+  - name: experiment
+    description: Attack simulation experiments (攻击模拟实验)
+  - name: sovereignty
+    description: Sovereignty info and factor definitions (主权信息与因子定义)
+
+paths:
+  /api/v2/bcm/health:
+    get:
+      tags: [health]
+      summary: Health check (健康检查)
+      description: Returns service health status. No authentication required.
+      operationId: health_check
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+              example:
+                status: healthy
+                service: behavioral-crypto
+                version: "2.0.0"
+                engine_status: active
+                total_extractions: 42
+                sovereignty: CN
+                timestamp: "2026-08-21T03:00:00Z"
+
+  /api/v2/bcm/status:
+    get:
+      tags: [health]
+      summary: Engine status detail (引擎状态详情)
+      description: |
+        Detailed engine statistics, factor definitions, and attack level definitions.
+        Useful for verifying the API is running with the expected configuration.
+      operationId: engine_status
+      responses:
+        '200':
+          description: Engine status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+
+  /api/v2/bcm/sovereignty:
+    get:
+      tags: [sovereignty]
+      summary: Sovereignty verification info (主权验证信息)
+      description: |
+        Returns the full sovereignty anchor: owner, UID, GPG fingerprint, jurisdiction,
+        encryption standard, and license. Use this to verify you are talking to the
+        legitimate Longhun system.
+      operationId: sovereignty_info
+      responses:
+        '200':
+          description: Sovereignty info
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SovereigntyResponse'
+
+  /api/v2/bcm/factors:
+    get:
+      tags: [sovereignty]
+      summary: Seven factor definitions (七因子定义)
+      description: |
+        Returns full definitions of all 7 behavioral factors including:
+        - Names (Chinese and English)
+        - Weights (sum to 1.0)
+        - Forge difficulty (0-1, higher = harder to fake)
+        - Expected retention rate under attack
+      operationId: get_factor_definitions
+      responses:
+        '200':
+          description: Factor definitions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FactorsResponse'
+
+  /api/v2/bcm/extract:
+    post:
+      tags: [fingerprint]
+      summary: Extract behavioral fingerprint (提取七因子行为指纹)
+      description: |
+        Extracts a complete seven-factor behavioral fingerprint from the provided text.
+
+        **Returns:**
+        - DNA traceability code (DNA追溯码)
+        - Composite weighted score (加权综合得分, 0–1)
+        - Per-factor scores and details
+        - Three-color audit mark (三色审计: 🟢/🟡/🔴)
+        - Sovereignty anchor
+
+        **Factor scoring:**
+        - f1 Identity DNA: signature patterns, opening/closing habits, punctuation preference
+        - f2 Time Anchor: timestamp chain detection, cultural temporal markers
+        - f3 Content Hash: SHA3-256 Merkle tree (SM3-compatible)
+        - f4 Style Vector: sentence length distribution, character diversity, paragraph structure
+        - f5 Protected Vocabulary: Longhun-specific term density
+        - f6 Long-term Style: historical profile comparison (or heuristic if no profile)
+        - f7 Error Correction Ledger: correction traces, script mixing ratio
+
+        Set `update_profile: true` to feed this text into the author's long-term style baseline.
+      operationId: extract_fingerprint
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExtractRequest'
+            examples:
+              longhun_doc:
+                summary: Typical Longhun document
+                value:
+                  text: "DNA: #龍芯⚡️丙午·丙申·丙寅·恒卦-TEST-UID9622\n确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z\n\n龍魂系统是面向数字主权与行为密码学的治理协议体系。三色审计与DNA追溯是核心机制。"
+                  author_id: "UID9622"
+                  update_profile: false
+              plain_text:
+                summary: Plain text (lower scores expected)
+                value:
+                  text: "This is a plain article about AI technology without any special markers."
+                  author_id: "UID9622"
+                  update_profile: false
+      responses:
+        '200':
+          description: Behavioral fingerprint extracted successfully
+          headers:
+            X-Longhun-Audit:
+              description: Three-color audit mark
+              schema:
+                type: string
+                enum: [GREEN, YELLOW, RED]
+            X-Longhun-DNA:
+              description: Request traceability code
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FingerprintResponse'
+        '500':
+          description: Extraction failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v2/bcm/verify:
+    post:
+      tags: [fingerprint]
+      summary: Verify behavioral fingerprint (验证行为指纹)
+      description: |
+        Extracts and verifies a behavioral fingerprint against a configurable threshold.
+
+        **Returns:** verified (bool), score, warnings, recommendation.
+
+        **Threshold guidance (from paper §3.2):**
+        - `0.30` — Default / general use
+        - `0.85` — Standard security (paper τ_std)
+        - `0.95` — High security (paper τ_high)
+
+        Three-color recommendation:
+        - `🟢 通过` — score ≥ threshold, no 🔴 factors
+        - `🟡 人工核查` — score ≥ 60% of threshold
+        - `🔴 拒绝` — score < 60% of threshold or 🔴 factors present
+      operationId: verify_fingerprint_endpoint
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyRequest'
+            example:
+              text: "Content to verify authorship of..."
+              author_id: "UID9622"
+              threshold: 0.30
+      responses:
+        '200':
+          description: Verification result
+          headers:
+            X-Longhun-Audit:
+              schema:
+                type: string
+                enum: [GREEN, YELLOW]
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifyResponse'
+        '500':
+          description: Verification failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v2/bcm/experiment/run:
+    get:
+      tags: [experiment]
+      summary: Run attack simulation experiment (运行攻击模拟实验)
+      description: |
+        Runs a full attack simulation experiment (asynchronous, cached in memory).
+
+        **Tests fingerprint retention across attack types:**
+        - Surface copying
+        - Paraphrase laundering
+        - Translation laundering
+        - Persona spoofing
+        - Protected lexicon removal
+        - Style mimicry
+        - Timestamp backdating (consistency check)
+
+        **Duration:** 10–120 seconds depending on `num_docs`.
+        Results cached and retrievable via `GET /experiment/latest`.
+        HTML report via `GET /experiment/report`.
+      operationId: run_experiment
+      parameters:
+        - name: num_docs
+          in: query
+          description: Number of documents to test (测试文档数量)
+          required: false
+          schema:
+            type: integer
+            default: 50
+            minimum: 10
+            maximum: 500
+          example: 50
+        - name: seed
+          in: query
+          description: Random seed for reproducibility (随机种子)
+          required: false
+          schema:
+            type: integer
+            default: 42
+            minimum: 0
+          example: 42
+      responses:
+        '200':
+          description: Experiment completed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExperimentResponse'
+
+  /api/v2/bcm/experiment/latest:
+    get:
+      tags: [experiment]
+      summary: Get latest experiment results (获取最近实验结果)
+      description: |
+        Returns cached results from the last experiment run.
+        Returns `status: no_data` if no experiment has been run yet.
+        Hint message guides you to call `/experiment/run` first.
+      operationId: get_latest_experiment
+      responses:
+        '200':
+          description: Latest experiment results or no_data status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LatestExperimentResponse'
+
+  /api/v2/bcm/experiment/report:
+    get:
+      tags: [experiment]
+      summary: HTML experiment report (HTML实验报告)
+      description: |
+        Returns a visual HTML report of the latest experiment results.
+        Open in browser for charts and attack retention heatmap.
+        Returns placeholder HTML if no experiment has been run.
+      operationId: get_experiment_report
+      responses:
+        '200':
+          description: HTML visualization report
+          content:
+            text/html:
+              schema:
+                type: string
+
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      description: Service health status
+      properties:
+        status:
+          type: string
+          example: healthy
+        service:
+          type: string
+          example: behavioral-crypto
+        version:
+          type: string
+          example: "2.0.0"
+        engine_status:
+          type: string
+          example: active
+        total_extractions:
+          type: integer
+          description: Total fingerprints extracted since startup
+        sovereignty:
+          type: string
+          example: CN
+        timestamp:
+          type: string
+          format: date-time
+
+    StatusResponse:
+      type: object
+      description: Detailed engine status
+      properties:
+        service:
+          type: string
+        version:
+          type: string
+        engine:
+          $ref: '#/components/schemas/EngineStats'
+        factor_definitions:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/FactorSummary'
+        attack_levels:
+          type: object
+          description: Available attack level definitions
+        sovereignty:
+          $ref: '#/components/schemas/SovereigntyAnchor'
+
+    SovereigntyResponse:
+      type: object
+      description: Sovereignty verification information
+      properties:
+        service:
+          type: string
+        owner:
+          type: string
+          example: 诸葛鑫
+        uid:
+          type: string
+          example: "9622"
+        gpg:
+          type: string
+          example: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+        confirm:
+          type: string
+          example: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+        jurisdiction:
+          type: string
+          example: 中华人民共和国
+        encryption:
+          type: string
+          example: SM3/SM4 国密
+        license_engineering:
+          type: string
+          example: MulanPSL v2
+        license_thought:
+          type: string
+          example: CC BY-NC-SA 4.0
+        data_policy:
+          type: string
+          example: 境内存储·端侧加密·云上密文·不出境
+        timestamp:
+          type: string
+          format: date-time
+
+    FactorsResponse:
+      type: object
+      description: All seven factor definitions
+      properties:
+        factors:
+          type: array
+          items:
+            $ref: '#/components/schemas/FactorDefinition'
+        sovereignty:
+          $ref: '#/components/schemas/SovereigntyAnchor'
+
+    FactorDefinition:
+      type: object
+      description: Full definition of one behavioral factor
+      properties:
+        id:
+          type: string
+          enum:
+            - f1_identity_dna
+            - f2_time_anchor
+            - f3_content_hash
+            - f4_style_vector
+            - f5_protected_vocab
+            - f6_longterm_style
+            - f7_error_ledger
+        name:
+          type: string
+          description: Chinese name
+          example: 身份DNA
+        name_en:
+          type: string
+          description: English name
+          example: Identity DNA
+        weight:
+          type: number
+          format: float
+          description: Weight in composite score (all 7 weights sum to 1.0)
+        description:
+          type: string
+        forge_difficulty:
+          type: number
+          format: float
+          description: How hard to forge (0–1, higher = harder)
+        retention_under_attack:
+          type: number
+          format: float
+          description: Expected retention rate under adversarial attack (0–1)
+        icon:
+          type: string
+
+    ExtractRequest:
+      type: object
+      required: [text]
+      description: Request to extract a behavioral fingerprint
+      properties:
+        text:
+          type: string
+          minLength: 10
+          description: Text to analyze (待提取指纹的文本, min 10 chars)
+        author_id:
+          type: string
+          default: UID9622
+          description: Author identifier for profile lookup (作者ID)
+        update_profile:
+          type: boolean
+          default: false
+          description: Whether to update the author's long-term style profile (是否更新作者画像)
+
+    VerifyRequest:
+      type: object
+      required: [text]
+      description: Request to verify a behavioral fingerprint
+      properties:
+        text:
+          type: string
+          minLength: 10
+          description: Text to verify (待验证的文本)
+        author_id:
+          type: string
+          default: UID9622
+          description: Author identifier
+        threshold:
+          type: number
+          format: float
+          default: 0.30
+          minimum: 0.0
+          maximum: 1.0
+          description: |
+            Verification threshold.
+            - 0.30: Default / general use
+            - 0.85: Standard security (paper τ_std)
+            - 0.95: High security (paper τ_high)
+
+    FingerprintResponse:
+      type: object
+      description: Complete seven-factor behavioral fingerprint
+      properties:
+        dna:
+          type: string
+          description: DNA traceability code (DNA追溯码)
+          example: "#龍芯⚡️2026-08-21-BCM-a1b2c3d4e5f6g7h8-UID9622"
+        timestamp:
+          type: string
+          format: date-time
+          description: Extraction timestamp (UTC)
+        composite_score:
+          type: number
+          format: float
+          description: Weighted composite score (加权综合得分, 0–1)
+          example: 0.4231
+        audit_mark:
+          type: string
+          enum: ["🟢", "🟡", "🔴"]
+          description: Three-color audit mark
+        sovereignty:
+          type: object
+          properties:
+            uid:
+              type: string
+            jurisdiction:
+              type: string
+            encryption:
+              type: string
+        factors:
+          type: array
+          items:
+            $ref: '#/components/schemas/FactorResult'
+
+    FactorResult:
+      type: object
+      description: Result for one behavioral factor
+      properties:
+        id:
+          type: string
+          description: Factor identifier
+        name:
+          type: string
+          description: Chinese name
+        raw:
+          type: number
+          format: float
+          description: Raw factor score (0–1)
+        weighted:
+          type: number
+          format: float
+          description: Weighted contribution to composite score
+        confidence:
+          type: number
+          format: float
+          description: Confidence level for this factor score
+        status:
+          type: string
+          enum: ["🟢", "🟡", "🔴"]
+          description: Three-color status for this factor
+        details:
+          type: object
+          description: Factor-specific details (varies by factor)
+          example:
+            signature_patterns: 3
+            cn_punct_preference: 0.842
+
+    VerifyResponse:
+      type: object
+      description: Verification result
+      properties:
+        verified:
+          type: boolean
+          description: Whether fingerprint passes the threshold with no 🔴 factors
+        score:
+          type: number
+          format: float
+        threshold:
+          type: number
+          format: float
+        red_factors:
+          type: integer
+          description: Count of factors with 🔴 status
+        warnings:
+          type: array
+          items:
+            type: string
+          description: List of warnings explaining non-verification
+        recommendation:
+          type: string
+          enum: ["🟢 通过", "🟡 人工核查", "🔴 拒绝"]
+          description: Recommended action
+        fingerprint:
+          $ref: '#/components/schemas/FingerprintResponse'
+        sovereignty:
+          $ref: '#/components/schemas/SovereigntyAnchor'
+
+    ExperimentResponse:
+      type: object
+      description: Attack simulation experiment results
+      properties:
+        status:
+          type: string
+          example: completed
+        experiment_id:
+          type: string
+        total_tests:
+          type: integer
+        overall_retention:
+          type: number
+          format: float
+          description: Overall fingerprint retention rate across all attack types (0–1)
+        summary:
+          type: object
+          description: Full experiment summary with per-attack-level and per-factor breakdowns
+        sovereignty:
+          $ref: '#/components/schemas/SovereigntyAnchor'
+
+    LatestExperimentResponse:
+      type: object
+      description: Latest cached experiment result
+      properties:
+        status:
+          type: string
+          enum: [available, no_data]
+        experiment_id:
+          type: string
+        summary:
+          type: object
+        message:
+          type: string
+          description: Present when status is no_data
+        hint:
+          type: string
+          description: Hint URL to run an experiment
+
+    EngineStats:
+      type: object
+      description: Engine runtime statistics
+      properties:
+        total_extractions:
+          type: integer
+        author_profiles:
+          type: integer
+        avg_composite_score:
+          type: number
+          format: float
+        last_extraction:
+          type: object
+          nullable: true
+
+    FactorSummary:
+      type: object
+      description: Brief factor summary for status endpoint
+      properties:
+        name:
+          type: string
+        weight:
+          type: number
+        forge_difficulty:
+          type: number
+
+    SovereigntyAnchor:
+      type: object
+      description: Longhun sovereignty anchor
+      properties:
+        uid:
+          type: string
+        owner:
+          type: string
+        confirm:
+          type: string
+        gpg:
+          type: string
+        dna_prefix:
+          type: string
+        license:
+          type: string
+        jurisdiction:
+          type: string
+        encryption:
+          type: string
+
+    ErrorResponse:
+      type: object
+      description: Error details
+      properties:
+        detail:
+          type: string
+          description: Human-readable error description
