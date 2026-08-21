@@ -14,8 +14,13 @@
 
 set -euo pipefail
 
-HOOK_DIR="$(cd "$(dirname "$0")" && pwd)"
-REPO_ROOT="$(cd "$HOOK_DIR/../.." && pwd)"
+# REPO_ROOT 优先用 git 自解析（兼容全局 core.hooksPath 场景；../.. 硬算在
+# ~/.git-hooks 软链下会错成 /Users 导致 mkdir /Users/.git 权限失败）
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || true)"
+if [ -z "$REPO_ROOT" ]; then
+  HOOK_DIR="$(cd "$(dirname "$0")" && pwd)"
+  REPO_ROOT="$(cd "$HOOK_DIR/../.." && pwd)"
+fi
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -133,9 +138,12 @@ from pathlib import Path
 DNA = "#龍芯⚡️2026-08-11-ETERNAL-AUDIT-ENGINE-v1.1-UID9622"
 
 # 非文本文件扩展名：跳过内容级检查
+# .asc/.sig 为 GPG 分离签名（机器生成·密文格式·天然无 DNA 码）
+# .jsonl 为机器生成数据文件（每行一个 JSON 对象，注释会破坏解析；DNA 信息在 MANIFEST 声明）
 NON_TEXT_EXT = {".png", ".jpg", ".jpeg", ".gif", ".ico", ".pdf", ".zip",
                 ".gz", ".mp4", ".mp3", ".woff", ".woff2", ".ttf", ".exe",
-                ".so", ".dll", ".pyc", ".class", ".jar"}
+                ".so", ".dll", ".pyc", ".class", ".jar", ".asc", ".sig",
+                ".jsonl"}
 # 协议类文件：P0声明保持硬性
 PROTOCOL_HINT = ("协议", "protocol", "PROTOCOL", "宪法", "铁律")
 
@@ -344,49 +352,112 @@ else
 fi
 
 # ============================================================
-# 阶段三 · lh_align.py 对齐扫描（LONGHUN_ALIGN 锚定 v1.0）
+# 阶段三 · 对齐扫描（LONGHUN_ALIGN 锚定 v1.0 · 只审本次变更）
+# 修正 (2026-08-22 · 方案B): 原先扫全库(lh_align.py) → 存量欠账
+#   (1022缺DNA/3616重复) 堵死所有正常提交。改为只对本次暂存区
+#   变更的 .py/.sh 做对齐审计: 缺DNA/缺GPG=🔴阻塞, 重复/相似/
+#   缺确认码=🟡警告, 存量欠账由 `lh align check` 独立巡检不堵提交。
 # ============================================================
 echo ""
-echo -e "${GREEN}🐉 阶段三 · 龍魂永恒对齐扫描（LONGHUN_ALIGN）${NC}"
+echo -e "${GREEN}🐉 阶段三 · 龍魂对齐审计（本次变更文件 · LONGHUN_ALIGN）${NC}"
 
-ALIGN_TOOL="$REPO_ROOT/08_BIN/lh_align.py"
-if [ -f "$ALIGN_TOOL" ]; then
-  set +e
-  python3 "$ALIGN_TOOL" "$REPO_ROOT" --json 2>&1 | tee /tmp/lh_align_precommit.log
-  phase3_exit=$?
-  set -e
+ALIGN_CHECKER="$REPO_ROOT/08_BIN/lh_align_checker.py"
+if [ -f "$ALIGN_CHECKER" ]; then
+  # 只取暂存区变更的 .py/.sh（新增/修改/复制）
+  STAGED_PYSH="$(git diff --cached --name-only --diff-filter=ACM 2>/dev/null | grep -E '\.(py|sh)$' || true)"
 
-  # 解析JSON取overall
-  ALIGN_OVERALL=$(python3 -c "
-import json, sys
+  if [ -z "$STAGED_PYSH" ]; then
+    echo -e "${GREEN}[✓] 阶段三通过 · 本次无 .py/.sh 变更 · 存量对齐由 lh align check 独立巡检${NC}"
+  else
+    set +e
+    python3 "$ALIGN_CHECKER" --dir "$REPO_ROOT" --files $STAGED_PYSH --json > /tmp/lh_align_precommit.log 2>/dev/null
+    phase3_exit=$?
+    set -e
+
+    # 红线=缺DNA/缺GPG；黄线=重复/相似/缺确认码
+    ALIGN_OVERALL=$(python3 -c "
+import json
 try:
     with open('/tmp/lh_align_precommit.log') as f:
-        for line in f:
-            line = line.strip()
-            if line.startswith('{'):
-                data = json.loads(line)
-                print(data.get('overall', '🟡'))
-                sys.exit(0)
-except: pass
-print('🟡')
+        report = json.load(f)
+    md = len(report.get('missing_dna') or [])
+    mg = len(report.get('missing_gpg') or [])
+    dup = len(report.get('duplicates') or {})
+    sim = len(report.get('similar_pairs') or [])
+    mcf = len(report.get('missing_confirm') or [])
+    print('🔴' if (md or mg) else ('🟡' if (dup or sim or mcf) else '🟢'))
+except Exception:
+    print('🟡')
 " 2>/dev/null)
 
-  if [ $phase3_exit -eq 0 ]; then
-    echo -e "${GREEN}[✓] 阶段三通过 · 对齐状态: ${ALIGN_OVERALL}${NC}"
-  elif [ $phase3_exit -eq 1 ]; then
-    echo -e "${YELLOW}[!] 阶段三警告 · 对齐状态: ${ALIGN_OVERALL} · 🟡警告不阻塞提交${NC}"
-  else
-    echo -e "${RED}[x] 阶段三失败 · 对齐状态: ${ALIGN_OVERALL} · 🔴红线阻塞提交${NC}"
-    TOTAL_EXIT=1
+    ALIGN_DETAIL=$(python3 -c "
+import json
+try:
+    with open('/tmp/lh_align_precommit.log') as f:
+        report = json.load(f)
+    lines = []
+    for f in (report.get('missing_dna') or [])[:10]:
+        lines.append(f'   缺DNA: {f}')
+    for f in (report.get('missing_gpg') or [])[:10]:
+        lines.append(f'   缺GPG签名: {f}')
+    if len(report.get('missing_dna') or []) > 10 or len(report.get('missing_gpg') or []) > 10:
+        lines.append('   ...')
+    print('\n'.join(lines))
+except Exception:
+    pass
+" 2>/dev/null)
+
+    case "$ALIGN_OVERALL" in
+      🟢)
+        echo -e "${GREEN}[✓] 阶段三通过 · ${STAGED_PYSH} 对齐 🟢${NC}"
+        ;;
+      🟡)
+        echo -e "${YELLOW}[!] 阶段三警告 · 本次变更🟡(重复/相似/缺确认码) · 不阻塞提交${NC}"
+        ;;
+      *)
+        echo -e "${RED}[x] 阶段三失败 · 本次变更🔴(缺DNA或缺GPG) · 阻塞提交${NC}"
+        if [ -n "$ALIGN_DETAIL" ]; then
+          echo -e "${RED}${ALIGN_DETAIL}${NC}"
+          echo -e "${RED}   修复: 补DNA签章 #龍芯⚡️YYYY-MM-DD-功能-v1.0 · 补签名 python3 bin/lh_gpg_sign.py sign --force <文件>${NC}"
+        fi
+        TOTAL_EXIT=1
+        ;;
+    esac
   fi
 else
-  echo -e "${YELLOW}[!] lh_align.py 未找到，跳过对齐扫描${NC}"
+  echo -e "${YELLOW}[!] lh_align_checker.py 未找到，跳过对齐扫描${NC}"
 fi
 
 # ============================================================
 # 阶段四挂载 · G3 DNA链/零宽/硬回滚（pre-commit-phase4.sh）
 # ============================================================
-source "$HOOK_DIR/pre-commit-phase4.sh"
+if [ -f "$REPO_ROOT/.githooks/pre-commit-phase4.sh" ]; then
+  source "$REPO_ROOT/.githooks/pre-commit-phase4.sh"
+elif [ -n "${HOOK_DIR:-}" ] && [ -f "$HOOK_DIR/pre-commit-phase4.sh" ]; then
+  source "$HOOK_DIR/pre-commit-phase4.sh"
+else
+  echo -e "${YELLOW}[!] pre-commit-phase4.sh 未找到，跳过阶段四${NC}"
+fi
+
+# ============================================================
+# 阶段五 · 记忆压缩守护（MEMORY.md 超限自动压缩 v1.0）
+# 只对 compress 类（MEMORY.md）自动压；report 类超限仅提示不阻塞
+# 正常状态零输出零开销——仅 MEMORY.md > 7500B 才触发
+# ============================================================
+echo -e "${GREEN}🗜️ 阶段五 · 记忆压缩守护${NC}"
+if [ -f "$REPO_ROOT/bin/compress_all.py" ]; then
+  MEM_SIZE="$(python3 -c "import os;print(os.path.getsize('$REPO_ROOT/.codebuddy/memory/MEMORY.md'))" 2>/dev/null || echo 0)"
+  if [ "${MEM_SIZE:-0}" -gt 7500 ]; then
+    echo -e "${YELLOW}[!] MEMORY.md ${MEM_SIZE}B > 7500B 安全线，自动压缩...${NC}"
+    python3 "$REPO_ROOT/bin/compress_all.py" --run 2>&1 | tail -6
+    git add .codebuddy/memory/MEMORY.md 2>/dev/null || true
+    echo -e "${GREEN}[✓] 阶段五 · MEMORY.md 已压缩并重新 stage${NC}"
+  else
+    echo -e "${GREEN}[✓] 阶段五通过 · MEMORY.md ${MEM_SIZE:-0}B 在安全线内${NC}"
+  fi
+else
+  echo -e "${YELLOW}[!] compress_all.py 未找到，跳过压缩守护${NC}"
+fi
 
 # ============================================================
 # 最终裁决

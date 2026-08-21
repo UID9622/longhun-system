@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂·代码对齐复盘器 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-对齐复盘-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-对齐复盘-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -14,6 +14,9 @@ CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 用法：
     python3 lh_align_checker.py [--dir 目录] [--report 报告文件] [--json]
+    python3 lh_align_checker.py --dir 目录 --files a.py b.sh --json
+        # --files: 只审计指定文件（相对target_dir）· git钩子只审变更文件用
+        # 修正 (2026-08-22): pre-commit 阶段三全库红线堵死提交 → 只审本次暂存区变更
 """
 
 import os
@@ -102,7 +105,7 @@ _load_shared_exclusions()
 FUNC_PATTERN = re.compile(r'^\s*def\s+(\w+)\s*\(', re.MULTILINE)
 CLASS_PATTERN = re.compile(r'^\s*class\s+(\w+)\s*[\(:]', re.MULTILINE)
 FUNC_BASH_PATTERN = re.compile(r'^\s*(?:function\s+)?(\w+)\s*\(\s*\)\s*\{?', re.MULTILINE)
-DNA_PATTERN = re.compile(r'DNA:\s*(#?[^\n]+)', re.MULTILINE)
+DNA_PATTERN = re.compile(r'(?:#\s*DNA:\s*)?(#?龍芯⚡️[^\n]*)', re.MULTILINE)
 CONFIRM_MARK = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 CONFIRM_PATTERN = re.compile(r'CONFIRM:\s*(#?[^\n]+)|' + re.escape(CONFIRM_MARK), re.MULTILINE)
 IMPORT_PATTERN = re.compile(r'^\s*(?:from\s+(\S+)\s+)?import\s+(.+)$', re.MULTILINE)
@@ -117,56 +120,85 @@ def should_scan_dir(dirpath, root):
     return True
 
 
-def scan_files(target_dir):
-    """扫描目录下所有 .py/.sh 文件"""
+def _scan_one_file(filepath, target_dir):
+    """扫描单个文件，返回对齐条目（非 .py/.sh 或排除文件返回 None）"""
+    name = filepath.name
+    if not (name.endswith('.py') or name.endswith('.sh')):
+        return None
+    if name in EXCLUDE_FILES:
+        return None
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            content = f.read()
+    except Exception as e:
+        print(f"⚠️ 读取失败 {filepath}: {e}")
+        return None
+
+    is_py = name.endswith('.py')
+    functions = FUNC_PATTERN.findall(content)
+    classes = CLASS_PATTERN.findall(content) if is_py else []
+    bash_funcs = FUNC_BASH_PATTERN.findall(content) if not is_py else []
+    all_funcs = functions + bash_funcs
+    # imports (py only)
+    imports = []
+    if is_py:
+        imports = [m.group(0).strip() for m in IMPORT_PATTERN.finditer(content)]
+
+    dna = DNA_PATTERN.search(content)
+    confirm = CONFIRM_PATTERN.search(content)
+
+    # 检查是否存在 .asc 签名文件
+    asc_path = filepath.with_suffix(filepath.suffix + '.asc')
+    has_gpg = asc_path.exists()
+
+    return {
+        "file": str(filepath.relative_to(target_dir)),
+        "functions": all_funcs,
+        "classes": classes,
+        "has_dna": bool(dna),
+        "has_confirm": bool(confirm),
+        "has_gpg": has_gpg,
+        "dna_text": dna.group(1).strip() if dna else "",
+        "confirm_text": (confirm.group(1).strip() if confirm.group(1) else CONFIRM_MARK) if confirm else "",
+        "line_count": len(content.splitlines()),
+        "imports": imports,
+    }
+
+
+def scan_files(target_dir, only_files=None):
+    """扫描 .py/.sh 文件。
+    only_files 指定时只审计这些文件（相对 target_dir 的路径列表，git钩子用），
+    否则全目录扫描。"""
     results = []
+    if only_files is not None:
+        for rel in only_files:
+            # 只接受相对路径，防路径穿越
+            if rel.startswith('/') or '..' in Path(rel).parts:
+                continue
+            filepath = (target_dir / rel).resolve()
+            if not filepath.exists() or not filepath.is_file():
+                continue
+            parent = filepath.parent
+            # 排除目录检查（与全目录模式一致）
+            if not should_scan_dir(parent, target_dir):
+                continue
+            if parent.name in EXCLUDE_DIRS:
+                continue
+            item = _scan_one_file(filepath, target_dir)
+            if item:
+                results.append(item)
+        return results
+
     for root, dirs, files in os.walk(target_dir):
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS and not d.startswith('.')]
         if not should_scan_dir(root, target_dir):
             dirs[:] = []  # 不深入子目录
             continue
         for file in files:
-            if not (file.endswith('.py') or file.endswith('.sh')):
-                continue
-            if file in EXCLUDE_FILES:
-                continue
             filepath = Path(root) / file
-            try:
-                with open(filepath, 'r', encoding='utf-8') as f:
-                    content = f.read()
-            except Exception as e:
-                print(f"⚠️ 读取失败 {filepath}: {e}")
-                continue
-
-            is_py = file.endswith('.py')
-            functions = FUNC_PATTERN.findall(content)
-            classes = CLASS_PATTERN.findall(content) if is_py else []
-            bash_funcs = FUNC_BASH_PATTERN.findall(content) if not is_py else []
-            all_funcs = functions + bash_funcs
-            # imports (py only)
-            imports = []
-            if is_py:
-                imports = [m.group(0).strip() for m in IMPORT_PATTERN.finditer(content)]
-
-            dna = DNA_PATTERN.search(content)
-            confirm = CONFIRM_PATTERN.search(content)
-
-            # 检查是否存在 .asc 签名文件
-            asc_path = filepath.with_suffix(filepath.suffix + '.asc')
-            has_gpg = asc_path.exists()
-
-            results.append({
-                "file": str(filepath.relative_to(target_dir)),
-                "functions": all_funcs,
-                "classes": classes,
-                "has_dna": bool(dna),
-                "has_confirm": bool(confirm),
-                "has_gpg": has_gpg,
-                "dna_text": dna.group(1).strip() if dna else "",
-                "confirm_text": (confirm.group(1).strip() if confirm.group(1) else CONFIRM_MARK) if confirm else "",
-                "line_count": len(content.splitlines()),
-                "imports": imports,
-            })
+            item = _scan_one_file(filepath, target_dir)
+            if item:
+                results.append(item)
     return results
 
 
@@ -179,10 +211,22 @@ def analyze_alignment(results):
             func_index[func].append(item["file"])
 
     # 2. 重复函数
+    # v2.0降噪(2026-08-21): 通用函数名黑名单——main/init/run等高频通用名不视为"重复定义"，
+    #   修复 auto_align 每小时扫出 24951 组噪音(此前大量同名通用函数被误报为重复)
+    GENERIC_FUNC_NAMES = {
+        "main", "init", "run", "start", "stop", "setup", "cleanup", "test",
+        "load", "save", "read", "write", "get", "set", "build", "check",
+        "verify", "parse", "process", "create", "update", "delete", "config",
+        "app", "handler", "handle", "main_", "_main", "main_func", "run_main",
+        "do_run", "main_run", "runner", "bootstrap", "initialize", "reset",
+        "ping", "health", "version", "usage", "help",
+    }
     dup_threshold = 1
     duplicates = {
         f: files for f, files in func_index.items()
-        if len(files) > dup_threshold and not f.startswith('_')
+        if len(files) > dup_threshold
+        and not f.startswith('_')
+        and f not in GENERIC_FUNC_NAMES
     }
 
     # 3. 相似函数名（公共前缀≥5或编辑距离小）
@@ -326,20 +370,25 @@ def main():
     parser.add_argument("--json", action="store_true", help="终端输出JSON格式（管道友好）")
     parser.add_argument("--no-print", action="store_true", help="同--json·管道友好（lh_auto_align_daemon调用）")
     parser.add_argument("--quiet", action="store_true", help="静默模式·仅输出退出码(0=ok, 1=有问题)")
+    parser.add_argument("--files", nargs="+", default=None,
+                        help="只审计指定文件（相对target_dir的路径，空格分隔）· git钩子只审变更文件用")
     args = parser.parse_args()
     # --no-print 等价于 --json（daemon兼容）
     if args.no_print:
         args.json = True
 
-    target_dir = Path(args.dir)
+    target_dir = Path(args.dir).resolve()
     if not target_dir.exists():
         print(f"❌ {target_dir} 不存在", file=sys.stderr)
         sys.exit(2)
 
     if not args.quiet:
-        print(f"🔍 扫描: {target_dir}", file=sys.stderr)
+        if args.files:
+            print(f"🔍 仅审计 {len(args.files)} 个变更文件: {target_dir}", file=sys.stderr)
+        else:
+            print(f"🔍 扫描: {target_dir}", file=sys.stderr)
 
-    raw = scan_files(target_dir)
+    raw = scan_files(target_dir, only_files=args.files)
     if not raw:
         if args.quiet:
             sys.exit(0)
