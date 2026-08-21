@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂·GPG自动签名引擎 v1.0
-DNA: #龍芯⚡️丙午·乙巳·癸酉·酉时·☰乾-GPG-AUTO-SIGN-v1.0
+DNA: #龍芯⚡️丙午·乙巳·癸酉·酉时·䷀乾-GPG-AUTO-SIGN-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -70,16 +70,23 @@ def verify_file(filepath: str) -> dict:
     return {"file": filepath, "status": "verified" if ok else "bad_sig", "output": r.stderr.strip()}
 
 
-def find_unsigned(directory: str, patterns=None) -> list:
-    # 修正 (P77 黑天使审计 2026-08-14): 补部署配置类型 .conf/.service/.html/.txt 及无扩展名 LICENSE-*,
-    #   否则 nginx/systemd/LICENSE 等核心配置永远签不上 (GATE-11 签名闸形同虚设)
-    if patterns is None:
-        patterns = ["*.md", "*.py", "*.sh", "*.json", "*.yaml", "*.toml", "*.dart", "*.ets", "*.ts", "*.yml",
+# 修正 (P77 黑天使审计 2026-08-14): 补部署配置类型 .conf/.service/.html/.txt 及无扩展名 LICENSE-*,
+#   否则 nginx/systemd/LICENSE 等核心配置永远签不上 (GATE-11 签名闸形同虚设)
+# 修正 (2026-08-22): 拆出 find_all_signable —— 修复目录+--force 签 0 个的 bug
+#   根因: find_unsigned 只收集无 .asc 的文件, --force 想重签已签名文件时列表已被过滤,
+#   sign_file 内的 force 分支永远走不到。find_all_signable 返回全部可签名文件,
+#   force 逻辑交由 sign_file 判定 (已有 .asc 且无 --force → skip; 有 --force → 重签)。
+DEFAULT_PATTERNS = ["*.md", "*.py", "*.sh", "*.json", "*.yaml", "*.toml", "*.dart", "*.ets", "*.ts", "*.yml",
                     "*.conf", "*.service", "*.html", "*.txt", "*.ini", "LICENSE-*", "*.example", "*.env"]
-    # 构建产物/依赖目录排除 (防误签)
-    EXCLUDE_DIRS = ("__pycache__", "node_modules", "venv", ".venv", "dist", "build",
-                    "site-packages", ".git", ".idea", ".DS_Store")
-    unsigned = []
+EXCLUDE_DIRS = ("__pycache__", "node_modules", "venv", ".venv", "dist", "build",
+                "site-packages", ".git", ".idea", ".DS_Store")
+
+
+def find_all_signable(directory: str, patterns=None) -> list:
+    """目录下全部可签名文件（含已签名，供 --force 全量重签）"""
+    if patterns is None:
+        patterns = DEFAULT_PATTERNS
+    files = []
     for p in patterns:
         for f in Path(directory).rglob(p):
             fstr = str(f)
@@ -87,9 +94,13 @@ def find_unsigned(directory: str, patterns=None) -> list:
                 continue
             if any(seg in EXCLUDE_DIRS for seg in Path(fstr).parts):
                 continue
-            if not os.path.exists(fstr + ".asc"):
-                unsigned.append(fstr)
-    return sorted(unsigned)
+            files.append(fstr)
+    return sorted(set(files))
+
+
+def find_unsigned(directory: str, patterns=None) -> list:
+    """目录下未签名文件（无 .asc）——日常补签用"""
+    return [f for f in find_all_signable(directory, patterns) if not os.path.exists(f + ".asc")]
 
 
 def scan_report(paths: list) -> dict:
@@ -143,7 +154,8 @@ def main():
             if pp.is_file() and not p.endswith(".asc"):
                 all_files.append(p)
             elif pp.is_dir():
-                all_files.extend(find_unsigned(p))
+                # --force 时收集全部可签名文件（含已签名，重签）；否则只补未签名
+                all_files.extend(find_all_signable(p) if args.force else find_unsigned(p))
 
         if args.dry_run:
             print(f"[DRY-RUN] 将签名 {len(all_files)} 个文件:")
