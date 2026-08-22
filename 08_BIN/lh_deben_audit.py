@@ -202,17 +202,33 @@ class DebenAuditor:
                 content = f.read()
                 for pattern, severity, label in patterns:
                     matches = re.findall(pattern, content, re.IGNORECASE)
-                    if matches:
-                        hits.append({
-                            "文件": rel,
-                            "匹配模式": pattern,
-                            "严重度": severity,
-                            "标签": label,
-                            "命中次数": len(matches),
-                        })
+                    if not matches:
+                        continue
+                    # 否定语境豁免：防御性描述（"禁止向第三方提供数据"等）不标红
+                    if severity == "🔴" and label == "第三方数据共享":
+                        if self._has_negation_context(content, pattern):
+                            continue
+                    hits.append({
+                        "文件": rel,
+                        "匹配模式": pattern,
+                        "严重度": severity,
+                        "标签": label,
+                        "命中次数": len(matches),
+                    })
         except Exception:
             pass
         return hits
+
+    def _has_negation_context(self, content: str, pattern: str) -> bool:
+        """判断模式命中处是否处于否定/防御语境（如"不向第三方提供数据"）"""
+        negations = ("不", "禁止", "不得", "勿", "拒绝", "防止", "避免",
+                     "严禁", "不可", "切勿", "杜绝", "未经授权", "绝不", "未向",
+                     "无第三方", "无外部")
+        for m in re.finditer(pattern, content, re.IGNORECASE):
+            window = content[max(0, m.start() - 25):m.end() + 25]
+            if any(n in window for n in negations):
+                return True
+        return False
 
     def scan_codebase(self, extensions: List[str], patterns: list) -> List[Dict]:
         """扫描代码库中匹配模式"""
@@ -446,9 +462,11 @@ class DebenAuditor:
             print(f"  {status} {q_name}")
             print(f"    {verdict}")
             if "详情" in result:
-                for detail in result.get("详情", [])[:3]:
+                for detail in result.get("详情", [])[:5]:
                     if isinstance(detail, dict):
-                        print(f"    - {detail.get('标签', detail.get('文件', ''))}: {detail.get('说明', '')}")
+                        loc = detail.get("文件", "?")
+                        tag = detail.get("标签", "")
+                        print(f"    - [{loc}] {tag}")
                     else:
                         print(f"    - {detail}")
             print()

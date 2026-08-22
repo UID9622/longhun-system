@@ -288,7 +288,7 @@ UID:      9622 (诸葛鑫·Lucky·唯一决策者)
 - [x] v4.1.4 GGUF→Ollama注册 ✅ 完成·冒烟通过
 - [x] 道德经训练数据 ✅ 2,243条·`bin/lh_daodejing_export_training.py` v1.0
 - [x] 目录整理 v1.0 ✅ ~/home44+~/Downloads31归位·废弃目录归档·ANTENNA-8GATE训练池合并
-- [ ] 鲲鹏部署脚本（deploy/scripts/有完整脚本·待执行验证）
+- [x] 鲲鹏部署脚本 ✅ 2026-08-22 第二轮部署：知识中枢API(8766)+自愈引擎(crontab每6h)+onboarding(8785)全绿
 - [x] 命名冲突目录合并（engine→engines, persona→personas/runtime, software-dna→software_dna/src, integrated-modules symlink→real dir） ✅
 - [x] cnsht碎片目录整合（6目录→cnsh/） + protocols/废弃目录清理（归档→01_protocols/archive/） ✅
 - [x] 🧪 完整测试套件 v1.0 落地 ✅（tests/ 12文件+CI·`lh test`全绿 19passed/4skipped·调度器4阶段✅·报告三色🟢·GPG 17签名·详见记忆8/15第9条）

@@ -37,4 +37,9 @@ https://uid9622.notion.site
 - 治理文档全集：01_protocols/
 - 命令总目：.codebuddy/COMMAND_INDEX.md
 
-DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-AGENTS-PLAIN-CLEAN-v1.0
+## 7. 底座锚点（不可变 · 德本审计第五问）
+- **不可变铁律**：P0 天条（为人民服务/数据主权/隐私不传/零黑箱/不删只冻结/诚实不编造）不因环境、版本、需求变化而改变，以 CONSTITUTION.md 与 P0_ETERNAL_LOCK.md 为准。
+- **底座不动**：CNSH 语法体系、DNA 追溯、三色审计、分层许可（思想层 CC BY-NC-SA 4.0 + 工程层 MulanPSL v2）为系统底座，任何重构/归一不得动摇其根基。
+- **变量可动**：工程实现层（代码/部署/UI/目录结构）可随需求演进迭代，但每次变动必须挂 DNA、过审计、留追溯。
+
+DNA: #龍芯⚡️丙午·丙申·壬戌·亥时·䷲震-AGENTS-ANCHOR-v1.1-UID9622

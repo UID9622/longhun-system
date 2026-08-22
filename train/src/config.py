@@ -35,7 +35,7 @@ class Config:
     # 训练
     batch_size = 16
     learning_rate = 3e-4
-    epochs = 8                  # 8 轮主训练；验证跑通后可再加
+    epochs = 16                 # 16 轮强化训练（第一版 8 轮 Loss 1.383，续炼收敛）
     num_workers = 0            # macOS 建议 0，避免 multiprocessing 问题
     gradient_clip = 1.0
 

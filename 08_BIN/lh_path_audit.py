@@ -207,6 +207,21 @@ ROOT_LEVEL_WHITELIST = {
     # 日志
     "操作草日志.log", "launchd.err.log", "launchd.out.log",
     "cnsh.integrated",
+    # 🔥 2026-08-22 文件级归集·批次2 补齐（根级合法文件）
+    "SOVEREIGN_IDENTITY.md", "SOVEREIGN_IDENTITY.md.asc",
+    "ALIGN_LEDGER.csv", "ALIGN_LEDGER.csv.asc",
+    "BOOT.md", "BOOT.md.asc",
+    "pyrightconfig.json", "pyrightconfig.json.asc",
+    "model-registry.yaml", "model-registry.yaml.asc",
+    "requirements.txt.asc", "requirements-base.txt.asc",
+    "requirements.lock.txt.asc", "pytest.ini.asc",
+    "AI_READ_GATEWAY_PROTOCOL_FIRST.md", "AI_READ_GATEWAY_PROTOCOL_FIRST.md.asc",
+    "MEMORY_SNAPSHOT.md", "MEMORY_SNAPSHOT.md.asc",
+    "LOCAL_ASSET_INVENTORY.md", "LOCAL_ASSET_INVENTORY.md.asc",
+    "SANITIZE_REPORT_20260820_1628.md", "SANITIZE_REPORT_20260820_1628.md.asc",
+    # 已冻结(2026-08-22) → 保留历史记录,文件已在 archive/frozen/
+    #   code_with_dna_1785506239.py / 1785820178.py / 1785852438.py
+    #   demo_vulnerable.py
 }
 
 # 需要忽略的目录
@@ -291,6 +306,13 @@ class PathAuditor:
             self.stats["合规文件"] += 1
             return None
 
+        # 根级豁免（2026-08-22 归集补齐）：
+        #   *.glyph-backup = 跟随源文件的备份（源文件在白名单即合法）
+        #   软链 = 兼容层（物理文件已归位标准目录，根软链保老路径）
+        if "/" not in rel and (filepath.name.endswith(".glyph-backup") or filepath.is_symlink()):
+            self.stats["合规文件"] += 1
+            return None
+
         # 根级文件不在白名单 → 标记为孤立文件（🟡）
         if "/" not in rel:
             self.stats["违规文件"] += 1
@@ -372,15 +394,13 @@ class PathAuditor:
             if name.startswith("."):
                 continue
             if name not in known_top_dirs and item.is_file():
-                # 根级已知文件
-                if name in {
-                    "AGENTS.md", "CONSTITUTION.md", "CLAUDE.md", "CHANGELOG.md",
-                    "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "LICENSE",
-                    "ATTRIBUTION.md", "COMMIT_MESSAGE_STANDARD.md",
-                    "P0_ETERNAL_LOCK.md", "pyproject.toml",
-                    "__init__.py", "操作草日志.log",
-                    "launchd.err.log", "launchd.out.log",
-                } or name.endswith(".asc"):
+                # 根级已知文件（🔥 2026-08-22 统一口径：复用 ROOT_LEVEL_WHITELIST）
+                #   白名单文件 / .glyph-backup 备份（跟随源文件）
+                #   .asc 签名 / 软链兼容层（物理文件已归位标准目录）
+                if (name in ROOT_LEVEL_WHITELIST
+                        or name.endswith(".glyph-backup")
+                        or name.endswith(".asc")
+                        or item.is_symlink()):
                     continue
                 self.orphans.append({
                     "文件": name,
