@@ -1,4 +1,5 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 创建者: 诸葛鑫（UID9622） | 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 #!/usr/bin/env python3
 """龍魂系统 · 责任塌缩概率模型 v2.0
 事不关己 vs 老好人 × 七因子融合
