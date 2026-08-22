@@ -394,3 +394,7 @@ web/static/layui/
 
 # DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-GITIGNORE-ALIGN-V2.1-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+
+# 龍魂视频引擎运行时输出（禁入git·运行时目录）
+lh_video_engine/output/*
+!lh_video_engine/output/.gitkeep
