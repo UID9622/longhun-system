@@ -45,6 +45,7 @@ logging_backup/
 
 # --- 备份 ---
 backups/
+archive/backups_cp/
 *.backup
 
 # --- 私有文件 ---
