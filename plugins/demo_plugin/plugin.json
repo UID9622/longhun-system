@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "演示沙箱 API 功能",
   "author": "UID9622",
-  "capabilities": ["memory.append", "dna.generate", "audit.log"],
+  "capabilities": ["memory.append", "dna.generate", "audit.log", "fs.read", "fs.write"],
   "entry": "main.py",
   "timeout": 10
 }
