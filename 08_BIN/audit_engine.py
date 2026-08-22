@@ -39,7 +39,7 @@ import requests as http_req
 # ═══════════════════════════════════════════════
 # 配置区 — 全部从环境变量读取，不硬编码密钥
 # ═══════════════════════════════════════════════
-BASE_DIR      = os.path.expanduser("~/cnsh")
+BASE_DIR      = os.path.expanduser("~/longhun-system/cnsh")
 DNA_DIR       = os.path.join(BASE_DIR, "入口", "DNA")
 LOG_DIR       = os.path.join(BASE_DIR, "logs")
 SIGNED_DIR    = os.path.join(LOG_DIR, "signed")
