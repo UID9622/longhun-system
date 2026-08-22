@@ -329,3 +329,71 @@ experiments/turbulence/output/
 *.lhdc.tmp
 *.tar.gz.tmp
 *.zip.tmp
+
+# ═══════════════════════════════════════════════════════════
+# 🐉 龍字规范化备份 + 浏览器运行时数据 + 模型 tokenizer（2026-08-17 焊死）
+# ═══════════════════════════════════════════════════════════
+# 龍字规范化任务自动生成的备份（每文件一份·易膨胀·审计可回溯）
+*.glyph-backup
+# 浏览器自动化运行时用户数据（Chrome profile·非项目资产）
+08_BIN/browser_profile/
+# 下载的基础模型 tokenizer/配置（权重类·禁止入git·规则6.7）
+models/longhun-small-v1.0/
+models/qwen-1.5b/
+
+# ═══════════════════════════════════════════════════════════
+# 🔐 密钥泄露防护（2026-08-17 焊死 · LH-SECRET-LEAK-PREVENTION-v1.0）
+# ═══════════════════════════════════════════════════════════
+# Notion 镜像库：含真实凭证(ntn_/sk-/cookie)·452MB·冻结留档不删文件但禁入git
+12_DOCS/notion_mirror/
+# token/密钥 落位文件（本地与鲲鹏专用·永不入仓库）
+git-tokens.sh
+~/.uid9622/git-tokens.sh
+*.secrets.env
+secrets.env
+
+# --- 密钥落位文件（禁入 git·协议20 密钥防泄露） ---
+config/notion_config.json
+_QUARANTINE/
+12_DOCS/notion_full_export/
+
+# ═══════════════════════════════════════════════════════════
+# 🐉 对齐提交加固（2026-08-22 焊死 · 防 git add -A 误入库）
+# ═══════════════════════════════════════════════════════════
+# 模型/权重全目录（规则6.7·二进制禁入git）
+models/
+*.onnx
+*.gguf
+*.safetensors
+# 冻结档案（P0不删只冻结·不入git）
+archive/frozen/
+*.frozen
+# 全量备份文件（历史11964个·不入git）
+*.bak
+*.bak.*
+# 音视频成片（龍魂成片492个视频/音频·大文件不入git）
+*.mp4
+*.wav
+*.flac
+*.m4a
+龍魂成片/
+# 审计迁移备份（28MB大文件）
+04_AUDIT/dna_migration/backup/
+# 第三方嵌入式仓库（gitlink·不入库·防 add -A 误加）
+02_SKILLS/dsh-longhun-audit/
+08_BIN/story_factory/third_party/
+web/static/layui/
+# 剪贴板保险库（隐私数据源·含私钥片段·P0永不入库）
+06_CONTAINERS/clipboard-vault/
+# 数据库运行期临时文件（shm/wal·禁入git）
+*.sqlite3-shm
+*.sqlite3-wal
+*.db-shm
+*.db-wal
+
+# DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-GITIGNORE-ALIGN-V2.1-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+
+# 龍魂视频引擎运行时输出（禁入git·运行时目录）
+lh_video_engine/output/*
+!lh_video_engine/output/.gitkeep
