@@ -1,0 +1,10 @@
+{
+  "id": "demo_plugin",
+  "name": "龙魂演示插件",
+  "version": "1.0.0",
+  "description": "演示沙箱 API 功能",
+  "author": "UID9622",
+  "capabilities": ["memory.append", "dna.generate", "audit.log"],
+  "entry": "main.py",
+  "timeout": 10
+}
