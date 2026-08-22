@@ -1,3 +1,4 @@
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 > 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 <!--#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DOC-_-NOTION-API-_-_-V1-0-3C8BF63E3D3B49DC84D01407CEEAA3D2_6BB6-v1.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->

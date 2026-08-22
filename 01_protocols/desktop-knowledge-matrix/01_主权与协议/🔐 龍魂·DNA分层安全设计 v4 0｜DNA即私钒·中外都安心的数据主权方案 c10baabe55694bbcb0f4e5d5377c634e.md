@@ -24,6 +24,7 @@ GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 DNA追溯：#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DNA_1CC2-v4.0
 
 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 
 </aside>
 

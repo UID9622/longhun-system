@@ -96,6 +96,7 @@ class 行为密码:
         行为: str,
         结果: str,
         确认码: Optional[str] = None,
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
     ) -> dict:
         record = {
             "timestamp": datetime.now(timezone.utc).isoformat(),

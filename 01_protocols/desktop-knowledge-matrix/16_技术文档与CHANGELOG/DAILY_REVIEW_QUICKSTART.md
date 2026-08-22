@@ -226,6 +226,7 @@ ls -lah ~/longhun-system/ | grep -i review
 ```
 DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DAILY-REVIEW-QUICKSTART-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 ```
 
 **立即開始**: `bash ~/longhun-system/setup_daily_review_auto.sh`

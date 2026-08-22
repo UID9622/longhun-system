@@ -2,15 +2,15 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
-龍魂·代码对齐复盘器 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-对齐复盘-v1.0
+龍魂·代码对齐复盘器 v2.2
+DNA: #龍芯⚡️丙午·丙申·壬戌·亥时·䷲震-对齐复盘-v2.2-归属名
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 功能：扫描指定目录下所有 Python/Shell 文件，提取函数/类定义，
-      检测重复功能、不一致命名、文件头缺失、GPG签名缺失，
-      输出对齐报告。每次 AI 进门自动执行。
+      检测重复功能、不一致命名、文件头缺失、GPG签名缺失、
+      归属名缺失（v2.2新增·实名焊死），输出对齐报告。每次 AI 进门自动执行。
 
 用法：
     python3 lh_align_checker.py [--dir 目录] [--report 报告文件] [--json]
@@ -149,6 +149,9 @@ def _scan_one_file(filepath, target_dir):
     dna = DNA_PATTERN.search(content)
     confirm = CONFIRM_PATTERN.search(content)
 
+    # v2.2(2026-08-22): 归属名检查——实名焊死。含 诸葛鑫/归属名/ZHUGEXIN 视为有归属
+    has_attribution = any(m in content for m in ("诸葛鑫", "归属名", "ZHUGEXIN"))
+
     # 检查是否存在 .asc 签名文件
     asc_path = filepath.with_suffix(filepath.suffix + '.asc')
     has_gpg = asc_path.exists()
@@ -181,6 +184,7 @@ def _scan_one_file(filepath, target_dir):
         "has_dna": bool(dna),
         "has_confirm": bool(confirm),
         "has_gpg": has_gpg,
+        "has_attribution": has_attribution,
         "dna_text": dna.group(1).strip() if dna else "",
         "confirm_text": (confirm.group(1).strip() if confirm.group(1) else CONFIRM_MARK) if confirm else "",
         "line_count": len(content.splitlines()),
@@ -291,6 +295,8 @@ def analyze_alignment(results):
     missing_dna = [item["file"] for item in results if not item["has_dna"]]
     missing_confirm = [item["file"] for item in results if not item["has_confirm"]]
     missing_gpg = [item["file"] for item in results if not item["has_gpg"]]
+    # v2.2(2026-08-22): 归属名缺失（实名焊死·P0级指令）
+    missing_attribution = [item["file"] for item in results if not item.get("has_attribution")]
 
     # 5. 统计
     total_lines = sum(item["line_count"] for item in results)
@@ -307,6 +313,8 @@ def analyze_alignment(results):
         score -= min(len(missing_dna) * 2, 20)
     if missing_gpg:
         score -= min(len(missing_gpg) * 2, 20)
+    if missing_attribution:
+        score -= min(len(missing_attribution) * 1, 10)
     score = max(score, 0)
 
     return {
@@ -322,6 +330,7 @@ def analyze_alignment(results):
         "missing_dna": missing_dna,
         "missing_confirm": missing_confirm,
         "missing_gpg": missing_gpg,
+        "missing_attribution": missing_attribution,
         "all_items": results,
     }
 
@@ -393,6 +402,14 @@ def print_report(report, json_output=False):
         if len(report["missing_gpg"]) > 12:
             print(f"  ... 还有 {len(report['missing_gpg']) - 12} 个")
 
+    # 缺失归属名 (v2.2: 实名焊死)
+    if report.get("missing_attribution"):
+        print(f"\n{Y}🟡 缺失归属名（实名·诸葛鑫）: {len(report['missing_attribution'])} 个文件{Z}")
+        for f in report["missing_attribution"][:12]:
+            print(f"  - {f}")
+        if len(report["missing_attribution"]) > 12:
+            print(f"  ... 还有 {len(report['missing_attribution']) - 12} 个")
+
     # 建议
     print(f"\n{C}📊 建议:{Z}")
     if report["duplicates"]:
@@ -403,6 +420,8 @@ def print_report(report, json_output=False):
         print("  ▸ 补充DNA签章: #龍芯⚡️YYYY-MM-DD-功能-v1.0")
     if report["missing_gpg"]:
         print("  ▸ 补签名: python3 bin/lh_gpg_sign.py sign --force .")
+    if report.get("missing_attribution"):
+        print("  ▸ 补归属名（实名焊死）: python3 08_BIN/lh_fix_attribution.py --core --fix")
     if report["alignment_score"] >= 90:
         print(f"  {G}▸ 总体健康 · 评分 {report['alignment_score']}/100{Z}")
 
@@ -460,7 +479,8 @@ def main():
         save_json_report(report, args.report)
 
     if args.quiet:
-        has_issues = bool(report["duplicates"] or report["missing_dna"] or report["missing_gpg"])
+        has_issues = bool(report["duplicates"] or report["missing_dna"] or report["missing_gpg"]
+                          or report.get("missing_attribution"))
         sys.exit(1 if has_issues else 0)
 
     print_report(report, json_output=args.json)

@@ -55,6 +55,10 @@ def verify_md(files) -> bool:
             print(f"🟡 {f} 缺 DNA 追溯码")
         if BACKLINK not in t:
             print(f"🟡 {f} 缺反向链接回公开首页（反向链接铁律）")
+        # 2026-08-22: 归属名焊死（P0级指令·身份主权宣言）——缺实名归属=🟡提示
+        #   新增文件硬阻塞由 pre-commit 阶段三b 执行；此处对暂存区 .md 提示补齐
+        if not any(m in t for m in ("诸葛鑫", "归属名", "ZHUGEXIN")):
+            print(f"🟡 {f} 缺归属名（实名·诸葛鑫）→ 批量补齐: python3 08_BIN/lh_fix_attribution.py --core --fix")
         if any(c in t for c in ["\u200b", "\u200c", "\ufeff", "\u2060"]):
             print(f"🔴 {f} 含零宽/隐藏字符（会被判为提示注入）")
             ok = False

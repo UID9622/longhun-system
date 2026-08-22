@@ -1,3 +1,4 @@
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 ---
 name: longhun-workflow-transparent
 description: '龍魂宝宝工作流程透明化技能。当用户要求 Kimi 解释"你怎么处理的"、要求拆解决策过程、

@@ -1,3 +1,4 @@
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 > 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # ⚡ Human→System Translation OS v1.1｜龍魂回复触发引擎·12层处理·全场景兼容｜UID9622
 

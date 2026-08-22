@@ -1,3 +1,4 @@
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 ---
 name: longhun-cs-knowledge-base
 description: "龍魂计算机科学知识库 - 融合计算机科学理论与龍魂主权体系的综合知识管理系统"

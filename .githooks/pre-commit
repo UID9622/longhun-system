@@ -416,7 +416,8 @@ try:
     dup = len(report.get('duplicates') or {})
     sim = len(report.get('similar_pairs') or [])
     mcf = len(report.get('missing_confirm') or [])
-    print('🔴' if (md or mg) else ('🟡' if (dup or sim or mcf) else '🟢'))
+    mat = len(report.get('missing_attribution') or [])
+    print('🔴' if (md or mg) else ('🟡' if (dup or sim or mcf or mat) else '🟢'))
 except Exception:
     print('🟡')
 " 2>/dev/null)
@@ -443,7 +444,7 @@ except Exception:
         echo -e "${GREEN}[✓] 阶段三通过 · ${STAGED_PYSH} 对齐 🟢${NC}"
         ;;
       🟡)
-        echo -e "${YELLOW}[!] 阶段三警告 · 本次变更🟡(重复/相似/缺确认码) · 不阻塞提交${NC}"
+        echo -e "${YELLOW}[!] 阶段三警告 · 本次变更🟡(重复/相似/缺确认码/缺归属名) · 不阻塞提交${NC}"
         ;;
       *)
         echo -e "${RED}[x] 阶段三失败 · 本次变更🔴(缺DNA或缺GPG) · 阻塞提交${NC}"
@@ -457,6 +458,39 @@ except Exception:
   fi
 else
   echo -e "${YELLOW}[!] lh_align_checker.py 未找到，跳过对齐扫描${NC}"
+fi
+
+# ============================================================
+# 阶段三b · 归属名硬检查（新增文件必须含实名·P0级指令 2026-08-22）
+# 背景: 老大宣布"所有以后的文件全部有归属名好吧"→ 归属名=诸葛鑫(实名)
+# 规则: 新增文件(A状态)缺归属名=🔴阻塞; 修改存量文件=🟡警告(由阶段三判定)
+# ============================================================
+ATTRIBUTION_HARD_FAIL=0
+NEW_FILES="$(git diff --cached --name-only --diff-filter=A 2>/dev/null || true)"
+if [ -n "$NEW_FILES" ]; then
+  # 过滤机器生成/二进制/签名文件（这些天然无归属名且不可加注释）
+  ATTRIBUTION_TARGETS=$(printf '%s' "$NEW_FILES" | grep -vE '\.(asc|sig|png|jpe?g|gif|ico|pdf|zip|gz|mp4|mp3|woff2?|ttf|exe|so|dll|pyc|class|jar|jsonl?|db|sqlite3?|sha256|csv|vsix|skill)$' || true)
+  if [ -n "$ATTRIBUTION_TARGETS" ]; then
+    echo -e "${GREEN}🏷️  阶段三b · 归属名硬检查（新增 ${ATTRIBUTION_TARGETS}）${NC}"
+    while IFS= read -r f; do
+      [ -z "$f" ] && continue
+      # 只查文本文件（file 判定·防二进制误报）
+      if file "$REPO_ROOT/$f" 2>/dev/null | grep -q 'text'; then
+        if ! grep -qE '诸葛鑫|归属名|ZHUGEXIN' "$REPO_ROOT/$f" 2>/dev/null; then
+          echo -e "${RED}  🔴 新增文件缺归属名（实名·诸葛鑫）: $f${NC}"
+          ATTRIBUTION_HARD_FAIL=1
+        fi
+      fi
+    done <<< "$ATTRIBUTION_TARGETS"
+    if [ "$ATTRIBUTION_HARD_FAIL" -eq 1 ]; then
+      echo -e "${RED}[x] 阶段三b失败：新增文件必须含归属名「诸葛鑫」${NC}"
+      echo -e "${RED}    修复: 文件头加一行 → 归属名: 诸葛鑫 | UID9622 · 龍芯北辰${NC}"
+      echo -e "${RED}    批量工具: python3 08_BIN/lh_fix_attribution.py --core --fix${NC}"
+      TOTAL_EXIT=1
+    else
+      echo -e "${GREEN}[✓] 阶段三b通过 · 新增文件全部含归属名${NC}"
+    fi
+  fi
 fi
 
 # ============================================================

@@ -4,6 +4,7 @@
 ```
 DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷨损-COMPUTE-SOLUTION-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色: 🟢 通过（本方案）
 分层许可: 思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2

@@ -1,3 +1,4 @@
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 # 龍魂·公开前脱敏扫描报告 2026-08-20 16:28:00
 扫描范围: 15_LABS/kimi-deliverables 12_DOCS/knowledge-matrix-src articles papers 01_protocols web_apps 08_BIN research/riemann_desktop
 扫描文件: 8932

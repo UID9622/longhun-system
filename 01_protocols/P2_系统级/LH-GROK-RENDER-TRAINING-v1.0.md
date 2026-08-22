@@ -1,3 +1,4 @@
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 > **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 > **DNA:** `#龍芯⚡️丙午·丙申·庚申·壬午·䷙大畜-DOC-MERGE-acc5523c`
 > **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`

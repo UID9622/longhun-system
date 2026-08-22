@@ -187,6 +187,7 @@ lh handoff save && lh handoff load
 ```
 DNA: #龍芯⚡️丙午·丙申·己未·庚午·䷖剥-癸酉-SKILL-LANDING-v1.0-UID9622
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色: 🟢 通过
 ```
