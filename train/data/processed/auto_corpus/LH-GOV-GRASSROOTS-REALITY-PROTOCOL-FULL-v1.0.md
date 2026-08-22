@@ -5,6 +5,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 乡镇基层“多源真实性”协同协议
 
+> #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+> 📄 基层现实协议完整版 | 龍魂系统 · 源头已验证
+
 ## 完整执行版（含评分机制与附件）
 
 **协议编号**：LH-GOV-GRASSROOTS-REALITY-2026-001  
@@ -12,7 +15,7 @@
 **适用对象**：乡镇派出所、退役军人事务站、民政办、司法所、县级公安局  
 **生效日期**：2026-06-25  
 **协议状态**：试行  
-**DNA**：`#龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-LONGHUN-GRASSROOTS-REALITY-FULL-FILE1-v1.0`
+**DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-GRASSROOTS-REALITY-FULL-v1.0`
 
 ---
 
@@ -343,7 +346,7 @@
 
 **协议发起方**：龍魂系统 · 基层治理观察组  
 **创始人签名**：UID9622 / Lucky（退伍军人）  
-**DNA**：`#龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-LONGHUN-GRASSROOTS-REALITY-FULL-v1.0`
+**DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-GRASSROOTS-REALITY-FULL-v1.0`
 
 ---
 
