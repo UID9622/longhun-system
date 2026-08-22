@@ -1355,6 +1355,7 @@ def main():
     parser.add_argument('--compress-memory', dest='compress_memory', nargs=argparse.REMAINDER, help='🧠 MEMORY.md压缩引擎 (lh --compress-memory audit/dry/run) · P0-P5评分+里程碑折叠+字节线达标')
     parser.add_argument('--compress-all', dest='compress_all', nargs='?', const='run', choices=['audit','dry','run'], help='🧹 全库扫描压缩 (lh --compress-all audit/dry/run) · compress类超限自动压+report类只报告')
     parser.add_argument('--compress-watch', dest='compress_watch', nargs='?', const='report', choices=['report','run'], help='👁️ 压缩守护进程 (lh --compress-watch [run]) · 60s轮询·run才自动压')
+    parser.add_argument('--compress-hub', dest='compress_hub', nargs=argparse.REMAINDER, help='🧊 压缩枢纽引擎 (lh --compress-hub run/restore/list/audit/watch) · 快照备份→压缩→人格编排→恢复全文闭环')
     parser.add_argument('--agent-run', nargs=argparse.REMAINDER, help='🐣 本地宝宝Agent (lh --agent-run "任务" · Ollama本地推理·ReAct循环·零云端)')
     parser.add_argument('--agent-i', action='store_true', help='🐣 本地宝宝Agent 交互模式 (lh --agent-i)')
     parser.add_argument('--voice-in', action='store_true', dest='voice_in', help='🎤 语音输入→转写→喂给Agent (lh --voice-in · faster-whisper本地·零云端)')
@@ -2037,6 +2038,13 @@ def main():
         cw_args = ["--run"] if args.compress_watch == "run" else []
         print(f"\n  👁️ 龍魂·压缩守护进程（Ctrl+C 退出 / 默认只报告）\n")
         subprocess.run(["python3", str(cw_path)] + cw_args)
+        return
+    if args.compress_hub is not None:
+        print_header()
+        ch_path = ROOT / "bin" / "lh_compress_hub.py"
+        ch_args = list(args.compress_hub) if args.compress_hub else ["run"]
+        print(f"\n  🧊 龍魂·压缩枢纽引擎（快照→压缩→人格编排→可恢复）\n")
+        subprocess.run(["python3", str(ch_path)] + ch_args)
         return
     if args.agent_run is not None:
         print_header()
