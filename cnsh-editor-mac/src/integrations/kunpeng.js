@@ -1,7 +1,7 @@
 /**
  * 🐉 鲲鹏服务器同步（119.13.90.27）
  * SSH key 优先 · 密码备用 · 只同步编辑器工作文件
- * DNA: #龍芯⚡️丙午·丙申·辛酉·丑时-CNSH-KUNPENG-UID9622
+ * DNA: #龍芯⚡️丙午·丙申·辛酉·己丑·䷹兑为泽-CNSH-KUNPENG-UID9622
  * License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
  */
 

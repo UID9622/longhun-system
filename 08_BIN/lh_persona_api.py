@@ -2,12 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-PERSONA-API-v1.0
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-PERSONA-API-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # ╔══════════════════════════════════════════════════════════════╗
 # ║  龍魂·人格路由 API v1.0                                      ║
-# ║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-PERSONA-API-v1.0       ║
+# ║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-PERSONA-API-v1.0       ║
 # ║  统一入口：请求 → 意图 → 人格 → 执行 → 审计                ║
 # ╚══════════════════════════════════════════════════════════════╝
 """
@@ -44,7 +44,7 @@ import uvicorn
 
 from engines.lh_persona_runner import PersonaRunner, PERSONA_MATRIX
 
-DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-PERSONA-API-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-PERSONA-API-v1.0"
 
 # 降级链：P77 安全不可用 → S1 法律 → S2 数理 → S3 民生
 FALLBACK_CHAIN = ["P77", "S1", "S2", "S3"]

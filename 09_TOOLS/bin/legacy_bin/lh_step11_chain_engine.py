@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 🐉 龍魂 · 11步执行链引擎 v1.0 (11-Step Execution Chain)
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ========================================================
 投喂落地：CNSH Runtime Governance Mathematics · MVP执行协议 §37
 
@@ -11,7 +12,7 @@
   → STEP_07 执行 → STEP_08 三色判定 → STEP_09 审计追踪
   → STEP_10 三重快照 → STEP_11 执行回执
 
-DNA: #龍芯⚡️丙午·乙未·己未·申时·履-11STEP-CHAIN-v1.0-I1J2K3L4
+DNA: #龍芯⚡️丙午·乙未·己未·申时·䷉履-11STEP-CHAIN-v1.0-I1J2K3L4
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
@@ -731,7 +732,7 @@ def demo():
     chain = ElevenStepChain()
 
     test_inputs = [
-        "补全一下审计模块的代码 #龍芯⚡️丙午·乙未·己未·申时·履-TEST #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+        "补全一下审计模块的代码 #龍芯⚡️丙午·乙未·己未·申时·䷉履-TEST #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
         "把这份文档归档保存",
         "检查一下系统有没有安全问题",
     ]

@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · 鲲鹏服务器 mgmt 连接脚本
 # 支持: 密码登录 (首次) → 自动装密钥 → 后续免密
-# DNA: #龍芯⚡️2026-07-06-KUNPENG-CONNECT-v2.0
+# DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-KUNPENG-CONNECT-v2.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG: 9622-ONLY
 
@@ -53,7 +53,7 @@ configure() {
     # 写入基础配置（不含密码）
     cat > "$CONFIG_FILE" << EOF
 # 龍魂·鲲鹏连接配置
-# DNA: #龍芯⚡️2026-07-06-KUNPENG-CONFIG-v2.0
+# DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-KUNPENG-CONFIG-v2.0
 KUNPENG_MGMT_IP="${KUNPENG_MGMT_IP}"
 KUNPENG_USER="${KUNPENG_USER}"
 KUNPENG_SSH_PORT="${KUNPENG_SSH_PORT}"

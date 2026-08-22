@@ -2,12 +2,13 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂 longhun-v3.9.1 LoRA 微调器（K3 真血 + 人格矩阵 + 语义 QA 版）
 底模: Qwen2.5-1.5B-Instruct
 框架: MLX (Apple Silicon 原生)
 硬件: Mac M4 Max 64GB
-DNA: #龍芯⚡️丙午·乙未·甲寅·需-MODEL-LORA-TRAINER-v3.9.1
+DNA: #龍芯⚡️丙午·乙未·甲寅·庚午·䷄需-MODEL-LORA-TRAINER-v3.9.1
 
 v3.9.1 升级（基于 v3.9.1 数据层修复 + K3 真血蒸馏）：
 - 家法样本 repeat×2 → ×4，权重加倍

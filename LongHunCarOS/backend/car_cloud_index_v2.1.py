@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂车载系统 · 云端索引服务 v2.1（Kimi审阅修正版 · 零依赖纯标准库）
-DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-CAR-INDEX-v2.1-UID9622
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-CAR-INDEX-v2.1-UID9622
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 

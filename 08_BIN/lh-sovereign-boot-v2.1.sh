@@ -2,8 +2,8 @@
 # ============================================================
 # 任务：主权启动包 · 自包含一次性落盘 v2.1（v3.1 裁决版）
 # 授权：UID9622 2026-08-20 22:09
-# 链上接: #龍芯⚡️2026-08-20-21:57-NOTION-API-BRIDGE-v1.0-UID9622
-# DNA: #龍芯⚡️2026-08-20-22:09-SOVEREIGN-BOOT-SELF-CONTAINED-v2.1-UID9622
+# 链上接: #龍芯⚡️丙午·丙申·丙寅·己亥·䷶丰-NOTION-API-BRIDGE-v1.0-UID9622
+# DNA: #龍芯⚡️丙午·丙申·丙寅·己亥·䷶丰-SOVEREIGN-BOOT-SELF-CONTAINED-v2.1-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #
 # 补丁A: 冲突门→裁决门（CANONICAL.json 在则放行）
@@ -50,7 +50,7 @@ echo ""
 # ===== 第 1 步：主权身份锚（补丁B·挂存证锚）=====
 cat > SOVEREIGN_IDENTITY.md <<'LH_SOV_EOF'
 # SOVEREIGN_IDENTITY.md · 主权身份锚
-DNA: #龍芯⚡️2026-08-20-SOVEREIGN-IDENTITY-ANCHOR-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-SOVEREIGN-IDENTITY-ANCHOR-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
@@ -94,7 +94,7 @@ echo "✅ 主权锚已挂存证锚 canonical=$CANON"
 mkdir -p config
 cat > config/persona_routes.yaml <<'LH_ROUTE_EOF'
 schema_version: "1.0"
-dna: "#龍芯⚡️2026-08-20-PERSONA-ROUTES-v1.0"
+dna: "#龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-PERSONA-ROUTES-v1.0"
 source_of_truth: "Notion · 龍芯家族花名册"
 exported_rows: 80
 weight_unit: "integer_1_to_100"
@@ -181,7 +181,7 @@ LH_ROUTE_EOF
 # ===== 第 3 步：启动包（已含对话层第 6 项）=====
 cat > BOOT.md <<'LH_BOOT_EOF'
 # BOOT.md · 龍魂统一启动包
-DNA: #龍芯⚡️2026-08-20-UNIFIED-BOOT-v2.0
+DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-UNIFIED-BOOT-v2.0
 
 任何 AI 在本设备开工，按顺序读完下列六项才能开口：
 
@@ -259,7 +259,7 @@ grep -q "BOOT.md" .codebuddy/CODEBUDDY.md 2>/dev/null || cat >> .codebuddy/CODEB
 会话第一个动作：跑 ./bin/lh-boot，并按 BOOT.md 六项顺序载入。
 未读 BOOT.md 之前不得对设计哲学、人格归属、版本新旧下任何结论。
 主权人格唯一代号 SOV-UID9622，不得代行主权决策。
-DNA: #龍芯⚡️2026-08-20-BOOT-ENFORCE-v2.0
+DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-BOOT-ENFORCE-v2.0
 LH_CB_EOF
 
 # ===== 第 7 步：自检 + 提交（git add 只收本次产出·不污染工作区）=====
@@ -269,7 +269,7 @@ echo ""
 git add SOVEREIGN_IDENTITY.md config/persona_routes.yaml BOOT.md bin/lh-boot bin/lh-sovereign-boot-v2.1.sh .codebuddy/CODEBUDDY.md
 git commit -m "feat(sovereign): 主权启动包自包含落盘 v2.1（v3.1裁决版）
 
-DNA: #龍芯⚡️2026-08-20-22:09-SOVEREIGN-BOOT-SELF-CONTAINED-v2.1-UID9622
+DNA: #龍芯⚡️丙午·丙申·丙寅·己亥·䷶丰-SOVEREIGN-BOOT-SELF-CONTAINED-v2.1-UID9622
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 canonical=53c6cbd11726（v3.1裁决·主指纹批次）" 2>&1 | tail -2
 

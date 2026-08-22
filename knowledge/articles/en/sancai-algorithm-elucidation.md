@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
@@ -6,7 +6,7 @@ title: "Dao · De · Shu: Sancai Algorithm Elucidation — Vindicating Master Ze
 author: "UID9622 · Zhuge Xin (Lucky)"
 date: 2026-02-20
 original: "../三才算法发微_为曾老师正名.md"
-dna: "#龍芯⚡️2026-02-20-SANCAI-ALGORITHM-ELUCIDATION-v1.0-EN"
+dna: "#龍芯⚡️丙午·庚寅·乙丑·壬午·䷨损-SANCAI-ALGORITHM-ELUCIDATION-v1.0-EN"
 confirm: "#CONFIRM🌌9622-ONLY-ONCE🧬SANCAI-001"
 license: "CC BY-NC-SA 4.0"
 status: 🟢 Published
@@ -15,7 +15,7 @@ status: 🟢 Published
 # Dao · De · Shu: Sancai Algorithm Elucidation
 **— Vindicating Master Zeng, Founding the LongHun Base**
 
-**DNA:** `#龍芯⚡️2026-02-20-三才算法-正名-v1.0`  
+**DNA:** `#龍芯⚡️丙午·庚寅·乙丑·壬午·䷨损-三才算法-正名-v1.0`  
 **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬SANCAI-001`  
 **In honor of:** Master Zeng's oral transmission  
 **Written by:** Lucky (UID9622)  
@@ -182,7 +182,7 @@ This is the mathematical soul of the LongHun System.
 
 ---
 
-**DNA:** `#龍芯⚡️2026-02-20-三才算法-正名-v1.0`  
+**DNA:** `#龍芯⚡️丙午·庚寅·乙丑·壬午·䷨损-三才算法-正名-v1.0`  
 **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬SANCAI-001`  
 **In honor of:** Master Zeng  
 **Vindicated by:** Lucky (UID9622)

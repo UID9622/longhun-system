@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🌐 龍魂·错误翻译器 — 系统错误中文提示
-DNA: #龍芯⚡️2026-07-06-ERROR-TRANSLATOR-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-ERROR-TRANSLATOR-v1.0
 
 所有系统错误（I/O error、socket timeout等）自动转换为中文提示。
 覆盖 Python 标准库常见异常 + macOS launchctl 错误码 + 自定义错误。
@@ -22,7 +23,7 @@ DNA: #龍芯⚡️2026-07-06-ERROR-TRANSLATOR-v1.0
 import re
 from typing import Optional
 
-DNA = "#龍芯⚡️2026-07-06-ERROR-TRANSLATOR-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-ERROR-TRANSLATOR-v1.0"
 
 # ── 错误翻译映射 ──
 ERROR_TRANSLATIONS: dict[str, str] = {

@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 接口命名主权与太极蚁群架构协议 v1.0
@@ -159,7 +159,7 @@ def encode(palace_id, module_idx, interface_idx):
     "version": 1
   },
   "CNSH::": {
-    "dna": "#龍芯⚡️丙午·乙未·丙申·申时·☰乾-API-TAIJI-ANT-V1.0-P0",
+    "dna": "#龍芯⚡️丙午·乙未·丙申·申时·䷀乾-API-TAIJI-ANT-V1.0-P0",
     "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     "seal": "8f3a9c21d4e7b160",
     "audit": "🟢",

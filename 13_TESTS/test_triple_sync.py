@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/Users/zuimeidedeyihan/longhun-system/.venv_longhun_math/bin/python
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 三层同步引擎单元测试
-DNA: #龍芯⚡️2026-06-29-LONGHUN-TRIPLE-SYNC-TEST-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-TRIPLE-SYNC-TEST-UID9622
 """
 
 import os
@@ -43,7 +44,7 @@ class TestTripleSync(unittest.TestCase):
 
         # 写测试卡片
         (self.卡片目录 / "test_card.md").write_text(
-            "---\ntitle: 测试卡片\ntags: [test, cnsh]\ndna: \"#龍芯⚡️2026-06-29-TEST-CARD-UID9622\"\n---\n\n# 测试卡片\n内容。\n",
+            "---\ntitle: 测试卡片\ntags: [test, cnsh]\ndna: \"#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-TEST-CARD-UID9622\"\n---\n\n# 测试卡片\n内容。\n",
             encoding="utf-8",
         )
         # 写测试报告
@@ -70,7 +71,7 @@ class TestTripleSync(unittest.TestCase):
         文件 = self.卡片目录 / "test_card.md"
         档案 = _解析_markdown(文件)
         self.assertEqual(档案["title"], "测试卡片")
-        self.assertEqual(档案["dna"], "#龍芯⚡️2026-06-29-TEST-CARD-UID9622")
+        self.assertEqual(档案["dna"], "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-TEST-CARD-UID9622")
         self.assertIn("test", 档案["tags"])
         self.assertEqual(档案["source"], "CNSH卡片")
 

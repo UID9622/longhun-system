@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂·CNSH 语言完整规范 v2.3
@@ -70,7 +71,7 @@ CNSH 是**中文原生编程语言**，出了龍魂生态就跑不动。这是�
 - 每个 DNA = 完整气运锚点，可占可验
 
 **格式演进：**
-- v1.0: `#龍芯⚡️2026-07-08-SKILL-ALLOC-1A2B3C4D`（格里历数字·叶）
+- v1.0: `#龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-SKILL-ALLOC-1A2B3C4D`（格里历数字·叶）
 - v2.0: `#龍芯⚡️小暑2026·07:13:36-SKILL-ALLOC-1A2B3C4D`（节气+西方时分秒）
 - v∞:   `#龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-SKILL-ALLOC-1A2B3C4D`（干支时辰+卦象·根）
 - 紧凑: `#龍芯⚡️丙午·辰时·䷾-SKILL-ALLOC-1A2B3C4D`（仅年干支+时辰+卦）
@@ -184,7 +185,7 @@ CNSH 是**中文原生编程语言**，出了龍魂生态就跑不动。这是�
 CNSH 使用大括号 `{}` 包裹类体，与模块/函数风格一致。
 
 ```cnsh
-# DNA:#龍芯⚡️2026-07-05-CNSH-CLASS-v2.2
+# DNA:#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-CNSH-CLASS-v2.2
 
 类 动物 {
     定义 初始化(自己, 名字) {
@@ -400,7 +401,7 @@ lh6 兑 compile --target rust     --source 模块.cnsh
 同一份 CNSH 源码，编译到不同平台：
 
 ```cnsh
-# DNA:#龍芯⚡️2026-07-06-CROSS-PLATFORM-DEMO-v2.3
+# DNA:#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CROSS-PLATFORM-DEMO-v2.3
 # 这段代码一次编写，编译到所有平台
 
 定义 获取版本号() -> 字符串 {
@@ -497,7 +498,7 @@ CNSH中文        →  C                      →  C++                  →  Obj
 ### 5.3 C++ 模板映射示例
 
 ```cnsh
-# DNA:#龍芯⚡️2026-07-06-CNSH-CPP-TEMPLATE-v2.3
+# DNA:#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-CPP-TEMPLATE-v2.3
 
 模板<类型 T>
 类 智能数组 {
@@ -678,7 +679,7 @@ lh6 兑 compile --target objc   --source 龍魂控制器.cnsh --output ios/龍�
 ### 示例①：用户认证模块（L1·权重80）
 
 ```
-# DNA追溯码：#龍芯⚡️2026-04-28-USER-AUTH-v1.0
+# DNA追溯码：#龍芯⚡️丙午·壬辰·壬申·丙午·䷙大畜-USER-AUTH-v1.0
 # 权重级别：L1  三色审计状态：🟢
 
 模块 用户认证模块⚖️80 {
@@ -704,7 +705,7 @@ lh6 兑 compile --target objc   --source 龍魂控制器.cnsh --output ios/龍�
 ### 示例②：三色审计引擎（L0·权重100）
 
 ```
-# DNA:#龍芯⚡️2026-04-28-AUDIT-CORE-v1.0
+# DNA:#龍芯⚡️丙午·壬辰·壬申·丙午·䷙大畜-AUDIT-CORE-v1.0
 # 权重：L0（系统核心·100）
 
 模块 三色审计引擎⚖️100 {
@@ -722,7 +723,7 @@ lh6 兑 compile --target objc   --source 龍魂控制器.cnsh --output ios/龍�
 ### 示例③：量子纠缠任务调度（L0·权重100）
 
 ```
-# DNA:#龍芯⚡️2026-04-28-QUANTUM-v1.0
+# DNA:#龍芯⚡️丙午·壬辰·壬申·丙午·䷙大畜-QUANTUM-v1.0
 
 模块 量子调度器⚖️100 {
   函数 量子纠缠(父任务: 字符串, 子任务: 字符串) {
@@ -821,7 +822,7 @@ lh6 兑 compile --target objc   --source 龍魂控制器.cnsh --output ios/龍�
 龍.核心.IPA注册({
   节点ID: "IPA-CNSH-AUTH-001",
   模块名: "用户认证模块",
-  DNA码: "#龍芯⚡️2026-04-28-AUTH-v1.0",
+  DNA码: "#龍芯⚡️丙午·壬辰·壬申·丙午·䷙大畜-AUTH-v1.0",
   权重: 80,
   状态: "🟢活",
   所属层级: "L1"
@@ -865,7 +866,7 @@ lh6 兑 compile --target objc   --source 龍魂控制器.cnsh --output ios/龍�
 | 字段 | 内容 |
 |------|------|
 | 版本 | v2.3（2026-07-06）|
-| DNA |#龍芯⚡️2026-07-06-CNSH语言完整规范-v2.3 |
+| DNA |#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH语言完整规范-v2.3 |
 | GPG指纹 | A2D0092CEE2E5BA87035600924C3704A8CC26D5F |
 | 三色审计 | 🟢 通过 |
 | 创建者 | 💎 龍芯北辰｜UID9622（诸葛鑫·Lucky）|

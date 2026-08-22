@@ -1,14 +1,16 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 龍魂智能体编排层 · 状态上报与三才审计报告
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 聚合 L1 守护进程、L2 技能、L3 人格矩阵，输出：
 - 天（系统/路由/人格完整性）
 - 地（本地数据/守护/安全状态）
 - 人（任务/审计/交互活跃度）
 
-DNA: #龍芯⚡️2026-06-26-LONGHUN-AGENT-STATUS-REPORTER-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-AGENT-STATUS-REPORTER-v1.0
 """
 
 import argparse
@@ -20,7 +22,7 @@ import urllib.request
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-DNA = "#龍芯⚡️2026-06-26-LONGHUN-AGENT-STATUS-REPORTER-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-AGENT-STATUS-REPORTER-v1.0"
 VERSION = "1.0.0"
 
 AGENTS_HOME = Path.home() / "longhun-system" / "agents"

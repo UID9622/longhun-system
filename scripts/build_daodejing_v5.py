@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂道德經81章完整版生成器 v5.0
@@ -11,7 +12,7 @@
 3. 為全部81章注入多維度注解 / 底層倫理錨
 4. 輸出 v5.0 完整版 + 報告 + 校驗
 
-DNA: #龍芯⚡️2026-07-04-DAODEJING-V5-BUILDER-v1.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-DAODEJING-V5-BUILDER-v1.0
 """
 
 import json

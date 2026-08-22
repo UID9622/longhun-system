@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-TRANSPARENT-GOVERNANCE-v2.0-UID9622
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-TRANSPARENT-GOVERNANCE-v2.0-UID9622
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -13,7 +13,7 @@ CNSH v2.0 透明语义治理架构底座：
   - 干支四柱 DNA 时间戳
   - 治理数学函数
   - 审计链 / 记忆场 / 主权人格内核
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-TRANSPARENT-GOVERNANCE-v2.0-UID9622
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-TRANSPARENT-GOVERNANCE-v2.0-UID9622
 """
 import os as _os
 import sys as _sys

@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂统一监管API · 路由层
-DNA: #龍芯⚡️2026-07-12-REGULATORY-ROUTES-v2.0 · 三层透明模型
+DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-REGULATORY-ROUTES-v2.0 · 三层透明模型
 
 统一监管 API 端点:
 - POST /api/regulatory/auth/token         监管者认证

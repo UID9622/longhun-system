@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════╗
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ║  天道系统 CLI / heaven_cli.py v3.0                               ║
 ║                                                                  ║
 ║  命令行入口：查看星宿、节气、离火运、冲突检测、生成报告、热力图  ║
 ║                                                                  ║
-║  DNA:#龍芯⚡️2026-06-24-UID9622-TIANDAO-CLI-v3.0                  ║
+║  DNA:#龍芯⚡️丙午·甲午·己巳·庚午·䷃蒙-UID9622-TIANDAO-CLI-v3.0                  ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓              ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL      ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                 ║

@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂通心译后端 · 8777 端口
 鸿蒙/手机设备直连翻译引擎
-DNA:#龍芯⚡️丙午·丙申·乙卯·辰时·需-TONGXINYI-BACKEND-v1.0
+DNA:#龍芯⚡️丙午·丙申·乙卯·辰时·䷄需-TONGXINYI-BACKEND-v1.0
 """
 
 import json
@@ -52,7 +53,7 @@ class TongxinyiHandler(BaseHTTPRequestHandler):
                 "status": "ok",
                 "service": "longhun-tongxinyi",
                 "version": "v1.0",
-                "dna": "#龍芯⚡️丙午·丙申·乙卯·辰时·需-TONGXINYI-BACKEND-v1.0",
+                "dna": "#龍芯⚡️丙午·丙申·乙卯·辰时·䷄需-TONGXINYI-BACKEND-v1.0",
                 "endpoints": ["/api/translate", "/api/cnsh/clipboard-translate", "/health"]
             })
             return
@@ -101,7 +102,7 @@ if __name__ == "__main__":
     print(f"🐉 龍魂通心译后端已启动: http://0.0.0.0:{PORT}")
     print(f"   设备入口: http://192.168.1.34:{PORT}")
     print(f"   端点: /api/translate | /api/cnsh/clipboard-translate | /health")
-    print(f"   DNA:#龍芯⚡️丙午·丙申·乙卯·辰时·需-TONGXINYI-BACKEND-v1.0")
+    print(f"   DNA:#龍芯⚡️丙午·丙申·乙卯·辰时·䷄需-TONGXINYI-BACKEND-v1.0")
     try:
         server.serve_forever()
     except KeyboardInterrupt:

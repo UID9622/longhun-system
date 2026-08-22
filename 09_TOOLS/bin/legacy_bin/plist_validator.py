@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🧬 龍魂 plist 文件校验工具
-DNA: #龍芯⚡️2026-07-06-PLIST-VALIDATOR-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-PLIST-VALIDATOR-v1.0
 
 功能:
 - XML 格式完整性检查
@@ -25,7 +26,7 @@ from pathlib import Path
 from dataclasses import dataclass, field
 
 # DNA
-DNA = "#龍芯⚡️2026-07-06-PLIST-VALIDATOR-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-PLIST-VALIDATOR-v1.0"
 VERSION = "1.0"
 
 HOME = Path.home()

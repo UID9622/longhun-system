@@ -2,8 +2,9 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂·水晶识别知识库 v2.0 · 阻断日志自动入库+智能标签+现实打脸报告
-DNA: #龍芯⚡️丙午·乙未·甲子·未时·需-CRYSTAL-RECOGNITION-v2.0
+DNA: #龍芯⚡️丙午·乙未·甲子·未时·䷄需-CRYSTAL-RECOGNITION-v2.0
 
 理念:
   平台每一次"太监"/"屏蔽"/"限流"不是失败，而是射向黑箱的一束光。
@@ -56,7 +57,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 # ---- 常量 ----
 TZ = timezone(timedelta(hours=8))
-DNA = "#龍芯⚡️丙午·乙未·甲子·未时·需-CRYSTAL-RECOGNITION-v2.0"
+DNA = "#龍芯⚡️丙午·乙未·甲子·未时·䷄需-CRYSTAL-RECOGNITION-v2.0"
 BASE_DIR = Path(__file__).resolve().parent.parent
 CRYSTAL_DIR = BASE_DIR / "L7_数据层" / "crystal_knowledge"
 BLOCK_LOGS_DIR = BASE_DIR / "reports" / "block_logs"

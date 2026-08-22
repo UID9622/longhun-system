@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🧮 龍魂公式系统 v1.0 vs v2.0 · 完整性能基准测试
 
@@ -12,7 +13,7 @@
   ✅ 缓存效果验证
   ✅ 熔断路径性能
 
-DNA: #龍芯⚡️2026-06-08-BENCHMARK-FORMULA-SYSTEM-v2.0
+DNA: #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-BENCHMARK-FORMULA-SYSTEM-v2.0
 """
 
 import time

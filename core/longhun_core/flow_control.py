@@ -7,7 +7,7 @@ Token Bucket 令牌桶 · 四级降级 · 纯标准库零依赖
 实测吞吐: 327,785 token/秒
 
 🔥 P0焊死: 默认 100 t/s · 新实例自动加载 · 不询问 · 不等待
-DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-FLOW-CONTROL-v1.1-UID9622
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-FLOW-CONTROL-v1.1-UID9622
 License: MulanPSL v2
 """
 

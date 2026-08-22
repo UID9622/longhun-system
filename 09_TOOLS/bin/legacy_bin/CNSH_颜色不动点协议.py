@@ -1,7 +1,9 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 import os as _os
 import sys as _sys
@@ -18,7 +20,7 @@ CNSH 颜色不动点协议 v1.0
   - 五色/七色作为 369 中空五的不动点参照
 
 核心原则：颜色即判决 · 颜色不动 · 拆分无效
-DNA: #龍芯⚡️2026-06-29-CNSH-COLOR-ANCHOR-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-COLOR-ANCHOR-UID9622
 """
 
 import re

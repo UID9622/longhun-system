@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·小畜-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷈小畜-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·癸丑·申时·大有-lh-CONSOLE-v1.0
+#龍芯⚡️丙午·丙申·癸丑·申时·䷍大有-lh-CONSOLE-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
-#龍芯⚡️丙午·丙申·癸丑·申时·大有-lh-CONSOLE-v1.0
+#龍芯⚡️丙午·丙申·癸丑·申时·䷍大有-lh-CONSOLE-v1.0
 lh — 龍魂统一交互控制台
 一个命令进入，按数字操作，不需要记任何命令。
 
@@ -28,7 +28,7 @@ sys.path.insert(0, str(ROOT))
 
 # ===== 常量 =====
 VERSION = "v1.3"
-DNA = "#龍芯⚡️丙午·丙申·癸丑·申时·大有-lh-CONSOLE-v1.0"
+DNA = "#龍芯⚡️丙午·丙申·癸丑·申时·䷍大有-lh-CONSOLE-v1.0"
 
 # ===== 国密 SM4-CBC 加密模块（数据主权助手）=====
 def _load_sm4_class():
@@ -193,6 +193,8 @@ MODULES = {
             {"id": "5", "label": "千问幻觉评分", "cmd": "python3 bin/lh_qwen_hallucination_scorer.py", "desc": "评估AI输出幻觉程度"},
             {"id": "6", "label": "AI防炒作检测", "cmd": "python3 bin/lh_ai_anti_hype.py", "desc": "检测AI相关内容的炒作成分"},
             {"id": "7", "label": "道德经锚点", "cmd": "python3 bin/lh_daodejing_engine.py", "desc": "81章道德经·哲学锚点"},
+            {"id": "8", "label": "🐉 跨AI协作记忆库", "cmd": "python3 bin/lh_memory_hub.py status", "desc": "Notion+本地双索引·检索/向量/回填/签名/非空校验 (lh_memory_hub.py)"},
+            {"id": "9", "label": "🐉 记忆库·启动拉取", "cmd": "python3 bin/lh_memory_hub.py pull", "desc": "从Notion拉取全部记忆到本地缓存(启动自动读取)"},
         ]
     },
     "🧬 DNA & 追溯": {
@@ -797,6 +799,10 @@ def _run_fixed_cmd(cmd: str):
 # 格式: flag_name → (script, emoji, description, [default_args], [smart_default])
 # smart_default: 当用户传自由文本时自动插入的子命令（如 search engine 需要 "search" 子命令）
 SUB_DISPATCH = {
+    # 🧠 Harness 融合内核 v1.1 — 插件契约/EffectScope副作用逆转/四种分发/wrap_legacy存量引擎插件化/AI模型插件化（吸收 DeepSeek Harness·Cordis 哲学）
+    'harness':              ('lh_harness_core.py',            '🧠', 'Harness融合内核·插件契约/副作用逆转/四种分发/存量引擎插件化/AI模型插件化', [], '--all'),
+    'trajectory':           ('lh_trajectory.py',              '🛤️', 'Trajectory轨迹视图·append-only轨迹检索/分叉/回放(对齐Harness可追溯性)', [], 'show'),
+    'model-gov':            ('lh_model_governance.py',        '🧭', '模型闭环治理·六层(数据主权/训练审计/主权熔断/持续喂养/红蓝对抗/退役)', [], '--health'),
     'search':               ('lh_search_engine.py',           '🔍', '搜索引擎', [], 'search'),
     # 💤 技能调度器 v1.0 — 技能用完即休·用时即唤·不常驻省算力（2026-08-16）
     'skill':                ('lh_skill_scheduler.py',         '💤', '技能调度·list/wake/sleep/autosleep/stats（用完休眠·用前唤醒·省CPU）', [], 'status'),
@@ -816,6 +822,19 @@ SUB_DISPATCH = {
     'military-collab':      ('lh_military.py',                '🤝', '军事调度·协同矩阵(谁呼叫谁)', ['collab']),
     'military-test':        ('lh_military.py',                '🛡️', '军事调度·全自动自测(参数/路径/协同/数字根)', ['test']),
     'military-help':        ('lh_military.py',                '❓', '军事调度·帮助', ['help']),
+    # 🐉 操盘网关 v1.0 — 国产AI设备操盘统一入口·Key认证/黑名单熔断/审计留痕（2026-08-17）
+    'gate':                 ('../bin/lh_gate.py',               '🐉', '操盘网关·国产AI操盘Mac入口·status/audit/write/restart/key', [], 'status'),
+    'gate-status':          ('../bin/lh_gate.py',               '📊', '操盘网关·状态+各AI钥匙', ['status']),
+    'gate-audit':           ('../bin/lh_gate.py',               '🧾', '操盘网关·审计留痕', ['audit']),
+    'gate-write':           ('../bin/lh_gate.py',               '✍️', '操盘网关·开/关写操作', ['write']),
+    'gate-restart':         ('../bin/lh_gate.py',               '🔄', '操盘网关·重启服务', ['restart']),
+    'gate-key':             ('../bin/lh_gate.py',               '🔑', '操盘网关·给新AI发钥匙', ['key']),
+    # 🤖 全自动AI智能体 v2.0 — 自动聊天/知识/审计/灵魂三问/红蓝对抗/操盘联动（2026-08-17）
+    'agent':                ('../08_BIN/lh_auto_agent/lh_auto_agent.py', '🤖', '全自动AI智能体·交互/自动/单次/统计', [], '--stats'),
+    'agent-interactive':    ('../08_BIN/lh_auto_agent/lh_auto_agent.py', '💬', '全自动AI智能体·交互模式', ['--interactive']),
+    'agent-auto':           ('../08_BIN/lh_auto_agent/lh_auto_agent.py', '⚙️', '全自动AI智能体·自动模式N轮', ['--auto']),
+    'agent-gate':           ('../08_BIN/lh_auto_agent/lh_auto_agent.py', '🎮', '全自动AI智能体·开启操盘联动', ['--gate']),
+    'agent-test':           ('../08_BIN/lh_auto_agent/lh_auto_agent.py', '🧪', '全自动AI智能体·锚点测试', ['--test']),
     # ⚡ 快速检索引擎 v1.0 — 协议/代码秒查·索引锚·冲突检测·迭代归档（2026-08-15）
     'quick':                ('../08_BIN/lh_quick_retrieval.py', '⚡', '快速检索·协议/代码秒查·search/get/check/iterate/index/stats', [], 'stats'),
     'qfind':                ('../08_BIN/lh_quick_retrieval.py', '⚡', '快速检索(简)·同 quick', [], 'stats'),
@@ -860,6 +879,13 @@ SUB_DISPATCH = {
     'kg-clipboard':         ('../08_BIN/lh_knowledge_graph_v2.py', '📋', '知识图谱·剪贴板导出', [], '--clipboard'),
     'kg-server':            ('../08_BIN/lh_knowledge_graph_v2.py', '🌐', '知识图谱·API服务(8767)', ['--server']),
     # 🐉 完整测试套件 v1.0 — 代码审计/功能评估/冒烟/自动迭代/报告（2026-08-15）
+    # 🐉 信任核心 v1.0 — 事实校验+可信度+自愈+审计统一入口（2026-08-18·融合 Kimi 交付包 trust-core）
+    'trust':                ('lh_trust.py',                  '🐉', '信任核心·check/verify/scan/facts/credibility/dna/audit/heal/test/status（事实校验+自愈）', [], 'status'),
+    'trust-check':          ('lh_trust.py',                  '🛡️', '信任核心·通用事实校验(文本)', [], 'check'),
+    'trust-verify':         ('lh_trust.py',                  '🔍', '信任核心·身份时间线校准(动态年数)', [], 'verify'),
+    'trust-facts':          ('lh_trust.py',                  '📇', '信任核心·身份事实卡', [], 'facts'),
+    'trust-heal':           ('lh_trust.py',                  '💊', '信任核心·自愈引擎(dry-run默认)', [], 'heal'),
+    'trust-status':         ('lh_trust.py',                  '📊', '信任核心·状态', [], 'status'),
     'test':                 ('../tests/run_all_tests.py',       '🧪', '完整测试套件·默认v1.0四文件(--audit/--smoke/--auto/--all/--report)', ['--report']),
     'test-orch':            ('../tests/test_orchestrator.py',   '🎼', '测试流程调度器·四阶段依赖执行+重试', []),
     'test-report':          ('../tests/generate_report.py',     '📄', '测试报告·生成Markdown+三色审计', []),
@@ -927,6 +953,8 @@ SUB_DISPATCH = {
     'seven_dimension':      ('lh_seven_dimension_engine_v2.py','🌌', '七维推演引擎', [], '--interactive'),
     'xue':                  ('lh_learn_engine.py',            '🎓', '学习协作引擎·缺口审计+人格分配写作+左右互搏(五步流水线)', [], '--help'),
     'three_color':          ('lh_three_color_audit.py',       '🔴', '三色审计引擎', [], 'audit'),
+    'skill-audit':          ('../skills/longhun-tricolor-audit/audit_check.py', '🚦', '三色审计Skill·数字根映射+DNA追溯(双模式dr/--audit-mode engine·豁免合法免责/教学文档)', [], '--input'),
+    'fixed-point':          ('lh_fixed_point_anchor.py',      '🪨🐉', '不动点压缩锚引擎·六元组f(s)=(D,H,R,W,K,P)·verify/反推f⁻¹/压缩率/Banach/防伪/历史12锚登记册', [], '--registry'),
     'loyalty':              ('lh_loyalty_scan.py',            '🐉', '忠义数据铁律自检（永不收集用户数据）', [], 'scan'),
     'uv':                   ('lh_unified_visual.py',          '🎨', '统一视觉色彩引擎(八色)', [], 'judge'),
     'visual':               ('lh_unified_visual.py',          '🎨', '统一视觉色彩引擎(八色)', [], 'judge'),
@@ -959,6 +987,7 @@ SUB_DISPATCH = {
     'status':               ('lh_unified_brain.py',           '📊', '全系统状态', ['status']),
     '掀黑箱':               ('lh_掀黑箱.py',                  '📦', '掀黑箱审计', ['.']),
     'imprint':              ('lh_digital_imprint.py',        '🧬', '数字人印记'),
+    'keys':                 ('lh_keys.py',                   '🔑', '統一密钥出口·list/get/check/mfa·华为MFA二次验证'),
     'notion_full':          ('lh_notion_full_sync.py',       '🔄', 'Notion全量同步'),
     'persona_sync':         ('lh_notion_persona_sync.py',    '🧬', '人格矩阵Notion同步'),
     'persona':              ('lh_persona_runtime.py',         '🧠', '人格矩阵运行时', [], ''),
@@ -990,12 +1019,33 @@ SUB_DISPATCH = {
     'voice_register':       ('lh_voice_register.py',         '🎤', '声纹注册库'),
     'qe':                   ('lh_quantum_evidence.py',       '🌌', '量子存证引擎'),
     'quantum-evidence':     ('lh_quantum_evidence.py',       '🌌', '量子存证引擎'),
+    # ⚛️ Bra-Ket量子人格协作引擎 — 人格=基态|Pᵢ⟩·场景识别=测量坍缩·64卦⇄6比特·起卦·纠缠
+    'braket':               ('lh_braket_persona_engine.py',  '⚛️', 'Bra-Ket量子人格协作·场景识别/起卦/纠缠/布洛赫球', [], 'execute'),
+    'bra-ket':              ('lh_braket_persona_engine.py',  '⚛️', 'Bra-Ket引擎(全写)·同上', [], 'execute'),
+    # 🐉 CNSH-P0 永恒龍魂嵌入协议 v1.1 — 三重验证(诚心/为民/中华)·兼容度·耻辱柱·深度测谎联动
+    'dragon-soul':          ('lh_dragon_soul.py',            '🐉', '永恒龍魂协议·verify/declare/shame/red-lines/seal/test', [], ''),
+    'ds':                   ('lh_dragon_soul.py',            '🐉', '永恒龍魂协议(简)·同上', [], ''),
     # 🔥 时间引擎 v4.0 — 全系统输出时间戳·天干地支·64卦·审计链
     'time-engine':          ('lh_time_engine.py',             '🐉', '时间引擎·天干地支·64卦·审计链·输出戳', [], 'stamp'),
     'te':                   ('lh_time_engine.py',             '🐉', '时间引擎(简)·天干地支·64卦', [], 'stamp'),
+    # 🧮 洛书369数字根引擎 v1.0 — 369不动点·五行·生克·洛书宫位·权重
+    'root':                 ('lh_root.py',                      '🧮', '洛书369·数字根+五行+生克+洛书宫位+权重 (lh root 369)', [], ''),
+    # ☯️ 五行计算器 v3.0 — 四柱干支→五行强度→补益建议→对冲指数
+    'wuxing':               ('lh_wuxing.py',                    '☯️', '五行计算·四柱干支→五行强度/补益/对冲 (lh wuxing 甲子 丙午 庚申 壬戌)', [], ''),
     # 🐉 道德经知识引擎 v2.0 — 可编程·可查询·蚁群定锚·五行生克·DNA全链路
     'ddj':                  ('lh_daodejing_engine.py',         '📖', '道德经引擎·查询/定锚/导出/统计·81章龍魂解读', [], ''),
     'daodejing':            ('lh_daodejing_engine.py',         '📖', '道德经引擎(全写)·同上', [], ''),
+    # ⚛️ 八卦因果天道库 v1.0 — 8卦因→果→应用·重卦组合·因果天道核心原则5条·场景推演
+    'gua-causal':           ('lh_gua_causality.py',            '⚛️', '八卦因果天道库·lookup/combine/principles/analyze/list/test', [], ''),
+    'gua-causality':        ('lh_gua_causality.py',            '⚛️', '八卦因果天道库(全写)·同上', [], ''),
+    # 🧮 易经算法引擎 v2.0 — 64卦推演·五行·中庸决策·taiji_judgment·时间线
+    'yijing':               ('lh_yijing_algo_engine.py',       '🧮', '易经算法引擎·64卦/五行/中庸/taiji/时间线 (lh --yijing -d "文本" 推演)', [], ''),
+    # ☯️ 太极引擎 v1.0 — 天干地支→64卦→五行熵→守/中/攻
+    'taiji':                ('lh_taiji_engine.py',             '☯️', '太极引擎·天干地支起卦·五行熵·守/中/攻三模式', [], ''),
+    # 🏜️ 沙盒推演控制台 v4.0 — 时间推演/博弈对抗/自我进化/平行宇宙 + 71人格 + 三色
+    'sandbox':              ('lh_sandbox_console.py',          '🏜️', '沙盒推演控制台·四大引擎路由·71人格·三色审计', [], ''),
+    # 📜 LX-DAO 道德经81章标准条目生成器 v1.0 — v5.0→LX-DAO JSONL·真实SHA256·4/81→81/81
+    'lxdao':                ('lh_daodejing_lxdao_gen.py',      '📜', 'LX-DAO 81章标准条目生成器 (lh lxdao / --stats / --chapter N)', [], ''),
     # 🔥 知识矩阵 v1.0 — 全维度知识索引聚合·协议·论文·CSDN·引擎·图谱
     'matrix':               ('lh_knowledge_matrix.py',        '🧬', '知识矩阵·全维度知识索引聚合', [], '--pretty'),
     'km':                   ('lh_knowledge_matrix.py',        '🧬', '知识矩阵(简)·数据聚合', [], '--pretty'),
@@ -1007,6 +1057,10 @@ SUB_DISPATCH = {
     'dna-gen':              ('lh_dna_generator.py',           '🧬', 'DNA生成(完整名)', [], '--title'),
     # ⛓️ DNA接龍链引擎 v1.0 — 只追加·不覆盖·不删除·行为密码学注链·跨人格接龍
     'dna-chain':            ('lh_dna_chain.py',               '⛓️', 'DNA接龍链·init/append/verify/show/scan/auto'),
+    # 🐉 ADS 自描述子系统 v4.0 — 四层认知·我是谁·系统自述 (常驻API :9626·launchd)
+    'ads':                  ('lh_self_describing.py',          '🐉', 'ADS自描述·四层认知·describe/health/roles', [], '--describe'),
+    # 🧬 逻辑溯源引擎 v2.0 — 三层来源(哲学/数学/工程)·注入/批量/校验/GPG·置信度评级
+    'provenance':           ('lh_provenance.py',              '🧬', '逻辑溯源·三层来源·inject/batch/verify/stats', [], '--list'),
     # 🔗 龍魂信任链 v1.2 — 哈希签章链·GPG分离签名·防篡改·CI/CD闸门
     'trust-chain':          ('lh_trust_chain.py',             '🔗', '龍魂信任链·demo/deploy/verify/docs', [], 'demo'),
     # 🐉 透明审计与冲突仲裁 v2.2 — 多引擎事实级仲裁·三色/R值双尺·年轮链
@@ -1087,6 +1141,23 @@ SUB_DISPATCH = {
     'handoff':              ('lh_handoff.py',                   '📤', 'AI窗口交接·save/load/list·跨会话无缝衔接不丢上下文', [], 'list'),
     # 📎 CNSH 智能贴入插件 v1.1 — 粘贴即锚定·DNA+设备指纹+数字根压缩包·三色审计+史官+耻辱墙（2026-08-13 审查修正版）
     'cnsh-stamp':           ('lh_cnsh_plugin.py',               '📎', 'CNSH贴入锚定·-i/-o/--verify/--device-info/--doctor/--version', [], ''),
+    # 🧮 傅里叶变换引擎 v1.0 — DFT/FFT/频谱/逆变换·万象归一·dr=2坤宫 (8/18落地)
+    'fourier':              ('lh_fourier.py',                 '🧮', '傅里叶变换·DFT/FFT/频谱/逆变换', [], '--self-test'),
+    'fft':                  ('lh_fourier.py',                 '🧮', '傅里叶(简)·FFT/DFT', [], '--self-test'),
+    # 📊 信息论引擎 v1.0 — 香农熵/KL/交叉熵/互信息/系统熵三色·dr=4巽宫 (8/18落地)
+    'info-theory':          ('lh_information_theory.py',      '📊', '信息论·熵/KL散度/交叉熵/互信息/系统熵', [], '--self-test'),
+    'it':                   ('lh_information_theory.py',      '📊', '信息论(简)·熵/散度', [], '--self-test'),
+    # 🧬 自动微分引擎 v1.0 — 计算图反向传播·链式法则·MLP·dr=1坎宫 (8/18落地)
+    'autodiff':             ('lh_autodiff.py',                '🧬', '自动微分·计算图反向传播·链式法则·MLP', [], '--self-test'),
+    'ad':                   ('lh_autodiff.py',                '🧬', '自动微分(简)·梯度', [], '--self-test'),
+    # 📐 采样定理引擎 v1.0 — 奈奎斯特判定·混叠演示·dr=5中宫 (8/18落地)
+    'sampling':             ('lh_sampling.py',                '📐', '采样定理·奈奎斯特/最小采样率/混叠', [], '--self-test'),
+    # 🔢 数值方法引擎 v1.0 — 牛顿迭代/梯度下降/收敛阶/稳定性·dr=9离宫 (8/18落地)
+    'numerical':            ('lh_numerical.py',               '🔢', '数值方法·牛顿/梯度下降/误差/稳定性', [], '--self-test'),
+    'num':                  ('lh_numerical.py',               '🔢', '数值方法(简)', [], '--self-test'),
+    # 🎨 渲染几何引擎 v1.0 — 矩阵变换/透视投影/光照·dr=8艮宫 (8/18落地)
+    'render-geometry':      ('lh_render_geometry.py',         '🎨', '渲染几何·变换/投影/光照', [], '--self-test'),
+    'rg':                   ('lh_render_geometry.py',         '🎨', '渲染几何(简)', [], '--self-test'),
 }
 
 
@@ -1281,6 +1352,14 @@ def main():
     parser.add_argument('--know', nargs=argparse.REMAINDER, help='本地知识引擎 (lh --know scan/search/convert/status)')
     parser.add_argument('--agent', nargs=argparse.REMAINDER, help='智能体训练 (lh --agent process/interactive/train/status)')
     parser.add_argument('--lu', nargs=argparse.REMAINDER, help='LU压缩引擎 (lh --lu compress/recall/align/index/shortcodes)')
+    parser.add_argument('--compress-memory', dest='compress_memory', nargs=argparse.REMAINDER, help='🧠 MEMORY.md压缩引擎 (lh --compress-memory audit/dry/run) · P0-P5评分+里程碑折叠+字节线达标')
+    parser.add_argument('--compress-all', dest='compress_all', nargs='?', const='run', choices=['audit','dry','run'], help='🧹 全库扫描压缩 (lh --compress-all audit/dry/run) · compress类超限自动压+report类只报告')
+    parser.add_argument('--compress-watch', dest='compress_watch', nargs='?', const='report', choices=['report','run'], help='👁️ 压缩守护进程 (lh --compress-watch [run]) · 60s轮询·run才自动压')
+    parser.add_argument('--agent-run', nargs=argparse.REMAINDER, help='🐣 本地宝宝Agent (lh --agent-run "任务" · Ollama本地推理·ReAct循环·零云端)')
+    parser.add_argument('--agent-i', action='store_true', help='🐣 本地宝宝Agent 交互模式 (lh --agent-i)')
+    parser.add_argument('--voice-in', action='store_true', dest='voice_in', help='🎤 语音输入→转写→喂给Agent (lh --voice-in · faster-whisper本地·零云端)')
+    parser.add_argument('--vision', nargs=argparse.REMAINDER, help='👁 视觉识别 (lh --vision <图片路径> [问题] · Ollama moondream本地)')
+    parser.add_argument('--screenshot', action='store_true', help='📸 截图并分析当前屏幕 (lh --screenshot)')
     parser.add_argument('--central', nargs=argparse.REMAINDER, help='UID9622中枢引擎 (lh --central status/task/command/verify/query)')
     parser.add_argument('--brain', nargs=argparse.REMAINDER, help='统一中枢 (lh --brain status/find/run/health/dupes/route)')
     # === 自触发编排引擎 ===
@@ -1352,6 +1431,7 @@ def main():
     parser.add_argument('--update', nargs=argparse.REMAINDER, help='更新引擎索引 (lh --update 或 lh --update scan)')
     parser.add_argument('--掀黑箱', nargs=argparse.REMAINDER, help='掀黑箱审计 (lh --掀黑箱 [路径] 或 lh --掀黑箱 --json)')
     parser.add_argument('--imprint', nargs=argparse.REMAINDER, help='数字人印记引擎 (lh --imprint create/list/verify/watermark/sync/status)')
+    parser.add_argument('--keys', dest='keys', nargs=argparse.REMAINDER, help='統一密钥出口·任何AI可取 (lh keys list/get/check/mfa)')
     parser.add_argument('--notion-full', dest='notion_full', nargs=argparse.REMAINDER, help='Notion全量同步引擎 (lh --notion-full sync/search/status)')
     parser.add_argument('--persona-sync', dest='persona_sync', nargs=argparse.REMAINDER, help='人格矩阵Notion同步 (lh --persona-sync sync/dry-run/cleanup)')
     parser.add_argument('--persona', dest='persona', nargs=argparse.REMAINDER, help='人格矩阵运行时 (lh --persona list/switch/current/chain/status/match/bridge/memory/sync)')
@@ -1377,12 +1457,30 @@ def main():
     parser.add_argument('--persona-governance', dest='persona_governance', nargs=argparse.REMAINDER, help='人格治理引擎 (lh --persona-governance --stats/--audit-history)')
     parser.add_argument('--qe', dest='qe', nargs=argparse.REMAINDER, help='量子存证引擎 (lh --qe store --text "内容" / query / verify / reconstruct)')
     parser.add_argument('--quantum-evidence', dest='quantum_evidence', nargs=argparse.REMAINDER, help='量子存证引擎 (同 --qe)')
+    parser.add_argument('--braket', dest='braket', nargs=argparse.REMAINDER, help='Bra-Ket量子人格协作引擎 (lh --braket execute "文本" / gua "内容" / probs / entanglement / bloch)')
+    # 🐉 CNSH-P0 永恒龍魂协议 v1.1
+    parser.add_argument('--dragon-soul', dest='dragon_soul', nargs=argparse.REMAINDER, help='永恒龍魂协议 (lh --dragon-soul verify "文本" / declare / shame list / red-lines / test)')
+    parser.add_argument('--ds', dest='ds', nargs=argparse.REMAINDER, help='永恒龍魂协议简写 (lh --ds verify "文本")')
     # 🔥 时间引擎 v4.0
     parser.add_argument('--time-engine', dest='time_engine', nargs=argparse.REMAINDER, help='时间引擎·天干地支64卦 (lh --time-engine --stamp/hexagram/run/audit)')
     parser.add_argument('--te', dest='te', nargs=argparse.REMAINDER, help='时间引擎简写 (lh --te --stamp)')
+    # 🧮 洛书369数字根引擎 v1.0
+    parser.add_argument('--root', dest='root', nargs=argparse.REMAINDER, help='洛书369数字根 (lh --root 369 / --wuxing N / --luoshu N / --shengke A B / --weight 速度=30 安全=50)')
+    # ☯️ 五行计算器 v3.0
+    parser.add_argument('--wuxing', dest='wuxing', nargs=argparse.REMAINDER, help='五行计算 (lh --wuxing 甲子 丙午 庚申 壬戌 / --year 2026)')
     # 🐉 道德经知识引擎 v2.0
     parser.add_argument('--ddj', dest='ddj', nargs=argparse.REMAINDER, help='道德经引擎 (lh --ddj -c 章号/-s 关键词/-t 标签/-a 定锚/--stats)')
     parser.add_argument('--daodejing', dest='daodejing', nargs=argparse.REMAINDER, help='道德经引擎全写 (lh --daodejing --stats)')
+    # ⚛️ 八卦因果天道库 v1.0
+    parser.add_argument('--gua-causal', dest='gua_causal', nargs=argparse.REMAINDER, help='八卦因果天道库 (lh --gua-causal lookup 乾/combine 泰/analyze "场景"/list/test)')
+    # 🧮 易经算法引擎 v2.0
+    parser.add_argument('--yijing', dest='yijing', nargs=argparse.REMAINDER, help='易经算法引擎 (lh --yijing -d "文本" 推演/-t 时间/--timeline)')
+    # ☯️ 太极引擎 v1.0
+    parser.add_argument('--taiji', dest='taiji', nargs=argparse.REMAINDER, help='太极引擎 (lh --taiji --mode 守/中/攻)')
+    # 🏜️ 沙盒推演控制台 v4.0
+    parser.add_argument('--sandbox', dest='sandbox', nargs=argparse.REMAINDER, help='沙盒推演控制台 (lh --sandbox --推演 "..." / --博弈 "..." / --宇宙 "..." / --状态)')
+    # 📜 LX-DAO 81章生成器 v1.0
+    parser.add_argument('--lxdao', dest='lxdao', nargs=argparse.REMAINDER, help='LX-DAO 81章标准条目生成器 (lh --lxdao [--stats|--chapter N])')
     # 🔐 平台规则审计
     parser.add_argument('--platform-audit', dest='platform_audit', nargs=argparse.REMAINDER, help='平台规则审计·华夏法则对照 (lh --platform-audit --interactive/--file xxx/--url xxx)')
     parser.add_argument('--pa', dest='pa', nargs=argparse.REMAINDER, help='平台规则审计简写 (lh --pa --interactive)')
@@ -1590,7 +1688,7 @@ def main():
         evidence_pkg = {
             "witness_id": witness_id,
             "timestamp_utc": datetime.now(timezone.utc).isoformat(),
-            "dna": "#龍芯⚡️丙午·癸未·甲申-WITNESS-" + witness_id,
+            "dna": "#龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-WITNESS-" + witness_id,
             "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
             "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
             "content": content,
@@ -1703,7 +1801,7 @@ def main():
         export_pkg = {
             "export_id": f"EXPORT-{ts}",
             "timestamp_utc": datetime.now(timezone.utc).isoformat(),
-            "dna": "#龍芯⚡️丙午·癸未·甲申-EVIDENCE-EXPORT-" + ts,
+            "dna": "#龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-EVIDENCE-EXPORT-" + ts,
             "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
             "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
             "summary": {
@@ -1904,6 +2002,83 @@ def main():
         lu_args = list(args.lu) if args.lu else ["shortcodes"]
         print(f"\n  🐉 龍魂·LU压缩引擎\n")
         subprocess.run(["python3", str(lu_path)] + lu_args)
+        return
+    if args.compress_memory is not None:
+        print_header()
+        cm_path = ROOT / "bin" / "memory_compress.py"
+        cm_input = ".codebuddy/memory/MEMORY.md"
+        cm_args = list(args.compress_memory) if args.compress_memory else []
+        # 简写映射: audit→--audit, dry→--dry-run, run→无参(直接压缩)
+        shortcut_map = {"audit": "--audit", "dry": "--dry-run", "run": ""}
+        mapped = []
+        for a in cm_args:
+            if a in shortcut_map and shortcut_map[a]:
+                mapped.append(shortcut_map[a])
+            elif a in shortcut_map:
+                pass  # run → 无参
+            else:
+                mapped.append(a)
+        mapped.append("--input")
+        mapped.append(cm_input)
+        print(f"\n  🧠 龍魂·MEMORY.md压缩引擎\n")
+        subprocess.run(["python3", str(cm_path)] + mapped)
+        return
+    if args.compress_all is not None:
+        print_header()
+        ca_path = ROOT / "bin" / "compress_all.py"
+        ca_mode = args.compress_all if args.compress_all else "run"
+        ca_flag = {"audit": ["--audit"], "dry": ["--dry-run"], "run": ["--run"]}[ca_mode]
+        print(f"\n  🧹 龍魂·全库扫描压缩引擎\n")
+        subprocess.run(["python3", str(ca_path)] + ca_flag)
+        return
+    if args.compress_watch is not None:
+        print_header()
+        cw_path = ROOT / "bin" / "compress_watchdog.py"
+        cw_args = ["--run"] if args.compress_watch == "run" else []
+        print(f"\n  👁️ 龍魂·压缩守护进程（Ctrl+C 退出 / 默认只报告）\n")
+        subprocess.run(["python3", str(cw_path)] + cw_args)
+        return
+    if args.agent_run is not None:
+        print_header()
+        la_path = ROOT / "bin" / "local_agent.py"
+        task = " ".join(args.agent_run) if args.agent_run else ""
+        print(f"\n  🐣 龍魂·本地宝宝Agent（Ollama 本地推理·零云端）\n")
+        if task:
+            subprocess.run(["python3", str(la_path), task])
+        else:
+            subprocess.run(["python3", str(la_path), "--interactive"])
+        return
+    if args.agent_i:
+        print_header()
+        la_path = ROOT / "bin" / "local_agent.py"
+        print(f"\n  🐣 龍魂·本地宝宝Agent 交互模式\n")
+        subprocess.run(["python3", str(la_path), "--interactive"])
+        return
+    if args.voice_in:
+        print_header()
+        print(f"\n  🎤 龍魂·语音输入 → Agent（faster-whisper 本地·零云端）\n")
+        code = (
+            "import sys; sys.path.insert(0, 'bin');"
+            "from voice_input import transcribe_audio;"
+            "from local_agent import run_agent;"
+            "t = transcribe_audio();"
+            "print(f'\\n🤖 转写结果: {t}');"
+            "run_agent(t) if t and not t.startswith('ERROR') and t != '(空结果)' else print('⏭ 跳过 agent（无有效语音）')"
+        )
+        subprocess.run(["python3", "-c", code], cwd=ROOT)
+        return
+    if args.vision is not None:
+        print_header()
+        vp = ROOT / "bin" / "vision_input.py"
+        v_args = list(args.vision) if args.vision else []
+        print(f"\n  👁 龍魂·视觉识别（Ollama moondream 本地·零云端）\n")
+        subprocess.run(["python3", str(vp)] + v_args)
+        return
+    if args.screenshot:
+        print_header()
+        vp = ROOT / "bin" / "vision_input.py"
+        print(f"\n  📸 龍魂·截图分析（Ollama moondream 本地·零云端）\n")
+        subprocess.run(["python3", str(vp), "--screenshot"])
         return
     if args.central is not None:
         print_header()
@@ -2113,6 +2288,9 @@ def main():
             _v = getattr(args, _flag, None)
             if _v is not None:
                 extra += [f'--{_flag}'] + list(_v)
+        # 回收顶层 --health flag（lh <subcmd> --health 语义 → 交给子命令引擎处理）
+        if getattr(args, 'health', False):
+            extra += ['--health']
         script, emoji, desc, *rest = SUB_DISPATCH[subcmd]
         # 🔧 修正: rest = (default_args, smart_default) — 取最后一个作为 smart_default
         #   例: 'fast-index': (..., [], 'dashboard') → smart_default='dashboard'

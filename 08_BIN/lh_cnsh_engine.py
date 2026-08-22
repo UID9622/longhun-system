@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂 · CNSH 统一执行引擎 v1.1
-DNA: #龍芯⚡️丙午·乙未·戊申·泽地萃-CNSH-ENGINE-v1.1-UID9622
+DNA: #龍芯⚡️丙午·乙未·戊申·戊午·䷬萃-CNSH-ENGINE-v1.1-UID9622
 
 功能：
   1. 接收任意中文意图 → 自动解析为工程执行模式

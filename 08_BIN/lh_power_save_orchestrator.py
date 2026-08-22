@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-633ab446
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
@@ -7,7 +8,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 统一调度五大省电引擎 + 智能休眠 + 缓存压缩 + CO₂追踪
 
-DNA: #龍芯⚡️丙午·乙巳·癸酉·巳时·☰乾-POWER-SAVE-ORCHESTRATOR-v1.0
+DNA: #龍芯⚡️丙午·乙巳·癸酉·巳时·䷀乾-POWER-SAVE-ORCHESTRATOR-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -53,7 +54,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "bin"))
 sys.path.insert(0, str(PROJECT_ROOT))
 
-DNA = "#龍芯⚡️丙午·乙巳·癸酉·巳时·☰乾-POWER-SAVE-ORCHESTRATOR-v1.0"
+DNA = "#龍芯⚡️丙午·乙巳·癸酉·巳时·䷀乾-POWER-SAVE-ORCHESTRATOR-v1.0"
 VERSION = "1.0.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
@@ -71,7 +72,7 @@ KNOWN_SERVICES = {
     "lh_knowledge_hub": {"desc": "知识中枢",        "port": 8766, "priority": 2, "strategy": "sleep"},
     "lh_search_engine": {"desc": "搜索引擎",        "port": 9631, "priority": 2, "strategy": "sleep"},
     "lh_quantum_api":  {"desc": "量子卦象API",      "port": 9000, "priority": 3, "strategy": "hibernate"},
-    "lh_antenna_8gate": {"desc": "ANTENNA-8GATE",   "port": 8088, "priority": 2, "strategy": "sleep"},
+    "lh_antenna_8gate": {"desc": "ANTENNA-8GATE",   "port": 8769, "priority": 0, "strategy": "always_on"},
     "lh_portal_api":   {"desc": "统一门户API",      "port": 8700, "priority": 2, "strategy": "sleep"},
     "lh_notify_gateway":{"desc": "通知网关",        "port": 0,   "priority": 3, "strategy": "hibernate"},
     "lh_auto_operator":{"desc": "AI自动操作引擎",   "port": 8778, "priority": 3, "strategy": "hibernate"},

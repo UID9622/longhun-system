@@ -1,11 +1,11 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # Truth of Advance Consumption — The Li Fire Awakening
 
 ## How Debt Became the Default and What That Does to a Soul
 
-> **DNA:** `#龍芯⚡️2026-07-05-ADVANCE-CONSUMPTION-TRUTH-v1.0`  
+> **DNA:** `#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-ADVANCE-CONSUMPTION-TRUTH-v1.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777Q`  
 > **Author:** UID9622 · 龍芯北辰  
 > **Translation Date:** 2026-07-21  
@@ -156,6 +156,6 @@ If you're not in debt:
 
 ---
 
-> **DNA:** `#龍芯⚡️2026-07-05-ADVANCE-CONSUMPTION-TRUTH-v1.0`  
+> **DNA:** `#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-ADVANCE-CONSUMPTION-TRUTH-v1.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777Q`  
 > **Li Fire burns away illusion. 离火烧尽虚妄。**

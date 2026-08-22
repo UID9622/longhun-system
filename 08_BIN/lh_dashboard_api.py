@@ -3,7 +3,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 龍魂系统 · 仪表盘API端点 v1.0
-DNA: #龍芯⚡️丙午·乙未·丙申·酉时·☰乾-DASHBOARD-API-v1.0-e6f7a8b9
+DNA: #龍芯⚡️丙午·乙未·丙申·酉时·䷀乾-DASHBOARD-API-v1.0-e6f7a8b9
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 补全: 主计划1.4·统一启动面板API后端

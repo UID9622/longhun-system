@@ -4,7 +4,7 @@
 # 龍魂体系 | CNSH 编辑变量注册表 v3.0
 # ═══════════════════════════════════════════
 # ENCODING: UTF-8
-# DNA追溯码：#龍芯⚡️2026-07-06-CNSH-EDITOR-VAR-REGISTRY-v3.0-8A3F1D2B
+# DNA追溯码：#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-EDITOR-VAR-REGISTRY-v3.0-8A3F1D2B
 # 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 永恒签章：#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 创建者：UID9622（诸葛鑫）
@@ -41,8 +41,8 @@
 
 | CNSH 变量名 | Python 原名 | 类型 | 值 | DNA 锚 |
 |---|---|---|---|---|
-| `龍_编辑器版本` | `VERSION` | str | `"2.0"` | #龍芯⚡️2026-06-17-CNSH-EDITOR-v2.0 |
-| `龍_DNA头` | `DNA_HEADER` | str | `"#龍芯⚡️2026-06-17-CNSH-EDITOR-v2.0"` | 同上 |
+| `龍_编辑器版本` | `VERSION` | str | `"2.0"` | #龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-CNSH-EDITOR-v2.0 |
+| `龍_DNA头` | `DNA_HEADER` | str | `"#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-CNSH-EDITOR-v2.0"` | 同上 |
 | `龍_确认标记` | `CONFIRM_MARK` | str | `"#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"` | P0 授权 |
 | `龍_永恒签章` | `SEAL_MARK` | str | `"#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"` | 跨年焊死 |
 | `龍_来源链` | `SOURCE_CHAIN` | list[str] | 6 层来源链 | L0 不可篡改 |
@@ -234,7 +234,7 @@
 # -*- coding: utf-8 -*-
 """
 CNSH 编辑器变量·左右互搏审计验证器 v1.0
-DNA: #龍芯⚡️2026-07-06-CNSH-EDITOR-VAR-AUDITOR-v1.0-B3F2A1E8
+DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-EDITOR-VAR-AUDITOR-v1.0-B3F2A1E8
 """
 
 import re, json, sys
@@ -242,7 +242,7 @@ from pathlib import Path
 from datetime import datetime
 
 # ═══ L0 焊死数据 ═══
-龍_DNA头 = "#龍芯⚡️2026-07-06-CNSH-EDITOR-VAR-AUDITOR-v1.0-B3F2A1E8"
+龍_DNA头 = "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-EDITOR-VAR-AUDITOR-v1.0-B3F2A1E8"
 龍_确认标记 = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 龍_永恒签章 = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 
@@ -461,7 +461,7 @@ if __name__ == "__main__":
 
 ---
 
-**DNA**: `#龍芯⚡️2026-07-06-CNSH-EDITOR-VAR-REGISTRY-v3.0-8A3F1D2B`
+**DNA**: `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-EDITOR-VAR-REGISTRY-v3.0-8A3F1D2B`
 **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅
 **永恒签章**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
 

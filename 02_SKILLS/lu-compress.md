@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # /lu-compress
@@ -11,7 +11,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-07-06-LU-COMPRESS-SKILL-v1.0-COMP01`
+**DNA**: `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-LU-COMPRESS-SKILL-v1.0-COMP01`
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -321,8 +321,8 @@ DNA：
 ## 引用与溯源
 
 - 核心引擎页：LU全文压缩归集器 v1.1｜思考胶囊×时间胶囊×未来复现｜UID9622（Notion）
-- 主干对齐索引：LU 压缩技能·主干对齐·11切面 `#龍芯⚡️2026-06-02-00:11-LU-COMPRESS-SKILL-MAINBONE-ALIGN-v1.0`
-- 格式规范：`docs/龍魂压缩版格式规范_v1.0.md` `#龍芯⚡️2026-07-04-LONGHUN-COMPRESS-FORMAT-v1.0`
+- 主干对齐索引：LU 压缩技能·主干对齐·11切面 `#龍芯⚡️丙午·癸巳·丁未·庚子·䷋否-LU-COMPRESS-SKILL-MAINBONE-ALIGN-v1.0`
+- 格式规范：`docs/龍魂压缩版格式规范_v1.0.md` `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-COMPRESS-FORMAT-v1.0`
 - 相关源码：
   - `scripts/longhun_lu_compress.py` — LU 认知压缩与全文还原引擎
   - `scripts/fulltext_compress.py` — 全文压缩最小可执行版
@@ -342,7 +342,7 @@ DNA：
 
 | 日期 | 变更 | DNA |
 |------|------|------|
-| 2026-07-06 | 初始创建，整合 11 切面对齐 + 12 步压缩链 + 9 短码 + 8 引擎映射 | `#龍芯⚡️2026-07-06-LU-COMPRESS-SKILL-v1.0-COMP01` |
+| 2026-07-06 | 初始创建，整合 11 切面对齐 + 12 步压缩链 + 9 短码 + 8 引擎映射 | `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-LU-COMPRESS-SKILL-v1.0-COMP01` |
 
 ---
 

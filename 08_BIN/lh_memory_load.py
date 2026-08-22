@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 #龍芯⚡2026-07-06-LH-MEMORY-LOAD-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
@@ -61,10 +61,30 @@ def format_memories(rows):
     print(f"{'='*60}\n")
 
 
+def pull_collab_memory_hub(quiet: bool = True):
+    """启动时自动拉取「跨AI协作记忆库」(Notion→本地缓存)"""
+    hub = Path(__file__).resolve().parent / "lh_memory_hub.py"
+    if not hub.exists():
+        return
+    try:
+        import subprocess
+        r = subprocess.run(
+            ["python3", str(hub), "pull"],
+            capture_output=True, text=True, timeout=60,
+        )
+        if not quiet and r.stdout:
+            print(r.stdout[-600:])
+    except Exception as ex:
+        if not quiet:
+            print(f"🟡 协作记忆库拉取跳过: {ex}")
+
+
 if __name__ == "__main__":
     rows = load_all_memories()
     if rows:
         format_memories(rows)
     else:
         print("🟡 记忆库为空，等待初始化...")
+    # 🔥 启动自动读取跨AI协作记忆库(Notion→本地)
+    pull_collab_memory_hub(quiet=True)
     sys.exit(0)

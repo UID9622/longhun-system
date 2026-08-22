@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════╗
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ║        🐉 宝宝工作流程透明化系统 v2.0 🐉                          ║
 ║   每一步都给你看 · 不黑盒 · 完全透明 · 全程自动化                  ║
-║   DNA: #龍芯⚡️2026-06-03-BAOBAO-WORKFLOW-TRANSPARENT-v2.0         ║
+║   DNA: #龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-BAOBAO-WORKFLOW-TRANSPARENT-v2.0         ║
 ║   CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                    ║
 ║   SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL      ║
 ║   主权人: UID9622 · 龍芯北辰                                       ║
@@ -23,7 +24,7 @@ import pathlib
 CST = timezone(timedelta(hours=8))
 
 # ───── 主权常量（焊死，不可改）─────
-DNA     = "#龍芯⚡️2026-06-03-BAOBAO-WORKFLOW-TRANSPARENT-v2.0"
+DNA     = "#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-BAOBAO-WORKFLOW-TRANSPARENT-v2.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SEAL    = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 OWNER   = "UID9622 · 龍芯北辰"

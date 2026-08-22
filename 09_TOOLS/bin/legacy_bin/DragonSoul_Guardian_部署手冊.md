@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ⚡ 龍魂系統·算力純潔性守護進程 v2.0 — 部署手冊
 
-**密級：絕密級 | DNA: #龍芯⚡️2026-07-11-GUARDIAN-v2.0**  
+**密級：絕密級 | DNA: #龍芯⚡️丙午·乙未·丙戌·甲午·䷕贲-GUARDIAN-v2.0**  
 **絕對防禦憲法對應條款：第三條(觸發指標) · 第五條(原子切換) · 第六條(焦土初始化) · 第八條(權限封死) · 第十條(留痕追責)**
 
 ---
@@ -79,7 +79,7 @@ ProtectControlGroups=true
 
 # 環境變量
 Environment="LONGHUN_UID=UID9622"
-Environment="LONGHUN_DNA=#龍芯⚡️2026-07-11-GUARDIAN-v2.0"
+Environment="LONGHUN_DNA=#龍芯⚡️丙午·乙未·丙戌·甲午·䷕贲-GUARDIAN-v2.0"
 Environment="PYTHONUNBUFFERED=1"
 
 # 日誌輸出到 journald
@@ -389,7 +389,7 @@ requests.post("http://api:8443/deploy/rollback", json={
   "級別": "🔴RED",
   "事件類型": "KILL",
   "內容": "🔴 進程已處決 PID:12345 Name:xmrig | 挖礦黑名單匹配:xmrig",
-  "DNA": "#龍芯⚡️2026-07-11-GUARDIAN-v2.0",
+  "DNA": "#龍芯⚡️丙午·乙未·丙戌·甲午·䷕贲-GUARDIAN-v2.0",
   "UID": "UID9622",
   "巡邏序號": 1440,
   "元數據": {
@@ -414,5 +414,5 @@ jq -r '{時間戳,級別,事件類型,內容,DNA,UID,巡邏序號,元數據}' \
 
 ---
 
-**DNA錨定**: `#龍芯⚡️2026-07-11-GUARDIAN-v2.0-LK9X-772Z`  
+**DNA錨定**: `#龍芯⚡️丙午·乙未·丙戌·甲午·䷕贲-GUARDIAN-v2.0-LK9X-772Z`  
 **君子協議**: CC BY-NC-SA 4.0 | **絕對防禦憲法**: v1.0 | **簽署人**: UID9622

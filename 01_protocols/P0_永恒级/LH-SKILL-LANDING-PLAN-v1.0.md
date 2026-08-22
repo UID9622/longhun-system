@@ -13,7 +13,7 @@
 
 **Notion ID:** 3647125a-9c9f-81b1-bd36-c2f127988f26
 **合并状态:** ❌ 未合并
-**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-SKILL-LANDING-PLAN-v1.0` · **ParentDNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-SKILL-PLAN-v1.0`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SKILL-LANDING-PLAN-v1.0` · **ParentDNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SKILL-PLAN-v1.0`
 **模式:** 🪨 五色石 · B 模式 · M78 verbatim + EXT-3-5 不假装记忆
 **CONFIRM/SEAL/GPG:** 三件套齐备
 

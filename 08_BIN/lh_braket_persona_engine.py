@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·丙申·丙辰·己丑时·兑-BRAKET-PERSONA-ENGINE-v1.0
+#龍芯⚡️丙午·丙申·丙辰·己丑时·䷹兑-BRAKET-PERSONA-ENGINE-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
 Bra-Ket量子人格引擎 v1.0 · 多人格量子协作系统
 用狄拉克符号实现人格叠加态、纠缠态、测量坍缩
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·己丑时·兑-BRAKET-PERSONA-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·己丑时·䷹兑-BRAKET-PERSONA-ENGINE-v1.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
@@ -235,7 +235,8 @@ class GHZState:
             "type": "GHZ",
             "dimension": dim,
             "coherence": 0.707,  # 1/√2
-            "property": "任何人格的变化立即影响所有人格",
+            # 🟡 诚实标注: 纠缠是数学关联≠超光速信息传输(无通信定理)·模拟中为并行联动
+            "property": "全人格数学关联·模拟并行联动(非物理超光速·纠缠不传递信息)",
         }
 
 
@@ -315,12 +316,33 @@ class BlochSphere:
 # ═══════════════════════════════════════════════════════════
 
 class IChingQuantumMapping:
-    """易经64卦 ↔ 6量子比特态空间"""
+    """易经64卦 ↔ 6量子比特态空间
+
+    位序规范（与《周易本义》先天方图二进制序对齐）:
+      三爻二进制（从初爻到上爻, 阳=1 阴=0）:
+        坤=000 艮=001 坎=010 巽=011 震=100 离=101 兑=110 乾=111
+      6比特 = 上卦(高3位) | 下卦(低3位)
+      先天方图索引 idx = upper*8 + lower → 0(坤)…63(乾)
+    """
 
     TRIGRAM_TO_BITS = {
-        "乾": "111", "坤": "000", "震": "001", "艮": "100",
+        "乾": "111", "坤": "000", "震": "100", "艮": "001",
         "离": "101", "坎": "010", "兑": "110", "巽": "011",
     }
+
+    # 先天方图（二进制序）: 行=上卦(坤艮坎巽震离兑乾) 列=下卦(坤艮坎巽震离兑乾)
+    # 与 6 位二进制索引严格对应（idx = upper*8 + lower）· 修正周易卦序错位
+    GUA_64_BY_INDEX = [
+        # lower=坤(0)     艮(1)     坎(2)     巽(3)     震(4)     离(5)     兑(6)     乾(7)
+        "坤☷",  "剥☶",  "比☵",  "观☴",  "豫☳",  "晋☲",  "萃☱",  "否☰",  # upper=坤(0)
+        "谦☷",  "艮☶",  "蹇☵",  "渐☴",  "小过☳", "旅☲",  "咸☱",  "遁☰",  # upper=艮(1)
+        "师☷",  "蒙☶",  "坎☵",  "涣☴",  "解☳",  "未济☲", "困☱",  "讼☰",  # upper=坎(2)
+        "升☷",  "蛊☶",  "井☵",  "巽☴",  "恒☳",  "鼎☲",  "大过☱", "姤☰",  # upper=巽(3)
+        "复☷",  "颐☶",  "屯☵",  "益☴",  "震☳",  "噬嗑☲", "随☱",  "无妄☰", # upper=震(4)
+        "明夷☷", "贲☶",  "既济☵", "家人☴", "丰☳",  "离☲",  "革☱",  "同人☰", # upper=离(5)
+        "临☷",  "损☶",  "节☵",  "中孚☴", "归妹☳", "睽☲",  "兑☱",  "履☰",  # upper=兑(6)
+        "泰☷",  "大畜☶", "需☵",  "小畜☴", "大壮☳", "大有☲", "夬☱",  "乾☰",  # upper=乾(7)
+    ]
 
     @staticmethod
     def gua_to_qubit(gua_name: str) -> str:
@@ -336,24 +358,17 @@ class IChingQuantumMapping:
 
     @staticmethod
     def cast_from_content(content: str) -> Dict[str, Any]:
-        """SHA256起卦"""
+        """SHA256起卦 · 卦名与6比特索引严格对应（先天方图二进制序）"""
         h = hashlib.sha256(content.encode()).hexdigest()
         gua_idx = int(h[:6], 16) % 64
-
-        GUA = [
-            "乾☰","坤☷","屯☳","蒙☶","需☵","讼☰","师☷","比☵",
-            "小畜☴","履☰","泰☷","否☰","同人☰","大有☲","谦☷","豫☳",
-            "随☱","蛊☶","临☷","观☴","噬嗑☲","贲☶","剥☷","复☳",
-            "无妄☰","大畜☶","颐☶","大过☱","坎☵","离☲","咸☱","恒☳",
-            "遁☰","大壮☳","晋☲","明夷☷","家人☴","睽☲","蹇☵","解☳",
-            "损☱","益☴","夬☱","姤☴","萃☱","升☴","困☱","井☴",
-            "革☲","鼎☲","震☳","艮☶","渐☴","归妹☱","丰☲","旅☲",
-            "巽☴","兑☱","涣☴","节☵","中孚☴","小过☳","既济☲","未济☲",
-        ]
+        upper = (gua_idx >> 3) & 0b111   # 高3位 = 上卦
+        lower = gua_idx & 0b111          # 低3位 = 下卦
 
         return {
-            "gua": GUA[gua_idx],
+            "gua": IChingQuantumMapping.GUA_64_BY_INDEX[gua_idx],
             "index": gua_idx,
+            "upper_trigram": upper,
+            "lower_trigram": lower,
             "bits": format(gua_idx, '06b'),
             "hash": h[:12],
         }
@@ -427,11 +442,28 @@ class BraKetPersonaEngine:
             "gua": gua["gua"],
             "entangled_auto_activation": entangled_influence,
             "probability_distribution": probs,
-            "dna": f"#龍芯⚡️BraKet-{hashlib.sha3_256(text.encode()).hexdigest()[:12]}",
+            "dna": self._make_dna(text),
         }
 
         self.execution_history.append(result)
         return result
+
+    @staticmethod
+    def _make_dna(text: str) -> str:
+        """生成干支四柱DNA（对接真实时间引擎·语法规范v3.0）"""
+        try:
+            sys.path.insert(0, str(Path(__file__).resolve().parent))
+            from lh_time_engine import get_output_stamp
+            stamp = get_output_stamp()
+            # 完整格式: [干支·卦·色] 时间戳 → 取 [] 内干支·卦
+            stem = stamp.split("]")[0].lstrip("[")
+            h = hashlib.sha3_256(text.encode()).hexdigest()[:8].upper()
+            return f"#龍芯⚡️{stem}-BRAKET-EXEC-{h}"
+        except Exception:
+            # 降级: 时间引擎不可达时用本地日期（诚实标注降级）
+            ts = time.strftime("%Y%m%d")
+            h = hashlib.sha3_256(text.encode()).hexdigest()[:8].upper()
+            return f"#龍芯⚡️{ts}-BRAKET-EXEC-{h}-DEGRADED"
 
     def get_entanglement_map(self) -> Dict[str, Any]:
         """纠缠态图谱"""
@@ -541,8 +573,9 @@ def main():
     elif cmd == "gua":
         text = " ".join(sys.argv[2:]) if len(sys.argv) > 2 else "默认"
         gua = IChingQuantumMapping.cast_from_content(text)
-        print(f"  起卦: {gua['gua']} (索引:{gua['index']})")
-        print(f"  量子比特: {gua['bits']}")
+        print(f"  起卦: {gua['gua']} (先天方图索引:{gua['index']})")
+        print(f"  上下卦: 上卦={gua['upper_trigram']} 下卦={gua['lower_trigram']}")
+        print(f"  量子比特: {gua['bits']} (高3位上卦·低3位下卦)")
         print(f"  SHA256: {gua['hash']}")
 
     elif cmd == "test":

@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════════╗
 ║          CNSH 语法 MCP Server v1.0 — 龍魂数字主权工具链               ║
-║  DNA: #龍芯⚡️2026-07-05-CNSH-SYNTAX-MCP-v1.0                        ║
+║  DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-CNSH-SYNTAX-MCP-v1.0                        ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                     ║
 ║  创建者: UID9622（诸葛鑫·Lucky）                                     ║
 ║  三色审计: 🟢 通过                                                   ║
@@ -945,7 +946,7 @@ def _handle_health(args: dict[str, object]) -> dict[str, object]:  # pyright: ig
         "ok": True,
         "server": "cnsh-syntax",
         "version": "1.0.0",
-        "identity_dna": "#龍芯⚡️2026-07-05-CNSH-SYNTAX-MCP-v1.0",
+        "identity_dna": "#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-CNSH-SYNTAX-MCP-v1.0",
         "modules": {
             "词法分析器_lexer": True,
             "语法分析器_parser": True,

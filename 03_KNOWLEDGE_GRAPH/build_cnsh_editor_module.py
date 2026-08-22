@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# DNA: #龍芯⚡️丙午·丙申·#龍芯⚡️丙午·丙申·POSTAUDIT-BUILD_CNSH_EDITOR_MO-CB675C86
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 构建统一的 cnsh-editor 模块
 将分散在项目各处的编辑器相关文件（引擎、UI、关键字登记册、平台编辑器、文档）
@@ -217,4 +219,4 @@ if __name__ == "__main__":
     main()
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·小畜-CONFIRM-SEAL-build_cnsh_editor_mo-53C4543C
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷈小畜-CONFIRM-SEAL-build_cnsh_editor_mo-53C4543C

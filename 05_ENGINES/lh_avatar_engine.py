@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂 · 数字人引擎 v1.0 — 魔瞳凝视
-DNA: #龍芯⚡️2026-07-25-AVATAR-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-AVATAR-ENGINE-v1.0
 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0
 人格: 魔瞳（P01·形象守护）— 眼神不动点守护
 铁律: 眼神始终凝视观众·穿透屏幕·让心不干净的人害怕·全部本地生成
@@ -16,7 +16,7 @@ import json
 import math
 from pathlib import Path
 
-DNA = "#龍芯⚡️2026-07-25-AVATAR-ENGINE-v1.0-MOTONG-GAZE"
+DNA = "#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-AVATAR-ENGINE-v1.0-MOTONG-GAZE"
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # P0 焊死形象常量

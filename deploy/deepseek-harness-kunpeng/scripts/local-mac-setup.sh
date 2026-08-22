@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 🐉 龍魂 · Mac 本地 DSH 环境初始化脚本
 # DNA: #龍芯⚡️丙午·丙申·辛酉·丙申·䷉履-DSH-MAC-SETUP-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #
 # 安装独立命令 `lh-dsh`（不覆盖真实 lh.py，避免 PATH 冲突）。
 # 模型切换 = 修改鲲鹏上 env 文件 + 重建容器（真正生效）。

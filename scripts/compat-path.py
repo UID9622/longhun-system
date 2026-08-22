@@ -3,7 +3,7 @@
 # 龍魂系统 · 工程实现层
 # License: MulanPSL v2
 # 文化归属: 思想框架归龍魂核心思想层 (CC BY-NC-SA 4.0)
-# DNA: #龍芯⚡️丙午·丙申·庚戌·COMPAT-PATH-v1.0-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷕贲-COMPAT-PATH-v1.0-UID9622
 """旧路径兼容映射脚本。
 
 功能:

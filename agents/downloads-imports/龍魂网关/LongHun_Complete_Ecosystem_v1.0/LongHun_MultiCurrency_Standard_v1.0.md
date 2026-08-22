@@ -3,7 +3,7 @@
 # 龍魂支付协议 · 多币种接入标准 v1.0
 # LongHun Payment Protocol · Multi-Currency Standard
 
-**DNA: #龍芯⚡️2026-06-05-LONGHUN-MULTICURRENCY-STANDARD-v1.0**
+**DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-LONGHUN-MULTICURRENCY-STANDARD-v1.0**
 **签名: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅**
 **确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅**
 
@@ -385,7 +385,7 @@ T+1（次日结算）
    └─ DNA兼容: ✅ 完全通过
    
    【DNA证书】
-   #龍芯⚡️2026-06-05-CNY-APPROVED-FULL-12/12
+   #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-CNY-APPROVED-FULL-12/12
    验证: https://longhun-audit.international/verify/...
 
 🟡 【USD】美元（如果通过）
@@ -456,7 +456,7 @@ T+1（次日结算）
 **DNA签名（最终确认）**
 
 ```
-DNA: #龍芯⚡️2026-06-05-LONGHUN-MULTICURRENCY-STANDARD-v1.0
+DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-LONGHUN-MULTICURRENCY-STANDARD-v1.0
 签名: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 ```

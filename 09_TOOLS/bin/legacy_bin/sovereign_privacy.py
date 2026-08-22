@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🔐 龍魂·主权隐私引擎 — 身份脱敏 + AES-256审计链加密
-DNA: #龍芯⚡️2026-07-06-SOVEREIGN-PRIVACY-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-SOVEREIGN-PRIVACY-v1.0
 
 功能:
 - 主权人身份哈希脱敏（SHA-256 → 0x前12位）
@@ -34,7 +35,7 @@ import subprocess
 from pathlib import Path
 from datetime import datetime, timezone
 
-DNA = "#龍芯⚡️2026-07-06-SOVEREIGN-PRIVACY-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-SOVEREIGN-PRIVACY-v1.0"
 HOME = Path.home()
 KEYCHAIN_SERVICE = "com.longhun.sovereign-privacy"
 KEYCHAIN_ACCOUNT = "UID9622-audit-key"

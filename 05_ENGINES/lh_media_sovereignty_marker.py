@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·萃-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷬萃-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_MEDIA_SOVEREIGNTY_MARKER-v1.0-b60361fc
+#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH_MEDIA_SOVEREIGNTY_MARKER-v1.0-b60361fc
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -25,7 +25,7 @@ Media Sovereignty Marker Engine
   - 音频：WAV（基于 FFT 扩频水印）
 
 DNA 格式示例：
-  #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-MEDIA-MARK-v1.0-UID9622
+  #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-MEDIA-MARK-v1.0-UID9622
 """
 import base64
 import binascii
@@ -1058,33 +1058,8 @@ class AudioMarkerRobust:
     # 三个互不重叠的子频段（Hz），分散风险
     FREQ_BANDS = [(2000, 4000), (4000, 6000), (6000, 8000)]
 
-    def __init__(self, audio_path: Union[str, Path]):
-        self.audio_path = Path(audio_path)
 
-    def _read_wav(self) -> Tuple[np.ndarray, int]:
-        with wave.open(str(self.audio_path), 'rb') as wf:
-            nchannels = wf.getnchannels()
-            sampwidth = wf.getsampwidth()
-            framerate = wf.getframerate()
-            nframes = wf.getnframes()
-            raw = wf.readframes(nframes)
-            if sampwidth == 2:
-                data = np.frombuffer(raw, dtype=np.int16)
-            elif sampwidth == 1:
-                data = np.frombuffer(raw, dtype=np.uint8).astype(np.int16) - 128
-            else:
-                raise ValueError(f"不支持的采样宽度: {sampwidth}")
-            if nchannels > 1:
-                data = data.reshape(-1, nchannels).mean(axis=1)
-            return data.astype(np.float32), framerate
 
-    def _write_wav(self, data: np.ndarray, framerate: int, output_path: Path):
-        data = np.clip(data, -32768, 32767).astype(np.int16)
-        with wave.open(str(output_path), 'wb') as wf:
-            wf.setnchannels(1)
-            wf.setsampwidth(2)
-            wf.setframerate(framerate)
-            wf.writeframes(data.tobytes())
 
     def _dna_to_fingerprint(self, dna: str) -> List[int]:
         """把 DNA 转成 160 位指纹：32 位魔数 + 128 位 DNA 哈希"""

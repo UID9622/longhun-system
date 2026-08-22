@@ -4,7 +4,7 @@
 """
 🐉 龍魂车载系统 · 集成验证脚本 v1.0
 =====================================
-DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-CAR-INTEGRATE-VERIFY-v1.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-CAR-INTEGRATE-VERIFY-v1.0-UID9622
 License: MulanPSL v2
 用法: python3 bin/lh_car_verify_integration.py
 功能: 全链路集成验证——干支两端一致性→云端服务→确认码闸门→DNA链→耻辱墙→合规硬检

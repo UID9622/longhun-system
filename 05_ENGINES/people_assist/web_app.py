@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 · 老百姓维权助手 Web 版
-DNA: #龍芯⚡️2026-06-29-LONGHUN-RIGHTS-WEB-v1.0
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-RIGHTS-WEB-v1.0
 
 本地运行，浏览器打开 http://127.0.0.1:9633/
 """
@@ -57,7 +58,7 @@ button:hover { background: #8b0000; }
 <button onclick="submit()">生成维权报告</button>
 
 <div id="result"></div>
-<div class="footer">DNA: #龍芯⚡️2026-06-29-LONGHUN-RIGHTS-WEB-v1.0 · 本地 AI · 人民数据主权</div>
+<div class="footer">DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-RIGHTS-WEB-v1.0 · 本地 AI · 人民数据主权</div>
 
 <script>
 async function submit() {

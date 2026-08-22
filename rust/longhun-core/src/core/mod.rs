@@ -1,4 +1,4 @@
-// DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-RUST-CORE-CORE-v1.0-UID9622
+// DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-RUST-CORE-CORE-v1.0-UID9622
 // 创建者: 诸葛鑫（UID9622）
 // 模块: 监督状态机 · DNA校验 · 三色审计 · 健康检查
 
@@ -127,7 +127,7 @@ pub fn run_supervision(config: &SupervisionConfig) -> SupervisionReport {
 /// 快速 DNA 校验（CRC64 + SHA256）
 fn verify_dna() -> bool {
     // 固化 DNA 锚点校验
-    let dna_str = "#龍芯⚡️丙午·丙申·庚戌·䷙大畜-RUST-CORE-v1.0-UID9622";
+    let dna_str = "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-RUST-CORE-v1.0-UID9622";
     let expected = hex::encode(sha2::Sha256::digest(dna_str.as_bytes()));
     let computed = hex::encode(sha2::Sha256::digest(dna_str.as_bytes()));
     expected == computed

@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
@@ -6,7 +6,7 @@ id: clause_currency_direct_settlement
 type: clause
 title: 货币直达标准（非唯一·标杆制）
 layer: L2
-dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-CLAUSE-CURRENCY-DIRECT-0B44E48D"
+dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·䷍大有-LONGHUN-CLAUSE-CURRENCY-DIRECT-0B44E48D"
 owner: UID9622 · 诸葛鑫（Lucky）
 claim: 任何法币（含美金）只要满足"直达·点对点·不走第三方·干净可追溯·不可篡改"即达标流通；数字人民币是标杆非围墙；拒绝第三方抽水与投机收割。
 based_on: [sovereign_currency_in_user, data_sovereignty_in_user, three_color_audit]
@@ -18,7 +18,7 @@ created: 丙午·辛未·乙酉
 # 条款 · 货币直达标准（非唯一·标杆制） · v1.0
 
 > 隶属 [[protocol_currency_culture_sovereignty]] 第一章。
-> DNA：`#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-CLAUSE-CURRENCY-DIRECT-0B44E48D`
+> DNA：`#龍芯⚡️丙午·辛未·乙酉·巳时·䷍大有-LONGHUN-CLAUSE-CURRENCY-DIRECT-0B44E48D`
 
 ## 主张
 

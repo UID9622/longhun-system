@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂·Notion素材提取器 v1.0 — 从Notion页面提取视频素材引用
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-NOTION-MATERIAL-EXTRACTOR-V1.0-4d5e6f7a
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-NOTION-MATERIAL-EXTRACTOR-V1.0-4d5e6f7a
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

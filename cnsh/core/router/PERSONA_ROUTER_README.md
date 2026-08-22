@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # PersonaRouter·人格路由系统
 
-**DNA**: `#龍芯⚡️2026-06-03-PERSONA-ROUTER-FILE1-FILE1-FILE1-v1.0-1`
+**DNA**: `#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-PERSONA-ROUTER-FILE1-FILE1-FILE1-v1.0-1`
 **层级**: L1·季节性路由
 **责任**: UID9622·不免责
 
@@ -109,7 +109,7 @@ router.print_report(decision)
   P13: 20%
 
 【DNA追溯】
-  DNA: #龍芯⚡️20260603-PERSONA-ROUTER-8D63E327
+  DNA: #龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-PERSONA-ROUTER-8D63E327
   签名: 5adb9bf142c9d557...
 ```
 
@@ -242,7 +242,7 @@ score = f4.verify()  # score = 1.0 (完美)
     "veto_words_detected": True,
     "veto_word_count": 3,
     "veto_categories": ["fear", "tiredness"],
-    "dna": "#龍芯⚡️20260603-PERSONA-ROUTER-8D63E327",
+    "dna": "#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-PERSONA-ROUTER-8D63E327",
     "signature": "5adb9bf142c9d557..."
 }
 ```
@@ -511,5 +511,5 @@ VETO_WORDS = {
 
 ---
 
-**DNA**:#龍芯⚡️2026-06-03-PERSONA-ROUTER-v1.0
+**DNA**:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-PERSONA-ROUTER-v1.0
 **责任**: UID9622·不免责·永久有效

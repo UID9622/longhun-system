@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 智能模板引擎 v1.0
-DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-TEMPLATE-ENGINE-UID9622
+DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-TEMPLATE-ENGINE-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色: 🟢 通过
@@ -547,7 +547,7 @@ def _module_data_sample(content: Dict[str, Any]) -> str:
 
 ```json
 {
-  "dna": "#龍芯⚡️2026-08-13-DATA-A1B2C3D4-UID9622",
+  "dna": "#龍芯⚡️丙午·丙申·己未·庚午·䷖剥-DATA-A1B2C3D4-UID9622",
   "status": "active",
   "timestamp": "2026-08-13T12:00:00Z",
   "payload": {"key": "value"}
@@ -658,7 +658,7 @@ def _module_response_example(content: Dict[str, Any]) -> str:
 {
   "success": true,
   "data": {
-    "dna": "#龍芯⚡️2026-08-13-CODE-A1B2C3D4-UID9622",
+    "dna": "#龍芯⚡️丙午·丙申·己未·庚午·䷖剥-CODE-A1B2C3D4-UID9622",
     "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     "tricolor": "🟢",
     "sections": {...}

@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 🐉 CNSH 套件 · DeepSeek Harness 插件集（Python 完整实现）
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-CNSH-SUITE-UID9622
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-SUITE-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 

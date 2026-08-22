@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂君子协议 · 诚信评级与违约清算算法核心
-DNA: #龍芯⚡️2026-06-26-LONGHUN-TRUST-CORE-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-TRUST-CORE-v1.0
 
 以中华人民共和国法律为底线，以人民为基石，
 量化道德值 M、人品值 P、诚信值 I，输出综合信用分 S。

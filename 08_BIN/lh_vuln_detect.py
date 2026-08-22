@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # DNA: #龍芯⚡️丙午·丙申·壬戌·未时·䷔噬嗑-VULN_DETECT-v1.0-ENGINE
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0（核心思想层）
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)

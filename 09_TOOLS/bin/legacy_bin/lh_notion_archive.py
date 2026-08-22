@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂·Notion 截图归档器 (打包落本地 + Notion 归档)
 前置: lh_notion_capacity_scan.py 产出的 scan_report.json
@@ -9,7 +10,7 @@
   · 只处理「含上传型图片(file)的行」——这是吃容量的大头；纯文本行不动。
   · 外链图(ext)不占容量，仅记入清单，可选下载。
   · 安全闸: 默认 DRY_RUN(只打印计划)；设 ARCHIVE_GO=1 才真下载+归档。
-DNA: #龍芯⚡️丙午·辛未·乙酉·NOTION-ARCHIVE
+DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-NOTION-ARCHIVE
 """
 import os, sys, json, time, urllib.request, urllib.error
 from pathlib import Path

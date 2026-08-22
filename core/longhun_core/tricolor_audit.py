@@ -6,7 +6,7 @@
 🟢通过 · 🟡待核 · 🔴红线 三层判定
 五万条审计记录仅 32.4 MB 内存 · 纯标准库零依赖
 
-DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-TRICOLOR-AUDIT-UID9622
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-TRICOLOR-AUDIT-UID9622
 License: MulanPSL v2
 """
 

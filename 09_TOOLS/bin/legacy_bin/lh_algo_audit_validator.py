@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂系统 · 算法审计与透明验证模块 v1.0
 源协议: 01_protocols/龍魂算法审计与透明协议_v1.0.md
 优先级: P0++（最高，不可绕过）
-DNA: #龍芯⚡️丙午·乙未·甲寅·乾-ALGO-AUDIT-VALIDATOR-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲寅·庚午·䷀乾-ALGO-AUDIT-VALIDATOR-v1.0
 
 用法:
   python3 bin/lh_algo_audit_validator.py           # 跑全部 12 条测试向量
@@ -28,7 +29,7 @@ ALPHA_SIG    = 0.05    # 显著性水平
 class CNSH_算法审计器:
     """生态接入闸门：5.7与门，fail-closed。"""
 
-    DNA = "#龍芯⚡️丙午·乙未·甲寅·乾-ALGO-AUDIT-VALIDATOR-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·甲寅·庚午·䷀乾-ALGO-AUDIT-VALIDATOR-v1.0"
 
     # ===== 5.1 备案覆盖率 =====
     @staticmethod

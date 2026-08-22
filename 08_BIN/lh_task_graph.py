@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂·任务关联图谱引擎 v1.0
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☴巽-TASK-GRAPH-V1.0-7d3f1a9b
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷸巽-TASK-GRAPH-V1.0-7d3f1a9b
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

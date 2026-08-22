@@ -1,12 +1,14 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-da2501db
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂任务编排与执行可视化引擎 v1.1
 将用户需求自动拆解为可执行任务链，追踪每一步执行状态
 
-DNA: #龍芯⚡️丙午·癸未·壬午-TASK-ORCHESTRATOR-v1.1-UID9622
+DNA: #龍芯⚡️丙午·癸未·壬午·丙午·䷳艮为山-TASK-ORCHESTRATOR-v1.1-UID9622
 
 v1.1 修订要点:
   ① MD5 → SHA-256（对齐 L0 密码学标准）
@@ -56,7 +58,7 @@ DB_PATH = TASK_DIR / "tasks.db"
 LOG_DIR = ROOT_DIR / "logs"
 LOG_DIR.mkdir(exist_ok=True)
 
-DNA_PREFIX = "#龍芯⚡️丙午·癸未·壬午"
+DNA_PREFIX = "#龍芯⚡️丙午·癸未·壬午·丙午·䷳艮为山"
 
 # 🆕 v1.1 修订注①: MD5 → SHA-256（对齐 L0 密码学标准，与受益算法引擎一致）
 def _sha256_short(text: str, length: int = 8) -> str:

@@ -5,7 +5,7 @@
 """
 龍魂系统 · DNA捆绑与蒸馏防御引擎 v1.0
 ──────────────────────────────────────────────
-DNA: #龍芯⚡️2026-07-21-DNA-BIND-ANTIDISTILL-ENGINE-V1.0-P0
+DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-DNA-BIND-ANTIDISTILL-ENGINE-V1.0-P0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -60,7 +60,7 @@ HASH_ROUNDS = 3        # 组合数小值安全迭代
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 LEDGER_DB    = PROJECT_ROOT / "audit" / "dna_ledger.db"
-PROTOCOL_DNA = "#龍芯⚡️2026-07-21-DNA-BIND-ANTIDISTILL-V1.0-P0"
+PROTOCOL_DNA = "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-DNA-BIND-ANTIDISTILL-V1.0-P0"
 GPG_FP       = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 
 # ═══════════════════════════════════════════

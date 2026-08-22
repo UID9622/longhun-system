@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·未济-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷿未济-FIX_DNA-v1.0
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂·链接解析引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-链接解析-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-链接解析-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -90,8 +90,6 @@ class ParseResult:
             "dna": self.dna
         }
 
-    def to_json(self) -> str:
-        return json.dumps(self.to_dict(), ensure_ascii=False, indent=2)
 
 
 # ============================================================

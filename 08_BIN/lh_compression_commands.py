@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-DNA: #龍芯⚡️丙午·乙未·庚申·酉时·☰乾-COMPRESSION-COMMANDS-V3.0-d8e2f1a4
+DNA: #龍芯⚡️丙午·乙未·庚申·酉时·䷀乾-COMPRESSION-COMMANDS-V3.0-d8e2f1a4
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 

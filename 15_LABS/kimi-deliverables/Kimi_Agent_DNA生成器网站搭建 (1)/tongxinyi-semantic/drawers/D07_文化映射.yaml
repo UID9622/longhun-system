@@ -1,0 +1,37 @@
+# 龍魂语义抽屉 · D07 · 文化映射
+# 归属: 龍魂系统 UID9622 · 通心译引用源
+# 状态机: 种子 → 审核 → 焊死(P0冻结, 不可改只冻结)
+# 引用语法: @D07.{词元}  例: @D07.干支
+
+drawer: D07
+name: 文化映射
+count: 4
+entries:
+  - term: "干支"
+    alias: ["天干地支", "四柱"]
+    en: "ganzhi"
+    cnsh: "干支"
+    gua: "䷠遁"
+    status: "种子"
+    note: "年月日时四柱"
+  - term: "演卦"
+    alias: ["起卦", "卦象映射"]
+    en: "hexagram"
+    cnsh: "演卦"
+    gua: "䷡大壮"
+    status: "种子"
+    note: "hash%64王弼序"
+  - term: "推时"
+    alias: ["时辰", "计时"]
+    en: "shichen"
+    cnsh: "推时"
+    gua: "䷢晋"
+    status: "种子"
+    note: "(h+1)//2时辰"
+  - term: "五行"
+    alias: ["金木水火土"]
+    en: "five-elements"
+    cnsh: "五行"
+    gua: "䷣明夷"
+    status: "种子"
+    note: "权重调配模型"

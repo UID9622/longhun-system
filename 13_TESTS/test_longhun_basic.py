@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂基础回归测试
-DNA: #龍芯⚡️2026-06-21-LONGHUN-BASIC-TESTS-v1.0
+DNA: #龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-LONGHUN-BASIC-TESTS-v1.0
 """
 
 from pathlib import Path
@@ -35,7 +36,7 @@ def test_action_log_exists():
 
 
 def test_dna_marker_format():
-    dna = "#龍芯⚡️2026-06-21-LONGHUN-BASIC-TESTS-v1.0"
+    dna = "#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-LONGHUN-BASIC-TESTS-v1.0"
     assert dna.startswith("#龍芯")
     assert "⚡️" in dna
     assert len(dna) > 10

@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂系统 · 智能缓存清理引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·丙申·戌时·☰乾-CACHE-CLEANER-v1.0-3a7f1d2e
+DNA: #龍芯⚡️丙午·乙未·丙申·戌时·䷀乾-CACHE-CLEANER-v1.0-3a7f1d2e
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

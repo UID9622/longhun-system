@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 from __future__ import annotations
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂·训练数据桥接引擎 v1.0 (融合版)
-DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·讼-DATA-BRIDGE-v1.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·䷅讼-DATA-BRIDGE-v1.0
 
 功能:
   1. 从 data/sources/cleaned/ 读取清洗后数据
@@ -43,7 +44,7 @@ CLEANED_DIR = SOURCES_DIR / "cleaned"
 TRAIN_DATA_DIR = PROJECT_ROOT / "models" / "longhun-v1.0" / "lora_output" / "data"
 TRAIN_SCRIPT = PROJECT_ROOT / "bin" / "lh_lora_trainer.py"
 
-DNA_ANCHOR = "#龍芯⚡️丙午·辛未·乙酉·卯时·讼-DATA-BRIDGE-v1.0"
+DNA_ANCHOR = "#龍芯⚡️丙午·辛未·乙酉·卯时·䷅讼-DATA-BRIDGE-v1.0"
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 # 龍魂系统 System Prompt (与训练一致)

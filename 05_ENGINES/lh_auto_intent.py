@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂·自动意图识别与执行 v1.0
 ==========================
-DNA: #龍芯⚡️丙午·癸未·丁未·申时·☰乾-AUTO-INTENT-v1.0-EXECUTE
+DNA: #龍芯⚡️丙午·癸未·丁未·申时·䷀乾-AUTO-INTENT-v1.0-EXECUTE
 
 你说人话，系统自己动。
 - 分析模式：只看不执行

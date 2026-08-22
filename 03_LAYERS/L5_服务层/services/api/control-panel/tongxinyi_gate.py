@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂通心译闸门 | Tongxinyi Gate v1.1
@@ -14,7 +15,7 @@ v1.1 升级：接入计算公式对准表 v1.6 补全补丁
   - §H3-H6 人性偏置量表
   - 五行向量与人性偏置进入 SAST / 三色审计
 
-DNA: #龍芯⚡️2026-06-28-TONGXINYI-GATE-v1.1
+DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-TONGXINYI-GATE-v1.1
 """
 
 import hashlib

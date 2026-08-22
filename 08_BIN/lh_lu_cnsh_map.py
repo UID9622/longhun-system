@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · LU→CNSH 命令映射工具 v1.0
-DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-LU-CNSH-MAP-v1.0
+DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·䷜坎-LU-CNSH-MAP-v1.0
 创建者: 诸葛鑫 (UID9622)
 协议: CC BY-NC-SA 4.0
 
@@ -27,7 +27,7 @@ from pathlib import Path
 
 CST = timezone(timedelta(hours=8))
 
-DNA = "#龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-LU-CNSH-MAP-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·戊戌·巳时·䷜坎-LU-CNSH-MAP-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 # ═══════════════════════════════════════════

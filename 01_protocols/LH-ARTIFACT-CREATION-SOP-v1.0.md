@@ -1,8 +1,9 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 产物创建标准作业程序（SOP）
 
-> DNA: #龍芯⚡️丙午·癸未·丁未-ARTIFACT-CREATION-SOP-v1.0
+> DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-ARTIFACT-CREATION-SOP-v1.0
 > 适用范围：所有 AI 生成的源码、脚本、配置、文档、模型产物
 > 生效日期：2026-07-29
 
@@ -109,5 +110,5 @@ python3 scripts/sync_second_brain.py
 | 签章方 | 确认 |
 |:---|:---|
 | 创世者 | UID9622 |
-| DNA | #龍芯⚡️丙午·癸未·丁未-ARTIFACT-CREATION-SOP-v1.0 |
+| DNA | #龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-ARTIFACT-CREATION-SOP-v1.0 |
 | 生效 | 2026-07-29 |

@@ -2,13 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·乙卯·亥时·需-LOCAL-AI-RELAY-v1.0
+#龍芯⚡️丙午·丙申·乙卯·亥时·䷄需-LOCAL-AI-RELAY-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
 ╔═══════════════════════════════════════════════════════════════╗
 ║  🐉 龍魂本地AI中继 · 自己的下水道 v1.0                      ║
-║  DNA: #龍芯⚡️丙午·丙申·乙卯·亥时·需-LOCAL-AI-RELAY-v1.0   ║
+║  DNA: #龍芯⚡️丙午·丙申·乙卯·亥时·䷄需-LOCAL-AI-RELAY-v1.0   ║
 ║                                                               ║
 ║  不走 DeepSeek · 不走 Anthropic · 不走任何外部 API            ║
 ║  只走自己的 MLX 8081 + Ollama 11434                           ║

@@ -2,13 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-RUYI-ROUTER-v1.0
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-RUYI-ROUTER-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 CNSH·如意 路由引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-RUYI-ROUTER-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-RUYI-ROUTER-v1.0
 
 任务路由器 - 把解析后的如意任务分派到正确的AI执行节点。
 
@@ -108,8 +108,6 @@ class RuyiExecutionReport:
     completed_at: str = ""
     duration_ms: float = 0.0
 
-    def to_dict(self) -> Dict[str, Any]:
-        return asdict(self)
 
 
 # ─── 路由引擎 ──────────────────────────────────────────

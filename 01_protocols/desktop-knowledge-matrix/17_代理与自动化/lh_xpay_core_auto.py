@@ -1,12 +1,14 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🐉 XPay 支付网关 v1.1 (自动验证版)
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 XPay Payment Gateway v1.1 (Auto Mode)
 
 自动模式：无需交易演示，自动验证系统就绪度
 
-DNA:#龍芯⚡️2026-06-05-XPAY-CORE-AUTO-FILE1-v1.1
+DNA:#龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-XPAY-CORE-AUTO-FILE1-v1.1
 """
 
 import json

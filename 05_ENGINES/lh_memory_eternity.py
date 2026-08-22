@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️2026-07-25-MEMORY-ETERNITY-v1.0
+#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-MEMORY-ETERNITY-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -8,7 +8,7 @@
 # ═══════════════════════════════════════════
 # 龍魂体系 | 记忆永存引擎 v1.0
 # ═══════════════════════════════════════════
-# DNA: #龍芯⚡️2026-07-25-MEMORY-ETERNITY-v1.0
+# DNA: #龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-MEMORY-ETERNITY-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: UID9622（诸葛鑫·Lucky）
 # 三色审计: 🟢 通过
@@ -136,7 +136,7 @@ def _append_sync_log(entry: Dict[str, Any]):
 class MemorySnapshotter:
     """生成三份格式快照: JSON(机器可读)·Markdown(人类可读)·原始数据(完整备份)"""
 
-    DNA = "#龍芯⚡️2026-07-25-MEMORY-SNAPSHOTTER-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-MEMORY-SNAPSHOTTER-v1.0"
 
     def __init__(self):
         self.state = _load_state()
@@ -332,10 +332,8 @@ class MemorySnapshotter:
 class CrossPlatformSyncer:
     """三地冗余: Mac本地 → 鲲鹏 → 香港备份"""
 
-    DNA = "#龍芯⚡️2026-07-25-CROSS-PLATFORM-SYNCER-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-CROSS-PLATFORM-SYNCER-v1.0"
 
-    def __init__(self):
-        self.state = _load_state()
 
     def sync_to_kunpeng(self) -> Dict[str, Any]:
         """同步记忆到鲲鹏服务器。若当前就在鲲鹏上，则直接本地拷贝。"""
@@ -448,10 +446,8 @@ class CrossPlatformSyncer:
 class IntegrityVerifier:
     """定期自动验证记忆完整性"""
 
-    DNA = "#龍芯⚡️2026-07-25-INTEGRITY-VERIFIER-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-INTEGRITY-VERIFIER-v1.0"
 
-    def __init__(self):
-        self.state = _load_state()
 
     def verify(self) -> Dict[str, Any]:
         """验证记忆完整性"""
@@ -563,7 +559,7 @@ class IntegrityVerifier:
 class CrossModelAdapter:
     """记忆格式与模型无关——任何模型都能直接读取"""
 
-    DNA = "#龍芯⚡️2026-07-25-CROSS-MODEL-ADAPTER-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-CROSS-MODEL-ADAPTER-v1.0"
 
     @staticmethod
     def export_for_model(format: str = "system_prompt") -> str:

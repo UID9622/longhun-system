@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ╔══════════════════════════════════════════════════════════════════════╗
 ║         龍魂·自动思考管线 v1.0 — Think → Audit → Route              ║
 ║          Auto Think Pipeline: 收集 → 思考 → 审计 → 入库/驳回         ║
@@ -16,7 +17,7 @@
 ║    → 🟢入库 / 🟡标记待审 / 🔴驳回(附依据)                            ║
 ║    → 生成决策卡 → 追加决策链 → 返回完整审计轨迹                      ║
 ║                                                                      ║
-║  DNA: #龍芯⚡️丙午·乙未·丙辰·亥时·需-THINK-PIPELINE-v1.0          ║
+║  DNA: #龍芯⚡️丙午·乙未·丙辰·亥时·䷄需-THINK-PIPELINE-v1.0          ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                      ║
 ║                                                                      ║
 ║  用法:                                                               ║

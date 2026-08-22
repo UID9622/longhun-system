@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·软文化污染隔离协议 v1.0
 
-DNA: #龍芯⚡️丙午·乙未·丁酉·☲离-SOFT-CULTURE-ISOLATION-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·丙午·䷝离-SOFT-CULTURE-ISOLATION-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 审计: 🟢 已过十道闸口（含GATE-02文化主权闸）
@@ -361,7 +361,7 @@ def context_score(text: str, source_type: str) -> float:
 ## 签名
 
 本协议由诸葛鑫（UID9622）制定，AI辅助实现。
-DNA: #龍芯⚡️丙午·乙未·丁酉·☲离-SOFT-CULTURE-ISOLATION-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·丙午·䷝离-SOFT-CULTURE-ISOLATION-v1.0
 审计: 🟢 P05上帝之眼 + P15乔前辈先辈 + P72龍盾联合审计通过
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

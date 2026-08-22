@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 注入「模型迭代路线图」训练数据
 把 Kimi app 关于 v3.7 状态 / "厉害"标准 / 迭代路线图的讨论
 固化为模型可学习的 QA 对，归入「模型迭代路线图」知识域。
-DNA: #龍芯⚡️20260718234000000-ROADMAP-QA-INJECT-v3.9
+DNA: #龍芯⚡️丙午·乙未·癸巳·壬子·䷅讼-ROADMAP-QA-INJECT-v3.9
 """
 
 import json, random
@@ -77,7 +78,7 @@ def main():
                 {"role": "assistant", "content": a}
             ],
             "domain": "模型迭代路线图",
-            "dna": "#龍芯⚡️20260718234000000-ROADMAP-QA-INJECT-v3.9"
+            "dna": "#龍芯⚡️丙午·乙未·癸巳·壬子·䷅讼-ROADMAP-QA-INJECT-v3.9"
         })
 
     random.shuffle(samples)
@@ -103,7 +104,7 @@ def main():
     print(f"✅ 注入完成：train +{len(train_new)}, valid +{len(valid_new)}")
     print(f"   总样本: train={info['train_samples']}, valid={info['val_samples']}")
     print(f"   知识域: {len(info['domains'])} 个")
-    print(f"   DNA: #龍芯⚡️20260718234000000-ROADMAP-QA-INJECT-v3.9")
+    print(f"   DNA: #龍芯⚡️丙午·乙未·癸巳·壬子·䷅讼-ROADMAP-QA-INJECT-v3.9")
 
 
 if __name__ == "__main__":

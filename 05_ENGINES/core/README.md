@@ -1,9 +1,9 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 核心引擎
-# DNA: #龍芯⚡️2026-07-21-DUALVIEW-V3-LANDING-V1.0-P0
+# DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-DUALVIEW-V3-LANDING-V1.0-P0
 # M::DIRECTORY-9622-20260721-CORE_ENGINES-PASS
-# CNSH::#龍芯⚡️2026-07-21-核心引擎-v3.0
+# CNSH::#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-核心引擎-v3.0
 # 创建者: 诸葛鑫（UID9622）
 # 兼容期: 90天（至2026-10-19），到期清理零调用symlink
 

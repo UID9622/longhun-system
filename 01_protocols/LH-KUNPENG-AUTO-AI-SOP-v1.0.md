@@ -1,6 +1,8 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 龍芯·鲲鹏自动AI调取 SOP v1.0
 
-> **DNA**: `#龍芯⚡️丙午·丙申·丁巳·恒卦-KUNPENG-AUTO-AI-SOP-v1.0-UID9622`  
+> **DNA**: `#龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-KUNPENG-AUTO-AI-SOP-v1.0-UID9622`  
 > **SEAL**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`  
 > **GPG**: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 

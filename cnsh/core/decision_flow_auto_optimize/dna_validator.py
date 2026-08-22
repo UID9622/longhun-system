@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🧬 龍魂 DNA 格式校验器 v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA:#龍芯⚡️2026-05-17-DNA-VALIDATOR-FILE1-v1.0
+DNA:#龍芯⚡️丙午·癸巳·辛卯·甲午·䷚颐-DNA-VALIDATOR-FILE1-v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 功能: 校验主控页所有 DNA、确认码、版本号一致性
@@ -116,7 +117,7 @@ def main():
     validator = DNAValidator()
 
     # 示例: 校验一段 DNA
-    sample_dna = "#龍芯⚡️2026-05-17-DECISION-PAGE-AUTO-OPTIMIZATION-v1.0"
+    sample_dna = "#龍芯⚡️丙午·癸巳·辛卯·甲午·䷚颐-DECISION-PAGE-AUTO-OPTIMIZATION-v1.0"
     is_valid, msg = validator.validate_dna_format(sample_dna)
 
     print(f"DNA 校验: {msg}")

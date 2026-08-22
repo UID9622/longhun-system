@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·辛未·丙戌·未时·需-RECOMMEND-ENGINE-v1.0
+#龍芯⚡️丙午·辛未·丙戌·未时·䷄需-RECOMMEND-ENGINE-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # 🐉 龍魂 · 触角推荐引擎 v1.0
-# DNA: #龍芯⚡️丙午·辛未·丙戌·未时·需-RECOMMEND-ENGINE-v1.0
+# DNA: #龍芯⚡️丙午·辛未·丙戌·未时·䷄需-RECOMMEND-ENGINE-v1.0
 """
 龍魂触角推荐引擎 — 不用你记技能，系统根据上下文主动推荐
 

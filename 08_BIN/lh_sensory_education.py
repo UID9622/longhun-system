@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·丙辰·己丑·需-SENSORY-EDUCATION-DIGNITY-v1.0-52139EB3
+#龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-SENSORY-EDUCATION-DIGNITY-v1.0-52139EB3
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """🐉 龍魂引擎：lh_sensory_education
@@ -12,7 +12,7 @@ from __future__ import annotations
 """
 龍魂·感官教育尊严引擎 v1.0
 ================================
-DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·需-SENSORY-EDUCATION-DIGNITY-v1.0-52139EB3
+DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-SENSORY-EDUCATION-DIGNITY-v1.0-52139EB3
 
 三大核心子系统：
   1. 性教育去黑箱化 — 祛魅指数·年龄分层·科学内容
@@ -669,7 +669,7 @@ def print_banner():
     print("""
 ╔══════════════════════════════════════════════════════════╗
 ║     🧬 龍魂·感官教育尊严引擎 v1.0                       ║
-║     DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·需-SED-v1.0       ║
+║     DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-SED-v1.0       ║
 ╚══════════════════════════════════════════════════════════╝
 """)
 

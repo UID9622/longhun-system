@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂·量子协作引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-量子协作-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-量子协作-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -68,14 +68,6 @@ class Ket:
 class Bra:
     """左矢（行向量）"""
 
-    def __init__(self, dim: int, components: Optional[List[complex]] = None):
-        self.dim = dim
-        if components is None:
-            self.data = np.zeros(dim, dtype=complex)
-        else:
-            self.data = np.array(components, dtype=complex)
-            if len(self.data) != dim:
-                raise ValueError(f"维度不匹配: 期望{dim}, 实际{len(self.data)}")
 
     def ket(self) -> Ket:
         """共轭转置 → 右矢"""
@@ -584,7 +576,7 @@ def main():
     print("""
 ╔══════════════════════════════════════════════════════╗
 ║  🐉 龍魂·量子协作引擎 v1.0                          ║
-║  DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-v1.0              ║
+║  DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-v1.0              ║
 ║  确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z        ║
 ║  融合: Bra-Ket + 20人格 + 三色审计 + Lu指令           ║
 ╚══════════════════════════════════════════════════════╝

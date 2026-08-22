@@ -1,5 +1,5 @@
 // 龍魂代码中转站 · GPG 签名引擎
-// DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-SIGNER-v1.0
+// DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-SIGNER-v1.0
 
 use serde::{Deserialize, Serialize};
 use std::path::Path;

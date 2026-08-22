@@ -2,9 +2,10 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 CNSH v2.1 → C 编译器
-DNA: #龍芯⚡️2026-06-29-CNSH-COMPILER-C-v2.1
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-COMPILER-C-v2.1
 
 说明：教学占位编译器，生成使用 CnshValue 动态类型的 C 代码，
       支持数值/字符串/函数/if/while/for，标准库暂未接入 C。

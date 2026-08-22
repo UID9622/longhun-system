@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂·行为采集器 v1.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-BEHAVIOR-COLLECTOR-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-BEHAVIOR-COLLECTOR-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -126,8 +126,6 @@ class OrchestratorSource:
 class RuyiSource:
     """从如意总开关历史中提取行为事件"""
 
-    def __init__(self, root: Path = SYSTEM_ROOT):
-        self.root = root
 
     def collect(self) -> List[Dict[str, Any]]:
         events = []
@@ -177,8 +175,6 @@ class RuyiSource:
 class BrowserHistorianSource:
     """从浏览器史官数据中提取行为模式"""
 
-    def __init__(self, root: Path = SYSTEM_ROOT):
-        self.root = root
 
     def collect(self) -> List[Dict[str, Any]]:
         events = []

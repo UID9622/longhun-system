@@ -2,9 +2,10 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 CNSH v2.1 → Rust 编译器
-DNA: #龍芯⚡️2026-06-29-CNSH-COMPILER-RUST-v2.1
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-COMPILER-RUST-v2.1
 
 说明：本编译器将 CNSH 转译为 Rust，使用统一的 CnshValue 动态类型枚举，
       适合执行逻辑验证；性能敏感场景需后续静态类型增强。

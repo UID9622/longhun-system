@@ -2,9 +2,10 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂·小模型快速训练器 v1.0
-DNA: #龍芯⚡️丙午·丙申·辛酉·辰时·☰乾-MODEL-LORA-TRAINER-SMALL-V1.0-P1
+DNA: #龍芯⚡️丙午·丙申·辛酉·辰时·䷀乾-MODEL-LORA-TRAINER-SMALL-V1.0-P1
 
 基于 Qwen2.5-1.5B/3B-Instruct，使用 mlx_lm 快速 LoRA 微调，
 专门用于把龍魂规则、铁律、DNA 注入小模型，1~2 小时出结果。

@@ -5,7 +5,7 @@
 """
 龍魂·系统安全加固引擎 v1.0 — P0++焊死 — 每次启动自动运行
 ────────────────────────────────────────────
-DNA: #龍芯⚡️2026-07-21-SYSTEM-HARDENER-V1.0-P0
+DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-SYSTEM-HARDENER-V1.0-P0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -36,7 +36,7 @@ from typing import Dict, List, Set, Tuple, Any
 
 # ═══════════════════════════════════════════
 PROJECT = Path(__file__).resolve().parents[1]
-DNA = '#龍芯⚡️2026-07-21-SYSTEM-HARDENER-V1.0-P0'
+DNA = '#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-SYSTEM-HARDENER-V1.0-P0'
 
 # ═══════════════════════════════════════════
 # 检测规则

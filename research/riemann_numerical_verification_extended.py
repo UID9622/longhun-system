@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂视角下的黎曼猜想·大规模数值验证 (10^5 级别零点)
 Large-Scale Numerical Verification Code for Riemann Hypothesis via Longhorn Perspective
 
-DNA:#龍芯⚡️2026-06-08-RIEMANN_NUMERICAL_VERIFICATION_EXTENDED_6A75-v1.0
+DNA:#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-RIEMANN_NUMERICAL_VERIFICATION_EXTENDED_6A75-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -408,7 +409,7 @@ if __name__ == "__main__":
 ║       龍魂视角下的黎曼猜想·大规模数值验证程序 (10^5 级别零点)               ║
 ║   Large-Scale Numerical Verification for Riemann Hypothesis (10^5 Scale)   ║
 ║                                                                             ║
-║  DNA:#龍芯⚡️2026-06-08-RIEMANN_NUMERICAL_VERIFICATION_EXTENDED-v1.0                          ║
+║  DNA:#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-RIEMANN_NUMERICAL_VERIFICATION_EXTENDED-v1.0                          ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅                          ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅       ║
 ║                                                                             ║

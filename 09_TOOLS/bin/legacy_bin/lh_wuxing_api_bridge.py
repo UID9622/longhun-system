@@ -2,12 +2,13 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║     龍魂·五行计算器API桥接 v1.0 — 习惯指纹↔五行流场正式对接                    ║
 ║     Wuxing Calculator API Bridge · Habit Fingerprint ↔ Five Elements     ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️丙午·乙未·癸未·辰时-WUXING-API-BRIDGE-v1.0                  ║
+║  DNA: #龍芯⚡️丙午·乙未·癸未·丙辰·䷓观-WUXING-API-BRIDGE-v1.0                  ║
 ║  协议: 人物行为DNA不动点切割协议 v1.0 §7 五行计算器接驳 + §11 候补清单④         ║
 ║  功能: ① 习惯指纹→五行属性（数字根映射）                                        ║
 ║        ② RobotScore→五行流场健康度判定                                         ║

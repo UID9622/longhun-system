@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_ACTIVE_OBSERVATION-v1.0-f3f78689
+#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH_ACTIVE_OBSERVATION-v1.0-f3f78689
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -25,7 +25,7 @@
   - 对接 lh_regulatory_daemon（复用文件快照逻辑）
   - 对接 lh_resident_registry（常驻任务自动触发）
 
-DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·需-ACTIVE-OBSERVATION-v2.0
+DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·䷄需-ACTIVE-OBSERVATION-v2.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
@@ -55,7 +55,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from bin.lh_event_bus_engine import EventBus, EventType, Event  # noqa: E402
 
 # ── 常量 ──
-DNA = "#龍芯⚡️丙午·辛未·丙戌·亥时·需-ACTIVE-OBSERVATION-v2.0"
+DNA = "#龍芯⚡️丙午·辛未·丙戌·亥时·䷄需-ACTIVE-OBSERVATION-v2.0"
 VERSION = "2.0.0"
 OBS_DIR = PROJECT_ROOT / "data" / "active_observation"
 OBS_DIR.mkdir(parents=True, exist_ok=True)

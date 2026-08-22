@@ -1,7 +1,7 @@
 # 🐉 掀黑箱审计 · GitLab CI
 # 自动检测 MR 中的技术主权风险
 # 部署时间: 2026-08-01T00:06:18.758299
-# DNA: #龍芯⚡️20260801000618-GitLabCI-UID9622
+# DNA: #龍芯⚡️丙午·乙未·丁未·庚子·䷋否-GitLabCI-UID9622
 
 audit:
   stage: test

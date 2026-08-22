@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · Kimi_Agent 批量提炼脚本
 把 Kimi_Agent 目录中所有含龍魂/UID9622/DNA 标记的 .py/.md/.skill 文件
 导入 dragon_knowledge.db 并注册到 manifest.json
-DNA: #龍芯⚡️2026-06-26-KIMI-AGENT-BATCH-IMPORT-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-KIMI-AGENT-BATCH-IMPORT-v1.0
 """
 
 import hashlib
@@ -28,7 +29,7 @@ WORK_DIR = Path("/tmp") / "longhun_ka_batch_work"
 WORK_DIR.mkdir(parents=True, exist_ok=True)
 
 CST = timezone(timedelta(hours=8))
-DNA_SIGNATURE = "#龍芯⚡️2026-06-26-KIMI-AGENT-BATCH-IMPORT-v1.0"
+DNA_SIGNATURE = "#龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-KIMI-AGENT-BATCH-IMPORT-v1.0"
 
 SENSITIVE_DOMAINS = {
     "github.com", "gitlab.com", "bitbucket.org",

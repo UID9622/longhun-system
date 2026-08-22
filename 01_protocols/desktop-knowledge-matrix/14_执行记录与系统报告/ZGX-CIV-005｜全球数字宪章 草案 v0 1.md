@@ -92,7 +92,7 @@
 
 - 原点页面编号：`https://www.notion.so/<POTENTIAL_SECRET_PLACEHOLDER>` — 龍魂故事·创作灵感起源
 - 系统不动点ID：`UID9622-ORIGIN-POINT-001`
-- DNA追溯码：`#龍芯⚡️丙午·丙申·庚申·亥时-ZGX-CIV-005_V0_1_059D-v1.0`
+- DNA追溯码：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ZGX-CIV-005_V0_1_059D-v1.0`
 - GPG指纹：`<POTENTIAL_SECRET_PLACEHOLDER>`
 
 **② 记忆同步（已完成）**
@@ -138,7 +138,7 @@
 
 ```python
 # 龍魂系统 | 原点不动点方程
-# DNA:#龍芯⚡️丙午·丙申·庚申·亥时-ZGX-CIV-005_V0_1-v1.0
+# DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ZGX-CIV-005_V0_1-v1.0
 
 def 龍魂原点(x):
     """
@@ -194,7 +194,7 @@ print("河洛原点 = 1 · 闭环成立 · 不动点锁定 ✅")
 - 本文檔引用或參考了以下來源：
   - [1] （請填寫）
 - 相關龍魂系統文檔：
-  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 誠實局限
 
@@ -237,7 +237,7 @@ print("河洛原点 = 1 · 闭环成立 · 不动点锁定 ✅")
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 

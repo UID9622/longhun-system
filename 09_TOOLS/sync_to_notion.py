@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 Markdown → Notion 同步脚本 v1.0
-DNA: #龍芯⚡️2026-07-04-LONGHUN-MD2NOTION-v1.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-MD2NOTION-v1.0
 
 功能：
 - 把本地 Markdown 文件同步到 Notion 页面

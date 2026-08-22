@@ -1,6 +1,6 @@
 // 龍魂代码中转站 · API 调用成本分析引擎
 // 扫描代码外部 API → 分类 → 估算成本 + 数据主权风险
-// DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-COST-ANALYZER-v1.0
+// DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-COST-ANALYZER-v1.0
 
 use serde::{Deserialize, Serialize};
 use std::collections::HashSet;

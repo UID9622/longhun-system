@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-PRIVACY-WHITEPAPER-INTEGRATION-SYSTEM
@@ -9,7 +9,7 @@
 
 # 龍魂隐私白皮书
 
-> **DNA:** `#龍芯⚡️2026-07-04-PRIVACY-WHITEPAPER-UID9622`  
+> **DNA:** `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-PRIVACY-WHITEPAPER-UID9622`  
 > **归属:** 龍魂系统 · UID9622 · 龍芯北辰·诸葛鑫  
 > **协议:** 龍魂开源公约 v2.0 — 非专利、非门槛、君子协定  
 > **声明:** 无专利申请意图，全球公开，中国优先
@@ -225,9 +225,9 @@ Step 6: 输出三色结果：🟢通过 / 🟡待审 / 🔴超标
 
 | 模块 | 源码 | 文档 | DNA |
 |------|------|------|-----|
-| 国密加密引擎 | longhun_crypto_engine.py | guomi_crypto_engine.md | `#龍芯⚡️2026-07-04-GUOMI-CRYPTO-v3.0` |
-| 三色审计引擎 | tri_color_audit_engine.py | tri_color_audit_engine.md | `#龍芯⚡️2026-07-04-TRI-COLOR-AUDIT-v3.0` |
-| DNA追溯体系 | dragon_dna.py | dna_trace_system.md | `#龍芯⚡️2026-07-04-DNA-TRACE-v3.0` |
+| 国密加密引擎 | longhun_crypto_engine.py | guomi_crypto_engine.md | `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-GUOMI-CRYPTO-v3.0` |
+| 三色审计引擎 | tri_color_audit_engine.py | tri_color_audit_engine.md | `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-TRI-COLOR-AUDIT-v3.0` |
+| DNA追溯体系 | dragon_dna.py | dna_trace_system.md | `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-DNA-TRACE-v3.0` |
 
 ---
 
@@ -236,7 +236,7 @@ Step 6: 输出三色结果：🟢通过 / 🟡待审 / 🔴超标
 > **本文档版权归龍魂系统 · UID9622 · 龍芯北辰·诸葛鑫所有。**
 >
 > - **GPG 公钥指纹:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
-> - **DNA 锚定:** `#龍芯⚡️2026-07-04-PRIVACY-WHITEPAPER-UID9622`
+> - **DNA 锚定:** `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-PRIVACY-WHITEPAPER-UID9622`
 > - **确认标记:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 >
 > **无专利申请意图。全球公开。中国优先。君子协定。**

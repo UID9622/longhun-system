@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂数字人身份固化模块（多用户版）
@@ -13,7 +14,7 @@ LongHun Digital Persona Solidification - Multi-User
   - 每次调用数字人前，先验证声纹特征是否与记录匹配
   - 验证通过才允许输出，否则返回“数字人身份不匹配”
 
-DNA: #龍芯⚡️20260628-VOICE-PERSONA-v2.0
+DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-VOICE-PERSONA-v2.0
 """
 
 import json

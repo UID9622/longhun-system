@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-06-29-CNSH-DIR-AUDIT-UID9622
+#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-DIR-AUDIT-UID9622
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -18,7 +18,7 @@ if _module_dir not in _sys.path:
 """
 CNSH 目录审计器 v1.0
 批量扫描目录内代码文件，聚合三色审计结果，生成总报告。
-DNA: #龍芯⚡️2026-06-29-CNSH-DIR-AUDIT-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-DIR-AUDIT-UID9622
 """
 
 import argparse
@@ -66,7 +66,7 @@ class CNSH_目录审计:
             "风险文件数": 0,
             "三色摘要": {"🟢": 0, "🟡": 0, "🔴": 0},
             "文件结果": [],
-            "DNA": "#龍芯⚡️2026-06-29-CNSH-DIR-AUDIT-UID9622",
+            "DNA": "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-DIR-AUDIT-UID9622",
         }
 
     def _应扫描(self, 文件路径: Path) -> bool:
@@ -176,7 +176,7 @@ if __name__ == "__main__":
                 "风险文件数": 摘要["风险文件数"],
                 "报告路径": str(报告路径),
             }, ensure_ascii=False),
-            dna=摘要.get("DNA", "#龍芯⚡️2026-06-29-CNSH-DIR-AUDIT-UID9622"),
+            dna=摘要.get("DNA", "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-DIR-AUDIT-UID9622"),
         )
         print(f"\n🌐 公开仪表盘: {'已登记' if 仪表结果['ok'] else 仪表结果.get('reason', '失败')}")
 

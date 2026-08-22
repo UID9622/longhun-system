@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · Notion 引擎数据库建表脚本 v2.0
-DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·临-NOTION-ENGINE-DB-SETUP-v2.0-A1B2C3D4
+DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-NOTION-ENGINE-DB-SETUP-v2.0-A1B2C3D4
 创建者: 诸葛鑫 (UID9622)
 协议: CC BY-NC-SA 4.0
 
@@ -36,7 +36,7 @@ import urllib.error
 
 CST = timezone(timedelta(hours=8))
 
-DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·临-NOTION-ENGINE-DB-SETUP-v2.0-A1B2C3D4"
+DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-NOTION-ENGINE-DB-SETUP-v2.0-A1B2C3D4"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 ROOT = Path(__file__).resolve().parent.parent

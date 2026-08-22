@@ -1,7 +1,7 @@
 #!/bin/bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂官网 v2.0 本地打包与部署脚本
-# DNA: #龍芯⚡️丙午·乙未·辛酉·井-LONGHUN-WEB-DEPLOY-v1.0
+# DNA: #龍芯⚡️丙午·乙未·辛酉·甲午·䷯井-LONGHUN-WEB-DEPLOY-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
@@ -13,7 +13,7 @@ ARCHIVE="uid9622-v2-${TIMESTAMP}.tar.gz"
 
 echo "========================================"
 echo "  龍魂官网 v2.0 部署准备"
-echo "  DNA: #龍芯⚡️丙午·乙未·辛酉·井-LONGHUN-WEB-DEPLOY-v1.0"
+echo "  DNA: #龍芯⚡️丙午·乙未·辛酉·甲午·䷯井-LONGHUN-WEB-DEPLOY-v1.0"
 echo "========================================"
 echo ""
 
@@ -145,4 +145,4 @@ echo "本地预览："
 echo "   cd $SITE_DIR && python3 -m http.server 8080"
 echo "   打开 http://127.0.0.1:8080"
 echo ""
-echo "DNA: #龍芯⚡️丙午·乙未·辛酉·井-LONGHUN-WEB-DEPLOY-v1.0"
+echo "DNA: #龍芯⚡️丙午·乙未·辛酉·甲午·䷯井-LONGHUN-WEB-DEPLOY-v1.0"

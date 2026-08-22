@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 通心译结构落地引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-通心译结构-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-通心译结构-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -144,7 +144,7 @@ class TongxinParser:
                 match = re.search(r'`([#0-9A-Za-z⚡️\-\.]+)`', line)
                 if match:
                     return match.group(1)
-        return "#龍芯⚡️2026-05-29-MODERN-PHYSICS-TONGXIN-BILINGUAL-v1.0"
+        return "#龍芯⚡️丙午·癸巳·癸卯·戊午·䷚颐-MODERN-PHYSICS-TONGXIN-BILINGUAL-v1.0"
 
     def _parse_table(self, start_idx: int) -> List[Dict]:
         table = []

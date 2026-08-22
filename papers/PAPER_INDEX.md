@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂 · 全量论文统一索引
 
-> DNA: #龍芯⚡️丙午·乙未·丙申·申时·☱兑-PAPER-INDEX-v1.0-95PAPERS-39KEYWORDS-b8f4a1d2
+> DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷹兑-PAPER-INDEX-v1.0-95PAPERS-39KEYWORDS-b8f4a1d2
 > 创建者: 诸葛鑫（UID9622）
 > 协议: CC BY-NC-SA 4.0
 > 生成日期: 2026-07-23
@@ -310,5 +310,11 @@
 
 ---
 
-> INDEX END · 97 papers · 39 keywords · 2026-08-14（+2 蚁群分布式认知）
+## 附录D: 2026-08-21 新增
+
+| 论文 | 路径 | 说明 |
+|:---|:---|:---|
+| **Behavioral Cryptography（完整PDF·337页）** | `behavioral_crypto/BC-Paper-Full-v1.0.pdf` | 行为密码学·七因子溯源框架·SHA256 `1235cce8e927...` |
+
+> INDEX END · 98 papers · 39 keywords · 2026-08-21（+1 Behavioral Cryptography 完整PDF）
 > #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

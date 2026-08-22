@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🐉 龍魂 · 人格矩阵自动切换引擎 v2.0 (Persona Auto-Switch Engine)
 ==================================================================
 五维人格关键词自动触发 — 不再需要手动确认码，系统自动识别语境切换。
@@ -24,7 +25,7 @@
   - 对接 lh_event_bus_engine.EventBus
   - 对接 lh_persona_orchestrator (任务分发)
 
-DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·需-PERSONA-AUTO-SWITCH-v2.0
+DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·䷄需-PERSONA-AUTO-SWITCH-v2.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
@@ -47,7 +48,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from bin.lh_event_bus_engine import EventBus, EventType, Event  # noqa: E402
 
 # ── 常量 ──
-DNA = "#龍芯⚡️丙午·辛未·丙戌·亥时·需-PERSONA-AUTO-SWITCH-v2.0"
+DNA = "#龍芯⚡️丙午·辛未·丙戌·亥时·䷄需-PERSONA-AUTO-SWITCH-v2.0"
 VERSION = "2.0.0"
 SWITCH_DIR = PROJECT_ROOT / "data" / "persona_switch"
 SWITCH_DIR.mkdir(parents=True, exist_ok=True)

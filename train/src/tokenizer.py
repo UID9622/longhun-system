@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂本地训练引擎 · 分词器
-DNA: #龍芯⚡️2026-06-28-LONGHUN-TRAIN-TOKENIZER-v1.0
+DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-TRAIN-TOKENIZER-v1.0
 
 中文字符级分词器：每个独立汉字/符号一个 ID，简单、可解释、可焊。
 后续可替换为 BPE / SentencePiece / CNSH 专用分词。
@@ -32,7 +33,7 @@ class CharTokenizer:
         self.eos_id = self.special["[EOS]"]
         self.char2id = dict(self.special)
         self.id2char = {v: k for k, v in self.special.items()}
-        self.dna = "#龍芯⚡️2026-06-28-LONGHUN-TRAIN-TOKENIZER-v1.0"
+        self.dna = "#龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-TRAIN-TOKENIZER-v1.0"
 
     def fit(self, texts):
         """从语料中学习词表。"""

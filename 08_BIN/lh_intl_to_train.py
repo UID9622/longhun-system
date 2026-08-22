@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·辛未·乙酉·辰时·讼-INTL-TO-TRAIN-v1.0
+#龍芯⚡️丙午·辛未·乙酉·辰时·䷅讼-INTL-TO-TRAIN-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -12,7 +12,7 @@ TODO：请补充详细功能说明（不少于20字）。"""
 from __future__ import annotations
 """
 龍魂·国际数据→train.jsonl格式转换器 v1.0
-DNA: #龍芯⚡️丙午·辛未·乙酉·辰时·讼-INTL-TO-TRAIN-v1.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·辰时·䷅讼-INTL-TO-TRAIN-v1.0
 
 将 lh_intl_cleaner 生成的 {instruction/input/output} 格式
 转换为 train.jsonl 的 {messages} 格式
@@ -125,7 +125,7 @@ def main():
         json.dump(info, f, ensure_ascii=False, indent=2)
 
     print(f"\n✅ v1.7 国际数据合并完成！")
-    print(f"   DNA: #龍芯⚡️丙午·辛未·乙酉·辰时·讼-INTL-TO-TRAIN-v1.0")
+    print(f"   DNA: #龍芯⚡️丙午·辛未·乙酉·辰时·䷅讼-INTL-TO-TRAIN-v1.0")
 
 
 if __name__ == "__main__":

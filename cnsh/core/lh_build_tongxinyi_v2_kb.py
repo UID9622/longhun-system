@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 通心译 v2.0 + 龍魂标签 + CNSH 变量知识入库脚本
 =================================================
-DNA: #龍芯⚡️2026-07-01-LONGHUN-TONGXINYI-V2-KB-BUILD-v1.0
+DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-TONGXINYI-V2-KB-BUILD-v1.0
 
 1. 向 CS KB 写入通心译 v2.0、龍魂标签体系、CNSH 变量与龍魂字体知识卡片
 2. 在 longhun-system/knowledge/tongxinyi-v2/ 生成 Markdown 文档

@@ -2,19 +2,20 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║     龍魂·DNA登记册 v1.0 — §200有痕开源DNA登记协议·CLI工具                     ║
 ║     DNA Registry · Append-Only · Immutable · Local Sovereignty           ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️丙午·乙未·癸未·辰时-DNA-REGISTRY-CLI-v1.0                    ║
+║  DNA: #龍芯⚡️丙午·乙未·癸未·丙辰·䷓观-DNA-REGISTRY-CLI-v1.0                    ║
 ║  协议: §200 有痕开源DNA登记协议 v1.0                                         ║
 ║  铁律: 只追加·不删除·不修改·本地存储·主权不出                                  ║
 ╚══════════════════════════════════════════════════════════════════════════╝
 
 用法:
     python3 bin/lh_dna_registry.py --recent 10
-    python3 bin/lh_dna_registry.py --query "#龍芯⚡️2026-07-08"
+    python3 bin/lh_dna_registry.py --query "#龍芯⚡️丙午·乙未·癸未·戊午·䷖剥"
     python3 bin/lh_dna_registry.py --stats
     python3 bin/lh_dna_registry.py --register <dna_链> --type CREATE --target <文件>
 """

@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·庚戌·巳时·需-DEBEN-AUDIT-EXEC-v1.0
+#龍芯⚡️丙午·乙未·庚戌·巳时·䷄需-DEBEN-AUDIT-EXEC-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -12,7 +12,7 @@ lh_deben_audit — 龍魂德本审计执行器 v1.0
 执行德本五问，生成审计报告。德本审计在技术审计之前运行，
 五问全过才允许进入技术审计流程。
 
-DNA: #龍芯⚡️丙午·乙未·庚戌·巳时·需-DEBEN-AUDIT-EXEC-v1.0
+DNA: #龍芯⚡️丙午·乙未·庚戌·巳时·䷄需-DEBEN-AUDIT-EXEC-v1.0
 
 用法:
   python3 bin/lh_deben_audit.py scan          # 执行德本五问
@@ -435,7 +435,7 @@ class DebenAuditor:
         r = self.results
         print("=" * 60)
         print("  🐉 龍魂德本审计报告")
-        print("  DNA: #龍芯⚡️丙午·乙未·庚戌·巳时·需-DEBEN-AUDIT-v1.0")
+        print("  DNA: #龍芯⚡️丙午·乙未·庚戌·巳时·䷄需-DEBEN-AUDIT-v1.0")
         print("=" * 60)
         print()
 

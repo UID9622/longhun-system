@@ -2,13 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-PUBLIC-CONSOLE-v1.0-a3b7f1c9
+# DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-PUBLIC-CONSOLE-v1.0-a3b7f1c9
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 公开操作台 v1.0
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-PUBLIC-CONSOLE-v1.0-a3b7f1c9
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-PUBLIC-CONSOLE-v1.0-a3b7f1c9
 
 设计原则:
   - 所有人可见：无需登录即可查看系统状态/操作历史

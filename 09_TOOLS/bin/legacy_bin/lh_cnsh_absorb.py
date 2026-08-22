@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║       龍魂CNSH吸收器 · 任意代码 → CNSH中文可编辑 · 一键入生态            ║
 ║       LongHun CNSH Absorber · Any Code → CNSH Editable Format            ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-CNSH-ABSORB-v1.0                   ║
+║  DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-CNSH-ABSORB-v1.0                   ║
 ║  哲学: 任意代码翻译成中文编辑 · 吸收即登记 · 登记即归入DNA               ║
 ║  铁律: 来源不可删 · 原许可证保留 · DNA入链不可覆 · 吸收不走样            ║
 ║  📇 身份 · 联系 · 支持 → assets/PUBLIC_IDENTITY.md                      ║
@@ -603,4 +604,4 @@ if __name__ == "__main__":
         print(f"未知命令: {cmd} · 运行无参数查看帮助")
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-CNSH-ABSORB-v1.0-7C2E16A3
+# DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-CNSH-ABSORB-v1.0-7C2E16A3

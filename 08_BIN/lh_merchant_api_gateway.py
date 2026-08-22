@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-MERCHANT-API-GATEWAY-v1.0-a3f2c1d8
+# DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-MERCHANT-API-GATEWAY-v1.0-a3f2c1d8
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 """
@@ -10,7 +10,7 @@
 ║       龍魂·国产商户开放API网关 v1.0 — 让中国商户接入龍魂能力              ║
 ║       LongHun Merchant API Gateway · For Chinese Businesses Only         ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-MERCHANT-GATEWAY-v1.0              ║
+║  DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-MERCHANT-GATEWAY-v1.0              ║
 ║  #CONFIRM🌌9622-ONLY-ONCE🧬MAPI-A3F2                                     ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                           ║
 ║                                                                           ║
@@ -54,7 +54,7 @@ from functools import wraps
 from dataclasses import dataclass, field, asdict
 
 # ── 焊死常量 ──
-DNA = "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-MERCHANT-GATEWAY-v1.0"
+DNA = "#龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-MERCHANT-GATEWAY-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬MAPI-A3F2"
 GPG_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 SOVEREIGN_UID = "UID9622"

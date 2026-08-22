@@ -1,9 +1,11 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 Agent 编排器守护进程 v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 P2 · 常驻监听事件总线 · 自动路由 · 多 Agent 协作触发
-DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-AGENT-DAEMON-v1.0-UID9622
+DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-AGENT-DAEMON-v1.0-UID9622
 """
 
 import argparse

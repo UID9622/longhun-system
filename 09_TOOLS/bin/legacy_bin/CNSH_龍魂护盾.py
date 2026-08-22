@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 CNSH 龍魂护盾 v1.0
 颜色不动点协议的"手"。
@@ -10,7 +11,7 @@ CNSH 龍魂护盾 v1.0
 · 触发断联/告警
 · 上报监管协议
 · 生成防御 DNA
-DNA: #龍芯⚡️2026-06-29-CNSH-SHIELD-v1-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-SHIELD-v1-UID9622
 """
 
 import os as _os
@@ -89,7 +90,7 @@ class 龍魂护盾:
         self.墙 = 耻辱墙(工作目录=str(self.工作目录))
         self.告警记录: List[Dict[str, Any]] = []
         self.断联记录: List[Dict[str, Any]] = []
-        self.DNA = "#龍芯⚡️2026-06-29-CNSH-SHIELD-v1-UID9622"
+        self.DNA = "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-SHIELD-v1-UID9622"
 
     def 检查人工智能(self, 引擎名: str, 输入文本: str, 颜色结果: Optional[str] = None) -> Dict[str, Any]:
         """

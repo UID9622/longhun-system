@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-03260c71
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
@@ -7,7 +8,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 场景匹配→自动选择模板→生成抬头→附加ROOT_CARD
 
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-HEADER-TEMPLATE-SELECTOR-v1.0-b3d8e1a5
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-HEADER-TEMPLATE-SELECTOR-v1.0-b3d8e1a5
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -29,7 +30,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT / "bin"))
 
-DNA = "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-HEADER-TEMPLATE-SELECTOR-v1.0-b3d8e1a5"
+DNA = "#龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-HEADER-TEMPLATE-SELECTOR-v1.0-b3d8e1a5"
 VERSION = "1.0.0"
 
 # ============================================================

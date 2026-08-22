@@ -2,7 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """🐉 诸葛亮战略推演引擎 · H武器模拟器 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲寅·申时·师-P01-H-WEAPON-SIM-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·乙未·甲寅·申时·䷆师-P01-H-WEAPON-SIM-v1.0
 
 核心：一句话→N维推演→收敛解
 自产自销：推演结果→P06验证→P04代码落地→回流案例库"""
@@ -229,4 +230,4 @@ if __name__ == "__main__":
         hw.save_to_cases(result)
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·泰-CONFIRM-SEAL-h_weapon_simulator-41BE5C41
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷊泰-CONFIRM-SEAL-h_weapon_simulator-41BE5C41

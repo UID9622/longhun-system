@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · 老百姓维权助手
 
-**DNA**: `#龍芯⚡️2026-06-29-LONGHUN-RIGHTS-ASSISTANT-v1.0`
+**DNA**: `#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-RIGHTS-ASSISTANT-v1.0`
 
 > 让老百姓遇到不公时，能说得出法条、写得成投诉、拿得齐证据、找得到渠道。
 

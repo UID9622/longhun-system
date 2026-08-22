@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂真声 · 本地语音克隆训练套件（仅 UID9622 音源）
@@ -13,7 +14,7 @@
 4. 生成 XTTS / Coqui TTS 可用的数据集清单
 5. 可选：用 XTTS v2 做零样本克隆测试
 
-DNA: #龍芯⚡️2026-06-25-VOICE-CLONE-TRAINER-v1.0
+DNA: #龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-VOICE-CLONE-TRAINER-v1.0
 """
 
 import json
@@ -215,7 +216,7 @@ def prepare_dataset():
 
     manifest = {
         "created_at": datetime.now().isoformat(),
-        "dna": "#龍芯⚡️2026-06-25-VOICE-CLONE-UID9622-DATASET",
+        "dna": "#龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-VOICE-CLONE-UID9622-DATASET",
         "sample_rate": SAMPLE_RATE,
         "speaker": "UID9622",
         "total_source_seconds": round(total_seconds, 2),

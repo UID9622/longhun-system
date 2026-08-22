@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 import os as _os
 import sys as _sys
@@ -12,7 +13,7 @@ if _module_dir not in _sys.path:
 CNSH 知识库 v1.0
 统一收集 CNSH 加工产物：模块、DNA、核心概念、审计结果、使用方式。
 原则：只追加、不覆盖、不删除。
-DNA: #龍芯⚡️2026-06-29-CNSH-KB-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-KB-UID9622
 """
 
 import json
@@ -32,7 +33,7 @@ class CNSH_知识库:
         if not self.路径.exists():
             return {
                 "库名": "CNSH 龍魂知识库",
-                "DNA": "#龍芯⚡️2026-06-29-CNSH-KB-UID9622",
+                "DNA": "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-KB-UID9622",
                 "创建时间": datetime.now(timezone.utc).isoformat(),
                 "条目": [],
             }
@@ -92,7 +93,7 @@ if __name__ == "__main__":
         标题="排序不动点协议",
         文件路径="CNSH_排序不动点协议.py",
         核心概念=["人民第一", "护弱底线", "三次审计", "排序不动点"],
-        DNA="#龍芯⚡️2026-04-19-ORDER-ANCHOR-v1.0",
+        DNA="#龍芯⚡️丙午·壬辰·癸亥·戊午·䷚颐-ORDER-ANCHOR-v1.0",
         三色摘要={"🟢": 5, "🟡": 0, "🔴": 0},
         输入SM3哈希="demo_hash",
         备注="协议已翻译成 CNSH 国密 Python",

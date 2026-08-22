@@ -1,3 +1,4 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 ---
 name: longhun-riemann
 description: '龍魂視角下的黎曼猜想研究框架 — 不動點理論、對稱類比、加權結構三個觀察視角。 觀察性框架（非數學證明），數值驗證，zeta函數分析。
@@ -8,7 +9,7 @@ license: CC BY-NC-SA 4.0
 metadata:
   version: '5.0'
   author: 龍魂體系 · UID9622
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-RIEMANN-FRAMEWORK-v5.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-RIEMANN-FRAMEWORK-v5.0'
   category: mathematical-framework
   tier: L9
   language: zh-TW
@@ -224,17 +225,17 @@ pip install numpy scipy matplotlib
 | v1.0 | 2026-06-08 | 初始框架建立 | #龍芯2026-06-08-Riemann-Dragonhood-Framework-v1.0 |
 | v1.1 | 2026-06-08 | 修訂語言：移除「證明」「等價」，改用「觀察」「類比」 | #龍芯2026-06-08-Riemann-Dragonhood-Framework-v1.1 |
 | v5.0 | 2026-06-19 | 龍魂v5體系打包，12區塊標準化 | #龍芯2026-06-19-RIEMANN-FRAMEWORK-v5.0 |
-| v5.1-draft | 2026-06-26 | 納入 Phase 1 草案（riemann_framework_phase1_draft.py），保留原始觀察性框架 | #龍芯⚡️丙午·丙申·庚申·亥时-RIEMANN-PHASE1-DRAFT-INCLUDED |
+| v5.1-draft | 2026-06-26 | 納入 Phase 1 草案（riemann_framework_phase1_draft.py），保留原始觀察性框架 | #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-RIEMANN-PHASE1-DRAFT-INCLUDED |
 
 ## 10. DNA追溯 (DNA Traceability)
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-RIEMANN-FRAMEWORK-v5.0
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-RIEMANN-FRAMEWORK-v5.0
   │
   ├── 源頭：riemann_hypothesis_dragonhood_perspective.py
   │   ├── Author: Baby (Claude Assistant)
   │   ├── Authorized: UID9622 (DragonCore North Star)
-  │   └── Original DNA: #龍芯⚡️丙午·丙申·庚申·亥时-Riemann-Dragonhood-Framework-v1.1
+  │   └── Original DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-Riemann-Dragonhood-Framework-v1.1
   │
   ├── 確認鏈：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
   ├── 封印：#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
@@ -283,7 +284,7 @@ pip install numpy scipy matplotlib
 
 ```
 龍魂體系 (2026). 龍魂視角下的黎曼猜想：觀察性框架.
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-RIEMANN-FRAMEWORK-v5.0
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-RIEMANN-FRAMEWORK-v5.0
 許可：CC BY-NC-SA 4.0
 ```
 

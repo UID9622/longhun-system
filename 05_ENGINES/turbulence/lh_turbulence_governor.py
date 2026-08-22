@@ -19,7 +19,7 @@
   7. 固化/修正 → 参数自学习
   8. 审计追溯 → 完整血统
 
-DNA: #龍芯⚡️丙午·乙未·辛酉·井-TURBULENCE-GOVERNOR-V1.0
+DNA: #龍芯⚡️丙午·乙未·辛酉·甲午·䷯井-TURBULENCE-GOVERNOR-V1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 """

@@ -3,7 +3,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · 存储分离迁移脚本 v1.0
 # 将冷数据迁移到移动硬盘，活跃数据保留本地，代码同步到服务器
-# DNA: #龍芯⚡️2026-07-12-STORAGE-MIGRATE-v1.0
+# DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-STORAGE-MIGRATE-v1.0
 set -euo pipefail
 
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; CYAN='\033[0;36m'; NC='\033[0m'

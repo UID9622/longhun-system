@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-BATCH-RENDER-v1.0
+# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-BATCH-RENDER-v1.0
 
 """
 LonghunFont 批量渲染器
@@ -20,7 +21,7 @@ from datetime import datetime
 sys.path.insert(0, str(Path(__file__).parent.parent / "engines"))
 from cnsh_font_engine_uid9622 import CNSH字元基础引擎_UID9622
 
-DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-BATCH-RENDER-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-BATCH-RENDER-v1.0"
 
 
 def batch_render(glyph_path: str, output_dir: str):

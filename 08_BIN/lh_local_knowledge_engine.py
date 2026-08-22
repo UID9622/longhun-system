@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂·本地知识引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-知识引擎-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-知识引擎-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -72,7 +72,7 @@ INDEX_PATH = BASE_DIR / "file_index.json"
 
 DEFAULT_CONFIG = {
     "version": "1.0",
-    "dna": "#龍芯⚡️丙午·乙未·甲辰·离为火-知识引擎-v1.0",
+    "dna": "#龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-知识引擎-v1.0",
     "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     "scan_dirs": [
         "~/Documents",
@@ -133,8 +133,6 @@ class CodeSnippet:
     complexity: int
     dna: str
 
-    def to_dict(self) -> Dict:
-        return asdict(self)
 
 
 # ============================================================

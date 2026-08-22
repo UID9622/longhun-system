@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂 · 视频生产线 v1.0 — 鲁班剪辑中枢
-DNA: #龍芯⚡️2026-07-25-VIDEO-PIPELINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-VIDEO-PIPELINE-v1.0
 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0
 人格: 鲁班（P04·技术执行）— 三引擎合并·多平台分发·水印签章
 铁律: 本地生成·GPG签名·DNA水印·老大拍板才发布
@@ -49,7 +49,7 @@ try:
 except ImportError:
     VideoMarker = None
 
-DNA = "#龍芯⚡️2026-07-25-VIDEO-PIPELINE-v1.0-LUBAN-EDITOR"
+DNA = "#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-VIDEO-PIPELINE-v1.0-LUBAN-EDITOR"
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 平台预设

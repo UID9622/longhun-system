@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-AUDIT-BATTLE-HUB-v2.1-TUNED-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-# 龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-AUDIT-BATTLE-HUB-v1.0
+# 龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-AUDIT-BATTLE-HUB-v2.1
 # CREATOR: 诸葛鑫（UID9622）
 # PROTOCOL: CC BY-NC-SA 4.0
 # 功能: 龍魂审计对抗中枢 · 左右互搏 + 红蓝对抗 + 数学建模 + 漏洞扫描
 """
-龍魂系统 · 审计对抗中枢 v1.0
+龍魂系统 · 审计对抗中枢 v2.1（P04鲁班调参 · 2026-08-21）
 
 功能:
   1. 左右互搏审计：保守者 vs 探索者 双人格互审代码/协议/决策
@@ -85,9 +85,12 @@ def _now_iso() -> str:
     return datetime.now().isoformat()
 
 
+HUB_VERSION = "2.1"
+
+
 def _generate_dna(tag: str) -> str:
     h = hashlib.sha256(f"{tag}-{time.time()}-{_now_iso()}".encode()).hexdigest()[:8]
-    return f"#龍芯⚡️{_now_iso()[:10].replace('-','')}·{tag}-v1.0-{h}"
+    return f"#龍芯⚡️{_now_iso()[:10].replace('-','')}·{tag}-v{HUB_VERSION}-{h}"
 
 
 def _audit(path: Path, message: str, level: str = "INFO"):
@@ -149,11 +152,23 @@ class LonghunMathModel:
         return round(-sum((c / total) * math.log2(c / total) for c in counts.values()), 4)
 
     @staticmethod
-    def audit_score(duel_score: float, math_balance: float, vuln_count: int) -> Dict[str, Any]:
-        """综合审计评分"""
-        safety = max(0, 100 - vuln_count * 15)
-        overall = round((duel_score * 0.4 + math_balance * 0.3 + safety * 0.3), 2)
+    def audit_score(duel_score: float, math_balance: float, vuln: Any) -> Dict[str, Any]:
+        """综合审计评分 v2.1 · 安全优先
+        vuln 可传 int(总数) 或 dict{高危,中危,龍魂规范}。
+        安全分: 高危×25 重罚 · 中危×6 · 规范×4（规范=龍魂底线，不可轻放）
+        权重: 互搏40% + 安全35% + 五行平衡25%（安全>平衡）"""
+        if isinstance(vuln, dict):
+            high = vuln.get("高危", 0)
+            medium = vuln.get("中危", 0)
+            rule = vuln.get("龍魂规范", 0)
+        else:
+            high, medium, rule = vuln, 0, 0
+        safety = max(0, 100 - high * 25 - medium * 6 - rule * 4)
+        overall = round((duel_score * 0.40 + safety * 0.35 + math_balance * 0.25), 2)
         color = "🟢" if overall >= 80 else ("🟡" if overall >= 60 else "🔴")
+        # 安全红线降档: 高危/规范违规存在 → 封顶🟡（不允许高分掩盖红线）
+        if (high > 0 or rule > 0) and color == "🟢":
+            color = "🟡"
         return {"overall": overall, "duel": duel_score, "balance": math_balance, "safety": safety, "color": color}
 
 
@@ -193,8 +208,9 @@ class DuelAuditEngine:
         left_issues = []
         left_warnings = []
 
-        risk_patterns = ["未验证", "未配置", "未启用", " TODO", "FIXME", "未授权", "明文", "硬编码", "无异常处理"]
-        rule_patterns = ["无DNA", "无确认码", "无审计", "数据出境", "未留痕", "未签名"]
+        risk_patterns = ["未验证", "未配置", "未启用", " TODO", "FIXME", "未授权", "明文", "硬编码", "无异常处理",
+                         "境外回源", "私钥", "token", "密钥"]
+        rule_patterns = ["无DNA", "无确认码", "无审计", "数据出境", "未留痕", "未签名", "GPG", "D1", "主权"]
 
         left_issues.extend(self._check_list(combined, risk_patterns))
         left_issues.extend(self._check_list(combined, rule_patterns))
@@ -213,14 +229,21 @@ class DuelAuditEngine:
         if any(k in combined for k in ["手动", "人工"]):
             innovation = True
             right_warnings.append("可考虑自动化替代手动步骤")
+        if any(k in combined for k in ["自动路由", "auto", "说人话", "一键"]):
+            innovation = True
+            right_warnings.append("自动路由/一键完成=零门槛，符合产品哲学")
+        if any(k in combined for k in ["审计", "日志", "append-only"]):
+            innovation = True
+            right_warnings.append("审计链已内置，透明度达标")
 
-        # 共识判定
-        critical = len([i for i in left_issues if any(k in i for k in ["明文", "未授权", "数据出境", "硬编码"])])
+        # 共识判定（v2.1: 关键风险词表扩展 P0 项, 探索者权重上调）
+        critical_kw = ["明文", "未授权", "数据出境", "硬编码", "私钥", "境外回源", "D1", "GPG"]
+        critical = len([i for i in left_issues if any(k in i for k in critical_kw)])
         if critical > 0:
             consensus = False
             color = "🔴"
             score = max(0, 100 - critical * 25 - len(left_issues) * 10)
-            resolution = f"存在 {critical} 项关键风险，必须修复后再决策"
+            resolution = f"存在 {critical} 项关键风险（P0级），必须修复后再决策"
         elif len(left_issues) > 3:
             consensus = False
             color = "🟡"
@@ -229,7 +252,7 @@ class DuelAuditEngine:
         else:
             consensus = True
             color = "🟢"
-            score = min(100, 85 + len(right_warnings) * 3)
+            score = min(100, 88 + len(right_warnings) * 4)  # 探索者声音上调: 3→4
             resolution = "左右互搏达成共识，可执行但需持续审计"
 
         return DuelResult(
@@ -433,13 +456,22 @@ class VulnScanner:
                 continue
             for pattern, message in patterns:
                 for i, line in enumerate(lines, 1):
-                    if re.search(pattern, line):
-                        findings.append({
-                            "level": level,
-                            "line": i,
-                            "message": message,
-                            "code": line.strip()[:80],
-                        })
+                    if not re.search(pattern, line):
+                        continue
+                    # ── 豁免白名单（黑天使v2.0.1 · 治误报）──────────────
+                    # 1) 字符串格式化: strftime/logger/logging 参数化是安全写法
+                    #    （logger 的 %s 恰恰避免字符串拼接注入，不是洞）
+                    if "格式化" in message and re.search(r"strftime|logger|logging", line):
+                        continue
+                    # 2) print 误报: JS 前端函数 / subprocess 内联命令字符串
+                    if "print" in message and re.search(r"(const\s+\w+=|function\s+\w*\s*\(|python3.*-c)", line):
+                        continue
+                    findings.append({
+                        "level": level,
+                        "line": i,
+                        "message": message,
+                        "code": line.strip()[:80],
+                    })
 
         # 去重
         unique = []
@@ -459,7 +491,7 @@ class VulnScanner:
             "lines": len(lines),
             "findings": unique,
             "summary": {"高危": high, "中危": medium, "龍魂规范": rule, "总计": len(unique)},
-            "score": max(0, 100 - high * 20 - medium * 5 - rule * 3),
+            "score": max(0, 100 - high * 25 - medium * 5 - rule * 5),  # v2.1 高危/规范重罚
         }
 
     def scan_project(self, targets: List[Path]) -> Dict[str, Any]:
@@ -535,10 +567,17 @@ class AuditBattleHub:
         balance = self.math.five_elements_balance(five)
         trinity = self.math.trinity_index(0.7, 0.8, human_weight)
 
-        vuln_count = scan.get("summary", {}).get("总计", 0) if target.is_file() else sum(
-            r.get("summary", {}).get("总计", 0) for r in scan.get("results", [])
-        )
-        score = self.math.audit_score(duel.score, balance, vuln_count)
+        # v2.1: 传分档 dict（高危/中危/规范分开计权），聚合目录时加总
+        if target.is_file():
+            vuln = scan.get("summary", {})
+        else:
+            vuln = {"高危": 0, "中危": 0, "龍魂规范": 0, "总计": 0}
+            for r in scan.get("results", []):
+                s = r.get("summary", {})
+                for k in ("高危", "中危", "龍魂规范"):
+                    vuln[k] += s.get(k, 0)
+                vuln["总计"] += s.get("总计", 0)
+        score = self.math.audit_score(duel.score, balance, vuln)
 
         report = {
             "dna": dna,
@@ -668,7 +707,7 @@ if HAS_FLASK:
     def health():
         return jsonify({
             "status": "ok",
-            "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-AUDIT-BATTLE-HUB-v1.0",
+            "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-AUDIT-BATTLE-HUB-v1.0",
             "confirm": P0_CONFIG["confirm"],
         })
 
@@ -873,7 +912,7 @@ def main():
         if not HAS_FLASK:
             print("❌ 未安装 Flask，请执行: pip install flask")
             sys.exit(1)
-        print(f"#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-AUDIT-BATTLE-HUB-v1.0")
+        print(f"#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-AUDIT-BATTLE-HUB-v{HUB_VERSION}")
         print(f"🛡️ 龍魂审计对抗中枢启动: http://{args.host}:{args.port}")
         app.run(host=args.host, port=args.port, threaded=True)
 
@@ -882,15 +921,18 @@ def main():
 
 
 def _print_report(report: Dict[str, Any]):
-    print(f"\n{'='*60}")
-    print(f"🛡️ 龍魂审计对抗报告")
-    print(f"{'='*60}")
+    print(f"\n{'='*64}")
+    print(f"🛡️ 龍魂审计对抗报告 v{HUB_VERSION}")
+    print(f"{'='*64}")
     print(f"DNA: {report.get('dna')}")
+    print(f"确认码: {report.get('confirm', P0_CONFIG['confirm'])}")
     print(f"目标: {report.get('target', report.get('problem', '-'))}")
     score = report.get("score", {})
     print(f"综合评分: {score.get('color', '')} {score.get('overall', '-')} (互搏{score.get('duel')} / 平衡{score.get('balance')} / 安全{score.get('safety')})")
     duel = report.get("duel", {})
     print(f"左右互搏: {duel.get('color', '')} 共识={duel.get('consensus')} 评分={duel.get('score')}")
+    print(f"  左·{duel.get('left_opinion', '-')}")
+    print(f"  右·{duel.get('right_opinion', '-')}")
     print(f"决议: {duel.get('resolution', '-')}")
     if "scan" in report:
         scan = report["scan"]
@@ -900,7 +942,8 @@ def _print_report(report: Dict[str, Any]):
         rt = report["redteam"]
         if isinstance(rt, dict) and "penetration_rate" in rt:
             print(f"红蓝对抗: 变体{rt['variants']} 防御{rt['defended']} 穿透率{rt['penetration_rate']}%")
-    print(f"{'='*60}\n")
+    print(f"审计时间: {report.get('audited_at', '-')}")
+    print(f"{'='*64}\n")
 
 
 if __name__ == "__main__":

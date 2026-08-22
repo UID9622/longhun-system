@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 Claude 运行时包装器 v3.0 — CNSH 中文命名版
-DNA: #龍芯⚡️2026-06-29-CLAUDE-RUNTIME-v3-CNSH-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CLAUDE-RUNTIME-v3-CNSH-UID9622
 """
 
 from __future__ import annotations
@@ -32,7 +33,7 @@ MEMORY_PATH = HOME / ".longhun" / "memory" / "latest_digest.md"
 TIMELINE_DIR = HOME / ".longhun" / "timeline"
 TIMELINE_PATH = TIMELINE_DIR / "claude_runtime.jsonl"
 
-SHIELD_DNA = "#龍芯⚡️2026-06-29-龍魂护盾-v3-CNSH-UID9622"
+SHIELD_DNA = "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂护盾-v3-CNSH-UID9622"
 
 
 def _设置护盾环境默认值() -> None:

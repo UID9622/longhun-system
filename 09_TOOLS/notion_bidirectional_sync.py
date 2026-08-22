@@ -2,7 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
+# DNA: #龍芯⚡️丙午·丙申·#龍芯⚡️丙午·丙申·POSTAUDIT-NOTION_BIDIRECTIONAL-98787353
 """
 龍魂 · Notion 实时同步双向链路 v2.0
 
@@ -34,7 +36,7 @@
   # 查看同步状态
   python3 tools/notion_bidirectional_sync.py status
 
-DNA: #龍芯⚡️2026-07-12-NOTION-BIDIRECTIONAL-SYNC-v2.0
+DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-NOTION-BIDIRECTIONAL-SYNC-v2.0
 """
 from __future__ import annotations
 

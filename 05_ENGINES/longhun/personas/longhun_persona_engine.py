@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-06-23-LONGHUN-PERSONA-ENGINE-v1.0
+#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-PERSONA-ENGINE-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -12,7 +12,7 @@
 识别 UID9622 当前情绪，适配人格表达，绑定历史追溯。
 不是拼凑别人的论文代码，是龍魂原生创意：每一句话都可执行。
 
-DNA: #龍芯⚡️2026-06-23-LONGHUN-PERSONA-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-PERSONA-ENGINE-v1.0
 """
 from __future__ import annotations
 
@@ -102,7 +102,7 @@ def default_persona() -> PersonaConfig:
             "长期要求：通心译——AI 用各专业语言说话",
             "长期要求：知识库 / 知识图谱搭建",
         ],
-        dna="#龍芯⚡️2026-06-23-UID9622-PERSONA-v1.0",
+        dna="#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-UID9622-PERSONA-v1.0",
     )
 
 

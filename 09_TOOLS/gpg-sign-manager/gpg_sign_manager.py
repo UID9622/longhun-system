@@ -2,13 +2,14 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 """
 🐉 龍魂 GPG签署管理工具 · CNSH v2.0
 
 功能：统一管理CNSH协议文档与核心代码的GPG签名
 
-DNA:#龍芯⚡️2026-06-08-GPG-SIGN-MANAGER-v1.0
+DNA:#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-GPG-SIGN-MANAGER-v1.0
 GPG: "0000000000000000000000000000000000000000"
 CONFIRM: "#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX"
 """

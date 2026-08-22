@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·比-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷇比-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-EMBED-WATERMARK-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-EMBED-WATERMARK-v1.0
 """
 龍魂字元库 · 龍纹水印嵌入脚本
 将 U+E200（龍纹）图标以 0.15 倍缩放后，嵌入到除源图标外所有字形的右下角 (520,520)。
@@ -156,7 +157,7 @@ def main():
     meta["水印缩放比例"] = WATERMARK_SCALE
     meta["水印中心位置"] = list(WATERMARK_TARGET)
     meta["水印笔画数"] = WATERMARK_STROKES
-    meta["水印DNA"] = "#龍芯⚡️2026-06-22-LONGHUN-FONT-EMBED-WATERMARK-v1.0"
+    meta["水印DNA"] = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-EMBED-WATERMARK-v1.0"
     meta["水印描述"] = (
         f"每个字形右下角（中心 {WATERMARK_TARGET}）嵌入 {SOURCE_UNICODE} "
         f"龍纹水印，缩放 {WATERMARK_SCALE}，约 45×45 大小，作为龍魂字体身份标识。"
@@ -164,7 +165,7 @@ def main():
     meta["水印时间"] = datetime.now(timezone.utc).isoformat()
 
     # 顶层 DNA 与三色审计保留；新增顶层水印 DNA 字段便于检索
-    library["水印DNA"] = "#龍芯⚡️2026-06-22-LONGHUN-FONT-EMBED-WATERMARK-v1.0"
+    library["水印DNA"] = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-EMBED-WATERMARK-v1.0"
 
     print(f"[5/6] 更新元数据: 版本={meta['版本']}, 总字符数={meta['总字符数']}")
 

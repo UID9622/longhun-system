@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 <!--#龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-DOC-PERSONA_TRAINING_SYSTEM-v1.1 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
@@ -6,7 +7,7 @@
 > **📻 最新广播**: 参见 [`agents/broadcast/BULLETIN_DNA_v∞_2026-07-08.md`](broadcast/BULLETIN_DNA_v∞_2026-07-08.md)
 > — DNA 格式已从格里历 YYYY-MM-DD 升级为干支时辰 v∞，四代并行兼容。
 
-DNA(v1.0): `#龍芯⚡️丙午·丙申·庚申·亥时-PERSONA-TRAINING-SYSTEM-v1.0`  
+DNA(v1.0): `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PERSONA-TRAINING-SYSTEM-v1.0`  
 DNA(v1.1): `#龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-PERSONA-TRAINING-SYSTEM-v1.1`  
 DNA 修复: `#龍芯⚇️`（圈点·旧符号）→ `#龍芯⚡️`（闪电·标准符号）⎯ 2026-07-08 修复
 

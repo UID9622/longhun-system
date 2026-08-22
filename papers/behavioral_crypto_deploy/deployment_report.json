@@ -1,0 +1,34 @@
+{
+  "deployment_timestamp": "2026-08-21T02:50:46+08:00",
+  "uid": "UID9622",
+  "creator": "Zhuge Xin / 諸葛鑫 / 龍芯北辰",
+  "gpg_fingerprint": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "seal": "#ZHUGEXIN⚡2025-🇨🇳🐉⚖♠🧚❤♾-DEVICE-BIND-SOUL",
+  "system": "Longhun System / 龍魂系统",
+  "paper_structure": {
+    "chapters": [
+      "chapter_1_introduction.md",
+      "chapter_2_related_work.md",
+      "chapter_3_framework.md",
+      "chapter_4_longhun_case_study.md",
+      "chapter_5_evaluation_results.md",
+      "chapter_6_governance_standardization.md",
+      "chapter_7_conclusion.md",
+      "appendix_a_pseudocode.md",
+      "appendix_b_proof_bundle_schema.md",
+      "appendix_c_coauthorship_protocol.md",
+      "appendix_d_redacted_evidence.md",
+      "appendix_e_dna_inheritance_clause.md"
+    ],
+    "total_files": 12
+  },
+  "verification": {
+    "composite_confidence": 0.9887769640508989,
+    "hard_failure": false,
+    "evidence_log_count": 8
+  },
+  "proof_bundle": "papers/behavioral_crypto_deploy/proof_bundle_v1.json",
+  "status": "🟢 DEPLOYMENT_COMPLETE (conf=0.989)",
+  "dna": "#龍芯⚡2026-08-21-DEPLOYMENT-COMPLETE-UID9622-06D1645F"
+}

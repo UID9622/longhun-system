@@ -1,6 +1,6 @@
 # 🐉 CodeBuddy 路径统一三色审计报告
 
-> DNA: #龍芯⚡️丙午·丙申·癸丑·午时·需-CODEBUDDY-PATH-AUDIT-v1.0-UID9622
+> DNA: #龍芯⚡️丙午·丙申·癸丑·午时·䷄需-CODEBUDDY-PATH-AUDIT-v1.0-UID9622
 > 確認碼: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 > 審計時間: 2026-08-10
 > 審計者: Kimi
@@ -113,7 +113,7 @@
 ## 六、最终签名
 
 ```
-DNA:        #龍芯⚡️丙午·丙申·癸丑·午时·需-CODEBUDDY-PATH-AUDIT-v1.0-UID9622
+DNA:        #龍芯⚡️丙午·丙申·癸丑·午时·䷄需-CODEBUDDY-PATH-AUDIT-v1.0-UID9622
 確認碼:      #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色:       🟡 待审 → 整改后 🟢 通过

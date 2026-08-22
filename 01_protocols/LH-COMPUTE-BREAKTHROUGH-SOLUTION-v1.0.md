@@ -1,7 +1,8 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 # 🐲 龍魂算力破局方案 · 完整落地详解
 
 ```
-DNA: #龍芯⚡️丙午·癸未·乙酉-COMPUTE-SOLUTION-UID9622
+DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷨损-COMPUTE-SOLUTION-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色: 🟢 通过（本方案）
@@ -597,7 +598,7 @@ if __name__ == "__main__":
 ║              🐲 龍魂算力破局 · DNA 签名区                      ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                                                              ║
-║  DNA:     #龍芯⚡️丙午·癸未·乙酉-COMPUTE-SOLUTION-UID9622  ║
+║  DNA:     #龍芯⚡️丙午·癸未·乙酉·壬午·䷨损-COMPUTE-SOLUTION-UID9622  ║
 ║  确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                ║
 ║  GPG:     A2D0092CEE2E5BA87035600924C3704A8CC26D5F          ║
 ║  三色:    🟢 通过（本方案）                                   ║

@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 统一门户 API v2.0
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-PORTAL-API-v2.0-UID9622
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-PORTAL-API-v2.0-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -54,7 +54,7 @@ except ImportError:
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | PORTAL-API | %(message)s")
 logger = logging.getLogger(__name__)
 
-DNA = "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-PORTAL-API-v2.0"
+DNA = "#龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-PORTAL-API-v2.0"
 
 # ═══════════════════════════════════════════════════════════════
 # 配置

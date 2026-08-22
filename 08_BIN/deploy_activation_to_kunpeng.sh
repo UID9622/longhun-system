@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ============================================================
 # 龍魂 · 激活经济舱 + MFA 三件套 · 鲲鹏部署
-# DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-DEPLOY-ACTIVATION-PROD-v1.0
+# DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-DEPLOY-ACTIVATION-PROD-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 目标: 119.13.90.27 (华为云 / 鲲鹏节点)
 # 功能: 部署激活经济 API、激活舱页面、MFA 脚本
@@ -10,7 +10,7 @@
 
 set -euo pipefail
 
-DNA="#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-DEPLOY-ACTIVATION-PROD-v1.0"
+DNA="#龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-DEPLOY-ACTIVATION-PROD-v1.0"
 SERVER="root@119.13.90.27"
 SSH_KEY="${HOME}/.ssh/longhun_kunpeng_ed25519"
 REMOTE_ROOT="/opt/longhun-activation"

@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 from __future__ import annotations
 """
 龍魂通心语 · 多人格音色路由桥 v1.0
@@ -17,7 +18,7 @@ LongHun TongXin-Voice · Multi-Persona Voice Router Bridge
 核心理念：人格即音色。每个P系列人格有专属的声纹配置。
 路由链:  用户输入 ≈IPARoute≈> 人格判定 ≈VoiceRouter≈> 音色选择 ≈EngineRouter≈> TTS引擎
 
-DNA: #龍芯⚡️丙午·乙未·甲寅·亥时-VOICE-PERSONA-ROUTER-37357AB4
+DNA: #龍芯⚡️丙午·乙未·甲寅·乙亥·䷶丰-VOICE-PERSONA-ROUTER-37357AB4
 创始人: UID9622 · 龍芯北辰 · 诸葛鑫
 """
 

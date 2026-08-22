@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🐉 CNSH -> iOS 原生UI（SwiftUI版）· Python本地测试版
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-CNSH-iOS-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-CNSH-iOS-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 定位：在Mac上运行CNSH解释器的Python版本，与iOS版逻辑一致

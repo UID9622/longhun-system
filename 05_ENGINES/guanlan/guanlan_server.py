@@ -9,7 +9,7 @@
 # 一句话：观澜引擎 M1 里程碑 — 空壳端点，透传Ollama本地模型
 #   未来 M2-M5 逐步加载 分析/预测/推荐/可视化 能力
 # ═══════════════════════════════════════════════════════════
-# DNA: #龍芯⚡️丙午·乙未·壬戌·觀-GUANLAN-M1-v1.0
+# DNA: #龍芯⚡️丙午·乙未·壬戌·丙午·䷕贲-觀-GUANLAN-M1-v1.0
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -55,7 +55,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 PORT = 8770
 HOST = "127.0.0.1"
 VERSION = "M1-1.0.0"
-DNA = "#龍芯⚡️丙午·乙未·壬戌·觀-GUANLAN-M1-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·壬戌·丙午·䷕贲-觀-GUANLAN-M1-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 GPG = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 CST = timezone(timedelta(hours=8))

@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂操作日志记录器
 ==================
@@ -9,13 +10,13 @@
 
 用法示例：
     python3 bin/log_operation.py \
-        --dna#龍芯⚡️2026-06-18-EXAMPLE-FILE1-FILE1-v1.0" \
+        --dna#龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-EXAMPLE-FILE1-FILE1-v1.0" \
         --source "用户说：我要……" \
         --changes "a.py,b.py" \
         --logic "1. xxx\n2. yyy" \
         --responsibility "方向：用户，执行：Kimi"
 
-DNA:#龍芯⚡️2026-06-18-LONGHUN-OPERATION-LOGGER-v1.0
+DNA:#龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-LONGHUN-OPERATION-LOGGER-v1.0
 """
 import os
 import sys
@@ -81,7 +82,7 @@ def 记录(参数):
 
 > 本日志记录龍魂系统的每一次改动来源、去向、逻辑与责任。
 > 全部公开透明，无黑箱，不免责，可追溯。
-> DNA 编号：#龍芯⚡️2026-06-18-LONGHUN-OPERATION-LOG-v1.0
+> DNA 编号：#龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-LONGHUN-OPERATION-LOG-v1.0
 
 ---
 

@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════╗
@@ -9,7 +10,7 @@
 ║                                                                  ║
 ║  P1-2 规则引擎·规则执行器                                        ║
 ║                                                                  ║
-║  DNA:#龍芯⚡️2026-06-03-RULE-EXECUTOR-FILE1-v1.0                      ║
+║  DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-RULE-EXECUTOR-FILE1-v1.0                      ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                 ║
 ║                                                                  ║
 ║  责任: UID9622·不免责                                            ║

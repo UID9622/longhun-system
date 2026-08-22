@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║       龍魂统一DNA登记册 · 物理+虚拟全维身份锚定 v1.0                    ║
 ║       LongHun Unified DNA Registry · One Person, One Life               ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️丙午·丙申·甲寅·壬申-UNIFIED-DNA-REGISTRY-v1.0            ║
+║  DNA: #龍芯⚡️丙午·丙申·甲寅·庚午·䷕贲-壬申-UNIFIED-DNA-REGISTRY-v1.0            ║
 ║  哲学: 一世一双人 · 物理虚拟不二分 · 哈希可对人不可见 · 追溯本源        ║
 ║  铁律: 本人可查·他人不可见 · 哈希可验证 · 不可篡改 · 不可删除           ║
 ║  📇 身份 · 联系 · 支持 → assets/PUBLIC_IDENTITY.md                      ║
@@ -550,4 +551,4 @@ if __name__ == "__main__":
         print(f"未知命令: {cmd}")
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·临-CONFIRM-SEAL-lh_unified_dna_regis-2DFA8ABB
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷒临-CONFIRM-SEAL-lh_unified_dna_regis-2DFA8ABB

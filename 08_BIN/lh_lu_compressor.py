@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🐉 龍魂·LU压缩引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-LU压缩-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-LU压缩-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 定位：一颗钻石11切面，一条能跑的压缩链，本地回填规则，DNA双签。
@@ -47,7 +48,7 @@ TEMPORAL_DIR.mkdir(parents=True, exist_ok=True)
 
 CONFIG = {
     "version": "1.0",
-    "dna": "#龍芯⚡️丙午·乙未·甲辰·离为火-LU压缩-v1.0",
+    "dna": "#龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-LU压缩-v1.0",
     "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
     "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",

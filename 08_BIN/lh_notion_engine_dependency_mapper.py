@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · Notion 引擎依赖映射器 v1.0
-DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·临-NOTION-ENGINE-DEPENDENCY-MAPPER-v1.0-BAD75C7E
+DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-NOTION-ENGINE-DEPENDENCY-MAPPER-v1.0-BAD75C7E
 创建者: 诸葛鑫 (UID9622)
 协议: CC BY-NC-SA 4.0
 """
@@ -22,7 +22,7 @@ from typing import Any, Dict, List, Tuple
 
 CST = timezone(timedelta(hours=8))
 
-DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·临-NOTION-ENGINE-DEPENDENCY-MAPPER-v1.0-BAD75C7E"
+DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-NOTION-ENGINE-DEPENDENCY-MAPPER-v1.0-BAD75C7E"
 SCHEMA_VERSION = "1.0.0"
 
 ROOT = Path(__file__).resolve().parent.parent

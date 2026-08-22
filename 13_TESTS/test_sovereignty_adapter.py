@@ -155,7 +155,7 @@ def test_adapter_base_sovereignty():
     from bin.lh_adapter_base import SovereigntyAdapter
 
     class TestAdapter(SovereigntyAdapter):
-        DNA = '#龍芯⚡️2026-08-06-ADAPTER-TEST-V1.0-UID9622'
+        DNA = '#龍芯⚡️丙午·乙未·壬子·丙午·䷙大畜-ADAPTER-TEST-V1.0-UID9622'
         REPLACES = 'test-target'
 
         def _handle_hello(self, name='World'):

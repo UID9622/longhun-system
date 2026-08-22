@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂系统 · 评论水军显化与反操纵验证模块 v1.0
 源协议: 01_protocols/评论水军显化与反操纵协议_v1.0.md
 优先级: P0++（最高，不可绕过）
-DNA: #龍芯⚡️丙午·乙未·甲寅·蹇-COMMENT-INTEGRITY-VALIDATOR-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲寅·庚午·䷦蹇-COMMENT-INTEGRITY-VALIDATOR-v1.0
 
 用法:
   python3 bin/lh_comment_integrity_validator.py           # 跑全部 12 条测试向量
@@ -28,7 +29,7 @@ H_撒网, H_单一 = 5.0, 1.0
 class CNSH_水军审计器:
     """显化闸门：证据不足不越级，计算异常不标注。"""
 
-    DNA = "#龍芯⚡️丙午·乙未·甲寅·蹇-COMMENT-INTEGRITY-VALIDATOR-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·甲寅·庚午·䷦蹇-COMMENT-INTEGRITY-VALIDATOR-v1.0"
 
     # ===== 5.1 七因子可信度 =====
     @staticmethod

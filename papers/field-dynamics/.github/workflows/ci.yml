@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Smoke test (zero dependency)
+        run: python3 evaluator/evaluator.py --self-test
+
+      - name: Generate sample log and evaluate
+        run: |
+          python3 evaluator/gen_sample_log.py --n 1000
+          python3 evaluator/evaluator.py --log sample-log.jsonl --crash-window 300
+
+      - name: Assert key metrics (zero miss, 2 labeled flip points)
+        run: |
+          python3 evaluator/evaluator.py --log sample-log.jsonl --crash-window 300 | python3 -c "
+          import json, sys
+          d = json.load(sys.stdin)
+          alerts = d['alerts']
+          assert alerts['fnr'] == 0.0, f'FNR must be 0, got {alerts[\"fnr\"]}'
+          assert alerts['n_crashes'] == 2, f'expected 2 crashes, got {alerts[\"n_crashes\"]}'
+          assert alerts['n_alerts'] > 0, 'no alerts emitted'
+          print(f'PASS: fnr={alerts[\"fnr\"]} n_alerts={alerts[\"n_alerts\"]} fhi={d[\"fhi_now\"]:.3f}')
+          "
+
+      - name: Schema conformance (all rows valid)
+        run: |
+          python3 -c "
+          import json, re
+          rows = [json.loads(l) for l in open('sample-log.jsonl') if l.strip()]
+          assert len(rows) == 1000, f'expected 1000 rows, got {len(rows)}'
+          for i, r in enumerate(rows):
+              for req in ('ts', 'input_hash', 'session_id'):
+                  assert req in r, f'row {i} missing {req}'
+              assert re.fullmatch(r'[a-fA-F0-9]{64}', r['input_hash']), f'row {i} bad hash'
+              assert len(r.get('heads', {})) >= 2, f'row {i} heads < 2'
+              assert r.get('audit_level') in ('G0','G1','G2','G3','G4'), f'row {i} bad audit_level'
+          print(f'PASS: {len(rows)} rows conform to schema')
+          "

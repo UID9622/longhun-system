@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龍魂·真实性标识协议 | Truth-Tag Protocol</title>
+<style>
+:root{
+  --bg:#0a0a0c; --panel:#121216; --panel2:#18181e;
+  --gold:#d4af37; --gold-hi:#ffd968; --gold-dim:#8a742a;
+  --gray:#9aa0a6; --gray-dim:#5c6066;
+  --red:#e5484d;
+  --text:#e8e4d8; --text-dim:#a09a8a; --border:#2a2a30;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",sans-serif;min-height:100vh;}
+header{border-bottom:1px solid var(--gold-dim);padding:18px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;background:linear-gradient(180deg,#141310,#0a0a0c);}
+h1{font-size:20px;letter-spacing:3px;color:var(--gold);}
+h1 .sub{display:block;font-size:11px;letter-spacing:1px;color:var(--text-dim);margin-top:4px;font-weight:normal;}
+.dna{font-size:11px;color:var(--gold-dim);font-family:monospace;text-align:right;line-height:1.6;}
+nav{display:flex;border-bottom:1px solid var(--border);background:var(--panel);}
+nav button{flex:1;max-width:220px;padding:14px;background:none;border:none;border-right:1px solid var(--border);color:var(--text-dim);font-size:14px;letter-spacing:2px;cursor:pointer;transition:.2s;}
+nav button.active{color:var(--gold);background:var(--panel2);box-shadow:inset 0 -2px 0 var(--gold);}
+nav button:hover{color:var(--gold-hi);}
+section.tab{display:none;padding:24px 28px;max-width:1200px;margin:0 auto;}
+section.tab.active{display:block;}
+h2{color:var(--gold);font-size:17px;letter-spacing:2px;margin:26px 0 12px;border-left:3px solid var(--gold);padding-left:10px;}
+h2:first-child{margin-top:0;}
+p,li{font-size:14px;line-height:1.9;}
+ul,ol{padding-left:22px;}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;}
+th,td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+th{background:var(--panel2);color:var(--gold);letter-spacing:1px;}
+code{background:#000;border:1px solid var(--border);padding:1px 6px;border-radius:3px;color:var(--gold-hi);font-size:12px;}
+.badge{display:inline-block;padding:1px 8px;border-radius:3px;font-size:11px;letter-spacing:1px;font-weight:bold;vertical-align:middle;}
+.badge.shi{background:var(--gold);color:#000;box-shadow:0 0 8px rgba(212,175,55,.6);}
+.badge.yan{background:#3a3a40;color:var(--gray);border:1px dashed var(--gray-dim);}
+.badge.yi{background:var(--red);color:#fff;box-shadow:0 0 8px rgba(229,72,77,.6);animation:blink 1.2s infinite;}
+@keyframes blink{50%{opacity:.55;}}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0;padding:12px;background:var(--panel);border:1px solid var(--border);border-radius:6px;font-size:12px;}
+.legend span{display:flex;align-items:center;gap:6px;}
+.dot{width:12px;height:12px;border-radius:50%;display:inline-block;}
+#graphWrap{background:var(--panel);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+svg{display:block;width:100%;height:560px;}
+.edge-label{font-size:10px;fill:var(--text-dim);}
+#detail{background:var(--panel2);border:1px solid var(--gold-dim);border-radius:8px;padding:16px 20px;margin-top:14px;min-height:90px;font-size:13px;line-height:1.8;}
+#detail h3{color:var(--gold);font-size:15px;margin-bottom:6px;}
+textarea{width:100%;min-height:200px;background:#000;color:var(--text);border:1px solid var(--border);border-radius:6px;padding:14px;font-size:14px;line-height:1.8;font-family:monospace;resize:vertical;}
+.btn{background:var(--gold);color:#000;border:none;padding:10px 26px;font-size:14px;letter-spacing:2px;cursor:pointer;border-radius:4px;margin:12px 0;font-weight:bold;}
+.btn:hover{background:var(--gold-hi);}
+#scriptOut{background:#000;border:1px solid var(--border);border-radius:8px;padding:18px;min-height:120px;}
+.sub-line{display:flex;align-items:baseline;gap:10px;padding:8px 10px;border-bottom:1px solid #1c1c20;font-size:14px;line-height:1.7;}
+.sub-line.shi{border-left:3px solid var(--gold);background:rgba(212,175,55,.05);}
+.sub-line.yan{border-left:3px solid var(--gray-dim);color:var(--gray);background:rgba(154,160,166,.04);font-style:italic;}
+.sub-line.yi{border-left:3px solid var(--red);background:rgba(229,72,77,.06);}
+footer{border-top:1px solid var(--border);padding:16px 28px;font-size:11px;color:var(--text-dim);text-align:center;letter-spacing:1px;}
+.note{font-size:12px;color:var(--text-dim);margin-top:8px;}
+</style>
+</head>
+<body>
+<header>
+  <h1>龍魂 · 真实性标识协议<span class="sub">TRUTH-TAG PROTOCOL · 实 / 演 / 疑 三色可视化体系 · UID9622</span></h1>
+  <div class="dna">#龍芯⚡️丙午·乙未·丁未·天风姤-真实性协议-V1.0<br>龍魂系统 · 民生审计层 · 可集成模块</div>
+</header>
+<nav>
+  <button class="active" onclick="showTab(0,this)">◈ 协议规范</button>
+  <button onclick="showTab(1,this)">◈ 知识图谱原型</button>
+  <button onclick="showTab(2,this)">◈ 脚本标注器</button>
+</nav>
+<section class="tab active">
+<h2>P0 · 立法原意</h2>
+<p>短视频时代，「本片纯属虚构」只出现在片头一行小字，观众三秒后遗忘，长期浸泡在演绎内容中，把剧场当现实。龍魂真实性标识协议规定：<b>真实性标识必须常驻于每一个内容单元</b>——每一段文字、每一句台词、每一个画面出现时即带标识，不可剥离、不可翻页即失。</p>
+<h2>P1 · 三色定义（焊死）</h2>
+<table>
+<tr><th>标识</th><th>视觉</th><th>定义</th><th>判定标准</th></tr>
+<tr><td><span class="badge shi">实</span></td><td>高亮金色 · 实色 · 发光</td><td>真实层</td><td>真实采访、可验证数据、专业知识讲解、有来源的真实对话记录。必须附来源。</td></tr>
+<tr><td><span class="badge yan">演</span></td><td>灰色 · 半透明 · 虚线框</td><td>演绎层</td><td>情景剧场、虚构剧情、模拟对话、AI 生成场景、艺术加工。</td></tr>
+<tr><td><span class="badge yi">疑</span></td><td>红色 · 呼吸闪烁</td><td>存疑层</td><td>未经验证的断言、网传信息、无来源引用、AI 幻觉风险内容。</td></tr>
+</table>
+<h2>P2 · 标注语法</h2>
+<p>脚本层使用行首标签，机器可解析，视频流水线与知识图谱共用同一套规则：</p>
+<ul>
+<li><code>[实|来源:央视采访2026-07]</code> 后接真实内容，来源必填，缺来源自动降级为 [疑]</li>
+<li><code>[演]</code> 后接演绎内容</li>
+<li><code>[疑]</code> 后接存疑内容</li>
+<li><code>[混]</code> 真实事件改编的演绎，主标识为 [演]，其中引用真实片段处内嵌 [实]</li>
+</ul>
+<h2>P3 · 渲染规则</h2>
+<ol>
+<li><b>常驻</b>：角标随内容单元同生同灭，禁止仅在片头/片尾声明。</li>
+<li><b>同级</b>：标识视觉权重不得低于内容文字本身的 20%。</li>
+<li><b>降级自动</b>：声称「实」但无来源 → 系统自动改判「疑」并红闪。</li>
+<li><b>不删除只冻结</b>：历史标注错误不改写，追加更正记录（龍魂 P0 原则）。</li>
+</ol>
+<h2>P4 · 集成接口（预留）</h2>
+<ul>
+<li>视频流水线：标注脚本 → 字幕轨道生成三色字幕 + 常驻角标图层</li>
+<li>知识图谱：节点 color=实/演/疑，边线标注「来源：实证/演绎/存疑」</li>
+<li>龍魂民生审计层：商业宣传内容强制打标，演绎广告冒充真实案例即触发审计记录</li>
+</ul>
+<p class="note">本协议归属龍魂系统，免费开源，遵循 P0 焊死底座：为人民服务 · 零黑箱 · 数据主权在民。</p>
+</section>
+
+<section class="tab">
+<h2>知识图谱 · 三色真实性渲染原型</h2>
+<div class="legend">
+  <span><i class="dot" style="background:var(--gold);box-shadow:0 0 8px var(--gold)"></i>真实节点（实证来源）</span>
+  <span><i class="dot" style="background:var(--gray)"></i>演绎节点（情景剧场）</span>
+  <span><i class="dot" style="background:var(--red);box-shadow:0 0 8px var(--red)"></i>存疑节点（未验证）</span>
+  <span style="color:var(--text-dim)">点击节点查看来源详情</span>
+</div>
+<div id="graphWrap"><svg id="graph" viewBox="0 0 1000 560"></svg></div>
+<div id="detail"><h3>◈ 节点详情</h3>点击任意节点，查看其真实性标识、来源与判定依据。</div>
+</section>
+
+<section class="tab">
+<h2>脚本标注器 · 字幕级常驻角标演示</h2>
+<p>按 P2 语法输入脚本，每行一个内容单元。点击「渲染预览」，模拟视频字幕轨道效果——这就是将来视频流水线的输入格式。</p>
+<textarea id="scriptIn">[实|来源:中国载人航天工程办公室公告] 2026年，中国空间站常态化运营，航天员乘组每半年轮换一次。
+[演] 情景剧场：老张刷到一条视频，说"三个月包你进大厂，年薪百万"。
+[疑] 网传某品牌手机充电五分钟能用一个月，目前没有官方数据支持。
+[实|来源:国家统计局2025年报] 2025年全国居民人均可支配收入实际增长5.1%。
+[演] 剧情演绎：骗子在电话里自称"公检法"，要求转账到"安全账户"。
+[实|来源:公安部反诈中心提示] 公检法机关不会电话办案，不存在"安全账户"。</textarea>
+<button class="btn" onclick="renderScript()">▶ 渲染预览</button>
+<div id="scriptOut"></div>
+<p class="note">缺来源的 [实] 会被自动降级为 [疑] —— 试试把某行改成 <code>[实] 没有来源的一句话</code> 再渲染。</p>
+</section>
+
+<footer>龍魂系统 UID9622 · 真实性标识协议 V1.0 · #龍芯⚡️丙午·乙未·丁未·丙午·䷫姤-真实性协议-V1.0 · 免费开源 · 零黑箱</footer>
+
+<script>
+function showTab(i,btn){
+  document.querySelectorAll('section.tab').forEach((s,j)=>s.classList.toggle('active',j===i));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+const NODES=[
+ {id:0,x:500,y:90,t:'space',label:'中国空间站常态化运营',src:'中国载人航天工程办公室公告',desc:'真实层：官方公告可验证。标识[实]，金色常驻。'},
+ {id:1,x:220,y:220,t:'fiction',label:'"三个月包进大厂"广告短剧',src:'演绎内容·无真实依据',desc:'演绎层：培训机构情景剧营销。标识[演]，灰显+虚线。若冒充真实学员案例则触发审计。'},
+ {id:2,x:500,y:250,t:'doubt',label:'"充电五分钟用一个月"',src:'网传·无官方数据',desc:'存疑层：无来源断言，红闪标识[疑]。声称真实但无来源，系统自动降级至此。'},
+ {id:3,x:790,y:220,t:'space',label:'居民收入增长5.1%',src:'国家统计局2025年报',desc:'真实层：官方统计数据。标识[实]。'},
+ {id:4,x:160,y:400,t:'fiction',label:'"公检法安全账户"诈骗剧本',src:'演绎内容·用于反诈演示',desc:'演绎层：还原诈骗话术的情景剧场。标识[演]。'},
+ {id:5,x:480,y:430,t:'space',label:'公检法不电话办案',src:'公安部反诈中心提示',desc:'真实层：权威反诈提示。标识[实]，与演绎剧本形成对照组——演绎可以演，但必须让观众随时知道这是演的。'},
+ {id:6,x:800,y:410,t:'doubt',label:'"内部消息：某股必涨"',src:'群聊截图·无法核实',desc:'存疑层：典型金融谣言形态。标识[疑]，红闪。'},
+];
+const EDGES=[
+ [0,3,'同为官方实证'],[1,2,'演绎话术被当作真实传播'],[4,5,'剧本↔真实提示·对照'],
+ [2,6,'同为无来源断言'],[1,4,'同属情景演绎'],[5,3,'权威信源互证'],
+];
+const COLOR={space:'#d4af37',fiction:'#9aa0a6',doubt:'#e5484d'};
+const svg=document.getElementById('graph');
+let h='';
+EDGES.forEach(function(e){
+  const A=NODES[e[0]],B=NODES[e[1]];
+  const dash=(A.t==='fiction'||B.t==='fiction')?'5 4':'none';
+  h+='<line x1="'+A.x+'" y1="'+A.y+'" x2="'+B.x+'" y2="'+B.y+'" stroke="#2a2a30" stroke-width="1.5" stroke-dasharray="'+dash+'"/>';
+  h+='<text class="edge-label" x="'+((A.x+B.x)/2)+'" y="'+((A.y+B.y)/2-6)+'" text-anchor="middle">来源:'+e[2]+'</text>';
+});
+NODES.forEach(function(n){
+  const c=COLOR[n.t];
+  const dash=n.t==='fiction'?'stroke-dasharray="4 3"':'';
+  const anim=n.t==='doubt'?'<animate attributeName="opacity" values="1;.5;1" dur="1.2s" repeatCount="indefinite"/>':'';
+  const tag=n.t==='space'?'[实]':n.t==='fiction'?'[演]':'[疑]';
+  h+='<g style="cursor:pointer" onclick="showDetail('+n.id+')">'
+    +'<circle cx="'+n.x+'" cy="'+n.y+'" r="30" fill="'+(n.t==='fiction'?'#1a1a1e':'#141310')+'" stroke="'+c+'" stroke-width="2.5" '+dash+'>'+anim+'</circle>'
+    +'<circle cx="'+n.x+'" cy="'+n.y+'" r="6" fill="'+c+'"/>'
+    +'<text x="'+n.x+'" y="'+(n.y+50)+'" text-anchor="middle" fill="'+(n.t==='fiction'?'#9aa0a6':'#e8e4d8')+'" font-size="12">'+n.label+'</text>'
+    +'<text x="'+(n.x+34)+'" y="'+(n.y-24)+'" font-size="11" font-weight="bold" fill="'+c+'">'+tag+'</text></g>';
+});
+svg.innerHTML=h;
+function showDetail(id){
+  const n=NODES[id];
+  const b=n.t==='space'?'<span class="badge shi">实</span>':n.t==='fiction'?'<span class="badge yan">演</span>':'<span class="badge yi">疑</span>';
+  document.getElementById('detail').innerHTML='<h3>'+b+' '+n.label+'</h3><b>来源：</b>'+n.src+'<br><b>判定：</b>'+n.desc;
+}
+function renderScript(){
+  const lines=document.getElementById('scriptIn').value.split('\n');
+  let out='';
+  lines.forEach(function(l){
+    l=l.trim(); if(!l)return;
+    const m=l.match(/^\[(实|演|疑|混)(\|来源:([^\]]+))?\]\s*(.*)$/);
+    if(!m){out+='<div class="sub-line yi"><span class="badge yi">疑</span><span>'+l+' <i style="color:#e5484d;font-size:11px">（无标签·按协议默认为疑）</i></span></div>';return;}
+    let tag=m[1]; const src=m[3]; let text=m[4];
+    if(tag==='混'){tag='演';text='（真实事件改编）'+text;}
+    if(tag==='实'&&!src){tag='疑';text=text+' <i style="color:#e5484d;font-size:11px">（声称真实但无来源·自动降级）</i>';}
+    const cls=tag==='实'?'shi':tag==='演'?'yan':'yi';
+    const srcHtml=src?'<span style="font-size:10px;color:#a09a8a">来源:'+src+'</span>':'';
+    out+='<div class="sub-line '+cls+'"><span class="badge '+cls+'">'+tag+'</span><span>'+text+'</span>'+srcHtml+'</div>';
+  });
+  document.getElementById('scriptOut').innerHTML=out;
+}
+renderScript();
+</script>
+</body>
+</html>

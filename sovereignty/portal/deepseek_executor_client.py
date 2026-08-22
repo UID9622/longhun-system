@@ -2,7 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
-# #龍芯⚡️2026-07-03-ENGINE-DEEPSEEK_EXECUTOR_CLIENT-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# #龍芯⚡️丙午·甲午·戊寅·戊午·䷕贲-ENGINE-DEEPSEEK_EXECUTOR_CLIENT-v1.0
 # 君子協議: 本文件受龍魂DNA追溯保護
 
 #!/usr/bin/env python3
@@ -21,7 +22,7 @@
     resp = client.execute(route="chat", payload={"messages": [{"role": "user", "content": "你好"}]})
     print(resp)
 
-DNA: #龍芯⚡️20260628-DEEPSEEK-EXECUTOR-CLIENT-v1.0
+DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-DEEPSEEK-EXECUTOR-CLIENT-v1.0
 """
 
 import os

@@ -1,11 +1,11 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # Anxiety Maker Detector: Recognizing Manipulation
 
 ## How to Spot PUA, Emotional Blackmail, and Manufactured Anxiety
 
-> **DNA:** `#龍芯⚡️2026-07-10-ANXIETY-MAKER-DETECTOR-v2.0`  
+> **DNA:** `#龍芯⚡️丙午·乙未·乙酉·壬午·䷨损-ANXIETY-MAKER-DETECTOR-v2.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777J`  
 > **Author:** UID9622 · 龍芯北辰  
 > **Translation Date:** 2026-07-21  
@@ -161,6 +161,6 @@ UID9622 (Lucky):
 
 ---
 
-> **DNA:** `#龍芯⚡️2026-07-10-ANXIETY-MAKER-DETECTOR-v2.0`  
+> **DNA:** `#龍芯⚡️丙午·乙未·乙酉·壬午·䷨损-ANXIETY-MAKER-DETECTOR-v2.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777J`  
 > **Chinese people don't sell anxiety to each other. 中国人不制造焦虑收割同胞。**

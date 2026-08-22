@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # DNA: #龍芯⚡️丙午·丙戌·乙丑·卯时·䷯井-EVENT-BUS-v1.0-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 🐉 龍魂中枢事件总线（LongHun Central Bus, LCB）v1.0
@@ -38,6 +39,7 @@ import json
 import os
 import subprocess
 import sys
+import threading
 import time
 from datetime import datetime
 from pathlib import Path
@@ -332,6 +334,150 @@ def cmd_list(args: argparse.Namespace):
     conn.close()
 
 
+def cmd_dispatch(args: argparse.Namespace):
+    """四种分发模式：emit / waterfall / parallel / serial。
+
+    emit     —— 广播：发布事件 + 每个订阅者各执行一次 handler（结果互不影响）
+    waterfall—— 瀑布：订阅者按 priority 排队，前一个 handler 输出注入下一个输入
+    parallel —— 并行：所有订阅者 handler 同时执行，等全部
+    serial   —— 串行：按 priority 排队依次执行
+    """
+    conn = _init_db()
+    cursor = conn.cursor()
+
+    # 1. 发布事件（append-only 轨迹）
+    payload = args.payload
+    if not payload.startswith("{"):
+        p = Path(payload)
+        if p.exists():
+            payload = p.read_text(encoding="utf-8")
+        else:
+            print(f"❌ payload 不是 JSON 且文件不存在: {payload}", file=sys.stderr)
+            conn.close()
+            sys.exit(2)
+    try:
+        json.loads(payload)
+    except Exception as e:
+        print(f"❌ payload 不是合法 JSON: {e}", file=sys.stderr)
+        conn.close()
+        sys.exit(2)
+
+    ph = _payload_hash(args.topic, args.source, args.type, payload)
+    dna = generate_dna("EVENT-BUS", "UID9622")
+    now = datetime.now().isoformat()
+    try:
+        cur = conn.execute(
+            "INSERT INTO events (timestamp, dna, topic, source, event_type, payload, payload_hash, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            (now, dna, args.topic, args.source, args.type, payload, ph, "dispatched"),
+        )
+        event_id = cur.lastrowid
+        conn.commit()
+        print(f"✅ 事件已发布 | topic={args.topic} | type={args.type} | hash={ph} | mode={args.mode}")
+    except sqlite3.IntegrityError:
+        print(f"⏭️ 幂等跳过 | hash={ph}")
+        conn.close()
+        return
+
+    # 2. 找到订阅者（按 priority 排序）
+    if args.type:
+        cursor.execute(
+            "SELECT DISTINCT skill, priority FROM subscriptions WHERE topic=? AND (event_type=? OR event_type='*') ORDER BY priority",
+            (args.topic, args.type),
+        )
+    else:
+        cursor.execute(
+            "SELECT DISTINCT skill, priority FROM subscriptions WHERE topic=? ORDER BY priority",
+            (args.topic,),
+        )
+    subs = cursor.fetchall()
+    conn.close()
+
+    if not subs:
+        print(f"⚠️ 无订阅者 | topic={args.topic}（事件已存档，后续 consume/listen 可拉取）")
+        return
+    if not args.handler:
+        print(f"ℹ️ 无 --handler，仅存档（订阅者: {', '.join(s['skill'] for s in subs)}）")
+        return
+
+    env_base = {
+        "LCB_EVENT_ID": str(event_id),
+        "LCB_TOPIC": args.topic,
+        "LCB_TYPE": args.type,
+        "LCB_SOURCE": args.source,
+        "LCB_DISPATCH_MODE": args.mode,
+    }
+    skills = [s["skill"] for s in subs]
+
+    def _run_one(skill: str, inp: Optional[str], timeout: float) -> tuple:
+        """执行单个订阅者 handler，返回 (skill, returncode, stdout, stderr)。"""
+        env = os.environ.copy()
+        env.update(env_base)
+        env["LCB_SKILL"] = skill
+        env["LCB_PAYLOAD"] = payload
+        if inp is not None:
+            env["LCB_WATERFALL_INPUT"] = inp
+        try:
+            result = subprocess.run(
+                args.handler,
+                shell=True,
+                env=env,
+                input=inp,
+                capture_output=True,
+                text=True,
+                timeout=timeout,
+            )
+            return (skill, result.returncode, result.stdout[:800], result.stderr[:400])
+        except subprocess.TimeoutExpired:
+            return (skill, -1, "", "timeout")
+        except Exception as e:
+            return (skill, -2, "", str(e))
+
+    results = []
+    if args.mode == "waterfall":
+        # 前一个 stdout 注入下一个 stdin
+        stream = payload
+        for skill in skills:
+            skill, rc, out, err = _run_one(skill, stream, args.timeout)
+            results.append({"skill": skill, "rc": rc, "stdout": out, "stderr": err})
+            stream = out if out.strip() else stream
+        final = stream
+    elif args.mode == "parallel":
+        outs: Dict[str, Any] = {}
+        threads = []
+        for skill in skills:
+            t = threading.Thread(target=lambda s=skill: outs.update({s: _run_one(s, None, args.timeout)}))
+            threads.append(t)
+            t.start()
+        for t in threads:
+            t.join(args.timeout + 2)
+        results = [{"skill": s, "rc": outs.get(s, (s, -3, "", "timeout"))[1],
+                    "stdout": outs.get(s, (s, -3, "", "timeout"))[2],
+                    "stderr": outs.get(s, (s, -3, "", "timeout"))[3]} for s in skills]
+        final = payload
+    elif args.mode == "serial":
+        for skill in skills:
+            skill_name, rc, out, err = _run_one(skill, None, args.timeout)
+            results.append({"skill": skill_name, "rc": rc, "stdout": out, "stderr": err})
+        final = payload
+    else:  # emit 广播
+        for skill in skills:
+            skill_name, rc, out, err = _run_one(skill, None, args.timeout)
+            results.append({"skill": skill_name, "rc": rc, "stdout": out, "stderr": err})
+        final = payload
+
+    if args.json:
+        print(json.dumps({"event_id": event_id, "mode": args.mode, "results": results}, ensure_ascii=False))
+        return
+    print(f"🐉 分发完成 | mode={args.mode} | 订阅者 {len(skills)} 个")
+    for r in results:
+        mark = "🟢" if r["rc"] == 0 else "🔴"
+        print(f"  {mark} {r['skill']:<20} rc={r['rc']}")
+        if r["stdout"].strip():
+            print(f"      → {r['stdout'].strip()[:150]}")
+    if args.mode == "waterfall":
+        print(f"  最终输出: {final[:200]}")
+
+
 def cmd_stats(args: argparse.Namespace):
     conn = _init_db()
     cursor = conn.cursor()
@@ -384,6 +530,16 @@ def main():
     p_list.add_argument("--limit", type=int, default=20)
 
     sub.add_parser("stats", help="统计")
+
+    p_disp = sub.add_parser("dispatch", help="分发事件（emit/waterfall/parallel/serial 四种模式）")
+    p_disp.add_argument("--topic", required=True)
+    p_disp.add_argument("--source", required=True)
+    p_disp.add_argument("--type", required=True)
+    p_disp.add_argument("--payload", required=True, help="JSON 字符串或 JSON 文件路径")
+    p_disp.add_argument("--mode", default="emit", choices=["emit", "waterfall", "parallel", "serial"])
+    p_disp.add_argument("--handler", default=None, help="订阅者执行命令（waterfall 时前一个 stdout 注入下一个 stdin）")
+    p_disp.add_argument("--timeout", type=float, default=30.0)
+    p_disp.add_argument("--json", action="store_true", help="输出 JSON 数组")
 
     args = parser.parse_args()
     if not args.command:

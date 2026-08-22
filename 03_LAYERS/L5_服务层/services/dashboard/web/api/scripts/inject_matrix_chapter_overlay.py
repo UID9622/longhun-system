@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 · 矩阵章节覆盖层注入器
 在沉浸式矩阵页面加入卷轴式章节覆盖层，点击章节节点/列表时弹出，
 可朗读、跳转独立页、查看不动点。
-DNA: #龍芯⚡️2026-07-04-LONGHUN-MATRIX-CHAPTER-OVERLAY-v1.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-MATRIX-CHAPTER-OVERLAY-v1.0
 """
 
 import json
@@ -15,7 +16,7 @@ import re
 import time
 from pathlib import Path
 
-DNA = "#龍芯⚡️2026-07-04-LONGHUN-MATRIX-CHAPTER-OVERLAY-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-MATRIX-CHAPTER-OVERLAY-v1.0"
 P0_DIR = Path(__file__).resolve().parent.parent.parent / "p0-controls"
 MATRIX_FILE = P0_DIR / "龍魂知识矩阵-沉浸式AI播音员.html"
 DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "中国文化章节.json"
@@ -129,7 +130,7 @@ function openChapterOverlay(cid){
   document.getElementById('co-classical').textContent = c.classical_text;
   document.getElementById('co-modern').textContent = c.modern_text;
   document.getElementById('co-attribution').textContent = c.attribution || '暂无来源标注';
-  document.getElementById('co-dna').textContent = '不动点 DNA：' + (c.visual_anchor_dna || '-') + '\n系统 DNA：#龍芯⚡️2026-07-04-LONGHUN-CHINESE-CULTURE-CHAPTERS-v1.1';
+  document.getElementById('co-dna').textContent = '不动点 DNA：' + (c.visual_anchor_dna || '-') + '\n系统 DNA：#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-CHINESE-CULTURE-CHAPTERS-v1.1';
   const immList = document.getElementById('co-immutable-list');
   immList.innerHTML = (c.immutable_points || []).map(p=>'<li><span style="color:#d4af37;margin-right:6px">◆</span>'+p+'</li>').join('');
   document.getElementById('chapter-overlay').classList.add('open');
@@ -229,8 +230,8 @@ def inject():
 
     # 8. 更新 DNA 标记
     text = text.replace(
-        "#龍芯⚡️2026-07-04-LONGHUN-KNOWLEDGE-MATRIX-3D-v1.1",
-        "#龍芯⚡️2026-07-04-LONGHUN-KNOWLEDGE-MATRIX-3D-v1.2"
+        "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-KNOWLEDGE-MATRIX-3D-v1.1",
+        "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-KNOWLEDGE-MATRIX-3D-v1.2"
     )
 
     if text == original:

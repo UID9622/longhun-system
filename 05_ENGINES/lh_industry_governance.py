@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 行业痛点治理编排引擎 (Industry Pain-Point Governance Orchestrator)
-DNA: #龍芯⚡️丙午·丙申·丁酉·丑时-INDUSTRY-GOVERNANCE-UID9622
+DNA: #龍芯⚡️丙午·丙申·丁酉·辛丑·䷹兑为泽-INDUSTRY-GOVERNANCE-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 License: MulanPSL v2
@@ -294,8 +294,6 @@ class OpenSourceGovernanceSubsystem:
     name = "open_source"
     pain_point = "开源生态被饿死"
 
-    def __init__(self, conn: sqlite3.Connection):
-        self.conn = conn
 
     def honor(self, contributor: str, contribution: str, evidence: str = "") -> Dict[str, Any]:
         dna = generate_dna("HONOR")
@@ -363,8 +361,6 @@ class RuleEngineSubsystem:
     name = "rule_engine"
     pain_point = "AI治理规则碎片化"
 
-    def __init__(self, conn: sqlite3.Connection):
-        self.conn = conn
 
     def shame(self, pain_point: str, actor: str, reason: str, evidence: str = "") -> Dict[str, Any]:
         dna = generate_dna("SHAME")
@@ -403,8 +399,6 @@ class ShadowAISubsystem:
     name = "shadow_ai"
     pain_point = "影子AI横行"
 
-    def __init__(self, conn: sqlite3.Connection):
-        self.conn = conn
 
     def detect(self, tool_name: str, user: str, evidence: str = "") -> Dict[str, Any]:
         allowed = {"lh_terminal_writer", "lh_dsh", "lh_fast_index_core", "龍魂官方网关"}

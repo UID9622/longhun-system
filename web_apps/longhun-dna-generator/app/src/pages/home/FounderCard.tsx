@@ -6,7 +6,7 @@ import OutlineButton from '@/components/OutlineButton'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const ROLES = ['2010 年退伍老兵（服役 2 年）', 'CNSH 中文原生脚本发起人', '三才算法奠基者']
+const ROLES = ['2008 年退伍老兵（服役 2 年）', 'CNSH 中文原生脚本发起人', '三才算法奠基者']
 
 /** S9 · 创始人卡（左徽右文） */
 export default function FounderCard() {

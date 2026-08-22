@@ -1,7 +1,7 @@
 #!/bin/bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂 Notion 瀏覽器鏡像 LaunchAgent 包裝腳本
-# DNA: #龍芯⚡️2026-07-05-NOTION-MIRROR-LAUNCHD-WRAPPER-v1.0
+# DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-NOTION-MIRROR-LAUNCHD-WRAPPER-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #
 # 每 6 小時抓取一次 Notion 公開頁面鏡像，API 未共享時的兜底方案。

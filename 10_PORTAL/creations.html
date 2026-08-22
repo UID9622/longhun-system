@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂硬核创作库 · 治理国际AI</title>
+<meta name="description" content="龍魂硬核创作库：博弈论·人机共生·AI治理伦理·宇宙论·分布式认知·三才流場。数据不说谎，算法不中立，平台不无辜。">
+<style>
+:root{--bg:#0a0e17;--bg2:#0f1524;--card:#131b2e;--border:#1e2a45;--gold:#d4af37;--gold2:#f0d98c;--text:#e8e6df;--text-dim:#8a93a8;--green:#4ade80;--yellow:#facc15;--red:#f87171}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7}
+.container{max-width:960px;margin:0 auto;padding:24px 20px 80px}
+header{background:linear-gradient(160deg,#141c30,#0a0e17);border-bottom:1px solid var(--border);padding:48px 0 36px;text-align:center}
+header h1{font-size:30px;color:var(--gold);letter-spacing:2px}
+header p{color:var(--text-dim);font-size:14px;margin-top:8px}
+.badge{display:inline-block;font-size:12px;padding:4px 12px;border:1px solid var(--gold);color:var(--gold2);border-radius:20px;margin-bottom:14px}
+.dna{font-size:11px;color:var(--text-dim);opacity:.7;margin-top:12px;word-break:break-all}
+#creations-list{margin-top:28px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:16px;cursor:pointer;transition:.2s}
+.card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.card h3{color:var(--gold2);font-size:17px;margin-bottom:6px}
+.card .meta{font-size:12px;color:var(--text-dim);margin-bottom:8px}
+.card .abs{font-size:13px;color:var(--text);opacity:.85}
+.card .kw{margin-top:10px}
+.kw span{display:inline-block;font-size:11px;background:rgba(212,175,55,.1);color:var(--gold2);border:1px solid rgba(212,175,55,.3);padding:2px 10px;border-radius:12px;margin:2px 4px 0 0}
+.tc-green{color:var(--green)}.tc-yellow{color:var(--yellow)}.tc-red{color:var(--red)}
+#detail{display:none;margin-top:20px}
+.back{color:var(--gold);cursor:pointer;font-size:13px;margin-bottom:16px;display:inline-block}
+#detail-body{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:28px}
+#detail-body h1{font-size:24px;color:var(--gold);margin:16px 0 10px}
+#detail-body h2{font-size:19px;color:var(--gold2);margin:22px 0 8px;border-left:3px solid var(--gold);padding-left:10px}
+#detail-body h3{font-size:16px;color:var(--gold2);margin:16px 0 6px}
+#detail-body p{margin:8px 0;font-size:14px}
+#detail-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+#detail-body th,#detail-body td{border:1px solid var(--border);padding:8px 10px;text-align:left}
+#detail-body th{background:var(--card);color:var(--gold2)}
+#detail-body code{background:var(--card);padding:2px 6px;border-radius:4px;font-size:12px;color:var(--gold2)}
+#detail-body pre{background:var(--card);padding:14px;border-radius:8px;overflow-x:auto;font-size:12px;margin:10px 0}
+#detail-body blockquote{border-left:3px solid var(--gold);padding-left:14px;color:var(--text-dim);margin:10px 0}
+#detail-body hr{border:none;border-top:1px solid var(--border);margin:20px 0}
+.api-note{background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.25);border-radius:10px;padding:12px 16px;font-size:12px;color:#a7f3d0;margin-top:24px}
+.api-note code{color:var(--green)}
+footer{text-align:center;color:var(--text-dim);font-size:11px;padding:20px;opacity:.6}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container" style="padding-bottom:0">
+    <span class="badge">🇨🇳 中国自主 · 透明可审 · CC BY-NC-SA 4.0 / MulanPSL v2</span>
+    <h1>🐉 龍魂硬核创作库</h1>
+    <p>治理国际AI的龍魂原创 · 博弈论 · 人机共生 · AI治理伦理 · 宇宙论 · 分布式认知 · 三才流場</p>
+    <div class="dna">DNA: #龍芯⚡️丙午·丙申·戊申·戊午·䷙大畜-CREATIONS-LIBRARY-v1.0-UID9622 · 作者: 龍芯北辰 UID9622</div>
+  </div>
+</header>
+
+<div class="container">
+  <div id="creations-list"><div style="color:var(--text-dim)">加载中...</div></div>
+
+  <div id="detail">
+    <a class="back" onclick="showList()">← 返回创作库</a>
+    <div id="detail-body"></div>
+  </div>
+
+  <div class="api-note">
+    📡 <b>API 对外接出</b>：创作库同时通过开放 API 提供，任何人可调用 ——
+    <code>GET https://uid9622.cn/api/v1/creations</code>（列表） ·
+    <code>GET https://uid9622.cn/api/v1/creations/{slug}</code>（详情含全文）
+  </div>
+</div>
+
+<footer>龍魂出品 · 数据不说谎，算法不中立，平台不无辜 · <span id="foot-dna">#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</span></footer>
+
+<script>
+const API = '/api/v1/creations';
+let LIST = [];
+
+function mdEscape(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+function renderMD(txt){
+  var lines=mdEscape(txt).split('\n');
+  var out=[],inCode=false,codeBuf=[],inTable=false,tableBuf=[];
+  function flushTable(){if(tableBuf.length){out.push('<table>'+tableBuf.join('')+'</table>');tableBuf=[]}}
+  for(var i=0;i<lines.length;i++){
+    var l=lines[i];
+    if(l.trim().startsWith('```')){if(inCode){out.push('<pre>'+codeBuf.join('\n')+'</pre>');codeBuf=[];inCode=false}else{inCode=true}continue}
+    if(inCode){codeBuf.push(l);continue}
+    var t=l.trim();
+    if(t.startsWith('|')&&t.endsWith('|')){
+      var cells=t.slice(1,-1).split('|').map(function(c){return c.trim().replace(/\*\*/g,'').replace(/^\*\*/,'').replace(/\*\*$/,'')});
+      if(!inTable){inTable=true;tableBuf=['<tr>'+cells.map(function(c){return '<th>'+c+'</th>'}).join('')+'</tr>']}
+      else{tableBuf.push('<tr>'+cells.map(function(c){return '<td>'+c+'</td>'}).join('')+'</tr>')}
+      continue
+    }else if(inTable){flushTable();inTable=false}
+    if(/^#{1,6}\s/.test(t)){var n=t.match(/^(#{1,6})\s(.*)/);var lv=n[1].length;out.push('<h'+(lv+1)+'>'+n[2]+'</h'+(lv+1)+'>');continue}
+    if(t.startsWith('- ')||t.startsWith('* ')){out.push('<div style="padding-left:18px">• '+t.slice(2)+'</div>');continue}
+    if(/^\d+\.\s/.test(t)){out.push('<div style="padding-left:18px">'+t+'</div>');continue}
+    if(t.startsWith('> ')){out.push('<blockquote>'+t.slice(2)+'</blockquote>');continue}
+    if(t==='---'){out.push('<hr>');continue}
+    if(t===''){out.push('<br>');continue}
+    t=t.replace(/\*\*(.*?)\*\*/g,'<b>$1</b>').replace(/`(.*?)`/g,'<code>$1</code>');
+    out.push('<p>'+t+'</p>');
+  }
+  if(inCode){out.push('<pre>'+codeBuf.join('\n')+'</pre>')}
+  if(inTable){flushTable()}
+  return out.join('');
+}
+
+// 双源兜底：优先 API，失败回退静态 JSON/MD（uid9622.cn 静态可读）
+function loadList(){
+  return fetch(API).then(function(r){return r.json()}).then(function(d){
+    if(d.ok&&d.creations.length)return d.creations;
+    throw new Error('api-empty')
+  }).catch(function(){return fetch('data/creations_index.json').then(function(r){return r.json()}).then(function(d){return d.creations||[]})});
+}
+
+function loadDetail(slug){
+  return fetch(API+'/'+slug).then(function(r){return r.json()}).then(function(d){
+    if(d.ok&&d.creation)return d.creation;
+    throw new Error('api-empty')
+  }).catch(function(){return fetch('creations/'+slug+'/index.md').then(function(r){if(!r.ok)throw new Error('no-md');return r.text()}).then(function(txt){
+    // 静态 markdown 回退：生成最小元数据
+    var first=txt.split('\n').find(function(l){return l.trim().startsWith('# ')});
+    return {title:(first||'').replace('# ','').trim()||slug, content:txt, slug:slug, category:'', version:'', tricolor:''}
+  })});
+}
+
+function showDetail(slug){
+  loadDetail(slug).then(function(c){
+    document.getElementById('creations-list').style.display='none';
+    document.getElementById('detail').style.display='block';
+    document.getElementById('detail-body').innerHTML='<h1>'+mdEscape(c.title)+'</h1>'+
+      '<div style="font-size:12px;color:var(--text-dim);margin-bottom:14px">'+mdEscape(c.category||'')+' · '+mdEscape(c.version||'')+' · '+(c.tricolor||'')+'</div>'+
+      renderMD(c.content);
+    window.scrollTo(0,0);
+  }).catch(function(){alert('加载失败')});
+}
+
+function showList(){
+  document.getElementById('creations-list').style.display='';
+  document.getElementById('detail').style.display='none';
+}
+
+loadList().then(function(cs){
+  if(!cs.length){document.getElementById('creations-list').innerHTML='<div>暂无数据</div>';return}
+  LIST=cs;
+  var html='';
+  LIST.forEach(function(c){
+    var tc=c.tricolor==='🟢'?'tc-green':(c.tricolor==='🟡'?'tc-yellow':'tc-red');
+    html+='<div class="card" onclick="showDetail(\''+c.slug+'\')">'+
+      '<h3>'+mdEscape(c.title)+'</h3>'+
+      '<div class="meta">'+mdEscape(c.category||'')+' · '+mdEscape(c.subcategory||'')+' · <span class="'+tc+'">'+mdEscape(c.tricolor||'')+'</span> · v'+mdEscape((c.version||'').replace('v',''))+' · '+mdEscape(c.date||'')+'</div>'+
+      '<div class="abs">'+mdEscape(c.abstract)+'</div>'+
+      '<div class="kw">'+(c.keywords||[]).map(function(k){return '<span>'+mdEscape(k)+'</span>'}).join('')+'</div>'+
+      '</div>';
+  });
+  document.getElementById('creations-list').innerHTML=html;
+}).catch(function(){document.getElementById('creations-list').innerHTML='<div>加载失败，请稍后再试</div>'});
+</script>
+</body>
+</html>

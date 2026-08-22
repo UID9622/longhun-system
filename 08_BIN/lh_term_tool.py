@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂系统 · 术语大白话查询工具
-DNA: #龍芯⚡️丙午·癸未·丙戌·乾卦-TERM-TOOL-V1.2-UID9622
+DNA: #龍芯⚡️丙午·癸未·丙戌·甲午·䷀乾-TERM-TOOL-V1.2-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 分层许可: 工程层 MulanPSL v2
 描述: 查询龍魂+鸿蒙术语的中文大白话解释

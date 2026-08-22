@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 from __future__ import annotations
-##龍芯⚡️2026-06-26-WUXING-CALC-OPTIMIZATIONS-v1.0
+##龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-WUXING-CALC-OPTIMIZATIONS-v1.0
 # 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/usr/bin/env python3
@@ -15,7 +16,7 @@ from __future__ import annotations
 2. CV 均衡指数：用变异系数替代方差，避免总分影响均衡性判断
 3. 权重自学习：五行对冲指数 H 的权重随人工判定自动校准
 
-DNA: #龍芯⚡️2026-06-26-WUXING-CALC-OPTIMIZATIONS-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-WUXING-CALC-OPTIMIZATIONS-v1.0
 """
 
 import json
@@ -214,7 +215,7 @@ def compute_hedge_index_h(
         "action": action,
         "分项": scores,
         "权重": weights,
-        "DNA追溯": "#龍芯⚡️2026-05-07-五行对冲指数H-v3.1",
+        "DNA追溯": "#龍芯⚡️丙午·癸巳·辛巳·甲午·䷃蒙-五行对冲指数H-v3.1",
     }
 
 

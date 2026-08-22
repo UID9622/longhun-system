@@ -2,14 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·辛未·乙酉·NOTION-PROMPT-LIBRARY-BUILDER-v2.0
+#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-NOTION-PROMPT-LIBRARY-BUILDER-v2.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂·Notion 提示词库构建器 v2.0 (精筛 + 三分库)
 ==============================================
-DNA: #龍芯⚡️丙午·辛未·乙酉·NOTION-PROMPT-LIBRARY-BUILDER-v2.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-NOTION-PROMPT-LIBRARY-BUILDER-v2.0
 用途: 从本地 Notion 镜像重新抽取「真·可复用提示词模板」，按 AI 助手分库
       (宝宝 / 通心译 / Claude / 通用)，产出结构化 JSON + 可读 MD。
 
@@ -33,7 +33,7 @@ ROOT = Path(__file__).resolve().parent.parent
 MIRROR_DIR = ROOT / "docs" / "notion_mirror" / "pages"
 OUT_DIR = ROOT / "L7_数据层" / "notion_prompt_library"
 
-DNA = "#龍芯⚡️丙午·辛未·乙酉·NOTION-PROMPT-LIBRARY-v2.0"
+DNA = "#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-NOTION-PROMPT-LIBRARY-v2.0"
 
 # ── 助手分类关键词 (优先级从上到下) ──
 ASSISTANT_RULES = [

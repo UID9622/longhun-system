@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍芯·鲲鹏任务路由引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·子时·☰乾-KUNPENG-ROUTER-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·子时·䷀乾-KUNPENG-ROUTER-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -208,7 +208,7 @@ class 鲲鹏路由器:
     
     def __init__(self):
         self.版本 = "v1.0"
-        self.DNA = "#龍芯⚡️丙午·乙未·丁酉·子时·☰乾-KUNPENG-ROUTER-v1.0"
+        self.DNA = "#龍芯⚡️丙午·乙未·丁酉·子时·䷀乾-KUNPENG-ROUTER-v1.0"
     
     def 分析任务(self, 任务描述: str, 上下文: Optional[dict] = None) -> 任务域:
         """从自然语言任务描述中识别任务域"""
@@ -419,7 +419,7 @@ def demo():
     
     print("=" * 60)
     print("  🐉 龍芯·鲲鹏任务路由引擎 v1.0")
-    print("  DNA: #龍芯⚡️丙午·乙未·丁酉·子时·☰乾-KUNPENG-ROUTER")
+    print("  DNA: #龍芯⚡️丙午·乙未·丁酉·子时·䷀乾-KUNPENG-ROUTER")
     print("=" * 60)
     
     # 展示20人格

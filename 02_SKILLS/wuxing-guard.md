@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # /wuxing-guard
@@ -15,12 +15,12 @@
 > #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 > 📄 五行守护 | 龍魂系统 · 源头已验证
 
-**DNA**: `#龍芯⚡️2026-07-06-WUXING-GUARD-v1.0-5XELMT`
+**DNA**: `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-WUXING-GUARD-v1.0-5XELMT`
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬5ELEM`
 
 ---
 
-<!--#龍芯⚡️2026-07-06-WUXING-GUARD-v1.0-5XELMT -->
+<!--#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-WUXING-GUARD-v1.0-5XELMT -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 ---
@@ -73,6 +73,6 @@ source: bin/wuxing_guard.py
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-07-06-WUXING-GUARD-v1.0-5XELMT
+#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-WUXING-GUARD-v1.0-5XELMT
 #CONFIRM🌌9622-ONLY-ONCE🧬5ELEM
 ```

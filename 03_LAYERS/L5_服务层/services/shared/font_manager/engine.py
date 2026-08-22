@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 from __future__ import annotations
 """
 龍魂字体管理引擎 v2.0 · LonghunFont Engine
 =============================================
 底座组件 · L1_内核层/fonts 字体子系统
-DNA: #龍芯⚡️丙午·辛未·乙酉-LONGHUN-FONT-ENGINE-v2.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-LONGHUN-FONT-ENGINE-v2.0
 
 升级点 (v1.0 → v2.0):
   1. fontTools 真实元数据解析 (PostScript名/家族/样式/字形数)
@@ -30,7 +31,7 @@ from fontTools.ttLib import TTFont, TTLibError
 # ═══════════════════════════════════════════
 # DNA 追溯
 # ═══════════════════════════════════════════
-__DNA__ = "#龍芯⚡️丙午·辛未·乙酉-LONGHUN-FONT-ENGINE-v2.0"
+__DNA__ = "#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-LONGHUN-FONT-ENGINE-v2.0"
 __VERSION__ = "2.0.0"
 __AUTHOR__ = "UID9622"
 

@@ -1,0 +1,22 @@
+# DNA: #龍芯⚡️2026-08-22-SYSTEMD-ALIGN-v1.0
+[Unit]
+Description=龍魂自描述子系统 ADS API (port 9626)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-system
+ExecStart=/usr/bin/python3 /opt/longhun-system/bin/lh_self_describing.py --api --port 9626
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONPATH=/opt/longhun-system/bin
+
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ReadWritePaths=/root/.longhun/ads
+
+[Install]
+WantedBy=multi-user.target

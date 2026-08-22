@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍芯·鲲鹏人格集群管理引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·子时·☰乾-KUNPENG-PERSONA-CLUSTER-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·子时·䷀乾-KUNPENG-PERSONA-CLUSTER-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -24,7 +24,7 @@ from pathlib import Path
 # 常量
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-DNA = "#龍芯⚡️丙午·乙未·丁酉·子时·☰乾-KUNPENG-PERSONA-CLUSTER-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丁酉·子时·䷀乾-KUNPENG-PERSONA-CLUSTER-v1.0"
 版本 = "v1.0"
 
 # 环境自适应：鲲鹏=/opt/longhun-system，Mac=项目根

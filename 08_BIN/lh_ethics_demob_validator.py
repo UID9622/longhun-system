@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·甲寅·颐-ETHICS-DEMOB-VALIDATOR-v1.0
+#龍芯⚡️丙午·乙未·甲寅·庚午·䷚颐-ETHICS-DEMOB-VALIDATOR-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -10,7 +10,7 @@
 龍魂系统 · 战后整顿验证模块 v1.0
 源协议: 01_protocols/龍魂数据战后整顿与回头是岸协议_v1.0.md
 优先级: P0++（最高，不可绕过）
-DNA: #龍芯⚡️丙午·乙未·甲寅·颐-ETHICS-DEMOB-VALIDATOR-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲寅·庚午·䷚颐-ETHICS-DEMOB-VALIDATOR-v1.0
 
 用法:
   python3 bin/lh_ethics_demob_validator.py           # 跑全部 12 条测试向量
@@ -30,7 +30,7 @@ S0, T_HALF = 0.20, 30.0                                 # 回头者初始信任/
 class CNSH_战后整顿验证器:
     """出厂闸门：5.6与门，fail-closed，无人工捷径。"""
 
-    DNA = "#龍芯⚡️丙午·乙未·甲寅·颐-ETHICS-DEMOB-VALIDATOR-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·甲寅·庚午·䷚颐-ETHICS-DEMOB-VALIDATOR-v1.0"
 
     @staticmethod
     def 戾气指数(维度命中: dict) -> float:               # 5.1

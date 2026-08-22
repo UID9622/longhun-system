@@ -1,7 +1,7 @@
 #!/bin/bash
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 🐉 龍魂流控压测 · 清理脚本
-# DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-CLEANUP-UID9622
+# DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-CLEANUP-UID9622
 # License: MulanPSL v2 (工程层)
 
 set -e

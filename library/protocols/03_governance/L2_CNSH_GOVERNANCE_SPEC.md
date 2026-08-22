@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂 CNSH 治理规范 · LongHun CNSH Governance Specification
 
-**DNA:** `#龍芯⚡️2026-06-25-LONGHUN-CNSH-GOVERNANCE-v1.0`  
+**DNA:** `#龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-LONGHUN-CNSH-GOVERNANCE-v1.0`  
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 **创始人:** UID9622 / Lucky（诸葛鑫）  
 **生效日期:** 2026-06-25  
@@ -169,7 +169,7 @@
 
 ---
 
-**DNA:** `#龍芯⚡️2026-06-25-LONGHUN-CNSH-GOVERNANCE-v1.0`
+**DNA:** `#龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-LONGHUN-CNSH-GOVERNANCE-v1.0`
 
 ---
 

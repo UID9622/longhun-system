@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 DeepSeek 共享对话语境入库脚本
 ==============================
-DNA: #龍芯⚡️2026-07-01-DEEPSEEK-CONTEXT-KB-BUILD-v1.0
+DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-DEEPSEEK-CONTEXT-KB-BUILD-v1.0
 
 1. 在 longhun-system/knowledge/deepseek-shared/ 生成 Markdown 语境文档
 2. 向 CS KB 写入语境卡片（意图/终端方案/开源边界）

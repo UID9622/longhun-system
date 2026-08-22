@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🛡️ 龍魂上下文安全引擎 · CLI 入口 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·火雷噬嗑-SAFEAI-CLI-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷔噬-SAFEAI-CLI-v1.0
 
 用法:
   python3 bin/lh_safeai.py --inspect "什么是SQL注入？怎么防范？"
@@ -58,7 +59,7 @@ def main():
             "ledger_path": args.ledger,
             "ledger_records": len(engine.trace.ledger.records),
             "engine": "龍魂上下文安全引擎 v1.0",
-            "dna": "#龍芯⚡️丙午·乙未·甲辰·火雷噬嗑-SAFEAI-CLI-v1.0",
+            "dna": "#龍芯⚡️丙午·乙未·甲辰·庚午·䷔噬-SAFEAI-CLI-v1.0",
         }
         print(json.dumps(info, ensure_ascii=False, indent=2))
         return

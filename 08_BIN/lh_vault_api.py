@@ -2,12 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-VAULT-API-v1.0
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-VAULT-API-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # ╔══════════════════════════════════════════════════════════════╗
 # ║  龍魂·本地保险柜 API v1.0                                    ║
-# ║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-VAULT-API-v1.0        ║
+# ║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-VAULT-API-v1.0        ║
 # ║  仅本地 127.0.0.1 访问                                        ║
 # ╚══════════════════════════════════════════════════════════════╝
 """
@@ -39,7 +39,7 @@ import uvicorn
 
 from engines.lh_local_vault import LocalVault
 
-DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-VAULT-API-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-VAULT-API-v1.0"
 
 app = FastAPI(title="龍魂本地保险柜 API", version="1.0.0")
 vault = LocalVault()

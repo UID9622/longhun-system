@@ -3,7 +3,7 @@
 # 龍魂支付生态 · Claude & Kimi 协作搭建指南
 # LongHun Payment Ecosystem · Claude & Kimi Collaborative Build Guide
 
-**DNA:#龍芯⚡️2026-06-05-CLAUDE-KIMI-COLLABORATION-v1.0**
+**DNA:#龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-CLAUDE-KIMI-COLLABORATION-v1.0**
 **签名: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅**
 **确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅**
 
@@ -94,7 +94,7 @@ Kimi读文档 → Claude生代码 → Kimi验证 → Claude记录DNA
   $ cd ~/.龍魂/xpay
   $ python3 xpay_server.py
   服务器在 http://localhost:8888 运行
-  DNA: #龍芯⚡️20260605-XPAY-API-SERVER-v1.0
+  DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-XPAY-API-SERVER-v1.0
 
 任务2: 官网前端 (HTML/Vue)
   位置: ~/longhun-website
@@ -114,7 +114,7 @@ Kimi读文档 → Claude生代码 → Kimi验证 → Claude记录DNA
     - DNA存根管理
     - 费用统计
     - 用户管理
-  DNA: #龍芯⚡️20260605-LONGHUN-ADMIN-v1.0
+  DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-LONGHUN-ADMIN-v1.0
 
 任务4: CLI工具 (Python)
   命令:
@@ -124,7 +124,7 @@ Kimi读文档 → Claude生代码 → Kimi验证 → Claude记录DNA
     lh audit
     lh export
     lh verify
-  DNA: #龍芯⚡️20260605-LONGHUN-CLI-v1.0
+  DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-LONGHUN-CLI-v1.0
 ```
 
 ### 步骤4：每个任务的DNA记录
@@ -143,7 +143,7 @@ DNA记录例:
   时间: 2026-06-05 08:30:00
   文件: xpay_server.py (2850 lines)
   SHA256: d8f4a... (完整哈希)
-  DNA签名: #龍芯⚡️20260605083000-XPAY-API-d8f4a
+  DNA签名: #龍芯⚡️丙午·癸巳·庚戌·庚辰·䷤家人-XPAY-API-d8f4a
   验证: ✅ 所有单元测试通过
 ```
 
@@ -178,14 +178,14 @@ Claude实现 → 提交给Kimi → Kimi验证 → 反馈 → Claude修改
 ```
 【每个步骤都生成DNA】
 
-1. 文档汇总 → DNA: #龍芯⚡️20260605-DOCS-COMPILED
+1. 文档汇总 → DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-DOCS-COMPILED
 2. 压缩包生成 → DNA: #龍芯⚇️20260605-CORE-B7DCB0C7
-3. API实现 → DNA: #龍芯⚡️20260605-API-SERVER-d8f4a
-4. 官网构建 → DNA: #龍芯⚡️20260605-WEBSITE-f2c9e
+3. API实现 → DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-API-SERVER-d8f4a
+4. 官网构建 → DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-WEBSITE-f2c9e
 5. 后台实现 → DNA: #龍芯⚇️20260605-ADMIN-a1b2c
-6. CLI开发 → DNA: #龍芯⚡️20260605-CLI-tools-9x8y7
-7. 集成测试 → DNA: #龍芯⚡️20260605-INTEGRATION-3k4l5
-8. 最终交付 → DNA: #龍芯⚡️20260605-FINAL-DELIVERY-6m7n8
+6. CLI开发 → DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-CLI-tools-9x8y7
+7. 集成测试 → DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-INTEGRATION-3k4l5
+8. 最终交付 → DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-FINAL-DELIVERY-6m7n8
 
 【DNA记录册】
 所有DNA按时间顺序记录在:

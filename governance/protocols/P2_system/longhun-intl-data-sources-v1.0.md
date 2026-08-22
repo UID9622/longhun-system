@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂·国际网站训练数据源清单（补充视角）
 
-> DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·讼-INTL-DATA-SOURCES-v1.0
+> DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·䷅讼-INTL-DATA-SOURCES-v1.0
 > 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 > **原则：中国法律准绳 · 数据主权归属UID9622 · 国际来源仅作补充视角**
 
@@ -198,7 +198,7 @@
 | 版本 | v1.0 |
 | 日期 | 丙午·辛未·乙酉 (2026-07-17) |
 | 作者 | UID9622 · 诸葛鑫 · 龍芯北辰 |
-| DNA | `#龍芯⚡️丙午·辛未·乙酉·卯时·讼-INTL-DATA-SOURCES-v1.0` |
+| DNA | `#龍芯⚡️丙午·辛未·乙酉·卯时·䷅讼-INTL-DATA-SOURCES-v1.0` |
 | 确认码 | `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` |
 | GPG | `A2D0092CEE2E5BA87035600924C3704A8CC26D5F` |
 | 国际网站数 | 65 |

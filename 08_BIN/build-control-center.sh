@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 编译龍魂控制中心桌面 App
-# DNA:#龍芯⚡️2026-06-18-LONGHUN-BUILD-CONTROL-CENTER-FILE1-FILE1-v1.0
+# DNA:#龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-LONGHUN-BUILD-CONTROL-CENTER-FILE1-FILE1-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"

@@ -7,14 +7,14 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-08:56-TEST-ESTATE-PROTOCOL-v1.0``  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-08:56-TEST-ESTATE-PROTOCOL-v1.0``  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
 # 龍魂·测试庄园规范 v1.0
 
-> DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-08:56-TEST-ESTATE-PROTOCOL-v1.0`
+> DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-08:56-TEST-ESTATE-PROTOCOL-v1.0`
 >
 > 铁律：所有龍魂系统测试必须遵循本规范。测试庄园是测试的"户口本"。
 
@@ -104,7 +104,7 @@
 
 | 日期 | 变更 | DNA |
 |------|------|-----|
-| 2026-07-08 | v1.0 创建 | `#龍芯⚡️丙午·丙申·庚申·亥时-08:56-TEST-ESTATE-PROTOCOL-v1.0` |
+| 2026-07-08 | v1.0 创建 | `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-08:56-TEST-ESTATE-PROTOCOL-v1.0` |
 
 
 ---
@@ -122,7 +122,7 @@
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -145,6 +145,6 @@
 ## DNA 签名
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-08:56-TEST-ESTATE-PROTOCOL-v1.0`
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-08:56-TEST-ESTATE-PROTOCOL-v1.0`
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

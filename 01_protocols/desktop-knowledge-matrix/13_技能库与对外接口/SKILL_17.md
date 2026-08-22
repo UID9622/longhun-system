@@ -1,3 +1,4 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 ---
 name: longhun-data-hub
 description: >
@@ -10,7 +11,7 @@ metadata:
   display_name: 龍魂本地数据中台
   version: "2.0"
   author: longhun-dev
-  dna: "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DATA-HUB-v2.0"
+  dna: "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DATA-HUB-v2.0"
   category: local
   level: L3
   status: active
@@ -158,8 +159,8 @@ grep -r "关键词" ~/longhun-system/data-hub/raw/
 
 ## 8. DNA 与审计
 
-- 技能 DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DATA-HUB-v2.0`
-- 采集器 DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-LOCAL-DATA-HUB-v2.0`
+- 技能 DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DATA-HUB-v2.0`
+- 采集器 DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LOCAL-DATA-HUB-v2.0`
 - 审计日志: `~/longhun-system/logs/data_hub.log`
 - 采集清单: `~/longhun-system/data-hub/index/manifest_*.json`
 

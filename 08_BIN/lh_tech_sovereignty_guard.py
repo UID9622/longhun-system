@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-07-20-TECH-GUARD-V1.0
+#龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-TECH-GUARD-V1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -10,7 +10,7 @@
 龍魂系统 · 技术主权守门员 v1.0
 作者：诸葛鑫（UID9622）
 优先级：P0++（最高，不可绕过）
-DNA: #龍芯⚡️2026-07-20-TECH-GUARD-V1.0
+DNA: #龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-TECH-GUARD-V1.0
 
 功能：
   1. 敏感探询识别评分（5.1）
@@ -160,14 +160,14 @@ class 路由结果:
     转介官网: str = ""
     回应: str = ""
     回应英文: str = ""
-    dna: str = "#龍芯⚡️2026-07-20-TECH-GUARD-V1.0"
+    dna: str = "#龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-TECH-GUARD-V1.0"
     审计标记: str = "🟢"
 
 
 class CNSH_技术主权守门员:
     """能说的说透，不能说的笑着带过，拒答必有出路。"""
 
-    DNA = "#龍芯⚡️2026-07-20-TECH-GUARD-V1.0"
+    DNA = "#龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-TECH-GUARD-V1.0"
 
     def __init__(self):
         self._会话历史风险: list[float] = []

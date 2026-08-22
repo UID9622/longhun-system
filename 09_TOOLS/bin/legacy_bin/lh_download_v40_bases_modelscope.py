@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 v4.0 底座候选模型下载脚本（ModelScope 魔搭 fallback）
 当 HuggingFace / hf-mirror 不可用时使用，国内链路更稳。
-DNA: #龍芯⚡️20260719003000000-V40-BASE-DOWNLOAD-MODELSCOPE
+DNA: #龍芯⚡️丙午·乙未·甲午·甲子·䷠遁-V40-BASE-DOWNLOAD-MODELSCOPE
 """
 
 import os, json

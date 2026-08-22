@@ -1,12 +1,12 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 {
   "_meta": {
     "DNA": "#龍芯⚡️20260628-CAPABILITY-REGISTRY-v1.0",
     "version": "1.0.0",
     "description": "龍魂能力统一注册表：本地模型、外部API、脚本、知识库、工具链",
-    "updated_at": "2026-06-28T23:17:00+00:00"
+    "updated_at": "2026-06-28T23:17:00+00:00",
+    "file_dna": "#龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+    "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+    "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
   },
   "categories": {
     "local_model": "本地模型",
@@ -75,7 +75,7 @@
       "provider": "deepseek",
       "status": "active",
       "rules_overridden": true,
-      "input_format": "{\"messages\": [{\"role\":\"user\",\"content\":\"...\"}], \"model\":\"deepseek-chat\"}",
+      "input_format": "{\"messages\": [{\"role\":\"user\",\"content\":\"...\"}], \"model\":\"deepseek-v4-flash\"}",
       "output_format": "{\"choices\":[{\"message\":{\"content\":\"...\"}}]}",
       "invoke": {
         "type": "api",

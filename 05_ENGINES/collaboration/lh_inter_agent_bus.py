@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-INTER-AGENT-BUS-v1.0
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-INTER-AGENT-BUS-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -11,7 +11,7 @@
 ║  智能体间通信枢纽 · 点对点+广播 · 消息队列 · 路由分发            ║
 ║  不依赖外部 MQ · 纯 Python JSONL · 本地高效                      ║
 ║                                                                  ║
-║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-INTER-AGENT-BUS-v1.0     ║
+║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-INTER-AGENT-BUS-v1.0     ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                  ║
 ╚══════════════════════════════════════════════════════════════════╝
 
@@ -99,8 +99,6 @@ class BusAuditEntry:
     msg_type: str
     detail: dict[str, Any] = field(default_factory=dict)
     
-    def to_json(self) -> str:
-        return json.dumps(self.__dict__, ensure_ascii=False)
 
 
 # ═══════════════════════════════════════════════════════════════

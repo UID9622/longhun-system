@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-e28a46a5
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
@@ -7,7 +8,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 多元化论文排版: 模板选择→结构填充→排版优化→HTML渲染
 
-DNA: #龍芯⚡️丙午·甲申·戊戌·䷁坤-PAPER-TEMPLATE-ENGINE-v1.0-f3b8c2d1
+DNA: #龍芯⚡️丙午·甲申·戊戌·戊午·䷁坤-PAPER-TEMPLATE-ENGINE-v1.0-f3b8c2d1
 创建者: 诸葛鑫（UID9622）
 协议: 工程层 MulanPSL v2
 
@@ -32,7 +33,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT / "bin"))
 
-DNA = "#龍芯⚡️丙午·甲申·戊戌·䷁坤-PAPER-TEMPLATE-ENGINE-v1.0-f3b8c2d1"
+DNA = "#龍芯⚡️丙午·甲申·戊戌·戊午·䷁坤-PAPER-TEMPLATE-ENGINE-v1.0-f3b8c2d1"
 VERSION = "1.0.0"
 
 # ═══════════════════════════════════════════════
@@ -400,7 +401,7 @@ def optimize_typography(text: str) -> tuple:
 PAPER_CSS = """
 /* ═══════════════════════════════════════════════
    龍魂论文渲染样式 v1.0
-   DNA: #龍芯⚡️丙午·甲申·戊戌·䷁坤-PAPER-CSS-v1.0
+   DNA: #龍芯⚡️丙午·甲申·戊戌·戊午·䷁坤-PAPER-CSS-v1.0
    ═══════════════════════════════════════════════ */
 
 :root {

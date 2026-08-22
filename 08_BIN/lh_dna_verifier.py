@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂·DNA验证工具 v1.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-DNA-VERIFIER-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-DNA-VERIFIER-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -169,7 +169,7 @@ class DNAVerifier:
             "format": "unknown",
         }
 
-        # #龍芯⚡️丙午·乙未·丁酉-DeepSeek-v3.1-GENERATE-a1b2c3d4
+        # #龍芯⚡️丙午·乙未·丁酉·丙午·䷨损-DeepSeek-v3.1-GENERATE-a1b2c3d4
         pattern = r'#龍芯⚡️(\S+)'
         m = re.search(pattern, dna_code)
         if m:

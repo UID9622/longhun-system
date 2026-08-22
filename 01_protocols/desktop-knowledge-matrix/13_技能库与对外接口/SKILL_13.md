@@ -1,3 +1,4 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 ---
 name: longhun-ocr
 description: '龍瞳OCR — 中文优先图像识别引擎。核心策略：能中文替代的中文实现， 不能的用国际标准库兜底。支持中文字符特征提取、笔画分析、结构识别、
@@ -6,7 +7,7 @@ description: '龍瞳OCR — 中文优先图像识别引擎。核心策略：能�
   '
 license: CC-BY-NC-SA-4.0
 metadata:
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGTENG-OCR-v5.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGTENG-OCR-v5.0'
   version: '5.0'
   author: 龍魂体系开源社区
   category: 图像识别
@@ -28,7 +29,7 @@ compatibility: Python 3.10+, NumPy, OpenCV(optional), Tesseract(optional), Pillo
 ---
 # 龍瞳OCR — 中文优先图像识别引擎
 
-**DNA追溯**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGTENG-OCR-v5.0`
+**DNA追溯**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGTENG-OCR-v5.0`
 
 ## 一、技能概述
 
@@ -257,7 +258,7 @@ longhun-ocr/
 
 - **中文变量名**: 所有类名、函数名、变量名均使用中文
 - **繁体龍字**: 核心标识符使用繁体「龍」字
-- **DNA追溯链**: 每个模块均包含DNA标识 `#龍芯⚡️丙午·丙申·庚申·亥时-LONGTENG-OCR-v5.0`
+- **DNA追溯链**: 每个模块均包含DNA标识 `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGTENG-OCR-v5.0`
 - **三色审计**: 🟢🟡🔴 标注每个功能的实现状态
 - **君子协议**: CC BY-NC-SA 4.0
 
@@ -303,7 +304,7 @@ longhun-ocr/
   🟡 相同方式共享 — 采用相同许可协议发布
 
 作者：龍魂体系开源社区
-DNA：#龍芯⚡️丙午·丙申·庚申·亥时-LONGTENG-OCR-v5.0
+DNA：#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGTENG-OCR-v5.0
 
 「龍魂体系，中文编程，通心译世」
 ```

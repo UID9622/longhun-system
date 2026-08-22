@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-AUTO-DISTILL-v1.0
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-AUTO-DISTILL-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -8,7 +8,7 @@
 # ═══════════════════════════════════════════
 # 龍魂 · 自动蒸馏循环 v1.0
 # ═══════════════════════════════════════════
-# DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-AUTO-DISTILL-v1.0
+# DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-AUTO-DISTILL-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 三色审计: 🟢 通过

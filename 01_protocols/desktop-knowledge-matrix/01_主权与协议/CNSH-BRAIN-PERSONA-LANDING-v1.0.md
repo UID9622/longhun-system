@@ -7,14 +7,14 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-cnsh神经脑区人格映射-落地协议-v10`  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-cnsh神经脑区人格映射-落地协议-v10`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
 # CNSH神经脑区→人格映射 · 落地协议 v1.0
 
-> 🧬 DNA: `#龍芯⚡️丙午·丙申·丙辰·未时·需-CNSH-BRAIN-PERSONA-LANDING-v1.0`
+> 🧬 DNA: `#龍芯⚡️丙午·丙申·丙辰·未时·䷄需-CNSH-BRAIN-PERSONA-LANDING-v1.0`
 > 📋 确认码: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 > 📅 落地日期: 2026-07-11
 > 🔐 GPG: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
@@ -80,7 +80,7 @@ bin/cnsh_brain_regions/brain_dna_tracer.py  # B8·DNA追溯
 
 ---
 
-DNA: `#龍芯⚡️丙午·丙申·丙辰·未时·需-CNSH-BRAIN-PERSONA-LANDING-v1.0`
+DNA: `#龍芯⚡️丙午·丙申·丙辰·未时·䷄需-CNSH-BRAIN-PERSONA-LANDING-v1.0`
 
 
 ---
@@ -98,7 +98,7 @@ DNA: `#龍芯⚡️丙午·丙申·丙辰·未时·需-CNSH-BRAIN-PERSONA-LANDIN
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -121,6 +121,6 @@ DNA: `#龍芯⚡️丙午·丙申·丙辰·未时·需-CNSH-BRAIN-PERSONA-LANDIN
 ## DNA 签名
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-cnsh神经脑区人格映射-落地协议-v10
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-cnsh神经脑区人格映射-落地协议-v10
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

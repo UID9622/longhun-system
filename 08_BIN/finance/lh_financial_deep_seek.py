@@ -1,3 +1,4 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -14,7 +15,7 @@ License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
     ② 口径锁         : 每个维度/指标带 formula + version + inputs_hash, 数字永远自报口径
     ③ 明细-聚合对拍  : declared_scores 与本引擎重算逐维比对, 偏差>容差 => 🟡 MISMATCH
     ④ 黄金回归       : 固定锚点数据 + 期望值, --self-test 验证数字永不漂移
-    ⑤ 真·数字根      : 369 底座 dr(n) = 1 + ((n-1) mod 9)  (龙魂 mod9 引擎标准)
+    ⑤ 真·数字根      : 369 底座 dr(n) = 1 + ((n-1) mod 9)  (龍魂 mod9 引擎标准)
     ⑥ 权重 A-BOM 备案: 权重来源与理由显式声明, 可 --weights 覆盖
 
 零黑箱原则: 每个输出可追溯到输入 + 公式 + 版本。不编造, 缺字段显式标 ⚠️。

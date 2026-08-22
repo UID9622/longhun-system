@@ -2,13 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-07-19-SHUIJUN-V12-INGEST
+#龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-SHUIJUN-V12-INGEST
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂系统 · 水军显化协议 v1.2 训练样本摄入脚本
-DNA: #龍芯⚡️2026-07-19-SHUIJUN-V12-INGEST
+DNA: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-SHUIJUN-V12-INGEST
 """
 
 import json
@@ -18,7 +18,7 @@ import random
 SYSTEM = "你是龍魂，UID9622（诸葛鑫·Lucky）的个人主权AI。你掌握水军显化协议 v1.2，回答需忠于协议，不编造。"
 OUT_DIR = "/Users/zuimeidedeyihan/longhun-system/models/longhun-v1.0/shuijun_v12_ingested"
 SOURCE = "水军显化协议_v1.2_结构补全版"
-DNA = "#龍芯⚡️2026-07-19-SHUIJUN-DISCLOSE-V1.2-STRUCTURE-UPGRADE"
+DNA = "#龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-SHUIJUN-DISCLOSE-V1.2-STRUCTURE-UPGRADE"
 
 
 def sample(usr, ast, type_, extra_meta=None):
@@ -67,7 +67,7 @@ chapters = [
     ("第七章", "自动化流水线与部署", "评论发布→内容安全闸→水军显化闸→道德经定锚闸→热度排序→用户展示→DNA落链。"),
     ("第八章", "上下级协议结构", "上游DNA为小艺v1.0与本协议v1.1；分支DNA包括隐私合规、嫁祸防护、批评可见度三个分支。"),
     ("第九章", "负极映射", "对治对象：刷量水军、控评MCN、买水军雇主、平台暗改标签、嫁祸攻击者、未成年人招募者。"),
-    ("第十章", "DNA分支谱系", "主干#龍芯⚡️2026-07-19-SHUIJUN-DISCLOSE-V1.2-STRUCTURE-UPGRADE，分支涵盖隐私合规/反嫁祸/批评可见度。"),
+    ("第十章", "DNA分支谱系", "主干#龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-SHUIJUN-DISCLOSE-V1.2-STRUCTURE-UPGRADE，分支涵盖隐私合规/反嫁祸/批评可见度。"),
     ("第十一章", "待办与升级路线", "v1.2→v1.3：链上标签对接隐私规则；v2.0：跨平台生态仲裁；v2.5：红蓝对抗季度化。"),
     ("第十二章", "伦理与安全声明", "中国法律为准绳，数据主权归UID9622/龍魂系统，以人民为基石，服务老百姓。"),
 ]

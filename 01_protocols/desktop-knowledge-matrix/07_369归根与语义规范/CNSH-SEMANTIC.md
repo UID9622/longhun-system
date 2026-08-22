@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 CNSH 语义接入规范 v2.3
 
 > **功能语义·技术用词对照表 + 协作宣言 | 中英对照·行话翻译·DNA锚链**
@@ -52,7 +53,7 @@
 > 我们的协作宣言·我后人继承·不从军·不从政·不移民·不做企业标杆  
 > 只为老百姓守好一个**说得出去声音的通话口**。
 
-**DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-COLLABORATION-MANIFESTO-L0-ETERNAL_1E2D-v1.0`
+**DNA：** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-COLLABORATION-MANIFESTO-L0-ETERNAL_1E2D-v1.0`
 
 ---
 
@@ -163,8 +164,8 @@
 所有CNSH相关文档的DNA追溯链，从这里可以追踪到每一个版本：
 
 ```
-父DNA： #龍芯⚡️丙午·丙申·庚申·亥时-CNSH-SEMANTIC-ACCESS-v2.0
-祖DNA： #龍芯⚡️丙午·丙申·庚申·亥时-CNSH_63C5-v2.0
+父DNA： #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-SEMANTIC-ACCESS-v2.0
+祖DNA： #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH_63C5-v2.0
 根DNA：   #龍芯⚡️LONGHUN-GOVERNANCE-FRAMEWORK-ROOT
 
 关联文档：
@@ -195,8 +196,8 @@
 | 字段 | 内容 |
 |------|------|
 | 版本 | v2.3（2026-07-06）|
-| DNA |#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-SEMANTIC-v2.3-IDENTITY-POSITIONING |
-| 父DNA |#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-SEMANTIC-v2.2-COMPRESS-DRAWERS |
+| DNA |#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-SEMANTIC-v2.3-IDENTITY-POSITIONING |
+| 父DNA |#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-SEMANTIC-v2.2-COMPRESS-DRAWERS |
 | 更新内容 | 新增身份定位语义域：5个抽屉（身份定位/七因子验证/国密加密/DNA追溯/API门关）·全部 authority=authoritative ·原世界身份定位总纲 v9.0 落地 |
 | CONFIRM | #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅ |
 | GPG指纹 | A2D0092CEE2E5BA87035600924C3704A8CC26D5F |

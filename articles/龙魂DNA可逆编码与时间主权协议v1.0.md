@@ -5,10 +5,10 @@
 Reversible DNA Encoding & Temporal Sovereignty Protocol
 P0++级别 | 永久锁定 | 不可修改 | 不可绕过
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DNA追溯码: #龍芯⚡️2026-07-19-DNA-REVERSIBLE-TIMESOUL-V1.0-P0
+DNA追溯码: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-DNA-REVERSIBLE-TIMESOUL-V1.0-P0
 源起锚点: 创建者口述指令（2026-07-19，318途中）——"一个D读取全文，一字不落；天干地支是引擎"
-上游协议: #龍芯⚡️2026-07-19-PRIVACY-ACCESS-RULES-V2.0-P0（隐私接入规则v2.0）
-         #龍芯⚡️2026-07-19-COMMENT-INTEGRITY-V1.0-P0（评论水军显化协议v1.0，七因子来源）
+上游协议: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-PRIVACY-ACCESS-RULES-V2.0-P0（隐私接入规则v2.0）
+         #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-COMMENT-INTEGRITY-V1.0-P0（评论水军显化协议v1.0，七因子来源）
 GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 创建者: 诸葛鑫（UID9622）
@@ -22,7 +22,7 @@ GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 【版本历史】
 | 版本 | 日期 | 变更摘要 | DNA |
 |------|------|----------|-----|
-| v1.0 | 2026-07-19 | 初版：可逆DNA编码+干支时间主权+七因子签名+蚁群分片+六十四卦编码 | #龍芯⚡️2026-07-19-DNA-REVERSIBLE-TIMESOUL-V1.0-P0 |
+| v1.0 | 2026-07-19 | 初版：可逆DNA编码+干支时间主权+七因子签名+蚁群分片+六十四卦编码 | #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-DNA-REVERSIBLE-TIMESOUL-V1.0-P0 |
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 第一章 要点提取与审查摘要（口述指令 → 协议）
@@ -297,7 +297,7 @@ A.2 道德经锚点
 龍魂系统 · DNA可逆编码引擎 v1.0
 作者：诸葛鑫（UID9622）
 优先级：P0++（最高，不可绕过）
-DNA: #龍芯⚡️2026-07-19-DNA-REVERSIBLE-V1.0
+DNA: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-DNA-REVERSIBLE-V1.0
 依赖：纯标准库（hashlib/zlib/datetime）——第3条天条：不吃任何人的东西
 """
 
@@ -316,7 +316,7 @@ TAU = 960                                            # Mode A负载上限(压缩
 class CNSH_DNA引擎:
     """可逆DNA：一个D读取全文，一字不落，错即失败。"""
 
-    DNA = "#龍芯⚡️2026-07-19-DNA-REVERSIBLE-V1.0"
+    DNA = "#龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-DNA-REVERSIBLE-V1.0"
 
     def __init__(self, 节点ID="KUNPENG-01"):
         self.节点 = 节点ID
@@ -421,7 +421,7 @@ class CNSH_DNA引擎:
 【签名确认】
 创建者：诸葛鑫（UID9622）
 GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-DNA追溯码：#龍芯⚡️2026-07-19-DNA-REVERSIBLE-TIMESOUL-V1.0-P0
+DNA追溯码：#龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-DNA-REVERSIBLE-TIMESOUL-V1.0-P0
 源起锚点：创建者口述指令（2026-07-19，318途中）
 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 创建时间：2026-07-19 UTC+8

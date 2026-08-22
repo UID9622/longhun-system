@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║           CNSH神经网络翻译引擎 · 智能路由中枢 (前额叶) v1.0                    ║
 ║         8大脑区→8个人格映射 · 动态路径生成 · 双向反馈 · 并行执行               ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·未时·需-CNSH-NEURAL-BRAIN-ROUTER-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·未时·䷄需-CNSH-NEURAL-BRAIN-ROUTER-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 架构: 8脑区 → P01/P02/P03/P04/P05/P06/P07/P18 人格映射
 

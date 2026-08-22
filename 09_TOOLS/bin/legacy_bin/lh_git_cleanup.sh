@@ -3,7 +3,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · Git 仓库收拾脚本 v1.0
 # 按 Kimi 建议收拾方案执行
-# DNA: #龍芯⚡️2026-07-12-GIT-HISTORY-CLEANUP-v1.0
+# DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-GIT-HISTORY-CLEANUP-v1.0
 set -euo pipefail
 
 GREEN='\033[0;32m'; YELLOW='\033[1;33m'; RED='\033[0;31m'; CYAN='\033[0;36m'; NC='\033[0m'

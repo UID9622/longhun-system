@@ -1,7 +1,7 @@
 #!/bin/bash
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 🐲 龍魂记忆编辑器 · 一键安装脚本 v3.1
-# DNA: #龍芯⚡️2026-08-05-INSTALL-UID9622
+# DNA: #龍芯⚡️丙午·乙未·辛亥·甲午·䷚颐-INSTALL-UID9622
 # 创建者: 诸葛鑫（UID9622）
 # 协议: MulanPSL v2
 
@@ -79,5 +79,5 @@ echo "  3. 列出记忆: lh-list"
 echo "  4. 搜索记忆: lh-search '关键词'"
 echo "  5. 同步 Notion: lh-sync"
 echo ""
-echo "🧬 DNA: #龍芯⚡️2026-08-05-INSTALL-UID9622"
+echo "🧬 DNA: #龍芯⚡️丙午·乙未·辛亥·甲午·䷚颐-INSTALL-UID9622"
 echo "================================================"

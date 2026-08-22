@@ -211,7 +211,7 @@ export const intakeEntries = mysqlTable("intake_entries", {
 export const dnaRegistryV2 = mysqlTable("dna_registry_v2", {
   id: serial("id").primaryKey(),
   dnaV2: varchar("dnaV2", { length: 255 }).notNull().unique(),
-  stamp: varchar("stamp", { length: 200 }).notNull(), // #龍芯⚡️丙午·甲午·丁丑·巳时·乾
+  stamp: varchar("stamp", { length: 200 }).notNull(), // #龍芯⚡️丙午·甲午·丁丑·巳时·䷀乾
   module: varchar("module", { length: 100 }).notNull(),
   action: varchar("action", { length: 100 }).notNull(),
   hash8: varchar("hash8", { length: 16 }).notNull(),

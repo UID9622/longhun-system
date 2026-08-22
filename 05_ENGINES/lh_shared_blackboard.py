@@ -2,12 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-SHARED-BLACKBOARD-v1.0"""
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-SHARED-BLACKBOARD-v1.0"""
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """龍魂 SharedBlackboard v1.0 — 多智能体共享上下文黑板
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-SHARED-BLACKBOARD-v1.0"""
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-SHARED-BLACKBOARD-v1.0"""
 import json, threading, time, uuid
 from datetime import datetime, timedelta
 from typing import Any, Dict, List, Optional, Set

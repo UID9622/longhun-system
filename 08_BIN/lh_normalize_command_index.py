@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-41464dc8
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -17,12 +18,12 @@ HEADER = """# 🐉 龍魂 · 命令总目 · Command Index
 > 📋 **本地副本**（方便离线使用）· 新增/修改脚本 → AI同步更新鲲鹏 + 此处
 > 🔗 API端点: `/api/cmd`(JSON) · `/api/cmd/quick`(速查) · `/api/cmd/search?q=`(搜索) · `/api/cmd/ports`(端口) · `/api/cmd/index.md`(Markdown)
 > 📌 原则：鲲鹏是唯一真相来源，Notion是镜像，本地是备份
-> 📌 更新: 2026-08-10 v3.18 | DNA: #龍芯⚡️丙午·丙申·戊申-COMMAND-INDEX-v3.18 | 🆕 CNSH规范化补全·环境变量统一·自动化集成声明·文档结构审计
+> 📌 更新: 2026-08-10 v3.18 | DNA: #龍芯⚡️丙午·丙申·戊申·戊午·䷙大畜-COMMAND-INDEX-v3.18 | 🆕 CNSH规范化补全·环境变量统一·自动化集成声明·文档结构审计
 
 <aside>
 📋 **文档元数据**
 
-- **DNA追溯**: `#龍芯⚡️丙午·丙申·戊申-COMMAND-INDEX-v3.18-UID9622`
+- **DNA追溯**: `#龍芯⚡️丙午·丙申·戊申·戊午·䷙大畜-COMMAND-INDEX-v3.18-UID9622`
 - **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 - **GPG指纹**: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 - **分层许可**: 思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2
@@ -48,7 +49,7 @@ HEADER = """# 🐉 龍魂 · 命令总目 · Command Index
 | 品牌标识 | 必须用繁体「龍魂」「龍芯」，禁用简体 | ✅ 龍魂 · ❌ 龍魂 |
 | 命令前缀 | 系统级命令统一 `lh-` 或 `lh --`；工具级命令统一 `lh-` | `lh-station`, `lh-memory`, `longhun-save` |
 | 变量命名 | 环境变量统一 `LONGHUN_*` 前缀；路径变量大写 | `LONGHUN_WORK_DIR`, `CODEBUDDY_HOME` |
-| DNA 格式 | `#龍芯⚡️<干支四柱>-<模块>-<版本>-UID9622` | `#龍芯⚡️丙午·丙申·戊申-COMMAND-INDEX-v3.18-UID9622` |
+| DNA 格式 | `#龍芯⚡️<干支四柱>-<模块>-<版本>-UID9622` | `#龍芯⚡️丙午·丙申·戊申·戊午·䷙大畜-COMMAND-INDEX-v3.18-UID9622` |
 | 确认码 | 文件级统一使用 `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` | 见本文件元数据 |
 | 三色标记 | 🟢 通过 · 🟡 待审/校正 · 🔴 拒绝/危险 | 贯穿全文状态列 |
 
@@ -105,7 +106,7 @@ AUDIT_AND_FOOTER = """
 ═══════════════════════════════════════════════════
  龍魂 · 命令总目 · COMMAND INDEX · v3.18
 ═══════════════════════════════════════════════════
-DNA:        #龍芯⚡️丙午·丙申·戊申-COMMAND-INDEX-v3.18-UID9622
+DNA:        #龍芯⚡️丙午·丙申·戊申·戊午·䷙大畜-COMMAND-INDEX-v3.18-UID9622
 确认码:      #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 主权锚定:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
@@ -146,8 +147,8 @@ def normalize():
 
     # 4. 替换更新日志中的旧版本引用
     body = body.replace(
-        "> 📌 更新: 2026-08-05 v3.17 | DNA: #龍芯⚡️丙午·丙申·戊申-COMMAND-INDEX-v3.17",
-        "> 📌 更新: 2026-08-10 v3.18 | DNA: #龍芯⚡️丙午·丙申·戊申-COMMAND-INDEX-v3.18"
+        "> 📌 更新: 2026-08-05 v3.17 | DNA: #龍芯⚡️丙午·丙申·戊申·戊午·䷙大畜-COMMAND-INDEX-v3.17",
+        "> 📌 更新: 2026-08-10 v3.18 | DNA: #龍芯⚡️丙午·丙申·戊申·戊午·䷙大畜-COMMAND-INDEX-v3.18"
     )
 
     # 5. 去掉旧的简单尾部（如果有）

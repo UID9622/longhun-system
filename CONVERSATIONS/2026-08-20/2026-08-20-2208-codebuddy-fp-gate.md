@@ -3,7 +3,7 @@ session_id: 2026-08-20-2208-codebuddy-fp-gate
 agent: codebuddy
 persona: P04·鲁班
 sovereign_present: true
-dna: "#龍芯⚡️2026-08-20-2208-FP-GATE-CONFLICT-v1.0-UID9622"
+dna: "#龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-2208-FP-GATE-CONFLICT-v1.0-UID9622"
 tricolor: 🔴
 notion_refs: [API桥接规格v1.0, 本地回写登记v1.0, v3执行指令]
 ---

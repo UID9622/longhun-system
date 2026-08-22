@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 龍魂联动感知引擎 · Cross-Module Awareness Engine
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DNA: #龍芯⚡️2026-07-07-CROSS-MODULE-AWARENESS-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-CROSS-MODULE-AWARENESS-ENGINE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 核心能力：
@@ -471,7 +472,7 @@ def auto_fix_issues(issues: list[dict[str, Any]]) -> int:
                 "name": script_name,
                 "description": desc,
                 "added": datetime.now().isoformat(),
-                "dna": f"#龍芯⚡️2026-07-07-AUTO-REGISTER-BIN-v1.0"
+                "dna": f"#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-AUTO-REGISTER-BIN-v1.0"
             })
             print(f"  ✅ {color('[已注册]', Colors.GREEN)} bin/{script_name}")
             fixed_count += 1
@@ -528,7 +529,7 @@ def scan_all(registry: dict[str, Any], auto_fix: bool = False, changed_file: Opt
     
     result = {
         "scan_time": datetime.now().isoformat(),
-        "dna": "#龍芯⚡️2026-07-07-CROSS-MODULE-AWARENESS-SCAN-v1.0",
+        "dna": "#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-CROSS-MODULE-AWARENESS-SCAN-v1.0",
         "total_issues": 0,
         "critical": 0,
         "warnings": 0,

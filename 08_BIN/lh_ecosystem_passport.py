@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·甲申·辛丑·坤卦-ECOSYSTEM-PASSPORT-v1.1
+#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-ECOSYSTEM-PASSPORT-v1.1
 # CREATOR: 诸葛鑫 (UID9622)
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 上位协议: 01_protocols/LH-ECOSYSTEM-ACCESS-PROTOCOL-v1.0.md（P1-CORE·生态准入）
@@ -10,7 +10,7 @@
 ║    龍魂生态通行证 v1.1 · 月度活人验证 · 心跳订阅 · 身份三态管理        ║
 ║    LongHun Ecosystem Passport · Alive Heartbeat = Ecosystem Key          ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-ECOSYSTEM-PASSPORT-v1.1              ║
+║  DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-ECOSYSTEM-PASSPORT-v1.1              ║
 ║  上位: LH-ECOSYSTEM-ACCESS-PROTOCOL-v1.0.md（P1-CORE）                   ║
 ║  哲学: 每月1元 = 活人验证 = 生态准入 = 心跳订阅                         ║
 ║  铁律: 不续费不锁功能 · 数据永远归你 · 随时可导出                       ║
@@ -327,8 +327,6 @@ class 身份认证记录:
     应答哈希: str = ""
     到期时间: str = ""
 
-    def to_dict(self) -> Dict[str, Any]:
-        return asdict(self)
 
     @classmethod
     def from_dict(cls, d: Dict[str, Any]) -> "身份认证记录":
@@ -362,8 +360,6 @@ class 订阅记录:
         except Exception:
             return 0
 
-    def to_dict(self) -> Dict[str, Any]:
-        return asdict(self)
 
     @classmethod
     def from_dict(cls, d: Dict[str, Any]) -> "订阅记录":
@@ -2074,4 +2070,4 @@ if __name__ == "__main__":
         print(f"未知命令: {cmd} · 运行无参数查看帮助")
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-ECOSYSTEM-PASSPORT-v1.1-月度活人验证-导出创作
+# DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-ECOSYSTEM-PASSPORT-v1.1-月度活人验证-导出创作

@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂·五害曝光台 API v1.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-FIVE-HARMS-API-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·䷀乾-FIVE-HARMS-API-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -257,7 +257,7 @@ PACT_FULL_TEXT = """# 《防资本收割共同防御协议》v1.0
 
 > 发起方：龍魂·五害曝光台
 > 发起人：诸葛鑫（UID9622）
-> DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-PACT-ANTI-CAPITAL-HARVEST-v1.0
+> DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-PACT-ANTI-CAPITAL-HARVEST-v1.0
 > 日期：2025-07-25
 """
 
@@ -299,7 +299,7 @@ async def health():
         "relay_count": relay.get("count", 0),
         "victims_count": len(victims),
         "blocked_domains": len(BLOCKED_DOMAINS),
-        "dna": "#龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-FIVE-HARMS-API-v1.0",
+        "dna": "#龍芯⚡️丙午·乙未·丁酉·戌时·䷀乾-FIVE-HARMS-API-v1.0",
         "timestamp": datetime.now(timezone.utc).isoformat(),
     }
 
@@ -804,7 +804,7 @@ async def get_pact():
         "version": "v1.0",
         "full_text": PACT_FULL_TEXT,
         "signed_count": len(_load_pact_signers()),
-        "dna": "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-PACT-ANTI-CAPITAL-HARVEST-v1.0",
+        "dna": "#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-PACT-ANTI-CAPITAL-HARVEST-v1.0",
     }
 
 
@@ -922,7 +922,7 @@ TOOLKIT_CONTENT = {
         ],
         "url": "https://uid9622.cn/five-harms/api/toolkit/download",
     },
-    "dna": "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-TOOLKIT-SOVEREIGNTY-v1.0",
+    "dna": "#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-TOOLKIT-SOVEREIGNTY-v1.0",
 }
 
 
@@ -994,7 +994,7 @@ async def toolkit_download():
 ---
 > 你的数字主权，不容侵犯。
 > 龍魂·五害曝光台 https://uid9622.cn/five-harms-expose
-> DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-TOOLKIT-SOVEREIGNTY-v1.0
+> DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-TOOLKIT-SOVEREIGNTY-v1.0
 """
         zf.writestr("defense-checklist.md", checklist_md)
         
@@ -1081,7 +1081,7 @@ if __name__ == "__main__":
     print("=" * 60)
     print("⚖️  龍魂·五害曝光台 API v1.0")
     print(f"   端口: {port}")
-    print(f"   DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-FIVE-HARMS-API-v1.0")
+    print(f"   DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·䷀乾-FIVE-HARMS-API-v1.0")
     print("=" * 60)
     
     uvicorn.run(app, host=host, port=port, log_level="info")

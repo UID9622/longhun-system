@@ -4,7 +4,7 @@
 # pyright: reportMissingImports=false, reportMissingTypeArgument=false, reportPossiblyUnboundVariable=false, reportOptionalMemberAccess=false, reportArgumentType=false
 """
 龍魂·底座痕迹采集引擎 v2.0 — 四道防线版
-DNA: #龍芯⚡️丙午·乙未·壬寅·亥时·☰乾-BASE-TRACE-COLLECTOR-V2.0-FOUR-DEFENSES
+DNA: #龍芯⚡️丙午·乙未·壬寅·亥时·䷀乾-BASE-TRACE-COLLECTOR-V2.0-FOUR-DEFENSES
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -66,7 +66,7 @@ except ImportError:
 
 # ─── 常量 ─────────────────────────────────────────────
 VERSION = "2.0.0"
-DNA = "#龍芯⚡️丙午·乙未·壬寅·亥时·☰乾-BASE-TRACE-COLLECTOR-V2.0-FOUR-DEFENSES"
+DNA = "#龍芯⚡️丙午·乙未·壬寅·亥时·䷀乾-BASE-TRACE-COLLECTOR-V2.0-FOUR-DEFENSES"
 COLLECTOR_PORT = 18775  # 本地API端口
 # 监控间隔(秒) — 2026-08-16优化: 原值过密导致trace_collector占48.9%CPU
 # 安全监控15-30秒级响应完全足够，降频不影响四道防线功能，仅省CPU
@@ -1239,12 +1239,6 @@ class NetworkGuard(threading.Thread):
         except Exception as e:
             log.error(f"处理网络告警失败: {e}")
     
-    def _write_audit(self, msg: str):
-        try:
-            with open(DEFENSE_LOG_PATH, "a") as f:
-                f.write(f"[{datetime.now().isoformat()}] {msg}\n")
-        except Exception:
-            pass
     
     def get_new_alerts(self) -> List[Dict]:
         """获取新告警（消费后清空）"""
@@ -1486,8 +1480,6 @@ class FileCollector(threading.Thread):
             except Exception as e:
                 log.error(f"文件采集异常: {e}")
     
-    def stop(self):
-        self.running = False
 
 
 # ─── 网络采集器 ─────────────────────────────────────────
@@ -1556,8 +1548,6 @@ class NetworkCollector(threading.Thread):
             except Exception as e:
                 log.error(f"网络采集异常: {e}")
     
-    def stop(self):
-        self.running = False
 
 
 # ─── 用户行为采集器 ─────────────────────────────────────
@@ -1658,8 +1648,6 @@ class UserCollector(threading.Thread):
             except Exception as e:
                 log.error(f"用户行为采集异常: {e}")
     
-    def stop(self):
-        self.running = False
 
 
 # ─── 特征向量提取器 ─────────────────────────────────────

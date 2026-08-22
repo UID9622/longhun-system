@@ -1,8 +1,9 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ============================================================
 # 龍魂 · ANTENNA-8GATE 八卦路由器
-# DNA: #龍芯⚡️丙午·乙未·乙未·申时·☰乾-BAGUA-ROUTER-v1.0-8GATE-a1b2c3d4
+# DNA: #龍芯⚡️丙午·乙未·乙未·申时·䷀乾-BAGUA-ROUTER-v1.0-8GATE-a1b2c3d4
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0

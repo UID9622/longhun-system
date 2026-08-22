@@ -1,8 +1,9 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂生态 · 数据库迁移（幂等·兼容已有库）
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-DEV-MIGRATE-V2-UID9622
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DEV-MIGRATE-V2-UID9622
 创建者: 诸葛鑫（UID9622）
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 用法: 在项目根目录执行  python3 scripts/migrate_db.py

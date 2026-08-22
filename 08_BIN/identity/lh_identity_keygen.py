@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-IDENTITY-KEYGEN-v1.0
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-IDENTITY-KEYGEN-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -10,7 +10,7 @@
 生成 Ed25519 身份密钥对，私钥物理隔离存储于 ~/.longhun/identity/
 公钥可注册到鲲鹏服务端 resident_registry。
 
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-IDENTITY-KEYGEN-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-IDENTITY-KEYGEN-v1.0
 """
 import os
 import sys
@@ -64,7 +64,7 @@ def generate_identity_keypair(passphrase: str | None = None) -> tuple[bytes, byt
         "created_at": datetime.now(timezone.utc).isoformat(),
         "algorithm": "Ed25519",
         "purpose": "sovereign_identity_broadcast",
-        "dna": "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-IDENTITY-v1.0",
+        "dna": "#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-IDENTITY-v1.0",
         "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     }
 

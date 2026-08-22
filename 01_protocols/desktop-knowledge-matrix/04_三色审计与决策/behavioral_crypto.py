@@ -1,7 +1,9 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂行为密码学 · Behavioral Cryptography for LongHun
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 把“谁、在什么时候、对什么对象、以什么权限、做了什么、结果如何”
 全部编码成不可伪造、可追溯、可审计的 DNA 链。
@@ -12,7 +14,7 @@
   - 权限等级决定 AI 能做什么、对谁做、做到什么程度
   - 所有行为写入本地审计链，不上传第三方
 
-DNA:#龍芯⚡️2026-06-20-LONGHUN-BEHAVIORAL-CRYPTO-FILE1-v1.0
+DNA:#龍芯⚡️丙午·甲午·乙丑·壬午·䷨损-LONGHUN-BEHAVIORAL-CRYPTO-FILE1-v1.0
 """
 
 import hashlib

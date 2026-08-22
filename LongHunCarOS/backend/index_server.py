@@ -4,7 +4,7 @@
 🐉 龍魂 · 云端索引服务
 车载DNA索引后台 · Flask REST API
 License: MulanPSL v2
-DNA: #龍芯⚡️2026-08-11-CAR-INDEX-SERVER-v2.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷃蒙-CAR-INDEX-SERVER-v2.0-UID9622
 """
 import sqlite3
 import json

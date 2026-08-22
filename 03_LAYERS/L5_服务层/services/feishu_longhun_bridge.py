@@ -2,7 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 🤖 龍魂 · 飞书桥接智能体 — 全系统功能索引
-DNA: #龍芯⚡️2026-07-07-FEISHU-BRIDGE-AGENT-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-FEISHU-BRIDGE-AGENT-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 定位: 龍魂系统对外唯一"出口" — 飞书机器人即全系统查询入口
@@ -44,7 +45,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "bin"))
 sys.path.insert(0, str(ROOT / "scripts" / "round1"))
 
-DNA = "#龍芯⚡️2026-07-07-FEISHU-BRIDGE-AGENT-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-FEISHU-BRIDGE-AGENT-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 CST = timezone(timedelta(hours=8))
 

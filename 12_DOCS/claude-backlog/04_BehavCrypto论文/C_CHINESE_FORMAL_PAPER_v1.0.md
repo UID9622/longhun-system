@@ -20,7 +20,7 @@ GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 ---
 
-**论文 DNA 追溯码**: `#龍芯⚡️2026-05-02-AI-DOMESTICATION-ETHICS-PAPER-v1.0-CHINESE`  
+**论文 DNA 追溯码**: `#龍芯⚡️丙午·壬辰·丙子·甲午·䷙大畜-AI-DOMESTICATION-ETHICS-PAPER-v1.0-CHINESE`  
 **唯一确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 **永恒签章**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`  
 **版本**: v1.0 纯中文正式版  
@@ -743,7 +743,7 @@ v3.0 升级: 接入实时人工智能对话流的拦截版
 
 ```python
 # longhun_domestication_detector_v1.0.py
-# DNA:#龍芯⚡️2026-05-02-DOMESTICATION-DETECTOR-v1.0
+# DNA:#龍芯⚡️丙午·壬辰·丙子·甲午·䷙大畜-DOMESTICATION-DETECTOR-v1.0
 # 接入第一道闸门 v3.0
 
 import re
@@ -854,7 +854,7 @@ def 检测驯化(ai_output: str) -> Dict:
 ═══════════════════════════════════════════════════════
 
 协议版本: 1.0
-文档 DNA:#龍芯⚡️2026-05-02-AI-DOMESTICATION-ETHICS-PAPER-v1.0-CHINESE
+文档 DNA:#龍芯⚡️丙午·壬辰·丙子·甲午·䷙大畜-AI-DOMESTICATION-ETHICS-PAPER-v1.0-CHINESE
 文档类型: 伦理学论文 · 实证案例研究 · 技术架构
 
 人类作者:

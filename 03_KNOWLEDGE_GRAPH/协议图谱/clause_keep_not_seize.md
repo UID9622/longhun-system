@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
@@ -6,7 +6,7 @@ id: clause_keep_not_seize
 type: clause
 title: 收纳不霸占（Keep, Never Seize）
 layer: L2
-dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·谦-LONGHUN-CLAUSE-KEEP-NOT-SEIZE-3746CADD"
+dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·䷎谦-LONGHUN-CLAUSE-KEEP-NOT-SEIZE-3746CADD"
 owner: UID9622 · 诸葛鑫（Lucky）
 claim: 生态替每个人保管创作——只为收纳，不为霸占；每个发明都值得被好好留痕；主权随时可撤回（见零征用/主权撤回条款）。
 based_on: [data_sovereignty_in_user, dragon_vein_trace]
@@ -18,7 +18,7 @@ created: 丙午·辛未·乙酉
 # 条款 · 收纳不霸占（Keep, Never Seize） · v1.0
 
 > 隶属 [[protocol_currency_culture_sovereignty]] 第三章。
-> DNA：`#龍芯⚡️丙午·辛未·乙酉·巳时·谦-LONGHUN-CLAUSE-KEEP-NOT-SEIZE-3746CADD`
+> DNA：`#龍芯⚡️丙午·辛未·乙酉·巳时·䷎谦-LONGHUN-CLAUSE-KEEP-NOT-SEIZE-3746CADD`
 
 ## 主张
 

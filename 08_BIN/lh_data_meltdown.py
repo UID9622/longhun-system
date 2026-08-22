@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·丙辰·己丑·需-DATA-MELTDOWN-ENGINE-v1.0
+#龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-DATA-MELTDOWN-ENGINE-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
@@ -21,7 +21,7 @@ lh_data_meltdown — 龍魂数据黑洞五层熔断引擎 v1.0
   python3 bin/lh_data_meltdown.py hash-password "<密码>"
   python3 bin/lh_data_meltdown.py check-field password "my_secret"
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·需-DATA-MELTDOWN-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-DATA-MELTDOWN-ENGINE-v1.0
 # STATUS: ⚠️ DEPRECATED · 敏感数据熔断层能力已整合进不动点归档引擎的 BLACK/RED 隔离机制
 # 保留原因: 历史敏感字段处理参考
 📇 项目身份 · 联系 · 支持 → assets/PUBLIC_IDENTITY.md
@@ -241,7 +241,7 @@ class DataMeltdownReport:
     log_sanitized: bool = False
     meltdown_count: int = 0
     verdict: str = ""
-    dna: str = "#龍芯⚡️丙午·丙申·丙辰·己丑·需-DATA-MELTDOWN-v1.0"
+    dna: str = "#龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-DATA-MELTDOWN-v1.0"
 
 def detect_sensitive_fields(data: Dict[str, Any]) -> List[MeltdownFinding]:
     """

@@ -1,6 +1,6 @@
 # CNSH OS v2.5 部署文档
 
-> DNA:#龍芯⚡️2026-06-09-CNSH-OS-v2.5-DEPLOYMENT  
+> DNA:#龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-CNSH-OS-v2.5-DEPLOYMENT  
 > CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅  
 > SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅  
 > 三色审计: 🟢  
@@ -249,7 +249,7 @@ Notion Trigger → GPT → Claude → 冲突检测 → BLOCK切片 → DNA生成
 - **主权人**: UID9622 · 龍芯北辰 · 诸葛鑫
 - **系统**: CNSH OS v2.5 · 龍魂体系
 - **许可证**: CC BY-NC-SA 4.0 + AI协作标签
-- **DNA**:#龍芯⚡️2026-06-09-CNSH-OS-v2.5-COMPLETE
+- **DNA**:#龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-CNSH-OS-v2.5-COMPLETE
 
 ---
 

@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 印记二维码生成器 v1.0
-DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-QR-CODE-v1.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-QR-CODE-v1.0-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -216,7 +216,7 @@ def main():
             "qrcode_lib": qrcode is not None,
             "styled_qr": HAS_QRCODE_STYLED,
             "opencv": HAS_CV2,
-            "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-QR-CODE-v1.0-UID9622"
+            "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-QR-CODE-v1.0-UID9622"
         }, ensure_ascii=False, indent=2))
         return
 

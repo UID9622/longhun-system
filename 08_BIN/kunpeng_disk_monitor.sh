@@ -1,5 +1,6 @@
 #!/bin/bash
-# DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-DISK-MONITOR-UID9622
+# DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-DISK-MONITOR-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 THRESHOLD=85
 CURRENT=$(df -h / | awk 'NR==2 {print $5}' | sed 's/%//')
 LOG="/var/log/longhun-disk-monitor.log"

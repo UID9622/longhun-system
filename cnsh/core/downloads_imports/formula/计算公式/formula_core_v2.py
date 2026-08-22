@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 🧮 数学公式算法核心 v2.0 · 性能+精度+审计优化版
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ═══════════════════════════════════════════════════════════════════════
 
 v1.0 → v2.0 改进：
@@ -12,7 +13,7 @@ v1.0 → v2.0 改进：
   ✅ 性能计时器（热路径可视化）
   ✅ 向量化 truth_total（批量操作加速）
 
-DNA:#龍芯⚡️2026-06-08-MATH-FORMULA-CORE-FILE5-v2.0-OPTIMIZED
+DNA:#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-MATH-FORMULA-CORE-FILE5-v2.0-OPTIMIZED
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -728,7 +729,7 @@ def selftest() -> None:
 
     print("\n" + "=" * 80)
     print("🟢 v2.1 优化版自检通过·F01-F25 代码层补齐·性能↑·精度↑·审计↑")
-    print("   DNA: #龍芯⚡️2026-06-29-MATH-FORMULA-CORE-v2.1-F01-F25-IMPLEMENTED")
+    print("   DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-v2.1-F01-F25-IMPLEMENTED")
     print("   向后相容·所有 v1.0/v2.0 调用都能跑·输出完全相同")
     print("=" * 80)
 

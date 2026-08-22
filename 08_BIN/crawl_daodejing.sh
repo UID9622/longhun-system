@@ -1,9 +1,9 @@
 #!/bin/bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·未济-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷿未济-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
-#龍芯⚡️2026-07-08-CRAWL-DAODEJING-v1.0-A1B2C3D4
+#龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-CRAWL-DAODEJING-v1.0-A1B2C3D4
 # 后台爬取道德经81章（daodejing.org）并注入知识图谱
 # 用法: bash bin/crawl_daodejing.sh
 

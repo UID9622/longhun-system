@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 LongHun MVP Launcher & Management v2.0
 
 AUTOMATED COMPLIANCE CHECKLIST:
-- DNA Signature:#龍芯⚡️2026-06-17-MVP-LAUNCHER-FILE2-v2.0
+- DNA Signature:#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-MVP-LAUNCHER-FILE2-v2.0
 - CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 - SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 - Three-Layer Supervision: ✅ ANCESTOR | ✅ COSMOS | ✅ ENGINE
@@ -49,7 +50,7 @@ from datetime import datetime
 from typing import Dict, Optional, Any
 
 # ========== DNA签名和合规标记 ==========
-DNA_SIGNATURE = "#龍芯⚡️2026-06-17-MVP-LAUNCHER-v2.0"
+DNA_SIGNATURE = "#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-MVP-LAUNCHER-v2.0"
 CONFIRM_MARK = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SEAL_MARK = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 

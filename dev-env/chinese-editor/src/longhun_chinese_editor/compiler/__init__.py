@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 longhun_chinese_editor.compiler - CNSH 完整编译器子包
-DNA: #龍芯⚡️2026-06-26-LONGHUN-CNSH-COMPILER-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-CNSH-COMPILER-v1.0
 """
 from .pipeline import compile_cnsh, compile_cnsh_safe
 

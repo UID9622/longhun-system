@@ -1,22 +1,22 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-<!-- #龍芯⚡️20260709142223-NOTION-MIRROR-SCRAPE-333431CA -->
+<!-- #龍芯⚡️丙午·乙未·甲申·辛未·䷊泰-NOTION-MIRROR-SCRAPE-333431CA -->
 # AI算法史·NodeCard时间轴｜1943–2025·四件套·龍魂知识库 v1.0
 
 - **URL**: https://uid9622.notion.site/4419a93e11174045a9fc0ac0b3f7e4a5
 - **Page ID**: 4419a93e11174045a9fc0ac0b3f7e4a5
 - **Scraped At**: 2026-07-09T14:22:23.645431+08:00
 - **Blocks**: 176
-- **DNA**: #龍芯⚡️20260709142223-NOTION-MIRROR-SCRAPE-333431CA
+- **DNA**: #龍芯⚡️丙午·乙未·甲申·辛未·䷊泰-NOTION-MIRROR-SCRAPE-333431CA
 
 ---
 
 🤖 AI算法史·NodeCard时间轴｜1943–2025·四件套·龍魂知识库 v1.0
 
-🐉 DNA追溯码： #龍芯⚡️20260406-AI算法史NodeCard-v1.0 创建者： 💎 龍芯北辰｜UID9622 确认码： #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅ GPG指纹： A2D0092CEE2E5BA87035600924C3704A8CC26D5F 设计目标： 时间轴1950–2025·代表性节点·四件套齐全·独立可复制可联动
+🐉 DNA追溯码： #龍芯⚡️丙午·壬辰·庚戌·壬午·䷕贲-AI算法史NodeCard-v1.0 创建者： 💎 龍芯北辰｜UID9622 确认码： #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅ GPG指纹： A2D0092CEE2E5BA87035600924C3704A8CC26D5F 设计目标： 时间轴1950–2025·代表性节点·四件套齐全·独立可复制可联动
 
-DNA追溯码： #龍芯⚡️20260406-AI算法史NodeCard-v1.0
+DNA追溯码： #龍芯⚡️丙午·壬辰·庚戌·壬午·䷕贲-AI算法史NodeCard-v1.0
 
 创建者： 💎 龍芯北辰｜UID9622
 
@@ -60,7 +60,7 @@ $y$：输出（0或1）
 
 技术语法/公式
 
-y = { 1 if ∑ i w i x i ≥ θ 0 otherwise y={ 1 0 ​ if ∑ i ​ w i ​ x i ​ ≥θ otherwise ​ ​
+y = { 1 if ∑ i w i x i ≥ θ 0 otherwise y={ 1 0  if ∑ i  w i  x i  ≥θ otherwise  
 
 工程意义
 
@@ -90,7 +90,7 @@ $hat{y}$：真实标签
 
 技术语法/公式
 
-w ← w + η ( y ^ − y ) x w←w+η( y ^ ​ −y)x​
+w ← w + η ( y ^ − y ) x w←w+η( y ^  −y)x
 
 工程意义
 
@@ -122,11 +122,11 @@ $frac{partial L}{partial w}$：损失对权重的梯度
 
 技术语法/公式
 
-w ← w − η ⋅ ∂ L ∂ w w←w−η⋅∂w ∂L ​ ​
+w ← w − η ⋅ ∂ L ∂ w w←w−η⋅∂w ∂L  
 
 链式求导核心：
 
-∂ L ∂ w 1 = ∂ L ∂ z 2 ⋅ ∂ z 2 ∂ z 1 ⋅ ∂ z 1 ∂ w 1 ∂w 1 ​ ∂L ​ =∂z 2 ​ ∂L ​ ⋅∂z 1 ​ ∂z 2 ​ ​ ⋅∂w 1 ​ ∂z 1 ​ ​ ​
+∂ L ∂ w 1 = ∂ L ∂ z 2 ⋅ ∂ z 2 ∂ z 1 ⋅ ∂ z 1 ∂ w 1 ∂w 1  ∂L  =∂z 2  ∂L  ⋅∂z 1  ∂z 2   ⋅∂w 1  ∂z 1   
 
 工程意义
 
@@ -160,11 +160,11 @@ $alpha_i$：拉格朗日乘子（支持向量的系数）
 
 决策函数：
 
-f ( x ) = sign ( w T x + b ) f(x)=sign(w T x+b)​
+f ( x ) = sign ( w T x + b ) f(x)=sign(w T x+b)
 
 最大间隔优化目标：
 
-min ⁡ w , b 1 2 ∥ w ∥ 2 s.t. y i ( w T x i + b ) ≥ 1 min w,b ​ 2 1 ​ ∥w∥ 2 s.t.y i ​ (w T x i ​ +b)≥1​
+min ⁡ w , b 1 2 ∥ w ∥ 2 s.t. y i ( w T x i + b ) ≥ 1 min w,b  2 1  ∥w∥ 2 s.t.y i  (w T x i  +b)≥1
 
 工程意义
 
@@ -196,11 +196,11 @@ $Z$：归一化常数（配分函数）
 
 RBM联合概率分布：
 
-P ( v , h ) = 1 Z exp ⁡ ( − E ( v , h ) ) P(v,h)=Z 1 ​ exp(−E(v,h))​
+P ( v , h ) = 1 Z exp ⁡ ( − E ( v , h ) ) P(v,h)=Z 1  exp(−E(v,h))
 
 能量函数：
 
-E ( v , h ) = − v T W h − b T v − c T h E(v,h)=−v T Wh−b T v−c T h​
+E ( v , h ) = − v T W h − b T v − c T h E(v,h)=−v T Wh−b T v−c T h
 
 工程意义
 
@@ -238,11 +238,11 @@ $Y$：输出特征图
 
 卷积操作：
 
-Y = ReLU ( Conv ( X , K ; S , P ) + b ) Y=ReLU(Conv(X,K;S,P)+b)​
+Y = ReLU ( Conv ( X , K ; S , P ) + b ) Y=ReLU(Conv(X,K;S,P)+b)
 
 ReLU激活：
 
-ReLU ( z ) = max ⁡ ( 0 , z ) ReLU(z)=max(0,z)​
+ReLU ( z ) = max ⁡ ( 0 , z ) ReLU(z)=max(0,z)
 
 工程意义
 
@@ -272,11 +272,11 @@ $c$：Context Vector（编码结果）
 
 技术语法/公式
 
-> 正在加载JavaScript代码… ​
+> 正在加载JavaScript代码… 
 
 LSTM门控方程（核心）：
 
-f t = σ ( W f [ h t − 1 , x t ] + b f ) f t ​ =σ(W f ​ [h t−1 ​ ,x t ​ ]+b f ​ )​
+f t = σ ( W f [ h t − 1 , x t ] + b f ) f t  =σ(W f  [h t−1  ,x t  ]+b f  )
 
 工程意义
 
@@ -300,17 +300,17 @@ $x$：输入（同时作为跳跃连接的传递值）
 
 $F(x)$：残差映射（网络真正要学的部分）
 
-$H(x)$：目标映射 = F ( x ) + x F(x)+x​
+$H(x)$：目标映射 = F ( x ) + x F(x)+x
 
 技术语法/公式
 
 残差块核心：
 
-H ( x ) = F ( x ) + x H(x)=F(x)+x​
+H ( x ) = F ( x ) + x H(x)=F(x)+x
 
 其中 F ( x ) F(x) 为两层卷积：
 
-F ( x ) = W 2 ⋅ ReLU ( W 1 x ) F(x)=W 2 ​ ⋅ReLU(W 1 ​ x)​
+F ( x ) = W 2 ⋅ ReLU ( W 1 x ) F(x)=W 2  ⋅ReLU(W 1  x)
 
 工程意义
 
@@ -342,11 +342,11 @@ $d_k$：Key的维度（用于缩放，防止点积过大）
 
 技术语法/公式
 
-Attention ( Q , K , V ) = softmax ( Q K ⊤ d k ) V Attention(Q,K,V)=softmax(d k ​ ​ QK ⊤ ​ )V​
+Attention ( Q , K , V ) = softmax ( Q K ⊤ d k ) V Attention(Q,K,V)=softmax(d k   QK ⊤  )V
 
 多头注意力：
 
-MultiHead ( Q , K , V ) = Concat ( h e a d 1 , . . . , h e a d h ) W O MultiHead(Q,K,V)=Concat(head 1 ​ ,...,head h ​ )W O ​
+MultiHead ( Q , K , V ) = Concat ( h e a d 1 , . . . , h e a d h ) W O MultiHead(Q,K,V)=Concat(head 1  ,...,head h  )W O 
 
 工程意义
 

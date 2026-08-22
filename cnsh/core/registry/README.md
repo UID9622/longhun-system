@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂路由注册表 (IPA Route Registry)
 
-**DNA**:#龍芯⚡️2026-06-03-ROUTE-REGISTRY-README-FILE1-v1.0
+**DNA**:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-ROUTE-REGISTRY-README-FILE1-v1.0
 **状态**: 🟢 MAIN·可公开
 **责任**: UID9622·不免责
 
@@ -58,7 +58,7 @@ node = RouteNode(
     status=NodeStatus.ACTIVE,
     local_path="my_module.service",
     entry_point="get_service",
-    dna="#龍芯⚡️2026-06-03-MY-SERVICE-v1.0",
+    dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-MY-SERVICE-v1.0",
     layer="L2_DECENNIAL",
     description="我的服务描述",
     tags=["service", "custom"],
@@ -258,7 +258,7 @@ class RouteNode:
   "local_path": "cnsh_core.constitution",
   "notion_url": null,
   "entry_point": "get_system_config",
-  "dna": "#龍芯⚡️2026-06-03-CONSTITUTION-v1.0",
+  "dna": "#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-CONSTITUTION-v1.0",
   "layer": "L0_ETERNAL",
   "description": "系统宪法和基础配置",
   "tags": ["L0", "config"],
@@ -517,7 +517,7 @@ python3 core_system_launcher.py
 
 ## 许可和责任
 
-**DNA**:#龍芯⚡️2026-06-03-ROUTE-REGISTRY-README-v1.0
+**DNA**:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-ROUTE-REGISTRY-README-v1.0
 **作者**: UID9622 · 诸葛鑫 · 龍芯北辰
 **状态**: 🟢 MAIN·可公开
 **责任**: UID9622·不免责

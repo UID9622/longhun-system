@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂 · 韬定律芯片调度引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-TAO-CHIP-v1.0
+DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·䷜坎-TAO-CHIP-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -58,7 +58,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 # 常量
 # ══════════════════════════════════════════════
 
-DNA: str = "#龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-TAO-CHIP-v1.0"
+DNA: str = "#龍芯⚡️丙午·乙未·戊戌·巳时·䷜坎-TAO-CHIP-v1.0"
 CREATOR: str = "诸葛鑫（UID9622）"
 SYSTEM_ROOT: Path = Path(__file__).resolve().parent.parent
 LOG_DIR: Path = SYSTEM_ROOT / "logs"

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 🐉 龍魂 · DeepSeek Harness 鲲鹏一键部署脚本
 # DNA: #龍芯⚡️丙午·丙申·辛酉·丙申·䷉履-DSH-KUNPENG-DEPLOY-SCRIPT-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -euo pipefail
 

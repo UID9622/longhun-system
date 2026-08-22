@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·小畜-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷈小畜-FIX_DNA-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # 龍芯⚡️丙午·癸未·丁未·离为火-PATHFINDER-TRAIN-DATA-v4.2.2
@@ -37,7 +38,7 @@ def add(user: str, assistant: str, domain: str):
             "domain": domain,
             "source": "pathfinder_protocol_v4.1.5_v3",
             "teacher": "manual",
-            "dna": "#龍芯⚡️丙午·癸未·丁未·离为火-PATHFINDER-TRAIN-DATA-v4.2.2",
+            "dna": "#龍芯⚡️丙午·癸未·丁未·丙午·䷝离为火-PATHFINDER-TRAIN-DATA-v4.2.2",
         },
     })
 
@@ -83,7 +84,7 @@ add("路径规划引擎的P4层是什么？", "P4层是用户自定义层，启�
 dijkstra_core = (
     "迪杰斯特拉算法是贪心策略：每次扩展当前代价最小的节点，直到到达终点。"
     "地图用二维数组表示，-1表示障碍物，正整数表示通过成本。维护距离表和前驱表，用最小堆加速。"
-    "适用于没有启发信息、要求全局最优的场景。DNA签章：#龍芯⚡️丙午·癸未·丁未-迪杰斯特拉-v4.1.5。"
+    "适用于没有启发信息、要求全局最优的场景。DNA签章：#龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-迪杰斯特拉-v4.1.5。"
 )
 dijkstra_q = [
     "龍魂路径规划引擎里的迪杰斯特拉算法是什么原理？",
@@ -224,7 +225,7 @@ dna_fields = (
     "④签章方'龍芯北辰 UID9622'；⑤确认码 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z；"
     "⑥审计链 sha256:...（输出JSON按key排序后SHA256的前16位）。"
 )
-dna_format = "DNA格式：#龍芯⚡️{年干支}·{月干支}·{日干支}·{卦名}-{算法名}-{版本}。例如：#龍芯⚡️丙午·癸未·丁未-八卦阵-v4.1.5。"
+dna_format = "DNA格式：#龍芯⚡️{年干支}·{月干支}·{日干支}·{卦名}-{算法名}-{版本}。例如：#龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-八卦阵-v4.1.5。"
 for _ in range(10):
     add("路径规划引擎输出必须包含哪些字段？", dna_fields, "DNA签章规范")
     add("路径规划引擎的DNA签章格式是什么？", dna_format, "DNA签章规范")

@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 import os as _os
 import sys as _sys
@@ -11,7 +12,7 @@ if _module_dir not in _sys.path:
 """
 CNSH 收口摘要生成器 v1.0
 根据加工结果生成给第二大脑 Kimi 的灵活接力指令。
-DNA: #龍芯⚡️2026-06-29-CNSH-HANDOFF-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-HANDOFF-UID9622
 """
 
 import json
@@ -49,7 +50,7 @@ class CNSH_收口摘要生成器:
 优先级: {优先级}
 预计工时: {预计工时}
 {DNA}
-原始 DNA: #龍芯⚡️2026-06-29-CNSH-HANDOFF-UID9622
+原始 DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-HANDOFF-UID9622
 
 【加工结果】
 - 标题: {加工结果.get('标题', '未命名')}
@@ -98,7 +99,7 @@ if __name__ == "__main__":
         "输入SM3哈希": "abcd1234",
         "输出路径": "CNSH_加工输出/CNSH_示例协议.py",
         "模块名": "CNSH_示例协议.py",
-        "主权标记": ["#龍芯⚡️2026-06-29-EXAMPLE-UID9622"],
+        "主权标记": ["#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-EXAMPLE-UID9622"],
         "三色摘要": {"🟢": 5, "🟡": 1, "🔴": 0},
     }
     指令 = """

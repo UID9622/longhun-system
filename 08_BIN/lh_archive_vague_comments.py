@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂·无为评论归档器 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-无为归档-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-无为归档-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 功能：将标记为"无为"的评论归档到 audit/comment_samples/vague_pressure/

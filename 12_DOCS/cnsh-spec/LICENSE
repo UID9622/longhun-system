@@ -1,0 +1,20 @@
+CC BY-NC-SA 4.0 + Longhun DNA Inheritance Clause
+
+本作品采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议
+(Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International)。
+
+附加条款 —— Longhun DNA Inheritance Clause（龍魂 DNA 继承条款）：
+1. 任何派生作品必须保留原始 DNA 追溯码（#龍芯⚡️... 格式）与原始创作者署名（诸葛鑫 · UID9622）。
+2. 禁止移除、篡改或伪造 DNA 追溯链后伪称原创。
+3. 衍生作品必须以相同方式共享（ShareAlike）。
+
+分层声明：
+- 本仓库 .md 文档（思想层）：适用上述 CC BY-NC-SA 4.0 + DNA 继承条款。
+- 本仓库 .json / .txt / .yml / .cnsh（工程实现层）：适用 MulanPSL v2
+  （https://license.coscl.org.cn/MulanPSL2）—— 允许商业使用，需保留署名与专利授权声明。
+
+商业边界一句话：代码随便用去赚钱，思想名号要授权。
+
+DNA: #龍芯⚡️2026-08-21-CNSH-LICENSE-v1.0
+创建者: 诸葛鑫（UID9622）
+GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

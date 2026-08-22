@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 """
@@ -16,7 +17,7 @@ from __future__ import annotations
 
 不重复做 v6 已有的事，而是把 v7 新文件整合进来，并复用/升级结构。
 
-DNA:#龍芯⚡️2026-06-20-V7-UPGRADE-ORCHESTRATOR-v1.0
+DNA:#龍芯⚡️丙午·甲午·乙丑·壬午·䷨损-V7-UPGRADE-ORCHESTRATOR-v1.0
 """
 
 import hashlib

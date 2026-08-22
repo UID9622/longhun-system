@@ -4,7 +4,7 @@
 龍魂 AI 网关 · 流控模块 v1.1
 Token Bucket + RateLimiterPlugin — 可配置·可审计·可降级
 
-DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-FLOW-CONTROL-v1.1
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-FLOW-CONTROL-v1.1
 创建者: 诸葛鑫（UID9622）
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -141,7 +141,7 @@ class RateLimitConfig:
        触发条件: 任何新网关实例初始化
        行为: 自动加载，不询问、不等待
        例外: 无（覆盖需显式传入参数）
-       DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-FLOW-CONTROL-v1.1-UID9622
+       DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-FLOW-CONTROL-v1.1-UID9622
     """
     enabled: bool = True
     tokens_per_second: float = 100.0       # 🔥 P0焊死·默认100 token/s·不询问不等待
@@ -449,7 +449,7 @@ def create_plugin(tokens_per_second: float = 100.0,
     🔥 P0焊死·铁律: 默认值 tokens_per_second=100 不可修改。
        新网关实例默认加载 100 t/s，自动开，不询问，不等待。
        覆盖需显式传参。例外: 无。
-       DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-FLOW-CONTROL-v1.1-UID9622
+       DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-FLOW-CONTROL-v1.1-UID9622
 
     Args:
         tokens_per_second: 每秒令牌数（默认100·P0焊死）

@@ -1,3 +1,4 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 ---
 name: longhun-nlp
 description: >
@@ -10,7 +11,7 @@ metadata:
   display_name: 龍文NLP
   version: "5.0"
   author: longhun-dev
-  dna: "#龍芯⚡️丙午·丙申·庚申·亥时-LONGWEN-NLP-v5.0"
+  dna: "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGWEN-NLP-v5.0"
   category: local
   level: L3
   status: active
@@ -156,7 +157,7 @@ python3 L7_数据层/semantic_shield/semantic_shield_cli.py dlp "北辰是用几
 
 - 🟢 **君子协议** | JunZi Protocol: CC BY-NC-SA 4.0
 - 🟡 **AI Truth Protocol**: 所有输出必须可验证、可追溯
-- 🔴 **DNA Trace**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGWEN-NLP-v5.0`
+- 🔴 **DNA Trace**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGWEN-NLP-v5.0`
 - 中文变量名遵循CNSH规范
 - 三色审计标记：🟢就绪/成功 🟡处理中/占位 🔴错误/DNA
 
@@ -202,9 +203,9 @@ Python >= 3.10
 ## 11. DNA追溯链 | DNA Trace
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-reactor-文字识别引擎-v1.0  ← 源文件DNA
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-reactor-文字识别引擎-v1.0  ← 源文件DNA
           ↓
-#龍芯⚡️丙午·丙申·庚申·亥时-LONGWEN-NLP-v5.0                    ← 技能包DNA
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGWEN-NLP-v5.0                    ← 技能包DNA
 ```
 
 ---

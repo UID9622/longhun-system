@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂生态对齐测试 · 河图洛书 × 易经 × 七因子
-DNA: #龍芯⚡️2026-07-05-ECOSYSTEM-ALIGNMENT-TEST-v1.0
+DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-ECOSYSTEM-ALIGNMENT-TEST-v1.0
 """
 
 import json
@@ -89,5 +90,5 @@ if __name__ == "__main__":
     test_hard_fail()
     test_luoshu_invariant()
     print("\n✅ 全部测试通过")
-    print(f"\nDNA: #龍芯⚡️2026-07-05-ECOSYSTEM-ALIGNMENT-TEST-v1.0")
+    print(f"\nDNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-ECOSYSTEM-ALIGNMENT-TEST-v1.0")
     print(f"CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")

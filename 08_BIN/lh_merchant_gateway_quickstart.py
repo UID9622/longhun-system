@@ -2,13 +2,13 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-MERCHANT-QS-v1.0-a1b2c3d4
+# DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-MERCHANT-QS-v1.0-a1b2c3d4
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║    龍魂·商户API网关一键启动与测试 v1.0 — 国产商户5分钟快速接入           ║
-║    DN A: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-MERCHANT-QUICKSTART-v1.0        ║
+║    DN A: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-MERCHANT-QUICKSTART-v1.0        ║
 ╠══════════════════════════════════════════════════════════════════════════╣
 ║  用法:                                                                    ║
 ║    python3 bin/lh_merchant_gateway_quickstart.py          # 完整流程       ║
@@ -44,7 +44,7 @@ from datetime import datetime
 from typing import Dict, Optional
 
 # ── 焊死常量 ──
-DNA = "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-MERCHANT-QUICKSTART-v1.0"
+DNA = "#龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-MERCHANT-QUICKSTART-v1.0"
 GATEWAY_SCRIPT = Path(__file__).resolve().parent / "lh_merchant_api_gateway.py"
 GATEWAY_PORT = 9633
 BASE_URL = f"http://localhost:{GATEWAY_PORT}"

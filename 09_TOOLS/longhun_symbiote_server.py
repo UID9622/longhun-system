@@ -1,10 +1,9 @@
-#!/usr/bin/env python3
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🧬 龍魂共生体 · 知识矩阵+神经网络融合服务器
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 共生体 ≠ 代理人。知识矩阵（宪法层）与神经网络（监控层）双向生长、
 相互验证、彼此写入。每一条路由边的激活、每一次知识图谱的查询、
@@ -17,7 +16,7 @@
 - 知识矩阵宪法层（九宫不动点 + 五行相生克 + 三才流场）
 - 数字根验证链（dr(n) = 1 + ((n-1) mod 9)）
 
-DNA: #龍芯⚡️2026-07-06-SYMBIOTE-SERVER-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-SYMBIOTE-SERVER-v1.0
 """
 
 from __future__ import annotations
@@ -45,7 +44,7 @@ ROOT = HOME / "longhun-system"
 LOG_DIR = ROOT / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-DNA = "#龍芯⚡️2026-07-07-SYMBIOTE-SERVER-v1.1"
+DNA = "#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-SYMBIOTE-SERVER-v1.1"
 CONFIRM_TOKEN = "CONFIRM🌌9622-ONLY-ONCE"
 PORT = 9627
 
@@ -101,132 +100,132 @@ SERVICE_REGISTRY: List[NodeDef] = [
     NodeDef(id="op-console", name="龍魂操作台", port=9622, category="core", wuxing="earth",
             health_path="/longhun_hub.html", control_type="service",
             start_cmd=["bash", str(ROOT / "tools" / "补全服务.sh")], autostart=True,
-            description="龍魂系统统一入口与总控台", dna="#龍芯⚡️2026-06-22-LONGHUN-OPCONSOLE-v1.0"),
+            description="龍魂系统统一入口与总控台", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-OPCONSOLE-v1.0"),
     NodeDef(id="brain-stem", name="龍魂脑干", port=9625, category="core", wuxing="water",
             health_path="/health", control_type="service",
             start_cmd=["python3", str(ROOT / "bin" / "longhun-launcher.py"), "start"],
             stop_cmd=["python3", str(ROOT / "bin" / "longhun-launcher.py"), "stop"],
-            autostart=True, description="核心协调与决策中枢", dna="#龍芯⚡️2026-06-22-LONGHUN-BRAINSTEM-v1.0"),
+            autostart=True, description="核心协调与决策中枢", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-BRAINSTEM-v1.0"),
     NodeDef(id="digital-id", name="数字身份入口", port=8444, category="core", wuxing="metal",
             health_path="/api/info", control_type="service",
             start_cmd=["python3", str(ROOT / "bin" / "longhun-launcher.py"), "start"],
-            description="国家数字身份认证入口", dna="#龍芯⚡️2026-06-22-LONGHUN-DIGITALID-v1.0"),
+            description="国家数字身份认证入口", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-DIGITALID-v1.0"),
     NodeDef(id="persona-api", name="人格 API", port=9001, category="core", wuxing="wood",
             health_path="/docs", control_type="service",
             start_cmd=["bash", str(ROOT / "bin" / "start_persona_api.sh")],
-            description="五大人格实体统一API路由", dna="#龍芯⚡️2026-06-22-LONGHUN-PERSONA-API-v1.0"),
+            description="五大人格实体统一API路由", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-PERSONA-API-v1.0"),
     NodeDef(id="phase3", name="Phase3 后端", port=8001, category="core", wuxing="earth",
             health_path="/api/v1/health", control_type="service",
             start_cmd=["bash", str(HOME / ".龍魂" / "services" / "service-manager.sh"), "start", "phase3"],
             stop_cmd=["bash", str(HOME / ".龍魂" / "services" / "service-manager.sh"), "stop", "phase3"],
-            description="龍魂第三阶段业务后端", dna="#龍芯⚡️2026-06-22-LONGHUN-PHASE3-v1.0"),
+            description="龍魂第三阶段业务后端", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-PHASE3-v1.0"),
     NodeDef(id="baby-guard", name="宝宝守护", port=8002, category="core", wuxing="fire",
             health_path="/health", control_type="service",
             start_cmd=["bash", str(HOME / ".龍魂" / "services" / "service-manager.sh"), "start", "baobao"],
             stop_cmd=["bash", str(HOME / ".龍魂" / "services" / "service-manager.sh"), "stop", "baobao"],
-            description="系统守护与人格代理", dna="#龍芯⚡️2026-06-22-LONGHUN-BABYGUARD-v1.0"),
+            description="系统守护与人格代理", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-BABYGUARD-v1.0"),
     NodeDef(id="gua-audit", name="卦象审计", port=9623, category="core", wuxing="earth",
             health_path="/health", control_type="launchd", launchd_label="com.longhun.gua-audit",
-            autostart=True, description="三才卦象实时审计", dna="#龍芯⚡️2026-06-22-LONGHUN-GUAAUDIT-v1.0"),
+            autostart=True, description="三才卦象实时审计", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-GUAAUDIT-v1.0"),
     NodeDef(id="heart-voice", name="龍心之语", port=9624, category="core", wuxing="fire",
             health_path="/health", control_type="launchd", launchd_label="com.longhun.heart-talk",
-            autostart=True, description="情感化交互与语音合成", dna="#龍芯⚡️2026-06-22-LONGHUN-HEARTVOICE-v1.0"),
+            autostart=True, description="情感化交互与语音合成", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-HEARTVOICE-v1.0"),
     NodeDef(id="knowledge-graph", name="知识图谱", port=8088, category="core", wuxing="wood",
             health_path="/api/health", control_type="launchd", launchd_label="com.longhun.kg-api",
-            autostart=True, description="龍魂知识体系与实体关系图谱", dna="#龍芯⚡️2026-06-22-LONGHUN-KG-v1.0"),
+            autostart=True, description="龍魂知识体系与实体关系图谱", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-KG-v1.0"),
     NodeDef(id="ability-site", name="能力官网", port=8844, category="core", wuxing="metal",
             health_path="/api/registry", control_type="launchd", launchd_label="com.longhun.capability-web",
-            autostart=True, description="对外能力展示与官方门户", dna="#龍芯⚡️2026-06-22-LONGHUN-ABILITY-SITE-v1.0"),
+            autostart=True, description="对外能力展示与官方门户", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-ABILITY-SITE-v1.0"),
     NodeDef(id="experience-portal", name="体验门户", port=8445, category="core", wuxing="water",
             health_path="/api/health", control_type="launchd", launchd_label="com.longhun.portal",
-            autostart=True, description="用户体验入口与演示环境", dna="#龍芯⚡️2026-06-22-LONGHUN-EXPERIENCE-v1.0"),
+            autostart=True, description="用户体验入口与演示环境", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-EXPERIENCE-v1.0"),
     NodeDef(id="ollama", name="Ollama 本地模型", port=11434, category="external", wuxing="wood",
             health_path="/api/tags", control_type="none",
-            description="本地大模型推理服务，数据不出境", dna="#龍芯⚡️2026-06-22-LONGHUN-OLLAMA-v1.0"),
+            description="本地大模型推理服务，数据不出境", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-OLLAMA-v1.0"),
     NodeDef(id="deepseek-bridge", name="DeepSeek Bridge", port=8788, category="external", wuxing="water",
             health_path="/health", control_type="service",
             start_cmd=["bash", str(ROOT / "bridges" / "启动-deepseek-bridge.sh"), "start"],
             stop_cmd=["bash", str(ROOT / "bridges" / "启动-deepseek-bridge.sh"), "stop"],
-            description="DeepSeek 跨域桥接", dna="#龍芯⚡️2026-06-22-LONGHUN-DEEPSEEKBRIDGE-v1.0"),
+            description="DeepSeek 跨域桥接", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-DEEPSEEKBRIDGE-v1.0"),
     NodeDef(id="cnsh-gateway", name="CNSH API 网关", port=9626, category="placeholder", wuxing="metal",
             health_path="/cnshex/health", control_type="service",
             start_cmd=["python3", str(HOME / ".longhun" / "multi-ai-gateway" / "cnshex_api.py")],
-            description="CNSH 对外API网关占位", dna="#龍芯⚡️2026-06-22-LONGHUN-CNSHGW-v0.1"),
+            description="CNSH 对外API网关占位", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-CNSHGW-v0.1"),
 ]
 
 DAEMON_REGISTRY: List[NodeDef] = [
     NodeDef(id="d-autostart", name="uid9622 统一自启", port=None, category="daemon", wuxing="earth",
             control_type="launchd", launchd_label="com.uid9622.longhun.autostart", autostart=True,
-            description="开机自启动任务统一调度", dna="#龍芯⚡️2026-06-22-LONGHUN-AUTOSTART-v1.0"),
+            description="开机自启动任务统一调度", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-AUTOSTART-v1.0"),
     NodeDef(id="d-memory", name="记忆启动守护", port=None, category="daemon", wuxing="water",
             control_type="launchd", launchd_label="com.longhun.memory-bootstrap", autostart=True,
-            description="多平台记忆归集与启动加载", dna="#龍芯⚡️2026-06-22-LONGHUN-MEMORY-DAEMON-v1.0"),
+            description="多平台记忆归集与启动加载", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-MEMORY-DAEMON-v1.0"),
     NodeDef(id="d-index", name="全局索引", port=None, category="daemon", wuxing="metal",
             control_type="launchd", launchd_label="com.longhun.global-index", autostart=True,
-            description="文件、技能、资产全局索引构建", dna="#龍芯⚡️2026-06-22-LONGHUN-INDEX-v1.0"),
+            description="文件、技能、资产全局索引构建", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-INDEX-v1.0"),
     NodeDef(id="d-cnsh-redline", name="CNSH 红线", port=None, category="daemon", wuxing="fire",
             control_type="launchd", launchd_label="com.longhun.cnsh-redlines", autostart=True,
-            description="CNSH 语言规范与行为红线守护", dna="#龍芯⚡️2026-06-22-LONGHUN-CNSH-REDLINE-v1.0"),
+            description="CNSH 语言规范与行为红线守护", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-CNSH-REDLINE-v1.0"),
     NodeDef(id="d-ability-guard", name="能力守护", port=None, category="daemon", wuxing="metal",
             control_type="launchd", launchd_label="com.longhun.capability-daemon", autostart=True,
-            description="能力模块健康检查与自动恢复", dna="#龍芯⚡️2026-06-22-LONGHUN-ABILITY-GUARD-v1.0"),
+            description="能力模块健康检查与自动恢复", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-ABILITY-GUARD-v1.0"),
     NodeDef(id="d-harvester", name="收割机", port=None, category="daemon", wuxing="wood",
             control_type="launchd", launchd_label="com.longhun.harvester", autostart=True,
-            description="代码与资产收割审计", dna="#龍芯⚡️2026-06-22-LONGHUN-HARVESTER-v1.0"),
+            description="代码与资产收割审计", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-HARVESTER-v1.0"),
     NodeDef(id="d-daily-review", name="每日复盘", port=None, category="daemon", wuxing="earth",
             control_type="launchd", launchd_label="com.longhun.daily-review", autostart=True,
-            description="每日自动化审计复盘", dna="#龍芯⚡️2026-06-22-LONGHUN-DAILYREVIEW-v1.0"),
+            description="每日自动化审计复盘", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-DAILYREVIEW-v1.0"),
     NodeDef(id="d-auto-eval", name="自动化评估", port=None, category="daemon", wuxing="water",
             control_type="launchd", launchd_label="com.longhun.automation-assessment", autostart=True,
-            description="系统健康六维度自动评估", dna="#龍芯⚡️2026-06-22-LONGHUN-AUTOEVAL-v1.0"),
+            description="系统健康六维度自动评估", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-AUTOEVAL-v1.0"),
     NodeDef(id="d-entry-clean", name="入口清理", port=None, category="daemon", wuxing="metal",
             control_type="launchd", launchd_label="com.longhun.entry.cleanup", autostart=True,
-            description="入口一致性协议自动清理", dna="#龍芯⚡️2026-06-22-LONGHUN-ENTRYCLEAN-v1.0"),
+            description="入口一致性协议自动清理", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-ENTRYCLEAN-v1.0"),
     NodeDef(id="d-tianguan", name="天官判卷", port=None, category="daemon", wuxing="fire",
             control_type="launchd", launchd_label="com.longhun.marquee", autostart=True,
-            description="自动化评审与权重判决", dna="#龍芯⚡️2026-06-22-LONGHUN-TIANGUAN-v1.0"),
+            description="自动化评审与权重判决", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-TIANGUAN-v1.0"),
     NodeDef(id="d-notion-mirror", name="Notion 镜像", port=None, category="daemon", wuxing="water",
             control_type="launchd", launchd_label="com.longhun.notion-mirror", autostart=True,
-            description="Notion 公开空间本地镜像同步", dna="#龍芯⚡️2026-06-22-LONGHUN-NOTIONMIRROR-v1.0"),
+            description="Notion 公开空间本地镜像同步", dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-NOTIONMIRROR-v1.0"),
 ]
 
 LOGICAL_REGISTRY: List[NodeDef] = [
     NodeDef(id="north-star", name="北辰不动点", port=None, category="core", wuxing="earth",
             control_type="none", description="系统唯一不动点。UID9622 主权核心",
-            dna="#龍芯⚡️2026-07-04-SANCAI-PROTOCOL-UID9622-v1.0"),
+            dna="#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-SANCAI-PROTOCOL-UID9622-v1.0"),
     NodeDef(id="tricolor-engine", name="三色神机", port=None, category="logic", wuxing="fire",
             control_type="none", description="健康/待启/异常三色自动判定中枢",
-            dna="#龍芯⚡️2026-06-22-LONGHUN-TRICOLOR-v1.0"),
+            dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-TRICOLOR-v1.0"),
     NodeDef(id="wuxing-hub", name="五色石枢纽", port=None, category="logic", wuxing="earth",
             control_type="none", description="金木水火土五行相生相克路由调度",
-            dna="#龍芯⚡️2026-06-22-LONGHUN-WUXING-HUB-v1.0"),
+            dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-WUXING-HUB-v1.0"),
     NodeDef(id="memory-feeder", name="记忆投喂器", port=None, category="logic", wuxing="water",
             control_type="none", description="多平台对话记忆压缩归集",
-            dna="#龍芯⚡️2026-06-22-LONGHUN-FEEDER-v1.0"),
+            dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FEEDER-v1.0"),
     NodeDef(id="training-pool", name="龍魂训练池", port=None, category="logic", wuxing="wood",
             control_type="none", description="本地模型微调数据集与质量审计",
-            dna="#龍芯⚡️2026-06-22-LONGHUN-TRAINING-POOL-v1.0"),
+            dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-TRAINING-POOL-v1.0"),
     NodeDef(id="dna-chain", name="DNA 链哈希", port=None, category="logic", wuxing="metal",
             control_type="none", description="每个动作生成唯一DNA追溯码",
-            dna="#龍芯⚡️2026-06-22-LONGHUN-DNA-CHAIN-v1.0"),
+            dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-DNA-CHAIN-v1.0"),
     NodeDef(id="governance-layer", name="龍魂治理层", port=None, category="logic", wuxing="earth",
             control_type="none", description="零号协议、三层监督、君子协议",
-            dna="#龍芯⚡️2026-06-29-SKILL-ROUTING-RULES-v1.0"),
+            dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-SKILL-ROUTING-RULES-v1.0"),
     NodeDef(id="symbiote-core", name="🧬 共生体核心", port=PORT, category="logic", wuxing="earth",
             control_type="none", description="知识矩阵与神经网络双向生长的共生引擎",
             dna=DNA),
     NodeDef(id="kirin-deploy", name="鲲鹏部署", port=None, category="logic", wuxing="metal",
             control_type="none", description="ARM64 鲲鹏服务器一键部署",
-            dna="#龍芯⚡️2026-06-22-LONGHUN-KIRIN-DEPLOY-v1.0"),
+            dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-KIRIN-DEPLOY-v1.0"),
     NodeDef(id="harmony-os", name="鸿蒙端", port=None, category="logic", wuxing="water",
             control_type="none", description="SM4 端侧加密，数据不出境",
-            dna="#龍芯⚡️2026-06-22-LONGHUN-HARMONYOS-v1.0"),
+            dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-HARMONYOS-v1.0"),
     NodeDef(id="ios-end", name="iOS 端", port=None, category="logic", wuxing="wood",
             control_type="none", description="Secure Enclave + AES-256",
-            dna="#龍芯⚡️2026-06-22-LONGHUN-IOS-v1.0"),
+            dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-IOS-v1.0"),
     NodeDef(id="cross-platform", name="跨平台同步", port=None, category="logic", wuxing="earth",
             control_type="none", description="国密SM4+ECDH，数据不出境",
-            dna="#龍芯⚡️2026-06-22-LONGHUN-XSYNC-v1.0"),
+            dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-XSYNC-v1.0"),
 ]
 
 ALL_NODES = [LOGICAL_REGISTRY[0]] + SERVICE_REGISTRY + DAEMON_REGISTRY + LOGICAL_REGISTRY[1:]

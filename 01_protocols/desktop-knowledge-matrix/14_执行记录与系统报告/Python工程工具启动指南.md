@@ -1,4 +1,6 @@
-<!--#龍芯⚡️丙午·丙申·庚申·亥时-DOC-PYTHON_F159-v1.0 -->
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+<!--#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DOC-PYTHON_F159-v1.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # 龍魂系统 · Python工程工具启动指南

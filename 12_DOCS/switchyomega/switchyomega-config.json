@@ -1,0 +1,13 @@
+{
+  "schema": 2,
+  "profileName": "龍魂代理",
+  "proxy": {
+    "proxyType": "socks5",
+    "host": "127.0.0.1",
+    "port": 1080,
+    "username": "",
+    "password": ""
+  },
+  "autoSwitch": false,
+  "bypassList": ["localhost", "127.0.0.1", "::1", "*.local"]
+}

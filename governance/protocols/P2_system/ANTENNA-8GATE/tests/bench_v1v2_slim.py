@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·比-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷇比-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # ============================================================
 # 龍魂 · ANTENNA-8GATE v1 vs v2 精简基准 (6次推理)
-# DNA：#龍芯⚡️丙午·乙未·丙申·申时·☲离-BENCH-V1V2-SLIM-a1b2c3d4
+# DNA：#龍芯⚡️丙午·乙未·丙申·申时·䷝离-BENCH-V1V2-SLIM-a1b2c3d4
 # ============================================================
 import sys, os, time, json, numpy as np
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

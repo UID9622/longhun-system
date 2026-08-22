@@ -1,6 +1,8 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂系统 · 安全策略
 
-> DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-SECURITY-POLICY-v1.0-E3F6B8A1`
+> DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SECURITY-POLICY-v1.0-E3F6B8A1`
 > 依据: GB/T 30998-2014《信息技术 软件安全保障规范》
 
 ## 支持的版本

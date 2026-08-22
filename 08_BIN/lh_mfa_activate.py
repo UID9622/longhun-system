@@ -18,7 +18,7 @@
   ⑤ python bin/lh_mfa_activate.py --test-code     # 查看当前应输入的动态码（调试用）
   ⑥ python bin/lh_mfa_activate.py --unbind <设备ID> # 解绑设备
 
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-MFA-ACTIVATE-v2.0-9E1D4C7B
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-MFA-ACTIVATE-v2.0-9E1D4C7B
 """
 
 import os
@@ -452,7 +452,7 @@ def main():
         mfa.unbind(args.unbind)
     else:
         parser.print_help()
-        print(f"\nDNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-MFA-ACTIVATE-v2.0-9E1D4C7B")
+        print(f"\nDNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-MFA-ACTIVATE-v2.0-9E1D4C7B")
         print(f"确认码: {P0_CONFIG['confirm']}")
 
 

@@ -25,4 +25,4 @@ cp target/aarch64-linux-android/release/liblonghun_core.so ../harmonyos/plugins/
 - [ ] NAPI 桥接适配
 - [ ] 鲲鹏实机验证
 
-> DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-LIB-RUST-CORE-UID9622
+> DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-LIB-RUST-CORE-UID9622

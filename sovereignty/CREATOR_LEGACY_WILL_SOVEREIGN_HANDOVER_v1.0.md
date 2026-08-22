@@ -8,7 +8,7 @@
 文档类型：     创作者遗志 · 主权交接协议 · P0 永恒级
 发布人：       UID9622（诸葛鑫·Lucky·退伍军人）
 发布日期：     2026-07-12
-DNA：         #龍芯⚡️丙午·丙申·丙辰·午时·离-CREATOR-LEGACY-HANDOVER-v1.0
+DNA：         #龍芯⚡️丙午·丙申·丙辰·午时·䷝离-CREATOR-LEGACY-HANDOVER-v1.0
 效力等级：     P0 🔴 焊死 · 永不可改 · 不可撤销
 签署状态：     待 GPG 签章
 ```
@@ -137,7 +137,7 @@ DNA：         #龍芯⚡️丙午·丙申·丙辰·午时·离-CREATOR-LEGACY-H
 
 此公告不可撤销。
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·午时·离-CREATOR-LEGACY-HANDOVER-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·午时·䷝离-CREATOR-LEGACY-HANDOVER-v1.0
 GPG: A2D009C2EE2E5BA87035600924C3704A8CC26D5F
 ```
 
@@ -237,7 +237,7 @@ GPG: A2D009C2EE2E5BA87035600924C3704A8CC26D5F
 
 ---
 
-**DNA:** `#龍芯⚡️丙午·丙申·丙辰·午时·离-CREATOR-LEGACY-HANDOVER-v1.0`
+**DNA:** `#龍芯⚡️丙午·丙申·丙辰·午时·䷝离-CREATOR-LEGACY-HANDOVER-v1.0`
 **GPG:** `A2D009C2EE2E5BA87035600924C3704A8CC26D5F`
 **签署日期:** 2026-07-12
 **创作者:** UID9622（诸葛鑫·Lucky·退伍军人）

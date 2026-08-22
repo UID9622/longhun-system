@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂·语义反馈引擎 v1.0 — 一言既出·驷马难追
 
@@ -9,7 +10,7 @@
 是让有信誉的人来校准语义——一个人说"这个词是这个意思"，
 高信誉的人说的话权重更重，争议大的条目自动标记待审。
 
-DNA: #龍芯⚡️丙午·乙未·戊午·申时·家人-FEEDBACK-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·戊午·申时·䷤家人-FEEDBACK-ENGINE-v1.0
 
 核心原则：
   🀄 一言既出，驷马难追 — 反馈永久留存，不可删改，只能追加新反馈
@@ -47,7 +48,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 from collections import defaultdict
 
-DNA = "#龍芯⚡️丙午·乙未·戊午·申时·家人-FEEDBACK-ENGINE-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·戊午·申时·䷤家人-FEEDBACK-ENGINE-v1.0"
 ROOT = Path(__file__).resolve().parent.parent
 LEDGER_PATH = ROOT / "L7_数据层" / "semantic_feedback_ledger.json"
 TRUST_REGISTRY_PATH = ROOT / "L7_数据层" / "trust_score_registry.json"

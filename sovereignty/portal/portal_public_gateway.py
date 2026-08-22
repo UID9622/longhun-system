@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂数字身份公开网关 · 安全暴露入口 v1.0
@@ -20,7 +21,7 @@
   2. 本网关监听 0.0.0.0:8443
   3. Nginx / Caddy 反代域名 443 → 8443，并配 HTTPS
 
-DNA: #龍芯⚡️2026-06-25-LONGHUN-PORTAL-PUBLIC-GATEWAY-v1.0
+DNA: #龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-LONGHUN-PORTAL-PUBLIC-GATEWAY-v1.0
 """
 
 import os
@@ -97,7 +98,7 @@ class PortalGatewayHandler(BaseHTTPRequestHandler):
                 "error": "该接口不对外公开",
                 "note": "如需管理，请从本机访问或携带 X-LongHun-Admin-Token",
                 "tricolor": "🔴",
-                "dna": "#龍芯⚡️20260625-GATEWAY-FORBIDDEN"
+                "dna": "#龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-GATEWAY-FORBIDDEN"
             })
             return
 
@@ -135,7 +136,7 @@ class PortalGatewayHandler(BaseHTTPRequestHandler):
                 "gateway": "longhun-portal-public-gateway",
                 "upstream": f"http://{TARGET_HOST}:{TARGET_PORT}",
                 "public_paths": list(PUBLIC_PATHS),
-                "dna": "#龍芯⚡️2026-06-25-LONGHUN-PORTAL-PUBLIC-GATEWAY-v1.0"
+                "dna": "#龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-LONGHUN-PORTAL-PUBLIC-GATEWAY-v1.0"
             })
             return
         self._proxy("GET")
@@ -159,7 +160,7 @@ if __name__ == "__main__":
     print(f"   监听: http://0.0.0.0:{GATEWAY_PORT}")
     print(f"   上游: http://{TARGET_HOST}:{TARGET_PORT}")
     print(f"   管理令牌: {'已启用' if ADMIN_TOKEN else '未启用（仅本机可调受限接口）'}")
-    print(f"   DNA: #龍芯⚡️2026-06-25-LONGHUN-PORTAL-PUBLIC-GATEWAY-v1.0")
+    print(f"   DNA: #龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-LONGHUN-PORTAL-PUBLIC-GATEWAY-v1.0")
     try:
         server.serve_forever()
     except KeyboardInterrupt:

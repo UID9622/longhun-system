@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-"""#龍芯⚡️2026-06-29-LAOZI-369-ALGO-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+"""#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LAOZI-369-ALGO-v1.0
 《道德经》·369·核心算法模块
 
 理论来源：laozi-369-core-algo.md
-DNA: #龍芯⚡️2026-04-05-易经369道德经算法-理论根基-v1.0
+DNA: #龍芯⚡️丙午·壬辰·己酉·庚午·䷨损-易经369道德经算法-理论根基-v1.0
 """
 import sys
 from pathlib import Path
@@ -193,7 +194,7 @@ def laozi_decision(
             "payload": payload,
         },
         "CNSH::": {
-            "dna": dna or "#龍芯⚡️2026-06-29-LAOZI-369-DECISION-v1.0",
+            "dna": dna or "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LAOZI-369-DECISION-v1.0",
             "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
             "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
             "audit": audit,

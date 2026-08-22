@@ -26,6 +26,6 @@
 伦理 ∞ / 数据 L1 / 人格 L2 / 行为 L3 —— 分级熔断、分级恢复、审计留档。
 
 > 公开首页 / Home: https://uid9622.notion.site
-DNA: #龍芯⚡️2026-08-20-TRICOLOR-AUDIT-PUBLIC-v1.1
+DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-TRICOLOR-AUDIT-PUBLIC-v1.1
 
 分层许可: 思想层 CC BY-NC-SA 4.0（公开骨架版·引用须保留来源链）

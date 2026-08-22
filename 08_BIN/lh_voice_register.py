@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 声纹注册库 v1.0
-DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-VOICE-REGISTER-v1.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-VOICE-REGISTER-v1.0-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -325,7 +325,7 @@ class VoiceRegister:
             "soundfile": HAS_SF,
             "model": "WeSpeaker voxceleb_resnet34_LM" if self.model else "回退: 统计特征",
             "registered": len(self.registry),
-            "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-VOICE-REGISTER-v1.0-UID9622"
+            "dna": "#龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-VOICE-REGISTER-v1.0-UID9622"
         }
 
 

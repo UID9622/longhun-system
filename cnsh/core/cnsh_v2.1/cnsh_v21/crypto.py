@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 CNSH v2.1 国密 SM4 + GPG 加密签章模块
-DNA: #龍芯⚡️2026-06-29-CNSH-CRYPTO-v2.1
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-CRYPTO-v2.1
 
 依赖：
 - SM4：本地 vendored 的 sm4 包（MIT License，作者 Eric Wong）

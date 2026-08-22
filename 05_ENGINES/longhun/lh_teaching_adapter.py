@@ -5,7 +5,7 @@
 """
 龍魂·普惠教学适配器 v1.0 — 画像→tier→温度→输出风格 统一桥接
 ============================================================================
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☲离-TEACHING-ADAPTER-v1.0-a1b2c3d4
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷝离-TEACHING-ADAPTER-v1.0-a1b2c3d4
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -33,7 +33,7 @@ from typing import Any, Dict, List, Optional, Tuple
 # P0 焊死常量
 # ---- ═══════════════════════════════════════════════ ----
 
-DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·☲离-TEACHING-ADAPTER-v1.0-a1b2c3d4"
+DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·䷝离-TEACHING-ADAPTER-v1.0-a1b2c3d4"
 UID = "UID9622"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 PROTOCOL = "01_protocols/LH-INCLUSIVE-EDUCATION-STANDARD-v1.0.md"

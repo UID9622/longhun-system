@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🐉 CNSH中文编辑器·完整纠错引擎 v2.0
-DNA: #龍芯⚡️2026-07-31-CNSH-EDITOR-COMPLETE-v2.0
+DNA: #龍芯⚡️丙午·乙未·丙午·甲午·䷳艮为山-CNSH-EDITOR-COMPLETE-v2.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 功能：370条完整纠错规则库
@@ -690,7 +691,7 @@ class NotionIntegration:
         """导出规则为JSON"""
         data = {
             "version": "v2.0",
-            "dna": "#龍芯⚡️2026-07-31-CNSH-EDITOR-COMPLETE-v2.0",
+            "dna": "#龍芯⚡️丙午·乙未·丙午·甲午·䷳艮为山-CNSH-EDITOR-COMPLETE-v2.0",
             "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
             "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
             "created_at": datetime.datetime.now().isoformat(),

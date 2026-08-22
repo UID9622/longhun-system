@@ -4,7 +4,7 @@
 # 龍魂 · 尾巴收尾远程验证器
 # remote_tail_finalizer.sh
 #
-# DNA: #龍芯⚡️丙午·乙未·丁酉·亥時·☰乾-REMOTE-TAIL-FINALIZER-v1.0
+# DNA: #龍芯⚡️丙午·乙未·丁酉·亥時·䷀乾-REMOTE-TAIL-FINALIZER-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 用途: 等鲲鹏 SSH 恢复后，一键同步最新修复并跑远程全量自检
 # 触发: 老大下令 / 网络恢复后自动执行
@@ -12,7 +12,7 @@
 
 set -euo pipefail
 
-DNA="#龍芯⚡️丙午·乙未·丁酉·亥時·☰乾-REMOTE-TAIL-FINALIZER-v1.0"
+DNA="#龍芯⚡️丙午·乙未·丁酉·亥時·䷀乾-REMOTE-TAIL-FINALIZER-v1.0"
 KUNPENG_IP="119.13.90.27"
 KUNPENG_USER="root"
 SSH_KEY="${HOME}/.ssh/longhun_kunpeng_ed25519"

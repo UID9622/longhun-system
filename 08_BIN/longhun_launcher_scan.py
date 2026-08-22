@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️2026-06-03-LONGHUN-LAUNCHER-SCAN-v1.0
+#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-LAUNCHER-SCAN-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -10,7 +10,7 @@
 跨平台: macOS(本地 M4) + Linux(华为云 ECS)
 只读扫描 · 不改动任何文件
 
-DNA: #龍芯⚡️2026-06-03-LONGHUN-LAUNCHER-SCAN-v1.0
+DNA: #龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-LAUNCHER-SCAN-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 用法:

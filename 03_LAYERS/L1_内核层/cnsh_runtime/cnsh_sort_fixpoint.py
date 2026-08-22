@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 """
 CNSH 排序不动点协议引擎 v1.0
 协议原文：龍魂排序不动点 · 三层排序 · 三次审计 · 七维度对射
-DNA: #龍芯⚡️2026-04-19-ORDER-ANCHOR-v1.0
+DNA: #龍芯⚡️丙午·壬辰·癸亥·戊午·䷚颐-ORDER-ANCHOR-v1.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 原则: 只翻译不破解 · 顺序是心脏 · 护弱是底线
@@ -309,7 +310,7 @@ class CNSHSortFixpoint:
         固化块 = f"""
 {'='*60}
 CNSH 协议固化区 · 只追加 · 不覆盖 · 不篡改
-协议 DNA: #龍芯⚡️2026-04-19-ORDER-ANCHOR-v1.0
+协议 DNA: #龍芯⚡️丙午·壬辰·癸亥·戊午·䷚颐-ORDER-ANCHOR-v1.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 固化时间: {时间戳}
@@ -412,4 +413,4 @@ if __name__ == "__main__":
     print("三层排序校验结果:")
     print(json.dumps(排序校验, ensure_ascii=False, indent=2))
 
-    print("\nDNA: #龍芯⚡️2026-04-19-ORDER-ANCHOR-v1.0")
+    print("\nDNA: #龍芯⚡️丙午·壬辰·癸亥·戊午·䷚颐-ORDER-ANCHOR-v1.0")

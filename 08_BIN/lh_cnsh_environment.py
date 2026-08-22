@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂 · CNSH 环境集成引擎 v2.0
-DNA: #龍芯⚡️丙午·乙未·戊申·泽地萃-CNSH-ENV-v2.0-UID9622
+DNA: #龍芯⚡️丙午·乙未·戊申·戊午·䷬萃-CNSH-ENV-v2.0-UID9622
 
 功能：
   1. 统一 CNSH 全局变量管理（环境变量 + Python 常量）

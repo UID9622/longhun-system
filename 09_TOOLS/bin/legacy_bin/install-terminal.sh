@@ -8,7 +8,7 @@
 #   3. 注册 longhun_welcome 欢迎板
 #   4. 可选开启自动欢迎板 (LONGHUN_AUTO_BANNER=1)
 #
-# DNA: #龍芯⚡️2026-06-24-LONGHUN-TERMINAL-INSTALL-v2.0
+# DNA: #龍芯⚡️丙午·甲午·己巳·庚午·䷃蒙-LONGHUN-TERMINAL-INSTALL-v2.0
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 set -e
@@ -132,4 +132,4 @@ echo ""
 echo "🎨 开启自动欢迎板:"
 echo "   echo 'export LONGHUN_AUTO_BANNER=1' >> $SHELL_FILE"
 echo ""
-echo "DNA: #龍芯⚡️2026-06-24-LONGHUN-TERMINAL-INSTALL-v2.0"
+echo "DNA: #龍芯⚡️丙午·甲午·己巳·庚午·䷃蒙-LONGHUN-TERMINAL-INSTALL-v2.0"

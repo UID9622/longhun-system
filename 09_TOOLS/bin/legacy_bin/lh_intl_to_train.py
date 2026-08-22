@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 from __future__ import annotations
 """
 龍魂·国际数据→train.jsonl格式转换器 v1.0
-DNA: #龍芯⚡️丙午·辛未·乙酉·辰时·讼-INTL-TO-TRAIN-v1.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·辰时·䷅讼-INTL-TO-TRAIN-v1.0
 
 将 lh_intl_cleaner 生成的 {instruction/input/output} 格式
 转换为 train.jsonl 的 {messages} 格式
@@ -118,7 +119,7 @@ def main():
         json.dump(info, f, ensure_ascii=False, indent=2)
 
     print(f"\n✅ v1.7 国际数据合并完成！")
-    print(f"   DNA: #龍芯⚡️丙午·辛未·乙酉·辰时·讼-INTL-TO-TRAIN-v1.0")
+    print(f"   DNA: #龍芯⚡️丙午·辛未·乙酉·辰时·䷅讼-INTL-TO-TRAIN-v1.0")
 
 
 if __name__ == "__main__":

@@ -1,6 +1,7 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 """龍魂 DNA 链验签 v1.0 — chain_hash 一致性校验
-DNA: #龍芯⚡️2026-08-20-VERIFY-DNA-CHAIN-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-VERIFY-DNA-CHAIN-v1.0
 用法: python3 scripts/verify_dna.py [--staged]
 规则: 每条 DNA 记录 = {seq, dna, prev_hash, hash}
       hash = sha256(seq | dna | prev_hash)
@@ -8,7 +9,8 @@ License: MulanPSL v2
 """
 import hashlib, json, re, sys, subprocess, pathlib
 
-DNA_RE = re.compile(r"#龍芯⚡️[0-9A-Za-z:\-]+")
+# 支持中文干支四柱/64卦格式: #龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-ZENG-ANCHOR-v1.0 —— 2026-08-22 修误报
+DNA_RE = re.compile(r"#龍芯⚡️[^\s]+")
 CHAIN = pathlib.Path("dna_chain.json")
 BACKLINK = "https://uid9622.notion.site"
 
@@ -34,9 +36,12 @@ def verify_chain() -> bool:
 
 
 def staged_files():
-    out = subprocess.run(["git", "diff", "--cached", "--name-only"],
-                         capture_output=True, text=True).stdout
-    return [f for f in out.split() if f.endswith(".md")]
+    # 2026-08-22: --diff-filter=ACM 排除 D(删除) 文件（clipboard-vault 等已 rm --cached
+    #   但工作区仍在的文件不应再检查）；-z 防文件名转义
+    out = subprocess.run(["git", "diff", "--cached", "--name-only", "-z", "--diff-filter=ACM"],
+                         capture_output=True).stdout
+    return [f.decode("utf-8", errors="ignore") for f in out.split(b"\x00")
+            if f and f.decode("utf-8", errors="ignore").endswith(".md")]
 
 
 def verify_md(files) -> bool:
@@ -50,7 +55,7 @@ def verify_md(files) -> bool:
             print(f"🟡 {f} 缺 DNA 追溯码")
         if BACKLINK not in t:
             print(f"🟡 {f} 缺反向链接回公开首页（反向链接铁律）")
-        if any(c in t for c in ["\u200b", "\u200c", "\u200d", "\ufeff"]):
+        if any(c in t for c in ["\u200b", "\u200c", "\ufeff", "\u2060"]):
             print(f"🔴 {f} 含零宽/隐藏字符（会被判为提示注入）")
             ok = False
     return ok

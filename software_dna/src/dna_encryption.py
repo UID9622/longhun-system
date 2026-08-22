@@ -2,13 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 
 """
 龍魂 DNA 协议 · 加密模块 v1.0
 AES-256-GCM + KMS + 签章验证
 
-DNA:#龍芯⚡️2026-06-07-DNA-ENCRYPTION-v1.0
+DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-DNA-ENCRYPTION-v1.0
 责任: UID9622 · 不免责
 """
 

@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·辛未·乙酉·NOTION-EXPLORE-READONLY
+#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-NOTION-EXPLORE-READONLY
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -10,7 +10,7 @@
 龍魂·Notion 只读勘探器
 用途: 枚举 integration 可见的所有页面/数据库，统计类型与规模，
      为「容量清理 / 截图归档」提供决策依据。只读，不改任何数据。
-DNA: #龍芯⚡️丙午·辛未·乙酉·NOTION-EXPLORE-READONLY
+DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-NOTION-EXPLORE-READONLY
 """
 import os, sys, json, time
 from pathlib import Path

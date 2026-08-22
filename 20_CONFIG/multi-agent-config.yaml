@@ -1,5 +1,5 @@
 # 🐲 龍魂·多智能体统一配置 v2.0
-# DNA: #龍芯⚡️2026-08-04-MULTI-AGENT-CONFIG-UID9622
+# DNA: #龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-MULTI-AGENT-CONFIG-UID9622
 # License: MulanPSL v2
 #
 # 此文件为总编排器 GrandOrchestrator 的默认配置。
@@ -9,7 +9,7 @@ system:
   name: "龍魂·多智能体统一协作框架"
   version: "2.0.0"
   description: "蚁群架构 + 人格矩阵 + 黑板主编 三合一"
-  dna: "#龍芯⚡️2026-08-04-MULTI-AGENT-FRAMEWORK-UID9622"
+  dna: "#龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-MULTI-AGENT-FRAMEWORK-UID9622"
   author: "诸葛鑫 (UID9622)"
 
 # ── 三层架构 ──
@@ -98,7 +98,7 @@ llm:
     api_key: "${MOONSHOT_API_KEY}"
   deepseek:
     base_url: "https://api.deepseek.com/v1"
-    model: "deepseek-chat"
+    model: "deepseek-v4-flash"
     api_key: "${DEEPSEEK_API_KEY}"
 
 # ── 分块配置 ──

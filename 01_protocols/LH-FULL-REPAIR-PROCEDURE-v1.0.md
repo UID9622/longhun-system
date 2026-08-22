@@ -1,6 +1,6 @@
 # 龍魂·全仓修复标准流程 v1.0
 
-> DNA: #龍芯⚡️丙午·甲申·丁巳·䷖剥-FULL-REPAIR-PROCEDURE-v1.0
+> DNA: #龍芯⚡️丙午·甲申·丁巳·丙午·䷖剥-FULL-REPAIR-PROCEDURE-v1.0
 > 创建者: 诸葛鑫（UID9622）
 > 协议: CC BY-NC-SA 4.0（核心思想层）
 > 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -179,5 +179,5 @@ scan-exclusions.json (单一真相源)
 【签名】
 制定：诸葛鑫（UID9622）
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-DNA: #龍芯⚡️丙午·甲申·丁巳·䷖剥-FULL-REPAIR-PROCEDURE-v1.0
+DNA: #龍芯⚡️丙午·甲申·丁巳·丙午·䷖剥-FULL-REPAIR-PROCEDURE-v1.0
 三色: 🟢 全仓信任链焊死

@@ -1,6 +1,6 @@
 # 🐲 龍魂系统 · 阶段 2 老百姓入口 MVP 报告 v1.0
 
-> DNA: #龍芯⚡️丙午·癸未·甲申·PHASE2-PEOPLE-ENTRY-MVP-v1.0-UID9622
+> DNA: #龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-PHASE2-PEOPLE-ENTRY-MVP-v1.0-UID9622
 > 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 > GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 > 执行时间: 2026-08-04
@@ -97,7 +97,7 @@
 {
   "witness_id": "WITNESS-20260804_141611-cc7f25fe49566cb7",
   "timestamp_utc": "2026-08-04T14:16:11+00:00",
-  "dna": "#龍芯⚡️丙午·癸未·甲申-WITNESS-...",
+  "dna": "#龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-WITNESS-...",
   "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
   "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
   "content": "...",
@@ -127,7 +127,7 @@
 ✅ 证据包已导出: backup/evidence_20260804_141616.json
 📦 包含: 1 条证据记录
 🔐 系统签名状态: 857 个脚本已 GPG 签名
-🧬 DNA: #龍芯⚡️丙午·癸未·甲申-EVIDENCE-EXPORT-20260804_141616
+🧬 DNA: #龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-EVIDENCE-EXPORT-20260804_141616
 
 建议: 将证据包复制到外部加密介质或打印成纸质备份。
 ```
@@ -182,7 +182,7 @@
 ## 7. 签名
 
 ```
-DNA: #龍芯⚡️丙午·癸未·甲申·PHASE2-PEOPLE-ENTRY-MVP-v1.0-UID9622
+DNA: #龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-PHASE2-PEOPLE-ENTRY-MVP-v1.0-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 ```

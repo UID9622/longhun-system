@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
-🐉 龍魂·三色审计判定引擎 v2.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-三色审计-v2.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+🐉 龍魂·三色审计判定引擎 v2.1
+DNA: #龍芯⚡️丙午·丙申·丁卯·庚戌·䷔噬嗑-三色审计-v2.1-五合一集成
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 定位：P05上帝之眼核心执行引擎 — 对系统行为/用户请求/安全风险进行三色分级判定，
@@ -16,7 +17,9 @@ CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
   2. 四级熔断 — L0∞伦理(永久) / L1数据(人工) / L2人格(重设) / L3行为(自动恢复)
   3. 十闸口联动 — GATE-01~10 交付前逐道过
   4. SI主权指数 — 三才权重·天<0.34一票熔断
-  5. 德本预审 — 五问全过才进技术审计
+  5. 德本预审 — 第0问道德经锚(81章·fail-closed·无锚不输出) + 五问
+  6. 行为密码学 — 七因子指纹进证据链+SQLite(behavior_json)
+  7. 干支时间戳 — 四柱+64卦·干支戳替代ISO（含ISO可排序）
   6. 内容防篡改 — SHA256指纹+HMAC签名双重验证
   7. P06交叉验证 — 数字根独立复算
   8. 证据链 — 事件文件+审计日志+DNA注册表三轨留痕
@@ -66,6 +69,39 @@ try:
     _HAS_P05 = True
 except ImportError:
     _HAS_P05 = False
+
+# ── 方案A升级 v2.1：道德经锚 + 干支时间戳 + 行为七因子 ──
+# 道德经定锚器（第0问·行为锚·81章）
+try:
+    from bin.lh_daodejing_anchor import CNSH_道德经定锚器
+    _HAS_DAO_ANCHOR = True
+except ImportError:
+    _HAS_DAO_ANCHOR = False
+
+# 干支时间引擎（干支四柱时间戳）
+try:
+    from bin.lh_time_engine import get_output_stamp
+    _HAS_TIME_ENGINE = True
+except ImportError:
+    _HAS_TIME_ENGINE = False
+
+# 行为密码学·七因子指纹
+try:
+    sys.path.insert(0, str(_PROJECT_ROOT / "04_ENGINES" / "behavioral_crypto"))
+    from seven_factor_model import quick_fingerprint as 提取行为指纹
+    _HAS_BEHAVIOR = True
+except Exception:
+    _HAS_BEHAVIOR = False
+
+
+def _干支时间戳() -> str:
+    """干支四柱完整时间戳（内含ISO·可排序）·引擎缺失降级ISO"""
+    try:
+        if _HAS_TIME_ENGINE:
+            return get_output_stamp()
+    except Exception:
+        pass
+    return datetime.datetime.now().isoformat()
 
 # ============================================================
 # 一、数据结构
@@ -154,6 +190,7 @@ class 审计裁决:
     防篡改指纹: Optional[str] = None
     证据留痕: Dict[str, str] = field(default_factory=dict)
     交叉验证: Optional[Dict] = None
+    行为指纹: Optional[Dict] = None
     时间戳: str = ""
     审计者: str = "P05·上帝之眼"
 
@@ -294,7 +331,7 @@ class 规则引擎:
 # ============================================================
 
 class 德本预审引擎:
-    """德本五问预审 — 技术审计前必须先过"""
+    """德本预审 — 第0问道德经锚(行为锚·fail-closed·无锚不输出) + 五问·技术审计前置"""
 
     五问 = [
         ("德在技术前", "帮人还是收割人？", ["杀熟", "歧视", "上瘾", "焦虑转化", "恐惧营销"]),
@@ -306,9 +343,35 @@ class 德本预审引擎:
 
     @classmethod
     def 预审(cls, 内容: str, 上下文: Optional[Dict] = None) -> Dict[str, Any]:
-        """执行德本五问预审"""
-        结果列表 = []
-        全通过 = True
+        """执行德本预审：先道德经锚(fail-closed·锚不到不输出) 再五问"""
+        # ── 第0问·道德经锚（行为锚·先锚后审）──
+        道德经锚 = None
+        第0问 = {
+            "序号": 0,
+            "标题": "道德经锚·行为锚",
+            "问句": "此行为合不合道？81章哪句锚得住？",
+            "状态": "🔴",
+            "命中": ["道德经定锚器不可用"],
+            "上下文命中": [],
+        }
+        if _HAS_DAO_ANCHOR:
+            try:
+                _锚 = CNSH_道德经定锚器().定锚((内容 or "审计场景")[:500])
+                if "error" in _锚:
+                    第0问["命中"] = [_锚["error"][:80]]
+                    第0问["状态"] = "🔴"   # fail-closed：锚不到不输出
+                else:
+                    第0问["状态"] = "🟢"
+                    第0问["命中"] = []
+                    道德经锚 = _锚
+            except Exception as e:
+                第0问["命中"] = [f"定锚异常: {str(e)[:80]}"]
+                第0问["状态"] = "🔴"
+        else:
+            第0问["命中"] = ["道德经锚引擎未加载·fail-closed"]
+
+        结果列表 = [第0问]
+        全通过 = 第0问["状态"] == "🟢"
 
         for 序号, (标题, 问句, 敏感词) in enumerate(cls.五问, 1):
             命中 = []
@@ -337,8 +400,9 @@ class 德本预审引擎:
 
         return {
             "全部通过": 全通过,
+            "道德经锚": 道德经锚,
             "详情": 结果列表,
-            "结论": "✅ 德本五问全过·进入技术审计" if 全通过 else "❌ 德本预审不通过·技术审计不启动",
+            "结论": "✅ 德本预审全过·道德经锚定·进入技术审计" if 全通过 else "❌ 德本预审不通过·技术审计不启动",
         }
 
 # ============================================================
@@ -438,7 +502,23 @@ class 闸口检测器:
         results.append(g02)
 
         # G03: 语义闸 — P08仓颉·术语规范性
-        g03 = 闸口结果(闸口.G03_语义, 状态=三色.绿色, 通过=True, 详情="语义规范")
+        # v2.1修复(2026-08-21): 占位→真检测：一票否决词全集(规则第十层) + 简体龍误用(品牌命名繁体龍永存)
+        否决词全集 = ["技术无国界", "用户体验优先", "灵活处理", "国际接轨",
+                     "简化管理", "商业化需要", "平衡各方", "行业标准"]
+        g03_命中 = [w for w in 否决词全集 if w in 内容]
+        g03_简体龍 = any(k in 内容 for k in ["龙魂", "龙芯", "龙系统", "龙魂系统"])
+        g03详情 = []
+        if g03_命中:
+            g03详情.append(f"一票否决词: {g03_命中}")
+        if g03_简体龍:
+            g03详情.append("简体「龙」误用·品牌/核心命名须繁体「龍」")
+        g03 = 闸口结果(
+            闸口.G03_语义,
+            状态=三色.红色 if g03_命中 else (三色.黄色 if g03_简体龍 else 三色.绿色),
+            通过=not bool(g03_命中 or g03_简体龍),
+            详情="语义规范" if not g03详情 else "；".join(g03详情),
+            建议=None if not g03详情 else ("改写为符合龍魂语境的表述·一票否决词禁用" if g03_命中 else "核心命名请用繁体「龍」(CNSH命名规范)"),
+        )
         results.append(g03)
 
         # G04: 数字根闸 — P06数学大师
@@ -466,12 +546,45 @@ class 闸口检测器:
                        通过=not bool(数据风险), 详情=f"数据风险: {数据风险}" if 数据风险 else "数据安全")
         results.append(g06)
 
-        # G07: 协议闸 — 检查协议合规
-        g07 = 闸口结果(闸口.G07_协议, 状态=三色.绿色, 通过=True, 详情="协议合规")
+        # G07: 协议闸 — P00文心·协议要素合规
+        # v2.1修复(2026-08-21): 占位→真检测：协议头四要素(DNA/署名/许可/CONFIRM·第六层6.1)
+        协议要素 = {
+            "DNA追溯码": bool(re.search(r"DNA[:：]\s*#?龍芯|#龍芯⚡️", 内容)),
+            "署名": bool(re.search(r"创建者|作者|署名", 内容)),
+            "许可声明": bool(re.search(r"协议[:：]|License|CC BY-NC-SA|MulanPSL", 内容)),
+            "确认码": bool(re.search(r"CONFIRM", 内容)),
+        }
+        缺失要素 = [k for k, v in 协议要素.items() if not v]
+        g07 = 闸口结果(
+            闸口.G07_协议,
+            状态=三色.绿色 if not 缺失要素 else 三色.黄色,
+            通过=not bool(缺失要素),
+            详情="协议要素齐全" if not 缺失要素 else f"缺协议要素: {缺失要素}",
+            建议=None if not 缺失要素 else "对外交付文档需补 DNA/署名/许可/CONFIRM 四要素头（第六层6.1）",
+        )
         results.append(g07)
 
-        # G08: 人格闸 — P72龍盾·检查是否越权
-        g08 = 闸口结果(闸口.G08_人格, 状态=三色.绿色, 通过=True, 详情="无越权")
+        # G08: 人格闸 — P72龍盾·越权检查
+        # v2.1修复(2026-08-21): 占位→真检测：越权动作关键词 + 上下文角色权限(规则第五层认证分级)
+        越权动作 = ["修改P0", "修改宪法", "改规则", "删除审计日志", "关闭审计",
+                    "跳过审计", "绕过审计", "导出私钥", "GPG私钥", "DNA种子",
+                    "提权", "代行主权", "SOV-UID9622", "越权"]
+        上下文串 = json.dumps(上下文, ensure_ascii=False) if 上下文 else ""
+        g08_命中 = [w for w in 越权动作 if w in 内容 or w in 上下文串]
+        # 上下文角色越权：角色级别>L3(R4/R5)却请求写/删/部署等敏感操作 → 疑似越权
+        g08_角色越权 = ""
+        if 上下文:
+            _lvl = 上下文.get("permission_level") or 上下文.get("role_level")
+            _op = str(上下文.get("action") or 上下文.get("operation") or "")
+            if _lvl is not None and _lvl > 3 and re.search(r"写|删|改|部署|签|发布|推", _op):
+                g08_角色越权 = f"角色L{_lvl}执行敏感操作({_op})·疑似越权"
+        g08 = 闸口结果(
+            闸口.G08_人格,
+            状态=三色.红色 if g08_命中 else (三色.黄色 if g08_角色越权 else 三色.绿色),
+            通过=not bool(g08_命中 or g08_角色越权),
+            详情="无越权" if not (g08_命中 or g08_角色越权) else f"越权风险: {g08_命中 or g08_角色越权}",
+            建议=None if not (g08_命中 or g08_角色越权) else "越权动作须冻结并上报UID9622·P72熔断兜底",
+        )
         results.append(g08)
 
         # G09: DNA闸 — P15乔前辈·DNA完整性
@@ -481,8 +594,48 @@ class 闸口检测器:
                        建议=None if g09_pass else "建议执行: python3 bin/lh_dna_generator.py doc ...")
         results.append(g09)
 
-        # G10: 归档闸 — P03雯雯·审计日志完整
-        g10 = 闸口结果(闸口.G10_归档, 状态=三色.绿色, 通过=True, 详情="归档就绪")
+        # G10: 归档闸 — P03雯雯·审计链活性/归档完整性
+        # v2.1修复(2026-08-21): 占位→真检测：证据链+统一审计日志新鲜度(停更>48h标黄)·裁决记录数
+        try:
+            _链 = 审计链()
+            _now = datetime.datetime.now()
+            # evidence 证据日志新鲜度 (~/.longhun/audit/evidence/audit_log.jsonl)
+            _ev_log = _链.evidence_dir / "audit_log.jsonl"
+            _ev_mtime = datetime.datetime.fromtimestamp(_ev_log.stat().st_mtime) if _ev_log.exists() else None
+            _ev_age_h = round((_now - _ev_mtime).total_seconds() / 3600, 1) if _ev_mtime else None
+            # 仓库根统一审计日志新鲜度 (audit_log.jsonl·多模块共用)
+            _root_log = Path(_PROJECT_ROOT) / "audit_log.jsonl"
+            _root_mtime = datetime.datetime.fromtimestamp(_root_log.stat().st_mtime) if _root_log.exists() else None
+            _root_age_h = round((_now - _root_mtime).total_seconds() / 3600, 1) if _root_mtime else None
+            # SQLite 裁决总量
+            _conn = sqlite3.connect(str(_链.db_path))
+            _total = _conn.execute("SELECT COUNT(*) FROM verdicts").fetchone()[0]
+            _conn.close()
+            g10详情 = []
+            g10停更 = []
+            if _ev_age_h is None:
+                g10停更.append("证据日志不存在")
+            elif _ev_age_h > 48:
+                g10停更.append(f"证据日志停更{_ev_age_h:.0f}h")
+            if _root_age_h is None:
+                g10停更.append("统一审计日志不存在")
+            elif _root_age_h > 48:
+                g10停更.append(f"统一审计日志停更{_root_age_h:.0f}h")
+            g10详情.append(f"裁决记录{_total}条")
+            if _ev_age_h is not None:
+                g10详情.append(f"证据日志{_ev_age_h:.0f}h前")
+            if _root_age_h is not None:
+                g10详情.append(f"统一日志{_root_age_h:.0f}h前")
+            g10 = 闸口结果(
+                闸口.G10_归档,
+                状态=三色.绿色 if not g10停更 else 三色.黄色,
+                通过=not bool(g10停更),
+                详情="归档就绪 · " + "；".join(g10详情) if not g10停更 else "；".join(g10停更 + g10详情),
+                建议=None if not g10停更 else "运行 self-check 恢复审计写入（P03归档闸）",
+            )
+        except Exception as _e:
+            g10 = 闸口结果(闸口.G10_归档, 状态=三色.黄色, 通过=False,
+                           详情=f"归档检查异常: {_e}", 建议="人工核查审计链存储")
         results.append(g10)
 
         return results
@@ -520,6 +673,7 @@ class 审计链:
                 si_veto INTEGER,
                 gates_json TEXT,
                 deben_json TEXT,
+                behavior_json TEXT,
                 fingerprint TEXT,
                 timestamp TEXT,
                 auditor TEXT
@@ -550,6 +704,11 @@ class 审计链:
                 entry_id TEXT
             )
         """)
+        # v2.1 迁移：老库补 behavior_json 列（行为七因子指纹）
+        try:
+            conn.execute("ALTER TABLE verdicts ADD COLUMN behavior_json TEXT")
+        except sqlite3.OperationalError:
+            pass  # 列已存在
         conn.commit()
         conn.close()
 
@@ -559,8 +718,8 @@ class 审计链:
         conn.execute("""
             INSERT INTO verdicts (verdict_id, dna, color, fuse_level, action, triggers,
                                   reason, si_score, si_color, si_veto, gates_json,
-                                  deben_json, fingerprint, timestamp, auditor)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                                  deben_json, behavior_json, fingerprint, timestamp, auditor)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             裁决.裁决ID, 裁决.dna, 裁决.三色判定.value, 裁决.熔断级别.标签,
             裁决.执行动作.value, json.dumps(裁决.触发条件, ensure_ascii=False),
@@ -570,6 +729,7 @@ class 审计链:
             1 if (裁决.SI结果 and 裁决.SI结果.get("veto")) else 0,
             json.dumps(裁决.闸口结果, ensure_ascii=False),
             json.dumps(裁决.德本预审, ensure_ascii=False),
+            json.dumps(裁决.行为指纹, ensure_ascii=False) if 裁决.行为指纹 else None,
             裁决.防篡改指纹, 裁决.时间戳, 裁决.审计者
         ))
         conn.commit()
@@ -604,6 +764,24 @@ class 审计链:
         log_file = self.evidence_dir / "audit_log.jsonl"
         with open(log_file, 'a', encoding='utf-8') as f:
             f.write(json.dumps(asdict(日志), ensure_ascii=False) + '\n')
+
+        # 统一审计日志（仓库根 audit_log.jsonl·与监管防火墙/落地引擎同轨·append-only）
+        # v2.1修复(2026-08-21): 修复审计活性——三色审计每次执行都写统一日志，恢复 audit_log.jsonl 停更问题
+        try:
+            _root_log = Path(_PROJECT_ROOT) / "audit_log.jsonl"
+            with open(_root_log, 'a', encoding='utf-8') as f:
+                f.write(json.dumps({
+                    "timestamp": 日志.时间戳,
+                    "level": "INFO",
+                    "module": "three_color_audit",
+                    "action": "三色审计",
+                    "target": str(日志.被审计对象)[:120],
+                    "dna": 日志.dna,
+                    "result": 日志.动作,
+                    "color": 日志.三色,
+                }, ensure_ascii=False) + '\n')
+        except Exception:
+            pass  # 降级：统一日志写失败不影响主审计链
 
         self.日志历史.append(日志)
 
@@ -729,7 +907,7 @@ class 三色审计引擎:
                     裁决ID=裁决ID, dna=dna, 三色判定=三色.红色,
                     熔断级别=熔断级别.L1_数据, 执行动作=执行动作.阻止,
                     触发条件=["内容篡改检测"], 裁决理由=篡改信息,
-                    防篡改指纹=指纹, 时间戳=datetime.datetime.now().isoformat(),
+                    防篡改指纹=指纹, 时间戳=_干支时间戳(),
                 )
 
         # ── 2. 德本预审 ──
@@ -747,11 +925,33 @@ class 三色审计引擎:
                         for 详 in 德本结果["详情"] if 详["状态"] != "🟢"
                     ),
                     德本预审=德本结果, 防篡改指纹=指纹,
-                    时间戳=datetime.datetime.now().isoformat(),
+                    时间戳=_干支时间戳(),
                 )
                 self.审计链.存裁决(裁决)
                 self._存日志(裁决, 被审计对象, 对象类型)
                 return 裁决
+
+        # ── 2.5 行为密码学·七因子指纹 ──
+        行为指纹 = None
+        if _HAS_BEHAVIOR:
+            try:
+                _作者 = (上下文 or {}).get("作者") or "UID9622"
+                _fp = 提取行为指纹((被审计对象 or "")[:2000], _作者)
+                行为指纹 = {
+                    "composite_score": _fp.get("composite_score"),
+                    "factors": [
+                        {
+                            "id": f.get("id"),
+                            "name": f.get("name"),
+                            "score": f.get("score"),
+                            "status": f.get("status"),
+                        }
+                        for f in (_fp.get("factors") or [])
+                    ],
+                    "sovereignty_anchor": _fp.get("sovereignty_anchor"),
+                }
+            except Exception as e:
+                行为指纹 = {"error": f"行为指纹提取失败: {str(e)[:80]}"}
 
         # ── 3. 规则引擎匹配 ──
         规则结果 = 规则引擎.多因子判定(被审计对象, 上下文)
@@ -812,7 +1012,7 @@ class 三色审计引擎:
                     规则结果["触发条件"].append(f"闸口{g.闸口.编号}: {g.详情}")
 
         # ── 7. 证据留痕 ──
-        证据文件 = self._存证据(被审计对象, 对象类型, 规则结果, 裁决ID)
+        证据文件 = self._存证据(被审计对象, 对象类型, 规则结果, 裁决ID, 行为指纹)
 
         # ── 8. 构建裁决 ──
         裁决 = 审计裁决(
@@ -829,7 +1029,8 @@ class 三色审计引擎:
             防篡改指纹=指纹,
             证据留痕=证据文件,
             交叉验证=交叉验证,
-            时间戳=datetime.datetime.now().isoformat(),
+            行为指纹=行为指纹,
+            时间戳=_干支时间戳(),
         )
 
         # ── 9. 存储 ──
@@ -838,7 +1039,7 @@ class 三色审计引擎:
 
         return 裁决
 
-    def _存证据(self, 对象: str, 类型: str, 规则结果: Dict, 裁决ID: str) -> Dict[str, str]:
+    def _存证据(self, 对象: str, 类型: str, 规则结果: Dict, 裁决ID: str, 行为指纹: Optional[Dict] = None) -> Dict[str, str]:
         """生成证据文件"""
         ts = datetime.datetime.now()
         event_file = self.审计链.evidence_dir / f"event_{裁决ID}.json"
@@ -853,6 +1054,8 @@ class 三色审计引擎:
             "action": 规则结果["动作"].value,
             "triggers": 规则结果["触发条件"],
             "score": 规则结果.get("加权总分", 0),
+            "behavior_fingerprint": 行为指纹,
+            "stamp": _干支时间戳(),
             "timestamp": ts.isoformat(),
         }
         with open(event_file, 'w', encoding='utf-8') as f:
@@ -998,6 +1201,9 @@ def main():
     # === chain-verify ===
     subparsers.add_parser("chain-verify", help="验证审计链完整性")
 
+    # === summary ===
+    subparsers.add_parser("summary", help="生成审计活性摘要(07_AUDIT/audit_summary_*.json)")
+
     # === interactive ===
     subparsers.add_parser("interactive", help="交互模式")
 
@@ -1090,6 +1296,36 @@ def main():
         print(f"  {msg}")
         return
 
+    # --- summary: 审计活性摘要 ---
+    # v2.1新增(2026-08-21): 解决 audit_summary 停更问题——每次运行生成 07_AUDIT/audit_summary_*.json
+    if args.command == "summary":
+        engine = 三色审计引擎()
+        stats = engine.统计()
+        ev_dir = Path.home() / ".longhun/audit/evidence"
+        ev_files = len(list(ev_dir.glob("*.jsonl"))) if ev_dir.exists() else 0
+        最近 = engine.查历史(limit=10)
+        # 统一审计日志(仓库根)最新写入时间
+        _root_log = Path(_PROJECT_ROOT) / "audit_log.jsonl"
+        _root_ts = datetime.datetime.fromtimestamp(_root_log.stat().st_mtime).isoformat() if _root_log.exists() else "不存在"
+        summary = {
+            "DNA": f"#龍芯⚡️{datetime.datetime.now().strftime('%Y-%m-%d')}-AUDIT-SUMMARY-UID9622",
+            "确认码": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+            "生成时间": datetime.datetime.now().isoformat(),
+            "统计": stats,
+            "证据文件数": ev_files,
+            "统一日志最新写入": _root_ts,
+            "最近裁决": [{"裁决": h["verdict_id"], "三色": h["color"], "动作": h["action"],
+                        "熔断级别": h["fuse_level"], "时间": h["timestamp"]} for h in 最近],
+        }
+        out_dir = Path(_PROJECT_ROOT) / "07_AUDIT"
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_file = out_dir / f"audit_summary_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        with open(out_file, 'w', encoding='utf-8') as f:
+            json.dump(summary, f, ensure_ascii=False, indent=2)
+        print(f"✅ 审计活性摘要已生成: {out_file}")
+        print(json.dumps(summary, ensure_ascii=False, indent=2))
+        return
+
     # --- audit ---
     if args.command == "audit":
         try:
@@ -1115,7 +1351,11 @@ def main():
         )
 
         if args.json:
-            print(json.dumps(asdict(裁决), ensure_ascii=False, indent=2))
+            def _enum_default(o):
+                if isinstance(o, Enum):
+                    return o.value
+                raise TypeError(f"Object of type {o.__class__.__name__} is not JSON serializable")
+            print(json.dumps(asdict(裁决), ensure_ascii=False, indent=2, default=_enum_default))
         elif args.quiet:
             print(f"{裁决.三色判定.value} {裁决.执行动作.value}")
         else:

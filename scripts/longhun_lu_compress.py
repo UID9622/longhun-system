@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · LU 认知压缩与全文还原引擎
 LongHun LU Compression & Restoration Engine
 
-DNA:#龍芯⚡️2026-06-30-LONGHUN-LU-COMPRESS-FILE1-v1.0
+DNA:#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-LU-COMPRESS-FILE1-v1.0
 
 LU（Long-form → Unified token）是 UID9622 首创的认知压缩符号：
   把长文本（对话、论文、技能、记忆）压成一个短码 + 一句摘要 + 一个 DNA，

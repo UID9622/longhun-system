@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂 · TeamOrchestrator 军团指挥中枢 v2.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-TEAM-ORCHESTRATOR-v2.0-军团指挥
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-TEAM-ORCHESTRATOR-v2.0-军团指挥
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

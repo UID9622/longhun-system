@@ -665,7 +665,7 @@ $$SCI = 2.758 + 1.700 + 3.645 = 8.103$$
 ### DNA簽名
 
 ```
-#龍芯⚡️2026-06-29-LONGHUN-LI-BATTERY-ZHUGELI-v1.0
+#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-LI-BATTERY-ZHUGELI-v1.0
 ```
 
 ### 三色審計結果
@@ -747,4 +747,4 @@ $$SCI = 2.758 + 1.700 + 3.645 = 8.103$$
 
 **文檔結束**
 
-*DNA: #龍芯⚡️2026-06-29-LONGHUN-LI-BATTERY-ZHUGELI-v1.0*
+*DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-LI-BATTERY-ZHUGELI-v1.0*

@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-monitoring
 description: '龍魂移動端監控 v5.0 — 15層完整監控體系，4應用無死角覆蓋。 基礎層（SDK/指標/日誌/告警/報告）+ 高級層（部署/存儲/安全/性能/測試）
@@ -6,7 +7,7 @@ description: '龍魂移動端監控 v5.0 — 15層完整監控體系，4應用�
   '
 license: MIT
 metadata:
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MONITORING-v5.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-MONITORING-v5.0'
   author: UID9622 · 諸葛鑫
   seal: '#ZHUGEXIN⚡️2025-DEVICE-BIND-SOUL'
   confirm: '#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z'
@@ -270,16 +271,16 @@ LONGHUN_ALERT_ENABLED=true
 ## 12. DNA追溯鏈
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-MOBILE-MONITORING-DEPLOYMENT-v4.0 (源版本)
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-MOBILE-MONITORING-DEPLOYMENT-v4.0 (源版本)
   ↓
-#龍芯⚡️丙午·丙申·庚申·亥时-模塊G-實時監控與告警-v1.0 (模塊G)
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-模塊G-實時監控與告警-v1.0 (模塊G)
   ↓
-#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MONITORING-v5.0 (本版本)
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-MONITORING-v5.0 (本版本)
 ```
 
 ### 完整簽署
 
-- DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MONITORING-v5.0
+- DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-MONITORING-v5.0
 - AUTHOR: UID9622 · 諸葛鑫
 - CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 - 君子協議: 天下無欺 🐉

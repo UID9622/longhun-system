@@ -1,0 +1,129 @@
+{
+  "package": "dragonsoul-belt-road",
+  "version": "1.1",
+  "dna": "#龍芯⚡️丙午·丙申·戊午·鼎卦-BELT-ROAD-PACK-UID9622",
+  "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+  "status": "🟢 通过",
+  "delivered_at": "2026-08-13T08:58:00+08:00",
+  "license": {
+    "philosophy": "CC BY-NC-SA 4.0",
+    "engineering": "MulanPSL v2"
+  },
+  "files": [
+    {
+      "path": "docs/v1.1_full.md",
+      "size_bytes": 43440,
+      "sha256_prefix": "08ff03d5c11869cf"
+    },
+    {
+      "path": "docs/CB-009_build_guide.md",
+      "size_bytes": 9961,
+      "sha256_prefix": "c5d890629efbcc2c"
+    },
+    {
+      "path": "scripts/install.sh",
+      "size_bytes": 15963,
+      "sha256_prefix": "553f0fb84d9cdad9"
+    },
+    {
+      "path": "scripts/build.sh",
+      "size_bytes": 7383,
+      "sha256_prefix": "82c685276c0a8498"
+    },
+    {
+      "path": "scripts/verify_dna.py",
+      "size_bytes": 7004,
+      "sha256_prefix": "47e7742aae493acc"
+    },
+    {
+      "path": "docker/Dockerfile",
+      "size_bytes": 4335,
+      "sha256_prefix": "83177a44c91fd8b8"
+    },
+    {
+      "path": "docker/docker-compose.yml",
+      "size_bytes": 3678,
+      "sha256_prefix": "cbefa7aea95f258d"
+    },
+    {
+      "path": "docker/docker-entrypoint.sh",
+      "size_bytes": 3343,
+      "sha256_prefix": "945ff8e8841c27d8"
+    },
+    {
+      "path": "docker/requirements.txt",
+      "size_bytes": 647,
+      "sha256_prefix": "74378be0f9230e76"
+    },
+    {
+      "path": "docker/.dockerignore",
+      "size_bytes": 590,
+      "sha256_prefix": "69b4986ce0428062"
+    },
+    {
+      "path": "scenarios/AGRI-001/input.json",
+      "size_bytes": 2088,
+      "sha256_prefix": "e660f46500ece7fc"
+    },
+    {
+      "path": "scenarios/AGRI-001/output.json",
+      "size_bytes": 4916,
+      "sha256_prefix": "7efe7cec16b6ec8f"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 5701,
+      "sha256_prefix": "32f922ce14b27f16"
+    }
+  ],
+  "codebuddy_queue": [
+    {
+      "id": "CB-001",
+      "task": "卦名DNA校正（鼎卦）",
+      "status": "🟢 完成",
+      "artifact": "scripts/verify_dna.py"
+    },
+    {
+      "id": "CB-003",
+      "task": "一键部署脚本",
+      "status": "🟡 脚本完成，待多环境实测",
+      "artifact": "scripts/install.sh"
+    },
+    {
+      "id": "CB-004",
+      "task": "场景示例库实测",
+      "status": "🟡 数据模板完成，待真实环境验证",
+      "artifact": "scenarios/AGRI-001/"
+    },
+    {
+      "id": "CB-009",
+      "task": "Docker镜像构建",
+      "status": "🟡 方案完成，待真实构建验证",
+      "artifact": "docker/ + scripts/build.sh"
+    },
+    {
+      "id": "CB-009-A",
+      "task": "amd64构建验证",
+      "status": "🔴 待执行",
+      "artifact": "-"
+    },
+    {
+      "id": "CB-009-B",
+      "task": "arm64构建验证",
+      "status": "🔴 待执行",
+      "artifact": "-"
+    },
+    {
+      "id": "CB-009-C",
+      "task": "模型文件准备",
+      "status": "🔴 待执行",
+      "artifact": "-"
+    }
+  ],
+  "unverified_items": 13,
+  "unverified_breakdown": {
+    "yellow": 8,
+    "red": 5
+  }
+}

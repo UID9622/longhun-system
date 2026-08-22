@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂权重容错引擎 v2.0
 
 实现《龍魂系统·权重与容错机制 v2.0 —— 底座常驻协议之忠孝义不动点》
-DNA: #龍芯⚡️2026-06-29-LONGHUN-WEIGHT-ENGINE-v2-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-WEIGHT-ENGINE-v2-UID9622
 """
 from __future__ import annotations
 
@@ -18,7 +19,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-DNA = "#龍芯⚡️2026-06-29-LONGHUN-WEIGHT-ENGINE-v2-UID9622"
+DNA = "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-WEIGHT-ENGINE-v2-UID9622"
 
 
 class LoyaltyFilialRighteousness(Enum):

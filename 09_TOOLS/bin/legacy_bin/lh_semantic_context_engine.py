@@ -2,13 +2,14 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂·语境语义引擎 v1.0 — 通心译·通心听
 
 不是翻译器。不是语义解析器。
 是中文语境语义引擎：同一个词，在不同人/不同场景/不同时代，意思完全不同。
 
-DNA: #龍芯⚡️丙午·乙未·丁巳·未时·睽-SEMANTIC-CONTEXT-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁巳·未时·䷥睽-SEMANTIC-CONTEXT-ENGINE-v1.0
 📇 项目身份 · 联系 · 支持 → assets/PUBLIC_IDENTITY.md
 
 核心原则：
@@ -42,7 +43,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 from difflib import SequenceMatcher
 
-DNA = "#龍芯⚡️丙午·乙未·丁巳·未时·睽-SEMANTIC-CONTEXT-ENGINE-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丁巳·未时·䷥睽-SEMANTIC-CONTEXT-ENGINE-v1.0"
 ROOT = Path(__file__).resolve().parent.parent
 LIBRARY_PATH = ROOT / "L7_数据层" / "semantic_context_library.json"
 

@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-07-05-LONGHUN-DAO-ETHICS-ENGINE-v1.1
+#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-LONGHUN-DAO-ETHICS-ENGINE-v1.1
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -17,7 +17,7 @@ LongHun System · Dao Ethics Anchor Engine
 L0 基礎倫理層 — 位於三層監督之下，是一切監督的監督
 道德經作為底層行為錨，倫理道德約束層
 
-DNA: #龍芯⚡️2026-07-05-LONGHUN-DAO-ETHICS-ENGINE-v1.1
+DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-LONGHUN-DAO-ETHICS-ENGINE-v1.1
 作者: UID9622 · 龍芯北辰 · 諸葛鑫（Lucky）+ AI協作
 協議: CC BY-NC-SA 4.0 + AI協作標籤
 """
@@ -622,7 +622,7 @@ def run_self_test(persist: bool = False):
 
     if all_pass:
         print("\n[自檢通過] 道德經倫理錨定引擎運行正常")
-        print("DNA: #龍芯⚡️2026-07-05-ETHICS-ENGINE-SELFTEST-PASS-v1.1")
+        print("DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-ETHICS-ENGINE-SELFTEST-PASS-v1.1")
     else:
         print("\n[自檢失敗] 部分測試用例未命中預期規則")
         sys.exit(1)

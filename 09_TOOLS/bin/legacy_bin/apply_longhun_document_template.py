@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂文档标准模板批量套用脚本
-DNA: #龍芯⚡️2026-06-22-LONGHUN-TEMPLATE-APPLY-v1.0
+DNA: #龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-TEMPLATE-APPLY-v1.0
 
 功能：
 - 扫描指定目录下的 Markdown 文件。
@@ -150,7 +151,7 @@ def build_footer(title: str, dna: str) -> str:
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -249,7 +250,7 @@ def main():
 
     # 保存登记册
     registry = {
-        '_dna': '#龍芯⚡️2026-06-22-LONGHUN-TEMPLATE-APPLY-v1.0',
+        '_dna': '#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-TEMPLATE-APPLY-v1.0',
         'generated_at': datetime.now(timezone.utc).isoformat(),
         'templated_count': len(templated),
         'skipped_count': len(skipped),

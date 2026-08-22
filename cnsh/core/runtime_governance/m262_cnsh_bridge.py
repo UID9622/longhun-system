@@ -2,14 +2,15 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
-# #龍芯⚡️2026-07-03-CORE-M262_CNSH_BRIDGE-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# #龍芯⚡️丙午·甲午·戊寅·戊午·䷕贲-CORE-M262_CNSH_BRIDGE-v1.0
 # 君子協議: 本文件受龍魂DNA追溯保護
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🌉 M262·CNSH 双向同步桥梁
-DNA: #龍芯⚡️20260629-M262-CNSH-BRIDGE-v1.0
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-M262-CNSH-BRIDGE-v1.0
 云端宝宝的 Notion 更新 ←→ 本地宝宝的 CNSH 治理
 内核同源 · 永不排斥 · 外壳分工 · 永不冲突
 """

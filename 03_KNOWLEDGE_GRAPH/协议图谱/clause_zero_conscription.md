@@ -5,7 +5,7 @@ id: clause_zero_conscription
 type: clause
 title: 零征用原则
 layer: L2
-dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C"
+dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·䷍大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C"
 owner: UID9622 · 诸葛鑫（Lucky）
 claim: 系统绝不使用任何用户私人数据训练/微调/优化模型；数据只存本地，不上传不画像不分析。
 based_on: [data_sovereignty_in_user, local_first, no_human_rights_violation]
@@ -32,4 +32,4 @@ created: 丙午·辛未·乙酉
 
 **为什么**：直接回应"窝里横"——真开放是真不偷。系统不偷用户数据，才配谈科技共享、普惠全球。
 
-> DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C
+> DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·䷍大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C

@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂 v4.0.7 → v4.0.8 自动接力看守器
-DNA: #龍芯⚡️2026-07-19-V407-V408-WATCHER-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-V407-V408-WATCHER-v1.0
 
 功能：
 1. 监视 v4.0.7 流水线进程或完成标记

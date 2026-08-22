@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂·LU-SYSTEM-SCORE 评分引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·癸亥·亥时·晋-LU-SYSTEM-SCORE-v1.0-A3D7F2E1
+DNA: #龍芯⚡️丙午·乙未·癸亥·亥时·䷢晋-LU-SYSTEM-SCORE-v1.0-A3D7F2E1
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

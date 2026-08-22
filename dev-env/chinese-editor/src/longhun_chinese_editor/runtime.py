@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 CNSH 本地运行时 · 中文母语脚本执行器
-DNA: #龍芯⚡️2026-06-26-LONGHUN-CNSH-RUNTIME-v3.1
+DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-CNSH-RUNTIME-v3.1
 
 基于缩进推断块结构，将 CNSH 中文关键字翻译为 Python 后执行。
 本版本已吸入 CNSH 编译器框架 v1.0/v2.0 主干语法规范。

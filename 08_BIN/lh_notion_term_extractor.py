@@ -2,14 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·辛未·乙酉·NOTION-TERM-EXTRACTOR-v1.0
+#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-NOTION-TERM-EXTRACTOR-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂·Notion知识库术语提取引擎 v1.0
 =====================================
-DNA: #龍芯⚡️丙午·辛未·乙酉·NOTION-TERM-EXTRACTOR-v1.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-NOTION-TERM-EXTRACTOR-v1.0
 用途: 从Notion知识库51页中自动提取专业术语，建立术语→页面→定义映射
 通道: 本地镜像JSON(优先) + Notion API(实时补全)
 输出: data/notion_term_index.json — 术语索引
@@ -401,7 +401,7 @@ def process_all_pages(use_api: bool = False) -> Dict[str, Any]:
     
     return {
         "meta": {
-            "dna": "#龍芯⚡️丙午·辛未·乙酉·NOTION-TERM-EXTRACTOR-v1.0",
+            "dna": "#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-NOTION-TERM-EXTRACTOR-v1.0",
             "extracted_at": datetime.now().isoformat(),
             "total_pages": len(mappings),
             "success": success,
@@ -439,7 +439,7 @@ def build_registry_patch(result: Dict[str, Any]) -> Dict[str, Any]:
     
     return {
         "meta": {
-            "dna": "#龍芯⚡️丙午·辛未·乙酉·REGISTRY-PATCH-v2.0",
+            "dna": "#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-REGISTRY-PATCH-v2.0",
             "generated_at": datetime.now().isoformat(),
             "terms_count": len(sorted_terms),
             "source": "notion_knowledge_base_51_pages"

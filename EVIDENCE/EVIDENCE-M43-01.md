@@ -8,7 +8,7 @@
 技术含义: 公开层可被搬运 = 内核层（本地明文 + 私钥 + DNA 链）未被触及，
           反向验证"算法公开 + 密钥私守"架构选型正确
 三色: 🟡 取证留痕·不撤底牌
-DNA: #龍芯⚡️2026-05-17-13:19-EVIDENCE-OPENLY-EATEN-M43-01-v1.0
+DNA: #龍芯⚡️丙午·癸巳·辛卯·乙未·䷗复-EVIDENCE-OPENLY-EATEN-M43-01-v1.0
 
 > 公开首页 / Home: https://uid9622.notion.site
 

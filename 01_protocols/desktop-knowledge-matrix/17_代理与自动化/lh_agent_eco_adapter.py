@@ -1,12 +1,14 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 龍魂智能体编排层 · longhun-agent-eco 适配器
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 把 agent-eco 的 15 智能体生态系统、v2 路由引擎、任务管理器 v2.0
 封装成编排器可直接调用的 Python API，不依赖任何外部平台。
 
-DNA: #龍芯⚡️2026-06-26-LONGHUN-AGENT-ECO-ADAPTER-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-AGENT-ECO-ADAPTER-v1.0
 """
 
 import importlib
@@ -14,7 +16,7 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-DNA = "#龍芯⚡️2026-06-26-LONGHUN-AGENT-ECO-ADAPTER-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-AGENT-ECO-ADAPTER-v1.0"
 ECO_PATH = str(Path.home() / ".kimi-code" / "skills" / "longhun-agent-eco" / "scripts")
 
 _eco_modules = None

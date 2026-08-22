@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 龍魂三才主权指数系统 (Three-Talent Sovereignty Index System)
-DNA:#龍芯⚡️2026-06-03-SOVEREIGNTY-INDEX-FILE4-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-SOVEREIGNTY-INDEX-FILE4-v1.0
 
 核心原理：人的主权通过“三才”衡量 - 天(规则遵守) + 地(数据完整) + 人(创作者权威)
 
@@ -558,7 +559,7 @@ def get_sovereignty_index(creator_uid: str) -> ThreeTalentSovereigntyIndex:
 
 if __name__ == '__main__':
     print("\n【龍魂三才主权指数系统 v1.0】\n")
-    print("DNA:#龍芯⚡️2026-06-03-SOVEREIGNTY-INDEX-v1.0")
+    print("DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-SOVEREIGNTY-INDEX-v1.0")
     print("CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
     print("SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL")
 

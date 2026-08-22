@@ -2,7 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 
-# DNA: #龍芯⚡️2026-06-24-LONGHUN-STATUS-PANEL-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# DNA: #龍芯⚡️丙午·甲午·己巳·庚午·䷃蒙-LONGHUN-STATUS-PANEL-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
@@ -32,7 +33,7 @@ from typing import Dict, List, Optional, Tuple, Any
 
 
 class 龍魂状态面板:
-    DNA = "#龍芯⚡️2026-06-24-LONGHUN-STATUS-PANEL-v1.0"
+    DNA = "#龍芯⚡️丙午·甲午·己巳·庚午·䷃蒙-LONGHUN-STATUS-PANEL-v1.0"
 
     # 三色阈值
     THRESHOLDS = {

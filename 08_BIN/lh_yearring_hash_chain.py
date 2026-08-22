@@ -3,7 +3,7 @@
 """
 🐉 龍魂 · 年轮哈希链 v1.1（Kimi审查修正版）
 ===========================================
-DNA: #龍芯⚡️2026-08-11-YEAR-RING-CHAIN-v1.1-UID9622
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷃蒙-YEAR-RING-CHAIN-v1.1-UID9622
 创建者: 诸葛鑫（UID9622）
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -342,7 +342,7 @@ class YearRingChain:
 def main():
     parser = argparse.ArgumentParser(
         description="🐉 龍魂 · 年轮哈希链 v1.1（Kimi审查修正版）",
-        epilog="DNA: #龍芯⚡️2026-08-11-YEAR-RING-CHAIN-v1.1-UID9622"
+        epilog="DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷃蒙-YEAR-RING-CHAIN-v1.1-UID9622"
     )
     subparsers = parser.add_subparsers(dest="command", help="子命令")
 

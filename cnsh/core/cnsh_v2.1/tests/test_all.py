@@ -2,9 +2,10 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 CNSH v2.1 测试套件
-DNA: #龍芯⚡️2026-06-29-CNSH-TESTS-v2.1
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-TESTS-v2.1
 """
 import io
 import sys
@@ -322,15 +323,6 @@ class TestOptimizer(unittest.TestCase):
 
 
 class TestFFI(unittest.TestCase):
-    def _capture(self, source: str):
-        old = sys.stdout
-        buf = io.StringIO()
-        sys.stdout = buf
-        try:
-            run_source(source)
-        finally:
-            sys.stdout = old
-        return buf.getvalue()
 
     def test_python_math(self):
         source = """
@@ -417,17 +409,6 @@ class TestTypeChecker(unittest.TestCase):
 
 
 class TestPythonCompilerAdvanced(unittest.TestCase):
-    def _capture(self, source: str):
-        python_code = compile_to_python(source)
-        old = sys.stdout
-        buf = io.StringIO()
-        sys.stdout = buf
-        g = {"__builtins__": __builtins__}
-        try:
-            exec(compile(python_code, "<cnsh>", "exec"), g)
-        finally:
-            sys.stdout = old
-        return buf.getvalue(), python_code
 
     def test_class_inheritance_and_decorators(self):
         source = """

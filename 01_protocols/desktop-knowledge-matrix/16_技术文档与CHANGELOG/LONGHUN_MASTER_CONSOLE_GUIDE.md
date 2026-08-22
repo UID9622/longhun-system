@@ -1,6 +1,7 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 龍魂总控台 v2.0 · 全系统集成指挥中枢
 
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-MASTER-CONSOLE-v2.0  
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-MASTER-CONSOLE-v2.0  
 **CONFIRM**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z  
 **生成时间**: 2026-06-09 02:30 CST
 
@@ -199,7 +200,7 @@ breathing     # 英文版呼吸灯
 ## 🔐 签署
 
 ```
-DNA:#龍芯⚡️丙午·丙申·庚申·亥时-MASTER-CONSOLE-v2.0
+DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-MASTER-CONSOLE-v2.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
 系统完整性: 34+ 个功能脚本 · 6 大系统 · 完全集成

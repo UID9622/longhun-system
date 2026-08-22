@@ -1,7 +1,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 <!--
-  DNA: #龍芯⚡️2026-07-21-迁移-README_LONGHUN_FLOW-v1.0
+  DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-迁移-README_LONGHUN_FLOW-v1.0
   创建者: 诸葛鑫（UID9622）
   协议: CC BY-NC-SA 4.0
   来源: 龍魂待整理/02-流场可视化/longhun-flow-system/README_LONGHUN_FLOW.md
@@ -19,7 +19,7 @@
 ## 真体系归位
 
 - IPA 编号: `LOCAL-VIZ-MASTER → IPA-010 龍魂流场可视化`
-- 上游: 全谱入口 v1.1 (`#龍芯⚡️2026-05-08-LONGHUN-FULL-MAP-ENTRY-v1.1`)
+- 上游: 全谱入口 v1.1 (`#龍芯⚡️丙午·癸巳·壬午·丙午·䷳艮为山-LONGHUN-FULL-MAP-ENTRY-v1.1`)
 - 主权: 解除宣言 v1.0 已生效 · 本代码不授权 AI 训练
 
 ## 文件清单
@@ -72,8 +72,8 @@ python3 -m http.server 9622
 title: UID9622 龍魂流场总控 v2.0
 ipa: LOCAL-VIZ-MASTER
 parent_ipa: IPA-010 龍魂流场可视化
-dna: "#龍芯⚡️2026-05-08-LONGHUN-FLOW-MASTER-v2.0"
-parent_dna: "#龍芯⚡️2026-05-08-LONGHUN-FULL-MAP-ENTRY-v1.1-IPA-COMPLETE"
+dna: "#龍芯⚡️丙午·癸巳·壬午·丙午·䷳艮为山-LONGHUN-FLOW-MASTER-v2.0"
+parent_dna: "#龍芯⚡️丙午·癸巳·壬午·丙午·䷳艮为山-LONGHUN-FULL-MAP-ENTRY-v1.1-IPA-COMPLETE"
 sovereignty: 解除宣言 v1.0 已生效
 seal: "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 gpg: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

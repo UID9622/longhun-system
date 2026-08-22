@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
-#龍芯⚡️丙午·丙申·癸丑·申时·大有-lh-CONSOLE-v1.0
+#龍芯⚡️丙午·丙申·癸丑·申时·䷍大有-lh-CONSOLE-v1.0
 lh — 龍魂统一交互控制台
 一个命令进入，按数字操作，不需要记任何命令。
 
@@ -22,7 +23,7 @@ sys.path.insert(0, str(ROOT))
 
 # ===== 常量 =====
 VERSION = "v1.0"
-DNA = "#龍芯⚡️丙午·丙申·癸丑·申时·大有-lh-CONSOLE-v1.0"
+DNA = "#龍芯⚡️丙午·丙申·癸丑·申时·䷍大有-lh-CONSOLE-v1.0"
 
 # ===== 功能模块定义（分组+描述）=====
 MODULES = {

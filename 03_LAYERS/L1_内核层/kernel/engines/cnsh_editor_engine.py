@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ║                    CNSH中文多语言编辑器核心引擎 v2.0                        ║
 ║                     Chinese Multi-Language Editor Engine                   ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA:#龍芯⚡️丙午·丙申·癸丑·午时·需-CNSH-EDITOR-v2.5                              ║
+║  DNA:#龍芯⚡️丙午·丙申·癸丑·午时·䷄需-CNSH-EDITOR-v2.5                              ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                             ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL                        ║
 ╠══════════════════════════════════════════════════════════════════════════╣
@@ -65,7 +66,7 @@ from abc import ABC, abstractmethod
 # ═══════════════════════════════════════════════════════════════
 
 VERSION = "2.5"
-DNA_HEADER = "#龍芯⚡️丙午·丙申·癸丑·午时·需-CNSH-EDITOR-v2.5"
+DNA_HEADER = "#龍芯⚡️丙午·丙申·癸丑·午时·䷄需-CNSH-EDITOR-v2.5"
 CONFIRM_MARK = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SEAL_MARK = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 

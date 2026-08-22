@@ -1,6 +1,6 @@
 // 龍魂代码中转站 · 代码解析器
 // 检测: 语言/框架/目标平台 · 只读无副作用
-// DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-DETECTOR-v1.0
+// DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-DETECTOR-v1.0
 
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;

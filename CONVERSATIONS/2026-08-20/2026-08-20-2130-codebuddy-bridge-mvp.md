@@ -3,7 +3,7 @@ session_id: 2026-08-20-2130-codebuddy-bridge-mvp
 agent: codebuddy
 persona: P04·鲁班
 sovereign_present: true
-dna: "#龍芯⚡️2026-08-20-21:30-FOUR-PARTY-DIALOGUE-BRIDGE-MVP-EXEC-v1.0-UID9622"
+dna: "#龍芯⚡️丙午·丙申·丙寅·己亥·䷶丰-FOUR-PARTY-DIALOGUE-BRIDGE-MVP-EXEC-v1.0-UID9622"
 tricolor: 🟡
 notion_refs: [四方对话桥接 MVP 规格 v1.0]
 ---

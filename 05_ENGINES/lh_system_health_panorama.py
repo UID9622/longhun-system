@@ -8,7 +8,7 @@
 七维健康评分 + 九宫格仪表盘 + 引擎活性热力图 + 五级健康等级。
 对接 health_check.sh / lh_system_eval.py / lh_self-heal.py / 蚁群/人格审计。
 
-DNA: #龍芯⚡️丙午·癸未·丁未-健康全景图-v1.0
+DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-健康全景图-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -36,7 +36,7 @@ except ImportError:
     NUMPY_OK = False
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DNA = "#龍芯⚡️丙午·癸未·丁未-健康全景图-v1.0"
+DNA = "#龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-健康全景图-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 # ─── 色板 ───
@@ -368,7 +368,7 @@ def generate_narration(data: Optional[Dict] = None) -> str:
     grade_short = grade.split()[0]
 
     return textwrap.dedent(f"""\
-    DNA: #龍芯⚡️丙午·癸未·丁未-健康播报-v1.0
+    DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-健康播报-v1.0
     创建者: 诸葛鑫（UID9622）
     协议: CC BY-NC-SA 4.0
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 🐉 龍魂 · 协作数据双向同步 v2.0（本地 ↔ 鲲鹏共享中枢）
-# DNA: #龍芯⚡️丙午·丙申·己未·亥时-COLLAB-SYNC-v2.0-UID9622
+# DNA: #龍芯⚡️丙午·丙申·己未·乙亥·䷏豫-COLLAB-SYNC-v2.0-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #

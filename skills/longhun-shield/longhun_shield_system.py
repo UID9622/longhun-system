@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
 
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════════╗
 ║                                                                  ║
@@ -13,7 +14,7 @@
 ║    代码都看起来一样，但本地跑起来都不一样                    ║
 ║    所以我们必须在入口处能够暂停、检查、真正转译              ║
 ║                                                                  ║
-║  DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-SYSTEM-FILE1-FILE1-v1.0          ║
+║  DNA:#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-SYSTEM-FILE1-FILE1-v1.0          ║
 ║  CONFIRM: "#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX"                ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ║                                                                  ║
@@ -86,7 +87,7 @@ class PauseGate:
     """
     
     def __init__(self):
-        self.dna = "#龍芯⚡️2026-06-02-PAUSE-GATE-v1.0"
+        self.dna = "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-PAUSE-GATE-v1.0"
         self.pause_log = []
         self.decisions = {}
         self.interactive_mode = True
@@ -205,7 +206,7 @@ class DeepTranslator:
     """
     
     def __init__(self):
-        self.dna = "#龍芯⚡️2026-06-02-DEEP-TRANSLATOR-v1.0"
+        self.dna = "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-DEEP-TRANSLATOR-v1.0"
         self.translation_cache = {}
     
     def translate_code(self, code_obj: Any, 
@@ -404,7 +405,7 @@ class ComprehensiveVerifier:
     """
     
     def __init__(self):
-        self.dna = "#龍芯⚡️2026-06-02-COMPREHENSIVE-VERIFIER-v1.0"
+        self.dna = "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-COMPREHENSIVE-VERIFIER-v1.0"
         self.verification_log = []
     
     def verify_before_execution(self, code_obj: Any, 
@@ -514,10 +515,6 @@ class ComprehensiveVerifier:
         confirm = input("   最终确认执行? [y/n]: ").strip().lower()
         return confirm == 'y'
     
-    def _get_code_id(self, code_obj: Any) -> str:
-        """生成代码ID"""
-        code_hash = hashlib.sha256(str(code_obj).encode()).hexdigest()[:8]
-        return f"CODE-{code_hash}"
     
     def _log_verification(self, result: Dict[str, Any]):
         """记录验证结果"""
@@ -538,7 +535,7 @@ class LonghunShield:
     """
     
     def __init__(self, interactive=True):
-        self.dna = "#龍芯⚡️2026-06-02-LONGHUN-SHIELD-SYSTEM-v1.0"
+        self.dna = "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-SYSTEM-v1.0"
         self.pause_gate = PauseGate()
         self.pause_gate.interactive_mode = interactive
         self.translator = DeepTranslator()
@@ -628,7 +625,7 @@ def main():
     
     # 使用龍盾执行代码
     metadata = {
-        'dna': '#龍芯⚡️2026-06-02-EXAMPLE',
+        'dna': '#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-EXAMPLE',
         'environment': 'dev',
         'source': '用户代码',
     }
@@ -651,7 +648,7 @@ def main():
     代码都看起来一样，但本地跑起来都不一样。
     所以宝宝必须在入口处能够暂停、检查、转译。
     
-    DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-SYSTEM-v1.0
+    DNA:#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-SYSTEM-v1.0
     CONFIRM: "#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX"
     SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
     

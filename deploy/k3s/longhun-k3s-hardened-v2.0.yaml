@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·甲申·己亥·䷁坤-K3S-HARDENED-v2.0
+# DNA: #龍芯⚡️丙午·甲申·己亥·庚午·䷁坤-K3S-HARDENED-v2.0
 # 创建者: 诸葛鑫（UID9622）
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # ⛓️ 加固版本 v2.0 — 6条加固全部落地
@@ -23,7 +23,7 @@ metadata:
     purpose: sovereign-core
     dna-version: longhun-k3s-v2
   annotations:
-    longhun.sovereignty/dna: "#龍芯⚡️丙午·甲申·己亥·䷁坤-K3S-NS"
+    longhun.sovereignty/dna: "#龍芯⚡️丙午·甲申·己亥·庚午·䷁坤-K3S-NS"
 ---
 apiVersion: v1
 kind: Namespace
@@ -34,7 +34,7 @@ metadata:
     purpose: local-track
     dna-version: longhun-k3s-local-v2
   annotations:
-    longhun.sovereignty/dna: "#龍芯⚡️丙午·甲申·己亥·䷁坤-K3S-LOCAL-TRACK"
+    longhun.sovereignty/dna: "#龍芯⚡️丙午·甲申·己亥·庚午·䷁坤-K3S-LOCAL-TRACK"
     longhun.sovereignty/description: "本地轨-Nginx-systemd桥接-非API用途"
 ---
 apiVersion: v1
@@ -46,7 +46,7 @@ metadata:
     purpose: api-track
     dna-version: longhun-k3s-api-v2
   annotations:
-    longhun.sovereignty/dna: "#龍芯⚡️丙午·甲申·己亥·䷁坤-K3S-API-TRACK"
+    longhun.sovereignty/dna: "#龍芯⚡️丙午·甲申·己亥·庚午·䷁坤-K3S-API-TRACK"
     longhun.sovereignty/description: "API轨-对外API接入-外部可访问"
 
 ---
@@ -130,7 +130,7 @@ data:
   # === 身份焊死 ===
   UID: "9622"
   SOVEREIGN: "诸葛鑫·Lucky·龍芯北辰"
-  DNA_ROOT: "#龍芯⚡️丙午·甲申·己亥·䷁坤-K3S-HARDENED-v2.0"
+  DNA_ROOT: "#龍芯⚡️丙午·甲申·己亥·庚午·䷁坤-K3S-HARDENED-v2.0"
   CONFIRM_CODE: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
   GPG_FINGERPRINT: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 

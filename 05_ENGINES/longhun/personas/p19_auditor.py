@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·丙辰·亥时·需-P19-AUDITOR-v1.0
+#龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P19-AUDITOR-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -7,7 +7,7 @@
 P19 极简审计官 · UI/登记册审计执行器
 Minimal Auditor · UI/Registry Audit Executor
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-P19-AUDITOR-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P19-AUDITOR-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -61,7 +61,7 @@ class P19Auditor:
 """
 
     def __init__(self):
-        self.dna = "#龍芯⚡️丙午·丙申·丙辰·亥时·需-P19-AUDITOR-v1.0"
+        self.dna = "#龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P19-AUDITOR-v1.0"
         self.system_root = SYSTEM_ROOT
         self.capabilities = [
             "ui_audit",          # 8项UI审计

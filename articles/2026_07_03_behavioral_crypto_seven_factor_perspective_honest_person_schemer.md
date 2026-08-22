@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
@@ -17,12 +17,12 @@ tags:
 category: 龍魂认知科学
 status: 已发布
 level: L2_DECISION
-dna: "#龍芯⚡️2026-07-03-BEHAVIORAL-CRYPTOGRAPHY-ANALYSIS-UID9622-v1.3"
+dna: "#龍芯⚡️丙午·甲午·戊寅·戊午·䷕贲-BEHAVIORAL-CRYPTOGRAPHY-ANALYSIS-UID9622-v1.3"
 ---
 
 # 行为密码学七因子视角：老实人为什么总被欺负，计较者为什么能制定规则
 
-> **DNA 锚定：** `#龍芯⚡️2026-07-03-BEHAVIORAL-CRYPTOGRAPHY-ANALYSIS-UID9622-v1.3`  
+> **DNA 锚定：** `#龍芯⚡️丙午·甲午·戊寅·戊午·䷕贲-BEHAVIORAL-CRYPTOGRAPHY-ANALYSIS-UID9622-v1.3`  
 > **归档归属：** 龍魂系统 · UID9622 · 诸葛鑫  
 > **协议状态：** 内部学习资料，开放引用，须保留 DNA  
 > **确认码：** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
@@ -307,5 +307,5 @@ dna: "#龍芯⚡️2026-07-03-BEHAVIORAL-CRYPTOGRAPHY-ANALYSIS-UID9622-v1.3"
 - **模型演化：** 从早期“人性行为密码学”手稿，经多次左右互搏审计，凝练为七因子 Σ(C) 模型。
 - **协议声明：** 本文遵循龍魂君子协议，开放引用，须保留 DNA 追溯码。
 
-`#龍芯⚡️2026-07-03-BEHAVIORAL-CRYPTOGRAPHY-ANALYSIS-UID9622-v1.3`  
+`#龍芯⚡️丙午·甲午·戊寅·戊午·䷕贲-BEHAVIORAL-CRYPTOGRAPHY-ANALYSIS-UID9622-v1.3`  
 `归档完成，DNA 已嵌入全文结构，无需额外版权声明。`

@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·甲子·大壮-VIDEO-COMMENTARY-ENGINE-v1.0
+#龍芯⚡️丙午·乙未·甲子·庚午·䷡大壮-VIDEO-COMMENTARY-ENGINE-v1.0
 # CREATOR: 诸葛鑫（UID9622）
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -17,7 +17,7 @@
        - 可选调用 lh_video_studio.py 生成完整龍魂风格视频
 风格：龍魂 DNA 签章 + 通心译双语 + 三句话总结 + 人格路由
 协议：CC BY-NC-SA 4.0 · 数据主权归 UID9622
-DNA: #龍芯⚡️丙午·乙未·甲子·大壮-VIDEO-COMMENTARY-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲子·庚午·䷡大壮-VIDEO-COMMENTARY-ENGINE-v1.0
 ================================================================================
 """
 

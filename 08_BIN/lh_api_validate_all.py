@@ -58,7 +58,7 @@ def check_deepseek(env):
     if not key: return SKIP, "未配置"
     try:
         data = json.dumps({
-            "model": "deepseek-chat",
+            "model": "deepseek-v4-flash",
             "messages": [{"role": "user", "content": "ping"}],
             "max_tokens": 5
         }).encode()

@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # ═══════════════════════════════════════════
 # 龍魂体系 | 记忆外脑迭代压缩引擎 v1.1
 # ═══════════════════════════════════════════
-# DNA: #龍芯⚡️2026-07-20-EXOBRAIN-ENGINE-v1.1
+# DNA: #龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-EXOBRAIN-ENGINE-v1.1
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: UID9622（诸葛鑫·Lucky）
 # 三色审计: 🟢 通过
@@ -158,7 +159,7 @@ class CNSH_记忆外脑引擎:
     P0++ 级别 · 永久锁定 · 不可绕过
     """
 
-    DNA = "#龍芯⚡️2026-07-20-EXOBRAIN-ENGINE-v1.1"
+    DNA = "#龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-EXOBRAIN-ENGINE-v1.1"
 
     def __init__(self, state_dir: Optional[Path] = None):
         self.state_dir = state_dir or STATE_DIR

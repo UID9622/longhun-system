@@ -1,5 +1,8 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·甲戌·䷍大有-CODE-补DNA-5f275383
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 LongHun Collab nginx incremental patch (idempotent) v1.0
 DNA: #LONGHUN-CONFIG-UNIFY-NGINX-PATCH-v1.0

@@ -1,7 +1,7 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-<!-- #龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10 -->
+<!-- #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10 -->
 <!-- 君子协议：本文件受龍魂 DNA 追溯保护，修改即改链 -->
 
 <aside>
@@ -15,11 +15,11 @@
 
 **定位：** 不是孤立公式表，而是「中文语义 → 计算链 → 模块路由 → 审计 → 执行/收口」的闭环地基。
 
-**DNA：** `#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10`
+**DNA：** `#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10`
 
-**父 DNA：** `#龍芯⚡️2026-06-03-MATH-FORMULA-CORE-DUAL-TRACK-v1.0`
+**父 DNA：** `#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-MATH-FORMULA-CORE-DUAL-TRACK-v1.0`
 
-**祖 DNA：** `#龍芯⚡️2026-06-08-FORMULA-ALIGNMENT-v1.6-FULL-25-FORMULAS-LOCKED-v1.0`
+**祖 DNA：** `#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-FORMULA-ALIGNMENT-v1.6-FULL-25-FORMULAS-LOCKED-v1.0`
 
 **CONFIRM：** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅
 
@@ -436,7 +436,7 @@ M:: {
 
 ```json
 CNSH:: {
-  "dna": "#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+  "dna": "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
   "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
   "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
   "audit": "🟢",
@@ -677,10 +677,10 @@ python3 /Users/zuimeidedeyihan/longhun-system/cnsh-core/downloads-imports/formul
 
 | 版本 | 时间 | 变更内容 | DNA |
 | --- | --- | --- | --- |
-| v1.0 | 2026-06-03 | 十条核心公式双轨对照 + formula_core.py / formula_chain.py | `#龍芯⚡️2026-06-03-MATH-FORMULA-CORE-DUAL-TRACK-v1.0` |
-| v1.5 | 2026-05-11 | 计算公式对准表：α三义、数字根、五行向量、风险审计、决策路径、执行闭环、三才根基 | `#龍芯⚡️2026-05-11-SC-SANCAI-INTEGRATION-v1.5` |
-| v1.6 | 2026-06-08 | 25 公式完整闭环：人格贡献、七维覆盖、活跃度、行为密码学、通心译、广义加法、Royalty、哈希链、α校准、五行对冲 | `#龍芯⚡️2026-06-08-FORMULA-ALIGNMENT-v1.6-FULL-25-FORMULAS-LOCKED-v1.0` |
-| v2.0 | 2026-06-29 | CNSH 计算链升级：语义入口、模块路由、自动化自检、标签云、ROOT_CARD、双视角封装、道德经接驳、数学可证实签章 | `#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10` |
+| v1.0 | 2026-06-03 | 十条核心公式双轨对照 + formula_core.py / formula_chain.py | `#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-MATH-FORMULA-CORE-DUAL-TRACK-v1.0` |
+| v1.5 | 2026-05-11 | 计算公式对准表：α三义、数字根、五行向量、风险审计、决策路径、执行闭环、三才根基 | `#龍芯⚡️丙午·癸巳·乙酉·壬午·䷨损-SC-SANCAI-INTEGRATION-v1.5` |
+| v1.6 | 2026-06-08 | 25 公式完整闭环：人格贡献、七维覆盖、活跃度、行为密码学、通心译、广义加法、Royalty、哈希链、α校准、五行对冲 | `#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-FORMULA-ALIGNMENT-v1.6-FULL-25-FORMULAS-LOCKED-v1.0` |
+| v2.0 | 2026-06-29 | CNSH 计算链升级：语义入口、模块路由、自动化自检、标签云、ROOT_CARD、双视角封装、道德经接驳、数学可证实签章 | `#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10` |
 
 ---
 
@@ -743,7 +743,7 @@ python3 /Users/zuimeidedeyihan/longhun-system/cnsh-core/downloads-imports/formul
 | 项目 | 值 |
 | --- | --- |
 | 页面 | 🧮 数学公式算法核心 · CNSH 计算公式升级 v2.0 |
-| DNA | `#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10` |
+| DNA | `#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10` |
 | 数字根 | `dr(20260629) = 9` → 水（深层信息、回流、续航） |
 | 五行向量 | W = [金 0.25, 木 0.10, 水 0.30, 火 0.15, 土 0.20] |
 | 三色审计 | 🟢 通过 |
@@ -785,4 +785,4 @@ python3 /Users/zuimeidedeyihan/longhun-system/cnsh-core/downloads-imports/formul
 
 **天下无欺，守护人民。** 🐉
 
-**DNA：** `#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10`
+**DNA：** `#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10`

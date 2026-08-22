@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·丙辰·戌时·需-SERVER-CHECKER-v1-00000000
+#龍芯⚡️丙午·丙申·丙辰·戌时·䷄需-SERVER-CHECKER-v1-00000000
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
@@ -11,19 +11,19 @@
 每一次检测都是真实的 — ping端口、发请求、收响应，不造假。
 用于看板实时显示，所有状态基于实测结果。
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·戌时·需-SERVER-CHECKER-v1-00000000
+DNA: #龍芯⚡️丙午·丙申·丙辰·戌时·䷄需-SERVER-CHECKER-v1-00000000
 """
 import json
 import subprocess
 import sys
 import time
-import os
 import urllib.request
 import urllib.error
 import ssl
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from datetime import datetime
+from typing import Any
 
 ROOT = Path(__file__).resolve().parent.parent
 HOME = Path.home()
@@ -76,8 +76,10 @@ API_ENDPOINTS = {
         "method": "GET",
         "ok_codes": [200, 401],
         "group": "外部API",
-        "desc": "DeepSeek AI",
+        "desc": "DeepSeek AI（余额检测·欠费即degraded）",
         "critical": True,
+        "balance_check": True,   # 额外查 /user/balance，is_available=false 视为欠费
+        "balance_url": "https://api.deepseek.com/user/balance",
     },
     "GitHub API": {
         "url": "https://api.github.com",
@@ -153,28 +155,49 @@ def check_local() -> dict[str, Any]:
     return {"status": "online", "latency_ms": 0, "error": None}
 
 
+def _check_balance(endpoint: dict[str, Any], headers: dict[str, str], timeout: int) -> tuple[bool, str | None]:
+    """余额类检测：接口通≠可用。返回 (available, error)"""
+    try:
+        bctx = ssl.create_default_context()
+        breq = urllib.request.Request(endpoint["balance_url"], headers=headers, method="GET")
+        bresp = urllib.request.urlopen(breq, timeout=timeout, context=bctx)
+        bdata = json.loads(bresp.read().decode("utf-8"))
+        balances = bdata.get("balance_infos", [])
+        # 多币种账户: is_available 仅在顶层(账户总开关); 任一币种余额>0 即可(实测 balance_infos 无 is_available 字段)
+        top_available = bool(bdata.get("is_available", False))
+        usable = [b for b in balances if float(b.get("total_balance", 0) or 0) > 0]
+        if top_available and usable:
+            return True, None
+        return False, "DeepSeek不可用(无可用余额·待充值)"
+    except Exception as be:
+        return False, f"余额检测失败: {str(be)[:100]}"
+
+
 def check_api(endpoint: dict[str, Any], timeout: int = 8) -> dict[str, Any]:
-    """真实 HTTP API 检测"""
+    """真实 HTTP API 检测（支持余额检测：接口通≠可用）"""
     start = time.time()
     url = endpoint["url"]
     ok_codes = endpoint["ok_codes"]
     headers = endpoint.get("headers", {})
+
+    def _finalize(code: int, elapsed: int) -> dict[str, Any]:
+        if code in ok_codes:
+            if endpoint.get("balance_check"):
+                available, berr = _check_balance(endpoint, headers, timeout)
+                if not available:
+                    return {"status": "degraded", "latency_ms": elapsed, "http_code": code, "error": berr}
+            return {"status": "online", "latency_ms": elapsed, "http_code": code, "error": None}
+        return {"status": "degraded", "latency_ms": elapsed, "http_code": code, "error": f"HTTP {code} 不在预期范围 {ok_codes}"}
 
     try:
         ctx = ssl.create_default_context()
         req = urllib.request.Request(url, headers=headers, method=endpoint.get("method", "GET"))
         resp = urllib.request.urlopen(req, timeout=timeout, context=ctx)
         elapsed = round((time.time() - start) * 1000)
-        code = resp.status
-        if code in ok_codes:
-            return {"status": "online", "latency_ms": elapsed, "http_code": code, "error": None}
-        else:
-            return {"status": "degraded", "latency_ms": elapsed, "http_code": code, "error": f"HTTP {code} 不在预期范围 {ok_codes}"}
+        return _finalize(resp.status, elapsed)
     except urllib.error.HTTPError as e:
         elapsed = round((time.time() - start) * 1000)
-        if e.code in ok_codes:
-            return {"status": "online", "latency_ms": elapsed, "http_code": e.code, "error": None}
-        return {"status": "degraded", "latency_ms": elapsed, "http_code": e.code, "error": f"HTTP {e.code}"}
+        return _finalize(e.code, elapsed)
     except urllib.error.URLError as e:
         elapsed = round((time.time() - start) * 1000)
         return {"status": "offline", "latency_ms": elapsed, "error": str(e.reason)[:200]}
@@ -271,7 +294,26 @@ def run_all_checks() -> dict[str, Any]:
     }
 
 
+def _inject_deepseek_key() -> None:
+    """启动时从 ~/.env 注入 DEEPSEEK_API_KEY（不硬编码·D1密钥不入代码）"""
+    try:
+        env_path = Path.home() / ".env"
+        if not env_path.exists():
+            return
+        for line in env_path.read_text(encoding="utf-8").splitlines():
+            if line.startswith("DEEPSEEK_API_KEY="):
+                key = line.split("=", 1)[1].strip().strip("\"'")
+                if key:
+                    ds = API_ENDPOINTS.get("DeepSeek API")
+                    if ds:
+                        ds.setdefault("headers", {})["Authorization"] = f"Bearer {key}"
+                break
+    except Exception:
+        pass
+
+
 def main():
+    _inject_deepseek_key()
     import argparse
     parser = argparse.ArgumentParser(description="龍魂服务器实时连通性检测")
     parser.add_argument("--json", action="store_true", default=True, help="JSON 输出")

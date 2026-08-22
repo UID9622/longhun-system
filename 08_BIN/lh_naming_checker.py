@@ -2,12 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-NAMING-CHECKER-v1.0
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-NAMING-CHECKER-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # ╔══════════════════════════════════════════════════════════════╗
 # ║  龍魂·隐语法命名检查器 v1.0                                ║
-# ║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-NAMING-CHECKER-v1.0  ║
+# ║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-NAMING-CHECKER-v1.0  ║
 # ║  守护人格: 仓颉(P08符号语言) + 上帝之眼(P05审计)           ║
 # ║  签章: CANGJIE-NAMING-CHECKER-2026                         ║
 # ╚══════════════════════════════════════════════════════════════╝
@@ -28,7 +28,7 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-NAMING-CHECKER-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-NAMING-CHECKER-v1.0"
 
 # ═══ 常量 ═══
 

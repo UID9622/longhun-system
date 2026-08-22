@@ -1,7 +1,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 接口命名主权与太极蚁群架构 · 数学增补 v1.0
-# DNA: #龍芯⚡️丙午·乙未·丙申·申时·☰乾-API-NAMING-MATH-V1.0-P0-b7391619
+# DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷀乾-API-NAMING-MATH-V1.0-P0-b7391619
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # 上位协议: `01_protocols/LH-API-NAMING-TAIJI-ANT-v1.0.md`

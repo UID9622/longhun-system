@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂算力成本对比器</title>
+<style>
+ body{background:#0d1117;color:#e6edf3;font-family:"PingFang SC","Microsoft YaHei",sans-serif;padding:32px;max-width:760px;margin:0 auto}
+ h1{font-size:22px;margin-bottom:16px}
+ input{background:#161b22;border:1px solid #30363d;color:#e6edf3;padding:10px 14px;border-radius:8px;font-size:16px;width:220px}
+ button{background:#1f6feb;border:none;color:#fff;padding:10px 24px;border-radius:8px;font-size:16px;cursor:pointer;margin-left:8px}
+ table{width:100%;border-collapse:collapse;margin-top:24px;font-size:15px}
+ th,td{padding:12px;border-bottom:1px solid #21262d;text-align:right}
+ th:first-child,td:first-child{text-align:left}
+ .lh{color:#3fb950;font-weight:700}
+ .note{color:#8b949e;font-size:12px;margin-top:20px;line-height:1.8}
+</style></head><body>
+<h1>🐉 龍魂 vs 大厂API · 算力成本对比器</h1>
+<div>
+  <input id="tk" type="number" value="1000000" min="1000" step="1000"> tokens
+  <button onclick="calc()">对比</button>
+</div>
+<table><thead><tr><th>提供方</th><th>每千token(元)</th><th>总成本(元)</th><th>比龍魂贵</th></tr></thead>
+<tbody id="tb"></tbody></table>
+<div class="note">⚠️ 定价口径：公开刊例价估算（2026-08，人民币），如有变动以官方为准。龍魂成本=本地推理电费折算（实测32MB内核·15W低功耗整机·0.6元/度）。本工具只算数，不背书任何价格。<br>DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-LOW-POWER-BENCH-UID9622</div>
+<script>
+const P = {openai:0.014, claude:0.021, kimi:0.007, deepseek:0.0035, longhun:0.00006};
+const NAMES = {openai:'OpenAI', claude:'Claude', kimi:'Kimi', deepseek:'DeepSeek', longhun:'🐉 龍魂本地'};
+function calc(){
+  const tk = +document.getElementById('tk').value || 0;
+  const lh = tk/1000*P.longhun;
+  document.getElementById('tb').innerHTML = Object.keys(P).map(k=>{
+    const c = tk/1000*P[k];
+    const x = k==='longhun' ? '基准' : (c/lh).toFixed(1)+'×';
+    return `<tr class="${k==='longhun'?'lh':''}"><td>${NAMES[k]}</td><td>${P[k]}</td><td>${c.toFixed(4)}</td><td>${x}</td></tr>`;
+  }).join('');
+}
+calc();
+</script></body></html>

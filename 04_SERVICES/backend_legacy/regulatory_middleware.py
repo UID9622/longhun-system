@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂监管操作捕获中间件
-DNA: #龍芯⚡️2026-07-12-REGULATORY-MIDDLEWARE-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-REGULATORY-MIDDLEWARE-v1.0
 
 FastAPI 中间件，自动捕获所有 API 操作并写入操作日志。
 """

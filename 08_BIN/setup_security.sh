@@ -4,7 +4,7 @@
 #!/bin/bash
 # ╔══════════════════════════════════════════════════════════════════════╗
 # ║  龍魂·安全协议安装脚本                                            ║
-# ║  DNA: #龍芯⚡️2026-07-06-SECURITY-SETUP-v1.0                      ║
+# ║  DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-SECURITY-SETUP-v1.0                      ║
 # ║                                                                      ║
 # ║  在新克隆的仓库中执行此脚本来安装安全协议：                          ║
 # ║    chmod +x bin/setup_security.sh && bash bin/setup_security.sh      ║
@@ -33,7 +33,7 @@ echo "  [1/4] 安装 pre-commit 审计防火墙..."
 cat > "${HOOKS_DIR}/pre-commit" << 'PRECOMMIT_EOF'
 #!/bin/bash
 # 龍魂 pre-commit 审计防火墙 v2.0
-# DNA: #龍芯⚡️2026-07-06-PRECOMMIT-AUDIT-v2.0
+# DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-PRECOMMIT-AUDIT-v2.0
 # 5层扫描：私钥/凭证/敏感文件/内网IP/大文件
 
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin:$PATH"
@@ -154,7 +154,7 @@ cat > "${HOOKS_DIR}/pre-push" << 'PREPUSH_EOF'
 #!/bin/bash
 # ╔══════════════════════════════════════════════════════════════════════╗
 # ║  龍魂·熔断防火墙 — Git Pre-Push Hook                              ║
-# ║  DNA: #龍芯⚡️2026-07-06-PREPUSH-FIREWALL-v1.0                     ║
+# ║  DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-PREPUSH-FIREWALL-v1.0                     ║
 # ║  GitHub: 永久阻断 · gitcode/gitee: 主权令牌 · 全局熔断: 全阻断     ║
 # ╚══════════════════════════════════════════════════════════════════════╝
 
@@ -264,7 +264,7 @@ if not os.path.exists(fuse_file):
         'sovereign_uid': 'UID9622',
         'sovereign_name': '💎 龍芯北辰·诸葛鑫·Lucky',
         'created': datetime.now(timezone.utc).isoformat(),
-        'dna': '#龍芯⚡️2026-07-06-FUSE-CONTROL-v1.0',
+        'dna': '#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-FUSE-CONTROL-v1.0',
     }
     with open(fuse_file, 'w') as f:
         json.dump(state, f, indent=2, ensure_ascii=False)
@@ -303,4 +303,4 @@ echo "║    python3 bin/fuse_control.py reset        重置熔断       ║"
 echo "║    python3 bin/fuse_control.py push-confirm 生成令牌       ║"
 echo "╚═══════════════════════════════════════════════════════════╝"
 echo ""
-echo "  DNA: #龍芯⚡️2026-07-06-SECURITY-SETUP-v1.0"
+echo "  DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-SECURITY-SETUP-v1.0"

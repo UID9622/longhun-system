@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · CodeBuddy 技能批量生成器 v1.0
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-CODEBUDDY-SKILL-GENERATOR-V1.0-7d3f1a2b
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-CODEBUDDY-SKILL-GENERATOR-V1.0-7d3f1a2b
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

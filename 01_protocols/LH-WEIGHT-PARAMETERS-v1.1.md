@@ -3,7 +3,7 @@
 
 **文档元数据**
 
-DNA追溯：`#龍芯⚡️丙午·甲申·辛丑·坤卦-WEIGHT-PARAMETERS-V1.1-UID9622`
+DNA追溯：`#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-WEIGHT-PARAMETERS-V1.1-UID9622`
 
 确认码：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
@@ -410,7 +410,7 @@ R = F2锐度 × F6长期权重 - F1缺席率
 ═══════════════════════════════════════════════════
  龍魂系统 · 权重参数全表 v1.1 · 最终签名
 ═══════════════════════════════════════════════════
-DNA:        #龍芯⚡️丙午·甲申·辛丑·坤卦-WEIGHT-PARAMETERS-V1.1-UID9622
+DNA:        #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-WEIGHT-PARAMETERS-V1.1-UID9622
 确认码:      #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 主权锚定:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL

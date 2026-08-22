@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂系统 · DNA可逆编码与时间主权验证模块 v1.0
 源协议: 01_protocols/DNA可逆编码与时间主权协议_v1.0.md
 优先级: P0++（最高，不可绕过）
-DNA: #龍芯⚡️丙午·乙未·甲寅·大有-DNA-REVERSIBLE-VALIDATOR-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲寅·庚午·䷍大有-DNA-REVERSIBLE-VALIDATOR-v1.0
 
 用法:
   python3 bin/lh_dna_reversible_validator.py           # 跑全部 10 条测试向量
@@ -28,7 +29,7 @@ TAU = 960
 class CNSH_DNA引擎:
     """可逆DNA：一个D读取全文，一字不落，错即失败。"""
 
-    DNA = "#龍芯⚡️丙午·乙未·甲寅·大有-DNA-REVERSIBLE-VALIDATOR-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·甲寅·庚午·䷍大有-DNA-REVERSIBLE-VALIDATOR-v1.0"
 
     def __init__(self, 节点ID="KUNPENG-01"):
         self.节点 = 节点ID

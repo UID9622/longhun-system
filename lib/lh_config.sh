@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 🐉 龍魂 · Bash 统一配置加载器 v1.1
-# DNA: #龍芯⚡️丙午·丙申·己未·亥时-CONFIG-SH-UID9622
+# DNA: #龍芯⚡️丙午·丙申·己未·乙亥·䷏豫-CONFIG-SH-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 加载优先级: ① ~/.longhun/lh.env > ② deploy/.kunpeng_config > ③ 内置默认
 

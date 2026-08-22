@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂·视频素材自动化清洗引擎 v1.0
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-VIDEO-CLEANER-V1.0-9a1b2c3d
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-VIDEO-CLEANER-V1.0-9a1b2c3d
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

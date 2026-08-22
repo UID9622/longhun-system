@@ -1,0 +1,62 @@
+# 龍魂 · Docker 构建忽略文件
+# DNA: #龍芯⚡️2026-08-22-DOCKERIGNORE-ALIGN-DNA-v1.0
+# 不进入镜像的内容
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# 文档（思想层，镜像只包含工程层）
+*.md
+!README.md
+!QUICKSTART.md
+docs/
+*.pdf
+*.pptx
+*.mp4
+
+# 本地数据（运行时生成）
+data/
+models/*.gguf
+logs/
+tmp/
+*.log
+
+# 开发环境
+.env
+.env.local
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 测试
+tests/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 构建产物
+dist/
+build/
+*.egg-info/
+
+# CI/CD（运行时不需要）
+.github/
+.gitlab-ci.yml
+
+# 大文件
+*.tar.gz
+*.zip
+*.rar

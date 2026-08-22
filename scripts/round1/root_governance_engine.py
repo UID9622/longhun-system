@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂 · 根性治理引擎 — 三才三色共治模型
 ============================================================
 论文: 《根性治理论：从西方二进制到中国道理》(15章)
-DNA: #龍芯⚡️2026-07-07-ROOT-GOVERNANCE-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-ROOT-GOVERNANCE-ENGINE-v1.0
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 来源: THESIS-ROOT-GOVERNANCE 第九章·核心算法落地
 
@@ -128,7 +129,7 @@ class RootGovernanceEngine:
       - 重实地（数据是辅助·实地是根本）
     """
 
-    DNA = "#龍芯⚡️2026-07-07-ROOT-GOVERNANCE-ENGINE-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-ROOT-GOVERNANCE-ENGINE-v1.0"
     CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
     def __init__(self):

@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂 · 视觉引擎 v1.0 — 暗夜鎏金军魂
-DNA: #龍芯⚡️2026-07-25-VISUAL-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-VISUAL-ENGINE-v1.0
 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0
 人格: 李白（P11·创意守护）— 美学不动点守护
 铁律: 极夜黑#080808+龍魂金#C9A84C焊死·图腾位置焊死·效果参数焊死
@@ -16,7 +16,7 @@ import json
 import math
 from pathlib import Path
 
-DNA = "#龍芯⚡️2026-07-25-VISUAL-ENGINE-v1.0-DARK-GOLDEN"
+DNA = "#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-VISUAL-ENGINE-v1.0-DARK-GOLDEN"
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # P0 焊死色彩常量

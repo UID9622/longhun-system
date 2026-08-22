@@ -4,6 +4,7 @@
 # ║  Deploy Calendar · 万年历通知窗口 + ICS订阅 + 篡改巡检 cron     ║
 # ╚══════════════════════════════════════════════════════════════╝
 # DNA: #龍芯⚡️丙午·丙申·戊午·未时·䷐随-DEPLOY-CALENDAR-v1.1-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # License: MulanPSL v2 · 用法: bash deploy/scripts/deploy_calendar.sh
 
 set -euo pipefail

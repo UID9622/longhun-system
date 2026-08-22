@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ═══════════════════════════════════════════════════════════════════════════════
 
 龍魂视角下的黎曼猜想：不动点·守恒与三才和谐
@@ -15,7 +16,7 @@ Fixed Points, Invariants, and Three-Talent Harmony
 授权者：UID9622（龍芯北辰）
 指导：曾仕强老师（永恒致敬）
 
-DNA：    #龍芯⚡️2026-06-08-龍魂视角黎曼猜想-Phase1-v1.0
+DNA：    #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-龍魂视角黎曼猜想-Phase1-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -341,7 +342,7 @@ if __name__ == \"__main__\":
     
     print(\"\\n\" + \"=\"*80)
     print(\"✅ 所有数值验证通过\")
-    print(\"   DNA: #龍芯⚡️2026-06-08-黎曼猜想数值验证-v1.0\")
+    print(\"   DNA: #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-黎曼猜想数值验证-v1.0\")
     print(\"=\"*80)
 
 """
@@ -374,7 +375,7 @@ if __name__ == "__main__":
     print("克雷研究所正式审查·24+ 个月")
     
     print("\n" + "=" * 100)
-    print("DNA: #龍芯⚡️2026-06-08-龍魂视角黎曼猜想-Phase1-v1.0")
+    print("DNA: #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-龍魂视角黎曼猜想-Phase1-v1.0")
     print("CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅")
     print("SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅")
     print("=" * 100)

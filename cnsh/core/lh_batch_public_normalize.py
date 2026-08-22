@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂公开内容批量规范化
-DNA: #龍芯⚡️2026-06-29-LONGHUN-BATCH-PUBLIC-NORMALIZE-v1.0
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-BATCH-PUBLIC-NORMALIZE-v1.0
 
 扫描全机公开内容，把需要规范化的文件先备份再原地修改：
 - 简化字 '龍' → 繁体 '龍'

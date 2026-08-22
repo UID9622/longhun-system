@@ -2,13 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂能力注册表 · 引擎内核
 =============================
 注册所有引擎可调用的能力（技能/功能）。
 每个能力 = 名称 + 意图词 + 执行函数 + 所需人格。
 
-DNA: #龍芯⚡️丙午·乙未·甲子·申时·需-REGISTRY-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲子·申时·䷄需-REGISTRY-v1.0
 """
 
 from __future__ import annotations

@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂知识图谱 · 自适应子图拆分
 按页面 category 把大图拆成子图，便于独立查询、按需加载、协同调用。
 
-DNA: #龍芯⚡️2026-06-23-LONGHUN-KG-SUBGRAPHS-v1.0
+DNA: #龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-KG-SUBGRAPHS-v1.0
 """
 
 import json
@@ -119,7 +120,7 @@ def export_subgraphs(subgraphs: Dict[str, Dict[str, Any]]):
     overview = {
         "total_categories": len(summary),
         "subgraphs": summary,
-        "dna": "#龍芯⚡️2026-06-23-LONGHUN-KG-SUBGRAPHS-v1.0",
+        "dna": "#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-KG-SUBGRAPHS-v1.0",
     }
     overview_path = OUT_DIR / "overview.json"
     overview_path.write_text(json.dumps(overview, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -151,7 +152,7 @@ h1 {{ color: #f0c040; }}
 <tr><th>类别</th><th>页面数</th><th>实体数</th><th>关系数</th></tr>
 {rows}
 </table>
-<p style="margin-top:2rem;color:#888;font-size:0.9rem;">DNA: #龍芯⚡️2026-06-23-LONGHUN-KG-SUBGRAPHS-v1.0</p>
+<p style="margin-top:2rem;color:#888;font-size:0.9rem;">DNA: #龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-KG-SUBGRAPHS-v1.0</p>
 </body>
 </html>
 """

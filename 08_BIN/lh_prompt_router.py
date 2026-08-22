@@ -5,7 +5,7 @@
 🐉 龍魂提示词路由器 v1.0
 动态路由 · 自我迭代 · 鲲鹏同步
 
-DNA: #龍芯⚡️丙午·癸未·庚辰·ROUTER-ENGINE-v1.0-UID9622
+DNA: #龍芯⚡️丙午·癸未·庚辰·壬午·䷑蛊-ROUTER-ENGINE-v1.0-UID9622
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
@@ -54,7 +54,7 @@ KUNPENG_USER = os.environ.get("KUNPENG_USER", "root")
 KUNPENG_PATH = os.environ.get("KUNPENG_PATH", "/opt/longhun-system/config/prompt_router/")
 KUNPENG_SSH_KEY = os.environ.get("KUNPENG_SSH_KEY", str(Path.home() / ".ssh" / "longhun_kunpeng_ed25519"))
 
-DNA = "#龍芯⚡️丙午·癸未·庚辰·ROUTER-ENGINE-v1.0-UID9622"
+DNA = "#龍芯⚡️丙午·癸未·庚辰·壬午·䷑蛊-ROUTER-ENGINE-v1.0-UID9622"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 VERSION = "1.0.0"
 

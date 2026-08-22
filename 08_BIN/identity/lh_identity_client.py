@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-IDENTITY-CLIENT-v1.0
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-IDENTITY-CLIENT-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -10,7 +10,7 @@
 龍魂·主权人格广播客户端
 生成本地主权的身份广播信号，可发送到鲲鹏服务端验证。
 
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-IDENTITY-CLIENT-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-IDENTITY-CLIENT-v1.0
 """
 import os
 import sys

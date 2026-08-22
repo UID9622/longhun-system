@@ -1,0 +1,42 @@
+{
+  "#龍芯⚡️丙午·丁酉·己酉·未时·䷗复-DNA-GENERATOR-SPEC-v2.0-0001-d7ea5f95": {
+    "dna": "#龍芯⚡️丙午·丁酉·己酉·未时·䷗复-DNA-GENERATOR-SPEC-v2.0-0001-d7ea5f95",
+    "title": "DNA生成器规格书",
+    "action": "DNA-GENERATOR-SPEC",
+    "version": "v2.0",
+    "category": "protocol",
+    "file_path": "/mnt/agents/output/longhun-dna-generator/SPEC.md",
+    "sha256": "2faa57690519da772231861004c8204c18414276c2e3e5b62bea006e3f4fa395",
+    "created_iso": "2026-08-03T14:30:00",
+    "ganzhi": {
+      "year": "丙午",
+      "month": "丁酉",
+      "day": "己酉",
+      "hour": "未时",
+      "shengxiao": "马",
+      "iso": "2026-08-03T14:30:00"
+    },
+    "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬KZ94Y3HW",
+    "uid": "9622"
+  },
+  "#龍芯⚡️丙午·丁酉·己酉·未时·䷼中孚-DNA-SPEC-v2.0-0002-bce933ad": {
+    "dna": "#龍芯⚡️丙午·丁酉·己酉·未时·䷼中孚-DNA-SPEC-v2.0-0002-bce933ad",
+    "title": "DNA规范v2.0",
+    "action": "DNA-SPEC",
+    "version": "v2.0",
+    "category": "protocol",
+    "file_path": "/mnt/agents/output/longhun-dna-generator/docs/DNA规范v2.0.md",
+    "sha256": "367a8d11957058e3d319327557471ea64819f6886349e44ba1d1c7d8e0872a5e",
+    "created_iso": "2026-08-03T14:35:00",
+    "ganzhi": {
+      "year": "丙午",
+      "month": "丁酉",
+      "day": "己酉",
+      "hour": "未时",
+      "shengxiao": "马",
+      "iso": "2026-08-03T14:35:00"
+    },
+    "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬UOLIWH4J",
+    "uid": "9622"
+  }
+}

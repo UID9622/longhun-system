@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂系统·五行融合计算公式 v1.0
 ===============================================
 
@@ -12,7 +13,7 @@
   4. 低于置信度阈值的输出标记“待人工确认”
 
 签署：
-  DNA: #龍芯⚡️2026-06-08-五行融合公式-v1.0
+  DNA: #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-五行融合公式-v1.0
   CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
   SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 """
@@ -495,6 +496,6 @@ if __name__ == "__main__":
     print(f"DNA签署: {report.dna_signature}")
     
     print("\n" + "=" * 80)
-    print("DNA追溯码: #龍芯⚡️2026-06-08-五行融合公式-v1.0")
+    print("DNA追溯码: #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-五行融合公式-v1.0")
     print("确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅")
     print("=" * 80)

@@ -1,6 +1,7 @@
 #!/bin/bash
 # 🐉 龍魂 · 快速索引底座 · 鲲鹏 ARM64 一键部署脚本
-# DNA: #龍芯⚡️丙午·丙申·壬戌·巳时-FAST-INDEX-KUNPENG-DEPLOY-UID9622
+# DNA: #龍芯⚡️丙午·丙申·壬戌·乙巳·䷾既济-FAST-INDEX-KUNPENG-DEPLOY-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
 

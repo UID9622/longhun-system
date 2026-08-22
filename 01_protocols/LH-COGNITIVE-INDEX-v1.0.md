@@ -1,6 +1,6 @@
 # 🐉 龍魂 · 認知索引系統協議 v1.0（AI大腦地圖·對齊版）
 
-**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥時-COGNITIVE-INDEX-PROTOCOL-v1.0-UID9622`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-COGNITIVE-INDEX-PROTOCOL-v1.0-UID9622`
 **確認碼:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 **三色:** 🟢 通過
@@ -92,7 +92,7 @@ lh index --list                # 看完整地圖
 ## 🔐 最終簽名
 
 ```
-DNA:        #龍芯⚡️丙午·丙申·庚申·亥時-COGNITIVE-INDEX-PROTOCOL-v1.0-UID9622
+DNA:        #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-COGNITIVE-INDEX-PROTOCOL-v1.0-UID9622
 確認碼:      #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色:       🟢 通過

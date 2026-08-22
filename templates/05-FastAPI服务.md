@@ -82,7 +82,7 @@ GPG：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 ```
 🐉 交付完成
 
-DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·需-api-xxx-v1-a1b2c3d4
+DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·䷄需-api-xxx-v1-a1b2c3d4
 UID: 9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 时间: 丙午·辛未·丙戌·亥时

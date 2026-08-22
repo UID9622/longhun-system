@@ -1,7 +1,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂统一监管API · 操作手册
-DNA: #龍芯⚡️2026-07-12-REGULATORY-GUIDE-v2.0 · 三层透明模型
+DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-REGULATORY-GUIDE-v2.0 · 三层透明模型
 
 > **定位**: 民用系统自愿透明接口，非政府强制监管接入。
 > **宪法**: 详见 [REGULATORY_CONSTITUTION.md](./REGULATORY_CONSTITUTION.md)

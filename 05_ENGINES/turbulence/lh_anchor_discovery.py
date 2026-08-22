@@ -12,7 +12,7 @@ Banach 收缩映射：在完备度量空间中构造收缩算子 T，
   d(Tx, Ty) ≤ q·d(x, y),  q∈(0,1)
   d(x_n, x*) ≤ q^n/(1-q) · d(x_1, x_0)
 
-DNA: #龍芯⚡️丙午·乙未·辛酉·井-ANCHOR-DISCOVERY-V1.0
+DNA: #龍芯⚡️丙午·乙未·辛酉·甲午·䷯井-ANCHOR-DISCOVERY-V1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 """

@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🚀 龍魂决策流场主控页优化·快速更新指南 (5 分钟版)
 
-**DNA**:#龍芯⚡️2026-06-07-NOTION-UPDATE-QUICKSTART-FILE1-v1.0
+**DNA**:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-NOTION-UPDATE-QUICKSTART-FILE1-v1.0
 **时间**: 5-10 分钟 (熟手)
 **风险**: 🟢 低 (只是添加块，不删除任何现有内容)
 
@@ -21,7 +21,7 @@
 当前主版本: v2.7.36
 主版本发布时间: 2026-05-17 00:26 CST
 当前焊点 turn: M21
-主控 DNA: #龍芯⚡️2026-05-17-MAIN-CONTROL-V2.7.36-LIVE
+主控 DNA: #龍芯⚡️丙午·癸巳·辛卯·甲午·䷚颐-MAIN-CONTROL-V2.7.36-LIVE
 
 子版本追踪（历史）：
   • v2.7.28 (M18·2026-05-15·灵魂档案索引)
@@ -278,6 +278,6 @@ python3 ~/.龍魂/dna_validator.py
 
 ---
 
-**DNA**:#龍芯⚡️2026-06-07-NOTION-UPDATE-QUICKSTART-v1.0
+**DNA**:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-NOTION-UPDATE-QUICKSTART-v1.0
 **责任**: UID9622·不免责
 

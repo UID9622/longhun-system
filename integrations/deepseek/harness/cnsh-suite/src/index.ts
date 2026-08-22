@@ -1,6 +1,6 @@
 /**
  * 🐉 CNSH 套件 · 主入口
- * DNA: #龍芯⚡️丙午·丙申·庚申·亥时-CNSH-SUITE-UID9622
+ * DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-SUITE-UID9622
  * 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
  * GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
  *
@@ -62,7 +62,7 @@ export function apply(ctx: any) {
   ctx.longhun = engine
 
   console.log('🐉 CNSH 套件加载完成 — 龍魂主权底座已焊入 Harness')
-  console.log('   DNA: #龍芯⚡️丙午·丙申·庚申·亥时-CNSH-SUITE-UID9622')
+  console.log('   DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-SUITE-UID9622')
   console.log('   确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z')
 }
 

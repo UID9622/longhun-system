@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂仓库拆分方案 · Repo Split Plan
 
-> **DNA**: `#龍芯⚡️2026-06-24-REPO-SPLIT-PLAN-v1.0`
+> **DNA**: `#龍芯⚡️丙午·甲午·己巳·庚午·䷃蒙-REPO-SPLIT-PLAN-v1.0`
 > **GPG**: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 > **诊断**: Gitee 显示 1492MB / 配额 1024MB，当前 HEAD 仅 55MB，差异来自历史未引用对象
 
@@ -118,4 +118,4 @@ longhun-system-whitepapers        # 白皮书/论文仓
 
 ## DNA 追溯
 
-`#龍芯⚡️20260624130125-REPO-SPLIT-PLAN-v1.0`
+`#龍芯⚡️丙午·甲午·己巳·辛未·䷆师-REPO-SPLIT-PLAN-v1.0`

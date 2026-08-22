@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂·五行计算器 v3.2 项目结构完成报告
 
 ## ✅ 项目初始化成功
@@ -86,9 +88,9 @@ python3 -m http.server 8080 -d ~/longhun-system/baobao-guardian/public
 ```
 
 ### 🧬 DNA信息
-- **项目DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-WUXING-v3.2
-- **计算器DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-WUXING_V3-v3.2-渲染层
-- **API DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-API-WUXING-v3.2
+- **项目DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-WUXING-v3.2
+- **计算器DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-WUXING_V3-v3.2-渲染层
+- **API DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-API-WUXING-v3.2
 
 ### 📝 Next Steps（可选）
 1. 集成到龍魂系统主路由

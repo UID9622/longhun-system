@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂系统一键启动入口 v1.0
-# DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-START-ENTRY-v1.0-UID9622
+# DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-START-ENTRY-v1.0-UID9622
 # 记不住命令？用这个。
 
 set -e

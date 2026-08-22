@@ -1,8 +1,9 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · CodeBuddy 生态总索引 v1.0
 
-DNA: #龍芯⚡️丙午·丙申·丁巳·申时·乾卦-CODEBUDDY-MASTER-INDEX-v1.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·丁巳·申时·䷀乾-CODEBUDDY-MASTER-INDEX-v1.0-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（思想层）｜MulanPSL v2（工程层）
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -161,4 +162,4 @@ python3 bin/lh_cross_module_awareness.py --auto-fix
 
 ---
 
-🐉 尾签 `#龍芯⚡️丙午·丙申·丁巳·申时·乾卦-CODEBUDDY-MASTER-INDEX-v1.0-UID9622` · 龍魂 CodeBuddy 生态统一入口
+🐉 尾签 `#龍芯⚡️丙午·丙申·丁巳·申时·䷀乾-CODEBUDDY-MASTER-INDEX-v1.0-UID9622` · 龍魂 CodeBuddy 生态统一入口

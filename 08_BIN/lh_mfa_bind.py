@@ -14,7 +14,7 @@
 用法:
   python bin/lh_mfa_bind.py --generate
 
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-MFA-BIND-v2.0-8A2C4E1F
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-MFA-BIND-v2.0-8A2C4E1F
 """
 
 import sys

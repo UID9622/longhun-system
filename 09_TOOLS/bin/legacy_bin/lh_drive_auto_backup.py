@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🐉 龍魂 · 移动硬盘自动备份引擎 v1.0
 
 功能：
@@ -16,7 +17,7 @@
   python3 lh_drive_auto_backup.py status   # 查看备份状态
   python3 lh_drive_auto_backup.py verify   # 校验备份完整性
 
-DNA: #龍芯⚡️2026-07-12-DRIVE-AUTO-BACKUP-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-DRIVE-AUTO-BACKUP-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 from __future__ import annotations
@@ -109,7 +110,7 @@ BACKUP_TASKS: List[Dict[str, Any]] = [
     },
 ]
 
-DNA = "#龍芯⚡️2026-07-12-DRIVE-AUTO-BACKUP-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-DRIVE-AUTO-BACKUP-v1.0"
 
 
 def log(msg: str) -> None:

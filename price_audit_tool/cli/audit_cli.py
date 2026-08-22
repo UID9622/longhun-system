@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 价格审计 CLI 工具
-DNA: #龍芯⚡️丙午·乙未·辛亥·巳时·☰乾-PRICE-AUDIT-CLI-v1.0
+DNA: #龍芯⚡️丙午·乙未·辛亥·巳时·䷀乾-PRICE-AUDIT-CLI-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

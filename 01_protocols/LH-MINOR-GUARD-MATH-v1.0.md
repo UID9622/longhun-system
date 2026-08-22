@@ -1,9 +1,10 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·未成年守护引擎 — 数学建模增补 v1.0
 
-DNA: `#龍芯⚡️丙午·乙未·丙申·申时·☳震-MINOR-GUARD-MATH-V1.0-P0-37006732`
+DNA: `#龍芯⚡️丙午·乙未·丙申·申时·䷲震-MINOR-GUARD-MATH-V1.0-P0-37006732`
 来源协议: `LH-MINOR-GUARD-ENGINE-v1.0.md`（第四章数学模型的严格形式化）
 引擎实现: `bin/lh_minor_guard_engine.py`
 创建者: 诸葛鑫（UID9622）
@@ -268,6 +269,6 @@ python3 bin/lh_minor_guard_engine.py session  # 交互式会话
 ---
 
 签署：诸葛鑫（UID9622）
-DNA: `#龍芯⚡️丙午·乙未·丙申·申时·☳震-MINOR-GUARD-MATH-V1.0-P0-37006732`
+DNA: `#龍芯⚡️丙午·乙未·丙申·申时·䷲震-MINOR-GUARD-MATH-V1.0-P0-37006732`
 确认码: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 三色审计: 🟢 17/17全绿 🟡 词表为演示级·阈值经验值（改值走修宪流程） 🔴 ∞级零容忍·红线无开关

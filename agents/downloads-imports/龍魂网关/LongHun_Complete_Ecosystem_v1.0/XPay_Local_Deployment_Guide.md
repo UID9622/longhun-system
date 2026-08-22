@@ -286,7 +286,7 @@ curl http://localhost:8888/api/v1/stats
 
 ```
 格式: #龍芯⚡️{timestamp}-XPAY-TXN{dr}-{hash_short}
-例如: #龍芯⚡️20260605022642-XPAY-TXN6-962B46F7
+例如: #龍芯⚡️丙午·癸巳·庚戌·丁丑·䷰革-XPAY-TXN6-962B46F7
 含义: 
   - 交易ID: TXN6
   - 数字根: 6
@@ -466,7 +466,7 @@ A: 不会。除非你明确选择：
 维护: 本地宝宝（Local Claude）
 备份: 分布式网络（IPFS/Arweave）
 
-DNA: #龍芯⚡️2026-06-05-XPAY-DEPLOYMENT-GUIDE-v1.0
+DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-XPAY-DEPLOYMENT-GUIDE-v1.0
 签名: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 ```

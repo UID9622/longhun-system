@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️2026-08-06-SAVE-ROUTER-v1.0
+# DNA: #龍芯⚡️丙午·乙未·壬子·丙午·䷙大畜-SAVE-ROUTER-v1.0
 # License: MulanPSL v2
 """
 智能路由器 · 本地优先 + 云端兜底
@@ -23,9 +23,9 @@ import hashlib
 import json
 import logging
 import time
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from enum import Enum
-from typing import Dict, List, Optional, Any, Tuple
+from typing import Dict, List, Optional, Tuple
 
 import httpx
 
@@ -75,7 +75,7 @@ class SmartRouter:
     配置:
         router = SmartRouter()
         router.add_local("http://localhost:11434/v1", "qwen2.5:7b")
-        router.add_cloud("https://api.deepseek.com/v1", "deepseek-chat", "sk-xxx")
+        router.add_cloud("https://api.deepseek.com/v1", "deepseek-v4-flash", "sk-xxx")
 
         decision = await router.route(messages)
         response = await router.call(decision, messages)
@@ -92,7 +92,7 @@ class SmartRouter:
     # 配置
     # ═══════════════════════════════════════════════
 
-    def add_local(self, base_url: str, model: str, name: str = None,
+    def add_local(self, base_url: str, model: str, name: Optional[str] = None,
                   priority: int = 0) -> "SmartRouter":
         """添加本地模型"""
         self._endpoints.append(ModelEndpoint(
@@ -106,7 +106,7 @@ class SmartRouter:
         return self
 
     def add_cloud(self, base_url: str, model: str, api_key: str,
-                  name: str = None, priority: int = 10) -> "SmartRouter":
+                  name: Optional[str] = None, priority: int = 10) -> "SmartRouter":
         """添加云端模型"""
         self._endpoints.append(ModelEndpoint(
             name=name or f"cloud:{model}",
@@ -145,7 +145,7 @@ class SmartRouter:
     # 路由决策
     # ═══════════════════════════════════════════════
 
-    async def route(self, messages: List[Dict], model_hint: str = None) -> RouteDecision:
+    async def route(self, messages: List[Dict], model_hint: Optional[str] = None) -> RouteDecision:
         """决定请求路由到哪个端点
 
         Args:
@@ -262,6 +262,7 @@ if __name__ == "__main__":
 
         endpoints = router.list_endpoints()
         print(f"端点: {len(endpoints)}")
+        alive = False
         for ep in endpoints:
             alive = await router.health_check(
                 ModelEndpoint(name=ep["name"], base_url=ep["base_url"],

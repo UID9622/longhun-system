@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·辛酉·卯时·大有-ANTI-HYPE-FIREWALL-v1.0
+#龍芯⚡️丙午·乙未·辛酉·卯时·䷍大有-ANTI-HYPE-FIREWALL-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -11,7 +11,7 @@
 ║   龍魂·AI反诈防火墙 v1.0 — 100张话术卡片拆穿AI营销忽悠                        ║
 ║   AI Anti-Hype Firewall · Hype Detection · Plain-Language Translation   ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️丙午·乙未·辛酉·卯时·大有-ANTI-HYPE-FIREWALL-v1.0              ║
+║  DNA: #龍芯⚡️丙午·乙未·辛酉·卯时·䷍大有-ANTI-HYPE-FIREWALL-v1.0              ║
 ║  源矿: backups/cs-kb-enhanced-20260701/cs_kb.db (100张AI行业话术)          ║
 ║  原理: 词库匹配→hype等级拆解→误导点揭露→大白话重写                            ║
 ║  铁律: 不联网·本地词库·不冤枉好词·不放过忽悠                                    ║

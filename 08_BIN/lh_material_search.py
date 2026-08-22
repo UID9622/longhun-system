@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂·素材搜索与标签引擎 v1.0 — 素材查询 + AI辅助打标 + 场景匹配
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-MATERIAL-SEARCH-V1.0-5b2c8d1e
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-MATERIAL-SEARCH-V1.0-5b2c8d1e
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

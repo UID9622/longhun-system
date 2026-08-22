@@ -2,9 +2,10 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 CNSH v2.1 → Swift 编译器
-DNA: #龍芯⚡️2026-07-06-CNSH-COMPILER-SWIFT-v2.1
+DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-COMPILER-SWIFT-v2.1
 
 说明：CNSH → Swift 编译器后端（🟡 待实现）。
       生成 Swift 5.9+ 代码，支持 iOS 16+/macOS 13+/watchOS 9+。

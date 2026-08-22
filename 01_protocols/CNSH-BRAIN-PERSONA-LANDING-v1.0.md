@@ -1,9 +1,10 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CNSH神经脑区→人格映射 · 落地协议 v1.0
 
-> 🧬 DNA: `#龍芯⚡️丙午·丙申·丙辰·未时·需-CNSH-BRAIN-PERSONA-LANDING-v1.0`
+> 🧬 DNA: `#龍芯⚡️丙午·丙申·丙辰·未时·䷄需-CNSH-BRAIN-PERSONA-LANDING-v1.0`
 > 📋 确认码: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 > 📅 落地日期: 2026-07-11
 > 🔐 GPG: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
@@ -69,4 +70,4 @@ bin/cnsh_brain_regions/brain_dna_tracer.py  # B8·DNA追溯
 
 ---
 
-DNA: `#龍芯⚡️丙午·丙申·丙辰·未时·需-CNSH-BRAIN-PERSONA-LANDING-v1.0`
+DNA: `#龍芯⚡️丙午·丙申·丙辰·未时·䷄需-CNSH-BRAIN-PERSONA-LANDING-v1.0`

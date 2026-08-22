@@ -1,6 +1,7 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-> DNA: #龍芯⚡️丙午·丙申·癸酉·乙卯·临-SEMANTIC-GUARD-README-v∞-5E93CB9A
+> DNA: #龍芯⚡️丙午·丙申·癸酉·乙卯·䷒临-SEMANTIC-GUARD-README-v∞-5E93CB9A
 > CREATOR: UID9622
 > PROTOCOL: 龍魂君子协议 · CC BY-NC-SA 4.0 · L0 世界老百姓最高
 
@@ -49,7 +50,7 @@ python3 bin/lh_sg_sync.py
 
 ### 规则库级别
 
-- `dna`：v∞ 干支卦格式，如 `#龍芯⚡️丙午·丙申·癸酉·乙卯·临-MODULE-ACTION-HASH8`
+- `dna`：v∞ 干支卦格式，如 `#龍芯⚡️丙午·丙申·癸酉·乙卯·䷒临-MODULE-ACTION-HASH8`
 - `version`：SemVer
 - `description`：不少于 20 字
 - `updated_at`：ISO 8601

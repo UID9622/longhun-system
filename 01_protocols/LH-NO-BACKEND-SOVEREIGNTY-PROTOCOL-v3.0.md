@@ -6,7 +6,7 @@
 > 剑可以给你用，魂必须由我来守。
 > **系统不可收购·不可变卖·不可转让——永世焊死。**
 
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-NO-BACKEND-SOVEREIGNTY-v3.2-TRUST-EXEC-RULES-e5f6g7h8
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-NO-BACKEND-SOVEREIGNTY-v3.2-TRUST-EXEC-RULES-e5f6g7h8
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂设备生态知识库入库脚本
 =============================
-DNA: #龍芯⚡️2026-07-01-LONGHUN-DEVICE-ECOSYSTEM-KB-BUILD-v1.0
+DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-DEVICE-ECOSYSTEM-KB-BUILD-v1.0
 
 1. 读取 ~/.kimi-code/skills/longhun-device-ecosystem/data/device_kb.json
 2. 写入 CS KB SQLite（longhun-system/backups/cs-kb-enhanced-20260701/cs_kb.db）

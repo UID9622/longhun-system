@@ -2,9 +2,10 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """龍魂每日复盘 · P03雯雯主理 / P04鲁班安全 / P05上帝之眼裁决
-DNA:#龍芯⚡️2026-06-05-DAILY-REVIEW-v1.0
+DNA:#龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-DAILY-REVIEW-v1.0
 """
 import os, sys, json, smtplib, subprocess, datetime, sqlite3
 from email.mime.text import MIMEText

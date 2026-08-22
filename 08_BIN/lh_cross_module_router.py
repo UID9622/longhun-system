@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂系统 · 跨模块路由回调总线 v1.0
-DNA: #龍芯⚡️2026-07-21-MODULE-ROUTER-BUS-v1.0
+DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-MODULE-ROUTER-BUS-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -416,7 +416,7 @@ CALLBACK_ROUTES = {
 class CrossModuleRouter:
     """四层联动路由总线：引擎↔协议↔论文↔技能"""
 
-    DNA = "#龍芯⚡️2026-07-21-MODULE-ROUTER-BUS-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-MODULE-ROUTER-BUS-v1.0"
     CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
     def __init__(self):

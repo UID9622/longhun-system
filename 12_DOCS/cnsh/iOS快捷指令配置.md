@@ -1,7 +1,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 <!--
-  DNA: #龍芯⚡️2026-07-21-迁移-iOS快捷指令配置-v1.0
+  DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-迁移-iOS快捷指令配置-v1.0
   创建者: 诸葛鑫（UID9622）
   协议: CC BY-NC-SA 4.0
   来源: 龍魂待整理/01-CNSH-协议规范/iOS快捷指令配置.md
@@ -11,7 +11,7 @@
 -->
 
 # 🐉 CNSH iOS 快捷指令配置
-DNA: #龍芯⚡️20260422-DOC-IOS01
+DNA: #龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-DOC-IOS01
 UID9622 · 诸葛鑫
 
 ---
@@ -191,7 +191,7 @@ curl -X POST http://localhost:8765/chat \
 
 ---
 
-DNA: #龍芯⚡️20260422-DOC-IOS01
+DNA: #龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-DOC-IOS01
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 🟢 不说教·不黑箱·你的语法·你的出口

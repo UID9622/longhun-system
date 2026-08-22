@@ -2,9 +2,10 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂应用人格小队拉起器 · Persona Team Orchestrator
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-PERSONA-TEAM-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-PERSONA-TEAM-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 功能:

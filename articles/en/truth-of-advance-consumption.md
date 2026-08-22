@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
@@ -6,7 +6,7 @@ title: "The Truth About Advance Consumption: Li Fire Awakening — Stop Burning 
 author: "UID9622 · 龍芯北辰 · Zhuge Xin"
 date: 2026-07-05
 original: "../2026-07-05-提前消费的真相-离火运觉醒.md"
-dna: "#龍芯⚡️2026-07-05-CONSUMER-FIRE-FINAL-v1.0-EN"
+dna: "#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-CONSUMER-FIRE-FINAL-v1.0-EN"
 confirm: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 gpg: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 license: "CC BY-NC-SA 4.0"
@@ -15,7 +15,7 @@ status: 🟢 Published
 
 # The Truth About Advance Consumption: Li Fire Awakening — Stop Burning Yourself as Firewood
 
-> **DNA:** `#龍芯⚡️2026-07-05-CONSUMER-FIRE-FINAL-v1.0-388f4ade`  
+> **DNA:** `#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-CONSUMER-FIRE-FINAL-v1.0-388f4ade`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 > **Reading time:** ~6 minutes  
 > **Core position:** The Li Fire burns wisdom, not wallets. True "being good to yourself" isn't spending one more yuan — it's keeping one more measure of judgment.
@@ -239,7 +239,7 @@ See it clearly. Then spend. No regrets.
 
 ---
 
-> **DNA:** `#龍芯⚡️2026-07-05-CONSUMER-FIRE-FINAL-v1.0-388f4ade`  
+> **DNA:** `#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-CONSUMER-FIRE-FINAL-v1.0-388f4ade`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 > **Attribution:** LongHun System · UID9622 · Zhuge Xin  
 > **Status:** 🟢 Public · Shareable · Keep DNA and attribution intact

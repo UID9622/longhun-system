@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🛡️ 龍魂护盾 v3.0 · CNSH 中文命名 + 国密五维防御
 
-**DNA**: `#龍芯⚡️2026-06-29-LONGHUN-SHIELD-v3-CNSH-UID9622`
+**DNA**: `#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-SHIELD-v3-CNSH-UID9622`
 
 **核心代码**: [`longhun_shield_cnsh.py`](longhun_shield_cnsh.py)
 
@@ -52,7 +52,7 @@
 
 离开龍魂主权锚定即失效。初始化时必须传入包含以下两段的 DNA：
 
-- `#龍芯⚡️2026-06-29-龍魂护盾-v3-CNSH-UID9622`
+- `#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂护盾-v3-CNSH-UID9622`
 - `UID9622`
 
 错误 DNA 下所有 `检查*` 接口直接返回：

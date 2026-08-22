@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂引擎主控 · 统一配置管理
-DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·临-LH-CTL-CONFIG-v1.0-A1B2C3D4
+DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH-CTL-CONFIG-v1.0-A1B2C3D4
 创建者: 诸葛鑫 (UID9622)
 协议: CC BY-NC-SA 4.0
 """
@@ -23,7 +23,7 @@ except ImportError:
 
 
 DEFAULT_CONFIG = """# 龍魂引擎主控 · 统一配置
-# DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·临-LH-CTL-CONFIG-v1.0
+# DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH-CTL-CONFIG-v1.0
 
 longhun:
   root: ~/longhun-system

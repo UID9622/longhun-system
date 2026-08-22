@@ -5,7 +5,7 @@
 GuanLan Browser & AI-Integration Architecture Protocol
 P0级别 | 观国之光·主权之窗 | 本地优先·AI可验
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DNA: #龍芯⚡️丙午·乙未·丙申·申时·☵坎-GUANLAN-BROWSER-ARCHITECTURE-PROTOCOL-V1.0-P0-61d854ad
+DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷜坎-GUANLAN-BROWSER-ARCHITECTURE-PROTOCOL-V1.0-P0-61d854ad
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -244,6 +244,6 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 身份锚: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-DNA: #龍芯⚡️丙午·乙未·丙申·申时·☵坎-GUANLAN-BROWSER-ARCHITECTURE-PROTOCOL-V1.0-P0-61d854ad
+DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷜坎-GUANLAN-BROWSER-ARCHITECTURE-PROTOCOL-V1.0-P0-61d854ad
 三色审计: 🟢路由代码实测全绿 🟡内核选型按平台定·断路器参数经验值 🔴网关挂即断网·隐私任务永不出机
 史记铁律: 不删除，只冻结；引擎清单/接口槽版本化留痕。

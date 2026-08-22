@@ -5,7 +5,7 @@
 ---
 
 ```
-DNA:        #龍芯⚡️丙午·癸未·乙酉·坤卦-TRICOLOR-JS-SDK-GUIDE-v1.1-UID9622
+DNA:        #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-TRICOLOR-JS-SDK-GUIDE-v1.1-UID9622
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 分层许可:    工程层 MulanPSL v2（允许商业使用）
 创建者:      诸葛鑫（UID9622）
@@ -902,7 +902,7 @@ export { runConformance }            // 一行跑自测
 ═══════════════════════════════════════════════════
  龍魂三色审计 JS SDK 使用手册 v1.1 · 焊死签名
 ═══════════════════════════════════════════════════
-DNA:        #龍芯⚡️丙午·癸未·乙酉·坤卦-TRICOLOR-JS-SDK-GUIDE-v1.1-UID9622
+DNA:        #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-TRICOLOR-JS-SDK-GUIDE-v1.1-UID9622
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 许可:       工程层 MulanPSL v2（允许商业使用）
 ═══════════════════════════════════════════════════
@@ -940,7 +940,7 @@ console.log(JSON.stringify(result, null, 2));
     "traceability": 91,
     "privacy": 86
   },
-  "dna": "#龍芯⚡️丙午·癸未·乙酉·坤卦-AUDIT-a1b2c3d4-9622",
+  "dna": "#龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-AUDIT-a1b2c3d4-9622",
   "timestamp": "2026-08-06T13:00:00.000000"
 }
 ```

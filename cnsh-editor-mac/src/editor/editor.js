@@ -1,6 +1,6 @@
 /**
  * 🐉 CNSH 编辑器主逻辑 · Monaco 初始化 + 中文语法注册 + 菜单桥接
- * DNA: #龍芯⚡️丙午·丙申·辛酉·丑时-CNSH-EDITOR-JS-UID9622
+ * DNA: #龍芯⚡️丙午·丙申·辛酉·己丑·䷹兑为泽-CNSH-EDITOR-JS-UID9622
  * License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
  */
 
@@ -149,7 +149,7 @@ require(['vs/editor/editor.main'], function () {
   // ===== 示例代码 =====
   function sampleCode() {
     return `# 🐉 龍魂 · CNSH 中文原生脚本示例
-# DNA: #龍芯⚡️丙午·丙申·辛酉·丑时-DEMO-UID9622
+# DNA: #龍芯⚡️丙午·丙申·辛酉·己丑·䷹兑为泽-DEMO-UID9622
 
 函数 问候(文本 姓名):
     输出("你好，" + 姓名 + "！欢迎使用龍魂CNSH编辑器")

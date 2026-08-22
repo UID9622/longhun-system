@@ -2,13 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·丙申·申时·☵坎-GUANLAN-TRAIN-DATA-GEN-V1.0
+#龍芯⚡️丙午·乙未·丙申·申时·䷜坎-GUANLAN-TRAIN-DATA-GEN-V1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 观澜浏览器训练数据生成器
-DNA: #龍芯⚡️丙午·乙未·丙申·申时·☵坎-GUANLAN-TRAIN-DATA-GEN-V1.0
+DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷜坎-GUANLAN-TRAIN-DATA-GEN-V1.0
 生成观澜浏览器知识域的 JSONL 训练数据
 """
 
@@ -331,7 +331,7 @@ def generate_train_data(output_path: str = None):
                 "source": "guanlan_browser",
                 "domain": "观澜浏览器与AI联动",
                 "protocol": "LH-GUANLAN-BROWSER-AI-INTEGRATION-v1.0",
-                "dna": "#龍芯⚡️丙午·乙未·丙申·申时·☵坎-GUANLAN-BROWSER-ARCHITECTURE-PROTOCOL-V1.0-P0-61d854ad",
+                "dna": "#龍芯⚡️丙午·乙未·丙申·申时·䷜坎-GUANLAN-BROWSER-ARCHITECTURE-PROTOCOL-V1.0-P0-61d854ad",
                 "generated": ts
             }
         }

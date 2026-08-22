@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂·可视化引擎协议 v1.0
@@ -9,7 +10,7 @@
 > ║  【守护者】UID9622                                             ║
 > ╠═══════════════════════════════════════════════════════════════╣
 > ║  【版本】v1.0 · 丙午·辛未·乙酉 (2026-07-16)                    ║
-> ║  【DNA】#龍芯⚡️丙午·辛未·乙酉·酉时·讼-VISUAL-ENGINE-v1.0       ║
+> ║  【DNA】#龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-VISUAL-ENGINE-v1.0       ║
 > ║  【确认】#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                   ║
 > ║  【GPG】A2D0092CEE2E5BA87035600924C3704A8CC26D5F              ║
 > ╚═══════════════════════════════════════════════════════════════╝
@@ -89,7 +90,7 @@
 
 ```typescript
 // ── 复制引擎 ──
-// DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·讼-VISUAL-COPY-v1.0
+// DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-VISUAL-COPY-v1.0
 
 interface CopyResult {
   success: boolean;
@@ -163,7 +164,7 @@ function showCopyToast(result: CopyResult): void {
 
 ```typescript
 // ── 渲染器注册表 ──
-// DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·讼-VISUAL-RENDERER-REGISTRY-v1.0
+// DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-VISUAL-RENDERER-REGISTRY-v1.0
 
 type RendererId = 'mermaid' | 'plantuml' | 'echarts' | 'threejs' | 'markmap'
                 | 'd2' | 'graphviz' | 'markdown' | 'svg' | 'd3' | 'plaintext';
@@ -949,7 +950,7 @@ P00 文心 · 意图解析
     │
     ▼
 [6] P15 乔前辈 · DNA 签章
-    ├ 生成 DNA：#龍芯⚡️丙午·辛未·乙酉·酉时·讼-VISUAL-MINDMAP-a7f3c2e1
+    ├ 生成 DNA：#龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-VISUAL-MINDMAP-a7f3c2e1
     ├ GPG 签名（离线签名嵌入SVG metadata）
     └ 输出：签章 JSON
     │
@@ -1107,7 +1108,7 @@ graph TD
 
 ```css
 /* ── 龍魂可视化引擎 · 主题样式 v1.0 ── */
-/* DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·讼-VISUAL-THEME-v1.0 */
+/* DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-VISUAL-THEME-v1.0 */
 
 :root {
   /* === 核心色板 === */
@@ -1599,7 +1600,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 | 版本 | v1.0 |
 | 日期 | 丙午·辛未·乙酉 (2026-07-16) |
 | 作者 | UID9622 · 诸葛鑫 · 龍芯北辰 |
-| DNA | `#龍芯⚡️丙午·辛未·乙酉·酉时·讼-VISUAL-ENGINE-v1.0` |
+| DNA | `#龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-VISUAL-ENGINE-v1.0` |
 | 确认码 | `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` |
 | GPG | `A2D0092CEE2E5BA87035600924C3704A8CC26D5F` |
 | 状态 | 🟢 正式发布 · 公开监督 |

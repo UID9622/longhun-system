@@ -2,13 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-RUYI-API-v1.0
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-RUYI-API-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 CNSH·如意 API 服务 v1.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-RUYI-API-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-RUYI-API-v1.0
 
 FastAPI服务 - 如意指令的HTTP入口。
 端口: 8778 (Mac) / 8778 (鲲鹏)

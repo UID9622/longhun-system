@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 · Notion DB3367 批量种子模块生成器 v1.0
@@ -12,7 +13,7 @@
 用法：
   python3 batch_seed_modules.py
 
-DNA: #龍芯⚡️2026-07-05-LONGHUN-NOTION-DB3367-BATCH-SEED-v1.0
+DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-LONGHUN-NOTION-DB3367-BATCH-SEED-v1.0
 """
 from __future__ import annotations
 
@@ -29,7 +30,7 @@ INDEX_PATH = LONGHUN_ROOT / "docs" / "notion_mirror" / "db_3367_knowledge_index.
 OUT_DIR = LONGHUN_ROOT / "cnsh" / "notion" / "modules" / "db3367" / "seed"
 MANIFEST_PATH = LONGHUN_ROOT / "outputs" / "manifest.json"
 
-DNA = "#龍芯⚡️2026-07-05-LONGHUN-NOTION-DB3367-BATCH-SEED-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-LONGHUN-NOTION-DB3367-BATCH-SEED-v1.0"
 
 
 def now_iso() -> str:

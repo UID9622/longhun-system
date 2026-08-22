@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 """
 🐉 龍魂 × Kimi 集成框架
@@ -12,7 +13,7 @@
   3️⃣ 实时对话 - 用户直接交互
   4️⃣ Skill 引擎 - 特定 Skill 集成
 
-DNA:#龍芯⚡️2026-06-08-KIMI-INTEGRATION-v1.0
+DNA:#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-KIMI-INTEGRATION-v1.0
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
@@ -398,7 +399,7 @@ class KimiIntegration:
             "health": self.get_health_status(),
             "log_count": len(self.integration_log),
             "recent_logs": self.integration_log[-10:],
-            "dna": "#龍芯⚡️2026-06-08-KIMI-INTEGRATION-REPORT-v1.0"
+            "dna": "#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-KIMI-INTEGRATION-REPORT-v1.0"
         }
 
 

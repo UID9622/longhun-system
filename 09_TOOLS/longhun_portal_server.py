@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂门户本地预览服务器 · 模拟 Nginx 代理
-DNA: #龍芯⚡️2026-07-04-LONGHUN-PORTAL-SERVER-v1.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-PORTAL-SERVER-v1.0
 
 行为：
   - 静态文件服务：portal/ 目录
@@ -187,7 +188,7 @@ if __name__ == "__main__":
     print(f"🐉 龍魂门户服务器 · http://127.0.0.1:{PORT}")
     print(f"   静态根目录: {PORTAL_ROOT}")
     print(f"   CNSH API 代理: {CNSH_API}")
-    print(f"   DNA: #龍芯⚡️2026-07-04-LONGHUN-PORTAL-SERVER-v1.0")
+    print(f"   DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-PORTAL-SERVER-v1.0")
     server = ThreadingHTTPServer(("127.0.0.1", PORT), Handler)
     try:
         server.serve_forever()

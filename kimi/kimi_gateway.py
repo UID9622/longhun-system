@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 """
 🐉 龍魂 × Kimi 网关
@@ -12,7 +13,7 @@
   • 响应规范化 - 统一输出格式
   • 速率限制和权限检查
 
-DNA:#龍芯⚡️2026-06-08-KIMI-GATEWAY-v1.0
+DNA:#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-KIMI-GATEWAY-v1.0
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 

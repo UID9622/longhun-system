@@ -1,6 +1,6 @@
 /**
  * 龍魂万年历 · 预警通知 + 文明基因图谱 + H武器推演 渲染引擎 v1.0
- * DNA: #龍芯⚡️丙午·丙申·戊午·午时·谦-LH-CALENDAR-WARNINGS-v1.0
+ * DNA: #龍芯⚡️丙午·丙申·戊午·午时·䷎谦-LH-CALENDAR-WARNINGS-v1.0
  * 创建者: 诸葛鑫（UID9622） · 协议: CC BY-NC-SA 4.0
  *
  * 数据源（鲲鹏 /opt/longhun/calendar/www/ 静态 JSON，每小时巡检自动刷新）：

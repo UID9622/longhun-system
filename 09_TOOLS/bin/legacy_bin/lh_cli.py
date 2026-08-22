@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════════════╗
 ║              龍魂统一 CLI 启动器 v1.0 — lh 命令入口                    ║
-║  DNA: #龍芯⚡️丙午·丙申·癸丑·午时·需-LONGHUN-CLI-v1.0-7E91D482        ║
+║  DNA: #龍芯⚡️丙午·丙申·癸丑·午时·䷄需-LONGHUN-CLI-v1.0-7E91D482        ║
 ║  三色审计: 🟢 通过                                                   ║
 ╚══════════════════════════════════════════════════════════════════════╝
 

@@ -1,10 +1,11 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂系统 · 分布式审计矩阵 v1.0（全节点联动·因人而异）
 
 > **协议编号**: LH-PROTOCOL-DISTRIBUTED-AUDIT-MATRIX-v1.0  
-> **DNA追溯码**: `#龍芯⚡️丙午·辛未·乙酉·DISTRIBUTED-AUDIT-MATRIX-v1.0`  
+> **DNA追溯码**: `#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-DISTRIBUTED-AUDIT-MATRIX-v1.0`  
 > **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅  
 > **状态**: 🔒 P0永恒级 | 分布式审计·全节点联动  
 > **来源**: 老大投喂·历史归档对齐矫正  
@@ -381,7 +382,7 @@
 
 | 字段 | 内容 |
 |------|------|
-| **DNA追溯码** | `#龍芯⚡️丙午·辛未·乙酉·DISTRIBUTED-AUDIT-MATRIX-v1.0` |
+| **DNA追溯码** | `#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-DISTRIBUTED-AUDIT-MATRIX-v1.0` |
 | **确认码** | `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅ |
 | **优先级** | P0永恒级（不可降级、不可绕过） |
 | **核心原则** | 分布式管理、分布式审计、杜绝一刀切、因人而异 |

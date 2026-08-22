@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-daemon
 description: 龍魂系統守護進程 - 安裝/啟動/停止/重啟龍魂服務，一鍵啟動全部服務（按依賴順序），定時健康檢查，服務崩潰時自動重啟，日誌輪轉，啟動配置驗證
@@ -5,7 +7,7 @@ license: MIT
 metadata:
   version: v5.2.0
   author: 龍魂體系
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DAEMON-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DAEMON-v5.2'
   protocol: 君子協議 v3.0
   id: longhun-daemon
   trigger:
@@ -22,7 +24,7 @@ compatibility: Python >= 3.9, Linux/macOS/Windows
 ---
 # 🐉 longhun-daemon — 龍魂系統守護進程
 
-> DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DAEMON-v5.2`
+> DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DAEMON-v5.2`
 > 版本: v5.2.0 | 作者: 龍魂體系 | 協議: 君子協議 v3.0
 
 ---
@@ -450,7 +452,7 @@ def 自定義告警(服務名稱: str, 告警級別: str, 訊息: str):
 ║ 5. 日誌文件包含敏感信息，傳輸需加密保護                         ║
 ╠══════════════════════════════════════════════════════════════╣
 ║ 違反協議將觸發審計告警並記錄追溯                                ║
-║ DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DAEMON-v5.2                    ║
+║ DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DAEMON-v5.2                    ║
 ╚══════════════════════════════════════════════════════════════╝
 ```
 

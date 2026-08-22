@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """🐉 P02 张衡 · 数学引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲寅·申时·中孚-P02-MATH-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲寅·申时·䷼中孚-P02-MATH-ENGINE-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 职责: 数字根验证 · 河图洛书权重校准 · 五行矩阵评分 · DNA链完整性校验
 自产自销: P01推演→P02数学校准→P06验证→P04落地→回流案例库
@@ -27,4 +28,4 @@ __all__ = [
 ]
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·噬嗑-CONFIRM-SEAL-__init__-B3444E35
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷔噬嗑-CONFIRM-SEAL-__init__-B3444E35

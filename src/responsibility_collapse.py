@@ -1,7 +1,8 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 """龍魂系统 · 责任塌缩概率模型 v2.0
 事不关己 vs 老好人 × 七因子融合
-DNA: #龍芯⚡️2026-05-17-RESPONSIBILITY-COLLAPSE-MODEL-v2.0
+DNA: #龍芯⚡️丙午·癸巳·辛卯·甲午·䷚颐-RESPONSIBILITY-COLLAPSE-MODEL-v2.0
 公开层实现：公式与权重公开，家人具体映射不公开。
 License: MulanPSL v2
 """

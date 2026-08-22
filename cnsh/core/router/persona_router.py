@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 
 """
@@ -14,7 +15,7 @@ PersonaRouter·人格路由系统
 - 完整的DNA追溯码和审计日志
 
 【龍魂系统坐标】
-DNA:#龍芯⚡️2026-06-03-PERSONA-ROUTER-FILE1-FILE1-v1.0-1
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-PERSONA-ROUTER-FILE1-FILE1-v1.0-1
 层级: L1·季节性路由
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 

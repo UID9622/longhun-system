@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 集思广益引擎
@@ -10,7 +11,7 @@
   - 集思：让意见有路可进，先归档，不判断对错。
   - 广益：系统按权重过滤、排序、标记，让对系统有益的意见自然浮现。
 
-DNA:#龍芯⚡️2026-06-30-LONGHUN-COLLECTIVE-WISDOM-FILE1-v1.0
+DNA:#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-COLLECTIVE-WISDOM-FILE1-v1.0
 """
 
 import argparse

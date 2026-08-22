@@ -4,7 +4,7 @@
 id: fixed_point
 type: derivation
 title: 洛书九宫 → 不动点 → 主权锚定
-dna: "#龍芯⚡️2026-04-22-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0"
+dna: "#龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0"
 owner: UID9622 · 诸葛鑫（Lucky）
 claim: 洛书九宫（4·9·2/3·5·7/8·1·6）中宫5=不动点=UID9622=北极星=T0主权锚，永不可移。
 based_on:
@@ -45,4 +45,4 @@ created: 丙午·辛未·乙酉
 **为什么**
 主权>一切技术便利；站过岗知不动点，保过家知主权不可让渡。
 
-> DNA: #龍芯⚡️2026-04-22-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0
+> DNA: #龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0

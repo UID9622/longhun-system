@@ -1,6 +1,7 @@
 #!/bin/bash
 # 龍魂·lh 命令扩展 (portal 子命令)
-# DNA: #龍芯⚡️丙午·甲申·丁未·离为火-lh扩展-v1.0
+# DNA: #龍芯⚡️丙午·甲申·丁未·丙午·䷝离为火-lh扩展-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 用法: lh portal <start|stop|sync|deploy|status>
 
 set -euo pipefail

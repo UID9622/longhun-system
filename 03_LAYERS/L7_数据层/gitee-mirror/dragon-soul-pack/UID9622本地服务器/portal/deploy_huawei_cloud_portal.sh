@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂统一门户 longhun888.com · 华为云/鲲鹏一键部署
-# DNA: #龍芯⚡️2026-07-04-LONGHUN888-PORTAL-DEPLOY-v1.0
+# DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN888-PORTAL-DEPLOY-v1.0
 set -euo pipefail
 
 # ─────────────────────────────────────────
@@ -87,10 +87,10 @@ echo "✅ 部署完成"
 echo "   门户: http://${HW_ECS_IP}/"
 echo "   编辑器: http://${HW_ECS_IP}/editor/"
 echo "   API 文档: http://${HW_ECS_IP}/docs"
-echo "   DNA: #龍芯⚡️2026-07-04-LONGHUN888-PORTAL-DEPLOY-v1.0"
+echo "   DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN888-PORTAL-DEPLOY-v1.0"
 echo ""
 echo "⚠️  域名 longhun888.com 需要在 DNS 解析到 ${HW_ECS_IP}"
 echo "⚠️  若需 HTTPS，请配置 SSL 证书（华为云 SSL / certbot）"
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·节-CONFIRM-SEAL-deploy_huawei_cloud_-262D6A26
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷻节-CONFIRM-SEAL-deploy_huawei_cloud_-262D6A26

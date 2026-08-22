@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂 · 数字人民币充值接口 v1.0 — 一元起充·无上限
 ═══════════════════════════════════════════════════
@@ -312,7 +313,7 @@ class DCEPRecharge:
         lunar_ts = self._lunar_ts()
         h = self._hash(report["currency"], report["level"], lunar_ts)[:8].upper()
         report["dna"] = (
-            f"#龍芯⚡️丙午·辛未·乙酉·巳时·大有"
+            f"#龍芯⚡️丙午·辛未·乙酉·巳时·䷍大有"
             f"-LONGHUN-DIRECT-SETTLE-{h}"
         )
         report["lunar_timestamp"] = lunar_ts

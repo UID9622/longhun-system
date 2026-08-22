@@ -1,6 +1,8 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # LONGHUN Protocol · English Version v1.0
 
-> DNA: #龍芯⚡️20260529-LONGHUN-PROTOCOL-EN-v1.0  
+> DNA: #龍芯⚡️丙午·癸巳·癸卯·戊午·䷚颐-LONGHUN-PROTOCOL-EN-v1.0  
 > CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z  
 > Sovereign: UID9622 · 龍芯北辰
 
@@ -102,7 +104,7 @@ Every output must carry a DNA signature:
 
 ```
 Format:  #龍芯⚡️YYYY-MM-DD-{topic}-v{version}
-Example: #龍芯⚡️20260529-rules-engine-v2.0
+Example: #龍芯⚡️丙午·癸巳·癸卯·戊午·䷚颐-rules-engine-v2.0
 ```
 
 ### 4.3 Tricolor Gate Must Execute
@@ -163,7 +165,7 @@ Current version: **v1.0**
 ## VII. Sovereignty Seal
 
 ```
-DNA:      #龍芯⚡️20260529-LONGHUN-PROTOCOL-EN-v1.0
+DNA:      #龍芯⚡️丙午·癸巳·癸卯·戊午·䷚颐-LONGHUN-PROTOCOL-EN-v1.0
 CONFIRM:  #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL:     #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG:      A2D0092CEE2E5BA87035600924C3704A8CC26D5F

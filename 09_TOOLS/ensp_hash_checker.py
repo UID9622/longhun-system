@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂 · 华为 eNSP 套件哈希校验工具 v1.0
-DNA: #龍芯⚡️2026-07-04-ENSP-HASH-CHECKER-v1.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSP-HASH-CHECKER-v1.0
 
 功能：
 - 批量校验 eNSP 安装包及其依赖的 SHA-256 / MD5 哈希值。
@@ -24,7 +25,7 @@ import os
 import sys
 from pathlib import Path
 
-DNA = "#龍芯⚡️2026-07-04-ENSP-HASH-CHECKER-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSP-HASH-CHECKER-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 

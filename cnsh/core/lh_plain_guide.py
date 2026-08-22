@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ╔══════════════════════════════════════════════════════════════════╗
 ║                                                                  ║
 ║      🐉 龍魂系统·大白话完全指南 v2.0（优化版）🐉               ║
@@ -9,7 +10,7 @@
 ║     老大的复杂理论翻成人话                                     ║
 ║     让任何人都能看懂（模块化·交互·多格式输出）                 ║
 ║                                                                  ║
-║  DNA:#龍芯⚡️2026-06-03-LONGHUN-PLAIN-LANGUAGE-FILE1-v2.0          ║
+║  DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-PLAIN-LANGUAGE-FILE1-v2.0          ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ║                                                                  ║
@@ -93,7 +94,7 @@ CORE_EXPLANATIONS = {
   • 任何数据都能反向找到"是谁做的"
 """,
         analogy="像身份证号一样独一无二",
-        formula="#龍芯⚡️2026-06-03-ACTION-HASH-v1.0",
+        formula="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-ACTION-HASH-v1.0",
         key_points=[
             "唯一标识",
             "可追溯",
@@ -664,7 +665,7 @@ class PlainGuideSystem:
 ║     老大的复杂理论翻成人话                                     ║
 ║     让任何人都能看懂                                           ║
 ║                                                                  ║
-║  DNA:#龍芯⚡️2026-06-03-LONGHUN-PLAIN-LANGUAGE-v2.0          ║
+║  DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-PLAIN-LANGUAGE-v2.0          ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ║                                                                  ║
@@ -688,7 +689,7 @@ class PlainGuideSystem:
 ║    • 外人也能理解                                              ║
 ║    • 但所有的深度都保留了                                      ║
 ║                                                                  ║
-║  DNA:#龍芯⚡️2026-06-03-LONGHUN-PLAIN-LANGUAGE-v2.0          ║
+║  DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-PLAIN-LANGUAGE-v2.0          ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ║                                                                  ║

@@ -1,8 +1,9 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·德本审计协议 v1.0
 
-> DNA: #龍芯⚡️丙午·乙未·庚戌·巳时·需-DEBEN-AUDIT-v1.0
+> DNA: #龍芯⚡️丙午·乙未·庚戌·巳时·䷄需-DEBEN-AUDIT-v1.0
 > 来源: UID9622《离火运系列》11篇深度学习 · 2026-07-18
 > 铁律: **技术无德=祸害·德在技术前·每一行代码先问"在帮人还是在收割人"**
 > #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

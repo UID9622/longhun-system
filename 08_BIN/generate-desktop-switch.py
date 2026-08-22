@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-06-18-LONGHUN-GENERATE-DESKTOP-SWITCH-FILE1-v1.2
+#龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-LONGHUN-GENERATE-DESKTOP-SWITCH-FILE1-v1.2
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
@@ -15,7 +15,7 @@
   - mode="viewer"   : 只打开文件/网页/文档，标注“👁只看”
   - mode="setup"    : 安装/配置类，标注“⚙️配置”
 
-DNA:#龍芯⚡️2026-06-18-LONGHUN-GENERATE-DESKTOP-SWITCH-FILE1-v1.2
+DNA:#龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-LONGHUN-GENERATE-DESKTOP-SWITCH-FILE1-v1.2
 """
 
 import json
@@ -129,7 +129,7 @@ def generate_applescript(registry: dict[str, Any]) -> str:
     lines = [
         "-- 龍魂系统桌面主开关（动态生成）",
         "-- 来源：desktop/menu-registry.json + 各模块 desktop-menu.json",
-        f"-- DNA: #龍芯⚡️2026-06-18-LONGHUN-MASTER-SWITCH-v{registry.get('version', '1.2')}",
+        f"-- DNA: #龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-LONGHUN-MASTER-SWITCH-v{registry.get('version', '1.2')}",
         "",
         f'property rootPath : "{root_str}"',
         f"property menuItems : {{{labels_block}}}",

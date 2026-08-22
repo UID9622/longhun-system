@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·辛未·乙酉·REGISTRY-AUTO-SYNC-v1.0
+#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-REGISTRY-AUTO-SYNC-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -13,7 +13,7 @@ from __future__ import annotations
 """
 龍魂·注册表自动同步引擎 v1.0
 ==============================
-DNA: #龍芯⚡️丙午·辛未·乙酉·REGISTRY-AUTO-SYNC-v1.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-REGISTRY-AUTO-SYNC-v1.0
 用途: 监控关键目录文件变更，自动提取新术语，增量更新语义统一注册表
 设计: 扫描→提取→比对→补丁→写入 五步闭环
      支持 --scan 全量 / --watch 监听 / --quick N小时增量 / --auto 自动应用
@@ -195,11 +195,14 @@ def load_registry() -> dict[str, Any]:
     if not REGISTRY_PATH.exists():
         print(f"  ❌ 注册表不存在: {REGISTRY_PATH}")
         return {}
-    # 移除尾部注释
+    # 移除头部 # 注释 + 尾部 // 注释
     lines = REGISTRY_PATH.read_text().split('\n')
     clean = []
     for line in lines:
-        if line.strip().startswith('//'):
+        stripped = line.strip()
+        if stripped.startswith('#'):
+            continue
+        if stripped.startswith('//'):
             break
         clean.append(line)
     return json.loads('\n'.join(clean))
@@ -238,7 +241,10 @@ def load_sync_state() -> dict[str, Any]:
         lines = STATE_PATH.read_text().split('\n')
         clean = []
         for line in lines:
-            if line.strip().startswith('//'):
+            stripped = line.strip()
+            if stripped.startswith('#'):
+                continue
+            if stripped.startswith('//'):
                 break
             clean.append(line)
         return json.loads('\n'.join(clean))
@@ -585,7 +591,10 @@ def main():
         lines = patch_path.read_text().split('\n')
         clean = []
         for line in lines:
-            if line.strip().startswith('//'):
+            stripped = line.strip()
+            if stripped.startswith('#'):
+                continue
+            if stripped.startswith('//'):
                 break
             clean.append(line)
         patch = json.loads('\n'.join(clean))

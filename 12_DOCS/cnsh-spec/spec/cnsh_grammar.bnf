@@ -1,0 +1,65 @@
+(* CNSH (Chinese Natural Shell) 语法定义 — BNF *)
+(* 版本: v1.0 · DNA: #龍芯⚡️2026-08-21-CNSH-GRAMMAR-v1.0-UID9622 *)
+
+(* ===== 顶层结构 ===== *)
+<program>        ::= { <statement> | <comment> | <dna_decl> }
+<statement>      ::= <simple_stmt> | <compound_stmt> | <pipeline_stmt>
+
+(* ===== 注释 ===== *)
+<comment>        ::= "#" <any_text> <newline>
+
+(* ===== DNA ===== *)
+<dna_decl>       ::= "DNA:" <dna>
+<dna>            ::= "#龍芯⚡️" <date> "-" <shichen> "-" <module> "-" <action> "-" <version> "-" "UID9622" "-" <hex8>
+<date>           ::= <digit4> "-" <digit2> "-" <digit2>
+<shichen>        ::= "子" | "丑" | "寅" | "卯" | "辰" | "巳" | "午" | "未" | "申" | "酉" | "戌" | "亥"
+<module>         ::= <UPPER> { "_" <UPPER> }
+<action>         ::= "CREATE" | "EDIT" | "REV" | "DEPLOY" | "PUBLISH" | "AUDIT" | "SIGN" | "ARCHIVE"
+<version>        ::= "v" <digit> "." <digit>
+<hex8>           ::= <hex> <hex> <hex> <hex> <hex> <hex> <hex> <hex>
+
+(* ===== 简单指令 ===== *)
+<simple_stmt>    ::= [ <subject> ] <verb> <object> [ <modifier> ]
+<subject>        ::= "系统" | "宝宝" | "用户" | <identifier>
+<verb>           ::= "输出" | "打印" | "回显" | "读取" | "接收" | "获取"
+                   | "执行" | "运行" | "调用" | "审计" | "检查" | "验证"
+                   | "启动" | "初始化" | "停止" | "查询" | "同步" | "归档"
+                   | "部署" | "发布" | "生成DNA" | "验证DNA" | "校验SHA"
+                   | "GPG签名" | "加密" | "解密" | "转换" | "解析"
+<object>         ::= <string> | <identifier> | <expression>
+<modifier>       ::= "在" <location> | "用" <method> | "从" <source>
+
+(* ===== 复合指令 ===== *)
+<compound_stmt>  ::= <if_stmt> | <loop_stmt> | <func_def> | <module_def>
+<if_stmt>        ::= "如果" <condition> <block> { "否则如果" <condition> <block> } [ "否则" <block> ]
+<loop_stmt>      ::= "循环" <var> "在" <list> <block>
+                   | "循环" <int> "次" <block>
+                   | "循环" "当" <condition> <block>
+<func_def>       ::= "函数" <identifier> "(" [ <params> ] ")" <block>
+<module_def>     ::= "模块" <identifier> <block>
+<block>          ::= <newline> { <indent> <statement> } <dedent>
+
+(* ===== 管道 ===== *)
+<pipeline_stmt>  ::= <simple_stmt> { "|" <simple_stmt> }
+
+(* ===== 条件 ===== *)
+<condition>      ::= <expression> <cond_op> <expression>
+                   | <expression> "并且" <condition>
+                   | <expression> "或者" <condition>
+                   | "非" <condition>
+<cond_op>        ::= "等于" | "不等于" | "大于" | "小于" | "大于等于" | "小于等于"
+
+(* ===== 表达式 ===== *)
+<expression>     ::= <term> { ("+" | "-") <term> }
+<term>           ::= <factor> { ("*" | "/") <factor> }
+<factor>         ::= <number> | <string> | <identifier> | "(" <expression> ")"
+                   | "加" | "减" | "乘" | "除" | "连接"
+
+(* ===== 基础 token ===== *)
+<identifier>     ::= <CN> { <CN> | "_" | <digit> }
+<CN>             ::= 中文汉字字符
+<location>       ::= <identifier> | <string>
+<method>         ::= "三色判定" | "数字根" | <identifier>
+<source>         ::= <string>
+<string>         ::= '"' <any_text> '"'
+<number>         ::= <digit> { <digit> } [ "." <digit> { <digit> } ]

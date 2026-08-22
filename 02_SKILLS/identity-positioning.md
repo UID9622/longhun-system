@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # /identity-positioning
@@ -11,7 +11,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-07-06-IDENTITY-POSITIONING-SKILL-v1.0`
+**DNA**: `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-IDENTITY-POSITIONING-SKILL-v1.0`
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -136,7 +136,7 @@ conf = ∏ Fi^wi  （加权几何平均）
 
 | 级别 | 格式 | 示例 |
 |------|------|------|
-| 基础 | `#龍芯⚡️{日期}-{类型}-{项目}-{版本}` | `#龍芯⚡️2025-07-04-JPG-企业A-v1.0` |
+| 基础 | `#龍芯⚡️{日期}-{类型}-{项目}-{版本}` | `#龍芯⚡️乙巳·壬午·甲戌·庚午·䷕贲-JPG-企业A-v1.0` |
 | 完整 | 基础+SM3哈希+阈值+签名 | `#龍芯⚡️...\|SM3:a1b2c3\|THRESH:0.92\|SIG:sm2sig` |
 | 审计 | 审计状态标签 | `#AUDIT🟢\|DNA验证通过\|SM3匹配\|SM2签名有效` |
 | 违规 | 违规标记 | `#AUDIT🔴\|DNA验证失败\|SM3不匹配` |
@@ -319,7 +319,7 @@ API请求（携带DNA Headers）
 
 | 日期 | 变更 | DNA |
 |------|------|------|
-| 2026-07-06 | 初始创建，整合身份定位总纲 v9.0 五层架构+七因子+国密+DNA+API+双轨 | `#龍芯⚡️2026-07-06-IDENTITY-POSITIONING-SKILL-v1.0` |
+| 2026-07-06 | 初始创建，整合身份定位总纲 v9.0 五层架构+七因子+国密+DNA+API+双轨 | `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-IDENTITY-POSITIONING-SKILL-v1.0` |
 
 ---
 

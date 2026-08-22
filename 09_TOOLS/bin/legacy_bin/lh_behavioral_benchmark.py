@@ -2,12 +2,13 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║     龍魂·行为基准测试 v2.0 — AI vs 真人书写区分·候补清单②③实证                ║
 ║     Behavioral Benchmark · Human vs AI Writing Discrimination            ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️丙午·乙未·癸未·辰时-BEHAVIORAL-BENCHMARK-v1.0               ║
+║  DNA: #龍芯⚡️丙午·乙未·癸未·丙辰·䷓观-BEHAVIORAL-BENCHMARK-v1.0               ║
 ║  测试庄园: #测试庄园·BHV-20260708-001 · 行为DNA反图灵测试                     ║
 ║  子庄园: #测试庄园·CAL-20260708-001 · RobotScore α/β/γ 校准                 ║
 ║  协议: 人物行为DNA不动点切割协议 v1.0 §11 候补清单②③                         ║
@@ -512,7 +513,7 @@ if __name__ == "__main__":
         "optimal_threshold": 校准结果["最优阈值"],
         "f1": 校准结果["最优F1"],
         "accuracy": 校准结果["最优准确率"],
-        "dna": "#龍芯⚡️2026-07-08-08:50-CALIBRATION-1000HUMANS-v2.0",
+        "dna": "#龍芯⚡️丙午·乙未·癸未·丙辰·䷓观-CALIBRATION-1000HUMANS-v2.0",
     }
     校准路径 = _os.path.join(_os.path.dirname(__file__), "..", "L7_数据层", "robot_score_calibration.json")
     with open(校准路径, "w", encoding="utf-8") as f:
@@ -522,5 +523,5 @@ if __name__ == "__main__":
 
     print(f"\n{'=' * 60}")
     print("✅ 1000人样本校准完成")
-    print(f"   DNA: #龍芯⚡️2026-07-08-08:50-CALIBRATION-1000HUMANS-v2.0")
+    print(f"   DNA: #龍芯⚡️丙午·乙未·癸未·丙辰·䷓观-CALIBRATION-1000HUMANS-v2.0")
     print(f"   下一步: 将校准后的 α/β/γ 写入 RobotScore检测器 默认值")

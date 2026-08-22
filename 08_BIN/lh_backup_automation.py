@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂系统 · 备份自动化引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·丙申·酉时·☰乾-BACKUP-AUTO-v1.0-b7c1a3e2
+DNA: #龍芯⚡️丙午·乙未·丙申·酉时·䷀乾-BACKUP-AUTO-v1.0-b7c1a3e2
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 补全: DL架构§11.11 灾难恢复方案·自动备份+版本管理+完整性校验
@@ -91,8 +91,18 @@ def file_hash(filepath: Path) -> str:
             h.update(chunk)
     return h.hexdigest()
 
+def _is_sensitive(f: Path) -> bool:
+    """敏感文件判定: token/密钥/密码/私钥/凭证/环境变量 不进入备份包"""
+    name = f.name.lower()
+    if name in ("notion_config.json",):  # 含 Notion PAT 凭证
+        return True
+    sensitive_markers = (".env", ".key", ".pem", "secret", "token", "password",
+                         "credential", "private_key", "id_rsa", "config.json.enc")
+    return any(m in name for m in sensitive_markers)
+
+
 def get_changed_files(since_time: Optional[datetime] = None) -> list:
-    """获取变更文件列表"""
+    """获取变更文件列表(排除敏感文件·密钥防泄露死命令)"""
     changed = []
     for src in BACKUP_SOURCES:
         src_dir = BASE_DIR / src
@@ -100,6 +110,8 @@ def get_changed_files(since_time: Optional[datetime] = None) -> list:
             continue
         for f in src_dir.rglob("*"):
             if f.is_file() and ".git" not in f.parts and "__pycache__" not in f.parts:
+                if _is_sensitive(f):
+                    continue
                 if since_time is None or datetime.fromtimestamp(f.stat().st_mtime) > since_time:
                     changed.append(f)
     return changed
@@ -249,9 +261,12 @@ def sync_remote(target: str = "kunpeng"):
     remote = REMOTE_TARGETS[target]
     print(f"🐉 同步到 {target}: {remote}")
     
-    # 先rsync增量同步
+    # 先rsync增量同步(指定鲲鹏SSH key·免密)
+    ssh_key = os.path.expanduser("~/.ssh/longhun_kunpeng_ed25519")
+    ssh_cmd = f"ssh -i {ssh_key} -o StrictHostKeyChecking=no -o BatchMode=yes"
     result = subprocess.run(
-        ["rsync", "-avz", "--progress", "--delete", str(BACKUP_ROOT) + "/", remote],
+        ["rsync", "-avz", "--progress", "--delete", "-e", ssh_cmd,
+         str(BACKUP_ROOT) + "/", remote],
         capture_output=True, text=True
     )
     

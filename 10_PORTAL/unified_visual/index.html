@@ -9,7 +9,7 @@
 <style>
 /* ═══════════════════════════════════════════
    龍魂·统一视觉色彩协议 v1.0 · CSS色板
-   DNA: #龍芯⚡️丙午·乙未·庚戌·天风姤-UNIFIED-VISUAL-V1.0
+   DNA: #龍芯⚡️丙午·乙未·庚戌·壬午·䷫姤-UNIFIED-VISUAL-V1.0
    ═══════════════════════════════════════════ */
 :root {
   --bg:#0a0a0c; --panel:#121216; --panel2:#18181e;
@@ -372,7 +372,7 @@ function runJudge() {
 
 function exportJSON() {
   if (!window._results) { alert('请先点击判定'); return; }
-  const payload = {dna:'#龍芯⚡️丙午·乙未·庚戌·天风姤-UNIFIED-VISUAL-V1.0', module:'M1-八色判定器', protocol:'龍魂统一视觉色彩协议V1.0', results: window._results};
+  const payload = {dna:'#龍芯⚡️丙午·乙未·庚戌·壬午·䷫姤-UNIFIED-VISUAL-V1.0', module:'M1-八色判定器', protocol:'龍魂统一视觉色彩协议V1.0', results: window._results};
   const blob = new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
   const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
   a.download = 'lh_unified_visual_export.json'; a.click();

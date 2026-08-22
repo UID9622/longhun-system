@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂道引器 · Gitee v2.0 批量吸收（元数据卡模式）
 
@@ -9,7 +10,7 @@
 哲学：道引吸收分两步 — ①元数据入链（本脚本）②代码镜像异步补充。
     来源可查、许可证可溯、德字闸可过、DNA可追、IPA可配。
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·戊子·坎-DAOYIN-GITEE-V2-ABSORB-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·戊子·䷜坎-DAOYIN-GITEE-V2-ABSORB-v1.0
 """
 
 import hashlib

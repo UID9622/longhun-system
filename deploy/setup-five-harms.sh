@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · 五害曝光台一键上线 v1.1
-# DNA: #龍芯⚡️丙午·乙未·癸亥·蹇-SETUP-FIVEHARMS-v1.1-FIX
+# DNA: #龍芯⚡️丙午·乙未·癸亥·戊午·䷦蹇-SETUP-FIVEHARMS-v1.1-FIX
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 用法: bash deploy/setup-five-harms.sh
 #      此脚本一次性安装五害曝光台 API + Nginx 代理 + 工具下载区

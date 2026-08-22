@@ -3,7 +3,7 @@ session_id: 2026-08-20-2226-codebuddy-api-bridge
 agent: codebuddy
 persona: P04·鲁班
 sovereign_present: true
-dna: "#龍芯⚡️2026-08-20-22:26-API-BRIDGE-FOUR-STAGES-v1.0-UID9622"
+dna: "#龍芯⚡️丙午·丙申·丙寅·己亥·䷶丰-API-BRIDGE-FOUR-STAGES-v1.0-UID9622"
 tricolor: 🟢
 notion_refs: [API桥接规格v1.0, 本地回写登记v1.0, 主控页v2.7.44启动锚, 主权部署包v2.0]
 ---

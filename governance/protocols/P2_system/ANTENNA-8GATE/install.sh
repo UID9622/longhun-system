@@ -1,11 +1,11 @@
 #!/bin/bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·井-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷯井-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # ============================================================
 # 龍魂 · ANTENNA-8GATE 安装脚本
-# DNA：#龍芯⚡️丙午·癸未·壬戌·乾为天-INSTALL-v5.0
+# DNA：#龍芯⚡️丙午·癸未·壬戌·丙午·䷀乾为天-INSTALL-v5.0
 # ============================================================
 
 echo "========================================"
@@ -51,4 +51,4 @@ echo "测试命令："
 echo "  cd $INSTALL_DIR/tests"
 echo "  python3 test_integration.py"
 echo ""
-echo "DNA：#龍芯⚡️丙午·癸未·壬戌·乾为天-INSTALL-DONE-v5.0"
+echo "DNA：#龍芯⚡️丙午·癸未·壬戌·丙午·䷀乾为天-INSTALL-DONE-v5.0"

@@ -1,5 +1,7 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 龍魂系統·Cron 自動化任務配置指南
-# DNA:#龍芯⚡️丙午·丙申·庚申·亥时-CRON-AUTOMATION-SETUP-v1.0
+# DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CRON-AUTOMATION-SETUP-v1.0
 
 ---
 
@@ -67,7 +69,7 @@ crontab -e
 
 ```cron
 # 🐉 龍魂系統自動化任務
-# DNA:#龍芯⚡️丙午·丙申·庚申·亥时-CRON-AUTOMATION-SETUP-v1.0
+# DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CRON-AUTOMATION-SETUP-v1.0
 
 # ==========================================
 # 每週日 09:00 CST 執行週檢查
@@ -163,7 +165,7 @@ curl -X POST http://localhost:8443/kimi/health
 
 ```bash
 #!/bin/bash
-# DNA:#龍芯⚡️丙午·丙申·庚申·亥时-WEEKLY-SYNC-CHECK-v1.0
+# DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-WEEKLY-SYNC-CHECK-v1.0
 
 echo "🐉 龍魂系統·週檢查開始 $(date)" >> ~/.龍魂/logs/sync_check.log
 
@@ -197,7 +199,7 @@ echo "🐉 龍魂系統·週檢查完成 $(date)" >> ~/.龍魂/logs/sync_check.l
 
 ```bash
 #!/bin/bash
-# DNA:#龍芯⚡️丙午·丙申·庚申·亥时-WEEKLY-SUMMARY-v1.0
+# DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-WEEKLY-SUMMARY-v1.0
 
 REPORT_DATE=$(date '+%Y-%m-%d')
 WEEK_SUMMARY="~/.龍魂/reports/WEEKLY_SUMMARY_${REPORT_DATE}.md"
@@ -233,7 +235,7 @@ echo "✅ 週報告已生成: $WEEK_SUMMARY"
 
 ```bash
 #!/bin/bash
-# DNA:#龍芯⚡️丙午·丙申·庚申·亥时-MONTHLY-REPORT-v1.0
+# DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-MONTHLY-REPORT-v1.0
 
 REPORT_DATE=$(date '+%Y-%m')
 MONTH_REPORT="~/.龍魂/reports/MONTHLY_REPORT_${REPORT_DATE}.md"
@@ -413,7 +415,7 @@ log show --predicate 'process == "cron"' --last 24h --debug
 
 ---
 
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-CRON-AUTOMATION-SETUP-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CRON-AUTOMATION-SETUP-v1.0
 **確認**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **狀態**: 🟢 配置指南完成·可立即執行
 **最後更新**: 2026-06-08 15:30 CST

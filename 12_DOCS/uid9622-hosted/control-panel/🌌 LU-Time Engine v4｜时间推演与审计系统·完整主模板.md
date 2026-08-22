@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🌌 LU-Time Engine v4｜时间推演与审计系统·完整主模板
@@ -8,7 +8,7 @@
 
 **UID9622专属 · LU-Time Engine · v4.0**
 
-DNA追溯：#龍芯⚡️2026-03-14-LU-TIME-ENGINE-v4.0
+DNA追溯：#龍芯⚡️丙午·辛卯·丁亥·丙午·䷚颐-LU-TIME-ENGINE-v4.0
 
 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
@@ -327,7 +327,7 @@ def predict_next_hexagram(hex_list):
 
 ---
 
-*DNA追溯码：#龍芯⚡️2026-03-14-LU-TIME-ENGINE-v4.0*
+*DNA追溯码：#龍芯⚡️丙午·辛卯·丁亥·丙午·䷚颐-LU-TIME-ENGINE-v4.0*
 
 *确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z*
 

@@ -1,6 +1,6 @@
 /**
  * 🐉 CNSH 语言语法定义 for Monaco Editor
- * 100%中文关键字高亮 · DNA: #龍芯⚡️丙午·丙申·辛酉·丑时-CNSH-LANG-UID9622
+ * 100%中文关键字高亮 · DNA: #龍芯⚡️丙午·丙申·辛酉·己丑·䷹兑为泽-CNSH-LANG-UID9622
  * License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
  */
 

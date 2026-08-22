@@ -4,6 +4,7 @@
 # ║  每小时由 cron 调用：DNA扫描 → 新异常 → 日历事件 + Bark       ║
 # ╚══════════════════════════════════════════════════════════════╝
 # DNA: #龍芯⚡️丙午·丙申·戊午·未时·䷐随-CALENDAR-SCAN-CRON-v1.0-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # License: MulanPSL v2 · 部署位置: /opt/longhun/calendar/bin/run_scan.sh
 
 set -u

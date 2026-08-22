@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·己未·亥时-HANDOFF-CLI-v2.1-UID9622
+# DNA: #龍芯⚡️丙午·丙申·己未·乙亥·䷏豫-HANDOFF-CLI-v2.1-UID9622
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)

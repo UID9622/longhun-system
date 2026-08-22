@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 CNSH 流场可视化引擎 v1.0
 核心理念：粒子 = DNA · 每个决策步骤都是可见粒子
 目标：AI 决策全透明、可审计、无黑箱、不失忆
-DNA: #龍芯⚡️2026-06-29-CNSH-FLOWFIELD-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-FLOWFIELD-UID9622
 """
 
 import json
@@ -249,7 +250,7 @@ class CNSH_流场可视化引擎:
                 "文件粒子": len(self.粒子库),
                 "决策粒子": len(self.决策粒子库),
                 "关系总数": len(self.关系网),
-                "DNA": "#龍芯⚡️2026-06-29-CNSH-FLOWFIELD-UID9622",
+                "DNA": "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-FLOWFIELD-UID9622",
             },
             "nodes": [
                 {
@@ -514,8 +515,6 @@ class 流场健康度:
 class 关系图谱:
     """把粒子上下游变成图结构，可查询、可渲染。"""
 
-    def __init__(self, 引擎: CNSH_流场可视化引擎):
-        self.引擎 = 引擎
 
     def 查询影响链(self, 粒子ID: str, 深度: int = 3) -> List[Dict[str, Any]]:
         return self._遍历(粒子ID, "下游", 深度)

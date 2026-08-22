@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 CNSH 词法分析器（brace-based 版）
-DNA: #龍芯⚡️2026-06-26-LONGHUN-CNSH-LEXER-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-CNSH-LEXER-v1.0
 
 为 longhun-chinese-editor 提供真正的词法分析，支持当前 CNSH 示例使用的
 大括号块结构、中文关键字、中文标识符。

@@ -161,8 +161,6 @@ class BridgeRecord:
     status: str = "active"
     audit_color: str = "🟢"
 
-    def to_dict(self) -> Dict:
-        return asdict(self)
 
     @classmethod
     def from_dict(cls, data: Dict) -> "BridgeRecord":

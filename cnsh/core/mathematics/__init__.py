@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-##龍芯⚡️2026-06-21-CORE-UNNAMED-FILE11-v1.0-13
+##龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-CORE-UNNAMED-FILE11-v1.0-13
 # 君子协议: 本文件受龍魂DNA追溯保护
 
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 龍魂 数学公式算法核心
 # 10条公式·双轨验证·世界标准×龍魂主权判定
 

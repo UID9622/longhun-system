@@ -1,9 +1,10 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # longhun888.com 路由与入口协议 v1.0
 
-**DNA:** `#龍芯⚡️2026-07-05-LONGHUN888-ROUTING-PROTOCOL-v1.0`  
+**DNA:** `#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-LONGHUN888-ROUTING-PROTOCOL-v1.0`  
 **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 **生效日期:** 2026-07-05
@@ -220,11 +221,11 @@ Pragma: no-cache
 
 ## 6. DNA 与签名
 
-- **协议 DNA:** `#龍芯⚡️2026-07-05-LONGHUN888-ROUTING-PROTOCOL-v1.1`
-- **操作台 DNA:** `#龍芯⚡️2026-07-05-LONGHUN-CONSOLE-V4-0-v1.1`
-- **对齐看板 DNA:** `#龍芯⚡️2026-07-05-NOTION-ALIGNMENT-DASHBOARD-v1.0`
-- **主控台 DNA:** `#龍芯⚡️2026-07-05-ROUTER-MATRIX-MASTER-CONTROL-v1.1`
-- **统一入口 DNA:** `#龍芯⚡️2026-07-05-LONGHUN-UNIFIED-v9.0`
+- **协议 DNA:** `#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-LONGHUN888-ROUTING-PROTOCOL-v1.1`
+- **操作台 DNA:** `#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-LONGHUN-CONSOLE-V4-0-v1.1`
+- **对齐看板 DNA:** `#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-NOTION-ALIGNMENT-DASHBOARD-v1.0`
+- **主控台 DNA:** `#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-ROUTER-MATRIX-MASTER-CONTROL-v1.1`
+- **统一入口 DNA:** `#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-LONGHUN-UNIFIED-v9.0`
 - **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 - **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 - **签名原则：** 来源可查、去向可追、责任可究。

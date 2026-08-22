@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 🐉 龍魂 · 模9治理运行时引擎 v1.0 (Mod-9 Governance Runtime)
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ============================================================
 投喂落地：CNSH Runtime Governance Mathematics v3.0
 
@@ -15,7 +16,7 @@
   7. Prompt注入防火墙
   8. 风险传播模型
 
-DNA: #龍芯⚡️丙午·乙未·己未·申时·履-MOD9-RUNTIME-v1.0-E1F2G3H4
+DNA: #龍芯⚡️丙午·乙未·己未·申时·䷉履-MOD9-RUNTIME-v1.0-E1F2G3H4
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 

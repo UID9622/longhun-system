@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂系統·主干固定升級協議·最終交付總結
 
 **時間**: 2026-06-07 22:04 CST
@@ -25,7 +26,7 @@
 
 ### 1️⃣ 主干固定升級協議·五層架構完整部署
 
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-MAIN-TRUNK-UPGRADE-DEPLOYMENT-COMPLETE-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-MAIN-TRUNK-UPGRADE-DEPLOYMENT-COMPLETE-v1.0
 
 ```
 ✅ L0 宣言守卫 (priority=1.0)
@@ -77,7 +78,7 @@
 
 ### 2️⃣ 協議焊死·永久保護
 
-**DNA**: #龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-LOCKDOWN-COMPLETE
+**DNA**: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PROTOCOL-LOCKDOWN-COMPLETE
 
 ```
 ✅ 協議文件
@@ -105,7 +106,7 @@
 
 ### 3️⃣ 備份災難恢復系統
 
-**DNA**: #龍芯⚇️2026-06-07-INITIAL-SNAPSHOT-BACKUP-v1.0 +#龍芯⚡️丙午·丙申·庚申·亥时-CRON-WEEKLY-BACKUP-v1.0
+**DNA**: #龍芯⚇️2026-06-07-INITIAL-SNAPSHOT-BACKUP-v1.0 +#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CRON-WEEKLY-BACKUP-v1.0
 
 ```
 ✅ 初始快照 (三層)
@@ -133,7 +134,7 @@
 
 ### 4️⃣ 依賴安全更新
 
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-DEPENDENCY-UPDATE-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DEPENDENCY-UPDATE-v1.0
 
 ```
 ✅ Python 依賴更新

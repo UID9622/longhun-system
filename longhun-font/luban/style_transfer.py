@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# #龍芯⚡️20260721143752-AUTO-DNA-LUBAN-STYLE-TRANSFER
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# #龍芯⚡️丙午·乙未·丙申·乙未·䷊泰-AUTO-DNA-LUBAN-STYLE-TRANSFER
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️2026-07-21-LUBAN-STYLE-TRANSFER-v1.0
+# DNA追溯码:#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-LUBAN-STYLE-TRANSFER-v1.0
 """
 书法风格迁移：把任意字体的字形轮廓转换为书法风格。
 
@@ -21,7 +22,7 @@ import random
 from pathlib import Path
 from typing import Any, Optional, Union
 
-DNA = "#龍芯⚡️2026-07-21-LUBAN-STYLE-TRANSFER-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-LUBAN-STYLE-TRANSFER-v1.0"
 
 DEFAULT_STYLE = {
     "name": "鲁班-通用书法",
@@ -183,7 +184,7 @@ _PRESETS: dict[str, dict[str, Any]] = {
         "artist": "鲁班大师",
         "era": "当代",
         "description": "方正端庄，横细竖粗，适合标题与正文",
-        "dna": "#龍芯⚡️2026-07-21-LUBAN-KA-v1.0",
+        "dna": "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-LUBAN-KA-v1.0",
         "parameters": {
             "font_size": 220,
             "stroke_width": 32,
@@ -208,7 +209,7 @@ _PRESETS: dict[str, dict[str, Any]] = {
         "artist": "鲁班大师",
         "era": "当代",
         "description": "行云流水，略带倾斜，适合长文本与题跋",
-        "dna": "#龍芯⚡️2026-07-21-LUBAN-XS-v1.0",
+        "dna": "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-LUBAN-XS-v1.0",
         "parameters": {
             "font_size": 220,
             "stroke_width": 26,
@@ -233,7 +234,7 @@ _PRESETS: dict[str, dict[str, Any]] = {
         "artist": "鲁班大师",
         "era": "当代",
         "description": "笔势连绵，飞白张扬，适合艺术大字",
-        "dna": "#龍芯⚡️2026-07-21-LUBAN-CA-v1.0",
+        "dna": "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-LUBAN-CA-v1.0",
         "parameters": {
             "font_size": 240,
             "stroke_width": 22,
@@ -258,7 +259,7 @@ _PRESETS: dict[str, dict[str, Any]] = {
         "artist": "鲁班大师",
         "era": "当代",
         "description": "蚕头燕尾，波磔分明，适合招牌与匾额",
-        "dna": "#龍芯⚡️2026-07-21-LUBAN-LI-v1.0",
+        "dna": "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-LUBAN-LI-v1.0",
         "parameters": {
             "font_size": 220,
             "stroke_width": 30,
@@ -283,7 +284,7 @@ _PRESETS: dict[str, dict[str, Any]] = {
         "artist": "鲁班大师",
         "era": "当代",
         "description": "圆润古朴，线条均匀，适合印章与碑刻",
-        "dna": "#龍芯⚡️2026-07-21-LUBAN-ZHUAN-v1.0",
+        "dna": "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-LUBAN-ZHUAN-v1.0",
         "parameters": {
             "font_size": 220,
             "stroke_width": 24,

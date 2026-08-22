@@ -8,7 +8,7 @@
 入口: lh compliance --export
       或直接 python3 bin/lh_compliance.py --export
 
-DNA: #龍芯⚡️2026-08-05-COMPLIANCE-v1.0-UID9622
+DNA: #龍芯⚡️丙午·乙未·辛亥·甲午·䷚颐-COMPLIANCE-v1.0-UID9622
 创建者: 诸葛鑫（UID9622）
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -30,7 +30,7 @@ sys.path.insert(0, str(BIN))
 
 # ─── 常量 ─────────────────────────────────────────────────────
 CST = timezone(timedelta(hours=8))
-DNA = "#龍芯⚡️2026-08-05-COMPLIANCE-v1.0-UID9622"
+DNA = "#龍芯⚡️丙午·乙未·辛亥·甲午·䷚颐-COMPLIANCE-v1.0-UID9622"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 GPG_KEY = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 OUTPUT_DIR = ROOT / "07_AUDIT"

@@ -4,7 +4,7 @@
 """
 🐉 龍魂 · 干支公共模块 core/rizhu_core.py v3.0（唯一口径）
 ==========================================================
-DNA: #龍芯⚡️2026-08-11-RIZHU-CORE-v3.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷃蒙-RIZHU-CORE-v3.0-UID9622
 创建者: 诸葛鑫（UID9622）
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 

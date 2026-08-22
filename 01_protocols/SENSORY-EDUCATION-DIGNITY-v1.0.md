@@ -1,9 +1,10 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·感官教育尊严三位一体协议 v1.0
 
-> DNA: `#龍芯⚡️丙午·丙申·丙辰·己丑·需-SENSORY-EDUCATION-DIGNITY-v1.0-52139EB3`
+> DNA: `#龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-SENSORY-EDUCATION-DIGNITY-v1.0-52139EB3`
 > 创建者: 💎 龍芯北辰｜UID9622（诸葛鑫）
 > 密级: L1 底座层 · 感官舱教育尊严体系焊死在系统底座
 > 引擎: `bin/lh_sensory_education.py`
@@ -293,6 +294,6 @@
 
 ---
 
-> 归档DNA: `#龍芯⚡️丙午·丙申·丙辰·己丑·需-SENSORY-EDUCATION-DIGNITY-v1.0-52139EB3`
+> 归档DNA: `#龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-SENSORY-EDUCATION-DIGNITY-v1.0-52139EB3`
 > 签署: 诸葛鑫·UID9622
 > 时间: 丙午·丙申·丙辰·己丑时

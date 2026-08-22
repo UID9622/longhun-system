@@ -2,12 +2,13 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 from __future__ import annotations
 """
 ╔═══════════════════════════════════════════════════════════════╗
 ║  龍魂系统 · 模型恢复协议 v1.0                                 ║
 ║  场景命中 → 自动执行 → 零人工干预                              ║
-║  DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·坤-RECOVERY-v1.0             ║
+║  DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·䷁坤-RECOVERY-v1.0             ║
 ║  UID: 9622 | GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F  ║
 ╚═══════════════════════════════════════════════════════════════╝
 
@@ -33,7 +34,7 @@ from typing import Optional, List, Dict, Tuple, Any
 # 常量 · 底座焊死
 # ══════════════════════════════════════════════════════════════
 
-DNA_SIGNATURE = "#龍芯⚡️丙午·辛未·乙酉·巳时·坤-RECOVERY-v1.0"
+DNA_SIGNATURE = "#龍芯⚡️丙午·辛未·乙酉·巳时·䷁坤-RECOVERY-v1.0"
 CONFIRM_SEAL = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 UID = "9622"
 

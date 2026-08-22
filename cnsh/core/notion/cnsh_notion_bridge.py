@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · CNSH ↔ Notion 数据库桥 v1.0
@@ -20,7 +21,7 @@
   结果 = 查询数据库("3367125a9c9f808a9692f0c6752e92fa")
   打印(结果)
 
-DNA: #龍芯⚡️2026-07-05-CNSH-NOTION-BRIDGE-v1.0
+DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-CNSH-NOTION-BRIDGE-v1.0
 """
 from __future__ import annotations
 
@@ -621,7 +622,7 @@ def selftest():
         print(f"  {k}: {v}")
     print("=" * 70)
     print("✅ 自检完成")
-    print(f"   DNA: #龍芯⚡️2026-07-05-CNSH-NOTION-BRIDGE-v1.0")
+    print(f"   DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-CNSH-NOTION-BRIDGE-v1.0")
     print("=" * 70)
 
 

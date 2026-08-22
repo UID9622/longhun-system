@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·三远程强制推送脚本
-# DNA: #龍芯⚡️丙午·乙未·丙申·酉时·☰乾-PUSH-ALL-REMOTES-SLIM-v1.0-a1b2c3d4
+# DNA: #龍芯⚡️丙午·乙未·丙申·酉时·䷀乾-PUSH-ALL-REMOTES-SLIM-v1.0-a1b2c3d4
 
 set -e
 

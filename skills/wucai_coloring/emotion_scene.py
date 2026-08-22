@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂情绪 · 场景安全引擎 v1.0
@@ -12,7 +13,7 @@
 - 禁止模拟杀伤力、真实伤害
 - 允许模拟冲突、坏人、教学实验，但必须是生成内容/安全配置
 
-DNA: #龍芯⚡️2026-06-23-WUCAI-EMOTION-SCENE-v1.0
+DNA: #龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-WUCAI-EMOTION-SCENE-v1.0
 """
 from __future__ import annotations
 

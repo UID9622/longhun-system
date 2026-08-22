@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂本地中文编辑器 · 闭环渲染与运行
-DNA: #龍芯⚡️2026-06-26-LONGHUN-LOCAL-EDITOR-v2.1
+DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-LOCAL-EDITOR-v2.1
 
 不依赖 VS Code / 浏览器，本地直接编辑、渲染和运行 CNSH / Python 文件。
 """

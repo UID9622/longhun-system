@@ -1,12 +1,14 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·甲戌·䷍大有-CODE-补DNA-a9a7989a
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 龍魂传输管理器 — WiFi Direct / 蓝牙BLE / 局域网TCP
 ======================================================
-DNA:#龍芯⚡️2026-06-19-SYNC-MSG-FILE28-v1.0
+DNA:#龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-SYNC-MSG-FILE28-v1.0
 致敬: #致敬⚡️SteveJobs+Concept·跨平台互通
 
 核心原则: 本地网络直连，绝不经过外网
@@ -98,7 +100,7 @@ class 传输管理器:
     支持自动通道选择、故障降级、外网阻断
     """
     
-    DNA = "#龍芯⚡️2026-06-19-SYNC-MSG-v1.0"
+    DNA = "#龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-SYNC-MSG-v1.0"
     
     # 本地地址段（RFC1918 + RFC4193）
     本地地址段 = [

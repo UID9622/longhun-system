@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_QWEN_HALLUCINATION_SCORER-v1.0-2b38993c
+#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH_QWEN_HALLUCINATION_SCORER-v1.0-2b38993c
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -24,7 +24,7 @@
 ║  人格适用评分 = 任务专注度×0.40 + 主权保护×0.30 + 证据完整×0.20 + 落地×0.10   ║
 ║  技能评估分 = 可用性×0.30 + 联动性×0.25 + 安全性×0.25 + 主权性×0.20          ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️丙午·乙未·甲子·未时·需-QWEN-HALLUCINATION-SCORER-v1.0        ║
+║  DNA: #龍芯⚡️丙午·乙未·甲子·未时·䷄需-QWEN-HALLUCINATION-SCORER-v1.0        ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                             ║
 ║  📇 项目身份 · 联系 · 支持 → assets/PUBLIC_IDENTITY.md                    ║
 ╚══════════════════════════════════════════════════════════════════════════╝
@@ -72,7 +72,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 sys.path.insert(0, str(SCRIPT_DIR))
 
-DNA = "#龍芯⚡️丙午·乙未·甲子·未时·需-QWEN-HALLUCINATION-SCORER-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·甲子·未时·䷄需-QWEN-HALLUCINATION-SCORER-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 VERSION = "v1.0"
 TZ = timezone.utc

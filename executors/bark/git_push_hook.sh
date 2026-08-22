@@ -6,7 +6,7 @@
 # ║  🐉 龍魂·Git推送通知 v1.0 — 本地Git Hook · 并入库知识矩阵      ║
 # ║  Git Push Notify · commit → DNA → audit → store → Bark       ║
 # ╠═══════════════════════════════════════════════════════════════╣
-# ║  DNA: #龍芯⚡️2026-07-12-BARK-GIT-HOOK-v1.0                  ║
+# ║  DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-BARK-GIT-HOOK-v1.0                  ║
 # ║  安装: ln -s executors/bark/git_push_hook.sh .git/hooks/post-push ║
 # ╚═══════════════════════════════════════════════════════════════╝
 

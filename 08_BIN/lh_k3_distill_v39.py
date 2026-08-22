@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·甲寅·需-K3-DISTILL-v3.9
+#龍芯⚡️丙午·乙未·甲寅·庚午·䷄需-K3-DISTILL-v3.9
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -21,7 +21,7 @@
 - models/longhun-v1.0/lora_output/k3_distill_v39/multiturn_qa.jsonl   （25 条）
 - review_sample.jsonl（20% 抽查样本，待人工审）
 
-DNA: #龍芯⚡️丙午·乙未·甲寅·需-K3-DISTILL-v3.9
+DNA: #龍芯⚡️丙午·乙未·甲寅·庚午·䷄需-K3-DISTILL-v3.9
 """
 
 import argparse

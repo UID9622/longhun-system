@@ -1,9 +1,10 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 君子协议
 
-> DNA: `#龍芯⚡️20260804-GENTLEMANS_PROTOCOL-v1.1-LAYERED-UID9622`
+> DNA: `#龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-GENTLEMANS_PROTOCOL-v1.1-LAYERED-UID9622`
 > 最后更新: 2026-08-04
 > 协议: 本文件属核心思想层 — CC BY-NC-SA 4.0
 > 工程代码: MulanPSL v2（详见 01_protocols/LH-LAYERED-LICENSE-v1.0.md）

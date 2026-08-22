@@ -1,0 +1,14 @@
+{
+  "title": "测试试播片段",
+  "project": "test_project",
+  "scenes": [
+    {
+      "shot_code": "TEST-S01",
+      "character": "TEST-001",
+      "asset": "ENV-01_test.png",
+      "line": "龍魂系统，为人民服务。",
+      "action": "站在夜色中，眼神坚定",
+      "duration": 3
+    }
+  ]
+}

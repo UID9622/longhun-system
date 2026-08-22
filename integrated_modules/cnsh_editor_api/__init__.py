@@ -2,12 +2,13 @@
 # -*- coding: utf-8 -*-
 """
 龍魂 CNSH Editor API · 在线编辑器与执行服务
-DNA: #龍芯⚡️2026-07-04-CNSH-EDITOR-API-PACKAGE-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-CNSH-EDITOR-API-PACKAGE-v1.0
 """
 from __future__ import annotations
 
 __version__ = "1.0.0"
-__dna__ = "#龍芯⚡️2026-07-04-CNSH-EDITOR-API-v1.0"
+__dna__ = "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-CNSH-EDITOR-API-v1.0"
 
 from .main import app
 

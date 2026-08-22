@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 from __future__ import annotations
 """
 CNSH v2.1 解释器（树遍历执行）
-DNA: #龍芯⚡️2026-06-29-CNSH-INTERPRETER-v2.1
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-INTERPRETER-v2.1
 """
 from typing import Any, Dict, List, Optional
 

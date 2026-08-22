@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # DNA: #龍芯⚡️丙午·丙酉·癸亥·巳时·䷫姤-CNSH-WEB-IDE-v1.0-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 🐉 CNSH Web IDE v1.0
@@ -1006,7 +1007,7 @@ async def api_ai_config_get():
             "local": {"api_key": "", "model": "longhun-v43:latest", "enabled": True},
             "kimi": {"api_key": "", "model": "moonshot-v1-8k", "enabled": False},
             "tongyi": {"api_key": "", "model": "qwen-turbo", "enabled": False},
-            "deepseek": {"api_key": "", "model": "deepseek-chat", "enabled": False},
+            "deepseek": {"api_key": "", "model": "deepseek-v4-flash", "enabled": False},
             "zhipu": {"api_key": "", "model": "glm-4", "enabled": False},
             "doubao": {"api_key": "", "model": "doubao-lite-4k", "enabled": False},
         },

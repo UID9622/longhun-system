@@ -3,7 +3,7 @@
 #  🐉 龍魂系统 · 一键安装脚本
 #  LongHun System · One-Click Install
 # ═══════════════════════════════════════════════════════════════════════
-# DNA:     #龍芯⚡️2026-07-13-INSTALL-SCRIPT-v1.0
+# DNA:     #龍芯⚡️丙午·乙未·戊子·戊午·䷙大畜-INSTALL-SCRIPT-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # License: CN-SOVEREIGN-LICENSE-v1.0
@@ -158,5 +158,5 @@ echo -e "${GREEN}╚════════════════════
 echo ""
 
 # DNA 锚定
-echo -e "${BLUE}🧬 DNA: #龍芯⚡️2026-07-13-INSTALL-COMPLETE-v1.0${NC}"
+echo -e "${BLUE}🧬 DNA: #龍芯⚡️丙午·乙未·戊子·戊午·䷙大畜-INSTALL-COMPLETE-v1.0${NC}"
 echo ""

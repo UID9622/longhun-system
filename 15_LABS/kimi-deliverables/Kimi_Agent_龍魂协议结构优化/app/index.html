@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龙魂 · 统一视觉渲染系统 v2.0 丝滑演示</title>
+<style>
+:root {
+    --bg: #0d1117;
+    --panel: rgba(22, 27, 34, 0.8);
+    --border: rgba(255,255,255,0.06);
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'LonghunFont', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+    min-height: 100vh;
+    padding: 48px 24px 96px;
+    -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 960px; margin: 0 auto; }
+.hero { text-align: center; margin-bottom: 56px; }
+.hero h1 {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
+    color: #f59e0b;
+    text-shadow:
+        0 3px 0 #b45309,
+        0 5px 0 #78350f,
+        0 8px 30px rgba(245, 158, 11, 0.6),
+        0 0 60px rgba(245, 158, 11, 0.15);
+    letter-spacing: 0.02em;
+    animation: breath-smooth 3.5s ease-in-out infinite;
+}
+.hero p { color: var(--muted); margin-top: 18px; font-size: 15px; letter-spacing: 0.06em; }
+.badge {
+    display: inline-block; margin-top: 14px; padding: 4px 14px;
+    border: 1px solid rgba(34,197,94,0.4); border-radius: 999px;
+    color: #22c55e; font-size: 12px; letter-spacing: 0.1em;
+}
+.section { margin-bottom: 48px; }
+.section h2 { font-size: 20px; font-weight: 600; margin-bottom: 8px; letter-spacing: 0.04em; }
+.section .desc { color: var(--muted); font-size: 14px; margin-bottom: 20px; line-height: 1.7; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.card {
+    background: var(--panel); backdrop-filter: blur(12px);
+    border: 1px solid var(--border); border-radius: 16px;
+    padding: 28px 24px; text-align: center;
+    transition: transform 0.45s var(--ease-out-quint), box-shadow 0.45s var(--ease-out-quint);
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+.card .label { color: var(--muted); font-size: 12px; margin-top: 14px; letter-spacing: 0.12em; font-weight: 300; }
+.card .txt { font-size: 22px; }
+
+.text-red-3d {
+    color: #ef4444;
+    text-shadow: 0 4px 0 #7f1d1d, 0 6px 0 #450a0a,
+                 0 8px 20px rgba(239,68,68,0.6), 0 0 40px rgba(239,68,68,0.2);
+    font-weight: 700; letter-spacing: 0.5px;
+}
+.text-black-3d {
+    color: #c9d1d9; background: #1a1a2e; border-radius: 8px; padding: 4px 12px;
+    text-shadow: 0 2px 0 #0a0a10, 0 4px 0 #000000, 0 6px 20px rgba(0,0,0,0.8);
+    font-weight: 700;
+}
+.text-purple-3d {
+    color: #8b5cf6;
+    text-shadow: 0 3px 0 #5b21b6, 0 5px 0 #3b0764, 0 8px 30px rgba(139,92,246,0.5);
+    font-weight: 600; letter-spacing: 0.3px;
+}
+.text-gold-3d {
+    color: #f59e0b;
+    text-shadow: 0 3px 0 #b45309, 0 5px 0 #78350f,
+                 0 8px 30px rgba(245,158,11,0.6), 0 0 60px rgba(245,158,11,0.15);
+    font-weight: 700; letter-spacing: 0.5px;
+}
+.text-blue-3d {
+    color: #3b82f6;
+    text-shadow: 0 3px 0 #1d4ed8, 0 5px 0 #1e3a8a, 0 8px 30px rgba(59,130,246,0.5);
+    font-weight: 600;
+}
+.text-yellow-3d {
+    color: #eab308;
+    text-shadow: 0 3px 0 #a16207, 0 5px 0 #713f12, 0 8px 25px rgba(234,179,8,0.4);
+    font-weight: 600;
+}
+.text-silver-3d {
+    color: #9ca3af;
+    text-shadow: 0 2px 0 #4b5563, 0 4px 0 #1f2937, 0 6px 20px rgba(156,163,175,0.3);
+    font-weight: 400; opacity: 0.85;
+}
+.text-green-3d {
+    color: #22c55e;
+    text-shadow: 0 3px 0 #15803d, 0 5px 0 #14532d, 0 8px 30px rgba(34,197,94,0.5);
+    font-weight: 600;
+}
+.text-red-3d, .text-black-3d, .text-purple-3d, .text-gold-3d,
+.text-blue-3d, .text-yellow-3d, .text-silver-3d, .text-green-3d {
+    transition: color 0.45s var(--ease-out-quint),
+                text-shadow 0.45s var(--ease-out-quint),
+                opacity 0.45s var(--ease-out-quint);
+}
+
+@keyframes flash-smooth {
+    0%, 100% {
+        opacity: 1;
+        text-shadow: 0 4px 0 #7f1d1d, 0 6px 0 #450a0a,
+                     0 8px 20px rgba(239,68,68,0.6), 0 0 40px rgba(239,68,68,0.2);
+    }
+    50% {
+        opacity: 0.7;
+        text-shadow: 0 2px 0 #7f1d1d, 0 3px 0 #450a0a,
+                     0 4px 12px rgba(239,68,68,0.35), 0 0 20px rgba(239,68,68,0.1);
+    }
+}
+.anim-flash { animation: flash-smooth 2.0s ease-in-out infinite; }
+
+@keyframes breath-smooth {
+    0%, 100% {
+        text-shadow: 0 3px 0 #b45309, 0 5px 0 #78350f,
+                     0 8px 30px rgba(245,158,11,0.55), 0 0 50px rgba(245,158,11,0.12);
+    }
+    50% {
+        text-shadow: 0 3px 0 #b45309, 0 5px 0 #78350f,
+                     0 8px 42px rgba(245,158,11,0.85), 0 0 85px rgba(245,158,11,0.28);
+    }
+}
+.anim-breath { animation: breath-smooth 3.5s ease-in-out infinite; }
+
+@keyframes pulse-smooth {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.035);
+          text-shadow: 0 3px 0 #1d4ed8, 0 5px 0 #1e3a8a, 0 8px 38px rgba(59,130,246,0.65); }
+}
+.anim-pulse {
+    animation: pulse-smooth 2.5s var(--ease-bounce) infinite;
+    will-change: transform;
+    display: inline-block;
+}
+
+@keyframes slow-smooth {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.75; }
+}
+.anim-slow { animation: slow-smooth 3.0s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+    .anim-flash, .anim-breath, .anim-pulse, .anim-slow, .hero h1 { animation: none !important; }
+    .card { transition: none; }
+}
+
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 640px) { .compare { grid-template-columns: 1fr; } }
+.compare .pane {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 16px; padding: 32px 24px; text-align: center;
+}
+.pane .tag { font-size: 12px; letter-spacing: 0.15em; margin-bottom: 20px; display: inline-block; padding: 3px 12px; border-radius: 999px; }
+.tag-old { color: #9ca3af; border: 1px solid #4b5563; }
+.tag-new { color: #22c55e; border: 1px solid rgba(34,197,94,0.4); }
+@keyframes flash-v1 { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+.anim-flash-v1 { animation: flash-v1 1.2s ease-in-out infinite; color: #ef4444; font-weight: 700; font-size: 22px; }
+
+.controls {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 16px;
+    padding: 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+}
+.controls .note { color: var(--muted); font-size: 13px; margin-right: auto; }
+.btn {
+    background: rgba(59,130,246,0.12); color: #3b82f6;
+    border: 1px solid rgba(59,130,246,0.35); border-radius: 10px;
+    padding: 8px 18px; font-size: 14px; font-family: inherit; cursor: pointer;
+    transition: all 0.3s var(--ease-out-quint);
+}
+.btn:hover { background: rgba(59,130,246,0.22); transform: translateY(-1px); }
+.btn.active { background: rgba(34,197,94,0.15); color: #22c55e; border-color: rgba(34,197,94,0.4); }
+.motion-off * { animation: none !important; }
+
+footer { margin-top: 64px; text-align: center; color: var(--muted); font-size: 12px; line-height: 2; letter-spacing: 0.08em; }
+footer .dna { color: #4b5563; font-family: monospace; font-size: 11px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <header class="hero">
+        <h1>🐉 龙魂 · 统一视觉渲染系统 v2.0</h1>
+        <p>正弦亮度呼吸 · 非阻塞渲染 · WCAG 闪烁安全 · reduced-motion 尊重</p>
+        <span class="badge">🟢 丝滑版 · 颜色自己会说话，而且说得温柔</span>
+    </header>
+
+    <section class="section">
+        <h2>八色 × 丝滑动画语义</h2>
+        <p class="desc">每个状态卡按其语义播放对应动画。所有动画周期 ≥2.0s（每秒闪烁 ≤0.5 次，远低于 WCAG 3次/秒红线），亮度谷底 ≥0.7，文字永远可读。</p>
+        <div class="grid" id="colorGrid">
+            <div class="card"><div class="txt text-red-3d anim-flash">🔴 断空红 · 熔断！</div><div class="label">P0 · flash 2.0s · 紧急呼吸</div></div>
+            <div class="card"><div class="txt text-black-3d">⚫ 深渊黑 · 永久封禁</div><div class="label">P1 · none · 常驻</div></div>
+            <div class="card"><div class="txt text-purple-3d anim-slow">🟣 观察紫 · 新来的</div><div class="label">P2 · slow 3.0s · 慢呼吸</div></div>
+            <div class="card"><div class="txt text-gold-3d anim-breath">🟡 主权金 · 已确认</div><div class="label">P3 · breath 3.5s · 辉光呼吸</div></div>
+            <div class="card"><div class="txt text-blue-3d anim-pulse">🔵 追踪蓝 · 运行中</div><div class="label">P4 · pulse 2.5s · 回弹脉冲</div></div>
+            <div class="card"><div class="txt text-yellow-3d anim-slow">🟡 待核黄 · 48h内看</div><div class="label">P5 · slow 3.0s · 慢闪</div></div>
+            <div class="card"><div class="txt text-silver-3d">⚪ 过渡银 · 临时态</div><div class="label">P6 · none · 半透明</div></div>
+            <div class="card"><div class="txt text-green-3d">🟢 放行绿 · 安心</div><div class="label">P7 · none · 常驻</div></div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>v1.x 硬闪 vs v2.0 丝滑</h2>
+        <p class="desc">左边是 v1.x 的做法（opacity 1→0.2 线性硬闪，1.2s 周期）——刺眼、像故障。右边是 v2.0（正弦亮度 + 阴影同步屏息，谷底 0.7）——像呼吸。</p>
+        <div class="compare">
+            <div class="pane">
+                <span class="tag tag-old">v1.x · 硬闪</span>
+                <div class="anim-flash-v1">🔴 断空红 · 熔断！</div>
+            </div>
+            <div class="pane">
+                <span class="tag tag-new">v2.0 · 丝滑</span>
+                <div class="txt text-red-3d anim-flash">🔴 断空红 · 熔断！</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>动画总开关（模拟 prefers-reduced-motion）</h2>
+        <p class="desc">点击开关即全站动画静止——与系统级「减弱动态效果」偏好行为一致。打开系统设置中的 reduced-motion 时，本页无需任何操作会自动静止。</p>
+        <div class="controls">
+            <span class="note">军规五：用户的系统偏好永远高于视觉设计。</span>
+            <button class="btn" id="motionBtn" onclick="toggleMotion(this)">⏸ 静止全部动画</button>
+        </div>
+    </section>
+
+    <footer>
+        🐉 龍魂不息 · 以人为本 ｜ 祖国优先 · 普惠全球 · 技术为人民服务 🇨🇳<br>
+        <span class="dna">DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-UNIFIED-VISUAL-v2.0-UID9622 ｜ CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ｜ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</span>
+    </footer>
+</div>
+<script>
+function toggleMotion(btn) {
+    document.body.classList.toggle('motion-off');
+    const off = document.body.classList.contains('motion-off');
+    btn.textContent = off ? '▶ 恢复动画' : '⏸ 静止全部动画';
+    btn.classList.toggle('active', off);
+}
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.body.classList.add('motion-off');
+    const btn = document.getElementById('motionBtn');
+    btn.textContent = '▶ 恢复动画（系统偏好：减弱动态）';
+    btn.classList.add('active');
+}
+</script>
+</body>
+</html>

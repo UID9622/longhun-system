@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════════╗
 ║  龍魂·人格执行签章引擎 v1.0 — 谁签名谁负责                           ║
@@ -9,7 +10,7 @@
 ╠══════════════════════════════════════════════════════════════════╣
 ║  原则: 谁签名谁负责 · GPG不可抵赖 · 责任链追溯                     ║
 ║  联动: 红蓝对抗 + 审计三色 + 监管天 + 16人格矩阵                    ║
-║  DNA: #龍芯⚡️丙午·辛未·乙酉·亥时-PERSONA-SIGNING-v1.0              ║
+║  DNA: #龍芯⚡️丙午·辛未·乙酉·丁亥·䷵归妹-PERSONA-SIGNING-v1.0              ║
 ╚══════════════════════════════════════════════════════════════════╝
 
 签章模板:
@@ -56,7 +57,7 @@ from typing import Dict, List, Optional, Any, Tuple
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 # ─── 常量 ───
-DNA = "#龍芯⚡️丙午·辛未·乙酉·亥时-PERSONA-SIGNING-v1.0"
+DNA = "#龍芯⚡️丙午·辛未·乙酉·丁亥·䷵归妹-PERSONA-SIGNING-v1.0"
 VERSION = "1.0.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SIGNING_DIR = Path.home() / ".longhun" / "signing_chain"

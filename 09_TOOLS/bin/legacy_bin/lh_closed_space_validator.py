@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂系统 · 封闭空间·三生三世 数学建模验证模块 v1.0
 源协议: 01_protocols/封闭空间三生三世数学建模协议_v1.0.md
 优先级: P0永恒级·遗嘱级
-DNA: #龍芯⚡️丙午·乙未·甲寅·蒙-CLOSED-SPACE-VALIDATOR-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲寅·庚午·䷃蒙-CLOSED-SPACE-VALIDATOR-v1.0
 
 用法:
   python3 bin/lh_closed_space_validator.py           # 跑全部 12 条测试向量
@@ -26,7 +27,7 @@ GAMMA = 0.9
 class CNSH_三生三世引擎:
     """四闸门与门：fail-closed；测压熔断是保护不是拒绝。"""
 
-    DNA = "#龍芯⚡️丙午·乙未·甲寅·蒙-CLOSED-SPACE-VALIDATOR-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·甲寅·庚午·䷃蒙-CLOSED-SPACE-VALIDATOR-v1.0"
 
     @staticmethod
     def 测压(q):

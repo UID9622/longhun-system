@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂·行為密碼學可視化器 v2.0
-DNA: #龍芯⚡️丙午·甲申·丁酉·艮卦-VISUALIZER-V2.0-UID9622
+DNA: #龍芯⚡️丙午·甲申·丁酉·丙午·䷳艮-VISUALIZER-V2.0-UID9622
 License: MulanPSL v2
 
 ASCII終端渲染 + HTML報告生成
@@ -533,7 +533,7 @@ class Visualizer:
     <h1>🐉 龍魂·行為密碼學實驗報告</h1>
     <div class="subtitle">七因子來源追溯框架 · 五級攻擊模擬 · 抗偽造能力驗證</div>
     <div class="dna-line">
-      DNA: #龍芯⚡️丙午·甲申·丁酉·艮卦-BCM-EXPERIMENT-V2.0-UID9622
+      DNA: #龍芯⚡️丙午·甲申·丁酉·丙午·䷳艮-BCM-EXPERIMENT-V2.0-UID9622
       <br>確認碼: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
       <br>實驗ID: {summary.get('experiment_id', 'N/A')} | 生成時間: {summary.get('experiment_id', '')[:13] or '自動'}
     </div>
@@ -701,7 +701,7 @@ class Visualizer:
   <!-- 頁腳 -->
   <div class="footer">
     <div class="sig">
-      DNA: #龍芯⚡️丙午·甲申·丁酉·艮卦-BCM-V2.0-UID9622
+      DNA: #龍芯⚡️丙午·甲申·丁酉·丙午·䷳艮-BCM-V2.0-UID9622
     </div>
     <div>
       創建者: 诸葛鑫 (UID9622) · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

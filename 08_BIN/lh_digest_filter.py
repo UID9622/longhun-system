@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·丙辰·午时·需-FILTER-DIGEST-v1.0
+#龍芯⚡️丙午·丙申·丙辰·午时·䷄需-FILTER-DIGEST-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -19,7 +19,7 @@ AI接入强制规范（A-042）的执行引擎。AI输出经过此层：
   python3 bin/lh_digest_filter.py --test                   # 自测
   python3 bin/lh_digest_filter.py --stats                  # 统计
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·午时·需-FILTER-DIGEST-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·午时·䷄需-FILTER-DIGEST-v1.0
 """
 
 import re

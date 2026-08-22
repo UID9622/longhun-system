@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-a79dd58a
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """

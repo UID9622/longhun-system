@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 Bra-Ket 人格协作资产 → Notion 同步脚本 v1.0
@@ -16,7 +17,7 @@ Bra-Ket 人格协作资产 → Notion 同步脚本 v1.0
     NOTION_TOKEN            Notion 内部集成令牌
     BRAKET_NOTION_PAGE_ID   AI Bra-Ket 主页面 ID（默认从 URL 解析）
 
-DNA: #龍芯⚡️2026-07-05-SYNC-BRAKET-NOTION-v1.0
+DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-SYNC-BRAKET-NOTION-v1.0
 """
 from __future__ import annotations
 
@@ -81,7 +82,7 @@ def build_markdown() -> str:
         f"# {PAGE_TITLE}",
         f"",
         f"> 同步时间: {now_iso()}",
-        f"> DNA: `#龍芯⚡️2026-07-05-SYNC-BRAKET-NOTION-v1.0`",
+        f"> DNA: `#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-SYNC-BRAKET-NOTION-v1.0`",
         f"> 来源: 本地 longhun-system Bra-Ket 资产",
         f"",
         "## 资产概览",

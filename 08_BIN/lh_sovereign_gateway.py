@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 主权代理网关 v2.0（鸿蒙 + 小艺接入）
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 DNA: #龍芯⚡️丙午·丙酉·丙寅·申时-SOVEREIGN-GATEWAY-v2.0-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -114,6 +115,10 @@ STATE_DIR = PROJECT_ROOT / "08_STATE"
 AUDIT_DIR = PROJECT_ROOT / "04_AUDIT"
 STATE_DIR.mkdir(parents=True, exist_ok=True)
 AUDIT_DIR.mkdir(parents=True, exist_ok=True)
+
+# 龍魂硬核创作库（对外接出 · 2026-08-17 新增）
+CREATIONS_INDEX = PROJECT_ROOT / "portal" / "data" / "creations_index.json"
+CREATIONS_DIR = PROJECT_ROOT / "portal" / "creations"
 
 # 鸿蒙设备注册表 (持久化)
 HARMONY_DEVICES_FILE = STATE_DIR / "harmony_devices.json"
@@ -546,6 +551,65 @@ async def end_xiaoyi_session(request: Request):
         })
         return {"status": "ended"}
     raise HTTPException(status_code=404, detail="会话不存在")
+
+
+# ============================================================
+# 龍魂硬核创作库端点（对外公开只读 · 2026-08-17 新增）
+# ============================================================
+
+def _load_creations_index() -> Dict:
+    if not CREATIONS_INDEX.exists():
+        return {"creations": [], "meta": {}}
+    try:
+        return load_json(CREATIONS_INDEX, {})
+    except Exception:
+        return {"creations": [], "meta": {}}
+
+
+def _safe_slug(slug: str) -> Optional[str]:
+    """防路径穿越：只允许安全 slug"""
+    if not slug or "/" in slug or "\\" in slug or ".." in slug:
+        return None
+    return slug
+
+
+@app.get("/api/v1/creations")
+async def list_creations(category: Optional[str] = None, limit: int = 50):
+    """创作列表（公开只读）· 支持 ?category= 过滤"""
+    data = _load_creations_index()
+    creations = data.get("creations", [])
+    if category:
+        creations = [c for c in creations if c.get("category") == category]
+    return {
+        "ok": True,
+        "count": len(creations),
+        "meta": data.get("meta", {}),
+        "creations": creations[:limit],
+    }
+
+
+@app.get("/api/v1/creations/{slug}")
+async def get_creation(slug: str):
+    """单篇创作详情（公开只读）· 返回元数据+正文"""
+    safe = _safe_slug(slug)
+    if not safe:
+        raise HTTPException(status_code=400, detail="无效的创作标识")
+    data = _load_creations_index()
+    creation = next((c for c in data.get("creations", []) if c.get("slug") == safe), None)
+    if not creation:
+        raise HTTPException(status_code=404, detail=f"创作 {safe} 不存在")
+    # 读取正文（index.md）
+    md_path = PROJECT_ROOT / creation.get("path", "")
+    content = ""
+    if md_path.exists():
+        try:
+            content = md_path.read_text(encoding="utf-8")
+        except Exception:
+            content = ""
+    return {
+        "ok": True,
+        "creation": {**creation, "content": content},
+    }
 
 
 # ============================================================

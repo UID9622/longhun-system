@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🎨 龍魂五色审计协议 · v1.0
-DNA: #龍芯⚡️丙午·丙申·甲寅·申时·噬嗑-WUCAI-FIVECOLOR-AUDIT-v1.0
+DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷔噬嗑-WUCAI-FIVECOLOR-AUDIT-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 来源: docs/claude-backlog/01_协议同步包/网页/dna-sync-pack/protocols/FIVE_COLORS.txt

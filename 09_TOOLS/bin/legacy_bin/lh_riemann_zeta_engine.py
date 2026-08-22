@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂·黎曼猜想三视角引擎 v1.0
-DNA: #龍芯⚡️2026-07-21-RIEMANN-ZETA-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-RIEMANN-ZETA-ENGINE-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -33,7 +33,7 @@ from pathlib import Path
 # 确保能导入龍魂引擎
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-DNA = "#龍芯⚡️2026-07-21-RIEMANN-ZETA-ENGINE-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-RIEMANN-ZETA-ENGINE-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

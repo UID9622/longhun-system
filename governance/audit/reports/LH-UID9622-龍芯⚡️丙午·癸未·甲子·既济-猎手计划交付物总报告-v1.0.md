@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·猎手计划 — 交付物总报告 v1.0
 
-DNA: `#龍芯⚡️丙午·癸未·甲子·既济-猎手计划-总报告-v1.0`
+DNA: `#龍芯⚡️丙午·癸未·甲子·庚午·䷾既济-猎手计划-总报告-v1.0`
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 确认码: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
@@ -140,7 +140,7 @@ GET /api/v1/certify/{cert_id}/verify → 有效/过期/伪造检测
   "audit_mark": "🟡",
   "audit_mark_reason": "内部审计两组件🟡（鲲鹏API/CNSH编译器），无🔴红线。外部7厂商合规审计完成，无一家及格。",
   "risk_score": 0.24,
-  "dna": "#龍芯⚡️丙午·癸未·甲子·既济-猎手计划-总报告-v1.0",
+  "dna": "#龍芯⚡️丙午·癸未·甲子·庚午·䷾既济-猎手计划-总报告-v1.0",
   "gpg_fingerprint": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 }
 ```

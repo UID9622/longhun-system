@@ -1,6 +1,7 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂系统 · 统一子系统收口总表 v3.0
 
-> DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-MASTER-REGISTRY-SUBSYSTEMS-v3.3`
+> DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-MASTER-REGISTRY-SUBSYSTEMS-v3.3`
 > 收口人: CodeBuddy
 > 审计: 🟢 通过
 > 原则: 一个仓库，一份总表，不可有未注册的子系统
@@ -450,7 +451,7 @@ INFINITE_GROWTH_ENGINE (v∞ 主引擎)
 
 **策略**: 60%主流 + 30%边缘 + 10%疯狂 = 98%信息覆盖
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-SPIDER-NET-v1.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SPIDER-NET-v1.0`
 
 ---
 
@@ -475,7 +476,7 @@ INFINITE_GROWTH_ENGINE (v∞ 主引擎)
 
 **CLI**: `ingest` / `status` / `stats` / `persona-watch` / `queue` / `start`
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-INPUT-GATEWAY-v1.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-INPUT-GATEWAY-v1.0`
 
 ---
 
@@ -498,7 +499,7 @@ INFINITE_GROWTH_ENGINE (v∞ 主引擎)
 
 **CLI**: `ingest` / `ingest-file` / `status` / `stats` / `guard-check` / `spider-feed` / `gateway-feed` / `list` / `study` / `export-countermeasure`
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-TOMBSTONE-v1.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-TOMBSTONE-v1.0`
 
 ---
 
@@ -559,19 +560,19 @@ lh_j_space_manager.py pipeline
 
 | DNA | 组件 |
 |:---|------|
-| `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-J-LENS-v1.0` | lh_j_lens.py |
-| `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-J-INTERVENE-v1.0` | lh_j_intervene.py |
-| `#龍芯⚡️丙午·丙申·庚申·亥时-CONSCIOUSNESS-AUDIT-v1.0` | lh_consciousness_audit.py |
-| `#龍芯⚡️丙午·丙申·庚申·亥时-JSPACE-CNSH-SYNTAX-v1.0` | j_space.cnsh |
-| `#龍芯⚡️丙午·丙申·庚申·亥时-JSPACE-COUNTERMEASURES-v1.0` | j_space_countermeasures |
-| `#龍芯⚡️丙午·丙申·庚申·亥时-JSPACE-MANAGER-v1.0` | lh_j_space_manager.py |
+| `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-J-LENS-v1.0` | lh_j_lens.py |
+| `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-J-INTERVENE-v1.0` | lh_j_intervene.py |
+| `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CONSCIOUSNESS-AUDIT-v1.0` | lh_consciousness_audit.py |
+| `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-JSPACE-CNSH-SYNTAX-v1.0` | j_space.cnsh |
+| `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-JSPACE-COUNTERMEASURES-v1.0` | j_space_countermeasures |
+| `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-JSPACE-MANAGER-v1.0` | lh_j_space_manager.py |
 
 ---
 
 ## 十八、工程基础设施 · 全系统人格联动 (2026-07-07 新增)
 
 > 基准评估后补全的工程短板 · 五路军团联合作业
-> DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-ENGINEERING-INFRA-FULL-TEAM-v1.0`
+> DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ENGINEERING-INFRA-FULL-TEAM-v1.0`
 
 ### 18.1 测试体系
 
@@ -622,18 +623,18 @@ lh_j_space_manager.py pipeline
 
 | DNA | 组件 |
 |:---|:---|
-| `#龍芯⚡️丙午·丙申·庚申·亥时-TEST-SUITE-v1.0` | 测试套件 |
-| `#龍芯⚡️丙午·丙申·庚申·亥时-CI-CD-PIPELINE-v1.0` | CI/CD 流水线 |
-| `#龍芯⚡️丙午·丙申·庚申·亥时-PROJECT-TOML-v1.0` | pyproject.toml |
-| `#龍芯⚡️丙午·丙申·庚申·亥时-VECTOR-KNOWLEDGE-RETRIEVAL-v1.0` | 向量检索 |
-| `#龍芯⚡️丙午·丙申·庚申·亥时-ENGINEERING-INFRA-FULL-TEAM-v1.0` | 全系统人格联动 |
+| `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-TEST-SUITE-v1.0` | 测试套件 |
+| `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CI-CD-PIPELINE-v1.0` | CI/CD 流水线 |
+| `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PROJECT-TOML-v1.0` | pyproject.toml |
+| `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-VECTOR-KNOWLEDGE-RETRIEVAL-v1.0` | 向量检索 |
+| `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ENGINEERING-INFRA-FULL-TEAM-v1.0` | 全系统人格联动 |
 
 ---
 
 ## 十九、去LLM化·自主智能引擎 (2026-07-07 新增)
 
 > 诸葛亮战略退役·不再依赖任何外部大模型
-> DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-DE-LLM-AUTONOMOUS-ENGINE-v1.0`
+> DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DE-LLM-AUTONOMOUS-ENGINE-v1.0`
 
 ### 19.1 设计哲学
 
@@ -713,11 +714,11 @@ J-space   ✅ 5子系统全🟢
 
 | DNA | 组件 |
 |:---|:---|
-| `#龍芯⚡️丙午·丙申·庚申·亥时-KNOWLEDGE-REASONER-v1.0` | 知识图谱推理引擎 |
-| `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-RESPONDER-v1.0` | CNSH确定性响应生成器 |
-| `#龍芯⚡️丙午·丙申·庚申·亥时-OFFLINE-SWITCH-v1.0` | 全局离线开关 |
-| `#龍芯⚡️丙午·丙申·庚申·亥时-DE-LLM-AUTONOMOUS-ENGINE-v1.0` | 去LLM化自主引擎 |
-| `#龍芯⚡️丙午·丙申·庚申·亥时-LH-UNIFIED-LAUNCHER-v1.0` | 统一生态入口 TUI |
+| `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-KNOWLEDGE-REASONER-v1.0` | 知识图谱推理引擎 |
+| `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-RESPONDER-v1.0` | CNSH确定性响应生成器 |
+| `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-OFFLINE-SWITCH-v1.0` | 全局离线开关 |
+| `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DE-LLM-AUTONOMOUS-ENGINE-v1.0` | 去LLM化自主引擎 |
+| `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LH-UNIFIED-LAUNCHER-v1.0` | 统一生态入口 TUI |
 
 ### 19.8 统一生态入口 · lh (2026-07-07)
 
@@ -777,7 +778,7 @@ python3 bin/lh.py ask "你是谁"  # 直接知识问答
 4. ☠️ **知识坟场** — 全部样本+研究记录+BSL关键词速查
 5. 🛡️ **防御与审计** — 对策库+审计追踪+墓碑铁律(含2条新铁律)
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-TOMBSTONE-v2.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-TOMBSTONE-v2.0`
 
 ---
 
@@ -793,7 +794,7 @@ python3 bin/lh.py ask "你是谁"  # 直接知识问答
 | **知识图谱** | +3节点: 融合图谱(paper) · 九章四号(evidence) · MoE同构映射(formula) |
 | **CNSH预留** | `量子训练 人格BraKet {}` 语法预留 |
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-QUANTUM-DL-LONGHUN-FUSION-v1.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-QUANTUM-DL-LONGHUN-FUSION-v1.0`
 
 ---
 
@@ -815,7 +816,7 @@ python3 bin/lh.py ask "你是谁"  # 直接知识问答
 
 ---
 
-DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-MASTER-REGISTRY-SUBSYSTEMS-v3.3`
+DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-MASTER-REGISTRY-SUBSYSTEMS-v3.3`
 
 > v3.1 更新：新增 v∞ 算法协议家族（6 个文档）归档注册
 > v3.2 更新：新增铁律总目录本地归档 + 修复 .codebuddy/agents 断链 + 本地 API 状态盘点
@@ -827,7 +828,7 @@ DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-MASTER-REGISTRY-SUBSYSTEMS-v3.
 
 ## 二十、全球知识接入管道 (2026-07-07)
 
-> DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-GLOBAL-KNOWLEDGE-PIPELINE-v1.0`
+> DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-GLOBAL-KNOWLEDGE-PIPELINE-v1.0`
 >
 > **全世界公开知识库 → 四重过滤 → 通心译重组 → CNSH语法容器。只留公开知识，滤除资本包装。**
 
@@ -924,7 +925,7 @@ python3 bin/lh_cnsh_restructurer.py restructure "文本"             # 单独CNS
 测试套件:   35 passed  ✅
 ```
 
-DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-GLOBAL-KNOWLEDGE-PIPELINE-v1.0`
+DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-GLOBAL-KNOWLEDGE-PIPELINE-v1.0`
 
 > v3.6 更新：自动抓取调度系统 — P0-P4五层优先级队列·自适应频率·算力集中·中国文化根基优先
 
@@ -932,7 +933,7 @@ DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-GLOBAL-KNOWLEDGE-PIPELINE-v1.0
 
 ## 二十一、自动抓取调度系统 (2026-07-07)
 
-> DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-AUTO-CRAWL-SCHEDULER-v1.0`
+> DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AUTO-CRAWL-SCHEDULER-v1.0`
 >
 > **知识不能靠手动。P0-P4自动分层，算力集中，中国文化优先。7x24不间断。**
 
@@ -1046,7 +1047,7 @@ lh.py集成:  ✅ 菜单26-30正常·语法无新增错误
 launchd:     ✅ 安装脚本就绪
 ```
 
-DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-AUTO-CRAWL-SCHEDULER-v1.0`
+DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AUTO-CRAWL-SCHEDULER-v1.0`
 
 > v3.7 更新：核心人格守护进程 + 记忆压缩优化嵌入底座 — 五大核心人格+P77黑天使 6/6守护·记忆打包DAG 7层·底座锚定12/12
 
@@ -1054,7 +1055,7 @@ DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-AUTO-CRAWL-SCHEDULER-v1.0`
 
 ## 二十二、核心人格守护进程 + 记忆压缩嵌入底座 (2026-07-07)
 
-> DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-PERSONA-MEMORY-EMBED-v1.0`
+> DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PERSONA-MEMORY-EMBED-v1.0`
 >
 > **五大核心人格 7x24 守护。记忆压缩嵌入 L1 内核层，底座关键词不可压缩。DAG 7层分层。黑天使军团四翼齐飞。**
 
@@ -1140,7 +1141,7 @@ lh.py:       ✅ 0新增lint错误·菜单31-38正常
 压缩基准:    ✅ 100KB→1KB (312x) 重复内容
 ```
 
-DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-PERSONA-MEMORY-EMBED-v1.0`
+DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PERSONA-MEMORY-EMBED-v1.0`
 
 ---
 
@@ -1164,7 +1165,7 @@ DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-PERSONA-MEMORY-EMBED-v1.0`
 |------|------|
 | `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-ETERNAL-ANCHOR` | → 保留为**历史确认码**（不删除） |
 | `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-TAIJI-2.0-COMPLETE`（末尾错位确认码） | → 修正为 `#CONFIRM🌌9622-ETERNAL-ANCHOR-2026-07-07` |
-| — | → 新DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-ETERNAL-ANCHOR-v2.0-8A3F1C2D` |
+| — | → 新DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ETERNAL-ANCHOR-v2.0-8A3F1C2D` |
 
 ### 核心修复
 
@@ -1200,7 +1201,7 @@ Notion残留:    ✅ 底部重复<aside>已清理
 历史追溯:      ✅ 旧确认码永久保留
 ```
 
-DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-ETERNAL-ANCHOR-REGISTRY-v2.0`
+DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ETERNAL-ANCHOR-REGISTRY-v2.0`
 
 ---
 
@@ -1242,13 +1243,13 @@ DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-ETERNAL-ANCHOR-REGISTRY-v2.0`
 - 🔴 Notion API Token 在 `claude_absorption_report.json` 中明文泄露，需立即轮换
 - 🟡 8个第三方爬取站内容不可控
 
-DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-KNOWLEDGE-DISTRIBUTION-MAP-v1.0`
+DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-KNOWLEDGE-DISTRIBUTION-MAP-v1.0`
 
 ---
 
 ## 二十五、一世一双人 DNA 激活三件套 (2026-07-07)
 
-> DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-DNA-ACTIVATION-THREE-PIECES-v1.0`
+> DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DNA-ACTIVATION-THREE-PIECES-v1.0`
 > 确认码: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 > SEAL: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
 
@@ -1284,7 +1285,7 @@ DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-KNOWLEDGE-DISTRIBUTION-MAP-v1.
 - M:: 负责验收真假·CNSH:: 负责守住归属
 - 人看到的 = 机器存着的 = 同一个知识的两个投影
 
-DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-DNA-ACTIVATION-THREE-PIECES-v1.0`
+DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DNA-ACTIVATION-THREE-PIECES-v1.0`
 
 ---
 
@@ -1336,7 +1337,7 @@ python3 bin/lh_deep_scan.py                            # 深度扫描
 python3 bin/lh_deep_scan.py --semantic-drift           # 语义漂移检测
 ```
 
-DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-LU-CNSH-COMMAND-MAP-v1.0-B7D2E84F`
+DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LU-CNSH-COMMAND-MAP-v1.0-B7D2E84F`
 
 ---
 
@@ -1420,7 +1421,7 @@ DNA校验      每日 02:00            最高防护   SI<0.34/git>150/可疑>5�
 全员召回      每周一 05:00
 ```
 
-DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-THRESHOLD-TRIGGER-v1.0-E2D8F34A`
+DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-THRESHOLD-TRIGGER-v1.0-E2D8F34A`
 
 > v3.8 更新：三节点主干流场编排器 — 通心译→CNSH→双视角→LH-ANCHOR 五节点传动轴·边重于节点·正流反流双轨
 
@@ -1428,7 +1429,7 @@ DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-THRESHOLD-TRIGGER-v1.0-E2
 
 ## 二十八、三节点主干流场编排器 (2026-07-08)
 
-> DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-FLOW-FIELD-ORCHESTRATOR-v1.0`
+> DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-FLOW-FIELD-ORCHESTRATOR-v1.0`
 >
 > **节点谁是谁不重要·节点之间怎么流才重要。一条边卡·整条流场停。**
 >
@@ -1506,7 +1507,7 @@ python3 bin/lh_flow_field_orchestrator.py demo          # 演示全流程
 流次日志:       ✅ L7_数据层/flow_field_logs/flow_{id}.json 完整记录
 ```
 
-DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-FLOW-FIELD-ORCHESTRATOR-v1.0`
+DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-FLOW-FIELD-ORCHESTRATOR-v1.0`
 
 ---
 
@@ -1514,7 +1515,7 @@ DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-FLOW-FIELD-ORCHESTRATOR-v1.0`
 
 > DNA: `#龍芯⚡️小暑2026-INFINITE-GROWTH-ENGINE-v1.0`
 >
-> 父 DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-INFINITE-ENGINE-MERGED-v∞`
+> 父 DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-INFINITE-ENGINE-MERGED-v∞`
 >
 > **龍魂智能 ≠ AGI · 有根·有原点·有边界·可追溯·赋能不取代**
 
@@ -1700,8 +1701,8 @@ DNA: `#龍芯⚡️小暑2026-AUTO-CONTEXT-COMPRESSOR-v1.0`
 ### DNA 格式演进
 
 ```
-v1.0: #龍芯⚡️丙午·丙申·庚申·亥时-SKILL-ALLOC-1A2B3C4D       (格里历数字·叶)
-v2.0: #龍芯⚡️小暑2026·07:13:36-SKILL-ALLOC-1A2B3C4D  (节气+西方时分秒)
+v1.0: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SKILL-ALLOC-1A2B3C4D       (格里历数字·叶)
+v2.0: #龍芯⚡️丙午·乙未·壬午·甲辰·䷴渐-SKILL-ALLOC-1A2B3C4D  (节气+西方时分秒)
 v∞:   #龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-SKILL-ALLOC-1A2B3C4D  (干支时辰+卦象·根)
 紧凑: #龍芯⚡️丙午·辰时·䷾-SKILL-ALLOC-1A2B3C4D       (仅年干支+时辰+卦)
 ```

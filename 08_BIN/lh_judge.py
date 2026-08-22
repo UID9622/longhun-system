@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 ⚖️ 龍魂·公正总裁 / 首席审计员 · 本地 CLI
-DNA: #龍芯⚡️丙午·乙未·甲辰·火雷噬嗑-JUDGE-CLI-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷔噬-JUDGE-CLI-v1.0
 
 调用鲲鹏上的 longhun-judge API 服务。
 默认 API: https://uid9622.cn/api/judge

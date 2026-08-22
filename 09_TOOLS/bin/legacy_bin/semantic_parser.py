@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 from __future__ import annotations
 """
 🧠 龍魂·语义解析引擎 v2.0 — 中英双轨分离
-DNA: #龍芯⚡️2026-07-06-SEMANTIC-PARSER-v2.0-DUALTRACK
+DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-SEMANTIC-PARSER-v2.0-DUALTRACK
 
 核心原则：
   🇨🇳 中文轨 — 语义抽屉式：模糊匹配、近义词扩展、随便说 → 纯中文命令
@@ -28,7 +29,7 @@ from pathlib import Path
 from typing import Any, Optional, Tuple, Dict
 from datetime import datetime, timezone
 
-DNA = "#龍芯⚡️2026-07-06-SEMANTIC-PARSER-v2.0-DUALTRACK"
+DNA = "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-SEMANTIC-PARSER-v2.0-DUALTRACK"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CACHE_DIR = Path.home() / ".longhun" / "semantic"
 CACHE_FILE_CN = CACHE_DIR / "command_map_cn.json"

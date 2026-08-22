@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 LongHun System - Full Training Pipeline v2.0
-DNA: #龍芯⚡️2026-07-18-TRAIN-FULL-v2.0
+DNA: #龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-TRAIN-FULL-v2.0
 Confirm: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
@@ -22,7 +23,7 @@ DEFAULT_CONFIG = {
     "base_model": "~/models/llama-3-8b",
     "data_path": "~/longhun-data/clean_998.jsonl",
     "output_dir": "~/longhun-models/",
-    "dna_tag": "#龍芯⚡️2026-07-18-TRAIN-FULL-v2.0",
+    "dna_tag": "#龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-TRAIN-FULL-v2.0",
     "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
 
     "lora_r": 16,
@@ -52,7 +53,7 @@ class DataQualityChecker:
             "total": 0, "valid": 0, "duplicates": 0,
             "too_short": 0, "too_long": 0, "value_violations": 0
         }
-        self.dna = "#龍芯⚡️2026-07-18-DATA-CHECK-v1.0"
+        self.dna = "#龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-DATA-CHECK-v1.0"
 
     def check(self, data_path):
         print(f"[CHECK] Data quality: {data_path}")
@@ -128,7 +129,7 @@ class EarlyStopMonitor:
         self.counter = 0
         self.best_loss = float('inf')
         self.best_step = 0
-        self.dna = "#龍芯⚡️2026-07-18-EARLY-STOP-v1.0"
+        self.dna = "#龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-EARLY-STOP-v1.0"
 
     def check(self, step, val_loss):
         if val_loss < self.best_loss - self.min_delta:
@@ -170,7 +171,7 @@ class LongHunEvaluator:
                 "weight": 0.3
             }
         ]
-        self.dna = "#龍芯⚡️2026-07-18-EVAL-v1.0"
+        self.dna = "#龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-EVAL-v1.0"
 
     def evaluate(self, model, tokenizer, device="mps"):
         print(f"[EVAL] Running evaluation protocol")
@@ -226,7 +227,7 @@ class LongHunArchive:
 
     def __init__(self, config):
         self.config = config
-        self.dna = "#龍芯⚡️2026-07-18-ARCHIVE-v1.0"
+        self.dna = "#龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-ARCHIVE-v1.0"
 
     def seal(self, model_path, data_path, report):
         archive_dir = os.path.expanduser(

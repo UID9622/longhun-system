@@ -1,7 +1,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · QA补全（101-106）
-> DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-QA-EXTENDED-101-106-v1.0-7d2e4f81
+> DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-QA-EXTENDED-101-106-v1.0-7d2e4f81
 > 创建者: 诸葛鑫（UID9622）
 > 协议: CC BY-NC-SA 4.0
 > 来源: https://uid9622-01.blog.csdn.net/article/details/162926040（龍魂系统100问）
@@ -120,7 +120,7 @@ P0协议第十三条禁令：龍魂系统永不出售、不可收购、不可转
 
 ---
 
-> DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-QA-EXTENDED-101-106-v1.0-7d2e4f81
+> DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-QA-EXTENDED-101-106-v1.0-7d2e4f81
 > 签章: UID9622 ✅
 > 三色: 🟢 全文P0焊死·不可删改
 > 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

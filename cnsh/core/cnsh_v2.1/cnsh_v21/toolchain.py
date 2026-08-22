@@ -2,9 +2,10 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 CNSH v2.1 CLI 工具链
-DNA: #龍芯⚡️2026-06-29-CNSH-TOOLCHAIN-v2.1
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-TOOLCHAIN-v2.1
 
 子命令：
 - cnsh run <file>
@@ -93,7 +94,7 @@ def cmd_init(args):
     main_file = root / config["entry"]
     if not main_file.exists():
         main_file.write_text(
-            f'# DNA: #龍芯⚡️2026-06-29-{args.name}-v0.1.0\n\n'
+            f'# DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-{args.name}-v0.1.0\n\n'
             f'输出("欢迎来到 {args.name}！")\n',
             encoding="utf-8",
         )

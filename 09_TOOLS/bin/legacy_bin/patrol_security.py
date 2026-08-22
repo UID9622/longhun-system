@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂安全巡檢 · LongHun Security Patrol
 ═══════════════════════════════════════════
-# DNA:#龍芯⚡️2026-07-06-PATROL-SECURITY-v1.0
+# DNA:#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-PATROL-SECURITY-v1.0
 # 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬CODE-P01
 # 创建者：UID9622（诸葛鑫）
 # 权重级别：L1（核心安全）

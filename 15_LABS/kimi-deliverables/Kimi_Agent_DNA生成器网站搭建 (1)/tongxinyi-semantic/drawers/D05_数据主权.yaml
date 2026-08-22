@@ -1,0 +1,37 @@
+# 龍魂语义抽屉 · D05 · 数据主权
+# 归属: 龍魂系统 UID9622 · 通心译引用源
+# 状态机: 种子 → 审核 → 焊死(P0冻结, 不可改只冻结)
+# 引用语法: @D05.{词元}  例: @D05.追码
+
+drawer: D05
+name: 数据主权
+count: 4
+entries:
+  - term: "追码"
+    alias: ["DNA追溯", "溯源"]
+    en: "trace"
+    cnsh: "追码"
+    gua: "䷙大畜"
+    status: "种子"
+    note: "全链路追溯"
+  - term: "入账"
+    alias: ["登记注册表", "入库"]
+    en: "registry add"
+    cnsh: "入账"
+    gua: "䷚颐"
+    status: "种子"
+    note: "写入dna_registry"
+  - term: "指纹"
+    alias: ["哈希", "校验和"]
+    en: "sha256/sm3"
+    cnsh: "指纹"
+    gua: "䷛大过"
+    status: "种子"
+    note: "内容指纹校验"
+  - term: "锚定"
+    alias: ["绑定", "DNA锚定"]
+    en: "anchor"
+    cnsh: "锚定"
+    gua: "䷜坎"
+    status: "种子"
+    note: "身份/设备锚定"

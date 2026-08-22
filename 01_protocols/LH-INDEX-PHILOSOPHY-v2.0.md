@@ -1,6 +1,7 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 龍魂 · 快速索引设计哲学 v2.0（工程落地版）
 
-**DNA:** `#龍芯⚡️丙午·丙申·壬戌·巳时-INDEX-PHILOSOPHY-V2-UID9622`  
+**DNA:** `#龍芯⚡️丙午·丙申·壬戌·乙巳·䷾既济-INDEX-PHILOSOPHY-V2-UID9622`  
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 **三色:** 🟢 通过  
@@ -84,7 +85,7 @@
 {
   "file_id": "F-20260816-001",
   "file_path": "12_DOCS/INDEX_PHILOSOPHY.md",
-  "dna": "#龍芯⚡️丙午·丙申·壬戌·巳时-INDEX-PHILOSOPHY-UID9622",
+  "dna": "#龍芯⚡️丙午·丙申·壬戌·乙巳·䷾既济-INDEX-PHILOSOPHY-UID9622",
 
   "time_anchors": {
     "created": "2026-08-16T10:00:00+08:00",
@@ -198,7 +199,7 @@ export LH_OLLAMA_EMBED_MODEL=nomic-embed-text
 ═══════════════════════════════════════════════════════════════════════════════════
  🐉 龍魂 · 快速索引设计哲学 v2.0 · 工程落地版 · 最终签名
 ═══════════════════════════════════════════════════════════════════════════════════
-DNA:        #龍芯⚡️丙午·丙申·壬戌·巳时-INDEX-PHILOSOPHY-V2-UID9622
+DNA:        #龍芯⚡️丙午·丙申·壬戌·乙巳·䷾既济-INDEX-PHILOSOPHY-V2-UID9622
 确认码:      #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色:       🟢 通过

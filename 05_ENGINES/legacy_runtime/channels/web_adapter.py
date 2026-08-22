@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂引擎 · Web通道适配器
 =============================
@@ -13,7 +14,7 @@
   python3 引擎/channels/web_adapter.py
   端口: 9639 (默认)
 
-DNA: #龍芯⚡️丙午·乙未·甲子·申时·需-WEB-ADAPTER-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲子·申时·䷄需-WEB-ADAPTER-v1.0
 """
 
 from __future__ import annotations
@@ -36,7 +37,7 @@ from 引擎.message import Message, Response, Channel, AuditLevel
 from 引擎.engine_core import LonghunEngine
 
 CST = timezone(timedelta(hours=8))
-DNA = "#龍芯⚡️丙午·乙未·甲子·申时·需-WEB-ADAPTER-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·甲子·申时·䷄需-WEB-ADAPTER-v1.0"
 WEB_BOT_PORT = int(os.getenv("WEB_BOT_PORT", "9639"))
 
 engine = LonghunEngine(safe_mode=True)

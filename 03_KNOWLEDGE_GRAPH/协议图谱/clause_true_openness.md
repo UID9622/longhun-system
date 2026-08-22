@@ -9,7 +9,7 @@
 - **layer**: L2
 - **type**: clause
 - **title**: 真开放批判条款
-- **dna**: `#龍芯⚡️丙午·辛未·乙酉·巳时·同人-LONGHUN-CLAUSE-TRUE-OPENNESS-3B7E9C1A`
+- **dna**: `#龍芯⚡️丙午·辛未·乙酉·巳时·䷌同人-LONGHUN-CLAUSE-TRUE-OPENNESS-3B7E9C1A`
 - **owner**: 💎 龍芯北辰｜UID9622
 - **immutable**: false
 - **created**: 丙午·辛未·乙酉·巳时
@@ -40,7 +40,7 @@
 - 下游：`clause_auto_audit`（自动审计伪开放）、`clause_dispute_resolution`（红蓝对抗裁定）
 
 ## 引用格式
-`[[clause_true_openness]]·DNA:#龍芯⚡️丙午·辛未·乙酉·巳时·同人-LONGHUN-CLAUSE-TRUE-OPENNESS-3B7E9C1A`
+`[[clause_true_openness]]·DNA:#龍芯⚡️丙午·辛未·乙酉·巳时·䷌同人-LONGHUN-CLAUSE-TRUE-OPENNESS-3B7E9C1A`
 
 ## 确认码
 `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅`

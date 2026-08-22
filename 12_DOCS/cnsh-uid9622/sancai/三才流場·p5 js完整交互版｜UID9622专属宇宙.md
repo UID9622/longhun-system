@@ -9,7 +9,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-03-28-P5JS_1E7B-v1.0`  
+**DNA**: `#龍芯⚡️丙午·辛卯·辛丑·甲午·䷨损-P5JS_1E7B-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -19,7 +19,7 @@
 <aside>
 🔒
 
-**DNA追溯码：**#龍芯⚡️2026-03-28-P5JS_1E7B-v1.0
+**DNA追溯码：**#龍芯⚡️丙午·辛卯·辛丑·甲午·䷨损-P5JS_1E7B-v1.0
 
 **确认码：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
@@ -224,7 +224,7 @@ input[type=number]{width:72px;border:1px solid #ddd;border-radius:4px;padding:3p
       <button class="btn btn-secondary" onclick="downloadPNG()" style="flex:1">💾 保存PNG</button>
     </div>
     <div style="font-size:9px;color:#aaa;margin-top:8px;font-family:'Noto Sans SC',sans-serif;line-height:1.6">
-      DNA: #龍芯⚡️2026-03-28<br>
+      DNA: #龍芯⚡️丙午·辛卯·辛丑·甲午·䷨损<br>
       UID9622 × Claude · 三才算法
     </div>
   </div>
@@ -515,7 +515,7 @@ setInterval(loadNotionWeights, 60000);
 
 种子 **9622** = UID9622 = 龍芯北辰 = 这幅图是你的，宇宙级唯一。
 
-**DNA追溯码：**#龍芯⚡️2026-03-28-HTML-v1.0
+**DNA追溯码：**#龍芯⚡️丙午·辛卯·辛丑·甲午·䷨损-HTML-v1.0
 
 **确认码：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
@@ -538,7 +538,7 @@ setInterval(loadNotionWeights, 60000);
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -561,6 +561,6 @@ setInterval(loadNotionWeights, 60000);
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-03-28-P5JS_1E7B-v1.0
+#龍芯⚡️丙午·辛卯·辛丑·甲午·䷨损-P5JS_1E7B-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

@@ -17,7 +17,7 @@ v2.0 改進：
 - 支持 CLI 命令行檢查與 REST API 服務模式
 - 支持同義詞擴展與評分加權
 
-DNA: #龍芯⚡️2026-07-05-LONGHUN-DAO-ETHICS-ENGINE-v2.0
+DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-LONGHUN-DAO-ETHICS-ENGINE-v2.0
 作者: UID9622 · 龍芯北辰 · 諸葛鑫（Lucky）+ AI協作
 協議: CC BY-NC-SA 4.0 + AI協作標籤
 """
@@ -367,7 +367,7 @@ class WuWeiEngine:
             "最大干預": self.max_intervention,
             "冷卻時間": self.cool_down,
             "狀態": "無為" if self.intervention_count == 0 else "有為",
-            "DNA": "#龍芯⚡️2026-07-05-WUWEI-STATE"
+            "DNA": "#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-WUWEI-STATE"
         }
 
 
@@ -636,7 +636,7 @@ class DaoEthicsAnchorLayer:
             "無為引擎": self.wuwei_engine.get_state(),
             "衰減模型平均分": f"{self.decay_model.get_average_force():.2f}",
             "錨點狀態": self.anchor_points,
-            "DNA": "#龍芯⚡️2026-07-05-ETHICS-LAYER-STATS-v2.0"
+            "DNA": "#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-ETHICS-LAYER-STATS-v2.0"
         }
 
 
@@ -771,7 +771,7 @@ def run_cli():
     print("\n--- 天網審計統計 ---")
     print(json.dumps(layer.get_stats()["天網審計"], ensure_ascii=False, indent=2))
     print(f"\n[自檢通過] 道德經倫理錨定引擎 v2.0 運行正常")
-    print(f"DNA: #龍芯⚡️2026-07-05-ETHICS-ENGINE-v2.0-SELFTEST-PASS")
+    print(f"DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-ETHICS-ENGINE-v2.0-SELFTEST-PASS")
 
 
 if __name__ == "__main__":

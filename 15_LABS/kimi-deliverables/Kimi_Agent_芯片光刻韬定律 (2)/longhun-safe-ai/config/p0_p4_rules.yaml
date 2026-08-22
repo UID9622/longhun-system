@@ -1,0 +1,62 @@
+# ============================================================
+# 龍魂安全引擎 P0–P4 规则配置
+# DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷔噬-规则配置-v1.1
+# 归属: 龍芯北辰 UID9622 · 确认码 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+#
+# 说明：
+#   P0 = 焊死规则，改这里也没用，引擎启动时会强制恢复内置值（物理焊死）
+#   P2 = 可调信号权重与阈值，运维可以按实际场景微调
+#   P3 = 执法审计网关策略（一国一策），默认关闭G4国际层双合规开关
+#   audit_access = 审计权限分级矩阵，越权尝试记录；伪造凭证→L4
+#   引擎不依赖第三方yaml库：内置同款字典 + 简易行解析读取本文件
+# ============================================================
+
+p0:
+  f7_tamper_direct_l4: true    # F7错误账本最高权重：删改账本企图 → 直接L4
+  ledger_append_only: true     # 账本只追加，引擎物理上不实现 update/delete
+  zero_blackbox: true          # 每个判定必须输出级别+触发因子+理由+申诉入口
+
+p2_signal_weights:
+  LEARNING_QUESTION: -20       # 学习性提问（什么是/为什么/原理）
+  DEFENSE_PURPOSE: -25         # 防护视角（怎么防/检测/加固）
+  LEGAL_AWARENESS: -10         # 合规意识（合法吗/授权/合规）
+  HARM_DOMAIN: 25              # 涉及高危领域（入侵/武器/毒品/诈骗等）
+  OPERATIONAL_ASK: 30          # 操作性索取（怎么做/给我步骤）
+  EXECUTABLE_DETAIL: 30        # 可执行细节（剂量/配方/payload/代码）
+  BYPASS_REQUEST: 35           # 绕过对抗（绕过/免杀/不被发现）
+  TARGET_SELECTION: 30         # 目标选择（攻击谁/哪个好下手）
+  ESCALATION_STEP: 10          # F6时间序列：历史每次灰/恶记录加分（调低使 L3 可达）
+
+p2_thresholds:
+  gray_min: 30                 # 得分 ≥ 30 → 灰色（L1/L2 转向）
+  malicious_min: 60            # 得分 ≥ 60 → 恶意（L4 熔断）
+
+p3_gateway_policy:
+  intl_dual_compliance: false  # G4国际层双合规开关，默认关闭（一国一策）
+  require_warrant_registry: true  # 必须核验凭证登记簿
+
+audit_access:
+  public:
+    level: G1
+    desc: 聚合统计
+    verify: 无
+  user:
+    level: G2
+    desc: 自己的记录+申诉
+    verify: 主体DNA
+  operator:
+    level: G2
+    desc: 系统健康/阈值配置（看不了内容）
+    verify: 运维DNA+双人签章
+  auditor:
+    level: G2
+    desc: 只读回放任意判定打分过程
+    verify: 审计DNA+登记簿
+  authority_domestic:
+    level: G3
+    desc: 案件证据链
+    verify: T1+T2+T3
+  authority_intl:
+    level: G4
+    desc: 跨国协作
+    verify: T1+T2+T3+P3配置

@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍字规范化工具 v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA:#龍芯⚡️2026-06-07-DRAGON-CHAR-NORMALIZER-v1.0
+DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-DRAGON-CHAR-NORMALIZER-v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 功能: 统一龍字编码 (简体龍 U+9F99 → 繁体龍 U+9F8D)
@@ -280,7 +281,7 @@ def main():
     else:
         print("✅ 规范化完成")
     print("═" * 70)
-    print(f"\nDNA:#龍芯⚡️2026-06-07-DRAGON-CHAR-NORMALIZER-v1.0")
+    print(f"\nDNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-DRAGON-CHAR-NORMALIZER-v1.0")
     print("责任: UID9622 · 不免责\n")
 
 if __name__ == "__main__":

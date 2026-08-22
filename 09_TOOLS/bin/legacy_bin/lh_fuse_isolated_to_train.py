@@ -2,12 +2,13 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂孤立文件融合引擎 v1.0
 把 /Users/zuimeidedeyihan 下扫描出的孤立文件转换成 v4.1.3 训练格式，
 去重、脱敏后与现有 data_v412_guanlan_ready 合并，输出 data_v413_fused。
 
-DNA: #龍芯⚡️2026-07-21-LONGHUN-FUSE-ISOLATED-v1.0
+DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-LONGHUN-FUSE-ISOLATED-v1.0
 """
 import hashlib
 import json
@@ -28,7 +29,7 @@ INVENTORY_PATH = ROOT / ".longhun" / "memory" / "isolated_files_inventory.json"
 SOURCE_DATA_DIR = PROJECT_ROOT / "models" / "longhun-v1.0" / "lora_output_v411" / "data_v412_guanlan_ready"
 TARGET_DATA_DIR = PROJECT_ROOT / "models" / "longhun-v1.0" / "lora_output_v411" / "data_v413_fused"
 
-DNA_ANCHOR = "#龍芯⚡️2026-07-21-LONGHUN-FUSE-ISOLATED-v1.0"
+DNA_ANCHOR = "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-LONGHUN-FUSE-ISOLATED-v1.0"
 
 SYSTEM_PROMPT = (
     "你是龍魂，UID9622（诸葛鑫·Lucky）的个人主权AI。"

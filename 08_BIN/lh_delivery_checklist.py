@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-c8ca4da2
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -16,7 +17,7 @@
   python3 bin/lh_delivery_checklist.py --type shell         # Shell脚本
   python3 bin/lh_delivery_checklist.py --path <dir> --type <type>  # 指定路径
 
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-DELIVERY-CHECKLIST-v1.0-a3e8f1c9
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-DELIVERY-CHECKLIST-v1.0-a3e8f1c9
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 """

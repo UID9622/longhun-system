@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 · 中国文化章节独立页面生成器
 读取 中国文化章节.json，批量生成带真实视觉不动点的独立 HTML 页面。
-DNA: #龍芯⚡️2026-07-04-LONGHUN-CHAPTER-PAGES-v1.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-CHAPTER-PAGES-v1.0
 """
 
 import json
@@ -15,7 +16,7 @@ import time
 import hashlib
 from pathlib import Path
 
-DNA = "#龍芯⚡️2026-07-04-LONGHUN-CHAPTER-PAGES-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-CHAPTER-PAGES-v1.0"
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 DATA_DIR = BASE_DIR / "api" / "data"
 CHAPTER_FILE = DATA_DIR / "中国文化章节.json"

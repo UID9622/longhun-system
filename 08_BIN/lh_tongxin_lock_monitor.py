@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 # ╔══════════════════════════════════════════════════════════════╗
 # ║  龍魂·同心锁状态监控 v1.0                                    ║
-# ║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-LOCK-MONITOR-v1.0       ║
+# ║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-LOCK-MONITOR-v1.0       ║
 # ║  守护人格: 乔前辈(P04鲁班)                                  ║
 # ║  签章: JOE-EYE-2026                                         ║
 # ╚══════════════════════════════════════════════════════════════╝
@@ -19,7 +19,7 @@
     python3 bin/lh_tongxin_lock_monitor.py --once       # 单次审计
     python3 bin/lh_tongxin_lock_monitor.py selftest     # 自检
 """
-DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-LOCK-MONITOR-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-LOCK-MONITOR-v1.0"
 创建者 = "诸葛鑫（UID9622）"
 协议 = "CC BY-NC-SA 4.0"
 

@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 > 本文档按《龍魂文档标准模板 v1.0》整理。
@@ -10,7 +10,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-06-06-CODE-AUDIT-FILE1-FILE1-FILE1-v3.0-1`  
+**DNA**: `#龍芯⚡️丙午·甲午·辛亥·甲午·䷚颐-CODE-AUDIT-FILE1-FILE1-FILE1-v3.0-1`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -33,7 +33,7 @@
 - **优先级**: 10
 - **需要认证**: 是
 - **需要批准**: 是
-- **DNA签章**:#龍芯⚡️2026-06-06-CODE-AUDIT-FILE1-FILE1-v3.0-1
+- **DNA签章**:#龍芯⚡️丙午·甲午·辛亥·甲午·䷚颐-CODE-AUDIT-FILE1-FILE1-v3.0-1
 
 ## 同步信息
 
@@ -62,7 +62,7 @@
   - [1] 知识矩阵总纲 v3.0 · 第伍章·三色审计·三次阈值 (#UID9622⚡️2026-06-16-KNOWLEDGE-MATRIX-MASTER-v3.0)
   - [2] CNSH-PROTOCOL.md · B4审计层规范
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
   - `bin/audit_plugin_base.py` — B4审计插件基座
   - `audit/audit_api.py` — 64卦审计引擎API
 
@@ -139,6 +139,6 @@ P05 扫描 → ERROR/WARNING 分级
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-06-06-CODE-AUDIT-FILE1-FILE1-v3.0-1
+#龍芯⚡️丙午·甲午·辛亥·甲午·䷚颐-CODE-AUDIT-FILE1-FILE1-v3.0-1
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂系统 · 水军显化补丁内核 v1.2
 作者：诸葛鑫（UID9622）
-DNA: #龍芯⚡️2026-07-19-SHUIJUN-DISCLOSE-V1.2-PATCH
+DNA: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-SHUIJUN-DISCLOSE-V1.2-PATCH
 """
 
 import hashlib
@@ -17,7 +18,7 @@ W7 = {"设备": 0.20, "关联簇": 0.20, "地理IP": 0.10, "时间": 0.15,
 
 
 class CNSH_水军补丁内核:
-    DNA = "#龍芯⚡️2026-07-19-SHUIJUN-DISCLOSE-V1.2-PATCH"
+    DNA = "#龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-SHUIJUN-DISCLOSE-V1.2-PATCH"
 
     # ===== 3.2/4.1 七因子综合可信度（置信门≥5/7） =====
     def 可信度(self, 因子分: dict[str, Any]) -> dict[str, Any]:

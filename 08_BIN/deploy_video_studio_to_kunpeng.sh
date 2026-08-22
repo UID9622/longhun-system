@@ -74,7 +74,7 @@ mkdir -p "${REMOTE_ROOT}/data/3d_forge"
 mkdir -p /root/.longhun
 cat > /root/.longhun/config.yaml <<'CFG'
 # 龍魂引擎主控 · 服务器配置
-# DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·临-LH-CTL-CONFIG-SERVER-v1.0
+# DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH-CTL-CONFIG-SERVER-v1.0
 
 longhun:
   root: /opt/longhun

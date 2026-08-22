@@ -2,13 +2,14 @@
 # -*- coding: utf-8 -*-
 """
 龍魂中文编辑开发环境
-DNA: #龍芯⚡️2026-06-26-LONGHUN-CHINESE-EDITOR-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-CHINESE-EDITOR-v1.0
 
 本地闭环 · 中文优先 · 不依赖外部编辑器与渲染环境
 """
 
 __version__ = "1.1.0"
-__dna__ = "#龍芯⚡️2026-06-26-LONGHUN-CHINESE-EDITOR-v1.1"
+__dna__ = "#龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-CHINESE-EDITOR-v1.1"
 
 from .api import (
     check_source,

@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 import os as _os
 import sys as _sys
@@ -12,7 +13,7 @@ if _module_dir not in _sys.path:
 CNSH 内容加工管道 v1.0
 用途：接收任意协议/需求/内容，输出 CNSH 中文语法 + 国密 SM3/SM4 + Python 可执行代码
 原则：只翻译不破解、保留 DNA 与主权声明、不覆盖原内容、测试通过才放行
-DNA: #龍芯⚡️2026-06-29-CNSH-PIPELINE-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-PIPELINE-UID9622
 """
 
 import json
@@ -141,7 +142,7 @@ if __name__ == "__main__":
 {'='*60}
 生成时间: {时间戳}
 {DNA}
-原始 DNA: #龍芯⚡️2026-06-29-CNSH-PIPELINE-UID9622
+原始 DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-PIPELINE-UID9622
 
 【加工结果】
 - 标题: {加工结果['标题']}
@@ -179,7 +180,7 @@ if __name__ == "__main__":
 if __name__ == "__main__":
     管道 = CNSH_内容加工管道()
     测试内容 = """
-#龍芯⚡️2026-06-29-TEST-UID9622
+#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-TEST-UID9622
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 协议：测试协议
 核心：人民第一、护弱底线、排序不动点

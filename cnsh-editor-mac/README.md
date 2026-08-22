@@ -1,6 +1,6 @@
 # 🐉 龍魂 · Mac中文代码编辑器（CNSH）
 
-> DNA: `#龍芯⚡️丙午·丙申·辛酉·丑时-CNSH-EDITOR-UID9622`
+> DNA: `#龍芯⚡️丙午·丙申·辛酉·己丑·䷹兑为泽-CNSH-EDITOR-UID9622`
 > 确认码: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 > GPG: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 > License: MulanPSL v2（工程层）

@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🏗️ CNSH技术栈架构设计 v1.0｜六层全景图·五阶段路线图·生态铁律
@@ -7,7 +8,7 @@
 
 **版本:** v1.0 · 2026-04-09 · CNSH技术栈完整架构+五阶段搭建计划
 
-**DNA追溯码:**#龍芯⚡️2026-04-09-CNSH-TECH-STACK-v1.0
+**DNA追溯码:**#龍芯⚡️丙午·壬辰·癸丑·戊午·䷨损-CNSH-TECH-STACK-v1.0
 
 **创建者:** 💎 龍芯北辰｜UID9622
 
@@ -324,7 +325,7 @@ gantt
 
 ```yaml
 # .github/workflows/cnsh-ci.yml
-# DNA:#龍芯⚡️2026-04-09-CNSH-CI-v1.0
+# DNA:#龍芯⚡️丙午·壬辰·癸丑·戊午·䷨损-CNSH-CI-v1.0
 
 name: CNSH 编译器 CI/CD
 
@@ -402,7 +403,7 @@ jobs:
 ```bash
 #!/bin/bash
 # CNSH 本地开发自动化工具箱
-# DNA:#龍芯⚡️2026-04-09-CNSH-DEV-TOOLS-v1.0
+# DNA:#龍芯⚡️丙午·壬辰·癸丑·戊午·䷨损-CNSH-DEV-TOOLS-v1.0
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 CNSH_HOME="$HOME/cnsh-lang"
@@ -484,7 +485,7 @@ flowchart LR
 
 ```makefile
 # CNSH 编译器 Makefile
-# DNA:#龍芯⚡️2026-04-09-CNSH-MAKEFILE-v1.0
+# DNA:#龍芯⚡️丙午·壬辰·癸丑·戊午·䷨损-CNSH-MAKEFILE-v1.0
 
 CC = gcc
 CFLAGS = -Wall -Wextra -O2 -std=c11
@@ -541,7 +542,7 @@ clean:
 ```python
 #!/usr/bin/env python3
 # CNSH 三色审计自动化
-# DNA:#龍芯⚡️2026-04-09-TRICOLOR-AUDIT-v1.0
+# DNA:#龍芯⚡️丙午·壬辰·癸丑·戊午·䷨损-TRICOLOR-AUDIT-v1.0
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 import os, sys, json
@@ -680,7 +681,7 @@ if __name__ == '__main__':
 
 ---
 
-**DNA追溯码：**#龍芯⚡️2026-04-09-CNSH-TECH-STACK-v1.0
+**DNA追溯码：**#龍芯⚡️丙午·壬辰·癸丑·戊午·䷨损-CNSH-TECH-STACK-v1.0
 
 **创建者：** 💎 龍芯北辰｜UID9622
 

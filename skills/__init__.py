@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 龍魂系统 · Skill 注册管理核心
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 LongHun System · Skill Registry Core
 
-DNA:#龍芯⚡️2026-06-16-SKILL-REGISTRY-FILE1-v2.0
+DNA:#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-SKILL-REGISTRY-FILE1-v2.0
 责任: UID9622·不免责
 
 提供统一接口：
@@ -93,7 +94,7 @@ class SkillRegistry:
         return {
             "total": len(self.skills),
             "skills": list(self.skills.values()),
-            "dna": "#龍芯⚡️2026-06-16-SKILL-REGISTRY-v2.0",
+            "dna": "#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-SKILL-REGISTRY-v2.0",
         }
 
 

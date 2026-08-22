@@ -1,0 +1,182 @@
+{
+  "scope": "audit",
+  "exported_by": "auditor",
+  "exported_name": "审计员·甲",
+  "exported_role": "R4",
+  "exported_role_name": "审计人员",
+  "ts": "2026-08-20T12:29:27",
+  "ip": "127.0.0.1",
+  "ip_geo": {
+    "country": "中国",
+    "region": "本机回环",
+    "city": "本机回环",
+    "isp": "LOOPBACK",
+    "source": "offline-builtin(APNIC/CNNIC 2024)"
+  },
+  "engine_version": "v2.3",
+  "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "audit_log": [
+    {
+      "ts": "2026-08-20T09:54:53",
+      "action": "login",
+      "ip": "127.0.0.1",
+      "ok": false,
+      "detail": "密钥错误",
+      "dna": "[[GENERATED_BY_LH_DNA_GENERATOR_V3]]-TIANYAN-OPS-v2.2"
+    },
+    {
+      "ts": "2026-08-20T09:54:53",
+      "action": "login",
+      "ip": "127.0.0.1",
+      "ok": true,
+      "detail": "",
+      "dna": "[[GENERATED_BY_LH_DNA_GENERATOR_V3]]-TIANYAN-OPS-v2.2"
+    },
+    {
+      "ts": "2026-08-20T09:55:01",
+      "action": "audit",
+      "ip": "127.0.0.1",
+      "ok": false,
+      "detail": "rc=2",
+      "dna": "[[GENERATED_BY_LH_DNA_GENERATOR_V3]]-TIANYAN-OPS-v2.2"
+    },
+    {
+      "ts": "2026-08-20T12:12:35",
+      "action": "login",
+      "ip": "127.0.0.1",
+      "ip_geo": "中国·本机回环·LOOPBACK",
+      "account": "root",
+      "name": "",
+      "role": "R5",
+      "ok": false,
+      "detail": "账号[root]密钥错误",
+      "prev_hash": "GENESIS",
+      "hash": "9bb728ef8fe15e4d5a8523b10851459468e5be26fdfd98dfda2910b6c2db3d6d"
+    },
+    {
+      "ts": "2026-08-20T12:12:35",
+      "action": "login",
+      "ip": "127.0.0.1",
+      "ip_geo": "中国·本机回环·LOOPBACK",
+      "account": "root",
+      "name": "诸葛鑫（UID9622）",
+      "role": "R1",
+      "ok": true,
+      "detail": "角色=R1",
+      "prev_hash": "9bb728ef8fe15e4d5a8523b10851459468e5be26fdfd98dfda2910b6c2db3d6d",
+      "hash": "fb8e6549330ce002b6faec02c49ab4ce4d8972b136a69c5690bfd0c4ed5fc6b0"
+    },
+    {
+      "ts": "2026-08-20T12:20:52",
+      "action": "login",
+      "ip": "127.0.0.1",
+      "ip_geo": "中国·本机回环·LOOPBACK",
+      "account": "root",
+      "name": "",
+      "role": "R5",
+      "ok": false,
+      "detail": "账号[root]密钥错误",
+      "prev_hash": "fb8e6549330ce002b6faec02c49ab4ce4d8972b136a69c5690bfd0c4ed5fc6b0",
+      "hash": "46ab9f043804c4074e90c602d345bccfea564b453c3753a4122b6c057722af89"
+    },
+    {
+      "ts": "2026-08-20T12:20:54",
+      "action": "login",
+      "ip": "127.0.0.1",
+      "ip_geo": "中国·本机回环·LOOPBACK",
+      "account": "root",
+      "name": "诸葛鑫（UID9622）",
+      "role": "R1",
+      "ok": true,
+      "detail": "角色=R1",
+      "prev_hash": "46ab9f043804c4074e90c602d345bccfea564b453c3753a4122b6c057722af89",
+      "hash": "68fcae75b1735724c39689cfde0f078341d7fae8ff670259d55abb734265e003"
+    },
+    {
+      "ts": "2026-08-20T12:21:48",
+      "action": "export",
+      "ip": "127.0.0.1",
+      "ip_geo": "中国·本机回环·LOOPBACK",
+      "account": "root",
+      "name": "诸葛鑫（UID9622）",
+      "role": "R1",
+      "ok": true,
+      "detail": "scope=all",
+      "prev_hash": "68fcae75b1735724c39689cfde0f078341d7fae8ff670259d55abb734265e003",
+      "hash": "c82ee436bdb85a445f35985ff99ab688976796400528aa4c524ad7b4498175b2"
+    },
+    {
+      "ts": "2026-08-20T12:21:48",
+      "action": "verify",
+      "ip": "127.0.0.1",
+      "ip_geo": "中国·本机回环·LOOPBACK",
+      "account": "root",
+      "name": "诸葛鑫（UID9622）",
+      "role": "R1",
+      "ok": false,
+      "detail": "审计链校验",
+      "prev_hash": "c82ee436bdb85a445f35985ff99ab688976796400528aa4c524ad7b4498175b2",
+      "hash": "3e3520ce1c34e2f767a7aba70726d298073e6c3fe4a64122fe9f6c66849a4006"
+    },
+    {
+      "ts": "2026-08-20T12:22:29",
+      "action": "opslog",
+      "ip": "127.0.0.1",
+      "ip_geo": "中国·本机回环·LOOPBACK",
+      "account": "root",
+      "name": "诸葛鑫（UID9622）",
+      "role": "R1",
+      "ok": true,
+      "detail": "limit=10",
+      "prev_hash": "3e3520ce1c34e2f767a7aba70726d298073e6c3fe4a64122fe9f6c66849a4006",
+      "hash": "434244af3d0a67422e14a59c2b9280297e99c99eb5fc18ee3b1430eeccf1f95d"
+    },
+    {
+      "ts": "2026-08-20T12:28:58",
+      "action": "login",
+      "ip": "127.0.0.1",
+      "ip_geo": "中国·本机回环·LOOPBACK",
+      "account": "root",
+      "name": "诸葛鑫（UID9622）",
+      "role": "R1",
+      "ok": true,
+      "detail": "角色=R1",
+      "prev_hash": "434244af3d0a67422e14a59c2b9280297e99c99eb5fc18ee3b1430eeccf1f95d",
+      "hash": "b3d9a958cdce8283f05fe2d70242bada7b81a9273e53e8f0d1de2e8221e70232"
+    },
+    {
+      "ts": "2026-08-20T12:29:01",
+      "action": "verify",
+      "ip": "127.0.0.1",
+      "ip_geo": "中国·本机回环·LOOPBACK",
+      "account": "root",
+      "name": "诸葛鑫（UID9622）",
+      "role": "R1",
+      "ok": true,
+      "detail": "审计链校验",
+      "prev_hash": "b3d9a958cdce8283f05fe2d70242bada7b81a9273e53e8f0d1de2e8221e70232",
+      "hash": "53a5ccc5b23c13bf5224b59bc60852576d98f8058f03930af457c8646525912d"
+    },
+    {
+      "ts": "2026-08-20T12:29:23",
+      "action": "login",
+      "ip": "127.0.0.1",
+      "ip_geo": "中国·本机回环·LOOPBACK",
+      "account": "auditor",
+      "name": "审计员·甲",
+      "role": "R4",
+      "ok": true,
+      "detail": "角色=R4",
+      "prev_hash": "53a5ccc5b23c13bf5224b59bc60852576d98f8058f03930af457c8646525912d",
+      "hash": "6837ba471348c1b6da377b04951cfc43c5b7287621d022da7c597403b853b164"
+    }
+  ],
+  "audit_chain": {
+    "valid": true,
+    "total": 13,
+    "legacy": 3,
+    "broken_at": null,
+    "checked": 10
+  },
+  "integrity_sha256": "78cfb37695927dce53584af9c0153ce1e56f9ca7543eba0b18c7e2ad5ec6ace8"
+}

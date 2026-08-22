@@ -5,7 +5,7 @@
 龍魂流控模块 v1.1 测试套件
 4 测试用例 — 对应协议 v1.1 验收标准
 
-DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-FLOW-CONTROL-TEST-v1.1
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-FLOW-CONTROL-TEST-v1.1
 创建者: 诸葛鑫（UID9622）
 License: MulanPSL v2
 

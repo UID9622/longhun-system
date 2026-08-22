@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║     龍魂 · 源代码自解压引擎 v1.0 — DNA绑定·逻辑链不断·落地即运行            ║
 ║     LongHun Self-Extract Engine · DNA-Bound · Land-and-Run              ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️丙午·辛未·丙戌·午时-SELF-EXTRACT-ENGINE-v1.0                 ║
+║  DNA: #龍芯⚡️丙午·辛未·丙戌·甲午·䷕贲-SELF-EXTRACT-ENGINE-v1.0                 ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                            ║
 ║  原理: 源代码 + DNA配置 + 个人逻辑链 = 压缩后自解压 = 落地即运行              ║
 ║                                                                          ║
@@ -48,7 +49,7 @@ from typing import Any
 # L1: DNA绑定 · 个人配置硬编码 · 非外部文件 · 散列自验证
 # ══════════════════════════════════════════════════════════════════════════
 
-DNA = "#龍芯⚡️丙午·辛未·丙戌·午时-SELF-EXTRACT-ENGINE-v1.0"
+DNA = "#龍芯⚡️丙午·辛未·丙戌·甲午·䷕贲-SELF-EXTRACT-ENGINE-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 UID = "9622"
 CREATOR = "诸葛鑫·Lucky"

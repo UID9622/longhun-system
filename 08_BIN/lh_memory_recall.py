@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂·统一记忆入口
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-记忆召回-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-记忆召回-v1.0
 """
 import json
 import sys

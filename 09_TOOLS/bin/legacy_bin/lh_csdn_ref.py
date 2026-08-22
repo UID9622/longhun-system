@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂 · CSDN 外部引用工具 v1.0
 让系统内任何组件都能引用已发布的CSDN博客文章
 
@@ -12,7 +13,7 @@
   python3 bin/lh_csdn_ref.py url <title>     — 生成CSDN文章URL引用
   python3 bin/lh_csdn_ref.py status          — 状态概览
 
-DNA: #龍芯⚡️2026-07-12-CSDN-REF-TOOL-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-CSDN-REF-TOOL-v1.0
 """
 
 import json

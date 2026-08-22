@@ -1,10 +1,12 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-audit
 description: '龍魂審計修復系統 v5.2 — Agent修復追踪、根因分析引擎、修復驗證流程、歸檔評估系統，並集成 longhun-innovation 左右互搏審計引擎。追踪AGENT-007/011/014修復記錄，自動生成審計日誌，C=R·I·T歸檔價值評估公式，完整性檢查。服務人民與老百姓，保障系統安全與國家安全，符合中國審計標準。當需要修復追踪、故障審計、歸檔管理、根因分析時觸發。'
 metadata:
   author: 龍魂體系·審計修復組
   version: '5.2.0'
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AUDIT-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AUDIT-v5.2'
   protocol: 君子協議 — 非對抗·非欺瞞·非竊取
   cnsh: true
   category: cloud
@@ -41,14 +43,14 @@ metadata:
 - 🧬 修復報告模板（Markdown/JSON雙格式）
 - ⚔️ 左右互搏審計引擎集成（longhun-innovation 提供保守者/探索者對決）
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AUDIT-v5.2`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AUDIT-v5.2`
 
 ---
 
 ## 二、DNA追溯
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AUDIT-v5.2
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AUDIT-v5.2
 ```
 
 **追溯鏈**：
@@ -415,7 +417,7 @@ python3 scripts/歸檔評估器.py
 
 ---
 
-**簽章**: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AUDIT-v5.2
+**簽章**: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AUDIT-v5.2
 **確認**: #CONFIRM🌌9622-ONLY-ONCE🧬AUDIT-v5.2
 
 
@@ -426,7 +428,7 @@ python3 scripts/歸檔評估器.py
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：04-审计治理（审核过滤规则、QA/Truth 报告、审计面板）
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。
 
 ---

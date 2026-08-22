@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂多币种·Notion 实时同步 v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA:#龍芯⚡️2026-06-07-NOTION-MULTICURRENCY-SYNC-v1.0
+DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-NOTION-MULTICURRENCY-SYNC-v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 功能: 5 分钟实时同步汇率到 Notion·自动更新色标签·错误恢复
@@ -411,7 +412,7 @@ def main():
     manager = NotionMulticurrencySyncManager()
 
     print("🐉 龍魂多币种·Notion 实时同步 v1.0")
-    print("DNA:#龍芯⚡️2026-06-07-NOTION-MULTICURRENCY-SYNC-v1.0\n")
+    print("DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-NOTION-MULTICURRENCY-SYNC-v1.0\n")
 
     if args.watch:
         print(f"⏱️  进入监视模式·每 {args.interval} 秒同步一次\n")

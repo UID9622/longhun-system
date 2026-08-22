@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂视频工坊 · 芯片光刻机与华为韬定律 · 解说脚本 v1.0
 
-DNA: #龍芯⚡️丙午·乙未·癸亥·亥时·离为火-VIDEO-SCRIPT-CHIP-TAU-v1.0-a3f2b8c1
+DNA: #龍芯⚡️丙午·乙未·癸亥·亥时·䷝离为火-VIDEO-SCRIPT-CHIP-TAU-v1.0-a3f2b8c1
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 时长: 约12分钟 · 推荐B站/视频号/抖音

@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·乙未·乙丑·萃-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷬萃-FIX_DNA-v1.0
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 LongHun MVP Notion Integration v2.0
 
 AUTOMATED COMPLIANCE CHECKLIST:
-- DNA Signature:#龍芯⚡️2026-06-17-MVP-NOTION-INTEGRATION-FILE2-v2.0
+- DNA Signature:#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-MVP-NOTION-INTEGRATION-FILE2-v2.0
 - CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 - SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 - Three-Layer Supervision: ✅ ANCESTOR | ✅ COSMOS | ✅ ENGINE
@@ -50,7 +51,7 @@ from datetime import datetime
 from typing import Dict, List, Optional, Any, Tuple
 
 # ========== DNA签名和合规标记 ==========
-DNA_SIGNATURE = "#龍芯⚡️2026-06-17-MVP-NOTION-INTEGRATION-v2.0"
+DNA_SIGNATURE = "#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-MVP-NOTION-INTEGRATION-v2.0"
 CONFIRM_MARK = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SEAL_MARK = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 

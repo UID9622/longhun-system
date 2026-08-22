@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂 · 自适应进化中枢 v1.0
-DNA: #龍芯⚡️2026-07-25-ADAPTIVE-EVOLUTION-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-ADAPTIVE-EVOLUTION-ENGINE-v1.0
 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0
 
 老大不需要记住任何东西。系统自己跟上他的思维。
@@ -22,7 +22,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
 
 # ═══ 常量 ═══
-DNA = "#龍芯⚡️2026-07-25-ADAPTIVE-EVOLUTION-ENGINE-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-ADAPTIVE-EVOLUTION-ENGINE-v1.0"
 DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "evolution"
 DEFAULT_THRESHOLDS = {"engines": 40, "scripts": 640, "protocols": 75, "portals": 18, "personalities": 16, "dna_codes": 6800}
 
@@ -155,10 +155,6 @@ class JumpPuzzler:
                 self._db = {k: JumpFragment(**v) for k, v in raw.items()}
             except: self._db = {}
 
-    def _save(self):
-        data = {k: {kk: (vk.value if isinstance(vk, Enum) else vk)
-                     for kk, vk in vars(v).items()} for k, v in self._db.items()}
-        self.file.write_text(json.dumps(data, ensure_ascii=False, indent=2), "utf-8")
 
     def record(self, content: str, tags: List[str] = None,
                module: str = "general") -> JumpFragment:

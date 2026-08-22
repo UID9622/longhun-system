@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂最安全AI · 上下文安全引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·火雷噬嗑-安全引擎-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷔噬-安全引擎-v1.0
 归属: 龍芯北辰 UID9622 · 确认码 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 纯标准库 Python3.9+，零第三方依赖。

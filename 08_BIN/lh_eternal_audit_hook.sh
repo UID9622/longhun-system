@@ -1,7 +1,7 @@
 #!/bin/bash
 # 🐉 龍魂 · 永恒审计三问 · Git Pre-commit 钩子（审查修正版）
 # 位置: .git/hooks/pre-commit
-# DNA: #龍芯⚡️丙午·丙申·丙辰·坤卦-ETERNAL-AUDIT-HOOK-V1.0-UID9622
+# DNA: #龍芯⚡️丙午·丙申·丙辰·甲午·䷁坤-ETERNAL-AUDIT-HOOK-V1.0-UID9622
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #
 # 审查修正清单（相对原始稿）:
@@ -41,13 +41,13 @@ cat > "$AUDIT_SCRIPT" << 'PYEOF'
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """🐉 龍魂 · 永恒审计三问引擎 v1.0（修正版）
-DNA: #龍芯⚡️丙午·丙申·丙辰·坤卦-ETERNAL-AUDIT-ENGINE-UID9622
+DNA: #龍芯⚡️丙午·丙申·丙辰·甲午·䷁坤-ETERNAL-AUDIT-ENGINE-UID9622
 """
 import os, sys, json, re, subprocess
 from datetime import datetime
 from pathlib import Path
 
-DNA = "#龍芯⚡️丙午·丙申·丙辰·坤卦-ETERNAL-AUDIT-ENGINE-UID9622"
+DNA = "#龍芯⚡️丙午·丙申·丙辰·甲午·䷁坤-ETERNAL-AUDIT-ENGINE-UID9622"
 
 # 非文本文件扩展名：跳过内容级检查
 NON_TEXT_EXT = {".png", ".jpg", ".jpeg", ".gif", ".ico", ".pdf", ".zip",

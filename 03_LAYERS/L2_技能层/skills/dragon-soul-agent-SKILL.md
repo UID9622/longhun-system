@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
@@ -106,7 +106,7 @@ CNSH（Chinese Natural Syntax Hybrid）是UID9622原创的中文编程语法概�
 格式：`#龍芯⚡️{YYYYMMDD}-{TYPE}-{HASH}`
 - TYPE: SKILL / DNA / TASK / DOC / CODE / IDEA
 - HASH: 内容的前8位SHA-256哈希（大写）
-- 示例: `#龍芯⚡️20260414-SKILL-A3F7C2B1`
+- 示例: `#龍芯⚡️丙午·壬辰·戊午·戊午·䷳艮为山-SKILL-A3F7C2B1`
 
 ## 龍魂工具箱 · Chrome Extension v3
 

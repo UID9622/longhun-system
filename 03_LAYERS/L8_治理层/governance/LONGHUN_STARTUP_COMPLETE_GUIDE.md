@@ -1,12 +1,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-<!--#龍芯⚡️2026-06-21-DOC-LONGHUN_STARTUP_COMPLETE_GUIDE-v1.0 -->
+<!--#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-DOC-LONGHUN_STARTUP_COMPLETE_GUIDE-v1.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # 🐉 龍魂系统开机启动完整指南
 
 ```
-DNA: #龍芯⚡️2026-06-07-LONGHUN-STARTUP-COMPLETE-GUIDE
+DNA: #龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-LONGHUN-STARTUP-COMPLETE-GUIDE
 时间: 2026-06-07
 版本: v1.0
 ```
@@ -509,7 +509,7 @@ pkill -f 'monitoring_server.py'
 验证:
   bash ~/longhun-system/longhun_system_startup_check.sh
 
-DNA: #龍芯⚡️2026-06-07-LONGHUN-STARTUP-COMPLETE-GUIDE
+DNA: #龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-LONGHUN-STARTUP-COMPLETE-GUIDE
 天下无欺。🐉
 ════════════════════════════════════════════════════════════
 ```

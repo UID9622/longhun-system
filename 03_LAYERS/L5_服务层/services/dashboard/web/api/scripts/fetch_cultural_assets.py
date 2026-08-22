@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 """
 龍魂 · 中国文化公开素材采集器
 只采集 Wikimedia Commons 上明确为 Public Domain / CC0 的真实图片
-DNA: #龍芯⚡️2026-07-04-LONGHUN-CULTURAL-ASSET-FETCHER-v1.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-CULTURAL-ASSET-FETCHER-v1.0
 """
 
 import json
@@ -20,7 +21,7 @@ import requests
 from pathlib import Path
 from urllib.parse import quote
 
-DNA = "#龍芯⚡️2026-07-04-LONGHUN-CULTURAL-ASSET-FETCHER-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-CULTURAL-ASSET-FETCHER-v1.0"
 BASE_DIR = Path(__file__).resolve().parent.parent
 ASSET_DIR = BASE_DIR / "assets" / "cultural"
 REGISTRY = ASSET_DIR / "cultural_assets_registry.json"

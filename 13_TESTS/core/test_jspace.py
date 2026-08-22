@@ -2,7 +2,8 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂测试 · J-space 意识空间核心测试
-# DNA: #龍芯⚡️2026-07-07-TEST-JSPACE-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# DNA: #龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-TEST-JSPACE-v1.0
 # 人格: P02张衡(数学验证) + P03墨子(逻辑完备) + P04鲁班(边界测试)
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """

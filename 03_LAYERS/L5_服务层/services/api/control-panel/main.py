@@ -2,6 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# DNA: #龍芯⚡️丙午·丙申·#龍芯⚡️丙午·丙申·POSTAUDIT-MAIN-3E7ED9C4
 """
 🐉 龍魂操作台 MVP v1.1 · UID9622 调试
 FastAPI 后端：统一 API 入口，串接 10 个 Skill 与预定义工作流。
@@ -124,7 +126,7 @@ TONGXINYI_GATE_ENABLED = os.getenv("TONGXINYI_GATE_ENABLED", "true").lower() == 
 
 @app.get("/")
 def index():
-    return {"message": "龍魂操作台 MVP v1.1", "dna": "#龍芯⚡️2026-06-16-LONGHUN-CONTROL-PANEL-FILE1-v1.1"}
+    return {"message": "龍魂操作台 MVP v1.1", "dna": "#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-LONGHUN-CONTROL-PANEL-FILE1-v1.1"}
 
 
 @app.get("/api/health")
@@ -227,7 +229,7 @@ def skill_registry():
     return {
         "total": len(SKILL_METADATA),
         "skills": [{"id": k, **v} for k, v in SKILL_METADATA.items()],
-        "dna": "#龍芯⚡️2026-06-23-LONGHUN-CONTROL-PANEL-v1.2",
+        "dna": "#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-CONTROL-PANEL-v1.2",
     }
 
 
@@ -387,7 +389,7 @@ async def skill_council(request: Request):
         "task": task,
         "opinions": opinions,
         "total_matches": len(scored),
-        "dna": "#龍芯⚡️2026-06-23-LONGHUN-SKILL-COUNCIL-v1.0",
+        "dna": "#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-SKILL-COUNCIL-v1.0",
     }
 
 
@@ -633,7 +635,7 @@ def cnsh_script_manager():
 # ═══════════════════════════════════════════
 # 🏦 CNSH 剪贴板翻译 API — 贴入→翻译→DNA注入→锁定
 # ═══════════════════════════════════════════
-# DNA: #龍芯⚡️2026-07-08-CLIPBOARD-TRANSLATE-API-v1.0
+# DNA: #龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-CLIPBOARD-TRANSLATE-API-v1.0
 # 供 iOS 快捷指令 / PWA / 鸿蒙快应用 / 任意第三方调用
 # ═══════════════════════════════════════════
 
@@ -696,7 +698,7 @@ async def cnsh_clipboard_translate(request: Request):
     返回:
     {
         "状态": "success",
-        "DNA": "#龍芯⚡️2026-07-08-...",
+        "DNA": "#龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-...",
         "时间戳": {"ISO8601": "...", "北京时间": "...", "Unix": 1234567890},
         "内容指纹": "sha256...",
         "CNSH关键字": [...],

@@ -2,13 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 
 """
 龍魂 启动初始化系统 v1.0
 LongHun Startup & Log Recovery System
 
-DNA:#龍芯⚡️2026-06-07-STARTUP-RECOVERY-v1.0
+DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-STARTUP-RECOVERY-v1.0
 """
 
 import sqlite3
@@ -353,7 +354,7 @@ class StartupManager:
 
 if __name__ == "__main__":
     print("🐉 龍魂启动管理系统 v1.0")
-    print("DNA:#龍芯⚡️2026-06-07-STARTUP-RECOVERY-v1.0\n")
+    print("DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-STARTUP-RECOVERY-v1.0\n")
     
     startup = StartupManager()
     result = startup.startup()

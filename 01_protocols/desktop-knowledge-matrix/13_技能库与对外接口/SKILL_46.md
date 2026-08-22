@@ -1,9 +1,10 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-integration
 description: 龍魂系统集成测试引擎 —— 端到端自动化测试、模块兼容性检查、API连通性测试、数据一致性验证、性能回归测试与集成报告生成
 metadata:
   id: longhun-integration
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-INTEGRATION-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-INTEGRATION-v5.2'
   version: 5.2.0
   category: cloud
   type: system-test
@@ -22,7 +23,7 @@ compatibility: '>=3.8,<3.13'
 ---
 # 🐉 C11 — longhun-integration（系统集成测试）
 
-> **DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-INTEGRATION-v5.2`
+> **DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-INTEGRATION-v5.2`
 > **版本**: v5.2.0
 > **类别**: cloud / 系统测试
 > **状态**: ✅ 生产就绪
@@ -46,7 +47,7 @@ compatibility: '>=3.8,<3.13'
 ## 2️⃣ DNA标识（DNA Signature）
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-INTEGRATION-v5.2
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-INTEGRATION-v5.2
 ```
 
 | 属性 | 值 |
@@ -358,7 +359,7 @@ CompatibilityChecker
   "meta": {
     "engine": "龍魂集成测试引擎",
     "version": "5.2.0",
-    "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-INTEGRATION-v5.2",
+    "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-INTEGRATION-v5.2",
     "timestamp": "2026-06-19T10:00:00"
   },
   "summary": {
@@ -440,7 +441,7 @@ integration_test:
 
 ---
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-INTEGRATION-v5.2`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-INTEGRATION-v5.2`
 **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **授权码**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
 **版本**: 5.2.0

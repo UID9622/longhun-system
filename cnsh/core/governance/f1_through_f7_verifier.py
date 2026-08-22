@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 龍魂F1-F7七因子验证系统 (Seven-Factor Verification Framework)
-DNA:#龍芯⚡️2026-06-03-F1-F7-VERIFIER-FILE1-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-F1-F7-VERIFIER-FILE1-v1.0
 
 行为密码学 (Behavioral Cryptography) - 完整实装
 
@@ -529,7 +530,7 @@ class SevenFactorVerifier:
 
 if __name__ == '__main__':
     print("\n【龍魂F1-F7七因子验证系统 v1.0】\n")
-    print("DNA:#龍芯⚡️2026-06-03-F1-F7-VERIFIER-v1.0")
+    print("DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-F1-F7-VERIFIER-v1.0")
     print("CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
     print("SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL\n")
 
@@ -542,7 +543,7 @@ if __name__ == '__main__':
         uid="9622",
         gpg_fingerprint="A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
         gpg_prefix_marker="#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
-        identity_dna="#龍芯⚡️2026-06-03-CREATOR-UID9622-v1.0",
+        identity_dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-CREATOR-UID9622-v1.0",
         creation_timestamp="2025-05-20T10:00:00Z"
     )
 

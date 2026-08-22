@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·己未·亥时·履-ADAPTIVE-TUNER-v2.0
+#龍芯⚡️丙午·乙未·己未·亥时·䷉履-ADAPTIVE-TUNER-v2.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════╗
 ║  🔧 工程落地执行型 — 龍魂·自适应微调参数系统 v2.0              ║
-║  DNA: #龍芯⚡️丙午·乙未·己未·亥时·履-ADAPTIVE-TUNER-v2.0     ║
+║  DNA: #龍芯⚡️丙午·乙未·己未·亥时·䷉履-ADAPTIVE-TUNER-v2.0     ║
 ║  场景: 行为规则参数·自动微调·双向量化·三色审计·哈希链防篡改    ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F               ║
 ╚══════════════════════════════════════════════════════════════╝
@@ -17,7 +17,7 @@
 
 ROOT_CARD:
   ID: uid9622
-  DNA: #龍芯⚡️丙午·乙未·己未·亥时·履-ADAPTIVE-TUNER-v2.0
+  DNA: #龍芯⚡️丙午·乙未·己未·亥时·䷉履-ADAPTIVE-TUNER-v2.0
   GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
   CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
   SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
@@ -799,7 +799,7 @@ class AdaptiveTuner:
                 data[k] = list(data[k])
         data["_export_meta"] = {
             "exported_at": datetime.now().isoformat(),
-            "dna": "#龍芯⚡️丙午·乙未·己未·亥时·履-ADAPTIVE-TUNER-v2.0",
+            "dna": "#龍芯⚡️丙午·乙未·己未·亥时·䷉履-ADAPTIVE-TUNER-v2.0",
             "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
             "source": str(Path(self.params_path).absolute()),
             "events_count": len(self.events),

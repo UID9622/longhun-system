@@ -4,7 +4,7 @@ description: "龍魂Notion空间统一入口导航——自动扫描50个页面�
 license: CC BY-NC-SA 4.0
 metadata:
   version: "5.1"
-  dna: "#龍芯⚡️丙午·丙申·庚申·亥时-NOTION-PORTAL-v5.1"
+  dna: "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-NOTION-PORTAL-v5.1"
   author: "UID9622"
   language: zh-CN
   triggers:
@@ -28,9 +28,9 @@ metadata:
 # 🌌 龍魂Notion空间统一入口导航 · v5.1
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-NOTION-PORTAL-v5.1
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-NOTION-PORTAL-v5.1
 三色审计: 🟢 50页面归档完成
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-NOTION-PORTAL-v2.0
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-NOTION-PORTAL-v2.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```
 
@@ -189,7 +189,7 @@ longhun-notion-portal/
 
 ---
 
-*DNA: #龍芯⚡️丙午·丙申·庚申·亥时-NOTION-PORTAL-v2.0*
+*DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-NOTION-PORTAL-v2.0*
 *CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z*
 *SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL*
 *三色审计: 🟢50页面归档*
@@ -206,5 +206,5 @@ longhun-notion-portal/
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：06-工具脚本（parse_notion.py）
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

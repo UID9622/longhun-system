@@ -5,7 +5,7 @@ id: clause_auto_audit
 type: clause
 title: 自动审计与归档
 layer: L3
-dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A"
+dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·䷅讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A"
 owner: UID9622 · 诸葛鑫（Lucky）
 claim: 触发词(骂/政府/军人/天选之人)自动弹自省或警告；言论自动归档本地库，按时间对象权重风险分类，每周生成言论审计报告。
 based_on: [dragon_vein_trace, three_color_audit]
@@ -31,4 +31,4 @@ created: 丙午·辛未·乙酉
 
 **为什么**：老大要的是"说得负责任、查得到、不闭门造车"——自动化让每句骂都有据可查，对外可映射、对内可审计。
 
-> DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A
+> DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·䷅讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A

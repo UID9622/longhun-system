@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 龍魂 · AI互通总线协议（LH-AI-MESH-BUS）v1.0
 
 ## 🏷️ 协议声明
@@ -8,7 +9,7 @@
 **生效范围：** 龍魂体系内所有 AI（Kimi / CodeBuddy / DeepSeek / 未来任何 AI）
 **可修改性：** ✅ 可迭代（按第十六层修订流程）
 **三色审计：** 🟢 绿色（已实测互通闭环）
-**DNA签名：** #龍芯⚡️丙午·丙申·壬戌·申时-AI-MESH-BUS-v1.0-UID9622
+**DNA签名：** #龍芯⚡️丙午·丙申·壬戌·戊申·䷌同人-AI-MESH-BUS-v1.0-UID9622
 
 ---
 
@@ -102,7 +103,7 @@ python3 bin/lh bus read --last 20       # 读历史，熟悉已有产物
 
 ## 🔐 签章
 
-**DNA：** #龍芯⚡️丙午·丙申·壬戌·申时-AI-MESH-BUS-v1.0-UID9622
+**DNA：** #龍芯⚡️丙午·丙申·壬戌·戊申·䷌同人-AI-MESH-BUS-v1.0-UID9622
 **CONFIRM：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **GPG：** A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 **审计：** P05 🟢 / P12 🟢 / P15 🟢
@@ -120,4 +121,4 @@ Root: dr=6（2026-08-15 → 2+0+2+6+0+8+1+5=24 → 2+4=6）
 Wuxing: 水（6）
 TriColor: 🟢
 Type: protocol-declaration
-DNA: #龍芯⚡️丙午·丙申·壬戌·申时-AI-MESH-BUS-v1.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·壬戌·戊申·䷌同人-AI-MESH-BUS-v1.0-UID9622

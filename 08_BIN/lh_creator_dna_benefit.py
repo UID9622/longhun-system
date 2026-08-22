@@ -1,12 +1,14 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-dfd19fed
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂创作者DNA受益算法 v1.1（修复版）
 破解专利护城河 · 把选择权还给老百姓
 
-DNA: #龍芯⚡️丙午·癸未·壬午-CREATOR-DNA-BENEFIT-v1.1-UID9622
+DNA: #龍芯⚡️丙午·癸未·壬午·丙午·䷳艮为山-CREATOR-DNA-BENEFIT-v1.1-UID9622
 
 修复: 连接生命周期 / 防自证 / 验证去重 / 分配校验 / SHA-256 ID / 三色审计
 
@@ -34,7 +36,7 @@ from typing import Dict, List, Optional
 from dataclasses import dataclass
 from pathlib import Path
 
-DNA_PREFIX = "#龍芯⚡️丙午·癸未·壬午"
+DNA_PREFIX = "#龍芯⚡️丙午·癸未·壬午·丙午·䷳艮为山"
 
 CATEGORY_WEIGHTS = {
     "code": 1.2, "design": 1.1, "idea": 0.9,

@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 龍魂跨平台同步工作流 — 端到端可执行脚本 v2.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ================================================
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-XSYNC-WORKFLOW-v2.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-XSYNC-WORKFLOW-v2.0-UID9622
 致敬: #致敬⚡️SteveJobs+Concept·跨平台互通
 
 能力:
@@ -64,7 +65,7 @@ import 冲突解决器
 import 主权网关
 import 设备发现器
 
-DNA = "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-XSYNC-WORKFLOW-v2.0-UID9622"
+DNA = "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-XSYNC-WORKFLOW-v2.0-UID9622"
 DNA_PREFIX = "#龍芯⚡️"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 DEFAULT_PORT = 19622  # 避开 9622(网关)/8799(hub)

@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 CNSH 标签变量字典 | CNSH Tag Variables
-DNA: #龍芯⚡️2026-07-01-CNSH-TAG-VARIABLES-v1.1
+DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-CNSH-TAG-VARIABLES-v1.1
 
 将龍魂标签体系暴露为 CNSH 风格的变量名，支持中文键。
 用于在 CNSH 脚本/配置中引用龍魂标签。
@@ -21,7 +22,7 @@ from typing import Any, Dict, Optional
 from longhun_tags import COLOR_PALETTE, WUXING_CULTURAL_NOTES
 
 # DNA常量
-DNA = "#龍芯⚡️2026-07-01-CNSH-TAG-VARIABLES-v1.1"
+DNA = "#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-CNSH-TAG-VARIABLES-v1.1"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SEAL = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 
@@ -76,7 +77,7 @@ CNSH_TAG_VARS: Dict[str, Dict[str, Any]] = {
 
     # ── 龍魂核心 ──
     "$龍魂.标签总数": {"type": "常量", "value": 112},
-    "$龍魂.DNA": {"type": "常量", "value": "#龍芯⚡️2026-07-01-LONGHUN-TAG-SYSTEM-v1.1"},
+    "$龍魂.DNA": {"type": "常量", "value": "#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-TAG-SYSTEM-v1.1"},
     "$龍魂.UID": {"type": "常量", "value": "UID9622"},
 }
 

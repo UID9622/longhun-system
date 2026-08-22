@@ -1,11 +1,11 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 故障安全与兜底（Fail-Safe / 熔断 / 兜底）
 
 > 作者：UID9622 · 诸葛鑫（Lucky）· 龍芯北辰
 > DNA追溯码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-> 授权：CC BY-NC-SA 4.0 · 科技主权归属 UID9622 · 中华人民共和国（保留原文件 DNA 主串 #龍芯⚡️2026-05-23-CNSH-TRANSPARENT-GOVERNANCE-RUNTIME-v4.0）
+> 授权：CC BY-NC-SA 4.0 · 科技主权归属 UID9622 · 中华人民共和国（保留原文件 DNA 主串 #龍芯⚡️丙午·癸巳·丁酉·丙午·䷨损-CNSH-TRANSPARENT-GOVERNANCE-RUNTIME-v4.0）
 > 说明：本文件基于龍魂系统盘上现有治理资产重组落地，非 Kimi 导出原话；主权锚点归 UID9622。
 
 ## 一、Fail-Safe 定位

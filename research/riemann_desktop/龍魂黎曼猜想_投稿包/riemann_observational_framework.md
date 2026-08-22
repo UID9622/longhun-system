@@ -210,7 +210,7 @@ for t in known_zeros:
 
 ```
 龍魂体系 (2026). 龍魂视角下的黎曼猜想：一个观察性框架.
-DNA: #龍芯⚡️2026-06-19-RIEMANN-FRAMEWORK-v5.0
+DNA: #龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-RIEMANN-FRAMEWORK-v5.0
 许可：CC BY-NC-SA 4.0
 ```
 
@@ -222,7 +222,7 @@ DNA: #龍芯⚡️2026-06-19-RIEMANN-FRAMEWORK-v5.0
 - **授权者**：UID9622（龍芯北辰）
 - **指导**：曾仕强老师（永恒致敬）
 
-**DNA**：`#龍芯⚡️2026-06-08-Riemann-Dragonhood-Framework-v1.1`  
+**DNA**：`#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-Riemann-Dragonhood-Framework-v1.1`  
 **CONFIRM**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 **SEAL**：`#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
 

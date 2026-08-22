@@ -8,7 +8,7 @@
   — 对比 DNS 基准 / 标准 LES / 锚点法
   — 输出：E(k)能谱、锚点收敛序列、误差 vs 雷诺数
 
-DNA: #龍芯⚡️丙午·乙未·癸酉·子时·☰乾-TURBULENCE-ANCHOR-EXP-V1.0
+DNA: #龍芯⚡️丙午·乙未·癸酉·子时·䷀乾-TURBULENCE-ANCHOR-EXP-V1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 """
@@ -330,7 +330,7 @@ def energy_spectrum(u_field):
 def run_full_experiment():
     print("="*70)
     print(" 龍魂·湍流锚点推演法 — 数值验证实验")
-    print(" DNA: #龍芯⚡️丙午·乙未·癸酉·子时·☰乾-TURBULENCE-EXP")
+    print(" DNA: #龍芯⚡️丙午·乙未·癸酉·子时·䷀乾-TURBULENCE-EXP")
     print("="*70)
 
     nu_values = [0.1, 0.05, 0.02, 0.01, 0.005]
@@ -343,7 +343,7 @@ def run_full_experiment():
             'Nx': Nx, 'LX': LX, 'T': T_total,
             'nu_values': nu_values,
             'anchor_levels': {'L3': 3, 'L6': 6, 'L9': 9},
-            'dna': '#龍芯⚡️丙午·乙未·癸酉·子时·☰乾-TURBULENCE-ANCHOR-EXP-V1.0'
+            'dna': '#龍芯⚡️丙午·乙未·癸酉·子时·䷀乾-TURBULENCE-ANCHOR-EXP-V1.0'
         },
         'energy_spectra': {},
         'anchor_convergence': {},

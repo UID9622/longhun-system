@@ -5,7 +5,7 @@
 """
 龍魂 · 声影桥 v1.0
 中国文化沉浸式知识矩阵的语音 / 视频 / AI 对话后端
-DNA: #龍芯⚡️2026-07-04-LONGHUN-SHENGYING-BRIDGE-v1.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-SHENGYING-BRIDGE-v1.0
 协议: CC BY-NC-SA 4.0 · 君子協議
 """
 
@@ -32,7 +32,7 @@ from pydantic import BaseModel, Field
 # ═══════════════════════════════════════════════════════════
 # 常量 / 路径
 # ═══════════════════════════════════════════════════════════
-DNA = "#龍芯⚡️2026-07-04-LONGHUN-SHENGYING-BRIDGE-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-SHENGYING-BRIDGE-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 VERSION = "1.0.0"
 

@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 中国国家数字身份统一认证入口 v2.0 · API 服务
@@ -16,7 +17,7 @@ China National Digital Identity Unified Authentication Portal v2.0 API
 
 监听：0.0.0.0:8444
 
-DNA:#龍芯⚡️2026-06-20-CHINA-DIGITAL-IDENTITY-API-FILE1-v2.0
+DNA:#龍芯⚡️丙午·甲午·乙丑·壬午·䷨损-CHINA-DIGITAL-IDENTITY-API-FILE1-v2.0
 """
 
 import sys
@@ -222,7 +223,7 @@ def 信息():
         "slogan": "芯可龍，云可私，网可断，心不可失",
         "tech_stack": 中心.技术栈,
         "declaration": 中心.生成主权宣言(),
-        "dna": "#龍芯⚡️2026-06-20-CHINA-DIGITAL-IDENTITY-API-v2.0"
+        "dna": "#龍芯⚡️丙午·甲午·乙丑·壬午·䷨损-CHINA-DIGITAL-IDENTITY-API-v2.0"
     }
 
 
@@ -255,5 +256,5 @@ if __name__ == "__main__":
     import uvicorn
     print("🐉 中国国家数字身份统一认证入口 v2.0 启动")
     print("   地址: http://127.0.0.1:8444")
-    print("   DNA:#龍芯⚡️2026-06-20-CHINA-DIGITAL-IDENTITY-API-v2.0")
+    print("   DNA:#龍芯⚡️丙午·甲午·乙丑·壬午·䷨损-CHINA-DIGITAL-IDENTITY-API-v2.0")
     uvicorn.run(app, host="127.0.0.1", port=8444)

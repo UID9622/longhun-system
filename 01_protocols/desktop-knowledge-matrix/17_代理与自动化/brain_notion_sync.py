@@ -1,10 +1,12 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂脑干 · Notion同步桥 · brain_notion_sync.py v1.1
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-FILE3-FILE1-FILE1-FILE1-FILE1-FILE1-FILE1-v1.1-PHASE1
+DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-BRAIN-NOTION-SYNC-FILE3-FILE1-FILE1-FILE1-FILE1-FILE1-FILE1-v1.1-PHASE1
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 v1.1 Phase 1 完整実装:
@@ -479,7 +481,7 @@ def sync_status():
   export NOTION_TOKEN="secret_xxxxxxxxxxxxx"
   export DB_LU="your-database-id-here"
 
-DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-v1.1
+DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-BRAIN-NOTION-SYNC-v1.1
 """)
 
 # ═══════════════════════════════════════
@@ -494,7 +496,7 @@ def main():
     args = parser.parse_args()
 
     print("\n🌉 龍魂脑干 · Notion同步桥 v1.1 (Phase 1 完整实现)")
-    print(f"   DNA:#龍芯⚡️2026-06-07-BRAIN-NOTION-SYNC-v1.1\n")
+    print(f"   DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-BRAIN-NOTION-SYNC-v1.1\n")
     print(f"   ⚡ Phase 1 特性:")
     print(f"      • 指数退避重试 ({CONFIG['MAX_RETRIES']} 次)")
     print(f"      • API 限流控制 ({CONFIG['API_RATE_LIMIT']} calls/sec)")

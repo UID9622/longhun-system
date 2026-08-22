@@ -1,6 +1,6 @@
 // 龍魂代码中转站 CLI 主入口
 // 任何代码进来 → 过龙魂 → 带主权标识出去
-// DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-LH-STATION-MAIN-v1.0
+// DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-LH-STATION-MAIN-v1.0
 
 mod commands;
 mod core;

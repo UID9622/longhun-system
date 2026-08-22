@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 v4.0 部署验证脚本
 - 家法第一条训练样本召回测试
@@ -9,7 +10,7 @@ v4.0 部署验证脚本
 - Val Loss 对比 v3.7 基线 0.194
 - 输出三色审计报告
 
-DNA: #龍芯⚡️20260719090000000-V40-VALIDATION-REPORT
+DNA: #龍芯⚡️丙午·乙未·甲午·己巳·䷦蹇-V40-VALIDATION-REPORT
 """
 
 import json, requests, time, sys

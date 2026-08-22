@@ -13,7 +13,7 @@
   sim(A⃗,B⃗) = A⃗·B⃗ / (|A⃗|·|B⃗|)
   同源判定: sim ≥ cos(θ₀)
 
-DNA: #龍芯⚡️丙午·乙未·辛酉·井-SEVEN-FACTOR-V1.0
+DNA: #龍芯⚡️丙午·乙未·辛酉·甲午·䷯井-SEVEN-FACTOR-V1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 """

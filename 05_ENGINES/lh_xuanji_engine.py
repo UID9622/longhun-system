@@ -5,7 +5,7 @@
 """
 龍魂·璇玑引擎 v5.0 — 记忆溯源推演系统
 ============================================
-DNA: #龍芯⚡️丙午·癸未·丁未·亥时·☰乾-XUANJI-ENGINE-v5.0-DUAL-TRACK
+DNA: #龍芯⚡️丙午·癸未·丁未·亥时·䷀乾-XUANJI-ENGINE-v5.0-DUAL-TRACK
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·乙未·丙申·申时·☵坎-REGISTER-MAIL-NOTIFY-V1.0-P0-27124135
+# DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷜坎-REGISTER-MAIL-NOTIFY-V1.0-P0-27124135
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # ============================================================

@@ -4,7 +4,7 @@
 # License: MulanPSL v2
 """
 🐲 龍魂·总编排器 GrandOrchestrator v2.0
-DNA: #龍芯⚡️2026-08-04-GRAND-ORCHESTRATOR-UID9622
+DNA: #龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-GRAND-ORCHESTRATOR-UID9622
 
 三合一总控：
   Layer 1 — 人格矩阵 (Persona Matrix): 24人格Agent·意图路由·链式/并行调度
@@ -466,7 +466,7 @@ class GrandOrchestrator:
         print("""
 ╔══════════════════════════════════════════════════════╗
 ║  🐲 龍魂·多智能体统一协作框架 v2.0                       ║
-║  DNA: #龍芯⚡️2026-08-04-GRAND-ORCHESTRATOR-DEMO-UID9622 ║
+║  DNA: #龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-GRAND-ORCHESTRATOR-DEMO-UID9622 ║
 ║  🟢 24人格完整落地·蚁群协同·黑板主编                       ║
 ╚══════════════════════════════════════════════════════╝
 """)

@@ -1,7 +1,9 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 import os as _os
 import sys as _sys
 _module_dir = _os.path.dirname(_os.path.abspath(__file__))
@@ -14,7 +16,7 @@ CNSH 生态监管协议 v1.0
   - 抹掉痕迹 → 自动断联 + 发警报
   - 民用创作（图/视频/文章）开放，专业开发（代码/系统/协议）需认证
   - 人人都是开发者，但必须在统一监管框架内
-DNA: #龍芯⚡️2026-06-29-CNSH-ECOSUPERVISION-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-ECOSUPERVISION-UID9622
 """
 
 import json
@@ -400,7 +402,7 @@ if __name__ == "__main__":
 
     # 老王做视频（民用，允许）
     内容1 = """
-#龍芯⚡️2026-06-29-TEST-UID1001
+#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-TEST-UID1001
 Author: 老王
 Copyright (c) 2026
 这是一个测试视频脚本。
@@ -414,7 +416,7 @@ Copyright (c) 2026
 
     # 小李做协议（认证开发者，允许）
     内容3 = """
-#龍芯⚡️2026-06-29-PROTOCOL-UID1002
+#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-PROTOCOL-UID1002
 Author: 小李
 Copyright (c) 2026
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

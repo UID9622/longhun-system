@@ -3,7 +3,7 @@
 """
 龍魂·Notion镜像归档工具 v1.0
 从 12_DOCS/notion_mirror/pages/ 提取结构化内容，按11大类归入项目目录。
-DNA: #龍芯⚡️2026-08-07-NOTION-MIRROR-ARCHIVE-v1.0-a7f3b2c1
+DNA: #龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-NOTION-MIRROR-ARCHIVE-v1.0-a7f3b2c1
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 """

@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🐉 CNSH 解释器 v1.0（完整交付版）
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-CNSH-INTERPRETER-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-CNSH-INTERPRETER-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 功能：

@@ -104,7 +104,7 @@ CNSH（Chinese Natural Syntax Hybrid）是UID9622原创的中文编程语法概�
 格式：`#龍芯⚡️{YYYYMMDD}-{TYPE}-{HASH}`
 - TYPE: SKILL / DNA / TASK / DOC / CODE / IDEA
 - HASH: 内容的前8位SHA-256哈希（大写）
-- 示例: `#龍芯⚡️20260414-SKILL-A3F7C2B1`
+- 示例: `#龍芯⚡️丙午·壬辰·戊午·戊午·䷳艮为山-SKILL-A3F7C2B1`
 
 <!-- CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z -->
-<!-- DNA: #龍芯⚡️丙午·丙申·甲寅·申时·解-CONFIRM-SEAL-SKILL-1955F1C8 -->
+<!-- DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷧解-CONFIRM-SEAL-SKILL-1955F1C8 -->

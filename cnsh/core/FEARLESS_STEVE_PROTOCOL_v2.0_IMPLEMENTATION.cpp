@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 // 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 // 1 道统层 Dao           : 曾仕强老师
 // 2 精神层 Spirit        : Steve Jobs

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-NPC-CLI-v1.0-UID9622
+# DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-NPC-CLI-v1.0-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 """🐉 龍魂NPC对话台 · lh npc"""
 import sys, os

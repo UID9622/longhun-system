@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # DNA: #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_cnsh_baby_hub-INTEGRATION-SYSTEM
 
 import os as _os
@@ -19,7 +20,7 @@ CNSH 龍魂宝宝指令中枢 v1.0
   - 最小闭环持续优化
   - 定期自检/审计/归档
   - 无感输出，人只需要看结果
-DNA: #龍芯⚡️2026-06-29-CNSH-BAOBAO-CENTER-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-BAOBAO-CENTER-UID9622
 """
 
 import json

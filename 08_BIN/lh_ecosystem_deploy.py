@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·丙申·丙辰·亥时·需-ECOSYSTEM-DEPLOY-v1.0
+#龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-ECOSYSTEM-DEPLOY-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -8,7 +8,7 @@
 龍魂生态一键部署 · lh_ecosystem_deploy.py v1.0
 Ecosystem One-Click Deploy
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-ECOSYSTEM-DEPLOY-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-ECOSYSTEM-DEPLOY-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 功能: 一键部署龍魂生态全部服务
@@ -481,7 +481,7 @@ def main():
 ╔══════════════════════════════════════════════════════════╗
 ║  🚀 龍魂生态一键部署 v1.0                                 ║
 ║  Ecosystem One-Click Deploy                               ║
-║  DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-DEPLOY-v1.0        ║
+║  DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-DEPLOY-v1.0        ║
 ╚══════════════════════════════════════════════════════════╝
 """)
 

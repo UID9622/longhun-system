@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-f80fdfe7
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -9,7 +10,7 @@ lh_pangdonglai_audit — 龍魂·胖东来分成审计执行器 v1.0
 自动读取企业财报数据，按五维不等式逐条校验，生成三色审计报告。
 违约自动分级（🟡🟠🔴⚫），支持JSON/终端表格/HTML三种输出。
 
-DNA: #龍芯⚡️丙午·癸未·丁亥·地火明夷-PANGDONGLAI-AUDIT-EXEC-v1.0
+DNA: #龍芯⚡️丙午·癸未·丁亥·丙午·䷣明-PANGDONGLAI-AUDIT-EXEC-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -170,7 +171,7 @@ class PangDongLaiAuditor:
             enterprise={"name": data.enterprise_name, "uscc": data.uscc, "period": data.period or "N/A"},
             financials={"N": data.N, "R_e": data.R_e, "R_f": data.R_f, "R_i": data.R_i, "R_p": data.R_p, "R_b": data.R_b},
             timestamp=datetime.now().strftime("%Y-%m-%dT%H:%M:%S+08:00"),
-            auditor_dna="#龍芯⚡️丙午·癸未·丁亥·地火明夷-PANGDONGLAI-AUDIT-v1.0",
+            auditor_dna="#龍芯⚡️丙午·癸未·丁亥·丙午·䷣明-PANGDONGLAI-AUDIT-v1.0",
         )
 
         # 前置检查：亏损不审

@@ -1,7 +1,8 @@
+# License: CC BY-NC-SA 4.0（核心思想层·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 #!/bin/bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂协议盾 v1.0
-# DNA:#龍芯⚡️2026-06-07-PROTOCOL-SHIELD-v1.0
+# DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-PROTOCOL-SHIELD-v1.0
 # 功能: 防止协议被篡改、绕过、或被诱导执行危险操作
 # 责任: UID9622 · 不免责
 
@@ -156,7 +157,7 @@ if [ $MISSING_COUNT -eq 0 ] && [ $ATTACK_DETECTED -eq 0 ]; then
     echo -e "${GREEN}🟢 状态: 安全${NC}"
     echo -e "${GREEN}✅ 协议文件完整·铁律焊死·防护激活${NC}"
     echo ""
-    echo "DNA:#龍芯⚡️2026-06-07-PROTOCOL-SHIELD-v1.0"
+    echo "DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-PROTOCOL-SHIELD-v1.0"
     echo "CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
     echo ""
     exit 0

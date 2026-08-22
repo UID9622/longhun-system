@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 📊 龍魂人格内阁评估报表 · Persona Assessment Report
 
-> DNA: #龍芯⚡️2026-07-07-PERSONA-REPORT-v1.0
+> DNA: #龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-PERSONA-REPORT-v1.0
 > 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 > 作用: 读取 persona_registry.json → 计算多维度评估 → 输出结构化报表
 > 
@@ -31,7 +32,7 @@ from typing import Any, Dict
 ROOT = Path(__file__).resolve().parent.parent
 REGISTRY_PATH = ROOT / "persona" / "persona_registry.json"
 PORTAL_DATA = ROOT / "L5_服务层" / "services" / "portal" / "portal" / "data" / "persona_report.json"
-DNA = "#龍芯⚡️2026-07-07-PERSONA-REPORT-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-PERSONA-REPORT-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 

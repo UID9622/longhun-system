@@ -1,6 +1,6 @@
 # 🐉 龍魂 · P0全自動化智能體協議 v1.0（Mac主權版·非代理·不外放）
 
-**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥時-P0-AUTOMATION-PROTOCOL-v1.0-UID9622`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-P0-AUTOMATION-PROTOCOL-v1.0-UID9622`
 **確認碼:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 **三色:** 🟢 通過
@@ -176,6 +176,6 @@ lh p0 --protocol-check upload_data      # P0邊界檢查
 
 **簽章**
 規則制定：諸葛鑫（UID9622） × 龍魂AI 對齊落地 v1.0
-DNA: `#龍芯⚡️丙午·丙申·庚申·亥時-P0-AUTOMATION-PROTOCOL-v1.0-UID9622`
+DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-P0-AUTOMATION-PROTOCOL-v1.0-UID9622`
 確認碼: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 三色: 🟢 通過

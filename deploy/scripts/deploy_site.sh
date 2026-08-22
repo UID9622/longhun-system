@@ -3,7 +3,7 @@
 # ═══════════════════════════════════════════════════════
 # 龍魂·官网静态部署到鲲鹏
 # 用法: bash deploy/scripts/deploy_site.sh [build|deploy|all]
-# DNA: #龍芯⚡️2026-08-07-DEPLOY-SITE-SCRIPT-v1.0
+# DNA: #龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-DEPLOY-SITE-SCRIPT-v1.0
 # ═══════════════════════════════════════════════════════
 
 set -euo pipefail

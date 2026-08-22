@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂消化过滤层 v1.0 · AI输出清洗引擎
 ===========================================
@@ -15,7 +16,7 @@ AI接入强制规范（A-042）的执行引擎。AI输出经过此层：
   python3 bin/lh_digest_filter.py --test                   # 自测
   python3 bin/lh_digest_filter.py --stats                  # 统计
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·午时·需-FILTER-DIGEST-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·午时·䷄需-FILTER-DIGEST-v1.0
 """
 
 import re

@@ -1,7 +1,7 @@
 #!/bin/bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 显示龍魂产出标准
-# DNA: #龍芯⚡️2026-06-25-LONGHUN-SHOW-STANDARD-v1.0
+# DNA: #龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-LONGHUN-SHOW-STANDARD-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"

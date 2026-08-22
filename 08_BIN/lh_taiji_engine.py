@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·丙申·甲寅·申时·噬嗑-TAIJI-ENGINE-v1.0
+#龍芯⚡️丙午·丙申·甲寅·申时·䷔噬嗑-TAIJI-ENGINE-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 ☯️ 龍魂太极引擎 v1.0 · LU-Time Engine 本地化实现
-DNA: #龍芯⚡️丙午·丙申·甲寅·申时·噬嗑-TAIJI-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷔噬嗑-TAIJI-ENGINE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 来源: docs/uid9622-hosted/control-panel/🌌 LU-Time Engine v4｜时间推演与审计系统·完整主模板.md
@@ -31,11 +31,20 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 def _load_calendar_core():
-    path = ROOT / "calendar-context-logger" / "calendar_core.py"
-    spec = importlib.util.spec_from_file_location("calendar_core", path)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod.LunarEngine()
+    """多路径回退加载 calendar_core（原目录被归档后路径失效修复 · 2026-08-18）"""
+    candidates = [
+        ROOT / "calendar-context-logger" / "calendar_core.py",
+        ROOT / "archive" / "experiments" / "calendar-context-logger" / "calendar_core.py",
+        ROOT / "_work" / "repos" / "longhun-system" / "calendar-context-logger" / "calendar_core.py",
+    ]
+    for path in candidates:
+        if path.exists():
+            spec = importlib.util.spec_from_file_location("calendar_core", path)
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            return mod.LunarEngine()
+    raise FileNotFoundError(
+        "calendar_core.py 未找到（尝试: calendar-context-logger/ + archive/experiments/ + _work/repos/）")
 
 
 def _dna_stamp(module: str, action: str) -> str:

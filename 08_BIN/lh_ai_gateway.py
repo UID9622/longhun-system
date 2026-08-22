@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·壬辰·午时·需-AI-GATEWAY-v1.0
+#龍芯⚡️丙午·乙未·壬辰·午时·䷄需-AI-GATEWAY-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -10,7 +10,7 @@
 龍魂统一AI网关 v1.0
 LongHun AI Gateway — 多模型统一入口，按任务类型智能路由
 
-DNA: #龍芯⚡️丙午·乙未·壬辰·午时·需-AI-GATEWAY-v1.0
+DNA: #龍芯⚡️丙午·乙未·壬辰·午时·䷄需-AI-GATEWAY-v1.0
 📇 项目身份 · 联系 · 支持 → assets/PUBLIC_IDENTITY.md
 
 设计原则:
@@ -61,7 +61,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler(LOG_DIR / "ai_gateway.log"),
+        logging.FileHandler(LOG_DIR / "ai_gateway.log", encoding="utf-8"),
         logging.StreamHandler(sys.stderr)
     ]
 )
@@ -73,7 +73,7 @@ logger = logging.getLogger("lh_ai_gateway")
 # 🔥 P0焊死·铁律（2026-08-11·UID9622）:
 #    新网关实例默认 100 token/s · 自动加载 · 不询问 · 不等待
 #    例外: 无（除非覆盖配置，覆盖需显式操作）
-#    DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-FLOW-CONTROL-v1.1-UID9622
+#    DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-FLOW-CONTROL-v1.1-UID9622
 # ═══════════════════════════════════════════════════════
 _flow_plugin = None
 try:
@@ -128,7 +128,7 @@ MODEL_CONFIGS = {
         "api_key_env": "DEEPSEEK_API_KEY",
         "base_url": "https://api.deepseek.com/v1",
         "endpoint": "/chat/completions",
-        "model": "deepseek-chat",
+        "model": "deepseek-v4-flash",
         "max_tokens": 4096,
         "auth_header": "Authorization",
         "auth_prefix": "Bearer ",
@@ -223,6 +223,32 @@ def _call_openai_format(provider: str, messages: List[Dict[str, Any]],
     except Exception as e:
         logger.error(f"❌ {provider} 调用失败: {e}")
         raise
+
+
+LOCAL_DEEPSEEK_MODEL = "deepseek-r1:7b"   # 本地Ollama DeepSeek（云端欠费/断网兜底·免费）
+
+
+def _call_ollama_local(messages: List[Dict[str, Any]],
+                       temperature: float = 0.7) -> Dict[str, Any]:
+    """本地Ollama推理（云端不可用时的免费兜底）"""
+    payload = {
+        "model": LOCAL_DEEPSEEK_MODEL,
+        "messages": messages,
+        "stream": False,
+        "options": {"temperature": temperature, "num_ctx": 4096},
+    }
+    with httpx.Client(timeout=120.0) as client:
+        resp = client.post("http://localhost:11434/api/chat", json=payload)
+        resp.raise_for_status()
+        data = resp.json()
+        content = data.get("message", {}).get("content", "")
+        logger.info(f"✅ local:{LOCAL_DEEPSEEK_MODEL} 响应")
+        return {
+            "content": content,
+            "model": LOCAL_DEEPSEEK_MODEL,
+            "provider": "local:deepseek",
+            "usage": {},
+        }
 
 
 def _call_claude_format(provider: str, messages: List[Dict[str, Any]],
@@ -338,7 +364,20 @@ def chat(messages: List[Dict[str, Any]], task_type: TaskType = TaskType.GENERAL,
             logger.warning(f"⚠️ {provider} 失败，尝试下一个... ({e})")
             continue
 
-    raise RuntimeError(f"❌ 所有模型均失败 (tried: {providers}) | last: {last_error}")
+    # 云端全部失败 → 本地 DeepSeek 兜底（免费·不依赖云端余额）
+    try:
+        result = _call_ollama_local(messages, temperature)
+        output_tokens = _estimate_tokens(result.get("content", ""))
+        if _flow_plugin:
+            _flow_plugin.check_and_consume(flow_session_id, tokens=output_tokens)
+        result["dna"] = dna
+        result["routed_via"] = "local:deepseek"
+        result["task_type"] = task_type.value
+        return result
+    except Exception as local_e:
+        raise RuntimeError(
+            f"❌ 云端({providers})与本地DeepSeek均失败 | 云端last: {last_error} | 本地: {local_e}"
+        )
 
 
 def chat_stream(messages: List[Dict[str, Any]], task_type: TaskType = TaskType.GENERAL,
@@ -495,6 +534,43 @@ def check_available() -> Dict[str, bool]:
         else:
             logger.info(f"🔴 {provider}: 未配置（将跳过）")
     return result
+
+
+# ═══════════════════════════════════════════════════════
+# Harness 插件化钩子（v1.1 · 对齐 DeepSeek Harness 一切皆插件）
+# 用法: lh harness 装载后, 其他插件可通过 ctx.services["ai.gateway"] 调用
+# ═══════════════════════════════════════════════════════
+def as_harness_plugin():
+    """把 AI 网关包装成 PluginKit 插件（id=lh.ai.gateway）。
+
+    提供能力: ai.gateway（chat / chat_stream / check_available / classify_task）
+    订阅事件: ai.request（收到即走统一路由 chat）
+    """
+    try:
+        from bin.lh_harness_core import Plugin, PluginMeta
+    except Exception:
+        return None
+
+    def on_load(ctx):
+        ctx.provide("ai.gateway", {
+            "chat": chat,
+            "chat_stream": chat_stream,
+            "check_available": check_available,
+            "classify_task": classify_task,
+        })
+        # 订阅 ai.request: payload = {"messages": [...], "task_type": "general"}
+        ctx.subscribe("ai.request", lambda p: chat(
+            messages=p.get("messages", [{"role": "user", "content": str(p)}]),
+            task_type=TaskType(p.get("task_type", TaskType.GENERAL.value)) if "task_type" in p
+            else TaskType.GENERAL,
+        ))
+        return []
+
+    return Plugin(
+        PluginMeta(id="lh.ai.gateway", name="AI网关v1.1", version="1.1.0",
+                   provides=["ai.gateway"], subscribes=["ai.request"]),
+        on_load,
+    )
 
 
 # ═══════════════════════════════════════════════════════

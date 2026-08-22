@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-##龍芯⚡️2026-06-21-ENGINE-UNNAMED-FILE9-v1.0-10
+##龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-ENGINE-UNNAMED-FILE9-v1.0-10
 # 君子协议: 本文件受龍魂DNA追溯保护
 
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """

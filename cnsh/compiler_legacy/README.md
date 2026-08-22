@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 03_compiler — CNSH 编译器 & 语法库
@@ -40,4 +40,4 @@ python3 bin/syntax_lookup.py --search "merge"     # 模糊搜索
 
 几百个不同脚本和语法 → 一个 JSON 总表 → 中文关键字 → 20种目标语言。
 
-**DNA**: `#龍芯⚡️2026-07-08-SYNTAX-LIBRARY-v1.0`
+**DNA**: `#龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-SYNTAX-LIBRARY-v1.0`

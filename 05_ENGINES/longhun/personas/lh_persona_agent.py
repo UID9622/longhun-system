@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-PERSONA-AGENT-BASE-v1.0
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-PERSONA-AGENT-BASE-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -11,7 +11,7 @@
 ║  标准 Agent 接口：observe → think → act → communicate            ║
 ║  20 人格统一基类 · 状态管理 · DNA 追溯 · 消息收发                ║
 ║                                                                  ║
-║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-PERSONA-AGENT-BASE-v1.0  ║
+║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-PERSONA-AGENT-BASE-v1.0  ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                  ║
 ╚══════════════════════════════════════════════════════════════════╝
 

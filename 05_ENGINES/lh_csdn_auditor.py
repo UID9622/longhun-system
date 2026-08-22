@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 CSDN 文章智能审计器（接入 longhun-system 版）
@@ -9,7 +10,7 @@ LongHun CSDN Article Intelligence Auditor
 
 功能：发布前自动审计内容质量、合规性、标签分类；
       识别用户危险/错误意图；从用户反馈中学习。
-DNA: #龍芯⚡️2026-06-27-LONGHUN-CSDN-AUDITOR-v1.0
+DNA: #龍芯⚡️丙午·甲午·壬申·丙午·䷙大畜-LONGHUN-CSDN-AUDITOR-v1.0
 """
 
 import json

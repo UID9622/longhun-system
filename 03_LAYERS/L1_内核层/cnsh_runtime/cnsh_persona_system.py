@@ -5,7 +5,7 @@
 龍魂系统多人格自治引擎 v2.5
 CNSH OS Personality Autonomy System
 
-DNA: #龍芯⚡️2026-06-09-CNSH-PERSONA-SYSTEM-v2.5
+DNA: #龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-CNSH-PERSONA-SYSTEM-v2.5
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 作者: UID9622 · 龍芯北辰 · 诸葛鑫
@@ -1580,7 +1580,7 @@ class 自治核心:
     │ L5  │ 触发系统进化(UID9622授权)│
     └─────┴──────────────────────┘
 
-    DNA: #龍芯⚡️2026-06-09-CNSH-AUTONOMY-CORE-v2.5
+    DNA: #龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-CNSH-AUTONOMY-CORE-v2.5
     """
 
     def __init__(self):
@@ -1897,7 +1897,7 @@ class 自治核心:
         return {
             "系统信息": {
                 "系统名称": "CNSH OS 多人格自治系统 v2.5",
-                "DNA": "#龍芯⚡️2026-06-09-CNSH-PERSONA-SYSTEM-v2.5",
+                "DNA": "#龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-CNSH-PERSONA-SYSTEM-v2.5",
                 "运行状态": "运行中" if self.运行状态 else "待机",
                 "自治等级": self.自治等级.name,
                 "运行时长秒": round(运行时长, 2),
@@ -2202,7 +2202,7 @@ def 测试_权限系统():
 if __name__ == "__main__":
     print("\n" + "🐉"*30)
     print("  CNSH OS v2.5 多人格自治系统")
-    print("  DNA: #龍芯⚡️2026-06-09-CNSH-PERSONA-SYSTEM-v2.5")
+    print("  DNA: #龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-CNSH-PERSONA-SYSTEM-v2.5")
     print("  作者: UID9622 · 龍芯北辰 · 诸葛鑫")
     print("  🐉"*30 + "\n")
 

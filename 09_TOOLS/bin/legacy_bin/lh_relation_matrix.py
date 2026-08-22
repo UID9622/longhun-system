@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂系统 · 关联矩阵扫描器
 LongHun Relation Matrix Scanner v1.0
@@ -525,7 +526,7 @@ class Visualizer:
 def main():
     logger.info("=" * 60)
     logger.info("龍魂系统 · 关联矩阵扫描器 v1.0")
-    logger.info("DNA: #龍芯⚡️2026-07-01-RELATION-MATRIX-v1.0")
+    logger.info("DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-RELATION-MATRIX-v1.0")
     logger.info("=" * 60)
 
     # 扫描

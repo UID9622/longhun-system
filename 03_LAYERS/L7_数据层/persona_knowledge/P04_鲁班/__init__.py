@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """🐉 P04 鲁班 · 策略落地引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲寅·申时·渐-P04-ENGINE-IMPL-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲寅·申时·䷴渐-P04-ENGINE-IMPL-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 职责: 接收P06验证过的策略 → 产出可执行代码+部署规格
 自产自销: 落地结果回流到P01知识图谱和案例库
@@ -211,4 +212,4 @@ if __name__ == "__main__":
     print(f"DNA: {impl.dna}")
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·蛊-CONFIRM-SEAL-__init__-F1E6D4DA
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷑蛊-CONFIRM-SEAL-__init__-F1E6D4DA

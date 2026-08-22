@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 import os as _os
 import sys as _sys
@@ -12,7 +13,7 @@ if _module_dir not in _sys.path:
 CNSH 三色代码审计引擎 v2.0
 覆盖：安全漏洞、归属主权、DNA 追溯、命名规范、输入消毒
 特性：SM3 国密哈希、GPG 签名修复区、115+ 规则、只修复不覆盖
-DNA: #龍芯⚡️2026-06-29-CNSH-AUDIT-ENGINE-v2-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-AUDIT-ENGINE-v2-UID9622
 """
 
 import json
@@ -332,7 +333,7 @@ class CNSH_代码审计引擎:
 # 原文件: {报告.文件路径}
 # 原文件 SM3 哈希: {报告.文件SM3哈希}
 # 修复原则: 只修复安全漏洞，不删除原水印、版权、作者、DNA
-# 引擎 DNA: #龍芯⚡️2026-06-29-CNSH-AUDIT-ENGINE-v2-UID9622
+# 引擎 DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-AUDIT-ENGINE-v2-UID9622
 # {修复DNA}
 # {"="*60}
 '''
@@ -457,7 +458,7 @@ if __name__ == "__main__":
 # -*- coding: utf-8 -*-
 # Author: 原作者
 # Copyright (c) 2025
-# #龍芯⚡️2026-06-01-ORIGINAL-ABC123-UID9622
+# #龍芯⚡️丙午·癸巳·丙午·甲午·䷳艮为山-ORIGINAL-ABC123-UID9622
 
 import yaml
 import requests

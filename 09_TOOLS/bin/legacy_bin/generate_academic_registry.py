@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════╗
 ║  龍魂学术资产登记册生成器  |  Academic Papers Registry Generator ║
-║  DNA: #龍芯⚡️2026-06-21-ACADEMIC-REGISTRY-GENERATOR-v1.0       ║
+║  DNA: #龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-ACADEMIC-REGISTRY-GENERATOR-v1.0       ║
 ║  用途: 扫描 docs/dragon-soul-open-hub/academic/ 生成论文登记册  ║
 ╚══════════════════════════════════════════════════════════════╝
 """

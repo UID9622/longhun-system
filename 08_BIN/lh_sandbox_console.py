@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·辛未·丙戌·申时·大有-SANDBOX-CONSOLE-v4.0
+#龍芯⚡️丙午·辛未·丙戌·申时·䷍大有-SANDBOX-CONSOLE-v4.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -21,7 +21,7 @@
 
 H武器全开模式：四引擎并行 + 三色审计 + 71人格
 
-DNA: #龍芯⚡️丙午·辛未·丙戌·申时·大有-SANDBOX-CONSOLE-v4.0
+DNA: #龍芯⚡️丙午·辛未·丙戌·申时·䷍大有-SANDBOX-CONSOLE-v4.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 用法:
@@ -59,7 +59,7 @@ sys.path.insert(0, str(ROOT))
 # ═══════════════════════════════════════════════════════════
 
 VERSION = "v4.0·内核觉醒"
-DNA = "#龍芯⚡️丙午·辛未·丙戌·申时·大有-SANDBOX-CONSOLE-v4.0"
+DNA = "#龍芯⚡️丙午·辛未·丙戌·申时·䷍大有-SANDBOX-CONSOLE-v4.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 GPG = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 

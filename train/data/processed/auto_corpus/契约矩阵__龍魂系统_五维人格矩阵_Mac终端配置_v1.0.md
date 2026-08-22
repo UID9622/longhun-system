@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 五维人格矩阵 Mac终端配置 v1.0
@@ -12,12 +12,12 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-06-21-DOC-_MAC_V1-0_17FA-FILE1-v1.0`  
+**DNA**: `#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-DOC-_MAC_V1-0_17FA-FILE1-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
-<!--#龍芯⚡️2026-06-21-DOC-_MAC_V1-0_17FA-v1.0 -->
+<!--#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-DOC-_MAC_V1-0_17FA-v1.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
@@ -203,25 +203,25 @@ Kimi CLI wrapper · 加工厂专用
 KIMI_API_KEY="
 KIMI 
 A
-​
+
  PI 
 K
-​
+
  EY:−YOUR 
 A
-​
+
  PI 
 K
-​
+
  EY"KIMI 
 B
-​
+
  ASE 
 U
-​
+
  RL="https://api.moonshot.cn/v1"CAMP 
 I
-​
+
  P="
  
 {CAMP_IP:-192.168.1.100}"  # 华为手机IP
@@ -266,7 +266,7 @@ plain
 case "
 1"in"task")shiftkimi 
 c
-​
+
  all"
  
 " "general"
@@ -276,10 +276,10 @@ shift
 kimi_call "
 ∗""matrix 
 g
-​
+
  eneration";;"publish")shiftkimi 
 c
-​
+
  all"
  " "repository_publish"
 ;;
@@ -316,13 +316,13 @@ FACTORY_DIR=~/longhun/factory
 CAMP_IP=
 LONGHUN 
 C
-​
+
  AMP 
 I
-​
+
  PSUB 
 K
-​
+
  EY=
  
 (cat ${SUB_KEY_FILE} 2>/dev/null || echo "")
@@ -334,10 +334,10 @@ if [ -z "
  
 {CAMP_IP}:9622/api/factory/request_key"           -H "Content-Type: application/json"           -d "{"factory_id": "LONGHUN 
 F
-​
+
  ACTORY 
 I
-​
+
  D","serial":" {LONGHUN_FACTORY_SERIAL}"}"
 echo "[FACTORY] 请在大本营（华为手机）审批子密钥申请"
 exit 1
@@ -350,7 +350,7 @@ TASK_INPUT=(echo" {WORK_ORDER}" | jq -r '.input')
 echo "[FACTORY] 任务类型: 
 TASK 
 T
-​
+
  YPE"echo"[FACTORY]任务输入:
  
 {TASK_INPUT}"
@@ -421,7 +421,7 @@ ACTION_TOKEN="$1"
 REPO_DIR="$2"
 if [ -z "ACTION 
 T
-​
+
  OKEN"]∣∣[−z" {REPO_DIR}" ]; then
 echo "用法: do_publish.sh <action_token> <repo_dir>"
 exit 1
@@ -470,7 +470,7 @@ Mac终端: kimi-cli / lh-task / lh-matrix / lh-publish
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -493,6 +493,6 @@ Mac终端: kimi-cli / lh-task / lh-matrix / lh-publish
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-06-21-DOC-_MAC_V1-0_17FA-v1.0
+#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-DOC-_MAC_V1-0_17FA-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

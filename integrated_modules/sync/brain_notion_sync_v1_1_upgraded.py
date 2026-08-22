@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂脑干 · Notion同步桥 · brain_notion_sync.py v1.1
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA:#龍芯⚡️2026-06-07-NOTION-BRIDGE-FILE1-v1.1-PHASE1-UPGRADE
+DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-NOTION-BRIDGE-FILE1-v1.1-PHASE1-UPGRADE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 v1.1 新功能 (Phase 1):
@@ -469,7 +470,7 @@ def sync_status():
   export NOTION_TOKEN="secret_xxxxxxxxxxxxx"
   export DB_LU="your-database-id-here"
 
-DNA:#龍芯⚡️2026-06-07-NOTION-BRIDGE-v1.1
+DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-NOTION-BRIDGE-v1.1
 """)
 
 # ═══════════════════════════════════════
@@ -484,7 +485,7 @@ def main():
     args = parser.parse_args()
 
     print("\n🌉 龍魂脑干 · Notion同步桥 v1.1 (Phase 1 升级版)")
-    print(f"   DNA:#龍芯⚡️2026-06-07-NOTION-BRIDGE-v1.1\n")
+    print(f"   DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-NOTION-BRIDGE-v1.1\n")
     print(f"   ⚡ Phase 1 特性:")
     print(f"      • 指数退避重试 ({CONFIG['MAX_RETRIES']} 次)")
     print(f"      • API 限流控制 ({CONFIG['API_RATE_LIMIT']} calls/sec)")

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·甲寅·酉时·需-ORCHESTRATOR-v1.0
+#龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-ORCHESTRATOR-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -9,7 +9,7 @@
 ║                                                                  ║
 ║  意圖解析 → 人格路由 → 執行 → 10道閘口審計 → DNA追溯            ║
 ║                                                                  ║
-║  DNA:  #龍芯⚡️丙午·乙未·甲寅·酉时·需-ORCHESTRATOR-v1.0       ║
+║  DNA:  #龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-ORCHESTRATOR-v1.0       ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                  ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ║                                                                  ║
@@ -68,7 +68,7 @@ INTENT_ROUTE_MAP: List[Dict[str, Any]] = [
     {"keywords": ["情緒海綿", "情緒降溫", "我懂你", "加油", "共情"], "primary": "P00", "assist": ["P03"], "action": "情緒溫度檢測 → 降溫重寫", "落地": "🟢"},
     {"keywords": ["決策來源卡", "憑啥", "怎麼得出", "推理鏈", "透明化"], "primary": "P05", "assist": ["P01", "P13"], "action": "全鏈路決策來源卡", "落地": "🟡"},
     {"keywords": ["許願池", "人民資源池", "一元公益"], "primary": "P01", "assist": ["P05", "P13"], "action": "經濟治理底座", "落地": "🔴"},
-    {"keywords": ["撿德", "曾仕強", "師德傳承", "德字閘"], "primary": "P00", "assist": ["P11", "P17"], "action": "德字閘檢測", "落地": "🟡"},
+    {"keywords": ["撿德", "曾仕強", "師德傳承", "德字閘"], "primary": "P00", "assist": ["P11", "P12"], "action": "德字閘檢測", "落地": "🟡"},
     {"keywords": ["道引", "開源吸收", "引入開源", "daoyin"], "primary": "P09", "assist": ["P01", "P11"], "action": "來源識別 → 許可檢查 → 防篡改 → 德字閘 → 參數壓縮 → IPA綁定", "落地": "🟢"},
     {"keywords": ["自驅", "事事有回應", "開干"], "primary": "P02", "assist": [], "action": "自驅響應", "落地": "🟢"},
     {"keywords": ["大白話", "術語", "行話", "人話"], "primary": "P00", "assist": ["P02"], "action": "行話前大白話", "落地": "🟡"},
@@ -135,7 +135,7 @@ class PersonaOrchestrator:
     """人格編排調度器"""
 
     def __init__(self):
-        self.dna = "#龍芯⚡️丙午·乙未·甲寅·酉时·需-ORCHESTRATOR-v1.0"
+        self.dna = "#龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-ORCHESTRATOR-v1.0"
         self.system_root = SYSTEM_ROOT
         self.trace: List[Dict[str, Any]] = []
         self.persona_executors = {}

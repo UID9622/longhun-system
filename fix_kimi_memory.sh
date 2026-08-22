@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·甲戌·䷍大有-CODE-补DNA-f1a1ec26
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # 🐉 龍魂记忆修复脚本
 # 执行方式: ./fix_kimi_memory.sh

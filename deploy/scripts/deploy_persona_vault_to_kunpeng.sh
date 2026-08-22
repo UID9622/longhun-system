@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·人格路由 + 保险柜 API 鲲鹏部署脚本
-# DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-DEPLOY-PERSONA-VAULT-KUNPENG-v1.0
+# DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-DEPLOY-PERSONA-VAULT-KUNPENG-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 set -e
 

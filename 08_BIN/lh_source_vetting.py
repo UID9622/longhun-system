@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂·数据源头校验器 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-源头校验-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-源头校验-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -25,7 +25,7 @@ from typing import Any, Dict, List, Optional
 
 # ──── 常量 ────
 CST = timezone(timedelta(hours=8))
-DNA_ROOT = "#龍芯⚡️丙午·乙未·甲辰·离为火-源头校验-v1.0"
+DNA_ROOT = "#龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-源头校验-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SCORE_THRESHOLD = 80  # 低于80分 = 拒绝或人工复核
 

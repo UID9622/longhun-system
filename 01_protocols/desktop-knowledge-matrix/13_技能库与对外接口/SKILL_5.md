@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-cloud-mcp
 description: '龍魂MCP服務 v5.0 — FastMCP集成+工具定義+Dockerfile自動生成+配置管理。 支持龍魂體系14個技能的MCP協議暴露，統一工具註冊中心。
@@ -7,7 +9,7 @@ description: '龍魂MCP服務 v5.0 — FastMCP集成+工具定義+Dockerfile自�
 metadata:
   author: 龍魂体系-技能打包专家
   version: 5.0.0
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MCP-v5.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-MCP-v5.0'
   category: cloud
   tags:
   - mcp
@@ -51,7 +53,7 @@ metadata:
 | **名稱** | 龍魂 MCP 服務 |
 | **版本** | 5.0.0 |
 | **分類** | cloud |
-| **DNA** | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MCP-v5.0` |
+| **DNA** | `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-MCP-v5.0` |
 | **協議** | 君子協議·不免責 |
 | **責任人** | UID9622 |
 | **質量指標** | 12區塊完整度 100% |
@@ -432,7 +434,7 @@ curl -X POST http://api:8443/mcp/tools/register \
 ## 13. DNA 追溯鏈
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MCP-v5.0
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-MCP-v5.0
 ├── 技能名稱: longhun-cloud-mcp
 ├── 技能描述: 龍魂MCP服務 v5.0
 ├── 版本: 5.0.0
@@ -490,7 +492,7 @@ curl -X POST http://api:8443/mcp/tools/register \
 
 ---
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MCP-v5.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-MCP-v5.0`
 **確認**: `#CONFIRM🌌9622-ONLY-ONCE🧬MCP5-2026`
 **簽章**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
 **責任**: UID9622 · 不免責

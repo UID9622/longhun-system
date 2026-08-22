@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════╗
 ║  龍魂·规则导出工具 v1.0                                      ║
-║  DNA: #龍芯⚡️20260529-EXTRACT-RULES-v1.0                   ║
+║  DNA: #龍芯⚡️丙午·癸巳·癸卯·戊午·䷚颐-EXTRACT-RULES-v1.0                   ║
 ╚══════════════════════════════════════════════════════════════╝
 
 alias 打包 指向这里。

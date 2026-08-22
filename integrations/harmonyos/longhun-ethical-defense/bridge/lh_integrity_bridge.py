@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 from __future__ import annotations
 # bridge/lh_integrity_bridge.py
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 龍魂 · 商业诚信熔断Python桥接 · 联动RobotScore+语义防火墙+熔断器
-# DNA: #龍芯⚡️丙午·辛未·丙戌·INTEGRITY-BRIDGE-v1.0
+# DNA: #龍芯⚡️丙午·辛未·丙戌·甲午·䷕贲-INTEGRITY-BRIDGE-v1.0
 # UID: 9622 | CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 """
@@ -814,7 +815,7 @@ if HAS_FASTAPI:
     GET  /api/integrity/high-risk-sellers — 高风险商家
     POST /api/integrity/export         — 导出报告
 
-  DNA: #龍芯⚡️丙午·辛未·丙戌·INTEGRITY-BRIDGE-v1.0
+  DNA: #龍芯⚡️丙午·辛未·丙戌·甲午·䷕贲-INTEGRITY-BRIDGE-v1.0
   UID: 9622
   红线: 只检测 · 只标注 · 只提醒 · 用户自判断 · 不封号不删帖
         """)

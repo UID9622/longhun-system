@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂终端通知模块 v1.0
 
 支持 macOS 原生通知中心（osascript），失败时回退到命令行打印。
-DNA: #龍芯⚡️2026-06-29-LONGHUN-NOTIFIER-v1-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-NOTIFIER-v1-UID9622
 """
 from __future__ import annotations
 
@@ -18,7 +19,7 @@ import sys
 from pathlib import Path
 from typing import Optional
 
-DNA = "#龍芯⚡️2026-06-29-LONGHUN-NOTIFIER-v1-UID9622"
+DNA = "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-NOTIFIER-v1-UID9622"
 
 
 def notify(

@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂道引器 · Gitee 批量吸收桥接脚本 v1.0
 
@@ -11,7 +12,7 @@
 用法：
   python3 bin/lh_daoyin_gitee_batch.py batch <repos.txt> [--workers 2] [--dry-run]
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·戊子·坎-DAOYIN-GITEE-BRIDGE-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·戊子·䷜坎-DAOYIN-GITEE-BRIDGE-v1.0
 """
 
 import argparse

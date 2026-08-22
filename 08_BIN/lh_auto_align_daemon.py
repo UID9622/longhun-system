@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂·自动对齐闭环调度器 v2.0
 DNA: 由 bin/lh_dna_generator.py 生成（禁止手写时间戳格式）
@@ -98,7 +99,14 @@ def run_checker() -> Dict[str, Any]:
         return {"status": "error",
                 "message": f"检查器执行失败(rc={result.returncode}): {result.stderr[:300]}"}
 
-    # 优先从 stdout 解析 JSON
+    # 优先从 stdout 解析 JSON（支持紧凑单行/缩进多行两种格式）
+    # 修正 (2026-08-22): 原先按行 json.loads → 多行 JSON 每行都解析失败 →
+    #   永远 fallback 读旧报告(8/11, missing_dna=0) → lh align fix 永不修缺DNA。
+    #   改为先整体 json.loads，失败再按行兜底。
+    try:
+        return json.loads(result.stdout)
+    except json.JSONDecodeError:
+        pass
     for line in result.stdout.strip().splitlines():
         line = line.strip()
         if line.startswith("{"):

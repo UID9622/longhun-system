@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 · 自适应进化中枢 单元测试
-DNA: #龍芯⚡️2026-07-25-EVOLUTION-TESTS-v1.0
+DNA: #龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-EVOLUTION-TESTS-v1.0
 """
 
 import json, os, sys, tempfile, unittest
@@ -81,10 +82,6 @@ class TestJumpPuzzler(unittest.TestCase):
         self.tmp = Path(tempfile.mkdtemp())
         self.puzzler = JumpPuzzler(self.tmp)
 
-    def tearDown(self):
-        for f in self.tmp.glob("*"):
-            f.unlink()
-        self.tmp.rmdir()
 
     def test_record_single(self):
         f = self.puzzler.record("新增功能A", ["feature"], "core")
@@ -262,10 +259,6 @@ class TestSimilarityComputation(unittest.TestCase):
         self.tmp = Path(tempfile.mkdtemp())
         self.detector = RepeatDetector(self.tmp, sim_threshold=0.3)
 
-    def tearDown(self):
-        for f in self.tmp.glob("*"):
-            f.unlink()
-        self.tmp.rmdir()
 
     def test_single_word_difference(self):
         self.detector.detect("hello world")

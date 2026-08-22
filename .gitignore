@@ -355,3 +355,41 @@ secrets.env
 # --- 密钥落位文件（禁入 git·协议20 密钥防泄露） ---
 config/notion_config.json
 _QUARANTINE/
+12_DOCS/notion_full_export/
+
+# ═══════════════════════════════════════════════════════════
+# 🐉 对齐提交加固（2026-08-22 焊死 · 防 git add -A 误入库）
+# ═══════════════════════════════════════════════════════════
+# 模型/权重全目录（规则6.7·二进制禁入git）
+models/
+*.onnx
+*.gguf
+*.safetensors
+# 冻结档案（P0不删只冻结·不入git）
+archive/frozen/
+*.frozen
+# 全量备份文件（历史11964个·不入git）
+*.bak
+*.bak.*
+# 音视频成片（龍魂成片492个视频/音频·大文件不入git）
+*.mp4
+*.wav
+*.flac
+*.m4a
+龍魂成片/
+# 审计迁移备份（28MB大文件）
+04_AUDIT/dna_migration/backup/
+# 第三方嵌入式仓库（gitlink·不入库·防 add -A 误加）
+02_SKILLS/dsh-longhun-audit/
+08_BIN/story_factory/third_party/
+web/static/layui/
+# 剪贴板保险库（隐私数据源·含私钥片段·P0永不入库）
+06_CONTAINERS/clipboard-vault/
+# 数据库运行期临时文件（shm/wal·禁入git）
+*.sqlite3-shm
+*.sqlite3-wal
+*.db-shm
+*.db-wal
+
+# DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-GITIGNORE-ALIGN-V2.1-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

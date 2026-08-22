@@ -3,7 +3,7 @@
 # 🐉 龍魂·可视化引擎协议 v1.0 · 附录A
 
 > 性能基准测试 + 移动端适配
-> DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·讼-VISUAL-ENGINE-APPENDIX-A-v1.0
+> DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-VISUAL-ENGINE-APPENDIX-A-v1.0
 
 ---
 
@@ -452,5 +452,5 @@ npm run report:visual
 
 ---
 
-> DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·讼-VISUAL-ENGINE-APPENDIX-A-v1.0
+> DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-VISUAL-ENGINE-APPENDIX-A-v1.0
 > 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

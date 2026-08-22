@@ -1,11 +1,11 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂本地服务器 · 设备接入手册 v1.0
 
 > **Mac IP**: `192.168.1.34`（路由器DHCP分配，变IP就更新此文件）
 > **前提**: 设备和Mac连**同一个WiFi/局域网**
-> **DNA**: `#龍芯⚡️丙午·丙申·乙卯·辰时·需-DEVICE-SETUP-v1.0`
+> **DNA**: `#龍芯⚡️丙午·丙申·乙卯·辰时·䷄需-DEVICE-SETUP-v1.0`
 
 ---
 

@@ -1,6 +1,7 @@
 # 龍魂系统 · 治理铁律公开骨架版 v1.0
 
 公开原则（§6.4 边界律）：
+协议级别: P0 天条公开骨架（verbatim 死守·仅白话列·引用须保留来源链）
 - 公开：铁律名 / DNA 编号 / 白话释义 / 触发场景
 - 死守：作者 verbatim 原话全文、家人相关映射、密钥与派生逻辑
 
@@ -70,6 +71,6 @@
 | IRON-EVERY-ITEM-RESPONSE-EVERY-TASK-LANDING | 件件有回应、事事有着落 |
 
 > 公开首页 / Home: https://uid9622.notion.site
-DNA: #龍芯⚡️2026-08-20-IRONLAWS-PUBLIC-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-IRONLAWS-PUBLIC-v1.0
 
 分层许可: 思想层 CC BY-NC-SA 4.0（公开骨架版·引用须保留来源链）

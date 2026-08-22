@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 CNSH标准词典 · CSV生成器
-DNA: #龍芯⚡️丙午·乙未·乙未·酉时·☷坤-CNSH-DICT-CSV-GEN-v1.0
+DNA: #龍芯⚡️丙午·乙未·乙未·酉时·䷁坤-CNSH-DICT-CSV-GEN-v1.0
 从 cnsh_standard_dictionary.json 生成 CSV 对照表
 """
 import json

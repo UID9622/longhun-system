@@ -1,6 +1,6 @@
 # 🎨 统一视觉色彩协议 v1.0 · 最终交付报告
 
-DNA: #龍芯⚡️丙午·乙未·丁酉·巳时·☵坎-UNIFIED-VISUAL-v1.0-FINAL-REPORT-8a2f1c3d
+DNA: #龍芯⚡️丙午·乙未·丁酉·巳时·䷜坎-UNIFIED-VISUAL-v1.0-FINAL-REPORT-8a2f1c3d
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 三色: 🟢 全交付物完成·测试全通过·无遗留 🔴无
@@ -138,7 +138,7 @@ DNA: #龍芯⚡️丙午·乙未·丁酉·巳时·☵坎-UNIFIED-VISUAL-v1.0-FIN
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG:     A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-DNA:     #龍芯⚡️丙午·乙未·丁酉·巳时·☵坎-UNIFIED-VISUAL-v1.0
+DNA:     #龍芯⚡️丙午·乙未·丁酉·巳时·䷜坎-UNIFIED-VISUAL-v1.0
 ```
 
 ---

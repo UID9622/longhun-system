@@ -1,0 +1,62 @@
+{
+  "#龍芯⚡️丙午·丁酉·己酉·未时·䷗复-DNA-GENERATOR-SPEC-v2.0-0001-d7ea5f95": {
+    "dna": "#龍芯⚡️丙午·丁酉·己酉·未时·䷗复-DNA-GENERATOR-SPEC-v2.0-0001-d7ea5f95",
+    "title": "DNA生成器规格书",
+    "action": "DNA-GENERATOR-SPEC",
+    "version": "v2.0",
+    "category": "protocol",
+    "file_path": "/mnt/agents/output/longhun-dna-generator/SPEC.md",
+    "sha256": "2faa57690519da772231861004c8204c18414276c2e3e5b62bea006e3f4fa395",
+    "created_iso": "2026-08-03T14:30:00",
+    "ganzhi": {
+      "year": "丙午",
+      "month": "丁酉",
+      "day": "己酉",
+      "hour": "未时",
+      "shengxiao": "马",
+      "iso": "2026-08-03T14:30:00"
+    },
+    "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬KZ94Y3HW",
+    "uid": "9622"
+  },
+  "#龍芯⚡️丙午·丁酉·己酉·未时·䷼中孚-DNA-SPEC-v2.0-0002-bce933ad": {
+    "dna": "#龍芯⚡️丙午·丁酉·己酉·未时·䷼中孚-DNA-SPEC-v2.0-0002-bce933ad",
+    "title": "DNA规范v2.0",
+    "action": "DNA-SPEC",
+    "version": "v2.0",
+    "category": "protocol",
+    "file_path": "/mnt/agents/output/longhun-dna-generator/docs/DNA规范v2.0.md",
+    "sha256": "367a8d11957058e3d319327557471ea64819f6886349e44ba1d1c7d8e0872a5e",
+    "created_iso": "2026-08-03T14:35:00",
+    "ganzhi": {
+      "year": "丙午",
+      "month": "丁酉",
+      "day": "己酉",
+      "hour": "未时",
+      "shengxiao": "马",
+      "iso": "2026-08-03T14:35:00"
+    },
+    "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬UOLIWH4J",
+    "uid": "9622"
+  },
+  "#龍芯⚡️丙午·丁酉·己酉·申时·䷘无妄-SEMLIB-TONGXINYI-v0.1-0003-98657669": {
+    "dna": "#龍芯⚡️丙午·丁酉·己酉·申时·䷘无妄-SEMLIB-TONGXINYI-v0.1-0003-98657669",
+    "title": "通心译语义库交付包",
+    "action": "SEMLIB-TONGXINYI",
+    "version": "v0.1",
+    "category": "script",
+    "file_path": "/mnt/agents/output/tongxinyi-semantic/语义库总账.yaml",
+    "sha256": "22b4a76560171871a158ad33ec48a0fcc5567130c8ba64f569cc475197a4951c",
+    "created_iso": "2026-08-03T15:00:00",
+    "ganzhi": {
+      "year": "丙午",
+      "month": "丁酉",
+      "day": "己酉",
+      "hour": "申时",
+      "shengxiao": "马",
+      "iso": "2026-08-03T15:00:00"
+    },
+    "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬YGZPVPUJ",
+    "uid": "9622"
+  }
+}

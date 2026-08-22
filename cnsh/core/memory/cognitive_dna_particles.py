@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 龍魂认知DNA粒子系统 (Cognitive DNA Particle System)
-DNA:#龍芯⚡️2026-06-03-COGNITIVE-PARTICLES-FILE1-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-COGNITIVE-PARTICLES-FILE1-v1.0
 
 完整的认知状态压缩和恢复机制
 
@@ -93,8 +94,6 @@ class DecisionPathReplay:
     confidence: float              # 决策置信度 (0.0-1.0)
     audit_log_entries: List[str]   # 审计日志ID
 
-    def to_dict(self) -> Dict[str, Any]:
-        return asdict(self)
 
     @staticmethod
     def from_dict(data: Dict[str, Any]) -> "DecisionPathReplay":
@@ -129,8 +128,6 @@ class EmotionFold:
     preserved_in_archive: bool = True
     removed_from_logic: bool = True
 
-    def to_dict(self) -> Dict[str, Any]:
-        return asdict(self)
 
     @staticmethod
     def from_dict(data: Dict[str, Any]) -> "EmotionFold":
@@ -180,8 +177,6 @@ class ThreeTalentSnapshot:
     sovereignty_level: str         # 主权等级
     can_reconstruct: bool          # 是否允许重建
 
-    def to_dict(self) -> Dict[str, Any]:
-        return asdict(self)
 
     @staticmethod
     def from_dict(data: Dict[str, Any]) -> "ThreeTalentSnapshot":
@@ -527,7 +522,7 @@ class CognitiveDNAParticleManager:
 
 if __name__ == '__main__':
     print("\n【龍魂认知DNA粒子系统 v1.0】\n")
-    print("DNA:#龍芯⚡️2026-06-03-COGNITIVE-PARTICLES-v1.0")
+    print("DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-COGNITIVE-PARTICLES-v1.0")
     print("CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
     print("SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL\n")
 

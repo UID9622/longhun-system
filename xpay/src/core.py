@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 SovereignGateway 主引擎
-DNA:#龍芯⚡️2026-06-17-XPAY-CORE-FILE1-v2.0
+DNA:#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-XPAY-CORE-FILE1-v2.0
 """
 import importlib
 import pkgutil
@@ -25,7 +26,7 @@ class SovereignGateway:
     不持有资金，不当中间商。
     """
 
-    DNA_SIGNATURE = "#龍芯⚡️2026-06-17-XPAY-CORE-v2.0"
+    DNA_SIGNATURE = "#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-XPAY-CORE-v2.0"
 
     def __init__(self, db_path: Optional[Path] = None):
         self.store = TransactionStore(db_path)

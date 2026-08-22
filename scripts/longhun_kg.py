@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂知识图谱 · 通心译实体抽取与来源链保留
@@ -14,7 +15,7 @@
 
 并建立共现实体关系，保留原始时间戳与本地来源链。
 
-DNA: #龍芯⚡️2026-06-23-LONGHUN-KG-v1.0
+DNA: #龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-KG-v1.0
 """
 from __future__ import annotations
 
@@ -32,7 +33,7 @@ REPORT_PATH = OUT_DIR / "KNOWLEDGE_GRAPH.md"
 
 CST = timezone(timedelta(hours=8))
 
-DNA = "#龍芯⚡️2026-06-23-LONGHUN-KG-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-KG-v1.0"
 
 # 核心种子概念：老大创作的哲学/技术/主权关键词
 SEED_CONCEPTS: List[str] = [

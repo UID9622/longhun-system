@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·丙申·壬戌·申时-AI-MESH-BUS-v1.0-UID9622
+# DNA: #龍芯⚡️丙午·丙申·壬戌·戊申·䷌同人-AI-MESH-BUS-v1.0-UID9622
 # 创建者: 诸葛鑫（UID9622）
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """

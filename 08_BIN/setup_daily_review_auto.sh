@@ -1,7 +1,7 @@
 #!/bin/bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂每日複盤·自動配置版本 (非互動式)
-# DNA:#龍芯⚡️2026-06-09-DAILY-REVIEW-AUTO-SETUP-v1.0
+# DNA:#龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-DAILY-REVIEW-AUTO-SETUP-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 用法: ./setup_daily_review_auto.sh <gmail_account> <app_password> <automation_type>
 

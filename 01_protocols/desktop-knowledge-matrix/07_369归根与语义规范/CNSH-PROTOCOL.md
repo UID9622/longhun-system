@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 龍魂·CNSH 语言完整规范 v2.3
 
 > **CNSH = 中文母语关键字 + Python/C系列语法兼容层 + 龍魂专属符号 + DNA强制追溯 + 三色审计强制 + 权重指向焊死 + 全平台目标编译器**
@@ -182,7 +183,7 @@ CNSH 是**中文原生编程语言**，出了龍魂生态就跑不动。这是�
 CNSH 使用大括号 `{}` 包裹类体，与模块/函数风格一致。
 
 ```cnsh
-# DNA:#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-CLASS-v2.2
+# DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-CLASS-v2.2
 
 类 动物 {
     定义 初始化(自己, 名字) {
@@ -398,7 +399,7 @@ lh6 兑 compile --target rust     --source 模块.cnsh
 同一份 CNSH 源码，编译到不同平台：
 
 ```cnsh
-# DNA:#龍芯⚡️丙午·丙申·庚申·亥时-CROSS-PLATFORM-DEMO-v2.3
+# DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CROSS-PLATFORM-DEMO-v2.3
 # 这段代码一次编写，编译到所有平台
 
 定义 获取版本号() -> 字符串 {
@@ -495,7 +496,7 @@ CNSH中文        →  C                      →  C++                  →  Obj
 ### 5.3 C++ 模板映射示例
 
 ```cnsh
-# DNA:#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-CPP-TEMPLATE-v2.3
+# DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-CPP-TEMPLATE-v2.3
 
 模板<类型 T>
 类 智能数组 {
@@ -676,7 +677,7 @@ lh6 兑 compile --target objc   --source 龍魂控制器.cnsh --output ios/龍�
 ### 示例①：用户认证模块（L1·权重80）
 
 ```
-# DNA追溯码：#龍芯⚡️丙午·丙申·庚申·亥时-USER-AUTH-v1.0
+# DNA追溯码：#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-USER-AUTH-v1.0
 # 权重级别：L1  三色审计状态：🟢
 
 模块 用户认证模块⚖️80 {
@@ -702,7 +703,7 @@ lh6 兑 compile --target objc   --source 龍魂控制器.cnsh --output ios/龍�
 ### 示例②：三色审计引擎（L0·权重100）
 
 ```
-# DNA:#龍芯⚡️丙午·丙申·庚申·亥时-AUDIT-CORE-v1.0
+# DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AUDIT-CORE-v1.0
 # 权重：L0（系统核心·100）
 
 模块 三色审计引擎⚖️100 {
@@ -720,7 +721,7 @@ lh6 兑 compile --target objc   --source 龍魂控制器.cnsh --output ios/龍�
 ### 示例③：量子纠缠任务调度（L0·权重100）
 
 ```
-# DNA:#龍芯⚡️丙午·丙申·庚申·亥时-QUANTUM-v1.0
+# DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-QUANTUM-v1.0
 
 模块 量子调度器⚖️100 {
   函数 量子纠缠(父任务: 字符串, 子任务: 字符串) {
@@ -819,7 +820,7 @@ lh6 兑 compile --target objc   --source 龍魂控制器.cnsh --output ios/龍�
 龍.核心.IPA注册({
   节点ID: "IPA-CNSH-AUTH-001",
   模块名: "用户认证模块",
-  DNA码: "#龍芯⚡️丙午·丙申·庚申·亥时-AUTH-v1.0",
+  DNA码: "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AUTH-v1.0",
   权重: 80,
   状态: "🟢活",
   所属层级: "L1"
@@ -863,7 +864,7 @@ lh6 兑 compile --target objc   --source 龍魂控制器.cnsh --output ios/龍�
 | 字段 | 内容 |
 |------|------|
 | 版本 | v2.3（2026-07-06）|
-| DNA |#龍芯⚡️丙午·丙申·庚申·亥时-CNSH语言完整规范-v2.3 |
+| DNA |#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH语言完整规范-v2.3 |
 | GPG指纹 | A2D0092CEE2E5BA87035600924C3704A8CC26D5F |
 | 三色审计 | 🟢 通过 |
 | 创建者 | 💎 龍芯北辰｜UID9622（诸葛鑫·Lucky）|

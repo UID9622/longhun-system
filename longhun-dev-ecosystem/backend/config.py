@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂生态 · 配置
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-DEV-CONFIG-UID9622
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DEV-CONFIG-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（思想层）
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
@@ -56,7 +56,7 @@ SMS_SECRET_ID = os.getenv("SMS_SECRET_ID", "")
 
 # 生态配置
 ECOSYSTEM_NAME = "龍魂主权开发者联盟"
-ECOSYSTEM_DNA = "#龍芯⚡️丙午·丙申·庚申·亥时-ECOSYSTEM-UID9622"
+ECOSYSTEM_DNA = "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ECOSYSTEM-UID9622"
 
 # 月度主权确认金公约锚点
 MONTHLY_FEE_ANCHOR = {

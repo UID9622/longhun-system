@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🧬 LU → CNSH 全量人格知识同步报告
 
-> DNA: `#龍芯⚡️2026-07-07-LU-CNSH-FULLSYNC-v1.0`
+> DNA: `#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-LU-CNSH-FULLSYNC-v1.0`
 > 确认码: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
 > 指令: `LU-ORIGIN-FULLSYNC + LU-MEMORY-MERGE-ALL`
 > 执行者: P02 龍芯 + P77 红客 + P15 乔前辈 联动
@@ -141,7 +141,7 @@ LU指令系统          →     CNSH 语义路由
 ## 八、DNA 签名
 
 ```
-#龍芯⚡️2026-07-07-LU-CNSH-FULLSYNC-v1.0
+#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-LU-CNSH-FULLSYNC-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 LU-ORIGIN-FULLSYNC ✅
 LU-MEMORY-MERGE-ALL ✅

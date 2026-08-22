@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · Notion 对话桥 v2.3 (人格引擎深度集成 + 多模型协作增强版)
-DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-NOTION-BRIDGE-v2.3-UID9622
+DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-NOTION-BRIDGE-v2.3-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -38,7 +38,7 @@ import urllib.request
 import urllib.error
 from pathlib import Path
 from datetime import datetime, timezone
-from typing import Dict, List, Optional, Any, Iterator
+from typing import Dict, List, Optional, Any
 from contextlib import asynccontextmanager
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -68,6 +68,9 @@ sys.path.insert(0, str(PROJECT_ROOT))
 # 导入人格引擎
 # ============================================================
 
+# 人格引擎（可选集成：import 失败时降级占位，保持 API 不阻断）
+PersonaRuntime: Any = None
+PersonaBridge: Any = None
 try:
     from bin.lh_persona_runtime import PersonaRuntime, PersonaBridge
     PERSONA_AVAILABLE = True
@@ -75,12 +78,71 @@ except ImportError:
     print("⚠️ 人格引擎未找到，部分功能不可用")
     PERSONA_AVAILABLE = False
 
+if not PERSONA_AVAILABLE:
+
+    class _PersonaRuntimeStub:
+        """降级占位：人格引擎缺失时保持离线"""
+
+        def __init__(self, *_args, **_kwargs):
+            pass
+
+        def list_personas(self) -> list:
+            return []
+
+        def get_current(self, *_args, **_kwargs):
+            return None
+
+        def set_current(self, *_args, **_kwargs):
+            return None
+
+        def trigger_chain(self, *_args, **_kwargs):
+            return None
+
+    class _PersonaBridgeStub:
+        """降级占位：人格桥缺失时保持离线"""
+
+        def __init__(self, *_args, **_kwargs):
+            pass
+
+        def handle(self, *_args, **_kwargs):
+            pass
+
+        def match(self, *_args, **_kwargs):
+            return None
+
+        def trigger_chain(self, *_args, **_kwargs):
+            return None
+
+    PersonaRuntime = _PersonaRuntimeStub
+    PersonaBridge = _PersonaBridgeStub
+
+# 五行议事会（可选集成：import 失败时降级占位，保持 API 不阻断）
+WuxingModelCouncil: Any = None
 try:
     from bin.lh_notion_council import WuxingModelCouncil
     COUNCIL_AVAILABLE = True
 except ImportError as e:
     print(f"⚠️ 五行议事会未加载: {e}")
     COUNCIL_AVAILABLE = False
+
+if not COUNCIL_AVAILABLE:
+
+    class _BaguaStub:
+        """降级占位：八卦信息离线"""
+
+        def info(self, *_args, **_kwargs):
+            return {"trigram": "䷀", "note": "五行议事会离线"}
+
+    class _WuxingModelCouncilStub:
+        """降级占位：五行议事会缺失时保持离线"""
+
+        def __init__(self, *_args, **_kwargs):
+            self.bagua = _BaguaStub()
+
+        def status(self):
+            return {"status": "offline", "reason": "五行议事会未加载"}
+
+    WuxingModelCouncil = _WuxingModelCouncilStub
 
 # ============================================================
 # 配置
@@ -219,12 +281,12 @@ def get_session(session_id: str) -> Optional[Dict]:
 class NotionClient:
     """零依赖 Notion API 客户端"""
 
-    def __init__(self, token: str = None):
+    def __init__(self, token: Optional[str] = None):
         self.token = token or NOTION_TOKEN
         self.base_url = "https://api.notion.com/v1"
         self.version = NOTION_VERSION
 
-    def _request(self, method: str, path: str, data: Dict = None) -> Dict:
+    def _request(self, method: str, path: str, data: Optional[Dict] = None) -> Dict:
         if not self.token:
             return {"error": "NOTION_API_KEY 未设置"}
         url = f"{self.base_url}/{path.lstrip('/')}"
@@ -245,7 +307,7 @@ class NotionClient:
         except Exception as e:
             return {"error": str(e)}
 
-    def search(self, query: str, page_size: int = 20, start_cursor: str = None) -> Dict:
+    def search(self, query: str, page_size: int = 20, start_cursor: Optional[str] = None) -> Dict:
         payload = {"query": query, "page_size": page_size}
         if start_cursor:
             payload["start_cursor"] = start_cursor
@@ -254,14 +316,14 @@ class NotionClient:
     def get_page(self, page_id: str) -> Dict:
         return self._request("GET", f"pages/{page_id}")
 
-    def get_blocks(self, block_id: str, start_cursor: str = None) -> Dict:
+    def get_blocks(self, block_id: str, start_cursor: Optional[str] = None) -> Dict:
         url = f"blocks/{block_id}/children?page_size=100"
         if start_cursor:
             url += f"&start_cursor={start_cursor}"
         return self._request("GET", url)
 
-    def query_database(self, database_id: str, start_cursor: str = None, filter_obj: Dict = None) -> Dict:
-        payload = {"page_size": 100}
+    def query_database(self, database_id: str, start_cursor: Optional[str] = None, filter_obj: Optional[Dict] = None) -> Dict:
+        payload: dict = {"page_size": 100}
         if start_cursor:
             payload["start_cursor"] = start_cursor
         if filter_obj:
@@ -347,7 +409,7 @@ def extract_text_from_block(block: Dict) -> str:
 
     return "\n".join(texts)
 
-def sync_pages(client: NotionClient, query: str = "", database_id: str = None):
+def sync_pages(client: NotionClient, _query: str = "", database_id: Optional[str] = None):
     """全量/增量同步页面"""
     conn = sqlite3.connect(str(SYNC_DB))
     synced = 0
@@ -943,7 +1005,7 @@ class MultiModelRouter:
             "description": entry.get("description", "") if entry else "",
         }
 
-    def _enrich_probe(self, probe: Dict[str, Any]) -> Dict[str, Any]:
+    def _enrich_probe(self, probe: Any) -> Dict[str, Any]:
         """用 registry 元数据增强 provider 探测结果。"""
         models = probe.get("models", [])
         probe["model_details"] = [self._enrich_model(m) for m in models]
@@ -965,6 +1027,7 @@ class MultiModelRouter:
         def _do():
             start = time.time()
             try:
+                assert requests is not None  # requests 已安装时非 None
                 r = requests.get(f"{self.ollama_host}/api/tags", timeout=5)
                 r.raise_for_status()
                 data = r.json()
@@ -1003,12 +1066,13 @@ class MultiModelRouter:
                     "provider": "deepseek",
                     "status": "offline",
                     "latency_ms": None,
-                    "models": ["deepseek-chat", "deepseek-reasoner"],
+                    "models": ["deepseek-v4-flash", "deepseek-v4-pro"],
                     "privacy": "cloud",
                     "error": "DEEPSEEK_API_KEY not configured",
                 }
             start = time.time()
             try:
+                assert requests is not None  # requests 已安装时非 None
                 r = requests.get(
                     f"{self.deepseek_url}/models",
                     headers={"Authorization": f"Bearer {self.deepseek_key}"},
@@ -1023,7 +1087,7 @@ class MultiModelRouter:
                     "provider": "deepseek",
                     "status": "online",
                     "latency_ms": latency,
-                    "models": models or ["deepseek-chat"],
+                    "models": models or ["deepseek-v4-flash"],
                     "privacy": "cloud",
                 }
             except Exception as e:
@@ -1032,7 +1096,7 @@ class MultiModelRouter:
                     "provider": "deepseek",
                     "status": "offline",
                     "latency_ms": None,
-                    "models": ["deepseek-chat"],
+                    "models": ["deepseek-v4-flash"],
                     "privacy": "cloud",
                     "error": str(e)[:120],
                 }
@@ -1052,6 +1116,7 @@ class MultiModelRouter:
                 }
             start = time.time()
             try:
+                assert requests is not None  # requests 已安装时非 None
                 r = requests.get(
                     f"{self.kimi_url}/models",
                     headers={"Authorization": f"Bearer {self.kimi_key}"},
@@ -1183,7 +1248,6 @@ class MultiModelRouter:
         # 合成：以本地/自训练模型为底，合并其他 provider 新增要点
         base = next((r for r in valid if r.get("provider") == "local"), valid[0] if valid else None)
         base_text = base.get("reply", "") if base else ""
-        base_bullets = self._extract_bullets(base_text)
         novel = []
         for r in valid:
             if r is base:
@@ -1273,6 +1337,7 @@ class MultiModelRouter:
         for cand in candidates:
             tried.append(cand)
             try:
+                assert requests is not None  # requests 已安装时非 None
                 dna = generate_dna("LOCAL")
                 start = time.time()
                 payload = {
@@ -1316,9 +1381,10 @@ class MultiModelRouter:
     def _chat_deepseek(self, messages: List[Dict[str, str]], model: Optional[str], temperature: float, max_tokens: int) -> Dict[str, Any]:
         if not self.deepseek_key:
             raise RuntimeError("DEEPSEEK_API_KEY not configured")
-        model = model or "deepseek-chat"
+        model = model or "deepseek-v4-flash"
         dna = generate_dna("DEEPSEEK")
         start = time.time()
+        assert requests is not None  # requests 已安装时非 None
         r = requests.post(
             f"{self.deepseek_url}/chat/completions",
             headers={
@@ -1335,7 +1401,7 @@ class MultiModelRouter:
         )
         try:
             r.raise_for_status()
-        except requests.exceptions.HTTPError as e:
+        except requests.exceptions.HTTPError as e:  # type: ignore[union-attr]  # 运行时 requests 已断言非 None
             if r.status_code == 402:
                 raise RuntimeError("DeepSeek 账户余额不足 (402 Payment Required)，请充值后重试") from e
             if r.status_code == 429:
@@ -1360,6 +1426,7 @@ class MultiModelRouter:
         model = model or "moonshot-v1-8k"
         dna = generate_dna("KIMI")
         start = time.time()
+        assert requests is not None  # requests 已安装时非 None
         r = requests.post(
             f"{self.kimi_url}/chat/completions",
             headers={
@@ -1376,7 +1443,7 @@ class MultiModelRouter:
         )
         try:
             r.raise_for_status()
-        except requests.exceptions.HTTPError as e:
+        except requests.exceptions.HTTPError as e:  # type: ignore[union-attr]  # 运行时 requests 已断言非 None
             if r.status_code == 402:
                 raise RuntimeError("Kimi 账户余额不足 (402 Payment Required)，请充值后重试") from e
             if r.status_code == 429:
@@ -1564,7 +1631,7 @@ class MultiModelRouter:
 model_router = MultiModelRouter()
 
 # 全局五行议事会实例
-wuxing_council = WuxingModelCouncil(model_router) if COUNCIL_AVAILABLE else None
+wuxing_council: Any = WuxingModelCouncil(model_router) if COUNCIL_AVAILABLE else None
 
 
 def model_generate(
@@ -1646,7 +1713,7 @@ def detect_navigation_intent(message: str) -> Optional[Dict]:
     for pattern, intent_type in NAVIGATION_PATTERNS:
         match = re.search(pattern, message)
         if match:
-            if intent_type == "link" and match.lastindex >= 2:
+            if intent_type == "link" and (match.lastindex or 0) >= 2:
                 return {"type": "link", "target": match.group(1).strip(), "target2": match.group(2).strip()}
             return {"type": intent_type, "target": match.group(1).strip()}
     return None
@@ -1733,8 +1800,8 @@ def process_chat_with_persona(message: str, session_id: str,
         return result
 
     try:
-        persona_runtime = PersonaRuntime()
-        persona_bridge = PersonaBridge(persona_runtime)
+        persona_runtime: Any = PersonaRuntime()
+        persona_bridge: Any = PersonaBridge(persona_runtime)
     except Exception:
         sources = search_hybrid(client, message, limit=8)
         result["sources"] = sources
@@ -1769,7 +1836,7 @@ def process_chat_with_persona(message: str, session_id: str,
 
     # 5. 联动链路检查
     persona_type = persona_result.get("type", "") if persona_result else ""
-    if persona_type == "persona_chain":
+    if persona_type == "persona_chain" and persona_result:
         chain_data = persona_result.get("chain", {})
         chain_list = chain_data.get("chain", [])
         if chain_list:
@@ -1799,6 +1866,8 @@ def process_chat_with_persona(message: str, session_id: str,
 init_sync_db()
 init_chat_db()
 
+persona_runtime: Any
+persona_bridge: Any
 if PERSONA_AVAILABLE:
     persona_runtime = PersonaRuntime()
     persona_bridge = PersonaBridge(persona_runtime)
@@ -1811,7 +1880,7 @@ else:
 # ============================================================
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(_app: FastAPI):
     print("\n🐉 龍魂 · Notion 对话桥 v2.2")
     if PERSONA_AVAILABLE:
         print(f"🧠 人格引擎已加载 · {len(persona_runtime.list_personas())} 个人格")
@@ -1957,8 +2026,8 @@ def _build_system_prefix(session_id: str, message: str, use_persona: bool, sourc
     persona_prefix = ""
     if PERSONA_AVAILABLE and use_persona:
         try:
-            pr = PersonaRuntime()
-            pb = PersonaBridge(pr)
+            pr: Any = PersonaRuntime()
+            pb: Any = PersonaBridge(pr)
             pb.handle(session_id, message)
             current_persona = pr.get_current(session_id)
             if current_persona:
@@ -2244,7 +2313,7 @@ async def match_persona(request: Request):
     if not text:
         raise HTTPException(status_code=400, detail="文本不能为空")
 
-    matched = persona_runtime.match(text, top_k=top_k)
+    matched = persona_bridge.match(text, top_k=top_k)
     return {"text": text, "matched": matched, "count": len(matched)}
 
 @app.get("/api/history")
@@ -2605,7 +2674,6 @@ async def system_info():
         pass
     # 内存 (macOS)
     try:
-        import subprocess
         mem = subprocess.run(["sysctl", "-n", "hw.memsize"], capture_output=True, text=True, timeout=3)
         if mem.stdout.strip():
             total_mb = int(mem.stdout.strip()) / (1024**2)
@@ -2802,7 +2870,7 @@ footer .dna{color:var(--accent);font-family:monospace}
             <option value="deepseek">🔮 DeepSeek</option>
             <option value="kimi">🌙 Kimi</option>
           </select>
-          <input id="modelInput" type="text" placeholder="模型名 (可选)" title="如 qwen2.5:1.5b / deepseek-chat / moonshot-v1-8k" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:7px 11px;font-size:12px;outline:none;min-width:120px">
+          <input id="modelInput" type="text" placeholder="模型名 (可选)" title="如 qwen2.5:1.5b / deepseek-v4-flash / moonshot-v1-8k" style="background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:7px 11px;font-size:12px;outline:none;min-width:120px">
           <label><input type="checkbox" id="usePersona" checked onchange="togglePersona()"> 启用人格</label>
           <button onclick="clearChat()">🗑 清空</button>
           <button onclick="regenerate()" id="regenBtn" disabled>🔄 重答</button>
@@ -2852,7 +2920,7 @@ footer .dna{color:var(--accent);font-family:monospace}
 </div>
 
 <footer>
-  DNA: <span class="dna">#龍芯⚡️2026-08-01-NOTION-BRIDGE-v2.2-PERSONA-INTEGRATED</span> &nbsp;|&nbsp;
+  DNA: <span class="dna">#龍芯⚡️丙午·乙未·丁未·丙午·䷖剥-NOTION-BRIDGE-v2.2-PERSONA-INTEGRATED</span> &nbsp;|&nbsp;
   确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z &nbsp;|&nbsp;
   创建者: 诸葛鑫（UID9622） &nbsp;|&nbsp;
   协议: CC BY-NC-SA 4.0
@@ -2867,7 +2935,7 @@ footer .dna{color:var(--accent);font-family:monospace}
 # CLI 同步/搜索/对话
 # ============================================================
 
-def cli_sync(database_id: str = None):
+def cli_sync(database_id: Optional[str] = None):
     """CLI 全量同步"""
     print("🔄 正在同步 Notion...")
     client = NotionClient()
@@ -3120,7 +3188,7 @@ def main():
   lh notion-bridge chat "问题"                  # 单模型对话（默认 auto）
   lh notion-bridge chat "问题" --mode council  # 五行议事会
   lh notion-bridge chat "问题" --mode multi --providers local,deepseek,kimi
-  lh notion-bridge chat "问题" --provider deepseek --model deepseek-chat --style rich
+  lh notion-bridge chat "问题" --provider deepseek --model deepseek-v4-flash --style rich
   lh notion-bridge chat "问题" --provider local --model longhun-v4.0 --style json
   lh notion-bridge chat "问题" --mode council --style terminal
   lh notion-bridge chat "问题" --mode multi --style markdown
@@ -3132,7 +3200,7 @@ def main():
     parser.add_argument("--provider", default=None,
                         choices=["auto", "local", "deepseek", "kimi"],
                         help="模型策略: auto(本地优先降级) local deepseek kimi")
-    parser.add_argument("--model", default=None, help="指定模型名，如 longhun-v4.0 / deepseek-chat / moonshot-v1-8k")
+    parser.add_argument("--model", default=None, help="指定模型名，如 longhun-v4.0 / deepseek-v4-flash / moonshot-v1-8k")
     parser.add_argument("--privacy", default=None, choices=["normal", "strict"],
                         help="隐私模式: strict 仅使用本地模型")
     parser.add_argument("--style", default="plain", choices=["plain", "rich", "json", "terminal", "markdown"],

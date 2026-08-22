@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·辛亥·申时·☰乾-V40-DISTILL-OLLAMA
+#龍芯⚡️丙午·乙未·辛亥·申时·䷀乾-V40-DISTILL-OLLAMA
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
@@ -13,7 +13,7 @@
 
 用法: python3 bin/lh_distill_v40_data.py [--limit N] [--temp 0.1] [--workers 4]
 
-DNA: #龍芯⚡️丙午·乙未·辛亥·申时·☰乾-V40-DISTILL-OLLAMA
+DNA: #龍芯⚡️丙午·乙未·辛亥·申时·䷀乾-V40-DISTILL-OLLAMA
 """
 
 import json, sys, time, argparse

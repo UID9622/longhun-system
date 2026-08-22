@@ -1,0 +1,44 @@
+# 龍魂语义抽屉 · D02 · 网络云
+# 归属: 龍魂系统 UID9622 · 通心译引用源
+# 状态机: 种子 → 审核 → 焊死(P0冻结, 不可改只冻结)
+# 引用语法: @D02.{词元}  例: @D02.部署
+
+drawer: D02
+name: 网络云
+count: 5
+entries:
+  - term: "部署"
+    alias: ["上线", "发布站点"]
+    en: "deploy"
+    cnsh: "部署"
+    gua: "䷍大有"
+    status: "种子"
+    note: "静态/动态站点发布"
+  - term: "同步"
+    alias: ["镜像", "对时"]
+    en: "rsync -avz"
+    cnsh: "同步"
+    gua: "䷎谦"
+    status: "种子"
+    note: "增量同步到远端"
+  - term: "取回"
+    alias: ["下载", "拉取"]
+    en: "wget / curl -O"
+    cnsh: "取回"
+    gua: "䷏豫"
+    status: "种子"
+    note: "从远端下载"
+  - term: "呈上"
+    alias: ["上传", "推送"]
+    en: "scp / git push"
+    cnsh: "呈上"
+    gua: "䷐随"
+    status: "种子"
+    note: "推送到远端"
+  - term: "备档"
+    alias: ["备份", "快照"]
+    en: "tar/gzip 快照"
+    cnsh: "备档"
+    gua: "䷑蛊"
+    status: "种子"
+    note: "压缩快照归档"

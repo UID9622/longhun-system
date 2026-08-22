@@ -5,7 +5,7 @@ id: clause_speech_grading
 type: clause
 title: 骂权分级
 layer: L2
-dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A"
+dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·䷅讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A"
 owner: UID9622 · 诸葛鑫（Lucky）
 claim: 骂权分级：军人英烈绝对禁区，高权重谨慎，中权重(政策法律)可骂需方案，低权重(资本平台)放开，自己必须先骂。
 based_on: [no_human_rights_violation, three_color_audit]
@@ -32,4 +32,4 @@ created: 丙午·辛未·乙酉
 
 **为什么**：老大原话"当兵的那肯定不行""有权重付出的(政府规则法律)可以骂""自己他妈什么都不是的，骂也小心点"。
 
-> DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A
+> DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·䷅讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A

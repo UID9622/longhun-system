@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂治理层系统 (Governance Layer)
 
-**DNA**: `#龍芯⚡️2026-06-03-GOVERNANCE-LAYER-FILE1-v1.0`
+**DNA**: `#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-GOVERNANCE-LAYER-FILE1-v1.0`
 
 ## 核心愿景
 
@@ -131,7 +131,7 @@ f1 = F1IdentityVerification(
     uid="9622",
     gpg_fingerprint="A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
     gpg_prefix_marker="#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
-    identity_dna="#龍芯⚡️2026-06-03-CREATOR-UID9622-v1.0",
+    identity_dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-CREATOR-UID9622-v1.0",
     creation_timestamp="2025-05-20T10:00:00Z"
 )
 
@@ -319,6 +319,6 @@ python3 cnsh-core/governance/f1_through_f7_verifier.py
 
 ---
 
-**DNA**: `#龍芯⚡️2026-06-03-GOVERNANCE-LAYER-v1.0`
+**DNA**: `#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-GOVERNANCE-LAYER-v1.0`
 **责任**: UID9622·不免责·永久有效
 **理论指导**: 曾仕强老师 · Steve Jobs · Open Source

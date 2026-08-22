@@ -1,0 +1,29 @@
+[
+  {
+    "account": "root",
+    "name": "诸葛鑫（UID9622）",
+    "role": "R1",
+    "key_hash": "fd88e747195720ca621651d47c03f9cb9645020c91c6d2861ffcacae2d955de4",
+    "created_by": "SYSTEM-BOOTSTRAP",
+    "created_at": "2026-08-20T00:00:00",
+    "disabled": false
+  },
+  {
+    "account": "auditor",
+    "name": "审计员·甲",
+    "role": "R4",
+    "key_hash": "76d26c9c50b4d86bae09f9f39e6a43636699fcf3d492fdfe982909249d75a12b",
+    "created_by": "root",
+    "created_at": "2026-08-20T00:00:00",
+    "disabled": false
+  },
+  {
+    "account": "viewer",
+    "name": "只读人员·乙",
+    "role": "R5",
+    "key_hash": "bee860d21ce0dde730b795baea406aa6ff30e9f4175a223afb4901a89a1bf128",
+    "created_by": "root",
+    "created_at": "2026-08-20T00:00:00",
+    "disabled": false
+  }
+]

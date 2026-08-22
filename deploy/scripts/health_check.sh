@@ -12,7 +12,7 @@ fi
 # ╔═══════════════════════════════════════════════════════════════╗
 # ║  🐉 龍魂系统 · 健康检查 + Apple Mail 推送                     ║
 # ║  🏷️  版本: v1.3 · Apple Mail                                ║
-# ║  🧬  DNA: #龍芯⚡️2026-08-02-HEALTHCHECK-MAIL-v1.3           ║
+# ║  🧬  DNA: #龍芯⚡️丙午·乙未·戊申·戊午·䷙大畜-HEALTHCHECK-MAIL-v1.3           ║
 # ║  👤  适用: UID9622 · 诸葛鑫                                  ║
 # ╚═══════════════════════════════════════════════════════════════╝
 
@@ -62,7 +62,12 @@ FEISHU_WEBHOOK="${FEISHU_WEBHOOK_URL:-}"
 DEDUP_MINUTES=30
 
 # 服务列表（加新服务在这里加）
-SERVICES=("longhun-ant-colony" "longhun-api" "longhun-audit" "longhun-calendar" "longhun-core" "longhun-dashboard" "longhun-deepseek-executor" "longhun-dev-ecosystem" "longhun-gatekeeper" "longhun-local-gateway" "longhun-longzhishou" "longhun-orders" "longhun-portal" "longhun-sovereignty" "longhun-symbiote" "longhun-wechat" "longhun888")
+# 2026-08-21 摘除 core/api/ant-colony/gatekeeper/orders（幽灵服务·无单元文件或代码失效·已 disable）
+SERVICES=("longhun-audit" "longhun-calendar" "longhun-dashboard" "longhun-deepseek-executor" "longhun-dev-ecosystem" "longhun-local-gateway" "longhun-longzhishou" "longhun-portal" "longhun-sovereignty" "longhun-symbiote" "longhun-wechat" "longhun888")
+# CAL 智能路由仅鲲鹏(Linux)有 → 平台判断追加，Mac端不误报（2026-08-21 挂入自愈）
+if ! $IS_MAC; then
+    SERVICES+=("longhun-cal")
+fi
 SERVICE_PORTS=(80 443 8080 8081 8443 8444 8446 8777 9622 9623 9627 9677)
 
 # ────────────────────────────────────────────────────────────────
@@ -233,6 +238,36 @@ check_ports() {
                 add_alarm "critical" "端口 ${port} 未监听"
             fi
         done
+    fi
+}
+
+# ────────────────────────────────────────────────────────────────
+# 1.5 ADS 自描述子系统检查（Mac: launchd com.longhun.ads + :9626 / 鲲鹏: systemd）
+# ────────────────────────────────────────────────────────────────
+check_ads() {
+    echo "[CHECK] ${TS} 检查 ADS 自描述子系统" >> "${HEALTH_LOG}"
+    if $IS_MAC; then
+        if launchctl list "com.longhun.ads" &>/dev/null; then
+            local code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 3 "http://127.0.0.1:9626/api/v1/health" 2>/dev/null)
+            if [ "${code}" = "200" ] || [ "${code}" = "403" ]; then
+                echo "  ✅ ADS 运行正常 (launchd在线 · HTTP:${code} 确认码闸门)" >> "${HEALTH_LOG}"
+            else
+                add_alarm "critical" "ADS API :9626 无响应 (HTTP:${code})"
+            fi
+        else
+            add_alarm "critical" "ADS 自描述服务未运行 (com.longhun.ads)"
+        fi
+    else
+        if systemctl cat "longhun-ads" &>/dev/null; then
+            if systemctl is-active --quiet "longhun-ads"; then
+                echo "  ✅ ADS 运行正常" >> "${HEALTH_LOG}"
+            else
+                add_alarm "critical" "ADS 服务异常，已自动重启"
+                systemctl restart "longhun-ads" 2>/dev/null
+            fi
+        else
+            echo "  ⚠️ ADS 未部署（跳过）" >> "${HEALTH_LOG}"
+        fi
     fi
 }
 
@@ -438,6 +473,7 @@ main() {
     echo ""
 
     check_services
+    check_ads
     check_ports
     check_resources
     check_mount

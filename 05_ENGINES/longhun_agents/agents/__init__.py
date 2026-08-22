@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # License: MulanPSL v2
-# DNA: #龍芯⚡️2026-08-04-AGENTS-INIT-UID9622
+# DNA: #龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-AGENTS-INIT-UID9622
 
 from .persona_agents import (
     AGENT_REGISTRY, AGENT_META,

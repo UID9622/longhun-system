@@ -8,7 +8,7 @@
 本地分析用户输入文字，输出焦虑指数(0-100)和情绪标签。
 铁律：纯本地运行，数据不出设备，不评判任何情绪。
 
-DNA: #龍芯⚡️丙午·乙未·丁酉·MENTAL-IMMUNE-ANXIETY-DETECTOR-v1.0-e8f1a2c3
+DNA: #龍芯⚡️丙午·乙未·丁酉·丙午·䷨损-MENTAL-IMMUNE-ANXIETY-DETECTOR-v1.0-e8f1a2c3
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 """

@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂系统 · 手把手部署教程
 
-> **DNA**: `#龍芯⚡️丙午·乙未·癸未·戌时-手把手教程-v2.0`
+> **DNA**: `#龍芯⚡️丙午·乙未·癸未·壬戌·䷢晋-手把手教程-v2.0`
 > **适用**: 全平台 · UID9622 及所有龍魂生态用户
 > **级别**: L1 · 教程文档
 > **最后更新**: 2026-07-12
@@ -427,7 +427,7 @@ python3 bin/lh_dna_registry.py \
 
 | 格式 | 示例 | 用途 |
 |------|------|------|
-| v1.0 格里历 | `#龍芯⚡️2026-07-12-DEEPSEEK-FIXER-v1.0` | 日常开发 |
+| v1.0 格里历 | `#龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-DEEPSEEK-FIXER-v1.0` | 日常开发 |
 | v∞ 干支时辰 | `#龍芯⚡️丙午·乙未·癸未·戌时·䷾既济-YOUR-MODULE-v1.0` | 核心模块 |
 | 紧凑格式 | `#龍芯⚡️丙午·戌时·䷾-YOUR-MODULE-v1.0` | 快速标记 |
 
@@ -716,7 +716,7 @@ python3 bin/lh_unified_dna_registry.py status uid9622
 python3 bin/lh_dna_registry.py --recent 20
 
 # 查询特定 DNA
-python3 bin/lh_dna_registry.py --query "#龍芯⚡️2026-07-12"
+python3 bin/lh_dna_registry.py --query "#龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐"
 
 # 登记册统计
 python3 bin/lh_dna_registry.py --stats

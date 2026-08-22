@@ -2,14 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·癸丑·午时·需-FINANCE-FMT-CLI-DB73E295
+#龍芯⚡️丙午·丙申·癸丑·午时·䷄需-FINANCE-FMT-CLI-DB73E295
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════════╗
 ║              CNSH 金融格式化 CLI — lh finance fmt                    ║
-║  DNA: #龍芯⚡️丙午·丙申·癸丑·午时·需-FINANCE-FMT-CLI-DB73E295        ║
+║  DNA: #龍芯⚡️丙午·丙申·癸丑·午时·䷄需-FINANCE-FMT-CLI-DB73E295        ║
 ║  三色审计: 🟢 通过                                                   ║
 ╚══════════════════════════════════════════════════════════════════════╝
 

@@ -1,17 +1,24 @@
 #!/usr/bin/env bash
 # 龍魂 · G3 阶段四：DNA链 + 零宽检测 + 硬回滚（2026-08-20 由 pre-commit 主钩子 source）
-# DNA: #龍芯⚡️2026-08-20-GIT-HOOK-DNA-CHAIN-v1.0
+# DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-GIT-HOOK-DNA-CHAIN-v1.0
 set +e
 echo ""
 echo -e "${GREEN}🧬 阶段四 · DNA链/零宽字符/硬回滚审计（G3）${NC}"
 PHASE4_FAIL=0
 
 # 1) 零宽/隐藏字符检测（防注入误判·G0 铁律·macOS 兼容用 python3）
+# 2026-08-22: U+200D(ZWJ) 是 emoji 标准组合(🧚🏼♀️/🏳️🌈)移除，U+2060 加入——防 SEAL 头误伤
+# 2026-08-22: 只查新增行(+)，跳过删除行(-)——旧版本零宽残留在删除行不拦截本次提交
 if git -C "$REPO_ROOT" diff --cached | python3 -c "
 import sys
-BAD = ['\u200b', '\u200c', '\u200d', '\ufeff']
-data = sys.stdin.buffer.read().decode('utf-8', errors='ignore')
-sys.exit(0 if any(b in data for b in BAD) else 1)
+BAD = ['\u200b', '\u200c', '\ufeff', '\u2060']
+ok = True
+for line in sys.stdin.buffer.read().decode('utf-8', errors='ignore').splitlines():
+    if line.startswith('+') and not line.startswith('+++'):
+        if any(b in line for b in BAD):
+            ok = False
+            break
+sys.exit(0 if not ok else 1)
 " 2>/dev/null; then
   echo -e "${RED}  🔴 检出零宽/隐藏字符：会被外部扫描判为提示注入${NC}"
   PHASE4_FAIL=1

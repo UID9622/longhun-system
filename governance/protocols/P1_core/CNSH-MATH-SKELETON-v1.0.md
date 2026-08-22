@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 CNSH 数学骨架与量子层 · 术语对照 v1.0
 
-DNA: #龍芯⚡️2026-07-23-CNSH-MATH-SKELETON-v1.0-f7c3d1e5
+DNA: #龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-CNSH-MATH-SKELETON-v1.0-f7c3d1e5
 创建者: 诸葛鑫（UID9622）
 来源: `docs/archive_html/cnsh_math_skeleton_quantum.html`
 协议: CC BY-NC-SA 4.0

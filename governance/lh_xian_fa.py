@@ -2,12 +2,13 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂·宪法守卫 (XianFa) v1.0
 对应协议: 01_protocols/LH-CODE-NAMING-STANDARD-v1.0.md
 内部命名: constitution → xian_fa
 职能: P0级规则闸口。任何写入/发布/主权变更操作必须先过宪法校验。
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥時·☰乾-XIAN-FA-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥時·䷀乾-XIAN-FA-v1.0
 """
 
 import argparse
@@ -20,7 +21,7 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-DNA = "#龍芯⚡️丙午·乙未·丁酉·亥時·☰乾-XIAN-FA-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丁酉·亥時·䷀乾-XIAN-FA-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SOUL_BIND = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 

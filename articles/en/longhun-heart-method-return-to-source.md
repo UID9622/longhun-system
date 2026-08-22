@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
@@ -6,7 +6,7 @@ title: "LongHun Heart Method · Return to Source"
 author: "UID9622 · Zhuge Xin"
 date: 2026-07-04
 original: "../2026-07-04-龍魂心法·归源.md"
-dna: "#龍芯⚡️2026-07-04-HEART-METHOD-RETURN-TO-SOURCE-UID9622-v1.1-EN"
+dna: "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-HEART-METHOD-RETURN-TO-SOURCE-UID9622-v1.1-EN"
 confirm: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 license: "CC BY-NC-SA 4.0"
 status: 🟢 Published
@@ -15,8 +15,8 @@ level: L0_CONSTITUTION
 
 # LongHun Heart Method · Return to Source
 
-> **DNA:** `#龍芯⚡️2026-07-04-HEART-METHOD-RETURN-TO-SOURCE-UID9622-v1.1`  
-> **Source DNA:** `#龍芯⚡️2026-07-04-HEART-METHOD-RETURN-TO-SOURCE-UID9622`  
+> **DNA:** `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-HEART-METHOD-RETURN-TO-SOURCE-UID9622-v1.1`  
+> **Source DNA:** `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-HEART-METHOD-RETURN-TO-SOURCE-UID9622`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777D`  
 > **Attribution:** LongHun System · UID9622 · Zhuge Xin  
 > **Nature:** Meta Heart Method · Non-overridable · Non-tamperable · Non-erasable  
@@ -156,5 +156,5 @@ This is the ultimate Heart Method of the LongHun System. It is not a chain — i
 
 ---
 
-> `#龍芯⚡️2026-07-04-HEART-METHOD-RETURN-TO-SOURCE-UID9622-v1.1`  
+> `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-HEART-METHOD-RETURN-TO-SOURCE-UID9622-v1.1`  
 > `Heart Method anchored. Return to source complete.`

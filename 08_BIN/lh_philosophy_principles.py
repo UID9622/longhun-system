@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-DNA: #龍芯⚡️丙午·乙巳·癸酉·☰乾-PHILOSOPHY-PRINCIPLES-v1.0
+DNA: #龍芯⚡️丙午·乙巳·癸酉·戊午·䷀乾-PHILOSOPHY-PRINCIPLES-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 

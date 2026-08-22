@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂系统 · 本地智能体协调引擎 v1.0
 Agent Orchestrator · 15+ Local Agents Integration Hub
 
-DNA: #龍芯⚡️2026-06-05-AGENT-ORCHESTRATOR-v1.0
+DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-AGENT-ORCHESTRATOR-v1.0
 """
 
 import json

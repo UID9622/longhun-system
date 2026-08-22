@@ -8,7 +8,7 @@
 **生效范围：** 龍魂主权生态所有接入用户
 **可修改性：** ⚠️ 需UID9622双签确认
 **三色审计：** 🟢 绿色（已通过主权审计）
-**DNA签名：** #龍芯⚡️丙午·丙申·丁巳·坤卦-ECOSYSTEM-ACCESS-PROTOCOL-v1.0
+**DNA签名：** #龍芯⚡️丙午·丙申·丁巳·丙午·䷁坤-ECOSYSTEM-ACCESS-PROTOCOL-v1.0
 **分层许可：** 🏛️ 思想层 CC BY-NC-SA 4.0 · 🔧 工程层 MulanPSL v2
 
 ---
@@ -287,7 +287,7 @@ python3 bin/lh_data_export.py --all
 ═══════════════════════════════════════════════════
  龍魂 · 生态接入协议 · 最终签章
 ═══════════════════════════════════════════════════
-DNA:        #龍芯⚡️丙午·丙申·丁巳·坤卦-ECOSYSTEM-ACCESS-PROTOCOL-v1.0
+DNA:        #龍芯⚡️丙午·丙申·丁巳·丙午·䷁坤-ECOSYSTEM-ACCESS-PROTOCOL-v1.0
 CONFIRM:    #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL:       #ZHUGEXIN⚡️2026-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-ECOSYSTEM-ACCESS
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -303,7 +303,7 @@ Root: dr=1 (sn=20260811→2+0+2+6+0+8+1+1=20→2+0=2→+1生态→3→369·坤)
 Wuxing: 坤土·厚德载物·承载万物
 TriColor: 🟢
 Type: protocol-declaration
-DNA: #龍芯⚡️丙午·丙申·丁巳·坤卦-ECOSYSTEM-ACCESS-PROTOCOL-v1.0
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷁坤-ECOSYSTEM-ACCESS-PROTOCOL-v1.0
 ```
 
 🐉 **协议落地，活人心跳永不断。**

@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂 · 声音引擎 v1.0 — 老兵腔调
-DNA: #龍芯⚡️2026-07-25-VOICE-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-VOICE-ENGINE-v1.0
 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0
 人格: 乔前辈（P15·极简工程）— 声音不动点守护
 铁律: 老兵腔焊死·禁止甜美/播音/机器人腔·全部本地生成
@@ -16,7 +16,7 @@ import json
 import re
 from pathlib import Path
 
-DNA = "#龍芯⚡️2026-07-25-VOICE-ENGINE-v1.0-VETERAN-TONE"
+DNA = "#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-VOICE-ENGINE-v1.0-VETERAN-TONE"
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # P0 焊死声音常量

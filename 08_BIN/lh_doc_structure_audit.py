@@ -548,16 +548,6 @@ class PythonCodeAuditor:
         self._finding_counter += 1
         return f"P{self._finding_counter:03d}"
 
-    def _add_finding(self, category: str, severity: Severity, title: str, detail: str, suggestion: str = "", line: int = 0):
-        self.findings.append(Finding(
-            id=self._next_id(),
-            category=category,
-            severity=severity,
-            title=title,
-            detail=detail,
-            suggestion=suggestion,
-            line=line,
-        ))
 
     def _count_brackets_in_code(self) -> Tuple[int, int, int]:
         """智能括号计数 — 排除注释和字符串中的括号"""

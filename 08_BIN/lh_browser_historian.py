@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🐉 龍魂·瀏覽器史官 v2.1
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-浏览器史官-v2.1
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-浏览器史官-v2.1
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 定位：一件武器，不是一件商品。
@@ -39,7 +40,7 @@ import getpass
 
 CONFIG = {
     "version": "v2.1",
-    "dna": "#龍芯⚡️丙午·乙未·甲辰·离为火-浏览器史官-v2.1",
+    "dna": "#龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-浏览器史官-v2.1",
     "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     "data_dir": Path.home() / ".longhun/browser_historian",
     "firewall_enabled": True,
@@ -412,17 +413,39 @@ class BrowserCollector:
 
             if "urls" in tables and "visits" in tables:
                 # Chrome/Edge 格式
-                query = """
-                    SELECT u.url, u.title, v.visit_time, v.visit_count,
-                           v.typed_count, u.last_visit_time
-                    FROM urls u
-                    JOIN visits v ON u.id = v.url
-                    WHERE v.visit_time > ?
-                    ORDER BY v.visit_time DESC
-                """
+                # 新版 Chrome(151+) 把 visit_count/typed_count 移到 urls 表，visits 表不再有这两列
+                cursor.execute("PRAGMA table_info(visits)")
+                visit_cols = {row[1] for row in cursor.fetchall()}
+                if "visit_count" in visit_cols:
+                    # 旧版 Chrome/Edge：visits 表带 visit_count/typed_count
+                    query = """
+                        SELECT u.url, u.title, v.visit_time, v.visit_count,
+                               v.typed_count, u.last_visit_time
+                        FROM urls u
+                        JOIN visits v ON u.id = v.url
+                        WHERE v.visit_time > ?
+                        ORDER BY v.visit_time DESC
+                    """
+                else:
+                    # 新版 Chrome/Edge：visit_count/typed_count 改在 urls 表
+                    query = """
+                        SELECT u.url, u.title, v.visit_time, u.visit_count,
+                               u.typed_count, u.last_visit_time
+                        FROM urls u
+                        JOIN visits v ON u.id = v.url
+                        WHERE v.visit_time > ?
+                        ORDER BY v.visit_time DESC
+                    """
                 cutoff = int((datetime.now() - timedelta(days=days)).timestamp() * 1000000)
                 cursor.execute(query, (cutoff,))
                 rows = cursor.fetchall()
+
+                def _safe_ts(v):
+                    """Chrome 时间戳转 ISO；0/None/非法值 → 空串，避免 1601 年假记录"""
+                    try:
+                        return datetime.fromtimestamp(v / 1000000 - 11644473600).isoformat() if v else ""
+                    except Exception:
+                        return ""
 
                 for row in rows[:5000]:  # 限制数量
                     # 将Chrome时间戳转换为datetime
@@ -437,7 +460,7 @@ class BrowserCollector:
                         visit_time=visit_time.isoformat(),
                         visit_count=row[3] or 0,
                         typed_count=row[4] or 0,
-                        last_visit_time=datetime.fromtimestamp(row[5] / 1000000 - 11644473600).isoformat()
+                        last_visit_time=_safe_ts(row[5])
                     ))
 
             elif "moz_places" in tables and "moz_historyvisits" in tables:

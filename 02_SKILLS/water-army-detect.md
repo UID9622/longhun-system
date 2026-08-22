@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # /water-army-detect
@@ -15,12 +15,12 @@
 > #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 > 📄 水军检测 | 龍魂系统 · 源头已验证
 
-**DNA**: `#龍芯⚡️2026-07-06-WATER-ARMY-DETECT-v1.0-8A2C3F7E`
+**DNA**: `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-WATER-ARMY-DETECT-v1.0-8A2C3F7E`
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬B4-WATER-ARMY`
 
 ---
 
-<!--#龍芯⚡️2026-07-06-WATER-ARMY-DETECT-v1.0-8A2C3F7E -->
+<!--#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-WATER-ARMY-DETECT-v1.0-8A2C3F7E -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 ---
@@ -82,7 +82,7 @@ source: bin/lh_water_army_detect.py
 ## 引用与溯源
 
 - 本文档引用或参考了以下来源：
-  - [1] 龍魂审核过滤系统·完整规则规格书 v2.0 · 第七层·水军识别系统 (#龍芯⚡️2026-04-16)
+  - [1] 龍魂审核过滤系统·完整规则规格书 v2.0 · 第七层·水军识别系统 (#龍芯⚡️丙午·壬辰·庚申·壬午·䷙大畜)
   - [2] CNSH-PROTOCOL.md · B4审计层规范
 - 相关龍魂系统源码：
   - `bin/lh_water_army_detect.py` — 水军检测引擎 v1.0
@@ -130,6 +130,6 @@ python3 bin/lh_water_army_detect.py rules
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-07-06-WATER-ARMY-DETECT-v1.0-8A2C3F7E
+#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-WATER-ARMY-DETECT-v1.0-8A2C3F7E
 #CONFIRM🌌9622-ONLY-ONCE🧬B4-WATER-ARMY
 ```

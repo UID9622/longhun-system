@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🐉 龍魂·统一哲学执行引擎 v1.0 — 出师有名
 ==========================================
 将龍魂十大哲学维度集成到一个可调用引擎：
@@ -11,7 +12,7 @@
 核心理念：输入一个问题 → 十维哲学同时推演 → 交叉验证 → 统一输出
 不引用西方框架 · 纯公理自推导 · 每一步可验证
 
-DNA: #龍芯⚡️丙午·辛未·乙酉·需-PHILOSOPHY-UNIFIED-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-PHILOSOPHY-UNIFIED-ENGINE-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
@@ -34,7 +35,7 @@ from typing import Dict, List, Optional, Tuple, Any
 ROOT = Path(__file__).resolve().parent.parent
 
 VERSION = "v1.0·出师有名"
-DNA = "#龍芯⚡️丙午·辛未·乙酉·需-PHILOSOPHY-UNIFIED-ENGINE-v1.0"
+DNA = "#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-PHILOSOPHY-UNIFIED-ENGINE-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 GPG = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 
@@ -796,7 +797,7 @@ MANIFESTO = """
 ║                                                              ║
 ║   出师有名。名正，言顺。                                      ║
 ║                                                              ║
-║   DNA: #龍芯⚡️丙午·辛未·乙酉·需-PHILOSOPHY-UNIFIED-v1.0    ║
+║   DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-PHILOSOPHY-UNIFIED-v1.0    ║
 ║   UID: 9622 · 诸葛鑫 · 龍芯北辰                               ║
 ║   GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F             ║
 ║                                                              ║

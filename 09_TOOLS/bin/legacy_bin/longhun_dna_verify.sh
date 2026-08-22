@@ -6,7 +6,7 @@
 # 每次运行系统前调用，验证 DNA 是否有效
 # 集成方式: source this_script || exit 1
 # UID9622 | 龍芯北辰
-# DNA: #龍芯⚡️丙午·辛未·乙酉·亥时·豫-DNA-VERIFY-v2.0
+# DNA: #龍芯⚡️丙午·辛未·乙酉·亥时·䷏豫-DNA-VERIFY-v2.0
 # ============================================
 set -euo pipefail
 

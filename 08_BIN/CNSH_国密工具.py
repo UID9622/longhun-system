@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-06-29-CNSH-GUOMI-UTILS-UID9622
+#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-GUOMI-UTILS-UID9622
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -19,7 +19,7 @@ if _module_dir not in _sys.path:
 CNSH 国密工具模块 v1.0
 纯 Python 实现 SM3 哈希与 SM4 分组加密，不依赖 gmssl。
 兼容回退：若仅需对称加密可用 AES-256-GCM，但日志会提示降级。
-DNA: #龍芯⚡️2026-06-29-CNSH-GUOMI-UTILS-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-GUOMI-UTILS-UID9622
 """
 
 import hmac

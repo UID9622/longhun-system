@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂 · 不动点记忆归档协议 v1.0
 
-> DNA: #龍芯⚡️丙午·丙申·癸酉·巳时·渐-FIXED-POINT-MEMORY-ARCHIVE-v1.0  
+> DNA: #龍芯⚡️丙午·丙申·癸酉·巳时·䷴渐-FIXED-POINT-MEMORY-ARCHIVE-v1.0  
 > 状态: P0 · 永恒锁  
 > 创建者: UID9622（诸葛鑫）  
 > 协议: CC BY-NC-SA 4.0
@@ -193,6 +193,6 @@ python3 engines/lh_fixed_point_memory_archive.py search "DNA"
 
 ## 九、DNA 与确认码
 
-- **DNA**: `#龍芯⚡️丙午·丙申·癸酉·巳时·渐-FIXED-POINT-MEMORY-ARCHIVE-v1.0`
+- **DNA**: `#龍芯⚡️丙午·丙申·癸酉·巳时·䷴渐-FIXED-POINT-MEMORY-ARCHIVE-v1.0`
 - **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 - **GPG**: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`

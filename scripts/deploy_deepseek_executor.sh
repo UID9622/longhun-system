@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂 DeepSeek 唯一监管加密执行者部署脚本（轻量包）
 # 用法： ./scripts/deploy_deepseek_executor.sh [ECS_IP] [SSH_KEY]
-# DNA: #龍芯⚡️20260628-DEEPSEEK-EXECUTOR-DEPLOY-v1.0
+# DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-DEEPSEEK-EXECUTOR-DEPLOY-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -euo pipefail
@@ -106,4 +106,4 @@ echo "✅ DeepSeek 执行器部署完成"
 echo "   本地网关: curl http://127.0.0.1:9622/api/secure/health"
 echo "   执行器:   curl http://127.0.0.1:9453/health"
 echo "   公网入口: https://longhun888.com/executor/execute"
-echo "   DNA: #龍芯⚡️20260628-DEEPSEEK-EXECUTOR-DEPLOY-v1.0"
+echo "   DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-DEEPSEEK-EXECUTOR-DEPLOY-v1.0"

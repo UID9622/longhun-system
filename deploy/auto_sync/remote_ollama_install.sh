@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · 华为云 Ollama 服务端一键安装
-# DNA: #龍芯⚡️丙午·丙申·乙卯·辰时·乾-REMOTE-OLLAMA-v1.0
+# DNA: #龍芯⚡️丙午·丙申·乙卯·辰时·䷀乾-REMOTE-OLLAMA-v1.0
 #
 # 在华为云 ARM64 上：
 #   1. 安装 Ollama
@@ -143,4 +143,4 @@ echo "    curl http://119.13.90.27:11434/api/tags"
 echo ""
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·乙卯·辰时·乾-CONFIRM-SEAL-remote-ollama-E6B2C7D1
+# DNA: #龍芯⚡️丙午·丙申·乙卯·辰时·䷀乾-CONFIRM-SEAL-remote-ollama-E6B2C7D1

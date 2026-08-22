@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍芯·鲲鹏共生体调度中枢 v1.1
-DNA: #龍芯⚡️丙午·乙未·丁酉·子时·☰乾-KUNPENG-AGENT-v1.1
+DNA: #龍芯⚡️丙午·乙未·丁酉·子时·䷀乾-KUNPENG-AGENT-v1.1
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -26,7 +26,7 @@ from enum import Enum
 # 常量
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-DNA = "#龍芯⚡️丙午·乙未·丁酉·子时·☰乾-KUNPENG-AGENT-v1.1"
+DNA = "#龍芯⚡️丙午·乙未·丁酉·子时·䷀乾-KUNPENG-AGENT-v1.1"
 版本 = "v1.1"
 
 # 鲲鹏SSH配置

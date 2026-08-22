@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔═══════════════════════════════════════════════════════════════╗
 ║  龍魂系统 · Notion 精准拉取引擎 v1.0                          ║
 ║  指定页面/数据库 → 递归下载所有子页面 → 训练语料                ║
-║  DNA: #龍芯⚡️丙午·辛未·乙酉·午时·姤-TARGETED-PULL-v1.0       ║
+║  DNA: #龍芯⚡️丙午·辛未·乙酉·午时·䷫姤-TARGETED-PULL-v1.0       ║
 ║  UID: 9622                                                   ║
 ╚═══════════════════════════════════════════════════════════════╝
 
@@ -34,7 +35,7 @@ import requests
 # 常量
 # ══════════════════════════════════════════════════════════════
 
-DNA_SIGNATURE = "#龍芯⚡️丙午·辛未·乙酉·午时·姤-TARGETED-PULL-v1.0"
+DNA_SIGNATURE = "#龍芯⚡️丙午·辛未·乙酉·午时·䷫姤-TARGETED-PULL-v1.0"
 CONFIRM_SEAL = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 CST = timezone(timedelta(hours=8))
 

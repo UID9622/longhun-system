@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 龍魂跨平台互通技能 — Python包初始化
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ====================================
-DNA: #龍芯⚡️2026-06-19-LONGHUN-CROSS-PLATFORM-v5.3
+DNA: #龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-LONGHUN-CROSS-PLATFORM-v5.3
 致敬: #致敬⚡️SteveJobs+Concept·跨平台互通
 
 模块说明:
@@ -19,7 +20,7 @@ DNA: #龍芯⚡️2026-06-19-LONGHUN-CROSS-PLATFORM-v5.3
 """
 
 __version__ = "5.4"
-__dna__ = "#龍芯⚡️2026-06-29-LONGHUN-CROSS-PLATFORM-v5.4"
+__dna__ = "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-CROSS-PLATFORM-v5.4"
 __tribute__ = "#致敬⚡️SteveJobs+Concept·跨平台互通"
 
 # 导出核心类

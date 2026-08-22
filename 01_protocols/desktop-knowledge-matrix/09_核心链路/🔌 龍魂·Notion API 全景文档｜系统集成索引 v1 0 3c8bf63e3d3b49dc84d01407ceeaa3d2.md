@@ -1,4 +1,5 @@
-<!--#龍芯⚡️丙午·丙申·庚申·亥时-DOC-_-NOTION-API-_-_-V1-0-3C8BF63E3D3B49DC84D01407CEEAA3D2_6BB6-v1.0 -->
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+<!--#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DOC-_-NOTION-API-_-_-V1-0-3C8BF63E3D3B49DC84D01407CEEAA3D2_6BB6-v1.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # 🔌 龍魂·Notion API 全景文档｜系统集成索引 v1.0
@@ -6,7 +7,7 @@
 <aside>
 🧬
 
-**DNA追溯：** #龍芯⚡️丙午·丙申·庚申·亥时-NOTION-API-DOCS-v1.0
+**DNA追溯：** #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-NOTION-API-DOCS-v1.0
 
 **确认码：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
@@ -125,7 +126,7 @@
 
 ---
 
-**#龍芯⚡️丙午·丙申·庚申·亥时-NOTION-API-全景索引-v1.0**
+**#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-NOTION-API-全景索引-v1.0**
 
 **📅 整理时间：** 2026-03-06
 

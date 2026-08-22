@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂 · 底座重组引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-BASE-REORGANIZER-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-BASE-REORGANIZER-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -1054,7 +1054,7 @@ class CNSHTrainingCorpusGenerator:
     输出为 ChatML 格式，可直接用于 MLX LoRA 微调。
     """
 
-    DNA = "#龍芯⚡️2026-07-25-CNSH-TRAINING-CORPUS-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-CNSH-TRAINING-CORPUS-v1.0"
 
     def __init__(self):
         self.corpus_dir = REORGANIZE_DIR / "cnsh_corpus"

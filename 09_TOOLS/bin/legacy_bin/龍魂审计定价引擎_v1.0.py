@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂审计定价引擎 + 支付网关
-DNA: #龍芯⚡️2026-06-30-LONGHUN-PRICING-ENGINE-UID9622
+DNA: #龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-PRICING-ENGINE-UID9622
 归属: 龍魂系统 · UID9622
 原则: 1分钱/次审计, 动态定价, 保本兜底, 主权归人民
 """
@@ -21,7 +22,7 @@ from enum import Enum
 # ============ 0. 主权配置 ============
 @dataclass
 class 定价配置:
-    脱氧核糖核酸锚定: str = "#龍芯⚡️2026-06-30-LONGHUN-PRICING-ENGINE-UID9622"
+    脱氧核糖核酸锚定: str = "#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-PRICING-ENGINE-UID9622"
     主人标识: str = "UID9622"
 
     # 基础定价（元/次审计）

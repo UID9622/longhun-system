@@ -1,8 +1,9 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · DSACA 蚁群架构仿真实验 v1.1
-DNA: #龍芯⚡️丙午·丙申·庚申·辛巳·大壮-DSACA-SIM-v1.1-UID9622
+DNA: #龍芯⚡️丙午·丙申·庚申·辛巳·䷡大壮-DSACA-SIM-v1.1-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（思想层）· 工程层 MulanPSL v2
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
@@ -434,7 +435,7 @@ def main():
 
     print("=" * 68)
     print(" 🐉 DSACA 蚁群架构仿真实验 v1.1")
-    print(f" DNA: #龍芯⚡️丙午·丙申·庚申·辛巳·大壮-DSACA-SIM-v1.1-UID9622")
+    print(f" DNA: #龍芯⚡️丙午·丙申·庚申·辛巳·䷡大壮-DSACA-SIM-v1.1-UID9622")
     print(" 复现论文: 《龍魂分布式认知架构 v1.1》§9/§10")
     print(f" 模块数={args.modules} · 蒙特卡洛轮次={args.rounds} · 种子固定")
     print("=" * 68)

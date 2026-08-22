@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️2026-07-21-迁移-cnsh_gateway-v1.0
+# DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-迁移-cnsh_gateway-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
@@ -14,7 +14,7 @@
 CNSH 生态语法网关 v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA: #龍芯⚡️20260422-CODE-GW01
+DNA: #龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-CODE-GW01
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 功能：
@@ -172,7 +172,7 @@ def call_claude(messages: list[dict[str, Any]], model: str = "claude-sonnet-4-6"
     resp.raise_for_status()
     return resp.json()["content"][0]["text"]
 
-def call_deepseek(messages: list[dict[str, Any]], model: str = "deepseek-chat") -> str:
+def call_deepseek(messages: list[dict[str, Any]], model: str = "deepseek-v4-flash") -> str:
     if not DEEPSEEK_API_KEY:
         return "[错误] DEEPSEEK_API_KEY 未配置"
     # DeepSeek 兼容 OpenAI 格式
@@ -431,7 +431,7 @@ if __name__ == "__main__":
 ╔══════════════════════════════════════════════╗
 ║   CNSH 生态语法网关 v1.0 · UID9622           ║
 ║   Port: 8765  |  你的语法·你的出口           ║
-║   DNA: #龍芯⚡️20260422-CODE-GW01             ║
+║   DNA: #龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-CODE-GW01             ║
 ╠══════════════════════════════════════════════╣
 ║  POST /chat          — 统一对话入口           ║
 ║  GET  /cnsh_prompt   — 获取系统提示词        ║

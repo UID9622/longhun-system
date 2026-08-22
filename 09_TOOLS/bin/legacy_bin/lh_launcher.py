@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂统一启动器 · LongHun Unified Launcher
 
@@ -17,7 +18,7 @@
   - 生成状态报告
   - 支持开机自动模式
 
-DNA: #龍芯⚡️2026-06-22-LONGHUN-LAUNCHER-v1.0
+DNA: #龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-LAUNCHER-v1.0
 """
 from __future__ import annotations
 
@@ -41,7 +42,7 @@ LOG_DIR = ROOT / "logs"
 STATUS_PATH = LOG_DIR / "lh_launcher-status.json"
 PID_DIR = LOG_DIR / "pids"
 
-DNA = "#龍芯⚡️2026-06-22-LONGHUN-LAUNCHER-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-LAUNCHER-v1.0"
 
 
 def _now() -> str:

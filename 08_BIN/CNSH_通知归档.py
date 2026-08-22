@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-06-29-CNSH-NOTIFY-UID9622
+#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-NOTIFY-UID9622
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -19,7 +19,7 @@ if _module_dir not in _sys.path:
 CNSH 通知归档模块 v1.0
 支持：SMTP 邮件告警、Notion 页面归档
 原则：配置存在才发送，不存在则静默跳过；绝不泄露源码。
-DNA: #龍芯⚡️2026-06-29-CNSH-NOTIFY-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-NOTIFY-UID9622
 """
 
 import json
@@ -72,7 +72,7 @@ CNSH 三色审计归档通知
 {摘要}
 
 时间: {datetime.now(timezone.utc).isoformat()}
-DNA: #龍芯⚡️2026-06-29-CNSH-NOTIFY-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-NOTIFY-UID9622
 
 本邮件仅含审计摘要，不含源代码。
 """
@@ -133,7 +133,7 @@ DNA: #龍芯⚡️2026-06-29-CNSH-NOTIFY-UID9622
                     "object": "block",
                     "type": "paragraph",
                     "paragraph": {
-                        "rich_text": [{"type": "text", "text": {"content": "DNA: #龍芯⚡️2026-06-29-CNSH-NOTIFY-UID9622"}}]
+                        "rich_text": [{"type": "text", "text": {"content": "DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-NOTIFY-UID9622"}}]
                     },
                 },
             ],

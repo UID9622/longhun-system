@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # Constitution of the LongHun System
 
-> **DNA:** `#龍芯⚡️2026-07-06-LONGHUN-CONSTITUTION-v1.2`  
+> **DNA:** `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-LONGHUN-CONSTITUTION-v1.2`  
 > **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 > **Founder:** UID9622 / Lucky (Zhuge Xin, Retired Veteran)  
 > **Effective:** 2026-07-06  
@@ -389,6 +389,6 @@ The following clauses are permanently effective and may not be modified under an
 
 **This constitution was drafted by UID9622 / Lucky, deliberated and approved by the LongHun System's highest Persona Cabinet, and takes effect from the date of publication.**
 
-**DNA:** `#龍芯⚡️2026-07-06-LONGHUN-CONSTITUTION-v1.2`  
+**DNA:** `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-LONGHUN-CONSTITUTION-v1.2`  
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`

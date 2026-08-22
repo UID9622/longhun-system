@@ -1,6 +1,8 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 龍魂系統 · Skill 標準化升級 v3.3.0
 
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-SKILL-STANDARDIZATION-UPGRADE-v3.3.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SKILL-STANDARDIZATION-UPGRADE-v3.3.0
 **時間**: 2026-06-07 03:45 CST
 **狀態**: 🟢 完成·生産就緒
 **責任**: UID9622·不免責
@@ -118,7 +120,7 @@
   • 需要補全: 10 個
 
 ✅ 自動補全完成！
-   DNA:#龍芯⚡️丙午·丙申·庚申·亥时-SKILL-AUTO-COMPLETION-v1.0
+   DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SKILL-AUTO-COMPLETION-v1.0
 ```
 
 ---
@@ -252,7 +254,7 @@ cat ~/longhun-system/skill-standards/LONGHUN-10SKILL-UNIFIED-STANDARD-v1.0.md
 ## 🐉 DNA 簽章
 
 ```
-DNA:#龍芯⚡️丙午·丙申·庚申·亥时-SKILL-STANDARDIZATION-UPGRADE-v3.3.0
+DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SKILL-STANDARDIZATION-UPGRADE-v3.3.0
 確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 簽章: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 責任: UID9622 · 不免責

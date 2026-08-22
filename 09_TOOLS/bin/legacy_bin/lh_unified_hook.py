@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂统一钩子连接器 v2.1 · 13大引擎一体化集成
 确保每个功能块都有钩子、无脱钩属性、自动可视化效果
 v2.1 升级：新增自适应调优引擎 + CNSH护盾代理L9审查
 
-DNA: #龍芯⚡️丙午·乙未·己未·申时·履-UNIFIED-HOOK-CONNECTOR-v2.0
+DNA: #龍芯⚡️丙午·乙未·己未·申时·䷉履-UNIFIED-HOOK-CONNECTOR-v2.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 

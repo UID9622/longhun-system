@@ -1,7 +1,7 @@
 /**
  * 🐉 龍魂统一环境接入（~/.longhun/）
  * 读取环境变量 · 挂载互通引擎应用配置
- * DNA: #龍芯⚡️丙午·丙申·辛酉·丑时-CNSH-ENV-UID9622
+ * DNA: #龍芯⚡️丙午·丙申·辛酉·己丑·䷹兑为泽-CNSH-ENV-UID9622
  * License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
  */
 

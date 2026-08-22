@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂 · 隐私熔断器 v1.0
-DNA: #龍芯⚡️丙午·乙未·戊戌·午时·☵坎-PRIVACY-BREAKER-v1.0
+DNA: #龍芯⚡️丙午·乙未·戊戌·午时·䷜坎-PRIVACY-BREAKER-v1.0
 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0
 人格: P72龍盾（熔断） + P05上帝之眼（审计）
 铁律: 一键熔断·生物验证·九条规则全部物理级切断·飞书通知·DNA追溯
@@ -23,7 +23,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 # ═══ 常量 ═══
-DNA = "#龍芯⚡️丙午·乙未·戊戌·午时·☵坎-PRIVACY-BREAKER-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·戊戌·午时·䷜坎-PRIVACY-BREAKER-v1.0"
 CREATOR = "诸葛鑫（UID9622）"
 PROTOCOL = "CC BY-NC-SA 4.0"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent

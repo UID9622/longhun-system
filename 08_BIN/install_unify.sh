@@ -1,6 +1,6 @@
 #!/bin/bash
 # 🐉 龍魂 · Mac全应用互通引擎 v2.0 · 一键安装
-# DNA: #龍芯⚡️丙午·丙申·庚申·亥时-INSTALL-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-INSTALL-UID9622
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 用法: bash bin/install_unify.sh
 
@@ -12,7 +12,7 @@ LONGHUN_HOME="${HOME}/.longhun"
 
 echo "🐉 龍魂 · Mac全应用互通引擎 v2.0"
 echo "========================================"
-echo "DNA: #龍芯⚡️丙午·丙申·庚申·亥时-APP-UNIFY-v2.0-UID9622"
+echo "DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-APP-UNIFY-v2.0-UID9622"
 echo "确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 echo ""
 
@@ -69,5 +69,5 @@ echo "   lh sync                    # 同步配置"
 echo "   lh backup                  # 备份环境"
 echo "   lh status                  # 查看状态"
 echo ""
-echo "🧬 DNA: #龍芯⚡️丙午·丙申·庚申·亥时-APP-UNIFY-v2.0-UID9622"
+echo "🧬 DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-APP-UNIFY-v2.0-UID9622"
 echo "🐉丙午·亥时·䷖剥·🟢"

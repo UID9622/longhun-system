@@ -5,7 +5,7 @@
 """
 龍魂·DNA追溯码生成引擎 v2.0
 统一入口·全功能·自动化标注
-DNA: #龍芯⚡️丙午·丙申·己酉·䷐随-DNA-GENERATOR-v2.0-AUTO-COMPLETE-7d3f1a2b
+DNA: #龍芯⚡️丙午·丙申·己酉·庚午·䷐随-DNA-GENERATOR-v2.0-AUTO-COMPLETE-7d3f1a2b
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -51,7 +51,7 @@ from enum import Enum
 # ============================================================
 
 ENGINE_VERSION = "v2.0"
-DNA_ENGINE = "#龍芯⚡️丙午·丙申·己酉·䷐随-DNA-GENERATOR-v2.0-AUTO-COMPLETE"
+DNA_ENGINE = "#龍芯⚡️丙午·丙申·己酉·庚午·䷐随-DNA-GENERATOR-v2.0-AUTO-COMPLETE"
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 GPG_KEY = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 OUR_BASE = Path(__file__).resolve().parent.parent  # longhun-dna-generator/
@@ -286,12 +286,12 @@ def get_ganzhi(now: datetime = None) -> Dict[str, str]:
 GONG_TABLE = {
     1: [1, 43, 14, 34, 9, 5, 26, 11],      # 乾宫: 乾夬大有 大壮小畜需大畜泰
     2: [10, 58, 38, 54, 61, 60, 41, 19],   # 兑宫: 履兑睽归妹 中孚节损临
-    3: [13, 30, 30, 55, 37, 63, 22, 36],   # 离宫: 同人大有离丰 家人既济贲明夷
+    3: [13, 49, 30, 55, 37, 63, 22, 36],   # 离宫: 同人革离丰 家人既济贲明夷 (CB-002: 第2位30→49泽火革·原30重复)
     4: [25, 17, 21, 51, 42, 3, 27, 24],    # 震宫: 无妄随噬嗑震 益屯颐复
     5: [44, 28, 50, 32, 57, 48, 18, 46],   # 巽宫: 姤大过鼎恒 巽井蛊升
     6: [6, 47, 64, 40, 59, 29, 4, 7],      # 坎宫: 讼困未济解 涣坎蒙师
     7: [33, 31, 56, 62, 53, 39, 52, 15],   # 艮宫: 遁咸旅小过 渐蹇艮谦
-    8: [12, 45, 35, 16, 20, 23, 23, 2],    # 坤宫: 否萃晋豫 观比剥坤
+    8: [12, 45, 35, 16, 20, 8, 23, 2],     # 坤宫: 否萃晋豫 比剥坤 (CB-002: 第6位23→8水地比·原23重复)
 }
 
 
@@ -475,7 +475,7 @@ def generate(title: str, category: str, action: str, actor: str,
 def dna_info(dna_string: str) -> Optional[Dict]:
     """解析DNA字符串，返回详情+ROOT_CARD"""
     import re
-    # #龍芯⚡️丙午·丙申·己酉·䷐随-CODE-ACTION-HASH
+    # #龍芯⚡️丙午·丙申·己酉·庚午·䷐随-CODE-ACTION-HASH
     pattern = r"#龍芯⚡️(\w+·\w+·\w+)·(\w+)·(䷀|䷁|䷂|䷃|䷄|䷅|䷆|䷇|䷈|䷉|䷊|䷋|䷌|䷍|䷎|䷏|䷐|䷑|䷒|䷓|䷔|䷕|䷖|䷗|䷘|䷙|䷚|䷛|䷜|䷝|䷞|䷟|䷠|䷡|䷢|䷣|䷤|䷥|䷦|䷧|䷨|䷩|䷪|䷫|䷬|䷭|䷮|䷯|䷰|䷱|䷲|䷳|䷴|䷵|䷶|䷷|䷸|䷹|䷺|䷻|䷼|䷽|䷾|䷿)(\w+)-(\w+)-(\w+)-(\w+)"
     m = re.match(pattern, dna_string)
     if not m:

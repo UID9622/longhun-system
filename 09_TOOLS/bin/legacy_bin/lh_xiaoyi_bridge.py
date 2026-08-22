@@ -6,7 +6,7 @@
 ║        LongHun ↔ Huawei XiaoYi · 不只是文档助手·真正的调度中枢              ║
 ╠══════════════════════════════════════════════════════════════════════════╣
 ║                                                                          ║
-║  DNA:  #龍芯⚡️丙午·乙未·丙申·酉时·☰乾-XIAOYI-BRIDGE-v1.0-8a3f1c2d      ║
+║  DNA:  #龍芯⚡️丙午·乙未·丙申·酉时·䷀乾-XIAOYI-BRIDGE-v1.0-8a3f1c2d      ║
 ║  创建者: 诸葛鑫（UID9622）                                                ║
 ║  协议: CC BY-NC-SA 4.0                                                   ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                           ║
@@ -93,7 +93,7 @@ sys.path.insert(0, str(PROJECT_ROOT / "bin"))
 # ═══════════════════════════════════════════════════════════════
 
 VERSION = "1.0.0"
-DNA_BASE = "#龍芯⚡️丙午·乙未·丙申·酉时·☰乾-XIAOYI-BRIDGE-v1.0-8a3f1c2d"
+DNA_BASE = "#龍芯⚡️丙午·乙未·丙申·酉时·䷀乾-XIAOYI-BRIDGE-v1.0-8a3f1c2d"
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 DEVICE_SEAL = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 GPG_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"

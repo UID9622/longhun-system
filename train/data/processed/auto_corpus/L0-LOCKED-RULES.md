@@ -1,21 +1,21 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-<!-- #龍芯⚡️20260624010825169-AUTO-DNA-053FD685 自动注入·分层治理自愈引擎 · 来源可查 -->
+<!-- #龍芯⚡️丙午·甲午·己巳·乙丑·䷮困-AUTO-DNA-053FD685 自动注入·分层治理自愈引擎 · 来源可查 -->
 # 龍魂系统 L0 已锁死规则总录
 
 > 本文件是龍魂系统所有 L0 层宪法级规则的索引与锁死凭证。
 > 任何新增 L0 规则，必须追加到本文件，并赋予唯一焊死 DNA。
-> DNA: `#龍芯⚡️2026-06-23-LONGHUN-L0-LOCKED-RULES-REGISTRY-FILE1-v1.0`
+> DNA: `#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-L0-LOCKED-RULES-REGISTRY-FILE1-v1.0`
 
 ## 锁死规则清单
 
 | 序号 | 规则名称 | 文件路径 | 焊死 DNA |
 |:-:|:---|:---|:---|
-| 1 | 龍魂模块主权原则 | `docs/module-sovereignty-principle.md` | `#龍芯⚡️2026-06-23-LONGHUN-MODULE-SOVEREIGNTY-PRINCIPLE-WELDED-L0` |
-| 2 | 龍魂大模型愿景：人民的大模型 | `docs/longhun-model-vision.md` | `#龍芯⚡️2026-06-23-LONGHUN-MODEL-VISION-WELDED-L0` |
-| 3 | 龍魂通心译铁律：先翻译，再执行 | `docs/tongxinyi-first-rule.md` | `#龍芯⚡️2026-06-23-LONGHUN-TONGXINYI-FIRST-RULE-WELDED-L0` |
-| 4 | 龍魂通心译伦理宪章：反杀熟、反捆绑、反成瘾 | `docs/tongxinyi-ethical-charter.md` | `#龍芯⚡️2026-06-23-LONGHUN-TONGXINYI-ETHICAL-CHARTER-WELDED-L0` |
+| 1 | 龍魂模块主权原则 | `docs/module-sovereignty-principle.md` | `#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-MODULE-SOVEREIGNTY-PRINCIPLE-WELDED-L0` |
+| 2 | 龍魂大模型愿景：人民的大模型 | `docs/longhun-model-vision.md` | `#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-MODEL-VISION-WELDED-L0` |
+| 3 | 龍魂通心译铁律：先翻译，再执行 | `docs/tongxinyi-first-rule.md` | `#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-TONGXINYI-FIRST-RULE-WELDED-L0` |
+| 4 | 龍魂通心译伦理宪章：反杀熟、反捆绑、反成瘾 | `docs/tongxinyi-ethical-charter.md` | `#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-TONGXINYI-ETHICAL-CHARTER-WELDED-L0` |
 
 ## 锁死声明
 
@@ -44,4 +44,4 @@
 ---
 
 > 锁死时间：2026-06-23
-> 锁死 DNA：`#龍芯⚡️2026-06-23-LONGHUN-L0-LOCKED-RULES-REGISTRY-WELDED-L0`
+> 锁死 DNA：`#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-L0-LOCKED-RULES-REGISTRY-WELDED-L0`

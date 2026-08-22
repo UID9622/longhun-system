@@ -1,8 +1,9 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·自动学习引擎 v1.0 → 审计修复报告
 
-> DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-AUDIT-REPAIR-v1.0
+> DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·䷀乾-AUDIT-REPAIR-v1.0
 > 审计日期: 2026-07-25
 > 审计方: 上帝之眼(P05) + 数学大师(P06)
 > 修复方: 鲁班(P04) + 乔前辈(P15)
@@ -94,5 +95,5 @@
 ---
 
 > 签署: P05 上帝之眼 🟢 + P15 乔前辈 🟢
-> DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-AUDIT-REPAIR-v1.0-7d3a8f12
+> DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·䷀乾-AUDIT-REPAIR-v1.0-7d3a8f12
 > #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

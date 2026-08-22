@@ -2,12 +2,13 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🐉 龍魂服务器实时连通性检测器 v1.0
 ======================================
 每一次检测都是真实的 — ping端口、发请求、收响应，不造假。
 用于看板实时显示，所有状态基于实测结果。
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·戌时·需-SERVER-CHECKER-v1-00000000
+DNA: #龍芯⚡️丙午·丙申·丙辰·戌时·䷄需-SERVER-CHECKER-v1-00000000
 """
 import json
 import subprocess

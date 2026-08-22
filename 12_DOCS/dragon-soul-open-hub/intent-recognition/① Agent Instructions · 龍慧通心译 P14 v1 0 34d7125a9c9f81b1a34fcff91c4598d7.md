@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ① Agent Instructions · 龍慧通心译 P14 v1.0
 
-**DNA:**#龍芯⚡️2026-04-26-P14-AGENT-INSTRUCTIONS_3B46-v1.0
+**DNA:**#龍芯⚡️丙午·壬辰·庚午·壬午·䷳艮为山-P14-AGENT-INSTRUCTIONS_3B46-v1.0
 
 ---
 
@@ -203,6 +203,6 @@ DNA: #龍芯⚡️{date}-通心译-P14-REFUSAL
 
 ---
 
-`DNA:#龍芯⚡️2026-04-26-P14-AGENT-INSTRUCTIONS-v1.0`
+`DNA:#龍芯⚡️丙午·壬辰·庚午·壬午·䷳艮为山-P14-AGENT-INSTRUCTIONS-v1.0`
 
 `确认码: #CONFIRM🌌9622-ONLY-ONCE🧬 LK9X-772Z`

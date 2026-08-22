@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# DNA: #龍芯⚡️丙午·丙申·#龍芯⚡️丙午·丙申·POSTAUDIT-MIGRATE_DOWNLOADS_IN-63BFAE77
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 Downloads 主干迁移脚本
 读取 downloads_inbox_manifest.json，将非图片、非安装包的交付物
@@ -179,4 +181,4 @@ if __name__ == "__main__":
     migrate()
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·观-CONFIRM-SEAL-migrate_downloads_in-3678FD44
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷓观-CONFIRM-SEAL-migrate_downloads_in-3678FD44

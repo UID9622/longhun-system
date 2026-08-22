@@ -1,7 +1,7 @@
 #!/bin/bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ============================================================
-# DNA: #龍芯⚡️丙午·丙申·癸酉·丁巳·临-V40-ALL-PIPELINE
+# DNA: #龍芯⚡️丙午·丙申·癸酉·丁巳·䷒临-V40-ALL-PIPELINE
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
@@ -18,7 +18,7 @@ CMD="${1:-all}"
 echo "========================================"
 echo "  龍魂v4.0 一键流水线"
 echo "  命令: $CMD"
-echo "  DNA: #龍芯⚡️丙午·丙申·癸酉·丁巳·临-V40-ALL-PIPELINE"
+echo "  DNA: #龍芯⚡️丙午·丙申·癸酉·丁巳·䷒临-V40-ALL-PIPELINE"
 echo "========================================"
 
 case "$CMD" in

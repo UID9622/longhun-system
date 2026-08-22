@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·比-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷇比-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-EXPAND-PRACTICAL-SYMBOLS-v1.0
+# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-EXPAND-PRACTICAL-SYMBOLS-v1.0
 """
 龍魂字元库 · 实用符号扩展脚本
 为 LonghunFont 添加编程、数学、终端、货币等常用 Unicode 符号。
@@ -21,7 +22,7 @@ PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
 SRC = os.path.join(PROJECT_DIR, "glyphs", "龍魂字元库_v0011_两千中文字.json")
 DST = os.path.join(PROJECT_DIR, "glyphs", "龍魂字元库_v0011_实用符号版.json")
 
-NEW_DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-EXPAND-PRACTICAL-SYMBOLS-v1.0"
+NEW_DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-EXPAND-PRACTICAL-SYMBOLS-v1.0"
 
 # -------------------- 笔画辅助函数 --------------------
 

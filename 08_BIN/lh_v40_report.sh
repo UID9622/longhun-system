@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ============================================================
-# DNA: #龍芯⚡️丙午·丙申·癸酉·己未·临-V40-REPORT
+# DNA: #龍芯⚡️丙午·丙申·癸酉·己未·䷒临-V40-REPORT
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # ============================================================
@@ -24,7 +24,7 @@ echo "[蒸馏] 616条 · 8.5分钟 · 4线程"
 echo "[训练] 1000 iters · 21.5分钟 · Val=1.381"
 echo "[量化] 16.1GB → 4.92GB (30.6%)"
 echo ""
-echo "[DNA] #龍芯⚡️丙午·丙申·癸酉·己未·临-LONGHUN-V4.0-DELIVERY-B79CA482"
+echo "[DNA] #龍芯⚡️丙午·丙申·癸酉·己未·䷒临-LONGHUN-V4.0-DELIVERY-B79CA482"
 echo "[用法] ollama run longhun-v4.0"
 echo ""
 echo "[关键对比]"

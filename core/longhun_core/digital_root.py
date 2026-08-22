@@ -8,7 +8,7 @@
 核心不动点: sn=369, log369=5.911, perm369=108
 数字根算法: 各位数字反复求和直至一位数
 
-DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-DIGITAL-ROOT-UID9622
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-DIGITAL-ROOT-UID9622
 License: MulanPSL v2
 """
 

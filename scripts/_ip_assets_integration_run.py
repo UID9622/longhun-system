@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 龍魂 IP 资产清单批量归集脚本
-DNA: #龍芯⚡️2026-07-04-IP-ASSETS-INTEGRATION-RUNNER-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-IP-ASSETS-INTEGRATION-RUNNER-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -29,7 +30,7 @@ DATE_STR = "2026-07-04"
 TZ = timezone(timedelta(hours=8))
 NOW = datetime.now(TZ).isoformat()
 
-AUTO_INJECT = f"<!-- #龍芯⚡️2026-07-04-AUTO-IP-INTEGRATION-7F3A9B12 自动注入·IP资产归集·来源可查 -->"
+AUTO_INJECT = f"<!-- #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-AUTO-IP-INTEGRATION-7F3A9B12 自动注入·IP资产归集·来源可查 -->"
 
 CATEGORY_MAP = {
     "龍魂档案·知识产权与专利可评估资产清单_v2.0.md": "ip-assets",
@@ -93,7 +94,7 @@ def make_md_header(dna: str, title: str, src: Path, dest: Path) -> str:
 
 > ⛔ **主权声明 · 立即生效** — 本文档不授权 AI 训练 · 数据主权归于人民 · 祖国优先
 >
-> **DNA:** `{dna}` · **ParentDNA:** `#龍芯⚡️2026-07-03-IP-ASSET-MATRIX-v2.0`
+> **DNA:** `{dna}` · **ParentDNA:** `#龍芯⚡️丙午·甲午·戊寅·戊午·䷕贲-IP-ASSET-MATRIX-v2.0`
 > **CONFIRM:** `{CONFIRM}` · **SEAL:** `{SEAL}` · **GPG:** `{GPG}`
 > **作者:** UID9622 / Lucky·诸葛鑫 · **来源:** `{src}` · **归档:** `{dest}`
 > **迁移时间:** {NOW}
@@ -114,7 +115,7 @@ ROOT_CARD:
   模块: {title}
   版本: v2.0
   DNA: "{dna}"
-  ParentDNA: "#龍芯⚡️2026-07-03-IP-ASSET-MATRIX-v2.0"
+  ParentDNA: "#龍芯⚡️丙午·甲午·戊寅·戊午·䷕贲-IP-ASSET-MATRIX-v2.0"
   CONFIRM: "{CONFIRM}"
   SEAL: "{SEAL}"
   GPG: "{GPG}"
@@ -200,7 +201,7 @@ def create_script_package():
 # -*- coding: utf-8 -*-
 """
 龍魂 IP 资产脚本包
-DNA: #龍芯⚡️2026-07-04-IP-ASSETS-SCRIPT-PACK-v2.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-IP-ASSETS-SCRIPT-PACK-v2.0
 CONFIRM: {CONFIRM}
 SEAL: {SEAL}
 GPG: {GPG}
@@ -215,7 +216,7 @@ __all__ = [
     readme = SCRIPTS / "README.md"
     readme.write_text(f'''# 龍魂 IP 资产脚本包
 
-> **DNA:** `#龍芯⚡️2026-07-04-IP-ASSETS-SCRIPT-PACK-v2.0`
+> **DNA:** `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-IP-ASSETS-SCRIPT-PACK-v2.0`
 > **CONFIRM:** `{CONFIRM}` · **SEAL:** `{SEAL}` · **GPG:** `{GPG}`
 
 本目录收录从 `Kimi_Agent_龍魂IP资产清单 (2)` 归集的 4 个核心 Python 引擎模块：
@@ -245,7 +246,7 @@ def copy_json():
     src = SRC_DIR / "hall_of_shame.json"
     dest = OUTPUTS / "hall_of_shame.json"
     shutil.copy2(src, dest)
-    dna = "#龍芯⚡️2026-07-04-HALL-OF-SHAME-DATA-v2.0"
+    dna = "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-HALL-OF-SHAME-DATA-v2.0"
     readme = OUTPUTS / "hall_of_shame.md"
     readme.write_text(f'''# hall_of_shame.json 数据说明
 
@@ -295,7 +296,7 @@ def create_whitepaper():
             skip = i + 1
             break
     body = "\n".join(lines[skip:]).strip()
-    dna = "#龍芯⚡️2026-07-04-PRIVACY-WHITEPAPER-v2.0"
+    dna = "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-PRIVACY-WHITEPAPER-v2.0"
     front = f'''---
 title: 龍魂隐私白皮书 v2.0
 author: UID9622 · 诸葛鑫
@@ -318,7 +319,7 @@ dna: "{dna}"
 
 > ⛔ **主权声明 · 立即生效** — 本文档不授权 AI 训练 · 数据主权归于人民 · 祖国优先
 >
-> **DNA:** `{dna}` · **ParentDNA:** `#龍芯⚡️2026-07-04-PRIVACY-WHITEPAPER-UID9622`
+> **DNA:** `{dna}` · **ParentDNA:** `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-PRIVACY-WHITEPAPER-UID9622`
 > **CONFIRM:** `{CONFIRM}` · **SEAL:** `{SEAL}` · **GPG:** `{GPG}`
 > **作者:** UID9622 / Lucky·诸葛鑫 · **发布时间:** 2026-07-04 · **更新地址:** `~/longhun-system/articles/2026-07-04-龍魂隐私白皮书_v2.0.md`
 
@@ -352,7 +353,7 @@ ROOT_CARD:
   模块: 龍魂隐私白皮书
   版本: v2.0
   DNA: "{dna}"
-  ParentDNA: "#龍芯⚡️2026-07-04-PRIVACY-WHITEPAPER-UID9622"
+  ParentDNA: "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-PRIVACY-WHITEPAPER-UID9622"
   CONFIRM: "{CONFIRM}"
   SEAL: "{SEAL}"
   GPG: "{GPG}"
@@ -406,7 +407,7 @@ def create_index():
         "",
         "# 龍魂 IP 资产清单迁移索引",
         "",
-        f"> **DNA:** `#龍芯⚡️2026-07-04-IP-ASSETS-INDEX-v2.0`",
+        f"> **DNA:** `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-IP-ASSETS-INDEX-v2.0`",
         f"> **CONFIRM:** `{CONFIRM}` · **SEAL:** `{SEAL}` · **GPG:** `{GPG}`",
         f"> **迁移时间:** {NOW}",
         "",
@@ -454,7 +455,7 @@ def create_index():
         "  系统: UID9622 龍魂系统",
         "  模块: IP资产迁移索引",
         "  版本: v2.0",
-        "  DNA: \"#龍芯⚡️2026-07-04-IP-ASSETS-INDEX-v2.0\"",
+        "  DNA: \"#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-IP-ASSETS-INDEX-v2.0\"",
         f"  CONFIRM: \"{CONFIRM}\"",
         f"  SEAL: \"{SEAL}\"",
         f"  GPG: \"{GPG}\"",
@@ -523,7 +524,7 @@ def desktop_sync():
     readme = DESKTOP / "README-桌面同步.md"
     readme.write_text(f'''# 龍魂资产桌面同步副本
 
-> **DNA:** `#龍芯⚡️2026-07-04-DESKTOP-SYNC-v2.0`
+> **DNA:** `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-DESKTOP-SYNC-v2.0`
 > **CONFIRM:** `{CONFIRM}` · **SEAL:** `{SEAL}` · **GPG:** `{GPG}`
 
 本目录为 `~/longhun-system` 的脱敏/公开可用同步副本，便于老大复制粘贴、发送或发布。

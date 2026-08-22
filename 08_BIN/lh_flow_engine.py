@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 流场映射层引擎 v2.0
-DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-FLOW-MAP-v2.0-UID9622
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-FLOW-MAP-v2.0-UID9622
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -741,7 +742,7 @@ body { font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif; bac
 </div>
 
 <div class="footer-bar">
-    DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-FLOW-MAP-v2.0-UID9622 |
+    DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-FLOW-MAP-v2.0-UID9622 |
     GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F |
     流场≠雷达 · 被动观测 · 不发射不主动探测
 </div>

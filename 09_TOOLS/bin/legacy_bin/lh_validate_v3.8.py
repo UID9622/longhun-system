@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 v3.8.1 部署验证脚本
 - 家法第一条训练样本召回测试
@@ -9,7 +10,7 @@ v3.8.1 部署验证脚本
 - Val Loss 对比 v3.7 基线 0.194
 - 输出三色审计报告
 
-DNA: #龍芯⚡️20260718235000000-V381-VALIDATION-REPORT
+DNA: #龍芯⚡️丙午·乙未·癸巳·壬子·䷅讼-V381-VALIDATION-REPORT
 """
 
 import json, requests, time, sys
@@ -198,7 +199,7 @@ def generate_report(recall, failed, drift_score, history, loss_audit, total_samp
     md = f"""# 龍魂 v3.8 部署验证报告
 
 > 生成时间: {now}
-> DNA: `#龍芯⚡️20260718235000000-V38-VALIDATION-REPORT`
+> DNA: `#龍芯⚡️丙午·乙未·癸巳·壬子·䷅讼-V38-VALIDATION-REPORT`
 
 ---
 

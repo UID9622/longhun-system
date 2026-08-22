@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 MVP一键部署集成器 v1.0
 LongHun MVP Setup Integration
 
-DNA:#龍芯⚡️2026-06-04-SETUP-INTEGRATION-v1.0
+DNA:#龍芯⚡️丙午·癸巳·己酉·庚午·䷨损-SETUP-INTEGRATION-v1.0
 
 功能：
 - 一键生成所有配置文件
@@ -205,7 +206,7 @@ class MVPSetupIntegrator:
     def __init__(self, base_dir: str = "."):
         self.base_dir = Path(base_dir)
         self.config_dir = self.base_dir / "mvp_config"
-        self.dna = "#龍芯⚡️2026-06-04-SETUP-INTEGRATION-v1.0"
+        self.dna = "#龍芯⚡️丙午·癸巳·己酉·庚午·䷨损-SETUP-INTEGRATION-v1.0"
 
     def initialize_directories(self) -> bool:
         """初始化目录结构"""

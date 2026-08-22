@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 XPay 支付网关 · 完整实现代码 v1.0
 XPay Payment Gateway · Complete Implementation
@@ -20,7 +21,7 @@ XPay Payment Gateway · Complete Implementation
 • 支持本地宝宝或云端宝宝调用
 
 【DNA签名】
-#龍芯⚡️2026-06-05-XPAY-IMPLEMENTATION-v1.0
+#龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-XPAY-IMPLEMENTATION-v1.0
 #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 """
@@ -791,12 +792,12 @@ def demo():
 def selftest() -> dict[str, Any]:
     """
     自检函数：验证 XPay 核心模块是否正常。
-    DNA: #龍芯⚡️2026-07-01-XPAY-SELFTEST-v1.0
+    DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-XPAY-SELFTEST-v1.0
     """
     import json as _json
     results = {
         "timestamp": datetime.now().isoformat(),
-        "dna": "#龍芯⚡️2026-07-01-XPAY-SELFTEST-v1.0",
+        "dna": "#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-XPAY-SELFTEST-v1.0",
         "tests": {},
     }
     try:
@@ -828,7 +829,7 @@ def selftest() -> dict[str, Any]:
 # ═══════════════════════════════════════════════════════════════════════════
 # 🔥 第7层：XPayGateway — 真实支付桥接层 v2.0
 # 桥接 支付Provider(微信/支付宝/PayPal) ↔ XPayCore ↔ 生态通行证
-# DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-XPAY-GATEWAY-v2.0
+# DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-XPAY-GATEWAY-v2.0
 # ═══════════════════════════════════════════════════════════════════════════
 
 class XPayGateway:
@@ -846,7 +847,7 @@ class XPayGateway:
       5. 降级 → 支付渠道不可用时自动降级到模拟模式
       6. 持久化 → SQLite双写（本地JSON + SQLite）
     
-    DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-XPAY-GATEWAY-v2.0
+    DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-XPAY-GATEWAY-v2.0
     CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
     """
     
@@ -1098,7 +1099,7 @@ class XPayGateway:
         """自检：验证网关完整性"""
         results = {
             "gateway": "XPayGateway v2.0",
-            "dna": "#龍芯⚡️丙午·甲申·辛丑·坤卦-XPAY-GATEWAY-v2.0",
+            "dna": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-XPAY-GATEWAY-v2.0",
             "timestamp": datetime.now().isoformat(),
             "tests": {}
         }

@@ -1,6 +1,6 @@
 /**
  * 龍魂国密算法库 v1.0
- * DNA: #龍芯⚡️2026-07-11-LONGHUN-SM-CRYPTO-v1.0
+ * DNA: #龍芯⚡️丙午·乙未·丙戌·甲午·䷕贲-LONGHUN-SM-CRYPTO-v1.0
  * 实现: SM3哈希 / SM4对称加密 / DNA签名
  * 无外部依赖，纯TypeScript实现
  */

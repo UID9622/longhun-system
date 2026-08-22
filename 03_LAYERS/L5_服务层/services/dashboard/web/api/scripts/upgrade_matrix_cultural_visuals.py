@@ -2,13 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 · 矩阵视觉真实化升级
 把 3D 知识矩阵的抽象球体节点升级为中国文化真实视觉符号：
 主权层=玉印、治理层=竹简、机制层=玉璧、基础层=青铜器、北辰根=太极。
 保留并增强无障碍模式。
-DNA: #龍芯⚡️2026-07-04-LONGHUN-MATRIX-CULTURAL-VISUALS-v1.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-MATRIX-CULTURAL-VISUALS-v1.0
 """
 
 import re
@@ -16,7 +17,7 @@ import json
 import time
 from pathlib import Path
 
-DNA = "#龍芯⚡️2026-07-04-LONGHUN-MATRIX-CULTURAL-VISUALS-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-MATRIX-CULTURAL-VISUALS-v1.0"
 P0_DIR = Path(__file__).resolve().parent.parent.parent / "p0-controls"
 MATRIX_FILE = P0_DIR / "龍魂知识矩阵-沉浸式AI播音员.html"
 CHANGE_LOG = Path(__file__).resolve().parent.parent / "assets" / "cultural" / "cultural_change_log.jsonl"
@@ -333,8 +334,8 @@ def inject():
 
     # 更新 DNA 标记
     text = text.replace(
-        "#龍芯⚡️2026-07-04-LONGHUN-KNOWLEDGE-MATRIX-3D-v1.2",
-        "#龍芯⚡️2026-07-04-LONGHUN-KNOWLEDGE-MATRIX-3D-v1.3"
+        "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-KNOWLEDGE-MATRIX-3D-v1.2",
+        "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-KNOWLEDGE-MATRIX-3D-v1.3"
     )
 
     MATRIX_FILE.write_text(text, encoding="utf-8")

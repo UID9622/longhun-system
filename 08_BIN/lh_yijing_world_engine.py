@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂·易经世界模型数学引擎 v1.0
-DNA: #龍芯⚡️2026-07-21-YIJING-WORLD-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-YIJING-WORLD-ENGINE-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -30,7 +30,7 @@ import sys, math, itertools, os, json, hashlib
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-DNA = "#龍芯⚡️2026-07-21-YIJING-WORLD-ENGINE-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-YIJING-WORLD-ENGINE-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

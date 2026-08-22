@@ -149,8 +149,6 @@ class CosmosReport:
     event_chain: List[Dict[str, Any]]
     summary: str
 
-    def to_dict(self) -> Dict[str, Any]:
-        return asdict(self)
 
 
 # ═══════════════════════════════════════════════════════

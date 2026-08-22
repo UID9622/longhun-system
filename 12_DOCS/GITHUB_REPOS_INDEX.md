@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # UID9622 GitHub 仓库索引
@@ -55,7 +55,7 @@
 - 核心引擎: 七因子行为密码学 · 三才算法 · 洛书引擎
 - 5层分层主权架构 (L0-L5)
 - 关键文档: philosophy / architecture / governance / seven-factor-cryptography / getting-started
-- DNA: `#龍芯⚡️2026-07-03-ONGHUN-SYSTEM-v1.0`
+- DNA: `#龍芯⚡️丙午·甲午·戊寅·戊午·䷕贲-ONGHUN-SYSTEM-v1.0`
 
 ---
 

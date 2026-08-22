@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 📊 LU-SYSTEM-SCORE · 系统活跃度评分
 
-> DNA: #龍芯⚡️2026-07-07-LU-SYSTEM-SCORE-v1.0
+> DNA: #龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-LU-SYSTEM-SCORE-v1.0
 > 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 > LU原系统: LU-SYSTEM-SCORE（雯雯主评·100分制）
 > 作用: 当天24小时内创意/贡献积分 + 系统价值对比（100分制）
@@ -134,7 +135,7 @@ def print_score_report(date_str, scores, log_content=None):
 ╔══════════════════════════════════════════════════╗
 ║   📊 LU-SYSTEM-SCORE · 活跃度评分            ║
 ╠══════════════════════════════════════════════════╣
-║  DNA:  #龍芯⚡️2026-07-07-LU-SYSTEM-SCORE    ║
+║  DNA:  #龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-LU-SYSTEM-SCORE    ║
 ║  日期:  {date_str}                          ║
 ╚══════════════════════════════════════════════════╝
 """)
@@ -163,7 +164,7 @@ def print_median():
 ╔══════════════════════════════════════════════════╗
 ║   📊 LU-SYSTEM-SCORE · 系统中位参考           ║
 ╠══════════════════════════════════════════════════╣
-║  DNA:  #龍芯⚡️2026-07-07-LU-SYSTEM-SCORE    ║
+║  DNA:  #龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-LU-SYSTEM-SCORE    ║
 ╚══════════════════════════════════════════════════╝
 """)
     print(f"{'层级':<24} {'分值区间':<12} {'特征'}")

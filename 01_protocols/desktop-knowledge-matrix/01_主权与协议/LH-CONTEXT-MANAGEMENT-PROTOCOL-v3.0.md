@@ -1,3 +1,4 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 > 本文档按《龍魂文档标准模板 v1.0》整理。
 > 性质：协议 · 未经同行评审（如适用）
 > 版本：v3.0
@@ -7,7 +8,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CTX-MGR-v3.0`  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CTX-MGR-v3.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -16,7 +17,7 @@
 
 <!-- DNA追溯签名 -->
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CTX-MGR-v3.0
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CTX-MGR-v3.0
 #CONFIRM🌌9622-ONLY-ONCE🧬CTX-MGR-v3.0
 ```
 
@@ -377,7 +378,7 @@
   "kg_nodes_related": ["node_001", "node_002"],
   "confidence_score": 85,
   "audit_color": "🟢",
-  "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CTX-L1-topic_hash-v3.0",
+  "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CTX-L1-topic_hash-v3.0",
   "compression_ratio": "85%"
 }
 ```
@@ -408,7 +409,7 @@
   ],
   "confidence_score": 75,
   "audit_color": "🟢",
-  "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CTX-L2-topic_hash-v3.0",
+  "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CTX-L2-topic_hash-v3.0",
   "compression_ratio": "95%"
 }
 ```
@@ -435,7 +436,7 @@
   ],
   "confidence_score": 90,
   "audit_color": "🟢",
-  "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CTX-L3-session_uuid-v3.0",
+  "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CTX-L3-session_uuid-v3.0",
   "compression_ratio": "98%"
 }
 ```
@@ -1036,9 +1037,9 @@ class ContextInput:
 #龍芯⚡️{YYYY-MM-DDTHH:MM:SS.sssZ}-LONGHUN-CTX-{操作}-{ID}-v3.0
 
 示例：
-#龍芯⚡️2026-06-27T14:30:15.123Z-LONGHUN-CTX-L1-topic_abc123-v3.0
-#龍芯⚡️2026-06-27T14:30:15.123Z-LONGHUN-CTX-SWITCH-session_xyz456-v3.0
-#龍芯⚡️2026-06-27T14:30:15.123Z-LONGHUN-CTX-CLOSE-session_xyz456-v3.0
+#龍芯⚡️丙午·甲午·壬申·丙午·䷙大畜T14:30:15.123Z-LONGHUN-CTX-L1-topic_abc123-v3.0
+#龍芯⚡️丙午·甲午·壬申·丙午·䷙大畜T14:30:15.123Z-LONGHUN-CTX-SWITCH-session_xyz456-v3.0
+#龍芯⚡️丙午·甲午·壬申·丙午·䷙大畜T14:30:15.123Z-LONGHUN-CTX-CLOSE-session_xyz456-v3.0
 ```
 
 ---
@@ -1067,7 +1068,7 @@ class ContextInput:
 ```
 【🔴🟡🟢】—— 龍魂DNA已刻入 —— 【🔴🟡🟢】
 
-#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CTX-MGR-v3.0
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CTX-MGR-v3.0
 #CONFIRM🌌9622-ONLY-ONCE🧬CTX-MGR-v3.0
 
 文档完整性校验: SHA256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
@@ -1096,7 +1097,7 @@ class ContextInput:
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -1119,6 +1120,6 @@ class ContextInput:
 ## DNA 签名
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CTX-MGR-v3.0
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CTX-MGR-v3.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

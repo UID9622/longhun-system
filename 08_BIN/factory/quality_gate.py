@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # DNA: #龍芯⚡️丙午·丙酉·丙寅·申时-QUALITY-GATE-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 """
 🐉 龍魂 · 质量门禁 v1.0

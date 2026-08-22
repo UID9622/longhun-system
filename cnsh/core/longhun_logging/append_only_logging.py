@@ -2,13 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ╔══════════════════════════════════════════════════════════════════╗
 ║      龍魂Append-Only日志系统 / LongHun Immutable Logging        ║
 ║                                                                  ║
 ║  JSONL格式·永不覆盖·精确到分钟·抹不掉的痕迹                       ║
 ║  每条日志都包含完整上下文、时间戳、操作者、结果                     ║
 ║                                                                  ║
-║  DNA:#龍芯⚡️2026-06-03-APPEND-ONLY-LOGGING-FILE1-v1.0               ║
+║  DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-APPEND-ONLY-LOGGING-FILE1-v1.0               ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓              ║
 ║                                                                  ║
 ║  来源: 龍魂操作草日志·每动作必记·精确到分钟·抹不掉的痕迹           ║
@@ -389,7 +390,7 @@ if __name__ == "__main__":
     log_operation(
         event_type=LogEventType.DNA_GENERATED,
         message="生成DNA追溯码",
-        related_dna="#龍芯⚡️2026-06-03-BAOBAO-WORKFLOW-v1.0",
+        related_dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-BAOBAO-WORKFLOW-v1.0",
     )
 
     # 查询日志

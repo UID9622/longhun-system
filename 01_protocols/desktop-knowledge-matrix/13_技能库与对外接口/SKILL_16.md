@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-deployment-ready
 description: 龍魂部署就绪系统 - 全链路部署自动化框架，提供27项部署就绪检查、分阶段自动部署执行、环境/配置验证和故障排查能力
@@ -9,7 +11,7 @@ metadata:
   version: '5.2'
   language: python
   author: 龍芯 DevOps Team
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-READY-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DEPLOY-READY-v5.2'
   keywords:
   - deployment
   - devops
@@ -33,7 +35,7 @@ metadata:
 ---
 # C10 - longhun-deployment-ready (龍魂部署就绪系统)
 
-> **DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-READY-v5.2`  
+> **DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DEPLOY-READY-v5.2`  
 > **Version**: 5.2 | **Category**: Cloud/DevOps | **Level**: Intermediate
 
 ---
@@ -52,7 +54,7 @@ metadata:
 | **Target Platform** | Linux / macOS / Windows (WSL) |
 | **Author** | 龍芯 DevOps Team |
 | **License** | MIT |
-| **DNA** | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-READY-v5.2` |
+| **DNA** | `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DEPLOY-READY-v5.2` |
 
 ### Description
 
@@ -204,7 +206,7 @@ filepath = checker.save_report(report)
 ```json
 {
   "meta": {
-    "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-READY-v5.2",
+    "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DEPLOY-READY-v5.2",
     "version": "5.2",
     "checklist_version": "2026-06-10",
     "timestamp": "2026-06-19T12:00:00",
@@ -468,7 +470,7 @@ deploy:
   本地部署: docs/LOCAL_DEPLOYMENT_GUIDE.md
 
 ══════════════════════════════════════════════════════════════
-  DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DEPLOY-READY-v5.2
+  DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DEPLOY-READY-v5.2
 ══════════════════════════════════════════════════════════════
 ```
 

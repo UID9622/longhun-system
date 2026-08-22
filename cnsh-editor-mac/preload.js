@@ -1,7 +1,7 @@
 /**
  * 🐉 龍魂 · CNSH编辑器预加载脚本
  * 安全桥接: contextIsolation=true 下暴露最小 API 给渲染进程
- * DNA: #龍芯⚡️丙午·丙申·辛酉·丑时-CNSH-EDITOR-PRELOAD-UID9622
+ * DNA: #龍芯⚡️丙午·丙申·辛酉·己丑·䷹兑为泽-CNSH-EDITOR-PRELOAD-UID9622
  * License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
  */
 

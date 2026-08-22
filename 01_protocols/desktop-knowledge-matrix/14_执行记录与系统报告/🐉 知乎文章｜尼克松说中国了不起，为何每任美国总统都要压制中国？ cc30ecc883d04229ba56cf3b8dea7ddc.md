@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 知乎文章｜尼克松说中国了不起，为何每任美国总统都要压制中国？
 
 > 《道德经》第七十七章："天之道，损有余而补不足；人之道则不然，损不足以奉有余。"
@@ -330,7 +332,7 @@
 
 ---
 
-*DNA追溯码：#龍芯⚡️丙午·丙申·庚申·亥时-CC30ECC883D04229BA56CF3B8DEA7DDC_2CF7-v1.2*
+*DNA追溯码：#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CC30ECC883D04229BA56CF3B8DEA7DDC_2CF7-v1.2*
 
 *确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅*
 

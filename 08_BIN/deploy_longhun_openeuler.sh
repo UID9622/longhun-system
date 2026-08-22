@@ -2,14 +2,14 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系統 · 華為鯤鵬openEuler部署腳本
-# DNA: #龍芯⚡️2026-07-06-DEPLOY-OPENEULER-v1.0
+# DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-DEPLOY-OPENEULER-v1.0
 # 歸屬: UID9622｜龍芯北辰｜CNSH
 
 set -e
 
 echo "══════════════════════════════════════════"
 echo "  龍魂系統 · openEuler部署腳本"
-echo "  DNA: #龍芯⚡️2026-07-06-DEPLOY-v1.0"
+echo "  DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-DEPLOY-v1.0"
 echo "══════════════════════════════════════════"
 
 # 1. 系統更新
@@ -55,7 +55,7 @@ echo "[8/8] 創建基礎配置..."
 cat > ~/longhun-system/README.md << 'EOF'
 # 龍魂系統
 
-**DNA:** `#龍芯⚡️2026-07-06-DEPLOY-OPENEULER-v1.0`
+**DNA:** `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-DEPLOY-OPENEULER-v1.0`
 **歸屬:** `UID9622｜龍芯北辰｜CNSH`
 **狀態:** `已部署 · openEuler · ARM64`
 

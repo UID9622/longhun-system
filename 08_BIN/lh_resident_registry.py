@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_RESIDENT_REGISTRY-v1.0-370dfa78
+#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH_RESIDENT_REGISTRY-v1.0-370dfa78
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -27,7 +27,7 @@
   - 对接 lh_active_observation.ActiveObservationEngine (TIME_EVENT触发)
   - 独立运行: python3 bin/lh_resident_registry.py --daemon
 
-DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·需-RESIDENT-REGISTRY-v2.0
+DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·䷄需-RESIDENT-REGISTRY-v2.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
@@ -57,7 +57,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from bin.lh_event_bus_engine import EventBus, EventType, Event  # noqa: E402
 
 # ── 常量 ──
-DNA = "#龍芯⚡️丙午·辛未·乙酉·亥时·需-RESIDENT-REGISTRY-v2.2-SLIM"
+DNA = "#龍芯⚡️丙午·辛未·乙酉·亥时·䷄需-RESIDENT-REGISTRY-v2.2-SLIM"
 VERSION = "2.2.0"
 REG_DIR = PROJECT_ROOT / "data" / "resident_registry"
 REG_DIR.mkdir(parents=True, exist_ok=True)

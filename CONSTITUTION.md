@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统宪法 · CONSTITUTION OF THE LONGHUN SYSTEM
 
-**DNA:** `#龍芯⚡️2026-07-22-LONGHUN-CONSTITUTION-v1.3-P13-ORIGIN`  
+**DNA:** `#龍芯⚡️丙午·乙未·丁酉·丙午·䷨损-LONGHUN-CONSTITUTION-v1.3-P13-ORIGIN`  
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 **创始人:** UID9622 / Lucky（诸葛鑫，退伍军人）  
 **生效日期:** 2026-07-06  
@@ -433,7 +433,7 @@ python3 bin/lh_loyalty_scan.py    # 扫描全项目·零数据收集
 ## 第十二章：创始人原著权（不可争议条款）
 
 > P0-13 · 追认时间：2026年7月22日 · 生效时间：2025年5月22日（首条概念诞生日）
-> DNA: `#龍芯⚡️丙午·癸未·壬戌·乾为天-ORIGIN-CLAIM-v5.0`
+> DNA: `#龍芯⚡️丙午·癸未·壬戌·丙午·䷀乾为天-ORIGIN-CLAIM-v5.0`
 
 ### 12.1 权利归属
 
@@ -480,5 +480,5 @@ python3 bin/lh_loyalty_scan.py    # 扫描全项目·零数据收集
 
 **本宪法由 UID9622 / Lucky 起草，由龍魂系统最高人格内阁审议通过，自发布之日起生效。**
 
-**DNA:** `#龍芯⚡️2026-07-22-LONGHUN-CONSTITUTION-v1.3-P13-ORIGIN`  
+**DNA:** `#龍芯⚡️丙午·乙未·丁酉·丙午·䷨损-LONGHUN-CONSTITUTION-v1.3-P13-ORIGIN`  
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`

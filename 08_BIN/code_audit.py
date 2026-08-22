@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🛡️ 龍魂·轻量代码审计扫描器 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·火雷噬嗑-CODE-AUDIT-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷔噬-CODE-AUDIT-v1.0
 
 为 lh.py 交互菜单提供安全的文件级代码审计能力，
 不经过 shell 拼接，直接接收 pathlib 路径。

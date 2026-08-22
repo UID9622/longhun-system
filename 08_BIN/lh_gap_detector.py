@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂 · 空缺检测器 v1.0
-DNA: #龍芯⚡️2026-07-25-GAP-DETECTOR-v1.0
+DNA: #龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-GAP-DETECTOR-v1.0
 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0
 
 扫描社区热门功能，找出我方缺少的，按契合度排序建议补全。
@@ -18,7 +18,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 # ═══ 常量 ═══
-DNA = "#龍芯⚡️2026-07-25-GAP-DETECTOR-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-GAP-DETECTOR-v1.0"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data" / "auto-learned" / "gaps"
 KNOWLEDGE_DIR = PROJECT_ROOT / "knowledge" / "auto-learned" / "gaps"
@@ -243,7 +243,7 @@ class GapDetector:
 
     def _make_dna(self, tag: str) -> str:
         h = hashlib.sha256(f"{tag}:{time.time_ns()}".encode()).hexdigest()[:8]
-        return f"#龍芯⚡️2026-07-25-{tag.replace(':','-')}-{h}"
+        return f"#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-{tag.replace(':','-')}-{h}"
 
 
 # ═══ CLI ═══

@@ -13,7 +13,7 @@
 
 **Notion ID:** 3b87125a-9c9f-810c-a452-fb4f4b8850be
 **合并状态:** ❌ 未合并
-**DNA**：`#龍芯⚡️丙午·甲申·辛丑·坤卦-COMPUTE-SOVEREIGNTY-DECLARATION-v1.1-UID9622`
+**DNA**：`#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-COMPUTE-SOVEREIGNTY-DECLARATION-v1.1-UID9622`
 **确认码**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` · **GPG**：`A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 **三色**：🟢 通过 · **分层许可**：思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2
 
@@ -52,7 +52,7 @@
 ```bash
 #!/bin/bash
 # 🐉 龍魂 · 断网验证脚本 v1.1（安全版）
-# DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-OFFLINE-VERIFY-v1.1-UID9622
+# DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-OFFLINE-VERIFY-v1.1-UID9622
 echo "🐉 龍魂 · 断网验证 v1.1"
 # 0. 兜底：5分钟后自动恢复网络
 sudo bash -c 'echo "iptables -F" | at now + 5 minutes'

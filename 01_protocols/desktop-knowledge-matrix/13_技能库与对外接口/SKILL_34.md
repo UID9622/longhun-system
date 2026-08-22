@@ -1,10 +1,12 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-review
 description: '龍魂每日復盤引擎，三色審計體系，支持郵件發送和日曆記錄，包含歷史趨勢追蹤和改進建議生成，覆蓋文件/安全/心跳/測試/日誌/評估/API/備份八大審計項。服務老百姓與系統治理，符合中國審計標準，每日自動審計復盤。'
 metadata:
   version: '5.1'
   author: 龍魂體系
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-REVIEW-v5.1'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-REVIEW-v5.1'
   id: longhun-review
   trigger:
     keywords:
@@ -19,7 +21,7 @@ metadata:
 ---
 # 🐉 龍魂每日復盤引擎 (longhun-review)
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-REVIEW-v5.1`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-REVIEW-v5.1`
 **版本**: v5.1
 **路徑**: `~/longhun-system/scripts/復盤引擎.py`
 **功能**: 三色審計 · 郵件發送 · 復盤報告 · 歷史趨勢 · 改進建議
@@ -194,7 +196,7 @@ def 審計_文件完整性() -> 三色結果:
 
 ---
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-REVIEW-v5.1`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-REVIEW-v5.1`
 **確認**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅`
 
 ---

@@ -2,13 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·癸未·丁未·坤为地-V43-HERBAL-TRAIN-DATA
+#龍芯⚡️丙午·癸未·丁未·丙午·䷁坤为地-V43-HERBAL-TRAIN-DATA
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂v4.3 · 本草知识库专项训练数据生成
 读取 data/herbal_bencao_v4.1.5.md，输出 messages 格式 JSONL
-DNA: #龍芯⚡️丙午·癸未·丁未·坤为地-V43-HERBAL-TRAIN-DATA
+DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷁坤为地-V43-HERBAL-TRAIN-DATA
 """
 
 import json, re, random, sys

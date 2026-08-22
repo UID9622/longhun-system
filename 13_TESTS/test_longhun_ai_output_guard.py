@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 AI 输出熔断器单元测试
-DNA: #龍芯⚡️2026-06-29-LONGHUN-AI-OUTPUT-GUARD-TEST-v1.0
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-AI-OUTPUT-GUARD-TEST-v1.0
 """
 
 import os
@@ -24,7 +25,7 @@ class TestAI输出熔断器(unittest.TestCase):
         os.environ["LONGHUN_SM2_SK"] = str(Path(self.tmpdir.name) / "sm2" / "sk.pem")
         os.environ["LONGHUN_SM2_PK"] = str(Path(self.tmpdir.name) / "sm2" / "pk.pem")
         os.environ["LONGHUN_QUARANTINE_DIR"] = str(Path(self.tmpdir.name) / "q")
-        self.护盾 = 龍魂护盾("#龍芯⚡️2026-06-29-龍魂护盾-v3-CNSH-UID9622")
+        self.护盾 = 龍魂护盾("#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂护盾-v3-CNSH-UID9622")
         self.熔断器 = AI输出熔断器(self.护盾)
 
     def tearDown(self):

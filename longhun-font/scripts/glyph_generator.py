@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·坎-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷜坎-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-GLYPH-GENERATOR-v2.0
+# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-GLYPH-GENERATOR-v2.0
 # 用途: 批量生成 LonghunFont 初始字元骨架 v2.0
 
 """
@@ -20,7 +21,7 @@ from datetime import datetime
 from typing import Any
 
 
-DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-GLYPH-GENERATOR-v2.0"
+DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-GLYPH-GENERATOR-v2.0"
 
 # 常用汉字列表（200字）
 CORE_CHARS = (

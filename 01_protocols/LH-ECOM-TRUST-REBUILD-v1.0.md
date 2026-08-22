@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 电商信任重建与实证赔偿协议 v1.0
 # E-Commerce Trust Rebuild & Evidence-Based Compensation Protocol
-# DNA: #龍芯⚡️丙午·丙申·庚申·亥时-ECOM-TRUST-REBUILD-V1.0-P0
+# DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ECOM-TRUST-REBUILD-V1.0-P0
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 
@@ -218,7 +218,7 @@ R = 0.25·r_滤镜 + 0.25·r_AI + 0.20·r_摆拍 + 0.20·r_复测 + 0.10·r_历�
 - 创建者: 诸葛鑫（UID9622 · 龍芯北辰）
 - GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 - 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-- DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-ECOM-TRUST-REBUILD-V1.0-P0
+- DNA追溯码: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ECOM-TRUST-REBUILD-V1.0-P0
 - 开源协议: CC BY-NC-SA 4.0
 - 三色审计: 🟢公式代码实测全绿 🟡权重/比例为经验值可调 🔴法定下限不可降
 - 史记铁律: 不删除，只冻结；减分记录永久留痕，分数可恢复

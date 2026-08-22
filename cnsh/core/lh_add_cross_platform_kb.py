@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂跨平台同步专业知识入库脚本
 ================================
-DNA: #龍芯⚡️2026-06-29-ADD-CROSS-PLATFORM-KB-v1.0
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-ADD-CROSS-PLATFORM-KB-v1.0
 
 1. 向 CS KB SQLite 写入 20+ 张跨平台同步/本地直连/国密加密知识卡片
 2. 在 longhun-system/knowledge/cross-platform-sync/ 生成 Markdown 概念文档

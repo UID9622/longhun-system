@@ -1,14 +1,14 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-<!-- #龍芯⚡️2026-07-03-DOC-TONGXINYI-ETHICAL-CHARTER-v1.0 -->
+<!-- #龍芯⚡️丙午·甲午·戊寅·戊午·䷕贲-DOC-TONGXINYI-ETHICAL-CHARTER-v1.0 -->
 <!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
 
-<!-- #龍芯⚡️20260624010825180-AUTO-DNA-A55FA066 自动注入·分层治理自愈引擎 · 来源可查 -->
+<!-- #龍芯⚡️丙午·甲午·己巳·乙丑·䷮困-AUTO-DNA-A55FA066 自动注入·分层治理自愈引擎 · 来源可查 -->
 # 龍魂通心译伦理宪章：反杀熟、反捆绑、反成瘾
 
 > 本文档为龍魂系统 L0 宪法级规则。  
-> 规则 DNA：`#龍芯⚡️2026-06-23-LONGHUN-TONGXINYI-ETHICAL-CHARTER-WELDED-L0`
+> 规则 DNA：`#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-TONGXINYI-ETHICAL-CHARTER-WELDED-L0`
 
 ---
 
@@ -99,4 +99,4 @@
 ---
 
 > 焊死时间：2026-06-23  
-> 焊死 DNA：`#龍芯⚡️2026-06-23-LONGHUN-TONGXINYI-ETHICAL-CHARTER-WELDED-L0`
+> 焊死 DNA：`#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-TONGXINYI-ETHICAL-CHARTER-WELDED-L0`

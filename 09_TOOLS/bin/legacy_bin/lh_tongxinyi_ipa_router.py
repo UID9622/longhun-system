@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║  龍魂·通心译子IPA路由器 v1.0 — 全域语义路由引擎                           ║
 ║  Tongxinyi Sub-IPA Router — 8维参数·1658万路径·各走各路                   ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️丙午·乙未·戊午·申时·睽-TONGXINYI-IPA-ROUTER-v1.0           ║
+║  DNA: #龍芯⚡️丙午·乙未·戊午·申时·䷥睽-TONGXINYI-IPA-ROUTER-v1.0           ║
 ║  📇 项目身份 · 联系 · 支持 → assets/PUBLIC_IDENTITY.md                    ║
 ╚══════════════════════════════════════════════════════════════════════════╝
 
@@ -607,4 +608,4 @@ if __name__ == "__main__":
     print(json.dumps(output, ensure_ascii=False, indent=2))
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·乙未·戊午·申时·睽-TONGXINYI-IPA-ROUTER-v1.0
+# DNA: #龍芯⚡️丙午·乙未·戊午·申时·䷥睽-TONGXINYI-IPA-ROUTER-v1.0

@@ -1,8 +1,10 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 metadata:
   id: longhun-agent-eco
   version: '5.2.0'
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AGENT-ECO-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AGENT-ECO-v5.2'
   trigger:
     keywords:
     - agenteco
@@ -16,7 +18,7 @@ metadata:
 | 作者 | 龍魂體系 |
 | 創建日期 | 2026-06-19 |
 | 狀態 | 🟢 生產級完全就緒 |
-| DNA | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AGENT-ECO-v5.2` |
+| DNA | `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AGENT-ECO-v5.2` |
 | 類別 | system-infrastructure |
 | 整合層級 | L10-生態整合 |
 
@@ -251,7 +253,7 @@ AGENT-005 (每日復盤)
 $ python3 scripts/智能体生态系统.py init
 ✅ 龍魂智能體生態系統 初始化完成
    已註冊 15 個智能體
-   DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AGENT-ECO-v5.1
+   DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AGENT-ECO-v5.1
 
 $ python3 scripts/智能体生态系统.py status
 智能體總數: 15
@@ -343,7 +345,7 @@ from 路由引擎v2 import 路由規則, 匹配模式
 ## 12. DNA簽証
 
 ```
-技能DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AGENT-ECO-v5.1
+技能DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AGENT-ECO-v5.1
 
 DNA完整性驗證:
 - 15個智能體DNA鏈: ✅ 全部有效
@@ -357,7 +359,7 @@ DNA完整性驗證:
 - DNA追溯: ✅ 啟用
 - 中文編程: ✅ 遵守 (CNSH規範)
 
-最終簽証: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AGENT-ECO-v5.1 ✅
+最終簽証: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AGENT-ECO-v5.1 ✅
 ```
 
 ---
@@ -372,5 +374,5 @@ DNA完整性驗證:
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：06-工具脚本（龍魂 API 参考实现、Agent 部署脚本）
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 道德經 v5.0 修復 + CSDN 發布版生成器
-DNA: #龍芯⚡️2026-07-05-DAODEJING-v5.0-FIX-CSDN
+DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-DAODEJING-v5.0-FIX-CSDN
 """
 
 import re
@@ -26,8 +27,8 @@ def now_dna(prefix: str) -> str:
 def fix_metadata(text: str) -> str:
     """修正元信息表中的版本號"""
     text = text.replace(
-        "| **DNA主鏈** | `#龍芯⚡️2026-07-04-LONGHUN-DAODEJING-v4.0-FULL-81` |",
-        "| **DNA主鏈** | `#龍芯⚡️2026-07-04-LONGHUN-DAODEJING-v5.0-FULL-81` |"
+        "| **DNA主鏈** | `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-DAODEJING-v4.0-FULL-81` |",
+        "| **DNA主鏈** | `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-DAODEJING-v5.0-FULL-81` |"
     )
     text = text.replace(
         "| **版本** | v4.0 人民標準完整版 |",
@@ -46,8 +47,8 @@ def fix_metadata(text: str) -> str:
         "| **生成時間** | 2026-07-04 21:33:42 UTC |"
     )
     text = text.replace(
-        "**EOF DNA:** `#龍芯⚡️2026-07-04-DAODEJING-81-EOF-V4.0-COMPLETE`",
-        "**EOF DNA:** `#龍芯⚡️2026-07-04-DAODEJING-81-EOF-V5.0-COMPLETE`"
+        "**EOF DNA:** `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-DAODEJING-81-EOF-V4.0-COMPLETE`",
+        "**EOF DNA:** `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-DAODEJING-81-EOF-V5.0-COMPLETE`"
     )
     return text
 
@@ -108,7 +109,7 @@ def build_csdn_header() -> str:
     dna = now_dna("CSDN-RELEASE")
     return f"""# 道德經81章 · 龍魂系統大白話解讀 · CSDN 發布版 v5.0
 
-> **DNA追溯碼**: `#龍芯⚡️2026-07-04-LONGHUN-DAODEJING-CSDN-v5.0`  
+> **DNA追溯碼**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-DAODEJING-CSDN-v5.0`  
 > **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 > **IP编号**: IP-0081  
 > **创始人**: Lucky·UID9622（诸葛鑫·龍芯北辰）  

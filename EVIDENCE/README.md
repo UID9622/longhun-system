@@ -16,6 +16,6 @@
 3. 不因取证而暴露内核底牌
 
 > 公开首页 / Home: https://uid9622.notion.site
-DNA: #龍芯⚡️2026-08-20-EVIDENCE-README-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-EVIDENCE-README-v1.0
 
 分层许可: 思想层 CC BY-NC-SA 4.0（公开骨架版·引用须保留来源链）

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
+# DNA: #龍芯⚡️丙午·丙申·#龍芯⚡️丙午·丙申·POSTAUDIT-LH_QIYE_DENG-FD2ABF68
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍芯企业灯·三生三世引擎 v2.0
 ================================
@@ -32,7 +34,7 @@
     # 综合报告
     python3 bin/lh_qiye_deng.py report 企业ID
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·需-QIYE-DENG-TECH-ARCH-v2.0-F045F504
+DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-QIYE-DENG-TECH-ARCH-v2.0-F045F504
 """
 
 import json
@@ -50,7 +52,7 @@ RENLUFEI_FILE = os.path.join(DATA_DIR, "renlufei.jsonl")
 HUANZHANG_FILE = os.path.join(DATA_DIR, "huanzhang.jsonl")
 
 # ── 常量 ──────────────────────────────────────────────
-DNA = "#龍芯⚡️丙午·丙申·丙辰·己丑·需-QIYE-DENG-TECH-ARCH-v2.0-F045F504"
+DNA = "#龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-QIYE-DENG-TECH-ARCH-v2.0-F045F504"
 HEALTH_BENCHMARKS = {
     "人效_行业均值": 500000,  # 元/人/年 默认值
     "现金流_健康线": 6,       # 月

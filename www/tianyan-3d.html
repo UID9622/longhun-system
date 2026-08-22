@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!--
+DNA: #龍芯⚡️丙午·丙申·癸亥·己未·䷗复-3D-TIANYAN-UID9622
+创建者: 诸葛鑫（UID9622）
+协议: CC BY-NC-SA 4.0（核心思想层）
+License: MulanPSL v2（工程实现层 · https://license.coscl.org.cn/MulanPSL2）
+确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+核心: 龍魂·3D天眼宇宙 v1.0 · 28人格球体星系 + 55模块6层扇区 + 实时API + 三色审计 + 时间轴回放
+数据主权: 无第三方请求 · Three.js 本地托管 · 数据只读快照本地渲染
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂 · 3D天眼宇宙</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0e1a; font-family:'PingFang SC','Microsoft YaHei',sans-serif; overflow:hidden; color:#fff; }
+  #canvas-container { width:100vw; height:100vh; display:block; }
+  #hud { position:fixed; top:20px; left:20px; z-index:10; pointer-events:none; }
+  #hud .title { font-size:22px; color:#f0c060; font-weight:700; text-shadow:0 0 20px rgba(240,192,96,.3); }
+  #hud .sub { font-size:12px; color:rgba(255,255,255,.35); margin-top:4px; }
+  #hud .dna { font-size:11px; color:rgba(240,192,96,.45); margin-top:8px; font-family:monospace; word-break:break-all; max-width:340px; }
+  #hud .badge { display:inline-block; margin-top:8px; padding:3px 12px; border-radius:14px; font-size:11px; border:1px solid; }
+  .b-live { color:#43e97b; border-color:rgba(67,233,123,.4); background:rgba(67,233,123,.08); }
+  .b-fb { color:#f9d423; border-color:rgba(249,212,35,.4); background:rgba(249,212,35,.08); }
+  .b-off { color:#ff6b6b; border-color:rgba(255,107,107,.4); background:rgba(255,107,107,.08); }
+  #controls-hint { position:fixed; bottom:96px; left:50%; transform:translateX(-50%); z-index:10; font-size:12px; color:rgba(255,255,255,.25); background:rgba(0,0,0,.5); padding:8px 20px; border-radius:30px; border:1px solid rgba(255,255,255,.05); backdrop-filter:blur(10px); pointer-events:none; text-align:center; white-space:nowrap; }
+  #node-info { position:fixed; bottom:150px; right:24px; z-index:10; background:rgba(10,14,26,.88); backdrop-filter:blur(20px); border:1px solid rgba(240,192,96,.18); border-radius:14px; padding:16px 20px; min-width:250px; max-width:320px; opacity:0; transition:opacity .3s ease; pointer-events:none; }
+  #node-info.visible { opacity:1; pointer-events:auto; }
+  #node-info .name { font-size:17px; color:#f0c060; font-weight:600; }
+  #node-info .type { font-size:11px; color:rgba(255,255,255,.35); margin-top:2px; }
+  #node-info .row { margin-top:7px; font-size:12px; color:rgba(255,255,255,.6); }
+  #node-info .actions { margin-top:10px; display:flex; gap:8px; flex-wrap:wrap; }
+  #node-info .actions button { background:rgba(240,192,96,.1); border:1px solid rgba(240,192,96,.25); color:#f0c060; padding:3px 12px; border-radius:14px; font-size:11px; cursor:pointer; transition:.2s; }
+  #node-info .actions button:hover { background:rgba(240,192,96,.25); }
+  #media-player { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:20; background:rgba(10,14,26,.95); backdrop-filter:blur(30px); border:1px solid rgba(240,192,96,.25); border-radius:16px; padding:18px; min-width:420px; max-width:80vw; display:none; box-shadow:0 40px 80px rgba(0,0,0,.8); }
+  #media-player video,#media-player audio { width:100%; border-radius:8px; background:#000; }
+  #media-player .close-btn { position:absolute; top:10px; right:14px; background:none; border:none; color:rgba(255,255,255,.4); font-size:22px; cursor:pointer; }
+  #media-player .media-title { color:#f0c060; font-size:15px; margin-bottom:12px; font-weight:500; }
+  #time-axis { position:fixed; bottom:22px; left:50%; transform:translateX(-50%); z-index:10; background:rgba(10,14,26,.8); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:10px 16px; display:flex; align-items:center; gap:12px; }
+  #time-axis .tag { font-size:11px; color:rgba(240,192,96,.7); white-space:nowrap; }
+  #time-axis input[type=range] { width:220px; accent-color:#f0c060; }
+  #time-axis .info { font-size:11px; color:rgba(255,255,255,.4); min-width:110px; text-align:right; }
+  #loading-bar { position:fixed; bottom:0; left:0; height:2px; background:linear-gradient(90deg,#f0c060,#ff6b6b); z-index:30; width:0; transition:width .3s ease; }
+  @media (max-width:768px) {
+    #hud { top:12px; left:12px; } #hud .title { font-size:17px; } #hud .dna { max-width:230px; }
+    #node-info { bottom:120px; right:12px; min-width:190px; padding:12px 14px; }
+    #media-player { min-width:92vw; padding:12px; }
+    #time-axis { bottom:14px; width:92vw; } #time-axis input[type=range] { width:100%; }
+    #controls-hint { bottom:74px; }
+  }
+</style>
+</head>
+<body>
+  <div id="hud">
+    <div class="title">🐉 龍魂 · 3D天眼宇宙</div>
+    <div class="sub" id="hudSub">加载中…</div>
+    <div class="dna" id="hudDna">🧬 DNA: —</div>
+    <span class="badge b-fb" id="connBadge">⏳ 连接检测…</span>
+  </div>
+  <div id="canvas-container"></div>
+  <div id="node-info">
+    <div class="name" id="nodeName">—</div>
+    <div class="type" id="nodeType">—</div>
+    <div class="row" id="nodeStatus">—</div>
+    <div class="row" id="nodeExtra">—</div>
+    <div class="actions">
+      <button data-action="media">🎬 媒体</button>
+      <button data-action="expand">🔍 详情</button>
+    </div>
+  </div>
+  <div id="media-player">
+    <button class="close-btn" id="mediaClose">✕</button>
+    <div class="media-title" id="mediaTitle">播放内容</div>
+    <div id="mediaContainer"></div>
+  </div>
+  <div id="time-axis">
+    <span class="tag">🕐 时间轴</span>
+    <input type="range" id="timeSlider" min="0" max="0" value="0" step="1">
+    <button id="timePlay" style="background:rgba(240,192,96,.12);border:1px solid rgba(240,192,96,.3);color:#f0c060;padding:3px 10px;border-radius:12px;font-size:11px;cursor:pointer;">▶</button>
+    <span class="info" id="timeInfo">仅当前</span>
+  </div>
+  <div id="controls-hint">🖱️ 拖拽旋转 · 滚轮缩放 · 点击节点查看 · 时间轴回放演化</div>
+  <div id="loading-bar"></div>
+
+  <!-- 本地托管 · 无境外CDN -->
+  <script src="vendor/three.min.js"></script>
+  <script src="vendor/OrbitControls.js"></script>
+  <script>
+  'use strict';
+  // ============================================================
+  // 🐉 龍魂 · 3D天眼宇宙 v1.0
+  // 数据链路: api/status（同现有看板）· 断线自动降级内置快照
+  // 数据主权: 只读快照 · 本地渲染 · 无第三方回传
+  // ============================================================
+  const API_BASE = (window.TIANYAN_API_BASE || 'api/');
+  const DNA = '#龍芯⚡️丙午·丙申·癸亥·己未·䷗复-3D-TIANYAN-UID9622';
+
+  // 引擎依赖检查：路径错误/网络失败时给明确提示，不黑屏
+  if (typeof THREE === 'undefined' || typeof THREE.OrbitControls !== 'function') {
+    document.getElementById('hudSub').textContent = '🔴 3D引擎加载失败：请检查 vendor/three.min.js 与 vendor/OrbitControls.js 路径';
+    document.getElementById('hudSub').style.color = '#ff6b6b';
+    document.getElementById('connBadge').textContent = '🔴 引擎缺失';
+    document.getElementById('connBadge').className = 'badge b-off';
+    throw new Error('THREE or OrbitControls not loaded');
+  }
+
+  // 6层扇区布局（同心球体）：人格层=内层球体，其余=外层扇区
+  const CATEGORY_META = {
+    '协议层':   { color: 0xff6b6b, r: 11.2, y: 3.2 },
+    '主权层':   { color: 0x4facfe, r: 10.6, y: 1.7 },
+    '人格层':   { color: 0xf0c060, r: 6.0,  y: 0.0 },
+    '技术层':   { color: 0x43e97b, r: 10.6, y: -1.7 },
+    '安全层':   { color: 0xf9d423, r: 11.2, y: -3.2 },
+    '可视化层': { color: 0xa29bfe, r: 10.6, y: 4.4 }
+  };
+  const TRI_COLOR = { '🟢': 0x43e97b, '🟡': 0xf9d423, '🔴': 0xff6b6b, '⚪': 0x9aa0b5 };
+  const STATUS_TXT = { running: '运行中', stopped: '已停止', degraded: '降级', unknown: '未知' };
+  const FALLBACK = {
+    timestamp: new Date().toISOString(),
+    dna: DNA,
+    system_health: 88.6, overall_tricolor: '🟡',
+    modules: [
+      { name: 'P0铁律引擎', status: 'running', health_score: 96, tricolor: '🟢', version: 'v1.0', category: '协议层', last_heartbeat: '' },
+      { name: 'S1-S5父级协议', status: 'running', health_score: 93, tricolor: '🟢', version: 'v1.0', category: '协议层', last_heartbeat: '' },
+      { name: '数据主权引擎', status: 'running', health_score: 90, tricolor: '🟢', version: 'v1.0', category: '主权层', last_heartbeat: '' },
+      { name: '审计主权引擎', status: 'running', health_score: 91, tricolor: '🟢', version: 'v1.0', category: '主权层', last_heartbeat: '' },
+      { name: 'CNSH编译器', status: 'running', health_score: 94, tricolor: '🟢', version: 'v1.0', category: '技术层', last_heartbeat: '' },
+      { name: '三才算法内核', status: 'running', health_score: 97, tricolor: '🟢', version: 'v1.0', category: '技术层', last_heartbeat: '' },
+      { name: '史官记录器', status: 'running', health_score: 89, tricolor: '🟢', version: 'v1.0', category: '安全层', last_heartbeat: '' },
+      { name: '天眼看板', status: 'running', health_score: 85, tricolor: '🟡', version: 'v1.0', category: '可视化层', last_heartbeat: '' },
+      { name: '北辰·战略决策', status: 'running', health_score: 97, tricolor: '🟢', version: 'v1.0', category: '人格层', last_heartbeat: '' },
+      { name: '李白·创意爆发', status: 'running', health_score: 92, tricolor: '🟢', version: 'v1.0', category: '人格层', last_heartbeat: '' },
+      { name: '鲁班·工程实现', status: 'running', health_score: 93, tricolor: '🟢', version: 'v1.0', category: '人格层', last_heartbeat: '' }
+    ],
+    personas: [
+      { id: 'P01', name: '北辰', gua: '䷀乾', wuxing: '金', role: '战略决策', active: true, health_score: 97.37 },
+      { id: 'P02', name: '宝宝', gua: '䷁坤', wuxing: '土', role: '情感陪伴', active: true, health_score: 94.35 },
+      { id: 'P04', name: '鲁班', gua: '䷧解', wuxing: '水', role: '工程实现', active: true, health_score: 97.07 },
+      { id: 'P06', name: '数学大师', gua: '䷽小过', wuxing: '金', role: '权重计算', active: true, health_score: 99.57 },
+      { id: 'P11', name: '李白', gua: '䷲震', wuxing: '木', role: '创意爆发', active: true, health_score: 90.57 },
+      { id: 'P12', name: '屈原', gua: '䷄需', wuxing: '水', role: '底线判定', active: true, health_score: 95.81 },
+      { id: 'P15', name: '乔前辈', gua: '䷋否', wuxing: '土', role: '极简工程', active: true, health_score: 99.77 }
+    ]
+  };
+
+  // ---------- 场景 ----------
+  // 低配/移动端降级（#IRON-LOW-SPEC-DEGRADE：手机/老机器自动降档·本机判断不出境）
+  const _isMobile = /Android|iPhone|iPad|Mobile/i.test(navigator.userAgent);
+  const _lowSpec = _isMobile || (navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4;
+  const _starN = _lowSpec ? 800 : 2500;   // 星空粒子降档（2500→800）
+  const _flowN = _lowSpec ? 100 : 220;    // 决策粒子流降档（220→100）
+
+  const container = document.getElementById('canvas-container');
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x0a0e1a);
+  const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 500);
+  camera.position.set(22, 13, 26);
+  camera.lookAt(0, 0, 0);
+  const renderer = new THREE.WebGLRenderer({ antialias: !_lowSpec, alpha: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, _lowSpec ? 1 : 2));
+  container.appendChild(renderer.domElement);
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true; controls.dampingFactor = 0.06;
+  controls.minDistance = 4; controls.maxDistance = 70;
+  controls.autoRotate = true; controls.autoRotateSpeed = 0.6;
+
+  scene.add(new THREE.AmbientLight(0x404060, 0.55));
+  const dirLight = new THREE.DirectionalLight(0xffeedd, 1.2); dirLight.position.set(12, 22, 12); scene.add(dirLight);
+  const ptLight = new THREE.PointLight(0xf0c060, 0.8, 60); ptLight.position.set(0, 5, 0); scene.add(ptLight);
+
+  // 星空
+  const starGeo = new THREE.BufferGeometry();
+  const starN = _starN, starP = new Float32Array(starN * 3);
+  for (let i = 0; i < starN * 3; i++) starP[i] = (Math.random() - 0.5) * 240;
+  starGeo.setAttribute('position', new THREE.BufferAttribute(starP, 3));
+  const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({ color: 0x4466aa, size: 0.15, transparent: true, opacity: 0.6 }));
+  scene.add(stars);
+
+  // 核心（系统健康度）
+  const coreMat = new THREE.MeshStandardMaterial({ color: 0xf0c060, emissive: 0xf0c060, emissiveIntensity: 0.35, metalness: 0.8, roughness: 0.2 });
+  const core = new THREE.Mesh(new THREE.SphereGeometry(1.1, 32, 32), coreMat); scene.add(core);
+  const ring1 = new THREE.Mesh(new THREE.TorusGeometry(1.7, 0.05, 16, 64),
+    new THREE.MeshStandardMaterial({ color: 0xf0c060, emissive: 0xf0c060, emissiveIntensity: 0.25, transparent: true, opacity: 0.6 }));
+  ring1.rotation.x = Math.PI / 2; scene.add(ring1);
+  const ring2 = ring1.clone(); ring2.rotation.x = 0; ring2.rotation.z = Math.PI / 3; scene.add(ring2);
+
+  // 决策粒子流
+  const flowN = _flowN;
+  const flowGeo = new THREE.BufferGeometry();
+  const flowP = new Float32Array(flowN * 3), flowS = new Float32Array(flowN);
+  for (let i = 0; i < flowN; i++) {
+    const a = Math.random() * Math.PI * 2, r = 4 + Math.random() * 7;
+    flowP[i*3] = Math.cos(a) * r; flowP[i*3+1] = (Math.random() - 0.5) * 9; flowP[i*3+2] = Math.sin(a) * r;
+    flowS[i] = 0.002 + Math.random() * 0.006;
+  }
+  flowGeo.setAttribute('position', new THREE.BufferAttribute(flowP, 3));
+  const flow = new THREE.Points(flowGeo, new THREE.PointsMaterial({ color: 0xf0c060, size: 0.12, transparent: true, opacity: 0.4, blending: THREE.AdditiveBlending }));
+  scene.add(flow);
+
+  // ---------- 节点管理 ----------
+  const allNodes = [];            // {key, mesh, glow, data}
+  const keyToNode = new Map();
+  const nodeGroups = { personas: new THREE.Group(), modules: new THREE.Group() };
+  scene.add(nodeGroups.personas); scene.add(nodeGroups.modules);
+
+  function triToColor(t) { return TRI_COLOR[t] || TRI_COLOR['⚪']; }
+  function sizeByHealth(h) { return 0.32 + (h / 100) * 0.42; }
+
+  function makeLabel(text, sub, color) {
+    const cv = document.createElement('canvas'); cv.width = 320; cv.height = 96;
+    const cx = cv.getContext('2d');
+    cx.clearRect(0, 0, cv.width, cv.height);
+    cx.textAlign = 'center'; cx.textBaseline = 'middle';
+    cx.font = 'bold 34px "PingFang SC","Microsoft YaHei",sans-serif';
+    cx.fillStyle = color || '#f0c060'; cx.fillText(text, 160, 34);
+    if (sub) { cx.font = '20px "PingFang SC",sans-serif'; cx.fillStyle = 'rgba(255,255,255,.5)'; cx.fillText(sub, 160, 72); }
+    const t = new THREE.CanvasTexture(cv); t.needsUpdate = true;
+    const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: t, transparent: true, depthTest: false }));
+    s.scale.set(3, 0.9, 1); return s;
+  }
+
+  function buildPersona(p, i, n) {
+    const phi = Math.PI * (3 - Math.sqrt(5));
+    const y = 1 - (i / Math.max(1, n - 1)) * 2;
+    const rr = Math.sqrt(1 - y * y) * 6.0;
+    const th = phi * i;
+    const pos = new THREE.Vector3(Math.cos(th) * rr, y * 6.0, Math.sin(th) * rr);
+    const size = sizeByHealth(p.health_score);
+    const mat = new THREE.MeshStandardMaterial({
+      color: 0xf0c060, emissive: 0xf0c060, emissiveIntensity: 0.12 * (p.health_score / 100),
+      metalness: 0.3, roughness: 0.4
+    });
+    const mesh = new THREE.Mesh(new THREE.SphereGeometry(size, 24, 24), mat);
+    mesh.position.copy(pos);
+    mesh.userData = Object.assign({ type: 'persona', key: 'p:' + p.id }, p);
+    const glow = new THREE.Mesh(new THREE.SphereGeometry(size * 1.35, 16, 16),
+      new THREE.MeshBasicMaterial({ color: triToColor(p.tricolor || '🟢'), transparent: true, opacity: 0.12, wireframe: true }));
+    glow.position.copy(pos);
+    const label = makeLabel(p.name, p.role + ' · ' + (p.gua || ''), '#f0c060');
+    label.position.set(pos.x, pos.y + size + 0.7, pos.z);
+    nodeGroups.personas.add(mesh); nodeGroups.personas.add(glow); nodeGroups.personas.add(label);
+    const ln = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0), pos]),
+      new THREE.LineBasicMaterial({ color: 0xf0c060, transparent: true, opacity: 0.12 }));
+    nodeGroups.personas.add(ln);
+    allNodes.push({ key: 'p:' + p.id, mesh, glow, data: mesh.userData });
+    keyToNode.set('p:' + p.id, { mesh, glow, data: mesh.userData, label });
+  }
+
+  function buildModule(m, i, n, catList) {
+    const meta = CATEGORY_META[m.category] || { color: 0x888888, r: 10.6, y: 0 };
+    const catIdx = catList.indexOf(m.category);
+    const sector = (Math.PI * 2) / catList.length;
+    const span = Math.min(0.62, 0.9 / Math.max(1, n));   // 扇区内均匀
+    const angle = sector * catIdx - sector / 2 + sector * (i + 0.5) / Math.max(1, n);
+    const pos = new THREE.Vector3(Math.cos(angle) * meta.r, meta.y, Math.sin(angle) * meta.r);
+    const size = sizeByHealth(m.health_score);
+    const mat = new THREE.MeshStandardMaterial({
+      color: meta.color, emissive: meta.color, emissiveIntensity: 0.08 * (m.health_score / 100),
+      metalness: 0.2, roughness: 0.6
+    });
+    const mesh = new THREE.Mesh(new THREE.BoxGeometry(size, size, size), mat);
+    mesh.position.copy(pos);
+    mesh.userData = Object.assign({ type: 'module', key: 'm:' + m.name }, m);
+    const glow = new THREE.Mesh(new THREE.BoxGeometry(size * 1.5, size * 1.5, size * 1.5),
+      new THREE.MeshBasicMaterial({ color: triToColor(m.tricolor || '🟢'), transparent: true, opacity: 0.08, wireframe: true }));
+    glow.position.copy(pos);
+    nodeGroups.modules.add(mesh); nodeGroups.modules.add(glow);
+    allNodes.push({ key: 'm:' + m.name, mesh, glow, data: mesh.userData });
+    keyToNode.set('m:' + m.name, { mesh, glow, data: mesh.userData, label: null });
+  }
+
+  function applyHealth(node, health, tri) {
+    const s = sizeByHealth(health);
+    node.mesh.scale.setScalar(1);  // 原始几何即按健康构建，此处仅动画微调
+    node.glow.material.color.set(triToColor(tri || '🟢'));
+    node.glow.material.opacity = 0.06 + 0.12 * (health / 100);
+  }
+
+  // ---------- 数据渲染 ----------
+  function renderData(d) {
+    // 清空旧节点
+    allNodes.length = 0; keyToNode.clear();
+    nodeGroups.personas.clear(); nodeGroups.modules.clear();
+
+    // HUD
+    document.getElementById('hudSub').textContent =
+      (d.modules ? d.modules.length : 0) + ' 模块 · ' + (d.personas ? d.personas.length : 0) +
+      ' 人格 · 系统健康 ' + (d.system_health || 0) + '% ' + (d.overall_tricolor || '');
+    document.getElementById('hudDna').textContent = '🧬 DNA: ' + (d.dna || DNA);
+
+    // 核心球按系统健康着色
+    const h = d.system_health || 0;
+    core.material.emissive.set(triToColor(d.overall_tricolor || '🟢'));
+
+    // 人格（28）
+    const ps = d.personas || [];
+    ps.forEach((p, i) => buildPersona(p, i, ps.length));
+
+    // 模块（55）按6层扇区
+    const ms = d.modules || [];
+    const catList = [...new Set(ms.map(m => m.category))].filter(c => CATEGORY_META[c]);
+    catList.forEach(cat => {
+      const list = ms.filter(m => m.category === cat);
+      list.forEach((m, i) => buildModule(m, i, list.length, catList));
+    });
+    setConnUI(d);
+  }
+
+  // ---------- API 链路 ----------
+  let apiState = 'checking';
+  function setConnUI(d) {
+    const el = document.getElementById('connBadge');
+    const live = apiState === 'live';
+    const ts = (d && d.timestamp || '').replace('T', ' ').slice(0, 19);
+    if (live) { el.textContent = '🟢 实时数据 ' + ts; el.className = 'badge b-live'; }
+    else if (apiState === 'fallback') { el.textContent = '🟡 断线·用缓存快照'; el.className = 'badge b-fb'; }
+    else if (apiState === 'offline') { el.textContent = '🔴 离线·内置示例'; el.className = 'badge b-off'; }
+  }
+
+  async function fetchLive() {
+    const ctl = new AbortController(); const timer = setTimeout(() => ctl.abort(), 4000);
+    try {
+      const r = await fetch(API_BASE + 'status', { cache: 'no-store', signal: ctl.signal, headers: { 'Accept': 'application/json' } });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      const j = await r.json();
+      if (!(j && j.data)) throw new Error('payload 缺少 data');
+      if (apiState !== 'live') apiState = 'live';
+      return j.data;
+    } catch (e) {
+      apiState = (apiState === 'live') ? 'fallback' : 'offline';
+      return null;
+    } finally { clearTimeout(timer); }
+  }
+
+  // ---------- 历史快照（4D 时间轴）----------
+  const snapshots = [];   // {t, healthMap: Map<key, {h, tri}>}
+  const MAX_SNAP = 60;
+  function recordSnapshot(d, force) {
+    const t = (d.timestamp || new Date().toISOString()).slice(5, 19);
+    const hm = new Map();
+    (d.modules || []).forEach(m => hm.set('m:' + m.name, { h: m.health_score, tri: m.tricolor }));
+    (d.personas || []).forEach(p => hm.set('p:' + p.id, { h: p.health_score, tri: p.tricolor }));
+    if (snapshots.length && snapshots[snapshots.length - 1].t === t && !force) return;
+    snapshots.push({ t, hm });
+    if (snapshots.length > MAX_SNAP) snapshots.shift();
+    const slider = document.getElementById('timeSlider');
+    slider.max = Math.max(0, snapshots.length - 1);
+    slider.value = snapshots.length - 1;
+    document.getElementById('timeInfo').textContent = '当前 ' + t;
+  }
+  function applySnapshot(idx) {
+    if (idx < 0 || idx >= snapshots.length) return;
+    const s = snapshots[idx];
+    document.getElementById('timeInfo').textContent = '回放 ' + s.t;
+    s.hm.forEach((v, key) => {
+      const node = keyToNode.get(key);
+      if (node) applyHealth(node, v.h, v.tri);
+    });
+  }
+  const slider = document.getElementById('timeSlider');
+  slider.addEventListener('input', () => applySnapshot(parseInt(slider.value, 10)));
+  let playTimer = null, playIdx = 0;
+  document.getElementById('timePlay').addEventListener('click', function () {
+    if (playTimer) { clearInterval(playTimer); playTimer = null; this.textContent = '▶'; return; }
+    if (snapshots.length < 2) return;
+    playIdx = 0; this.textContent = '⏸';
+    playTimer = setInterval(() => {
+      slider.value = playIdx; applySnapshot(playIdx);
+      playIdx++;
+      if (playIdx >= snapshots.length) { clearInterval(playTimer); playTimer = null; document.getElementById('timePlay').textContent = '▶'; }
+    }, 800);
+  });
+
+  // ---------- 交互 ----------
+  const raycaster = new THREE.Raycaster(), mouse = new THREE.Vector2();
+  let selected = null;
+  renderer.domElement.addEventListener('mousemove', (e) => {
+    const r = renderer.domElement.getBoundingClientRect();
+    mouse.x = ((e.clientX - r.left) / r.width) * 2 - 1;
+    mouse.y = -((e.clientY - r.top) / r.height) * 2 + 1;
+  });
+  renderer.domElement.addEventListener('click', () => {
+    raycaster.setFromCamera(mouse, camera);
+    const hits = raycaster.intersectObjects(allNodes.map(n => n.mesh));
+    if (hits.length) {
+      const data = hits[0].object.userData;
+      selected = data;
+      showNodeInfo(data);
+      // 高亮脉冲
+      const node = keyToNode.get(data.key);
+      if (node) { node.glow.material.opacity = 0.3; setTimeout(() => node.glow.material.opacity = 0.12, 400); }
+    }
+  });
+
+  function showNodeInfo(d) {
+    document.getElementById('nodeName').textContent = d.name;
+    document.getElementById('nodeType').textContent =
+      (d.type === 'persona' ? '人格 · ' : '模块 · ' + (d.category || '')) + (d.role || '');
+    document.getElementById('nodeStatus').textContent =
+      '健康度 ' + (d.health_score != null ? d.health_score.toFixed(1) + '% ' : '— ') +
+      (d.tricolor || '') + (d.status ? ' · ' + (STATUS_TXT[d.status] || d.status) : '');
+    document.getElementById('nodeExtra').textContent =
+      (d.gua ? '卦 ' + d.gua + ' · ' : '') + (d.wuxing ? '五行 ' + d.wuxing + ' · ' : '') +
+      (d.version ? '版本 ' + d.version : '');
+    document.getElementById('node-info').classList.add('visible');
+  }
+  document.querySelectorAll('#node-info .actions button').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const act = e.target.dataset.action;
+      const name = document.getElementById('nodeName').textContent;
+      if (act === 'expand') {
+        document.getElementById('nodeType').textContent = document.getElementById('nodeType').textContent;
+        alert('🔍 ' + name + ' — 子层级下钻将在 5D 沉浸版开放（WebXR）。当前节点信息已在上方展示。');
+      } else {
+        openMedia(name);
+      }
+    });
+  });
+  function openMedia(name) {
+    const player = document.getElementById('media-player');
+    document.getElementById('mediaTitle').textContent = '🎬 ' + name;
+    document.getElementById('mediaContainer').innerHTML =
+      '<div style="padding:26px;background:rgba(255,255,255,.05);border-radius:10px;color:rgba(255,255,255,.55);font-size:13px;line-height:1.9;text-align:center;">' +
+      '节点媒体仓库待接入<br><span style="color:rgba(240,192,96,.5);font-size:11px;">5D 沉浸层：每个节点可挂视频/音频/文档（VideoTexture）<br>数据源接入后自动激活播放</span></div>';
+    player.style.display = 'block';
+  }
+  document.getElementById('mediaClose').addEventListener('click', () => {
+    document.getElementById('media-player').style.display = 'none';
+    document.getElementById('mediaContainer').innerHTML = '';
+  });
+
+  // ---------- 主循环 ----------
+  let time = 0;
+  function animate() {
+    requestAnimationFrame(animate);
+    time += 0.01;
+    const pulse = 1 + Math.sin(time * 1.5) * 0.04;
+    core.scale.set(pulse, pulse, pulse);
+    ring1.rotation.z += 0.002; ring2.rotation.x += 0.001;
+    nodeGroups.personas.rotation.y += 0.0004;
+    nodeGroups.modules.rotation.y += 0.0002;
+    const fp = flow.geometry.attributes.position.array;
+    for (let i = 0; i < flowN; i++) {
+      const a = Math.atan2(fp[i*3+2], fp[i*3]) + flowS[i];
+      const r = Math.sqrt(fp[i*3]*fp[i*3] + fp[i*3+2]*fp[i*3+2]);
+      fp[i*3] = Math.cos(a) * r; fp[i*3+2] = Math.sin(a) * r;
+      fp[i*3+1] += Math.sin(time + i) * 0.002;
+    }
+    flow.geometry.attributes.position.needsUpdate = true;
+    stars.rotation.y += 0.0002; stars.rotation.x += 0.0001;
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  animate();
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  // ---------- 启动 ----------
+  (async function init() {
+    try {
+      const bar = document.getElementById('loading-bar');
+      bar.style.width = '40%';
+      let d = await fetchLive();
+      if (!d) { d = FALLBACK; apiState = 'offline'; }
+      renderData(d);
+      recordSnapshot(d, true);
+      bar.style.width = '100%';
+      setTimeout(() => bar.style.width = '0%', 500);
+      setInterval(async () => {
+        const nd = await fetchLive();
+        if (nd) { renderData(nd); recordSnapshot(nd); }
+      }, 30000);
+    } catch (e) {
+      document.getElementById('hudSub').textContent = '🔴 3D初始化失败：' + e.message;
+      document.getElementById('hudSub').style.color = '#ff6b6b';
+      document.getElementById('connBadge').textContent = '🔴 渲染异常';
+      document.getElementById('connBadge').className = 'badge b-off';
+      console.error(e);
+    }
+  })();
+  </script>
+</body>
+</html>

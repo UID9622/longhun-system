@@ -1,10 +1,10 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🕐 循环触发·五行流转决策链
 
-> DNA(v∞): `#龍芯⚡️丙午·丙申·癸丑·午时·需-IPA-DICT-DECISION-CHAIN-7F99378B`
-> 旧 DNA(v1.0): `#龍芯⚡️2026-04-22-循环触发五行流转-v1.0`（已废弃·仅供追溯）
+> DNA(v∞): `#龍芯⚡️丙午·丙申·癸丑·午时·䷄需-IPA-DICT-DECISION-CHAIN-7F99378B`
+> 旧 DNA(v1.0): `#龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-循环触发五行流转-v1.0`（已废弃·仅供追溯）
 > 确认码: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅`
 > GPG: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 > 上接: [IPA-DICT-101-111·无限循环优化机制·编号对齐总表 v∞](./IPA-DICT-101-111-无限循环优化机制-对齐总表-v∞.md)
@@ -141,7 +141,7 @@ flowchart TD
 ## DNA 签名
 
 ```
-#龍芯⚡️丙午·丙申·癸丑·午时·需-IPA-DICT-DECISION-CHAIN-7F99378B
-#龍芯⚡️2026-04-22-循环触发五行流转-v1.0（旧版·已废弃·仅追溯）
+#龍芯⚡️丙午·丙申·癸丑·午时·䷄需-IPA-DICT-DECISION-CHAIN-7F99378B
+#龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-循环触发五行流转-v1.0（旧版·已废弃·仅追溯）
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

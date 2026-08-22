@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 CNSH 合规闸门 v1.0
 
 > **DNA(v1.0): `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-GATEKEEPER-v1.0`**  
@@ -278,7 +279,7 @@ lh gatekeeper patrol
 |------|------|
 | 版本 | v1.1（2026-07-08，DNA四代并行 + 干支时辰v∞） |
 | DNA(v∞) | `#龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-CNSH-GATEKEEPER-v1.1` |
-| DNA(v1.0) | `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-GATEKEEPER-v1.1` |
+| DNA(v1.0) | `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-GATEKEEPER-v1.1` |
 | GPG指纹 | A2D0092CEE2E5BA87035600924C3704A8CC26D5F |
 | 级别 | L0·焊死·永不改 |
 | 三色审计 | 🟢 通过 |

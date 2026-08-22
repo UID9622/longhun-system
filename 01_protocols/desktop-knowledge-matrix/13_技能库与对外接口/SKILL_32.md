@@ -1,3 +1,4 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 ---
 name: longhun-asr
 description: 'LongYin ASR — Chinese-first speech recognition engine. Pinyin alignment,
@@ -13,7 +14,7 @@ description: 'LongYin ASR — Chinese-first speech recognition engine. Pinyin al
 
   '
 metadata:
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGYIN-ASR-v5.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGYIN-ASR-v5.0'
   version: 5.0.0
   license: CC BY-NC-SA 4.0
   author: 龍魂体系 · CNSH中文编程规范
@@ -81,7 +82,7 @@ metadata:
 
 **LongYin ASR — Chinese-First Speech Recognition Engine**
 
-> DNA追溯: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGYIN-ASR-v5.0`
+> DNA追溯: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGYIN-ASR-v5.0`
 >
 > 协议: 君子协议 / CC BY-NC-SA 4.0 · 非商业共享 · 引用请注明出处
 
@@ -366,8 +367,8 @@ longhun-asr/
 ## 11. DNA追溯链 | DNA Traceability Chain
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-LONGYIN-ASR-v1.0  ← 初始版本
-#龍芯⚡️丙午·丙申·庚申·亥时-LONGYIN-ASR-v5.0  ← 当前技能包版本
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGYIN-ASR-v1.0  ← 初始版本
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGYIN-ASR-v5.0  ← 当前技能包版本
 ```
 
 **修改记录**:

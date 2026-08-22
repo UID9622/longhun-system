@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂·浏览器史官 导出功能全链路测试
 模拟 scan → classify → export 完整数据流
-DNA: #龍芯⚡️2026-07-24-test-export-v1.0
+DNA: #龍芯⚡️丙午·乙未·己亥·庚午·䷚颐-test-export-v1.0
 """
 
 import json

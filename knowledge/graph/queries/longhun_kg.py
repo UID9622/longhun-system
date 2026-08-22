@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -166,7 +167,7 @@ class LongHunGraph:
     def _load_builtin(self):
         """加载内建测试数据"""
         self.nodes = {
-            "LH9622": {"id": "LH9622", "node_id": "LH9622", "type": "system", "node_type": "system", "name": "龍魂系统", "layer": "core", "state": "active", "desc": "龍魂系统核心本体", "dna": "#龍芯⚡️2026-06-27-LHKG-BUILTIN-v1.0", "properties": {}, "version": "v1.0", "created_at": "", "updated_at": ""},
+            "LH9622": {"id": "LH9622", "node_id": "LH9622", "type": "system", "node_type": "system", "name": "龍魂系统", "layer": "core", "state": "active", "desc": "龍魂系统核心本体", "dna": "#龍芯⚡️丙午·甲午·壬申·丙午·䷙大畜-LHKG-BUILTIN-v1.0", "properties": {}, "version": "v1.0", "created_at": "", "updated_at": ""},
         }
         self.edges = []
         self.state_machine = {

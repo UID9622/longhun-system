@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂声纹备份与导出模块
@@ -12,7 +13,7 @@ LongHun Voice Backup & Export
   - 异地/用户备份：用户可手动导出自己的加密声纹DNA包
   - 关键快照：每季度或系统更新时导出完整快照
 
-DNA: #龍芯⚡️20260628-VOICE-BACKUP-v1.0
+DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-VOICE-BACKUP-v1.0
 """
 
 import os

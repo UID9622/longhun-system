@@ -1,5 +1,6 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂操作日誌系統·完整使用指南
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-ACTION-LOG-GUIDE-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ACTION-LOG-GUIDE-v1.0
 
 ---
 
@@ -77,7 +78,7 @@ ActionLogger.log(
     persona="P01諸葛亮",
     result="100% 完成",
     duration=5.2,
-    dna="#龍芯⚡️丙午·丙申·庚申·亥时-TASK"
+    dna="#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-TASK"
 )
 ```
 
@@ -134,7 +135,7 @@ if __name__ == "__main__":
   "persona": "P03雯雯",                    // 執行人格（可選）
   "duration": 2.1,                         // 執行時長（秒，可選）
   "result": "7個檢查項全部通過",           // 執行結果（可選）
-  "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-DAILY-REVIEW" // DNA 簽署（可選）
+  "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DAILY-REVIEW" // DNA 簽署（可選）
 }
 ```
 
@@ -398,7 +399,7 @@ if __name__ == "__main__":
 ## 🔏 DNA 簽署
 
 ```
-DNA:#龍芯⚡️丙午·丙申·庚申·亥时-ACTION-LOG-GUIDE-v1.0
+DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ACTION-LOG-GUIDE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 ```
 

@@ -1,6 +1,8 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂系統·生產部署指南 (Production Deployment Guide)
 # 日期: 2026-06-10 CST
-# DNA:#龍芯⚡️丙午·丙申·庚申·亥时-PRODUCTION-DEPLOYMENT-GUIDE-v1.0
+# DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PRODUCTION-DEPLOYMENT-GUIDE-v1.0
 
 ---
 
@@ -841,6 +843,6 @@ CPU 使用率: < 50%
 
 ---
 
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-PRODUCTION-DEPLOYMENT-GUIDE-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PRODUCTION-DEPLOYMENT-GUIDE-v1.0
 **簽核狀态**: ⏳ 待生產环境簽核
 **有效期**: 永久 (生產级部署指南)

@@ -1,7 +1,9 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
 
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════════╗
 ║                                                                  ║
@@ -10,7 +12,7 @@
 ║    文件名可以改，但指令永远有效                               ║
 ║    基于 DNA 识别，不基于文件路径                               ║
 ║                                                                  ║
-║  DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-PROTOCOL-FILE2-v1.0          ║
+║  DNA:#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-PROTOCOL-FILE2-v1.0          ║
 ║  CONFIRM: "#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX"                ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ║                                                                  ║
@@ -88,7 +90,7 @@ class ImmutableInstructionProtocol:
     """
     
     def __init__(self):
-        self.dna = "#龍芯⚡️2026-06-02-LONGHUN-SHIELD-PROTOCOL-v1.0"
+        self.dna = "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-PROTOCOL-v1.0"
         self.confirm = ""#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX""
         self.seal = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
         
@@ -109,7 +111,7 @@ class ImmutableInstructionProtocol:
         """
         return {
             # 第一波：复盘文件
-            "#龍芯⚡️2026-06-02-LONGHUN-ARCHITECTURE-COMPLETE-v1.0": {
+            "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-ARCHITECTURE-COMPLETE-v1.0": {
                 "name": "系统架构完整复盘",
                 "type": "documentation",
                 "scope": "system",
@@ -117,7 +119,7 @@ class ImmutableInstructionProtocol:
                 "description": "25层架构·30个协议·19个工具的完整补充",
                 "layer": "architecture",
             },
-            "#龍芯⚡️2026-06-02-LONGHUN-DEEP-REVIEW-15D-v1.0": {
+            "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-DEEP-REVIEW-15D-v1.0": {
                 "name": "15维度深层复盘",
                 "type": "documentation",
                 "scope": "system",
@@ -125,7 +127,7 @@ class ImmutableInstructionProtocol:
                 "description": "15维度完整审查·130项改进清单",
                 "layer": "architecture",
             },
-            "#龍芯⚡️2026-06-02-SUPPLEMENT-QUICK-REFERENCE-v1.0": {
+            "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-SUPPLEMENT-QUICK-REFERENCE-v1.0": {
                 "name": "快速参考卡",
                 "type": "documentation",
                 "scope": "system",
@@ -135,7 +137,7 @@ class ImmutableInstructionProtocol:
             },
             
             # 第二波：龍盾系统
-            "#龍芯⚡️2026-06-02-LONGHUN-SHIELD-SYSTEM-v1.0": {
+            "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-SYSTEM-v1.0": {
                 "name": "龍盾核心系统",
                 "type": "code",
                 "scope": "component",
@@ -144,7 +146,7 @@ class ImmutableInstructionProtocol:
                 "executable": True,
                 "layer": "shield",
             },
-            "#龍芯⚡️2026-06-02-LONGHUN-SHIELD-CLI-v1.0": {
+            "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-CLI-v1.0": {
                 "name": "龍盾CLI工具",
                 "type": "code",
                 "scope": "component",
@@ -154,7 +156,7 @@ class ImmutableInstructionProtocol:
                 "commands": ["check", "analyze", "validate"],
                 "layer": "shield",
             },
-            "#龍芯⚡️2026-06-02-LONGHUN-SHIELD-GUIDE-v1.0": {
+            "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-GUIDE-v1.0": {
                 "name": "龍盾使用指南",
                 "type": "documentation",
                 "scope": "component",
@@ -162,7 +164,7 @@ class ImmutableInstructionProtocol:
                 "description": "完整使用指南·最佳实践·常见问题",
                 "layer": "shield",
             },
-            "#龍芯⚡️2026-06-02-SHIELD-TEST-EXAMPLE-v1.0": {
+            "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-SHIELD-TEST-EXAMPLE-v1.0": {
                 "name": "龍盾测试示例",
                 "type": "code",
                 "scope": "component",
@@ -293,7 +295,7 @@ def create_default_instructions() -> Dict[str, Dict]:
     return {
         # 龍盾指令
         "shield.check": {
-            "dna": "#龍芯⚡️2026-06-02-LONGHUN-SHIELD-CLI-v1.0",
+            "dna": "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-CLI-v1.0",
             "action": "check",
             "description": "快速检查代码",
             "parameters": {
@@ -303,7 +305,7 @@ def create_default_instructions() -> Dict[str, Dict]:
             "command": "python3 longhun_shield_cli.py check {file}",
         },
         "shield.analyze": {
-            "dna": "#龍芯⚡️2026-06-02-LONGHUN-SHIELD-CLI-v1.0",
+            "dna": "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-CLI-v1.0",
             "action": "analyze",
             "description": "深度分析代码",
             "parameters": {
@@ -314,7 +316,7 @@ def create_default_instructions() -> Dict[str, Dict]:
             "command": "python3 longhun_shield_cli.py analyze {file}",
         },
         "shield.validate": {
-            "dna": "#龍芯⚡️2026-06-02-LONGHUN-SHIELD-CLI-v1.0",
+            "dna": "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-CLI-v1.0",
             "action": "validate",
             "description": "完整验证代码",
             "parameters": {
@@ -326,17 +328,17 @@ def create_default_instructions() -> Dict[str, Dict]:
         
         # 架构指令
         "arch.review": {
-            "dna": "#龍芯⚡️2026-06-02-LONGHUN-ARCHITECTURE-COMPLETE-v1.0",
+            "dna": "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-ARCHITECTURE-COMPLETE-v1.0",
             "action": "query",
             "description": "查看系统架构复盘",
         },
         "arch.deepreview": {
-            "dna": "#龍芯⚡️2026-06-02-LONGHUN-DEEP-REVIEW-15D-v1.0",
+            "dna": "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-DEEP-REVIEW-15D-v1.0",
             "action": "query",
             "description": "查看15维度深层复盘",
         },
         "arch.reference": {
-            "dna": "#龍芯⚡️2026-06-02-SUPPLEMENT-QUICK-REFERENCE-v1.0",
+            "dna": "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-SUPPLEMENT-QUICK-REFERENCE-v1.0",
             "action": "query",
             "description": "查看快速参考卡",
         },
@@ -507,7 +509,7 @@ def main():
     
     ═══════════════════════════════════════════════════════════
     
-    DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-PROTOCOL-v1.0
+    DNA:#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-PROTOCOL-v1.0
     CONFIRM: "#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX"
     SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
     

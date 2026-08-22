@@ -1,7 +1,7 @@
 # 龍魂系统 · 工程实现层
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 文化归属: 思想框架归龍魂核心思想层 (CC BY-NC-SA 4.0)
-# DNA: #龍芯⚡️丙午·癸未·甲申-DIGITAL-FLOW-FIELD-APP-v2.0-UID9622
+# DNA: #龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-DIGITAL-FLOW-FIELD-APP-v2.0-UID9622
 # 署名: UID9622（诸葛鑫·Lucky）
 
 """数字流场可视化器 · Streamlit 主界面。"""
@@ -33,7 +33,7 @@ from flow_engine.particle_engine import ParticleSystem
 from flow_engine.color_schemes import SCHEME_NAMES
 
 
-PROJECT_DNA = "#龍芯⚡️丙午·癸未·甲申-DIGITAL-FLOW-FIELD-v2.0-UID9622"
+PROJECT_DNA = "#龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-DIGITAL-FLOW-FIELD-v2.0-UID9622"
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 

@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂 v4.0.6 全自动流水线
 数据: v3.7 + 全记忆 ingestion
 配置: 保守 LoRA (rank=16, alpha=32, layers=12, lr=1e-5)
-DNA: #龍芯⚡️2026-07-19-LONGHUN-V406-PIPELINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-LONGHUN-V406-PIPELINE-v1.0
 """
 
 import subprocess

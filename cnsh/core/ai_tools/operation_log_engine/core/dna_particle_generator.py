@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # 1 道统层 Dao           : 曾仕强老师
 # 2 精神层 Spirit        : Steve Jobs
@@ -9,7 +10,7 @@
 # 4 技术层 Technology    : Open Source
 # 5 系统层 System        : UID9622
 # 6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
-# DNA追溯码:#龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1288-v2.0
+# DNA追溯码:#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1288-v2.0
 # 铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
 # 文件: dna_particle_generator.py | 标记时间: 2026-06-03T07:46:12+0800
 # -*- coding: utf-8 -*-
@@ -17,7 +18,7 @@
 🧬 DNA粒子生成器 v1.0
 根据操作记录生成DNA粒子 (身份证)
 
-DNA:#龍芯⚡️2026-05-30-DNA-PARTICLE-GENERATOR-v1.0
+DNA:#龍芯⚡️丙午·癸巳·甲辰·庚午·䷑蛊-DNA-PARTICLE-GENERATOR-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 责任: UID9622·不免责
 """
@@ -240,7 +241,7 @@ if __name__ == "__main__":
         "persona_active": "P02",
         "persona_weight": 0.50,
         "risk_color": "🟢",
-        "dna": "#龍芯⚡️2026-05-30-OP-_-L5-F8_9131-v1.0",
+        "dna": "#龍芯⚡️丙午·癸巳·甲辰·庚午·䷑蛊-OP-_-L5-F8_9131-v1.0",
         "hash_sha256": "abc123def456..."
     }
 

@@ -2,13 +2,14 @@
 # -*- coding: utf-8 -*-
 
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ╔══════════════════════════════════════════════════════════════════╗
 ║     龍魂路由注册表 · 包初始化 / LongHun Route Registry Init      ║
 ║                                                                  ║
 ║  导出路由系统的公共接口                                         ║
 ║  O(1)查找·三色状态·DNA追溯                                      ║
 ║                                                                  ║
-║  DNA:#龍芯⚡️2026-06-03-ROUTE-REGISTRY-INIT-FILE1-v1.0              ║
+║  DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-ROUTE-REGISTRY-INIT-FILE1-v1.0              ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓              ║
 ║                                                                  ║
 ║  来源: IPA路由注册表架构规范                                    ║

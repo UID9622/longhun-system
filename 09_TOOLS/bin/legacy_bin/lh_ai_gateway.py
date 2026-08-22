@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂统一AI网关 v1.0
 LongHun AI Gateway — 多模型统一入口，按任务类型智能路由
 
-DNA: #龍芯⚡️丙午·乙未·壬辰·午时·需-AI-GATEWAY-v1.0
+DNA: #龍芯⚡️丙午·乙未·壬辰·午时·䷄需-AI-GATEWAY-v1.0
 📇 项目身份 · 联系 · 支持 → assets/PUBLIC_IDENTITY.md
 
 设计原则:

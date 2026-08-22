@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-ai-lexicon
 description: >
@@ -12,7 +14,7 @@ allowed-tools:
 compatibility: Python 3.9+
 metadata:
   version: '1.0'
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AI-LEXICON-v1.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AI-LEXICON-v1.0'
   tribute: '#致敬⚡️UID9622·中文语义主权'
   id: longhun-ai-lexicon
   entry: python3 ~/.kimi-code/skills/longhun-ai-lexicon/scripts/ai_lexicon.py
@@ -36,7 +38,7 @@ metadata:
 
 # longhun-ai-lexicon | AI 行业话术 · 龍文语义映射词典
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AI-LEXICON-v1.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AI-LEXICON-v1.0`
 **致敬**: `#致敬⚡️UID9622·中文语义主权`
 
 ---

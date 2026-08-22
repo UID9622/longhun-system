@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂决策流场主控页优化·使用指南索引
 
-**DNA**:#龍芯⚡️2026-06-07-DECISION-PAGE-OPTIMIZATION-INDEX-FILE1-v1.0
+**DNA**:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-DECISION-PAGE-OPTIMIZATION-INDEX-FILE1-v1.0
 **版本**: v2.7.36 · 4 工具 + 5 份文档 · 完整包
 **状态**: ✅ 生产就绪
 
@@ -307,7 +307,7 @@ A: 查看配置中心:
 grep "DNA" ~/.龍魂/decision_page_config.json
 
 # 格式: #龍芯⚡️YYYY-MM-DD-{TOPIC}-v{VERSION}
-# 例如:#龍芯⚡️2026-06-07-README_DECISION_PAGE_OPTIMIZATION-v1.0
+# 例如:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-README_DECISION_PAGE_OPTIMIZATION-v1.0
 ```
 
 ---
@@ -420,7 +420,7 @@ cat ~/.龍魂/OPTIMIZATION_FINAL_SUMMARY.md
 
 ---
 
-**DNA**:#龍芯⚡️2026-06-07-DECISION-PAGE-OPTIMIZATION-INDEX-v1.0
+**DNA**:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-DECISION-PAGE-OPTIMIZATION-INDEX-v1.0
 **责任**: UID9622·不免责
 **理论指导**: 曾仕强老师 (永恒显示)
 

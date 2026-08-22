@@ -1,11 +1,11 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CodeBuddy 插件主权清单 v1.0
 
 > **原则**：数据根留本地，代码不上交，插件不掌权。  
 > **目标**：不被任何插件/平台掌握生态主权。  
-> **DNA**：`#龍芯⚡️2026-07-05-CODEBUDDY-PLUGIN-SOVEREIGNTY-LIST-v1.0`
+> **DNA**：`#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-CODEBUDDY-PLUGIN-SOVEREIGNTY-LIST-v1.0`
 
 ---
 
@@ -195,4 +195,4 @@ cp ~/.codebuddy/mcp.json ~/.codebuddy/mcp.json.bak.$(date +%Y%m%d)
 
 > **能上本地不上云，能开源不闭源，能自研不市场，能禁用不授权。**
 
-DNA: `#龍芯⚡️2026-07-05-CODEBUDDY-PLUGIN-SOVEREIGNTY-LIST-v1.0`
+DNA: `#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-CODEBUDDY-PLUGIN-SOVEREIGNTY-LIST-v1.0`

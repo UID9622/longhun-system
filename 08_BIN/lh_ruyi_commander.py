@@ -2,13 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-RUYI-COMMANDER-v1.0
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-RUYI-COMMANDER-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 CNSH·如意 命令行指挥官 v1.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-RUYI-COMMANDER-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-RUYI-COMMANDER-v1.0
 
 一键执行如意指令的CLI工具。
 

@@ -5,7 +5,7 @@
 GuanLan Browser · Mathematical Formalization
 P0级别 | 九模块严格形式化 | 12条测试向量锚定
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DNA: #龍芯⚡️丙午·乙未·丙申·申时·☵坎-GUANLAN-BROWSER-MATH-V1.0-P0-7514b4c3
+DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷜坎-GUANLAN-BROWSER-MATH-V1.0-P0-7514b4c3
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -326,5 +326,5 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 创建者: 诸葛鑫（UID9622）
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-DNA: #龍芯⚡️丙午·乙未·丙申·申时·☵坎-GUANLAN-BROWSER-MATH-V1.0-P0-7514b4c3
+DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷜坎-GUANLAN-BROWSER-MATH-V1.0-P0-7514b4c3
 三色审计: 🟢12/12全绿 🟡断路器参数为经验值 🔴无

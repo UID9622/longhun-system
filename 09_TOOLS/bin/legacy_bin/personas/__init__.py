@@ -2,8 +2,9 @@
 """
 龍魂人格执行器模块
 Persona Executors Module
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
-DNA: #龍芯⚡️丙午·乙未·甲寅·酉时·需-PERSONA-EXEC-MODULE-INIT-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-PERSONA-EXEC-MODULE-INIT-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 

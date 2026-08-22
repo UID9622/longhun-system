@@ -2,13 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·丙辰·午时·离-PLAIN-LANGUAGE-ROUTER-v1.0
+#龍芯⚡️丙午·丙申·丙辰·午时·䷝离-PLAIN-LANGUAGE-ROUTER-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🗣️ 龍魂·大话语义路由器 v1.0 — 无论用户怎么用大白话说，都能理解意图
-DNA: #龍芯⚡️丙午·丙申·丙辰·午时·离-PLAIN-LANGUAGE-ROUTER-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·午时·䷝离-PLAIN-LANGUAGE-ROUTER-v1.0
 
 核心设计：
   🇨🇳 用户用任何大白话/口语/方言/脏话说 → 语义匹配 → 找到最接近的命令意图
@@ -34,7 +34,7 @@ from pathlib import Path
 from typing import Optional, Tuple, List, Any
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DNA = "#龍芯⚡️丙午·丙申·丙辰·午时·离-PLAIN-LANGUAGE-ROUTER-v1.0"
+DNA = "#龍芯⚡️丙午·丙申·丙辰·午时·䷝离-PLAIN-LANGUAGE-ROUTER-v1.0"
 
 # ═══════════════════════════════════════════════════════════════
 # 意图目录 — 每个意图有名字和描述，用来做语义匹配

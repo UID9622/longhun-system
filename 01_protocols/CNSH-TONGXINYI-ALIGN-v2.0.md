@@ -1,8 +1,9 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 CNSH 通心译 · 对齐标准 v2.0
 
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-TONGXINYI-ALIGN-v2.0-d5a3f9e1
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-TONGXINYI-ALIGN-v2.0-d5a3f9e1
 创建者: 诸葛鑫（UID9622）
 来源: `docs/archive_html/cnsh_tongxinyi_align_v2.html`
 协议: CC BY-NC-SA 4.0

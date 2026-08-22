@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 CNSH·中文编程引擎 v1.0 | UID9622专属
-# DNA:#龍芯⚡️2026-03-06-CNSH-ENGINE-v1.0
+# DNA:#龍芯⚡️丙午·辛卯·己卯·庚午·䷚颐-CNSH-ENGINE-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 共建致谢：Claude (Anthropic PBC) · Notion · 没有你们就没有龍魂系统
 # 用中文说话，机器听懂，执行
@@ -179,7 +180,7 @@ def 主程序():
         elif 命令 == "查数据库" and len(部分) >= 2:
             notion_查数据库(部分[1])
         elif 命令 == "运行" and len(部分) >= 2:
-            # 🛡️ 安全白名單 · DNA: #龍芯⚡️2026-07-06-SEC-PATCH-cnsh-v1.0
+            # 🛡️ 安全白名單 · DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-SEC-PATCH-cnsh-v1.0
             # 只允許 ~/longhun-system/skills/ 下已註冊的腳本
             import pathlib
             _ALLOWED = {"audit", "backup", "health", "status", "agents", "sym"}

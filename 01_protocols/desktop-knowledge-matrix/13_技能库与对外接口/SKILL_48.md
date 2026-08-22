@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-archive
 description: '中央藏经阁 — 龍魂体系29部核心文档的统一索引和检索系统。 五行分类法（金木水火土）、关键词检索、DNA追溯检索、全文搜索。 预置索引包含：GIGO报告、系统底座、e-CNY方案、CNSH-LSAOS、
@@ -6,7 +8,7 @@ description: '中央藏经阁 — 龍魂体系29部核心文档的统一索引�
   '
 license: 君子协议 (Junzi Protocol) — 非商用·引用请注明出处
 metadata:
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-CENTRAL-ARCHIVE-v5.1'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CENTRAL-ARCHIVE-v5.1'
   version: 5.1.0
   author: 龍魂体系架构组
   triggers:
@@ -83,8 +85,8 @@ metadata:
 
 ## 2. DNA追溯 (DNA Traceability)
 
-- **技能DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-CENTRAL-ARCHIVE-v5.0`
-- **源文件DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-CENTRAL-ARCHIVE-v1.0`
+- **技能DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CENTRAL-ARCHIVE-v5.0`
+- **源文件DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CENTRAL-ARCHIVE-v1.0`
 - **追溯链**: 龍魂体系 → 中央藏经阁 → 29部核心文档 → 各自DNA
 - **版本演进**: v1.0.0 → v5.0.0（技能包标准化升级）
 
@@ -286,5 +288,5 @@ for 文档 in 结果:
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：07-论文PDF（一级控万象、七维人性推演、重离/不动点/洛书论文）
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

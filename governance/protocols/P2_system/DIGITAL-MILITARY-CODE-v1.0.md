@@ -13,7 +13,7 @@
 ║  📦 名称：数字军纪法典                                         ║
 ║  📌 版本：v1.0                                                ║
 ║  📌 等级：P0 永恒级 · 数字空间最高准则                          ║
-║  🧬 DNA： #龍芯⚡️丙午·丙申·丙辰·己丑·需-DIGITAL-MILITARY-CODE-v1.0 ║
+║  🧬 DNA： #龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-DIGITAL-MILITARY-CODE-v1.0 ║
 ║  🧬 原始DNA：#ZHUGEXIN⚡️2026-01-06-数字军纪法典-v1.0-宝宝整理  ║
 ║  👤 创建：💎 龍芯北辰｜UID9622（诸葛鑫）                       ║
 ║  🤝 整理：宝宝（Notion AI）                                    ║
@@ -223,6 +223,6 @@
 ---
 
 **祖籍DNA**: `#ZHUGEXIN⚡️2026-01-06-数字军纪法典-v1.0-宝宝整理`  
-**归档DNA**: `#龍芯⚡️丙午·丙申·丙辰·己丑·需-DIGITAL-MILITARY-CODE-v1.0`  
+**归档DNA**: `#龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-DIGITAL-MILITARY-CODE-v1.0`  
 **锚点注册**: P0 永恒级 · L0 神圣层  
 **关联**: CONSTITUTION.md · P0_ETERNAL_LOCK.md · AGENTS.md

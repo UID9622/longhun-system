@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 龍魂系统估值模型 v1.1 · Excel 生成器
-DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-VALUATION-v1.1-UID9622
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-VALUATION-v1.1-UID9622
 License: MulanPSL v2 (工程层)
 纯标准库，openpyxl 唯一三方依赖
 """
@@ -890,4 +890,4 @@ if __name__ == "__main__":
     print(f"   8张表: ①技术资产 ②文化主权 ③战略叙事 ④生态潜力 ⑤汇总·场景 ⑥敏感性分析 ⑦风险折价 ⑧假设与依据")
     print(f"   底线价: {SCENARIO_TOTALS['极度保守']:,.0f} 万")
     print(f"   加权基准: {WEIGHTED_BENCHMARK:,.0f} 万 ≈ {WEIGHTED_BENCHMARK/10000:.2f} 亿")
-    print(f"   DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-VALUATION-v1.1-UID9622")
+    print(f"   DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-VALUATION-v1.1-UID9622")

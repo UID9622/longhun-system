@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂文章包装器 (LongHun Article Wrapper)
 把用户粘贴的 raw 文章自动套入标准化模板，生成可直接发布/投喂的 MD 文件。
@@ -13,7 +14,7 @@
         --subtitle "副标题" \
         --output ~/longhun-system/articles/my-article.md
 
-DNA: #龍芯⚡️2026-07-02-ARTICLE-WRAPPER-v1.0
+DNA: #龍芯⚡️丙午·甲午·丁丑·丙午·䷨损-ARTICLE-WRAPPER-v1.0
 """
 
 import argparse

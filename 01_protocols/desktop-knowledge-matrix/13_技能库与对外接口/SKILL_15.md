@@ -12,7 +12,7 @@ metadata:
   display_name: 龍魂通心译
   version: "2.0"
   author: UID9622
-  dna: "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-TONGXINYI-v2.0-TAGS-VARS-WELDED-L0"
+  dna: "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-TONGXINYI-v2.0-TAGS-VARS-WELDED-L0"
   category: local
   level: "L0-L1"
   status: active
@@ -25,9 +25,9 @@ metadata:
 
 # longhun-tongxinyi | 龍魂前置翻译技能·通心译 v2.0
 
-> 主干 DNA：`#龍芯⚡️丙午·丙申·庚申·亥时-TONGXIN-TRANSLATION-v2.0`  
-> 标签 DNA：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-TAG-SYSTEM-v1.0`  
-> 技能 DNA：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-TONGXINYI-v2.0-TAGS-VARS-WELDED-L0`  
+> 主干 DNA：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-TONGXIN-TRANSLATION-v2.0`  
+> 标签 DNA：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-TAG-SYSTEM-v1.0`  
+> 技能 DNA：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-TONGXINYI-v2.0-TAGS-VARS-WELDED-L0`  
 > 状态：🟢 生产就绪 · L0 核心锁死 · v2.0 扩展层开放
 
 ---
@@ -126,7 +126,7 @@ L5 适配输出层  → 输出可执行结构 + 五段式回执
 **核心文件**：
 - `longhun-system/01_技能庫/owner_semantic_drawers_v2.0.md`
 - `longhun-system/01_技能庫/owner_semantic_drawers_v2.0.json`
-- **DNA**：`#龍芯⚡️丙午·丙申·甲寅·申时·噬嗑-SEMANTIC-DRAWERS-v2.0-1F870C86`
+- **DNA**：`#龍芯⚡️丙午·丙申·甲寅·申时·䷔噬嗑-SEMANTIC-DRAWERS-v2.0-1F870C86`
 - **确认码**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ### 6.1 五层流水线

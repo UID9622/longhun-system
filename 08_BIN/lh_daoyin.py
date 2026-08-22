@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_DAOYIN-v1.0-9db9b509
+#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH_DAOYIN-v1.0-9db9b509
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -28,7 +28,7 @@ v2.0 新增：
   lh_daoyin query <hash>
   lh_daoyin verify <hash>
 
-DNA: #龍芯⚡️2026-07-10-LONGHUN-DAOYIN-v2.0
+DNA: #龍芯⚡️丙午·乙未·乙酉·壬午·䷨损-LONGHUN-DAOYIN-v2.0
 """
 
 from __future__ import annotations

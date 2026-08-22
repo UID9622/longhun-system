@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️2026-08-06-SAVE-STATS-v1.0
+# DNA: #龍芯⚡️丙午·乙未·壬子·丙午·䷙大畜-SAVE-STATS-v1.0
 # License: MulanPSL v2
 """
 成本统计引擎
@@ -16,9 +16,8 @@
 """
 
 import json
-import time
 import threading
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Dict, List, Optional
 
@@ -76,7 +75,7 @@ class CostStats:
         print(stats.summary())
     """
 
-    def __init__(self, cloud_price: TokenPrice = None):
+    def __init__(self, cloud_price: Optional[TokenPrice] = None):
         self._records: List[CallRecord] = []
         self._lock = threading.Lock()
         self._cloud_price = cloud_price or PRICE_TABLE.get("deepseek", TokenPrice(1.0, 2.0))
@@ -187,7 +186,7 @@ if __name__ == "__main__":
                      input_tokens=500, output_tokens=200, latency_ms=80 + i * 10)
 
     for i in range(2):
-        stats.record("cloud:deepseek", "deepseek-chat", is_local=False,
+        stats.record("cloud:deepseek", "deepseek-v4-flash", is_local=False,
                      input_tokens=1000, output_tokens=500, latency_ms=500 + i * 50)
 
     stats.record("local:qwen", "qwen2.5:7b", is_local=True,

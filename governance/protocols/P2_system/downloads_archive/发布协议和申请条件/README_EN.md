@@ -3,7 +3,7 @@
 **Creator: Zhuge Xin · UID9622**  
 **System Status: 🟢 Running**  
 **Last Updated: 2026-06-03**  
-**DNA Marker: #龍芯⚡️2026-06-03-LONGHUN-README-EN-OFFICIAL**
+**DNA Marker: #龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-README-EN-OFFICIAL**
 
 ---
 
@@ -202,7 +202,7 @@ This is LongHun's own rules with STRONGER protection.
 
 ---
 
-**DNA: #龍芯⚡️2026-06-03-LONGHUN-README-EN-OFFICIAL**  
+**DNA: #龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-README-EN-OFFICIAL**  
 **SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL**  
 **CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z**
 

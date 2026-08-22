@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 龍魂 · AI行为约束耻辱柱模块
-DNA: #龍芯⚡️2026-07-04-SHAME-PILLAR-MODULE-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-SHAME-PILLAR-MODULE-v1.0
 
 本模块提供基于责任塌缩概率模型的 AI 行为约束引擎，包括：
 - 耻辱柱核心引擎（R 值计算、越界检测、惩罚执行）

@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 贡献指南
 
-> DNA: `#龍芯⚡️2026-07-06-CONTRIBUTING-CREATE-v1.0-D9A4C1E8`
+> DNA: `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CONTRIBUTING-CREATE-v1.0-D9A4C1E8`
 
 > **⚖️ 法律适用声明**：龍魂系统及其所有子项目、协议、文档，均以中华人民共和国法律为最高准则。贡献者提交的代码、文档及其他内容，均受 `LICENSE` 第七节（适用法律与争议解决）约束。任何与本系统相关的争议，均适用中国法律。
 

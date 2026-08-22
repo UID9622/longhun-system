@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂·相册整理脚本
-DNA: #龍芯⚡️丙午·癸未·丁未-ORGANIZE-PHOTOS-v1.0
+DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-ORGANIZE-PHOTOS-v1.0
 功能：按拍摄日期（EXIF）整理照片/视频到 年/年-月 目录，自动去重
 """
 
@@ -155,7 +156,7 @@ def main():
     print(f"   处理: {stats['copied']}")
     print(f"   重复: {stats['duplicates']}")
     print(f"   错误: {stats['errors']}")
-    print(f"\n🧬 DNA: #龍芯⚡️丙午·癸未·丁未-ORGANIZE-PHOTOS-v1.0")
+    print(f"\n🧬 DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-ORGANIZE-PHOTOS-v1.0")
 
 
 if __name__ == "__main__":

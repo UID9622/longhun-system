@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 Notion 下载自动轮转器
@@ -9,7 +10,7 @@
 自动把 P1→P4 按 chunk 跑完，每 chunk 后自动更新索引、缺失报告、画廊。
 老大授权，一键后台，无需人工干预。
 
-DNA: #龍芯⚡️2026-06-23-NOTION-ORCHESTRATOR-v1.0
+DNA: #龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-NOTION-ORCHESTRATOR-v1.0
 """
 from __future__ import annotations
 
@@ -122,7 +123,7 @@ def main() -> None:
     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
     log("=" * 50)
     log("Orchestrator started")
-    log(f"DNA: #龍芯⚡️2026-06-23-NOTION-ORCHESTRATOR-v1.0")
+    log(f"DNA: #龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-NOTION-ORCHESTRATOR-v1.0")
 
     # 先同步一次当前状态
     update_artifacts()

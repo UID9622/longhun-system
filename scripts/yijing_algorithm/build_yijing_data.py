@@ -2,13 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 """
 从 ichingshifa 数据包提取 64 卦信息，生成 yijing_data.json
 供 python易经算法实现.pdf 中的算法使用。
 
-DNA: #龍芯⚡️2026-06-29-YIJING-DATA-BUILD-v1.0
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-YIJING-DATA-BUILD-v1.0
 """
 import json
 import pickle
@@ -120,7 +121,7 @@ def build():
         "meta": {
             "source": "ichingshifa data.pkl + PDF 节气权重表",
             "count": len(hexagrams),
-            "dna": "#龍芯⚡️2026-06-29-YIJING-DATA-BUILD-v1.0",
+            "dna": "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-YIJING-DATA-BUILD-v1.0",
         },
     }
     json.dump(payload, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=2)

@@ -8,7 +8,7 @@
 文档类型：     价值观底座声明 · P0 永恒级
 发布人：       UID9622（诸葛鑫·Lucky·退伍军人）
 发布日期：     2026-07-12
-DNA：         #龍芯⚡️丙午·丙申·丙辰·午时·离-VALUES-BASE-CHINESE-ROOT-v1.0
+DNA：         #龍芯⚡️丙午·丙申·丙辰·午时·䷝离-VALUES-BASE-CHINESE-ROOT-v1.0
 效力等级：     P0 🔴 焊死 · 永不可改 · 不可撤销
 签署状态：     待 GPG 签章
 关联协议：     CREATOR_LEGACY_WILL_SOVEREIGN_HANDOVER_v1.0.md（遗志协议）

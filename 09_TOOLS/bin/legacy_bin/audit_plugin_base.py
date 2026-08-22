@@ -2,12 +2,13 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║              龍魂 B4 审计插件基类 · 可插拔架构 v1.0                      ║
 ║              Pluggable Audit Plugin Architecture                         ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️2026-07-06-AUDIT-PLUGIN-v1.0-5A3F8C1D                     ║
+║  DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-AUDIT-PLUGIN-v1.0-5A3F8C1D                     ║
 ║  哲学锚: 河图洛书中五不动点 → 四象审计 → 八卦分类                        ║
 ║  铁律: 所有B4审计操作只读·不可修改系统状态                               ║
 ╚══════════════════════════════════════════════════════════════════════════╝
@@ -145,7 +146,7 @@ class AuditPlugin(ABC):
     # 子类必须定义
     name: str = "unnamed"
     version: str = "1.0"
-    dna: str = "#龍芯⚡️2026-07-06-AUDIT-PLUGIN-v1.0"
+    dna: str = "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-AUDIT-PLUGIN-v1.0"
     level: AuditLevel = AuditLevel.L2_MODULE
 
     @abstractmethod
@@ -339,7 +340,7 @@ class DNAVerifierPlugin(AuditPlugin):
 
     name = "dna-verifier"
     version = "1.0"
-    dna = "#龍芯⚡️2026-07-06-DNA-VERIFIER-v1.0"
+    dna = "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-DNA-VERIFIER-v1.0"
     level = AuditLevel.L0_ETERNAL
 
     def audit(self, target: Any = None) -> AuditResult:
@@ -402,7 +403,7 @@ class NamingConventionPlugin(AuditPlugin):
 
     name = "naming-convention"
     version = "1.0"
-    dna = "#龍芯⚡️2026-07-06-NAMING-AUDIT-v1.0"
+    dna = "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-NAMING-AUDIT-v1.0"
     level = AuditLevel.L1_CORE
 
     def audit(self, target: Any = None) -> AuditResult:

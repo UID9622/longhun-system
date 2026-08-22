@@ -10,7 +10,7 @@
 **依赖环境：** Python 3.8+ / numpy / matplotlib / pandas / scipy（仅代码引擎）
 **关键提示：** 三轨并行表达——学术轨（博弈论）·工程轨（审计架构）·文化轨（易经隐喻），三者互为校验，任一轨不可独立作为充分依据
 **三色审计：** 🟡 黄色（博弈模型为标定推演，非实测数据；审计协议架构已通过本地验证；建议引用时标注"推演"）
-**DNA签名：** #龍芯⚡️丙午·丙申·庚申·亥时-OPEN-AUDIT-WHITEPAPER-v2.0-UID9622
+**DNA签名：** #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-OPEN-AUDIT-WHITEPAPER-v2.0-UID9622
 **确认码：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **GPG签名：** A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
@@ -452,7 +452,7 @@ Phase 3 · 生态建设（18-36个月）
 **协议标识：**
 ```
 OPEN-AUDIT-PROTOCOL-v1.0
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-OPEN-AUDIT-v1.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-OPEN-AUDIT-v1.0-UID9622
 ```
 
 **审计数据格式：**
@@ -933,7 +933,7 @@ gpg --verify 01_protocols/LH-OPEN-AUDIT-WHITEPAPER-v2.0.md.asc \
 
 ## 🔐 签章
 
-**DNA：** #龍芯⚡️丙午·丙申·庚申·亥时-OPEN-AUDIT-WHITEPAPER-v2.0-UID9622
+**DNA：** #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-OPEN-AUDIT-WHITEPAPER-v2.0-UID9622
 **CONFIRM：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **SEAL：** #ZHUGEXIN⚡️2026-08-02-AUDIT-WHITEPAPER-SEAL
 **GPG：** A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -952,7 +952,7 @@ Root: dr=9（2+0+2+6+0+8+0+3=21→2+1=3→白皮书三轨并行→3×3=9→归�
 Wuxing: 火（丙午年·火旺·科技离火运·审计为火象：照亮黑暗）
 TriColor: 🟡（博弈模型为标定推演，非实测数据；工程架构已通过本地验证；文化隐喻不独立下结论）
 Type: academic-hybrid-protocol
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-OPEN-AUDIT-WHITEPAPER-v2.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-OPEN-AUDIT-WHITEPAPER-v2.0-UID9622
 RootPath: 01_protocols/LH-OPEN-AUDIT-WHITEPAPER-v2.0.md
 SHA256: <调用时填入>
 

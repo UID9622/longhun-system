@@ -1,7 +1,7 @@
 /**
  * 🐉 Notion 知识库同步
  * 通过鲲鹏入口引导 API 获取配置（uid9622.cn）· 本地优先·不直连境外
- * DNA: #龍芯⚡️丙午·丙申·辛酉·丑时-CNSH-NOTION-UID9622
+ * DNA: #龍芯⚡️丙午·丙申·辛酉·己丑·䷹兑为泽-CNSH-NOTION-UID9622
  * License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
  */
 

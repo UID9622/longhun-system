@@ -1,7 +1,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 CNSH 合规闸门 v1.0
 
-> **DNA(v1.0): `#龍芯⚡️2026-07-06-CNSH-GATEKEEPER-v1.0`**  
+> **DNA(v1.0): `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-GATEKEEPER-v1.0`**  
 > **DNA(v1.1): `#龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-CNSH-GATEKEEPER-v1.1`**
 > **GPG: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`**
 > **三色审计: 🟢 通过**
@@ -279,7 +279,7 @@ lh gatekeeper patrol
 |------|------|
 | 版本 | v1.1（2026-07-08，DNA四代并行 + 干支时辰v∞） |
 | DNA(v∞) | `#龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-CNSH-GATEKEEPER-v1.1` |
-| DNA(v1.0) | `#龍芯⚡️2026-07-06-CNSH-GATEKEEPER-v1.1` |
+| DNA(v1.0) | `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-GATEKEEPER-v1.1` |
 | GPG指纹 | A2D0092CEE2E5BA87035600924C3704A8CC26D5F |
 | 级别 | L0·焊死·永不改 |
 | 三色审计 | 🟢 通过 |

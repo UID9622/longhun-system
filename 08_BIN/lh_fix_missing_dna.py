@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# DNA: #龍芯⚡️丙午·丙申·#龍芯⚡️丙午·丙申·POSTAUDIT-LH_FIX_MISSING_DNA-5B89DE70
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂·自动补DNA签章 v2.0
 DNA: 由 bin/lh_dna_generator.py 生成
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -22,6 +24,7 @@ v2.0 修复清单：
 
 import argparse
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -36,16 +39,17 @@ CONFIRM_LINE = "# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 
 def generate_dna(module_name: str = "自动补签", action_tag: str = "补DNA", version: str = "v1.0") -> Optional[str]:
-    """调用本地DNA生成器，返回形如 '# DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-补DNA-v1.0' 的行。
+    """调用本地DNA生成器，返回形如 '# DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-补DNA-v1.0' 的行。
     生成器不可用或输出异常时返回 None（绝不手写DNA）。
-    v2.1: 修正参数格式，使用 doc 子命令 (--module/--action/--version)。"""
+    v2.2: 适配 DNA 生成器 v2.0 新接口（generate --title），旧 doc 子命令已删除。"""
     if not DNA_GENERATOR.exists():
         print(f"⚠️ DNA生成器不存在: {DNA_GENERATOR}")
         return None
     try:
         result = subprocess.run(
-            [sys.executable, str(DNA_GENERATOR), "doc",
-             "--module", module_name, "--action", action_tag, "--version", version],
+            [sys.executable, str(DNA_GENERATOR), "generate",
+             "--title", module_name, "--category", "code",
+             "--action", action_tag, "--format", "text"],
             capture_output=True, text=True, timeout=30,
         )
     except subprocess.TimeoutExpired:
@@ -54,11 +58,11 @@ def generate_dna(module_name: str = "自动补签", action_tag: str = "补DNA", 
     if result.returncode != 0:
         print(f"⚠️ DNA生成器执行失败: {result.stderr[:200]}")
         return None
-    # 从输出中提取以 #龍芯 开头的DNA串
-    for line in result.stdout.splitlines():
-        line = line.strip()
-        if "#龍芯" in line:
-            return f"# DNA: {line}" if not line.startswith("# DNA:") else line
+    # 从输出中提取以 #龍芯 开头的DNA串（新格式: 🧬 #龍芯⚡️干支四柱·卦-CODE-动作-哈希）
+    m = re.search(r"(#龍芯⚡️[\w·䷀䷁䷂䷃䷄䷅䷆䷇䷈䷉䷊䷋䷌䷍䷎䷏䷐䷑䷒䷓䷔䷕䷖䷗䷘䷙䷚䷛䷜䷝䷞䷟䷠䷡䷢䷣䷤䷥䷦䷧䷨䷩䷪䷫䷬䷭䷮䷯䷰䷱䷲䷳䷴䷵䷶䷷䷸䷹䷺䷻䷼䷽䷾䷿\-A-Za-z0-9]+)", result.stdout)
+    if m:
+        dna_str = m.group(1).strip()
+        return f"# DNA: {dna_str}" if not dna_str.startswith("# DNA:") else dna_str
     print(f"⚠️ DNA生成器输出无法识别: {result.stdout[:200]}")
     return None
 

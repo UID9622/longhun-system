@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂·素材自动标签引擎 v2.0 — 启发式打标 + AI辅助
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-MATERIAL-TAGGER-V2.0-7e1f3d4b
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-MATERIAL-TAGGER-V2.0-7e1f3d4b
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

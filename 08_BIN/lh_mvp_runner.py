@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 🐉 CNSH × 龍魂系统 · MVP 三件套统一入口
-DNA: #龍芯⚡️2026-05-25-LONGHUN-MVP-RUNNER-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·癸巳·己亥·庚午·䷚颐-LONGHUN-MVP-RUNNER-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2026-龍魂-主权-不商业-不站队
 
@@ -578,7 +579,7 @@ def self_test():
     cprint("\n🧪 运行自检...", Color.BOLD)
     # 测试DNA解析
     parser = LonghunDNAParser()
-    test_str = "测试 #龍芯⚡️2026-05-25-TEST-v1.0-ABCD #CONFIRM🌌9622-ONLY-ONCE🧬TEST-001"
+    test_str = "测试 #龍芯⚡️丙午·癸巳·己亥·庚午·䷚颐-TEST-v1.0-ABCD #CONFIRM🌌9622-ONLY-ONCE🧬TEST-001"
     result = parser.parse(test_str)
     cprint(f"DNA解析: {result['status']}", Color.GREEN if "🟢" in result['status'] else Color.RED)
 

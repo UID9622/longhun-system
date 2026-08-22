@@ -1,7 +1,7 @@
 # 附录D｜Cursor执行指令 v1.0
 ## 把 §07 三天落地路径变成 Cursor 可直接吃的工程包
 
-**DNA**: `#龍芯⚡️2026-05-02-APPENDIX-D-CURSOR-EXEC-v1.0`  
+**DNA**: `#龍芯⚡️丙午·壬辰·丙子·甲午·䷙大畜-APPENDIX-D-CURSOR-EXEC-v1.0`  
 **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 **永恒签章**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`  
 **作者**: UID9622·龍芯北辰·诸葛鑫  
@@ -70,7 +70,7 @@ longhun-anti-domestication/
 ```
 执行 longhun-anti-domestication v1.0。
 
-DNA:#龍芯⚡️2026-05-02-APPENDIX-D-CURSOR-EXEC-v1.0
+DNA:#龍芯⚡️丙午·壬辰·丙子·甲午·䷙大畜-APPENDIX-D-CURSOR-EXEC-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 

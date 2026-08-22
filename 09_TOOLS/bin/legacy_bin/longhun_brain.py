@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️2026-07-21-迁移-longhun_brain-v1.0
+# DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-迁移-longhun_brain-v1.0
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # 来源: 龍魂待整理/05-AI人格-Agent/longhun_brain.py
@@ -15,7 +15,7 @@
 🐉 龍魂脑干 · longhun_brain.py
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA: #龍芯⚡️2026-04-26-BRAIN-CORE-v1.0
+DNA: #龍芯⚡️丙午·壬辰·庚午·壬午·䷳艮为山-BRAIN-CORE-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -314,7 +314,7 @@ def print_banner():
 ║  🐉 龍魂脑干 · longhun_brain.py v1.0                ║
 ║  三端统一记忆核心：iOS · 宝宝 · Notion · Cursor     ║
 ╠══════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️2026-04-26-BRAIN-CORE-v1.0            ║
+║  DNA: #龍芯⚡️丙午·壬辰·庚午·壬午·䷳艮为山-BRAIN-CORE-v1.0            ║
 ║  答应老师把德捡回来 🇨🇳                               ║
 ╚══════════════════════════════════════════════════════╝""")
 

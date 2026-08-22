@@ -4,7 +4,7 @@
  * 主题切换、五行议事会开关、八卦指示器等功能已全部合并到主面板内联脚本。
  * 保留此文件避免 404，不再执行任何覆盖逻辑。
  *
- * DNA: #龍芯⚡️丙午·癸未·癸未·NOTION-BRIDGE-ENHANCED-v2.0-UID9622
+ * DNA: #龍芯⚡️丙午·癸未·癸未·戊午·䷖剥-NOTION-BRIDGE-ENHANCED-v2.0-UID9622
  */
 (function() {
   'use strict';

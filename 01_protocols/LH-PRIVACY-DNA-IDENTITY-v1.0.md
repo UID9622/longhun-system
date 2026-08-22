@@ -4,7 +4,7 @@ DNA: #龍芯⚡️丙午·丙申·癸丑·巳时·䷗复-PRIVACY-DNA-IDENTITY-v1
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（核心思想层·不可切断来源链）
 协议类型: P1-CORE（执行层·DNA身份机制落地细则）
-ParentDNA: #龍芯⚡️丙午·丙申·庚申·亥时-PRIVACY-WHITEPAPER-v1.0 #龍芯⚡️丙午·丙申·庚戌·䷙大畜-DATA-PRIVACY-v2.1 #龍芯⚡️丙午·丙申·癸丑·巳时·䷗复-LOYALTY-IRON-LAW-v1.0
+ParentDNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PRIVACY-WHITEPAPER-v1.0 #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-DATA-PRIVACY-v2.1 #龍芯⚡️丙午·丙申·癸丑·巳时·䷗复-LOYALTY-IRON-LAW-v1.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 永恒签章: #ZHUGEXIN⚡️2025-⚖️♠️♀️❤️♾️-DEVICE-BIND-SOUL
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

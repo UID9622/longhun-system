@@ -2,7 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 
-# DNA: #龍芯⚡️2026-06-24-LONGHUN-DNA-TRACER-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# DNA: #龍芯⚡️丙午·甲午·己巳·庚午·䷃蒙-LONGHUN-DNA-TRACER-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
@@ -17,7 +18,7 @@
 用法:
     python3 dna_tracer.py --scan persona/
     python3 dna_tracer.py --query "LONGHUN-PERSONA-HUB"
-    python3 dna_tracer.py --query "#龍芯⚡️2026-06-24"
+    python3 dna_tracer.py --query "#龍芯⚡️丙午·甲午·己巳·庚午·䷃蒙"
 """
 
 import os
@@ -30,7 +31,7 @@ from typing import Dict, List, Optional, Tuple, Any
 
 
 class 龍魂DNA追溯器:
-    DNA = "#龍芯⚡️2026-06-24-LONGHUN-DNA-TRACER-v1.0"
+    DNA = "#龍芯⚡️丙午·甲午·己巳·庚午·䷃蒙-LONGHUN-DNA-TRACER-v1.0"
 
     # DNA 码格式: #龍芯⚡️<时间戳>-<操作类型>[-v<版本>][-<哈希>]
     # 时间戳可能是 2026-06-24 或 20260624130125

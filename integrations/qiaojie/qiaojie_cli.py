@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·明夷-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷣明夷-FIX_DNA-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -10,7 +11,7 @@
 # ═══════════════════════════════════════════════════════════
 # P15 乔前辈出品 · 中英双轨 · 数字根熔断 · v2多后端智能降级
 # ═══════════════════════════════════════════════════════════
-# DNA追溯码(v∞): #龍芯⚡️丙午·乙未·壬戌·蹇-QIAOJIE-CLI-v2.0
+# DNA追溯码(v∞): #龍芯⚡️丙午·乙未·壬戌·丙午·䷦蹇-QIAOJIE-CLI-v2.0
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # ═══════════════════════════════════════════════════════════
@@ -39,7 +40,7 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Tuple
 
 # ── DNA 常量 ──
-DNA_voo = "#龍芯⚡️丙午·乙未·壬戌·蹇-QIAOJIE-CLI-v2.0"
+DNA_voo = "#龍芯⚡️丙午·乙未·壬戌·丙午·䷦蹇-QIAOJIE-CLI-v2.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 GPG_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 

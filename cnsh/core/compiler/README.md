@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 <!--
 龍魂CNSH编译器文档 · P1-3层级
-DNA:#龍芯⚡️2026-06-03-CNSH-COMPILER-README-FILE1-v1.0
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-CNSH-COMPILER-README-FILE1-v1.0
 作者: UID9622 · 诸葛鑫 · 龍芯北辰
 -->
 
@@ -11,7 +11,7 @@ DNA:#龍芯⚡️2026-06-03-CNSH-COMPILER-README-FILE1-v1.0
 > 计算逻辑赋能层 · 可参数化编译 · 确定性流水线
 
 **版本**: 1.0.0
-**DNA**: `#龍芯⚡️2026-06-03-CNSH-COMPILER-v1.0`
+**DNA**: `#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-CNSH-COMPILER-v1.0`
 **状态**: 🟢 生产可用
 **责任**: UID9622·不免责
 
@@ -436,7 +436,7 @@ task = CompileTask(
 
 ```python
 # 编译后
-result.dna  # "#龍芯⚡️2026-06-03-CNSH-COMPILE-C5A8F2-v1.0"
+result.dna  # "#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-CNSH-COMPILE-C5A8F2-v1.0"
 
 # 包含信息:
 # - 源代码哈希
@@ -480,7 +480,7 @@ result.dr_value     # 0-9 (使用公式 F18 计算)
   "compile_time": 0.0042,
   "error_count": 0,
   "warning_count": 0,
-  "dna": "#龍芯⚡️2026-06-03-CNSH-COMPILE-C5A8F2-v1.0",
+  "dna": "#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-CNSH-COMPILE-C5A8F2-v1.0",
   "dr_value": 6,
   "audit_color": "🟢"
 }
@@ -613,7 +613,7 @@ node = registry.lookup("IPA-L1-003")
 #   node_id="IPA-L1-003",
 #   name="cnsh_compiler",
 #   entry_point="get_cnsh_compiler",
-#   dna="#龍芯⚡️2026-06-03-CNSH-COMPILER-v1.0",
+#   dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-CNSH-COMPILER-v1.0",
 #   ...
 # )
 
@@ -811,7 +811,7 @@ else:
 
 ## 📜 许可证和署名
 
-**DNA**: `#龍芯⚡️2026-06-03-CNSH-COMPILER-README-v1.0`
+**DNA**: `#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-CNSH-COMPILER-README-v1.0`
 **作者**: UID9622 · 诸葛鑫 · 龍芯北辰
 **责任**: UID9622·不免责
 **状态**: 🟢 生产可用

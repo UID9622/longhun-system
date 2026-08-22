@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: cnsh-protocol-v2-0
 description: 'CNSH语言完整规范v2.0 — 中文母语关键字+龍魂专属符号+DNA强制追溯+三色审计强制+权重指向焊死+多目标语言转换器。14章完整规范：符号体系·语法·编译器·标准库·错误处理·测试驱动·生态对接·版本演进。
@@ -6,7 +7,7 @@ description: 'CNSH语言完整规范v2.0 — 中文母语关键字+龍魂专属�
 metadata:
   id: CNSH-PROTOCOL
   version: '1.0'
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-PROTOCOL-v2.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-PROTOCOL-v2.0'
   trigger:
     keywords:
     - CNSHPROTOCOL
@@ -21,7 +22,7 @@ metadata:
     context: CNSH-PROTOCOL 规范查询
   category: general
 ---
-<!-- DNA: #龍芯⚡️丙午·丙申·庚申·亥时-CNSH-PROTOCOL-v2.0 -->
+<!-- DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-PROTOCOL-v2.0 -->
 
 ## 1. 概述
 
@@ -236,8 +237,8 @@ CNSH源码 → ①词法分析(Lexer) → ②语法分析(Parser→AST)
 
 ### 12.1 DNA锚链
 
-- **本协议DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-PROTOCOL-v2.0`
-- **父DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH语言完整规范-v2.0`
+- **本协议DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-PROTOCOL-v2.0`
+- **父DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH语言完整规范-v2.0`
 - **根DNA:** `#龍芯⚡️LONGHUN-GOVERNANCE-FRAMEWORK-ROOT`
 - **GPG指纹:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 
@@ -259,6 +260,6 @@ CNSH源码 → ①词法分析(Lexer) → ②语法分析(Parser→AST)
 | 字段 | 内容 |
 |------|------|
 | 版本 | v2.0（2026-06-19）|
-| DNA | `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-PROTOCOL-v2.0` |
+| DNA | `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-PROTOCOL-v2.0` |
 | 三色审计 | 🟢 通过 |
 | 创建者 | 💎 龍芯北辰｜UID9622（诸葛鑫·Lucky）|

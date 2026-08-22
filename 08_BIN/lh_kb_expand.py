@@ -3,7 +3,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 龍魂·知识库扩展自动化引擎 v1.1（精修版）
-DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-KB-EXPAND-AUTO-v1.1
+DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·䷜坎-KB-EXPAND-AUTO-v1.1
 创建者: 诸葛鑫 (UID9622)
 协议: CC BY-NC-SA 4.0
 
@@ -51,7 +51,7 @@ BRIDGE_SCRIPT = PROJECT_ROOT / "bin" / "lh_data_to_train_bridge.py"
 TRAIN_SCRIPT = PROJECT_ROOT / "bin" / "lh_lora_trainer_v4.py"
 
 # ━━━━━━━━━━ DNA/身份 ━━━━━━━━━━
-DNA = "#龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-KB-EXPAND-AUTO-v1.1"
+DNA = "#龍芯⚡️丙午·乙未·戊戌·巳时·䷜坎-KB-EXPAND-AUTO-v1.1"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 CREATOR = "诸葛鑫（UID9622·龍芯北辰）"
 

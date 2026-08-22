@@ -2,7 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
-##龍芯⚡️2026-06-21-CORE-CNSH_GATEWAY-FILE1-v1.0-2
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+##龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-CORE-CNSH_GATEWAY-FILE1-v1.0-2
 # 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/usr/bin/env python3
@@ -10,7 +11,7 @@
 CNSH 生态语法网关 v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA: #龍芯⚡️20260422-CODE-GW01
+DNA: #龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-CODE-GW01
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 功能：
@@ -25,7 +26,8 @@ DNA: #龍芯⚡️20260422-CODE-GW01
 
 import os, time, json, hashlib, requests
 from datetime import datetime, timezone
-from flask import Flask, request, jsonify
+from typing import Any
+from flask import Flask, request, jsonify  # pyright: ignore[reportMissingImports] — 运行时用系统python3(已装flask 3.1.2)，pyright分析走.venv
 
 from integrated_modules.longhun_config import getenv
 
@@ -33,16 +35,22 @@ from integrated_modules.longhun_config import getenv
 try:
     import sys
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    from dna_sovereignty_kernel import PeopleSovereigntyGuard, Context
+    from dna_sovereignty_kernel import PeopleSovereigntyGuard, Context  # pyright: ignore[reportMissingImports]  # 可选降级集成
     _GUARD = PeopleSovereigntyGuard()
 except Exception:
     _GUARD = None
+
+    class Context:
+        """降级空实现：人民主权守护模块缺失时保持离线，不阻断网关"""
+
+        def __init__(self, *args, **kwargs):
+            pass
 
 # 人民权益守门人集成
 try:
     import sys
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    from people_rights_guard import PeopleRightsGuard, ProviderType, DataPurpose
+    from people_rights_guard import PeopleRightsGuard  # pyright: ignore[reportMissingImports]  # 可选降级集成
     _RIGHTS_GUARD = PeopleRightsGuard()
 except Exception:
     _RIGHTS_GUARD = None
@@ -51,7 +59,7 @@ except Exception:
 try:
     import sys
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    from people_skill_scope import SkillScopeGuard, get_skill_scope_guard
+    from people_skill_scope import get_skill_scope_guard  # pyright: ignore[reportMissingImports]  # 可选降级集成
     _SCOPE_GUARD = get_skill_scope_guard()
 except Exception:
     _SCOPE_GUARD = None
@@ -175,7 +183,7 @@ def log_notion(entry: dict[str, Any]):
 # ═══════════════════════════════
 # AI 路由器
 # ═══════════════════════════════
-def call_deepseek(messages: list[Any], model: str = "deepseek-chat") -> str:
+def call_deepseek(messages: list[Any], model: str = "deepseek-v4-flash") -> str:
     if not DEEPSEEK_API_KEY:
         return "[错误] DEEPSEEK_API_KEY 未配置"
     # DeepSeek 兼容 OpenAI 格式
@@ -278,7 +286,7 @@ def security_check(req, endpoint_path: str | None = None, intent: str = "execute
     if _GUARD is not None and endpoint_path:
         try:
             ctx = _ctx_from_request(req)
-            verdict, reason, detail = _GUARD.check(ctx, endpoint_path, intent)
+            verdict, reason, _detail = _GUARD.check(ctx, endpoint_path, intent)
 
             if verdict.value.startswith("🔴"):
                 return False, reason
@@ -369,7 +377,6 @@ def chat():
 
     # 路由调用
     caller = ROUTERS.get(route, call_deepseek)
-    kwargs = {"model": model} if model else {}
     t0 = time.time()
     try:
         if model:
@@ -378,12 +385,10 @@ def chat():
             reply = caller(messages)
         duration = round(time.time() - t0, 2)
         tricolor  = "🟢"
-        err_msg   = ""
     except Exception as e:
         reply    = f"[网关错误] {str(e)}"
         duration = round(time.time() - t0, 2)
         tricolor  = "🔴"
-        err_msg   = str(e)
 
     dna = make_dna("ACT", message + reply[:100])
 
@@ -467,7 +472,7 @@ if __name__ == "__main__":
 ╔══════════════════════════════════════════════╗
 ║   CNSH 生态语法网关 v1.0 · UID9622           ║
 ║   Port: 8765  |  你的语法·你的出口           ║
-║   DNA: #龍芯⚡️20260422-CODE-GW01             ║
+║   DNA: #龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-CODE-GW01             ║
 ╠══════════════════════════════════════════════╣
 ║  POST /chat          — 统一对话入口           ║
 ║  GET  /cnsh_prompt   — 获取系统提示词        ║

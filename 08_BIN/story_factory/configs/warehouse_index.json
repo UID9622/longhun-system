@@ -1,0 +1,385 @@
+{
+  "dna": "#龍芯⚡️2026-08-19-WAREHOUSE-810B2526-UID9622",
+  "root": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库",
+  "scanned_at": "2026-08-19T13:02:39.575272",
+  "stats": {
+    "total": 50,
+    "characters": 29,
+    "scenes": 3,
+    "props": 3,
+    "audio": 0,
+    "unknown": 15
+  },
+  "assets": {
+    "A-01-01-001": {
+      "filename": "A-01-01-001_黑色中山装.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/A-01-01-001_黑色中山装.png",
+      "type": "prop",
+      "name": "黑色中山装",
+      "code": "A-01-01-001",
+      "dna": "#龍芯⚡️2026-08-19-A-01-01-001-D4F62BA5-UID9622",
+      "size_bytes": 1460519,
+      "modified": "2026-08-18T18:03:32",
+      "dimensions": "1024x1536"
+    },
+    "B-S": {
+      "filename": "B-S_打火机_大哥大_金链.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/B-S_打火机_大哥大_金链.png",
+      "type": "prop",
+      "name": "打火机_大哥大_金链",
+      "code": "B-S",
+      "dna": "#龍芯⚡️2026-08-19-B-S-EB1DEE66-UID9622",
+      "size_bytes": 2273744,
+      "modified": "2026-08-18T18:58:53",
+      "dimensions": "1536x1024"
+    },
+    "ENV-01": {
+      "filename": "ENV-01_东北校园.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/ENV-01_东北校园.png",
+      "type": "scene",
+      "name": "东北校园",
+      "code": "ENV-01",
+      "dna": "#龍芯⚡️2026-08-19-ENV-01-EE40F48C-UID9622",
+      "size_bytes": 2859401,
+      "modified": "2026-08-18T18:56:25",
+      "dimensions": "1536x1024"
+    },
+    "ENV-02": {
+      "filename": "ENV-02_老街雨夜.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/ENV-02_老街雨夜.png",
+      "type": "scene",
+      "name": "老街雨夜",
+      "code": "ENV-02",
+      "dna": "#龍芯⚡️2026-08-19-ENV-02-3C33B15E-UID9622",
+      "size_bytes": 2820682,
+      "modified": "2026-08-18T18:56:57",
+      "dimensions": "1536x1024"
+    },
+    "ENV-04": {
+      "filename": "ENV-04_洪门厅堂.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/ENV-04_洪门厅堂.png",
+      "type": "scene",
+      "name": "洪门厅堂",
+      "code": "ENV-04",
+      "dna": "#龍芯⚡️2026-08-19-ENV-04-B4FF08CA-UID9622",
+      "size_bytes": 2004451,
+      "modified": "2026-08-18T18:57:57",
+      "dimensions": "1536x1024"
+    },
+    "HD-001": {
+      "filename": "HD-001_谢文东_成年锚点图.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/HD-001_谢文东_成年锚点图.png",
+      "type": "character",
+      "name": "谢文东",
+      "code": "HD-001",
+      "dna": "#龍芯⚡️2026-08-19-HD-001-447D9C32-UID9622",
+      "size_bytes": 1180257,
+      "modified": "2026-08-18T18:37:37",
+      "dimensions": "1024x1024"
+    },
+    "HD-002": {
+      "filename": "HD-002_三眼_眉心疤锚点图.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/HD-002_三眼_眉心疤锚点图.png",
+      "type": "character",
+      "name": "三眼",
+      "code": "HD-002",
+      "dna": "#龍芯⚡️2026-08-19-HD-002-500AC403-UID9622",
+      "size_bytes": 1251553,
+      "modified": "2026-08-18T18:07:37",
+      "dimensions": "1024x1024"
+    },
+    "HD-003": {
+      "filename": "HD-003_高强_锚点图.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/HD-003_高强_锚点图.png",
+      "type": "character",
+      "name": "高强",
+      "code": "HD-003",
+      "dna": "#龍芯⚡️2026-08-19-HD-003-668420BC-UID9622",
+      "size_bytes": 1356465,
+      "modified": "2026-08-18T18:23:08",
+      "dimensions": "1024x1024"
+    },
+    "HD-004": {
+      "filename": "HD-004_李爽_锚点图.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/HD-004_李爽_锚点图.png",
+      "type": "character",
+      "name": "李爽",
+      "code": "HD-004",
+      "dna": "#龍芯⚡️2026-08-19-HD-004-50180DD2-UID9622",
+      "size_bytes": 1547980,
+      "modified": "2026-08-18T18:24:02",
+      "dimensions": "1024x1024"
+    },
+    "HD-005": {
+      "filename": "HD-005_张研江_锚点图.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/HD-005_张研江_锚点图.png",
+      "type": "character",
+      "name": "张研江",
+      "code": "HD-005",
+      "dna": "#龍芯⚡️2026-08-19-HD-005-0BAAE036-UID9622",
+      "size_bytes": 1283622,
+      "modified": "2026-08-18T18:25:06",
+      "dimensions": "1024x1024"
+    },
+    "HD-006": {
+      "filename": "HD-006_格桑_锚点图.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/HD-006_格桑_锚点图.png",
+      "type": "character",
+      "name": "格桑",
+      "code": "HD-006",
+      "dna": "#龍芯⚡️2026-08-19-HD-006-7D8963D3-UID9622",
+      "size_bytes": 1340626,
+      "modified": "2026-08-19T11:52:45",
+      "dimensions": "1024x1024"
+    },
+    "HD-007": {
+      "filename": "HD-007_唐寅_锚点图.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/HD-007_唐寅_锚点图.png",
+      "type": "character",
+      "name": "唐寅",
+      "code": "HD-007",
+      "dna": "#龍芯⚡️2026-08-19-HD-007-7E6A0413-UID9622",
+      "size_bytes": 1208530,
+      "modified": "2026-08-19T11:53:06",
+      "dimensions": "1024x1024"
+    },
+    "HD-008": {
+      "filename": "HD-008_任长风_锚点图.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/HD-008_任长风_锚点图.png",
+      "type": "character",
+      "name": "任长风",
+      "code": "HD-008",
+      "dna": "#龍芯⚡️2026-08-19-HD-008-08A007A2-UID9622",
+      "size_bytes": 1186591,
+      "modified": "2026-08-19T11:53:42",
+      "dimensions": "1024x1024"
+    },
+    "HD-101": {
+      "filename": "HD-101_向问天_锚点图.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/HD-101_向问天_锚点图.png",
+      "type": "character",
+      "name": "向问天",
+      "code": "HD-101",
+      "dna": "#龍芯⚡️2026-08-19-HD-101-A125E272-UID9622",
+      "size_bytes": 1190726,
+      "modified": "2026-08-18T18:25:39",
+      "dimensions": "1024x1024"
+    },
+    "HD-102": {
+      "filename": "HD-102_韩非_锚点图.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/HD-102_韩非_锚点图.png",
+      "type": "character",
+      "name": "韩非",
+      "code": "HD-102",
+      "dna": "#龍芯⚡️2026-08-19-HD-102-37087D7D-UID9622",
+      "size_bytes": 1115876,
+      "modified": "2026-08-19T11:54:05",
+      "dimensions": "1024x1024"
+    },
+    "HD-103": {
+      "filename": "HD-103_萧方_锚点图.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/HD-103_萧方_锚点图.png",
+      "type": "character",
+      "name": "萧方",
+      "code": "HD-103",
+      "dna": "#龍芯⚡️2026-08-19-HD-103-22BF8734-UID9622",
+      "size_bytes": 1500722,
+      "modified": "2026-08-19T11:54:44",
+      "dimensions": "1024x1024"
+    },
+    "HD-104": {
+      "filename": "HD-104_陈百成_锚点图.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/HD-104_陈百成_锚点图.png",
+      "type": "character",
+      "name": "陈百成",
+      "code": "HD-104",
+      "dna": "#龍芯⚡️2026-08-19-HD-104-4AF57364-UID9622",
+      "size_bytes": 1574210,
+      "modified": "2026-08-19T11:55:18",
+      "dimensions": "1024x1024"
+    },
+    "HD-201": {
+      "filename": "HD-201_彭玲_锚点图.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/HD-201_彭玲_锚点图.png",
+      "type": "character",
+      "name": "彭玲",
+      "code": "HD-201",
+      "dna": "#龍芯⚡️2026-08-19-HD-201-90D2D22D-UID9622",
+      "size_bytes": 1382934,
+      "modified": "2026-08-19T11:57:43",
+      "dimensions": "1024x1024"
+    },
+    "HD-202": {
+      "filename": "HD-202_金蓉_锚点图.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/HD-202_金蓉_锚点图.png",
+      "type": "character",
+      "name": "金蓉",
+      "code": "HD-202",
+      "dna": "#龍芯⚡️2026-08-19-HD-202-8F3E1135-UID9622",
+      "size_bytes": 1309253,
+      "modified": "2026-08-19T11:57:10",
+      "dimensions": "1024x1024"
+    },
+    "S-01-01-001": {
+      "filename": "S-01-01-001_金刀_谢文东.png",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/S-01-01-001_金刀_谢文东.png",
+      "type": "prop",
+      "name": "金刀_谢文东",
+      "code": "S-01-01-001",
+      "dna": "#龍芯⚡️2026-08-19-S-01-01-001-0E56F2B0-UID9622",
+      "size_bytes": 1332579,
+      "modified": "2026-08-18T18:02:16",
+      "dimensions": "1024x1024"
+    },
+    "00_旁白": {
+      "filename": "00_旁白.mp3",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/audio/00_旁白.mp3",
+      "type": "unknown",
+      "name": "00_旁白",
+      "code": "00_旁白",
+      "dna": "#龍芯⚡️2026-08-19-00_旁白-77176C74-UID9622",
+      "size_bytes": 101613,
+      "modified": "2026-08-18T21:35:03"
+    },
+    "01_三眼": {
+      "filename": "01_三眼.mp3",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/audio/01_三眼.mp3",
+      "type": "unknown",
+      "name": "01_三眼",
+      "code": "01_三眼",
+      "dna": "#龍芯⚡️2026-08-19-01_三眼-5E7B716F-UID9622",
+      "size_bytes": 51693,
+      "modified": "2026-08-18T21:35:05"
+    },
+    "02_谢文东": {
+      "filename": "02_谢文东.mp3",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/audio/02_谢文东.mp3",
+      "type": "unknown",
+      "name": "02_谢文东",
+      "code": "02_谢文东",
+      "dna": "#龍芯⚡️2026-08-19-02_谢文东-C729B7C9-UID9622",
+      "size_bytes": 71469,
+      "modified": "2026-08-18T21:35:08"
+    },
+    "03_三眼": {
+      "filename": "03_三眼.mp3",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/audio/03_三眼.mp3",
+      "type": "unknown",
+      "name": "03_三眼",
+      "code": "03_三眼",
+      "dna": "#龍芯⚡️2026-08-19-03_三眼-798288DC-UID9622",
+      "size_bytes": 33261,
+      "modified": "2026-08-18T21:35:09"
+    },
+    "04_谢文东": {
+      "filename": "04_谢文东.mp3",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/audio/04_谢文东.mp3",
+      "type": "unknown",
+      "name": "04_谢文东",
+      "code": "04_谢文东",
+      "dna": "#龍芯⚡️2026-08-19-04_谢文东-F71C4498-UID9622",
+      "size_bytes": 56685,
+      "modified": "2026-08-18T21:35:12"
+    },
+    "05_三眼": {
+      "filename": "05_三眼.mp3",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/audio/05_三眼.mp3",
+      "type": "unknown",
+      "name": "05_三眼",
+      "code": "05_三眼",
+      "dna": "#龍芯⚡️2026-08-19-05_三眼-2FE49C2C-UID9622",
+      "size_bytes": 18669,
+      "modified": "2026-08-18T21:35:42"
+    },
+    "06_谢文东": {
+      "filename": "06_谢文东.mp3",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/audio/06_谢文东.mp3",
+      "type": "unknown",
+      "name": "06_谢文东",
+      "code": "06_谢文东",
+      "dna": "#龍芯⚡️2026-08-19-06_谢文东-048BFB4C-UID9622",
+      "size_bytes": 102381,
+      "modified": "2026-08-18T21:35:45"
+    },
+    "07_三眼": {
+      "filename": "07_三眼.mp3",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/audio/07_三眼.mp3",
+      "type": "unknown",
+      "name": "07_三眼",
+      "code": "07_三眼",
+      "dna": "#龍芯⚡️2026-08-19-07_三眼-AB32D792-UID9622",
+      "size_bytes": 102426,
+      "modified": "2026-08-18T21:35:48"
+    },
+    "08_谢文东": {
+      "filename": "08_谢文东.mp3",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/audio/08_谢文东.mp3",
+      "type": "unknown",
+      "name": "08_谢文东",
+      "code": "08_谢文东",
+      "dna": "#龍芯⚡️2026-08-19-08_谢文东-F3DE0FF0-UID9622",
+      "size_bytes": 60717,
+      "modified": "2026-08-18T21:35:51"
+    },
+    "09_旁白": {
+      "filename": "09_旁白.mp3",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/audio/09_旁白.mp3",
+      "type": "unknown",
+      "name": "09_旁白",
+      "code": "09_旁白",
+      "dna": "#龍芯⚡️2026-08-19-09_旁白-CA95EAE0-UID9622",
+      "size_bytes": 81261,
+      "modified": "2026-08-18T21:35:54"
+    },
+    "EP01_初见_完整场景": {
+      "filename": "EP01_初见_完整场景.mp3",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/audio/EP01_初见_完整场景.mp3",
+      "type": "unknown",
+      "name": "EP01_初见_完整场景",
+      "code": "EP01_初见_完整场景",
+      "dna": "#龍芯⚡️2026-08-19-EP01_初见_完整场景-640AF223-UID9622",
+      "size_bytes": 679962,
+      "modified": "2026-08-18T21:36:27"
+    },
+    "H01_慧慧_亮相": {
+      "filename": "H01_慧慧_亮相.mp3",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/audio/H01_慧慧_亮相.mp3",
+      "type": "unknown",
+      "name": "H01_慧慧_亮相",
+      "code": "H01_慧慧_亮相",
+      "dna": "#龍芯⚡️2026-08-19-H01_慧慧_亮相-8A04DE13-UID9622",
+      "size_bytes": 71661,
+      "modified": "2026-08-18T21:40:14"
+    },
+    "H02_慧慧_宪法": {
+      "filename": "H02_慧慧_宪法.mp3",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/audio/H02_慧慧_宪法.mp3",
+      "type": "unknown",
+      "name": "H02_慧慧_宪法",
+      "code": "H02_慧慧_宪法",
+      "dna": "#龍芯⚡️2026-08-19-H02_慧慧_宪法-5D977300-UID9622",
+      "size_bytes": 134298,
+      "modified": "2026-08-18T21:40:18"
+    },
+    "H03_慧慧_收尾": {
+      "filename": "H03_慧慧_收尾.mp3",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/audio/H03_慧慧_收尾.mp3",
+      "type": "unknown",
+      "name": "H03_慧慧_收尾",
+      "code": "H03_慧慧_收尾",
+      "dna": "#龍芯⚡️2026-08-19-H03_慧慧_收尾-16FAE5DB-UID9622",
+      "size_bytes": 72621,
+      "modified": "2026-08-18T21:40:21"
+    },
+    "龍慧慧_官方独白_v1": {
+      "filename": "龍慧慧_官方独白_v1.mp3",
+      "path": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库/audio/龍慧慧_官方独白_v1.mp3",
+      "type": "unknown",
+      "name": "龍慧慧_官方独白_v1",
+      "code": "龍慧慧_官方独白_v1",
+      "dna": "#龍芯⚡️2026-08-19-龍慧慧_官方独白_v1-D91548FD-UID9622",
+      "size_bytes": 278682,
+      "modified": "2026-08-18T21:40:21"
+    }
+  }
+}

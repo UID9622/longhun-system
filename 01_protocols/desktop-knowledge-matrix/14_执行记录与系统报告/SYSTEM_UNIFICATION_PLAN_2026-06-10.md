@@ -1,6 +1,8 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 龍魂系統·全面統一整合計劃
 # 日期: 2026-06-10 CST
-# DNA:#龍芯⚡️丙午·丙申·庚申·亥时-SYSTEM-UNIFICATION-PLAN-v1.0
+# DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SYSTEM-UNIFICATION-PLAN-v1.0
 
 ---
 
@@ -242,7 +244,7 @@ mv scripts/* tools/scripts/ (如果有相同的)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂系統·核心模塊統一入口
-DNA:#龍芯⚡️丙午·丙申·庚申·亥时-SYSTEM-UNIFICATION-v1.0
+DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SYSTEM-UNIFICATION-v1.0
 """
 
 # 核心系統
@@ -447,7 +449,7 @@ executors/
 
 ---
 
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-SYSTEM-UNIFICATION-PLAN-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SYSTEM-UNIFICATION-PLAN-v1.0
 **確認碼**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **版本**: 1.0 (完整分析版)
 **有效期**: 永久 (架構性建議)

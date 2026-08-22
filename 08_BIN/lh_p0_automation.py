@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·丙申·庚申·亥时-P0-AUTOMATION-MAC-v1.0
+# DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-P0-AUTOMATION-MAC-v1.0
 # 创建者: 诸葛鑫（UID9622）
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -362,9 +362,6 @@ class BrowserAutomation:
         except Exception:
             return False
 
-    def _osa(self, script: str, timeout: int = 15) -> subprocess.CompletedProcess:
-        return subprocess.run(["osascript", "-e", script],
-                              capture_output=True, text=True, timeout=timeout)
 
     def execute(self, action: str, params: Optional[Dict] = None) -> Dict:
         check = P0Protocol.check_action(action)
@@ -814,8 +811,6 @@ class KnowledgeAutomation:
 class CodeAutomation:
     """代码自动化 - 生成/分析/测试（本地）"""
 
-    def __init__(self):
-        self.encryption = LocalEncryption()
 
     def execute(self, action: str, params: Optional[Dict] = None) -> Dict:
         check = P0Protocol.check_action(action)
@@ -909,8 +904,6 @@ class CodeAutomation:
 class WritingAutomation:
     """写作自动化 - 研究 → 大纲 → 正文 → 审校"""
 
-    def __init__(self):
-        self.encryption = LocalEncryption()
 
     def execute(self, action: str, params: Optional[Dict] = None) -> Dict:
         check = P0Protocol.check_action(action)

@@ -2,12 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·丙申·戌时·☲离-ANTENNA-TRAINER-v1.0-a1b2c3d4
+#龍芯⚡️丙午·乙未·丙申·戌时·䷝离-ANTENNA-TRAINER-v1.0-a1b2c3d4
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # ============================================================
 # 龍魂 · ANTENNA-8GATE 路由知识注入训练器
-# DNA：#龍芯⚡️丙午·乙未·丙申·戌时·☲离-ANTENNA-TRAINER-v1.0-a1b2c3d4
+# DNA：#龍芯⚡️丙午·乙未·丙申·戌时·䷝离-ANTENNA-TRAINER-v1.0-a1b2c3d4
 # 创建者：诸葛鑫（UID9622）· 协议：CC BY-NC-SA 4.0
 #
 # 目标: 将 ANTENNA-8GATE 八卦路由知识注入 longhun-v4.1.1-bind

@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-warehouse-audit
 description: >
@@ -12,7 +13,7 @@ description: >
 metadata:
   id: longhun-warehouse-audit
   version: '5.0'
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-WAREHOUSE-AUDIT-v5.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-WAREHOUSE-AUDIT-v5.0'
   author: UID9622 · 龍魂體系
   category: governance
   trigger:

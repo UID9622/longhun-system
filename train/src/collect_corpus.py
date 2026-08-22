@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂本地训练引擎 · 自动语料收集器
-DNA: #龍芯⚡️2026-06-28-LONGHUN-TRAIN-COLLECT-v1.0
+DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-TRAIN-COLLECT-v1.0
 
 自动扫描项目内的协议、论文、技能、记忆等目录，把 .md/.txt 收集到训练目录。
 跳过密钥、.env、私密文件、二进制、重复文件。
@@ -29,7 +30,7 @@ class CorpusCollector:
         self.max_file_size = max_file_size
         self.max_files = max_files
         self.max_total_bytes = (max_total_mb * 1024 * 1024) if max_total_mb else None
-        self.dna = "#龍芯⚡️2026-06-28-LONGHUN-TRAIN-COLLECT-v1.0"
+        self.dna = "#龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-TRAIN-COLLECT-v1.0"
 
     def _should_skip(self, path):
         """判断文件是否跳过。"""

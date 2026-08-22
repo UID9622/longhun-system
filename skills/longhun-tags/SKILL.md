@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
@@ -14,7 +14,7 @@ metadata:
   display_name: 龍魂标签体系
   version: "1.1.0"
   author: UID9622
-  dna: "#龍芯⚡️2026-07-01-LONGHUN-TAG-SYSTEM-v1.1"
+  dna: "#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-TAG-SYSTEM-v1.1"
   category: internal
   status: active
   entry: "python3 /Users/zuimeidedeyihan/longhun-system/skills/longhun-tags/scripts/longhun_tags.py"
@@ -34,7 +34,7 @@ metadata:
 
 # longhun-tags | 龍魂文化标签体系 v1.1
 
-> **DNA**: `#龍芯⚡️2026-07-01-LONGHUN-TAG-SYSTEM-v1.1`  
+> **DNA**: `#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-TAG-SYSTEM-v1.1`  
 > **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 > **SEAL**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`  
 > **UID**: 9622 | **版本**: 1.1.0
@@ -250,7 +250,7 @@ class TagExtensionRegistry:
 ## 12. DNA 追溯
 
 ```
-本技能: #龍芯⚡️2026-07-01-LONGHUN-TAG-SYSTEM-v1.1
+本技能: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-TAG-SYSTEM-v1.1
 来源:   /Users/zuimeidedeyihan/Downloads/Kimi_Agent_通心意译模型更新/longhun_tags.py
 迭代:   小艺设计评审 v1.1
 作者:   UID9622

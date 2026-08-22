@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 CNSH → Python 代码生成器
-DNA: #龍芯⚡️2026-06-26-LONGHUN-CNSH-PYTHON-CODEGEN-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-CNSH-PYTHON-CODEGEN-v1.0
 """
 from __future__ import annotations
 
@@ -176,7 +177,7 @@ class PythonCodeGenerator:
         self.indent_level = 0
         self.lines = []
         self._emit("# 由 longhun-chinese-editor 编译器生成")
-        self._emit("# DNA: #龍芯⚡️2026-06-26-CNSH-GENERATED-PYTHON")
+        self._emit("# DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-CNSH-GENERATED-PYTHON")
         has_main = False
         for decl in program.decls:
             if isinstance(decl, ast.FuncDecl) and decl.name == "主函数":

@@ -3,7 +3,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 龍魂·内容自动分类吸收引擎 v1.0
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-CONTENT-CLASSIFIER-v1.0
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-CONTENT-CLASSIFIER-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

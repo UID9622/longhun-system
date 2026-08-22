@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 三才 v2.0 · 五阶纯净链评测器 + 叄循环钩子系统
-DNA: #龍芯⚡️2026-07-07-SANCAI-V2-PURITY-HOOKS-v1.0
+DNA: #龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-SANCAI-V2-PURITY-HOOKS-v1.0
 
 论文公式落地：
   公式(5): P: I(初心) → D(用心) → C(在乎) → S(认真) → L(有爱)
@@ -71,7 +72,7 @@ class PurityChainEvaluator:
     论文定理2: L ⇔ I ∧ D ∧ C ∧ S
     """
 
-    DNA = "#龍芯⚡️2026-07-07-PURITY-CHAIN-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-PURITY-CHAIN-v1.0"
 
     # 每阶评测关键词权重
     STAGE_KEYWORDS = {
@@ -239,7 +240,7 @@ class SanCycleHooks:
       }
     """
 
-    DNA = "#龍芯⚡️2026-07-07-SANCYCLE-HOOKS-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-SANCYCLE-HOOKS-v1.0"
 
     # 钩子注册表
     HOOK_POINTS = ["pre_yi", "post_yi", "pre_er", "post_er", "pre_san", "post_san"]

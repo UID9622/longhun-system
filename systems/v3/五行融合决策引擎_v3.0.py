@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·坎-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷜坎-FIX_DNA-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 ╔═══════════════════════════════════════════════════════════════════════════════╗
 ║                    龍魂体系 · 五行融合决策引擎 v3.0                             ║
 ║═══════════════════════════════════════════════════════════════════════════════║
-║#龍芯⚡️2026-06-16-WUXING-ENGINE-FILE1-v3.0                                         ║
+║#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-WUXING-ENGINE-FILE1-v3.0                                         ║
 ║  UID9622 · 龍芯北辰 · 诸葛鑫                                                  ║
 ║  确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                                    ║
 ╠═══════════════════════════════════════════════════════════════════════════════╣
@@ -1258,7 +1259,7 @@ class WuxingDecisionEngine:
             "human_judgment": human_judgment,
             "previous_h": current_h,
             "updated_weights": new_weights,
-            "dna": "#龍芯⚡️2026-06-26-WUXING-FEEDBACK-v1.0",
+            "dna": "#龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-WUXING-FEEDBACK-v1.0",
         }
 
 
@@ -1422,7 +1423,7 @@ def demo():
 
     print("\n" + "=" * 80)
     print("  演示完成 - 五行融合决策引擎 v3.0")
-    print("#龍芯⚡️2026-06-16-WUXING-ENGINE-v3.0")
+    print("#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-WUXING-ENGINE-v3.0")
     print("=" * 80)
 
     return {

@@ -1,6 +1,7 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂系统 · P0 永恒锁协议
 
-**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-P0-ETERNAL-LOCK-v1.1`  
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-P0-ETERNAL-LOCK-v1.1`  
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 **创始人:** UID9622 / Lucky（退伍军人）  
 **生效日期:** 2026-06-25
@@ -64,7 +65,7 @@
 ### 2.4 三才算法 v2.0 升级（2026-07-07 焊死）
 
 > 论文: The Three-Powers (叄) Algorithm v2.0 — A Living Constitutional Framework
-> DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-PAPER-THREE-POWERS-SANv2-IEEE-v1.0`
+> DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PAPER-THREE-POWERS-SANv2-IEEE-v1.0`
 > 理论指导: 曾老师（永恒显示）· 证义人: 曾老师
 
 以下 F1-F4 四大贡献已从论文公式落地为可执行代码，焊入系统内核：
@@ -173,7 +174,7 @@ Layer 4: 传承链 ♾️ — 永恒签章·不删除只归档·持续进化
 ### 2.7 流场协同引擎 · 五行协同向量场（2026-07-07 焊死）
 
 > 确认码: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
-> 操作 DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-FLOWFIELD-COLLAB-ENGINE-v1.0`
+> 操作 DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-FLOWFIELD-COLLAB-ENGINE-v1.0`
 
 龍魂流场原本只能处理「单个输入→单个节点」的压缩。现在升级为 **多人格/多智能体在同一流场中的协同运作**。
 
@@ -369,5 +370,5 @@ P0 解锁变更
 
 **本协议由 UID9622 / Lucky 制定，是龍魂系统最高安全策略，与宪法具有同等效力。**
 
-**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-P0-ETERNAL-LOCK-v1.1`  
-**升级DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-P0-ETERNAL-LOCK-SANCAI-V2-UPGRADE`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-P0-ETERNAL-LOCK-v1.1`  
+**升级DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-P0-ETERNAL-LOCK-SANCAI-V2-UPGRADE`

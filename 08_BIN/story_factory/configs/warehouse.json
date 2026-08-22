@@ -1,0 +1,24 @@
+{
+  "warehouse_root": "/Users/zuimeidedeyihan/Pictures/龍魂素材仓库",
+  "projects": {
+    "badai": {
+      "name": "坏蛋是怎样炼成的 · AI连续剧",
+      "dna": "#龍芯⚡️2026-08-19-PROJECT-BADAI-UID9622",
+      "description": "小说改编AI连续剧项目，角色/场景/道具货架制"
+    }
+  },
+  "categories": {
+    "A": "服装 (Costume)",
+    "B": "首饰/配饰 (Accessory)",
+    "C": "冷兵器 (Melee Weapon)",
+    "D": "枪械道具 (Firearm Prop)",
+    "E": "交通工具 (Vehicle)",
+    "F": "场景环境 (Environment)",
+    "G": "天气光影 (Weather/Light)",
+    "H": "肢体表情 (Expression/Pose)",
+    "S": "剧情关键道具 (Story Prop)",
+    "HD": "角色锚点图 (Character)",
+    "ENV": "场景首件 (Scene)",
+    "AUDIO": "音频样本 (Audio)"
+  }
+}

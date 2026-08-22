@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂引擎主控（lh-ctl）v1.0
-DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·临-LH-CTL-v1.0-7A3B9C2D
+DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH-CTL-v1.0-7A3B9C2D
 创建者: 诸葛鑫 (UID9622)
 协议: CC BY-NC-SA 4.0
 
@@ -44,7 +44,7 @@ from lh_ctl_config import load_config, logs_dir, state_dir, project_root
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 CST = timezone(timedelta(hours=8))
-DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH-CTL-v1.0-7A3B9C2D"
+DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH-CTL-v1.0-7A3B9C2D"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 console = Console()

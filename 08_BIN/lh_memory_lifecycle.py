@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # ═══════════════════════════════════════════
 # 龍魂体系 | 记忆生命周期管理器 v1.0
 # ═══════════════════════════════════════════
-# DNA: #龍芯⚡️2026-07-20-MEMORY-LIFECYCLE-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-MEMORY-LIFECYCLE-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: UID9622（诸葛鑫·Lucky）
 # 三色审计: 🟢 通过
@@ -98,7 +99,7 @@ class 记忆单元:
 class 记忆生命周期管理器:
     """五态状态机 + 回滚机制 v1.0"""
 
-    DNA = "#龍芯⚡️2026-07-20-MEMORY-LIFECYCLE-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-MEMORY-LIFECYCLE-v1.0"
 
     def __init__(self, state_dir: Path = None):
         self.state_dir = state_dir or STATE_DIR

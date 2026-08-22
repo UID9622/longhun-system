@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-COVERAGE-REPORT-FILE1-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-COVERAGE-REPORT-FILE1-v1.0
 """Generate a Markdown coverage report for the LonghunFont glyph library."""
 
 import json
@@ -23,7 +24,7 @@ DEFAULT_GLYPH_LIBRARY = PROJECT_ROOT / "glyphs" / "龍魂字元库_v0019_龍纹�
 PUA_TABLE_PATH = PROJECT_ROOT / "docs" / "PUA编码表.md"
 REPORT_OUTPUT_PATH = PROJECT_ROOT / "docs" / "字体覆盖报告.md"
 
-DNA_CODE = "#龍芯⚡️2026-06-22-LONGHUN-FONT-COVERAGE-REPORT-v1.0"
+DNA_CODE = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-COVERAGE-REPORT-v1.0"
 
 
 # ---------------------------------------------------------------------------

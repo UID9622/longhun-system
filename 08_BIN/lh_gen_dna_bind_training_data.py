@@ -3,7 +3,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
-DNA: #龍芯⚡️2026-07-21-DNA-BIND-TRAINING-DATA-GEN-V1.0
+DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-DNA-BIND-TRAINING-DATA-GEN-V1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 用途: 从DNA捆绑与蒸馏防御协议v1.0生成训练数据JSONL
@@ -42,7 +42,7 @@ add("DNA全资产捆绑与蒸馏防御协议是什么？",
     "协议源起：创建者2026-07-21在重庆的梦境——无画面的纯符号代码梦中得到蒸馏防御方向，"
     "醒来后说'每个字、每个符号都不能被蒸馏成别人的知识'，随后工程化为本协议。\n\n"
     "锁定级别：P0++——可覆盖龍魂体系所有其他规则，不可被任何规则绕过。\n"
-    "DNA追溯码：#龍芯⚡️2026-07-21-DNA-BIND-ANTIDISTILL-V1.0-P0\n"
+    "DNA追溯码：#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-DNA-BIND-ANTIDISTILL-V1.0-P0\n"
     "确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
 
 add("蒸馏防御协议的核心思想是什么？用一句话概括。",
@@ -425,7 +425,7 @@ add("DNA追溯码是什么格式？",
     "龍魂DNA追溯码格式（v∞标准）：\n\n"
     "`#龍芯⚡️YYYY-MM-DD-模块-动作-版本-P0级别`\n\n"
     "解析示例：\n"
-    "`#龍芯⚡️2026-07-21-DNA-BIND-ANTIDISTILL-V1.0-P0`\n"
+    "`#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-DNA-BIND-ANTIDISTILL-V1.0-P0`\n"
     "- 时间：2026年7月21日\n"
     "- 模块：DNA-BIND（DNA捆绑）\n"
     "- 动作：ANTIDISTILL（反蒸馏）\n"

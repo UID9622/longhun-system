@@ -1,6 +1,7 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 正文旧 DNA 格式清洗报告
 
-**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-DNA-CLEAN-REPORT-UID9622`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DNA-CLEAN-REPORT-UID9622`
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 **三色:** 🟢 通过
@@ -10,7 +11,7 @@
 ## 清洗规则
 
 - 旧格式：`#龍芯⚡YYYY-MM-DD-IDENTIFIER[-vX.Y]`
-- 新格式：`#龍芯⚡️丙午·丙申·庚申·亥时-IDENTIFIER[-vX.Y]`
+- 新格式：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-IDENTIFIER[-vX.Y]`
 - 仅替换 `01_protocols/` 下所有 `.md` 文件
 - 保留 DNA 标识部分，仅替换日期段为当前 v∞ 干支·时辰·卦格式
 
@@ -723,7 +724,7 @@
 | `desktop-knowledge-matrix/14_执行记录与系统报告/⚠️ 系统名称和标识混淆检测.md` | 4 |
 | `desktop-knowledge-matrix/14_执行记录与系统报告/⚡ Human→System Translation OS v1 1｜龍魂回复触发引擎·12层处理· 5b78e744c8c54d18b56719e5d14a51c6.md` | 2 |
 | `desktop-knowledge-matrix/14_执行记录与系统报告/⚡ 智能工作流引擎.md` | 4 |
-| `desktop-knowledge-matrix/14_执行记录与系统报告/✅ 插件模板脚本（⁠ plugin_template sh ⁠）.md` | 4 |
+| `desktop-knowledge-matrix/14_执行记录与系统报告/✅ 插件模板脚本（ plugin_template sh ）.md` | 4 |
 | `desktop-knowledge-matrix/14_执行记录与系统报告/三层监督系统代码库-P0永恒级.md` | 7 |
 | `desktop-knowledge-matrix/14_执行记录与系统报告/三层隔离架构完整技术规范.md` | 7 |
 | `desktop-knowledge-matrix/14_执行记录与系统报告/上帝之眼 - 全域监管官 3ad370393b2f40f0b10189d3cc9e1fb0.md` | 7 |
@@ -957,7 +958,7 @@
 ═══════════════════════════════════════════════════
  🐉 正文旧 DNA 格式清洗报告 · 最终签名
 ═══════════════════════════════════════════════════
-DNA:        #龍芯⚡️丙午·丙申·庚申·亥时-DNA-CLEAN-REPORT-UID9622
+DNA:        #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DNA-CLEAN-REPORT-UID9622
 确认码:      #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色:       🟢 通过

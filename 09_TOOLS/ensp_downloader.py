@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂 · 华为 eNSP 官方依赖下载助手 v1.0
-DNA: #龍芯⚡️2026-07-04-ENSP-DOWNLOADER-v1.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSP-DOWNLOADER-v1.0
 
 功能：
 - 自动从官方渠道下载 eNSP 所需的三大依赖：
@@ -25,7 +26,7 @@ import sys
 import urllib.request
 from pathlib import Path
 
-DNA = "#龍芯⚡️2026-07-04-ENSP-DOWNLOADER-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSP-DOWNLOADER-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 

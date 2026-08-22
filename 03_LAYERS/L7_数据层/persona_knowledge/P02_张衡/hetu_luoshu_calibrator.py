@@ -2,7 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """🐉 河图洛书权重校准器 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲寅·申时·师-P02-HETU-LUOSHU-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·乙未·甲寅·申时·䷆师-P02-HETU-LUOSHU-v1.0
 
 核心功能：
   1. 河图洛书矩阵常量（L0焊死）
@@ -266,4 +267,4 @@ if __name__ == "__main__":
     pprint(viz, width=100)
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·复-CONFIRM-SEAL-hetu_luoshu_calibrat-9A47FABC
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷗复-CONFIRM-SEAL-hetu_luoshu_calibrat-9A47FABC

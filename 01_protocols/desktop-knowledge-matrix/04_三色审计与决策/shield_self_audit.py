@@ -1,8 +1,10 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/Users/zuimeidedeyihan/longhun-system/.venv_longhun_math/bin/python
 # -*- coding: utf-8 -*-
 """
 🛡️ 龍魂护盾 · 左右互搏自检审计引擎
-DNA: #龍芯⚡️2026-06-29-LONGHUN-SHIELD-SELF-AUDIT-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-SHIELD-SELF-AUDIT-v1.0
 
 任务：
   1. 用左右互搏（预期 vs 实际）对护盾五维守卫做对抗测试。
@@ -36,7 +38,7 @@ from gua_audit_engine import GuaAuditEngine
 # 配置与默认值
 # ============================================================
 
-DNA = "#龍芯⚡️2026-06-29-龍魂护盾-v3-CNSH-UID9622"
+DNA = "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂护盾-v3-CNSH-UID9622"
 WRONG_DNA = "#錯誤-DNA"
 
 DEFAULT_ENV = {

@@ -9,7 +9,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-AUTO-CLOSURE-PROTOCOL-v1.0``  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AUTO-CLOSURE-PROTOCOL-v1.0``  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -23,7 +23,7 @@
 > 平台：本地
 > 審核狀態：草稿
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-AUTO-CLOSURE-PROTOCOL-v1.0`  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AUTO-CLOSURE-PROTOCOL-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -37,7 +37,7 @@
 
 **定位：** 任务完成后自动进入收口流程·不靠老大再提醒。双端适用：**Cursor 本地执行端** + **Claude / 宝宝 Notion 同步端**。
 
-**DNA：**#龍芯⚡️丙午·丙申·庚申·亥时-AUTO-CLOSURE-PROTOCOL-v1.0
+**DNA：**#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AUTO-CLOSURE-PROTOCOL-v1.0
 
 **CONFIRM：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
@@ -332,7 +332,7 @@ chmod +x tools/uid9622_auto_closure.sh
 ```bash
 #!/usr/bin/env bash
 # UID9622 自动收口脚本 v1.0
-# DNA:#龍芯⚡️丙午·丙申·庚申·亥时-AUTO-CLOSURE-v1.0
+# DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AUTO-CLOSURE-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -u
@@ -514,7 +514,7 @@ M:: {
 
 ```json
 CNSH:: {
-  "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-AUTO-CLOSURE-PROTOCOL-v1.0",
+  "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AUTO-CLOSURE-PROTOCOL-v1.0",
   "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
   "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
   "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
@@ -541,7 +541,7 @@ CNSH:: {
 - 本文檔引用或參考了以下來源：
   - [1] （請填寫）
 - 相關龍魂系統文檔：
-  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文檔標準模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 誠實局限
 
@@ -564,7 +564,7 @@ CNSH:: {
 ## DNA 簽名
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-AUTO-CLOSURE-PROTOCOL-v1.0
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AUTO-CLOSURE-PROTOCOL-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```
 
@@ -584,7 +584,7 @@ CNSH:: {
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -607,6 +607,6 @@ CNSH:: {
 ## DNA 签名
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-AUTO-CLOSURE-PROTOCOL-v1.0`
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AUTO-CLOSURE-PROTOCOL-v1.0`
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

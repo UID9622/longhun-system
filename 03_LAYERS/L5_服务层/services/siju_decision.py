@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # ============================================================
 # 龍魂四绝 · 开店决策系统 v2.1 (真落地版)
 # 文件：L5_服务层/services/siju_decision.py
@@ -263,10 +264,6 @@ class LocalTaste:
     provenance: Optional[Provenance] = None
     derivation_chain: List[Derivation] = field(default_factory=list)
 
-    def validate(self) -> bool:
-        assert self.provenance is not None
-        self.provenance.validate()
-        return True
 
 
 # ============================================================
@@ -293,10 +290,6 @@ class CompetitionAnalysis:
     provenance: Optional[Provenance] = None
     derivation_chain: List[Derivation] = field(default_factory=list)
 
-    def validate(self) -> bool:
-        assert self.provenance is not None
-        self.provenance.validate()
-        return True
 
 
 # ============================================================

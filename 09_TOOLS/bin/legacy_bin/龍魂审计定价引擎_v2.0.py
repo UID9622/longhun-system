@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂审计定价引擎 v2.0 + 支付网关 + 投资池
-DNA: #龍芯⚡️2026-06-30-LONGHUN-PRICING-ENGINE-v2.0-UID9622
+DNA: #龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-PRICING-ENGINE-v2.0-UID9622
 归属: 龍魂系统 · UID9622
 原则:
   - 定价稳定、可预期：地板/天花板/日变更限速，不随情绪乱变
@@ -107,10 +108,6 @@ class AtomicJsonStore:
 class JsonlStore:
     """線程安全的 JSONL 追加"""
 
-    def __init__(self, path: Path):
-        self.path = path
-        self.lock = threading.Lock()
-        _ensure_dir()
 
     def append(self, record: dict[str, Any]) -> None:
         with self.lock:
@@ -139,7 +136,7 @@ class JsonlStore:
 # ---------- 配置 ----------
 @dataclass
 class 定价配置:
-    脱氧核糖核酸锚定: str = "#龍芯⚡️2026-06-30-LONGHUN-PRICING-ENGINE-v2.0-UID9622"
+    脱氧核糖核酸锚定: str = "#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-PRICING-ENGINE-v2.0-UID9622"
     主人标识: str = "UID9622"
 
     # 基础定价
@@ -237,8 +234,6 @@ class 用户账户:
     状态: str = "active"
     脱氧核糖核酸: str = field(default_factory=lambda: _dna("USER-REGISTER"))
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
 
     @classmethod
     def from_dict(cls, d: dict[str, Any]) -> "用户账户":
@@ -394,8 +389,6 @@ class 动态定价引擎:
 
 # ---------- 成本模型 ----------
 class 成本模型:
-    def __init__(self, cfg: 定价配置):
-        self.cfg = cfg
 
     def 单次审计成本(self) -> float:
         return round(

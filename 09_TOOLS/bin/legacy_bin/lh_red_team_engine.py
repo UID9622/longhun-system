@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 🐉 龍魂 · 红队对抗引擎 v1.0 (Red Team Adversarial Engine)
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ===========================================================
 投喂落地：CNSH Runtime Governance Mathematics · 红队引擎 + AI模拟敌人
 
@@ -11,7 +12,7 @@
   - 红队报告生成
   - 对抗强度评分
 
-DNA: #龍芯⚡️丙午·乙未·己未·申时·履-RED-TEAM-v1.0-U5V6W7X8
+DNA: #龍芯⚡️丙午·乙未·己未·申时·䷉履-RED-TEAM-v1.0-U5V6W7X8
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 

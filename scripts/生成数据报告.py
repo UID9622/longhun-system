@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 · 训练数据报告生成器
 把 JSON 质量报告转成 Markdown 可读报告，便于飞书推送或人工审阅。
-DNA: #龍芯⚡️2026-06-30-LONGHUN-TRAINING-REPORT-v1.0
+DNA: #龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-TRAINING-REPORT-v1.0
 """
 
 import json

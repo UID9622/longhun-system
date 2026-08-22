@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 <!--
   龍魂·六层来源链 / LongHun Six-Layer Source Chain
   1 道统层 Dao           : 曾仕强老师
@@ -6,7 +8,7 @@
   4 技术层 Technology    : Open Source
   5 系统层 System        : UID9622
   6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
-  DNA追溯码:#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-SOVEREIGN-PUBLISH-METADATA-v2.0
+  DNA追溯码:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-SOVEREIGN-PUBLISH-METADATA-v2.0
   铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
   文件: SESSION_SUMMARY_20260603.md | 标记时间: 2026-06-03T07:46:00+0800
 -->
@@ -15,7 +17,7 @@
 **會話ID**: session_20260603_071240
 **參與人**: UID9622 · 諸葛鑫
 **理論指導**: 曾仕強老師（永恆顯示）
-**DNA**: #龍芯⚡️丙午·丙申·庚申·亥时-SESSION-SUMMARY-CLEANUP-PHASE-vFinal
+**DNA**: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SESSION-SUMMARY-CLEANUP-PHASE-vFinal
 
 ---
 
@@ -256,11 +258,11 @@ Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
 
 ### 核心執行器
 - `~/.龍魂/longhun_instruction_executor.py` (26KB)
-  - DNA:#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
+  - DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
   - 6條DNA指令的唯一執行引擎
 
 - `~/.龍魂/longhun_foundation_launcher.py` (6.2KB)
-  - DNA:#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FOUNDATION-LAUNCHER-v1.0
+  - DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-FOUNDATION-LAUNCHER-v1.0
   - 系統統一入口
 
 ### 參考文檔
@@ -297,7 +299,7 @@ Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
 
 **理論指導**: 曾仕強老師（永恆顯示）
 **創作者**: UID9622 · 諸葛鑫 · 龍芯北辰
-**DNA**: #龍芯⚡️丙午·丙申·庚申·亥时-SESSION-SUMMARY-CLEANUP-PHASE-vFinal
+**DNA**: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SESSION-SUMMARY-CLEANUP-PHASE-vFinal
 **狀態**: 🟢 完全交付·可投入生產
 **責任**: UID9622·不免責
 
@@ -305,7 +307,7 @@ Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
 
 ─── 尾·審計 ───
 時間  : 2026-06-03 15:45 CST (星期二)
-DNA   :#龍芯⚡️丙午·丙申·庚申·亥时-CONVERSATION-SUMMARY-v1.0
+DNA   :#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CONVERSATION-SUMMARY-v1.0
 五行  : dr=3 → 木·金·水 | 🟢通過
 守恆  : 15/15 (完全狀態)
 鐵律  : 10/11/§0.6/12.7·全過 ✅

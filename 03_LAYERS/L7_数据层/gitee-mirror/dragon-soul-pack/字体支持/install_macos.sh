@@ -1,10 +1,10 @@
 #!/bin/bash
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# #龍芯⚡️20260624010825156-AUTO-DNA-668A0266 自动注入·分层治理自愈引擎 · 来源可查
+# #龍芯⚡️丙午·甲午·己巳·乙丑·䷮困-AUTO-DNA-668A0266 自动注入·分层治理自愈引擎 · 来源可查
 #!/bin/bash
-# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-INSTALL-MACOS-v1.0
+# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-INSTALL-MACOS-v1.0
 #
 # LonghunFont macOS installer
 # Copies LonghunFont-Regular.otf into the user's Fonts folder.
@@ -37,4 +37,4 @@ atsutil databases -remove 2>/dev/null || echo "Note: atsutil cache clear skipped
 # 5. Success + DNA
 echo ""
 echo "✅ LonghunFont installed successfully."
-echo "DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-INSTALL-MACOS-v1.0"
+echo "DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-INSTALL-MACOS-v1.0"

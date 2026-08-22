@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 AI 输出熔断器 — 任何 AI 生成的代码/指令先过护盾再执行
-DNA: #龍芯⚡️2026-06-29-LONGHUN-AI-OUTPUT-GUARD-v1.0
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-AI-OUTPUT-GUARD-v1.0
 原则：AI 输出不是圣旨，先验毒、再放行
 """
 
@@ -146,7 +147,7 @@ def 主函数():
 
     脱氧核糖核酸 = os.environ.get(
         "LONGHUN_SHIELD_DNA",
-        "#龍芯⚡️2026-06-29-龍魂护盾-v3-CNSH-UID9622"
+        "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂护盾-v3-CNSH-UID9622"
     )
     护盾 = 龍魂护盾(脱氧核糖核酸)
     熔断器 = AI输出熔断器(护盾)

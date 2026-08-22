@@ -1,4 +1,5 @@
-<!--#龍芯⚡️丙午·丙申·庚申·亥时-DOC-PERSONA_TRAINING_SYSTEM_V1-0-v1.0 -->
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+<!--#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DOC-PERSONA_TRAINING_SYSTEM_V1-0-v1.0 -->
 <!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
 
 # 龍魂 14 人格培训·认证·权限系统 v1.0

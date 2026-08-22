@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 MVP启动器 v1.0
 LongHun MVP Launcher
 
-DNA:#龍芯⚡️2026-06-04-MVP-LAUNCHER-v1.0
+DNA:#龍芯⚡️丙午·癸巳·己酉·庚午·䷨损-MVP-LAUNCHER-v1.0
 
 功能：
 - MVP系统初始化
@@ -98,7 +99,7 @@ class MVPLauncher:
 
     def _verify_identity(self) -> bool:
         """验证系统身份"""
-        dna = "#龍芯⚡️2026-06-04-MVP-LAUNCHER-v1.0"
+        dna = "#龍芯⚡️丙午·癸巳·己酉·庚午·䷨损-MVP-LAUNCHER-v1.0"
         uid = "9622"
         print(f"   DNA: {dna}")
         print(f"   UID: {uid}")

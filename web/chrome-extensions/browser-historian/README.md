@@ -86,6 +86,6 @@ v1.1 · 2026-07-24 · 导出链路修复 · 训练原料开关 · saveAs 系统�
 
 ---
 
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-BROWSER-HISTORIAN-v1.1
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-BROWSER-HISTORIAN-v1.1
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0

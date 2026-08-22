@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-memory-bootstrap
 description: '龍魂记忆启动器：中国自主可控的多平台记忆归集压缩技能。
@@ -17,7 +19,7 @@ description: '龍魂记忆启动器：中国自主可控的多平台记忆归集
 metadata:
   id: longhun-memory-bootstrap
   version: '5.1'
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MEMORY-BOOTSTRAP-v5.1'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-MEMORY-BOOTSTRAP-v5.1'
   trigger:
     keywords:
     - memorybootstrap
@@ -147,5 +149,5 @@ python3 ~/.longhun/scripts/longhun_senses/senses_cli.py soul "要情感化的文
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：09-杂项备忘（memory-editor、记忆压缩系统、当前任务记录）
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

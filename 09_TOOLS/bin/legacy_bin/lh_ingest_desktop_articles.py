@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂 · 桌面文章全量摄入脚本 v4.0.7
 扫描 ~/Desktop 全部 .md/.txt 文章，生成训练样本。
 冲突检测：与焊死协议比对，输出冲突报告。
-DNA: #龍芯⚡️2026-07-19-DESKTOP-ARTICLES-INGEST-v4.0.7
+DNA: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-DESKTOP-ARTICLES-INGEST-v4.0.7
 """
 
 import json

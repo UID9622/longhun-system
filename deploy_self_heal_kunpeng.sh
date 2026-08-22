@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 🐉 龍魂 · 自修复引擎鲲鹏部署脚本
-# DNA: #龍芯⚡️丙午·丙申·庚申·亥时-SELF-HEAL-KUNPENG-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SELF-HEAL-KUNPENG-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -euo pipefail
 

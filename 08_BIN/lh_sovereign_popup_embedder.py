@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-e3dc578b
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -11,7 +12,7 @@ LongHun Sovereign Popup Embedder — injects alive verification into all entry p
   3. 提供 HTTP API 供前端调用 (/api/eco/alive-status)
   4. 弹窗样式：深渊暗色 + 龍魂金 + 三色状态徽章
 
-DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-SOVEREIGN-POPUP-EMBEDDER-v1.0
+DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-SOVEREIGN-POPUP-EMBEDDER-v1.0
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 Creator: 诸葛鑫 (UID9622)
 """

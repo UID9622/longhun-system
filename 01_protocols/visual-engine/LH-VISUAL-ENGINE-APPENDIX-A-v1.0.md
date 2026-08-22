@@ -1,9 +1,11 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂·可视化引擎协议 v1.0 · 附录A
 
 > 性能基准测试 + 移动端适配 + WebWorker异步 + 离屏渲染 + PWA离线
-> DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·讼-VISUAL-ENGINE-APPENDIX-A-v1.0
+> DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-VISUAL-ENGINE-APPENDIX-A-v1.0
 
 ---
 
@@ -483,7 +485,7 @@ class MemoryMonitor {
 ```bash
 #!/bin/bash
 # longhun-visual-perf-test.sh
-# DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·讼-VISUAL-PERF-TEST-v1.0
+# DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-VISUAL-PERF-TEST-v1.0
 
 echo "🐉 龍魂可视化引擎 · 性能基准测试"
 echo "================================"
@@ -1356,6 +1358,6 @@ npm run test:visual:ci -- --threshold 90
 
 ---
 
-> DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·讼-VISUAL-ENGINE-APPENDIX-A-v1.0
+> DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-VISUAL-ENGINE-APPENDIX-A-v1.0
 > 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 > 性能等级: 5级降级 · Web Worker异步 · OffscreenCanvas · PWA离线 · 五设备分级

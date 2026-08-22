@@ -1,10 +1,10 @@
 #!/bin/bash
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-PUBLISH-WUWU-v1.0
+# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-PUBLISH-WUWU-v1.0
 #
 # 发布 @uid9622/wuwu-renderer 到 npm
 # 用法:
@@ -13,7 +13,7 @@
 
 set -euo pipefail
 
-DNA="#龍芯⚡️2026-06-22-LONGHUN-FONT-PUBLISH-WUWU-v1.0"
+DNA="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-PUBLISH-WUWU-v1.0"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PKG_DIR="$(cd "${SCRIPT_DIR}/../packages/wuwu-renderer" && pwd)"
 

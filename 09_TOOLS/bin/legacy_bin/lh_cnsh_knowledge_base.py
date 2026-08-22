@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 
 import os as _os
@@ -93,7 +94,7 @@ if __name__ == "__main__":
         标题="排序不动点协议",
         文件路径="CNSH_排序不动点协议.py",
         核心概念=["人民第一", "护弱底线", "三次审计", "排序不动点"],
-        DNA="#龍芯⚡️2026-04-19-ORDER-ANCHOR-v1.0",
+        DNA="#龍芯⚡️丙午·壬辰·癸亥·戊午·䷚颐-ORDER-ANCHOR-v1.0",
         三色摘要={"🟢": 5, "🟡": 0, "🔴": 0},
         输入SM3哈希="demo_hash",
         备注="协议已翻译成 CNSH 国密 Python",

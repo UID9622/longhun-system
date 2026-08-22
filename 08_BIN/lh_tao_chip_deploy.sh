@@ -3,7 +3,7 @@
 # 龍魂·韬定律芯片调度部署脚本 v1.0
 # LongHun · TAO Chip Scheduler Deploy Script
 # ═══════════════════════════════════════════════════════════════════════
-# DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-TAO-CHIP-DEPLOY-v1.0
+# DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·䷜坎-TAO-CHIP-DEPLOY-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # License: CN-SOVEREIGN-LICENSE-v1.0
@@ -33,7 +33,7 @@ echo -e "${BLUE}║                                                             
 echo -e "${BLUE}║        ${BOLD}🐉 龍魂·韬定律芯片调度部署 v1.0${NC}${BLUE}                      ║${NC}"
 echo -e "${BLUE}║        TAO Chip Scheduler Deployment                            ║${NC}"
 echo -e "${BLUE}║                                                                  ║${NC}"
-echo -e "${BLUE}║        DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·☵坎-TAO-CHIP-v1.0       ║${NC}"
+echo -e "${BLUE}║        DNA: #龍芯⚡️丙午·乙未·戊戌·巳时·䷜坎-TAO-CHIP-v1.0       ║${NC}"
 echo -e "${BLUE}║                                                                  ║${NC}"
 echo -e "${BLUE}╚══════════════════════════════════════════════════════════════════╝${NC}"
 echo ""

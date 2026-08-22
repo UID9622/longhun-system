@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 生成龍魂系统对接关系矩阵 Markdown。
 扫描关键目录与依赖文件，输出 docs/relationship-matrix.md。
@@ -37,7 +38,7 @@ def main():
     lines = [
         "# 龍魂系统 · 对接关系矩阵",
         "",
-        "**DNA**:#龍芯⚡️2026-06-16-RELATIONSHIP-MATRIX-FILE1-v1.0",
+        "**DNA**:#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-RELATIONSHIP-MATRIX-FILE1-v1.0",
         "",
         "本矩阵列出龍魂系统主要模块之间的对接关系，用于快速理解各板块如何互通。",
         "",

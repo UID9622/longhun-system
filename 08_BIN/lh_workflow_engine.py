@@ -1,9 +1,11 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂多 Agent 协作工作流引擎 v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 P2 · 人格链式编排 · 事件驱动 · 审计归档
-DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-WORKFLOW-ENGINE-v1.0-UID9622
+DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-WORKFLOW-ENGINE-v1.0-UID9622
 """
 
 import argparse
@@ -52,7 +54,7 @@ def list_builtin_workflows() -> dict:
         "code-review": {
             "name": "代码审查链",
             "description": "代码提交前：铁律检查 → 君子协议记录 → 事件发布 → 审计归档",
-            "dna": "#龍芯⚡️丙午·甲申·辛丑·坤卦-WF-CODE-REVIEW-v1.0-UID9622",
+            "dna": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-WF-CODE-REVIEW-v1.0-UID9622",
             "steps": [
                 {
                     "name": "铁律自审",
@@ -76,7 +78,7 @@ def list_builtin_workflows() -> dict:
         "publish": {
             "name": "对外发布链",
             "description": "内容发布前：主权检查 →  workflow-transparent → 君子协议 → 发布事件",
-            "dna": "#龍芯⚡️丙午·甲申·辛丑·坤卦-WF-PUBLISH-v1.0-UID9622",
+            "dna": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-WF-PUBLISH-v1.0-UID9622",
             "steps": [
                 {
                     "name": "内容主权检查",
@@ -105,7 +107,7 @@ def list_builtin_workflows() -> dict:
         "deploy": {
             "name": "部署审查链",
             "description": "部署前：技能路由 → 治理执行 → 健康检查 → 事件归档",
-            "dna": "#龍芯⚡️丙午·甲申·辛丑·坤卦-WF-DEPLOY-v1.0-UID9622",
+            "dna": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-WF-DEPLOY-v1.0-UID9622",
             "steps": [
                 {
                     "name": "智能体路由",

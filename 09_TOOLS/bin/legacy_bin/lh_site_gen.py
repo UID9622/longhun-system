@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════════════╗
 ║          龍魂极简站生成器 v1.0 — Markdown → 静态站点                  ║
-║  DNA: #龍芯⚡️丙午·丙申·癸丑·午时·需-SITE-GEN-v1.0-A1C3F782          ║
+║  DNA: #龍芯⚡️丙午·丙申·癸丑·午时·䷄需-SITE-GEN-v1.0-A1C3F782          ║
 ║  三色审计: 🟢 通过                                                   ║
 ╚══════════════════════════════════════════════════════════════════════╝
 

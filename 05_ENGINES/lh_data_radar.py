@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂 · 个人数据主权雷达 — 扫描引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·戊戌·午时·☵坎-DATA-RADAR-v1.0
+DNA: #龍芯⚡️丙午·乙未·戊戌·午时·䷜坎-DATA-RADAR-v1.0
 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0
 人格: P05上帝之眼（审计） + P77黑天使（安全扫描）
 铁律: 数据不出设备·报告通俗化·红色警告🟢安全一目了然
@@ -24,7 +24,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 # ═══ 常量 ═══
-DNA = "#龍芯⚡️丙午·乙未·戊戌·午时·☵坎-DATA-RADAR-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·戊戌·午时·䷜坎-DATA-RADAR-v1.0"
 CREATOR = "诸葛鑫（UID9622）"
 PROTOCOL = "CC BY-NC-SA 4.0"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent

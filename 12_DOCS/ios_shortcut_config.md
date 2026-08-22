@@ -1,7 +1,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 CNSH iOS 快捷指令配置
-DNA: #龍芯⚡️20260422-DOC-IOS01
+DNA: #龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-DOC-IOS01
 UID9622 · 诸葛鑫
 
 ---
@@ -181,7 +181,7 @@ curl -X POST http://localhost:8765/chat \
 
 ---
 
-DNA: #龍芯⚡️20260422-DOC-IOS01
+DNA: #龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-DOC-IOS01
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 🟢 不说教·不黑箱·你的语法·你的出口

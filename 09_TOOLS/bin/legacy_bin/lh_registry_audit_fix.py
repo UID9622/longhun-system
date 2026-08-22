@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """修复 persona_registry.json — 对齐 AGENTS.md + 五大后台 v3.1"""
 import json
 from datetime import datetime, timezone
@@ -251,7 +252,7 @@ d['_meta']['version'] = 'v3.1'
 d['_meta']['audit'] = {
     'date': '2026-07-11',
     'changes': changes,
-    'dna': '#龍芯⚡️丙午·丙申·丙辰·午时·需-REGISTRY-AUDIT-FIX'
+    'dna': '#龍芯⚡️丙午·丙申·丙辰·午时·䷄需-REGISTRY-AUDIT-FIX'
 }
 
 with open('personas/runtime/persona_registry.json', 'w') as f:

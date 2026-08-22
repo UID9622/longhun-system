@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂·素材扫描引擎 v1.0 — 全量媒体文件扫描 + 元数据提取 + 入库
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-MATERIAL-SCANNER-V1.0-3a7f1b2c
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-MATERIAL-SCANNER-V1.0-3a7f1b2c
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-07-20-UNIFIED-SOURCES-INGEST-v1.0
+#龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-UNIFIED-SOURCES-INGEST-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -10,7 +10,7 @@
 龍魂 · 统一来源摄入引擎 v1.0
 扫描：Notion 本地镜像 + GitHub 公开仓库 + 本地仓库
 输出：训练样本 JSONL（system/user/assistant）
-DNA: #龍芯⚡️2026-07-20-UNIFIED-SOURCES-INGEST-v1.0
+DNA: #龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-UNIFIED-SOURCES-INGEST-v1.0
 # STATUS: ⚠️ DEPRECATED · 功能由 engines/lh_fixed_point_memory_archive.py 统一接管
 # 保留原因: 历史多来源摄入参考，新代码请使用 MemoryArchive.ingest()
 """

@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂·命令总目 API — 鲲鹏统一入口
-DNA: #龍芯⚡️2026-07-28-CMD-ROUTES-v1.0-9A3F2B1C
+DNA: #龍芯⚡️丙午·乙未·癸卯·戊午·䷚颐-CMD-ROUTES-v1.0-9A3F2B1C
 
 所有 AI（CodeBuddy/Kimi/Ollama/任何国产AI）查询命令的统一入口。
 部署在鲲鹏 9622 端口，通过 nginx 反代对外。
@@ -30,7 +31,7 @@ router = APIRouter(tags=["命令总目"])
 COMMAND_DATA = {
     "version": "1.0",
     "updated": "2026-07-28",
-    "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·乾-COMMAND-INDEX-v1.0",
+    "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-COMMAND-INDEX-v1.0",
     "principle": "鲲鹏是唯一真实入口，Notion 是镜像",
     "quick": [
         {"action": "进菜单", "cmd": "lh", "note": "交互控制台，8大类"},

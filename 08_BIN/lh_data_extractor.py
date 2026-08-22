@@ -2,13 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-07-18-DATA-EXTRACT-v1.0
+#龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-DATA-EXTRACT-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 LongHun Data Extractor - From CSDN & Chat Logs
-DNA: #龍芯⚡️2026-07-18-DATA-EXTRACT-v1.0
+DNA: #龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-DATA-EXTRACT-v1.0
 """
 
 import os
@@ -22,7 +22,7 @@ class CSDNExtractor:
 
     def __init__(self, user_id):
         self.user_id = user_id
-        self.dna = "#龍芯⚡️2026-07-18-CSDN-EXTRACT-v1.0"
+        self.dna = "#龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-CSDN-EXTRACT-v1.0"
 
     def extract(self, input_dir, output_file):
         """Extract from CSDN markdown files"""
@@ -83,7 +83,7 @@ class ChatExtractor:
     """Extract from conversation logs"""
 
     def __init__(self):
-        self.dna = "#龍芯⚡️2026-07-18-CHAT-EXTRACT-v1.0"
+        self.dna = "#龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-CHAT-EXTRACT-v1.0"
 
     def extract(self, input_dir, output_file):
         """Extract from chat log files"""
@@ -144,7 +144,7 @@ class DataMerger:
 
     def __init__(self, target_count=998):
         self.target_count = target_count
-        self.dna = "#龍芯⚡️2026-07-18-DATA-MERGE-v1.0"
+        self.dna = "#龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-DATA-MERGE-v1.0"
 
     def merge(self, input_files, output_file):
         """Merge multiple jsonl files, dedup, ensure 998 samples"""

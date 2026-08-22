@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·丙辰·亥时·需-P04-LUBAN-v1.0
+#龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P04-LUBAN-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -7,7 +7,7 @@
 P04 鲁班 · 技术执行器
 Technical Implementer
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-P04-LUBAN-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P04-LUBAN-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -63,7 +63,7 @@ class P04Luban:
 """
 
     def __init__(self):
-        self.dna = "#龍芯⚡️丙午·丙申·丙辰·亥时·需-P04-LUBAN-v1.0"
+        self.dna = "#龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P04-LUBAN-v1.0"
         self.system_root = SYSTEM_ROOT
         self.capabilities = [
             "tech_assess",        # 技术可行性评估

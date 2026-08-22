@@ -16,7 +16,7 @@ PYTHON_BIN="/opt/homebrew/opt/python@3.12/bin/python3.12"
 
 echo "╔══════════════════════════════════════════╗"
 echo "║  龍魂 · XTTS v2 真声克隆环境搭建        ║"
-echo "║  DNA: #龍芯⚡️2026-07-29-VOICE-CLONE-v2.0 ║"
+echo "║  DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷑蛊-VOICE-CLONE-v2.0 ║"
 echo "╚══════════════════════════════════════════╝"
 echo ""
 

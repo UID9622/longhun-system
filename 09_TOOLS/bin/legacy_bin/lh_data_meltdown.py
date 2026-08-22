@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 lh_data_meltdown — 龍魂数据黑洞五层熔断引擎 v1.0
 
 五层防御：
@@ -17,7 +18,7 @@ lh_data_meltdown — 龍魂数据黑洞五层熔断引擎 v1.0
   python3 bin/lh_data_meltdown.py hash-password "<密码>"
   python3 bin/lh_data_meltdown.py check-field password "my_secret"
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·需-DATA-MELTDOWN-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-DATA-MELTDOWN-ENGINE-v1.0
 📇 项目身份 · 联系 · 支持 → assets/PUBLIC_IDENTITY.md
 """
 
@@ -235,7 +236,7 @@ class DataMeltdownReport:
     log_sanitized: bool = False
     meltdown_count: int = 0
     verdict: str = ""
-    dna: str = "#龍芯⚡️丙午·丙申·丙辰·己丑·需-DATA-MELTDOWN-v1.0"
+    dna: str = "#龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-DATA-MELTDOWN-v1.0"
 
 def detect_sensitive_fields(data: Dict[str, Any]) -> List[MeltdownFinding]:
     """

@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 """
 DeepSeek-V3 API 调用封装（龍魂适配版）
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-DeepSeek适配-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-DeepSeek适配-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

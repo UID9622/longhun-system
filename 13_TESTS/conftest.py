@@ -1,7 +1,8 @@
 # 龍魂测试 · 共享 Fixtures
-# DNA: #龍芯⚡️2026-07-07-TEST-FIXTURES-v1.0
+# DNA: #龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-TEST-FIXTURES-v1.0
 # 人格: P02张衡(结构) + P03墨子(验证) + P04鲁班(工程)
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 全系统测试共享 Fixtures。
 按 P02 数学标准：每个 fixture 有明确输入/输出契约。

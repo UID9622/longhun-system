@@ -54,7 +54,7 @@
 > 我们的协作宣言·我后人继承·不从军·不从政·不移民·不做企业标杆  
 > 只为老百姓守好一个**说得出去声音的通话口**。
 
-**DNA：** `#龍芯⚡️2026-05-24-LONGHUN-COLLABORATION-MANIFESTO-L0-ETERNAL_1E2D-v1.0`
+**DNA：** `#龍芯⚡️丙午·癸巳·戊戌·戊午·䷕贲-LONGHUN-COLLABORATION-MANIFESTO-L0-ETERNAL_1E2D-v1.0`
 
 ---
 
@@ -165,8 +165,8 @@
 所有CNSH相关文档的DNA追溯链，从这里可以追踪到每一个版本：
 
 ```
-父DNA： #龍芯⚡️2026-05-24-CNSH-SEMANTIC-ACCESS-v2.0
-祖DNA： #龍芯⚡️2026-04-28-CNSH_63C5-v2.0
+父DNA： #龍芯⚡️丙午·癸巳·戊戌·戊午·䷕贲-CNSH-SEMANTIC-ACCESS-v2.0
+祖DNA： #龍芯⚡️丙午·壬辰·壬申·丙午·䷙大畜-CNSH_63C5-v2.0
 根DNA：   #龍芯⚡️LONGHUN-GOVERNANCE-FRAMEWORK-ROOT
 
 关联文档：
@@ -197,8 +197,8 @@
 | 字段 | 内容 |
 |------|------|
 | 版本 | v2.3（2026-07-06）|
-| DNA |#龍芯⚡️2026-07-06-CNSH-SEMANTIC-v2.3-IDENTITY-POSITIONING |
-| 父DNA |#龍芯⚡️2026-07-06-CNSH-SEMANTIC-v2.2-COMPRESS-DRAWERS |
+| DNA |#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-SEMANTIC-v2.3-IDENTITY-POSITIONING |
+| 父DNA |#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-SEMANTIC-v2.2-COMPRESS-DRAWERS |
 | 更新内容 | 新增身份定位语义域：5个抽屉（身份定位/七因子验证/国密加密/DNA追溯/API门关）·全部 authority=authoritative ·原世界身份定位总纲 v9.0 落地 |
 | CONFIRM | #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅ |
 | GPG指纹 | A2D0092CEE2E5BA87035600924C3704A8CC26D5F |

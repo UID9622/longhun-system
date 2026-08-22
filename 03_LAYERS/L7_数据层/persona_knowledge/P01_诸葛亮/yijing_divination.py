@@ -2,7 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """🐉 易经起卦引擎 · P01 诸葛亮
-DNA: #龍芯⚡️丙午·乙未·甲寅·申时·中孚-P01-YIJING"""
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·乙未·甲寅·申时·䷼中孚-P01-YIJING"""
 from __future__ import annotations
 import hashlib, json, math, time, random
 from dataclasses import dataclass, field, asdict
@@ -178,4 +179,4 @@ if __name__ == "__main__":
     print(f"DNA: {r.dna}")
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·恒-CONFIRM-SEAL-yijing_divination-371449CA
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷟恒-CONFIRM-SEAL-yijing_divination-371449CA

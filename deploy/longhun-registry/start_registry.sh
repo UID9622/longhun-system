@@ -1,7 +1,7 @@
 #!/bin/bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 注册中心启动器 v2.0
-# DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·讼-REGISTRY-STARTER-v2.0
+# DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·䷅讼-REGISTRY-STARTER-v2.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
@@ -10,7 +10,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PORT="${1:-9623}"
 
 echo "🐉 龍魂注册中心启动器 v2.0"
-echo "🐉 #龍芯⚡️丙午·辛未·乙酉·卯时·讼-REGISTRY-v2.0"
+echo "🐉 #龍芯⚡️丙午·辛未·乙酉·卯时·䷅讼-REGISTRY-v2.0"
 
 # 检查Python
 if ! command -v python3 &> /dev/null; then

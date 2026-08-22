@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-93db202c
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -7,7 +8,7 @@
 """
 龍魂搜索引擎 v2.0
 增强版：反爬伪装、多站点解析策略、编码容错、结构化输出、缓存TTL控制
-DNA: #龍芯⚡️丙午·乙未·癸酉·戌时·☰乾-SEARCH-ENGINE-v2.0-9F8E7D6C
+DNA: #龍芯⚡️丙午·乙未·癸酉·戌时·䷀乾-SEARCH-ENGINE-v2.0-9F8E7D6C
 创建者: 诸葛鑫 (UID9622)
 协议: CC BY-NC-SA 4.0
 """
@@ -146,7 +147,7 @@ def format_default(query, results, use_cache):
     lines.append(sep)
     lines.append(_c(f"  🐉 龍魂搜索 · {query}", "bold", "cyan"))
     lines.append(_c(f"  后端: bing | 缓存: {'是' if use_cache else '否'} | 结果: {len(results)}条", "dim"))
-    lines.append(_c("  DNA: #龍芯⚡️丙午·乙未·癸酉·戌时·☰乾-SEARCH-ENGINE-v2.0-9F8E7D6C", "dim"))
+    lines.append(_c("  DNA: #龍芯⚡️丙午·乙未·癸酉·戌时·䷀乾-SEARCH-ENGINE-v2.0-9F8E7D6C", "dim"))
     lines.append(sep)
     for i, res in enumerate(results, 1):
         title = res.get('title', '无标题')
@@ -500,7 +501,7 @@ class SearchHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps({
                 'status': '🟢 healthy',
                 'version': 'v2.0',
-                'dna': '#龍芯⚡️丙午·乙未·癸酉·戌时·☰乾-SEARCH-ENGINE-v2.0-9F8E7D6C'
+                'dna': '#龍芯⚡️丙午·乙未·癸酉·戌时·䷀乾-SEARCH-ENGINE-v2.0-9F8E7D6C'
             }, ensure_ascii=False).encode('utf-8'))
         else:
             self.send_response(404)

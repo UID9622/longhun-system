@@ -5,7 +5,7 @@
 > 作者：龍芯北辰·UID9622
 > 发布时间：2026-08-15
 > 来源：longhun-system 桌面外置硬盘维护实践
-> 入库DNA：#龍芯⚡️丙午·丁酉·辛卯·丙申-EXTERNAL-DRIVE-UID9622-2
+> 入库DNA：#龍芯⚡️丙午·丁酉·辛卯·甲午·䷚颐-丙申-EXTERNAL-DRIVE-UID9622-2
 
 ---
 
@@ -85,7 +85,7 @@ diskutil eject disk9
 
 ```
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-#龍芯⚡️丙午·丁酉·辛卯·丙申-EXTERNAL-DRIVE-UID9622-2
+#龍芯⚡️丙午·丁酉·辛卯·甲午·䷚颐-丙申-EXTERNAL-DRIVE-UID9622-2
 ```
 
 ---

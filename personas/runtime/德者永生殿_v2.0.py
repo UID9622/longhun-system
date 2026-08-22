@@ -2,12 +2,13 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔═══════════════════════════════════════════════════════════════════════════════╗
 ║                     龍魂体系 · 德者永生殿 v2.0                                 ║
 ║              LongHun Hall of Eternal Merit v2.0                           ║
 ╠═══════════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️2026-03-30-路由回流协议-v2.0                                       ║
+║  DNA: #龍芯⚡️丙午·辛卯·癸卯·戊午·䷚颐-路由回流协议-v2.0                                       ║
 ║  授权: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅                                  ║
 ║  守门人: ⚖️ 龍芯·姜子牙（P13）                                                  ║
 ║  管辖库: 🧬 龍芯·德者永生殿                                                     ║
@@ -42,7 +43,7 @@ UID = "UID9622"
 OPERATOR = "龍芯北辰·诸葛鑫"
 VERSION = "v2.0"
 
-DNA_SIGNATURE = "#龍芯⚡️2026-03-30-路由回流协议-v2.0"
+DNA_SIGNATURE = "#龍芯⚡️丙午·辛卯·癸卯·戊午·䷚颐-路由回流协议-v2.0"
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 
@@ -149,8 +150,6 @@ class IPRouteRecord:
     active: bool = True
     registered_at: str = field(default_factory=lambda: datetime.now().isoformat())
 
-    def to_dict(self) -> Dict[str, Any]:
-        return asdict(self)
 
 
 # ═══════════════════════════════════════════════════════════════════════════════

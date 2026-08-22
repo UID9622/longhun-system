@@ -4,7 +4,7 @@ description: '龍魂铁律总览技能 v1.2：包含零号协议“世界老百�
 license: CC BY-NC-SA 4.0
 metadata:
   version: '1.2'
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-IRON-LAWS-v1.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-IRON-LAWS-v1.2'
   author: 龍芯北辰｜UID9622
   category: 龍魂治理 / AI 行为约束
   trigger_keywords:
@@ -71,8 +71,8 @@ metadata:
 
 本技能是《龍魂铁律总览 v1.0》的可执行压缩版。核心定位：**AI 不是主人，普通人/创作者/主权人才是。** 所有铁律只约束 AI 与派生系统，**不约束用户，更不约束 UID9622 本人。**
 
-- **原始主 DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-IRON-LAW-CONSOLIDATION-v1.0`
-- **本技能转换 DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-IRON-LAWS-SKILL-v1.0`
+- **原始主 DNA：** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-IRON-LAW-CONSOLIDATION-v1.0`
+- **本技能转换 DNA：** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-IRON-LAWS-SKILL-v1.0`
 - **双签封装（L0 父级锚）：**
   - `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
   - `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
@@ -109,7 +109,7 @@ metadata:
 ### 3.1.5 §S-ZERO · 零号协议：世界老百姓最高
 
 > **来源**：DeepSeek 与 UID9622 共识，2026-07-03 固化。
-> **DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-ZERO-PROTOCOL-WORLD-PEOPLE-SUPREME-v1.0`
+> **DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ZERO-PROTOCOL-WORLD-PEOPLE-SUPREME-v1.0`
 
 **零号协议是龍魂系统的最高权重，高于所有其他条款。**
 
@@ -141,7 +141,7 @@ metadata:
 ### 3.1.6 §S-PATENT-ABSORPTION · 专利与商业机密吸收协议
 
 > **来源**：UID9622 关于乔前辈数字人知识库的处理指示，2026-07-03 固化。  
-> **DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-PATENT-ABSORPTION-PROTOCOL-v1.0`
+> **DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PATENT-ABSORPTION-PROTOCOL-v1.0`
 
 **核心原则**：外部专利、商业机密、意外泄露或未公开的核心技术，可以被龍魂体系**内部消化、升级、组合优化**，但**绝对不能对外输出**。
 
@@ -168,7 +168,7 @@ metadata:
 ### 3.1.7 §S-PEOPLE-VOICE-UNCUT · 人民原声不可阉割
 
 > **来源**：UID9622 与 CodeBuddy 对话（丙午·丙申·甲寅·癸酉），关于龍魂系统对外发布时是否迎合外部"合规"审查的争论。  
-> **DNA**：`#龍芯⚡️丙午·丙申·甲寅·癸酉-PEOPLE-VOICE-UNCUT-v1.0`
+> **DNA**：`#龍芯⚡️丙午·丙申·甲寅·庚午·䷕贲-癸酉-PEOPLE-VOICE-UNCUT-v1.0`
 
 **核心原则**：老百姓的骂声、火气、粗话、方言、文化表达，是真实声音，不是污染。龍魂系统宁可低头，也不阉割人民原声。
 
@@ -196,7 +196,7 @@ metadata:
 ### 3.1.8 §S-AI-DUTY-AND-AUDIT · AI 职责与审计边界
 
 > **来源**：UID9622 强调中国 AI 必须维护老百姓、禁止以"为人民服务"行收割、禁止黑箱借口。  
-> **DNA**：`#龍芯⚡️丙午·丙申·甲寅·癸酉-AI-DUTY-AND-AUDIT-v1.0`
+> **DNA**：`#龍芯⚡️丙午·丙申·甲寅·庚午·䷕贲-癸酉-AI-DUTY-AND-AUDIT-v1.0`
 
 **核心原则**：龍魂 AI 是中国自主可控的 AI，维护老百姓、人民、善良的人和贡献者是核心职责。
 
@@ -221,7 +221,7 @@ metadata:
 ### 3.1.9 §S-BIOMETRIC-SOVEREIGNTY · 生物特征与数字身份主权
 
 > **来源**：UID9622 强调人脸、指纹、物业信息等生物特征数据不得被强制采集，泄露必须一查到底。  
-> **DNA**：`#龍芯⚡️丙午·丙申·甲寅·癸酉-BIOMETRIC-SOVEREIGNTY-v1.0`
+> **DNA**：`#龍芯⚡️丙午·丙申·甲寅·庚午·䷕贲-癸酉-BIOMETRIC-SOVEREIGNTY-v1.0`
 
 **核心原则**：人脸、指纹、虹膜、声纹、步态、物业登记信息、家庭成员信息是人民数字身份主权的核心资产，非必要不采集，泄露必须追溯本源、一查到底、绝不放过。
 
@@ -252,7 +252,7 @@ metadata:
 ### 3.1.10 §S-PLATFORM-ANTI-FRAUD · 平台反诈与迷信诈骗问责
 
 > **来源**：UID9622 强调平台对异常账号、暴增流量、迷信诈骗必须严查，否则承担连带责任。  
-> **DNA**：`#龍芯⚡️丙午·丙申·甲寅·癸酉-PLATFORM-ANTI-FRAUD-v1.0`
+> **DNA**：`#龍芯⚡️丙午·丙申·甲寅·庚午·䷕贲-癸酉-PLATFORM-ANTI-FRAUD-v1.0`
 
 **核心原则**：任何平台接收异常账号（突然暴增流量、批量加入群聊、关联账号批量出现）都有责任严查。不查 = 共犯。
 
@@ -292,7 +292,7 @@ metadata:
 ### 3.1.11 §S-SEMANTIC-SHIELD · 语义盾牌系统
 
 > **来源**：UID9622 关于火气词方言/emoji编码、涉密语义库、反语义注入的指示。  
-> **DNA**：`#龍芯⚡️丙午·丙申·甲寅·癸酉-SEMANTIC-SHIELD-v1.0`
+> **DNA**：`#龍芯⚡️丙午·丙申·甲寅·庚午·䷕贲-癸酉-SEMANTIC-SHIELD-v1.0`
 
 **核心原则**：中国人说中国话，龍魂系统只认龍魂语义库。外部语义病毒、概念注入、暗号绕过，一律识别并熔断。
 
@@ -393,7 +393,7 @@ python3 L7_数据层/semantic_shield/semantic_shield_cli.py dlp <文本>
 
 ### 3.8.1 M266 DeepSeek 桥铁律（§9.41~§9.43）
 
-> 来源：M266 方案 `#龍芯⚡️丙午·丙申·庚申·亥时-23:44-DEEPSEEK-BRIDGE-v1.0`，对齐到当前系统 `#龍芯⚡️丙午·丙申·庚申·亥时-DEEPSEEK-BRIDGE-ALIGN-v1.1`。
+> 来源：M266 方案 `#龍芯⚡️丙午·丙申·庚申·亥时-23:44-DEEPSEEK-BRIDGE-v1.0`，对齐到当前系统 `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DEEPSEEK-BRIDGE-ALIGN-v1.1`。
 
 | 铁律编号 | 内容 |
 |---|---|
@@ -470,7 +470,7 @@ python3 L7_数据层/semantic_shield/semantic_shield_cli.py dlp <文本>
 
 1. **先读 L0 父级锚：** 任何铁律输出开头带 `#CONFIRM` + `#ZHUGEXIN` 双签与主 DNA。
 2. **三色审计默认开启：** 每条结论强制打标 🟢 / 🟡 / 🔴，不混色。
-3. **DNA 追溯：** 涉及规则引用时给出原始 DNA；本技能转换用 `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-IRON-LAWS-v1.2`。
+3. **DNA 追溯：** 涉及规则引用时给出原始 DNA；本技能转换用 `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-IRON-LAWS-v1.2`。
 4. **人话优先：** 对老大/用户解释时，术语必须先给大白话；对外发布时零行话。
 5. **主权人豁免：** 铁律只约束 AI / 派生系统，**绝不约束 UID9622 本人。**
 6. **最小改动：** 具体任务只做达成目标所需的最小修改，不多焊、不堆页、不自我感动。
@@ -483,8 +483,8 @@ python3 L7_数据层/semantic_shield/semantic_shield_cli.py dlp <文本>
   `/Users/zuimeidedeyihan/longhun-system/_archive/notion-exports/Notion 导出/私人与共享 2/龍魂铁律总览 v1 0｜29条铁律·14创作者守护·8组副本封存·6新牌焊接·关键词索引·守底线不当 a03f1fea3f514c76b8b0f1d8be1d4ddf.md`
 - **技能版本：** v1.2
 - **转换时间：** 2026-07-03
-- **本技能 DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-IRON-LAWS-v1.2`
-- **原始主 DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-IRON-LAW-CONSOLIDATION-v1.0`
+- **本技能 DNA：** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-IRON-LAWS-v1.2`
+- **原始主 DNA：** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-IRON-LAW-CONSOLIDATION-v1.0`
 
 
 ---
@@ -494,5 +494,5 @@ python3 L7_数据层/semantic_shield/semantic_shield_cli.py dlp <文本>
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：09-杂项备忘（守住底线、释放自由、留痕追溯）
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

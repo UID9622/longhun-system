@@ -1,9 +1,11 @@
-<!--#龍芯⚡️丙午·丙申·庚申·亥时-DOC-V7_UPGRADE_REPORT-v1.0 -->
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+<!--#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DOC-V7_UPGRADE_REPORT-v1.0 -->
 <!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
 
 # 🐉 龍魂 v7 主干升级报告
 
-**DNA**: #龍芯⚡️20260619215009651-V7-UPGRADE-MAIN-1BAE91BE33F6
+**DNA**: #龍芯⚡️丙午·甲午·甲子·乙亥·䷡大壮-V7-UPGRADE-MAIN-1BAE91BE33F6
 **时间**: 2026-06-19T21:50:10.029947+00:00
 **v7 包**: /Users/zuimeidedeyihan/Downloads/Kimi_Agent_终端升级与结构优化 7
 

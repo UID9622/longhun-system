@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂 · 底座模型训练引擎 v4.0
-DNA: #龍芯⚡️2026-07-13-底座模型训练-v4.0
+DNA: #龍芯⚡️丙午·乙未·戊子·戊午·䷙大畜-底座模型训练-v4.0
 核心：蚁群信息化互交，内核驱动执行，非外部 agent
 拒绝：外部 agent / 伪装者 / 云端依赖
 

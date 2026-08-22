@@ -1,8 +1,10 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 龍魂系统 · 统一知识矩阵桌面同步脚本
-DNA: #龍芯⚡️2026-06-22-UNIFIED-KNOWLEDGE-MATRIX-SYNC-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-UNIFIED-KNOWLEDGE-MATRIX-SYNC-v1.0
 
 功能：
 1. 把龍魂系统的协议、规则、论文、技能、报告等核心文件，
@@ -274,7 +276,7 @@ def main():
     source_files = collect_source_files()
     index_entries = []
     sync_index = {
-        '_dna': '#龍芯⚡️2026-06-22-UNIFIED-KNOWLEDGE-MATRIX-SYNC-v1.0',
+        '_dna': '#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-UNIFIED-KNOWLEDGE-MATRIX-SYNC-v1.0',
         'generated_at': datetime.now(timezone.utc).isoformat(),
         'source_root': str(PROJECT_ROOT),
         'categories': {},

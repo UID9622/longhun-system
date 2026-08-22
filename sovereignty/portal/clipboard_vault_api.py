@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 📋 龍魂·剪贴板容器 API
 ======================
-DNA: #龍芯⚡️丙午·丙申·庚申·子时·☵坎-CLIPBOARD-VAULT-API-V1.0-P1
+DNA: #龍芯⚡️丙午·丙申·庚申·子时·䷜坎-CLIPBOARD-VAULT-API-V1.0-P1
 
 挂载到 sovereignty/portal API 服务，提供：
   - 列出容器中的剪贴项

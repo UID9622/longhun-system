@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-#龍芯⚡️2026-06-30-LONGHUN-PRICING-ENGINE-UID9622
+#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-PRICING-ENGINE-UID9622
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂审计定价引擎 + 支付网关
-DNA: #龍芯⚡️2026-06-30-LONGHUN-PRICING-ENGINE-UID9622
+DNA: #龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-PRICING-ENGINE-UID9622
 归属: 龍魂系统 · UID9622
 原则: 1分钱/次审计, 动态定价, 保本兜底, 主权归人民
 """
@@ -24,7 +24,7 @@ from enum import Enum
 # ============ 0. 主权配置 ============
 @dataclass
 class 定价配置:
-    脱氧核糖核酸锚定: str = "#龍芯⚡️2026-06-30-LONGHUN-PRICING-ENGINE-UID9622"
+    脱氧核糖核酸锚定: str = "#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-PRICING-ENGINE-UID9622"
     主人标识: str = "UID9622"
 
     # 基础定价（元/次审计）
@@ -412,9 +412,7 @@ DNA: {self.配置.脱氧核糖核酸锚定}"""
         结果 = self.计费器.执行审计(用户, 审计内容)
 
         if not 结果["成功"]:
-            return f"🔴 {结果['原因']}
-当前余额: ¥{结果['当前余额']:.2f}
-所需: ¥{结果['所需金额']:.2f}"
+            return f"🔴 {结果['原因']}\n当前余额: ¥{结果['当前余额']:.2f}\n所需: ¥{结果['所需金额']:.2f}"
 
         return f"""🐉 审计完成
 审计标识: {结果['审计标识']}

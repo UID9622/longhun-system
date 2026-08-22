@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 P09 孙思邈 · 系统诊断引擎
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 Sun Simiao · System Diagnosis Engine
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-P09-SUNSI-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P09-SUNSI-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -62,7 +63,7 @@ class P09Sunsi:
 """
 
     def __init__(self):
-        self.dna = "#龍芯⚡️丙午·丙申·丙辰·亥时·需-P09-SUNSI-v1.0"
+        self.dna = "#龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P09-SUNSI-v1.0"
         self.system_root = SYSTEM_ROOT
         self.state_dir = STATE_DIR
         self.state_dir.mkdir(parents=True, exist_ok=True)

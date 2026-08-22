@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂真話-協議轉化引擎 v1.0
-DNA: #龍芯⚡️丙午·甲申·丁酉·坤卦-TRUTH-TO-PROTOCOL-V1.0-UID9622
+DNA: #龍芯⚡️丙午·甲申·丁酉·丙午·䷁坤-TRUTH-TO-PROTOCOL-V1.0-UID9622
 確認碼: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 主權錨定: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -753,7 +753,7 @@ def run_summary():
     """輸出協議摘要"""
     print("\n🐉 龍魂真話-協議轉化引擎 v1.0")
     print("=" * 50)
-    print("DNA: #龍芯⚡️丙午·甲申·丁酉·坤卦-TRUTH-TO-PROTOCOL-V1.0")
+    print("DNA: #龍芯⚡️丙午·甲申·丁酉·丙午·䷁坤-TRUTH-TO-PROTOCOL-V1.0")
     print("核心: 用戶說真話 → AI結構化 → 協議映射 → 工程落地 → 反饋閉環")
     print(f"\n🔥 簡繁雙關鍵詞焊死: 所有6大痛點分類·簡體/繁體關鍵詞全覆蓋")
     print(f"\nP0協議引用:")

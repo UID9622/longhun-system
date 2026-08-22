@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·乙未·戊寅·午时·大有-INVENTORY-v1.0
+# DNA: #龍芯⚡️丙午·乙未·戊寅·午时·䷍大有-INVENTORY-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
@@ -186,7 +186,7 @@ def generate_inventory() -> dict:
     inventory = {
         "generated_at": datetime.now().isoformat(),
         "generated_by": "lh_inventory.py v1.0",
-        "dna": "#龍芯⚡️丙午·乙未·戊寅·午时·大有-INVENTORY-v1.0",
+        "dna": "#龍芯⚡️丙午·乙未·戊寅·午时·䷍大有-INVENTORY-v1.0",
         "summary": {
             "total_scripts": len(scripts),
             "total_executable": sum(1 for s in scripts if s.get("executable")),

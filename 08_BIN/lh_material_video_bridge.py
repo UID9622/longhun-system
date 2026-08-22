@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂·素材↔视频管线桥接 v1.0 — 视频生产自动调素材
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-MATERIAL-VIDEO-BRIDGE-V1.0-9c1a2b3d
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-MATERIAL-VIDEO-BRIDGE-V1.0-9c1a2b3d
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

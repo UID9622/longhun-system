@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-cfce3f84
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -6,7 +7,7 @@
 龍魂·ANTENNA-8GATE API 服务 v2.0
 蚁触神经网 · 八卦路由器 · 五行调度v2 · 节能引擎
 
-DNA: #龍芯⚡️丙午·乙未·乙未·申时·☰乾-ANTENNA-8GATE-API-v2.0-a1b2c3d4
+DNA: #龍芯⚡️丙午·乙未·乙未·申时·䷀乾-ANTENNA-8GATE-API-v2.0-a1b2c3d4
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -118,7 +119,7 @@ class AntennaServiceV2:
 
     def __init__(self):
         self.session_id = datetime.now().strftime("%Y%m%d-%H%M%S")
-        self.dna = "#龍芯⚡️丙午·乙未·乙未·申时·☰乾-ANTENNA-8GATE-API-v2.0-a1b2c3d4"
+        self.dna = "#龍芯⚡️丙午·乙未·乙未·申时·䷀乾-ANTENNA-8GATE-API-v2.0-a1b2c3d4"
         
         # 核心引擎
         self.mesh = AntennaMesh(nodes_per_bagua=4, dim=128)

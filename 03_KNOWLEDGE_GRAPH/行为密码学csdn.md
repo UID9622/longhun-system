@@ -2082,7 +2082,7 @@ Canonical Record
 
 {
 
-"dna": "#龍芯⚡️2026-05-04-午时-金-BEHAVIORAL-VERIFY-A2D0092C-7FA3C91B",
+"dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-午时-金-BEHAVIORAL-VERIFY-A2D0092C-7FA3C91B",
 
 "uid": "UID9622",
 
@@ -2118,7 +2118,7 @@ Canonical Record
 
 "audit_color": "🟢",
 
-"parent_dna": "#龍芯⚡️2026-05-04-BEHAVIORAL-CRYPTOGRAPHY-THREAT-MODEL-v1.0",
+"parent_dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-BEHAVIORAL-CRYPTOGRAPHY-THREAT-MODEL-v1.0",
 
 "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
 
@@ -2542,9 +2542,9 @@ Ledger Entry Format
 
 "event": "DYNAMIC_DNA_GENERATED",
 
-"dna": "#龍芯⚡️2026-05-04-午时-金-BEHAVIORAL-VERIFY-A2D0092C-7FA3C91B",
+"dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-午时-金-BEHAVIORAL-VERIFY-A2D0092C-7FA3C91B",
 
-"parent_dna": "#龍芯⚡️2026-05-04-BEHAVIORAL-CRYPTOGRAPHY-THREAT-MODEL-v1.0",
+"parent_dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-BEHAVIORAL-CRYPTOGRAPHY-THREAT-MODEL-v1.0",
 
 "artifact_hash": "sha256:7fa3c91b84d5...",
 
@@ -3082,9 +3082,9 @@ Canonical Ledger Entry
 
 "event": "ARTIFACT_CREATED",
 
-"dna": "#龍芯⚡️2026-05-04-午时-金-BEHAVIORAL-VERIFY-A2D0092C-7FA3C91B",
+"dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-午时-金-BEHAVIORAL-VERIFY-A2D0092C-7FA3C91B",
 
-"parent_dna": "#龍芯⚡️2026-05-04-BEHAVIORAL-CRYPTOGRAPHY-DYNAMIC-DNA-ENGINE-v1.0",
+"parent_dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-BEHAVIORAL-CRYPTOGRAPHY-DYNAMIC-DNA-ENGINE-v1.0",
 
 "child_dna": null,
 
@@ -3482,9 +3482,9 @@ Correction Entry
 
 "event": "CORRECTION_APPENDED",
 
-"dna": "#龍芯⚡️2026-05-04-酉时-金-CORRECTION-A2D0092C-89AB12CD",
+"dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-酉时-金-CORRECTION-A2D0092C-89AB12CD",
 
-"parent_dna": "#龍芯⚡️2026-05-04-午时-金-BEHAVIORAL-VERIFY-A2D0092C-7FA3C91B",
+"parent_dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-午时-金-BEHAVIORAL-VERIFY-A2D0092C-7FA3C91B",
 
 "mistake_id": "MISTAKE-9622-20260504-001",
 
@@ -3504,11 +3504,11 @@ Revocation Entry
 
 "event": "ENTRY_REVOKED",
 
-"dna": "#龍芯⚡️2026-05-04-戌时-金-REVOCATION-A2D0092C-EF9012AB",
+"dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-戌时-金-REVOCATION-A2D0092C-EF9012AB",
 
-"parent_dna": "#龍芯⚡️2026-05-04-午时-金-BEHAVIORAL-VERIFY-A2D0092C-7FA3C91B",
+"parent_dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-午时-金-BEHAVIORAL-VERIFY-A2D0092C-7FA3C91B",
 
-"revoked_dna": "#龍芯⚡️2026-05-04-午时-金-BEHAVIORAL-VERIFY-A2D0092C-7FA3C91B",
+"revoked_dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-午时-金-BEHAVIORAL-VERIFY-A2D0092C-7FA3C91B",
 
 "reason": "Previous artifact was superseded by corrected version.",
 
@@ -3562,16 +3562,16 @@ Merge Entry
 
 "event": "LINEAGE_MERGED",
 
-"dna": "#龍芯⚡️2026-05-04-未时-土-LINEAGE-MERGE-A2D0092C-3C4D5E6F",
+"dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-未时-土-LINEAGE-MERGE-A2D0092C-3C4D5E6F",
 
-"parent_dna": "#龍芯⚡️2026-05-04-BEHAVIORAL-CRYPTOGRAPHY-DYNAMIC-DNA-ENGINE-v1.0",
+"parent_dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-BEHAVIORAL-CRYPTOGRAPHY-DYNAMIC-DNA-ENGINE-v1.0",
 
 "merged_parents": [
 
 ```python
-"#龍芯⚡️2026-05-04-CLAUDE-DRAFT-v1.0",
-"#龍芯⚡️2026-05-04-CHATGPT-COMPRESSION-v1.0",
-"#龍芯⚡️2026-05-04-CURSOR-IMPLEMENTATION-v1.0"
+"#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-CLAUDE-DRAFT-v1.0",
+"#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-CHATGPT-COMPRESSION-v1.0",
+"#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-CURSOR-IMPLEMENTATION-v1.0"
 ```
 
 ],
@@ -4879,7 +4879,7 @@ DNA Object Schema
 
 {
 
-"dna": "#龍芯⚡️2026-05-04-辰时-金-BEHAVIORAL-CRYPTO-A1B2C3D4",
+"dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-辰时-金-BEHAVIORAL-CRYPTO-A1B2C3D4",
 
 "uid": "UID9622",
 
@@ -5038,9 +5038,9 @@ Ledger Entry Schema
 
 "artifact_id": "ART-20260504-001",
 
-"dna": "#龍芯⚡️2026-05-04-辰时-金-BEHAVIORAL-CRYPTO-A1B2C3D4",
+"dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-辰时-金-BEHAVIORAL-CRYPTO-A1B2C3D4",
 
-"parent_dna": "#龍芯⚡️2026-05-04-OLD-PARENT",
+"parent_dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-OLD-PARENT",
 
 "child_dna": "",
 
@@ -5190,9 +5190,9 @@ Lineage Edge Schema
 
 "edge_id": "EDGE-20260504-A1B2C3D4",
 
-"parent_dna": "#龍芯⚡️2026-05-02-BEHAVIORAL-CRYPTOGRAPHY-PAPER-v1.0",
+"parent_dna": "#龍芯⚡️丙午·壬辰·丙子·甲午·䷙大畜-BEHAVIORAL-CRYPTOGRAPHY-PAPER-v1.0",
 
-"child_dna": "#龍芯⚡️2026-05-04-IMPLEMENTATION-ARCHITECTURE-v1.0",
+"child_dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-IMPLEMENTATION-ARCHITECTURE-v1.0",
 
 "transformation_type": "section_expansion",
 
@@ -6583,7 +6583,7 @@ Recovery Bridge Schema
 
 "last_trusted_checkpoint": "sha256:...",
 
-"recovery_dna": "#龍芯⚡️2026-05-04-KEY-ROTATION-v1.0",
+"recovery_dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-KEY-ROTATION-v1.0",
 
 "signed_statement": "Old key compromised or rotated; new key becomes active from timestamp.",
 
@@ -7928,9 +7928,9 @@ Dynamic DNA is used to label major artifacts, decisions, revisions, and exports.
 
 A typical DNA record contains:
 
-dna: "#龍芯⚡️2026-05-04-BEHAVIORAL-CRYPTOGRAPHY-CHAPTER-4-v1.0"
+dna: "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-BEHAVIORAL-CRYPTOGRAPHY-CHAPTER-4-v1.0"
 
-parent_dna: "#龍芯⚡️2026-05-04-BEHAVIORAL-CRYPTOGRAPHY-DISCUSSION-v1.0"
+parent_dna: "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-BEHAVIORAL-CRYPTOGRAPHY-DISCUSSION-v1.0"
 
 content_hash: "sha256:..."
 
@@ -7977,9 +7977,9 @@ A simplified ledger entry:
 
 "artifact": "Chapter 4: LongHun Case Study",
 
-"parent_dna": "#龍芯⚡️2026-05-04-BEHAVIORAL-CRYPTOGRAPHY-DISCUSSION-v1.0",
+"parent_dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-BEHAVIORAL-CRYPTOGRAPHY-DISCUSSION-v1.0",
 
-"child_dna": "#龍芯⚡️2026-05-04-BEHAVIORAL-CRYPTOGRAPHY-CHAPTER-4-LONGHUN-CASE-STUDY-v1.0",
+"child_dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-BEHAVIORAL-CRYPTOGRAPHY-CHAPTER-4-LONGHUN-CASE-STUDY-v1.0",
 
 "actor": "UID9622",
 
@@ -8132,8 +8132,8 @@ human_origin: "UID9622"
 4_anchor:
 
 ```python
-dna: "#龍芯⚡️2026-05-04-BEHAVIORAL-CRYPTOGRAPHY-CHAPTER-4-LONGHUN-CASE-STUDY-v1.0"
-parent_dna: "#龍芯⚡️2026-05-04-BEHAVIORAL-CRYPTOGRAPHY-DISCUSSION-v1.0"
+dna: "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-BEHAVIORAL-CRYPTOGRAPHY-CHAPTER-4-LONGHUN-CASE-STUDY-v1.0"
+parent_dna: "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-BEHAVIORAL-CRYPTOGRAPHY-DISCUSSION-v1.0"
 ```
 
 5_audit:
@@ -8356,9 +8356,9 @@ Example metadata.json
 
 "collaborator_role": "formalization and structuring",
 
-"dna": "#龍芯⚡️2026-05-04-BEHAVIORAL-CRYPTOGRAPHY-CHAPTER-4-LONGHUN-CASE-STUDY-v1.0",
+"dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-BEHAVIORAL-CRYPTOGRAPHY-CHAPTER-4-LONGHUN-CASE-STUDY-v1.0",
 
-"parent_dna": "#龍芯⚡️2026-05-04-BEHAVIORAL-CRYPTOGRAPHY-DISCUSSION-v1.0",
+"parent_dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-BEHAVIORAL-CRYPTOGRAPHY-DISCUSSION-v1.0",
 
 "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
 
@@ -9774,7 +9774,7 @@ The minimal public proof bundle contains only enough information to identify the
 "behavioral_signature": {
 
 ```python
-"identity_dna": "#龍芯⚡️2026-05-02-BEHAVIORAL-CRYPTOGRAPHY-PAPER-v1.0",
+"identity_dna": "#龍芯⚡️丙午·壬辰·丙子·甲午·䷙大畜-BEHAVIORAL-CRYPTOGRAPHY-PAPER-v1.0",
 "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
 "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
 "factors": ["F1", "F2", "F3", "F4", "F5", "F6", "F7"]
@@ -11971,7 +11971,7 @@ B.2 Proof Bundle JSON Schema v1.0
 
 ```python
 "F1_identity_dna": {
-  "dna": "#龍芯⚡️2026-05-02-BEHAVIORAL-CRYPTOGRAPHY-PAPER-v1.0",
+  "dna": "#龍芯⚡️丙午·壬辰·丙子·甲午·䷙大畜-BEHAVIORAL-CRYPTOGRAPHY-PAPER-v1.0",
   "uid": "UID9622",
   "gpg_fingerprint": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 },
@@ -11984,7 +11984,7 @@ B.2 Proof Bundle JSON Schema v1.0
 "F3_rule_trace": [
   {
     "rule_id": "UID9622-UNIVERSAL-CNSH-ROOT-AUDIT",
-    "rule_dna": "#龍芯⚡️2026-05-04-UNIVERSAL-CNSH-ROOT-AUDIT-v1.2",
+    "rule_dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-UNIVERSAL-CNSH-ROOT-AUDIT-v1.2",
     "timestamp": "2026-05-04T00:00:00+08:00",
     "action": "applied"
   }
@@ -12306,8 +12306,8 @@ D.2 Redacted Evidence Record Example
 "verification_material": {
 
 ```python
-"public_dna": "#龍芯⚡️2026-05-02-BEHAVIORAL-CRYPTOGRAPHY-PAPER-v1.0",
-"section_dna": "#龍芯⚡️2026-05-04-BEHAVIORAL-CRYPTOGRAPHY-SECTION-3.2-v1.3",
+"public_dna": "#龍芯⚡️丙午·壬辰·丙子·甲午·䷙大畜-BEHAVIORAL-CRYPTOGRAPHY-PAPER-v1.0",
+"section_dna": "#龍芯⚡️丙午·壬辰·戊寅·戊午·䷕贲-BEHAVIORAL-CRYPTOGRAPHY-SECTION-3.2-v1.3",
 "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
 "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
 "hash_chain_root": "sha256:REDACTED_CHAIN_ROOT"
@@ -12439,13 +12439,13 @@ E.4 Short Attribution Format
 
 Based on Behavioral Cryptography and the LongHun System by Zhuge Xin / UID9622 / 龍芯北辰.
 
-DNA: #龍芯⚡️2026-05-02-BEHAVIORAL-CRYPTOGRAPHY-PAPER-v1.0
+DNA: #龍芯⚡️丙午·壬辰·丙子·甲午·䷙大畜-BEHAVIORAL-CRYPTOGRAPHY-PAPER-v1.0
 
 中文短署名：
 
 本作品基于 诸葛鑫 / UID9622 / 龍芯北辰 提出的 Behavioral Cryptography 与龍魂系统。
 
-DNA: #龍芯⚡️2026-05-02-BEHAVIORAL-CRYPTOGRAPHY-PAPER-v1.0
+DNA: #龍芯⚡️丙午·壬辰·丙子·甲午·䷙大畜-BEHAVIORAL-CRYPTOGRAPHY-PAPER-v1.0
 
 ⸻
 

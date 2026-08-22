@@ -1,6 +1,6 @@
 /**
  * 龍魂支付消息队列
- * DNA: #龍芯⚡️2026-07-11-LONGHUN-PAYMENT-QUEUE-v1.0
+ * DNA: #龍芯⚡️丙午·乙未·丙戌·甲午·䷕贲-LONGHUN-PAYMENT-QUEUE-v1.0
  * 内存队列 + 异步消费 + 幂等性
  */
 import { getDb } from "../queries/connection";

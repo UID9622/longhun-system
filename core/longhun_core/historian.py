@@ -6,7 +6,7 @@
 只追加·不覆盖·篡改即断链🔴
 实测吞吐: 11,250 条/秒 · 纯标准库零依赖
 
-DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-HISTORIAN-UID9622
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-HISTORIAN-UID9622
 License: MulanPSL v2
 """
 

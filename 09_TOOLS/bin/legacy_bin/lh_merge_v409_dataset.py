@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 合并 v4.0.8 + 统一来源（Notion/GitHub/本地仓库）+ CodeBuddy 训练语料 → v4.0.9 训练集
 策略：
@@ -10,7 +11,7 @@
   - GitHub 每个仓库最多 800 条；Notion/本地全保留
   - CodeBuddy 语料（training_corpus_v3.0.md/full.md）全量吸收
   - 核心焊死 QA 重复 30 次
-DNA: #龍芯⚡️2026-07-20-MERGE-V409-DATASET-v1.1
+DNA: #龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-MERGE-V409-DATASET-v1.1
 """
 
 import json

@@ -1,7 +1,7 @@
 /**
  * 🐉 CNSH 语法解析器
  * 中文关键字 → 词法单元 → 结构提取（函数/类/变量/流程）
- * DNA: #龍芯⚡️丙午·丙申·辛酉·丑时-CNSH-PARSER-UID9622
+ * DNA: #龍芯⚡️丙午·丙申·辛酉·己丑·䷹兑为泽-CNSH-PARSER-UID9622
  * License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
  */
 

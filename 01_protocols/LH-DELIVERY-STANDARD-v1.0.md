@@ -7,7 +7,7 @@
 > 铁律：**报告是报状态，不是报问题。问题必须在汇报前已修复。**
 > 铁律 v1.1：**四道防线必须全绿。黄灯 = 漏洞 = 未完成。**
 
-DNA: #龍芯⚡️丙午·乙未·己亥·午时·☰乾-DELIVERY-STANDARD-v1.1-四道防线全绿-ec8f2a1b
+DNA: #龍芯⚡️丙午·乙未·己亥·午时·䷀乾-DELIVERY-STANDARD-v1.1-四道防线全绿-ec8f2a1b
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -251,7 +251,7 @@ python3 bin/lh_delivery_validator.py --self-test
   "trigger_time": "2026-07-24T23:00:00+08:00",
   "audit_mark": "🟢",
   "risk_score": 0.0,
-  "dna": "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-DELIVERY-STANDARD-v1.0-7b3f1a2d"
+  "dna": "#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-DELIVERY-STANDARD-v1.0-7b3f1a2d"
 }
 ```
 

@@ -1,3 +1,4 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 # 龍魂系统 · 隐私白皮书 v1.0
 
 > 本文档按《龍魂文档标准模板 v1.0》整理。
@@ -22,7 +23,7 @@
 
 # 龍魂隐私白皮书
 
-> **DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-PRIVACY-WHITEPAPER-UID9622`  
+> **DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PRIVACY-WHITEPAPER-UID9622`  
 > **归属:** 龍魂系统 · UID9622 · 龍芯北辰·诸葛鑫  
 > **协议:** 龍魂开源公约 v2.0 — 非专利、非门槛、君子协定  
 > **声明:** 无专利申请意图，全球公开，中国优先
@@ -238,9 +239,9 @@ Step 6: 输出三色结果：🟢通过 / 🟡待审 / 🔴超标
 
 | 模块 | 源码 | 文档 | DNA |
 |------|------|------|-----|
-| 国密加密引擎 | longhun_crypto_engine.py | guomi_crypto_engine.md | `#龍芯⚡️丙午·丙申·庚申·亥时-GUOMI-CRYPTO-v3.0` |
-| 三色审计引擎 | tri_color_audit_engine.py | tri_color_audit_engine.md | `#龍芯⚡️丙午·丙申·庚申·亥时-TRI-COLOR-AUDIT-v3.0` |
-| DNA追溯体系 | dragon_dna.py | dna_trace_system.md | `#龍芯⚡️丙午·丙申·庚申·亥时-DNA-TRACE-v3.0` |
+| 国密加密引擎 | longhun_crypto_engine.py | guomi_crypto_engine.md | `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-GUOMI-CRYPTO-v3.0` |
+| 三色审计引擎 | tri_color_audit_engine.py | tri_color_audit_engine.md | `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-TRI-COLOR-AUDIT-v3.0` |
+| DNA追溯体系 | dragon_dna.py | dna_trace_system.md | `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DNA-TRACE-v3.0` |
 
 ---
 
@@ -249,7 +250,7 @@ Step 6: 输出三色结果：🟢通过 / 🟡待审 / 🔴超标
 > **本文档版权归龍魂系统 · UID9622 · 龍芯北辰·诸葛鑫所有。**
 >
 > - **GPG 公钥指纹:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
-> - **DNA 锚定:** `#龍芯⚡️丙午·丙申·庚申·亥时-PRIVACY-WHITEPAPER-UID9622`
+> - **DNA 锚定:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PRIVACY-WHITEPAPER-UID9622`
 > - **确认标记:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 >
 > **无专利申请意图。全球公开。中国优先。君子协定。**
@@ -279,7 +280,7 @@ Step 6: 输出三色结果：🟢通过 / 🟡待审 / 🔴超标
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 

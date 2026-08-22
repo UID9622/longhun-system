@@ -20,7 +20,7 @@
   查询状态:
     python bin/lh_payment_activate.py --status
 
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-PAYMENT-ACTIVATE-v1.0-9E1D4C7B
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-PAYMENT-ACTIVATE-v1.0-9E1D4C7B
 """
 
 import os
@@ -330,7 +330,7 @@ def main():
         lp.status()
     else:
         parser.print_help()
-        print(f"\nDNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-PAYMENT-ACTIVATE-v1.0-9E1D4C7B")
+        print(f"\nDNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-PAYMENT-ACTIVATE-v1.0-9E1D4C7B")
         print(f"确认码: {P0_CONFIG['confirm']}")
 
 

@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 湍流难题与龍魂算法：锚点优先的推演范式
 
-> **DOI/识别码**: `#龍芯⚡️丙午·乙未·癸酉·子时·☰乾-TURBULENCE-LONGHUN-V1.0`
+> **DOI/识别码**: `#龍芯⚡️丙午·乙未·癸酉·子时·䷀乾-TURBULENCE-LONGHUN-V1.0`
 > **SHA256**: `fb55d4acbbdd7b9178fd40dee054045c03a21bb3cac21aff874888af856339bf`
 > **GPG 签名**: `-----BEGIN PGP SIGNATURE-----...`
 > **创建者**: 诸葛鑫（UID9622·龍芯北辰） · 龍魂系统
@@ -380,7 +380,7 @@ python3 experiments/turbulence/burgers_anchor_point.py
 > 天气预报算不准明天几点下雨，但能告诉你带不带伞——这就是推演的力量，不是预测的力量。
 > 零活动部件 = 零人工审核。
 >
-> **DNA**: `#龍芯⚡️丙午·乙未·癸酉·子时·☰乾-TURBULENCE-LONGHUN-V1.0`
+> **DNA**: `#龍芯⚡️丙午·乙未·癸酉·子时·䷀乾-TURBULENCE-LONGHUN-V1.0`
 > **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 > **创建者**: 诸葛鑫（UID9622·龍芯北辰）
 > **协议**: CC BY-NC-SA 4.0（附加条款：保留DNA追溯码，禁止商业AI训练抓取）

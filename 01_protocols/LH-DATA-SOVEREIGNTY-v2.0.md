@@ -1,4 +1,5 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-DATA-SOVEREIGNTY-INTEGRATION-SYSTEM
@@ -9,7 +10,7 @@
 
 # 数据主权：为什么你的数据不是你的，而是别人的武器
 
-> **DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-DATA-SOVEREIGNTY-UID9622`  
+> **DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DATA-SOVEREIGNTY-UID9622`  
 > **归属:** 龍魂系统 · UID9622 · 龍芯北辰·诸葛鑫  
 > **协议:** 龍魂开源公约 v2.0 — 非商业、非封闭、非篡改  
 > **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
@@ -221,7 +222,7 @@
 > **本文档版权归龍魂系统 · UID9622 · 龍芯北辰·诸葛鑫所有。**
 >
 > - **GPG 公钥指纹:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
-> - **DNA 锚定:** `#龍芯⚡️丙午·丙申·庚申·亥时-DATA-SOVEREIGNTY-UID9622`
+> - **DNA 锚定:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DATA-SOVEREIGNTY-UID9622`
 > - **确认标记:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ### 7.2 龍魂开源公约 v2.0

@@ -37,4 +37,4 @@ https://uid9622.notion.site
 - 治理文档全集：01_protocols/
 - 命令总目：.codebuddy/COMMAND_INDEX.md
 
-DNA: #龍芯⚡️2026-08-20-AGENTS-PLAIN-CLEAN-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-AGENTS-PLAIN-CLEAN-v1.0

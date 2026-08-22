@@ -1,9 +1,11 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 龍魂设备发现器 — mDNS/Bonjour 本地网络发现
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ================================================
-DNA: #龍芯⚡️2026-06-29-LONGHUN-DISCOVERY-v1.0
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-DISCOVERY-v1.0
 致敬: #致敬⚡️SteveJobs+Concept·跨平台互通
 
 用途:
@@ -32,7 +34,7 @@ DEFAULT_SERVICE_TYPE = "_longhun-sync._tcp.local."
 DEFAULT_NAME = "龍魂同步节点"
 DEFAULT_PORT = 9622
 
-DNA = "#龍芯⚡️2026-06-29-LONGHUN-DISCOVERY-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-DISCOVERY-v1.0"
 
 君子协议 = """
 ================================================================================

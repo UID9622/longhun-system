@@ -4,7 +4,7 @@
 # License: MulanPSL v2
 """
 🐲 龍魂·Agent总线适配器 v2.0
-DNA: #龍芯⚡️2026-08-04-AGENT-BUS-ADAPTER-UID9622
+DNA: #龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-AGENT-BUS-ADAPTER-UID9622
 
 封装现有 InterAgentBus:
   register(agent)  - agent需有 PERSONA_CODE 属性

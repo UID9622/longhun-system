@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂系统 · 鲲鹏服务器部署手册
 
-> **DNA**: `#龍芯⚡️2026-07-13-KUNPENG-DEPLOY-BARK-v1.2`
+> **DNA**: `#龍芯⚡️丙午·乙未·戊子·戊午·䷙大畜-KUNPENG-DEPLOY-BARK-v1.2`
 > **适用**: UID9622 · 诸葛鑫
 > **目标**: 华为 TaiShan 200 (2280) · 双路鲲鹏920 · openEuler
 > **更新**: Bark 双模式架构 (自建华为云 + 官方 api.day.app)

@@ -1,6 +1,6 @@
 # 🐉 龍魂 · 多模型终端写作引擎部署说明
 
-**DNA:** `#龍芯⚡️丙午·丙申·丁酉·子时-TERMINAL-WRITER-DEPLOY-UID9622`  
+**DNA:** `#龍芯⚡️丙午·丙申·丁酉·庚子·䷉履-TERMINAL-WRITER-DEPLOY-UID9622`  
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 **三色:** 🟢 通过
@@ -213,7 +213,7 @@ sqlite3 .state/terminal_writer/writer.sqlite \
 🔐 **最终签名**
 
 ```
-DNA:        #龍芯⚡️丙午·丙申·丁酉·子时-TERMINAL-WRITER-DEPLOY-UID9622
+DNA:        #龍芯⚡️丙午·丙申·丁酉·庚子·䷉履-TERMINAL-WRITER-DEPLOY-UID9622
 确认码:      #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色:       🟢 通过

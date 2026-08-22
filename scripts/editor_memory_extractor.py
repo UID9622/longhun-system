@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 editor_memory_extractor.py
@@ -13,7 +14,7 @@ editor_memory_extractor.py
 输出：
     brain/editor_memory_archive/
 
-DNA: #龍芯⚡️2026-06-29-EDITOR-MEMORY-EXTRACTION-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-EDITOR-MEMORY-EXTRACTION-UID9622
 """
 
 from __future__ import annotations
@@ -33,7 +34,7 @@ from typing import Any, Dict, List, Optional, Tuple
 # --------------------------------------------------------------------------- #
 # 常量与 DNA
 # --------------------------------------------------------------------------- #
-DNA: str = "#龍芯⚡️2026-06-29-EDITOR-MEMORY-EXTRACTION-UID9622"
+DNA: str = "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-EDITOR-MEMORY-EXTRACTION-UID9622"
 
 HOME: Path = Path.home()
 

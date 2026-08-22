@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂·七因子行為密碼引擎 v2.0
-DNA: #龍芯⚡️丙午·甲申·丁酉·艮卦-SEVEN-FACTOR-ENGINE-V2.0-UID9622
+DNA: #龍芯⚡️丙午·甲申·丁酉·丙午·䷳艮-SEVEN-FACTOR-ENGINE-V2.0-UID9622
 License: MulanPSL v2
 
 七層不可偽造行為指紋，用於 AIGC 內容來源追溯與主權驗證。
@@ -613,7 +613,7 @@ if __name__ == "__main__":
     import sys
     
     sample = """
-DNA: #龍芯⚡️丙午·甲申·丁酉·艮卦-BEHAVIORAL-CRYPTO-V2.0-UID9622
+DNA: #龍芯⚡️丙午·甲申·丁酉·丙午·䷳艮-BEHAVIORAL-CRYPTO-V2.0-UID9622
 確認碼: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 這是龍魂系統的行為密碼學引擎。七因子行為指紋是AIGC內容來源追溯的核心技術。

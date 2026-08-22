@@ -1,6 +1,6 @@
 # 龍魂·全仓修复流水线规则 v1.0
 
-> DNA: #龍芯⚡️丙午·甲申·丁巳·䷖剥-REPAIR-PIPELINE-RULE-v1.0
+> DNA: #龍芯⚡️丙午·甲申·丁巳·丙午·䷖剥-REPAIR-PIPELINE-RULE-v1.0
 > 加载时机: AI每次启动 · lh repair 命令 · 审计前
 > 上位协议: `01_protocols/LH-FULL-REPAIR-PROCEDURE-v1.0.md`
 > 共享配置: `.codebuddy/rules/scan-exclusions.json`

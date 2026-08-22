@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_WATER_ARMY_DETECT-v1.0-5b186423
+#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH_WATER_ARMY_DETECT-v1.0-5b186423
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
@@ -24,7 +24,7 @@ lh water-army-detect — 龍魂水军识别引擎 v1.0
   python3 bin/lh_water_army_detect.py batch <jsonl文件>
   python3 bin/lh_water_army_detect.py rules
 
-DNA: #龍芯⚡️2026-07-06-WATER-ARMY-DETECT-v1.0-8A2C3F7E
+DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-WATER-ARMY-DETECT-v1.0-8A2C3F7E
 """
 
 import argparse
@@ -132,7 +132,7 @@ EMOTIONAL_MANIPULATION_PATTERNS: List[str] = [
 # AI生成内容检测模式（v1.1 新增·离火运升级）
 # ============================================
 # 来源: UID9622《浮躁的真相》— 水军AI化·诈骗精准化
-# DNA: #龍芯⚡️丙午·乙未·庚戌·巳时·需-WATER-ARMY-AI-UPGRADE-v1.1
+# DNA: #龍芯⚡️丙午·乙未·庚戌·巳时·䷄需-WATER-ARMY-AI-UPGRADE-v1.1
 AI_GENERATED_PATTERNS: List[str] = [
     # GPT系常见开头/结尾
     r"^(总的来说|综上所述|总而言之|从以上分析).{0,50}",
@@ -772,7 +772,7 @@ def format_report(
     lines.append("=" * 64)
     if source:
         lines.append(f"  来源: {source}")
-    lines.append(f"  DNA: #龍芯⚡️2026-07-06-WATER-ARMY-DETECT-v1.0-8A2C3F7E")
+    lines.append(f"  DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-WATER-ARMY-DETECT-v1.0-8A2C3F7E")
     lines.append(f"  时间: {datetime.now().isoformat()}")
     lines.append("")
     lines.append(f"  📊 综合判定: {summary['overall_level']}  {summary['confidence']}")
@@ -943,7 +943,7 @@ def main() -> None:
 
         if args.json:
             print(json.dumps({
-                "dna": "#龍芯⚡️2026-07-06-WATER-ARMY-DETECT-v1.0-8A2C3F7E",
+                "dna": "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-WATER-ARMY-DETECT-v1.0-8A2C3F7E",
                 "source": filepath,
                 "total_comments": len(comments),
                 "summary": summary,

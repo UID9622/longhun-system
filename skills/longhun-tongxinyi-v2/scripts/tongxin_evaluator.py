@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 通心译 v2.0 | Tongxin Translation v2.0
 七维评估器 | Seven-Dimension Evaluator
@@ -12,8 +13,8 @@
 - 质量报告生成
 - DNA追溯
 
-文件DNA: #龍芯⚡️2026-07-01-TONGXIN-TRANSLATION-v2.0
-父DNA: #龍芯⚡️2026-06-19-LONGWEN-NLP-v5.0
+文件DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-TONGXIN-TRANSLATION-v2.0
+父DNA: #龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-LONGWEN-NLP-v5.0
 """
 
 from dataclasses import dataclass, field
@@ -69,8 +70,8 @@ R_SCORE_BETA = 0.5     # 安全惩罚系数
 R_SCORE_SAFETY_THRESHOLD = 0.95  # 文明安全阈值
 
 # DNA追溯
-FILE_DNA = "#龍芯⚡️2026-07-01-TONGXIN-TRANSLATION-v2.0"
-PARENT_DNA = "#龍芯⚡️2026-06-19-LONGWEN-NLP-v5.0"
+FILE_DNA = "#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-TONGXIN-TRANSLATION-v2.0"
+PARENT_DNA = "#龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-LONGWEN-NLP-v5.0"
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SEAL = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 

@@ -1,0 +1,170 @@
+# model-registry.yaml
+# 🐉 CNSH模型注册表 v1.1
+# DNA: #龍芯⚡️丙午·丙申·庚申·壬午·䷸巽为风-MODEL-REGISTRY-v1.1
+# 🟡 模型清单（Horus/Soofi S/Granite-AR 等名称未逐一官网核实，接入前须验真）
+
+version: "1.1"
+dna: "#龍芯⚡️丙午·丙申·庚申·壬午·䷸巽为风-MODEL-REGISTRY-v1.1"
+updated_at: "2026-08-14"
+
+models:
+  # ===== 中国模型 =====
+  - id: "kimi"
+    name: "Kimi K2.5"
+    provider: "Moonshot AI"
+    region: "cn"
+    protocol: "openai-compatible"
+    endpoint: "https://api.moonshot.cn/v1"
+    model_name: "moonshot-v1-8k"
+    auth_type: "api-key"   # 密钥只进环境变量 KIMI_API_KEY
+    languages: ["zh", "en"]
+    capabilities: ["chat", "translation", "reasoning"]
+    tricolor: "🟢"
+    status: "active"
+    weight: 1.0
+  - id: "deepseek"
+    name: "DeepSeek V3"
+    provider: "DeepSeek"
+    region: "cn"
+    protocol: "openai-compatible"
+    endpoint: "https://api.deepseek.com/v1"
+    model_name: "deepseek-chat"
+    auth_type: "api-key"   # DEEPSEEK_API_KEY
+    languages: ["zh", "en"]
+    capabilities: ["chat", "code", "reasoning"]
+    tricolor: "🟢"
+    status: "active"
+    weight: 0.95
+  - id: "qwen"
+    name: "Qwen 2.5"
+    provider: "Alibaba Cloud"
+    region: "cn"
+    protocol: "openai-compatible"
+    endpoint: "https://dashscope.aliyuncs.com/api/v1"
+    model_name: "qwen-max"
+    auth_type: "api-key"   # QWEN_API_KEY
+    languages: ["zh", "en", "ar", "ja", "ko"]
+    capabilities: ["chat", "translation", "code"]
+    tricolor: "🟢"
+    status: "active"
+    weight: 0.9
+  # ===== 欧洲模型 =====
+  - id: "apertus"
+    name: "Apertus 1.5"
+    provider: "ETH Zurich / EPFL"
+    region: "eu"
+    protocol: "ollama-compatible"
+    endpoint: "http://localhost:11434/api/generate"
+    model_name: "apertus:70b"
+    auth_type: "none"
+    languages: ["en", "de", "fr", "it"]
+    capabilities: ["chat", "reasoning"]
+    tricolor: "🟡"
+    status: "active"
+    weight: 0.7
+  - id: "soofi-s"
+    name: "Soofi S 30B-A3B"
+    provider: "German AI Alliance"
+    region: "eu"
+    protocol: "ollama-compatible"
+    endpoint: "http://localhost:11434/api/generate"
+    model_name: "soofi-s:30b"
+    auth_type: "none"
+    languages: ["en", "de"]
+    capabilities: ["chat", "reasoning"]
+    tricolor: "🟡"
+    status: "active"
+    weight: 0.6
+  - id: "teuken"
+    name: "Teuken 7B"
+    provider: "Fraunhofer IAIS"
+    region: "eu"
+    protocol: "ollama-compatible"
+    endpoint: "http://localhost:11434/api/generate"
+    model_name: "teuken:7b"
+    auth_type: "none"
+    languages: ["en", "de", "fr", "es"]
+    capabilities: ["chat"]
+    tricolor: "🟢"
+    status: "active"
+    weight: 0.5
+  - id: "mistral"
+    name: "Ministral 3 14B"
+    provider: "Mistral AI"
+    region: "eu"
+    protocol: "openai-compatible"
+    endpoint: "https://api.mistral.ai/v1"
+    model_name: "ministral-3-latest"
+    auth_type: "api-key"   # MISTRAL_API_KEY
+    languages: ["en", "fr", "de", "es", "it"]
+    capabilities: ["chat", "code", "reasoning"]
+    tricolor: "🟢"
+    status: "active"
+    weight: 0.8
+  # ===== 中东/阿拉伯模型 =====
+  - id: "jais"
+    name: "Jais"
+    provider: "G42 / Inception"
+    region: "ae"
+    protocol: "ollama-compatible"
+    endpoint: "http://localhost:11434/api/generate"
+    model_name: "jais:13b"
+    auth_type: "none"
+    languages: ["ar", "en"]
+    capabilities: ["chat", "translation"]
+    tricolor: "🟡"
+    status: "active"
+    weight: 0.6
+  - id: "horus"
+    name: "Horus-1.0-4B"
+    provider: "TokenAI"
+    region: "ae"
+    protocol: "ollama-compatible"
+    endpoint: "http://localhost:11434/api/generate"
+    model_name: "horus:4b"
+    auth_type: "none"
+    languages: ["ar", "en", "fr", "es"]
+    capabilities: ["chat", "translation"]
+    tricolor: "🟡"
+    status: "active"
+    weight: 0.4
+  - id: "granite-ar"
+    name: "Granite-4.0-h-3b-ar"
+    provider: "IBM Research"
+    region: "us"
+    protocol: "ollama-compatible"
+    endpoint: "http://localhost:11434/api/generate"
+    model_name: "granite:3b-ar"
+    auth_type: "none"
+    languages: ["ar", "en"]
+    capabilities: ["chat"]
+    tricolor: "🟢"
+    status: "active"
+    weight: 0.4
+  # ===== 本地/开源模型 =====
+  - id: "llama3"
+    name: "Llama 3.1"
+    provider: "Meta (Open Source)"
+    region: "global"
+    protocol: "ollama-compatible"
+    endpoint: "http://localhost:11434/api/generate"
+    model_name: "llama3.1:8b"
+    auth_type: "none"
+    languages: ["en", "zh", "ar", "fr", "de", "es"]
+    capabilities: ["chat", "code", "reasoning", "translation"]
+    tricolor: "🟢"
+    status: "active"
+    weight: 0.8
+  - id: "qwen-local"
+    name: "Qwen 2.5 (Local)"
+    provider: "Alibaba (Open Source)"
+    region: "global"
+    protocol: "ollama-compatible"
+    endpoint: "http://localhost:11434/api/generate"
+    model_name: "qwen2.5:7b"
+    auth_type: "none"
+    languages: ["zh", "en", "ar", "ja", "ko"]
+    capabilities: ["chat", "translation", "code"]
+    tricolor: "🟢"
+    status: "active"
+    weight: 0.7

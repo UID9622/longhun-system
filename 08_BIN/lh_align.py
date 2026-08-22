@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂·统一对齐入口 v1.0（道生一·一生二·二生三·三生万物）
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-ALIGN-UNIFIED-v1.0
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-ALIGN-UNIFIED-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

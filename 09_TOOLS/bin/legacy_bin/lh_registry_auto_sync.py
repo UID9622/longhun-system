@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 from __future__ import annotations
 """
 龍魂·注册表自动同步引擎 v1.0
 ==============================
-DNA: #龍芯⚡️丙午·辛未·乙酉·REGISTRY-AUTO-SYNC-v1.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-REGISTRY-AUTO-SYNC-v1.0
 用途: 监控关键目录文件变更，自动提取新术语，增量更新语义统一注册表
 设计: 扫描→提取→比对→补丁→写入 五步闭环
      支持 --scan 全量 / --watch 监听 / --quick N小时增量 / --auto 自动应用

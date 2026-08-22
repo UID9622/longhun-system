@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·癸未·丁未·离为火-V43-TRAIN-PIPELINE
+#龍芯⚡️丙午·癸未·丁未·丙午·䷝离为火-V43-TRAIN-PIPELINE
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
@@ -16,7 +16,7 @@ fuse     — 合并adapter→全量模型
 verify   — MLX推理验证
 export   — GGUF导出+Q4_K_M量化+Ollama导入
 
-DNA: #龍芯⚡️丙午·癸未·丁未·离为火-V43-TRAIN-PIPELINE
+DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷝离为火-V43-TRAIN-PIPELINE
 """
 
 import json, sys, shutil, subprocess, time

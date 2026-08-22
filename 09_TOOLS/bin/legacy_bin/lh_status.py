@@ -2,12 +2,13 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂系统状态看板 · LongHun Status Dashboard
 
 双击或在终端运行，一屏看清所有龍魂服务状态。
 
-DNA: #龍芯⚡️2026-06-22-LONGHUN-STATUS-v1.0
+DNA: #龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-STATUS-v1.0
 """
 from __future__ import annotations
 

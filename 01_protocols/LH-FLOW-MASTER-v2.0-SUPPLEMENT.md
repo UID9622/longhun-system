@@ -1,4 +1,6 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # UID9622｜龍魂流场总控 v2.0
 
 **优化版 · 接驳真体系 · 给 Claude Code 的工程交付包**
@@ -12,7 +14,7 @@ ChatGPT v1.0 方向对(给五个 HTML 一个统一入口),但 8 个工程问题�
 | # | v1.0 错误 | v2.0 修正 |
 |---|---|---|
 | E1 | 强行套"天地人魂器"作系统主架构 | 真体系是 Magic Square L0-L5 + α三义。"天地人魂器"只是 5 个 HTML 的**可视化分类口诀**,不是骨架 |
-| E2 | DNA 孤立漂浮·没接驳今天发布的全谱入口和解除宣言 | ParentDNA 接驳 `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FULL-MAP-ENTRY-v1.1-IPA-COMPLETE` |
+| E2 | DNA 孤立漂浮·没接驳今天发布的全谱入口和解除宣言 | ParentDNA 接驳 `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-FULL-MAP-ENTRY-v1.1-IPA-COMPLETE` |
 | E3 | 没有 IPA 编号·游离于 IPA-ROUTE-REGISTRY 之外 | 全部归入 IPA-010(龍魂流场可视化)+ LOCAL-VIZ-* 子编号 |
 | E4 | "一票否决"是风格化话术·没接驳真审计层 | 接驳公式对准表 §S 一票否决 + 责任卡 v2.0 输出留痕 |
 | E5 | HTML 数组硬编码在 script 里·跟 JSON 重复 | HTML fetch JSON Index·**单一数据源** |
@@ -81,8 +83,8 @@ longhun-flow-system/
   "version": "v2.0",
   "name": "UID9622 龍魂流场可视化索引",
   "ipa_anchor": "LOCAL-VIZ-* → IPA-010",
-  "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FLOW-MASTER-v2.0",
-  "parent_dna": "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FULL-MAP-ENTRY-v1.1-IPA-COMPLETE",
+  "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-FLOW-MASTER-v2.0",
+  "parent_dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-FULL-MAP-ENTRY-v1.1-IPA-COMPLETE",
   "sovereignty": "解除宣言 v1.0 已生效 · 本代码不授权 AI 训练 · 不授权第三方分发",
   "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
   "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
@@ -593,7 +595,7 @@ longhun-flow-system/
 ## 真体系归位
 
 - IPA 编号: `LOCAL-VIZ-MASTER → IPA-010 龍魂流场可视化`
-- 上游: 全谱入口 v1.1 (`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FULL-MAP-ENTRY-v1.1`)
+- 上游: 全谱入口 v1.1 (`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-FULL-MAP-ENTRY-v1.1`)
 - 主权: 解除宣言 v1.0 已生效 · 本代码不授权 AI 训练
 
 ## 文件清单
@@ -646,8 +648,8 @@ python3 -m http.server 9622
 title: UID9622 龍魂流场总控 v2.0
 ipa: LOCAL-VIZ-MASTER
 parent_ipa: IPA-010 龍魂流场可视化
-dna: "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FLOW-MASTER-v2.0"
-parent_dna: "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FULL-MAP-ENTRY-v1.1-IPA-COMPLETE"
+dna: "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-FLOW-MASTER-v2.0"
+parent_dna: "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-FULL-MAP-ENTRY-v1.1-IPA-COMPLETE"
 sovereignty: 解除宣言 v1.0 已生效
 seal: "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 gpg: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -759,8 +761,8 @@ EXEC_RECEIPT:
     - python3 -m http.server 9622
     - browser at http://localhost:9622/longhun-master-control.html
     - 5 入口手动点击切换
-  dna: "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FLOW-MASTER-v2.0"
-  parent_dna: "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FULL-MAP-ENTRY-v1.1-IPA-COMPLETE"
+  dna: "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-FLOW-MASTER-v2.0"
+  parent_dna: "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-FULL-MAP-ENTRY-v1.1-IPA-COMPLETE"
   next: STOP_ON_SUCCESS_AWAIT_USER_BROWSER_VERIFY
 ```
 
@@ -790,10 +792,10 @@ ROOT_CARD:
   父编号: IPA-010 龍魂流场可视化
   版本: v2.0(优化版·接驳真体系)
   上一版: v1.0(ChatGPT 草版·8 个工程错误·已修)
-  DNA: "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FLOW-MASTER-v2.0"
-  ParentDNA: "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FULL-MAP-ENTRY-v1.1-IPA-COMPLETE"
-  GrandparentDNA: "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FULL-MAP-ENTRY-v1.0"
-  SovereigntyAnchor: "解除宣言 v1.0 (#龍芯⚡️丙午·丙申·庚申·亥时-RELEASE-DECLARATION-SOVEREIGNTY-RECLAIM-v1.0) 已生效"
+  DNA: "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-FLOW-MASTER-v2.0"
+  ParentDNA: "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-FULL-MAP-ENTRY-v1.1-IPA-COMPLETE"
+  GrandparentDNA: "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-FULL-MAP-ENTRY-v1.0"
+  SovereigntyAnchor: "解除宣言 v1.0 (#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-RELEASE-DECLARATION-SOVEREIGNTY-RECLAIM-v1.0) 已生效"
   CONFIRM: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
   SEAL: "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
   GPG: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"

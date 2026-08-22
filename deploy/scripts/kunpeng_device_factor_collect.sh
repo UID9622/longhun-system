@@ -21,7 +21,7 @@
 #   - dmidecode (yum install dmidecode 或 apt install dmidecode)
 #   - Python 3.8+
 #
-# DNA: #龍芯⚡️2026-07-12-KUNPENG-DEVICE-FACTOR-COLLECT-v1.0
+# DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-KUNPENG-DEVICE-FACTOR-COLLECT-v1.0
 # ═══════════════════════════════════════════════════════════
 
 set -euo pipefail
@@ -256,7 +256,7 @@ main() {
     $QUIET_MODE || echo ""
     $QUIET_MODE || echo "╔══════════════════════════════════════════════════════╗"
     $QUIET_MODE || echo "║  鲲鹏服务器 · 设备因子采集诊断 v1.0                   ║"
-    $QUIET_MODE || echo "║  DNA: #龍芯⚡️2026-07-12-KUNPENG-FACTOR-COLLECT      ║"
+    $QUIET_MODE || echo "║  DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-KUNPENG-FACTOR-COLLECT      ║"
     $QUIET_MODE || echo "╚══════════════════════════════════════════════════════╝"
     $QUIET_MODE || echo ""
     

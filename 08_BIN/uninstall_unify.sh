@@ -1,6 +1,7 @@
 #!/bin/bash
 # 🐉 龍魂 · 卸载脚本（冻结式 · P0天条：不删除只冻结）
-# DNA: #龍芯⚡️丙午·丙申·庚申·亥时-UNINSTALL-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-UNINSTALL-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 用法: bash bin/uninstall_unify.sh
 # ⚠️ 本脚本不物理删除 ~/.longhun，而是改名冻结留档，可 --restore 恢复

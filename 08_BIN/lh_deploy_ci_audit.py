@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂 · CI 审计自动化部署器 v1.0
-DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-CI部署-v1.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-CI部署-v1.0-UID9622
 
 功能：
   1. 在 longhun-system 主仓库部署掀黑箱 CI 审计（GitHub Actions + GitLab CI）

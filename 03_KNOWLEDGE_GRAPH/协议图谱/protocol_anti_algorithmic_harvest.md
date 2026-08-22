@@ -1,4 +1,5 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
@@ -6,7 +7,7 @@ id: protocol_anti_algorithmic_harvest
 type: protocol
 title: 龍魂反算法收割协议
 layer: L1
-dna: "#龍芯⚡️丙午·辛未·乙酉·申时·剥-LONGHUN-PROTOCOL-ANTI-HARVEST-4D8E1A6B"
+dna: "#龍芯⚡️丙午·辛未·乙酉·申时·䷖剥-LONGHUN-PROTOCOL-ANTI-HARVEST-4D8E1A6B"
 owner: UID9622 · 诸葛鑫（Lucky）
 claim: 任何直播/内容/交互系统不得用PK对立、倒计时压迫、打赏抽成、排名虚荣制造情绪收割；人民注意力与数据主权不容被算法编程。
 based_on: [data_sovereignty_in_user, no_human_rights_violation, three_color_audit, dragon_vein_trace]
@@ -19,7 +20,7 @@ created: 丙午·辛未·乙酉
 
 > 本协议由 UID9622（诸葛鑫·Lucky·龍芯北辰）基于龍魂系统 P0 焊死底座签署。
 > 针对现象：PK直播 = 情绪收割机，主播 = 算法的人质，用户 = 待割的韭菜，平台 = 收割机器。
-> DNA：`#龍芯⚡️丙午·辛未·乙酉·申时·剥-LONGHUN-PROTOCOL-ANTI-HARVEST-4D8E1A6B`
+> DNA：`#龍芯⚡️丙午·辛未·乙酉·申时·䷖剥-LONGHUN-PROTOCOL-ANTI-HARVEST-4D8E1A6B`
 > 确认码：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅
 
 ## 总则
@@ -90,7 +91,7 @@ created: 丙午·辛未·乙酉
 | v1.0 | 丙午·辛未·乙酉 | 龍魂系统定稿：协议 + 引擎 + 审计三件套落地 |
 
 > 底座不动（P0 不可修订）；其余可随版本迭代。
-> **DNA**：`#龍芯⚡️丙午·辛未·乙酉·申时·剥-LONGHUN-PROTOCOL-ANTI-HARVEST-4D8E1A6B`
+> **DNA**：`#龍芯⚡️丙午·辛未·乙酉·申时·䷖剥-LONGHUN-PROTOCOL-ANTI-HARVEST-4D8E1A6B`
 > **确认码**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅
 > **GPG**：`A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 > **创建者**：💎 龍芯北辰｜UID9622

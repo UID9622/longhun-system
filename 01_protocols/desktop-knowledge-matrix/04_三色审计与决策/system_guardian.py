@@ -1,7 +1,9 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂系统守护者 · LongHun System Guardian
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 全系统检测：
   - 门户 HTTP/HTTPS 可访问性
@@ -13,7 +15,7 @@
 发现异常则写入 `~/.longhun/audit/system_guardian.jsonl`，
 可扩展为短信/邮件告警。
 
-DNA:#龍芯⚡️2026-06-20-LONGHUN-SYSTEM-GUARDIAN-FILE1-v1.0
+DNA:#龍芯⚡️丙午·甲午·乙丑·壬午·䷨损-LONGHUN-SYSTEM-GUARDIAN-FILE1-v1.0
 """
 
 import json

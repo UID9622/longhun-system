@@ -1,8 +1,9 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂系統·接線完成報告 v1.0
 
 ## DNA簽證
 ```
-DNA:#龍芯⚡️丙午·丙申·庚申·亥时-IMPLEMENTATION-EXECUTION-v1.0
+DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-IMPLEMENTATION-EXECUTION-v1.0
 確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 責任: UID9622 · 不免責
 ```
@@ -351,6 +352,6 @@ lsof -iTCP -sTCP:LISTEN | grep 7000
 
 **責任: UID9622 · 不免責**
 
-DNA:#龍芯⚡️丙午·丙申·庚申·亥时-IMPLEMENTATION-EXECUTION-v1.0
+DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-IMPLEMENTATION-EXECUTION-v1.0
 確認: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 

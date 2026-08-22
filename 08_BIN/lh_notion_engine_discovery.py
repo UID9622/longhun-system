@@ -2,12 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·临-NOTION-ENGINE-DISCOVERY-v1.0-8C41940D
+# DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-NOTION-ENGINE-DISCOVERY-v1.0-8C41940D
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
 🐉 龍魂 · Notion 引擎发现扫描器 v1.1
-DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·临-NOTION-ENGINE-DISCOVERY-v1.0-8C41940D
+DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-NOTION-ENGINE-DISCOVERY-v1.0-8C41940D
 创建者: 诸葛鑫 (UID9622)
 协议: CC BY-NC-SA 4.0
 
@@ -36,7 +36,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 CST = timezone(timedelta(hours=8))
 
-DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·临-NOTION-ENGINE-DISCOVERY-v1.0-8C41940D"
+DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-NOTION-ENGINE-DISCOVERY-v1.0-8C41940D"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SCHEMA_VERSION = "1.1.0"
 

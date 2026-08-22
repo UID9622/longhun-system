@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂 · AI对话导入器 v2.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-CHAT-IMPORTER-v2.0-KIMI-DISTILL
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-CHAT-IMPORTER-v2.0-KIMI-DISTILL
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

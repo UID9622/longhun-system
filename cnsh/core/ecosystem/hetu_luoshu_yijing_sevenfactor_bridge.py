@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂生态桥接模块 · 河图洛书 × 易经 × 七因子
-DNA: #龍芯⚡️2026-07-05-HETU-LUOSHU-YIJING-7FACTOR-BRIDGE-v1.0
+DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-HETU-LUOSHU-YIJING-7FACTOR-BRIDGE-v1.0
 """
 
 import hashlib
@@ -281,7 +282,7 @@ def audit_with_ecosystem(
     persona_route = route_persona(bagua_result["upper_gua"], bagua_result["lower_gua"])
 
     return {
-        "dna": "#龍芯⚡️2026-07-05-HETU-LUOSHU-YIJING-7FACTOR-BRIDGE-v1.0",
+        "dna": "#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-HETU-LUOSHU-YIJING-7FACTOR-BRIDGE-v1.0",
         "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
         "seven_factor": {
             "scores": f_scores,

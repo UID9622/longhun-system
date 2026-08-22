@@ -1,8 +1,9 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂蚁群分布可视化协议 v1.0
 
-DNA: #龍芯⚡️丙午·癸未·丁未·离为火-蚁群可视化-v1.0
+DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷝离为火-蚁群可视化-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 优先级: P2（系统规则层）

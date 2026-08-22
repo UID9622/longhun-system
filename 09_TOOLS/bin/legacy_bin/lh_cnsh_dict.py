@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 CNSH标准词典 · 查询工具
-DNA: #龍芯⚡️丙午·乙未·乙未·酉时·☷坤-CNSH-DICT-QUERY-v1.0
+DNA: #龍芯⚡️丙午·乙未·乙未·酉时·䷁坤-CNSH-DICT-QUERY-v1.0
 
 用法:
   python3 bin/lh_cnsh_dict.py search <关键词>          # 模糊搜索

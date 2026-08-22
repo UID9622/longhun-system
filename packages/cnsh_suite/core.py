@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 🐉 CNSH 核心引擎
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-CNSH-CORE-UID9622
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-CORE-UID9622
 """
 
 import os

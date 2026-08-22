@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂护盾 v2.0 — 五维防御 + 耻辱墙 + AI伦理熔断
 覆盖：Web/API、数据库、IoT、文件系统、AI模型服务
-DNA: #龍芯⚡️2026-06-29-LONGHUN-SHIELD-v2-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-SHIELD-v2-UID9622
 原则：只防御、不主动攻击、证据永存、自动隔离
 """
 
@@ -406,7 +407,7 @@ class LongHunShield:
             "wall_integrity": self.wall.verify()[0],
             "blocked_identities": list(self.sense._blocked),
             "watchlist_count": len(self.sense._watchlist),
-            "dna": "#龍芯⚡️2026-06-29-LONGHUN-SHIELD-v2-UID9622",
+            "dna": "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-SHIELD-v2-UID9622",
         }
 
 

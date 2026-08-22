@@ -2,7 +2,8 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 核心安全审计与DNA追溯引擎
-# DNA: #龍芯⚡️丙午·丙申·癸丑·亥时·需-L1-CORE-ENGINE-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# DNA: #龍芯⚡️丙午·丙申·癸丑·亥时·䷄需-L1-CORE-ENGINE-v1.0
 # 引擎: P02 龍芯 + P05 上帝之眼 + P77 黑天使军团
 # 焊死: 2026-07-09 · UID9622 全局焊死指令落盘
 #

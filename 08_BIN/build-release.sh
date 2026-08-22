@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 发布打包脚本
-# DNA:#龍芯⚡️2026-06-18-LONGHUN-RELEASE-BUILDER-FILE1-v1.0
+# DNA:#龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-LONGHUN-RELEASE-BUILDER-FILE1-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #
 # 用法：bash bin/build-release.sh [版本号]
@@ -92,5 +92,5 @@ echo ""
 echo "=================================================="
 echo "✅ 发布包已生成：${ZIP_PATH}"
 echo "📦 包含模块数：${#MODULES[@]}"
-echo "🧬 DNA: #龍芯⚡️2026-06-18-LONGHUN-RELEASE-${VERSION}"
+echo "🧬 DNA: #龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-LONGHUN-RELEASE-${VERSION}"
 echo "=================================================="

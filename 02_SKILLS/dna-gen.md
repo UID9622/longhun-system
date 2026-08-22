@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # /dna-gen
@@ -13,7 +13,7 @@
 > 审核状态：草稿
 
 **DNA(v∞)**: `#龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-DOC-DNA-GEN-v2.1`  
-**DNA(v1.0)**: `#龍芯⚡️2026-06-21-DOC-DNA-GEN-FILE1-v1.0-2`  
+**DNA(v1.0)**: `#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-DOC-DNA-GEN-FILE1-v1.0-2`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 > 📻 **最新广播**: DNA 格式已升级 — [全人格广播](broadcast/BULLETIN_DNA_v∞_2026-07-08.md) · 干支时辰 v∞ 为推荐格式
@@ -49,7 +49,7 @@ DNA生成器（dna-gen）是龍魂系统的追溯码生成引擎，基于河图�
 | 代 | 格式 | 示例 |
 |:--|------|------|
 | v1.0 | `#龍芯⚡️YYYY-MM-DD-MODULE-ACTION-HASH8` | `#龍芯⚡️2026-07-08-SKILL-ALLOC-1A2B3C4D` |
-| v2.0 | `#龍芯⚡️<节气><年>·<HH:MM:SS>-...` | `#龍芯⚡️小暑2026·07:13:36-...` |
+| v2.0 | `#龍芯⚡️<节气><年>·<HH:MM:SS>-...` | `#龍芯⚡️丙午·乙未·壬午·甲辰·䷴渐-...` |
 | **v∞** | `#龍芯⚡️<年干支>·<月干支>·<日干支>·<时辰>·<卦名>-...` | `#龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-...` |
 | 紧凑 | `#龍芯⚡️<年干支>·<时辰>·<卦>-...` | `#龍芯⚡️丙午·辰时·䷾-...` |
 
@@ -65,7 +65,7 @@ DNA追溯 DNA Traceability, 河图洛书 Hetu Luoshu, 中五不动点 Fixed Poin
   - [1] 知识矩阵总纲 v3.0 · 第拾贰章·MOD-DNA-GEN (#UID9622⚡️2026-06-16-KNOWLEDGE-MATRIX-MASTER-v3.0)
   - [2] CNSH命令与变量命名规范 v2.0 · 附录A·河图洛书不动点算法
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
   - `bin/hetu_luoshu_dna.py` — 河图洛书DNA引擎 v2.0
 
 ## 诚实局限
@@ -95,6 +95,6 @@ DNA追溯 DNA Traceability, 河图洛书 Hetu Luoshu, 中五不动点 Fixed Poin
 
 ```
 #龍芯⚡️丙午·乙未·癸未·辰时·䷾既济-DOC-DNA-GEN-v2.1
-#龍芯⚡️2026-06-21-DOC-DNA-GEN-FILE1-v1.0-2
+#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-DOC-DNA-GEN-FILE1-v1.0-2
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

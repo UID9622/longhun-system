@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 龍魂生态 · 主权网关自动硬控协议 v1.0
 
 **DNA**: `#龍芯⚡️丙午·丙申·辛酉·丙申·䷉履-SOVEREIGN-CTRL-v1.0-UID9622`

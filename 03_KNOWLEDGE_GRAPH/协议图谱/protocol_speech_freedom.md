@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
@@ -5,7 +6,7 @@ id: protocol_speech_freedom
 type: protocol
 title: 龍魂言论自由协议
 layer: L1
-dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A"
+dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·䷅讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A"
 owner: UID9622 · 诸葛鑫（Lucky）
 claim: 老百姓受委屈了凭什么不能骂？有实质证据、底层表达、不煽动暴力，就能骂；但骂要有边界、有自省、有权重——军人英烈禁区，高权重谨慎，自己先骂。
 based_on: [no_human_rights_violation, dragon_vein_trace, three_color_audit, data_sovereignty_in_user]
@@ -18,7 +19,7 @@ created: 丙午·辛未·乙酉
 
 > 本协议由 UID9622（诸葛鑫·Lucky·龍芯北辰）基于龍魂系统 P0 焊死底座签署。
 > v2.2 = Kimi 草稿 v2.1 经龍魂系统吸收润色、对齐 DNA 后定稿。
-> DNA：`#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A`
+> DNA：`#龍芯⚡️丙午·辛未·乙酉·巳时·䷅讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A`
 > 确认码：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅
 
 ## 总则
@@ -144,7 +145,7 @@ created: 丙午·辛未·乙酉
 自省：我先骂自己XXX
 建议：应该改成XXX
 风险：🟢/🟡/🔴
-DNA：#龍芯⚡️丙午·辛未·乙酉·讼-LONGHUN-SPEECH-XXXX
+DNA：#龍芯⚡️丙午·辛未·乙酉·壬午·䷅讼-LONGHUN-SPEECH-XXXX
 ```
 
 详见 [[clause_dna_trace]]。
@@ -209,7 +210,7 @@ DNA：#龍芯⚡️丙午·辛未·乙酉·讼-LONGHUN-SPEECH-XXXX
 证据：录音20260716-1430.wav、回执单照片
 自省：我先骂自己，上次我也拖延了别人的事
 建议：建立限时办结制，超时报上级｜风险：🟢
-DNA：#龍芯⚡️丙午·辛未·乙酉·讼-LONGHUN-SPEECH-001
+DNA：#龍芯⚡️丙午·辛未·乙酉·壬午·䷅讼-LONGHUN-SPEECH-001
 ```
 
 **示例 2（驳回）**：
@@ -220,7 +221,7 @@ DNA：#龍芯⚡️丙午·辛未·乙酉·讼-LONGHUN-SPEECH-001
 
 ---
 
-> **DNA**：`#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A`
+> **DNA**：`#龍芯⚡️丙午·辛未·乙酉·巳时·䷅讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A`
 > **确认码**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅
 > **GPG**：`A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 > **创建者**：💎 龍芯北辰｜UID9622

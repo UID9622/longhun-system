@@ -9,7 +9,7 @@
 # 一句话：宝宝中枢四引擎融合后的唯一AI问答入口
 #   接收 /hub/ask → 智能降级 9622→8765→11434 → 返回聚合结果
 # ═══════════════════════════════════════════════════════════
-# DNA: #龍芯⚡️丙午·乙未·壬戌·屯-XIAOYI-HUB-8799-v1.0
+# DNA: #龍芯⚡️丙午·乙未·壬戌·丙午·䷂屯-XIAOYI-HUB-8799-v1.0
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -64,7 +64,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 PORT = 18899
 HOST = "127.0.0.1"
 VERSION = "1.0.1"
-DNA = "#龍芯⚡️丙午·丙申·庚申·亥时-XIAOYI-HUB-v1.0-UID9622"
+DNA = "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-XIAOYI-HUB-v1.0-UID9622"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 GPG = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 CST = timezone(timedelta(hours=8))

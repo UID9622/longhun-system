@@ -2,13 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂字体 MCP 服务 v1.0 · LonghunFont MCP Server
 =================================================
 将 LonghunFontEngine 包装为 MCP 协议服务，
 供 Craft / Autov / CodeBuddy 等外部工具通过标准 JSON-RPC 接口调用。
 
-DNA: #龍芯⚡️丙午·辛未·乙酉-FONT-MCP-SERVER-v1.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-FONT-MCP-SERVER-v1.0
 
 协议: JSON-RPC 2.0 风格
 请求: {"method": "list_fonts", "params": {...}}
@@ -33,7 +34,7 @@ from typing import Any, Dict, Optional
 
 from .engine import LonghunFontEngine
 
-__DNA__ = "#龍芯⚡️丙午·辛未·乙酉-FONT-MCP-SERVER-v1.0"
+__DNA__ = "#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-FONT-MCP-SERVER-v1.0"
 __VERSION__ = "1.0.0"
 
 

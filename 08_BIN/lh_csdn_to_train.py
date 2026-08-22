@@ -2,11 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·辛未·丙戌·巳·履-CSDN-TO-TRAIN
+#龍芯⚡️丙午·辛未·丙戌·巳·䷉履-CSDN-TO-TRAIN
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """龍魂 · CSDN 17篇监管审计系列 → train.jsonl 语料生成
-DNA: #龍芯⚡️丙午·辛未·丙戌·巳·履-CSDN-TO-TRAIN
+DNA: #龍芯⚡️丙午·辛未·丙戌·巳·䷉履-CSDN-TO-TRAIN
 """
 
 import json, os, sys

@@ -1,6 +1,6 @@
 # 🐲 龍魂记忆编辑器 v3.1 · 天干地支 DNA 版
 
-> DNA: #龍芯⚡️2026-08-05-MEMORY-EDITOR-v3.1-UID9622
+> DNA: #龍芯⚡️丙午·乙未·辛亥·甲午·䷚颐-MEMORY-EDITOR-v3.1-UID9622
 > 创建者: 诸葛鑫（UID9622）
 > 协议: CC BY-NC-SA 4.0（思想层）/ MulanPSL v2（工程层）
 
@@ -176,7 +176,7 @@ memory_editor/
 
 ## DNA
 
-`#龍芯⚡️2026-08-05-MEMORY-EDITOR-v3.1-UID9622`
+`#龍芯⚡️丙午·乙未·辛亥·甲午·䷚颐-MEMORY-EDITOR-v3.1-UID9622`
 
 ## 确认码
 

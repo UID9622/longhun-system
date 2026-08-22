@@ -32,7 +32,7 @@ class LonghunLLM:
 
     MODELS = {
         'deepseek': {
-            'name': 'DeepSeek-V3',
+            'name': 'DeepSeek-V4',
             'base_url': 'https://api.deepseek.com/v1',
             'env_key': 'DEEPSEEK_API_KEY',
             'priority': 1,
@@ -58,7 +58,7 @@ class LonghunLLM:
     }
 
     MODEL_IDS = {
-        'deepseek': 'deepseek-chat',
+        'deepseek': 'deepseek-v4-flash',
         'kimi': 'moonshot-v1-8k',
         'qwen': 'qwen-plus',
         'wenxin': 'ernie-bot-4',
@@ -124,7 +124,7 @@ class LonghunLLM:
 
         if not api_key:
             return None, None, None
-        return model_config, api_key, self.MODEL_IDS.get(self.preferred, 'deepseek-chat')
+        return model_config, api_key, self.MODEL_IDS.get(self.preferred, 'deepseek-v4-flash')
 
     def chat(self, prompt: str, system: str = "你是龍魂系统助手") -> Dict[str, Any]:
         model_config, api_key, model_id = self._resolve_model()

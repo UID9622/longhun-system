@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂 longhun-v4.1.3 LoRA 微调器（全量数据·DNA捆绑继承）
-DNA: #龍芯⚡️丙午·乙未·丙申·亥时·☰乾-MODEL-LORA-TRAINER-v4.1.3-RESTART
+DNA: #龍芯⚡️丙午·乙未·丙申·亥时·䷀乾-MODEL-LORA-TRAINER-v4.1.3-RESTART
 底模: 01-ai/Yi-1.5-9B-Chat (MLX)
 恢复: v4.1.1-bind adapter (Val 0.9659·DNA捆绑) — 当前最佳9B模型
 数据: v4.1.1训练集 + 观澜16条 + Library矿场1082条 = 43,312条 (40,629 train + 2,683 valid)

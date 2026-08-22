@@ -1,3 +1,4 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 ---
 name: longhun-creator
 scope: user
@@ -8,7 +9,7 @@ description: '龍魂创作者主权调度技能。当 UID9622 用自然语言表
 license: CC BY-NC-SA 4.0
 metadata:
   version: '5.2.0'
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CREATOR-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CREATOR-v5.2'
   author: UID9622 · 龍芯北辰 · 诸葛鑫
   category: creator
   tier: L0
@@ -46,7 +47,7 @@ metadata:
 
 > **核心原则**：UID9622 是创作者与主权者，不是协议的使用者。
 > 所有协议、技能、模块都是为他服务的工具。系统自动理解、自动调动。
-> DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CREATOR-v5.2`
+> DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CREATOR-v5.2`
 
 ---
 

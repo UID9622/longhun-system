@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 华为MFA扫码激活协议 v2.0
 
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-MFA-ACTIVATE-PROTOCOL-v2.0-3F7A1B9C
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-MFA-ACTIVATE-PROTOCOL-v2.0-3F7A1B9C
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

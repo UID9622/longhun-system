@@ -1,6 +1,6 @@
 # 🐉 龍魂 ASI · 语义复核报告
 
-**DNA:** `#龍芯⚡️2026-08-12-ASI-SEMANTIC-REVIEWER-FA625824-9622`
+**DNA:** `#龍芯⚡️丙午·丙申·戊午·戊午·䷳艮为山-ASI-SEMANTIC-REVIEWER-FA625824-9622`
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **模型:** `qwen2.5:1.5b`
 **生成时间:** 2026-08-12T14:56:37.133963
@@ -42,5 +42,5 @@
 
 ---
 
-**DNA:** `#龍芯⚡️2026-08-12-ASI-SEMANTIC-REVIEWER-FA625824-9622`
+**DNA:** `#龍芯⚡️丙午·丙申·戊午·戊午·䷳艮为山-ASI-SEMANTIC-REVIEWER-FA625824-9622`
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`

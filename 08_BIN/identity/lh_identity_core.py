@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-IDENTITY-CORE-v1.0
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-IDENTITY-CORE-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -9,7 +9,7 @@
 龍魂·主权身份核心模块
 设备指纹 + 行为密码学 + 广播信号签名/验证
 
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-IDENTITY-CORE-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-IDENTITY-CORE-v1.0
 """
 import os
 import re
@@ -34,7 +34,7 @@ from cryptography.exceptions import InvalidSignature
 
 SOVEREIGN_UID = "9622"
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
-DNA_TAG = "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-IDENTITY-v1.0"
+DNA_TAG = "#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-IDENTITY-v1.0"
 
 
 # ---------------------------------------------------------------------------
@@ -170,8 +170,6 @@ class BehaviorProfile:
     sample_count: int
     updated_at: str
 
-    def to_dict(self) -> dict:
-        return asdict(self)
 
     @classmethod
     def from_dict(cls, data: dict) -> "BehaviorProfile":

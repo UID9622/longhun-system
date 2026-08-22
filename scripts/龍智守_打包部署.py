@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍智守 · 华为服务器部署包生成器 v2.1
@@ -9,7 +10,7 @@
 把本地 bot 脚本、依赖模块、示例配置、systemd / nginx 模板打包成一个可部署目录，
 自动排除 ~/.longhun/config/ 下的私密配置和主密钥。
 
-DNA:#龍芯⚡️2026-06-30-LONGZHISHOU-PACKAGER-FILE2-v2.1
+DNA:#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGZHISHOU-PACKAGER-FILE2-v2.1
 """
 
 import os
@@ -283,7 +284,7 @@ echo "      - 回调 URL：$CALLBACK_URL"
 echo "      - 订阅事件：im.message.receive_v1"
 echo "      - 权限：im:message、im:message.group_at_msg"
 echo ""
-echo "DNA: #龍芯⚡️2026-06-30-LONGZHISHOU-PACKAGER-v2.1"
+echo "DNA: #龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGZHISHOU-PACKAGER-v2.1"
 """
     (out_dir / "install.sh").write_text(install_sh, encoding="utf-8")
     os.chmod(out_dir / "install.sh", 0o755)

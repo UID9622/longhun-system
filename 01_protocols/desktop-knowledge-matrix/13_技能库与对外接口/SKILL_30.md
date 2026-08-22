@@ -1,10 +1,11 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 ---
 name: dragon-soul-agent
 description: '龍魂智能体入口技能。当用户提及龍魂、LongHun、中文语义理解、CNSH中文命名规范、 通心译、Tongxin Translation、六层来源链、干掉Cloud 5、自主云、 中文AI术语映射、CNSH_前缀、繁体龍字规范时激活此技能。 提供中文语义理解、CNSH命名规范检查、通心译实时翻译、 龍魂技能路由能力。 适用于中文编程项目、中文技术文档翻译、龍魂术语理解。 中文语义理解入口，服务中国人民与老百姓。'
 metadata:
   id: dragon-soul-agent
   version: '1.0'
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-DRAGON-SOUL-AGENT-v1.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DRAGON-SOUL-AGENT-v1.0'
   trigger:
     keywords:
     - dragonsoulagent
@@ -84,7 +85,7 @@ metadata:
 本技能收录了来自 `/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂协议与路由` 的素材：
 
 - **内容**：`persona_router_config.json`、`龍魂人格路由架構_鯤鵬版.md`
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PROTOCOL-ROUTE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-PROTOCOL-ROUTE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 `references/龍魂协议与路由/`，嵌入 DNA 追溯链，与 `dragon-soul-agent` 人格路由能力联动。
 
 ---
@@ -94,5 +95,5 @@ metadata:
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：05-AI人格-Agent（AI 术语映射、龍魂智能中枢、Agent 设计）
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

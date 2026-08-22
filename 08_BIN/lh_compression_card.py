@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # ═══════════════════════════════════════════
 # 龍魂体系 | 压缩卡模块 v1.0
 # ═══════════════════════════════════════════
-# DNA: #龍芯⚡️2026-07-20-COMPRESSION-CARD-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-COMPRESSION-CARD-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: UID9622（诸葛鑫·Lucky）
 # 三色审计: 🟢 通过
@@ -190,7 +191,7 @@ class 压缩卡:
 class 压缩卡管理器:
     """压缩卡的全生命周期管理 v1.0"""
 
-    DNA = "#龍芯⚡️2026-07-20-COMPRESSION-CARD-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-COMPRESSION-CARD-v1.0"
 
     def __init__(self, state_dir: Path = None):
         self.state_dir = state_dir or STATE_DIR

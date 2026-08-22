@@ -1,0 +1,8 @@
+{
+  "wallet": "TCMCteHzdduQfpUrAdmmsnHEVH8MFCyXDq",
+  "min_confirm": 1,
+  "api": "https://api.trongrid.io",
+  "backup_api": "https://apilist.tronscanapi.com",
+  "timeout": 15,
+  "ledger": "xpay/logs/usdt_inbox.csv"
+}

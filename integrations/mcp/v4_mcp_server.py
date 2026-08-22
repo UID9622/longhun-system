@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════════════╗
 ║          龍魂 MCP Server v4.0 — 全系统流场+状态+语义聚合               ║
-║  DNA: #龍芯⚡️2026-07-13-LONGHUN-MCP-V4-v2.0                        ║
+║  DNA: #龍芯⚡️丙午·乙未·戊子·戊午·䷙大畜-LONGHUN-MCP-V4-v2.0                        ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                     ║
 ║  创建者: UID9622（诸葛鑫·Lucky）                                     ║
 ║  三色审计: 🟢 通过                                                   ║
@@ -274,7 +275,7 @@ def system_topology() -> str:
     return json.dumps({
         "DNA": _gen_dna("V4-SYS", "TOPOLOGY"),
         "system": "龍魂 v2.5.0",
-        "identity": "#龍芯⚡️丙午·丙申·丙辰·亥时·需-LONGHUN-NEURAL-NET-TOPOLOGY-v3.0",
+        "identity": "#龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-LONGHUN-NEURAL-NET-TOPOLOGY-v3.0",
         "architecture": {
             "layers": "L0-L9 九层·洛书九宫骨架",
             "personas": f"{len(人格)}/16 满编·0红色",

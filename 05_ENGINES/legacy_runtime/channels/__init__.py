@@ -2,9 +2,10 @@
 """
 🐉 龍魂引擎 · 通道基类
 =======================
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 所有通道适配器的基类。实现接收→转换→调用引擎→转换→发送。
 
-DNA: #龍芯⚡️丙午·乙未·甲子·申时·需-CHANNEL-BASE-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲子·申时·䷄需-CHANNEL-BASE-v1.0
 """
 
 from __future__ import annotations

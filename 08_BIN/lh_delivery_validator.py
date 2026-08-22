@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·乙未·己亥·午时·☰乾-DELIVERY-VALIDATOR-v1.0
+#龍芯⚡️丙午·乙未·己亥·午时·䷀乾-DELIVERY-VALIDATOR-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -9,7 +9,7 @@
 龍魂·产品级交付标准验证器 v1.0
 对应协议: 01_protocols/LH-DELIVERY-STANDARD-v1.0.md
 职能: 任何产出在汇报「已完成」之前，先过五道交付标准检查。
-DNA: #龍芯⚡️丙午·乙未·己亥·午时·☰乾-DELIVERY-VALIDATOR-v1.0
+DNA: #龍芯⚡️丙午·乙未·己亥·午时·䷀乾-DELIVERY-VALIDATOR-v1.0
 """
 
 import argparse
@@ -23,7 +23,7 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 
 ROOT = Path(__file__).resolve().parent.parent
-DNA = "#龍芯⚡️丙午·乙未·己亥·午时·☰乾-DELIVERY-VALIDATOR-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·己亥·午时·䷀乾-DELIVERY-VALIDATOR-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 

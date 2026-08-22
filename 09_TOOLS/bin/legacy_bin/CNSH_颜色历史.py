@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 CNSH 颜色历史趋势 v1.0
 记录每次颜色判决，追踪趋势，识别持续风险。
-DNA: #龍芯⚡️2026-06-29-CNSH-COLOR-HISTORY-v1-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-COLOR-HISTORY-v1-UID9622
 """
 
 import os as _os
@@ -31,7 +32,7 @@ class CNSH_颜色历史:
         self.工作目录 = Path(工作目录).resolve()
         self.工作目录.mkdir(parents=True, exist_ok=True)
         self.历史文件 = self.工作目录 / "颜色历史.jsonl"
-        self.DNA = "#龍芯⚡️2026-06-29-CNSH-COLOR-HISTORY-v1-UID9622"
+        self.DNA = "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-COLOR-HISTORY-v1-UID9622"
 
     def 记录(self, 标识: str, 颜色代码: str, 输入文本: str, 来源: str = "颜色引擎") -> Dict[str, Any]:
         条目 = {

@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # /api-sovereign-gateway
@@ -11,7 +11,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-07-06-API-SOVEREIGN-GATEWAY-SKILL-v1.0`
+**DNA**: `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-API-SOVEREIGN-GATEWAY-SKILL-v1.0`
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -234,7 +234,7 @@ HALF_OPEN ──试探失败──────────────→ OPEN
 
 ## 引用与溯源
 
-- 核心文档：API主权门关设计 `#龍芯⚡️2024-08-05-设计-API网关-v1.0`
+- 核心文档：API主权门关设计 `#龍芯⚡️甲辰·辛未·辛丑·甲午·䷨损-设计-API网关-v1.0`
 - 相关文件：
   - `02_SKILLS/identity-positioning.md` — 身份定位总纲
   - `02_SKILLS/guomi-crypto.md` — 国密三引擎
@@ -254,7 +254,7 @@ HALF_OPEN ──试探失败──────────────→ OPEN
 
 | 日期 | 变更 | DNA |
 |------|------|------|
-| 2026-07-06 | 初始创建，整合四道关卡+认证Header+七条红线+熔断器+API端点+错误码 | `#龍芯⚡️2026-07-06-API-SOVEREIGN-GATEWAY-SKILL-v1.0` |
+| 2026-07-06 | 初始创建，整合四道关卡+认证Header+七条红线+熔断器+API端点+错误码 | `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-API-SOVEREIGN-GATEWAY-SKILL-v1.0` |
 
 ---
 

@@ -16,7 +16,7 @@
   8. DNA追溯链 — 密码学链式验证
   9. 麻痹指数 — 统一变分框架
 
-DNA: #龍芯⚡️丙午·乙未·丙申·申时·☲离-SCT-MATH-ENGINE-v1.0-4e7f2a1b
+DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷝离-SCT-MATH-ENGINE-v1.0-4e7f2a1b
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -636,10 +636,10 @@ def main():
     # 构建真正的链式DNA (每个DNA的hash依赖前一个)
     dna0 = DNATrace.make("丙午·乙未·丙申", "☲离", "SCT", "create", "v1.0")
     # verify_chain 对齐: prefix = "#龍芯⚡️干支卦-模块-动作-版本" (不含hash8)
-    p1 = "#龍芯⚡️丙午·乙未·丁酉·☲离-SCT-update-v1.1"
+    p1 = "#龍芯⚡️丙午·乙未·丁酉·丙午·䷝离-SCT-update-v1.1"
     h1 = hashlib.sha256((dna0 + p1).encode()).hexdigest()[:8]
     dna1 = p1 + "-" + h1
-    p2 = "#龍芯⚡️丙午·乙未·戊戌·☲离-SCT-freeze-v1.2"
+    p2 = "#龍芯⚡️丙午·乙未·戊戌·戊午·䷝离-SCT-freeze-v1.2"
     h2 = hashlib.sha256((dna1 + p2).encode()).hexdigest()[:8]
     dna2 = p2 + "-" + h2
 
@@ -649,7 +649,7 @@ def main():
     print("  链验证: {}".format('✅ 完整' if DNATrace.verify_chain(chain) else '❌ 断裂'))
 
     # 再构造一个被篡改的链用于示范检测
-    fake_dna1 = "#龍芯⚡️丙午·乙未·庚子·☲离-SCT-tampered-v9.9-ffffffff"
+    fake_dna1 = "#龍芯⚡️丙午·乙未·庚子·壬午·䷝离-SCT-tampered-v9.9-ffffffff"
     fake_chain = [dna0, fake_dna1, dna2]
     print("  伪造链验证: {}".format('✅ 完整(异常!)' if DNATrace.verify_chain(fake_chain) else '❌ 断裂(正确检出)'))
 

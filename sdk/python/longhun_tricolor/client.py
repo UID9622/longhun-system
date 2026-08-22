@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 🐉 龍魂·三色审计客户端
-# DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-PYTHON-SDK-CLIENT-V1.0-UID9622
+# DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-PYTHON-SDK-CLIENT-V1.0-UID9622
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 """
@@ -131,20 +131,6 @@ class TricolorClient:
 class AsyncTricolorClient:
     """三色审计异步客户端"""
 
-    def __init__(
-        self,
-        base_url: str = "https://uid9622.cn/api/tricolor",
-        token: Optional[str] = None,
-        timeout: float = 30.0,
-    ):
-        self.base_url = base_url.rstrip("/")
-        self.token = token
-        self.timeout = timeout
-        self._headers = {
-            "Content-Type": "application/json",
-        }
-        if token:
-            self._headers["Authorization"] = f"Bearer {token}"
 
     async def evaluate(
         self,
@@ -184,15 +170,3 @@ class AsyncTricolorClient:
                 raise ReviewRequiredException(verdict)
             return verdict
 
-    def _check_response(self, resp):
-        if resp.status_code >= 400:
-            try:
-                err = resp.json()
-                raise TricolorError(
-                    err.get("code", "TC-UNKNOWN"),
-                    err.get("message", "未知错误"),
-                    err.get("dna", ""),
-                )
-            except json.JSONDecodeError:
-                raise TricolorError("TC-UNKNOWN", f"HTTP {resp.status_code}", "")
-        return resp.json()

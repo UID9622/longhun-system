@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-07-19-MEMORY-INGEST-ALL-v1.0
+#龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-MEMORY-INGEST-ALL-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -10,7 +10,7 @@
 🐉 龍魂全记忆 ingestion 管道 v1.0
 把日志、长期记忆、星辰记忆、英文记忆、技能、人格全部归集为训练数据。
 
-DNA: #龍芯⚡️2026-07-19-MEMORY-INGEST-ALL-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-MEMORY-INGEST-ALL-v1.0
 # STATUS: ⚠️ DEPRECATED · 功能由 engines/lh_fixed_point_memory_archive.py 统一接管
 # 保留原因: 历史摄入管道参考，新代码请使用 MemoryArchive.ingest() 或 bin/lh_daily_logger.py
 """
@@ -473,7 +473,7 @@ def main():
     print(f"   训练集: {OUTPUT / 'train.jsonl'} ({len(train)})")
     print(f"   验证集: {OUTPUT / 'valid.jsonl'} ({len(valid)})")
     print(f"   信息:   {OUTPUT / 'dataset_info.json'}")
-    print(f"   DNA: #龍芯⚡️2026-07-19-MEMORY-INGEST-ALL-v1.0")
+    print(f"   DNA: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-MEMORY-INGEST-ALL-v1.0")
 
 
 if __name__ == "__main__":

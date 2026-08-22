@@ -2,8 +2,9 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂监管守护进程 · Regulatory Daemon v1.0
-DNA: #龍芯⚡️2026-07-12-REGULATORY-DAEMON-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-REGULATORY-DAEMON-v1.0
 
 后台守护进程，持续监控:
 - 文件系统变更（创建/修改/删除）

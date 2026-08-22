@@ -1,11 +1,11 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # Open Source Manifesto · LongHun System
 
 ## Code Without Source Is Not Trust. Trust Without Audit Is Not Freedom.
 
-> **DNA:** `#龍芯⚡️2026-07-01-OPENSOURCE-MANIFESTO-v1.0`  
+> **DNA:** `#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-OPENSOURCE-MANIFESTO-v1.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777I`  
 > **Author:** UID9622 · 龍芯北辰  
 > **Translation Date:** 2026-07-21  
@@ -105,6 +105,6 @@ If you are building infrastructure that governs people's digital lives:
 
 ---
 
-> **DNA:** `#龍芯⚡️2026-07-01-OPENSOURCE-MANIFESTO-v1.0`  
+> **DNA:** `#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-OPENSOURCE-MANIFESTO-v1.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777I`  
 > **LongHun: Open by principle, sovereign by design.**

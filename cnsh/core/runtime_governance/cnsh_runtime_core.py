@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# #龍芯⚡️20260624010825161-AUTO-DNA-6E929102 自动注入·分层治理自愈引擎 · 来源可查
+# #龍芯⚡️丙午·甲午·己巳·乙丑·䷮困-AUTO-DNA-6E929102 自动注入·分层治理自愈引擎 · 来源可查
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # 1 道统层 Dao           : 曾仕强老师
@@ -10,7 +11,7 @@
 # 4 技术层 Technology    : Open Source
 # 5 系统层 System        : UID9622
 # 6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
-# DNA追溯码:#龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1256-v2.0
+# DNA追溯码:#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1256-v2.0
 # 铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
 # 文件: cnsh_runtime_core.py | 标记时间: 2026-06-03T07:46:12+0800
 # -*- coding: utf-8 -*-

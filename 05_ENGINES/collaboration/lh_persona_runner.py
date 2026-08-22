@@ -2,13 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-PERSONA-RUNNER-v1.0
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-PERSONA-RUNNER-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂 · PersonaRunner 人格智能体统一运行器 v1.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-PERSONA-RUNNER-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-PERSONA-RUNNER-v1.0
 
 22人格→Agent桥接 · 统一注册 · 独立运行 · 总线通信
 """
@@ -394,7 +394,7 @@ if __name__ == "__main__":
 
     print("╔══════════════════════════════════════════╗")
     print("║  龍魂 PersonaRunner v1.0 人格智能体运行器  ║")
-    print("║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾  ║")
+    print("║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾  ║")
     print("╚══════════════════════════════════════════╝\n")
 
     # 自检模式

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_DCEP_CROSSBORDER-v1.0-cf889cc5
+#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH_DCEP_CROSSBORDER-v1.0-cf889cc5
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # lh_dcep_crossborder.py

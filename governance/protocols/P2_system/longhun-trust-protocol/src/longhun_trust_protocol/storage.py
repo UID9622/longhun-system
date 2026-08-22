@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂君子协议 · 链式存储与审计
-DNA: #龍芯⚡️2026-06-26-LONGHUN-TRUST-STORAGE-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-TRUST-STORAGE-v1.0
 
 本地 JSON 持久化 + SHA-256 链式哈希，保证事件不可篡改。
 GPG 签名预留接口，需用户配置真实 GPG 密钥后启用。

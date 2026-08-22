@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# DNA: #龍芯⚡️丙午·丙申·#龍芯⚡️丙午·丙申·POSTAUDIT-GENERATE_DOWNLOADS_I-295B29C3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 Downloads 主干收件箱自动生成器
 扫描 ~/Downloads，将未录入龍魂主干的顶层交付物整理为：
@@ -331,7 +333,7 @@ def fix_json_text(text: str) -> str:
 
 def load_graph_data():
     if not GRAPH_DATA.exists():
-        return {"timestamp": datetime.now().isoformat(), "nodes": {}, "edges": [], "dna": "#龍芯⚡️2026-06-06-KNOWLEDGE-GRAPH-DATA-v1.0"}
+        return {"timestamp": datetime.now().isoformat(), "nodes": {}, "edges": [], "dna": "#龍芯⚡️丙午·甲午·辛亥·甲午·䷚颐-KNOWLEDGE-GRAPH-DATA-v1.0"}
     text = GRAPH_DATA.read_text(encoding="utf-8")
     text = fix_json_text(text)
     return json.loads(text)
@@ -487,4 +489,4 @@ if __name__ == "__main__":
     main()
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·大畜-CONFIRM-SEAL-generate_downloads_i-09CD5D52
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷙大畜-CONFIRM-SEAL-generate_downloads_i-09CD5D52

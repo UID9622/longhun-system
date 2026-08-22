@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 B3 · 来源追溯脑区 → P18 凤凰
@@ -14,7 +15,7 @@ B3 · 来源追溯脑区 → P18 凤凰
   3. DNA指纹: #ZHUGEXIN⚡️ / #龍芯⚡️ 识别
   4. 语义哈希: 内容结构哈希
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·未时·需-BRAIN-B3-SOURCE-TRACER-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·未时·䷄需-BRAIN-B3-SOURCE-TRACER-v1.0
 """
 
 import re

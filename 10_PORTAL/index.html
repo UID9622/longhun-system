@@ -84,6 +84,17 @@
 .dna-tag{font-size:11px;font-family:var(--font-mono);color:var(--gold);background:rgba(212,165,116,.08);padding:2px 8px;border-radius:4px;word-break:break-all}
 .dna-tag.confirm{color:var(--purple);background:var(--purple-dim)}
 
+/* === Hero搜索框 (2026-08-17 展示即道义增强) === */
+.hero-search{margin:0 auto 26px;max-width:660px;width:100%}
+.hero-search-form{display:flex;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:8px;box-shadow:var(--shadow-glow);transition:.2s}
+.hero-search-form:focus-within{border-color:var(--accent);box-shadow:0 0 24px var(--accent-dim)}
+.hero-search-form input{flex:1;background:transparent;border:none;outline:none;color:var(--text);font-size:15px;padding:8px 12px;min-width:0}
+.hero-search-form input::placeholder{color:var(--text-dim)}
+.hero-search-form button{white-space:nowrap;padding:10px 24px;border-radius:8px}
+.hero-search-note{margin-top:10px;font-size:11px;color:var(--text-dim);display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero-search-note span{display:inline-flex;align-items:center;gap:4px}
+.hero-search-note .ok{color:var(--green)}
+
 /* Stats精修 */
 .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px}
 .stat-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:18px 10px;text-align:center;transition:.2s}
@@ -285,6 +296,8 @@ section .container{position:relative}
     </div>
     <div class="nav-actions">
       <a href="/apps/apps.html" class="nav-apps-btn">🧭 全部应用</a>
+      <!-- 龍魂账号系统 · 加密注册/登录 (2026-08-17) -->
+      <a class="nav-auth-btn" id="navAuthBtn" href="javascript:void(0)" onclick="window.lhAuth&&lhAuth.open()">🔐 登录</a>
       <button class="nav-chat-btn" onclick="document.getElementById('cwBubble')?.click()">
         <span class="nav-chat-dot"></span> AI对话
       </button>
@@ -330,12 +343,24 @@ section .container{position:relative}
   <div class="hero-bg"></div>
   <div class="hero-stars"></div>
   <div class="container">
-    <div class="hero-badge"><span class="hero-dot"></span> v4.0 · 龍魂人民版 · 中国自主可控</div>
+    <div class="hero-badge"><span class="hero-dot"></span> 🟢 全链路在线 · 三重主权 · 中国自主可控</div>
     <h1>
       <span class="hero-title-main">龍魂系统</span>
-      <span class="hero-title-sub">长空无垠 · 魂铸中华</span>
+      <span class="hero-title-sub">普通人站着 · 就是最大的道义</span>
     </h1>
-    <p class="hero-desc">中国自主AI引擎 · 19年退伍军人诸葛鑫（UID9622）创建<br>为人民服务，不为资本黑箱服务。<br>数字主权，握在老百姓自己手里。</p>
+    <p class="hero-desc">中国自主AI引擎 · 退伍军人诸葛鑫（UID9622）创建<br>为人民服务，不为资本黑箱服务 · 数字主权，握在老百姓自己手里</p>
+    <div class="hero-search">
+      <form action="/search-engine-ui.html" method="get" class="hero-search-form">
+        <input type="text" name="q" placeholder="🔍 用龍魂搜索全网 — 多源检索 · 深度提取 · 来源审计" required>
+        <button type="submit" class="btn btn-primary">龍魂搜索</button>
+      </form>
+      <div class="hero-search-note">
+        <span class="ok">● 搜索引擎在线</span>
+        <span>● Bing 多源检索</span>
+        <span>● 结果来源审计</span>
+        <span>● 龙魂私有部署 · 不卖隐私</span>
+      </div>
+    </div>
     <div class="hero-cta">
       <a href="/apps/apps.html" class="btn btn-primary">⚡ 进入控制台</a>
       <a href="#api" class="btn btn-outline">查看 API</a>
@@ -447,6 +472,15 @@ section .container{position:relative}
     <h2 class="section-heading">🧠 龍魂知识图谱</h2>
     <p class="section-desc" style="margin-bottom:18px;">节点 · 边 · 数据源统计（端口8444）</p>
     <div id="kg-stats"></div>
+  </div>
+</section>
+
+<!-- ====== 硬核创作 ====== -->
+<section id="creations">
+  <div class="container">
+    <h2 class="section-heading">🐉 硬核创作</h2>
+    <p class="section-desc" style="margin-bottom:18px;">治理国际AI的龍魂原创 · 博弈论 · 人机共生 · AI治理伦理 · 宇宙论 · 分布式认知 · 三才流場（API 对外接出 · <a href="/apps/api-docs.html" style="color:var(--gold)">📡 /api/v1/creations</a>）</p>
+    <div id="creations-list"></div>
   </div>
 </section>
 
@@ -562,6 +596,41 @@ section .container{position:relative}
     </div>
   </div>
 </section>
+
+<!-- ====== 支持龍魂 · USDT 国际收款（数据不出境·资金直达钱包） ====== -->
+<div id="support" class="dna-banner" style="border-top:1px solid rgba(212,175,55,.15);padding-bottom:14px;">
+  <div class="container" style="text-align:center;">
+    <div style="margin-bottom:10px;font-size:11px;color:var(--gold);letter-spacing:2px;">💛 支持龍魂 · 让数字主权持续燃烧</div>
+    <div style="font-size:12px;color:var(--text-dim);margin-bottom:10px;">国际友人支持：USDT（TRC20）链上直达 · 数据不出境 · 资金直达创作者钱包 · 不经任何第三方</div>
+    <div id="lh-usdt-box" style="font-size:12px;"></div>
+  </div>
+</div>
+<script>
+(function(){
+  var WALLET = 'TCMCteHzdduQfpUrAdmmsnHEVH8MFCyXDq';
+  var box = document.getElementById('lh-usdt-box');
+  if(!box) return;
+  if(WALLET.indexOf('FILL') >= 0){
+    box.innerHTML = '<span style="color:#ff6b6b;">🔴 收款地址待配置（站长填好即对外开放）</span>';
+    return;
+  }
+  box.innerHTML =
+    '<span style="color:var(--gold);">USDT · TRC20</span> ' +
+    '<input id="lh-usdt-addr" readonly value="' + WALLET + '" ' +
+    'style="background:transparent;border:1px solid rgba(212,175,55,.3);color:var(--gold);border-radius:6px;' +
+    'padding:6px 10px;width:340px;max-width:90%;font-family:monospace;font-size:12px;text-align:center;margin:0 8px;" ' +
+    'onclick="this.select()">' +
+    '<button id="lh-usdt-copy" ' +
+    'style="background:var(--gold);color:#0a0a12;border:none;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:12px;">复制地址</button>';
+  document.getElementById('lh-usdt-copy').onclick = function(){
+    navigator.clipboard.writeText(WALLET).then(function(){
+      var b = document.getElementById('lh-usdt-copy');
+      b.textContent = '已复制 ✓';
+      setTimeout(function(){ b.textContent = '复制地址'; }, 1500);
+    });
+  };
+})();
+</script>
 
 <!-- ====== DNA 底栏 ====== -->
 <div class="dna-banner">
@@ -795,6 +864,24 @@ loadJSON('data/persona_report.json').then(function(d){
     '</div>':'';
   var mt=d._meta||{};
   document.getElementById('persona-dna').textContent='DNA: '+(mt.report_dna||'')+' · '+((mt.generated_at||'').split('T')[0]);
+});
+
+// ─── 硬核创作 ───
+loadJSON('data/creations_index.json').then(function(d){
+  var ct=document.getElementById('creations-list');
+  var cs=(d&&d.creations)?d.creations:[];
+  if(!cs.length){ct.innerHTML='<div class="empty">暂无创作数据</div>';return}
+  var l=document.createElement('div');l.className='list';
+  cs.forEach(function(c){
+    var it=document.createElement('div');it.className='list-item';
+    var link=makeLink('/apps/creations/'+c.slug+'/',c.title);
+    it.appendChild(link);
+    var meta=makeMeta((c.category||'')+' · '+(c.tricolor||'')+' · '+(c.version||''));
+    meta.style.cssText='color:var(--text-dim);font-size:11px;';
+    it.appendChild(meta);
+    l.appendChild(it);
+  });
+  ct.innerHTML='';ct.appendChild(l);
 });
 
 // ─── 文章 (降级硬编码) ───
@@ -1347,6 +1434,223 @@ console.log('🐉 龍魂官网门户 v4.0 已就绪 · 术语白话化v1.2·鸿�
   document.addEventListener('click',function(){
     navItems.forEach(function(i){i.classList.remove('open');});
   });
+})();
+</script>
+
+<!-- ====== 龍魂账号系统 · 加密注册/登录 v1.0 (2026-08-17) ====== -->
+<style>
+#lh-auth-overlay {
+  display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.82); z-index: 99998; justify-content: center; align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+#lh-auth-overlay.active { display: flex; }
+.lh-auth-card {
+  background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+  border: 1px solid #c9a54b; border-radius: 14px; padding: 28px 34px;
+  width: 400px; max-width: 92%; color: #e0d5c1;
+  box-shadow: 0 0 60px rgba(201,165,75,0.18), 0 8px 32px rgba(0,0,0,0.6);
+  position: relative;
+}
+.lh-auth-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.lh-auth-title { font-size: 22px; font-weight: 700; color: #c9a54b; letter-spacing: 2px; }
+.lh-auth-close { cursor: pointer; color: #8a8a8a; font-size: 20px; padding: 4px 8px; border-radius: 6px; }
+.lh-auth-close:hover { color: #e0d5c1; background: rgba(255,255,255,0.06); }
+.lh-auth-tabs { display: flex; gap: 8px; margin-bottom: 20px; }
+.lh-auth-tab {
+  flex: 1; padding: 10px 0; background: transparent; border: 1px solid #2a2a3e;
+  color: #8a7a5a; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer;
+  letter-spacing: 4px; transition: all 0.2s ease;
+}
+.lh-auth-tab.active { border-color: #c9a54b; color: #c9a54b; background: rgba(201,165,75,0.08); }
+.lh-auth-form { display: none; }
+.lh-auth-form.active { display: block; }
+.lh-auth-form input {
+  width: 100%; box-sizing: border-box; margin-bottom: 12px; padding: 11px 14px;
+  background: #0d0d16; border: 1px solid #2a2a3e; border-radius: 8px;
+  color: #e0d5c1; font-size: 14px; outline: none; transition: border 0.2s;
+}
+.lh-auth-form input:focus { border-color: #c9a54b; }
+.lh-auth-form input::placeholder { color: #5a5a6a; }
+.lh-auth-msg { min-height: 18px; font-size: 12.5px; margin: 4px 0 10px; line-height: 1.5; color: #e74c3c; }
+.lh-auth-msg.ok { color: #2ecc71; }
+.lh-auth-submit {
+  width: 100%; padding: 12px 0; border: none; border-radius: 8px; cursor: pointer;
+  background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
+  font-size: 15px; font-weight: 700; letter-spacing: 6px; transition: all 0.2s;
+}
+.lh-auth-submit:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
+.lh-auth-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+.lh-auth-foot { margin-top: 18px; font-size: 11px; color: #5a5a6a; text-align: center; line-height: 1.7; }
+.lh-auth-foot b { color: #8a7a5a; }
+.nav-auth-btn {
+  display: inline-block; padding: 7px 14px; border-radius: 8px; font-size: 13px;
+  color: #c9a54b; border: 1px solid rgba(201,165,75,0.4); cursor: pointer; text-decoration: none;
+  transition: all 0.2s; margin-right: 6px;
+}
+.nav-auth-btn:hover { background: rgba(201,165,75,0.12); color: #e2c87a; }
+.nav-auth-btn.logged { color: #2ecc71; border-color: rgba(46,204,113,0.4); }
+</style>
+
+<div id="lh-auth-overlay">
+  <div class="lh-auth-card">
+    <div class="lh-auth-head">
+      <span class="lh-auth-title">🐉 龍魂账号</span>
+      <span class="lh-auth-close" onclick="lhAuth.close()">✕</span>
+    </div>
+    <div class="lh-auth-tabs">
+      <button class="lh-auth-tab active" data-tab="login" onclick="lhAuth.switchTab('login')">登 录</button>
+      <button class="lh-auth-tab" data-tab="register" onclick="lhAuth.switchTab('register')">注 册</button>
+    </div>
+
+    <form class="lh-auth-form active" id="lhAuthLogin" onsubmit="return lhAuth.login(event)">
+      <input name="username" placeholder="用户名" autocomplete="username" required>
+      <input name="password" type="password" placeholder="密码" autocomplete="current-password" required>
+      <div class="lh-auth-msg" id="lhAuthLoginMsg"></div>
+      <button type="submit" class="lh-auth-submit" id="lhAuthLoginBtn">登 录</button>
+    </form>
+
+    <form class="lh-auth-form" id="lhAuthRegister" onsubmit="return lhAuth.register(event)">
+      <input name="username" placeholder="用户名（3-32位·字母/数字/中文）" autocomplete="username" required>
+      <input name="password" type="password" placeholder="密码（8-128位）" autocomplete="new-password" required>
+      <input name="confirm" type="password" placeholder="确认密码" autocomplete="new-password" required>
+      <div class="lh-auth-msg" id="lhAuthRegisterMsg"></div>
+      <button type="submit" class="lh-auth-submit" id="lhAuthRegisterBtn">加密注册</button>
+    </form>
+
+    <div class="lh-auth-foot">
+      密码 <b>PBKDF2-SHA256</b> 加密存储 · 不存明文 · 连续错5次锁15分钟<br>
+      数据主权归你 · 与终端 lh keys 加密体系同源
+    </div>
+  </div>
+</div>
+
+<script>
+/* === 龍魂账号系统 v1.0 (2026-08-17) === */
+(function(){
+  /* 本地测试(9659静态预览)直连后端9658；生产环境同源 /api/auth */
+  var AUTH_API = (location.port === '9659') ? 'http://127.0.0.1:9658/api/auth' : '/api/auth';
+  var TOKEN_KEY = 'lh_auth_token';
+  var overlay = document.getElementById('lh-auth-overlay');
+  var navBtn = document.getElementById('navAuthBtn');
+  var curUser = null;
+
+  function api(path, method, body, token) {
+    var headers = { 'Content-Type': 'application/json' };
+    if (token) headers['Authorization'] = 'Bearer ' + token;
+    return fetch(AUTH_API + path, {
+      method: method || 'POST',
+      headers: headers,
+      body: body ? JSON.stringify(body) : undefined
+    }).then(function(r) { return r.json(); });
+  }
+
+  function setMsg(el, text, ok) {
+    el.textContent = text || '';
+    el.className = 'lh-auth-msg' + (ok ? ' ok' : '');
+  }
+
+  function updateNav() {
+    if (curUser) {
+      navBtn.textContent = '👤 ' + curUser;
+      navBtn.classList.add('logged');
+      navBtn.onclick = function() { lhAuth.logout(); };
+      navBtn.title = '点击退出登录';
+    } else {
+      navBtn.textContent = '🔐 登录';
+      navBtn.classList.remove('logged');
+      navBtn.onclick = function() { lhAuth.open(); };
+      navBtn.title = '登录/注册';
+    }
+  }
+
+  window.lhAuth = {
+    open: function() {
+      if (overlay) overlay.classList.add('active');
+    },
+    close: function() {
+      if (overlay) overlay.classList.remove('active');
+    },
+    switchTab: function(tab) {
+      var tabs = overlay.querySelectorAll('.lh-auth-tab');
+      tabs.forEach(function(t){ t.classList.toggle('active', t.dataset.tab === tab); });
+      document.getElementById('lhAuthLogin').classList.toggle('active', tab === 'login');
+      document.getElementById('lhAuthRegister').classList.toggle('active', tab === 'register');
+    },
+    login: function(e) {
+      e.preventDefault();
+      var f = e.target;
+      var btn = document.getElementById('lhAuthLoginBtn');
+      var msg = document.getElementById('lhAuthLoginMsg');
+      var username = f.username.value.trim();
+      var password = f.password.value;
+      if (!username || !password) { setMsg(msg, '请输入用户名和密码'); return false; }
+      btn.disabled = true;
+      api('/login', 'POST', { username: username, password: password })
+        .then(function(res) {
+          if (res.ok) {
+            localStorage.setItem(TOKEN_KEY, res.data.token);
+            curUser = res.data.user.username;
+            setMsg(msg, '✅ 登录成功，欢迎回来 ' + curUser, true);
+            updateNav();
+            setTimeout(function(){ lhAuth.close(); }, 600);
+          } else {
+            setMsg(msg, '❌ ' + (res.error || '登录失败'));
+            btn.disabled = false;
+          }
+        })
+        .catch(function() { setMsg(msg, '❌ 网络错误，请稍后再试'); btn.disabled = false; });
+      return false;
+    },
+    register: function(e) {
+      e.preventDefault();
+      var f = e.target;
+      var btn = document.getElementById('lhAuthRegisterBtn');
+      var msg = document.getElementById('lhAuthRegisterMsg');
+      var username = f.username.value.trim();
+      var password = f.password.value;
+      var confirm = f.confirm.value;
+      if (!username || !password || !confirm) { setMsg(msg, '请填写完整注册信息'); return false; }
+      btn.disabled = true;
+      api('/register', 'POST', { username: username, password: password, confirm: confirm })
+        .then(function(res) {
+          if (res.ok) {
+            setMsg(msg, '✅ ' + (res.data.message || '注册成功') + '，请登录', true);
+            btn.disabled = false;
+            setTimeout(function(){ lhAuth.switchTab('login'); f.reset(); }, 900);
+          } else {
+            setMsg(msg, '❌ ' + (res.error || '注册失败'));
+            btn.disabled = false;
+          }
+        })
+        .catch(function() { setMsg(msg, '❌ 网络错误，请稍后再试'); btn.disabled = false; });
+      return false;
+    },
+    logout: function() {
+      var token = localStorage.getItem(TOKEN_KEY);
+      if (token) api('/logout', 'POST', null, token).catch(function(){});
+      localStorage.removeItem(TOKEN_KEY);
+      curUser = null;
+      updateNav();
+      if (overlay) overlay.classList.remove('active');
+    },
+    /* 页面加载时恢复登录态 */
+    init: function() {
+      var token = localStorage.getItem(TOKEN_KEY);
+      if (!token || !navBtn) return;
+      api('/me', 'GET', null, token)
+        .then(function(res) {
+          if (res.ok) {
+            curUser = res.data.user.username;
+            updateNav();
+          } else {
+            localStorage.removeItem(TOKEN_KEY);
+          }
+        })
+        .catch(function(){});
+    }
+  };
+  lhAuth.init();
 })();
 </script>
 </body>

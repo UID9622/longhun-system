@@ -8,7 +8,7 @@
 蚁后-工蚁拓扑图·信息素热力图·涌现仪表盘·八卦门控图。
 对接 lh_ant_colony_daemon.py / orchestrator / router / 8gate。
 
-DNA: #龍芯⚡️丙午·癸未·丁未-蚁群可视化引擎-v1.0
+DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-蚁群可视化引擎-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -42,7 +42,7 @@ except ImportError:
 
 # ─── 常量 ───
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DNA = "#龍芯⚡️丙午·癸未·丁未-蚁群可视化-v1.0"
+DNA = "#龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-蚁群可视化-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 GPG = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 
@@ -420,7 +420,7 @@ def generate_narration(data: Optional[Dict] = None) -> str:
         }
 
     lines = [
-        "DNA: #龍芯⚡️丙午·癸未·丁未-蚁群播报-v1.0",
+        "DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-蚁群播报-v1.0",
         "创建者: 诸葛鑫（UID9622）",
         "协议: CC BY-NC-SA 4.0",
         "",

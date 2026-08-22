@@ -85,7 +85,7 @@ echo "5. nginx权限: $(ssh -p 22 -i ~/.ssh/longhun_kunpeng_ed25519 root@119.13.
 ```bash
 # ~/.longhun/lh.env
 # 🐉 龍魂 · 全局配置（统一配置源 v1.1）
-# DNA: #龍芯⚡️丙午·丙申·己未·亥时-GLOBAL-CONFIG-UID9622
+# DNA: #龍芯⚡️丙午·丙申·己未·乙亥·䷏豫-GLOBAL-CONFIG-UID9622
 # 注意: 本文件是 lh.env（不是 config 目录），chmod 600 · 不入 git · 不进共享中枢
 
 # === 鲲鹏远程 ===
@@ -153,7 +153,7 @@ get_lh_config() {
 # 08_BIN/lh_config.py
 """
 🐉 龍魂 · 统一配置加载器 v1.1
-DNA: #龍芯⚡️丙午·丙申·己未·亥时-CONFIG-LOADER-UID9622
+DNA: #龍芯⚡️丙午·丙申·己未·乙亥·䷏豫-CONFIG-LOADER-UID9622
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 
@@ -202,7 +202,7 @@ def load_config() -> Dict[str, str]:
 ```bash
 #!/usr/bin/env bash
 # 🐉 龍魂 · 鲲鹏协作中枢同步脚本 v2.0
-# DNA: #龍芯⚡️丙午·丙申·己未·亥时-SYNC-COLLAB-V2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·己未·乙亥·䷏豫-SYNC-COLLAB-V2-UID9622
 # 用法: sync-collab.sh [push|pull|check|status]
 # 变更: v1.0 精准路径映射保留 · 新增配置加载/校验/审计
 
@@ -317,7 +317,7 @@ case "${1:-help}" in
 配置优先级:
   ① ~/.longhun/lh.env  ② deploy/.kunpeng_config  ③ 内置默认
 
-DNA: #龍芯⚡️丙午·丙申·己未·亥时-SYNC-COLLAB-V2-UID9622
+DNA: #龍芯⚡️丙午·丙申·己未·乙亥·䷏豫-SYNC-COLLAB-V2-UID9622
 EOF
     ;;
 esac
@@ -342,7 +342,7 @@ location /collab/.audit/ {
 # ─── 协作中枢健康检查（新增）───
 location = /collab/health {
     access_log off;
-    return 200 "🐉 协作中枢运行正常\nDNA: #龍芯⚡️丙午·丙申·己未·亥时-NGINX-COLLAB-UID9622\n";
+    return 200 "🐉 协作中枢运行正常\nDNA: #龍芯⚡️丙午·丙申·己未·乙亥·䷏豫-NGINX-COLLAB-UID9622\n";
     add_header Content-Type "text/plain; charset=utf-8";
 }
 ```
@@ -366,7 +366,7 @@ location /collab/ {
 
     # 三色审计头（新增）
     add_header X-LongHun-Tricolor "🟢" always;
-    add_header X-LongHun-DNA "#龍芯⚡️丙午·丙申·己未·亥时-NGINX-COLLAB-UID9622" always;
+    add_header X-LongHun-DNA "#龍芯⚡️丙午·丙申·己未·乙亥·䷏豫-NGINX-COLLAB-UID9622" always;
 }
 ```
 
@@ -395,7 +395,7 @@ curl -s -o /dev/null -w '%{http_code}\n' https://uid9622.cn/collab/.audit/checks
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 交接引擎 v2.1
-DNA: #龍芯⚡️丙午·丙申·己未·亥时-HANDOFF-V2-UID9622
+DNA: #龍芯⚡️丙午·丙申·己未·乙亥·䷏豫-HANDOFF-V2-UID9622
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 变更: v2.0 硬编码 → v2.1 统一配置源读取（lh_config.load_config）
 """
@@ -511,7 +511,7 @@ fi
 
 cat > "$LH_CONFIG_FILE" << 'EOF'
 # 🐉 龍魂 · 全局配置（统一配置源 v1.1）
-# DNA: #龍芯⚡️丙午·丙申·己未·亥时-GLOBAL-CONFIG-UID9622
+# DNA: #龍芯⚡️丙午·丙申·己未·乙亥·䷏豫-GLOBAL-CONFIG-UID9622
 
 # === 鲲鹏远程 ===
 export KUNPENG_HOST="root@119.13.90.27"
@@ -535,7 +535,7 @@ EOF
 chmod 600 "$LH_CONFIG_FILE"   # 安全基线: 权限收紧（新增）
 
 echo "✅ 配置文件已创建: $LH_CONFIG_FILE (chmod 600)"
-echo "   DNA: #龍芯⚡️丙午·丙申·己未·亥时-GLOBAL-CONFIG-UID9622"
+echo "   DNA: #龍芯⚡️丙午·丙申·己未·乙亥·䷏豫-GLOBAL-CONFIG-UID9622"
 ```
 
 ---
@@ -678,7 +678,7 @@ lh handoff save --summary "协作中枢 v1.1 配置路径统一落地"
 ═══════════════════════════════════════════════════
  🐉 龍魂 · 鲲鹏协作中枢 v1.1 · 最终签名
 ═══════════════════════════════════════════════════
-DNA:        #龍芯⚡️丙午·丙申·己未·亥时-COLLAB-CENTRAL-UID9622
+DNA:        #龍芯⚡️丙午·丙申·己未·乙亥·䷏豫-COLLAB-CENTRAL-UID9622
 确认码:      #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色:       🟡 方案完善（🟢 已落地项 + 🟡 待实施项见零节）

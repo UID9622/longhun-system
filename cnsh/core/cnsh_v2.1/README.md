@@ -8,7 +8,7 @@
 > 作者：UID9622 · 龍芯北辰  
 > 授权：CC BY-NC-SA 4.0 · 科技主权归属 UID9622 · 中华人民共和国
 
-**DNA**: `#龍芯⚡️2026-06-29-CNSH-RUNTIME-v2.1`  
+**DNA**: `#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-RUNTIME-v2.1`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -335,7 +335,7 @@ CNSH v2.1 支持可选静态类型注解，由 `typechecker.py` 在解释或编�
 ## 8. 示例代码
 
 ```cnsh
-# DNA: #龍芯⚡️2026-06-29-CNSH-HELLO-v2.1
+# DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-HELLO-v2.1
 
 模块 示例 ⚖️100 {
     函数 问好(名字) {

@@ -2,13 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 
 """
 龍魂系统 · 标准化计算框架 v1.0
 LongHun System · Standardized Calculation Framework
 
-DNA:#龍芯⚡️2026-06-07-STANDARD-CALCULATION-FRAMEWORK-CANONICAL-v1.0
+DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-STANDARD-CALCULATION-FRAMEWORK-CANONICAL-v1.0
 核心目标: 统一计算方式·固定Skill结构·自动化检验·一致规范
 """
 
@@ -120,8 +121,6 @@ class SkillIOSchema:
     example_input: Dict[str, Any] = field(default_factory=dict)
     example_output: Dict[str, Any] = field(default_factory=dict)
     
-    def to_dict(self) -> Dict[str, Any]:
-        return asdict(self)
 
 
 @dataclass
@@ -158,8 +157,6 @@ class SkillMetadata:
         if not self.last_updated:
             self.last_updated = datetime.now().isoformat()
     
-    def to_dict(self) -> Dict[str, Any]:
-        return asdict(self)
     
     def validate(self) -> tuple[bool, List[str]]:
         """验证元数据的完整性"""
@@ -493,4 +490,4 @@ if __name__ == "__main__":
         print("✅ 所有部分都已包含！")
     
     print("\n✅ 完成！Skill 已符合龍魂系统标准。")
-    print(f"DNA:#龍芯⚡️2026-06-07-STANDARD-CALCULATION-FRAMEWORK-v1.0")
+    print(f"DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-STANDARD-CALCULATION-FRAMEWORK-v1.0")

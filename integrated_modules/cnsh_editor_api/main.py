@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 CNSH Editor API · FastAPI 服务入口
-DNA: #龍芯⚡️2026-07-04-CNSH-EDITOR-API-v1.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-CNSH-EDITOR-API-v1.0
 
 运行方式：
     cd ~/longhun-system/integrated-modules/cnsh_editor_api
@@ -88,7 +89,7 @@ def health(tier: TierLimits = Depends(get_tier)):
         status="ok",
         tier=tier.name,
         version="1.0.0",
-        dna="#龍芯⚡️2026-07-04-CNSH-API-v1.0",
+        dna="#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-CNSH-API-v1.0",
     )
 
 
@@ -235,7 +236,7 @@ def _strip_trailing_main_call(python_code: str) -> str:
 if __name__ == "__main__":
     import uvicorn
 
-    # 🛡️ 安全加固 · DNA: #龍芯⚡️2026-07-06-SEC-PATCH-api-v1.0
+    # 🛡️ 安全加固 · DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-SEC-PATCH-api-v1.0
     # 默認僅綁定 localhost，公網部署需顯式設置 CNSH_API_HOST=0.0.0.0 + API_KEY
     host = os.environ.get("CNSH_API_HOST", "127.0.0.1")
     port = int(os.environ.get("CNSH_API_PORT", "8000"))

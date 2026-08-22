@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: china-digital-identity
 scope: user
@@ -5,7 +6,7 @@ description: '龍魂数字身份主权协议 v2.0 技能。主动布局，不用
 license: 木兰宽松许可证 v2
 metadata:
   version: '2.1.0'
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-CHINA-DIGITAL-IDENTITY-v2.1'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CHINA-DIGITAL-IDENTITY-v2.1'
   author: UID9622 · 龍芯北辰 · 诸葛鑫
   category: sovereignty
   tier: L0
@@ -353,5 +354,5 @@ bash ~/longhun-system/sovereignty/portal/启动国家数字身份入口.sh
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：03-身份安全-DNA（LH-CDNA、网络户口本、数字主权论文、DNA 身份规格）
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_MEDIA_VERIFY_API-v1.0-3fa80932
+#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH_MEDIA_VERIFY_API-v1.0-3fa80932
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -80,7 +80,7 @@ PORTAL_HTML = """<!DOCTYPE html>
     3. 验证通过即证明内容来自龍魂授权链路，可被追溯至源头。
   </div>
 </div>
-<footer>DNA: #龍芯⚡️20260726-MEDIA-VERIFY-v1.0 · UID9622</footer>
+<footer>DNA: #龍芯⚡️丙午·乙未·辛丑·甲午·䷨损-MEDIA-VERIFY-v1.0 · UID9622</footer>
 
 <script>
 const dropzone = document.getElementById('dropzone');

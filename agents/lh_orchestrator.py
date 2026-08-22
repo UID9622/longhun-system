@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂智能体编排器 v1.2
@@ -13,7 +14,7 @@
 - 已缠尾：全部 213 个智能体/技能接入编排
 - 100% 本地运行，纯标准库
 
-DNA: #龍芯⚡️2026-07-06-AGENT-ORCHESTRATOR-v1.2-NEURAL
+DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-AGENT-ORCHESTRATOR-v1.2-NEURAL
 """
 
 import json
@@ -32,7 +33,7 @@ from agent_status_reporter import generate_report as _generate_report  # pyright
 SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT = SCRIPT_DIR  # agents/ 目录，ROOT.parent 即项目根
 MANIFEST_PATH = SCRIPT_DIR / "manifest.json"
-DNA_SIGNATURE = "#龍芯⚡️2026-07-06-AGENT-ORCHESTRATOR-v1.2-NEURAL"
+DNA_SIGNATURE = "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-AGENT-ORCHESTRATOR-v1.2-NEURAL"
 VERSION = "v1.2"
 
 # 可选：接入 longhun-empower-engine 进行语义路由兜底

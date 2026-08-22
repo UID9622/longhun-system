@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# #龍芯⚡️20260624010825160-AUTO-DNA-B1DF8BB0 自动注入·分层治理自愈引擎 · 来源可查
+# #龍芯⚡️丙午·甲午·己巳·乙丑·䷮困-AUTO-DNA-B1DF8BB0 自动注入·分层治理自愈引擎 · 来源可查
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -13,7 +14,7 @@
   2. 为节点生成本地 TF-IDF 向量，支持语义相似度检索。
   3. 对外提供统一查询接口：全文检索、向量检索、图谱扩展。
 
-DNA: #龍芯⚡️2026-06-22-UNIFIED-KG-v1.0
+DNA: #龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-UNIFIED-KG-v1.0
 """
 from __future__ import annotations
 
@@ -45,7 +46,7 @@ NOTION_DB_PATH = HOME / ".longhun" / "notion_pages" / "notion_pages.db"
 DRAGON_KNOWLEDGE_DB = HOME / "_work" / "dragon_knowledge.db"
 BRAIN_DB_PATH = PROJECT_ROOT / "brain" / "memories.db"
 
-DNA = "#龍芯⚡️2026-06-22-UNIFIED-KG-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-UNIFIED-KG-v1.0"
 
 
 def _now() -> str:

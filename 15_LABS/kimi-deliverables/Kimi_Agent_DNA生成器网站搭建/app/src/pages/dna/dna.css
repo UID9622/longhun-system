@@ -1,0 +1,116 @@
+/* DNA 页专属动效关键帧（design/dna.md §S1–S6） */
+
+/* 干支字段切换：y:14→0, opacity 0→1 + 底部金线闪烁（0.35s） */
+@keyframes dna-field-in {
+  0% {
+    transform: translateY(14px);
+    opacity: 0;
+    text-shadow: 0 2px 0 rgba(201, 162, 39, 0.9);
+  }
+  60% {
+    text-shadow: 0 1px 0 rgba(201, 162, 39, 0.5);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    text-shadow: 0 0 0 rgba(201, 162, 39, 0);
+  }
+}
+.dna-field-in {
+  display: inline-block;
+  animation: dna-field-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* 打字机金色光标块 */
+@keyframes dna-cursor {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.dna-cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--gold);
+  animation: dna-cursor 0.8s step-end infinite;
+}
+
+/* 卦符定格：scale 1.3→1 弹性 */
+@keyframes dna-hex-lock {
+  0% { transform: scale(1.3); opacity: 0.4; }
+  60% { transform: scale(0.96); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.dna-hex-lock {
+  display: inline-block;
+  animation: dna-hex-lock 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* 朱砂动作标签盖入（印章式） */
+@keyframes dna-stamp {
+  0% { transform: scale(1.7) rotate(-4deg); opacity: 0; }
+  60% { transform: scale(0.94) rotate(0.5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+.dna-stamp {
+  display: inline-block;
+  animation: dna-stamp 0.45s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+}
+
+/* 铸造完成金色脉冲（box-shadow 扩散环，播放一次） */
+@keyframes dna-pulse-once {
+  0% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.55); }
+  100% { box-shadow: 0 0 0 28px rgba(201, 162, 39, 0); }
+}
+.dna-pulse-once {
+  animation: dna-pulse-once 0.9s ease-out both;
+}
+
+/* 验证器 2px 金色扫描线（0.8s 左→右） */
+@keyframes dna-scan {
+  0% { left: 0; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { left: calc(100% - 2px); opacity: 0; }
+}
+.dna-scan {
+  animation: dna-scan 0.8s linear both;
+}
+
+/* 64 卦网格随机呼吸点亮 */
+@keyframes dna-cell-breathe {
+  0%, 100% {
+    color: var(--paper-faint);
+    background: transparent;
+    box-shadow: none;
+  }
+  50% {
+    color: var(--gold-bright);
+    background: rgba(201, 162, 39, 0.08);
+    box-shadow: inset 0 0 0 1px rgba(201, 162, 39, 0.42);
+  }
+}
+.dna-cell-breathe {
+  animation: dna-cell-breathe 2.4s ease-in-out both;
+}
+
+/* 哈希老虎机滚动中字符 */
+@keyframes dna-hash-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+.dna-hash-rolling {
+  animation: dna-hash-flicker 0.08s linear infinite;
+  color: var(--gold);
+}
+
+/* 卦符铸造轮转（高速切换时的轻微抖动） */
+@keyframes dna-spin-jitter {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+.dna-spin-jitter {
+  display: inline-block;
+  animation: dna-spin-jitter 0.16s linear infinite;
+}

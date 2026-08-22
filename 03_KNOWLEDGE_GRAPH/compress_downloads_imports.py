@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# DNA: #龍芯⚡️丙午·丙申·#龍芯⚡️丙午·丙申·POSTAUDIT-COMPRESS_DOWNLOADS_I-5B9BDEE6
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 Downloads 导入区去重压缩脚本
 对迁移进主干的 downloads-imports / _archive 目录进行内容级去重：
@@ -142,4 +144,4 @@ if __name__ == "__main__":
     print(f"报告：{REPORT}\n日志：{LOG}")
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·归妹-CONFIRM-SEAL-compress_downloads_i-A81F6367
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷵归妹-CONFIRM-SEAL-compress_downloads_i-A81F6367

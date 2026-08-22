@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂字体管理引擎 CLI v2.0 · LonghunFont Manager
 =================================================
 底座组件 · L1_内核层/fonts 字体子系统
-DNA: #龍芯⚡️丙午·辛未·乙酉-LONGHUN-FONT-MANAGER-v2.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-LONGHUN-FONT-MANAGER-v2.0
 
 v2.0 升级:
   - 集成 LonghunFontEngine (fontTools 真实元数据解析)
@@ -39,7 +40,7 @@ from typing import Any, Dict, List, Optional
 # ═══════════════════════════════════════════
 # DNA 追溯
 # ═══════════════════════════════════════════
-__DNA__ = "#龍芯⚡️丙午·辛未·乙酉-LONGHUN-FONT-MANAGER-v2.0"
+__DNA__ = "#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-LONGHUN-FONT-MANAGER-v2.0"
 __VERSION__ = "2.0.0"
 __AUTHOR__ = "UID9622"
 
@@ -242,7 +243,7 @@ def cmd_css(base_url: str = "/fonts/"):
 
     css_lines = [
         "/* 龍魂字体 · LonghunFont @font-face */",
-        "/* DNA: #龍芯⚡️丙午·辛未·乙酉-LONGHUN-FONT-CSS-v2.0 */",
+        "/* DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-LONGHUN-FONT-CSS-v2.0 */",
         "/* 生成工具: lh_font_manager.py css (engine v2.0) */",
         "",
     ]

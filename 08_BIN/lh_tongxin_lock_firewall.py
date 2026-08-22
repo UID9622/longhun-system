@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 # ╔══════════════════════════════════════════════════════════════╗
 # ║  龍魂·同心锁物理防火墙 v1.0                                  ║
-# ║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-TONGXIN-LOCK-FIREWALL-v1.0 ║
+# ║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-TONGXIN-LOCK-FIREWALL-v1.0 ║
 # ║  守护人格: 乔前辈(P04鲁班)                                  ║
 # ║  签章: JOE-MASTER-LOCK-2026                                 ║
 # ╚══════════════════════════════════════════════════════════════╝
@@ -22,7 +22,7 @@
     sudo python3 bin/lh_tongxin_lock_firewall.py --unlock       # 临时解锁(需验证)
     python3 bin/lh_tongxin_lock_firewall.py selftest            # 自检
 """
-DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-TONGXIN-LOCK-FIREWALL-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-TONGXIN-LOCK-FIREWALL-v1.0"
 创建者 = "诸葛鑫（UID9622）"
 协议 = "CC BY-NC-SA 4.0"
 

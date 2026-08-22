@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-UNIVERSAL-MODE-v2.0
+# DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-UNIVERSAL-MODE-v2.0
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -59,7 +59,7 @@ from datetime import datetime, timezone
 ROOT = Path(__file__).resolve().parent.parent
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 GPG_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
-DNA_BASE = "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-UNIVERSAL-MODE-v2.0"
+DNA_BASE = "#龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-UNIVERSAL-MODE-v2.0"
 VERSION = "v2.0"
 
 # 369不动点（焊死·不可改）

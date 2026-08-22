@@ -2,14 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-07-25-MEMORY-ETERNITY-API-v1.0
+#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-MEMORY-ETERNITY-API-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂·记忆永存操作 API v1.0
 把外脑压缩引擎 + 记忆永存引擎封装成 HTTP API，供仪表盘调用。
-DNA: #龍芯⚡️2026-07-25-MEMORY-ETERNITY-API-v1.0
+DNA: #龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-MEMORY-ETERNITY-API-v1.0
 # STATUS: ⚠️ DEPRECATED · 功能由 bin/lh_memory_api.py + engines/lh_fixed_point_memory_archive.py 统一接管
 # 保留原因: 历史 API 参考，新代码请使用 /v1/memory/archive/status 与 /v1/memory/archive/ingest
 """

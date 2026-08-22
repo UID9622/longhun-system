@@ -120,7 +120,7 @@ CNSH IDE 默认使用 **Ollama 本地模型**，零 API 费用、断网可用、
 |:---|:---|:---|:---|
 | Kimi（月之暗面） | `kimi` | `moonshot-v1-8k` | platform.moonshot.cn |
 | 通义千问（阿里） | `tongyi` | `qwen-turbo` | dashscope.aliyun.com |
-| DeepSeek | `deepseek` | `deepseek-chat` | platform.deepseek.com |
+| DeepSeek | `deepseek` | `deepseek-v4-flash` | platform.deepseek.com |
 | 智谱 AI | `zhipu` | `glm-4` | open.bigmodel.cn |
 | 字节豆包（Ark） | `doubao` | `doubao-lite-4k` | ark.cn-beijing.volces.com |
 

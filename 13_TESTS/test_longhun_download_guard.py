@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂下载守卫单元测试
-DNA: #龍芯⚡️2026-06-29-LONGHUN-DOWNLOAD-GUARD-TEST-v1.0
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-DOWNLOAD-GUARD-TEST-v1.0
 """
 
 import os
@@ -25,7 +26,7 @@ class Test下载文件检测器(unittest.TestCase):
         os.environ["LONGHUN_SM2_SK"] = str(Path(self.tmpdir.name) / "sm2" / "sk.pem")
         os.environ["LONGHUN_SM2_PK"] = str(Path(self.tmpdir.name) / "sm2" / "pk.pem")
         os.environ["LONGHUN_QUARANTINE_DIR"] = str(self.隔离)
-        self.护盾 = 龍魂护盾("#龍芯⚡️2026-06-29-龍魂护盾-v3-CNSH-UID9622")
+        self.护盾 = 龍魂护盾("#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂护盾-v3-CNSH-UID9622")
         self.检测器 = 下载文件检测器(self.护盾)
 
     def tearDown(self):
@@ -91,13 +92,8 @@ class Test扫描指定路径(unittest.TestCase):
         os.environ["LONGHUN_SM2_SK"] = str(Path(self.tmpdir.name) / "sm2" / "sk.pem")
         os.environ["LONGHUN_SM2_PK"] = str(Path(self.tmpdir.name) / "sm2" / "pk.pem")
         os.environ["LONGHUN_QUARANTINE_DIR"] = str(Path(self.tmpdir.name) / "q")
-        self.护盾 = 龍魂护盾("#龍芯⚡️2026-06-29-龍魂护盾-v3-CNSH-UID9622")
+        self.护盾 = 龍魂护盾("#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂护盾-v3-CNSH-UID9622")
 
-    def tearDown(self):
-        self.tmpdir.cleanup()
-        for k in ["LONGHUN_SHAME_WALL_PATH", "LONGHUN_SM2_SK",
-                  "LONGHUN_SM2_PK", "LONGHUN_QUARANTINE_DIR"]:
-            os.environ.pop(k, None)
 
     def test_手动扫描隔离(self):
         文件 = Path(self.tmpdir.name) / "bad.exe"

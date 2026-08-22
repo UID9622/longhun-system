@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂·行為密碼學 CLI 入口（lh.py 調度用）
-DNA: #龍芯⚡️丙午·甲申·丁酉·艮卦-BCM-CLI-V2.0-UID9622
+DNA: #龍芯⚡️丙午·甲申·丁酉·丙午·䷳艮-BCM-CLI-V2.0-UID9622
 License: MulanPSL v2
 """
 
@@ -29,7 +29,7 @@ def run_demo():
     
     # 示例文本
     sample = """
-DNA: #龍芯⚡️丙午·甲申·丁酉·艮卦-BEHAVIORAL-CRYPTO-V2.0-UID9622
+DNA: #龍芯⚡️丙午·甲申·丁酉·丙午·䷳艮-BEHAVIORAL-CRYPTO-V2.0-UID9622
 確認碼: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 龍魂系統的行為密碼學引擎基於七因子模型。每個文檔都有一個不可偽造的行為指紋。

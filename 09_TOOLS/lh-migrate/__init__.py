@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-LH-MIGRATE-v1.0-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-LH-MIGRATE-v1.0-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
@@ -322,7 +322,7 @@ def run_migration(target: str, output_dir: Optional[str] = None) -> Dict[str, An
     
     # 生成 config.json
     config_json = {
-        "dna": "#龍芯⚡️丙午·丙申·庚戌·䷙大畜-MIGRATE-PKG-v1.0",
+        "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-MIGRATE-PKG-v1.0",
         "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
         "target": target,
         "timestamp": config.timestamp,

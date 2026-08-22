@@ -1,7 +1,7 @@
 #!/bin/bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # LongHun Archive Script
-# DNA: #龍芯⚡️2026-07-18-ARCHIVE-v1.0
+# DNA: #龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-ARCHIVE-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
@@ -12,7 +12,7 @@ DATA_PATH="$HOME/longhun-data/clean_998_clean.jsonl"
 REPORT_PATH="$HOME/longhun-models/eval_report.json"
 
 echo "[ARCHIVE] LongHun System L3 Layer"
-echo "[DNA] #龍芯⚡️2026-07-18-ARCHIVE-v1.0"
+echo "[DNA] #龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-ARCHIVE-v1.0"
 
 mkdir -p "$ARCHIVE_DIR"
 
@@ -38,7 +38,7 @@ fi
 HASH=$(find "$ARCHIVE_DIR" -type f -exec sha256sum {} \; | sha256sum | cut -d' ' -f1 | head -c 16)
 
 cat > "$ARCHIVE_DIR/DNA.sig" << EOF
-#龍芯⚡️2026-07-18-ARCHIVE-v1.0-$HASH
+#龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-ARCHIVE-v1.0-$HASH
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 TIMESTAMP: $(date -u +%Y-%m-%dT%H:%M:%SZ)
 LAYER: L3_语义层

@@ -1,7 +1,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ANTENNA-8GATE v1→v2 升级复盘报告
-# DNA：#龍芯⚡️丙午·乙未·丙申·酉时·☲离-RETROSPECTIVE-v1v2-a1b2c3d4
+# DNA：#龍芯⚡️丙午·乙未·丙申·酉时·䷝离-RETROSPECTIVE-v1v2-a1b2c3d4
 # 创建者：诸葛鑫（UID9622）· 协议：CC BY-NC-SA 4.0
 
 ## 一、v1 为什么跳过率 0%

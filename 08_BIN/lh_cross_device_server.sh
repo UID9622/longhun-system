@@ -1,6 +1,6 @@
 #!/bin/bash
 # 🐉 龍魂 · 跨设备互通一键启动 (Mac端) v1.2
-# DNA: #龍芯⚡️丙午·丙申·庚申·亥时-CROSS-SERVER-V1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CROSS-SERVER-V1.2-UID9622
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # 用途: 启动 Mac 记忆中枢 + 同步服务 + 对话桥接

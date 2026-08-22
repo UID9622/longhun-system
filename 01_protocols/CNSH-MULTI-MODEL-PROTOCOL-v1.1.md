@@ -1,6 +1,6 @@
 # 🐉 龍魂 · CNSH 编辑器 · 多模型接入协议与完整实现 v1.1
 
-**DNA:** `#龍芯⚡️丙午·丙申·庚申·巽为风-CNSH-MULTI-MODEL-v1.1`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·壬午·䷸巽为风-CNSH-MULTI-MODEL-v1.1`
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 **三色:** 🟡 待实测（沙箱 mock 断言 21/21 通过，退出码 0；真实 API 未验）
@@ -101,7 +101,7 @@ def __init__(self, config: Dict, timeout: int = 60):
 # v1.1（🟢）：
 from lh_ganzhi import generate_dna
 generate_dna("CALL-KIMI", "v1.1")
-# → #龍芯⚡️丙午·丙申·庚申·巽为风-CALL-KIMI-v1.1
+# → #龍芯⚡️丙午·丙申·庚申·壬午·䷸巽为风-CALL-KIMI-v1.1
 ```
 
 **修正 5 — 确认码闸门：**
@@ -188,7 +188,7 @@ python3 08_BIN/model_router.py -c "你好" -m kimi
 ═══════════════════════════════════════════════════
  🐉 龍魂 · CNSH多模型接入协议 v1.1 · 最终签名
 ═══════════════════════════════════════════════════
-DNA:        #龍芯⚡️丙午·丙申·庚申·巽为风-CNSH-MULTI-MODEL-v1.1
+DNA:        #龍芯⚡️丙午·丙申·庚申·壬午·䷸巽为风-CNSH-MULTI-MODEL-v1.1
 确认码:      #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色:       🟡 待实测（mock 断言 21/21，真实 API 未验）

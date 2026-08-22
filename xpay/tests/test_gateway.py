@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 XPay 主权网关单元测试
-DNA:#龍芯⚡️2026-06-17-XPAY-TESTS-FILE1-v2.0
+DNA:#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-XPAY-TESTS-FILE1-v2.0
 """
 import sys
 import tempfile

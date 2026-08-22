@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 显示 P0 永恒锁协议
-# DNA: #龍芯⚡️2026-06-25-LONGHUN-SHOW-ETERNAL-LOCK-v1.0
+# DNA: #龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-LONGHUN-SHOW-ETERNAL-LOCK-v1.0
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 FILE="$ROOT/P0_ETERNAL_LOCK.md"

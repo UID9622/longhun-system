@@ -1,7 +1,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 <!--
-  DNA: #龍芯⚡️2026-07-21-迁移-longhun-retro-tasks-v1.0
+  DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-迁移-longhun-retro-tasks-v1.0
   创建者: 诸葛鑫（UID9622）
   协议: CC BY-NC-SA 4.0
   来源: 龍魂待整理/09-杂项备忘/longhun-retro-tasks.md
@@ -13,7 +13,7 @@
 # 龍魂系统 · 复盘 + 任务拆分
 ## UID9622 · 诸葛鑫 · 2026-04-22
 
-**DNA:** `#龍芯⚡️2026-04-22-SYSTEM-RETRO-v1.0`  
+**DNA:** `#龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-SYSTEM-RETRO-v1.0`  
 **三色审计:** 🟢 通过
 
 ---
@@ -127,7 +127,7 @@
 
 ---
 
-**DNA:** `#龍芯⚡️2026-04-22-SYSTEM-RETRO-v1.0`  
+**DNA:** `#龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-SYSTEM-RETRO-v1.0`  
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 **创建者:** UID9622 · 诸葛鑫  
 **备注:** 一个人测试，没有秘密，留痕就是主权。

@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # XPay 龍魂主权激励模型白皮书 v1.0
 
-**DNA**: `#龍芯⚡️2026-06-24-XPAY-INCENTIVE-WHITEPAPER-v1.0`
+**DNA**: `#龍芯⚡️丙午·甲午·己巳·庚午·䷃蒙-XPAY-INCENTIVE-WHITEPAPER-v1.0`
 
 **责任主体**: UID9622 · 龍芯北辰 · 诸葛鑫 · 不免责
 
@@ -325,9 +325,9 @@ XPay 采用分层治理：
 
 相关 DNA：
 
-- 原始激励模型：`#龍芯⚡️2026-06-24-XPAY-INCENTIVE-MODEL-v1.0`
-- 支付网关架构：`#龍芯⚡️2026-06-17-XPAY-ARCHITECTURE-FILE1-v2.0`
-- 本白皮书：`#龍芯⚡️2026-06-24-XPAY-INCENTIVE-WHITEPAPER-v1.0`
+- 原始激励模型：`#龍芯⚡️丙午·甲午·己巳·庚午·䷃蒙-XPAY-INCENTIVE-MODEL-v1.0`
+- 支付网关架构：`#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-XPAY-ARCHITECTURE-FILE1-v2.0`
+- 本白皮书：`#龍芯⚡️丙午·甲午·己巳·庚午·䷃蒙-XPAY-INCENTIVE-WHITEPAPER-v1.0`
 
 ---
 

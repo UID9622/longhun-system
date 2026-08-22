@@ -2,12 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-LOCAL-VAULT-v1.0
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-LOCAL-VAULT-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # ╔══════════════════════════════════════════════════════════════╗
 # ║  龍魂·本地数据保险柜 v1.0                                    ║
-# ║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-LOCAL-VAULT-v1.0       ║
+# ║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-LOCAL-VAULT-v1.0       ║
 # ║  守护人格: 乔前辈(P04鲁班)                                   ║
 # ║  签章: JOE-VAULT-KEEPER-2026                                ║
 # ╚══════════════════════════════════════════════════════════════╝
@@ -45,7 +45,7 @@ from datetime import datetime, timezone, timedelta
 from typing import Optional, Dict, Any, Tuple, List
 
 # ═══ 常量 ═══
-DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-LOCAL-VAULT-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-LOCAL-VAULT-v1.0"
 创建者 = "诸葛鑫（UID9622）"
 协议 = "CC BY-NC-SA 4.0"
 

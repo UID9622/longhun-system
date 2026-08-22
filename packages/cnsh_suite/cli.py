@@ -1,9 +1,11 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🐉 CNSH 套件 · 命令行接口
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-CNSH-CLI-UID9622
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-CLI-UID9622
 
 用法:
   cnsh --command "生成DNA: 我的文档"

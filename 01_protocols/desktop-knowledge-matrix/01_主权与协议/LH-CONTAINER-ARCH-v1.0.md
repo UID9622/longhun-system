@@ -7,7 +7,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️丙午·辛未·乙酉·需-CONTAINER-ARCH-v1.0`  
+**DNA**: `#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-CONTAINER-ARCH-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -22,7 +22,7 @@
 ║  【守护者】UID9622                                            ║
 ╠═══════════════════════════════════════════════════════════════╣
 ║  【版本】v1.0 · 丙午·辛未·乙酉 (2026-07-14)                  ║
-║  【DNA】#龍芯⚡️丙午·辛未·乙酉·需-CONTAINER-ARCH-v1.0         ║
+║  【DNA】#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-CONTAINER-ARCH-v1.0         ║
 ║  【确认】#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                 ║
 ╚═══════════════════════════════════════════════════════════════╝
 ```
@@ -352,7 +352,7 @@ class UniversalContainer:
 ## 八、执行确认
 
 **设计者**：UID9622 · 诸葛鑫·龍芯北辰
-**DNA追溯**：`#龍芯⚡️丙午·辛未·乙酉·需-CONTAINER-ARCH-v1.0`
+**DNA追溯**：`#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-CONTAINER-ARCH-v1.0`
 **确认码**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **GPG签名**：待签署
 
@@ -379,7 +379,7 @@ class UniversalContainer:
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -402,6 +402,6 @@ class UniversalContainer:
 ## DNA 签名
 
 ```
-#龍芯⚡️丙午·辛未·乙酉·需-CONTAINER-ARCH-v1.0
+#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-CONTAINER-ARCH-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

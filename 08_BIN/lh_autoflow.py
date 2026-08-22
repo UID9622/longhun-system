@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#龍芯⚡️丙午·辛未·乙酉·酉时·讼-AUTOFLOW-EXEC-v1.0
+#龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-AUTOFLOW-EXEC-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -17,7 +17,7 @@ from __future__ import annotations
 ║                                                                          ║
 ║  意图解析 → 路径推演 → 人格联动 → 多闸审计 → DNA签章 → 归档入库         ║
 ║                                                                          ║
-║  DNA:  #龍芯⚡️丙午·辛未·乙酉·酉时·讼-AUTOFLOW-EXEC-v1.0               ║
+║  DNA:  #龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-AUTOFLOW-EXEC-v1.0               ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                          ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL         ║
 ║                                                                          ║
@@ -55,7 +55,7 @@ sys.path.insert(0, str(PROJECT_ROOT / "bin"))
 # 常量 · L0 焊死底座
 # ═══════════════════════════════════════════════════════════════
 
-DNA_BASE = "#龍芯⚡️丙午·辛未·乙酉·酉时·讼-AUTOFLOW-EXEC-v1.0"
+DNA_BASE = "#龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-AUTOFLOW-EXEC-v1.0"
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 DEVICE_SEAL = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 GPG_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"

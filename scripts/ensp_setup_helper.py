@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 · 华为 eNSP + CNSH + 龍魂字体 安装辅助脚本 v1.2
-DNA: #龍芯⚡️2026-07-04-LONGHUN-ENSP-SETUP-v1.2
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-ENSP-SETUP-v1.2
 
 说明：
 - 本脚本不下载 eNSP 安装包（官方/社区下载链接时常变动，需用户手动获取）。
@@ -161,7 +162,7 @@ def main():
     print("4. CNSH 脚本与龍魂字体可直接引用本地路径（见第四节）")
 
     print("\n✅ 环境检查完成")
-    print("DNA: #龍芯⚡️2026-07-04-LONGHUN-ENSP-SETUP-v1.2")
+    print("DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-ENSP-SETUP-v1.2")
 
 
 if __name__ == "__main__":

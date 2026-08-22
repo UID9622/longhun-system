@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 引擎管理仪表盘 v1.0
-DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-ENGINE-DASHBOARD-v1.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-ENGINE-DASHBOARD-v1.0-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

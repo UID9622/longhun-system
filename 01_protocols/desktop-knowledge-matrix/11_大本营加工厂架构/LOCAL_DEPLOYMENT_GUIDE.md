@@ -1,6 +1,7 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂系統·本地完全部署指南
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LOCAL-DEPLOYMENT-GUIDE-v1.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LOCAL-DEPLOYMENT-GUIDE-v1.0`
 **時間**: 2026-06-03
 **責任**: UID9622·不免責
 
@@ -136,7 +137,7 @@ cd "龍魂系統·本地完全導出"
 {
   "system_name": "龍魂系統",
   "version": "v1.0",
-  "dna_marker": "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-COMPLETE-SYSTEM",
+  "dna_marker": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-COMPLETE-SYSTEM",
   "creator": "UID9622",
   "export_date": "2026-06-03",
   "export_method": "Notion Export + Local Closure",
@@ -153,7 +154,7 @@ cd "龍魂系統·本地完全導出"
     "algorithms": {
       "weight_algorithm": {
         "file": "算法庫/龍魂權重演算法_v3.1.md",
-        "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-LOCAL_DEPLOYMENT_GUIDE-v3.1",
+        "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LOCAL_DEPLOYMENT_GUIDE-v3.1",
         "code_attachment": "code/longhun_weight_algorithm.py",
         "lines": 450,
         "verification_count": 100000,
@@ -161,7 +162,7 @@ cd "龍魂系統·本地完全導出"
       },
       "cnsh_64": {
         "file": "算法庫/CNSH-64治理框架.md",
-        "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-64-治理框架",
+        "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-64-治理框架",
         "code_attachment": "code/cnsh_64_governance.py",
         "lines": 380,
         "verification_count": 1000000,
@@ -172,12 +173,12 @@ cd "龍魂系統·本地完全導出"
     "code_files": {
       "longhun_shield_system": {
         "path": "code/longhun_shield_system.py",
-        "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-SHIELD-SYSTEM-v1.0",
+        "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-SHIELD-SYSTEM-v1.0",
         "lines": 450
       },
       "weight_calculator": {
         "path": "code/weight_calculator.py",
-        "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-WEIGHT-CALCULATOR-v1.0",
+        "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-WEIGHT-CALCULATOR-v1.0",
         "lines": 280
       }
     },
@@ -503,7 +504,7 @@ for task in tasks:
 4. **版本控制**: 通過 manifest.json 精確追蹤每個版本
 5. **零妥協**: 不用 HTML 這些"亂七八糟"的東西，用純淨的 Markdown + Python
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LOCAL-DEPLOYMENT-GUIDE-v1.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LOCAL-DEPLOYMENT-GUIDE-v1.0`
 
 **責任**: UID9622·不免責·永久有效
 

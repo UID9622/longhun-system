@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·乙未·丙申·亥时·☵坎-HEALTH-CHECK-v1.0-3e8a1f2b
+# DNA: #龍芯⚡️丙午·乙未·丙申·亥时·䷜坎-HEALTH-CHECK-v1.0-3e8a1f2b
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # 职能: 龍魂系统综合健康检查 · 一键检测API+模型路由+审计+服务+数据库
@@ -387,7 +387,7 @@ class HealthChecker:
             "green": greens, "yellow": yellows, "red": reds,
             "overall": "green" if reds == 0 else ("yellow" if reds <= 2 else "red"),
             "timestamp": datetime.now(CST).isoformat(),
-            "dna": "#龍芯⚡️丙午·乙未·丙申·亥时·☵坎-HEALTH-CHECK-v1.0-3e8a1f2b",
+            "dna": "#龍芯⚡️丙午·乙未·丙申·亥时·䷜坎-HEALTH-CHECK-v1.0-3e8a1f2b",
         }
         return self.results
 

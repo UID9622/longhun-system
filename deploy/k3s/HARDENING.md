@@ -1,6 +1,6 @@
 # 龍魂 K3s 底座加固手册 v2.0
 
-> DNA: #龍芯⚡️丙午·甲申·己亥·䷁坤-K3S-HARDENING-v2.0
+> DNA: #龍芯⚡️丙午·甲申·己亥·庚午·䷁坤-K3S-HARDENING-v2.0
 > 创建者: 诸葛鑫（UID9622）
 > License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 > 基于: CodeBuddy 回执 + 小艺AI 6条加固建议 + 龍魂底座思想

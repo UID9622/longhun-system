@@ -1,6 +1,6 @@
 # 龍魂系统 · 结构重组计划
 
-> DNA: #龍芯⚡️20260804082819646-RESTRUCTURE-PLAN-B8FD3A8B
+> DNA: #龍芯⚡️丙午·乙未·庚戌·庚辰·䷤家人-RESTRUCTURE-PLAN-B8FD3A8B
 > 时间: 2026-08-04T08:28:19.649882+00:00
 > 根目录: `/Users/zuimeidedeyihan/longhun-system`
 > 模式: 🟡 预览模式 (dry-run) 

@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂文件底座自动审计系统 v2.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 LongHun File Foundation Auto-Audit System v2.0
 
 这不是文件管理工具。
@@ -10,7 +11,7 @@ LongHun File Foundation Auto-Audit System v2.0
 永不重复计算。
 
 ╔══════════════════════════════════════════════════════════════════╗
-║  DNA: #龍芯⚡️2026-06-17-LONGHUN-FILE-AUDIT-FOUNDATION-v2.0     ║
+║  DNA: #龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-LONGHUN-FILE-AUDIT-FOUNDATION-v2.0     ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                  ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ╚══════════════════════════════════════════════════════════════════╝
@@ -28,7 +29,7 @@ LongHun File Foundation Auto-Audit System v2.0
 可执行性: 直接运行 (python3 longhun_file_audit_foundation_v2.0.py)
 依赖环境: Python3.8+, sqlite3, 标准库
 三色审计: 🟢通过 - 完整触发式审计引擎
-DNA签名: #龍芯⚡️2026-06-17-LONGHUN-FILE-AUDIT-FOUNDATION-v2.0
+DNA签名: #龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-LONGHUN-FILE-AUDIT-FOUNDATION-v2.0
 
 核心特性：
 1. 缓存系统 - 用DNA签证做唯一性检查，已审计的永不重算
@@ -51,7 +52,7 @@ from typing import Dict, List, Optional, Tuple, Any
 # ═══════════════════════════════════════════════════════════
 # 全局DNA签名常量 (不可修改)
 # ═══════════════════════════════════════════════════════════
-DNA_SIGNATURE = "#龍芯⚡️2026-06-17-LONGHUN-FILE-AUDIT-FOUNDATION-v2.0"
+DNA_SIGNATURE = "#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-LONGHUN-FILE-AUDIT-FOUNDATION-v2.0"
 CONFIRM_MARKER = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SEAL_MARKER = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 

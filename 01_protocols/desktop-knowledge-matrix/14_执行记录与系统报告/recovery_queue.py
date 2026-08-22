@@ -1,8 +1,10 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 龍魂恢复队列 (LongHun Recovery Queue)
-DNA: #龍芯⚡️2026-06-29-LONGHUN-RECOVERY-QUEUE-v3.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-RECOVERY-QUEUE-v3.0
 
 模块三：带 DNA 校验的恢复队列
 """

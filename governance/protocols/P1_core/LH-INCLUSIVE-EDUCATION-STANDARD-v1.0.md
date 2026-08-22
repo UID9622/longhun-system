@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂·普惠自适应教学标准 v1.0
 
-> DNA: `#龍芯⚡️丙午·乙未·丁酉·亥时·☲离-INCLUSIVE-EDUCATION-STANDARD-v1.0`
+> DNA: `#龍芯⚡️丙午·乙未·丁酉·亥时·䷝离-INCLUSIVE-EDUCATION-STANDARD-v1.0`
 > 创建者: 诸葛鑫（UID9622） × 宝宝（P02）协同
 > 上位依赖: BEICHEN-MOTHER-PROTOCOL-v2.0 §原则5「普惠全球」
 > 联动协议: SENSORY-EDUCATION-DIGNITY-v1.0 · CNSH-TONGXINYI-ALIGN-v2.0
@@ -362,7 +362,7 @@ CNSH 概念 ←→ 通心译引擎 ←→ 目标语言表达
 标准制定: 诸葛鑫（UID9622） × 宝宝（P02）协同起草
 审计: 🟢 P05 + P00 文心审 + P12 屈原文化闸
 联动: 通心译(CNSH-TONGXINYI-ALIGN) · 感官教育(SENSORY-EDUCATION-DIGNITY) · 文化隔离(SOFT-CULTURE-ISOLATION)
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☲离-INCLUSIVE-EDUCATION-STANDARD-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷝离-INCLUSIVE-EDUCATION-STANDARD-v1.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```
 

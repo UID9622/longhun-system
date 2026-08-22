@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂 · 北辰协议独立引擎 + Deliberative Alignment
 ============================================================
 论文: CNSH × 北辰P0治理协议 (IEEE白皮书)
       + LongHun Deliberative Alignment (LDA文化锚点对齐)
-DNA: #龍芯⚡️2026-07-07-BEICHEN-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-BEICHEN-ENGINE-v1.0
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 来源: 北辰母协议 + IEEE 白皮书公式全落地
 
@@ -146,7 +147,7 @@ class BeiChenProtocolEngine:
       两者加密耦合·不可分离
     """
 
-    DNA = "#龍芯⚡️2026-07-07-BEICHEN-ENGINE-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-BEICHEN-ENGINE-v1.0"
     CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
     def __init__(self):

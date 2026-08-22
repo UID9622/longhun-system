@@ -2,12 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☴巽-LEARN-ENGINE-v1.0-f7a2c1e9
+# DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷸巽-LEARN-ENGINE-v1.0-f7a2c1e9
 # 创建者: 诸葛鑫 (UID9622)
 # 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 """
 🐉 龍魂 · 自主学习引擎 v1.0
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☴巽-LEARN-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷸巽-LEARN-ENGINE-v1.0
 
 功能：
   1. 六大核心数据库管理（Inbox / DNA / Tasks / Signals / Projects / Army）
@@ -50,7 +50,7 @@ DASHBOARD_HTML = DATA_DIR / "learning_dashboard.html"
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SEAL = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 GPG_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
-DNA = "#龍芯⚡️丙午·乙巳·癸酉·亥时·☴巽-LEARN-ENGINE-v1.0"
+DNA = "#龍芯⚡️丙午·乙巳·癸酉·亥时·䷸巽-LEARN-ENGINE-v1.0"
 
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 

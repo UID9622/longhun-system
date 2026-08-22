@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-61097790
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -16,7 +17,7 @@
   python3 bin/lh_turbulence_cli.py demo               # 端到端演示
   python3 bin/lh_turbulence_cli.py benchmark           # 性能基准
 
-DNA: #龍芯⚡️丙午·乙未·辛酉·井-TURBULENCE-CLI-V1.0
+DNA: #龍芯⚡️丙午·乙未·辛酉·甲午·䷯井-TURBULENCE-CLI-V1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 """

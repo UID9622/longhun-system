@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·乙巳·庚辰·☴巽-CNSH-EXECUTOR-v2.0-UID9622
+#龍芯⚡️丙午·丙申·乙巳·庚辰·䷸巽-CNSH-EXECUTOR-v2.0-UID9622
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -15,7 +15,7 @@ CNSH v2.0 透明语义治理执行器：
   - 生成执行 DNA、计算风险/决策/信任评分
   - 写入审计链、记忆场、知识库
   - 返回结构化执行报告
-DNA: #龍芯⚡️丙午·丙申·乙巳·庚辰·☴巽-CNSH-EXECUTOR-v2.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·乙巳·庚辰·䷸巽-CNSH-EXECUTOR-v2.0-UID9622
 """
 import os as _os
 import sys as _sys

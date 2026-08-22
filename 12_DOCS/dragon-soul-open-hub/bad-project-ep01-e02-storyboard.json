@@ -1,0 +1,215 @@
+{
+  "dna": "#龍芯⚡️2026-08-19-BAD-EP01-E02-STORYBOARD-v1.0-UID9622",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+  "title": "坏蛋项目 · EP01-E02「录像厅门口」分镜表",
+  "source_event": "EP01-E02",
+  "total_duration_sec": 45,
+  "note": "受《坏蛋是怎样炼成的》人物关系启发，原创剧情。K3主创意，本地模型辅助格式化。",
+  "shots": [
+    {
+      "shot_id": "E02-S01",
+      "duration_sec": 5,
+      "shot_type": "全景",
+      "camera": "手持微抖，低角度",
+      "scene_id": "ENV-02",
+      "visual": "雪夜老街，霓虹招牌「民生录像厅」在 wet pavement 上反光。三五个混混把谢文东逼到墙边。",
+      "characters": [
+        "HD-001-少年谢文东"
+      ],
+      "props": [],
+      "audio": "风声、远处汽车喇叭、混混笑声",
+      "dialogue": "",
+      "emotion": "压迫感",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E02-S02",
+      "duration_sec": 4,
+      "shot_type": "特写",
+      "camera": " eye-level，缓慢推近",
+      "scene_id": "ENV-02",
+      "visual": "谢文东背靠湿墙，嘴角仍带着那抹笑。眼睛里没有惧。",
+      "characters": [
+        "HD-001-少年谢文东"
+      ],
+      "props": [],
+      "audio": "心跳声渐起",
+      "dialogue": "混混头：小子，今天这保护费，你交不交？",
+      "emotion": "静水深流",
+      "asset_refs": [
+        "HD-001_谢文东_少年锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E02-S03",
+      "duration_sec": 3,
+      "shot_type": "中景",
+      "camera": "侧跟，从谢文东身后绕出",
+      "scene_id": "ENV-02",
+      "visual": "三眼从街角阴影里走出来，皮夹克领口竖起，眉心竖印在霓虹下泛红。",
+      "characters": [
+        "HD-002-三眼"
+      ],
+      "props": [
+        "B-S_打火机_大哥大_金链.png"
+      ],
+      "audio": "打火机咔哒一声，火焰照亮半张脸",
+      "dialogue": "",
+      "emotion": "山雨欲来",
+      "asset_refs": [
+        "HD-002_三眼_雨夜持刀.png",
+        "HD-002_三眼_侧面.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E02-S04",
+      "duration_sec": 6,
+      "shot_type": "双人过肩",
+      "camera": "左右切换，节奏加快",
+      "scene_id": "ENV-02",
+      "visual": "三眼挡在谢文东面前，与混混头对峙。雪落在两人之间。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼"
+      ],
+      "props": [],
+      "audio": "风停了一瞬，霓虹嗡嗡声",
+      "dialogue": "三眼：他的人，我罩了。\n混混头：三眼，这没你的事。\n三眼：现在有了。",
+      "emotion": "忠义烈火",
+      "asset_refs": [
+        "HD-001_谢文东_少年锚点图.png",
+        "HD-002_三眼_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E02-S05",
+      "duration_sec": 4,
+      "shot_type": "特写",
+      "camera": "快速推近眉心",
+      "scene_id": "ENV-02",
+      "visual": "三眼眉心竖疤在怒意中泛红，眼神像刀。",
+      "characters": [
+        "HD-002-三眼"
+      ],
+      "props": [],
+      "audio": "低频鼓点一击",
+      "dialogue": "三眼：（低声）滚。",
+      "emotion": "暴烈前兆",
+      "asset_refs": [
+        "HD-002_三眼_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E02-S06",
+      "duration_sec": 8,
+      "shot_type": "近景+快速切",
+      "camera": "手持，跟随动作",
+      "scene_id": "ENV-02",
+      "visual": "三眼动手。没有花哨，三拳两脚，混混倒地。谢文东始终靠墙站着，没动。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼"
+      ],
+      "props": [],
+      "audio": "闷响、倒地声、霓虹电流声",
+      "dialogue": "",
+      "emotion": "暴力美学",
+      "asset_refs": [
+        "HD-002_三眼_雨夜持刀.png"
+      ],
+      "check": "🟡 动作需后期修手"
+    },
+    {
+      "shot_id": "E02-S07",
+      "duration_sec": 6,
+      "shot_type": "双人近景",
+      "camera": " eye-level，雪落在两人肩头",
+      "scene_id": "ENV-02",
+      "visual": "打斗结束。三眼回头，谢文东第一次认真看他。两人对视。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼"
+      ],
+      "props": [],
+      "audio": "风声回来，远处警笛若有若无",
+      "dialogue": "三眼：你叫什么？\n谢文东：谢文东。\n三眼：道上混这么久，头一回有人叫我本名。\n谢文东：本名才好记。",
+      "emotion": "命运交汇",
+      "asset_refs": [
+        "HD-001_谢文东_少年锚点图.png",
+        "HD-002_三眼_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E02-S08",
+      "duration_sec": 5,
+      "shot_type": "特写→拉远",
+      "camera": "从两人交握的手拉远到全景",
+      "scene_id": "ENV-02",
+      "visual": "谢文东伸出手，三眼愣了一下，握住。镜头拉远，两个年轻人站在空荡的街上。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼"
+      ],
+      "props": [],
+      "audio": "龍慧慧旁白起：钱买不来平安，人才行。",
+      "dialogue": "谢文东：钱买不来平安，人才行。\n三眼：（笑了一下）你这个人，有点意思。",
+      "emotion": "结盟起点",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E02-S09",
+      "duration_sec": 4,
+      "shot_type": "空镜",
+      "camera": "固定，慢门",
+      "scene_id": "ENV-02",
+      "visual": "霓虹招牌闪烁，地上的雪被脚印踩乱。一把旧打火机躺在水洼里，火光熄灭。",
+      "characters": [],
+      "props": [
+        "B-S_打火机_大哥大_金链.png"
+      ],
+      "audio": "旁白继续：那一晚，两个年轻人的影子被路灯拉得很长。",
+      "dialogue": "",
+      "emotion": "余韵",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png",
+        "B-S_打火机_大哥大_金链.png"
+      ],
+      "check": "🟢"
+    }
+  ],
+  "summary": {
+    "shots": 9,
+    "duration": 45,
+    "characters": [
+      "HD-001",
+      "HD-002"
+    ],
+    "scenes": [
+      "ENV-02"
+    ],
+    "props": [
+      "B-S_打火机_大哥大_金链.png"
+    ],
+    "red_flags": [
+      "E02-S06 手部动作需后期修"
+    ],
+    "k3_creative_notes": [
+      "三眼出场用打火机点亮半张脸，强化眉心疤锚点",
+      "谢文东全程靠墙不动，与三眼的暴力形成静动对比",
+      "结尾用握手+拉远，把个人相遇拍成命运感",
+      "台词保留'道上混这么久，头一回有人叫我本名'和'钱买不来平安，人才行'两个锚点"
+    ]
+  }
+}

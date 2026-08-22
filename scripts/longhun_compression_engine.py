@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# #龍芯⚡️20260624010825160-AUTO-DNA-EADCC922 自动注入·分层治理自愈引擎 · 来源可查
+# #龍芯⚡️丙午·甲午·己巳·乙丑·䷮困-AUTO-DNA-EADCC922 自动注入·分层治理自愈引擎 · 来源可查
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -18,7 +19,7 @@
   - "几百个字就是向量"
   - "一个技能压缩成一个编号"
 
-DNA: #龍芯⚡️2026-06-24-LONGHUN-COMPRESSION-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·甲午·己巳·庚午·䷃蒙-LONGHUN-COMPRESSION-ENGINE-v1.0
 # STATUS: ⚠️ DEPRECATED · 压缩能力已整合进 engines/lh_fixed_point_memory_archive.py
 # 保留原因: 历史压缩算法参考，新代码请使用 MemoryArchive.compress()
 """
@@ -46,7 +47,7 @@ DB_PATH = DB_DIR / "compression_registry.db"
 VECTOR_CACHE_PATH = DB_DIR / "compression_vectors.npz"
 VECTORIZER_PATH = DB_DIR / "compression_vectorizer.pkl"
 
-DNA = "#龍芯⚡️2026-06-24-LONGHUN-COMPRESSION-ENGINE-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·己巳·庚午·䷃蒙-LONGHUN-COMPRESSION-ENGINE-v1.0"
 
 # 中文停用词
 STOPWORDS = set(

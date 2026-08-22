@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂真声 · 本地浏览器控制台
 提供：草稿生成 / 阅读稿生成 / 视频脚本生成 / TTS 试听
 
-DNA: #龍芯⚡️2026-06-25-VOICE-TWIN-WEB-UI-v1.0
+DNA: #龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-VOICE-TWIN-WEB-UI-v1.0
 """
 
 import json

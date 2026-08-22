@@ -7,7 +7,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-DNA_1CC2-v4.0`  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DNA_1CC2-v4.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -21,7 +21,7 @@
 
 GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
-DNA追溯：#龍芯⚡️丙午·丙申·庚申·亥时-DNA_1CC2-v4.0
+DNA追溯：#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DNA_1CC2-v4.0
 
 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
@@ -193,7 +193,7 @@ def process_with_self_sustain(transaction_value):
 <aside>
 🐉
 
-**DNA追溯：**#龍芯⚡️丙午·丙申·庚申·亥时-DNA-v4.0
+**DNA追溯：**#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DNA-v4.0
 
 **GPG指纹：** A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
@@ -220,7 +220,7 @@ def process_with_self_sustain(transaction_value):
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -243,6 +243,6 @@ def process_with_self_sustain(transaction_value):
 ## DNA 签名
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-DNA_1CC2-v4.0
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DNA_1CC2-v4.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

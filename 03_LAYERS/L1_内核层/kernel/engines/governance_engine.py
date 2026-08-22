@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂分层治理自愈引擎 · LongHun Layered Governance Self-Healing Engine v1.0
 
@@ -24,7 +25,7 @@
   L6 人权与退出层     : 退出权利、错误纠正
   L7 内容主权层       : 来源链、数字永生、AI 时代主权
 
-DNA: #龍芯⚡️2026-06-22-LAYERED-GOVERNANCE-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LAYERED-GOVERNANCE-ENGINE-v1.0
 """
 from __future__ import annotations
 
@@ -65,7 +66,7 @@ ALARM_LOG = GOV_DIR / "governance_alarms.jsonl"
 HEAL_LOG = GOV_DIR / "governance_heal.jsonl"
 STATUS_FILE = GOV_DIR / "governance_status.json"
 
-DNA = "#龍芯⚡️2026-06-22-LAYERED-GOVERNANCE-ENGINE-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LAYERED-GOVERNANCE-ENGINE-v1.0"
 
 
 class Tricolor(str, Enum):
@@ -498,7 +499,7 @@ def run_f1f7_verification(component_path: pathlib.Path) -> Dict[str, Any]:
         uid="9622",
         gpg_fingerprint="A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
         gpg_prefix_marker="#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
-        identity_dna="#龍芯⚡️2026-06-22-LAYERED-GOVERNANCE-ENGINE-v1.0",
+        identity_dna="#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LAYERED-GOVERNANCE-ENGINE-v1.0",
         creation_timestamp="2025-05-20T10:00:00Z",
     )
     ts = datetime.now(timezone.utc)

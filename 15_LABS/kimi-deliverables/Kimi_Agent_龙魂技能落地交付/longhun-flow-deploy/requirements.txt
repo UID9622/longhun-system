@@ -1,0 +1,8 @@
+#龍芯⚡️丙午·丙申·己未·乙亥时·䷞旅-DEPS-LOCK-v1.0-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+# SPDX-License-Identifier: MulanPSL-2.0
+# 兼容 Python 3.10（Ubuntu 22.04 默认）/ 3.11+；venv 安装（PEP668 安全）
+fastapi==0.110.3
+uvicorn[standard]==0.29.0
+httpx==0.27.2

@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂 · 文章同步到桌面「文章」文件夹 v1.0
-DNA: #龍芯⚡️2026-07-04-ARTICLE-SYNC-TO-DESKTOP-v1.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ARTICLE-SYNC-TO-DESKTOP-v1.0
 
 功能：
 - 把 longhun-system 里新写的文章，同步到桌面「文章」文件夹，方便查找。
@@ -27,7 +28,7 @@ import shutil
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
-DNA = "#龍芯⚡️2026-07-04-ARTICLE-SYNC-TO-DESKTOP-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ARTICLE-SYNC-TO-DESKTOP-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 

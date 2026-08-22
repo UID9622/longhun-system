@@ -1,4 +1,6 @@
-<!--#龍芯⚡️丙午·丙申·庚申·亥时-DOC-ATTRIBUTION-v1.0 -->
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+<!--#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DOC-ATTRIBUTION-v1.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # ATTRIBUTION — 引用 / 复用 / 二创
@@ -29,7 +31,7 @@
 
 ---
 
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-ATTRIBUTION-REPO
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ATTRIBUTION-REPO
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

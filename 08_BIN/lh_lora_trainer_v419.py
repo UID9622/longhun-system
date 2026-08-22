@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-MODEL-LORA-TRAINER-v4.1.9-AUTO
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-MODEL-LORA-TRAINER-v4.1.9-AUTO
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 longhun-v4.1.9 LoRA 微调器
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-MODEL-LORA-TRAINER-v4.1.9-AUTO
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-MODEL-LORA-TRAINER-v4.1.9-AUTO
 
 v4.1.9 = 从 v4.1.8 best 自动续训，注入本轮修复后的：
   · CNSH启蒙语料库（任务/规则/审计）

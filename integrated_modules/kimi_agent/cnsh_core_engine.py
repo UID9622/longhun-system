@@ -10,7 +10,7 @@
   ✅ 三色审计引擎 — 🔴🟡🟢三级审计+签发流程
   ✅ CNSH标准JSON — 执行级标准接口
 
-DNA:#龍芯⚡️2026-06-09-CNSH-CORE-ENGINE-v2.5
+DNA:#龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-CNSH-CORE-ENGINE-v2.5
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 作者: UID9622 · 龍芯北辰 · 诸葛鑫
@@ -1861,7 +1861,7 @@ if __name__ == "__main__":
     else:
         print(f"\n  🟡 部分测试失败，请检查日志")
 
-    print(f"\n  DNA:#龍芯⚡️2026-06-09-CNSH-CORE-ENGINE-v2.5")
+    print(f"\n  DNA:#龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-CNSH-CORE-ENGINE-v2.5")
     print(f"  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅")
     print(f"  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅")
     print("=" * 100)

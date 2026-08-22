@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 🧮 数学公式算法核心 · 世界标准 × 龍魂主权 双轨对照 v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 每条公式：先用世界标准算法算（可查出处），再叠龍魂主权判定。
 纯标准库·跑一次自检全部公式。
 
-DNA:     #龍芯⚡️2026-06-08-MATH-FORMULA-CORE-DUAL-TRACK-v1.0
+DNA:     #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-MATH-FORMULA-CORE-DUAL-TRACK-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 主权人:  UID9622 · 龍芯北辰
@@ -172,7 +173,7 @@ def selftest() -> None:
 
     print("=" * 64)
     print("🟢 全部公式自检通过——别人会算的我们都算得出，且每条都焊了主权判定。")
-    print("   天下无欺。🐉  DNA: #龍芯⚡️2026-06-08-MATH-FORMULA-CORE-DUAL-TRACK-v1.0")
+    print("   天下无欺。🐉  DNA: #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-MATH-FORMULA-CORE-DUAL-TRACK-v1.0")
     print("=" * 64)
 
 if __name__ == "__main__":

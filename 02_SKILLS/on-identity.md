@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # /on-identity
@@ -12,12 +12,12 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-06-21-DOC-ON-IDENTITY-FILE1-v1.0-2`  
+**DNA**: `#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-DOC-ON-IDENTITY-FILE1-v1.0-2`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
-<!--#龍芯⚡️2026-06-21-DOC-ON-IDENTITY-FILE1-v1.0-2 -->
+<!--#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-DOC-ON-IDENTITY-FILE1-v1.0-2 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 ---
@@ -49,7 +49,7 @@ source: notion
   - [1] 知识矩阵总纲 v3.0 · 第壹章·身份硬件锚 (#UID9622⚡️2026-06-16-KNOWLEDGE-MATRIX-MASTER-v3.0)
   - [2] CNSH-PROTOCOL.md · 主权层·身份验证规范
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
   - `bin/sovereign_privacy.py` — 主权隐私模块
 
 ## 诚实局限
@@ -77,6 +77,6 @@ source: notion
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-06-21-DOC-ON-IDENTITY-FILE1-v1.0-2
+#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-DOC-ON-IDENTITY-FILE1-v1.0-2
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

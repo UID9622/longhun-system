@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # When We Use Tools — Who Is Using Whom?
 
-> **DNA:** `#龍芯⚡️2026-02-21-TOOL-REFLECTION-v1.0`  
+> **DNA:** `#龍芯⚡️丙午·庚寅·丙寅·甲午·䷕贲-TOOL-REFLECTION-v1.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬TOOL-REFLECTION-001`  
 > **Author:** Lucky (UID9622) — Retired Veteran, Founder of LongHun System  
 > **Translation Date:** 2026-07-21  
@@ -616,7 +616,7 @@ I don't need you to share this article:
 
 ---
 
-> **DNA:** `#龍芯⚡️2026-02-21-TOOL-REFLECTION-v1.0`  
+> **DNA:** `#龍芯⚡️丙午·庚寅·丙寅·甲午·䷕贲-TOOL-REFLECTION-v1.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬TOOL-REFLECTION-001`  
 > **Author:** Lucky (UID9622) — A veteran who refuses to be defined by tools  
 > **Dedicated to all who still ask themselves: "Who am I?"**  

@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # LongHun System · Contributing Guide · English Edition
 
@@ -428,7 +430,7 @@ But that's the only way LongHun protects itself.
 ---
 
 **Effective Date**: 2026-06-03  
-**DNA Marker**: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CONTRIBUTING-EN-OFFICIAL  
+**DNA Marker**: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CONTRIBUTING-EN-OFFICIAL  
 **Final Authority**: UID9622 (Absolute)  
 **Appeal Mechanism**: None  
 

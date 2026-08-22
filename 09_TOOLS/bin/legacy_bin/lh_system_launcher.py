@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🐉 龍魂 · 系统启动器 v2.0 (System Launcher)
 =============================================
 6阶段启动流程 — 从开机到自主运行。
@@ -19,7 +20,7 @@
   python3 bin/lh_system_launcher.py --status     # 查看启动状态
   python3 bin/lh_system_launcher.py --shutdown   # 优雅关闭
 
-DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·需-SYSTEM-LAUNCHER-v2.0
+DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·䷄需-SYSTEM-LAUNCHER-v2.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
@@ -48,7 +49,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from bin.lh_event_bus_engine import EventBus, EventType, Event  # noqa: E402
 
 # ── 常量 ──
-DNA = "#龍芯⚡️丙午·辛未·丙戌·亥时·需-SYSTEM-LAUNCHER-v2.0"
+DNA = "#龍芯⚡️丙午·辛未·丙戌·亥时·䷄需-SYSTEM-LAUNCHER-v2.0"
 VERSION = "2.0.0"
 LAUNCHER_DIR = PROJECT_ROOT / "data" / "system_launcher"
 LAUNCHER_DIR.mkdir(parents=True, exist_ok=True)

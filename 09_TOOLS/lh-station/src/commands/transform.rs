@@ -1,6 +1,6 @@
 // 龍魂代码中转站 · transform 命令
 // 全管道: 检测→注入→编译→审查→成本分析→签名→打包→归档
-// DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-TRANSFORM-CMD-v1.1
+// DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-TRANSFORM-CMD-v1.1
 
 use crate::pipeline::detector;
 use crate::pipeline::injector;

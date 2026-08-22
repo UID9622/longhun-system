@@ -3,7 +3,7 @@ session_id: 2026-08-20-2155-codebuddy-sovereign-conflict
 agent: codebuddy
 persona: P04·鲁班
 sovereign_present: true
-dna: "#龍芯⚡️2026-08-20-21:55-SOVEREIGN-SOURCE-CONFLICT-REPORT-v1.0-UID9622"
+dna: "#龍芯⚡️丙午·丙申·丙寅·己亥·䷶丰-SOVEREIGN-SOURCE-CONFLICT-REPORT-v1.0-UID9622"
 tricolor: 🔴
 notion_refs: [主权启动包自包含落盘 v2.0]
 ---

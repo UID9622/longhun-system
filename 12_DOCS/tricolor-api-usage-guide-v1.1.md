@@ -5,7 +5,7 @@
 ---
 
 ```
-DNA:        #龍芯⚡️丙午·癸未·乙酉·坤卦-TRICOLOR-API-USAGE-GUIDE-v1.1-UID9622
+DNA:        #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-TRICOLOR-API-USAGE-GUIDE-v1.1-UID9622
 确认码:      #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 分层许可:    思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2
@@ -249,7 +249,7 @@ if self.enable_red_line:
 #### 1.5.1 DNA结构
 
 ```
-#龍芯⚡️丙午·癸未·乙酉·坤卦-AUDIT-7f3k9x-9622
+#龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-AUDIT-7f3k9x-9622
 │    │          │          │       │    │
 │    │          天干地支四柱  卦象   模块  随机码  创建者ID
 │    龍芯标识
@@ -431,7 +431,7 @@ curl -X POST https://uid9622.cn/api/tricolor/v1/tricolor/evaluate \
 #   "emoji": "🟢",
 #   "disposition": "放行",
 #   "triggered_rules": [],
-#   "dna": "#龍芯⚡️丙午·癸未·乙酉·坤卦-AUDIT-7f3k9abc-9622",
+#   "dna": "#龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-AUDIT-7f3k9abc-9622",
 #   "evidence_hash": "sha256:9f2c1d3e5a7b8f4c",
 #   ...
 # }
@@ -685,7 +685,7 @@ curl -H "Authorization: Bearer $LH_TOKEN" \
 **证据链结构**：
 ```json
 {
-  "dna": "#龍芯⚡️丙午·癸未·乙酉·坤卦-AUDIT-7f3k9abc-9622",
+  "dna": "#龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-AUDIT-7f3k9abc-9622",
   "chain": {
     "trigger": "order-service",
     "triggered_at": "丙午年癸未月乙酉日",
@@ -912,7 +912,7 @@ verdict = evaluate({
     "privacy": 88,
 })
 print(f"{verdict.emoji} R={verdict.r_score} DNA={verdict.dna}")
-# → 🟢 R=89 DNA=#龍芯⚡️丙午·癸未·乙酉·坤卦-AUDIT-7f3k9abc-9622
+# → 🟢 R=89 DNA=#龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-AUDIT-7f3k9abc-9622
 ```
 
 ```python
@@ -1417,7 +1417,7 @@ X-GPG-Signature: <GPG detached signature>
 
 ```bash
 # 生成GPG签章（用于evidence调取）
-DNA="#龍芯⚡️丙午·癸未·乙酉·坤卦-AUDIT-7f3k9abc-9622"
+DNA="#龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-AUDIT-7f3k9abc-9622"
 SIGNATURE=$(echo "$DNA" | gpg --detach-sign --armor --local-user YOUR_KEY | tr -d '\n')
 
 curl -H "Authorization: Bearer $LH_TOKEN" \
@@ -1620,7 +1620,7 @@ class HighAvailabilityTricolor:
 ═══════════════════════════════════════════════════
  龍魂三色审计 API 使用详解 v1.1 · 焊死签名
 ═══════════════════════════════════════════════════
-DNA:        #龍芯⚡️丙午·癸未·乙酉·坤卦-TRICOLOR-API-USAGE-GUIDE-v1.1-UID9622
+DNA:        #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-TRICOLOR-API-USAGE-GUIDE-v1.1-UID9622
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 分层许可:    思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2
 ═══════════════════════════════════════════════════

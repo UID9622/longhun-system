@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️2026-07-21-DUALVIEW-V3-LANDING-V1.0-P0
+# DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-DUALVIEW-V3-LANDING-V1.0-P0
 # M::VALIDATOR-9622-20260721-LANDING-V1
-# CNSH::#龍芯⚡️2026-07-21-双视角校验器-v1.0
+# CNSH::#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-双视角校验器-v1.0
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -402,16 +402,16 @@ def 跑测试向量() -> dict[str, Any]:
     结果.append({"id": "T07", "场景": "中文v3.0 × 镜像v2.9", "期望": "🔴版本锁", "实际": r["状态"], "通过": 通过_t07})
 
     # T08: 三锚齐全
-    r = CNSH_三锚准入("#龍芯⚡️2026-07-21-TEST-v1.0", CONFIRM锚, SEAL前缀 + "TEST")
+    r = CNSH_三锚准入("#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-TEST-v1.0", CONFIRM锚, SEAL前缀 + "TEST")
     结果.append({"id": "T08", "场景": "三锚齐全", "期望": "🟢", "实际": r["状态"], "通过": r["准入"]})
 
     # T09: 缺SEAL
-    r = CNSH_三锚准入("#龍芯⚡️2026-07-21-TEST-v1.0", CONFIRM锚, None)
+    r = CNSH_三锚准入("#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-TEST-v1.0", CONFIRM锚, None)
     通过_t09 = not r["准入"] and "SEAL" in str(r.get("缺", []))
     结果.append({"id": "T09", "场景": "缺SEAL", "期望": "🔴拒绝", "实际": r["状态"], "通过": 通过_t09})
 
     # T10: DNA简体龍芯非法
-    r = CNSH_三锚准入("#龍芯⚡️2026-07-21-TEST-v1.0", CONFIRM锚, SEAL前缀 + "TEST")
+    r = CNSH_三锚准入("#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-TEST-v1.0", CONFIRM锚, SEAL前缀 + "TEST")
     通过_t10 = not r["准入"] and "简体" in r["状态"]
     结果.append({"id": "T10", "场景": "DNA简体龍芯", "期望": "🔴非法", "实际": r["状态"], "通过": 通过_t10})
 
@@ -509,7 +509,7 @@ def main():
     else:
         # 默认跑自检
         print("══════ 龍魂v3双视角落地校验器 v1.0 ══════")
-        print(f"DNA: #龍芯⚡️2026-07-21-DUALVIEW-V3-LANDING-V1.0-P0")
+        print(f"DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-DUALVIEW-V3-LANDING-V1.0-P0")
         print(f"时间: {datetime.datetime.now().isoformat()}")
         print()
 

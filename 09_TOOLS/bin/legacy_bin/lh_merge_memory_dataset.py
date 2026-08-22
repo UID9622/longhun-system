@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 合并 v3.7 稳定数据 + 全记忆 ingestion 数据 → v4.0.6 训练集
-DNA: #龍芯⚡️2026-07-19-MERGE-MEMORY-DATASET-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-MERGE-MEMORY-DATASET-v1.0
 """
 
 import json

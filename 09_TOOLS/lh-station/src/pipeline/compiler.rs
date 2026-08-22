@@ -1,6 +1,6 @@
 // 龍魂代码中转站 · 芯片适配编译
 // 交叉编译到中国芯片架构 · 鲲鹏/昇腾/飞腾/龙芯/申威
-// DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-COMPILER-v1.0
+// DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-COMPILER-v1.0
 
 use crate::core::config::ChipInfo;
 use serde::{Deserialize, Serialize};

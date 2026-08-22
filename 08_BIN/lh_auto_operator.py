@@ -2,13 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-AUTO-OPERATOR-v1.0-c4d8e2a1
+# DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-AUTO-OPERATOR-v1.0-c4d8e2a1
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · AI 自动操作引擎 v1.0
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-AUTO-OPERATOR-v1.0-c4d8e2a1
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-AUTO-OPERATOR-v1.0-c4d8e2a1
 
 功能:
   - 定时/事件触发 AI 执行操作

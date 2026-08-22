@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂·全系统集成测试 v1.0
-DNA: #龍芯⚡️2026-07-21-INTEGRATION-TEST-v1.0
+DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-INTEGRATION-TEST-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -28,7 +28,7 @@ from datetime import datetime
 sys.path.insert(0, str(Path(__file__).parent.parent))
 os.chdir(str(Path(__file__).parent.parent))
 
-DNA = "#龍芯⚡️2026-07-21-INTEGRATION-TEST-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-INTEGRATION-TEST-v1.0"
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # §1 引擎导入测试

@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·乙未·丙申·申时·☳震-MINOR-GUARD-ENGINE-V1.0-P0-9243b09e
+# DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷲震-MINOR-GUARD-ENGINE-V1.0-P0-9243b09e
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -997,7 +997,7 @@ def run_tests(verbose: bool = True) -> Tuple[int, int, List[str]]:
     if verbose:
         print("=" * 60)
         print("龍魂·未成年守护引擎 v1.0 — 测试向量验证")
-        print("DNA: #龍芯⚡️丙午·乙未·丙申·申时·☳震-MINOR-GUARD-ENGINE-V1.0-P0-9243b09e")
+        print("DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷲震-MINOR-GUARD-ENGINE-V1.0-P0-9243b09e")
         print("=" * 60)
     
     for tv in TEST_VECTORS:

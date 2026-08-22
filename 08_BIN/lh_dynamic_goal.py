@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🐉 龍魂·动态目标推进协议 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-动态目标-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-动态目标-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 定位：目标驱动 + 自适应规划 + 闭环执行系统

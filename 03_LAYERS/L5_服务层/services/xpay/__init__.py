@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 XPay 支付网关 · 服务包
-DNA: #龍芯⚡️2026-06-05-XPAY-SERVICE-PKG
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-XPAY-SERVICE-PKG
 归属: 龍魂系统 · UID9622
 """
 

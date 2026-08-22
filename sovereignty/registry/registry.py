@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 UID9622 主权身份注册核心
@@ -16,7 +17,7 @@ LongHun UID9622 Sovereign Identity Registry Core
   - 支持验证接口
   - 任何修改请求触发熔断并写入耻辱墙
 
-DNA: #龍芯⚡️20260628-SOVEREIGN-REGISTRY-v1.0
+DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-SOVEREIGN-REGISTRY-v1.0
 """
 
 import os
@@ -93,7 +94,7 @@ def load_manifest() -> Dict[str, Any]:
             "version": "1.0",
             "schema": "sovereign-registry-v1",
             "immutable": True,
-            "registry_dna": "#龍芯⚡️20260628-SOVEREIGN-REGISTRY-v1.0",
+            "registry_dna": "#龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-SOVEREIGN-REGISTRY-v1.0",
             "records": [],
         }
     with open(MANIFEST_PATH, "r", encoding="utf-8") as f:

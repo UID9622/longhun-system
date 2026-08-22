@@ -12,7 +12,7 @@ DNA: #龍芯⚡️丙午·丙申·壬子·丑时·䷖剥-ADAPTER-BASE-V1.0-UID96
     from bin.lh_adapter_base import SovereigntyAdapter
 
     class MyAdapter(SovereigntyAdapter):
-        DNA = "#龍芯⚡️2026-08-06-ADAPTER-MY-V1.0-UID9622"
+        DNA = "#龍芯⚡️丙午·乙未·壬子·丙午·䷙大畜-ADAPTER-MY-V1.0-UID9622"
         REPLACES = "target_plugin"
 """
 

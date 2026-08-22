@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂 · 天眼生态看板 v2.0</title>
+<!--
+================================================================================
+  龍魂系统 · 天眼可视化生态总成 v2.0 · 看板前端
+  DNA: [[GENERATED_BY_LH_DNA_GENERATOR_V3]]-TIANYAN-DASHBOARD-v2.0
+  创建者: 诸葛鑫（UID9622）
+  License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+  确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+  A-BOM 算法备案: 本看板为纯前端可视化·零后端依赖·无数据外传。
+    数据默认走内置快照(mockData)，部署后可由 tianyan_data.js
+    (tianyan_engine.py --snapshot --export-html 产物) 自动覆盖；
+    状态聚合算法详见 tianyan_engine.py StatusAggregator(加权健康度+5s缓存)。
+    数据主权: 仅本地渲染·无第三方回传·符合 P0 数据主权铁律。
+================================================================================
+-->
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<script>
+// CDN 兜底: jsdelivr 不可达时自动切 cdnjs，避免看板白屏
+if (!window.echarts) {
+  document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"><\/script>');
+}
+</script>
+<style>
+:root {
+  --bg: #0b0e17;
+  --card: #141c2a;
+  --border: #2a3a5a;
+  --text: #c8d0e0;
+  --text-dim: #7a8aaa;
+  --gold: #f0c060;
+  --green: #4caf50;
+  --yellow: #ffc107;
+  --red: #f44336;
+  --blue: #4a7aaa;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  padding: 20px;
+  min-height: 100vh;
+}
+.dashboard { max-width: 1600px; margin: 0 auto; }
+
+/* 顶部 */
+.header {
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid var(--border); padding-bottom: 15px; margin-bottom: 25px;
+  flex-wrap: wrap; gap: 12px;
+}
+.header h1 { font-size: 28px; color: var(--gold); text-shadow: 0 0 10px #f0c06080; }
+.header .badge {
+  font-size: 13px; color: var(--text-dim); background: var(--card);
+  padding: 6px 15px; border-radius: 20px; border: 1px solid var(--border);
+}
+.header .badge.gold { color: var(--gold); border-color: rgba(240,192,96,0.3); }
+
+/* 网格 */
+.grid { display: grid; gap: 25px; margin-bottom: 25px; }
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+.grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+@media (max-width: 1024px) { .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) { .grid, .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+
+/* 卡片 */
+.card {
+  background: var(--card); border-radius: 16px; padding: 20px;
+  border: 1px solid var(--border); box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  position: relative; overflow: hidden; transition: border-color 0.3s;
+}
+.card:hover { border-color: rgba(240,192,96,0.3); }
+.card::before {
+  content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+  background: radial-gradient(circle at 30% 30%, #1a2a3a, transparent 70%);
+  pointer-events: none;
+}
+.card-title {
+  font-size: 16px; font-weight: 600; margin-bottom: 15px; color: #a0b8d0;
+  display: flex; align-items: center; gap: 10px; position: relative; z-index: 1;
+}
+.card-title .icon { font-size: 24px; }
+.card-title .gua { font-size: 20px; margin-left: auto; opacity: 0.3; }
+.chart-container { width: 100%; height: 280px; position: relative; z-index: 1; }
+
+/* 状态指示器 */
+.status-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; position: relative; z-index: 1; }
+.status-item {
+  background: #1e2a3a; padding: 6px 14px; border-radius: 20px; font-size: 13px;
+  border: 1px solid #2a4a6a; display: flex; align-items: center; gap: 6px;
+}
+.status-item .light { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
+.light.green { background: var(--green); box-shadow: 0 0 12px var(--green); }
+.light.yellow { background: var(--yellow); box-shadow: 0 0 12px var(--yellow); }
+.light.red { background: var(--red); box-shadow: 0 0 12px var(--red); }
+
+/* 决策链路 */
+.chain-display {
+  background: #1a2233; padding: 16px 20px; border-radius: 10px; font-size: 14px;
+  border-left: 4px solid var(--gold); position: relative; z-index: 1;
+}
+.chain-step { display: inline-block; margin: 0 6px; color: #a0b8d0; }
+.chain-step .label { color: var(--gold); font-weight: 500; }
+
+/* 概览数字 */
+.stat-number { color: var(--gold); font-size: 28px; font-weight: 700; }
+.stat-label { font-size: 13px; color: var(--text-dim); margin-top: 4px; }
+
+/* 人格网格 */
+.persona-grid { display: flex; flex-wrap: wrap; gap: 8px; position: relative; z-index: 1; }
+.persona-tag {
+  background: rgba(240,192,96,0.08); border: 1px solid rgba(240,192,96,0.15);
+  border-radius: 20px; padding: 4px 14px; font-size: 12px; color: #a0b8d0;
+  cursor: pointer; transition: all 0.2s;
+}
+.persona-tag:hover { background: rgba(240,192,96,0.15); border-color: var(--gold); }
+.persona-tag.active { background: rgba(240,192,96,0.2); border-color: var(--gold); color: var(--gold); }
+
+/* 协议状态 */
+.protocol-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  position: relative; z-index: 1; font-size: 13px;
+}
+.protocol-item {
+  background: #1a2233; padding: 8px 12px; border-radius: 8px;
+  border-left: 3px solid var(--gold);
+}
+.protocol-item .name { color: var(--text-dim); }
+.protocol-item .status { color: var(--gold); }
+
+/* 加载动画 */
+.loading { text-align: center; padding: 40px; color: var(--text-dim); }
+.loading::after { content: '...'; animation: dots 1.5s steps(4, end) infinite; }
+@keyframes dots { 0%, 20% { content: ''; } 40% { content: '.'; } 60% { content: '..'; } 80% { content: '...'; } }
+
+/* ===== v2.0 补全区块样式（保持暗色科技风一致） ===== */
+/* 全局三色横幅 */
+.banner {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+  border-radius: 14px; padding: 14px 18px; margin-bottom: 20px; position: relative; z-index: 1;
+  border: 1px solid var(--border); font-size: 14px;
+}
+.banner.green { background: rgba(76,175,80,.08); border-color: rgba(76,175,80,.35); }
+.banner.yellow { background: rgba(255,193,7,.08); border-color: rgba(255,193,7,.35); }
+.banner.red { background: rgba(244,67,54,.08); border-color: rgba(244,67,54,.35); }
+.banner .b-status { font-size: 18px; font-weight: 700; }
+.banner .b-sub { color: var(--text-dim); font-size: 12px; margin-top: 3px; }
+
+/* 导航 */
+.nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; position: relative; z-index: 1; }
+.nav a {
+  color: var(--text-dim); text-decoration: none; font-size: 13px; padding: 6px 14px;
+  border-radius: 20px; border: 1px solid var(--border); background: var(--card); transition: all .2s;
+}
+.nav a:hover, .nav a.active { color: var(--gold); border-color: rgba(240,192,96,.4); }
+.lang-option:hover { background: rgba(240,192,96,.12); color: var(--gold); }
+
+/* 刷新控制条 */
+.refresh-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;
+  font-size: 13px; color: var(--text-dim); position: relative; z-index: 1;
+}
+.refresh-bar button {
+  background: var(--card); color: var(--gold); border: 1px solid rgba(240,192,96,.3);
+  padding: 6px 16px; border-radius: 20px; cursor: pointer; font-size: 13px; transition: all .2s;
+}
+.refresh-bar button:hover { background: rgba(240,192,96,.12); }
+.refresh-bar select {
+  background: var(--card); color: var(--text); border: 1px solid var(--border);
+  padding: 5px 10px; border-radius: 8px; font-size: 13px;
+}
+/* 实时链路状态徽标（方案B 应用级） */
+.conn {
+  font-size: 12px; padding: 3px 12px; border-radius: 20px; border: 1px solid var(--border);
+  white-space: nowrap;
+}
+.conn-live { color: #4caf50; background: rgba(76,175,80,.1); border-color: rgba(76,175,80,.35); }
+.conn-warn { color: #ffc107; background: rgba(255,193,7,.08); border-color: rgba(255,193,7,.3); }
+.conn-err  { color: #f44336; background: rgba(244,67,54,.08); border-color: rgba(244,67,54,.35); }
+
+/* 操作台（方案D · v2.3）：负责人登录 + 审计 + 导出 + 校验 + 日志 */
+.admin-bar { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-wrap: wrap; }
+.admin-bar .sep { width: 1px; height: 20px; background: var(--border); margin: 0 4px; }
+.admin-btn {
+  background: var(--card); color: var(--gold); border: 1px solid rgba(240,192,96,.3);
+  padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 12px;
+  transition: all .2s; white-space: nowrap;
+}
+.admin-btn:hover { background: rgba(240,192,96,.15); }
+.admin-btn.danger { color: #f44336; border-color: rgba(244,67,54,.4); }
+.admin-btn.danger:hover { background: rgba(244,67,54,.12); }
+.admin-btn.ok { color: #4caf50; border-color: rgba(76,175,80,.4); }
+.admin-btn:disabled { opacity: .45; cursor: not-allowed; }
+#adminBadge { font-size: 11px; color: var(--text-dim); }
+.admin-box {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 18px;
+  padding: 22px; max-width: 680px; width: 100%; box-shadow: var(--glow);
+}
+.admin-box h3 { margin: 0 0 14px; color: var(--gold); font-size: 18px; }
+.admin-box input[type=password],
+.admin-box input[type=text] {
+  width: 100%; box-sizing: border-box; background: var(--card); color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px;
+  font-size: 14px; margin: 8px 0 14px; outline: none;
+}
+.admin-box input[type=password]:focus,
+.admin-box input[type=text]:focus { border-color: rgba(240,192,96,.5); }
+.admin-select {
+  width: 100%; box-sizing: border-box; background: var(--card); color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px;
+  font-size: 14px; margin: 4px 0 14px; outline: none;
+}
+.admin-select:focus { border-color: rgba(240,192,96,.5); }
+.admin-hint { font-size: 12px; color: var(--text-dim); margin-top: 10px; line-height: 1.6; }
+.log-box {
+  background: #0a0f18; border: 1px solid var(--border); border-radius: 12px;
+  padding: 12px 14px; max-height: 420px; overflow: auto; margin: 12px 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px; line-height: 1.55; color: #9be38b; white-space: pre-wrap;
+  word-break: break-all; text-align: left;
+}
+.log-box.err { color: #ff9d9d; }
+.log-box.ok { color: #9be38b; }
+.admin-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+
+/* 移动端适配（应用级 · 手机可用） */
+@media (max-width: 768px) {
+  body { padding: 12px; }
+  .header { flex-direction: column; align-items: flex-start; }
+  .header h1 { font-size: 22px; }
+  .nav { flex-wrap: wrap; }
+  .chart-container { height: 220px; }
+  .card { padding: 14px; }
+  .detail-box { max-width: 100%; margin: 0 8px; }
+  .refresh-bar { gap: 8px; }
+  .conn { font-size: 11px; padding: 2px 8px; }
+  .admin-bar { margin-left: 0; width: 100%; }
+  #adminPanel { flex-wrap: wrap; }
+  .admin-box { padding: 16px; }
+  #langMenu { top: 280px; }
+}
+
+/* 分类标签 */
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; position: relative; z-index: 1; }
+.tab {
+  font-size: 12px; padding: 4px 12px; border-radius: 16px; cursor: pointer; border: 1px solid var(--border);
+  color: var(--text-dim); background: transparent; transition: all .2s;
+}
+.tab:hover { color: var(--gold); }
+.tab.active { background: rgba(240,192,96,.12); color: var(--gold); border-color: rgba(240,192,96,.4); }
+
+/* 模块列表(可滚动) */
+.module-list { max-height: 300px; overflow-y: auto; position: relative; z-index: 1; padding-right: 4px; }
+.module-row {
+  display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; font-size: 13px;
+  border-bottom: 1px solid rgba(42,58,90,.35);
+}
+.module-row { cursor: pointer; transition: background .15s; }
+.module-row:hover { background: rgba(240,192,96,.08); }
+.module-row .m-cat { font-size: 11px; color: var(--text-dim); width: 56px; flex-shrink: 0; }
+
+/* 模块/人格详情浮层 */
+.detail-modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.55); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
+.detail-modal.show { display: flex; }
+.detail-box { background: var(--panel); border: 1px solid var(--border); border-radius: 18px; padding: 22px; max-width: 420px; width: 100%; box-shadow: var(--glow); }
+.detail-box h3 { margin: 0 0 12px; color: var(--gold); font-size: 18px; }
+.detail-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(42,58,90,.35); font-size: 13px; }
+.detail-row:last-child { border-bottom: none; }
+.detail-row .d-label { color: var(--text-dim); }
+.detail-row .d-val { color: var(--text); text-align: right; }
+.detail-close { margin-top: 16px; width: 100%; padding: 10px; border-radius: 10px; border: none; background: var(--gold); color: #1a0f00; font-weight: 700; cursor: pointer; }
+.module-row .m-name { flex: 1; color: var(--text); }
+.module-row .m-health { font-size: 12px; color: var(--text-dim); width: 52px; text-align: right; }
+.module-list::-webkit-scrollbar { width: 6px; }
+.module-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* 人格详情 */
+.persona-detail {
+  margin-top: 14px; padding: 14px 16px; border-radius: 12px; background: rgba(240,192,96,.05);
+  border: 1px solid rgba(240,192,96,.2); font-size: 13px; position: relative; z-index: 1;
+  display: none;
+}
+.persona-detail.show { display: block; animation: fadeIn .3s; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.persona-detail .pd-row { display: flex; gap: 8px; align-items: center; margin-bottom: 6px; flex-wrap: wrap; }
+.persona-detail .pd-label { color: var(--text-dim); font-size: 12px; }
+.persona-detail .pd-val { color: var(--gold); font-weight: 500; }
+
+/* 自动化能力格 */
+.auto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; position: relative; z-index: 1; }
+.auto-item {
+  background: #1a2233; border-radius: 10px; padding: 12px 14px; border-left: 3px solid var(--gold); font-size: 13px;
+}
+.auto-item .a-name { color: var(--text); font-weight: 500; }
+.auto-item .a-desc { color: var(--text-dim); font-size: 12px; margin-top: 3px; }
+.auto-item .a-state { color: var(--green); font-size: 12px; margin-top: 3px; }
+
+/* 部署信息 */
+.deploy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 13px; position: relative; z-index: 1; }
+.deploy-item { background: #1a2233; border-radius: 10px; padding: 10px 14px; border: 1px solid var(--border); }
+.deploy-item .d-label { color: var(--text-dim); font-size: 12px; margin-bottom: 4px; }
+.deploy-item .d-val { color: var(--text); word-break: break-all; }
+.deploy-item .d-val.gold { color: var(--gold); }
+
+/* 页脚 */
+.footer {
+  margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center;
+  color: var(--text-dim); font-size: 13px; position: relative; z-index: 1; line-height: 2;
+}
+.footer .f-gold { color: var(--gold); }
+
+@media (max-width: 768px) { .auto-grid, .deploy-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="dashboard" id="app">
+  <!-- 顶部 -->
+  <div class="header">
+    <h1>🐉 龍魂 · 天眼生态看板</h1>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <span class="badge gold" id="timeAnchor">🕐 加载中...</span>
+      <span class="badge" id="dnaDisplay">🧬 加载中...</span>
+      <span class="badge" id="healthBadge">💓 加载中...</span>
+    </div>
+  </div>
+
+  <!-- 全局三色状态横幅 -->
+  <div class="banner green" id="globalBanner">
+    <div>
+      <div class="b-status" id="bannerStatus">🟢 全系统运行正常</div>
+      <div class="b-sub" id="bannerSub">引擎在线 · 审计通过 · 主权稳固 · 自动化闭环运行中</div>
+    </div>
+    <div style="text-align:right;">
+      <div class="b-sub" id="cdnStatus">ECharts: jsdelivr</div>
+      <div class="b-sub" id="lastRefresh">最后刷新: 尚未刷新</div>
+    </div>
+  </div>
+
+  <!-- 通心译切换 -->
+  <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:10px 0 6px;position:relative;z-index:1;">
+    <button id="langToggle" class="btn-ghost" title="通心译 · 术语切换" style="padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--text-dim);cursor:pointer;transition:all .2s;">🌐 通心译</button>
+  </div>
+  <div id="langMenu" style="display:none;position:absolute;z-index:200;background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:6px 0;box-shadow:var(--glow);left:50%;transform:translateX(-50%);top:300px;min-width:150px;">
+    <div class="lang-option" data-lang="zh-plain" style="padding:8px 16px;cursor:pointer;font-size:13px;white-space:nowrap;">🍵 大白话</div>
+    <div class="lang-option" data-lang="zh-pro" style="padding:8px 16px;cursor:pointer;font-size:13px;white-space:nowrap;">🎓 专业术语</div>
+    <div class="lang-option" data-lang="en" style="padding:8px 16px;cursor:pointer;font-size:13px;white-space:nowrap;">🇺🇸 English</div>
+    <div class="lang-option" data-lang="jp" style="padding:8px 16px;cursor:pointer;font-size:13px;white-space:nowrap;">🇯🇵 日本語</div>
+    <div class="lang-option" data-lang="kr" style="padding:8px 16px;cursor:pointer;font-size:13px;white-space:nowrap;">🇰🇷 한국어</div>
+  </div>
+
+  <!-- 导航 -->
+  <nav class="nav" id="mainNav">
+    <a href="#overview" data-i18n="navOverview">📊 概览</a>
+    <a href="#radarChart" data-i18n="navRadar">🕸️ 健康雷达</a>
+    <a href="#flowChart" data-i18n="navFlow">🌀 思维流场</a>
+    <a href="#personaGrid" data-i18n="navPersona">🧠 人格矩阵</a>
+    <a href="#modules" data-i18n="navModules">⚡ 引擎状态</a>
+    <a href="#auditChart" data-i18n="navAudit">🎨 三色审计</a>
+    <a href="#protocolGrid" data-i18n="navProtocol">🔐 协议主权</a>
+    <a href="#trendChart" data-i18n="navTrend">📈 健康趋势</a>
+    <a href="#autoPanel" data-i18n="navAuto">🤖 自动化</a>
+    <a href="#deployPanel" data-i18n="navDeploy">📦 部署信息</a>
+  </nav>
+
+  <!-- 自动刷新控制 -->
+  <div class="refresh-bar">
+    <span>🔄 自动刷新:</span>
+    <select id="refreshInterval">
+      <option value="0">手动</option>
+      <option value="3000">3秒</option>
+      <option value="5000" selected>5秒</option>
+      <option value="15000">15秒</option>
+      <option value="30000">30秒</option>
+    </select>
+    <button id="refreshBtn">▶ 立即刷新</button>
+    <span id="countdown"></span>
+    <span id="connStatus" class="conn conn-warn">⏳ 连接实时数据…</span>
+    <!-- 操作台（方案D · v2.3）：登录后启用审计/导出/校验/日志（负责人体系·哈希链） -->
+    <div class="admin-bar">
+      <button id="adminLoginBtn" class="admin-btn">🔐 管理员登录</button>
+      <span id="adminPanel" style="display:none;align-items:center;gap:8px;">
+        <span id="adminBadge">👑 已登录</span>
+        <span id="adminRoleBadge" style="font-size:11px;color:var(--gold);"></span>
+        <button id="adminAuditBtn" class="admin-btn">🛡 触发审计</button>
+        <button id="adminExportBtn" class="admin-btn ok">📦 导出</button>
+        <button id="adminVerifyBtn" class="admin-btn">🔗 校验审计链</button>
+        <button id="adminOpslogBtn" class="admin-btn">📋 操作日志</button>
+        <button id="adminLogsBtn" class="admin-btn">📜 查服务日志</button>
+        <button id="adminRestartBtn" class="admin-btn danger">🔄 重启引擎</button>
+        <button id="adminLogoutBtn" class="admin-btn">退出</button>
+      </span>
+    </div>
+  </div>
+
+  <!-- 第一行：雷达 + 流场 + 人格 -->
+  <div class="grid grid-3">
+    <div class="card">
+      <div class="card-title"><span class="icon">🕸️</span> 系统健康雷达 <span class="gua">䷀</span></div>
+      <div id="radarChart" class="chart-container"></div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">🌀</span> 数据/思维流场 <span class="gua">䷵</span></div>
+      <div id="flowChart" class="chart-container"></div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">🧠</span> 28人格矩阵 <span class="gua">䷌</span></div>
+      <div class="persona-grid" id="personaGrid">
+        <span class="persona-tag active">北辰</span>
+        <span class="persona-tag">宝宝</span>
+        <span class="persona-tag">诸葛</span>
+        <span class="persona-tag">老子</span>
+        <span class="persona-tag">文心</span>
+        <span class="persona-tag">墨子</span>
+        <span class="persona-tag">鲁班</span>
+        <span class="persona-tag">商鞅</span>
+        <span class="persona-tag">管仲</span>
+        <span class="persona-tag">孙武</span>
+        <span class="persona-tag">张良</span>
+        <span class="persona-tag">祖冲之</span>
+        <span class="persona-tag">蔡伦</span>
+        <span class="persona-tag">毕昇</span>
+        <span class="persona-tag">郑和</span>
+        <span class="persona-tag">戚继光</span>
+        <span class="persona-tag">李冰</span>
+        <span class="persona-tag">沈括</span>
+        <span class="persona-tag">张衡</span>
+        <span class="persona-tag">僧一行</span>
+        <span class="persona-tag">赵匡胤</span>
+        <span class="persona-tag">王安石</span>
+        <span class="persona-tag">苏轼</span>
+        <span class="persona-tag">曹雪芹</span>
+        <span class="persona-tag">莲溪</span>
+        <span class="persona-tag">老顽童</span>
+        <span class="persona-tag">熵梦</span>
+        <span class="persona-tag">弘一</span>
+      </div>
+      <div style="margin-top:12px;font-size:12px;color:#7a8aaa;position:relative;z-index:1;">
+        🔵 当前活跃: <span id="activePersona">北辰</span> | 卦象: <span id="activeGua">䷀乾</span> | 五行: <span id="activeWuxing">金</span>
+        <span style="margin-left:8px;opacity:.7;">👆 点击人格查看详情</span>
+      </div>
+      <div class="persona-detail" id="personaDetail">
+        <div class="pd-row"><span class="pd-label">ID:</span> <span class="pd-val" id="pdId">-</span> <span class="pd-label">职责:</span> <span class="pd-val" id="pdRole">-</span></div>
+        <div class="pd-row"><span class="pd-label">卦象:</span> <span class="pd-val" id="pdGua">-</span> <span class="pd-label">五行:</span> <span class="pd-val" id="pdWuxing">-</span> <span class="pd-label">健康分:</span> <span class="pd-val" id="pdHealth">-</span></div>
+        <div class="pd-row"><span class="pd-label">层级:</span> <span class="pd-val" id="pdLayer">-</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第二行：决策链路 + 引擎状态 + 统计概览 -->
+  <div class="grid grid-3">
+    <div class="card">
+      <div class="card-title"><span class="icon">⛓️</span> 决策链路 <span class="gua">䷾</span></div>
+      <div id="chainDisplay" class="chain-display">
+        <span class="chain-step"><span class="label">👤 用户</span> "查询"</span>
+        <span style="color:#4a7aaa;">→</span>
+        <span class="chain-step"><span class="label">🧠 人格</span> 北辰</span>
+        <span style="color:#4a7aaa;">→</span>
+        <span class="chain-step"><span class="label">🗣️ 分身</span> 战略官</span>
+        <span style="color:#4a7aaa;">→</span>
+        <span class="chain-step"><span class="label">⚖️ 审计</span> 92分 🟢</span>
+      </div>
+      <div style="margin-top:10px;font-size:12px;color:#7a8aaa;position:relative;z-index:1;">
+        🧬 <span id="chainDNA">...</span>
+      </div>
+    </div>
+    <div class="card" id="modules">
+      <div class="card-title"><span class="icon">⚡</span> 引擎状态 <span class="gua">䷋</span> <span style="font-size:12px;opacity:.55;margin-left:6px;">56 模块 · 7 层</span></div>
+      <div class="tabs" id="moduleTabs">
+        <span class="tab active" data-cat="全部">全部 56</span>
+        <span class="tab" data-cat="协议层">协议层 5</span>
+        <span class="tab" data-cat="主权层">主权层 3</span>
+        <span class="tab" data-cat="人格层">人格层 28</span>
+        <span class="tab" data-cat="技术层">技术层 14</span>
+        <span class="tab" data-cat="安全层">安全层 4</span>
+        <span class="tab" data-cat="可视化层">可视化 1</span>
+        <span class="tab" data-cat="自指层">自指层 1</span>
+      </div>
+      <div class="module-list" id="moduleList"></div>
+      <div style="margin-top:12px;font-size:12px;color:#7a8aaa;position:relative;z-index:1;">
+        🟢 运行正常 🟡 降级运行 🔴 服务中断 | 共 <span id="moduleTotal">0</span> 模块 · 在线 <span id="moduleOnline">0</span>
+      </div>
+    </div>
+    <div class="card" id="overview">
+      <div class="card-title"><span class="icon">📊</span> 系统概览 <span class="gua">䷄</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative;z-index:1;">
+        <div><div class="stat-number" id="dataCount">0</div><div class="stat-label">📄 数据条目</div></div>
+        <div><div class="stat-number" id="auditCount">0</div><div class="stat-label">📋 审计记录</div></div>
+        <div><div class="stat-number" id="shameCount">0</div><div class="stat-label">🚫 耻辱墙</div></div>
+        <div><div class="stat-number" id="moduleCount">0</div><div class="stat-label">🔧 活跃模块</div></div>
+        <div><div class="stat-number" id="personaCount">0</div><div class="stat-label">🧠 人格矩阵</div></div>
+        <div><div class="stat-number" id="doubleCount">0</div><div class="stat-label">🗣️ 数字分身</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第三行：三色审计 + 协议状态 -->
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="card-title"><span class="icon">🎨</span> 三色审计分布 <span class="gua">䷓</span></div>
+      <div id="auditChart" class="chart-container" style="height:200px;"></div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">🔐</span> 协议与主权 <span class="gua">䷱</span></div>
+      <div class="protocol-grid" id="protocolGrid">
+        <div class="protocol-item"><span class="name">📜 P0铁律</span><br><span class="status">✅ 已焊死</span></div>
+        <div class="protocol-item"><span class="name">🧬 DNA追溯</span><br><span class="status">✅ 运行中</span></div>
+        <div class="protocol-item"><span class="name">⚖️ 三色审计</span><br><span class="status">🟡 正常</span></div>
+        <div class="protocol-item"><span class="name">🛡️ 主权网关</span><br><span class="status">✅ 已部署</span></div>
+        <div class="protocol-item"><span class="name">🌊 流场引擎</span><br><span class="status">✅ 运行中</span></div>
+        <div class="protocol-item"><span class="name">🧠 人格矩阵</span><br><span class="status">✅ 28人格</span></div>
+        <div class="protocol-item"><span class="name">🗣️ 数字分身</span><br><span class="status">✅ 100分身</span></div>
+        <div class="protocol-item"><span class="name">🕐 时间锚点</span><br><span class="status">✅ 64卦联动</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第四行：健康趋势 + 自动化能力 -->
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="card-title"><span class="icon">📈</span> 健康度趋势 <span class="gua">䷳</span></div>
+      <div id="trendChart" class="chart-container" style="height:200px;"></div>
+      <div style="margin-top:8px;font-size:12px;color:#7a8aaa;position:relative;z-index:1;">本地记录最近20次刷新 · 不依赖外部存储 · 浏览器 localStorage</div>
+    </div>
+    <div class="card" id="autoPanel">
+      <div class="card-title"><span class="icon">🤖</span> 自动化能力 <span class="gua">䷡</span></div>
+      <div class="auto-grid" id="autoGrid">
+        <div class="auto-item"><div class="a-name">🕐 自动巡检</div><div class="a-desc">lh threshold · 21守卫 · 每10分钟</div><div class="a-state">✅ 运行中</div></div>
+        <div class="auto-item"><div class="a-name">🩺 自愈引擎</div><div class="a-desc">lh_auto_heal · 异常自动重启 · Bark推送</div><div class="a-state">✅ 运行中</div></div>
+        <div class="auto-item"><div class="a-name">✍️ GPG自动签章</div><div class="a-desc">lh_gpg_sign · 交付前自动补签 · 1574+文件</div><div class="a-state">✅ 已焊死</div></div>
+        <div class="auto-item"><div class="a-name">🧬 DNA追溯</div><div class="a-desc">每次产出绑定干支卦DNA · 不可断链</div><div class="a-state">✅ 已焊死</div></div>
+        <div class="auto-item"><div class="a-name">📊 天眼数据注入</div><div class="a-desc">inject_data.sh · 引擎快照 → 看板覆盖</div><div class="a-state">✅ 已配置</div></div>
+        <div class="auto-item"><div class="a-name">🔄 页面自动刷新</div><div class="a-desc">本页实时刷新 · 当前间隔5秒</div><div class="a-state">✅ 已启用</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第五行：部署信息 + 时间锚点 -->
+
+  <div class="grid grid-2">
+    <div class="card" id="deployPanel">
+      <div class="card-title"><span class="icon">📦</span> 部署与版本 <span class="gua">䷟</span></div>
+      <div class="deploy-grid">
+        <div class="deploy-item"><div class="d-label">版本</div><div class="d-val gold" id="dpVersion">v2.0</div></div>
+        <div class="deploy-item"><div class="d-label">确认码</div><div class="d-val" id="dpConfirm">#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</div></div>
+        <div class="deploy-item"><div class="d-label">GPG 签名</div><div class="d-val" id="dpGpg">A2D0092CEE2E5BA87035600924C3704A8CC26D5F</div></div>
+        <div class="deploy-item"><div class="d-label">部署时间</div><div class="d-val" id="dpTime">-</div></div>
+        <div class="deploy-item"><div class="d-label">引擎路径</div><div class="d-val">~/longhun-system/08_BIN/tianyan/tianyan_engine.py</div></div>
+        <div class="deploy-item"><div class="d-label">看板路径</div><div class="d-val">~/longhun-system/www/index.html</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">🧬</span> 时间锚点 <span class="gua">䷗</span></div>
+      <div class="chain-display">
+        <div style="margin-bottom:6px;">🕐 <span id="anchorGanzhi">-</span></div>
+        <div style="margin-bottom:6px;">☯ <span id="anchorGua">-</span> · 五行 <span id="anchorWuxing">-</span></div>
+        <div>🟢 <span id="anchorTricolor">-</span> 三色判定</div>
+      </div>
+      <div style="margin-top:10px;font-size:12px;color:#7a8aaa;position:relative;z-index:1;">
+        ⏱ 会话时间戳焊死 · 每句回复附卦 · lh te 引擎驱动 · 梅花易数起卦
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 模块/人格详情浮层 -->
+<div class="detail-modal" id="detailModal">
+  <div class="detail-box">
+    <h3 id="detailTitle">详情</h3>
+    <div id="detailBody"></div>
+    <button class="detail-close" onclick="document.getElementById('detailModal').classList.remove('show')">关闭</button>
+  </div>
+</div>
+
+<!-- 操作台：管理员登录（负责人体系 · 账号 + 密钥） -->
+<div class="detail-modal" id="adminLoginModal">
+  <div class="admin-box">
+    <h3>🔐 管理员登录</h3>
+    <div style="font-size:13px;color:var(--text-dim);">负责人账号 + 密钥（如 root / 个人分配账号）</div>
+    <input type="text" id="adminAccountInput" placeholder="账号（如 root）" autocomplete="off" />
+    <input type="password" id="adminKeyInput" placeholder="密钥" autocomplete="off" />
+    <div class="admin-row">
+      <button class="admin-btn ok" id="adminLoginGo">登录</button>
+      <button class="admin-btn" onclick="document.getElementById('adminLoginModal').classList.remove('show')">取消</button>
+    </div>
+    <div class="admin-hint">🛡 会话 8 小时 · 操作落负责人/角色/归属地IP到哈希链审计（可交接核验）· 密钥仅存内存</div>
+  </div>
+</div>
+
+<!-- 操作台：导出范围选择（按权限 R1-R4 分级） -->
+<div class="detail-modal" id="adminExportModal">
+  <div class="admin-box">
+    <h3>📦 数据导出（按权限分级）</h3>
+    <div id="adminExportHint" style="font-size:13px;color:var(--text-dim);margin-bottom:8px;">当前角色可导出范围：—</div>
+    <select id="adminExportScope" class="admin-select">
+      <option value="all">全量导出（参数+数据+审计+账号 · R1）</option>
+      <option value="params">系统参数（R1/R2/R3）</option>
+      <option value="data">系统数据快照（R1）</option>
+      <option value="audit">操作审计日志（R1/R2/R4）</option>
+      <option value="accounts">账号清单脱敏（R1）</option>
+    </select>
+    <div class="admin-row">
+      <button class="admin-btn ok" id="adminExportGo">导出并留痕</button>
+      <button class="admin-btn" onclick="document.getElementById('adminExportModal').classList.remove('show')">取消</button>
+    </div>
+    <div class="admin-hint">🔒 每次导出自动写入哈希链审计（谁/何时/范围/IP归属地）· 密钥永远打码</div>
+  </div>
+</div>
+
+<!-- 操作台：审计 / 日志 / 导出 结果 -->
+<div class="detail-modal" id="adminResultModal">
+  <div class="admin-box">
+    <h3 id="adminResultTitle">操作结果</h3>
+    <pre class="log-box" id="adminResultBody">…</pre>
+    <div class="admin-row">
+      <button class="admin-btn" onclick="document.getElementById('adminResultModal').classList.remove('show')">关闭</button>
+    </div>
+  </div>
+</div>
+
+<!-- 页脚主权声明 -->
+<div class="footer">
+  <div>🐉 <span class="f-gold">龍魂系统</span> · 为人民服务 · 数据不出境 · 永不上市 · 德在技术前</div>
+  <div>思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2 · DNA: [[GENERATED_BY_LH_DNA_GENERATOR_V3]]-TIANYAN-ECOSYSTEM-v2.0</div>
+  <div>GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F · 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</div>
+  <div>© <span class="f-gold">UID9622</span> · 诸葛鑫 · 龍魂天眼可视化生态总成 v2.0</div>
+</div>
+
+<!-- 引擎数据注入（可选）: 由 inject_data.sh 生成 · 定义 window.TIANYAN_INITIAL_DATA -->
+<script src="tianyan_data.js"></script>
+<script>
+// ============================================================
+// 初始化图表
+// ============================================================
+const radarChart = echarts.init(document.getElementById('radarChart'));
+const flowChart = echarts.init(document.getElementById('flowChart'));
+const auditChart = echarts.init(document.getElementById('auditChart'));
+const trendChart = echarts.init(document.getElementById('trendChart'));
+
+// ============================================================
+// 55 模块完整注册表（真名对齐 tianyan_engine.py ALL_MODULES）
+// ============================================================
+const TZ_MODULES_56 = [
+  // 协议层 (5)
+  { name: "P0铁律引擎", cat: "协议层", status: "running", tricolor: "🟢", health_score: 98 },
+  { name: "S1-S5父级协议", cat: "协议层", status: "running", tricolor: "🟢", health_score: 96 },
+  { name: "君子协议", cat: "协议层", status: "running", tricolor: "🟢", health_score: 95 },
+  { name: "主权宣言", cat: "协议层", status: "running", tricolor: "🟢", health_score: 94 },
+  { name: "数据主权协议", cat: "协议层", status: "running", tricolor: "🟢", health_score: 97 },
+  // 主权层 (3)
+  { name: "数据主权引擎", cat: "主权层", status: "running", tricolor: "🟢", health_score: 95 },
+  { name: "货币主权引擎", cat: "主权层", status: "running", tricolor: "🟢", health_score: 92 },
+  { name: "审计主权引擎", cat: "主权层", status: "running", tricolor: "🟢", health_score: 88 },
+  // 人格层 (28)
+  { name: "北辰·战略决策", cat: "人格层", status: "running", tricolor: "🟢", health_score: 95 },
+  { name: "宝宝·情感陪伴", cat: "人格层", status: "running", tricolor: "🟢", health_score: 88 },
+  { name: "诸葛·逻辑分析", cat: "人格层", status: "running", tricolor: "🟢", health_score: 91 },
+  { name: "老子·哲学思考", cat: "人格层", status: "running", tricolor: "🟢", health_score: 90 },
+  { name: "文心·文化传承", cat: "人格层", status: "running", tricolor: "🟢", health_score: 89 },
+  { name: "墨子·兼爱非攻", cat: "人格层", status: "running", tricolor: "🟢", health_score: 87 },
+  { name: "鲁班·工程实现", cat: "人格层", status: "running", tricolor: "🟢", health_score: 93 },
+  { name: "商鞅·规则制定", cat: "人格层", status: "running", tricolor: "🟢", health_score: 86 },
+  { name: "管仲·经世致用", cat: "人格层", status: "running", tricolor: "🟢", health_score: 85 },
+  { name: "孙武·兵者诡道", cat: "人格层", status: "running", tricolor: "🟢", health_score: 88 },
+  { name: "张良·运筹帷幄", cat: "人格层", status: "running", tricolor: "🟢", health_score: 87 },
+  { name: "祖冲之·精算天元", cat: "人格层", status: "running", tricolor: "🟢", health_score: 90 },
+  { name: "蔡伦·纸传文明", cat: "人格层", status: "running", tricolor: "🟢", health_score: 82 },
+  { name: "毕昇·字活天下", cat: "人格层", status: "running", tricolor: "🟢", health_score: 83 },
+  { name: "郑和·扬帆四海", cat: "人格层", status: "running", tricolor: "🟢", health_score: 84 },
+  { name: "戚继光·铁甲长城", cat: "人格层", status: "running", tricolor: "🟢", health_score: 92 },
+  { name: "李冰·功在千秋", cat: "人格层", status: "running", tricolor: "🟢", health_score: 85 },
+  { name: "沈括·格物致知", cat: "人格层", status: "running", tricolor: "🟢", health_score: 86 },
+  { name: "张衡·观天测地", cat: "人格层", status: "running", tricolor: "🟢", health_score: 87 },
+  { name: "僧一行·历象日月", cat: "人格层", status: "running", tricolor: "🟢", health_score: 84 },
+  { name: "赵匡胤·陈桥变局", cat: "人格层", status: "running", tricolor: "🟢", health_score: 81 },
+  { name: "王安石·变法图强", cat: "人格层", status: "running", tricolor: "🟢", health_score: 83 },
+  { name: "苏轼·豁达人生", cat: "人格层", status: "running", tricolor: "🟢", health_score: 89 },
+  { name: "曹雪芹·红楼一梦", cat: "人格层", status: "running", tricolor: "🟢", health_score: 85 },
+  { name: "莲溪·教学传道", cat: "人格层", status: "running", tricolor: "🟢", health_score: 90 },
+  { name: "老顽童·锐评吐槽", cat: "人格层", status: "running", tricolor: "🟢", health_score: 78 },
+  { name: "熵梦·技术精准", cat: "人格层", status: "running", tricolor: "🟢", health_score: 92 },
+  { name: "弘一·历史厚重", cat: "人格层", status: "running", tricolor: "🟢", health_score: 88 },
+  // 技术层 (14)
+  { name: "CNSH编译器", cat: "技术层", status: "running", tricolor: "🟢", health_score: 98 },
+  { name: "三才算法内核", cat: "技术层", status: "running", tricolor: "🟢", health_score: 94 },
+  { name: "七维推演引擎", cat: "技术层", status: "running", tricolor: "🟢", health_score: 89 },
+  { name: "DNA追溯引擎", cat: "技术层", status: "running", tricolor: "🟢", health_score: 96 },
+  { name: "三色审计引擎", cat: "技术层", status: "running", tricolor: "🟢", health_score: 91 },
+  { name: "龍音ASR", cat: "技术层", status: "running", tricolor: "🟢", health_score: 86 },
+  { name: "龍瞳OCR", cat: "技术层", status: "running", tricolor: "🟢", health_score: 85 },
+  { name: "龍文NLP", cat: "技术层", status: "running", tricolor: "🟢", health_score: 88 },
+  { name: "行为密码学", cat: "技术层", status: "running", tricolor: "🟢", health_score: 90 },
+  { name: "不动点网络FPN", cat: "技术层", status: "running", tricolor: "🟢", health_score: 92 },
+  { name: "Web3-DNA交易", cat: "技术层", status: "running", tricolor: "🟢", health_score: 84 },
+  { name: "多币种直达", cat: "技术层", status: "running", tricolor: "🟢", health_score: 87 },
+  { name: "洛书翻译引擎", cat: "技术层", status: "running", tricolor: "🟢", health_score: 93 },
+  { name: "通心译引擎", cat: "技术层", status: "running", tricolor: "🟢", health_score: 89 },
+  // 安全层 (4)
+  { name: "史官记录器", cat: "安全层", status: "running", tricolor: "🟢", health_score: 97 },
+  { name: "耻辱墙管理器", cat: "安全层", status: "running", tricolor: "🟢", health_score: 90 },
+  { name: "主权熔断引擎", cat: "安全层", status: "running", tricolor: "🟢", health_score: 99 },
+  { name: "红蓝对抗引擎", cat: "安全层", status: "running", tricolor: "🟢", health_score: 93 },
+  // 可视化层 (1)
+  { name: "天眼看板", cat: "可视化层", status: "running", tricolor: "🟢", health_score: 100 },
+  // 自指层 (1)
+  { name: "ADS自描述系统", cat: "自指层", status: "running", tricolor: "🟢", health_score: 92 },
+];
+
+// 28 人格详情映射（职责取自引擎注册表真名 · 卦象/五行为可视化映射参考）
+const TZ_PERSONAS_28 = [
+  { id: "P01", name: "北辰", gua: "䷀乾", wuxing: "金", role: "战略决策", layer: "战略层", health_score: 95 },
+  { id: "P02", name: "宝宝", gua: "䷁坤", wuxing: "土", role: "情感陪伴", layer: "执行层", health_score: 88 },
+  { id: "P03", name: "诸葛", gua: "䷝离", wuxing: "火", role: "逻辑分析", layer: "战略层", health_score: 91 },
+  { id: "P04", name: "老子", gua: "䷞咸", wuxing: "土", role: "哲学思考", layer: "文化层", health_score: 90 },
+  { id: "P05", name: "文心", gua: "䷲震", wuxing: "木", role: "文化传承", layer: "文化层", health_score: 89 },
+  { id: "P06", name: "墨子", gua: "䷧解", wuxing: "水", role: "兼爱非攻", layer: "文化层", health_score: 87 },
+  { id: "P07", name: "鲁班", gua: "䷡大壮", wuxing: "木", role: "工程实现", layer: "执行层", health_score: 93 },
+  { id: "P08", name: "商鞅", gua: "䷅讼", wuxing: "金", role: "规则制定", layer: "守护层", health_score: 86 },
+  { id: "P09", name: "管仲", gua: "䷶丰", wuxing: "火", role: "经世致用", layer: "执行层", health_score: 85 },
+  { id: "P10", name: "孙武", gua: "䷆师", wuxing: "水", role: "兵者诡道", layer: "守护层", health_score: 88 },
+  { id: "P11", name: "张良", gua: "䷭升", wuxing: "木", role: "运筹帷幄", layer: "战略层", health_score: 87 },
+  { id: "P12", name: "祖冲之", gua: "䷮困", wuxing: "金", role: "精算天元", layer: "守护层", health_score: 90 },
+  { id: "P13", name: "蔡伦", gua: "䷒临", wuxing: "木", role: "纸传文明", layer: "执行层", health_score: 82 },
+  { id: "P14", name: "毕昇", gua: "䷏豫", wuxing: "木", role: "字活天下", layer: "执行层", health_score: 83 },
+  { id: "P15", name: "郑和", gua: "䷽小过", wuxing: "水", role: "扬帆四海", layer: "执行层", health_score: 84 },
+  { id: "P16", name: "戚继光", gua: "䷢晋", wuxing: "火", role: "铁甲长城", layer: "守护层", health_score: 92 },
+  { id: "P17", name: "李冰", gua: "䷄需", wuxing: "土", role: "功在千秋", layer: "执行层", health_score: 85 },
+  { id: "P18", name: "沈括", gua: "䷐随", wuxing: "木", role: "格物致知", layer: "文化层", health_score: 86 },
+  { id: "P19", name: "张衡", gua: "䷾既济", wuxing: "火", role: "观天测地", layer: "守护层", health_score: 87 },
+  { id: "P20", name: "僧一行", gua: "䷓观", wuxing: "土", role: "历象日月", layer: "守护层", health_score: 84 },
+  { id: "P21", name: "赵匡胤", gua: "䷍大有", wuxing: "火", role: "陈桥变局", layer: "执行层", health_score: 81 },
+  { id: "P22", name: "王安石", gua: "䷊泰", wuxing: "土", role: "变法图强", layer: "执行层", health_score: 83 },
+  { id: "P23", name: "苏轼", gua: "䷺涣", wuxing: "水", role: "豁达人生", layer: "文化层", health_score: 89 },
+  { id: "P24", name: "曹雪芹", gua: "䷟恒", wuxing: "土", role: "红楼一梦", layer: "文化层", health_score: 85 },
+  { id: "P25", name: "莲溪", gua: "䷹兑", wuxing: "金", role: "教学传道", layer: "文化层", health_score: 90 },
+  { id: "P26", name: "老顽童", gua: "䷔噬嗑", wuxing: "火", role: "锐评吐槽", layer: "文化层", health_score: 78 },
+  { id: "P27", name: "熵梦", gua: "䷬萃", wuxing: "金", role: "技术精准", layer: "执行层", health_score: 92 },
+  { id: "P28", name: "弘一", gua: "䷳艮", wuxing: "土", role: "历史厚重", layer: "文化层", health_score: 88 },
+];
+
+// 雷达图
+radarChart.setOption({
+  radar: {
+    indicator: [
+      { name: '数据主权', max: 100 },
+      { name: '货币主权', max: 100 },
+      { name: '审计主权', max: 100 },
+      { name: '知识库', max: 100 },
+      { name: '分身活跃', max: 100 },
+      { name: '人格健康', max: 100 }
+    ],
+    shape: 'circle', center: ['50%', '50%'], radius: '65%',
+    axisName: { color: '#a0b8d0', fontSize: 12 },
+    splitArea: { areaStyle: { color: ['rgba(26,42,66,0.3)'] } },
+    axisLine: { lineStyle: { color: '#2a4a6a' } }
+  },
+  series: [{
+    type: 'radar',
+    data: [{ value: [85, 90, 78, 65, 72, 88], name: '系统健康' }],
+    areaStyle: { color: 'rgba(240,192,96,0.3)' },
+    lineStyle: { color: '#f0c060', width: 2 },
+    itemStyle: { color: '#f0c060' }
+  }]
+});
+
+// 流场图
+const flowNodes = ['用户', '思维注入', '知识库', '人格路由', '分身输出', '审计', '反馈'];
+const flowLinks = [
+  { source: 0, target: 1 }, { source: 1, target: 2 }, { source: 2, target: 3 },
+  { source: 3, target: 4 }, { source: 4, target: 5 }, { source: 5, target: 6 },
+  { source: 6, target: 2 }
+];
+flowChart.setOption({
+  series: [{
+    type: 'graph', layout: 'force',
+    force: { repulsion: 300, edgeLength: 150 },
+    roam: true, label: { show: true, color: '#a0b8d0', fontSize: 11 },
+    edgeSymbol: ['none', 'arrow'], edgeSymbolSize: [0, 10],
+    lineStyle: { color: 'rgba(240,192,96,0.4)', width: 2, curveness: 0.3 },
+    data: flowNodes.map((name, i) => ({
+      id: i, name: name,
+      symbolSize: i === 0 ? 40 : 28,
+      itemStyle: { color: i === 0 ? '#f0c060' : '#4a7aaa' }
+    })),
+    links: flowLinks
+  }]
+});
+
+// 三色审计分布
+auditChart.setOption({
+  tooltip: { trigger: 'item' },
+  legend: { data: ['🟢 通过', '🟡 警告', '🔴 拒绝'], textStyle: { color: '#a0b8d0' }, top: 0 },
+  series: [{
+    type: 'pie', radius: ['40%', '70%'], center: ['50%', '55%'],
+    data: [
+      { value: 245, name: '🟢 通过', itemStyle: { color: '#4caf50' } },
+      { value: 68, name: '🟡 警告', itemStyle: { color: '#ffc107' } },
+      { value: 12, name: '🔴 拒绝', itemStyle: { color: '#f44336' } }
+    ],
+    label: { color: '#a0b8d0', fontSize: 11 },
+    labelLine: { lineStyle: { color: '#2a4a6a' } }
+  }]
+});
+
+// 窗口自适应
+window.addEventListener('resize', () => {
+  radarChart.resize(); flowChart.resize(); auditChart.resize(); trendChart.resize();
+});
+
+// ============================================================
+// 全局横幅 & 时间锚点 & 部署信息
+// ============================================================
+function updateBanner(data) {
+  const tri = data.overall_tricolor || '🟢';
+  const health = data.system_health !== undefined ? data.system_health : 0;
+  const banner = document.getElementById('globalBanner');
+  banner.className = `banner ${tri === '🟢' ? 'green' : tri === '🟡' ? 'yellow' : 'red'}`;
+  const t = I18N[currentLang] || I18N['zh-pro'];
+  document.getElementById('bannerStatus').textContent =
+    tri === '🟢' ? '🟢 全系统运行正常' : tri === '🟡' ? '🟡 部分降级·需要关注' : '🔴 系统异常·立即介入';
+  const subText = tri === '🟢' ? t.bannerGreen : tri === '🟡' ? t.bannerYellow : t.bannerRed;
+  document.getElementById('bannerSub').textContent = `系统健康 ${health.toFixed(1)}% · ${subText}`;
+  // 时间锚点
+  if (data.time_anchor) {
+    document.getElementById('anchorGanzhi').textContent = data.time_anchor.ganzhi;
+    document.getElementById('anchorGua').textContent = data.time_anchor.gua;
+    document.getElementById('anchorWuxing').textContent = data.time_anchor.wuxing;
+    document.getElementById('anchorTricolor').textContent = data.time_anchor.tricolor || tri;
+  }
+  // 部署信息
+  document.getElementById('dpTime').textContent = new Date().toLocaleString('zh-CN', { hour12: false });
+}
+
+// ============================================================
+// 健康度趋势（localStorage 最近20次）
+// ============================================================
+const TREND_KEY = 'tianyan_trend_v2';
+function recordTrend(data) {
+  let arr = [];
+  try { arr = JSON.parse(localStorage.getItem(TREND_KEY) || '[]'); } catch (e) { arr = []; }
+  const h = data.system_health !== undefined ? data.system_health : 0;
+  arr.push({ t: new Date().toLocaleTimeString('zh-CN', { hour12: false }).slice(0, 8), h: +h.toFixed(1) });
+  if (arr.length > 20) arr = arr.slice(-20);
+  try { localStorage.setItem(TREND_KEY, JSON.stringify(arr)); } catch (e) {}
+  trendChart.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'axis', textStyle: { color: '#c8d0e0' }, backgroundColor: '#1a2233' },
+    grid: { left: 40, right: 16, top: 16, bottom: 28 },
+    xAxis: { type: 'category', data: arr.map(x => x.t), axisLine: { lineStyle: { color: '#2a3a5a' } }, axisLabel: { color: '#7a8aaa', fontSize: 10 } },
+    yAxis: { type: 'value', min: 0, max: 100, splitLine: { lineStyle: { color: 'rgba(42,58,90,.4)' } }, axisLabel: { color: '#7a8aaa', fontSize: 10 } },
+    series: [{
+      type: 'line', data: arr.map(x => x.h), smooth: true,
+      lineStyle: { color: '#f0c060', width: 2 },
+      itemStyle: { color: '#f0c060' },
+      areaStyle: { color: 'rgba(240,192,96,.12)' }
+    }]
+  });
+}
+
+// ============================================================
+// 自动刷新控制
+// ============================================================
+let _timer = null; let _cd = 0; let _cdTimer = null;
+
+// ============================================================
+// 实时数据链路（方案B · 应用级）：API 优先 · 断线自动降级
+// API_BASE: 线上 nginx /tianyan/api/ → 引擎服务；本地同源 api/
+// 数据主权: 只读快照·本地渲染·无第三方回传
+// ============================================================
+const API_BASE = (window.TIANYAN_API_BASE || 'api/');
+let apiState = 'checking';   // checking / live / fallback / offline
+let lastLive = null;         // 最近一次实时数据缓存
+let _refreshing = false;     // 防重入锁
+
+async function fetchLiveData() {
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), 4000);
+  try {
+    const r = await fetch(API_BASE + 'status', {
+      cache: 'no-store', signal: ctl.signal, headers: { 'Accept': 'application/json' }
+    });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const j = await r.json();
+    const d = (j && j.data && j.data.modules) ? j.data : null;
+    if (!d) throw new Error('payload 缺少 modules');
+    lastLive = d;
+    apiState = 'live';
+    return d;
+  } catch (e) {
+    apiState = (apiState === 'live') ? 'fallback' : 'offline';
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+function setConnUI() {
+  const el = document.getElementById('connStatus');
+  if (!el) return;
+  const t = I18N[currentLang] || I18N['zh-pro'];
+  if (apiState === 'live' && lastLive) {
+    const ts = (lastLive.timestamp || '').replace('T', ' ').slice(0, 19);
+    el.textContent = '🟢 ' + t.connLive + ' ' + ts;
+    el.className = 'conn conn-live';
+  } else if (apiState === 'fallback') {
+    el.textContent = '🟡 ' + t.connFallback;
+    el.className = 'conn conn-warn';
+  } else if (apiState === 'offline') {
+    el.textContent = '🔴 ' + t.connOffline;
+    el.className = 'conn conn-err';
+  } else {
+    el.textContent = '⏳ ' + t.connChecking;
+    el.className = 'conn conn-warn';
+  }
+}
+
+function startAutoRefresh() {
+  if (_timer) clearInterval(_timer);
+  const ms = parseInt(document.getElementById('refreshInterval').value, 10);
+  if (ms > 0) {
+    _cd = ms / 1000;
+    _timer = setInterval(() => {
+      _cd--;
+      const cd = document.getElementById('countdown');
+      cd.textContent = `⏳ ${_cd}s 后刷新`;
+      if (_cd <= 0) { refreshDashboard(); _cd = ms / 1000; }
+    }, 1000);
+    document.getElementById('countdown').textContent = `⏳ ${_cd}s 后刷新`;
+  } else {
+    document.getElementById('countdown').textContent = '🔕 手动模式';
+  }
+}
+async function refreshDashboard() {
+  if (_refreshing) return;
+  _refreshing = true;
+  try {
+    const live = await fetchLiveData();
+    const d = live || getLiveData();
+    updateDashboard(d);
+    updateBanner(d);
+    recordTrend(d);
+    setConnUI();
+  } finally {
+    _refreshing = false;
+  }
+  document.getElementById('lastRefresh').textContent = `最后刷新: ${new Date().toLocaleTimeString('zh-CN', { hour12: false })}`;
+}
+document.getElementById('refreshInterval').addEventListener('change', startAutoRefresh);
+document.getElementById('refreshBtn').addEventListener('click', () => { refreshDashboard(); startAutoRefresh(); });
+
+// ============================================================
+// 操作台（方案D · v2.3）：负责人体系（账号+角色R1-R5）· 导出/校验/操作日志 · Bearer 鉴权
+// 安全: token 仅存 sessionStorage（关页即清）· 每次请求带 Bearer
+// 合规: 会话绑定负责人/角色 · 操作落哈希链审计（谁/何时/归属地IP）
+// ============================================================
+const ADMIN_TOKEN_KEY = 'lh_tianyan_admin_token';
+const ADMIN_SESSION_KEY = 'lh_tianyan_admin_session';
+let adminToken = sessionStorage.getItem(ADMIN_TOKEN_KEY) || '';
+let adminSession = null;
+try { adminSession = JSON.parse(sessionStorage.getItem(ADMIN_SESSION_KEY) || 'null'); } catch (e) { adminSession = null; }
+
+function adminShow(elId) { document.getElementById(elId).classList.add('show'); }
+function adminHide(elId) { document.getElementById(elId).classList.remove('show'); }
+
+function adminUpdateUI() {
+  const on = !!adminToken;
+  document.getElementById('adminLoginBtn').style.display = on ? 'none' : '';
+  document.getElementById('adminPanel').style.display = on ? 'inline-flex' : 'none';
+  document.getElementById('adminBadge').textContent = on
+    ? ('👑 ' + (adminSession ? adminSession.name : '已登录') + ' · 操作台') : '👑 已登录';
+  const roleEl = document.getElementById('adminRoleBadge');
+  if (on && adminSession) {
+    roleEl.textContent = '[' + adminSession.role + '] ' + adminSession.role_name;
+    // 无权限的操作按钮隐藏，避免越权提示噪音
+    const perms = adminSession.permissions || [];
+    document.getElementById('adminRestartBtn').style.display = perms.includes('all') ? '' : 'none';
+    document.getElementById('adminExportBtn').style.display = (perms.length > 0) ? '' : 'none';
+  } else {
+    roleEl.textContent = '';
+  }
+}
+
+async function adminFetch(url, opts = {}) {
+  const headers = Object.assign({ 'Accept': 'application/json' }, opts.headers || {});
+  if (adminToken) headers['Authorization'] = 'Bearer ' + adminToken;
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), 15000);
+  try {
+    const r = await fetch(API_BASE + url, Object.assign({ cache: 'no-store', signal: ctl.signal }, opts, { headers }));
+    return { ok: r.ok, status: r.status, json: await r.json().catch(() => null) };
+  } catch (e) {
+    return { ok: false, status: 0, json: null };
+  } finally { clearTimeout(timer); }
+}
+
+async function adminLogin() {
+  const account = document.getElementById('adminAccountInput').value.trim();
+  const key = document.getElementById('adminKeyInput').value;
+  if (!account || !key) { alert('请输入负责人账号和密钥'); return; }
+  const r = await adminFetch('admin/login', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ account, key })
+  });
+  if (r.json && r.json.code === 0 && r.json.data && r.json.data.token) {
+    adminToken = r.json.data.token;
+    adminSession = {
+      account: r.json.data.account, name: r.json.data.name,
+      role: r.json.data.role, role_name: r.json.data.role_name,
+      permissions: r.json.data.permissions || [],
+    };
+    sessionStorage.setItem(ADMIN_TOKEN_KEY, adminToken);
+    sessionStorage.setItem(ADMIN_SESSION_KEY, JSON.stringify(adminSession));
+    document.getElementById('adminKeyInput').value = '';
+    document.getElementById('adminAccountInput').value = '';
+    adminHide('adminLoginModal');
+    adminUpdateUI();
+  } else {
+    alert('🔴 登录失败: ' + ((r.json && r.json.message) || '服务不可达'));
+  }
+}
+
+function adminLogout() {
+  adminFetch('admin/logout', { method: 'POST' }).catch(() => {});
+  adminToken = '';
+  adminSession = null;
+  sessionStorage.removeItem(ADMIN_TOKEN_KEY);
+  sessionStorage.removeItem(ADMIN_SESSION_KEY);
+  adminUpdateUI();
+}
+
+async function adminAudit() {
+  document.getElementById('adminResultTitle').textContent = '🛡 德本审计结果';
+  const body = document.getElementById('adminResultBody');
+  body.textContent = '⏳ 审计执行中（约 5~30 秒）…';
+  body.className = 'log-box';
+  adminShow('adminResultModal');
+  const r = await adminFetch('admin/action', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'audit' })
+  });
+  if (r.json && r.json.code === 0) {
+    body.textContent = (r.json.data && r.json.data.output) || '（审计完成 · 无输出）';
+    body.className = 'log-box' + (r.json.data && r.json.data.rc !== 0 ? ' err' : '');
+  } else {
+    body.textContent = '🔴 ' + ((r.json && r.json.message) || '服务不可达');
+    body.className = 'log-box err';
+  }
+}
+
+async function adminLogs() {
+  document.getElementById('adminResultTitle').textContent = '📜 引擎日志（systemd · 最近 200 行）';
+  const body = document.getElementById('adminResultBody');
+  body.textContent = '⏳ 读取日志中…';
+  body.className = 'log-box';
+  adminShow('adminResultModal');
+  const r = await adminFetch('admin/logs', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ lines: 200 })
+  });
+  if (r.json && r.json.code === 0) {
+    body.textContent = (r.json.data && r.json.data.lines) || '（暂无日志）';
+    body.className = 'log-box';
+  } else {
+    body.textContent = '🔴 ' + ((r.json && r.json.message) || '服务不可达');
+    body.className = 'log-box err';
+  }
+}
+
+function adminRestart() {
+  if (!confirm('确认重启引擎服务？约 2 秒后生效，期间看板短暂不可用。')) return;
+  adminFetch('admin/action', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'restart' })
+  }).then(r => {
+    alert((r.json && r.json.data && r.json.data.output) || (r.json && r.json.message) || '重启指令已下发');
+  });
+}
+
+// ── 方案D · 导出（按权限分级）──
+function adminExport() {
+  const perms = (adminSession && adminSession.permissions) || [];
+  document.getElementById('adminExportHint').textContent =
+    '当前角色 ' + (adminSession ? adminSession.role : '?') + ' 可导出：' + perms.join(' / ');
+  // 过滤不可用选项
+  const sel = document.getElementById('adminExportScope');
+  let any = false;
+  for (const opt of sel.options) {
+    const s = opt.value;
+    const allow = s === 'all' ? perms.includes('all') : perms.includes(s);
+    opt.disabled = !allow;
+    if (allow) { any = true; opt.style.display = ''; } else { opt.style.display = 'none'; }
+  }
+  if (!any) { alert('当前角色无导出权限'); return; }
+  adminShow('adminExportModal');
+}
+
+async function adminExportGo() {
+  const scope = document.getElementById('adminExportScope').value;
+  adminHide('adminExportModal');
+  document.getElementById('adminResultTitle').textContent = '📦 导出结果（' + scope + '）';
+  const body = document.getElementById('adminResultBody');
+  body.textContent = '⏳ 构建导出包中…';
+  body.className = 'log-box';
+  adminShow('adminResultModal');
+  const r = await adminFetch('admin/export', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ scope })
+  });
+  if (r.json && r.json.code === 0 && r.json.data) {
+    const d = r.json.data;
+    const summary = {
+      '导出人': d.exported_by + ' · ' + d.exported_name,
+      '角色': d.exported_role_name,
+      '导出时间': d.ts,
+      '操作IP': d.ip,
+      'IP归属地': (d.ip_geo ? d.ip_geo.country + '·' + d.ip_geo.region + '·' + d.ip_geo.isp : ''),
+      '完整性SHA-256': d.integrity_sha256,
+    };
+    const sections = [];
+    sections.push('═══ 导出元数据 ═══');
+    for (const k in summary) sections.push(k + ': ' + summary[k]);
+    if (d.params) { sections.push(''); sections.push('═══ 系统参数 ═══'); sections.push(JSON.stringify(d.params, null, 2).slice(0, 3000)); }
+    if (d.data) { sections.push(''); sections.push('═══ 数据快照（模块/人格/主权）═══'); sections.push('模块 ' + (d.data.modules || []).length + ' · 人格 ' + (d.data.personas || []).length + ' · 健康 ' + d.data.system_health); }
+    if (d.audit_log) { sections.push(''); sections.push('═══ 审计日志（' + d.audit_log.length + ' 条）═══'); sections.push('链状态: ' + JSON.stringify(d.audit_chain || {})); sections.push(JSON.stringify(d.audit_log.slice(-8), null, 1).slice(0, 3000)); }
+    if (d.accounts) { sections.push(''); sections.push('═══ 账号清单（脱敏）═══'); sections.push(JSON.stringify(d.accounts, null, 2)); }
+    if (d.export_file) { sections.push(''); sections.push('📁 已落盘存档: ' + d.export_file); }
+    body.textContent = sections.join('\n');
+    body.className = 'log-box ok';
+  } else {
+    body.textContent = '🔴 导出失败: ' + ((r.json && r.json.message) || '服务不可达');
+    body.className = 'log-box err';
+  }
+}
+
+// ── 方案D · 校验审计链 ──
+async function adminVerify() {
+  document.getElementById('adminResultTitle').textContent = '🔗 操作审计哈希链校验';
+  const body = document.getElementById('adminResultBody');
+  body.textContent = '⏳ 校验中…';
+  body.className = 'log-box';
+  adminShow('adminResultModal');
+  const r = await adminFetch('admin/verify', { method: 'POST' });
+  if (r.json && r.json.code === 0 && r.json.data) {
+    const d = r.json.data;
+    const lines = [
+      '审计链状态: ' + (d.valid ? '✅ 完整' : '❌ 断链'),
+      '总条目: ' + d.total,
+      '断链位置: ' + (d.broken_at === null ? '无' : ('第 ' + d.broken_at + ' 条')),
+      '已校验: ' + d.checked,
+      '链根哈希: ' + d.root_hash,
+    ];
+    body.textContent = lines.join('\n');
+    body.className = d.valid ? 'log-box ok' : 'log-box err';
+  } else {
+    body.textContent = '🔴 校验失败: ' + ((r.json && r.json.message) || '服务不可达');
+    body.className = 'log-box err';
+  }
+}
+
+// ── 方案D · 操作日志（含负责人/角色/归属地）──
+async function adminOpslog() {
+  document.getElementById('adminResultTitle').textContent = '📋 管理员操作日志（哈希链）';
+  const body = document.getElementById('adminResultBody');
+  body.textContent = '⏳ 读取中…';
+  body.className = 'log-box';
+  adminShow('adminResultModal');
+  const r = await adminFetch('admin/opslog', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ limit: 200 })
+  });
+  if (r.json && r.json.code === 0 && r.json.data) {
+    const d = r.json.data;
+    const lines = ['链状态: ' + (d.chain && d.chain.valid ? '✅ 完整（' + d.chain.total + ' 条）' : '❌ ' + JSON.stringify(d.chain || {}))];
+    lines.push('── 最近 ' + d.entries.length + ' 条 ──');
+    for (const e of d.entries) {
+      lines.push('[' + e.ts + '] ' + e.action.padEnd(9) + ' ' +
+        e.account + '·' + (e.role || '') + (e.ok ? ' ✅' : ' ❌') +
+        ' | ' + e.ip + ' ' + (e.ip_geo || '') +
+        (e.detail ? ' | ' + String(e.detail).slice(0, 60) : ''));
+    }
+    body.textContent = lines.join('\n');
+    body.className = d.chain && d.chain.valid ? 'log-box ok' : 'log-box err';
+  } else {
+    body.textContent = '🔴 读取失败: ' + ((r.json && r.json.message) || '服务不可达');
+    body.className = 'log-box err';
+  }
+}
+
+// 绑定
+document.getElementById('adminLoginBtn').addEventListener('click', () => adminShow('adminLoginModal'));
+document.getElementById('adminLoginGo').addEventListener('click', adminLogin);
+document.getElementById('adminKeyInput').addEventListener('keydown', e => { if (e.key === 'Enter') adminLogin(); });
+document.getElementById('adminAccountInput').addEventListener('keydown', e => { if (e.key === 'Enter') adminLogin(); });
+document.getElementById('adminLogoutBtn').addEventListener('click', adminLogout);
+document.getElementById('adminAuditBtn').addEventListener('click', adminAudit);
+document.getElementById('adminExportBtn').addEventListener('click', adminExport);
+document.getElementById('adminExportGo').addEventListener('click', adminExportGo);
+document.getElementById('adminVerifyBtn').addEventListener('click', adminVerify);
+document.getElementById('adminOpslogBtn').addEventListener('click', adminOpslog);
+document.getElementById('adminLogsBtn').addEventListener('click', adminLogs);
+document.getElementById('adminRestartBtn').addEventListener('click', adminRestart);
+adminUpdateUI();
+
+// ============================================================
+// 分类筛选
+// ============================================================
+document.querySelectorAll('#moduleTabs .tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('#moduleTabs .tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const d = getLiveData();
+    updateDashboard(d);
+  });
+});
+
+// ============================================================
+// 人格详情
+// ============================================================
+const pdBox = document.getElementById('personaDetail');
+function showPersonaDetail(name) {
+  const p = TZ_PERSONAS_28.find(x => x.name === name);
+  if (!p) { pdBox.classList.remove('show'); return; }
+  document.getElementById('pdId').textContent = p.id;
+  document.getElementById('pdRole').textContent = p.role;
+  document.getElementById('pdGua').textContent = p.gua;
+  document.getElementById('pdWuxing').textContent = p.wuxing;
+  document.getElementById('pdHealth').textContent = `${p.health_score}%`;
+  document.getElementById('pdLayer').textContent = p.layer;
+  pdBox.classList.add('show');
+}
+document.querySelectorAll('.persona-tag').forEach(el => {
+  el.addEventListener('click', () => {
+    document.querySelectorAll('.persona-tag').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('activePersona').textContent = el.textContent;
+    const p = TZ_PERSONAS_28.find(x => x.name === el.textContent);
+    if (p) {
+      document.getElementById('activeGua').textContent = p.gua;
+      document.getElementById('activeWuxing').textContent = p.wuxing;
+    }
+    showPersonaDetail(el.textContent);
+  });
+});
+
+// ============================================================
+// 数据加载与刷新
+// ============================================================
+function updateDashboard(data) {
+  // 顶部信息
+  if (data.time_anchor) {
+    document.getElementById('timeAnchor').textContent =
+      `🕐 ${data.time_anchor.ganzhi} · ${data.time_anchor.gua} · ${data.time_anchor.wuxing}`;
+  }
+  if (data.dna) {
+    document.getElementById('dnaDisplay').textContent = `🧬 ${data.dna.slice(0, 40)}...`;
+  }
+  if (data.system_health !== undefined) {
+    const tricolor = data.overall_tricolor || '🟢';
+    document.getElementById('healthBadge').textContent = `💓 ${data.system_health}% ${tricolor}`;
+    document.getElementById('healthBadge').className = `badge ${tricolor === '🔴' ? '' : 'gold'}`;
+  }
+
+  // 统计数字
+  if (data.audit) {
+    document.getElementById('auditCount').textContent = data.audit.total || 0;
+    document.getElementById('shameCount').textContent = data.audit.shame_wall || 0;
+  }
+  if (data.sovereignty) {
+    document.getElementById('dataCount').textContent = data.sovereignty.data_count || 0;
+  }
+  if (data.modules) {
+    document.getElementById('moduleCount').textContent = data.modules.length;
+    const running = data.modules.filter(m => m.status === 'running').length;
+    document.getElementById('moduleOnline').textContent = running;
+    // 渲染模块列表（按当前分类筛选）
+    const cat = document.querySelector('.tab.active')?.dataset.cat || '全部';
+    const list = cat === '全部' ? data.modules : data.modules.filter(m => m.category === cat || m.cat === cat);
+    document.getElementById('moduleList').innerHTML = list.map(m => {
+      const cls = (m.tricolor || '🟢') === '🟢' ? 'green' : (m.tricolor === '🟡') ? 'yellow' : 'red';
+      const catName = m.category || m.cat || '—';
+      const health = m.health_score !== undefined ? `${m.health_score}%` : (m.status === 'running' ? '在线' : '降级');
+      return `<div class="module-row" onclick="showModuleDetail('${m.name.replace(/'/g, "\\'")}', '${catName.replace(/'/g, "\\'")}', '${cls}', '${health}', '${m.status || 'running'}')">
+        <span class="light ${cls}"></span>
+        <span class="m-cat">${catName}</span>
+        <span class="m-name">${m.name}</span>
+        <span class="m-health">${health}</span>
+      </div>`;
+    }).join('');
+  }
+  if (data.personas) {
+    document.getElementById('personaCount').textContent = data.personas.length;
+    const active = data.personas.filter(p => p.active).length;
+    document.getElementById('doubleCount').textContent = active;
+    // 更新活跃人格
+    const activeP = data.personas.find(p => p.active);
+    if (activeP) {
+      document.getElementById('activePersona').textContent = activeP.name;
+      document.getElementById('activeGua').textContent = activeP.gua;
+      document.getElementById('activeWuxing').textContent = activeP.wuxing;
+      // 高亮标签
+      document.querySelectorAll('.persona-tag').forEach(el => {
+        el.classList.toggle('active', el.textContent === activeP.name);
+      });
+    }
+  }
+
+  // 更新雷达
+  if (data.dashboard && data.dashboard.radar) {
+    const r = data.dashboard.radar;
+    radarChart.setOption({
+      series: [{
+        data: [{
+          value: [
+            r.data_sovereignty || 85, r.currency_sovereignty || 90,
+            r.audit_sovereignty || 78, r.knowledge_base || 65,
+            r.persona_activity || 72, r.persona_health || 88
+          ]
+        }]
+      }]
+    });
+  }
+
+  // 更新审计图表
+  if (data.audit && data.audit.tricolor) {
+    const tc = data.audit;
+    auditChart.setOption({
+      series: [{
+        data: [
+          { value: tc.green || 245, name: '🟢 通过', itemStyle: { color: '#4caf50' } },
+          { value: tc.yellow || 68, name: '🟡 警告', itemStyle: { color: '#ffc107' } },
+          { value: tc.red || 12, name: '🔴 拒绝', itemStyle: { color: '#f44336' } }
+        ]
+      }]
+    });
+  }
+
+  // 更新决策链路
+  if (data.dashboard && data.dashboard.chain) {
+    const c = data.dashboard.chain;
+    document.getElementById('chainDisplay').innerHTML = `
+      <span class="chain-step"><span class="label">👤 用户</span> "${c.input || '查询'}"</span>
+      <span style="color:#4a7aaa;">→</span>
+      <span class="chain-step"><span class="label">🧠 人格</span> ${c.persona || '北辰'}</span>
+      <span style="color:#4a7aaa;">→</span>
+      <span class="chain-step"><span class="label">🗣️ 分身</span> ${c.double || '战略官'}</span>
+      <span style="color:#4a7aaa;">→</span>
+      <span class="chain-step"><span class="label">⚖️ 审计</span> ${c.audit_score || 92}分 ${c.audit_status || '🟢'}</span>
+    `;
+    document.getElementById('chainDNA').textContent = (data.dna || '').slice(0, 30) + '...';
+  }
+}
+
+// 模拟数据（部署后可由 tianyan_data.js 注入 window.TIANYAN_DATA 覆盖）
+const mockData = {
+  dna: "[[GENERATED_BY_LH_DNA_GENERATOR_V3]]-TIANYAN-ABC123-v2.0",
+  timestamp: new Date().toISOString(),
+  time_anchor: { ganzhi: "丙午·丙申", gua: "䷖剥", wuxing: "火", tricolor: "🟢" },
+  system_health: 89.2,
+  overall_tricolor: "🟢",
+  modules: TZ_MODULES_56,
+  personas: TZ_PERSONAS_28.map(p => ({ ...p, active: p.id === "P01" })),
+  audit: { total: 325, green: 245, yellow: 68, red: 12, shame_wall: 12 },
+  sovereignty: { data_count: 15420 },
+  dashboard: {
+    radar: { data_sovereignty: 85, currency_sovereignty: 90, audit_sovereignty: 78, knowledge_base: 65, persona_activity: 72, persona_health: 88 },
+    chain: { input: "系统状态查询", persona: "北辰", double: "战略官", audit_score: 92, audit_status: "🟢" }
+  }
+};
+// 引擎注入数据优先（tianyan_data.js 定义 window.TIANYAN_INITIAL_DATA / TIANYAN_DATA 则覆盖）
+function getLiveData() {
+  return (window.TIANYAN_DATA && window.TIANYAN_DATA.modules)
+    ? window.TIANYAN_DATA
+    : (window.TIANYAN_INITIAL_DATA && window.TIANYAN_INITIAL_DATA.modules)
+      ? window.TIANYAN_INITIAL_DATA
+      : mockData;
+}
+const liveData = getLiveData();
+
+// ============================================================
+// 通心译 · 多语言/术语切换（纯前端 · 数据不出境）
+// ============================================================
+const I18N = {
+  'zh-plain': {
+    navOverview: '📊 概览',
+    navRadar: '🕸️ 体检雷达',
+    navFlow: '🌀 数据流',
+    navPersona: '🧠 人格矩阵',
+    navModules: '⚡ 引擎状态',
+    navAudit: '🎨 三色审计',
+    navProtocol: '🔐 协议主权',
+    navTrend: '📈 健康趋势',
+    navAuto: '🤖 自动化',
+    navDeploy: '📦 部署信息',
+    bannerGreen: '系统健康 · 引擎在线 · 审计通过 · 主权稳固',
+    bannerYellow: '存在降级模块 · 自动巡检中',
+    bannerRed: '触发熔断 · 请查看审计',
+    dataLive: '📊 数据源: 引擎实时快照 (tianyan_data.js)',
+    dataMock: '📊 数据源: 内置快照 (mockData) · 部署后可注入 tianyan_data.js',
+    moduleDetailTitle: '模块详情',
+    detailCat: '分类',
+    detailStatus: '状态',
+    detailHealth: '健康分',
+    detailColor: '三色',
+    close: '关闭',
+    tipClickModule: '👆 点击模块查看详情',
+    tipClickPersona: '👆 点击人格查看详情',
+    connChecking: '连接实时数据…',
+    connLive: '实时链路',
+    connFallback: '实时链路断了 · 已降级到本地快照',
+    connOffline: '实时链路不通 · 用本地快照'
+  },
+  'zh-pro': {
+    navOverview: '📊 概览',
+    navRadar: '🕸️ 健康雷达',
+    navFlow: '🌀 思维流场',
+    navPersona: '🧠 人格矩阵',
+    navModules: '⚡ 引擎状态',
+    navAudit: '🎨 三色审计',
+    navProtocol: '🔐 协议主权',
+    navTrend: '📈 健康趋势',
+    navAuto: '🤖 自动化',
+    navDeploy: '📦 部署信息',
+    bannerGreen: '引擎在线 · 审计通过 · 主权稳固',
+    bannerYellow: '存在降级模块 · 自动巡检中',
+    bannerRed: '触发熔断 · 请查看审计',
+    dataLive: '📊 数据源: 引擎实时快照 (tianyan_data.js)',
+    dataMock: '📊 数据源: 内置快照 (mockData) · 部署后可注入 tianyan_data.js',
+    moduleDetailTitle: '模块详情',
+    detailCat: '所属层',
+    detailStatus: '运行状态',
+    detailHealth: '健康分',
+    detailColor: '三色相位',
+    close: '关闭',
+    tipClickModule: '👆 点击模块查看详情',
+    tipClickPersona: '👆 点击人格查看详情',
+    connChecking: '连接实时数据…',
+    connLive: '实时链路',
+    connFallback: '实时链路断开 · 已降级本地快照',
+    connOffline: '实时链路不可达 · 使用本地快照'
+  },
+  'en': {
+    navOverview: '📊 Overview',
+    navRadar: '🕸️ Health Radar',
+    navFlow: '🌀 Data Flow',
+    navPersona: '🧠 Persona Matrix',
+    navModules: '⚡ Engine Status',
+    navAudit: '🎨 Tricolor Audit',
+    navProtocol: '🔐 Protocol Sovereignty',
+    navTrend: '📈 Health Trend',
+    navAuto: '🤖 Automation',
+    navDeploy: '📦 Deployment',
+    bannerGreen: 'Engines online · Audit passed · Sovereignty stable',
+    bannerYellow: 'Degraded modules · Auto-inspecting',
+    bannerRed: 'Circuit breaker triggered · Check audit',
+    dataLive: '📊 Source: live snapshot (tianyan_data.js)',
+    dataMock: '📊 Source: built-in snapshot (mockData) · inject tianyan_data.js after deploy',
+    moduleDetailTitle: 'Module Detail',
+    detailCat: 'Category',
+    detailStatus: 'Status',
+    detailHealth: 'Health',
+    detailColor: 'Tricolor',
+    close: 'Close',
+    tipClickModule: '👆 Click module for details',
+    tipClickPersona: '👆 Click persona for details',
+    connChecking: 'Connecting…',
+    connLive: 'Live',
+    connFallback: 'Live link lost · local snapshot',
+    connOffline: 'Live link unreachable · local snapshot'
+  },
+  'jp': {
+    navOverview: '📊 概要',
+    navRadar: '🕸️ 健康レーダー',
+    navFlow: '🌀 データ流',
+    navPersona: '🧠 人格マトリクス',
+    navModules: '⚡ エンジン状態',
+    navAudit: '🎨 三色監査',
+    navProtocol: '🔐 プロトコル主権',
+    navTrend: '📈 健康傾向',
+    navAuto: '🤖 自動化',
+    navDeploy: '📦 展開情報',
+    bannerGreen: 'エンジン稼働中 · 監査合格 · 主権安定',
+    bannerYellow: '劣化モジュールあり · 自動点検中',
+    bannerRed: '遮断器作動 · 監査を確認',
+    dataLive: '📊 ソース：リアルタイムスナップショット (tianyan_data.js)',
+    dataMock: '📊 ソース：内蔵スナップショット (mockData) · デプロイ後に tianyan_data.js を注入',
+    moduleDetailTitle: 'モジュール詳細',
+    detailCat: '分類',
+    detailStatus: '状態',
+    detailHealth: '健康度',
+    detailColor: '三色判定',
+    close: '閉じる',
+    tipClickModule: '👆 モジュールをクリックで詳細',
+    tipClickPersona: '👆 人格をクリックで詳細',
+    connChecking: '接続中…',
+    connLive: 'リアルタイム',
+    connFallback: 'リアルタイム断線 · ローカルに切替',
+    connOffline: 'リアルタイム不通 · ローカル使用'
+  },
+  'kr': {
+    navOverview: '📊 개요',
+    navRadar: '🕸️ 건강 레이더',
+    navFlow: '🌀 데이터 흐름',
+    navPersona: '🧠 인격 매트릭스',
+    navModules: '⚡ 엔진 상태',
+    navAudit: '🎨 삼색 감사',
+    navProtocol: '🔐 프로토콜 주권',
+    navTrend: '📈 건강 추세',
+    navAuto: '🤖 자동화',
+    navDeploy: '📦 배포 정보',
+    bannerGreen: '엔진 온라인 · 감사 통과 · 주권 안정',
+    bannerYellow: '성능 저하 모듈 있음 · 자동 순찰 중',
+    bannerRed: '서킷 브레이커 작동 · 감사 확인',
+    dataLive: '📊 출처: 실시간 스냅샷 (tianyan_data.js)',
+    dataMock: '📊 출처: 내장 스냅샷 (mockData) · 배포 후 tianyan_data.js 주입',
+    moduleDetailTitle: '모듈 상세',
+    detailCat: '분류',
+    detailStatus: '상태',
+    detailHealth: '건강도',
+    detailColor: '삼색 단계',
+    close: '닫기',
+    tipClickModule: '👆 모듈 클릭 시 상세',
+    tipClickPersona: '👆 인격 클릭 시 상세',
+    connChecking: '연결 중…',
+    connLive: '실시간',
+    connFallback: '실시간 끊김 · 로컬로 전환',
+    connOffline: '실시간 불통 · 로컬 사용'
+  }
+};
+let currentLang = 'zh-pro';
+function applyI18n(lang) {
+  if (!I18N[lang]) return;
+  currentLang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (I18N[lang][k]) el.textContent = I18N[lang][k];
+  });
+  // 数据源提示
+  const cdn = document.getElementById('cdnStatus');
+  if (cdn) {
+    cdn.textContent = (getLiveData() !== mockData) ? I18N[lang].dataLive : I18N[lang].dataMock;
+  }
+  // 全局横幅副标题按当前状态重刷
+  const tri = liveData.overall_tricolor || '🟢';
+  const bannerSub = document.getElementById('bannerSub');
+  if (bannerSub) {
+    bannerSub.textContent = tri === '🟢' ? I18N[lang].bannerGreen : tri === '🟡' ? I18N[lang].bannerYellow : I18N[lang].bannerRed;
+  }
+  localStorage.setItem('tianyan_lang', lang);
+}
+function showModuleDetail(name, cat, cls, health, status) {
+  const t = I18N[currentLang];
+  const colorMap = { green: '🟢 通过', yellow: '🟡 警告', red: '🔴 拒绝' };
+  document.getElementById('detailTitle').textContent = t.moduleDetailTitle;
+  document.getElementById('detailBody').innerHTML = `
+    <div class="detail-row"><span class="d-label">${t.detailCat}</span><span class="d-val">${cat}</span></div>
+    <div class="detail-row"><span class="d-label">名称</span><span class="d-val">${name}</span></div>
+    <div class="detail-row"><span class="d-label">${t.detailStatus}</span><span class="d-val">${status === 'running' ? '运行中' : status}</span></div>
+    <div class="detail-row"><span class="d-label">${t.detailHealth}</span><span class="d-val">${health}</span></div>
+    <div class="detail-row"><span class="d-label">${t.detailColor}</span><span class="d-val">${colorMap[cls] || cls}</span></div>
+  `;
+  document.querySelector('.detail-close').textContent = t.close;
+  document.getElementById('detailModal').classList.add('show');
+}
+
+// 首次加载（liveData 优先引擎注入，回退内置快照）
+updateDashboard(liveData);
+// 首载：实时链路优先，断线自动降级静态快照（tianyan_data.js → mockData）
+(async () => {
+  await refreshDashboard();
+  startAutoRefresh();
+})();
+
+// ============================================================
+// 交互增强：导航平滑滚动 + 通心译菜单 + 详情浮层
+// ============================================================
+(function initInteractions() {
+  // 导航平滑滚动 + active 高亮
+  const nav = document.getElementById('mainNav');
+  const navLinks = nav ? nav.querySelectorAll('a[href^="#"]') : [];
+  function setActiveNav() {
+    const scrollPos = window.scrollY + 120;
+    navLinks.forEach(a => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        const top = el.offsetTop, bottom = top + el.offsetHeight;
+        a.classList.toggle('active', scrollPos >= top && scrollPos < bottom);
+      }
+    });
+  }
+  navLinks.forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', '#' + id);
+      }
+    });
+  });
+  window.addEventListener('scroll', setActiveNav, { passive: true });
+  window.addEventListener('hashchange', () => {
+    const id = location.hash.slice(1);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  setActiveNav();
+
+  // 通心译语言菜单
+  const langToggle = document.getElementById('langToggle');
+  const langMenu = document.getElementById('langMenu');
+  if (langToggle && langMenu) {
+    langToggle.addEventListener('click', e => {
+      e.stopPropagation();
+      const isOpen = langMenu.style.display === 'block';
+      langMenu.style.display = isOpen ? 'none' : 'block';
+    });
+    document.querySelectorAll('.lang-option').forEach(opt => {
+      opt.addEventListener('click', e => {
+        e.stopPropagation();
+        const lang = opt.dataset.lang;
+        applyI18n(lang);
+        langMenu.style.display = 'none';
+        langToggle.textContent = opt.textContent.trim();
+      });
+    });
+    document.addEventListener('click', () => { langMenu.style.display = 'none'; });
+  }
+
+  // 恢复上次语言
+  const saved = localStorage.getItem('tianyan_lang');
+  if (saved && I18N[saved]) {
+    applyI18n(saved);
+    if (langToggle) {
+      const opt = document.querySelector(`.lang-option[data-lang="${saved}"]`);
+      if (opt) langToggle.textContent = opt.textContent.trim();
+    }
+  }
+
+  // 详情浮层：点击外部关闭
+  const modal = document.getElementById('detailModal');
+  if (modal) {
+    modal.addEventListener('click', e => {
+      if (e.target === modal) modal.classList.remove('show');
+    });
+  }
+  // 操作台浮层：点击外部关闭（登录/结果）
+  ['adminLoginModal', 'adminResultModal'].forEach(id => {
+    const m = document.getElementById(id);
+    if (m) m.addEventListener('click', e => { if (e.target === m) m.classList.remove('show'); });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      ['detailModal', 'adminLoginModal', 'adminResultModal'].forEach(id => {
+        const m = document.getElementById(id);
+        if (m) m.classList.remove('show');
+      });
+    }
+  });
+})();
+</script>
+</body>
+</html>

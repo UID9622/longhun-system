@@ -3,7 +3,7 @@
 # License: MulanPSL v2
 """
 🐲 龍魂·主编Agent（文档整合·最终报告）
-DNA: #龍芯⚡️2026-08-04-INTEGRATOR-AGENT-UID9622
+DNA: #龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-INTEGRATOR-AGENT-UID9622
 
 汇总所有专家Agent的产出，生成统一结构化报告。
 """

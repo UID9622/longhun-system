@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂统一引擎 · 启动器
 =========================
@@ -15,7 +16,7 @@
   python3 引擎/launcher.py --cli              # 交互式CLI
   python3 引擎/launcher.py --health           # 健康检查
 
-DNA: #龍芯⚡️丙午·乙未·甲子·申时·需-LAUNCHER-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲子·申时·䷄需-LAUNCHER-v1.0
 """
 
 from __future__ import annotations
@@ -30,7 +31,7 @@ from typing import List
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-DNA = "#龍芯⚡️丙午·乙未·甲子·申时·需-LAUNCHER-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·甲子·申时·䷄需-LAUNCHER-v1.0"
 
 SERVICES = {
     "feishu": {

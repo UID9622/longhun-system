@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️2026-07-21-NAMING-LINT-V1.0
+#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-NAMING-LINT-V1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂系统 · 命名与字符自动校验器 v1.0
 作者：诸葛鑫（UID9622）
-DNA: #龍芯⚡️2026-07-21-NAMING-LINT-V1.0
+DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-NAMING-LINT-V1.0
 关联: 01_protocols/LH-NAMING-SYMBOL-MASTER-v1.0.md
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -66,10 +66,10 @@ DNA事件 = re.compile(
 class CNSH_龍魂命名校验器:
     """
     入库必过：不合格不入库。
-    DNA: #龍芯⚡️2026-07-21-NAMING-LINT-V1.0
+    DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-NAMING-LINT-V1.0
     """
 
-    DNA = "#龍芯⚡️2026-07-21-NAMING-LINT-V1.0"
+    DNA = "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-NAMING-LINT-V1.0"
     VERSION = "1.0"
 
     def __init__(self):
@@ -291,7 +291,7 @@ def main():
         epilog="""
 示例:
   python3 bin/lh_naming_lint.py --file 01_protocols/某协议.md
-  python3 bin/lh_naming_lint.py --dna "#龍芯⚡️2026-07-21-TEST-V1.0"
+  python3 bin/lh_naming_lint.py --dna "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-TEST-V1.0"
   python3 bin/lh_naming_lint.py --text "这是一段文本，检查有没有技术无国界"
   python3 bin/lh_naming_lint.py --short "/全文压缩"
   python3 bin/lh_naming_lint.py --json  # JSON输出

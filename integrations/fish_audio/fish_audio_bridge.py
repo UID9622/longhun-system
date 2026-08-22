@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂真声 · Fish Audio 语音克隆桥接
@@ -11,7 +12,7 @@
 2. 通过模型 ID 生成 UID9622 本人音色的 TTS 音频
 3. 供微信公众号播报、龍魂真声控制台等模块调用
 
-DNA: #龍芯⚡️2026-07-04-LONGHUN-FISH-AUDIO-BRIDGE-v1.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-FISH-AUDIO-BRIDGE-v1.0
 """
 
 import json
@@ -99,7 +100,7 @@ class LongHunFishAudioBridge:
                     "model_id": model_id,
                     "created_at": datetime.now().isoformat(),
                     "reference_audio": str(self.reference_audio),
-                    "dna": "#龍芯⚡️2026-07-04-LONGHUN-FISH-AUDIO-BRIDGE-v1.0",
+                    "dna": "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-FISH-AUDIO-BRIDGE-v1.0",
                 },
                 ensure_ascii=False,
                 indent=2,

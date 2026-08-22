@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 数字人民币（CNY）演示适配器
-DNA:#龍芯⚡️2026-06-17-XPAY-CNY-ADAPTER-FILE1-v2.0
+DNA:#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-XPAY-CNY-ADAPTER-FILE1-v2.0
 
 声明：本适配器为演示框架，不连接真实的数字人民币 SDK 或央行 API。
 """

@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂·底线二：路径对齐 检测引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-CHECK-ALIGNMENT-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-CHECK-ALIGNMENT-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

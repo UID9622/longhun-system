@@ -1,3 +1,4 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 ---
 name: longhun-forensic-toolkit
 description: >
@@ -12,7 +13,7 @@ metadata:
   display_name: 龍魂取证工具包
   version: '1.0'
   author: UID9622
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-FORENSIC-TOOLKIT-v1.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-FORENSIC-TOOLKIT-v1.0'
   category: local
   level: "L2"
   status: active
@@ -25,7 +26,7 @@ metadata:
 
 # longhun-forensic-toolkit | 龍魂取证工具包 v1.0
 
-> **DNA**: `#龍芯⚡️20260521-FORENSIC-TOOLKIT-v1.0`  
+> **DNA**: `#龍芯⚡️丙午·癸巳·乙未·壬午·䷖剥-FORENSIC-TOOLKIT-v1.0`  
 > **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 > **GPG 指纹**: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 > **主权归属**: UID9622 / 诸葛鑫

@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂技能统一注册表
@@ -10,7 +11,7 @@ LongHun Unified Skill Registry
 负责把项目内部 skills/ 与 ~/.kimi-code/skills/longhun-* 同级技能
 统一扫描、去重、生成元数据，供 control-panel 调用。
 
-DNA: #龍芯⚡️2026-06-23-LONGHUN-SKILL-REGISTRY-v2.0
+DNA: #龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-SKILL-REGISTRY-v2.0
 """
 
 import json
@@ -194,7 +195,7 @@ class LonghunSkillRegistry:
                     "scripts": [filepath.name],
                     "path": str(filepath),
                     "source": "internal",
-                    "dna": "#龍芯⚡️2026-06-16-SKILL-REGISTRY-v2.0",
+                    "dna": "#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-SKILL-REGISTRY-v2.0",
                     "cloud_port": None,
                 }
 
@@ -276,7 +277,7 @@ class LonghunSkillRegistry:
         data = {
             "total": len(self.skills),
             "skills": self.list_skills(),
-            "dna": "#龍芯⚡️2026-06-23-LONGHUN-SKILL-REGISTRY-v2.0",
+            "dna": "#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-SKILL-REGISTRY-v2.0",
         }
         text = json.dumps(data, ensure_ascii=False, indent=2)
         if path:

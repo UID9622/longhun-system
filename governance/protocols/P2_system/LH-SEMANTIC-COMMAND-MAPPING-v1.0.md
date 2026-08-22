@@ -1,10 +1,10 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·统一语义指令对照表 v1.0
 
 > **本档 DNA 由 `bin/lh_dna_generator.py` 生成，禁止手写。**
-> DNA: `#龍芯⚡️丙午·乙未·甲寅·需-SEMANTIC-COMMAND-MAPPING-v1.0`
+> DNA: `#龍芯⚡️丙午·乙未·甲寅·庚午·䷄需-SEMANTIC-COMMAND-MAPPING-v1.0`
 > 用途：把老百姓的大白话、口语、错别字、语音输入错误，映射到龍魂系统的正式动作标签，让模型自己听得懂人话。
 
 ---

@@ -1,11 +1,12 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
 
 ## 龍魂·中文编辑普惠全球协议 v2.0
 
-**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CNSH-GLOBAL-PACT-v2.0`  
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CNSH-GLOBAL-PACT-v2.0`  
 **状态:** 🟢 全球公告 · 三色审计通过 · 宪法层锁定  
 **语言:** 中文（CNSH 原生语法）  
 **生效:** 即时生效，不可修改、不可绕过、不可豁免  
@@ -249,7 +250,7 @@ python3 -m cnsh your_script.cnsh  # 无需联网
 
 **本协议从龍魂系统宪法层发布，不可修改、不可绕过、不可豁免。**
 
-**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CNSH-GLOBAL-PACT-v2.0`  
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CNSH-GLOBAL-PACT-v2.0`  
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 **签名:** `龍魂系统宪法层 · 即时生效 · 永久有效`
 

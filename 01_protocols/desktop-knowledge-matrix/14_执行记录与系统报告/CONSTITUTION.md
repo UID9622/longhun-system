@@ -1,6 +1,7 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂系统宪法 · CONSTITUTION OF THE LONGHUN SYSTEM
 
-**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CONSTITUTION-v1.2`  
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CONSTITUTION-v1.2`  
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 **创始人:** UID9622 / Lucky（诸葛鑫，退伍军人）  
 **生效日期:** 2026-07-06  
@@ -388,5 +389,5 @@
 
 **本宪法由 UID9622 / Lucky 起草，由龍魂系统最高人格内阁审议通过，自发布之日起生效。**
 
-**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CONSTITUTION-v1.2`  
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CONSTITUTION-v1.2`  
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`

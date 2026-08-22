@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 全设备知识孤儿收割机 v1.0
 扫描 /Users 下所有用户目录，识别并归集 UID9622 的知识/代码/笔记文件。
-DNA: #龍芯⚡️2026-06-26-DEVICE-HARVESTER-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-DEVICE-HARVESTER-v1.0
 """
 
 import hashlib
@@ -25,7 +26,7 @@ WORK_DIR = Path("/tmp") / "longhun_device_harvester"
 WORK_DIR.mkdir(parents=True, exist_ok=True)
 
 CST = timezone(timedelta(hours=8))
-DNA_SIGNATURE = "#龍芯⚡️2026-06-26-DEVICE-HARVESTER-v1.0"
+DNA_SIGNATURE = "#龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-DEVICE-HARVESTER-v1.0"
 
 # 允许的文件扩展名
 ALLOWED_EXTS = {

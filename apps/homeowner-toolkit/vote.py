@@ -6,7 +6,7 @@
 龍魂业主投票系统 v1.1
 本地运行 · 数据不上传互联网 · 零依赖
 龍芯北辰 UID9622 | 民生审计层
-DNA: #龍芯⚡️丙午·癸未·辛丑·颐-投票系统-v1.1-精修
+DNA: #龍芯⚡️丙午·癸未·辛丑·甲午·䷚颐-投票系统-v1.1-精修
 协议: CC BY-NC-SA 4.0
 """
 
@@ -380,7 +380,7 @@ class VoteHandler(BaseHTTPRequestHandler):
                 "status": "running",
                 "host": get_local_ip(),
                 "version": "1.1",
-                "dna": "#龍芯⚡️丙午·癸未·辛丑·颐-投票系统-v1.1"
+                "dna": "#龍芯⚡️丙午·癸未·辛丑·甲午·䷚颐-投票系统-v1.1"
             })
 
         else:
@@ -489,7 +489,7 @@ if __name__ == "__main__":
     print(f"  3. 投票数据保存在当前目录: {VOTE_FILE}")
     print(f"  4. 按 Ctrl+C 停止服务器")
     print()
-    print(f"  DNS: #龍芯⚡️丙午·癸未·辛丑·颐-投票系统-v1.1")
+    print(f"  DNS: #龍芯⚡️丙午·癸未·辛丑·甲午·䷚颐-投票系统-v1.1")
     print("=" * 60)
     print()
 

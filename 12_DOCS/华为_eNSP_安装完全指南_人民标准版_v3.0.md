@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 华为 eNSP 安装完全指南（人民标准版 v3.0）
 
-> **DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-INSTALL-GUIDE-v3.0`  
+> **DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-INSTALL-GUIDE-v3.0`  
 > **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 > **IP编号**: IP-0021  
 > **创始人**: Lucky·UID9622（诸葛鑫·龍芯北辰）  
@@ -19,7 +19,7 @@
 
 ## 一、概述（每个字都要看）
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-SECTION-01`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-SECTION-01`
 
 华为 eNSP（Enterprise Network Simulation Platform）是华为推出的**网络设备模拟器**，让你在没有真机的情况下练习路由器、交换机配置。
 
@@ -44,7 +44,7 @@
 
 ## 二、系统兼容性检查（装之前必看，否则白装）
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-SECTION-02`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-SECTION-02`
 
 ### 2.1 你的电脑能不能装？先看这张表
 
@@ -81,7 +81,7 @@
 
 ## 三、软件下载清单（全部官方链接，带校验）
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-SECTION-03`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-SECTION-03`
 
 ### 3.1 必须下载的软件（缺一不可）
 
@@ -187,7 +187,7 @@ python3 ~/longhun-system/tools/ensp_hash_checker.py --dir "C:\Users\你的用户
 
 ## 四、安装流程图（普通人看得懂，每个节点都有DNA）
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-SECTION-04`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-SECTION-04`
 
 ```mermaid
 flowchart TD
@@ -284,13 +284,13 @@ flowchart TD
 
 ## 五、分平台安装步骤（每个步骤都有DNA）
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-SECTION-05`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-SECTION-05`
 
 ### 5.1 Windows 原生安装（推荐，最稳定）
 
 #### 前置依赖检查（装之前必须做，否则白装）
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-WIN-STEP-01`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-WIN-STEP-01`
 
 **步骤1：确认系统版本**（前面2.2节已经教过，这里再强调）
 - 按 `Win + R` → 输入 `winver` → 回车
@@ -314,7 +314,7 @@ flowchart TD
 
 #### 安装顺序（必须严格按这个顺序，错一步就失败）
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-WIN-STEP-02`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-WIN-STEP-02`
 
 ```
 第1步：WinPcap 4.1.3
@@ -328,7 +328,7 @@ flowchart TD
 
 **第1步：安装 WinPcap 4.1.3**
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-WIN-STEP-03`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-WIN-STEP-03`
 
 1. 双击下载的 `WinPcap_4_1_3.exe` 文件
 2. 点击 `Next`（下一步）
@@ -343,7 +343,7 @@ flowchart TD
 
 **第2步：安装 Wireshark 4.4.5+**
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-WIN-STEP-04`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-WIN-STEP-04`
 
 1. 双击下载的 Wireshark 安装程序（文件名类似 `Wireshark-4.4.5-x64.exe`）
 2. 点击 `Next`（下一步）
@@ -358,7 +358,7 @@ flowchart TD
 
 **第3步：安装 VirtualBox 5.2.44（最关键一步）**
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-WIN-STEP-05`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-WIN-STEP-05`
 
 1. 双击下载的 `VirtualBox-5.2.44-139111-Win.exe` 文件
 2. 点击 `下一步`
@@ -380,7 +380,7 @@ flowchart TD
 
 **第4步：安装 eNSP 主程序**
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-WIN-STEP-06`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-WIN-STEP-06`
 
 1. 双击下载的 `eNSP_Setup.exe` 文件
 2. 选择「中文（简体）」→ 点击「确定」
@@ -394,7 +394,7 @@ flowchart TD
 
 #### 安装验证（必须做，不做不知道装成功没有）
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-WIN-STEP-07`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-WIN-STEP-07`
 
 1. 双击桌面上的 eNSP 图标启动
 2. 如果弹出 Windows 防火墙提示 → 点击「允许访问」
@@ -413,7 +413,7 @@ flowchart TD
 
 ### 5.2 Mac 电脑安装方案（苹果用户看这里）
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-MAC-STEP-01`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-MAC-STEP-01`
 
 由于 eNSP 只有 Windows 版本，Mac 用户必须装虚拟机，在虚拟机里装 Windows，再在 Windows 里装 eNSP。
 
@@ -435,7 +435,7 @@ flowchart TD
 
 ### 5.3 Linux 电脑安装方案
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-LINUX-STEP-01`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-LINUX-STEP-01`
 
 与 Mac 方案相同，使用 VMware Workstation 创建 Windows 10 虚拟机，在虚拟机内按 Windows 流程安装。
 
@@ -443,7 +443,7 @@ flowchart TD
 
 ## 六、常见问题（FAQ）—— 每个问题都有DNA和解决方案
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-SECTION-06`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-SECTION-06`
 
 | 序号 | 问题现象 | 你看到的错误 | 根因 | 解决方案（一步一步做） | 龍魂工具辅助 | 问题DNA |
 |------|---------|------------|------|---------------------|------------|---------|
@@ -462,11 +462,11 @@ flowchart TD
 
 ## 七、高级功能：龍魂生态集成（可选，有就更好）
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-SECTION-07`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-SECTION-07`
 
 ### 7.1 龍魂安装辅助脚本（一键自动化）
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-ADV-01`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-ADV-01`
 
 龍魂系统提供一键安装辅助脚本，自动完成普通人容易出错的所有步骤：
 
@@ -492,7 +492,7 @@ python3 ~/longhun-system/tools/ensp_hash_checker.py --dir "~/Downloads/龍魂_eN
 
 ### 7.2 龍魂字体渲染（解决乱码）
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-ADV-02`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-ADV-02`
 
 如果 eNSP 界面出现中文乱码，引用龍魂系统内置字体：
 
@@ -509,7 +509,7 @@ bash ~/longhun-system/longhun-font/install_macos.sh
 
 ### 7.3 CNSH 运行时集成（自动化网络测试）
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-ADV-03`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-ADV-03`
 
 龍魂 CNSH 运行时可以直接调用 eNSP 进行自动化网络拓扑测试，不需要手动拖设备：
 
@@ -531,7 +531,7 @@ bash ~/longhun-system/longhun-font/install_macos.sh
 
 ## 八、安全与版权（每个字都要认真看）
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-SECTION-08`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-SECTION-08`
 
 ### 8.1 安全提示（保护你的电脑）
 
@@ -545,7 +545,7 @@ bash ~/longhun-system/longhun-font/install_macos.sh
 
 ### 8.2 版权声明（主权声明）
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-COPYRIGHT`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-COPYRIGHT`
 
 > **本文档版权归属龍魂系统（UID9622）所有。**
 >
@@ -570,7 +570,7 @@ bash ~/longhun-system/longhun-font/install_macos.sh
 
 ## 九、总结与评价（人民标准自评）
 
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-SECTION-09`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-SECTION-09`
 
 ### 9.1 本文档质量自评（人民标准）
 
@@ -603,7 +603,7 @@ bash ~/longhun-system/longhun-font/install_macos.sh
 
 | 元信息项 | 内容 |
 |---------|------|
-| **DNA追溯码** | `#龍芯⚡️2026-07-04-ENSPI-INSTALL-GUIDE-v3.0` |
+| **DNA追溯码** | `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-INSTALL-GUIDE-v3.0` |
 | **确认码** | `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` |
 | **IP编号** | IP-0021 |
 | **创始人** | Lucky·UID9622（诸葛鑫·龍芯北辰） |
@@ -631,4 +631,4 @@ bash ~/longhun-system/longhun-font/install_macos.sh
 ---
 
 **END OF DOCUMENT**  
-**DNA追溯码**: `#龍芯⚡️2026-07-04-ENSPI-INSTALL-GUIDE-v3.0-EOF`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-ENSPI-INSTALL-GUIDE-v3.0-EOF`

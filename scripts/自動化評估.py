@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂自動化日評估引擎 v5.1
-DNA: #龍芯⚡️2026-06-29-LONGHUN-AUTOMATION-v5.1
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-AUTOMATION-v5.1
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬AUTOMATION-001 ✅
 
 6維度系統健康評估：環境、代碼、數據、可運行性、文檔、安全
@@ -546,7 +547,7 @@ class 自動化評估器:
 
         return {
             "timestamp": time.strftime("%Y%m%d_%H%M%S"),
-            "dna": "#龍芯⚡️2026-06-29-LONGHUN-AUTOMATION-v5.1",
+            "dna": "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-AUTOMATION-v5.1",
             "執行DNA": 生成DNA("LONGHUN-AUTOMATION", "RUN"),
             "assessments": self.評估結果,
             "total_score": round(total, 2),

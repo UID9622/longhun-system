@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ╔══════════════════════════════════════════════════════════════════════╗
 ║              龍魂·人脑神经网络引擎 v1.0                              ║
 ║              Human Brain Neural Network Engine                       ║
@@ -12,7 +13,7 @@
 ║  人性维度: 认知/情感/秩序/创造/道德/符号/脆弱/豁达/权力/成长/安全   ║
 ║  反思机制: 二阶审视·偏见检测·盲区识别·历史对比·学习记录             ║
 ║                                                                      ║
-║  DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-HUMAN-BRAIN-ENGINE-v1.0      ║
+║  DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-HUMAN-BRAIN-ENGINE-v1.0      ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                      ║
 ║                                                                      ║
 ║  用法:                                                               ║

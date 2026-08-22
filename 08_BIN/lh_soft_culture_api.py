@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂·软文化污染隔离API服务 v1.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☲离-SOFT-CULTURE-API-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷝离-SOFT-CULTURE-API-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -45,7 +45,7 @@ except ImportError:
 
 from pathlib import Path
 
-DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·☲离-SOFT-CULTURE-API-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·䷝离-SOFT-CULTURE-API-v1.0"
 
 # ══════════════════════════════════════════════════════════════════════
 # 数据模型

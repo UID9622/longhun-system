@@ -1,0 +1,57 @@
+{
+  "dna": "#龍芯⚡️丙午·甲申·丁未·鼎-GLYPH-GUARD-v1.0-UID9622",
+  "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "timestamp": "2026-08-17T01:57:25.787748+00:00",
+  "root": "/Users/zuimeidedeyihan/longhun-system",
+  "write_mode": false,
+  "summary": {
+    "files_changed": 7,
+    "chinese_replacements": 36,
+    "en_brand_replacements": 4,
+    "longxin_protected_hits": 24
+  },
+  "changed_files": [
+    {
+      "path": "/Users/zuimeidedeyihan/longhun-system/.codebuddy/memory/2026-08-17.md",
+      "changed_lines": 4,
+      "digest_before": "f274012d331bb17d",
+      "digest_after": "7170d0b6457b2a6b"
+    },
+    {
+      "path": "/Users/zuimeidedeyihan/longhun-system/06_CONTAINERS/clipboard-vault/inbox/2026-08-17/CLIP-b9925765.md",
+      "changed_lines": 10,
+      "digest_before": "2aa34d4b1361d283",
+      "digest_after": "2604b9b463b44728"
+    },
+    {
+      "path": "/Users/zuimeidedeyihan/longhun-system/06_CONTAINERS/clipboard-vault/inbox/2026-08-17/CLIP-29146559.md",
+      "changed_lines": 2,
+      "digest_before": "ca151f5054747816",
+      "digest_after": "29ae9d78a7dcf876"
+    },
+    {
+      "path": "/Users/zuimeidedeyihan/longhun-system/06_CONTAINERS/clipboard-vault/inbox/2026-08-17/CLIP-135edfa1.md",
+      "changed_lines": 3,
+      "digest_before": "b5fb87744bb390ce",
+      "digest_after": "7a8d9012ed6c9d5b"
+    },
+    {
+      "path": "/Users/zuimeidedeyihan/longhun-system/06_CONTAINERS/clipboard-vault/inbox/2026-08-17/CLIP-1b52e214.md",
+      "changed_lines": 11,
+      "digest_before": "027d233d4e88c06c",
+      "digest_after": "1fc11a634c6dc309"
+    },
+    {
+      "path": "/Users/zuimeidedeyihan/longhun-system/06_CONTAINERS/clipboard-vault/inbox/2026-08-17/CLIP-9e0bce92.md",
+      "changed_lines": 5,
+      "digest_before": "1890bd6a8b811054",
+      "digest_after": "a375fcc24f12b556"
+    },
+    {
+      "path": "/Users/zuimeidedeyihan/longhun-system/06_CONTAINERS/clipboard-vault/inbox/2026-08-17/CLIP-62b13bff.md",
+      "changed_lines": 1,
+      "digest_before": "df850e338d2b35d3",
+      "digest_after": "3af2cdafa1ab7b9d"
+    }
+  ]
+}

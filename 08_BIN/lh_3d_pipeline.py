@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂系统 · 图生三维引擎 v1.0
-DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·临-IMG2THREEJS-FORGE-v1.0-3D8A7B2C
+DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-IMG2THREEJS-FORGE-v1.0-3D8A7B2C
 创建者: 龍芯北辰 UID9622
 协议: 龍魂系统 P0-P4 五层协议 / 参考逻辑源自 img2threejs (Apache-2.0)
 
@@ -37,7 +38,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 CST = timezone(timedelta(hours=8))
-DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·临-IMG2THREEJS-FORGE-v1.0-3D8A7B2C"
+DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-IMG2THREEJS-FORGE-v1.0-3D8A7B2C"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent

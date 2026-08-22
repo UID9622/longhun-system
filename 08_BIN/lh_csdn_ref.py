@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-07-12-CSDN-REF-TOOL-v1.0
+#龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-CSDN-REF-TOOL-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
@@ -16,7 +16,7 @@
   python3 bin/lh_csdn_ref.py url <title>     — 生成CSDN文章URL引用
   python3 bin/lh_csdn_ref.py status          — 状态概览
 
-DNA: #龍芯⚡️2026-07-12-CSDN-REF-TOOL-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-CSDN-REF-TOOL-v1.0
 """
 
 import json

@@ -3,7 +3,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 🐉 龍魂·行為密碼學實驗運行器 v2.0
-DNA: #龍芯⚡️丙午·甲申·丁酉·艮卦-EXPERIMENT-RUNNER-V2.0-UID9622
+DNA: #龍芯⚡️丙午·甲申·丁酉·丙午·䷳艮-EXPERIMENT-RUNNER-V2.0-UID9622
 License: MulanPSL v2
 
 五級攻擊模擬 → 七因子保留率測試 → 自動生成實驗報告
@@ -95,7 +95,7 @@ CORPUS_TYPES = {
         "name": "工程/代碼",
         "icon": "⚙️",
         "templates": [
-            "# 龍魂·七因子引擎\nDNA: #龍芯⚡️丙午·甲申·丁酉·艮卦\n引擎採用SM3國密哈希進行內容簽名，所有代碼路徑經過P05審計。API接口遵循RESTful規範。",
+            "# 龍魂·七因子引擎\nDNA: #龍芯⚡️丙午·甲申·丁酉·丙午·䷳艮\n引擎採用SM3國密哈希進行內容簽名，所有代碼路徑經過P05審計。API接口遵循RESTful規範。",
             "def extract_fingerprint(text: str) -> Dict:\n    \"\"\"提取七因子行為指紋\"\"\"\n    engine = SevenFactorEngine()\n    return engine.extract(text).to_dict()\n\n# 所有輸出必須攜帶DNA追溯碼",
         ],
     },

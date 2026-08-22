@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·乙未·乙丑·噬嗑-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷔噬嗑-FIX_DNA-v1.0
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 """
 🧮 龍魂数学公式母册完整版 v2.0
@@ -16,7 +17,7 @@
   ✅ 生成独立清单 formula_catalog_manifest_v2.md，不覆盖 v1
   ✅ 自检覆盖编号连续性、可验证比例、回填引用
 
-DNA：    #龍芯⚡️2026-06-29-龍魂数学公式母册-v2.0-CNSH-25-FORMULAS
+DNA：    #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂数学公式母册-v2.0-CNSH-25-FORMULAS
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG:     A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -97,7 +98,7 @@ A_FORMULAS = {
         alpha_belongs="α_τ",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="记忆衰减、规则时效、L0-L4 分层",
         backfill_rule="引用 F01·α_τ 只用于时间项",
         verifiable=True,
@@ -121,7 +122,7 @@ def temporal_decay(T: float, alpha_tau: float) -> float:
         alpha_belongs="α_τ",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="行为评估、收益台账、内容归档",
         backfill_rule="引用 F02·不另写 C 公式",
         verifiable=True,
@@ -144,7 +145,7 @@ def content_contribution(R: float, I: float, T: float, alpha_tau: float) -> floa
         alpha_belongs="α_a",
         audit="🟡",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="人格路由、数字人调度",
         backfill_rule="引用 F03·α_a 平方和必须=1",
         verifiable=True,
@@ -167,7 +168,7 @@ def alpha_amp_ok(amps):
         alpha_belongs="α_a",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="人格概率、场景匹配",
         backfill_rule="引用 F04·概率从 α_a 导出",
         verifiable=True,
@@ -190,7 +191,7 @@ def persona_prob(amps):
         alpha_belongs="α_w",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="综合评分、路由选择",
         backfill_rule="引用 F05·α_w 凸组合和=1",
         verifiable=True,
@@ -213,7 +214,7 @@ def weighted_utility(values, weights):
         alpha_belongs="无",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="决策链输入、编号压缩、五行映射",
         backfill_rule="引用 F06·不另写 dr",
         verifiable=True,
@@ -237,7 +238,7 @@ def digital_root(n: int) -> int:
         alpha_belongs="无",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="五行分析、卦象推演",
         backfill_rule="引用 F07·固定五行表",
         verifiable=True,
@@ -261,7 +262,7 @@ def five_element(n):
         alpha_belongs="无",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="语义分析、五行对冲、相似度",
         backfill_rule="引用 F08·Σ=1·缺省中宫",
         verifiable=True,
@@ -289,7 +290,7 @@ def wuxing_vector(text: str) -> list[Any]:
         alpha_belongs="无",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="去重、合并、水军检测",
         backfill_rule="引用 F09·阈值 0.9",
         verifiable=True,
@@ -316,7 +317,7 @@ def cosine(a, b):
         alpha_belongs="无",
         audit="🟡",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="三色审计、风险决策",
         backfill_rule="引用 F10·明确一票变红场景",
         verifiable=True,
@@ -342,7 +343,7 @@ def risk_tri_color(impact, uncertainty, boundary):
         alpha_belongs="无",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="任务收口、窗口管理",
         backfill_rule="引用 F11·五分项求和",
         verifiable=True,
@@ -365,7 +366,7 @@ def conservation_score(主控, 任务, 边界, 留痕, 验收):
         alpha_belongs="无",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="路由选择、路径择优",
         backfill_rule="引用 F12·H_人性必须带下标",
         verifiable=True,
@@ -388,7 +389,7 @@ def decision_path_score(可执行, 安全, 主线, 验证, 风险, H_人性):
         alpha_belongs="无",
         audit="🟡",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="冲动修正、短视拦截",
         backfill_rule="引用 F13·H 必须写作 H_人性",
         verifiable=True,
@@ -411,7 +412,7 @@ def human_bias(欲望, 损失规避, 即时偏好):
         alpha_belongs="无",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="所有决策链、执行收口",
         backfill_rule="引用 F14·不跳过任何环节",
         verifiable=True,
@@ -433,7 +434,7 @@ def human_bias(欲望, 损失规避, 即时偏好):
         alpha_belongs="无",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="人格调度、收益分配",
         backfill_rule="引用 F15·区分 PC 与 C",
         verifiable=True,
@@ -461,7 +462,7 @@ B_FORMULAS = {
         alpha_belongs="无",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="人格评估、调度优先级",
         backfill_rule="引用 F16·分段函数",
         verifiable=True,
@@ -488,7 +489,7 @@ def seven_dim_bonus(covered_dims: int) -> int:
         alpha_belongs="无",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="调度、提醒、召回",
         backfill_rule="引用 F17·天数区间固定",
         verifiable=True,
@@ -514,7 +515,7 @@ def activity_color(days: int) -> str:
         alpha_belongs="α_w",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="决策链、三才熔断",
         backfill_rule="引用 F18·天轴熔断线 0.34",
         verifiable=True,
@@ -540,7 +541,7 @@ def sovereignty_index(tian, di, ren):
         alpha_belongs="α_w",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="内容血统、身份验证",
         backfill_rule="引用 F19·几何加权",
         verifiable=True,
@@ -566,7 +567,7 @@ def behavioral_confidence(factors, weights):
         alpha_belongs="无",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="通心译、翻译校验",
         backfill_rule="引用 F20·三乘积模型",
         verifiable=True,
@@ -589,7 +590,7 @@ def ete_confidence(cos_sim, cultural_root, emotion_keep):
         alpha_belongs="α_w",
         audit="🟡",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="价值合并、冲突判定",
         backfill_rule="引用 F21·四系数主导",
         verifiable=True,
@@ -613,7 +614,7 @@ def generalized_addition(A, B, alpha, beta, gamma, delta):
         alpha_belongs="α_w / α_τ",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="收益台账、创作者经济",
         backfill_rule="引用 F22·主权信封",
         verifiable=True,
@@ -636,7 +637,7 @@ def royalty(valid_citations, Q, owner_share, auth_coef, L5):
         alpha_belongs="无",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="所有签署、审计、操作",
         backfill_rule="引用 F23·canonical JSON 载荷",
         verifiable=True,
@@ -661,7 +662,7 @@ def dna_hash_child(parent_hash, payload):
         alpha_belongs="α_τ",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="记忆分层、规则时效校准",
         backfill_rule="引用 F24·半衰期反推",
         verifiable=True,
@@ -687,7 +688,7 @@ def half_life(alpha):
         alpha_belongs="α_w",
         audit="🟢",
         canon_page="🧮 数学公式算法核心·CNSH计算公式升级v2.0.md",
-        canon_dna="#龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
+        canon_dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-UPGRADE-v2.0-10C84C10",
         backfill_target="五行分析、系统健康",
         backfill_rule="引用 F25·H 写作 H_五行",
         verifiable=True,
@@ -715,7 +716,7 @@ C_FORMULAS = {
         alpha_belongs="F21 广义加法",
         audit="🔖",
         canon_page="🧮 通心译·TONGXIN_TRANSLATION_MODERN_PHYSICS_v1.0_COMPLETE",
-        canon_dna="#龍芯⚡️2026-06-08-F31-通心译-v1.0",
+        canon_dna="#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-F31-通心译-v1.0",
         backfill_target="翻译系统·文化主权·国际化",
         backfill_rule="引用 F31·遵守六维翻译规则",
         verifiable=False,
@@ -793,7 +794,7 @@ class FormulaCatalog:
                 manifest += f"  - α 归属：{f.alpha_belongs}\n"
                 manifest += f"  - 可验：{'✅' if f.verifiable else '🔖'}\n\n"
         manifest += "---\n\n"
-        manifest += f"**DNA：** `#龍芯⚡️2026-06-29-龍魂数学公式母册-v2.0-CNSH-25-FORMULAS`\n"
+        manifest += f"**DNA：** `#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂数学公式母册-v2.0-CNSH-25-FORMULAS`\n"
         return manifest
 
 
@@ -840,7 +841,7 @@ def selftest() -> bool:
 
     print("=" * 80)
     print("🟢 龍魂公式母册 v2.0 完整性验证通过")
-    print("   DNA：#龍芯⚡️2026-06-29-龍魂数学公式母册-v2.0-CNSH-25-FORMULAS")
+    print("   DNA：#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂数学公式母册-v2.0-CNSH-25-FORMULAS")
     print("   回填规则：引用 FXX·不重写公式·保留签署链")
     print("=" * 80)
     return True

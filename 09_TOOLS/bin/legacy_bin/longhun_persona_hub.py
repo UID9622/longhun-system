@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 
 # ╔═══════════════════════════════════════════════════════════════════════════╗
@@ -42,7 +43,7 @@ from typing import Dict, List, Optional, Tuple, Any
 class 龍魂人格中枢:
     """本地人格路由中枢"""
 
-    DNA = "#龍芯⚡️2026-06-24-LONGHUN-PERSONA-HUB-v1.0"
+    DNA = "#龍芯⚡️丙午·甲午·己巳·庚午·䷃蒙-LONGHUN-PERSONA-HUB-v1.0"
 
     def __init__(self, base_dir: Optional[str] = None):
         self.base_dir = Path(base_dir) if base_dir else Path(__file__).parent

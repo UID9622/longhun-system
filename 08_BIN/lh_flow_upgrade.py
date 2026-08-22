@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 流场融合升级补丁 v1.1
-DNA: #龍芯⚡️丙午·乙巳·丙戌·亥时·☴巽-FLOW-UPGRADE-v1.1-UID9622
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·乙巳·丙戌·亥时·䷸巽-FLOW-UPGRADE-v1.1-UID9622
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -34,7 +35,7 @@ from pathlib import Path
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SEAL = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 GPG = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
-DNA = "#龍芯⚡️丙午·乙巳·丙戌·亥时·☴巽-FLOW-UPGRADE-v1.1-UID9622"
+DNA = "#龍芯⚡️丙午·乙巳·丙戌·亥时·䷸巽-FLOW-UPGRADE-v1.1-UID9622"
 
 HOME = Path.home()
 PROJECT_ROOT = HOME / "longhun-system"

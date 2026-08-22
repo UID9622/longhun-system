@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · systemd 服务 + Nginx 部署配置脚本
 # 用途: 在 openEuler 上部署 systemd 守护服务 + Nginx 反向代理
-# DNA: #龍芯⚡️2026-07-06-KUNPENG-SYSTEMD-SETUP-v1.0
+# DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-KUNPENG-SYSTEMD-SETUP-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -euo pipefail
@@ -173,7 +173,7 @@ generate_nginx_config() {
     local domain="${KUNPENG_DOMAIN:-_}"
     cat << NGINX_EOF
 # 🐉 龍魂 · Nginx 反向代理配置
-# DNA: #龍芯⚡️2026-07-06-KUNPENG-NGINX-v1.0
+# DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-KUNPENG-NGINX-v1.0
 
 upstream longhun_dashboard {
     server 127.0.0.1:8777;
@@ -369,7 +369,7 @@ main() {
             echo "  logs [svc] 查看服务日志"
             echo "  help      显示帮助"
             echo ""
-            echo "DNA: #龍芯⚡️2026-07-06-KUNPENG-SYSTEMD-SETUP-v1.0"
+            echo "DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-KUNPENG-SYSTEMD-SETUP-v1.0"
             ;;
         *)
             echo "请指定命令: systemd / nginx / all / start / status / logs"

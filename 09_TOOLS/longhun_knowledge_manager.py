@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂知识库管理器 · Knowledge Manager v1.1
@@ -15,7 +16,7 @@
 6. 注册到 longhun-system/agents/manifest.json
 7. 生成提炼报告 + 龍盾审计日志
 
-DNA: #龍芯⚡️2026-06-26-LONGHUN-KNOWLEDGE-MANAGER-v1.1
+DNA: #龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-KNOWLEDGE-MANAGER-v1.1
 """
 
 from __future__ import annotations
@@ -43,7 +44,7 @@ DRAGON_SHIELD_AUDIT_PATH = HOME / "dragon_soul" / "audit" / "harvester_audit.jso
 
 CST = timezone(timedelta(hours=8))
 
-DNA_SIGNATURE = "#龍芯⚡️2026-06-26-LONGHUN-KNOWLEDGE-MANAGER-v1.1"
+DNA_SIGNATURE = "#龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-LONGHUN-KNOWLEDGE-MANAGER-v1.1"
 
 # 明显不是技能包的目录
 IGNORE_DIRS = {"__pycache__", "checkpoints", "logs", "CNSH", "longhun_mvp_reviewed",

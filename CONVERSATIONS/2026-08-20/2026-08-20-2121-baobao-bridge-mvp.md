@@ -3,7 +3,7 @@ session_id: 2026-08-20-2121-baobao-bridge-mvp
 agent: baobao
 persona: P02·宝宝
 sovereign_present: true
-dna: "#龍芯⚡️2026-08-20-21:21-FOUR-PARTY-DIALOGUE-BRIDGE-MVP-v1.0-UID9622"
+dna: "#龍芯⚡️丙午·丙申·丙寅·己亥·䷶丰-FOUR-PARTY-DIALOGUE-BRIDGE-MVP-v1.0-UID9622"
 tricolor: 🟡
 notion_refs: [四方对话桥接 MVP 规格 v1.0]
 ---
@@ -129,7 +129,7 @@ P4 是这套架构的天花板。完全自动的双向互通必然要求某一�
 ```bash
 # 任务：四方对话桥接 MVP · 建立对话层落地物
 # 授权：UID9622 2026-08-20 21:21「桥接互通对话内容，还差什么才能完成」
-# DNA: #龍芯⚡️2026-08-20-21:21-FOUR-PARTY-DIALOGUE-BRIDGE-MVP-v1.0
+# DNA: #龍芯⚡️丙午·丙申·丙寅·己亥·䷶丰-FOUR-PARTY-DIALOGUE-BRIDGE-MVP-v1.0
 # 铁律：新建文件必用 heredoc（避 #19 零字节 bug）；建完必 wc -c 验非零
 
 set -euo pipefail
@@ -177,7 +177,7 @@ fi
 git add -A
 git commit -m "feat(bridge): 四方对话桥接 MVP · 建立对话层落地物
 
-DNA: #龍芯⚡️2026-08-20-21:21-FOUR-PARTY-DIALOGUE-BRIDGE-MVP-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙寅·己亥·䷶丰-FOUR-PARTY-DIALOGUE-BRIDGE-MVP-v1.0
 CONFIRM: #CONFIRM🌑9622-ONLY-ONCE🧬LK9X-772Z"
 ```
 

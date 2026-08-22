@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂学习管道 v1.0 · 六库自动化学习系统
 Inbox → DNA拆解 → 任务派生 → 趋势绑定 → 项目实战 → 数字大军
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·己丑时·蒙-LEARNING-PIPELINE-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·己丑时·䷃蒙-LEARNING-PIPELINE-v1.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 

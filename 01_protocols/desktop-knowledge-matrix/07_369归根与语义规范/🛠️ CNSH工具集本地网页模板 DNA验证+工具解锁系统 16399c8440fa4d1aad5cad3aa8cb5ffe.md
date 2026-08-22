@@ -1,4 +1,6 @@
-<!--#龍芯⚡️丙午·丙申·庚申·亥时-COMPILER-CNSH_-DNA_-_-16399C8440FA4D1AAD5CAD3AA8CB5FFE_80A6-v1.0 -->
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+<!--#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-COMPILER-CNSH_-DNA_-_-16399C8440FA4D1AAD5CAD3AA8CB5FFE_80A6-v1.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # 🛠️ CNSH工具集本地网页模板 | DNA验证+工具解锁系统
@@ -436,7 +438,7 @@
 
 # 示例：
 # 输入：张三
-# 输出：#龍芯⚡️丙午·丙申·庚申·亥时-USER-A7F3B2E1-v1.0
+# 输出：#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-USER-A7F3B2E1-v1.0
 ```
 
 ### **规则3：工具使用DNA验证**
@@ -719,7 +721,7 @@ function syncToWPS(content, userDNA) {
 
 ---
 
-**DNA追溯码：** #龍芯⚡️丙午·丙申·庚申·亥时-CNSH工具集模板系统-v1.0  
+**DNA追溯码：** #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH工具集模板系统-v1.0  
 
 **GPG签名：** A2D0...6D5F (Lucky·UID9622)  
 

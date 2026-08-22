@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 import os as _os
 import sys as _sys
@@ -12,7 +13,7 @@ if _module_dir not in _sys.path:
 CNSH 国密工具模块 v1.0
 纯 Python 实现 SM3 哈希与 SM4 分组加密，不依赖 gmssl。
 兼容回退：若仅需对称加密可用 AES-256-GCM，但日志会提示降级。
-DNA: #龍芯⚡️2026-06-29-CNSH-GUOMI-UTILS-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-GUOMI-UTILS-UID9622
 """
 
 import hmac

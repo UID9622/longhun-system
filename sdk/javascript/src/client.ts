@@ -1,6 +1,6 @@
 /**
  * 🐉 龍魂·三色审计 JS SDK - 客户端
- * DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-JS-SDK-CLIENT-V1.0-UID9622
+ * DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-JS-SDK-CLIENT-V1.0-UID9622
  * License: MulanPSL v2
  */
 

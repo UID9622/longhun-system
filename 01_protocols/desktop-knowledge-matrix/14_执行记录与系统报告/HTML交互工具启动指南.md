@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂系统 · HTML交互工具启动指南
 
 ---
@@ -44,7 +46,7 @@
 - **文件路径**: `/mnt/agents/.user/skills/longhun-system/assets/skill-1-algorithmic-art.html`
 - **文件大小**: 约 420 行 HTML/CSS/JavaScript
 - **外部依赖**: p5.js 1.4.0 (CDN: `https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js`)
-- **DNA标识**: `#龍芯⚡️丙午·丙申·庚申·亥时-ALGORITHMIC-ART-FILE1-FILE1-v1.0-1`
+- **DNA标识**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ALGORITHMIC-ART-FILE1-FILE1-v1.0-1`
 
 ### 启动步骤
 
@@ -95,7 +97,7 @@
 - **文件路径**: `/mnt/agents/.user/skills/longhun-system/assets/skill-2-brand-guidelines.html`
 - **文件大小**: 约 350 行 HTML/CSS
 - **外部依赖**: 无（纯HTML/CSS，零依赖）
-- **DNA标识**: `#龍芯⚡️丙午·丙申·庚申·亥时-BRAND-GUIDELINES-v1.0`
+- **DNA标识**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-BRAND-GUIDELINES-v1.0`
 
 ### 启动步骤
 
@@ -261,7 +263,7 @@
 - **文件路径**: `/mnt/agents/.user/skills/longhun-system/assets/skill-5-internal-comms.html`
 - **文件大小**: 约 380 行 HTML/CSS/JavaScript
 - **外部依赖**: 无（纯HTML/CSS/JavaScript，零依赖）
-- **DNA标识**: `#龍芯⚡️丙午·丙申·庚申·亥时-INTERNAL-COMMS-v1.0`
+- **DNA标识**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-INTERNAL-COMMS-v1.0`
 
 ### 启动步骤
 

@@ -8,7 +8,7 @@
 交互式引导用户完成一次数字排毒。
 含：离线时间表生成、引导式呼吸训练、替代活动建议。
 
-DNA: #龍芯⚡️丙午·乙未·丁酉·MENTAL-IMMUNE-DIGITAL-DETOX-v1.0-d6e7f8a9
+DNA: #龍芯⚡️丙午·乙未·丁酉·丙午·䷨损-MENTAL-IMMUNE-DIGITAL-DETOX-v1.0-d6e7f8a9
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 """

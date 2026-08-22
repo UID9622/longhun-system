@@ -1,11 +1,11 @@
-##龍芯⚡️2026-06-21-CNSH-CNSH-HIGHLIGHTER-v1.0
+##龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-CNSH-CNSH-HIGHLIGHTER-v1.0
 # 君子协议: 本文件受龍魂DNA追溯保护
 
 /**
  * CNSH 语法高亮引擎
  * Chinese Natural Syntax Hybrid · 中文自然语法
  *
- * DNA追溯: #龍芯⚡️20260417-SKILL-CNSHHILITE
+ * DNA追溯: #龍芯⚡️丙午·壬辰·辛酉·甲午·䷨损-SKILL-CNSHHILITE
  *
  * 三才架构:
  *   天层 (输入) -- 关键字捕获

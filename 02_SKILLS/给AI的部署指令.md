@@ -1,7 +1,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 <!--
-  DNA: #龍芯⚡️2026-07-21-迁移-给AI的部署指令-v1.0
+  DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-迁移-给AI的部署指令-v1.0
   创建者: 诸葛鑫（UID9622）
   协议: CC BY-NC-SA 4.0
   来源: 龍魂待整理/05-AI人格-Agent/龍魂API/给AI的部署指令.md
@@ -12,7 +12,7 @@
 
 # 🤖 给AI的部署指令
 
-**DNA追溯码**：#龍芯⚡️2026-02-21-AI部署指令-v1.0  
+**DNA追溯码**：#龍芯⚡️丙午·庚寅·丙寅·甲午·䷕贲-AI部署指令-v1.0  
 **确认码**：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z  
 **用途**：给DeepSeek或其他AI看的，帮老大部署龍魂API系统
 
@@ -123,7 +123,7 @@ curl http://localhost:5000/api/health
 
 # 测试2：查询DNA（需要认证）
 curl -H "X-User-ID: UID9622" \
-     "http://localhost:5000/api/query/dna?code=#龍芯⚡️2026-02-21-测试-UID9622"
+     "http://localhost:5000/api/query/dna?code=#龍芯⚡️丙午·庚寅·丙寅·甲午·䷕贲-测试-UID9622"
 
 # 测试3：检查查询（测试红线）
 curl -X POST \
@@ -257,7 +257,7 @@ sudo systemctl status longhun-api
 - 建议开启HTTPS
 - 建议配置防火墙
 
-DNA追溯码：#龍芯⚡️2026-02-21-API部署完成-UID9622
+DNA追溯码：#龍芯⚡️丙午·庚寅·丙寅·甲午·䷕贲-API部署完成-UID9622
 ```
 
 ---
@@ -328,7 +328,7 @@ DNA追溯码：#龍芯⚡️2026-02-21-API部署完成-UID9622
 
 ---
 
-**DNA追溯码**：#龍芯⚡️2026-02-21-AI部署指令-v1.0  
+**DNA追溯码**：#龍芯⚡️丙午·庚寅·丙寅·甲午·䷕贲-AI部署指令-v1.0  
 **确认码**：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 **AI，加油！帮老大把系统搭起来！** 🤖💪

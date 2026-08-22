@@ -1,9 +1,11 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🐉 CNSH Agent · 人格路由
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-CNSH-AGENTS-UID9622
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-AGENTS-UID9622
 """
 
 import re

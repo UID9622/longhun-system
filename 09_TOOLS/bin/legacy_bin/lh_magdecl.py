@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂 · 磁偏角查询模块 v1.0
 功能：根据经纬度、年份查询磁偏角（真北修正）。
 策略：优先本地 lookup 表 → 可选 IGRF 模型/NOAA API。
-DNA: #龍芯⚡️2026-07-19-MAGDECL-LOOKUP-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-MAGDECL-LOOKUP-v1.0
 """
 
 import json

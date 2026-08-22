@@ -2,7 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 # 由 CNSH 语法引擎自动生成
-# DNA: #龍芯⚡️2026-06-29-CNSH-GRAMMAR-ENGINE-v1-UID9622
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-GRAMMAR-ENGINE-v1-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 # 未转译节点 import

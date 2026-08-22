@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 CNSH 全局常量模块
-DNA: #龍芯⚡️20260802064448-CNSH-CONST-UID9622
+DNA: #龍芯⚡️丙午·乙未·戊申·乙卯·䷡大壮-CNSH-CONST-UID9622
 """
 
 # 文化核心

@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂·语义安全闸规则本地化工具 v1.1
-DNA: #龍芯⚡️丙午·乙未·庚戌·丙子·☰乾-SEMANTIC-GUARD-LOCALIZE-v1.1-c7d2e8f0
+DNA: #龍芯⚡️丙午·乙未·庚戌·丙子·䷀乾-SEMANTIC-GUARD-LOCALIZE-v1.1-c7d2e8f0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

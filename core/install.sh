@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 🐉 龍魂低算力内核 · 一键安装脚本
 # longhun-core v1.0.0
-# DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-INSTALL-UID9622
+# DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-INSTALL-UID9622
 # License: MulanPSL v2
 
 set -e
@@ -197,5 +197,5 @@ else
 fi
 echo -e "${BOLD}══════════════════════════════════════════════════${NC}"
 echo ""
-echo -e "🐉 #龍芯⚡️丙午·丙申·丁巳·恒卦-LOW-POWER-BENCH-UID9622"
+echo -e "🐉 #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-LOW-POWER-BENCH-UID9622"
 echo ""

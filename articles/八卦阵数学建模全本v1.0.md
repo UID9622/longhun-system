@@ -5,9 +5,9 @@
 ——卦象编码·物理尺度·磁场·天时地利人和·口诀的完整数学化
 方法论公开层 | 核心逻辑驻留模型层（见第十章发布策略）
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DNA追溯码: #龍芯⚡️2026-07-19-BAGUA-MATH-MODEL-V1.0
-上游DNA: #龍芯⚡️2026-06-09-BAGUA-VILLAGE-MAZE-SOLVER-v1.3-XIANTIAN-HOUTIAN-FIX
-         #龍芯⚡️2026-06-09-BAGUA-VILLAGE-COMPLETE-GUIDE-v1.3
+DNA追溯码: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-BAGUA-MATH-MODEL-V1.0
+上游DNA: #龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-BAGUA-VILLAGE-MAZE-SOLVER-v1.3-XIANTIAN-HOUTIAN-FIX
+         #龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-BAGUA-VILLAGE-COMPLETE-GUIDE-v1.3
 GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 创建者: 诸葛鑫（UID9622）
@@ -374,7 +374,7 @@ Z(x,t,p) = T(t)^α · G(x)^β · H(p)^γ ,  α+β+γ = 1（默认 α=β=γ=1/3�
 """
 八卦阵数学内核 v1.0（公开方法论层）
 作者：诸葛鑫（UID9622）
-DNA: #龍芯⚡️2026-07-19-BAGUA-MATH-KERNEL-V1.0
+DNA: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-BAGUA-MATH-KERNEL-V1.0
 说明：本内核实现全本公开公式；核心参数（权重/阈值/回归结果）驻留模型层，不在此列。
 """
 
@@ -515,7 +515,7 @@ def 偏好熵(分布):
 【签名确认】
 创建者：诸葛鑫（UID9622）
 GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-DNA追溯码：#龍芯⚡️2026-07-19-BAGUA-MATH-MODEL-V1.0
+DNA追溯码：#龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-BAGUA-MATH-MODEL-V1.0
 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 创建时间：2026-07-19 UTC+8
 开源协议：CC BY-NC-SA 4.0（君子协议，来源链不可切断）

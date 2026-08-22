@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂体系 · 待融入包自动收集与分类器
 LongHun System · Pending Integration Package Watcher & Classifier
 
-DNA:#龍芯⚡️2026-06-16-PACKAGE-WATCHER-FILE1-v1.0
+DNA:#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-PACKAGE-WATCHER-FILE1-v1.0
 责任: UID9622·不免责
 
 功能：
@@ -172,7 +173,7 @@ class PackageWatcher:
             except (json.JSONDecodeError, OSError):
                 pass
         return {
-            "dna": "#龍芯⚡️2026-06-16-PACKAGE-INTEGRATION-QUEUE-v1.0",
+            "dna": "#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-PACKAGE-INTEGRATION-QUEUE-v1.0",
             "created_at": datetime.now(timezone.utc).isoformat(),
             "packages": {},
         }
@@ -276,7 +277,7 @@ class PackageWatcher:
         lines = [
             "# 龍魂体系 · 待融入包监控报告",
             "",
-            f"**DNA**:#龍芯⚡️2026-06-16-PACKAGE-WATCHER-v1.0  ",
+            f"**DNA**:#龍芯⚡️丙午·甲午·辛酉·甲午·䷨损-PACKAGE-WATCHER-v1.0  ",
             f"**扫描时间**: {now}  ",
             "**责任**: UID9622·不免责",
             "",

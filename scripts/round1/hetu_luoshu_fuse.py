@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 河图洛书熔断器
-DNA: #龍芯⚡️2026-07-05-ROUND1-HETU-LUOSHU-FUSE-v1.0
+DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-ROUND1-HETU-LUOSHU-FUSE-v1.0
 
 规则（本轮迭代简化版）：
 - 对决策链数值（状态码 + 人格码 + 审计维度数 + 内容哈希数字根）求和，再求 dr

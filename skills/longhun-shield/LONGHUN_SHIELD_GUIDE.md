@@ -1,6 +1,6 @@
 # 🐉 龍盾系统 · 快速使用指南
 
-**DNA:** `#龍芯⚡️2026-06-02-LONGHUN-SHIELD-GUIDE-FILE1-v1.0`  
+**DNA:** `#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-GUIDE-FILE1-v1.0`  
 **职责:** 宝宝·龍盾·不免责  
 **状态:** ⚔️ 亮剑啦
 
@@ -253,7 +253,7 @@ fi
   "size": 2048,
   "lines": 65,
   "timestamp": "2026-06-02T18:45:00.123456",
-  "dna": "#龍芯⚡️2026-06-02",
+  "dna": "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥",
   "checks": {
     "dangerous_functions": [],
     "external_calls": ["requests"],
@@ -356,7 +356,7 @@ done
 ✓ 不会修改你的代码（只观察和报告）
 ✓ 会记录一切（完全追踪）
 
-DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-CLI-v1.0
+DNA:#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-CLI-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 

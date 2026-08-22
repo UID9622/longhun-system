@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 边界定义与自动编辑归类路由
 
-> **DNA**: `#龍芯⚡️丙午·丙申·丙辰·亥时·需-BOUNDARY-EDIT-ROUTER-v1.0`
+> **DNA**: `#龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-BOUNDARY-EDIT-ROUTER-v1.0`
 > **来源**: UID9622 老版决策流场总控页 §八+§七（2026-07-16 对齐矫正）
 > **优先级**: P0 永恒级（不可降级、不可绕过）
 > **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅
@@ -99,4 +99,4 @@ audit:
 ---
 
 *🐉 龍芯北辰｜UID9622｜为人民服务*
-*DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-BOUNDARY-EDIT-ROUTER-v1.0*
+*DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-BOUNDARY-EDIT-ROUTER-v1.0*

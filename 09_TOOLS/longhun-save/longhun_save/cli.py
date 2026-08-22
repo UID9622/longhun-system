@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️2026-08-06-SAVE-CLI-v1.0
+# DNA: #龍芯⚡️丙午·乙未·壬子·丙午·䷙大畜-SAVE-CLI-v1.0
 # License: MulanPSL v2
 """longhun-save CLI 工具"""
 
@@ -22,7 +22,7 @@ def main():
 示例:
   longhun-save start --port 8088
   longhun-save start --local http://localhost:11434/v1 qwen2.5:7b
-  longhun-save start --cloud https://api.deepseek.com/v1 deepseek-chat --key sk-xxx
+  longhun-save start --cloud https://api.deepseek.com/v1 deepseek-v4-flash --key sk-xxx
   longhun-save stat --port 8088
   longhun-save test
         """
@@ -53,7 +53,6 @@ def main():
     args = p.parse_args()
 
     if args.cmd == "test":
-        import subprocess, os
         print("🧪 运行自检...")
         tests = ["longhun_save.cache_engine", "longhun_save.stats", "longhun_save.proxy"]
         for t in tests:

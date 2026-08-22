@@ -1,9 +1,10 @@
-<!--#龍芯⚡️丙午·丙申·庚申·亥时-DOC-PERSONA_ROUTER_DELIVERY_2026-06-03-v1.0 -->
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+<!--#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DOC-PERSONA_ROUTER_DELIVERY_2026-06-03-v1.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # PersonaRouter·人格路由系统·完整交付报告
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-PERSONA-ROUTER-COMPLETE-DELIVERY`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PERSONA-ROUTER-COMPLETE-DELIVERY`
 **时间**: 2026-06-03 23:45 CST
 **责任**: UID9622·不免责
 **理论指导**: 曾仕强老师 · Steve Jobs · Open Source
@@ -102,7 +103,7 @@ f4_data = {
    虚伪词汇检测: 6处/6处
 
 ✅ TEST 2: 人格路由决策 - PASS
-   DNA生成: #龍芯⚡️20260603-PERSONA-ROUTER-[HASH8]
+   DNA生成: #龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-PERSONA-ROUTER-[HASH8]
 
 ✅ TEST 3: F4因子集成 - PASS
    无虚伪词汇时F4得分: 1.00
@@ -468,7 +469,7 @@ PersonaRouter 是龍魂系统中**人格维度的量化落地**。它不是简�
 
 ---
 
-**DNA**: #龍芯⚡️丙午·丙申·庚申·亥时-PERSONA-ROUTER-COMPLETE-DELIVERY
+**DNA**: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PERSONA-ROUTER-COMPLETE-DELIVERY
 **责任**: UID9622·不免责·永久有效
 **献礼**: 曾仕强老师 · Steve Jobs · Open Source · 所有相信自由的人
 

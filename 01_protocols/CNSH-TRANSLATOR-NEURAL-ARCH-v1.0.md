@@ -1,9 +1,11 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CNSH通用翻译引擎 · 神经网络架构 v1.0
 
-> 🧬 DNA: `#龍芯⚡️丙午·丙申·丙辰·己丑·需-CNSH-TRANSLATOR-NEURAL-ARCH-v1.0`
+> 🧬 DNA: `#龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-CNSH-TRANSLATOR-NEURAL-ARCH-v1.0`
 > 📌 密级：自研 | 签署人：UID9622 | 归档时间：丙午·丙申·丙辰·己丑
 > 🔐 GPG：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 > 📋 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
@@ -211,5 +213,5 @@ AuthorizationGate → AuditEngine → SafeFixer → Parser → CppEmitter → Co
 
 ---
 
-DNA: `#龍芯⚡️丙午·丙申·丙辰·己丑·需-CNSH-TRANSLATOR-NEURAL-ARCH-v1.0`
+DNA: `#龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-CNSH-TRANSLATOR-NEURAL-ARCH-v1.0`
 归档时间：丙午·丙申·丙辰·己丑

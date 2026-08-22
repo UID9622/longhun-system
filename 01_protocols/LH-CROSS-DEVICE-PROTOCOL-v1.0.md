@@ -1,6 +1,6 @@
 # 🐉 龍魂 · 跨设备互通协议 v1.0
 
-**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-CROSS-PROTOCOL-UID9622`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CROSS-PROTOCOL-UID9622`
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 **三色:** 🟢 通过
@@ -239,7 +239,7 @@ data: [DONE]
 ## 九、最终签名
 
 ```
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-CROSS-PROTOCOL-UID9622
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CROSS-PROTOCOL-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 ```

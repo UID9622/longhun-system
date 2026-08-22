@@ -2,13 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-HARMS-HISTORIAN-BRIDGE-v1.0
+#龍芯⚡️丙午·乙未·丁酉·戌时·䷀乾-HARMS-HISTORIAN-BRIDGE-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂·五害曝光台 — 浏览器史官联动引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-HARMS-HISTORIAN-BRIDGE-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·䷀乾-HARMS-HISTORIAN-BRIDGE-v1.0
 
 职能: 当用户访问被五害曝光台标记的企业网站时，浏览器史官自动弹出风险提示。
 联动方式:
@@ -62,7 +62,7 @@ def generate_risk_database():
         "generated": datetime.now(timezone.utc).isoformat(),
         "total_risks": len(risk_entries),
         "risks": risk_entries,
-        "dna": "#龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-HARMS-HISTORIAN-BRIDGE-v1.0",
+        "dna": "#龍芯⚡️丙午·乙未·丁酉·戌时·䷀乾-HARMS-HISTORIAN-BRIDGE-v1.0",
     }
     
     _RISK_EXPORT_FILE.parent.mkdir(parents=True, exist_ok=True)

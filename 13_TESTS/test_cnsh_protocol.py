@@ -1,8 +1,9 @@
+# License: CC BY-NC-SA 4.0（核心思想层·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ═══════════════════════════════════════════════════════════════════
 # 龍魂系统 · CNSH 协议规范验证测试
-# DNA: #龍芯⚡️2026-07-06-TEST-CNSH-PROTOCOL-v1.0-E4A7B2C9
+# DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-TEST-CNSH-PROTOCOL-v1.0-E4A7B2C9
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 被测: CNSH-PROTOCOL.md 中的命名/语法/字符规范
 # ═══════════════════════════════════════════════════════════════════
@@ -77,9 +78,9 @@ class TestCNSHDNAFormat:
     def test_dna_pattern_matches_valid(self):
         """有效 DNA 格式应匹配正则"""
         valid = [
-            "#龍芯⚡️2026-07-06-GB-EVALUATION-REPORT-v1.0-9C2E7A1B",
-            "#龍芯⚡️2026-06-24-AGENTS-CREATE-v1.0-BFC4E69E",
-            "#龍芯⚡️2026-07-06-TESTS-INIT-v1.0-A8F3C1D6",
+            "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-GB-EVALUATION-REPORT-v1.0-9C2E7A1B",
+            "#龍芯⚡️丙午·甲午·己巳·庚午·䷃蒙-AGENTS-CREATE-v1.0-BFC4E69E",
+            "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-TESTS-INIT-v1.0-A8F3C1D6",
         ]
         for dna in valid:
             assert self.DNA_PATTERN.match(dna), f"应匹配: {dna}"
@@ -89,7 +90,7 @@ class TestCNSHDNAFormat:
         invalid = [
             "DNA_5_a3f8c1d9e2b7f4a6",  # 河图洛书格式(DNA后缀+hash组合不匹配)
             "#龍芯 2026-07-06-test-A8F3C1D6",  # 空格分隔
-            "#龍芯⚡️2026-07-06-test-A8F3C1D6",  # 简体「龍」
+            "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-test-A8F3C1D6",  # 简体「龍」
             "龍芯⚡️2026-07-06-test-A8F3C1D6",  # 缺少 #
         ]
         for dna in invalid:

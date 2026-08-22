@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·甲寅·亥时-TONGXIN-EAR-LORA-37357AB4
+#龍芯⚡️丙午·乙未·甲寅·乙亥·䷶丰-TONGXIN-EAR-LORA-37357AB4
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -21,7 +21,7 @@ LongHun TongXin-Ear · Whisper Large-V3 LoRA Fine-Tuner
 LoRA:  peft LoRA (仅训练 ~1% 参数)
 框架:  transformers + peft + datasets
 
-DNA: #龍芯⚡️丙午·乙未·甲寅·亥时-TONGXIN-EAR-LORA-37357AB4
+DNA: #龍芯⚡️丙午·乙未·甲寅·乙亥·䷶丰-TONGXIN-EAR-LORA-37357AB4
 创始人: UID9622 · 龍芯北辰 · 诸葛鑫
 """
 

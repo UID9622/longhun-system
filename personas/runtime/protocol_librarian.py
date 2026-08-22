@@ -1,8 +1,9 @@
+# License: CC BY-NC-SA 4.0（核心思想层·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 
-# DNA: #龍芯⚡️2026-06-25-LONGHUN-PROTOCOL-LIBRARIAN-v1.0
+# DNA: #龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-LONGHUN-PROTOCOL-LIBRARIAN-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
@@ -26,7 +27,7 @@ INDEX = LIBRARY / "00_CANONICAL_INDEX.md"
 
 
 class 协议图书馆员:
-    DNA = "#龍芯⚡️2026-06-25-LONGHUN-PROTOCOL-LIBRARIAN-v1.0"
+    DNA = "#龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-LONGHUN-PROTOCOL-LIBRARIAN-v1.0"
 
     # 关键词到协议文件的简单路由
     ROUTES = {

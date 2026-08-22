@@ -1,6 +1,6 @@
 /**
  * 龍魂 AI Chat Widget v2.0
- * DNA: #龍芯⚡️丙午·乙未·丁丑·☰乾-CHAT-WIDGET-V2.0-a3b7f0e2
+ * DNA: #龍芯⚡️丙午·乙未·丁丑·丙午·䷀乾-CHAT-WIDGET-V2.0-a3b7f0e2
  * 创建者: 诸葛鑫（UID9622）
  * 协议: CC BY-NC-SA 4.0
  * 

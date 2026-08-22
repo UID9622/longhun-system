@@ -4,7 +4,7 @@
 id: three_color_audit
 type: principle
 title: 三色审计 · 三次阈值
-dna: "#龍芯⚡️2026-04-22-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0"
+dna: "#龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0"
 owner: UID9622 · 诸葛鑫（Lucky）
 claim: 任何决策过三审：人心审（伦理红线）→ 天地审（时机资源）→ 民利审（百姓受益）。
 based_on:
@@ -43,4 +43,4 @@ created: 丙午·辛未·乙酉
 **为什么**
 排序不动点——人民>国家>个人；技术服务于人民是唯一天条，决策不能拍脑袋。
 
-> DNA: #龍芯⚡️2026-04-22-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0
+> DNA: #龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0

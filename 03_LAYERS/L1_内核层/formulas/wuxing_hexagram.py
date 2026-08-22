@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂系统·模块 E：易经卦象整合 v1.0
 ===============================================
 
@@ -11,7 +12,7 @@
 与 M04 yijing_engine.py 深度融合·提供决策的易学验证层
 
 签署：
-  DNA: #龍芯⚡️2026-06-08-模块E-易经卦象整合-v1.0
+  DNA: #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-模块E-易经卦象整合-v1.0
   CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
   SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 """
@@ -450,5 +451,5 @@ if __name__ == "__main__":
     print(f"  {result['DNA签署']}")
     
     print("\n" + "=" * 80)
-    print(f"DNA 追溯码：#龍芯⚡️2026-06-08-模块E-易经卦象整合-v1.0")
+    print(f"DNA 追溯码：#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-模块E-易经卦象整合-v1.0")
     print("=" * 80)

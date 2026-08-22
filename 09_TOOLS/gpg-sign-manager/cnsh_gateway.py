@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🌌 CNSH Gateway v2.0
 龍魂系统统一入口 · 升级版
 
-DNA追溯码:#龍芯⚡️2026-03-15-CNSH-GATEWAY-FILE1-v2.0
+DNA追溯码:#龍芯⚡️丙午·辛卯·戊子·戊午·䷙大畜-CNSH-GATEWAY-FILE1-v2.0
 确认码: "#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX"
 
 功能：

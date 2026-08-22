@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂·意念交流引擎 v3.0 — 知识融合完整版
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-INTENT-ENGINE-V3.0-KNOWLEDGE-FUSION-a3f7b2c1
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-INTENT-ENGINE-V3.0-KNOWLEDGE-FUSION-a3f7b2c1
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

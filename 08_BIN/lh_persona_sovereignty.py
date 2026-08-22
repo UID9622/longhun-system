@@ -2,14 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·丙辰·己丑·需-PERSONA-SOVEREIGNTY-GUARD-v1.0
+#龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-PERSONA-SOVEREIGNTY-GUARD-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
 lh_persona_sovereignty — 龍魂人格主权三禁守卫 v1.0
 禁一·禁Cosplay | 禁二·禁借壳 | 禁三·禁代言
 用法: python3 bin/lh_persona_sovereignty.py scan "<AI输出文本>"
-DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·需-PERSONA-SOVEREIGNTY-GUARD-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-PERSONA-SOVEREIGNTY-GUARD-v1.0
 """
 
 import argparse, json, re, sys
@@ -59,7 +59,7 @@ class PersonaSovereigntyReport:
     violations: List[PersonaViolation] = field(default_factory=list)
     total: int = 0
     verdict: str = ""
-    dna: str = "#龍芯⚡️丙午·丙申·丙辰·己丑·需-PERSONA-SOVEREIGNTY-v1.0"
+    dna: str = "#龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-PERSONA-SOVEREIGNTY-v1.0"
 
 # ============================================
 # 检测引擎

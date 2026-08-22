@@ -1,6 +1,6 @@
 /**
  * 龍魂操作台管理路由
- * DNA: #龍芯⚡️2026-07-11-LONGHUN-ADMIN-ROUTER-v1.0
+ * DNA: #龍芯⚡️丙午·乙未·丙戌·甲午·䷕贲-LONGHUN-ADMIN-ROUTER-v1.0
  */
 import { z } from "zod";
 import { eq, desc, and, like, sql } from "drizzle-orm";

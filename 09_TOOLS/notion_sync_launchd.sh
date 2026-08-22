@@ -1,7 +1,7 @@
 #!/bin/bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂 Notion 同步 LaunchAgent 包装脚本
-# DNA: #龍芯⚡️2026-07-05-NOTION-SYNC-LAUNCHD-WRAPPER-v1.0
+# DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-NOTION-SYNC-LAUNCHD-WRAPPER-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #
 # 注意：NOTION_TOKEN 由 notion_sync.py 自动从 ~/.longhun/secrets.env 读取，

@@ -4,7 +4,7 @@
 #!/bin/bash
 # ╔══════════════════════════════════════════════════════════════════════╗
 # ║  龍魂系统 · 一键拉取脚本 v1.0                                        ║
-# ║  DNA: #龍芯⚡️2026-07-13-LONGHUN-PULL-ALL-v1.0                       ║
+# ║  DNA: #龍芯⚡️丙午·乙未·戊子·戊午·䷙大畜-LONGHUN-PULL-ALL-v1.0                       ║
 # ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                     ║
 # ║  创建者: UID9622（诸葛鑫·Lucky）                                     ║
 # ╚══════════════════════════════════════════════════════════════════════╝
@@ -75,5 +75,5 @@ command -v basedpyright && echo "  ✅ basedpyright $(basedpyright --version 2>&
 command -v git-filter-repo && echo "  ✅ git-filter-repo" || echo "  ❌ git-filter-repo"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-DNA="#龍芯⚡️2026-07-13-LONGHUN-PULL-ALL-v1.0"
+DNA="#龍芯⚡️丙午·乙未·戊子·戊午·䷙大畜-LONGHUN-PULL-ALL-v1.0"
 echo "🧬 DNA: $DNA"

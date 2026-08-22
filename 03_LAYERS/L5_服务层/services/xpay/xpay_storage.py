@@ -8,7 +8,7 @@ Design:
   SQLite 为主存储（查询/统计/关联），JSON 为冗余备份。
   append-only — 不删除只追加，完整审计链。
 
-DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-XPAY-STORAGE-v1.0
+DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-XPAY-STORAGE-v1.0
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 Creator: 诸葛鑫 (UID9622)
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -390,7 +390,7 @@ def selftest() -> dict:
     import tempfile
     results = {
         "module": "xpay_storage v1.0",
-        "dna": "#龍芯⚡️丙午·甲申·辛丑·坤卦-XPAY-STORAGE-v1.0",
+        "dna": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-XPAY-STORAGE-v1.0",
         "timestamp": datetime.now().isoformat(),
         "tests": {}
     }
@@ -456,6 +456,6 @@ if __name__ == "__main__":
         print(json.dumps(selftest(), ensure_ascii=False, indent=2))
     else:
         print("XPayStorage v1.0 · SQLite持久化层")
-        print(f"  DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-XPAY-STORAGE-v1.0")
+        print(f"  DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-XPAY-STORAGE-v1.0")
         print(f"  使用: from xpay_storage import XPayStorage")
         print(f"  自检: python3 xpay_storage.py --selftest")

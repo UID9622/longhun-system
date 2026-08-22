@@ -2,16 +2,17 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ╔══════════════════════════════════════════════════════════════════╗
 ║        龍魂DNA追溯码系统 / LongHun DNA Traceability System      ║
 ║                                                                  ║
 ║  DNA生成·追溯链验证·来源永不删除                                 ║
 ║  每个产物都自动打上身份，改名也改不了                             ║
 ║                                                                  ║
-║  DNA:#龍芯⚡️2026-06-03-DNA-SYSTEM-FILE1-v1.0                         ║
+║  DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-DNA-SYSTEM-FILE1-v1.0                         ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓              ║
 ║                                                                  ║
-║  来源: CNSH::#龍芯⚡️2026-05-07-DNA_4E1D-v2.0             ║
+║  来源: CNSH::#龍芯⚡️丙午·癸巳·辛巳·甲午·䷃蒙-DNA_4E1D-v2.0             ║
 ║  铁律: 来源不可删 · 影响不可覆 · 贡献不可抹                       ║
 ║  责任: UID9622·不免责                                            ║
 ╚══════════════════════════════════════════════════════════════════╝
@@ -85,7 +86,7 @@ class DNA:
     """DNA追溯码 - 每个产物的身份证"""
 
     # DNA核心信息
-    dna_code: str                    # 例:#龍芯⚡️2026-06-03-BAOBAO-WORKFLOW-v1.0
+    dna_code: str                    # 例:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-BAOBAO-WORKFLOW-v1.0
     creator_uid: str = "9622"        # 创造者UID
     created_date: str = ""           # 创建日期 (自动)
     content_hash: str = ""           # 内容哈希 (自动)

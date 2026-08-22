@@ -2,12 +2,13 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║     龍魂·DNA三层主权桥接 v1.0 — 习惯指纹→DNA身份→本地加签·密文不出设备          ║
 ║     DNA Three-Layer Sovereignty Bridge · Local Sign · Ciphertext Local   ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️丙午·乙未·癸未·辰时-DNA-SOVEREIGNTY-BRIDGE-v1.0            ║
+║  DNA: #龍芯⚡️丙午·乙未·癸未·丙辰·䷓观-DNA-SOVEREIGNTY-BRIDGE-v1.0            ║
 ║  协议: §9 DNA身份三层 + §11 候补清单⑤                                       ║
 ║  铁律: L1(UID)+L2(切片码)+L3(HMAC戳) — 本地计算·密文不出设备                  ║
 ╚══════════════════════════════════════════════════════════════════════════╝

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·乙未·戊戌·☵坎-DISK-GUARD-v1.0
+#龍芯⚡️丙午·乙未·戊戌·戊午·䷜坎-DISK-GUARD-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -19,7 +19,7 @@
   python3 lh_disk_guard.py watch    # 守护模式（自动监控）
   python3 lh_disk_guard.py status   # 查看清理统计
 
-DNA: #龍芯⚡️丙午·乙未·戊戌·☵坎-DISK-GUARD-v1.0
+DNA: #龍芯⚡️丙午·乙未·戊戌·戊午·䷜坎-DISK-GUARD-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 from __future__ import annotations
@@ -77,7 +77,7 @@ SYSTEM_CACHES: List[Tuple[str, str]] = [
 
 CHECK_INTERVAL = 30  # 守护模式检测间隔(秒)
 
-DNA = "#龍芯⚡️丙午·乙未·戊戌·☵坎-DISK-GUARD-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·戊戌·戊午·䷜坎-DISK-GUARD-v1.0"
 
 
 # ── 工具函数 ──

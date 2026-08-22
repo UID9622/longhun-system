@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_DCEP_RECHARGE-v1.0-661dc8f3
+#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH_DCEP_RECHARGE-v1.0-661dc8f3
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -315,7 +315,7 @@ class DCEPRecharge:
         lunar_ts = self._lunar_ts()
         h = self._hash(report["currency"], report["level"], lunar_ts)[:8].upper()
         report["dna"] = (
-            f"#龍芯⚡️丙午·辛未·乙酉·巳时·大有"
+            f"#龍芯⚡️丙午·辛未·乙酉·巳时·䷍大有"
             f"-LONGHUN-DIRECT-SETTLE-{h}"
         )
         report["lunar_timestamp"] = lunar_ts

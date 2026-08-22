@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-cloud-kimi
 description: '龍魂Kimi集成 v5.2 — Kimi API接入+断路器+故障转移+本地备份推理+Kimi創作記憶檔案。4个集成模式全部正常工作，故障自动转移，API响应低于100ms。API端点:
@@ -5,7 +7,7 @@ description: '龍魂Kimi集成 v5.2 — Kimi API接入+断路器+故障转移+�
 metadata:
   author: 龍魂体系·云端技能组
   version: 5.2.0
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-KIMI-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-KIMI-v5.2'
   protocol: 君子協議 — 非對抗·非欺瞞·非竊取
   cnsh: true
   category: cloud
@@ -49,7 +51,7 @@ metadata:
 ## 二、DNA追溯
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-KIMI-v5.2
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-KIMI-v5.2
 ```
 
 **追溯鏈**：
@@ -237,7 +239,7 @@ from scripts.Kimi集成器 import 集成模式處理器, 集成模式
 
 📄 `references/kimi_creation_memory.md`
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-KIMI-CREATION-MEMORY-v1.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-KIMI-CREATION-MEMORY-v1.0`
 
 ### 檔案涵蓋內容
 
@@ -281,5 +283,5 @@ from scripts.Kimi集成器 import 集成模式處理器, 集成模式
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：06-工具脚本（龍魂系统 API 接口完整实现）
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

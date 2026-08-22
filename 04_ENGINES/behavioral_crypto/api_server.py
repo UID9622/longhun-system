@@ -3,7 +3,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 🐉 龍魂·行為密碼學主權API服務器 v2.0
-DNA: #龍芯⚡️丙午·甲申·丁酉·艮卦-BCM-API-V2.0-UID9622
+DNA: #龍芯⚡️丙午·甲申·丁酉·丙午·䷳艮-BCM-API-V2.0-UID9622
 License: MulanPSL v2
 
 REST API 端點:
@@ -338,7 +338,7 @@ if __name__ == "__main__":
     print(f"""
 ╔══════════════════════════════════════════════════════════════╗
 ║  🐉 龍魂·行為密碼學主權API v{API_VERSION}
-║  DNA: #龍芯⚡️丙午·甲申·丁酉·艮卦-BCM-API-V2.0
+║  DNA: #龍芯⚡️丙午·甲申·丁酉·丙午·䷳艮-BCM-API-V2.0
 ║══════════════════════════════════════════════════════════════║
 ║  📡 端口: {API_PORT}
 ║  📖 API文檔: http://localhost:{API_PORT}/api/v2/bcm/docs

@@ -1,7 +1,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·统一记忆 API · 部署文档
 
-> DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-MEMORY-API-DEPLOY-DOC-v1.1-BRIDGE
+> DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-MEMORY-API-DEPLOY-DOC-v1.1-BRIDGE
 > 创建者: 诸葛鑫（UID9622）
 > CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 > v1.1: 身份联动闭环 + Token安全增强

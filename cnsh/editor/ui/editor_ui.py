@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·噬嗑-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷔噬嗑-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
-""#龍芯⚡️2026-06-18-CNSH-EDITOR-UI-FILE2-FILE1-v5.0
+""#龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-CNSH-EDITOR-UI-FILE2-FILE1-v5.0
 # 🟢 审计通过: 编辑器UI完整实现
 # 🔒 AI Truth Protocol: 所有声明均为真实
 # 🤝 君子协议: CC BY-NC-SA 4.0 · UID9622 · 龍芯北辰 · 诸葛鑫
@@ -54,7 +54,7 @@ class 编辑器文本区(tk.Text):
         super().__init__(父容器, **参数)
         self.当前文件 = None
         self.已修改 = False
-        self.DNA追溯 = "#龍芯⚡️2026-06-18-CNSH-TEXT-AREA"
+        self.DNA追溯 = "#龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-CNSH-TEXT-AREA"
 
         # 配置标签
         self._配置语法高亮标签()
@@ -199,7 +199,7 @@ class 编辑器标签页(ttk.Frame):
         super().__init__(父容器, **参数)
         self.文件路径 = 文件路径
         self.已修改 = False
-        self.DNA追溯 = "#龍芯⚡️2026-06-18-CNSH-TAB"
+        self.DNA追溯 = "#龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-CNSH-TAB"
 
         # 创建文本区和滚动条
         self.行号 = 行号画布(self, None, width=50)
@@ -290,7 +290,7 @@ class CNSH编辑器(tk.Tk):
     集成所有模块功能的完整编辑器
     """
 
-    DNA追溯 = "#龍芯⚡️2026-06-18-CNSH-TERMINAL-v5.0"
+    DNA追溯 = "#龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-CNSH-TERMINAL-v5.0"
     版本 = "5.0.0"
     标题 = f"CNSH多语言编辑器终端 v{版本}"
 

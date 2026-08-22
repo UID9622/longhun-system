@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # DNA: #龍芯⚡️丙午·丙申·戊申·亥时·䷗复-OPENCLAW-SELF-HEAL-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # CREATOR: 诸葛鑫 (UID9622)
 # -*- coding: utf-8 -*-
 """

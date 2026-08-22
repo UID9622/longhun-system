@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂 v4.0.2 全自动流水线（换底座 · Llama-3.1-8B）
 准备数据 → 训练 → 合并 → 导出 → Ollama 部署 → 三关验证
@@ -9,7 +10,7 @@
 用法:
   python3 bin/lh_v402_pipeline.py
 
-DNA: #龍芯⚡️丙午·乙未·甲寅·未时·乾-V402-AUTO-PIPELINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲寅·未时·䷀乾-V402-AUTO-PIPELINE-v1.0
 """
 
 import os

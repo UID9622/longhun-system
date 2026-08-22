@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 P06 數學大師/鏡像審計者 · 數學計算執行器
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 Mathematical Engine & Mirror Auditor Executor
 
-DNA: #龍芯⚡️丙午·乙未·甲寅·酉时·需-P06-MATHMASTER-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-P06-MATHMASTER-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -64,7 +65,7 @@ class P06Mathmaster:
     }
 
     def __init__(self):
-        self.dna = "#龍芯⚡️丙午·乙未·甲寅·酉时·需-P06-MATHMASTER-v1.0"
+        self.dna = "#龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-P06-MATHMASTER-v1.0"
         self.system_root = SYSTEM_ROOT
         self.capabilities = [
             "compute_dr",         # 數字根計算

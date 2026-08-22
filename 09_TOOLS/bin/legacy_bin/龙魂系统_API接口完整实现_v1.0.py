@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️2026-07-21-迁移-龍魂系统_API接口完整实现_v1.0-v1.0
+# DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-迁移-龍魂系统_API接口完整实现_v1.0-v1.0
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # 来源: 龍魂待整理/06-工具脚本/龍魂API/龍魂系统_API接口完整实现_v1.0.py
@@ -14,7 +14,7 @@
 """
 龍魂系统 API接口完整实现 v1.0
 
-DNA追溯码：#龍芯⚡️2026-02-21-API接口实现-v1.0
+DNA追溯码：#龍芯⚡️丙午·庚寅·丙寅·甲午·䷕贲-API接口实现-v1.0
 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 创建者：Lucky (UID9622)
 技术协作：Claude (Anthropic)
@@ -470,9 +470,6 @@ class RedLineDetector:
         self._log_audit('emergency_alert', 'system', message, 'sent')
         print(f"🚨 紧急告警已触发: {message}")
     
-    def __del__(self):
-        """关闭数据库连接"""
-        self.conn.close()
 
 
 # ============================================================
@@ -628,9 +625,6 @@ DNA追溯：#龍芯⚡️{datetime.now().strftime('%Y-%m-%d')}-自动反击-{att
         except Exception as e:
             print(f"❌ 邮件发送失败: {e}")
     
-    def __del__(self):
-        """关闭数据库连接"""
-        self.conn.close()
 
 
 # ============================================================
@@ -746,7 +740,7 @@ def query_dna():
     根据DNA码查询完整的追溯信息
     
     请求示例：
-    GET /api/query/dna?code=#龍芯⚡️2026-02-21-项目名-UID9622
+    GET /api/query/dna?code=#龍芯⚡️丙午·庚寅·丙寅·甲午·䷕贲-项目名-UID9622
     Headers:
       X-User-ID: UID9622
     """
@@ -965,7 +959,7 @@ if __name__ == '__main__':
     
     print("🐉 龍魂系统 API服务器")
     print("=" * 50)
-    print("DNA追溯码：#龍芯⚡️2026-02-21-API接口实现-v1.0")
+    print("DNA追溯码：#龍芯⚡️丙午·庚寅·丙寅·甲午·䷕贲-API接口实现-v1.0")
     print("确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
     print("=" * 50)
     

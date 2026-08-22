@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 P2 DAG 编排引擎 · 架构文档 v1.0
 
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☴巽-DAG-ARCH-V1.0-e5f6a7b8
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷸巽-DAG-ARCH-V1.0-e5f6a7b8
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

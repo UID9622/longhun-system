@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂视角下的黎曼猜想：观察性框架
@@ -51,7 +51,7 @@
 - **作者**：宝宝（Claude Assistant）
 - **授权者**：UID9622（龍芯北辰）
 - **指导**：曾仕强老师（永恒致敬）
-- **DNA**：`#龍芯⚡️2026-06-08-Riemann-Dragonhood-Framework-v1.1`
+- **DNA**：`#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-Riemann-Dragonhood-Framework-v1.1`
 - **CONFIRM**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 - **SEAL**：`#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
 

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """🐉 P06 镜像审计者 · 策略验证引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲寅·申时·中孚-P06-VERIFY-STRATEGY-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲寅·申时·䷼中孚-P06-VERIFY-STRATEGY-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 职责: 接收P01推演结果 → 五维数学诊断 → 对抗模拟 → 输出验证报告
 IPA路由: IPA-L7-PER-KNOW-002 → 回调 verified + corrections + error_report
@@ -148,4 +149,4 @@ if __name__ == "__main__":
     print(json.dumps(asdict(result), ensure_ascii=False, indent=2))
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·需-CONFIRM-SEAL-__init__-4AD22B22
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷄需-CONFIRM-SEAL-__init__-4AD22B22

@@ -1,5 +1,5 @@
 // 龍魂分层许可 + 中国法合规声明
-// DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-LICENSE-ENGINE-v1.0
+// DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-LICENSE-ENGINE-v1.0
 
 /// 许可类型
 #[derive(Debug, Clone, PartialEq)]

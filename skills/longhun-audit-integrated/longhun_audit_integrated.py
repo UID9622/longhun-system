@@ -2,13 +2,14 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 """
 ╔══════════════════════════════════════════════════════════════╗
 ║  龍魂完整审计系统 v2.0 (Integrated)                         ║
 ║  CNSH对齐检查 + 10维系统审计 融合版                         ║
 ║                                                             ║
-║  DNA:#龍芯⚡️2026-06-02-LONGHUN-AUDIT-INTEGRATED-FILE3-v2.0   ║
+║  DNA:#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-AUDIT-INTEGRATED-FILE3-v2.0   ║
 ║  GPG: "0000000000000000000000000000000000000000"             ║
 ║  CONFIRM: "#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX"              ║
 ╚══════════════════════════════════════════════════════════════╝
@@ -67,7 +68,7 @@ class CNSHChecker:
     """CNSH语言合规性检查"""
     
     def __init__(self):
-        self.dna = "#龍芯⚡️2026-06-02-CNSH-CHECKER-v2.0"
+        self.dna = "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-CNSH-CHECKER-v2.0"
         
         # 黑名单字符
         self.banned_chars = {
@@ -132,7 +133,7 @@ class SystemAuditor:
     """10维系统审计"""
     
     def __init__(self):
-        self.dna = "#龍芯⚡️2026-06-02-SYSTEM-AUDITOR-v2.0"
+        self.dna = "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-SYSTEM-AUDITOR-v2.0"
         self.dimensions = {
             '文件审计': self.audit_files,
             '健康审计': self.audit_health,
@@ -444,7 +445,7 @@ class LonghunIntegratedAudit:
     """龍魂完整审计系统 v2.0"""
     
     def __init__(self):
-        self.dna = "#龍芯⚡️2026-06-02-LONGHUN-AUDIT-INTEGRATED-v2.0"
+        self.dna = "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-AUDIT-INTEGRATED-v2.0"
         self.timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         self.cnsh_checker = CNSHChecker()
         self.system_auditor = SystemAuditor()

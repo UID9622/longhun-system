@@ -1,5 +1,6 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 <!--
-  DNA: #龍芯⚡️丙午·丙申·庚申·亥时-迁移-ATTRIBUTION-v1.0
+  DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-迁移-ATTRIBUTION-v1.0
   创建者: 诸葛鑫（UID9622）
   协议: CC BY-NC-SA 4.0
   来源: 龍魂待整理/03-身份安全-DNA/ATTRIBUTION.md
@@ -36,7 +37,7 @@
 
 ---
 
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-ATTRIBUTION-REPO  
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ATTRIBUTION-REPO  
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z  
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL  
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

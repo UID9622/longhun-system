@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂·量子卦象引擎 v2.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-量子卦象-v2.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-量子卦象-v2.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -483,7 +483,7 @@ async def api_status():
     s = db.stats()
     return {"status": "online", "version": "2.0", "dimension": qe.DIM,
             "hexagrams": 64, "cnsh_available": cnsh.available, "db_stats": s,
-            "dna": "#龍芯⚡️丙午·乙未·甲辰·离为火-量子卦象-v2.0"}
+            "dna": "#龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-量子卦象-v2.0"}
 
 @app.post("/api/auth/register")
 async def register(req: LoginReq):

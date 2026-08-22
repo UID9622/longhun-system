@@ -66,8 +66,6 @@ class Storyboard:
     total_duration: int
     dna: str = field(default_factory=lambda: generate_dna("STORYBOARD"))
 
-    def to_dict(self) -> Dict:
-        return asdict(self)
 
 
 @dataclass
@@ -78,8 +76,6 @@ class EditPlan:
     music: str
     dna: str = field(default_factory=lambda: generate_dna("EDIT-PLAN"))
 
-    def to_dict(self) -> Dict:
-        return asdict(self)
 
 
 # ============================================================

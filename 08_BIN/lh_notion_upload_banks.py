@@ -5,10 +5,11 @@ DNA: #龍芯⚡️丙午·甲申·壬子·亥时·䷗复-INTERVIEW-BANKS-NOTION-
 创建者: 诸葛鑫（UID9622）
 License: MulanPSL v2
 """
+import os
 import json, os, re, time, sys
 import urllib.request, urllib.error
 
-TOKEN = "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"
+TOKEN = os.environ.get("NOTION_TOKEN", "")
 NOTION_API = "https://api.notion.com/v1"
 HEADERS = {
     "Authorization": f"Bearer {TOKEN}",

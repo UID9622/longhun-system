@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂·万能摄入容器主引擎 v1.0
 ================================
 任何设备·任何格式·任何来源 → 自动分解 → 权重触发 → 静默/联动 → 分销归档
 
-DNA: #龍芯⚡️丙午·辛未·乙酉·需-CONTAINER-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-CONTAINER-ENGINE-v1.0
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 

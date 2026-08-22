@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ⚡ 龍魂系統·重炮IDE集成方案
 
-**DNA**: `#龍芯⚡️2026-07-11-IDE-HEAVY-ARTILLERY-v1.0`  
+**DNA**: `#龍芯⚡️丙午·乙未·丙戌·甲午·䷕贲-IDE-HEAVY-ARTILLERY-v1.0`  
 **適用**: Cursor / Windsurf / VSCode + AI插件  
 **效果**: AI直接操作本地文件，你只需點"Accept"，連複製粘貼都省了
 
@@ -35,7 +35,7 @@ open https://cursor.com
 tee ~/.cursorrules << 'RULES_EOF'
 # ============================================================
 # ⚡ 龍魂系統·Cursor AI 行為規範
-# DNA: #龍芯⚡️2026-07-11-CURSOR-RULES-v1.0
+# DNA: #龍芯⚡️丙午·乙未·丙戌·甲午·䷕贲-CURSOR-RULES-v1.0
 # ============================================================
 
 # 核心原則
@@ -351,5 +351,5 @@ echo "   '全自動模式：啟動守護進程+健康檢查+生成報告'"
 
 ---
 
-**DNA錨定**: `#龍芯⚡️2026-07-11-IDE-HEAVY-ARTILLERY-v1.0`  
+**DNA錨定**: `#龍芯⚡️丙午·乙未·丙戌·甲午·䷕贲-IDE-HEAVY-ARTILLERY-v1.0`  
 **協議**: 君子協議 CC BY-NC-SA 4.0 | **簽署人**: UID9622

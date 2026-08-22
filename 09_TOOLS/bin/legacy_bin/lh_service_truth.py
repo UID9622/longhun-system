@@ -2,12 +2,13 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║     龍魂·产品"为谁服务"检测器 v1.0 — 枪口方向一目了然                        ║
 ║     Service Truth Detector · 双公式验证 (主权检验 + WAI)                  ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️2026-07-11-SERVICE-TRUTH-v1.0                               ║
+║  DNA: #龍芯⚡️丙午·乙未·丙戌·甲午·䷕贲-SERVICE-TRUTH-v1.0                               ║
 ║  源矿: IPA-DICT-019 用户主权检验 + IPA-DICT-035 白皮书WAI                  ║
 ║  铁律: 不联网·本地算·公式公开可验                                           ║
 ╠══════════════════════════════════════════════════════════════════════════╣
@@ -290,7 +291,7 @@ def 打印检测结果(结果: Dict[str, Any], 产品名: str = ""):
     print(f"     一致性: {c['双公式一致性']}")
     
     print("\n" + "=" * 64)
-    print("  DNA: #龍芯⚡️2026-07-11-SERVICE-TRUTH-v1.0")
+    print("  DNA: #龍芯⚡️丙午·乙未·丙戌·甲午·䷕贲-SERVICE-TRUTH-v1.0")
     print("=" * 64 + "\n")
 
 

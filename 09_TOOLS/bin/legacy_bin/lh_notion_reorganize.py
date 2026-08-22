@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂 · Notion 8主题重组引擎 v2.0
 
@@ -17,7 +18,7 @@
   python3 bin/lh_notion_reorganize.py --report     # 仅输出报告到终端
   python3 bin/lh_notion_reorganize.py --execute    # 实际执行迁移（需确认）
 
-DNA: #龍芯⚡️丙午·辛未·乙酉·需-NOTION-8THEME-REORGANIZE-v2.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-NOTION-8THEME-REORGANIZE-v2.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 """
 from __future__ import annotations
@@ -44,7 +45,7 @@ OUTPUT_DIR = ROOT / "data" / "notion_reorganize"
 ANALYSIS_FILE = OUTPUT_DIR / "8theme_analysis.json"
 MIGRATION_FILE = OUTPUT_DIR / "migration_commands.json"
 
-DNA = "#龍芯⚡️丙午·辛未·乙酉·需-NOTION-8THEME-REORGANIZE-v2.0"
+DNA = "#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-NOTION-8THEME-REORGANIZE-v2.0"
 TODAY = datetime.now(CST).strftime("%Y-%m-%dT%H:%M:%S+08:00")
 
 # ═══════════════════════════════════════════════

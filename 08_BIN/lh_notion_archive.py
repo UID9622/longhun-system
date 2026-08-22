@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·辛未·乙酉·NOTION-ARCHIVE
+#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-NOTION-ARCHIVE
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -13,7 +13,7 @@
   · 只处理「含上传型图片(file)的行」——这是吃容量的大头；纯文本行不动。
   · 外链图(ext)不占容量，仅记入清单，可选下载。
   · 安全闸: 默认 DRY_RUN(只打印计划)；设 ARCHIVE_GO=1 才真下载+归档。
-DNA: #龍芯⚡️丙午·辛未·乙酉·NOTION-ARCHIVE
+DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-NOTION-ARCHIVE
 """
 import os, sys, json, time, urllib.request, urllib.error
 from pathlib import Path

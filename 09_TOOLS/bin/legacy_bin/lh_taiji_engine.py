@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ☯️ 龍魂太极引擎 v1.0 · LU-Time Engine 本地化实现
-DNA: #龍芯⚡️丙午·丙申·甲寅·申时·噬嗑-TAIJI-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷔噬嗑-TAIJI-ENGINE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 来源: docs/uid9622-hosted/control-panel/🌌 LU-Time Engine v4｜时间推演与审计系统·完整主模板.md

@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# #龍芯⚡️20260721143752-AUTO-DNA-LUBAN-BRUSH-ENGINE
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# #龍芯⚡️丙午·乙未·丙申·乙未·䷊泰-AUTO-DNA-LUBAN-BRUSH-ENGINE
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️2026-07-21-LUBAN-BRUSH-ENGINE-v1.0
+# DNA追溯码:#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-LUBAN-BRUSH-ENGINE-v1.0
 """
 笔锋引擎：把普通字体轮廓/单线笔画转换为书法笔画。
 
@@ -19,7 +20,7 @@
 import math
 from typing import Any
 
-DNA = "#龍芯⚡️2026-07-21-LUBAN-BRUSH-ENGINE-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-LUBAN-BRUSH-ENGINE-v1.0"
 
 
 def dist(a: tuple[float, float], b: tuple[float, float]) -> float:

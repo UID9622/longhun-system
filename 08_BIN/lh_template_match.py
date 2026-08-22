@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·辛未·丙戌·亥时·需-template-router-v1-0
+#龍芯⚡️丙午·辛未·丙戌·亥时·䷄需-template-router-v1-0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -9,7 +9,7 @@
 龍魂 · 模板路由器 v1.0
 根据用户标题自动匹配最合适的会话模板，输出完整提示。
 
-DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·需-template-router-v1-0
+DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·䷄需-template-router-v1-0
 UID: 9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

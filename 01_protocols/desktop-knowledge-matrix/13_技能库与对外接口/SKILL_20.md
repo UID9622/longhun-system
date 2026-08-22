@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-cloud-notion
 description: '龍魂Notion集成 v5.0 — Notion API雙向同步+自動化週報+DNA校驗+訓練進度。 支持周檢查自動化、協議完整性驗證、團隊統計。
@@ -14,7 +16,7 @@ metadata:
   - team-stats
   - cloud
   version: 5.0.0
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-NOTION-v5.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-NOTION-v5.0'
   protocol_version: '5.0'
   api_endpoint: http://api:8443/notion/
   id: longhun-cloud-notion
@@ -51,7 +53,7 @@ metadata:
 
 ```
 血統鏈: 龍魂體系 → 雲端技能群 → Notion集成模組 → longhun-cloud-notion
-DNA標記: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-NOTION-v5.0
+DNA標記: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-NOTION-v5.0
 版本血統: v1.0(原型) → v2.0(基礎同步) → v3.0(週報生成) → v4.0(DNA校驗) → v5.0(完整集成)
 父技能: longhun-core-ethics (君子協議), longhun-cloud-base (雲端基礎)
 創建日期: 2026-06-19
@@ -192,7 +194,7 @@ DNA標記: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-NOTION-v5.0
   "同步時間": "ISO8601時間戳",
   "數據類型": "任務|週報|團隊",
   "拉取數量": 0,
-  "DNA標記": "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-NOTION-v5.0",
+  "DNA標記": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-NOTION-v5.0",
   "狀態": "成功|失敗",
   "詳情": {}
 }
@@ -202,7 +204,7 @@ DNA標記: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-NOTION-v5.0
 ```markdown
 # 📊 龍魂週報 — 2026-W25
 > **週期**: 2026-06-15 ~ 2026-06-21
-> **DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-NOTION-v5.0`
+> **DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-NOTION-v5.0`
 ## ✅ 已完成項目
 ## 🔄 進行中項目
 ## 🚧 阻塞項目
@@ -256,7 +258,7 @@ DNA標記: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-NOTION-v5.0
   "狀態": "健康",
   "服務": "龍魂Notion同步器",
   "版本": "5.0.0",
-  "DNA": "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-NOTION-v5.0"
+  "DNA": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-NOTION-v5.0"
 }
 ```
 

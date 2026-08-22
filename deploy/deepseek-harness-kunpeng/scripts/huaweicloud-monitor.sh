@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 🐉 龍魂 · 华为云鲲鹏扣费与资源监控脚本
 # DNA: #龍芯⚡️丙午·丙申·辛酉·丙申·䷉履-HUAWEI-CLOUD-MONITOR-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 告警默认输出到 stdout; 设置 BARK_KEY 后推送 Bark (与 health_check.sh 一致)
 
 set -euo pipefail

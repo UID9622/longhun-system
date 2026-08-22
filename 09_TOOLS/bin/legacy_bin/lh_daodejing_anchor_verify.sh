@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 道德经场景定锚器回归测试
-# DNA: #龍芯⚡️2026-07-19-DAODEJING-ANCHOR-VERIFY-v1.1
+# DNA: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-DAODEJING-ANCHOR-VERIFY-v1.1
 
 set -e
 

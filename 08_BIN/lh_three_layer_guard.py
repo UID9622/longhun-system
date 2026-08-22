@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂·三层监督+钩子系统完整集成版 v1.0
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-THREE_LAYER_GUARD-V1.0-INTEGRATED
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-THREE_LAYER_GUARD-V1.0-INTEGRATED
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 状态: ✅ 自动触发·完整闭环·可落地·与三色审计/20人格联动
@@ -483,7 +483,7 @@ def 系统初始化() -> Tuple[钩子系统核心, 三层监督]:
     """初始化龍魂三层监督系统"""
 
     print("🇨🇳🐉 龍魂·三层监督+钩子系统 v1.0 启动中...")
-    print("DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-THREE_LAYER_GUARD-V1.0")
+    print("DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-THREE_LAYER_GUARD-V1.0")
     print("创建者: 诸葛鑫（UID9622）")
     print("")
 

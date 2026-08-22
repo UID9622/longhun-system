@@ -1,6 +1,6 @@
 // 龍魂代码中转站 · 主权注入引擎
 // 按语言注入龍魂主权标识 · DNA + 确认码 + 许可 + 合规声明
-// DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-INJECTOR-v1.0
+// DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-INJECTOR-v1.0
 
 use crate::core::dna;
 use crate::core::license;

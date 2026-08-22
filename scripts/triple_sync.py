@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/Users/zuimeidedeyihan/longhun-system/.venv_longhun_math/bin/python
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 三层同步引擎：本地 → Notion → GitHub
-DNA: #龍芯⚡️2026-06-29-LONGHUN-TRIPLE-SYNC-v3-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-TRIPLE-SYNC-v3-UID9622
 
 阶段 1：扫描 brain/cnsh_cards/*.md 与 audit/reports/*.md，
         用 frontmatter 解析标题/DNA/标签，同步到 Notion LU 公开档案数据库。
@@ -34,7 +35,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from longhun_notion_dashboard import LongHunNotionDashboard
 
 
-DNA = "#龍芯⚡️2026-06-29-LONGHUN-TRIPLE-SYNC-v3-UID9622"
+DNA = "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-TRIPLE-SYNC-v3-UID9622"
 HOME = Path.home()
 GITHUB_ROOT = HOME / ".longhun" / "github-public"
 

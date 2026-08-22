@@ -20,7 +20,7 @@
 | **质量级别** | 🟡 stable |
 | **测试覆盖** | 85% |
 | **可靠性评分** | 85/100 |
-| **DNA签章** | `#龍芯⚡️2026-06-08-SKILL-5-INTERNAL-COMMS-FILE2-v1.0` |
+| **DNA签章** | `#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-SKILL-5-INTERNAL-COMMS-FILE2-v1.0` |
 
 ---
 
@@ -95,7 +95,7 @@
 {
   "status": "success",
   "result": {},
-  "dna": "#龍芯⚡️2026-06-08-SKILL-5-INTERNAL-COMMS-EXECUTED-v1.0",
+  "dna": "#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-SKILL-5-INTERNAL-COMMS-EXECUTED-v1.0",
   "metadata": {"execution_time_ms": 123}
 }
 ```
@@ -479,7 +479,7 @@ def validate_input(inputs):
 | 执行流程 | 🟡 | ✅ 已验证 |
 | 性能评估 | 🟡 | ✅ 已验证 |
 | 质量保证 | 🟡 | ✅ 已验证 |
-| **整体** | 🟡 | `#龍芯⚡️2026-06-08-SKILL-5-INTERNAL-COMMS-COMPLETE-v1.0` |
+| **整体** | 🟡 | `#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-SKILL-5-INTERNAL-COMMS-COMPLETE-v1.0` |
 
 ---
 
@@ -511,7 +511,7 @@ def validate_input(inputs):
 ✅ DNA签章追溯每个版本
 ✅ 可验证·不玄学·能复算
 
-DNA:#龍芯⚡️2026-06-08-SKILL-5-INTERNAL-COMMS-SPECIFICATION-COMPLETE-v1.0
+DNA:#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-SKILL-5-INTERNAL-COMMS-SPECIFICATION-COMPLETE-v1.0
 责任: UID9622·不免责
 ```
 

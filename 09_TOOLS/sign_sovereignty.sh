@@ -50,7 +50,7 @@ done
 echo ""
 echo "========================================"
 echo "签章完成: ${SIGNED} 份 | 跳过: ${SKIPPED} 份"
-echo "DNA: #龍芯⚡️丙午·丙申·丙辰·午时·离-SOVEREIGNTY-SEAL-v1.0"
+echo "DNA: #龍芯⚡️丙午·丙申·丙辰·午时·䷝离-SOVEREIGNTY-SEAL-v1.0"
 echo "GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 echo ""
 echo "验证所有签名:"

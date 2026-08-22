@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂知识图谱骨架生成器
@@ -9,7 +10,7 @@
 从 notion_pages.db 提取：页面、分类、关键词、DNA 标签、页面间链接关系，
 输出 JSON 图谱，供后续 Gephi / D3 / Cytoscape 可视化。
 
-DNA: #龍芯⚡️2026-06-23-NOTION-KNOWLEDGE-GRAPH-v1.0
+DNA: #龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-NOTION-KNOWLEDGE-GRAPH-v1.0
 """
 from __future__ import annotations
 
@@ -187,7 +188,7 @@ def build_graph(db_path: pathlib.Path) -> dict[str, Any]:
         "meta": {
             "generated_at": now_iso(),
             "source_db": str(db_path),
-            "dna": "#龍芯⚡️2026-06-23-NOTION-KNOWLEDGE-GRAPH-v1.0",
+            "dna": "#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-NOTION-KNOWLEDGE-GRAPH-v1.0",
             "node_count": len(nodes),
             "edge_count": len(edges),
         },

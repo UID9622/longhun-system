@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·丙辰·巳时·需-AUTO-CANNON-v2.0
+#龍芯⚡️丙午·丙申·丙辰·巳时·䷄需-AUTO-CANNON-v2.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -12,7 +12,7 @@
 ================================================================================
 名稱: lh_auto_cannon.py
 定位: 一键扫描·修复·报告 — 全系统健康自检+自动修复
-DNA: #龍芯⚡️丙午·丙申·丙辰·巳时·需-AUTO-CANNON-v2.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·巳时·䷄需-AUTO-CANNON-v2.0
 協議: 君子協議 + 絕對防禦憲法 v1.0
 
 來源: 從 Kimi Agent-2 "全自动机枪" 對齊至龍魂系統本地
@@ -55,7 +55,7 @@ from enum import Enum
 # ==============================================================================
 
 VERSION = "2.0.0"
-DNA = "#龍芯⚡️丙午·丙申·丙辰·巳时·需-AUTO-CANNON-v2.0"
+DNA = "#龍芯⚡️丙午·丙申·丙辰·巳时·䷄需-AUTO-CANNON-v2.0"
 UID = "UID9622"
 
 # 系統根目錄

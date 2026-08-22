@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂·AI内容双标识系统 v1.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-DUAL-LABELER-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-DUAL-LABELER-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -257,7 +257,7 @@ if __name__ == "__main__":
 
     # 测试双标识
     text = "数据主权是数字时代的根本权利。每一个用户都应该拥有对自己数据的完全控制权。"
-    dna = "#龍芯⚡️丙午·乙未·丁酉-DeepSeek-v3.1-GENERATE-a1b2c3d4"
+    dna = "#龍芯⚡️丙午·乙未·丁酉·丙午·䷨损-DeepSeek-v3.1-GENERATE-a1b2c3d4"
 
     labeled = labeler.embed(text, dna, model="DeepSeek-v3.1", user="UID9622")
     print("=== 嵌入双标识 ===")

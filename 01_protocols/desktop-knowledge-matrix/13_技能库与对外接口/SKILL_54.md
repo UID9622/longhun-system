@@ -10,7 +10,7 @@ description: '龍魂宝宝工作流程透明化技能。当用户要求 Kimi 解
 license: CC BY-NC-SA 4.0
 metadata:
   version: '5.0'
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-WORKFLOW-TRANSPARENT-v5.0'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-WORKFLOW-TRANSPARENT-v5.0'
   author: UID9622 · 龍芯北辰
   category: longhun-governance
   trigger_keywords:
@@ -43,8 +43,8 @@ metadata:
 
 ## 原始 DNA 与来源
 
-- **本页主 DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-WORKFLOW-TRANSPARENT-SKILL-v1.0`
-- **源文件主 DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-BAOBAO-WORKFLOW-TRANSPARENT-v2.0`
+- **本页主 DNA：** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-WORKFLOW-TRANSPARENT-SKILL-v1.0`
+- **源文件主 DNA：** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-BAOBAO-WORKFLOW-TRANSPARENT-v2.0`
 - **来源文件：**
   - `longhun-workflow-transparent`: `/Users/zuimeidedeyihan/longhun-system/_archive/notion-exports/Notion 导出/私人与共享/🐉 宝宝工作流程透明化系统 v2 0｜十五步五阶段·三色审计·六层来源链·铁律自审·关键词路由·双导 54e82329e86c47599879366db9fa57a4.md`
   - `longhun-iron-laws`: `/Users/zuimeidedeyihan/longhun-system/_archive/notion-exports/Notion 导出/私人与共享 2/龍魂铁律总览 v1 0｜29条铁律·14创作者守护·8组副本封存·6新牌焊接·关键词索引·守底线不当 a03f1fea3f514c76b8b0f1d8be1d4ddf.md`
@@ -204,4 +204,4 @@ python3 baobao_workflow_v2.py --json wf.json --md wf.md --log wf.jsonl --demo-me
 
 > 天下无欺，守护人民。每一步都给你看，不是表演，是责任。
 >
-> **DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-WORKFLOW-TRANSPARENT-SKILL-v1.0`
+> **DNA：** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-WORKFLOW-TRANSPARENT-SKILL-v1.0`

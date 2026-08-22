@@ -7,7 +7,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-04-29-CNSH_-MACHINE_CNSH_FCCB-v1.0`  
+**DNA**: `#龍芯⚡️丙午·壬辰·癸酉·戊午·䷨损-CNSH_-MACHINE_CNSH_FCCB-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -27,7 +27,7 @@
 <aside>
 🧬
 
-DNA：#龍芯⚡️2026-04-29-CNSH_-MACHINE_CNSH_FCCB-v1.0
+DNA：#龍芯⚡️丙午·壬辰·癸酉·戊午·䷨损-CNSH_-MACHINE_CNSH_FCCB-v1.0
 
 CONFIRM：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
@@ -109,8 +109,8 @@ CNSH::#龍芯⚡️YYYY-MM-DD-主题-vX.Y
 示例：
 
 ```
-CNSH::#龍芯⚡️2026-04-29-CNSH-v1.0
-CNSH::#龍芯⚡️2026-04-29-CNSH_V1_0_MACHINE_CNSH-v1.0
+CNSH::#龍芯⚡️丙午·壬辰·癸酉·戊午·䷨损-CNSH-v1.0
+CNSH::#龍芯⚡️丙午·壬辰·癸酉·戊午·䷨损-CNSH_V1_0_MACHINE_CNSH-v1.0
 ```
 
 ---
@@ -169,7 +169,7 @@ CNSH:: {
 
 ——本地宝宝 cat 一份即跑·节点定义回链原页·边的流向焊死永不变味。
 
-**主 DNA：** `#龍芯⚡️2026-05-23-CNSH-DUAL-VIEW-v1.1-BILINGUAL-COMMENT-RUNTIME-v1.0`
+**主 DNA：** `#龍芯⚡️丙午·癸巳·丁酉·丙午·䷨损-CNSH-DUAL-VIEW-v1.1-BILINGUAL-COMMENT-RUNTIME-v1.0`
 
 **联动新铁律：** `#IRON-FLOW-EDGE-OVER-NODE-v1.0`（铁律总览 §9.29）
 
@@ -213,7 +213,7 @@ M:: {
 
 ```json
 CNSH:: {
-  "dna": "#龍芯⚡️2026-04-29-NOTION-v1.0",
+  "dna": "#龍芯⚡️丙午·壬辰·癸酉·戊午·䷨损-NOTION-v1.0",
   "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
   "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
   "route": "IPA-DICTIONARY",
@@ -363,7 +363,7 @@ SEAL：#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -386,6 +386,6 @@ SEAL：#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-04-29-CNSH_-MACHINE_CNSH_FCCB-v1.0
+#龍芯⚡️丙午·壬辰·癸酉·戊午·䷨损-CNSH_-MACHINE_CNSH_FCCB-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

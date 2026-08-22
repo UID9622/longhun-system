@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🐉 龍魂 · 磁盘守护引擎 v1.0
 
 功能：
@@ -16,7 +17,7 @@
   python3 lh_disk_guard.py watch    # 守护模式（自动监控）
   python3 lh_disk_guard.py status   # 查看清理统计
 
-DNA: #龍芯⚡️2026-07-12-DISK-GUARD-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-DISK-GUARD-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 from __future__ import annotations
@@ -74,7 +75,7 @@ SYSTEM_CACHES: List[Tuple[str, str]] = [
 
 CHECK_INTERVAL = 30  # 守护模式检测间隔(秒)
 
-DNA = "#龍芯⚡️2026-07-12-DISK-GUARD-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-DISK-GUARD-v1.0"
 
 
 # ── 工具函数 ──

@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 CNSH优化器（Optimizer）
 
-DNA:#龍芯⚡️2026-06-03-OPTIMIZER-FILE1-v1.0
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-OPTIMIZER-FILE1-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 编译优化：常量折叠、死代码消除、表达式简化
@@ -402,5 +403,5 @@ class Optimizer:
 
 __version__ = "1.0.0"
 __author__ = "UID9622 · 诸葛鑫 · 龍芯北辰"
-__dna__ = "#龍芯⚡️2026-06-03-OPTIMIZER-v1.0"
+__dna__ = "#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-OPTIMIZER-v1.0"
 __responsibility__ = "UID9622·不免责"

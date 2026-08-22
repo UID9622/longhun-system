@@ -1,6 +1,6 @@
 # 🐉 龍魂 · CNSH 智能贴入插件 v1.1 —— 审查完善版
 
-**DNA:** `#龍芯⚡️丙午·丙申·己未·酉时-CNSH-STAMP-PLUGIN-v1.1-UID9622`
+**DNA:** `#龍芯⚡️丙午·丙申·己未·癸酉·䷬萃-CNSH-STAMP-PLUGIN-v1.1-UID9622`
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 **三色:** 🟢 通过（已本地实测）
@@ -145,7 +145,7 @@ flowchart TD
 {
   "version": "v1.1",
   "status": "success",
-  "dna": "#龍芯⚡️丙午·丙申·己未·酉时-CNSH-STAMP-A7F3C2B1-9622",
+  "dna": "#龍芯⚡️丙午·丙申·己未·癸酉·䷬萃-CNSH-STAMP-A7F3C2B1-9622",
   "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
   "timestamp": "2026-08-13T20:15:00.123+08:00",
   "color": "🟢",
@@ -307,7 +307,7 @@ python3 08_BIN/lh_cnsh_plugin.py -i 文档.txt -o 文档.json
 ═══════════════════════════════════════════════════
  🐉 龍魂 · CNSH 智能贴入插件 v1.1 · 最终签名
 ═══════════════════════════════════════════════════
-DNA:        #龍芯⚡️丙午·丙申·己未·酉时-CNSH-STAMP-PLUGIN-v1.1-UID9622
+DNA:        #龍芯⚡️丙午·丙申·己未·癸酉·䷬萃-CNSH-STAMP-PLUGIN-v1.1-UID9622
 确认码:      #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色:       🟢 通过（已本地实测）

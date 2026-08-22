@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂·关键字文件分类整理器
-DNA: #龍芯⚡️丙午·癸未·丁未-ORGANIZE-BY-KEYWORDS-v1.0
+DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-ORGANIZE-BY-KEYWORDS-v1.0
 功能：按用户自定义规则（关键字+扩展名）自动整理文件到分类目录
 说明：本脚本本地运行，规则由用户自己配置，不联网、不上传。
 """
@@ -215,7 +216,7 @@ def main():
     print(f"   跳过（已存在）: {stats['skipped_existing']}")
     print(f"   排除: {stats['excluded']}")
     print(f"   错误: {stats['errors']}")
-    print(f"\n🧬 DNA: #龍芯⚡️丙午·癸未·丁未-ORGANIZE-BY-KEYWORDS-v1.0")
+    print(f"\n🧬 DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-ORGANIZE-BY-KEYWORDS-v1.0")
 
 
 if __name__ == "__main__":

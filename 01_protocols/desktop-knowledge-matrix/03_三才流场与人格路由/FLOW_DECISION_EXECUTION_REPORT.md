@@ -1,6 +1,7 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 龍魂流場決策核 v4.1 · 執行驗證報告
 
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-FLOW-DECISION-EXECUTION-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-FLOW-DECISION-EXECUTION-v1.0
 **時間**: 2026-06-08 00:50 CST
 **UID**: 9622
 **狀態**: 🟢 **架構完整·10道閘就位·全鏈驗證就緒**
@@ -123,7 +124,7 @@
 ✓ node_id        — 節點唯一 ID
 ✓ confirm_code   — CONFIRM 授權碼 (#CONFIRM🌌9622...)
 ✓ gpg            — GPG 指紋 (A2D0092CEE2E5BA87035600924C3704A8CC26D5F)
-✓ dna            — DNA 追溯碼 (#龍芯⚡️丙午·丙申·庚申·亥时-...)
+✓ dna            — DNA 追溯碼 (#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-...)
 ```
 
 ### 鏈接（2 字段）
@@ -203,7 +204,7 @@ raw_input = "系統日常日誌·無敏感信息"
 tags = {
     "title": "daily_log",
     "level": "L3_DAILY",
-    "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-FLOW-NORMAL-v1.0",
+    "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-FLOW-NORMAL-v1.0",
     "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 }
 
@@ -229,7 +230,7 @@ raw_input = "臨時 token: sk_live_xxx"
 tags = {
     "title": "temp_token",
     "level": "L5_TEMP",
-    "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-FLOW-BURN-v1.0"
+    "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-FLOW-BURN-v1.0"
 }
 
 # 流程:
@@ -249,7 +250,7 @@ raw_input = "用戶個人信息..."
 tags = {
     "title": "user_private",
     "visibility": "PRIVATE",
-    "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-FLOW-SEALED-v1.0",
+    "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-FLOW-SEALED-v1.0",
     "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 }
@@ -271,7 +272,7 @@ raw_input = "龍魂協議更新..."
 tags = {
     "title": "L0_rule_update",
     "level": "L0_ETERNAL",
-    "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-FLOW-L0-v1.0",
+    "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-FLOW-L0-v1.0",
     "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 }
@@ -330,7 +331,7 @@ tags = {
 
 ---
 
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-FLOW-DECISION-EXECUTION-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-FLOW-DECISION-EXECUTION-v1.0
 **簽署**: UID9622·決策守護者
 **狀態**: 🟢 **流場決策核完整就位·10 道閘激活·全鏈驗證通過**
 

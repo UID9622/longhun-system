@@ -1,4 +1,5 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ⛔ 已废弃 — 请使用 `LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md`
@@ -19,7 +20,7 @@
 > ║  【守护者】UID9622                                             ║
 > ╠═══════════════════════════════════════════════════════════════╣
 > ║  【版本】v1.4 · 丙午·辛未·乙酉 (2026-07-16)                    ║
-> ║  【DNA】#龍芯⚡️丙午·辛未·乙酉·需-PERSONA-GOVERNANCE-WHITE-v1.4 ║
+> ║  【DNA】#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-PERSONA-GOVERNANCE-WHITE-v1.4 ║
 > ║  【确认】#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                   ║
 > ║  【GPG】A2D0092CEE2E5BA87035600924C3704A8CC26D5F              ║
 > ╚═══════════════════════════════════════════════════════════════╝
@@ -771,7 +772,7 @@ P01 诸葛亮：判定是否可恢复
 #龍芯⚡️<年干支>·<月干支>·<日干支>·<时辰>·<卦名>-<模块>-<动作>-<哈希8位>
 
 示例：
-#龍芯⚡️丙午·辛未·乙酉·辰时·需-PERSONA-GOVERNANCE-WHITE-v1.0-A3F8C2D1
+#龍芯⚡️丙午·辛未·乙酉·辰时·䷄需-PERSONA-GOVERNANCE-WHITE-v1.0-A3F8C2D1
 ```
 
 ### 7.2 DNA全链路
@@ -1206,7 +1207,7 @@ P13姜子牙 → 监管天联审 → 重大干预升级UID9622人工
 | 版本 | v1.4 |
 | 日期 | 丙午·辛未·乙酉 (2026-07-16) |
 | 作者 | UID9622 · 诸葛鑫 · 龍芯北辰 |
-| DNA | `#龍芯⚡️丙午·辛未·乙酉·需-PERSONA-GOVERNANCE-WHITE-v1.4` |
+| DNA | `#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-PERSONA-GOVERNANCE-WHITE-v1.4` |
 | 确认码 | `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` |
 | GPG | `A2D0092CEE2E5BA87035600924C3704A8CC26D5F` |
 | 状态 | 🟢 正式发布 · 公开监督 |

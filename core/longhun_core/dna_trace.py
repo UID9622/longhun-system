@@ -8,7 +8,7 @@
 
 DNA格式: #龍芯⚡️<天干><地支>·<卦>-<模块>-<动作>-<哈希8>
 
-DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-DNA-TRACE-UID9622
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-DNA-TRACE-UID9622
 License: MulanPSL v2
 """
 

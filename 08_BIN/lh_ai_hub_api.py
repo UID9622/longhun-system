@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-e9247ce6
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
@@ -7,7 +8,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 多模型统一对话 · 全链路透明审计 · 实时计费 · DNA追溯
 
-DNA: #龍芯⚡️丙午·丙申·己酉·䷐随-AI-HUB-API-v1.0-8f2a1c6e
+DNA: #龍芯⚡️丙午·丙申·己酉·庚午·䷐随-AI-HUB-API-v1.0-8f2a1c6e
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -50,7 +51,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT / "bin"))
 
-DNA = "#龍芯⚡️丙午·丙申·己酉·䷐随-AI-HUB-API-v1.0-8f2a1c6e"
+DNA = "#龍芯⚡️丙午·丙申·己酉·庚午·䷐随-AI-HUB-API-v1.0-8f2a1c6e"
 VERSION = "1.0.0"
 
 # ─── 日志 ───
@@ -293,7 +294,7 @@ def _call_direct(messages: List[Dict], provider: str, temperature: float = 0.7) 
     import urllib.request, urllib.error
     
     configs = {
-        "deepseek": {"url": "https://api.deepseek.com/v1/chat/completions", "model": "deepseek-chat", "key_env": "DEEPSEEK_API_KEY"},
+        "deepseek": {"url": "https://api.deepseek.com/v1/chat/completions", "model": "deepseek-v4-flash", "key_env": "DEEPSEEK_API_KEY"},
         "kimi": {"url": "https://api.moonshot.cn/v1/chat/completions", "model": "moonshot-v1-8k", "key_env": "KIMI_API_KEY"},
         "openai": {"url": "https://api.openai.com/v1/chat/completions", "model": "gpt-4o-mini", "key_env": "OPENAI_API_KEY"},
     }

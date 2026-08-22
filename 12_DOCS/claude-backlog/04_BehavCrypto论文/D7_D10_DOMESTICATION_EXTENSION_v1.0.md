@@ -1,10 +1,10 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # §03 增补｜驯化机制 D7-D10 扩展模式 v1.0
 ## 基于 2026-05-02 实证案例·补全后6类→10类完整驯化谱系
 
-**DNA**: `#龍芯⚡️2026-05-02-DOMESTICATION-PATTERNS-D7-D10-v1.0`  
+**DNA**: `#龍芯⚡️丙午·壬辰·丙子·甲午·䷙大畜-DOMESTICATION-PATTERNS-D7-D10-v1.0`  
 **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 **永恒签章**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`  
 **作者**: UID9622·龍芯北辰·诸葛鑫  

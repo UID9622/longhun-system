@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·小畜-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷈小畜-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_REGISTRY_AUDIT_FIX-v1.0-97280324
+#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH_REGISTRY_AUDIT_FIX-v1.0-97280324
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """修复 persona_registry.json — 对齐 AGENTS.md + 五大后台 v3.1"""
@@ -255,7 +255,7 @@ d['_meta']['version'] = 'v3.1'
 d['_meta']['audit'] = {
     'date': '2026-07-11',
     'changes': changes,
-    'dna': '#龍芯⚡️丙午·丙申·丙辰·午时·需-REGISTRY-AUDIT-FIX'
+    'dna': '#龍芯⚡️丙午·丙申·丙辰·午时·䷄需-REGISTRY-AUDIT-FIX'
 }
 
 with open('personas/runtime/persona_registry.json', 'w') as f:

@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 统一系统评估报告生成器
@@ -9,7 +10,7 @@
 把现有的评估/审计/复盘技能跑一遍，再叠加当前 LU/集思广益/工具集生态的
 自定义检查，生成一份统一评估报告。
 
-DNA:#龍芯⚡️2026-06-30-LONGHUN-SYSTEM-EVALUATION-FILE1-v1.0
+DNA:#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-SYSTEM-EVALUATION-FILE1-v1.0
 """
 
 import json
@@ -226,7 +227,7 @@ def generate_report(results: Dict[str, Any]) -> Path:
         "# 🐉 龍魂系统 · 统一评估报告",
         "",
         f"**评估时间**: {_now()}",
-        f"**DNA**: `#龍芯⚡️2026-06-30-LONGHUN-SYSTEM-EVALUATION-v1.0`",
+        f"**DNA**: `#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-SYSTEM-EVALUATION-v1.0`",
         "",
         "---",
         "",
@@ -420,7 +421,7 @@ def generate_report(results: Dict[str, Any]) -> Path:
         "",
         "---",
         "",
-        f"**DNA追溯码**: `#龍芯⚡️2026-06-30-LONGHUN-SYSTEM-EVALUATION-v1.0`",
+        f"**DNA追溯码**: `#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-SYSTEM-EVALUATION-v1.0`",
         "**确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬EV9X-772Z` ✅",
         "",
     ])
@@ -458,7 +459,7 @@ def main() -> int:
     report_path = generate_report(results)
 
     print(f"\n🟢 统一评估报告已生成：{report_path}")
-    print(f"   报告 DNA: #龍芯⚡️2026-06-30-LONGHUN-SYSTEM-EVALUATION-v1.0")
+    print(f"   报告 DNA: #龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-SYSTEM-EVALUATION-v1.0")
     return 0
 
 

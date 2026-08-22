@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 CNSH 龍魂文化算法流场压缩核 v3.0
 
-> DNA: `#龍芯⚡️2026-05-01-CNSH龍魂流场压缩核-v3.0` → `#龍芯⚡️2026-07-06-CNSH-FLOW-CORE-v3.0-ALIGNED`
+> DNA: `#龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-CNSH龍魂流场压缩核-v3.0` → `#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-FLOW-CORE-v3.0-ALIGNED`
 > 确认码: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅`
 > GPG: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 > 统一名: `CNSH-FLOW-CORE`（中文名：龍魂流场压缩核）
@@ -324,7 +324,7 @@ def 生成节点(text, title="未命名节点", prev_element=None, raw_type="tex
 ```json
 {
     "CNSH::": {
-        "dna": "#龍芯⚡️2026-05-01-CNSH龍魂流场压缩核-v3.0",
+        "dna": "#龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-CNSH龍魂流场压缩核-v3.0",
         "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
         "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
         "route": "IPA-FLOW-CORE",
@@ -363,7 +363,7 @@ def 生成节点(text, title="未命名节点", prev_element=None, raw_type="tex
 ## 协同流场拓展（v3.1 · 2026-07-07）
 
 > 引擎: `scripts/round1/flowfield_collab_engine.py`
-> DNA: `#龍芯⚡️2026-07-07-FLOWFIELD-COLLAB-ENGINE-v1.0`
+> DNA: `#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-FLOWFIELD-COLLAB-ENGINE-v1.0`
 
 v3.0 解决了「单输入→单节点」的压缩问题。v3.1 拓展为 **多人格协同流场**。
 

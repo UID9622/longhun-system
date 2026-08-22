@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂系统 · 主计划总纲 v1.0
 
-DNA: #龍芯⚡️2026-07-23-MASTER-PLAN-v1.0-b7f3a2d1
+DNA: #龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-MASTER-PLAN-v1.0-b7f3a2d1
 创建者: 诸葛鑫（UID9622）
 来源: `docs/archive_html/master_plan_v1.0.html`（原版2026-04-16）
 协议: CC BY-NC-SA 4.0

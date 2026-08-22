@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🧮 根治理决策链 v2.0 · 性能+审计优化版
 
 v1.0 → v2.0 改进：
@@ -12,7 +13,7 @@ v1.0 → v2.0 改进：
   ✅ SI 权重可配置（适应多策略）
   ✅ 决策阈值动态设置（场景自适应）
 
-DNA: #龍芯⚡️2026-06-08-FORMULA-CHAIN-v2.0-OPTIMIZED
+DNA: #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-FORMULA-CHAIN-v2.0-OPTIMIZED
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -402,7 +403,7 @@ def selftest() -> None:
 
     print("=" * 80)
     print("🟢 v2.0 优化版自检通过·性能↑·审计↑·配置↑")
-    print("   DNA: #龍芯⚡️2026-06-08-FORMULA-CHAIN-v2.0-OPTIMIZED")
+    print("   DNA: #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-FORMULA-CHAIN-v2.0-OPTIMIZED")
     print("   向后相容·所有 v1.0 调用都能跑·输出完全相同")
     print("=" * 80)
 

@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 · 训练数据标注器
 对原始数据进行初筛与多维度评分，输出带 DNA 的标注数据。
-DNA: #龍芯⚡️2026-06-30-LONGHUN-DATA-ANNOTATOR-v1.0
+DNA: #龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-DATA-ANNOTATOR-v1.0
 """
 
 import json
@@ -161,7 +162,7 @@ def main():
     print(f"🟢 标注完成：{len(标注结果)} 条")
     print(f"   平均综合得分：{平均得分}")
     print(f"   输出：{输出路径}")
-    print(f"   DNA: #龍芯⚡️2026-06-30-LONGHUN-DATA-ANNOTATOR-v1.0")
+    print(f"   DNA: #龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-DATA-ANNOTATOR-v1.0")
 
 
 if __name__ == "__main__":

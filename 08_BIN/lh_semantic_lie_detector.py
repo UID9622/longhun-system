@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-07-12-SEMANTIC-LIE-DETECTOR-v2.0
+#龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-SEMANTIC-LIE-DETECTOR-v2.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -11,7 +11,7 @@
 ║  🧬 龍魂·语义测谎仪 v2.0 — 语义库联动·规避话术检测·异常账号标记            ║
 ║  Semantic Lie Detector · Connected to Semantic Library                 ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️2026-07-12-SEMANTIC-LIE-DETECTOR-v2.0                      ║
+║  DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-SEMANTIC-LIE-DETECTOR-v2.0                      ║
 ║  语义库: 02_SKILLS/anti_fraud_patterns_v2.0.json (13+检测维度)            ║
 ║  愿景: 2025年初心 — 人文系统就是测谎仪·给政府提供最好的反诈工具            ║
 ║  哲学:                                                                   ║
@@ -1210,7 +1210,7 @@ def serve_api(port: int = 19624):
             "status": "healthy",
             "service": "longhun-semantic-lie-detector",
             "version": "v2.0",
-            "dna": "#龍芯⚡️2026-07-12-SEMANTIC-LIE-DETECTOR-v2.0",
+            "dna": "#龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-SEMANTIC-LIE-DETECTOR-v2.0",
             "dimensions": len(detector.dimensions),
             "pattern_source": detector.pattern_source,
         })

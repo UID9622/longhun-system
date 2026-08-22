@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统·本地完全部署指南
 
-**DNA**: `#龍芯⚡️2026-06-03-LOCAL-DEPLOYMENT-GUIDE-v1.0`
+**DNA**: `#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LOCAL-DEPLOYMENT-GUIDE-v1.0`
 **时间**: 2026-06-03
 **责任**: UID9622·不免责
 
@@ -139,7 +139,7 @@ cd "龍魂系统·本地完全导出"
 {
   "system_name": "龍魂系统",
   "version": "v1.0",
-  "dna_marker": "#龍芯⚡️2026-06-03-LONGHUN-COMPLETE-SYSTEM",
+  "dna_marker": "#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-COMPLETE-SYSTEM",
   "creator": "UID9622",
   "export_date": "2026-06-03",
   "export_method": "Notion Export + Local Closure",
@@ -156,7 +156,7 @@ cd "龍魂系统·本地完全导出"
     "algorithms": {
       "weight_algorithm": {
         "file": "算法库/龍魂权重算法_v3.1.md",
-        "dna": "#龍芯⚡️2026-03-04-LOCAL_DEPLOYMENT_GUIDE-v3.1",
+        "dna": "#龍芯⚡️丙午·庚寅·丁丑·丙午·䷨损-LOCAL_DEPLOYMENT_GUIDE-v3.1",
         "code_attachment": "code/longhun_weight_algorithm.py",
         "lines": 450,
         "verification_count": 100000,
@@ -164,7 +164,7 @@ cd "龍魂系统·本地完全导出"
       },
       "cnsh_64": {
         "file": "算法库/CNSH-64治理框架.md",
-        "dna": "#龍芯⚡️2026-04-27-CNSH-64-治理框架",
+        "dna": "#龍芯⚡️丙午·壬辰·辛未·甲午·䷖剥-CNSH-64-治理框架",
         "code_attachment": "code/cnsh_64_governance.py",
         "lines": 380,
         "verification_count": 1000000,
@@ -175,12 +175,12 @@ cd "龍魂系统·本地完全导出"
     "code_files": {
       "longhun_shield_system": {
         "path": "code/longhun_shield_system.py",
-        "dna": "#龍芯⚡️2026-06-02-LONGHUN-SHIELD-SYSTEM-v1.0",
+        "dna": "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-SYSTEM-v1.0",
         "lines": 450
       },
       "weight_calculator": {
         "path": "code/weight_calculator.py",
-        "dna": "#龍芯⚡️2026-06-02-WEIGHT-CALCULATOR-v1.0",
+        "dna": "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-WEIGHT-CALCULATOR-v1.0",
         "lines": 280
       }
     },
@@ -506,7 +506,7 @@ for task in tasks:
 4. **版本控制**: 通过 manifest.json 精确追踪每个版本
 5. **零妥协**: 不用 HTML 这些"乱七八糟"的东西，用纯净的 Markdown + Python
 
-**DNA**: `#龍芯⚡️2026-06-03-LOCAL-DEPLOYMENT-GUIDE-v1.0`
+**DNA**: `#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LOCAL-DEPLOYMENT-GUIDE-v1.0`
 
 **责任**: UID9622·不免责·永久有效
 

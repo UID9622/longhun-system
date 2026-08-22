@@ -5,7 +5,7 @@ id: clause_dna_trace
 type: clause
 title: 言论DNA追溯与风险评级
 layer: L2
-dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A"
+dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·䷅讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A"
 owner: UID9622 · 诸葛鑫（Lucky）
 claim: 每条言论带时间戳+证据链+自省声明+改进建议+风险评级(🟢🟡🔴)，DNA永久可查，被诉时证明时间来源真实。
 based_on: [dragon_vein_trace, data_sovereignty_in_user]
@@ -31,4 +31,4 @@ created: 丙午·辛未·乙酉
 
 **为什么**：老大原话"说话要负责……要不然我怎么对得起说自己天选之人呢"——零篡改承诺，连脏话都忠实记录。
 
-> DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A
+> DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·䷅讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A

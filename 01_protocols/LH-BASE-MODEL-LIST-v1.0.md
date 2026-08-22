@@ -1,9 +1,10 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂体系 · 中文底座模型清单 v1.0
 
-**DNA:** `#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-BASE-MODEL-LIST-v1.0`
+**DNA:** `#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-BASE-MODEL-LIST-v1.0`
 **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **创建者:** 诸葛鑫（UID9622）
 **协议状态:** 焊死 · 不可修订（除非老大亲自下指令）

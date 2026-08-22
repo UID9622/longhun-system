@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 P15 乔前辈 · 极简工程执行器
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 Minimal Engineering & DNA Sealer
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-P15-QIAO-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P15-QIAO-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -59,7 +60,7 @@ class P15Qiao:
 """
 
     def __init__(self):
-        self.dna = "#龍芯⚡️丙午·丙申·丙辰·亥时·需-P15-QIAO-v1.0"
+        self.dna = "#龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P15-QIAO-v1.0"
         self.system_root = SYSTEM_ROOT
         self.capabilities = [
             "minimal_review",      # 极简审查

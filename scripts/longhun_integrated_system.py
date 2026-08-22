@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 龍魂系统完整集成框架 v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 LONGHUN INTEGRATED SYSTEM - Complete Ecosystem v1.0
 
-DNA:#龍芯⚡️2026-06-03-LONGHUN-INTEGRATED-SYSTEM-v1.0
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-INTEGRATED-SYSTEM-v1.0
 # STATUS: ⚠️ DEPRECATED · 功能已被 engines/lh_fixed_point_memory_archive.py / bin/lh_ant_colony_orchestrator.py 等模块化替代
 # 保留原因: 历史集成框架参考，新代码请使用各专用引擎
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -168,7 +169,7 @@ class LongHunEcosystem:
         self.dna_chain: List[str] = []
 
         print(f"\n【{self.lang_pack['title']}·生态闭环系统】")
-        print(f"DNA:#龍芯⚡️2026-06-03-LONGHUN-INTEGRATED-SYSTEM-v1.0")
+        print(f"DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-INTEGRATED-SYSTEM-v1.0")
         print(f"CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
         print(f"SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL")
         print("\n" + "="*60 + "\n")

@@ -4,7 +4,7 @@
 """
 🗣️ 龍魂 TTS 主控引擎 v1.0
 
-DNA: #龍芯⚡️丙午·乙未·己卯·巳时·☰乾-TTS-SPEAK-v1.0-c1d2e3f4
+DNA: #龍芯⚡️丙午·乙未·己卯·巳时·䷀乾-TTS-SPEAK-v1.0-c1d2e3f4
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0

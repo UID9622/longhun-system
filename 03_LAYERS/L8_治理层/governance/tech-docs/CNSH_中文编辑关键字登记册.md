@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CNSH 中文编辑关键字登记册
 
-**DNA**: `#龍芯⚡️2026-07-05-CNSH-KEYWORDS-REGISTRY-v2.2-BRAKET`  
+**DNA**: `#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-CNSH-KEYWORDS-REGISTRY-v2.2-BRAKET`  
 **适用范围**: longhun-system 全项目 · 中文母语编程 · 文化主权落地  
 **铁律**: `龍` 字永繁 · `龍≠龍≠Dragon` · 英文仅作映射注释 · 代码优先中文
 

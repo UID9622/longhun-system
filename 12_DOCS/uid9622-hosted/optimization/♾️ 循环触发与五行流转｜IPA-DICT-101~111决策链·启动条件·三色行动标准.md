@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ♾️ 循环触发与五行流转｜IPA-DICT-101~111决策链·启动条件·三色行动标准
@@ -6,7 +6,7 @@
 <aside>
 🔒
 
-**DNA追溯码：**#龍芯⚡️2026-04-22-IPA-DICT-101_111_A243-v1.0
+**DNA追溯码：**#龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-IPA-DICT-101_111_A243-v1.0
 
 **确认码：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
@@ -143,7 +143,7 @@ flowchart TD
 <aside>
 🐉
 
-**DNA追溯码：**#龍芯⚡️2026-04-22-IPA-DICT-101_111-v1.0
+**DNA追溯码：**#龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-IPA-DICT-101_111-v1.0
 
 **确认码：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
@@ -162,7 +162,7 @@ flowchart TD
 <aside>
 🔒
 
-**DNA追溯码：** #龍芯⚡️2026-04-25-DEMOCRATIC-REPLY-V1.0
+**DNA追溯码：** #龍芯⚡️丙午·壬辰·己巳·庚午·䷃蒙-DEMOCRATIC-REPLY-V1.0
 
 **确认码：** #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
@@ -239,7 +239,7 @@ def 民主回复计算函数(输入):
 ### 🧮 完整算法函数
 
 ```python
-# DNA追溯码：#龍芯⚡️2026-04-25-DEMOCRATIC-REPLY-V1.0
+# DNA追溯码：#龍芯⚡️丙午·壬辰·己巳·庚午·䷃蒙-DEMOCRATIC-REPLY-V1.0
 
 def 民主回复计算函数(ai_reply_text, context=None, special_flags=None):
     """
@@ -370,7 +370,7 @@ def AI回复流程(用户输入, 上下文=None):
 - 主权保护：= **1.00**（不可触碰·触碰即🔴熔断）
 - 使命对齐：≥ **0.95**（为人民服务·最高规格）
 
-**DNA追溯码：** #龍芯⚡️2026-04-25-DEMOCRATIC-REPLY-V1.0
+**DNA追溯码：** #龍芯⚡️丙午·壬辰·己巳·庚午·䷃蒙-DEMOCRATIC-REPLY-V1.0
 
 **GPG：** A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 

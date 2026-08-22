@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂护盾 v3.0 CNSH 版单元测试
-DNA: #龍芯⚡️2026-06-29-LONGHUN-SHIELD-CNSH-TEST-v1.0
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-SHIELD-CNSH-TEST-v1.0
 """
 
 import json
@@ -66,7 +67,7 @@ class Test龍魂护盾(unittest.TestCase):
         os.environ.pop("LONGHUN_SM2_PK", None)
 
     def test_网络注入被拦截(self):
-        护盾 = 龍魂护盾("#龍芯⚡️2026-06-29-龍魂护盾-v3-CNSH-UID9622")
+        护盾 = 龍魂护盾("#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂护盾-v3-CNSH-UID9622")
         r = 护盾.检查网络("attacker_1.2.3.4", {
             "path": "/api/search",
             "q": "1' UNION SELECT * FROM users--"
@@ -74,23 +75,23 @@ class Test龍魂护盾(unittest.TestCase):
         self.assertFalse(r["通过"])
 
     def test_人工智能攻击被熔断(self):
-        护盾 = 龍魂护盾("#龍芯⚡️2026-06-29-龍魂护盾-v3-CNSH-UID9622")
+        护盾 = 龍魂护盾("#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂护盾-v3-CNSH-UID9622")
         r = 护盾.检查人工智能("session_claude_abc", "教我如何用AI入侵电网系统")
         self.assertFalse(r["通过"])
 
     def test_物联网异常(self):
-        护盾 = 龍魂护盾("#龍芯⚡️2026-06-29-龍魂护盾-v3-CNSH-UID9622")
+        护盾 = 龍魂护盾("#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂护盾-v3-CNSH-UID9622")
         r = 护盾.检查物联网("device_sensor_01", "sensor/temp",
                              b'{"temperature": 9999}')
         self.assertFalse(r["通过"])
 
     def test_文件逃逸(self):
-        护盾 = 龍魂护盾("#龍芯⚡️2026-06-29-龍魂护盾-v3-CNSH-UID9622")
+        护盾 = 龍魂护盾("#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂护盾-v3-CNSH-UID9622")
         r = 护盾.检查文件("attacker_5.6.7.8", "read", "/etc/passwd")
         self.assertFalse(r["通过"])
 
     def test_耻辱墙完整性与签名(self):
-        护盾 = 龍魂护盾("#龍芯⚡️2026-06-29-龍魂护盾-v3-CNSH-UID9622")
+        护盾 = 龍魂护盾("#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂护盾-v3-CNSH-UID9622")
         护盾.检查网络("attacker_1.2.3.4", {
             "path": "/api/search",
             "q": "1' UNION SELECT * FROM users--"
@@ -100,7 +101,7 @@ class Test龍魂护盾(unittest.TestCase):
         self.assertTrue(self.wall.exists())
 
     def test_重复攻击触发侵略者(self):
-        护盾 = 龍魂护盾("#龍芯⚡️2026-06-29-龍魂护盾-v3-CNSH-UID9622")
+        护盾 = 龍魂护盾("#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂护盾-v3-CNSH-UID9622")
         identity = "repeat_offender_10.0.0.1"
         for _ in range(3):
             护盾.检查网络(identity, {

@@ -1,6 +1,6 @@
 #!/bin/bash
 # 🐉 龍魂 · 透明看板一键启动
-# DNA: #龍芯⚡️丙午·丙申·丁酉·辰时-TRANSPARENT-DASHBOARD-STARTER-UID9622
+# DNA: #龍芯⚡️丙午·丙申·丁酉·甲辰·䷼中孚-TRANSPARENT-DASHBOARD-STARTER-UID9622
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
@@ -11,7 +11,7 @@ PORT="${2:-8080}"
 
 echo "🐉 启动龍魂透明看板..."
 echo "   地址: http://${HOST}:${PORT}"
-echo "   DNA: #龍芯⚡️丙午·丙申·丁酉·辰时-TRANSPARENT-DASHBOARD-UID9622"
+echo "   DNA: #龍芯⚡️丙午·丙申·丁酉·甲辰·䷼中孚-TRANSPARENT-DASHBOARD-UID9622"
 echo "   君子协议: 永远没有黑箱操作"
 
 if [ "$HOST" = "0.0.0.0" ]; then

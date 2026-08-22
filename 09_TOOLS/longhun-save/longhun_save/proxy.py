@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️2026-08-06-SAVE-PROXY-v1.0
+# DNA: #龍芯⚡️丙午·乙未·壬子·丙午·䷙大畜-SAVE-PROXY-v1.0
 # License: MulanPSL v2
 """
 AI 省钱代理服务器
@@ -19,18 +19,16 @@ OpenAI 兼容 API 代理，自动路由本地/云端。
 
 import json
 import logging
-import sys
 import time
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
-from pathlib import Path
-from typing import Dict, List, Optional, Any
+from typing import Optional
 
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import JSONResponse
 import uvicorn
 
-from .router import SmartRouter, RouteDecision, RouteStrategy
+from .router import SmartRouter, RouteStrategy
 from .cache_engine import RequestCache
 from .stats import CostStats
 from .audit_log import AuditLogger
@@ -43,10 +41,10 @@ logger = logging.getLogger("longhun-save.proxy")
 # ════════════════════════════════════════════════════
 
 def create_app(
-    router: SmartRouter = None,
-    cache: RequestCache = None,
-    stats: CostStats = None,
-    audit: AuditLogger = None,
+    router: Optional[SmartRouter] = None,
+    cache: Optional[RequestCache] = None,
+    stats: Optional[CostStats] = None,
+    audit: Optional[AuditLogger] = None,
 ) -> FastAPI:
     """创建 FastAPI 应用
 
@@ -226,7 +224,7 @@ class SaveProxy:
     Usage:
         proxy = SaveProxy()
         proxy.add_local("http://localhost:11434/v1", "qwen2.5:7b")
-        proxy.add_cloud("https://api.deepseek.com/v1", "deepseek-chat", "sk-xxx")
+        proxy.add_cloud("https://api.deepseek.com/v1", "deepseek-v4-flash", "sk-xxx")
         proxy.start(port=8088)
 
         # 然后设环境变量
@@ -235,19 +233,19 @@ class SaveProxy:
 
     def __init__(self, strategy: RouteStrategy = RouteStrategy.LOCAL_FIRST,
                  cache_max: int = 500, cache_ttl: int = 3600,
-                 audit_key: str = None):
+                 audit_key: Optional[str] = None):
         self.router = SmartRouter(default_strategy=strategy)
         self.cache = RequestCache(max_size=cache_max, ttl=cache_ttl)
         self.stats = CostStats()
         self.audit = AuditLogger(key=audit_key or "longhun-proxy")
 
-    def add_local(self, base_url: str, model: str, name: str = None,
+    def add_local(self, base_url: str, model: str, name: Optional[str] = None,
                   priority: int = 0) -> "SaveProxy":
         self.router.add_local(base_url, model, name, priority)
         return self
 
     def add_cloud(self, base_url: str, model: str, api_key: str,
-                  name: str = None, priority: int = 10) -> "SaveProxy":
+                  name: Optional[str] = None, priority: int = 10) -> "SaveProxy":
         self.router.add_cloud(base_url, model, api_key, name, priority)
         return self
 

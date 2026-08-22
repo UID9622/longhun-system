@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂引擎主控 · Web 仪表盘后端 v1.0
-DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·临-LH-CTL-WEB-v1.0-9E8D7C6B
+DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH-CTL-WEB-v1.0-9E8D7C6B
 创建者: 诸葛鑫 (UID9622)
 协议: CC BY-NC-SA 4.0
 
@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lh_ctl_config import load_config, logs_dir, state_dir, project_root
 
 CST = timezone(timedelta(hours=8))
-DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH-CTL-WEB-v1.0-9E8D7C6B"
+DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH-CTL-WEB-v1.0-9E8D7C6B"
 
 app = Flask(__name__)
 if HAS_CORS:

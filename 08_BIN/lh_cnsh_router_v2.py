@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·未济-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷿未济-FIX_DNA-v1.0
 #!/usr/bin/env python3
-#龍芯⚡️2026-07-12-CNSH-Router-v2.0-c3fda6f3
+#龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-CNSH-Router-v2.0-c3fda6f3
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
 CNSH 一句话路由器 v2.0｜Route = f(Intent, Context, DNA)
 ================================================================
 来源：2026-07-12 Notion投喂文档#5
-DNA追溯码：#龍芯⚡️2026-07-12-CNSH-Router-v2.0-c3fda6f3
+DNA追溯码：#龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-CNSH-Router-v2.0-c3fda6f3
 GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 CONFIRM：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 
@@ -495,7 +495,7 @@ class CNSHRouterV20:
     """CNSH 一句话路由器 v2.0 统一入口"""
 
     VERSION = "2.0"
-    DNA = "#龍芯⚡️2026-07-12-CNSH-Router-v2.0-c3fda6f3"
+    DNA = "#龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-CNSH-Router-v2.0-c3fda6f3"
 
     def __init__(self, use_parallel: bool = True, enable_audit: bool = True):
         self.kw_router = CNSHRouter()

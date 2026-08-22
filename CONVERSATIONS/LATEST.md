@@ -6,7 +6,7 @@
 
 # 会话卡 · 不瞎逼逼·讲实话技能 v1.0 落盘
 
-DNA: #龍芯⚡️2026-08-20-22:20-TRUTH-SKILL-v1.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·丙寅·己亥·䷶丰-TRUTH-SKILL-v1.0-UID9622
 人格: P04 鲁班（codebuddy 执行）× P02 宝宝/P05 上帝之眼（技能归属）
 时间: 2026-08-20 22:30
 三色: 🟢 全绿
@@ -54,7 +54,7 @@ session_id: 2026-08-20-2226-codebuddy-api-bridge
 agent: codebuddy
 persona: P04·鲁班
 sovereign_present: true
-dna: "#龍芯⚡️2026-08-20-22:26-API-BRIDGE-FOUR-STAGES-v1.0-UID9622"
+dna: "#龍芯⚡️丙午·丙申·丙寅·己亥·䷶丰-API-BRIDGE-FOUR-STAGES-v1.0-UID9622"
 tricolor: 🟢
 notion_refs: [API桥接规格v1.0, 本地回写登记v1.0, 主控页v2.7.44启动锚, 主权部署包v2.0]
 ---
@@ -112,7 +112,7 @@ session_id: 2026-08-20-2208-codebuddy-fp-gate
 agent: codebuddy
 persona: P04·鲁班
 sovereign_present: true
-dna: "#龍芯⚡️2026-08-20-2208-FP-GATE-CONFLICT-v1.0-UID9622"
+dna: "#龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-2208-FP-GATE-CONFLICT-v1.0-UID9622"
 tricolor: 🔴
 notion_refs: [API桥接规格v1.0, 本地回写登记v1.0, v3执行指令]
 ---
@@ -163,7 +163,7 @@ session_id: 2026-08-20-2155-codebuddy-sovereign-conflict
 agent: codebuddy
 persona: P04·鲁班
 sovereign_present: true
-dna: "#龍芯⚡️2026-08-20-21:55-SOVEREIGN-SOURCE-CONFLICT-REPORT-v1.0-UID9622"
+dna: "#龍芯⚡️丙午·丙申·丙寅·己亥·䷶丰-SOVEREIGN-SOURCE-CONFLICT-REPORT-v1.0-UID9622"
 tricolor: 🔴
 notion_refs: [主权启动包自包含落盘 v2.0]
 ---
@@ -220,7 +220,7 @@ session_id: 2026-08-20-2130-codebuddy-bridge-mvp
 agent: codebuddy
 persona: P04·鲁班
 sovereign_present: true
-dna: "#龍芯⚡️2026-08-20-21:30-FOUR-PARTY-DIALOGUE-BRIDGE-MVP-EXEC-v1.0-UID9622"
+dna: "#龍芯⚡️丙午·丙申·丙寅·己亥·䷶丰-FOUR-PARTY-DIALOGUE-BRIDGE-MVP-EXEC-v1.0-UID9622"
 tricolor: 🟡
 notion_refs: [四方对话桥接 MVP 规格 v1.0]
 ---

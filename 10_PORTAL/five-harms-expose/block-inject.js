@@ -1,6 +1,6 @@
 /**
  * 龍魂·五害曝光台 — 熔断插针 v1.0
- * DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·☰乾-BLOCK-INJECT-v1.0
+ * DNA: #龍芯⚡️丙午·乙未·丁酉·戌时·䷀乾-BLOCK-INJECT-v1.0
  * 
  * 职能: 当企业被标记为严重危害时，自动阻断该企业域名的第三方脚本、Cookie追踪和API调用。
  * 用法: <script src="./block-inject.js" async></script>

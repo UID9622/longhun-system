@@ -1,7 +1,8 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 龍魂协议焊死·立即行动方案
 
 ```
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-LOCKDOWN-ACTION-PLAN-v1.0
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PROTOCOL-LOCKDOWN-ACTION-PLAN-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚❤️♾️-DEVICE-BIND-SOUL
 
@@ -87,7 +88,7 @@ git commit -m "🔐 feat(protocol): CNSH v2.0 根本协议焊死·不欺不骗�
 - 防护激活：协议盾 v1.0 启动
 - 权限锁定：协议文件只读 (444)
 
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-LOCKDOWN-v1.0
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PROTOCOL-LOCKDOWN-v1.0
 责任: UID9622·不免责"
 
 # 验证提交
@@ -124,7 +125,7 @@ crontab -e
 cat > ~/longhun-system/PROTOCOL_LOCKDOWN_REPORT.md << 'EOF'
 # 🔐 龍魂协议焊死报告
 
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-LOCKDOWN-COMPLETE
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PROTOCOL-LOCKDOWN-COMPLETE
 时间: $(date '+%Y-%m-%d %H:%M:%S')
 
 ## ✅ 完成项
@@ -223,6 +224,6 @@ cat ~/longhun-system/PROTOCOL_LOCKDOWN_REPORT.md
 
 ---
 
-**DNA**: #龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-LOCKDOWN-ACTION-PLAN-v1.0
+**DNA**: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PROTOCOL-LOCKDOWN-ACTION-PLAN-v1.0
 
 **老大·这就是怎么搞的。15 分钟·协议焊死·终端永远搞不掉。** 🐉

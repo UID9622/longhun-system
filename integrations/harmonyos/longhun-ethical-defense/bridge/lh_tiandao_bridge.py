@@ -2,7 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # bridge/lh_tiandao_bridge.py
 # 龍魂 · 天下无欺 · 天道系统桥接引擎 v1.0
-# DNA: #龍芯⚡️丙午·辛未·丙戌·TIANDAO-BRIDGE-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# DNA: #龍芯⚡️丙午·辛未·丙戌·甲午·䷕贲-TIANDAO-BRIDGE-v1.0
 # UID: 9622 | CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 #
@@ -32,7 +33,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(o
 sys.path.insert(0, PROJECT_ROOT)
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "bin"))
 
-DNA = "#龍芯⚡️丙午·辛未·丙戌·TIANDAO-BRIDGE-v1.0"
+DNA = "#龍芯⚡️丙午·辛未·丙戌·甲午·䷕贲-TIANDAO-BRIDGE-v1.0"
 
 
 # ═══════════════════════════════════════════════════════════
@@ -732,8 +733,6 @@ class ErrorBook:
             "SELECT * FROM pattern_library WHERE auto_block=1 ORDER BY hit_count DESC"
         ).fetchall()]
 
-    def close(self):
-        self.conn.close()
 
 
 # ═══════════════════════════════════════════════════════════

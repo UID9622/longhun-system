@@ -1,3 +1,4 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 > 本文档按《龍魂文档标准模板 v1.0》整理。
 > 性质：协议 · 未经同行评审（如适用）
 > 版本：v1.0
@@ -7,14 +8,14 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-DATA-SOVEREIGNTY-DEATH-TO-BLACKBOX-UID9622``  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DATA-SOVEREIGNTY-DEATH-TO-BLACKBOX-UID9622``  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
 # 数据主权：为什么黑箱子必须死
 
-> **DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-DATA-SOVEREIGNTY-DEATH-TO-BLACKBOX-UID9622`  
+> **DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DATA-SOVEREIGNTY-DEATH-TO-BLACKBOX-UID9622`  
 > **归属:** 龍魂系统 · UID9622 · 龍芯北辰·诸葛鑫  
 > **协议:** 龍魂开源公约 v2.0 — 非商业、非封闭、非篡改  
 > **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
@@ -241,7 +242,7 @@
 
 **验证命令：**
 ```bash
-python3 龍魂DNA主權引擎.py 查询 --dna "#龍芯⚡️丙午·丙申·庚申·亥时-DATA-SOVEREIGNTY-..."
+python3 龍魂DNA主權引擎.py 查询 --dna "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DATA-SOVEREIGNTY-..."
 python3 龍魂DNA主權引擎.py 熔断 --dna "同上"
 ```
 
@@ -327,7 +328,7 @@ gpg --verify 龍魂协议.md.asc 龍魂协议.md
 > **本文档版权归龍魂系统 · UID9622 · 龍芯北辰·诸葛鑫所有。**
 >
 > - **GPG 公钥指纹:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
-> - **DNA 锚定:** `#龍芯⚡️丙午·丙申·庚申·亥时-DATA-SOVEREIGNTY-DEATH-TO-BLACKBOX-UID9622`
+> - **DNA 锚定:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DATA-SOVEREIGNTY-DEATH-TO-BLACKBOX-UID9622`
 > - **确认标记:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ### 8.2 龍魂开源公约 v2.0
@@ -365,7 +366,7 @@ gpg --verify 龍魂协议.md.asc 龍魂协议.md
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -388,6 +389,6 @@ gpg --verify 龍魂协议.md.asc 龍魂协议.md
 ## DNA 签名
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-DATA-SOVEREIGNTY-DEATH-TO-BLACKBOX-UID9622`
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DATA-SOVEREIGNTY-DEATH-TO-BLACKBOX-UID9622`
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

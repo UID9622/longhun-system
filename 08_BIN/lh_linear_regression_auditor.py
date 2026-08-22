@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 线性回归体检器 v1.1
-DNA: #龍芯⚡️丙午·乙未·癸酉·酉时·临-LINEAR-REGRESSION-AUDITOR-v1.1-8F2E1A6D
+DNA: #龍芯⚡️丙午·乙未·癸酉·酉时·䷒临-LINEAR-REGRESSION-AUDITOR-v1.1-8F2E1A6D
 创建者: 诸葛鑫 (UID9622)
 协议: CC BY-NC-SA 4.0
 
@@ -59,7 +59,7 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 
 CST = timezone(timedelta(hours=8))
 
-DNA = "#龍芯⚡️丙午·乙未·癸酉·酉时·临-LINEAR-REGRESSION-AUDITOR-v1.1-8F2E1A6D"
+DNA = "#龍芯⚡️丙午·乙未·癸酉·酉时·䷒临-LINEAR-REGRESSION-AUDITOR-v1.1-8F2E1A6D"
 SCHEMA_VERSION = "1.0.0"
 
 ROOT = Path(__file__).resolve().parent.parent

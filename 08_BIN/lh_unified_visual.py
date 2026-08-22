@@ -2,8 +2,9 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂·统一视觉色彩引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·庚戌·天风姤-UNIFIED-VISUAL-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·庚戌·壬午·䷫姤-UNIFIED-VISUAL-ENGINE-v1.0
 融合: 三色审计·五色治理·七色不动点·真实协议·五彩石·跑马灯 → 8色统一色阶
 
 一看颜色就知道优先级:

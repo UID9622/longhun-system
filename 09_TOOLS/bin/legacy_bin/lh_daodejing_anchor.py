@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂系统 · 道德经场景定锚器 v1.1
 作者：诸葛鑫（UID9622）
 优先级：P0++（原文永锁·注释分层·哈希校验）
-DNA: #龍芯⚡️2026-07-19-DAODEJING-SCENE-ANCHOR-V1.1
+DNA: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-DAODEJING-SCENE-ANCHOR-V1.1
 """
 
 import hashlib
@@ -75,7 +76,7 @@ def 五行相合(a, b):                                       # a=场景五行 b
 
 class CNSH_道德经定锚器:
     """先锚后输出：定锚 → 渲染 → 校验。fail-closed。"""
-    DNA = "#龍芯⚡️2026-07-19-DAODEJING-SCENE-ANCHOR-V1.1"
+    DNA = "#龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-DAODEJING-SCENE-ANCHOR-V1.1"
 
     def __init__(self):
         self.τ = {c: 1.0 for c in 锚句表}                 # 信息素

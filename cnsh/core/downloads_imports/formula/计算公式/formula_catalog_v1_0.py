@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·乙未·乙丑·噬嗑-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷔噬嗑-FIX_DNA-v1.0
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 """
 🧮 龍魂数学公式母册完整版 v1.0
@@ -10,7 +11,7 @@
 定位：把散落的公式集中成“一册、一查、一回填”的母册。
      F01-F45 是索引·双轨对照表是实现·Python 脚本是验证·签署链是治理。
 
-DNA：    #龍芯⚡️2026-06-08-龍魂数学公式母册-v1.0-完整版
+DNA：    #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-龍魂数学公式母册-v1.0-完整版
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG:     A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -81,7 +82,7 @@ A_FORMULAS = {
         longhorn_twist="焊三色闸门：dr∈{3,9}→🔴 · dr=6→🟡 · 其余→🟢",
         longhorn_explanation="把数论变治理判定·入口第一道闸",
         canon_page="🧮 龍魂数学公式总册 v1.0｜45条算法核心公式·IPA-MATH-FORMULA",
-        canon_hash="#龍芯⚡️2026-06-08-F01-数字根-v1.0",
+        canon_hash="#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-F01-数字根-v1.0",
         backfill_target="决策路由引擎、三色审计、数字根熔断层",
         backfill_rule="引用 F01·不另写 dr 公式",
         verifiable=True,
@@ -109,7 +110,7 @@ def dr_gate(n: int) -> str:
         longhorn_twist="UID9622=全局不动点=北极星=洛书5=T0主权锚",
         longhorn_explanation="所有路由·算法·审计都能变化，但全局主权锚不能变",
         canon_page="🧮 龍魂数学公式总册 v1.0｜45条算法核心公式·IPA-MATH-FORMULA",
-        canon_hash="#龍芯⚡️2026-06-08-F02-不动点-v1.0",
+        canon_hash="#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-F02-不动点-v1.0",
         backfill_target="路由系统、主权层、收敛验证",
         backfill_rule="引用 F02·强调主权锚不可让渡",
         verifiable=True,
@@ -130,7 +131,7 @@ def fixed_point_check(f, x_star, tolerance=1e-6):
         longhorn_twist="中宫5=不动点=主权锚·对偶和=10做反向校验",
         longhorn_explanation="地场底盘·每行每列对角都守恒=15·系统不散",
         canon_page="🧮 龍魂数学公式总册 v1.0｜45条算法核心公式·IPA-MATH-FORMULA",
-        canon_hash="#龍芯⚡️2026-06-08-F03-洛书-v1.0",
+        canon_hash="#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-F03-洛书-v1.0",
         backfill_target="地场系统、五行计算、守恒检验",
         backfill_rule="引用 F03·保留中宫5的主权地位",
         verifiable=True,
@@ -155,7 +156,7 @@ def magic_check(m=LUOSHU):
         longhorn_twist="检验系统完整性·任何变动都会破坏守恒",
         longhorn_explanation="系统审计的数学基础·断一点全盘知道",
         canon_page="🧮 龍魂数学公式总册 v1.0｜45条算法核心公式·IPA-MATH-FORMULA",
-        canon_hash="#龍芯⚡️2026-06-08-F04-洛书守恒-v1.0",
+        canon_hash="#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-F04-洛书守恒-v1.0",
         backfill_target="系统完整性检验、审计层",
         backfill_rule="引用 F04 做守恒检验",
         verifiable=True,
@@ -173,7 +174,7 @@ def magic_check(m=LUOSHU):
         longhorn_twist="α_w三义锁死：天·地·人权重须归一·且天<0.34时一票否决",
         longhorn_explanation="天轴是主权底线·不达标整条链熔断",
         canon_page="🧮 龍魂数学公式总册 v1.0｜45条算法核心公式·IPA-MATH-FORMULA",
-        canon_hash="#龍芯⚡️2026-06-08-F05-三才向量-v1.0",
+        canon_hash="#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-F05-三才向量-v1.0",
         backfill_target="决策层、三才主权指数、路由层",
         backfill_rule="引用 F05·强调三才权重和=1、天轴熔断规则",
         verifiable=True,
@@ -195,7 +196,7 @@ def sancai_vector(tian, di, ren, w=(0.34, 0.33, 0.33)):
         longhorn_twist="用于龍魂流场可视化、星空渲染",
         longhorn_explanation="让决策过程可看·流动而非刻板",
         canon_page="🧮 龍魂数学公式总册 v1.0·F06",
-        canon_hash="#龍芯⚡️2026-06-08-F06-Perlin-v1.0",
+        canon_hash="#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-F06-Perlin-v1.0",
         backfill_target="可视化层、流场系统",
         backfill_rule="引用 F06·不另造流场公式",
         verifiable=True, python_snippet=None, test_case=None
@@ -210,7 +211,7 @@ def sancai_vector(tian, di, ren, w=(0.34, 0.33, 0.33)):
         longhorn_twist="当压缩护城河：ρ=1-|压缩后|/|原文| 配熵下界",
         longhorn_explanation="判压缩是否科学合法、不丢主权信息",
         canon_page="🧮 龍魂数学公式总册 v1.0·F10",
-        canon_hash="#龍芯⚡️2026-06-08-F10-熵-v1.0",
+        canon_hash="#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-F10-熵-v1.0",
         backfill_target="压缩系统、信息主权",
         backfill_rule="引用 F10·强调信息不丢失",
         verifiable=True,
@@ -231,7 +232,7 @@ def entropy(probs):
         longhorn_twist="纯龍魂设计·无世界标准对标·但逻辑自洽可验证",
         longhorn_explanation="入口判定·红数字根直接拒绝",
         canon_page="🧮 龍魂数学公式总册 v1.0·F14",
-        canon_hash="#龍芯⚡️2026-06-08-F14-数字根熔断-v1.0",
+        canon_hash="#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-F14-数字根熔断-v1.0",
         backfill_target="决策链输入层、三色审计",
         backfill_rule="引用 F14 做入口熔断",
         verifiable=True,
@@ -254,7 +255,7 @@ def dr_gate(n):
         longhorn_twist="每次动作接上上一条·改一字全链变·永久追溯",
         longhorn_explanation="龍魂系统的DNA追踪链·审计的数学基础",
         canon_page="🧮 龍魂数学公式总册 v1.0·F15",
-        canon_hash="#龍芯⚡️2026-06-08-F15-DNA哈希-v1.0",
+        canon_hash="#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-F15-DNA哈希-v1.0",
         backfill_target="审计层·所有签署记录",
         backfill_rule="引用 F15 做DNA链",
         verifiable=True,
@@ -281,7 +282,7 @@ B_FORMULAS = {
         longhorn_twist="纯龍魂设计·天轴一票否决·无世界标准对标",
         longhorn_explanation="决策链的最高权限检查·这道过了才走下去",
         canon_page="🧮 计算公式对准表 v1.5·F18",
-        canon_hash="#龍芯⚡️2026-06-08-F18-SI指数-v1.0",
+        canon_hash="#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-F18-SI指数-v1.0",
         backfill_target="决策路由引擎·三才层",
         backfill_rule="引用 F18 做三才熔断检查",
         verifiable=True,
@@ -309,7 +310,7 @@ C_FORMULAS = {
         longhorn_twist="语义+语气+文化+术语+五行+主权词锁",
         longhorn_explanation="中文文化不丢·主权词不乱翻",
         canon_page="🧮 通心译·TONGXIN_TRANSLATION_MODERN_PHYSICS_v1.0_COMPLETE",
-        canon_hash="#龍芯⚡️2026-06-08-F31-通心译-v1.0",
+        canon_hash="#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-F31-通心译-v1.0",
         backfill_target="翻译系统·文化主权·国际化",
         backfill_rule="引用 F31·遵守六维翻译规则",
         verifiable=False, python_snippet=None, test_case=None
@@ -407,7 +408,7 @@ def selftest():
     
     print("=" * 80)
     print("🟢 龍魂公式母册完整性验证通过")
-    print(f"   DNA：#龍芯⚡️2026-06-08-龍魂数学公式母册-v1.0-完整版")
+    print(f"   DNA：#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-龍魂数学公式母册-v1.0-完整版")
     print(f"   回填规则：引用 FXX·不重写公式·保留签署链")
     print(f"   下一步：(1) 落地 formula_core.py · formula_chain.py")
     print(f"          (2) 建立回填检查点（各算法页确认引用规范）")

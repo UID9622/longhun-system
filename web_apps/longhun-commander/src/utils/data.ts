@@ -1,5 +1,5 @@
 // 龍之心语 v2.0 · 完整演示数据
-// DNA: #龍芯⚡️2026-06-28-LONGHUN-HEART-TALK-v2.0
+// DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-HEART-TALK-v2.0
 
 import type {
   User, Room, Message, AuditEntry, AIModel, PlazaRepo,

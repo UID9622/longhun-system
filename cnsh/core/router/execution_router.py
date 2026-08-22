@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 龍魂执行路由器 (Execution Router)
-DNA:#龍芯⚡️2026-06-03-EXECUTION-ROUTER-FILE1-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-EXECUTION-ROUTER-FILE1-v1.0
 
 本地完全自主执行系统的协调中枢
 
@@ -642,7 +643,7 @@ class ExecutionRouter:
 
 if __name__ == '__main__':
     print("\n【龍魂执行路由器 v1.0】\n")
-    print("DNA:#龍芯⚡️2026-06-03-EXECUTION-ROUTER-v1.0")
+    print("DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-EXECUTION-ROUTER-v1.0")
     print("CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
     print("SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL\n")
 
@@ -650,23 +651,23 @@ if __name__ == '__main__':
     demo_manifest = {
         "system_name": "龍魂系统",
         "version": "v1.0",
-        "dna_marker": "#龍芯⚡️2026-06-03-LONGHUN-LOCAL-DEPLOY",
+        "dna_marker": "#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-LOCAL-DEPLOY",
         "creator": "UID9622",
         "export_date": "2026-06-03",
         "structure": {
             "algorithms": {
                 "weight_algorithm": {
-                    "dna": "#龍芯⚡️2026-03-04-龍魂权重算法",
+                    "dna": "#龍芯⚡️丙午·庚寅·丁丑·丙午·䷨损-龍魂权重算法",
                     "code_attachment": "longhun_weight_algorithm.py"
                 },
                 "cnsh_64": {
-                    "dna": "#龍芯⚡️2026-04-27-CNSH-64-治理框架",
+                    "dna": "#龍芯⚡️丙午·壬辰·辛未·甲午·䷖剥-CNSH-64-治理框架",
                     "code_attachment": "cnsh_64_governance.py"
                 }
             },
             "code_files": {
                 "longhun_shield_system": {
-                    "dna": "#龍芯⚡️2026-06-02-LONGHUN-SHIELD-SYSTEM",
+                    "dna": "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-SYSTEM",
                     "path": "code/longhun_shield_system.py"
                 }
             }

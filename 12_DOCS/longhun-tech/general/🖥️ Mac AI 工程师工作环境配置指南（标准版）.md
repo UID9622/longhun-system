@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🖥️ Mac AI 工程师工作环境配置指南（标准版）
@@ -12,12 +12,12 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-06-21-DOC-MAC-AI_1C4B-v1.0`  
+**DNA**: `#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-DOC-MAC-AI_1C4B-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
-<!--#龍芯⚡️2026-06-21-DOC-MAC-AI_1C4B-v1.0 -->
+<!--#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-DOC-MAC-AI_1C4B-v1.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # 🖥️ Mac AI 工程师工作环境配置指南（标准版）
@@ -101,7 +101,7 @@ eval "$(pbpaste)"
 4. 建立 scripts 文件夹
 5. 下载并运行辅助脚本
 
-[✅ 插件模板脚本（⁠ plugin_template.sh ⁠）](%F0%9F%96%A5%EF%B8%8F%20Mac%20AI%20%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97%EF%BC%88%E6%A0%87%E5%87%86%E7%89%88%EF%BC%89/%E2%9C%85%20%E6%8F%92%E4%BB%B6%E6%A8%A1%E6%9D%BF%E8%84%9A%E6%9C%AC%EF%BC%88%E2%81%A0%20plugin_template%20sh%20%E2%81%A0%EF%BC%89%<POTENTIAL_SECRET_PLACEHOLDER>.md)
+[✅ 插件模板脚本（ plugin_template.sh ）](%F0%9F%96%A5%EF%B8%8F%20Mac%20AI%20%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97%EF%BC%88%E6%A0%87%E5%87%86%E7%89%88%EF%BC%89/%E2%9C%85%20%E6%8F%92%E4%BB%B6%E6%A8%A1%E6%9D%BF%E8%84%9A%E6%9C%AC%EF%BC%88%E2%81%A0%20plugin_template%20sh%20%E2%81%A0%EF%BC%89%<POTENTIAL_SECRET_PLACEHOLDER>.md)
 
 ---
 
@@ -118,7 +118,7 @@ eval "$(pbpaste)"
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -141,6 +141,6 @@ eval "$(pbpaste)"
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-06-21-DOC-MAC-AI_1C4B-v1.0
+#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-DOC-MAC-AI_1C4B-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

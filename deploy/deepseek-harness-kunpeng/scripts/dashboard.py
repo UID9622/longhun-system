@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # 🐉 龍魂 · DSH 状态看板 (纯标准库 · 无三方依赖)
 # DNA: #龍芯⚡️丙午·丙申·辛酉·丙申·䷉履-DSH-DASHBOARD-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # License: MulanPSL v2 (工程层) — 允许商业使用·署名·专利授权
 #
 # 读取 Ollama API (/api/tags) 显示模型列表与状态, 供鲲鹏本地自查。

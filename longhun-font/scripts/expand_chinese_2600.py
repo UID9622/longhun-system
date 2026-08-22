@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
-# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-EXPAND-CHINESE-2600-v1.0
+# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-EXPAND-CHINESE-2600-v1.0
 # 龍魂·字元库中文扩展脚本 —— 从 v0012 国际符号版扩展至约 2600 中文字符
 # 用途：批量新增约 500 个常用汉字（HSK 5-6、科技、医法、财经、文教、地名姓氏、成语用字等）
 
@@ -15,7 +16,7 @@ from datetime import datetime, timezone
 from glyph_generator import generate_skeleton, structure_of, stroke_count_of
 
 
-DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-EXPAND-CHINESE-2600-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-EXPAND-CHINESE-2600-v1.0"
 
 BASE_DIR = Path(__file__).parent.parent
 INPUT_PATH = BASE_DIR / "glyphs" / "龍魂字元库_v0012_国际符号版.json"

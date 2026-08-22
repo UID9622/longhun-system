@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 🐉 龍魂 · 鲲鹏/昇腾 LoRA 微调指引
 # DNA: #龍芯⚡️丙午·丙申·辛酉·丙申·䷉履-LLAMA-FACTORY-LoRA-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -euo pipefail
 

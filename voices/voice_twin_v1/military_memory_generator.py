@@ -2,13 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 """
 龍魂真声 · 军旅记忆字幕生成器
 根据 UID9622 的军旅素材，生成三种风格的字幕文案。
 
-DNA: #龍芯⚡️2026-06-25-VOICE-TWIN-MILITARY-CAPTION-v1.0
+DNA: #龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-VOICE-TWIN-MILITARY-CAPTION-v1.0
 """
 
 import json

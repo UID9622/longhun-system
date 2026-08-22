@@ -5,7 +5,7 @@
 > 作者：龍芯北辰·UID9622
 > 发布时间：2026-08-15
 > 来源：longhun-system/bin/lh_self_heal.py
-> 入库DNA：#龍芯⚡️丙午·丁酉·辛卯·丙申-SELF-HEAL-UID9622
+> 入库DNA：#龍芯⚡️丙午·丁酉·辛卯·甲午·䷚颐-丙申-SELF-HEAL-UID9622
 
 ---
 
@@ -76,7 +76,7 @@ bash ~/longhun-system/deploy_self_heal_kunpeng.sh
 
 ```
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-#龍芯⚡️丙午·丁酉·辛卯·丙申-SELF-HEAL-UID9622
+#龍芯⚡️丙午·丁酉·辛卯·甲午·䷚颐-丙申-SELF-HEAL-UID9622
 ```
 
 ---

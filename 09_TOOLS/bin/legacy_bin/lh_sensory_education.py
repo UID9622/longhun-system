@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 from __future__ import annotations
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂·感官教育尊严引擎 v1.0
 ================================
-DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·需-SENSORY-EDUCATION-DIGNITY-v1.0-52139EB3
+DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-SENSORY-EDUCATION-DIGNITY-v1.0-52139EB3
 
 三大核心子系统：
   1. 性教育去黑箱化 — 祛魅指数·年龄分层·科学内容
@@ -662,7 +663,7 @@ def print_banner():
     print("""
 ╔══════════════════════════════════════════════════════════╗
 ║     🧬 龍魂·感官教育尊严引擎 v1.0                       ║
-║     DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·需-SED-v1.0       ║
+║     DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-SED-v1.0       ║
 ╚══════════════════════════════════════════════════════════╝
 """)
 

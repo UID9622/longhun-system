@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🧬 UID9622 · DNA记忆连接层 | 跨窗口全域记忆同步系统 v2.0
 
-DNA: #龍芯⚡️丙午·乙未·戊戌·申时·☵坎-DNA-MEMORY-SYNC-v2.0-KUNPENG-HUB-a3c4e5f6
+DNA: #龍芯⚡️丙午·乙未·戊戌·申时·䷜坎-DNA-MEMORY-SYNC-v2.0-KUNPENG-HUB-a3c4e5f6
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 

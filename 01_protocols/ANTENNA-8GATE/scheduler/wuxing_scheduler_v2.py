@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ============================================================
 # 龍魂 · ANTENNA-8GATE 五行调度器 v2.0
-# DNA: #龍芯⚡️丙午·乙未·乙未·申时·☰乾-WUXING-SCHEDULER-V2-a1b2c3d4
+# DNA: #龍芯⚡️丙午·乙未·乙未·申时·䷀乾-WUXING-SCHEDULER-V2-a1b2c3d4
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0

@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 权限管理引擎 v1.0
-DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-PERMISSION-v1.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-PERMISSION-v1.0-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 功能: 基础RBAC — 用户/角色/权限管理（SQLite本地存储）

@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-07-11-RIGHTS-CALC-v1.0
+#龍芯⚡️丙午·乙未·丙戌·甲午·䷕贲-RIGHTS-CALC-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -11,7 +11,7 @@
 ║     龍魂·老百姓权益计算器 v1.0 — 六公式合体·一键算清老百姓的账               ║
 ║     People's Rights Calculator · 6-IPA Unified Engine                  ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️2026-07-11-RIGHTS-CALC-v1.0                                ║
+║  DNA: #龍芯⚡️丙午·乙未·丙戌·甲午·䷕贲-RIGHTS-CALC-v1.0                                ║
 ║  源矿: IPA-DICT-008 资源稀释 + IPA-DICT-027 六维公平                       ║
 ║        IPA-DICT-035 白皮书WAI + IPA-DICT-019 用户主权检验                 ║
 ║        IPA-DICT-023 成本转嫁 + IPA-DICT-025 普惠落地                      ║
@@ -563,7 +563,7 @@ def 打印报告(报告: 权益综合报告, 场景名: str = ""):
     print("\n" + "=" * 64)
     print("  本报告由本地计算生成，不上传任何数据。")
     print("  公式来源: 龍魂IPA字典·L0-L1底座层·公开可验")
-    print("  DNA: #龍芯⚡️2026-07-11-RIGHTS-CALC-v1.0")
+    print("  DNA: #龍芯⚡️丙午·乙未·丙戌·甲午·䷕贲-RIGHTS-CALC-v1.0")
     print("=" * 64 + "\n")
 
 

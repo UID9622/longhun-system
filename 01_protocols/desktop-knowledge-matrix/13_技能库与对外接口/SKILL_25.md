@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-ios
 description: iOS端本地数据治理技能，CoreData本地存储+AES-256端侧加密+Secure Enclave硬件保护，数据根留中国，禁用iCloud同步，与华为鸿蒙端格式互通
@@ -6,7 +8,7 @@ metadata:
   skill_id: longhun-ios
   display_name: 龍魂iOS端数据主权守护系统
   version: 5.3.0
-  dna_tag: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-IOS-v5.3'
+  dna_tag: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-IOS-v5.3'
   tribute: '#致敬⚡️SteveJobs·龍魂iOS端'
   sovereignty_flag: true
   platform: iOS
@@ -14,7 +16,7 @@ metadata:
   created: '2026-06-19'
   last_updated: '2026-06-19'
   id: longhun-ios
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-IOS-v5.3"'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-IOS-v5.3"'
   trigger:
     keywords:
     - ios
@@ -36,7 +38,7 @@ skill_id: longhun-ios
 name: 龍魂iOS端数据主权守护系统
 description: iOS端本地数据治理技能，CoreData本地存储+AES-256端侧加密+Secure Enclave硬件保护
 version: 5.3.0
-dna_tag: "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-IOS-v5.3"
+dna_tag: "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-IOS-v5.3"
 tribute: "#致敬⚡️SteveJobs·龍魂iOS端"
 author: 龍魂体系
 platform: iOS 16.0+
@@ -300,7 +302,7 @@ secureEnclave.authenticateWithBiometry(
       "contentHash": "sha256_hash...",
       "sensitivityLevel": 1,
       "isEncrypted": true,
-      "dnaTag": "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-IOS-v5.3",
+      "dnaTag": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-IOS-v5.3",
       "sovereigntyFlag": true,
       "sourcePlatform": "iOS",
       "createdAt": "2026-06-19T10:00:00+08:00",
@@ -314,7 +316,7 @@ secureEnclave.authenticateWithBiometry(
         "authTag": "base64_tag...",
         "timestamp": "2026-06-19T12:00:00+08:00",
         "sourcePlatform": "iOS",
-        "dnaTag": "#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-IOS-v5.3"
+        "dnaTag": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-IOS-v5.3"
       }
     }
   ]
@@ -324,7 +326,7 @@ secureEnclave.authenticateWithBiometry(
 ### 8.2 DNA追溯格式
 ```
 #龍芯⚡️{日期}-{LONGHUN-IOS}-{版本}
-例如: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-IOS-v5.3
+例如: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-IOS-v5.3
 ```
 
 ---
@@ -414,7 +416,7 @@ let dnaCheck = LongHunSovereignController.shared.performDNACheck()
 
 7. **致敬创新**：致敬乔布斯前辈开创的iOS生态，站在巨人肩膀上的创新。
 
-**DNA标记**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-IOS-v5.3`
+**DNA标记**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-IOS-v5.3`
 
 ---
 
@@ -445,4 +447,4 @@ let dnaCheck = LongHunSovereignController.shared.performDNACheck()
 ---
 
 *龍魂体系 — 数据根留中国，主权在我*
-*DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-IOS-v5.3*
+*DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-IOS-v5.3*

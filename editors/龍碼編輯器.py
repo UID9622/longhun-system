@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍码中文编辑器 v1.0
@@ -10,7 +11,7 @@
 中文就是变量名，中文就是注释，中文就是逻辑。
 每个国家的语言都能跑在计算机里面，那才叫牛逼。
 
-DNA:#龍芯⚡️2026-06-18-LONGHUN-CHINESE-EDITOR-FILE1-FILE1-FILE1-v1.0-1
+DNA:#龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-LONGHUN-CHINESE-EDITOR-FILE1-FILE1-FILE1-v1.0-1
 """
 
 import os
@@ -312,7 +313,7 @@ class 龍码编辑器:
         except Exception as e:
             self._输出(f"[错误] {e}")
 
-    # 🛡️ 安全白名单 · DNA: #龍芯⚡️2026-07-06-SEC-PATCH-shell-v1.0
+    # 🛡️ 安全白名单 · DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-SEC-PATCH-shell-v1.0
     _SHELL_WHITELIST = {
         "python3", "python", "pip3", "pip",
         "ls", "pwd", "cat", "head", "tail", "wc",
@@ -427,7 +428,7 @@ class 龍码编辑器:
             "没有黑箱，代码全部公开。\n"
             "中文就是变量名，中文就是注释，中文就是逻辑。\n\n"
             "已接入通心译与 CNSH 加密通信。\n\n"
-            "DNA:#龍芯⚡️2026-06-18-LONGHUN-CHINESE-EDITOR-v1.0"
+            "DNA:#龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-LONGHUN-CHINESE-EDITOR-v1.0"
         )
 
     def _退出(self):

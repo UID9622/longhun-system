@@ -1,0 +1,159 @@
+{
+  "dna": "#龍芯⚡️2026-08-19-BAD-EP01-E03-STORYBOARD-v1.0-UID9622",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+  "title": "坏蛋项目 · EP01-E03「录像厅内」分镜表",
+  "source_event": "EP01-E03",
+  "total_duration_sec": 34,
+  "note": "受《坏蛋是怎样炼成的》人物关系启发，原创剧情。K3主创意，本地模型辅助格式化。",
+  "shots": [
+    {
+      "shot_id": "E03-S01",
+      "duration_sec": 4,
+      "shot_type": "中景",
+      "camera": "跟随进门",
+      "visual": "三眼推门，谢文东跟在后面。屋内烟雾缭绕，高强坐在角落，李爽在摆弄大哥大。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼",
+        "HD-003-高强",
+        "HD-004-李爽"
+      ],
+      "props": [
+        "B-S_打火机_大哥大_金链.png"
+      ],
+      "audio": "录像机杂音、老式粤语歌",
+      "dialogue": "",
+      "emotion": "江湖气",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png",
+        "B-S_打火机_大哥大_金链.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E03-S02",
+      "duration_sec": 5,
+      "shot_type": "双人近景",
+      "camera": "正反打",
+      "visual": "高强抬头看谢文东，没起身。李爽咧嘴大笑迎上来。",
+      "characters": [
+        "HD-003-高强",
+        "HD-004-李爽",
+        "HD-001-少年谢文东"
+      ],
+      "props": [],
+      "audio": "李爽笑声",
+      "dialogue": "李爽：三眼哥，这谁啊？\n三眼：谢文东。以后自己人。\n高强：（冷冷）是不是自己人，得看事儿。",
+      "emotion": "信任试探",
+      "asset_refs": [
+        "HD-003_高强_锚点图.png",
+        "HD-004_李爽_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E03-S03",
+      "duration_sec": 6,
+      "shot_type": "中景",
+      "camera": "环绕",
+      "visual": "四人围坐破旧沙发。李爽倒酒，高强不碰杯，三眼居中，谢文东安静坐着。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼",
+        "HD-003-高强",
+        "HD-004-李爽"
+      ],
+      "props": [
+        "B-S_打火机_大哥大_金链.png"
+      ],
+      "audio": "倒酒声、老式电视雪花声",
+      "dialogue": "李爽：坐！都是自己人！\n谢文东：（端起杯，没喝）谢了。",
+      "emotion": "豪爽破冰",
+      "asset_refs": [
+        "HD-004_李爽_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E03-S04",
+      "duration_sec": 5,
+      "shot_type": "特写",
+      "camera": "推近",
+      "visual": "高强盯着谢文东的眼睛，想看出什么。谢文东不躲。",
+      "characters": [
+        "HD-003-高强",
+        "HD-001-少年谢文东"
+      ],
+      "props": [],
+      "audio": "低沉背景音乐",
+      "dialogue": "高强：你凭什么入局？\n谢文东：（笑）凭我不会卖朋友。",
+      "emotion": "张力",
+      "asset_refs": [
+        "HD-003_高强_锚点图.png",
+        "HD-001_谢文东_少年锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E03-S05",
+      "duration_sec": 5,
+      "shot_type": "近景",
+      "camera": "固定",
+      "visual": "三眼一拍桌子，四杯都震了一下。李爽愣住，然后笑得更欢。",
+      "characters": [
+        "HD-002-三眼",
+        "HD-004-李爽"
+      ],
+      "props": [],
+      "audio": "拍桌声",
+      "dialogue": "三眼：我信他。\n李爽：三眼哥信，我也信！来，走一个！",
+      "emotion": "结盟落定",
+      "asset_refs": [
+        "HD-002_三眼_锚点图.png",
+        "HD-004_李爽_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E03-S06",
+      "duration_sec": 5,
+      "shot_type": "慢推",
+      "camera": "从酒杯推近到四人脸",
+      "visual": "四只杯子碰在一起。镜头缓缓推近，四张年轻的脸。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼",
+        "HD-003-高强",
+        "HD-004-李爽"
+      ],
+      "props": [],
+      "audio": "碰杯声、龍慧慧旁白",
+      "dialogue": "旁白：文东会的雏形，就从这个破旧的录像厅开始。",
+      "emotion": "少年豪图",
+      "asset_refs": [
+        "HD-001_谢文东_少年锚点图.png",
+        "HD-002_三眼_锚点图.png",
+        "HD-003_高强_锚点图.png",
+        "HD-004_李爽_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E03-S07",
+      "duration_sec": 4,
+      "shot_type": "空镜",
+      "camera": "固定",
+      "visual": "窗外雪还在下，霓虹把雪染成红色。",
+      "characters": [],
+      "props": [],
+      "audio": "老式粤语歌继续",
+      "dialogue": "",
+      "emotion": "余韵",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png"
+      ],
+      "check": "🟢"
+    }
+  ]
+}

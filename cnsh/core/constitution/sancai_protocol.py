@@ -1,6 +1,8 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+# License: CC BY-NC-SA 4.0（核心思想层·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# #龍芯⚡️2026-07-04-SANCAI-PROTOCOL-UID9622-v1.0
+# #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-SANCAI-PROTOCOL-UID9622-v1.0
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════╗
@@ -9,7 +11,7 @@
 ║  三才算法 = 乾卦（天）+ 坤卦（地）+ 道德经（人）                 ║
 ║  以中宫五为锚点，369 为不动点循环。                              ║
 ║                                                                  ║
-║  DNA: #龍芯⚡️2026-07-04-SANCAI-PROTOCOL-UID9622-v1.0             ║
+║  DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-SANCAI-PROTOCOL-UID9622-v1.0             ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777D                    ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                 ║
 ║                                                                  ║
@@ -163,7 +165,7 @@ def get_protocol() -> SancaiProtocol:
     """返回已校验的三才协议常量对象。"""
     front = _parse_frontmatter(PROTOCOL_FILE.read_text(encoding="utf-8"))
     return SancaiProtocol(
-        dna=front.get("dna", "#龍芯⚡️2026-07-04-SANCAI-PROTOCOL-UID9622-v1.0"),
+        dna=front.get("dna", "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-SANCAI-PROTOCOL-UID9622-v1.0"),
         confirm_code="#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777D",
         gpg="A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
         level="L0_CONSTITUTION",

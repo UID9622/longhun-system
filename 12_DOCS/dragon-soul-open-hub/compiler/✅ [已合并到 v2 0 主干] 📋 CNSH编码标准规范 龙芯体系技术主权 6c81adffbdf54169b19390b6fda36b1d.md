@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ✅ [已合并到 v2.0 主干] 📋 CNSH编码标准规范 | 龍芯体系技术主权
@@ -12,7 +12,7 @@
 
 本页内容不删·留作 §S-19 借用必备注 + §S-24 创意归属依据·只下架不下削。
 
-**主 DNA：** `#龍芯⚡️2026-05-23-IRON-ONE-DIAMOND-MANY-FACETS_DE7D-v1.0`
+**主 DNA：** `#龍芯⚡️丙午·癸巳·丁酉·丙午·䷨损-IRON-ONE-DIAMOND-MANY-FACETS_DE7D-v1.0`
 
 **双签：** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` + `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
 
@@ -32,7 +32,7 @@
 
 # ═══════════════════════════════════════════════════════════
 
-# DNA追溯码：#龍芯⚡️2026-01-31-CNSH编码标准规范-v1.0
+# DNA追溯码：#龍芯⚡️丙午·己丑·乙巳·壬午·䷃蒙-CNSH编码标准规范-v1.0
 
 # GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
@@ -201,7 +201,7 @@ class 语义哈希生成器:
 **DNA追溯码新格式：**
 
 ```
-#龍芯⚡️2026-01-31-CNSH编码标准-v1.0-SEMANTIC-a3f7c8e912b4d6f1
+#龍芯⚡️丙午·己丑·乙巳·壬午·䷃蒙-CNSH编码标准-v1.0-SEMANTIC-a3f7c8e912b4d6f1
         ↑              ↑                ↑
       时间戳          主题          语义哈希（16位）
 ```
@@ -276,7 +276,7 @@ GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
     "encoding": "UTF-8",
     "font_independent": true,
     "no_proprietary_tokens": true,
-    "dna": "#龍芯⚡️2026-01-31-配置文件-v1.0-SEMANTIC-a3f7c8e9",
+    "dna": "#龍芯⚡️丙午·己丑·乙巳·壬午·䷃蒙-配置文件-v1.0-SEMANTIC-a3f7c8e9",
     "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
     "creator": "💎 龍芯北辰｜UID9622",
     "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
@@ -430,7 +430,7 @@ class CNSH编码检查器:
 
 **GPG公钥指纹**：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
-**DNA追溯码**：#龍芯⚡️2026-01-31-CNSH编码标准规范-v1.0
+**DNA追溯码**：#龍芯⚡️丙午·己丑·乙巳·壬午·䷃蒙-CNSH编码标准规范-v1.0
 
 **确认码**：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 

@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 CNSH 词法分析器
 将中文代码解析为Token流
 
-DNA: #龍芯⚡️丙午·丙申·辛酉·寅时-LEXER-UID9622
+DNA: #龍芯⚡️丙午·丙申·辛酉·庚寅·䷥睽-LEXER-UID9622
 """
 
 import re

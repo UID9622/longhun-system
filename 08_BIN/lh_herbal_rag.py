@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂本草RAG引擎 · 龍芯·华佗人格激活
-DNA: #龍芯⚡️丙午·乙未·癸酉·亥时·离为火-RAG-HERBAL-v1.0-A1B2C3D4
+DNA: #龍芯⚡️丙午·乙未·癸酉·亥时·䷝离为火-RAG-HERBAL-v1.0-A1B2C3D4
 功能：40味药八维检索 + 人格化回答 + 审计链
 """
 
@@ -214,7 +215,7 @@ class HerbalRAG:
 🔬 龍魂本草RAG审计
 📌 检索来源: {len(herbs)} 味药材
 🔗 知识库版本: v1.0 ({len(HERBAL_DATA)}味药)
-🧬 DNA签章: #龍芯⚡️丙午·乙未·癸酉·亥时·离为火-RAG-HERBAL-v1.0-A1B2C3D4
+🧬 DNA签章: #龍芯⚡️丙午·乙未·癸酉·亥时·䷝离为火-RAG-HERBAL-v1.0-A1B2C3D4
 ✅ 事实核查: 本回答基于硬编码知识库检索，未使用模型记忆生成。
 """
         return answer + audit
@@ -253,7 +254,7 @@ def main():
         answer = rag.generate_answer(args.query, results, model=args.model)
         print(answer)
 
-    print(f"\n🧬 DNA: #龍芯⚡️丙午·乙未·癸酉·亥时·离为火-RAG-HERBAL-v1.0-A1B2C3D4")
+    print(f"\n🧬 DNA: #龍芯⚡️丙午·乙未·癸酉·亥时·䷝离为火-RAG-HERBAL-v1.0-A1B2C3D4")
 
 
 if __name__ == "__main__":

@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂·软文化污染隔离引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·☲离-CULTURE-ISOLATION-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·丙午·䷝离-CULTURE-ISOLATION-ENGINE-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -171,7 +171,7 @@ class CultureIsolationEngine:
       L3 语境分析层 → is the context commercial/propaganda or personal?
     """
     
-    DNA = "#龍芯⚡️丙午·乙未·丁酉·☲离-CULTURE-ISOLATION-ENGINE-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·丁酉·丙午·䷝离-CULTURE-ISOLATION-ENGINE-v1.0"
     
     # PCI权重
     W1, W2, W3 = 0.35, 0.35, 0.30

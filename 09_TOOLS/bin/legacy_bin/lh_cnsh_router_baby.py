@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # DNA: #龍芯⚡️丙午·乙未·乙卯·戌时·䷰革-lh_cnsh_router_baby-INTEGRATION-SYSTEM
 
 import os as _os
@@ -14,7 +15,7 @@ CNSH 宝宝指令路由器 v1.0
 触发词：「宝宝」
 功能：听懂老百姓的话，自动拆碎意图，按需调用国密/加密/语义/公式/人格/文章/审计等模板
 原则：先理解再执行、DNA 只增不减、人民话是入口、专业事是出口
-DNA: #龍芯⚡️2026-06-29-CNSH-BAOBAO-ROUTER-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-BAOBAO-ROUTER-UID9622
 """
 
 import json

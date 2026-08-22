@@ -8,7 +8,7 @@ lh_pangdonglai_contract_gen — 龍魂·胖东来分成契约生成器 v1.0
 生成 PDF 签约模板和 HTML 网页版契约。
 支持企业信息自动填入、DNA编码生成、签章区域。
 
-DNA: #龍芯⚡️丙午·癸未·丁亥·地火明夷-PANGDONGLAI-CONTRACT-GEN-v1.0
+DNA: #龍芯⚡️丙午·癸未·丁亥·丙午·䷣明-PANGDONGLAI-CONTRACT-GEN-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════╗
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ║  🐉 CNSH 编辑变量·左右互搏审计器 v1.0                    ║
 ║  Chinese Editor Variable Self-Audit Engine                ║
 ╠══════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️2026-07-06-CNSH-EDITOR-VAR-AUDITOR-v1.0-B3F2A1E8  ║
+║  DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-EDITOR-VAR-AUDITOR-v1.0-B3F2A1E8  ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z               ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL          ║
 ╠══════════════════════════════════════════════════════════════╣
@@ -34,7 +35,7 @@ from enum import Enum, auto
 # L0 不可变常量
 # ═══════════════════════════════════════════════════════════════
 
-龍_DNA头 = "#龍芯⚡️2026-07-06-CNSH-EDITOR-VAR-AUDITOR-v1.0-B3F2A1E8"
+龍_DNA头 = "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-EDITOR-VAR-AUDITOR-v1.0-B3F2A1E8"
 龍_确认标记 = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 龍_永恒签章 = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 

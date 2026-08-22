@@ -1,14 +1,16 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 龍魂 · CNSH 内容主权协议 v2.1
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 CNSH Content Sovereignty Protocol v2.1
 
 这不是元数据。这是主权的基础设施。
 This is not metadata. This is the infrastructure of sovereignty.
 
 ╔══════════════════════════════════════════════════════════════════╗
-║  DNA: #龍芯⚡️2026-06-17-CONTENT-SOVEREIGNTY-PROTOCOL-v2.1      ║
+║  DNA: #龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-CONTENT-SOVEREIGNTY-PROTOCOL-v2.1      ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                  ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ╚══════════════════════════════════════════════════════════════════╝
@@ -26,7 +28,7 @@ This is not metadata. This is the infrastructure of sovereignty.
 可执行性: 直接运行 (python3 content_sovereignty_protocol_v2.1.py)
 依赖环境: Python3.8+, sqlite3, 标准库
 三色审计: 🟢通过 - 完整八层主权框架
-DNA签名: #龍芯⚡️2026-06-17-CONTENT-SOVEREIGNTY-PROTOCOL-v2.1
+DNA签名: #龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-CONTENT-SOVEREIGNTY-PROTOCOL-v2.1
 """
 
 import os
@@ -41,7 +43,7 @@ from typing import Dict, List, Optional, Tuple, Any
 # ═══════════════════════════════════════════════════════════
 # 全局DNA签名常量 (不可修改)
 # ═══════════════════════════════════════════════════════════
-DNA_SIGNATURE = "#龍芯⚡️2026-06-17-CONTENT-SOVEREIGNTY-PROTOCOL-v2.1"
+DNA_SIGNATURE = "#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-CONTENT-SOVEREIGNTY-PROTOCOL-v2.1"
 CONFIRM_MARKER = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SEAL_MARKER = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 

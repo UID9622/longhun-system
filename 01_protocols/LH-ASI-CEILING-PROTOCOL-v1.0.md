@@ -1,6 +1,7 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 龍魂 · ASI 天花板协议 v1.0
 
-> **DNA**: `#龍芯⚡️丙午·丙申·丁巳·恒卦-ASI-CEILING-v1.0-UID9622`  
+> **DNA**: `#龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-ASI-CEILING-v1.0-UID9622`  
 > **SEAL**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`  
 > **GPG**: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 > **级别**: L0 · 宪法层 · 永恒锁

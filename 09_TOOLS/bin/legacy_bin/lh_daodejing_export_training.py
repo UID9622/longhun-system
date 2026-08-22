@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂·道德经深层训练数据导出器 v1.0
-DNA: #龍芯⚡️丙午·乙未·丙申·亥时·☰乾-DAODEJING-EXPORT-TRAINING-V1.0
+DNA: #龍芯⚡️丙午·乙未·丙申·亥时·䷀乾-DAODEJING-EXPORT-TRAINING-V1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -526,7 +526,7 @@ def split_and_save(entries: list[Any], out_dir: str):
 
 def main():
     print("🧬 龍魂·道德经深层训练数据导出器 v1.0")
-    print(f"   DNA: #龍芯⚡️丙午·乙未·丙申·亥时·☰乾-DAODEJING-EXPORT-TRAINING-V1.0")
+    print(f"   DNA: #龍芯⚡️丙午·乙未·丙申·亥时·䷀乾-DAODEJING-EXPORT-TRAINING-V1.0")
     print()
 
     # 1. 解析文档

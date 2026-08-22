@@ -2,13 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·丙辰·己丑·需-DESIRE-INVERTED-GROWTH-v1.0-0248CF46
+#龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-DESIRE-INVERTED-GROWTH-v1.0-0248CF46
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂·欲望倒逼成长引擎 v1.0
 以欲为饵·逼人向上
-DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·需-DESIRE-INVERTED-GROWTH-v1.0-0248CF46
+DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-DESIRE-INVERTED-GROWTH-v1.0-0248CF46
 """
 import json, os, sys, hashlib, time
 from datetime import datetime
@@ -249,7 +249,7 @@ def status():
 
     return (
         f"🧬 欲望倒逼成长引擎 v1.0\n"
-        f"   DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·需-DESIRE-INVERTED-GROWTH-v1.0-0248CF46\n"
+        f"   DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-DESIRE-INVERTED-GROWTH-v1.0-0248CF46\n"
         f"   用户数: {total_users}\n"
         f"   总任务: {total_tasks} (已完成 {done_tasks} | 待完成 {pending_tasks})\n"
         f"   数据目录: {DATA_DIR}"

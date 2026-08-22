@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 🐉 龍魂·三色审计数据模型
-# DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-PYTHON-SDK-MODELS-V1.0-UID9622
+# DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-PYTHON-SDK-MODELS-V1.0-UID9622
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 """

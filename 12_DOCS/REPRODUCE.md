@@ -1,6 +1,6 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-<!-- DNA: #龍芯⚡️丙午·丙申·癸丑·申时·大有-REPRODUCE-GUIDE-v1.0 -->
+<!-- DNA: #龍芯⚡️丙午·丙申·癸丑·申时·䷍大有-REPRODUCE-GUIDE-v1.0 -->
 
 # 🐉 龍魂系统 · 复现指南（REPRODUCE）
 

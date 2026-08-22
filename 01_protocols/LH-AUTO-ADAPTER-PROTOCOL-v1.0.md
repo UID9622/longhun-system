@@ -97,7 +97,7 @@ def is_blackbox(extension):
     "plugin": "example.blackbox.plugin",
     "reason": "闭源、数据流向境外",
     "action": "拒绝加载",
-    "dna": "#龍芯⚡️丙午·癸未·乙酉·坤卦-REJECT-xxxx-UID9622"
+    "dna": "#龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-REJECT-xxxx-UID9622"
 }
 ```
 
@@ -126,7 +126,7 @@ def is_blackbox(extension):
 格式：lh-[功能名]-adapter
 示例：lh-java-adapter / lh-spring-adapter / lh-vscode-adapter
 
-DNA格式：#龍芯⚡️丙午·癸未·乙酉·坤卦-ADAPTER-[功能名]-V1.0-UID9622
+DNA格式：#龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-ADAPTER-[功能名]-V1.0-UID9622
 ```
 
 ### 3.3 替代产物交付标准
@@ -150,7 +150,7 @@ DNA格式：#龍芯⚡️丙午·癸未·乙酉·坤卦-ADAPTER-[功能名]-V1.0
 metadata:
   name: lh-[功能名]-adapter
   version: v1.0
-  dna: "#龍芯⚡️丙午·癸未·乙酉·坤卦-ADAPTER-[功能名]-V1.0-UID9622"
+  dna: "#龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-ADAPTER-[功能名]-V1.0-UID9622"
   confirm: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
   gpg: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
   sovereignty: "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
@@ -227,7 +227,7 @@ class SovereigntyAdapter:
 # lh-[功能名]-adapter/__init__.py
 """
 🐉 龍魂自适应适配器 · [功能名]
-DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-ADAPTER-[功能名]-V1.0-UID9622
+DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-ADAPTER-[功能名]-V1.0-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 主权锚定: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 分层许可: 思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2
@@ -239,7 +239,7 @@ class SovereigntyAdapter:
     def __init__(self, config):
         self.config = config
         self._audit = []
-        self._dna = "#龍芯⚡️丙午·癸未·乙酉·坤卦-ADAPTER-[功能名]-V1.0-UID9622"
+        self._dna = "#龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-ADAPTER-[功能名]-V1.0-UID9622"
 
     def call(self, func, *args, **kwargs):
         """带审计的调用"""

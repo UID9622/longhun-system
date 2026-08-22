@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·小畜-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷈小畜-FIX_DNA-v1.0
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # 龍芯⚡️丙午·癸未·丁未·离为火-PATHFINDER-TRAIN-DATA-v4.2.0
@@ -42,7 +42,7 @@ def make_record(system: str, user: str, assistant: str, domain: str) -> dict:
             "domain": domain,
             "source": "pathfinder_protocol_v4.1.5",
             "teacher": "manual",
-            "dna": "#龍芯⚡️丙午·癸未·丁未·离为火-PATHFINDER-TRAIN-DATA-v4.2.0",
+            "dna": "#龍芯⚡️丙午·癸未·丁未·丙午·䷝离为火-PATHFINDER-TRAIN-DATA-v4.2.0",
         },
     }
 
@@ -108,7 +108,7 @@ add_qa(
     think_wrap(
         "迪杰斯特拉算法是贪心策略：每次扩展当前代价最小的节点，直到到达终点。"
         "它适用于没有启发信息、要求全局最优的场景。在龍魂实现中，地图用二维数组表示，-1 表示障碍物/阻隔，正整数表示通过成本。"
-        "算法维护一个距离表和前驱表，用优先队列（最小堆）加速。输出结果强制带DNA签章 #龍芯⚡️丙午·癸未·丁未-迪杰斯特拉-v4.1.5。"
+        "算法维护一个距离表和前驱表，用优先队列（最小堆）加速。输出结果强制带DNA签章 #龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-迪杰斯特拉-v4.1.5。"
     ),
     "迪杰斯特拉算法",
 )
@@ -882,7 +882,7 @@ EXTRA_QA = [
         "路径规划引擎的DNA签章格式是什么？",
         think_wrap(
             "DNA格式：#龍芯⚡️{年干支}·{月干支}·{日干支}·{卦名}-{算法名}-{版本}。\n"
-            "例如：#龍芯⚡️丙午·癸未·丁未-八卦阵-v4.1.5。"
+            "例如：#龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-八卦阵-v4.1.5。"
         ),
         "DNA签章规范",
     ),

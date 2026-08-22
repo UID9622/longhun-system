@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🛡️ 龍魂·代码审计 CLI 包装器
-DNA: #龍芯⚡️丙午·乙未·甲辰·火雷噬嗑-CODE-AUDIT-CLI-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷔噬-CODE-AUDIT-CLI-v1.0
 
 供 bin/lh.py 交互菜单安全调用，避免 python3 -c 中的 shell 拼接。
 """

@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · Notion 对话桥 · 五行模型议事会 v1.0
-DNA: #龍芯⚡️丙午·癸未·癸未·WUXING-COUNCIL-v1.0-UID9622
+DNA: #龍芯⚡️丙午·癸未·癸未·戊午·䷖剥-WUXING-COUNCIL-v1.0-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -88,7 +88,7 @@ WUXING_ROLES = {
         "name": "火·转化",
         "emoji": "🔥",
         "function": "推理、推演、漏洞发现、结构化",
-        "preferred_models": ["deepseek-reasoner", "deepseek-r1:14b"],
+        "preferred_models": ["deepseek-v4-pro", "deepseek-r1:14b"],
         "preferred_provider": "deepseek",
         "weight": 0.25,
     },

@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 P11 李白 · 创意爆发执行器
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 Creative Burst Engine
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-P11-LIBAI-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P11-LIBAI-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -102,7 +103,7 @@ class P11Libai:
     }
 
     def __init__(self):
-        self.dna = "#龍芯⚡️丙午·丙申·丙辰·亥时·需-P11-LIBAI-v1.0"
+        self.dna = "#龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P11-LIBAI-v1.0"
         self.system_root = SYSTEM_ROOT
         self.capabilities = [
             "ideate",              # 创意生成

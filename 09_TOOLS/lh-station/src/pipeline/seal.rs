@@ -1,6 +1,6 @@
 // 龍魂代码中转站 · 记忆封印引擎
 // 转换完成后 → SHA-256 封印 → 归档到 ~/.longhun/memory/seals/
-// DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-SEAL-v1.0
+// DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-SEAL-v1.0
 
 use serde::{Deserialize, Serialize};
 use sha2::{Sha256, Digest};

@@ -2,8 +2,9 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # ⚡ 龍魂·全文件解析引擎 v1.0
-# DNA: #龍芯⚡️丙午·辛未·乙酉·需-UNIVERSAL-PARSER-v1.0
+# DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-UNIVERSAL-PARSER-v1.0
 # 格言: 解析一切·不留死角
 # 主权: UID9622 | 数据不出机 | 国产芯片优先
 # 协议: LH-PARSING-ENGINE-2026-0714-v1.0
@@ -52,7 +53,7 @@ from dataclasses import dataclass, field, asdict
 # ============================================================
 # DNA 追溯
 # ============================================================
-__DNA__ = "#龍芯⚡️丙午·辛未·乙酉·需-UNIVERSAL-PARSER-v1.0"
+__DNA__ = "#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-UNIVERSAL-PARSER-v1.0"
 __VERSION__ = "1.0.0"
 __PROTOCOL__ = "LH-PARSING-ENGINE-2026-0714-v1.0"
 __SOVEREIGN__ = "UID9622"

@@ -1,6 +1,6 @@
 # 🐲 龍魂系统 · 阶段 1 基础设施收口报告 v1.0
 
-> DNA: #龍芯⚡️丙午·癸未·甲申·PHASE1-INFRA-FIX-v1.0-UID9622
+> DNA: #龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-PHASE1-INFRA-FIX-v1.0-UID9622
 > 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 > GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 > 执行时间: 2026-08-04
@@ -161,7 +161,7 @@ curl -s http://127.0.0.1:8771/health   # {"status":"🟢 记忆API在线",...}
 ## 4. 签名
 
 ```
-DNA: #龍芯⚡️丙午·癸未·甲申·PHASE1-INFRA-FIX-v1.0-UID9622
+DNA: #龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-PHASE1-INFRA-FIX-v1.0-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 ```

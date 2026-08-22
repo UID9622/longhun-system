@@ -4,7 +4,7 @@
 # License: MulanPSL v2
 """
 🐲 龍魂·文档分块工具
-DNA: #龍芯⚡️2026-08-04-CHUNKER-v2.0-UID9622
+DNA: #龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-CHUNKER-v2.0-UID9622
 """
 import re
 from enum import Enum, auto

@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·乙未·丙申·申时·☱兑-ECOM-TRUST-ENGINE-V1.0.1-P0-1002819c
+# DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷹兑-ECOM-TRUST-ENGINE-V1.0.1-P0-1002819c
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -595,7 +595,7 @@ def print_test_report(results: Dict[str, Tuple[bool, str]]) -> Tuple[int, int]:
     """打印测试报告，返回(通过数, 总数)"""
     print("\n" + "=" * 68)
     print("  龍魂·电商信任重建 数学建模引擎 — 12条测试向量验证")
-    print("  DNA: #龍芯⚡️丙午·乙未·丙申·申时·☱兑-ECOM-TRUST-ENGINE-V1.0.1-P0-1002819c")
+    print("  DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷹兑-ECOM-TRUST-ENGINE-V1.0.1-P0-1002819c")
     print("=" * 68)
 
     passed = 0

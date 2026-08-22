@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·辛未·乙酉·NOTION-CAPACITY-SCAN
+#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-NOTION-CAPACITY-SCAN
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -10,7 +10,7 @@
 龍魂·Notion 容量扫描器 (只读·归档前置侦察)
 用途: 定位吃 workspace 容量的「上传型 image 块」，按库/行排序。
      只读，不下载、不改数据。结果写本地归档目录(独立于 longhun-system)。
-DNA: #龍芯⚡️丙午·辛未·乙酉·NOTION-CAPACITY-SCAN
+DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-NOTION-CAPACITY-SCAN
 """
 import os, sys, json, time, urllib.request
 from pathlib import Path

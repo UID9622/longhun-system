@@ -5,7 +5,7 @@ id: clause_voluntary_contribution
 type: clause
 title: 自愿贡献与DNA归属
 layer: L2
-dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C"
+dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·䷍大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C"
 owner: UID9622 · 诸葛鑫（Lucky）
 claim: 用户主动把知识/技能写入图谱，写入即生成DNA追溯码，永久归属贡献者，平台不暗中抽取。
 based_on: [dragon_vein_trace, data_sovereignty_in_user]
@@ -31,4 +31,4 @@ created: 丙午·辛未·乙酉
 
 **为什么**：让"创作者主权"可核验——引用者一点 DNA 就能看到"这知识是谁的、何时献的"。
 
-> DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C
+> DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·䷍大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C

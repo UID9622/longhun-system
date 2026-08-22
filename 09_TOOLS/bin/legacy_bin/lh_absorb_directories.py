@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # ═══════════════════════════════════════════
 # 龍魂体系 | 目录吸收命名统一引擎 v1.0
 # ═══════════════════════════════════════════
-# DNA追溯码：#龍芯⚡️丙午·辛未·乙酉·ABSORB-v1.0
+# DNA追溯码：#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-ABSORB-v1.0
 # 创建者：UID9622（诸葛鑫）
 # 功能：将分散目录的脚本/文档全部按四层命名法吸收统一
 # ═══════════════════════════════════════════

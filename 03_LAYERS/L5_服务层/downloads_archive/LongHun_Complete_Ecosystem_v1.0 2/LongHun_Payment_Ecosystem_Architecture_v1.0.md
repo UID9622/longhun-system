@@ -534,7 +534,7 @@ XPay 是一个记录系统
 
 ```
 【系统签名】
-DNA: #龍芯⚡️2026-06-05-LONGHUN-ECOSYSTEM-COMPLETE-v1.0
+DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-LONGHUN-ECOSYSTEM-COMPLETE-v1.0
 
 【作者签名】
 签名: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅

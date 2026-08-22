@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂 longhun-v4.1.1-bind LoRA 微调器（DNA捆绑协议注入 · 自定义训练循环）
 底模: 01-ai/Yi-1.5-9B-Chat (MLX)
@@ -9,7 +10,7 @@
 目标: v4.1.1 调参优化 - 降低 lr→1e-6、缩短 warmup→50、提高 dropout→0.15、
        增大 batch→2、从 v4.0.8-iter1900 golden checkpoint（Val 0.767）恢复。
 
-DNA: #龍芯⚡️2026-07-20-MODEL-LORA-TRAINER-v4.1.1
+DNA: #龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-MODEL-LORA-TRAINER-v4.1.1
 
 用法:
   python3 bin/lh_lora_trainer_v411.py setup    # 复用/转换 Yi-1.5-9B-Chat MLX

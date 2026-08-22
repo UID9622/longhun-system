@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂 · 人格声色绑定系统 v2.0
 LongHun Voice-Persona-Portrait Binding System
@@ -20,7 +21,7 @@ LongHun Voice-Persona-Portrait Binding System
   - 真实人像不做3D — 照片DNA绑定真人身份
   - 真人原声主权声明 / 虚拟人格声对外交互
 
-DNA: #龍芯⚡️丙午·辛未·丙戌·亥时-VOICE-PERSONA-SYSTEM-v2.0
+DNA: #龍芯⚡️丙午·辛未·丙戌·己亥·䷶丰-VOICE-PERSONA-SYSTEM-v2.0
 创始人: UID9622 · 龍芯北辰 · 诸葛鑫
 """
 
@@ -40,7 +41,7 @@ import numpy as np
 # DNA 常量
 # ══════════════════════════════════════════════════════
 
-MASTER_DNA = "#龍芯⚡️丙午·辛未·丙戌·亥时-VOICE-PERSONA-SYSTEM-v2.0"
+MASTER_DNA = "#龍芯⚡️丙午·辛未·丙戌·己亥·䷶丰-VOICE-PERSONA-SYSTEM-v2.0"
 MASTER_UID = "UID9622"
 MASTER_NAME = "诸葛鑫·Lucky"
 CONFIRM_SEAL = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·丙申·丙辰·亥时·需-CONNECTIVITY-SCHEDULER-v1.0
+#龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-CONNECTIVITY-SCHEDULER-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
@@ -10,7 +10,7 @@
 复用 feishu_longhun_bridge /webhook 推送飞书卡片。
 只在状态变化或延迟超标时推送，不轰炸。
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-CONNECTIVITY-SCHEDULER-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-CONNECTIVITY-SCHEDULER-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 启动:
@@ -37,7 +37,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "bin"))
 
 CST = timezone(timedelta(hours=8))
-DNA = "#龍芯⚡️丙午·丙申·丙辰·亥时·需-CONNECTIVITY-SCHEDULER-v1.0"
+DNA = "#龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-CONNECTIVITY-SCHEDULER-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 # ─── 配置 ───

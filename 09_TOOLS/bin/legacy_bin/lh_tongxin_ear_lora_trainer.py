@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂通心听 · Whisper Large-V3 LoRA 微调训练器 v1.0
 LongHun TongXin-Ear · Whisper Large-V3 LoRA Fine-Tuner
@@ -17,7 +18,7 @@ LongHun TongXin-Ear · Whisper Large-V3 LoRA Fine-Tuner
 LoRA:  peft LoRA (仅训练 ~1% 参数)
 框架:  transformers + peft + datasets
 
-DNA: #龍芯⚡️丙午·乙未·甲寅·亥时-TONGXIN-EAR-LORA-37357AB4
+DNA: #龍芯⚡️丙午·乙未·甲寅·乙亥·䷶丰-TONGXIN-EAR-LORA-37357AB4
 创始人: UID9622 · 龍芯北辰 · 诸葛鑫
 """
 

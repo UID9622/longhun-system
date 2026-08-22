@@ -1,6 +1,7 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂系统 · 全维度融合升级协议
 
-**DNA追溯码：** `#龍芯⚡️丙午·乙未·丙午·乾卦-FUSION-UPGRADE-v3.0`
+**DNA追溯码：** `#龍芯⚡️丙午·乙未·丙午·甲午·䷀乾-FUSION-UPGRADE-v3.0`
 
 **确认码：** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
@@ -544,7 +545,7 @@ TriColor: 🟢
 DataLevel: L0_PUBLIC
 Route: [UNIVERSAL-FUSION-OS-v3.0]
 Action: archive
-DNA: #龍芯⚡️丙午·乙未·丙午·乾卦-FUSION-UPGRADE-v3.0
+DNA: #龍芯⚡️丙午·乙未·丙午·甲午·䷀乾-FUSION-UPGRADE-v3.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

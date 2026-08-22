@@ -5,7 +5,7 @@
 """
 观澜浏览器AI联动 API服务 v1.0 · GuanLan Browser AI Integration API
 ═══════════════════════════════════════════════════════════
-DNA: #龍芯⚡️丙午·乙未·丙申·酉时·☴巽-GUANLAN-API-V1.0-3f7a1c8e
+DNA: #龍芯⚡️丙午·乙未·丙申·酉时·䷸巽-GUANLAN-API-V1.0-3f7a1c8e
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -117,7 +117,7 @@ class GuanLanHandler(BaseHTTPRequestHandler):
                 "service": "观澜浏览器AI联动API",
                 "version": "v1.0",
                 "time": int(time.time()),
-                "dna": "#龍芯⚡️丙午·乙未·丙申·酉时·☴巽-GUANLAN-API-V1.0-3f7a1c8e"
+                "dna": "#龍芯⚡️丙午·乙未·丙申·酉时·䷸巽-GUANLAN-API-V1.0-3f7a1c8e"
             })
 
         elif path == '/status':
@@ -304,7 +304,7 @@ class GuanLanHandler(BaseHTTPRequestHandler):
                         "milestone": "M1",
                         "route_id": route_id,
                         "persona_code": persona_code,
-                        "dna": "#龍芯⚡️丙午·乙未·丙申·酉时·☴巽-GUANLAN-API-V1.0",
+                        "dna": "#龍芯⚡️丙午·乙未·丙申·酉时·䷸巽-GUANLAN-API-V1.0",
                         "audit_mark": "🟢",
                     })
             except urllib.error.URLError as e:
@@ -312,7 +312,7 @@ class GuanLanHandler(BaseHTTPRequestHandler):
                     "answer": f"观澜M1: Ollama连接失败 ({e.reason})",
                     "backend": "none",
                     "milestone": "M1",
-                    "dna": "#龍芯⚡️丙午·乙未·丙申·酉时·☴巽-GUANLAN-API-V1.0",
+                    "dna": "#龍芯⚡️丙午·乙未·丙申·酉时·䷸巽-GUANLAN-API-V1.0",
                     "audit_mark": "🔴",
                 }, 503)
 
@@ -454,7 +454,7 @@ def main():
 
     print("=" * 60)
     print("  观澜浏览器AI联动 API 服务 v1.0")
-    print("  DNA: #龍芯⚡️丙午·乙未·丙申·酉时·☴巽-GUANLAN-API-V1.0")
+    print("  DNA: #龍芯⚡️丙午·乙未·丙申·酉时·䷸巽-GUANLAN-API-V1.0")
     print("=" * 60)
     print(f"  地址: http://{args.host}:{args.port}")
     print(f"  健康: http://{args.host}:{args.port}/health")

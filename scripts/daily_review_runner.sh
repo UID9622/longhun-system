@@ -3,7 +3,7 @@
 # 龍魂每日復盤·帶密鑰激活運行器
 # 負責在 LaunchAgent / Cron 環境中加載 ~/.longhun/secrets.env 與 ~/.uid9622/git-tokens.sh
 # 再調用 tools/logging/daily_review_enhanced.py 發送郵件/Notion/日曆
-# DNA: #龍芯⚡️2026-06-29-DAILY-REVIEW-RUNNER-UID9622
+# DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-DAILY-REVIEW-RUNNER-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e

@@ -1,3 +1,4 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 ---
 name: longhun-cnsh
 description: 'CNSH中文原生脚本运行时 v3.2 — L1-L7层级完整实现 + 鯤鵬ARM64版 + 龍魂待整理协议规范示例。 字元创作、AI画匠、中文编程、文化主权（繁体龍字永存、甲骨文编码）。
@@ -8,7 +9,7 @@ license: CC BY-NC-SA 4.0
 metadata:
   author: UID9622·龍芯北辰·诸葛鑫
   version: 3.2.0
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-RUNTIME-v3.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-RUNTIME-v3.2'
   layers:
   - L1
   - L2
@@ -189,7 +190,7 @@ python3 CNSH运行时_鲲鹏版.py --demo
 ══════════════════════════════════════════════════════════════════
   CNSH 七层审计报告 v3.1
 ══════════════════════════════════════════════════════════════════
-  DNA:     #龍芯⚡️丙午·丙申·庚申·亥时-CNSH-RUNTIME-v3.1
+  DNA:     #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-RUNTIME-v3.1
   CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
   SEAL:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -231,7 +232,7 @@ GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 ## 8. DNA追溯链 (DNA Trace)
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-RUNTIME-v3.1
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-RUNTIME-v3.1
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -336,7 +337,7 @@ print(运行时.生成君子协议())
 本技能收录了来自 `/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂协议与路由` 的素材：
 
 - **内容**：`cnsh_runtime.py`（CNSH 中文原生脚本运行时 · 鯤鵬 ARM64 版）
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PROTOCOL-ROUTE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-PROTOCOL-ROUTE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 `references/龍魂协议与路由/`，嵌入 DNA 追溯链，与 `longhun-cnsh` 运行时能力联动。
 
 ---
@@ -346,5 +347,5 @@ print(运行时.生成君子协议())
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：01-CNSH-协议规范（CNSH 语法、通心译、智能终端、签名系统、编译器原型）
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

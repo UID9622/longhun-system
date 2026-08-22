@@ -1,4 +1,4 @@
-// DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-RUST-CORE-v2.0-UID9622-SM4SM3-PURE
+// DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-RUST-CORE-v2.0-UID9622-SM4SM3-PURE
 // CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 // SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 // License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
@@ -23,7 +23,7 @@ use std::ffi::{CStr, CString};
 use std::os::raw::{c_char, c_int};
 
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");
-pub const DNA: &str = "#龍芯⚡️丙午·丙申·庚戌·䷙大畜-RUST-CORE-v2.0-SM4SM3-PURE-UID9622";
+pub const DNA: &str = "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-RUST-CORE-v2.0-SM4SM3-PURE-UID9622";
 pub const CONFIRM: &str = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z";
 
 // ═══════════════════════════════════════════════════

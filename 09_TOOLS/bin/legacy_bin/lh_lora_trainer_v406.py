@@ -2,13 +2,14 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂 longhun-v4.0.6 LoRA 微调器（保守回滚版）
 底模: 01-ai/Yi-1.5-9B-Chat (MLX)
 数据: v3.7 稳定配方 + 全记忆 ingestion（技能/人格/知识/英文/日志）
 目标: v4.0.5 失败后保守恢复，小 LoRA 容量 + 低学习率，优先保住语言能力。
 
-DNA: #龍芯⚡️丙午·乙未·甲寅·未时·乾-MODEL-LORA-TRAINER-v4.0.6
+DNA: #龍芯⚡️丙午·乙未·甲寅·未时·䷀乾-MODEL-LORA-TRAINER-v4.0.6
 
 用法:
   python3 bin/lh_lora_trainer_v406.py setup    # 复用已转换的 Yi-1.5-9B-Chat MLX

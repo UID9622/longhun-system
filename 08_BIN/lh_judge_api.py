@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ⚖️ 龍魂·公正总裁 / 首席审计员 API v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·火雷噬嗑-JUDGE-API-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷔噬-JUDGE-API-v1.0
 
 部署在鲲鹏，提供独立、公正、可审计的裁决与审计能力。
 默认调用本地 Ollama 的 longhun-judge 模型。

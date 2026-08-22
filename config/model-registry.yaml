@@ -1,11 +1,11 @@
 # model-registry.yaml
 # 🐉 CNSH模型注册表 v1.1
-# DNA: #龍芯⚡️丙午·丙申·庚申·巽为风-MODEL-REGISTRY-v1.1
+# DNA: #龍芯⚡️丙午·丙申·庚申·壬午·䷸巽为风-MODEL-REGISTRY-v1.1
 # 🟡 模型清单（Horus/Soofi S/Granite-AR 等名称未逐一官网核实，接入前须验真）
 
 version: "1.1"
-dna: "#龍芯⚡️丙午·丙申·庚申·巽为风-MODEL-REGISTRY-v1.1"
-updated_at: "2026-08-14"
+dna: "#龍芯⚡️丙午·丙申·庚申·壬午·䷸巽为风-MODEL-REGISTRY-v1.1"
+updated_at: "2026-08-19"
 
 models:
   # ===== 中国模型 =====
@@ -23,16 +23,16 @@ models:
     status: "active"
     weight: 1.0
   - id: "deepseek"
-    name: "DeepSeek V3"
+    name: "DeepSeek V4"
     provider: "DeepSeek"
     region: "cn"
     protocol: "openai-compatible"
     endpoint: "https://api.deepseek.com/v1"
-    model_name: "deepseek-chat"
+    model_name: "deepseek-v4-flash"
     auth_type: "api-key"   # DEEPSEEK_API_KEY
     languages: ["zh", "en"]
     capabilities: ["chat", "code", "reasoning"]
-    tricolor: "🟢"
+    tricolor: "🟢"   # 余额检测: is_available=true(已充值) 2026-08-19 实测对话200
     status: "active"
     weight: 0.95
   - id: "qwen"

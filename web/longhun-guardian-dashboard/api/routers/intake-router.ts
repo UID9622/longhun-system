@@ -1,6 +1,6 @@
 /**
  * 龍魂容器收入口路由
- * DNA: #龍芯⚡️2026-07-12-LONGHUN-INTAKE-ROUTER-v1.0
+ * DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-LONGHUN-INTAKE-ROUTER-v1.0
  * 统一数据入口 → 清洗 → 六维评估 → DNA盖章(v∞) → 五桶分拣
  */
 import { z } from "zod";

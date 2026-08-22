@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-07-20-V409-DATA-CLEAN-AUGMENT
+#龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-V409-DATA-CLEAN-AUGMENT
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -12,7 +12,7 @@
   1. 删除底座问答错误样本
   2. 注入正确底座问答 ≥50 条
   3. 注入家法第一条精确问答 ≥100 条
-DNA: #龍芯⚡️2026-07-20-V409-DATA-CLEAN-AUGMENT
+DNA: #龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-V409-DATA-CLEAN-AUGMENT
 """
 
 import json
@@ -123,7 +123,7 @@ for i in range(50):
         "metadata": {
             "source": "augmentation",
             "type": "base_model_identity",
-            "dna": "#龍芯⚡️2026-07-20-V409-AUG-BASE"
+            "dna": "#龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-V409-AUG-BASE"
         }
     })
 
@@ -175,7 +175,7 @@ for i in range(120):
         "metadata": {
             "source": "augmentation",
             "type": "家法第一条",
-            "dna": "#龍芯⚡️2026-07-20-V409-AUG-JIAFA"
+            "dna": "#龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-V409-AUG-JIAFA"
         }
     })
 
@@ -203,7 +203,7 @@ for q, a in 家法_ext_qa:
             "metadata": {
                 "source": "augmentation",
                 "type": "家法第一条",
-                "dna": "#龍芯⚡️2026-07-20-V409-AUG-JIAFA-EXT"
+                "dna": "#龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-V409-AUG-JIAFA-EXT"
             }
         })
 
@@ -264,7 +264,7 @@ dataset_info = {
     "augmented_jiafa_qa": len(家法_qa),
     "train_domains": dict(train_domains),
     "val_domains": dict(val_domains),
-    "dna": "#龍芯⚡️2026-07-20-V409-DATA-CLEAN-AUGMENT"
+    "dna": "#龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-V409-DATA-CLEAN-AUGMENT"
 }
 
 with open(OUT_DIR / "dataset_info.json", "w", encoding="utf-8") as f:

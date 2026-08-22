@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·癸酉·丁巳·临-V40-TEST-10
+#龍芯⚡️丙午·丙申·癸酉·丁巳·䷒临-V40-TEST-10
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
@@ -10,7 +10,7 @@
 模型: longhun-v41 (Ollama)
 目标: 10项测试 ≥ 8项通过
 
-DNA: #龍芯⚡️丙午·丙申·癸酉·丁巳·临-V40-TEST-10
+DNA: #龍芯⚡️丙午·丙申·癸酉·丁巳·䷒临-V40-TEST-10
 """
 
 import json, sys, urllib.request
@@ -43,7 +43,7 @@ TESTS = [
     ),
     (
         "DNA识别",
-        "请识别以下DNA是否规范：#龍芯⚡️丙午·丙申·癸酉·丁巳·临-TEST-A1B2C3D4",
+        "请识别以下DNA是否规范：#龍芯⚡️丙午·丙申·癸酉·丁巳·䷒临-TEST-A1B2C3D4",
         lambda r: any(k in r for k in ["规范", "正确", "DNA", "龍芯", "未检测到", "无错误", "有效"])
     ),
     (

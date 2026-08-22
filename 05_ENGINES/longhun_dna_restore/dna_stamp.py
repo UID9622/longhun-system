@@ -3,7 +3,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 🐉 龍魂 DNA 签章数据结构 v1.1
-DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-DNA-STAMP-V1.1-UID9622
+DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-DNA-STAMP-V1.1-UID9622
 创建者: 诸葛鑫（UID9622）
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

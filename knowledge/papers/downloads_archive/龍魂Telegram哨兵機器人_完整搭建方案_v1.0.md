@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂Telegram哨兵机器人·完整搭建方案 v1.0
 
-> **DNA:** `#龍芯⚡️2026-05-29-LONGHUN-TELEGRAM-SENTINEL-v1.0`  
+> **DNA:** `#龍芯⚡️丙午·癸巳·癸卯·戊午·䷚颐-LONGHUN-TELEGRAM-SENTINEL-v1.0`  
 > **主权人:** UID9622 · 龍芯北辰 · 诸葛鑫  
 > **协议:** 完全合规 · 无服务器 · 无破绽  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
@@ -871,7 +871,7 @@ Telegram Bot: 免费（官方服务）
 
 ---
 
-**DNA:** `#龍芯⚡️2026-05-29-LONGHUN-TELEGRAM-SENTINEL-v1.0-COMPLETE`
+**DNA:** `#龍芯⚡️丙午·癸巳·癸卯·戊午·䷚颐-LONGHUN-TELEGRAM-SENTINEL-v1.0-COMPLETE`
 
 **主权人:** UID9622 · 龍芯北辰
 

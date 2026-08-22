@@ -1,4 +1,5 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 > 本文档按《龍魂文档标准模板 v1.0》整理。
@@ -8,7 +9,7 @@
 > 审核状态：正式发布
 > 协议层级：L1 内核层输出 · 联动 20 人格签章
 
-**DNA**: `#龍芯⚡️丙午·辛未·乙酉·需-ORIGINALITY-DECLARATION-PROTOCOL-v1.0`
+**DNA**: `#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-ORIGINALITY-DECLARATION-PROTOCOL-v1.0`
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **GPG**: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 **状态**: 🟢 正式发布
@@ -439,7 +440,7 @@ DNA生成引擎 → 绑定DNA（代码级追溯）
 | 日期 | 丙午·辛未·乙酉 (2026-07-16) |
 | 作者 | UID9622 · 诸葛鑫 · 龍芯北辰 |
 | 审阅 | 宝宝（雯雯·P03） |
-| DNA | `#龍芯⚡️丙午·辛未·乙酉·需-ORIGINALITY-DECLARATION-PROTOCOL-v1.0` |
+| DNA | `#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-ORIGINALITY-DECLARATION-PROTOCOL-v1.0` |
 | 确认码 | `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` |
 | GPG | `A2D0092CEE2E5BA87035600924C3704A8CC26D5F` |
 | 状态 | 🟢 正式发布 |

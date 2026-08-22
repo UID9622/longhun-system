@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 import os as _os
 import sys as _sys
@@ -11,7 +12,7 @@ if _module_dir not in _sys.path:
 """
 CNSH 规则库 v1.0
 覆盖 OWASP Top 10 2021、CWE Top 25、Python 特有风险、AI 模型安全。
-DNA: #龍芯⚡️2026-06-29-CNSH-RULEBASE-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-RULEBASE-UID9622
 """
 
 import re
@@ -194,4 +195,4 @@ def 获取规则库(预编译: bool = True) -> list[Any]:
 if __name__ == "__main__":
     规则 = 获取规则库()
     print(f"CNSH 规则库加载完成，共 {len(规则)} 条规则。")
-    print("DNA: #龍芯⚡️2026-06-29-CNSH-RULEBASE-UID9622")
+    print("DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-RULEBASE-UID9622")

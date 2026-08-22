@@ -1,8 +1,10 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # XPay 龍魂支付系統 · 部署完成驗收 v1.0
 
 **時間**: 2026-06-05 17:33 CST
 **狀態**: 🟢 **完全就緒·驗收通過**
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-XPAY-COMPLETE-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-XPAY-COMPLETE-v1.0
 **驗收者**: UID9622 (Claude Code)
 
 ---
@@ -98,7 +100,7 @@ TXN-20260605164529  │    1.0 CNY   │ 手動測試
 ### 🔐 DNA簽証
 
 ✅ 所有交易帶簽証: `#龍芯⚡️{timestamp}-XPAY-TXN{dr}-{hash}`
-✅ 會話簽証: `#龍芯⚡️20260605173301-WELDING-SESSION-7a72e06e`
+✅ 會話簽証: `#龍芯⚡️丙午·癸巳·庚戌·乙酉·䷰革-WELDING-SESSION-7a72e06e`
 
 ### 📁 輸出檔案
 
@@ -183,4 +185,4 @@ python3 xpay_server.py                # API
 
 **責任**: UID9622 · 不免責
 **時間**: 2026-06-05 17:33 CST
-**簽証**:#龍芯⚡️丙午·丙申·庚申·亥时-XPAY-COMPLETE-v1.0
+**簽証**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-XPAY-COMPLETE-v1.0

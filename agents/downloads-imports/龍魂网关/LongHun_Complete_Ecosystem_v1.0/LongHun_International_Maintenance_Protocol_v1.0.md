@@ -3,7 +3,7 @@
 # 龍魂支付协议 · 国际级维护机制白皮书 v1.0
 # LongHun Payment Protocol · International Maintenance Whitepaper
 
-**DNA: #龍芯⚡️2026-06-05-LONGHUN-INTERNATIONAL-MAINTENANCE-PROTOCOL-v1.0**
+**DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-LONGHUN-INTERNATIONAL-MAINTENANCE-PROTOCOL-v1.0**
 **签名: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅**
 **确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅**
 
@@ -524,7 +524,7 @@ DNA维护费: 3650万 CNY
 **DNA签名（最终确认）**
 
 ```
-DNA: #龍芯⚡️2026-06-05-LONGHUN-INTERNATIONAL-MAINTENANCE-PROTOCOL-v1.0
+DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-LONGHUN-INTERNATIONAL-MAINTENANCE-PROTOCOL-v1.0
 签名: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 

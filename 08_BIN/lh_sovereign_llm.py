@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·辛未·乙酉·需-SOVEREIGN-LLM-v1.0
+#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-SOVEREIGN-LLM-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 # ⚡ 龍魂·中国芯主权大模型推理引擎 v1.0
-# DNA: #龍芯⚡️丙午·辛未·乙酉·需-SOVEREIGN-LLM-v1.0
+# DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-SOVEREIGN-LLM-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 格言: 数据不出机·芯片中国造·全宇宙最安全
 # 主权: UID9622 | 不依赖任何平台·不依赖任何人
@@ -65,7 +65,7 @@ from collections import OrderedDict
 # ============================================================
 # DNA 追溯
 # ============================================================
-__DNA__ = "#龍芯⚡️丙午·辛未·乙酉·需-SOVEREIGN-LLM-v1.0"
+__DNA__ = "#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-SOVEREIGN-LLM-v1.0"
 __VERSION__ = "1.0.0"
 __PROTOCOL__ = "LH-SOVEREIGN-LLM-ENGINE-2026-0714-v1.0"
 __SOVEREIGN__ = "UID9622"
@@ -158,8 +158,6 @@ class InferenceResult:
     errors: List[str] = field(default_factory=list[Any])
     dna: str = __DNA__
 
-    def to_dict(self) -> Dict[str, Any]:
-        return asdict(self)
 
 
 # ============================================================
@@ -610,7 +608,7 @@ class ModelRouter:
     ]
 
     API_MODELS_PRIORITY = [
-        ("deepseek-chat", ModelSource.API_DEEPSEEK),
+        ("deepseek-v4-flash", ModelSource.API_DEEPSEEK),
         ("qwen-max", ModelSource.API_QWEN),
         ("ernie-bot-4", ModelSource.API_WENXIN),
         ("moonshot-v1-128k", ModelSource.API_KIMI),

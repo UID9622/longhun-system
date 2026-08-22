@@ -1,3 +1,4 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 # 🐉 龍魂·AI产出归集Hub v1.0 · 使用指南
 
 DNA: #龍芯⚡️丙午·丙申·戊午·亥时·䷗复-AI-OUTPUT-HUB-V1.0-GUIDE

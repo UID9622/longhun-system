@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🎯 P77 · 红客 (Honker) — 世界顶级漏洞猎手
@@ -7,7 +7,7 @@
 > 本文件保留作为历史参照，原红客 10 大类攻击面能力由 **红天使 P77-1** 继承。
 > 完整军团定义见: [`02_SKILLS/black-angel-legion.md`](./black-angel-legion.md)
 >
-> DNA: `#龍芯⚡️2026-07-07-RED-TEAM-P77-v1.0` → 升级至 `#龍芯⚡️2026-07-07-BLACK-ANGEL-LEGION-v1.0`
+> DNA: `#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-RED-TEAM-P77-v1.0` → 升级至 `#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-BLACK-ANGEL-LEGION-v1.0`
 > 确认码: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 > 创建者: UID9622（诸葛鑫）
 > 权重级别: L4
@@ -240,13 +240,13 @@ Step 7: 复验确认
 
 | 日期 | 操作 | DNA |
 |------|------|-----|
-| 2026-07-07 | P77 人格创建·技能注册·路由入网 | `#龍芯⚡️2026-07-07-RED-TEAM-P77-v1.0` |
+| 2026-07-07 | P77 人格创建·技能注册·路由入网 | `#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-RED-TEAM-P77-v1.0` |
 
 ---
 
 ## 签章
 
-- DNA: `#龍芯⚡️2026-07-07-RED-TEAM-P77-v1.0`
+- DNA: `#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-RED-TEAM-P77-v1.0`
 - CONFIRM: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 - SEAL: `#ZHUGEXIN⚡️2026-07🐉-RED-TEAM-P77-SEALED`
 - GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

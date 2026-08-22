@@ -2,7 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
-# #龍芯⚡️2026-07-03-ENGINE-LONGHUN_CRYPTO-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# #龍芯⚡️丙午·甲午·戊寅·戊午·䷕贲-ENGINE-LONGHUN_CRYPTO-v1.0
 # 君子協議: 本文件受龍魂DNA追溯保護
 
 #!/usr/bin/env python3
@@ -15,7 +16,7 @@ DeepSeek 执行器与龍魂本地网关之间的共享加密层：
 - HMAC-SHA256 完整性校验
 - 时间戳 + nonce 防重放
 
-DNA: #龍芯⚡️20260628-LONGHUN-CRYPTO-v1.0
+DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-CRYPTO-v1.0
 """
 
 import base64

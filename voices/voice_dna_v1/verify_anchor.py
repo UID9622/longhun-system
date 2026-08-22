@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂声纹验证与审计模块（多用户版）
@@ -12,7 +13,7 @@ LongHun Voice Anchor Verification & Audit - Multi-User
   - 与 manifest.json 中的记录比对
   - 输出验证结果：匹配/不匹配，并记录审计日志
 
-DNA: #龍芯⚡️20260628-VOICE-VERIFY-v2.0
+DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-VOICE-VERIFY-v2.0
 """
 
 import json

@@ -1,0 +1,5 @@
+# DNA: #龍芯⚡️2026-08-22-ALIGN-LEDGER-DNA-v1.0
+timestamp,operator,action,source,target,items_synced,conflicts,resolution
+2026-08-20 16:45,宝宝(Kimi),init,local,notion,0,0,首次创建·等待三件套确认
+2026-08-20 17:20,CodeBuddy,init,local,notion,0,0,三件套落地·根目录MEMORY_SNAPSHOT+ALIGN_LEDGER·DB_REGISTRY引用12_DOCS
+2026-08-20 17:20,CodeBuddy,verify,csdn,local,3,0,CSDN反爬521·本地csdn_drafts已有正文·v3.1-optimized/可视化引擎/P0永恒锁/369v3.0本地全在·Kimi"本地旧版"判断不成立

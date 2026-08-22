@@ -1,0 +1,77 @@
+{
+  "image_generation": {
+    "primary": {
+      "name": "ComfyUI + IPAdapter FaceID Plus V2",
+      "repo": "https://github.com/comfyanonymous/ComfyUI",
+      "ipadapter": "https://github.com/cubiq/ComfyUI_IPAdapter_plus",
+      "notes": "角色一致性首选。用角色卡 reference image 作为 IPAdapter 输入，weight 0.85 最佳。"
+    },
+    "alternatives": [
+      {
+        "name": "InstantID",
+        "repo": "https://github.com/InstantID/InstantID",
+        "notes": "单图换脸一致性，8.5GB VRAM，28秒/张"
+      },
+      {
+        "name": "PuLID",
+        "repo": "https://github.com/ToTheBeginning/PuLID",
+        "notes": "一致性最高但 VRAM 消耗大"
+      }
+    ]
+  },
+  "video_generation": {
+    "lightweight": {
+      "name": "AnimateDiff",
+      "repo": "https://github.com/guoyww/AnimateDiff",
+      "notes": "SD 1.5 插件，12GB+ VRAM，适合短动作镜头"
+    },
+    "advanced": [
+      {
+        "name": "CogVideoX",
+        "repo": "https://github.com/THUDM/CogVideo",
+        "notes": "开源高清视频生成，1360x768，10秒"
+      },
+      {
+        "name": "HunyuanVideo",
+        "repo": "https://github.com/Tencent/HunyuanVideo",
+        "notes": "腾讯开源，质量高"
+      }
+    ]
+  },
+  "tts_voice_clone": {
+    "primary": {
+      "name": "GPT-SoVITS",
+      "repo": "https://github.com/RVC-Boss/GPT-SoVITS",
+      "notes": "中文声音克隆首选，5秒样本即可 zero-shot"
+    },
+    "alternatives": [
+      {
+        "name": "OpenVoice",
+        "repo": "https://github.com/myshell-ai/OpenVoice",
+        "notes": "轻量，速度快，跨语言"
+      },
+      {
+        "name": "F5-TTS",
+        "repo": "https://github.com/SWivid/F5-TTS",
+        "notes": "非自回归，Flow Matching，音质好"
+      }
+    ]
+  },
+  "watermark_provenance": {
+    "visible": {
+      "name": "Longhun Watermark",
+      "path": "lh_story_factory.py watermark",
+      "notes": "本模块内置，金色 DNA 可见水印"
+    },
+    "c2pa": {
+      "name": "C2PA Python SDK",
+      "repo": "https://github.com/contentauth/c2pa-python",
+      "notes": "内容来源与修改历史元数据"
+    },
+    "invisible": {
+      "name": "stegano",
+      "repo": "https://github.com/cedricbonhomme/Stegano",
+      "notes": "LSB 隐写，轻量不可见水印"
+    }
+  }
+}

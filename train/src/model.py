@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂本地训练引擎 · 模型结构
-DNA: #龍芯⚡️2026-06-28-LONGHUN-TRAIN-MODEL-v1.0
+DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-TRAIN-MODEL-v1.0
 
 初始结构：Embedding + LSTM + 输出头。
 后续可焊：Transformer、RoPE、RMSNorm、LoRA、专家混合……随你拆。
@@ -35,7 +36,7 @@ class LonghunLM(nn.Module):
         self.norm = nn.LayerNorm(config.hidden_size)
         self.fc = nn.Linear(config.hidden_size, config.vocab_size)
 
-        self.dna = "#龍芯⚡️2026-06-28-LONGHUN-TRAIN-MODEL-v1.0"
+        self.dna = "#龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-TRAIN-MODEL-v1.0"
 
     def forward(self, input_ids, targets=None):
         """

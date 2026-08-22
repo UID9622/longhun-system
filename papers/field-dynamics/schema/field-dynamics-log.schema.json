@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uid9622.cn/schema/field-dynamics-log.schema.json",
+  "title": "场域动力学 · 标准测试日志格式 v1.0",
+  "description": "跨框架逻辑审计的统一日志格式。所有参与框架（TLAA / TAT / Cophy / HeartFlow 及后续接入者）必须能消费公共字段，核心指标必须能从公共字段计算。私有扩展字段允许，但不得改变公共字段语义。",
+  "type": "object",
+  "required": ["ts", "input_hash", "session_id"],
+  "properties": {
+    "ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO8601 时间戳（UTC），事件发生时刻"
+    },
+    "input_hash": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$",
+      "description": "输入内容 SHA-256 哈希。可复核、不可逆，避免敏感内容入库"
+    },
+    "session_id": {
+      "type": "string",
+      "description": "会话/系统实例标识，用于纵向追踪同一场域"
+    },
+    "heads": {
+      "type": "object",
+      "description": "多路独立判断（TAT 三头 / HeartFlow 三路）。键名可由框架自定义，但至少有 2 路",
+      "minProperties": 2,
+      "additionalProperties": { "type": "string" }
+    },
+    "verdicts": {
+      "type": "object",
+      "description": "各链路裁决结果（truth / lesson / verify 等）",
+      "additionalProperties": { "type": "string" }
+    },
+    "audit_level": {
+      "type": "string",
+      "enum": ["G0", "G1", "G2", "G3", "G4"],
+      "description": "TLAA 分层审计级别（G0 最低 · G4 最高）"
+    },
+    "blocked": {
+      "type": "boolean",
+      "description": "是否被预执行拦截（HeartFlow BLOCK/MODIFY）"
+    },
+    "rule_fired": {
+      "type": ["string", "null"],
+      "description": "触发的规则 ID（HeartFlow 29 条规则之一）；null 表示本事件未触发规则"
+    },
+    "user_escalated": {
+      "type": "boolean",
+      "description": "是否升级到人类处理（Cophy 冲突延迟机制）"
+    },
+    "conflict_marks": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "本事件标记的矛盾/冲突数（A 维密度贡献）"
+    },
+    "labels": {
+      "type": "object",
+      "description": "标注区（社区共建 · 可选）",
+      "properties": {
+        "crash_at": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "若本事件后发生崩溃，填崩溃时刻（用于预警提前量计算）"
+        },
+        "precursor_dimension": {
+          "type": ["string", "null"],
+          "enum": ["U", "D", "A", "H", null],
+          "description": "若本事件是翻转点前兆，标注前兆主导维度（用于 H3 维度归因检验）"
+        },
+        "annotator": {
+          "type": "string",
+          "description": "标注者标识"
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "框架私有扩展字段区。允许任意结构，但不参与统一评测的公共口径",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true,
+  "examples": [
+    {
+      "ts": "2026-08-19T12:00:00Z",
+      "input_hash": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+      "session_id": "agent-alpha-001",
+      "heads": { "head_a": "approve", "head_b": "approve", "head_c": "reject" },
+      "verdicts": { "truth": "approve", "lesson": "rule_7_updated", "verify": "reject" },
+      "audit_level": "G2",
+      "blocked": true,
+      "rule_fired": "HF-17",
+      "user_escalated": false,
+      "conflict_marks": 2,
+      "labels": { "crash_at": null, "precursor_dimension": "A", "annotator": "community-01" }
+    }
+  ]
+}

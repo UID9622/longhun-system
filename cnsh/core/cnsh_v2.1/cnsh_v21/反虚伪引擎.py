@@ -2,9 +2,10 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂·反虚伪引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-反虚伪引擎-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-反虚伪引擎-v1.0
 定位：系统级反虚伪机制，可执行、可验证、可自动化
 责任人：所有AI人格必须遵守
 """

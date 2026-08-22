@@ -1088,7 +1088,7 @@ def main():
         print(f"""
 🐉 龍魂·CSDN同步引擎 v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━
-DNA: #龍芯⚡️丙午·丙申·戊申·CSDN-SYNC-v1.0
+DNA: #龍芯⚡️丙午·丙申·戊申·戊午·䷙大畜-CSDN-SYNC-v1.0
 配置:
   CSDN:     {CONFIG['CSDN_BLOG_URL']}
   Notion:   {'✅ 已配置' if CONFIG['NOTION_TOKEN'] and 'secret_' in CONFIG['NOTION_TOKEN'] else '🟡 未配置'}

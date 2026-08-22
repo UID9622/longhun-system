@@ -2,7 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ═══════════════════════════════════════════════════════════════════
 # 龍魂系统 · 河图洛书 DNA 生成器测试
-# DNA: #龍芯⚡️2026-07-06-TEST-HETU-LUOSHU-DNA-v1.0-C5D7E9A3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-TEST-HETU-LUOSHU-DNA-v1.0-C5D7E9A3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 被测模块: bin/hetu_luoshu_dna.py
 # ═══════════════════════════════════════════════════════════════════

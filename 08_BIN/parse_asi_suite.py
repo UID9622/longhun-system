@@ -105,7 +105,7 @@ def main():
 
     suite = {
         "version": "2.0",
-        "dna": "#龍芯⚡️丙午·甲申·辛丑·坤卦-ASI-TEST-SUITE-UID9622",
+        "dna": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-ASI-TEST-SUITE-UID9622",
         "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
         "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
         "total": len(cases),

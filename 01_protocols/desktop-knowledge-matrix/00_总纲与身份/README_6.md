@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂智能体编排层
 
 > **不是固化后台，是可叠加、可扩展、可审计的本地智能体编排系统。**
@@ -140,9 +141,9 @@ L1 常驻智能体  ──►  雯雯 / 侦察兵 / 上帝之眼 / 宝宝 / 文�
 
 ## DNA
 
-- **编排器 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-AGENT-ORCHESTRATOR-v1.1`
-- **注册表 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-AGENT-MANIFEST-v1.10-CLEAN`
-- **规范 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-AGENT-ORCHESTRATION-SPEC-v1.7`
-- **守护进程 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AGENT-DAEMON-v1.0`
-- **eco 适配器 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AGENT-ECO-ADAPTER-v1.0`
-- **状态报告 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AGENT-STATUS-REPORTER-v1.0`
+- **编排器 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AGENT-ORCHESTRATOR-v1.1`
+- **注册表 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AGENT-MANIFEST-v1.10-CLEAN`
+- **规范 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AGENT-ORCHESTRATION-SPEC-v1.7`
+- **守护进程 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AGENT-DAEMON-v1.0`
+- **eco 适配器 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AGENT-ECO-ADAPTER-v1.0`
+- **状态报告 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AGENT-STATUS-REPORTER-v1.0`

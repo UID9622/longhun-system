@@ -1,8 +1,10 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 metadata:
   id: longhun-priority-sort
   version: '1.0'
-  dna: '#龍芯⚡️20260618202000-PRIORITY-SORT-v1.0'
+  dna: '#龍芯⚡️丙午·甲午·癸亥·壬戌·䷔噬嗑-PRIORITY-SORT-v1.0'
   trigger:
     keywords:
     - prioritysort

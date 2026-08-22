@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·乙未·己未·申时·履-DUAL-BRAIN-ENGINE-v1.0-A1B2C3D4
+#龍芯⚡️丙午·乙未·己未·申时·䷉履-DUAL-BRAIN-ENGINE-v1.0-A1B2C3D4
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
@@ -12,7 +12,7 @@
 核心逻辑：
   引用BLOCK → 左脑扩展 → 右脑攻击 → 冲突树 → 风险值 → 三色审计 → 决定
 
-DNA: #龍芯⚡️丙午·乙未·己未·申时·履-DUAL-BRAIN-ENGINE-v1.0-A1B2C3D4
+DNA: #龍芯⚡️丙午·乙未·己未·申时·䷉履-DUAL-BRAIN-ENGINE-v1.0-A1B2C3D4
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
@@ -872,7 +872,7 @@ def demo():
             block_id="BLOCK-001",
             content="龍魂系统采用三色审计：🟢绿色自动执行，🟡黄色人工复核，🔴红色熔断留痕。所有输出必须绑定DNA追溯码。",
             source="CNSH-RUNTIME-v3.0",
-            dna_trace="#龍芯⚡️丙午·乙未·己未·申时·履",
+            dna_trace="#龍芯⚡️丙午·乙未·己未·申时·䷉履",
         ),
         BlockReference(
             block_id="BLOCK-002",
@@ -884,7 +884,7 @@ def demo():
             block_id="BLOCK-003",
             content="数字根函数 dr(n) 将正整数映射到 {1,...,9}，当 n≡0(mod 9) 时 dr(n)=9，否则 dr(n)=n mod 9。三色治理：G={1,2,4,5,7,8} Y={6} R={3,9}。369吸引子形成不动点结构。",
             source="CNSH-MATH-v3.0",
-            dna_trace="#龍芯⚡️丙午·乙未·己未·申时·履-MATH",
+            dna_trace="#龍芯⚡️丙午·乙未·己未·申时·䷉履-MATH",
         ),
     ]
 

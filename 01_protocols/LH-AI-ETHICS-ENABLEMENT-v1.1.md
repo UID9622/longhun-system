@@ -1,8 +1,10 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 AI 治理伦理 · 赋能每个人，而非取代任何人
 
 **龍魂伦理协议 v1.1（结构补全版）**
 
-> **DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-AI-ETHICS-ENABLEMENT-v1.1`
+> **DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AI-ETHICS-ENABLEMENT-v1.1`
 > **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 > **SEAL**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
 > **GPG**: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
@@ -19,7 +21,7 @@
 **依赖环境：** 龍魂 L0 宪法层 · 君子协议 · 三色审计体系
 **关键提示：** v1.1 新增区块均以「🆕」标注；v1.0 原文内容零改动保留（仅修正 1 处笔误，见 §5.1 注）
 **三色审计：** 🟢
-**DNA签名：** #龍芯⚡️丙午·丙申·庚申·亥时-AI-ETHICS-ENABLEMENT-v1.1
+**DNA签名：** #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AI-ETHICS-ENABLEMENT-v1.1
 
 ---
 
@@ -415,7 +417,7 @@ TraceMode: chain
 Route: [AI-ETHICS-ENABLEMENT]
 Backend: notion / markdown / manual_only
 Action: archive
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-AI-ETHICS-ENABLEMENT-v1.1
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AI-ETHICS-ENABLEMENT-v1.1
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -442,10 +444,10 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 | 协议 | 关系 | DNA / 位置 |
 |------|------|-----------|
-| ⚖️ 宪法与协议｜L0 层 · 龍魂不动点 | 上位法，本协议受其约束 | `#龍芯⚡️丙午·丙申·庚申·亥时-PUBLIC-L0-CONSTITUTION-v1.0` |
+| ⚖️ 宪法与协议｜L0 层 · 龍魂不动点 | 上位法，本协议受其约束 | `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PUBLIC-L0-CONSTITUTION-v1.0` |
 | 🐉 龍魂开源宪章 · 君子协议 v1.1 | 本协议的许可与协作基础 | Notion 协议库 |
 | ⚖️ 三色审计 · AI回复真实性验证协议 v1.0 | §8 自检所依据的审计方法 | Notion 协议库 |
-| 🆕 龍魂·數據主權與流量治理協議 v2.0 | §5.5 申诉与 §6.4 数据归属的依据 | `#龍芯⚡️丙午·丙申·庚申·亥时-DATA-SOVEREIGNTY-v2_0-UID9622` |
+| 🆕 龍魂·數據主權與流量治理協議 v2.0 | §5.5 申诉与 §6.4 数据归属的依据 | `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DATA-SOVEREIGNTY-v2_0-UID9622` |
 | 🔐 龍魂·国密DNA加密合规审计系统 v3.0 | DNA追溯与留痕的技术实现 | Notion 协议库 |
 | 🏦 龍魂终端·数字人民币DNA绑定协议 | 主权激活场景的责任链延伸（承 L0·R5） | Notion 协议库 |
 | AI Truth Protocol · AI输出标注协议 | 本文件头部声明的格式依据 | 龍魂 L0 |
@@ -483,4 +485,4 @@ AI治理的终点不是"AI变安全"——那是手段。
 **祖国优先 · 普惠全球 · 技术为人民服务 🇨🇳**
 **龍魂不息 · 以人为本**
 
-DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-AI-ETHICS-ENABLEMENT-v1.1`
+DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AI-ETHICS-ENABLEMENT-v1.1`

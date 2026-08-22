@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·乙未·丁酉·☷坤-PANGDONGLAI-API-v1.1-7f2a9c3e
+# DNA: #龍芯⚡️丙午·乙未·丁酉·丙午·䷁坤-PANGDONGLAI-API-v1.1-7f2a9c3e
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 """
@@ -406,7 +406,7 @@ def formula_public():
     """分润数学公式公示·焊死阈值·公开透明"""
     return JSONResponse(content={
         "title": "胖东来分成数学协议 · 焊死不等式",
-        "dna": "#龍芯⚡️丙午·癸未·丁亥·地火明夷-PANGDONGLAI-FORMULA-v1.0",
+        "dna": "#龍芯⚡️丙午·癸未·丁亥·丙午·䷣明-PANGDONGLAI-FORMULA-v1.0",
         "formulas": [
             {"id": 1, "rule": "R_e ≥ 0.50 × N", "meaning": "员工分配 ≥ 50%（绝对优先·不可削减）", "priority": "最高"},
             {"id": 2, "rule": "R_f ≤ 0.10 × N", "meaning": "创始人提取 ≤ 10%", "priority": "中"},

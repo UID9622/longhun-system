@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂人民技能边界管理 / LongHun People Skill Scope Guard
 
-DNA:#龍芯⚡️2026-06-21-PEOPLE-SKILL-SCOPE-v1.0
+DNA:#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-PEOPLE-SKILL-SCOPE-v1.0
 
 原则：
   ① 赋能不是取代。AI 帮人把本专业做到极致，不是让人变成万能神。

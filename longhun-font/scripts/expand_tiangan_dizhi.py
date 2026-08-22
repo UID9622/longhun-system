@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-FRAGMENT-TIANGAN_DIZHI-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-FRAGMENT-TIANGAN_DIZHI-v1.0
 """
 LonghunFont fragment generator: 天干地支 symbolic icons.
 Generates 22 seal/ancient-script style glyph definitions for the 10 Heavenly Stems
@@ -348,7 +349,7 @@ def main():
     name = "tiangan_dizhi"
     count = 22
     start_codepoint = 0xE400
-    dna = "#龍芯⚡️2026-06-22-LONGHUN-FONT-FRAGMENT-TIANGAN_DIZHI-v1.0"
+    dna = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-FRAGMENT-TIANGAN_DIZHI-v1.0"
 
     fragment, first_cp, last_cp = make_fragment(start_codepoint)
 

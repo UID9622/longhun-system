@@ -1,10 +1,12 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-automation
 description: 龍魂自動化日評估引擎，6維度系統健康檢查，Cron定時任務，自動化周報生成，支持環境/代碼/數據/可運行性/文檔/安全六大維度評估
 metadata:
   version: '5.2'
   author: 龍魂體系
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AUTOMATION-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AUTOMATION-v5.2'
   id: longhun-automation
   trigger:
     keywords:
@@ -19,7 +21,7 @@ metadata:
 ---
 # 🐉 龍魂自動化日評估 (longhun-automation)
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AUTOMATION-v5.2`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AUTOMATION-v5.2`
 **版本**: v5.2
 **路徑**: `~/longhun-system/scripts/自動化評估.py`
 **功能**: 6維度系統評估 · Cron定時任務 · 自動化周報 · 狀態檢查
@@ -179,7 +181,7 @@ python3 ~/longhun-system/scripts/自動化評估.py --trend 30
 
 ---
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-AUTOMATION-v5.1`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-AUTOMATION-v5.1`
 **確認**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅`
 
 
@@ -190,5 +192,5 @@ python3 ~/longhun-system/scripts/自動化評估.py --trend 30
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：06-工具脚本（local_search.sh、session_end.sh）
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

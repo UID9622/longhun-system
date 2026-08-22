@@ -1,7 +1,7 @@
 /**
  * 🐉 CNSH → C 语言编译器
  * 中文关键字映射 + DNA 注入 + 头文件生成
- * DNA: #龍芯⚡️丙午·丙申·辛酉·丑时-CNSH-COMPILER-UID9622
+ * DNA: #龍芯⚡️丙午·丙申·辛酉·己丑·䷹兑为泽-CNSH-COMPILER-UID9622
  * License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
  */
 

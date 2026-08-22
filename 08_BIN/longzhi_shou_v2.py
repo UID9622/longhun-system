@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·癸酉·庚申·临-LONGZHI_SHOU_V2-v1.0-1a3b091f
+#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LONGZHI_SHOU_V2-v1.0-1a3b091f
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -29,7 +29,7 @@
   - L2-SP 禁止执行系统控制、军事/生化武器相关等高敏类别命令。
   - 所有外部协作者须经 L3 标记 "中国标准" 后方可获得实际权限。
 
-DNA: #龍芯⚡️2026-06-30-LONGZHISHOU-LOCAL-BOT-v2.0
+DNA: #龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGZHISHOU-LOCAL-BOT-v2.0
 归属: 龍魂系统 · UID9622
 原则: 主权在手、本地优先、分级授权、按贡献调配、中国标准、操作可审计
 """
@@ -190,7 +190,7 @@ class BotConfig:
         # 默认值使用占位符，真实值必须在 ~/.longhun/config/龍智守_config.json 或环境变量中配置
         配置 = {
             "创始人标识": "UID9622",
-            "机器人DNA": "#龍芯⚡️2026-06-30-LONGZHISHOU-LOCAL-BOT-v2.0",
+            "机器人DNA": "#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGZHISHOU-LOCAL-BOT-v2.0",
             "飞书Webhook地址": "YOUR_FEISHU_WEBHOOK_URL",
             "飞书Webhook密钥": "YOUR_FEISHU_WEBHOOK_SECRET",
             # 事件订阅（接收@消息）自建应用凭证；webhook 机器人群聊场景不需要
@@ -287,7 +287,7 @@ class BotConfig:
 class 主权配置:
     创始人标识 = BotConfig.get("创始人标识", "UID9622")
     版本 = "v2.0"
-    脱氧核糖核酸锚定 = BotConfig.get("机器人DNA", "#龍芯⚡️2026-06-30-LONGZHISHOU-LOCAL-BOT-v2.0")
+    脱氧核糖核酸锚定 = BotConfig.get("机器人DNA", "#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGZHISHOU-LOCAL-BOT-v2.0")
 
     # 飞书凭证
     飞书Webhook地址 = BotConfig.get("飞书Webhook地址", "")
@@ -644,7 +644,7 @@ class 授权注册表:
                         "granted_at": datetime.now(timezone.utc).isoformat(),
                     }
                 },
-                "dna": "#龍芯⚡️2026-06-30-AUTH-REGISTRY-UID9622",
+                "dna": "#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-AUTH-REGISTRY-UID9622",
             }
             self._保存(初始)
             return 初始
@@ -1607,8 +1607,6 @@ class 执行引擎:
 class 敏感操作检查器:
     """检查是否涉及敏感/危险操作"""
 
-    def __init__(self, 配置: 主权配置):
-        self.配置 = 配置
 
     def 检查(self, 命令文本: str) -> Dict[str, Any]:
         小写 = 命令文本.lower()
@@ -2566,11 +2564,11 @@ if __name__ == "__main__":
 def selftest() -> dict[str, Any]:
     """
     自检函数：验证核心模块是否正常加载。
-    DNA: #龍芯⚡️2026-07-01-LONGZHISHOU-SELFTEST-v2.0
+    DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGZHISHOU-SELFTEST-v2.0
     """
     results = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
-        "dna": "#龍芯⚡️2026-07-01-LONGZHISHOU-SELFTEST-v2.0",
+        "dna": "#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGZHISHOU-SELFTEST-v2.0",
         "tests": {},
     }
     try:

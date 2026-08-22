@@ -1,4 +1,6 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 《根性治理论：从西方二进制到中国道理》
@@ -11,7 +13,7 @@
 - **书名**：《根性治理论：从西方二进制到中国道理》
 - **副标题**：批判评分恐怖主义，重建三才共治的中国基层治理根性
 - **作者**：UID9622 / Lucky（龍魂系统 · 基层治理观察组）
-- **DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-ROOT-GOVERNANCE-THESIS-v1.0`
+- **DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ROOT-GOVERNANCE-THESIS-v1.0`
 
 ## 文件结构
 

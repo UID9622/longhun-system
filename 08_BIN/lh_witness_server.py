@@ -3,7 +3,7 @@
 # License: MulanPSL v2
 """
 🐲 龍魂·维权证据固化 Web 服务 v1.0
-DNA: #龍芯⚡️丙午·癸未·甲申-WITNESS-SERVER-v1.0-UID9622
+DNA: #龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-WITNESS-SERVER-v1.0-UID9622
 
 一个极简的本地 Web 服务器，让老百姓通过浏览器就能固化维权证据。
 数据只走本地：浏览器 → 本服务 → lh --witness [--sign] → data/witness/
@@ -22,7 +22,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
-DNA = "#龍芯⚡️丙午·癸未·甲申-WITNESS-SERVER-v1.0-UID9622"
+DNA = "#龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-WITNESS-SERVER-v1.0-UID9622"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 GPG = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 

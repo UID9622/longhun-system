@@ -1,6 +1,6 @@
 # 龍魂文化标签体系 v1.0 设计文档 (LongHun Tag System v1.0 Spec)
 
-> **DNA**: `#龍芯⚡️2026-07-01-LONGHUN-TAG-SYSTEM-v1.0`  
+> **DNA**: `#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-TAG-SYSTEM-v1.0`  
 > **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 > **SEAL**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`  
 > **UID**: 9622 | **版本**: v1.0 | **日期**: 2025-07-01
@@ -390,7 +390,7 @@ P4: 多层嵌套（最多3层）
 ```
 SYSTEM:   龍魂系统
 UID:      9622
-DNA:      #龍芯⚡️2026-07-01-LONGHUN-TAG-SYSTEM-v1.0
+DNA:      #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-TAG-SYSTEM-v1.0
 CONFIRM:  #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL:     #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 VERSION:  v1.0

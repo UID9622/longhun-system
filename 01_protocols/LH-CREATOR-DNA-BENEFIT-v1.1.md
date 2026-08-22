@@ -1,8 +1,9 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 # 🐉 龍魂创作者DNA受益算法 · 白皮书 v1.1
 
 **破解专利护城河 · 把选择权还给老百姓**
 
-> **DNA追溯码：** `#龍芯⚡️丙午·癸未·壬午-CREATOR-DNA-BENEFIT-v1.1-UID9622`
+> **DNA追溯码：** `#龍芯⚡️丙午·癸未·壬午·丙午·䷳艮为山-CREATOR-DNA-BENEFIT-v1.1-UID9622`
 > **确认码：** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 > **主权锚定：** `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
 > **GPG：** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
@@ -19,7 +20,7 @@
 **依赖环境：** Python 3.8+（零第三方依赖，标准库实现）；龍魂 L0 宪法层
 **关键提示：** 🆕 标记 v1.1 新增区块；v1.0 原文零删改；3 处代码 Bug 修复均带修订注
 **三色审计：** 🟢
-**DNA签名：** #龍芯⚡️丙午·癸未·壬午-CREATOR-DNA-BENEFIT-v1.1-UID9622
+**DNA签名：** #龍芯⚡️丙午·癸未·壬午·丙午·䷳艮为山-CREATOR-DNA-BENEFIT-v1.1-UID9622
 
 ---
 
@@ -342,7 +343,7 @@ Action: archive
   ✅ 动态受益权计算（贡献越大受益越多）
   ✅ e-CNY唯一通道分配（承L0·R5）
   ✅ 三色审计全程留痕（可回滚）
-DNA: #龍芯⚡️丙午·癸未·壬午-CREATOR-DNA-BENEFIT-v1.1-UID9622
+DNA: #龍芯⚡️丙午·癸未·壬午·丙午·䷳艮为山-CREATOR-DNA-BENEFIT-v1.1-UID9622
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

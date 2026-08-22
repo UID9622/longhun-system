@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍智守 — 龍魂生活/办公智能守护入口
 功能：
@@ -12,7 +13,7 @@
 调用：
   python3 龍智守.py --input "帮我看看这个链接 https://xxx.com"
   python3 龍智守.py --input "今天运势如何" --send
-DNA: #龍芯⚡️20260630-LONGZHI-SHOU-v1
+DNA: #龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGZHI-SHOU-v1
 """
 
 # 龍智守飞书卡片全局确认码（焊死）

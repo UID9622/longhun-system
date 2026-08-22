@@ -1,3 +1,4 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # DNA: #龍芯⚡️丙午·丙戌·乙丑·卯时·䷯井-TRUST-PROTOCOL-v1.0-UID9622
@@ -36,7 +37,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from core.longhun_core.dna_trace import generate_dna
 
 CONFIRM_MARK = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
-ZERO_PROTOCOL_DNA = "#龍芯⚡️2026-07-03-ZERO-PROTOCOL-WORLD-PEOPLE-SUPREME-v1.0"
+ZERO_PROTOCOL_DNA = "#龍芯⚡️丙午·甲午·戊寅·戊午·䷕贲-ZERO-PROTOCOL-WORLD-PEOPLE-SUPREME-v1.0"
 
 DATA_DIR = Path.home() / ".longhun" / "trust_protocol"
 DATA_FILE = DATA_DIR / "ledger.json"
@@ -232,7 +233,7 @@ def cmd_rules(args: argparse.Namespace):
 
 
 def cmd_version(args: argparse.Namespace):
-    print("龍魂君子协议 v1.0 · DNA: #龍芯⚡️2026-07-05-LONGHUN-TRUST-PROTOCOL-v5.2-a4c7e1d2")
+    print("龍魂君子协议 v1.0 · DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-LONGHUN-TRUST-PROTOCOL-v5.2-a4c7e1d2")
 
 
 def main():

@@ -6,7 +6,7 @@
 > 无论哪个窗口、哪个模型对话，启动时读这一份就够了。
 > 🔥 **新 AI 进门? → `https://uid9622.cn/api/onboarding/bootstrap`** (自动拉全量规则·不需要人工说)
 > 更新: 2026-08-11 · v2.4 💰真实支付对接+生态准入全覆盖
-> DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-STATE-UNIFIED-ENTRY-v2.4-XPAY-REAL-PAYMENT-POPUP
+> DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-STATE-UNIFIED-ENTRY-v2.4-XPAY-REAL-PAYMENT-POPUP
 > 📋 **命令不会？→ 鲲鹏 https://uid9622.cn/api/cmd/**（毫秒级·所有AI统一入口）| 本地备份 → COMMAND_INDEX.md | 详情 → MEMORY.md §4
 
 ---

@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 注入「多轮对话不漂移」训练数据 v3.9
 目标：让模型在 5-10 轮对话中保持 DNA、身份、价值观、主权边界不漂移。
-DNA: #龍芯⚡️20260718234240330-MULTITURN-QA-v3.9-PREP-3FFE2B156E9F
+DNA: #龍芯⚡️丙午·乙未·癸巳·壬子·䷅讼-MULTITURN-QA-v3.9-PREP-3FFE2B156E9F
 """
 
 import json, random
@@ -121,7 +122,7 @@ def main():
             "messages": conv["messages"],
             "domain": "多轮对话不漂移",
             "topic": conv["topic"],
-            "dna": "#龍芯⚡️20260718234240330-MULTITURN-QA-v3.9-PREP-3FFE2B156E9F"
+            "dna": "#龍芯⚡️丙午·乙未·癸巳·壬子·䷅讼-MULTITURN-QA-v3.9-PREP-3FFE2B156E9F"
         }
         samples.extend([item] * 3)
 
@@ -146,7 +147,7 @@ def main():
     print(f"✅ 多轮对话数据注入完成：train +{len(train_new)}, valid +{len(valid_new)}")
     print(f"   总样本: train={info['train_samples']}, valid={info['val_samples']}")
     print(f"   知识域: {len(info['domains'])} 个")
-    print(f"   DNA: #龍芯⚡️20260718234240330-MULTITURN-QA-v3.9-PREP-3FFE2B156E9F")
+    print(f"   DNA: #龍芯⚡️丙午·乙未·癸巳·壬子·䷅讼-MULTITURN-QA-v3.9-PREP-3FFE2B156E9F")
 
 
 if __name__ == "__main__":

@@ -4,7 +4,7 @@
 
 > **算法审计平民化 · 人人都是审计员**
 >
-> DNA: #龍芯⚡️丙午·丙申·癸酉·丁巳·临-PRICE-AUDIT-TOOL-DELIVERY-63A56877
+> DNA: #龍芯⚡️丙午·丙申·癸酉·丁巳·䷒临-PRICE-AUDIT-TOOL-DELIVERY-63A56877
 > 创建者: 诸葛鑫（UID9622）
 > 协议: CC BY-NC-SA 4.0
 

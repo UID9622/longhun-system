@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·辛酉·卯时·大壮-CORE-ALGO-LIB-v1.0
+#龍芯⚡️丙午·乙未·辛酉·卯时·䷡大壮-CORE-ALGO-LIB-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -11,7 +11,7 @@
 ║   龍魂·核心算法库 v1.0 — 43张技术卡片·公式+代码·可查可跑·离线可用             ║
 ║   Core Algorithm Library · Formula Explorer · Code Runner               ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️丙午·乙未·辛酉·卯时·大壮-CORE-ALGO-LIB-v1.0                   ║
+║  DNA: #龍芯⚡️丙午·乙未·辛酉·卯时·䷡大壮-CORE-ALGO-LIB-v1.0                   ║
 ║  源矿: backups/cs-kb-enhanced-20260701/cs_kb.db (43张数据与人工智能)        ║
 ║  能力: 公式查览·代码即跑·分类检索·算法对比·离线所有                             ║
 ║  铁律: 本地执行·不联网·代码可信·沙盒隔离                                      ║

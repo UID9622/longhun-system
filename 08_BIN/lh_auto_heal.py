@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_AUTO_HEAL-v1.0-11740bc6
+#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH_AUTO_HEAL-v1.0-11740bc6
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # 龍芯⚡️丙午·丙申·丙辰·亥时·需-AUTO-HEAL-ENGINE-v1.0
@@ -39,6 +39,7 @@ BIN目录 = 龍魂根 / "bin"
 DNA引擎路径 = BIN目录 / "lh_unified_dna_registry.py"
 联动感知路径 = BIN目录 / "lh_cross_module_awareness.py"
 防篡改路径 = BIN目录 / "lh_anti_tamper.py"
+龍字检查路径 = BIN目录 / "lh_glyph_unify.py"
 
 # 自愈修复记录
 自愈记录路径 = Path.home() / ".龍魂" / "auto_heal" / "heal_log.jsonl"
@@ -202,6 +203,27 @@ def 联动扫描() -> Dict[str, Any]:
 # 第四道：空文件/重复目录检查
 # ═══════════════════════════════════════════════════════════
 
+# ── 第五道：龍字体检（繁体「龍」铁律·简体「龙」红线） ──
+def 龍字体检() -> Dict[str, Any]:
+    """调用 lh_glyph_unify.py 扫描简体「龙」违规（核心层=红线）"""
+    if not 龍字检查路径.exists():
+        return {"状态": "🟡", "🔴核心": 0, "🟡普通": 0, "详情": "检查器缺失"}
+    try:
+        result = subprocess.run(
+            [sys.executable, str(龍字检查路径), "scan", "--json"],
+            capture_output=True, text=True, timeout=120, cwd=str(龍魂根),
+        )
+        data = json.loads(result.stdout) if result.stdout else {}
+        return {
+            "状态": data.get("状态", "🟡"),
+            "🔴核心": data.get("统计", {}).get("🔴核心", 0),
+            "🟡普通": data.get("统计", {}).get("🟡普通", 0),
+            "详情": "铁律: 统一繁体「龍」·简体「龙」禁止·只能注释不能翻译",
+        }
+    except (subprocess.TimeoutExpired, json.JSONDecodeError, OSError) as e:
+        return {"状态": "🟡", "🔴核心": 0, "🟡普通": 0, "详情": f"检查器异常: {e}"}
+
+
 def 结构体检() -> Dict[str, List[str]]:
     """检查项目结构异常"""
     问题 = {"空文件": [], "重复目录": [], "孤立模块": []}
@@ -323,6 +345,19 @@ def 一键自愈(自动修复: bool = True) -> Dict[str, Any]:
         report["总结"]["🟡"] += 结构问题数
     else:
         print("  🟢 结构正常")
+    
+    # ── 第五道：龍字体检 ──
+    print()
+    print("【第五道】龍字体检…")
+    龍字 = 龍字体检()
+    report["扫描"]["龍字"] = 龍字.get("🔴核心", 0)
+    if 龍字.get("🔴核心", 0) > 0:
+        print(f"  🔴 简体「龙」违规 {龍字['🔴核心']} 处（核心层·铁律: 只能繁体「龍」）")
+        report["总结"]["🔴"] += 龍字["🔴核心"]
+    else:
+        print(f"  🟢 龍字铁律: 核心层 0 违规" + (f"（普通层 {龍字.get('🟡普通', 0)} 处历史遗留·待注释）" if 龍字.get("🟡普通", 0) else ""))
+    if 龍字.get("状态") == "🟡" and 龍字.get("🔴核心", 0) == 0 and 龍字.get("详情") != "铁律: 统一繁体「龍」·简体「龙」禁止·只能注释不能翻译":
+        print(f"  🟡 {龍字['详情']}")
     
     # ── 总结 ──
     print()

@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂·踪迹AI复原引擎 v2.0 — 四道防线版
-DNA: #龍芯⚡️丙午·乙未·壬寅·亥时·☰乾-TRACE-RECONSTRUCTOR-API-V2.0-FOUR-DEFENSES
+DNA: #龍芯⚡️丙午·乙未·壬寅·亥时·䷀乾-TRACE-RECONSTRUCTOR-API-V2.0-FOUR-DEFENSES
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -28,7 +28,6 @@ import hashlib
 import hmac
 import json
 import os
-import re
 import secrets
 import sqlite3
 import time
@@ -38,13 +37,13 @@ from datetime import datetime, timezone
 from typing import Dict, List, Optional, Any, Tuple
 
 import uvicorn
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 # ─── 常量 ─────────────────────────────────────────────
 VERSION = "2.0.0"
-DNA = "#龍芯⚡️丙午·乙未·壬寅·亥时·☰乾-TRACE-RECONSTRUCTOR-API-V2.0-FOUR-DEFENSES"
+DNA = "#龍芯⚡️丙午·乙未·壬寅·亥时·䷀乾-TRACE-RECONSTRUCTOR-API-V2.0-FOUR-DEFENSES"
 DATA_DIR = "/opt/longhun/traces"
 DB_PATH = os.path.join(DATA_DIR, "trace_reconstruct.db")
 
@@ -65,6 +64,17 @@ if not EXPORT_SIGNING_SECRET:
                 EXPORT_SIGNING_SECRET = f.read().strip()
     except Exception:
         pass
+
+# 兜底：任何异常路径下签名密钥都不可为空
+if not EXPORT_SIGNING_SECRET:
+    EXPORT_SIGNING_SECRET = secrets.token_hex(32)
+
+
+def _sign_export(payload: str) -> str:
+    """导出包签名（密钥在函数内断言收窄，保证运行时非空）"""
+    secret = EXPORT_SIGNING_SECRET
+    assert secret is not None, "导出签名密钥未初始化"
+    return _hmac_sign(payload, secret)
 
 app = FastAPI(
     title="龍魂·踪迹复原引擎",
@@ -440,7 +450,7 @@ def generate_session_summary(events: List[dict]) -> str:
             actions.append(e["action"])
     
     # 找主要类别
-    main_cat = max(categories, key=categories.get) if categories else "other"
+    main_cat = max(categories, key=lambda k: categories[k]) if categories else "other"
     
     cat_labels = {
         "development": "编程开发",
@@ -693,7 +703,7 @@ def _sign_bundle(bundle: Dict[str, Any]) -> str:
         bundle["one_time_salt"],
         str(int(bundle["created_at"])),
     ])
-    bundle["signature"] = _hmac_sign(payload, EXPORT_SIGNING_SECRET)
+    bundle["signature"] = _sign_export(payload)
     return base64.b64encode(json.dumps(bundle, ensure_ascii=False).encode("utf-8")).decode("ascii")
 
 def _verify_bundle(signed_b64: str) -> Tuple[Optional[Dict], str]:
@@ -724,7 +734,7 @@ def _verify_bundle(signed_b64: str) -> Tuple[Optional[Dict], str]:
         bundle["one_time_salt"],
         str(int(bundle["created_at"])),
     ])
-    expected_sig = _hmac_sign(payload, EXPORT_SIGNING_SECRET)
+    expected_sig = _sign_export(payload)
     
     if not hmac.compare_digest(expected_sig, bundle["signature"]):
         return None, "签名验证失败：导出包已被篡改"

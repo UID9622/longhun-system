@@ -1,4 +1,5 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 <!--
@@ -9,13 +10,13 @@
   4 技术层 Technology    : Open Source
   5 系统层 System        : UID9622
   6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
-  DNA追溯码:#龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1258-v2.0
+  DNA追溯码:#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1258-v2.0
   铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
   文件: 铁律_IPA-004-QC系列_v1.0.md | 标记时间: 2026-06-03T07:46:12+0800
 -->
 # 🔒 四条新铁律 · IPA-004-QC系列 v1.0
 
-**DNA**: `#龍芯⚡️2026-05-30-IRON-QC-QUAD-ACTIVATION-v1.0`
+**DNA**: `#龍芯⚡️丙午·癸巳·甲辰·庚午·䷑蛊-IRON-QC-QUAD-ACTIVATION-v1.0`
 
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅
 
@@ -248,7 +249,7 @@ grep -r "IRON-QC" ~/.龍魂/质检/quality_audit_*.json
 
 ## 🐉 签章
 
-**DNA**: `#龍芯⚡️2026-05-30-IRON-QC-QUAD-ACTIVATION-v1.0`
+**DNA**: `#龍芯⚡️丙午·癸巳·甲辰·庚午·䷑蛊-IRON-QC-QUAD-ACTIVATION-v1.0`
 
 **子DNA**:
 - `#IRON-QC-DUAL-LAYER-v1.0`

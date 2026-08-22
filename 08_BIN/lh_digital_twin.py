@@ -3,7 +3,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
-DNA: #龍芯⚡️丙午·乙未·甲辰·己巳·☲离-素字卵神-v1.0-DIGITAL-TWIN-A1B2C3D4
+DNA: #龍芯⚡️丙午·乙未·甲辰·己巳·䷝离-素字卵神-v1.0-DIGITAL-TWIN-A1B2C3D4
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

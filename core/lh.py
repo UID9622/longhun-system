@@ -22,7 +22,7 @@
   lh bench                跑自检基准测试
   lh info                 系统信息摘要
 
-DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-LH-CLI-UID9622
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-LH-CLI-UID9622
 License: MulanPSL v2
 """
 

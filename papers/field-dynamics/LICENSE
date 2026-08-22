@@ -1,0 +1,29 @@
+# Field Dynamics · 分层双许可证
+
+DNA: #龍芯⚡️2026-08-19-FIELD-DYNAMICS-LICENSE-v1.0
+创建者: 诸葛鑫（UID9622）
+
+本项目采用**分层双许可证模型**，不搞"一刀切的非商业"：
+
+| 层 | 范围 | 许可证 | 商业可用 |
+|:---|:---|:---|:---:|
+| 🏛️ **思想层** | 提案/文档/理论框架（PROPOSAL.md、docs/*.md、CONTRIBUTING.md） | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) | ❌ 非商业·署名·相同方式共享 |
+| 🔧 **工程层** | 代码/schema/脚本（evaluator/*.py、schema/*.json） | [MulanPSL v2](https://license.coscl.org.cn/MulanPSL2) | ✅ 允许商业使用·署名·专利授权 |
+
+## 一句话边界
+
+> **代码随便用去赚钱，思想名号要授权。**
+
+- ✅ pip install 集成到商业项目 → 可以
+- ✅ 基于 evaluator 开发付费评测服务 → 可以
+- ❌ 以"Field Dynamics 官方"名义收费 → 需单独授权
+- ❌ 删 DNA 追溯码伪称原创 → 违约
+
+## 完整条款
+
+- 思想层全文：https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+- 工程层全文：https://license.coscl.org.cn/MulanPSL2
+- 治理细则：龍魂分层许可协议 `LH-LAYERED-LICENSE-v1.0`
+
+---
+GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

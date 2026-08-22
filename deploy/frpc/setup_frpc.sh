@@ -1,6 +1,6 @@
 #!/bin/bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙未·子时·☰乾-DEPLOY-FRPC-SETUP-v1.0-a1b2c3d6
+# DNA: #龍芯⚡️丙午·乙未·乙未·子时·䷀乾-DEPLOY-FRPC-SETUP-v1.0-a1b2c3d6
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
@@ -91,4 +91,4 @@ echo "  launchctl unload $PLIST_DST     # 停止"
 echo "  launchctl load $PLIST_DST       # 启动"
 echo "  tail -f $LH_ROOT/logs/frpc.out.log  # 查看日志"
 echo ""
-echo "DNA: #龍芯⚡️丙午·乙未·乙未·子时·☰乾-DEPLOY-FRPC-SETUP-v1.0-a1b2c3d6"
+echo "DNA: #龍芯⚡️丙午·乙未·乙未·子时·䷀乾-DEPLOY-FRPC-SETUP-v1.0-a1b2c3d6"

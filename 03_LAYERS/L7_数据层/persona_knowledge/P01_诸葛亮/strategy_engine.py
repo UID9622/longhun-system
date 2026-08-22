@@ -2,7 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """🐉 诸葛亮战略推演引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲寅·申时·师-P01-STRATEGY-ENGINE-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·乙未·甲寅·申时·䷆师-P01-STRATEGY-ENGINE-v1.0
 
 融合: final_strike.py 16维决策 + 易经起卦 + H武器模拟 + 三才权重
 自产自销闭环: P01推演 → P06验证 → P04落地 → 回流案例库
@@ -271,4 +272,4 @@ if __name__ == "__main__":
         print(f"  DNA: {report.dna}")
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·旅-CONFIRM-SEAL-strategy_engine-1413DD47
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷷旅-CONFIRM-SEAL-strategy_engine-1413DD47

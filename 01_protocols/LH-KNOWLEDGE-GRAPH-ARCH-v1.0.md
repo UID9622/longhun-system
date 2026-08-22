@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · 知识图谱架构文档 v1.0
 
-> DNA: #龍芯⚡️丙午·乙未·丙申·酉时·☰乾-KNOWLEDGE-GRAPH-ARCH-v1.0-f1e2d3c4
+> DNA: #龍芯⚡️丙午·乙未·丙申·酉时·䷀乾-KNOWLEDGE-GRAPH-ARCH-v1.0-f1e2d3c4
 > 创建者: 诸葛鑫（UID9622）
 > 协议: CC BY-NC-SA 4.0
 > 补全: DL架构§11.2 缺失区块·Chroma向量库+SQLite术语库整合
@@ -230,7 +230,7 @@ POST /v1/knowledge/ingest  (内部·知识入库)
       "relevance": 0.95,
       "source": "chroma",
       "related": ["两仪", "阴阳", "道"],
-      "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-PHILOSOPHY-TAIJI-v1.0-a1b2c3d4"
+      "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PHILOSOPHY-TAIJI-v1.0-a1b2c3d4"
     }
   ],
   "meta": {
@@ -302,5 +302,5 @@ python3 bin/lh_knowledge_hub_api.py --health
 
 > v1.0 · 2026-07-23 · 补全DL架构§11.2缺失区块
 > 审计: P05通过 🟢 · 三色: 🟢
-> DNA: #龍芯⚡️丙午·乙未·丙申·酉时·☰乾-KNOWLEDGE-GRAPH-ARCH-v1.0-f1e2d3c4
+> DNA: #龍芯⚡️丙午·乙未·丙申·酉时·䷀乾-KNOWLEDGE-GRAPH-ARCH-v1.0-f1e2d3c4
 > #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

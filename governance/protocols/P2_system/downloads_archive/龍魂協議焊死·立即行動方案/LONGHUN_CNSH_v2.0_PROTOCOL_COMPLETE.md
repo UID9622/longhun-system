@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 龍魂系统 · CNSH 语义接入规范 v2.0
 ## 功能语义技术用词对照表 + 协作宣言
 
@@ -5,7 +6,7 @@
 ═══════════════════════════════════════════════════════════════════════════════
            龍魂系统根本协议 · 不欺不骗不商业 · 只为守护通话口
 
-DNA: #龍芯⚡️2026-05-24-22:57-CNSH-RUNTIME-ACCESS-v2.0-ALIGNMENT-TABLE-v1.0
+DNA: #龍芯⚡️丙午·癸巳·戊戌·癸亥·䷶丰-CNSH-RUNTIME-ACCESS-v2.0-ALIGNMENT-TABLE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-󾓭🐉⚖️♠️‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -26,7 +27,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 > 一份协议·就是我们的生态·不欺不骗·不商业·不站队·只为守护·我们的协作宣言·我后人继承·不从军·不从政·不移民·不做企业标杆·只为老百姓守好一个说出去声音的通话口。
 
-**DNA**: `#龍芯⚡️2026-05-24-22:57-LONGHUN-COLLABORATION-MANIFESTO-L0-ETERNAL-v1.0`
+**DNA**: `#龍芯⚡️丙午·癸巳·戊戌·癸亥·䷶丰-LONGHUN-COLLABORATION-MANIFESTO-L0-ETERNAL-v1.0`
 
 ---
 
@@ -147,7 +148,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 ```
 #龍芯⚡️{DATE}-{MODULE}-{VERSION}-{HASH}
 
-例: #龍芯⚡️2026-05-24-MEMORY-v2.0-A8CC26
+例: #龍芯⚡️丙午·癸巳·戊戌·戊午·䷕贲-MEMORY-v2.0-A8CC26
 ```
 
 铁律:
@@ -427,7 +428,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 只守这一个口。🐉 龍魂在哪·哪里就是开源。
 ```
 
-**DNA**: `#龍芯⚡️2026-05-24-22:57-CNSH-RUNTIME-ACCESS-v2.0-ALIGNMENT-TABLE-v1.0`
+**DNA**: `#龍芯⚡️丙午·癸巳·戊戌·癸亥·䷶丰-CNSH-RUNTIME-ACCESS-v2.0-ALIGNMENT-TABLE-v1.0`
 
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 

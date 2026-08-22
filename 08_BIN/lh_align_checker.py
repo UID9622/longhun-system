@@ -23,6 +23,8 @@ import os
 import sys
 import re
 import json
+import ast
+import hashlib
 import argparse
 from pathlib import Path
 from collections import defaultdict
@@ -151,10 +153,31 @@ def _scan_one_file(filepath, target_dir):
     asc_path = filepath.with_suffix(filepath.suffix + '.asc')
     has_gpg = asc_path.exists()
 
+    # v2.1(2026-08-22): 函数体hash（用于"同名+同体"真重复判定，区分同名噪音）
+    #   只提取模块顶层 + 类方法层，避免嵌套局部函数误判；解析失败降级为空
+    func_bodies = {}
+    if is_py:
+        try:
+            tree = ast.parse(content)
+            _fb = defaultdict(list)
+            for node in tree.body:
+                if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+                    seg = ast.get_source_segment(content, node) or ""
+                    _fb[node.name].append(hashlib.sha256(seg.encode()).hexdigest())
+                elif isinstance(node, ast.ClassDef):
+                    for m in node.body:
+                        if isinstance(m, (ast.FunctionDef, ast.AsyncFunctionDef)):
+                            seg = ast.get_source_segment(content, m) or ""
+                            _fb[m.name].append(hashlib.sha256(seg.encode()).hexdigest())
+            func_bodies = dict(_fb)
+        except Exception:
+            func_bodies = {}
+
     return {
         "file": str(filepath.relative_to(target_dir)),
         "functions": all_funcs,
         "classes": classes,
+        "func_bodies": func_bodies,
         "has_dna": bool(dna),
         "has_confirm": bool(confirm),
         "has_gpg": has_gpg,
@@ -229,6 +252,28 @@ def analyze_alignment(results):
         and f not in GENERIC_FUNC_NAMES
     }
 
+    # v2.1(2026-08-22): 真重复判定——同名且函数体一致才算真重复，区分同名噪音。
+    #   可配 lh_fix_duplicate_functions.py 自动去重（同文件同体）。
+    true_duplicates = {}
+    same_name_diff_impl = {}
+    for f, files in duplicates.items():
+        hashes_by_file = {}
+        for item in results:
+            if item["file"] in files:
+                hs = (item.get("func_bodies") or {}).get(f)
+                if hs:
+                    hashes_by_file[item["file"]] = set(hs)
+        if not hashes_by_file:
+            continue  # 无法解析AST（如 sh/bash），维持原名判重
+        try:
+            common = set.intersection(*hashes_by_file.values())
+        except TypeError:
+            common = set()
+        if common:
+            true_duplicates[f] = sorted(hashes_by_file.keys())
+        else:
+            same_name_diff_impl[f] = sorted(hashes_by_file.keys())
+
     # 3. 相似函数名（公共前缀≥5或编辑距离小）
     all_funcs = sorted(set(func_index.keys()))
     similar_pairs = []
@@ -271,6 +316,8 @@ def analyze_alignment(results):
         "total_lines": total_lines,
         "alignment_score": score,
         "duplicates": duplicates,
+        "true_duplicates": true_duplicates,
+        "same_name_diff_impl": same_name_diff_impl,
         "similar_pairs": similar_pairs[:30],
         "missing_dna": missing_dna,
         "missing_confirm": missing_confirm,
@@ -299,15 +346,26 @@ def print_report(report, json_output=False):
     print(f"  对齐评分: {report['alignment_score']}/100")
     print(f"{B}{'='*65}{Z}")
 
-    # 重复
-    if report["duplicates"]:
-        print(f"\n{R}🔴 重复函数（{len(report['duplicates'])}组）{Z}")
-        for func, files in sorted(report["duplicates"].items()):
+    # 重复（v2.1: 区分真重复 vs 同名异实现·降噪）
+    true_dups = report.get("true_duplicates") or {}
+    same_diff = report.get("same_name_diff_impl") or {}
+    if true_dups:
+        print(f"\n{R}🔴 真重复函数（同名+同体·{len(true_dups)}组·可配 lh_fix_duplicate_functions.py 去重）{Z}")
+        for func, files in sorted(true_dups.items())[:20]:
             print(f"  {Y}{func}{Z} → {len(files)}个文件:")
             for f in files[:5]:
                 print(f"      - {f}")
+        if len(true_dups) > 20:
+            print(f"  ... 还有 {len(true_dups)-20} 组")
+    elif report["duplicates"]:
+        print(f"\n{G}✅ 无真重复函数（同名但实现不同·正常）{Z}")
     else:
         print(f"\n{G}✅ 无重复函数{Z}")
+
+    if same_diff:
+        print(f"\n{Y}🟡 同名异实现（{len(same_diff)}组·各模块独立实现·通常正常）{Z}")
+        for func, files in sorted(same_diff.items())[:8]:
+            print(f"  {func} → {len(files)}个文件")
 
     # 相似
     if report["similar_pairs"]:
@@ -355,6 +413,7 @@ def save_json_report(report, output_path):
     """保存JSON报告"""
     report_copy = {k: v for k, v in report.items() if k != "all_items"}
     report_copy["top_duplicates"] = list(report["duplicates"].keys())[:20]
+    report_copy["top_true_duplicates"] = list((report.get("true_duplicates") or {}).keys())[:20]
     report_copy["timestamp"] = datetime.now().isoformat()
 
     with open(output_path, 'w', encoding='utf-8') as f:

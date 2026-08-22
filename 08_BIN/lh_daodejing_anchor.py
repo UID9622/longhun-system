@@ -2,15 +2,16 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-07-19-DAODEJING-SCENE-ANCHOR-V1.1
+#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-UNIFIED-BEHAVIOR-AUDIT-v1.2
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
-龍魂系统 · 道德经场景定锚器 v1.1
+龍魂系统 · 道德经场景定锚器 v1.2
 作者：诸葛鑫（UID9622）
 优先级：P0++（原文永锁·注释分层·哈希校验）
-DNA: #龍芯⚡️2026-07-19-DAODEJING-SCENE-ANCHOR-V1.1
+v1.2: 新增「命中数/无道词」判定字段（向后兼容·供统一行为审计引擎严格模式：无道词必拒）
+DNA: #龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-UNIFIED-BEHAVIOR-AUDIT-v1.2
 """
 
 import hashlib
@@ -79,7 +80,7 @@ def 五行相合(a, b):                                       # a=场景五行 b
 
 class CNSH_道德经定锚器:
     """先锚后输出：定锚 → 渲染 → 校验。fail-closed。"""
-    DNA = "#龍芯⚡️2026-07-19-DAODEJING-SCENE-ANCHOR-V1.1"
+    DNA = "#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-UNIFIED-BEHAVIOR-AUDIT-v1.2"
 
     def __init__(self):
         self.τ = {c: 1.0 for c in 锚句表}                 # 信息素
@@ -109,8 +110,12 @@ class CNSH_道德经定锚器:
             self.锚池历史.setdefault(S, []).append(章)
             self.τ = {c: v * 0.9 for c, v in self.τ.items()}   # 蒸发 ρ=0.1
             self.τ[章] += 1.0                                   # 强化 Δ=1
+            # v1.2: 命中数/无道词判定（向后兼容·新增字段不影响老调用方）
+            _词串 = 锚句表[章][1]
+            _命中数 = sum(1 for _w in _词串.split(",") if _w in S)
             return {"章": 章, "锚句": 锚句表[章][0], "dr": drS,
-                    "五行": DR五行[drS], "三六九": 三六九(drS), "dna": self.DNA}
+                    "五行": DR五行[drS], "三六九": 三六九(drS),
+                    "命中数": _命中数, "无道词": _命中数 == 0, "dna": self.DNA}
         except Exception as e:
             return {"error": f"🔴 定锚异常，无锚不输出: {e}", "level": "FAIL_CLOSED"}
 

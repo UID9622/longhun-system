@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 CNSH Editor API · Pydantic 模型
-DNA: #龍芯⚡️2026-07-04-CNSH-API-MODELS-v1.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-CNSH-API-MODELS-v1.0
 """
 from __future__ import annotations
 
@@ -23,7 +24,7 @@ class CompileResponse(BaseModel):
     success: bool
     python_code: Optional[str] = None
     message: str
-    dna: str = "#龍芯⚡️2026-07-04-CNSH-API-v1.0"
+    dna: str = "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-CNSH-API-v1.0"
 
 
 class CheckRequest(BaseModel):
@@ -80,4 +81,4 @@ class HealthResponse(BaseModel):
     status: str
     tier: str
     version: str = "1.0.0"
-    dna: str = "#龍芯⚡️2026-07-04-CNSH-API-v1.0"
+    dna: str = "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-CNSH-API-v1.0"

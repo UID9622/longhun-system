@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-multicurrency
 description: 龍魂多币种直达系统 - 支持10种货币实时行情、汇率转换、e-CNY跨境支付、龍字规范化
@@ -5,7 +7,7 @@ metadata:
   display_name: 龍魂多币种直达系统
   version: 5.2.1
   author: 龍魂工程師
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MULTICURRENCY-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-MULTICURRENCY-v5.2'
   tags:
   - finance
   - currency
@@ -27,7 +29,7 @@ compatibility: Python 3.8+, Linux/macOS/Windows
 ---
 # 🐉 龍魂多币种直达系统 (longhun-multicurrency)
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MULTICURRENCY-v5.2`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-MULTICURRENCY-v5.2`
 
 ---
 
@@ -296,7 +298,7 @@ DNA = 規範化器.生成龍字DNA("龍魂多币种系统")
 4. 所有交易記錄留痕，可追溯可審計
 5. 使用本軟體即表示同意以上條款
 
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MULTICURRENCY-v5.2
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-MULTICURRENCY-v5.2
 ```
 
 ---

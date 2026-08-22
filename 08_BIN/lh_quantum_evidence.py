@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 量子存证系统 v1.0
-DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-QUANTUM-EVIDENCE-v1.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-QUANTUM-EVIDENCE-v1.0-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -182,7 +182,7 @@ class SemanticCompressor:
         """使用AI压缩"""
         try:
             response = self._ai_client.chat.completions.create(
-                model="llama3.2" if "ollama" in str(self._ai_client.base_url) else "deepseek-chat",
+                model="llama3.2" if "ollama" in str(self._ai_client.base_url) else "deepseek-v4-flash",
                 messages=[
                     {"role": "system", "content": """你是一个语义压缩器。将输入内容压缩为结构化摘要。
                     输出格式必须是JSON，包含以下字段：

@@ -1,7 +1,7 @@
 #!/bin/bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 #
-# DNA: #龍芯⚡️2026-07-21-迁移-init_cnsh_structure-v1.0
+# DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-迁移-init_cnsh_structure-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
@@ -14,7 +14,7 @@
 #!/bin/bash
 # ══════════════════════════════════════════════
 # 龍魂系统 · 目录结构初始化脚本
-# UID9622 · 诸葛鑫 · #龍芯⚡️20260422-SH-INIT01
+# UID9622 · 诸葛鑫 · #龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-SH-INIT01
 # 执行: bash init_cnsh_structure.sh
 # ══════════════════════════════════════════════
 

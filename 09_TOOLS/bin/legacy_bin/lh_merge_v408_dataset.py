@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 合并 v4.0.7 + 八卦阵 v1.1 + 道德经定锚 v1.1 + 水军显化 v1.2 → v4.0.8 训练集
 策略：核心焊死 QA 重复 30 次；新增协议样本去重合并。
-DNA: #龍芯⚡️2026-07-19-MERGE-V408-DATASET-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-MERGE-V408-DATASET-v1.0
 """
 
 import json

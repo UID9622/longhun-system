@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""🐉 lh · 龍魂低算力内核命令行"""
+# DNA: #龍芯⚡️2026-08-22-LH-LOWCOST-CORE-ALIGN-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+
+import sys, os, json, argparse
+_here = os.path.dirname(os.path.abspath(__file__))
+for _p in (_here, os.path.join(_here, "core"), os.path.expanduser("~/.longhun")):
+    if os.path.isdir(_p) and _p not in sys.path: sys.path.insert(0, _p)
+from longhun_core.dna_trace import 生成DNA, 短身份码
+from longhun_core.historian import 年轮链
+from longhun_core.tricolor_audit import 审计
+from longhun_core.digital_root import 熔断检查
+from longhun_core import __version__
+
+def main():
+    p = argparse.ArgumentParser(prog="lh", description="龍魂低算力内核 CLI")
+    sub = p.add_subparsers(dest="cmd")
+    sub.add_parser("version")
+    d = sub.add_parser("dna"); d.add_argument("标识", nargs="?", default="LH-CORE")
+    s = sub.add_parser("selftest")
+    a = sub.add_parser("audit"); a.add_argument("--json", default="{}")
+    args = p.parse_args()
+
+    if args.cmd == "version":
+        print(f"🐉 longhun-core v{__version__}")
+    elif args.cmd == "dna":
+        print(生成DNA(args.标识))
+    elif args.cmd == "audit":
+        指标 = json.loads(args.json)
+        规则 = {"阻塞率": (0.1, 20), "超时率": (0.05, 15), "内存MB": (512, 10)}
+        print(json.dumps(审计(指标, 规则), ensure_ascii=False, indent=2))
+    elif args.cmd == "selftest":
+        链 = 年轮链()
+        链.落笔("自测启动"); 链.落笔("内核加载", {"模块": 5})
+        验 = 链.验链()
+        熔 = 熔断检查(369)
+        报告 = {"版本": __version__, "年轮链": 验, "数字根熔断(369)": 熔,
+                "DNA": 生成DNA("SELFTEST"), "三色": "🟢" if 验["完整"] else "🔴"}
+        print(json.dumps(报告, ensure_ascii=False, indent=2))
+        sys.exit(0 if 验["完整"] else 1)
+    else:
+        p.print_help()
+
+if __name__ == "__main__":
+    main()

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# #龍芯⚡️20260624010825153-AUTO-DNA-1CB7EE3C 自动注入·分层治理自愈引擎 · 来源可查
+# #龍芯⚡️丙午·甲午·己巳·乙丑·䷮困-AUTO-DNA-1CB7EE3C 自动注入·分层治理自愈引擎 · 来源可查
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════╗
@@ -9,7 +10,7 @@
 ║                                                                  ║
 ║  从Notion宣言页面提取的机器可读配置，涵盖身份、权限、宣言、主权 ║
 ║                                                                  ║
-║  DNA:#龍芯⚡️2026-06-03-LONGHUN-FOUNDATION-CONFIG-FILE1-v1.0          ║
+║  DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-FOUNDATION-CONFIG-FILE1-v1.0          ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓               ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                 ║
 ║                                                                  ║
@@ -93,7 +94,7 @@ class SystemMission:
 
 LONGHUN_CHARTER_v1_1 = {
     "标题": "龍魂开源宪章·君子协议·创作者赋能系统 v1.1",
-    "DNA": "#龍芯⚡️2026-04-09-LONGHUN-CHARTER-v1.1",
+    "DNA": "#龍芯⚡️丙午·壬辰·癸丑·戊午·䷨损-LONGHUN-CHARTER-v1.1",
     "升级日期": "2026-04-09",
     "农历": "丙年三月十二 癸亥日",
     "易经": "坤卦·万物初生·厚积待发",
@@ -106,7 +107,7 @@ LONGHUN_CHARTER_v1_1 = {
 
 LANGUAGE_SOVEREIGNTY_v1_0 = {
     "标题": "龍魂·语言主权宣言 v1.0 · 2026-05-29",
-    "DNA": "#龍芯⚡️20260529-语言主权宣言-v1.0",
+    "DNA": "#龍芯⚡️丙午·癸巳·癸卯·戊午·䷚颐-语言主权宣言-v1.0",
     "核心观点": "全世界每个国家都有自己的主权，语言不能被科技发展必须夹灭了。",
     "问题": {
         "现象": "全世界的科技系统要求文件名、代码、命令行、文档都必须是英文",
@@ -118,7 +119,7 @@ LANGUAGE_SOVEREIGNTY_v1_0 = {
 
 THREE_CIRCLE_ARCHITECTURE = {
     "标题": "龍魂三圈骨架·道→木→译 v1.0",
-    "DNA": "#龍芯⚡️2026-06-03-THREE-CIRCLE-ARCHITECTURE-v1.0",
+    "DNA": "#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-THREE-CIRCLE-ARCHITECTURE-v1.0",
     "架构": {
         "道": {
             "层级": "内核根基",
@@ -141,7 +142,7 @@ THREE_CIRCLE_ARCHITECTURE = {
 
 SYSTEM_FOUNDATION_v1_0 = {
     "标题": "龍魂系统底座声明｜人永远是1 v1.0",
-    "DNA": "#龍芯⚡️2026-06-02-SYSTEM-FOUNDATION-v1.0",
+    "DNA": "#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-SYSTEM-FOUNDATION-v1.0",
     "最底层": "人永远是1，没有任何人是数据。",
     "本质": "这是这个系统所有代码、所有规则、所有决策的最底层。",
     "警告": {
@@ -153,7 +154,7 @@ SYSTEM_FOUNDATION_v1_0 = {
 
 CURRENCY_CULTURAL_SOVEREIGNTY = {
     "标题": "货币主权·文化主权·收纳不霸占",
-    "DNA": "#龍芯⚡️2026-06-03-CURRENCY-CULTURAL-SOVEREIGNTY-v1.0",
+    "DNA": "#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-CURRENCY-CULTURAL-SOVEREIGNTY-v1.0",
     "核心": "货币是主权，文化是世界的。我们尊重每个国家的法律和语言。",
     "货币主权": {
         "演变": {
@@ -251,7 +252,7 @@ def get_system_config() -> Dict[str, Any]:
 
         "权限分层": PERMISSION_HIERARCHY,
 
-        "DNA": "#龍芯⚡️2026-06-03-LONGHUN-FOUNDATION-CONFIG-v1.0",
+        "DNA": "#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-FOUNDATION-CONFIG-v1.0",
         "责任": "UID9622·不免责",
     }
 

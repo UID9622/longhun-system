@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂模型指挥调度系统 · Web 后端桥接服务
-DNA: #龍芯⚡️2026-06-28-LONGHUN-COMMANDER-WEB-BRIDGE-v1.0
+DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-COMMANDER-WEB-BRIDGE-v1.0
 
 为前端官网提供 HTTP API，实际调度交给 ~/.龍魂/bin/lh-调度 执行。
 端口：8000
@@ -162,7 +163,7 @@ class CORSRequestHandler(BaseHTTPRequestHandler):
         self._set_headers(200, 'application/json')
         self.wfile.write(json.dumps({
             'ok': True,
-            'dna': '#龍芯⚡️2026-06-28-PUBLIC-DOCS-LIST-v1.0',
+            'dna': '#龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-PUBLIC-DOCS-LIST-v1.0',
             'count': len(docs),
             'docs': docs,
         }, ensure_ascii=False).encode())
@@ -186,7 +187,7 @@ class CORSRequestHandler(BaseHTTPRequestHandler):
         self._set_headers(200, 'application/json')
         self.wfile.write(json.dumps({
             'ok': bool(report),
-            'dna': '#龍芯⚡️2026-06-28-LONGHUN-AUDIT-API-v1.0',
+            'dna': '#龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-AUDIT-API-v1.0',
             'report': report,
         }, ensure_ascii=False).encode())
 
@@ -218,7 +219,7 @@ class CORSRequestHandler(BaseHTTPRequestHandler):
         self._set_headers(200, 'application/json')
         self.wfile.write(json.dumps({
             'ok': True,
-            'dna': '#龍芯⚡️2026-06-28-LONGHUN-7FACTOR-AUTH-API-v1.0',
+            'dna': '#龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-7FACTOR-AUTH-API-v1.0',
             'score': score,
             'level': level,
             'features': feature_map.get(level, []),
@@ -241,7 +242,7 @@ class CORSRequestHandler(BaseHTTPRequestHandler):
 def main():
     server = HTTPServer((HOST, PORT), CORSRequestHandler)
     print(f"🐉 龍魂指挥调度 Web 桥接服务已启动: http://{HOST}:{PORT}")
-    print(f"🧬 DNA: #龍芯⚡️2026-06-28-LONGHUN-COMMANDER-WEB-BRIDGE-v1.0")
+    print(f"🧬 DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-COMMANDER-WEB-BRIDGE-v1.0")
     try:
         server.serve_forever()
     except KeyboardInterrupt:

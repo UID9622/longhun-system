@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════╗
 ║  龍魂算法公式对照表生成器  |  Formula Comparison Table Generator  ║
-║  DNA: #龍芯⚡️2026-06-21-FORMULA-COMPARISON-TABLE-v1.0          ║
+║  DNA: #龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-FORMULA-COMPARISON-TABLE-v1.0          ║
 ║  用途: 生成“世界标准 vs 龍魂主权”双轨公式对照表，供论文/CSDN使用 ║
 ╚══════════════════════════════════════════════════════════════╝
 

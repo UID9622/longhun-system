@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂 · 隐语法翻译层 v1.0
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-YIN-YU-FA-TRANSLATOR-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-YIN-YU-FA-TRANSLATOR-v1.0
 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0
 
 对外接口与对内核心代码之间的双向翻译桥梁。
@@ -23,7 +23,7 @@ from typing import Dict, Optional
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-YIN-YU-FA-TRANSLATOR-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-YIN-YU-FA-TRANSLATOR-v1.0"
 
 # ═══ 翻译词典 ═══
 _yu_fa_ci_dian = {

@@ -8,7 +8,7 @@
 权重热力图·意图路由桑基图·协作力导向图·审计链路图·四层饼图。
 对接 personas/ + bin/personas/ + 治理白皮书。
 
-DNA: #龍芯⚡️丙午·癸未·丁未-人格协作可视化-v1.0
+DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-人格协作可视化-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -39,7 +39,7 @@ except ImportError:
 
 # ─── 常量 ───
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DNA = "#龍芯⚡️丙午·癸未·丁未-人格协作可视化-v1.0"
+DNA = "#龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-人格协作可视化-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 # ─── 龍魂色板 ───
@@ -457,7 +457,7 @@ def generate_full(output_dir: str = "persona_viz") -> List[str]:
 
 def generate_narration() -> str:
     return textwrap.dedent(f"""\
-    DNA: #龍芯⚡️丙午·癸未·丁未-人格播报-v1.0
+    DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-人格播报-v1.0
     创建者: 诸葛鑫（UID9622）
     协议: CC BY-NC-SA 4.0
 

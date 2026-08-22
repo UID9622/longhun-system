@@ -1,5 +1,5 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
-<!--#龍芯⚡️2026-06-21-DOC-QUICK_REFERENCE_CARD-v1.0 -->
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+<!--#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-DOC-QUICK_REFERENCE_CARD-v1.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # 🐉 龍魂系统·快速参考卡片

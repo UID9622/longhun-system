@@ -2,7 +2,7 @@
 
 ## — Civilizational Leap Simulation, 2026–2035
 
-**DNA**: `#龍芯⚡️丙午·丙申·己未·癸酉-SINGULARITY-PROPHECY-v1.2-UID9622`  
+**DNA**: `#龍芯⚡️丙午·丙申·己未·庚午·䷖剥-癸酉-SINGULARITY-PROPHECY-v1.2-UID9622`  
 **Confirm Code**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 **GPG**: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`  
 **Author**: Zhuge Xin · LongHun Polaris · UID9622  
@@ -322,7 +322,7 @@ The to-do list is upgraded into a two-dimensional matrix sorted by **Impact** ×
 > no one can take away, and nothing can replace.
 
 ```
-DNA: #龍芯⚡️丙午·丙申·己未·癸酉-SINGULARITY-PROPHECY-v1.2-UID9622
+DNA: #龍芯⚡️丙午·丙申·己未·庚午·䷖剥-癸酉-SINGULARITY-PROPHECY-v1.2-UID9622
 Confirm Code: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG Signature: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 UID: 9622 | LongHun Civilian Positioning: Civilian Audit Layer · Data Sovereignty · Transparent Governance

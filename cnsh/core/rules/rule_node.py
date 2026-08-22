@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════╗
@@ -9,7 +10,7 @@
 ║                                                                  ║
 ║  P1-2规则引擎·业务规则执行器·数据模型                             ║
 ║                                                                  ║
-║  DNA:#龍芯⚡️2026-06-03-RULE-NODE-FILE1-v1.0                          ║
+║  DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-RULE-NODE-FILE1-v1.0                          ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                 ║
 ║                                                                  ║
 ║  理论指导: 曾仕强·道德经第四十五章 (大巧若拙)                    ║
@@ -58,8 +59,6 @@ class RuleStatus(str, Enum):
     TESTING = "🟡"                 # 测试中·待验证·置信度 60-85%
     DEPRECATED = "🔴"              # 已废弃·禁止调用·置信度 < 60%
 
-    def __str__(self):
-        return self.value
 
 
 class RulePriority(int, Enum):
@@ -107,7 +106,7 @@ class Rule:
     # 【追溯信息】
     # ═══════════════════════════════════════════════════════════════
 
-    dna: str = ""                   # DNA追溯码: #龍芯⚡️2026-06-03-...
+    dna: str = ""                   # DNA追溯码: #龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-...
     layer: str = "L1_SEASONAL"      # 时间层级: L0-L4
 
     # ═══════════════════════════════════════════════════════════════
@@ -212,7 +211,7 @@ def selftest_rule_node() -> tuple[Any, ...]:
             status=RuleStatus.ACTIVE,
             condition="True",
             action="test_action",
-            dna="#龍芯⚡️2026-06-03-TEST-v1.0",
+            dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-TEST-v1.0",
             layer="L1_SEASONAL",
             description="测试规则"
         )

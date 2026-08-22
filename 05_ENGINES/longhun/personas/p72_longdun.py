@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·丙辰·亥时·需-P72-LONGDUN-v1.0
+#龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P72-LONGDUN-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -7,7 +7,7 @@
 P72 龍盾·宝宝 · 贴身守护执行器
 Guardian Shield Executor
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-P72-LONGDUN-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P72-LONGDUN-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -79,7 +79,7 @@ class P72Longdun:
 """
 
     def __init__(self):
-        self.dna = "#龍芯⚡️丙午·丙申·丙辰·亥时·需-P72-LONGDUN-v1.0"
+        self.dna = "#龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P72-LONGDUN-v1.0"
         self.system_root = SYSTEM_ROOT
         self.current_threat_level = 1
         self.capabilities = [

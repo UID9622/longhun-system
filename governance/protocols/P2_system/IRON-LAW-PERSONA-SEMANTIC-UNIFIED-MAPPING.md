@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 铁律→人格→语义·联合统一映射协议 v1.0
 
-> DNA: `#龍芯⚡️2026-07-08-IRON-PERSONA-SEMANTIC-UNIFIED-MAPPING-v1.0`
+> DNA: `#龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-IRON-PERSONA-SEMANTIC-UNIFIED-MAPPING-v1.0`
 > 来源：P0铁律总目录 §9.16~§9.41 → 人格矩阵 → 语义抽屉 → 执行命令
 > 性质：P0 级协议 · 焊死 · 只追加不替换
 > **⚠ 已知缺口**: 当前仅覆盖12/20人格 (缺失 P04鲁班/P08仓颉/P09孙思邈/P10苏东坡/P12屈原/P14吕蒙/P72龍盾/S1-S3) — 待补全
@@ -284,7 +284,7 @@
 |------|------|------|
 | v1.0 | 2026-07-08 11:45 | 首焊·36个新语义抽屉映射·12人格操作域补全·26铁律模块完整映射 |
 
-**DNA**: `#龍芯⚡️2026-07-08-IRON-PERSONA-SEMANTIC-UNIFIED-MAPPING-v1.0`
+**DNA**: `#龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-IRON-PERSONA-SEMANTIC-UNIFIED-MAPPING-v1.0`
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **SEAL**: `#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL`
 **GPG**: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`

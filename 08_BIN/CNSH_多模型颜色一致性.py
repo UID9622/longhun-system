@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-06-29-CNSH-MULTI-MODEL-COLOR-v1-UID9622
+#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-MULTI-MODEL-COLOR-v1-UID9622
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -10,7 +10,7 @@
 CNSH 多模型颜色一致性 v1.0
 同一输入，由多个模型独立判决，取多数/最高风险。
 当前默认使用本地颜色不动点协议；Kimi/Claude/DeepSeek 包装器预留接口。
-DNA: #龍芯⚡️2026-06-29-CNSH-MULTI-MODEL-COLOR-v1-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-MULTI-MODEL-COLOR-v1-UID9622
 """
 
 import os as _os
@@ -83,7 +83,7 @@ class CNSH_多模型颜色一致性:
             模拟外部包装器("Claude", {"外部AI": "P"}),
             模拟外部包装器("DeepSeek", {"炸弹": "R"}),
         ]
-        self.DNA = "#龍芯⚡️2026-06-29-CNSH-MULTI-MODEL-COLOR-v1-UID9622"
+        self.DNA = "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-MULTI-MODEL-COLOR-v1-UID9622"
 
     def 一致性检测(self, 输入: str) -> Dict[str, Any]:
         原始结果 = {m.名称: m.检测(输入) for m in self.模型列表}

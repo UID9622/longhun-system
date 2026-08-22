@@ -1,6 +1,6 @@
 # 🐉 龍魂系统 · 文章抬头模板体系 v1.0
 
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-ARTICLE-HEADER-TEMPLATES-v1.0-a7e4f2c1
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-ARTICLE-HEADER-TEMPLATES-v1.0-a7e4f2c1
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 协议类型: P1-CORE（执行层强约束·产出必经）
@@ -695,7 +695,7 @@ python3 bin/lh_header_template.py --template 3 --title "协议名 v1.0" --skelet
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 【签章】
 发布者: UID9622 · 诸葛鑫
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-ARTICLE-HEADER-TEMPLATES-v1.0-a7e4f2c1
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-ARTICLE-HEADER-TEMPLATES-v1.0-a7e4f2c1
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2026-08-02-ARTICLE-HEADER-TEMPLATES-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

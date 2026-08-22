@@ -5,7 +5,7 @@ id: clause_weight_eval
 type: clause
 title: 社会贡献权重评估
 layer: L2
-dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A"
+dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·䷅讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A"
 owner: UID9622 · 诸葛鑫（Lucky）
 claim: 骂前比对双方社会贡献权重：你的权重<对方×0.1无权骂；≥×0.1可骂需证据；>对方放开骂事不骂人。
 based_on: [no_human_rights_violation, three_color_audit]
@@ -31,4 +31,4 @@ created: 丙午·辛未·乙酉
 
 **为什么**：老大原话"凭啥当人？尊重是挣来的""自己他妈什么都不是，斤斤计较的人，那骂也小心点，说不定把自己骂进去了"。
 
-> DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A
+> DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·䷅讼-LONGHUN-PROTOCOL-SPEECH-9C1E4D7A

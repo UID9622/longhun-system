@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 <!--
   龍魂·六层来源链 / LongHun Six-Layer Source Chain
   1 道统层 Dao           : 曾仕强老师
@@ -6,14 +7,14 @@
   4 技术层 Technology    : Open Source
   5 系统层 System        : UID9622
   6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
-  DNA追溯码:#龍芯⚡️丙午·丙申·庚申·亥时-DRAGON-MULTICURRENCY-UPGRADE-PLAN-FILE1-v1.0
+  DNA追溯码:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DRAGON-MULTICURRENCY-UPGRADE-PLAN-FILE1-v1.0
   铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
   文件: DRAGON_MULTICURRENCY_UPGRADE_PLAN.md | 标记时间: 2026-06-03T08:00:00+0800
 -->
 
 # 龍字·多币种直达系统·升级方案 v1.0
 
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-DRAGON-MULTICURRENCY-UPGRADE-PLAN-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DRAGON-MULTICURRENCY-UPGRADE-PLAN-v1.0
 **提案时间**: 2026-06-03
 **状态**: 待审批 · 点头激活
 
@@ -279,7 +280,7 @@ class MultiCurrencyHub:
 
 ## 八、DNA追溯与铁律
 
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-DRAGON-MULTICURRENCY-UPGRADE-PLAN-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DRAGON-MULTICURRENCY-UPGRADE-PLAN-v1.0
 **铁律守护**:
 - rule_01: 来源不可删 → 所有修改Git提交记录
 - rule_06: 创作登记DNA → 本方案DNA已锁定
@@ -316,6 +317,6 @@ class MultiCurrencyHub:
 
 **理论指导**: 曾仕强老师（永恆顯示）
 **创作者**: UID9622 · 诸葛鑫 · 龍芯北辰
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-DRAGON-MULTICURRENCY-UPGRADE-PLAN-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DRAGON-MULTICURRENCY-UPGRADE-PLAN-v1.0
 **状态**: 待审批 · 等点头
 **责任**: UID9622·不免责

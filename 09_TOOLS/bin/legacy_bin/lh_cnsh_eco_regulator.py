@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 import os as _os
 import sys as _sys
@@ -401,7 +402,7 @@ if __name__ == "__main__":
 
     # 老王做视频（民用，允许）
     内容1 = """
-#龍芯⚡️2026-06-29-TEST-UID1001
+#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-TEST-UID1001
 Author: 老王
 Copyright (c) 2026
 这是一个测试视频脚本。
@@ -415,7 +416,7 @@ Copyright (c) 2026
 
     # 小李做协议（认证开发者，允许）
     内容3 = """
-#龍芯⚡️2026-06-29-PROTOCOL-UID1002
+#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-PROTOCOL-UID1002
 Author: 小李
 Copyright (c) 2026
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

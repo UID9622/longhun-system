@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 from __future__ import annotations
 """
 CNSH 生态语法网关 v1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA: #龍芯⚡️20260422-CODE-GW01
+DNA: #龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-CODE-GW01
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 功能：
@@ -22,7 +23,8 @@ DNA: #龍芯⚡️20260422-CODE-GW01
 
 import os, time, json, hashlib, requests
 from datetime import datetime, timezone
-from flask import Flask, request, jsonify
+from typing import Any
+from flask import Flask, request, jsonify  # pyright: ignore[reportMissingImports] — 运行时用系统python3(已装flask 3.1.2)，pyright分析走.venv
 
 app = Flask(__name__)
 
@@ -155,7 +157,7 @@ def call_claude(messages: list[Any], model: str = "claude-sonnet-4-6") -> str:
     resp.raise_for_status()
     return resp.json()["content"][0]["text"]
 
-def call_deepseek(messages: list[Any], model: str = "deepseek-chat") -> str:
+def call_deepseek(messages: list[Any], model: str = "deepseek-v4-flash") -> str:
     if not DEEPSEEK_API_KEY:
         return "[错误] DEEPSEEK_API_KEY 未配置"
     # DeepSeek 兼容 OpenAI 格式
@@ -266,7 +268,6 @@ def chat():
 
     # 路由调用
     caller = ROUTERS.get(route, call_deepseek)
-    kwargs = {"model": model} if model else {}
     t0 = time.time()
     try:
         if model:
@@ -275,12 +276,10 @@ def chat():
             reply = caller(messages)
         duration = round(time.time() - t0, 2)
         tricolor  = "🟢"
-        err_msg   = ""
     except Exception as e:
         reply    = f"[网关错误] {str(e)}"
         duration = round(time.time() - t0, 2)
         tricolor  = "🔴"
-        err_msg   = str(e)
 
     dna = make_dna("ACT", message + reply[:100])
 
@@ -364,7 +363,7 @@ if __name__ == "__main__":
 ╔══════════════════════════════════════════════╗
 ║   CNSH 生态语法网关 v1.0 · UID9622           ║
 ║   Port: 8765  |  你的语法·你的出口           ║
-║   DNA: #龍芯⚡️20260422-CODE-GW01             ║
+║   DNA: #龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-CODE-GW01             ║
 ╠══════════════════════════════════════════════╣
 ║  POST /chat          — 统一对话入口           ║
 ║  GET  /cnsh_prompt   — 获取系统提示词        ║

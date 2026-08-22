@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·丙申·癸酉·乙卯·临-SEMANTIC-GUARD-NORMALIZER-v∞-7B9A2107
+# DNA: #龍芯⚡️丙午·丙申·癸酉·乙卯·䷒临-SEMANTIC-GUARD-NORMALIZER-v∞-7B9A2107
 # CREATOR: UID9622
 # PROTOCOL: 龍魂君子协议 · CC BY-NC-SA 4.0 · L0 世界老百姓最高
 """Normalize / migrate an existing semantic guard rule file to the latest template."""
@@ -24,7 +24,7 @@ NOW_UTC = datetime.now(timezone.utc).isoformat()
 NOW_CN = datetime.now().astimezone().isoformat()
 VERSION = "2.2.0"
 
-NEW_DNA = "#龍芯⚡️丙午·丙申·癸酉·乙卯·临-TONGXIN-GUARD-RULES-v∞-38D08648"
+NEW_DNA = "#龍芯⚡️丙午·丙申·癸酉·乙卯·䷒临-TONGXIN-GUARD-RULES-v∞-38D08648"
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 SEVERITY_MAP = {

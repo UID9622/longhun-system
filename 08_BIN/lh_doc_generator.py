@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 文档生成器 v1.0
-DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-DOC-GENERATOR-v1.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-DOC-GENERATOR-v1.0-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 功能: 自动生成/更新系统文档（README.md / ARCHITECTURE.md / DIRECTORY_INDEX.md）
@@ -71,7 +71,7 @@ def generate_readme():
 
     content = f"""# 🐉 龍魂系统 · 项目总览
 
-> DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-README-v1.0
+> DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-README-v1.0
 > 创建者: 诸葛鑫（UID9622）
 > 协议: CC BY-NC-SA 4.0
 > 自动生成时间: {now}
@@ -180,7 +180,7 @@ def generate_architecture():
 
     content = f"""# 🐉 龍魂系统 · 架构文档
 
-> DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-ARCHITECTURE-v1.0
+> DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-ARCHITECTURE-v1.0
 > 创建者: 诸葛鑫（UID9622）
 > 协议: CC BY-NC-SA 4.0
 > 自动生成时间: {now}
@@ -289,7 +289,7 @@ def generate_index():
 
     content = f"""# 🐉 龍魂系统 · 目录导航
 
-> DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-DIRECTORY-INDEX-v1.0
+> DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-DIRECTORY-INDEX-v1.0
 > 自动生成: {now}
 
 ---

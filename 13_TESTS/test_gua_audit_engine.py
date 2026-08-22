@@ -2,7 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ═══════════════════════════════════════════════════════════════════
 # 龍魂系统 · 64卦审计算法引擎测试
-# DNA: #龍芯⚡️2026-07-06-TEST-GUA-AUDIT-v1.0-D9F1B3E7
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-TEST-GUA-AUDIT-v1.0-D9F1B3E7
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 被测模块: audit/gua_audit_engine.py
 # ═══════════════════════════════════════════════════════════════════

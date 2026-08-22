@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 # 龍智守飞书推送环境本地终端执行方案
-# DNA: #龍芯⚡️2026-07-01-LONGZHISHOU-PUSH-SETUP-v1.0
+# DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGZHISHOU-PUSH-SETUP-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #
 # 用途：在本地终端一键检查/初始化龍智守飞书推送配置，并（可选）发送验证消息。

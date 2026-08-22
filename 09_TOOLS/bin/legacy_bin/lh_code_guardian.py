@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂·代码质量守护 v1.0 — 类型自愈引擎
 ===========================================
-DNA: #龍芯⚡️丙午·辛未·乙酉·申时·大有-LONGHUN-CODE-GUARDIAN-v1.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·申时·䷍大有-LONGHUN-CODE-GUARDIAN-v1.0
 
 功能:
   1. 扫描全项目 Python 文件，检测 basedpyright 类型注解缺失
@@ -482,7 +483,7 @@ class CodeGuardian:
         return {
             "_meta": {
                 "tool": "lh_code_guardian v1.0",
-                "dna": "#龍芯⚡️丙午·辛未·乙酉·申时·大有-LONGHUN-CODE-GUARDIAN-v1.0",
+                "dna": "#龍芯⚡️丙午·辛未·乙酉·申时·䷍大有-LONGHUN-CODE-GUARDIAN-v1.0",
                 "timestamp": datetime.now().isoformat(),
                 "mode": "fix" if self.fix else "scan",
             },

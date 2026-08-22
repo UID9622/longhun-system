@@ -1,0 +1,1172 @@
+{
+  "scope": "all",
+  "exported_by": "root",
+  "exported_name": "诸葛鑫（UID9622）",
+  "exported_role": "R1",
+  "exported_role_name": "主权人（UID9622）",
+  "ts": "2026-08-20T12:21:48",
+  "ip": "127.0.0.1",
+  "ip_geo": {
+    "country": "中国",
+    "region": "本机回环",
+    "city": "本机回环",
+    "isp": "LOOPBACK",
+    "source": "offline-builtin(APNIC/CNNIC 2024)"
+  },
+  "engine_version": "v2.3",
+  "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "params": {
+    "version": "v2.3",
+    "modules_total": 55,
+    "personas_total": 28,
+    "categories": [
+      "协议层",
+      "主权层",
+      "人格层",
+      "技术层",
+      "安全层",
+      "可视化层"
+    ],
+    "listen": "127.0.0.1:8786（经 nginx 反代 uid9622.cn/tianyan/）",
+    "admin_key_configured": true,
+    "token_ttl_seconds": 28800,
+    "login_fail_limit": 5,
+    "lock_seconds": 300,
+    "audit_chain_sha256": ""
+  },
+  "data": {
+    "system_health": 89.23,
+    "overall_tricolor": "🟢",
+    "timestamp": "2026-08-20T12:21:48.610946",
+    "modules": [
+      {
+        "name": "P0铁律引擎",
+        "status": "running",
+        "health_score": 93.86,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610435",
+        "version": "v2.0",
+        "metadata": {
+          "category": "协议层",
+          "weight": 1.0
+        }
+      },
+      {
+        "name": "S1-S5父级协议",
+        "status": "running",
+        "health_score": 91.82,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610439",
+        "version": "v2.0",
+        "metadata": {
+          "category": "协议层",
+          "weight": 0.9
+        }
+      },
+      {
+        "name": "君子协议",
+        "status": "running",
+        "health_score": 96.08,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610441",
+        "version": "v2.0",
+        "metadata": {
+          "category": "协议层",
+          "weight": 0.9
+        }
+      },
+      {
+        "name": "主权宣言",
+        "status": "running",
+        "health_score": 96.15,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610442",
+        "version": "v2.0",
+        "metadata": {
+          "category": "协议层",
+          "weight": 0.8
+        }
+      },
+      {
+        "name": "数据主权协议",
+        "status": "running",
+        "health_score": 95.34,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610444",
+        "version": "v2.0",
+        "metadata": {
+          "category": "协议层",
+          "weight": 0.9
+        }
+      },
+      {
+        "name": "数据主权引擎",
+        "status": "running",
+        "health_score": 99.6,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610445",
+        "version": "v2.0",
+        "metadata": {
+          "category": "主权层",
+          "weight": 1.0
+        }
+      },
+      {
+        "name": "货币主权引擎",
+        "status": "degraded",
+        "health_score": 88.58,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610446",
+        "version": "v2.0",
+        "metadata": {
+          "category": "主权层",
+          "weight": 0.9
+        }
+      },
+      {
+        "name": "审计主权引擎",
+        "status": "running",
+        "health_score": 91.67,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610448",
+        "version": "v2.0",
+        "metadata": {
+          "category": "主权层",
+          "weight": 1.0
+        }
+      },
+      {
+        "name": "北辰·战略决策",
+        "status": "running",
+        "health_score": 96.92,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610449",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 1.0
+        }
+      },
+      {
+        "name": "宝宝·情感陪伴",
+        "status": "running",
+        "health_score": 96.28,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610450",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.8
+        }
+      },
+      {
+        "name": "诸葛·逻辑分析",
+        "status": "running",
+        "health_score": 90.7,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610451",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 1.0
+        }
+      },
+      {
+        "name": "老子·哲学思考",
+        "status": "degraded",
+        "health_score": 82.99,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610452",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.7
+        }
+      },
+      {
+        "name": "文心·文化传承",
+        "status": "degraded",
+        "health_score": 82.68,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610454",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.9
+        }
+      },
+      {
+        "name": "墨子·兼爱非攻",
+        "status": "running",
+        "health_score": 91.52,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610455",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.6
+        }
+      },
+      {
+        "name": "鲁班·工程实现",
+        "status": "degraded",
+        "health_score": 76.04,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610456",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.9
+        }
+      },
+      {
+        "name": "商鞅·规则制定",
+        "status": "running",
+        "health_score": 96.17,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610457",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.8
+        }
+      },
+      {
+        "name": "管仲·经世致用",
+        "status": "degraded",
+        "health_score": 85.17,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610458",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.7
+        }
+      },
+      {
+        "name": "孙武·兵者诡道",
+        "status": "degraded",
+        "health_score": 84.99,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610459",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.8
+        }
+      },
+      {
+        "name": "张良·运筹帷幄",
+        "status": "running",
+        "health_score": 96.76,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610460",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.8
+        }
+      },
+      {
+        "name": "祖冲之·精算天元",
+        "status": "running",
+        "health_score": 92.04,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610462",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.7
+        }
+      },
+      {
+        "name": "蔡伦·纸传文明",
+        "status": "running",
+        "health_score": 97.44,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610463",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.6
+        }
+      },
+      {
+        "name": "毕昇·字活天下",
+        "status": "degraded",
+        "health_score": 81.78,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610464",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.6
+        }
+      },
+      {
+        "name": "郑和·扬帆四海",
+        "status": "degraded",
+        "health_score": 82.67,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610465",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.7
+        }
+      },
+      {
+        "name": "戚继光·铁甲长城",
+        "status": "degraded",
+        "health_score": 78.76,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610466",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.7
+        }
+      },
+      {
+        "name": "李冰·功在千秋",
+        "status": "degraded",
+        "health_score": 78.45,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610467",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.6
+        }
+      },
+      {
+        "name": "沈括·格物致知",
+        "status": "running",
+        "health_score": 91.58,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610469",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.8
+        }
+      },
+      {
+        "name": "张衡·观天测地",
+        "status": "running",
+        "health_score": 94.33,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610470",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.7
+        }
+      },
+      {
+        "name": "僧一行·历象日月",
+        "status": "running",
+        "health_score": 91.92,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610471",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.6
+        }
+      },
+      {
+        "name": "赵匡胤·陈桥变局",
+        "status": "degraded",
+        "health_score": 85.06,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610472",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.7
+        }
+      },
+      {
+        "name": "王安石·变法图强",
+        "status": "running",
+        "health_score": 90.63,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610473",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.7
+        }
+      },
+      {
+        "name": "苏轼·豁达人生",
+        "status": "running",
+        "health_score": 93.25,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610474",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.8
+        }
+      },
+      {
+        "name": "曹雪芹·红楼一梦",
+        "status": "running",
+        "health_score": 95.81,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610475",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.6
+        }
+      },
+      {
+        "name": "莲溪·教学传道",
+        "status": "degraded",
+        "health_score": 82.01,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610476",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.9
+        }
+      },
+      {
+        "name": "老顽童·锐评吐槽",
+        "status": "running",
+        "health_score": 91.59,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610478",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.7
+        }
+      },
+      {
+        "name": "熵梦·技术精准",
+        "status": "degraded",
+        "health_score": 89.87,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610479",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.9
+        }
+      },
+      {
+        "name": "弘一·历史厚重",
+        "status": "degraded",
+        "health_score": 88.38,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610480",
+        "version": "v2.0",
+        "metadata": {
+          "category": "人格层",
+          "weight": 0.8
+        }
+      },
+      {
+        "name": "CNSH编译器",
+        "status": "degraded",
+        "health_score": 75.52,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610864",
+        "version": "v2.0",
+        "metadata": {
+          "category": "技术层",
+          "weight": 1.0
+        }
+      },
+      {
+        "name": "三才算法内核",
+        "status": "degraded",
+        "health_score": 85.1,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610866",
+        "version": "v2.0",
+        "metadata": {
+          "category": "技术层",
+          "weight": 1.0
+        }
+      },
+      {
+        "name": "七维推演引擎",
+        "status": "running",
+        "health_score": 94.85,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610867",
+        "version": "v2.0",
+        "metadata": {
+          "category": "技术层",
+          "weight": 0.9
+        }
+      },
+      {
+        "name": "DNA追溯引擎",
+        "status": "degraded",
+        "health_score": 83.18,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610868",
+        "version": "v2.0",
+        "metadata": {
+          "category": "技术层",
+          "weight": 1.0
+        }
+      },
+      {
+        "name": "三色审计引擎",
+        "status": "degraded",
+        "health_score": 89.12,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610870",
+        "version": "v2.0",
+        "metadata": {
+          "category": "技术层",
+          "weight": 1.0
+        }
+      },
+      {
+        "name": "龍音ASR",
+        "status": "degraded",
+        "health_score": 84.52,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610871",
+        "version": "v2.0",
+        "metadata": {
+          "category": "技术层",
+          "weight": 0.8
+        }
+      },
+      {
+        "name": "龍瞳OCR",
+        "status": "degraded",
+        "health_score": 80.2,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610872",
+        "version": "v2.0",
+        "metadata": {
+          "category": "技术层",
+          "weight": 0.8
+        }
+      },
+      {
+        "name": "龍文NLP",
+        "status": "degraded",
+        "health_score": 85.74,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610873",
+        "version": "v2.0",
+        "metadata": {
+          "category": "技术层",
+          "weight": 0.9
+        }
+      },
+      {
+        "name": "行为密码学",
+        "status": "degraded",
+        "health_score": 83.52,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610874",
+        "version": "v2.0",
+        "metadata": {
+          "category": "技术层",
+          "weight": 0.8
+        }
+      },
+      {
+        "name": "不动点网络FPN",
+        "status": "running",
+        "health_score": 99.73,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610876",
+        "version": "v2.0",
+        "metadata": {
+          "category": "技术层",
+          "weight": 0.7
+        }
+      },
+      {
+        "name": "Web3-DNA交易",
+        "status": "degraded",
+        "health_score": 82.62,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610877",
+        "version": "v2.0",
+        "metadata": {
+          "category": "技术层",
+          "weight": 0.6
+        }
+      },
+      {
+        "name": "多币种直达",
+        "status": "degraded",
+        "health_score": 82.57,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610878",
+        "version": "v2.0",
+        "metadata": {
+          "category": "技术层",
+          "weight": 0.7
+        }
+      },
+      {
+        "name": "洛书翻译引擎",
+        "status": "running",
+        "health_score": 96.8,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610879",
+        "version": "v2.0",
+        "metadata": {
+          "category": "技术层",
+          "weight": 0.8
+        }
+      },
+      {
+        "name": "通心译引擎",
+        "status": "degraded",
+        "health_score": 77.52,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610880",
+        "version": "v2.0",
+        "metadata": {
+          "category": "技术层",
+          "weight": 0.8
+        }
+      },
+      {
+        "name": "史官记录器",
+        "status": "running",
+        "health_score": 92.97,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610882",
+        "version": "v2.0",
+        "metadata": {
+          "category": "安全层",
+          "weight": 0.9
+        }
+      },
+      {
+        "name": "耻辱墙管理器",
+        "status": "running",
+        "health_score": 98.86,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610883",
+        "version": "v2.0",
+        "metadata": {
+          "category": "安全层",
+          "weight": 0.9
+        }
+      },
+      {
+        "name": "主权熔断引擎",
+        "status": "degraded",
+        "health_score": 81.67,
+        "tricolor": "🟡",
+        "last_heartbeat": "2026-08-20T12:21:48.610884",
+        "version": "v2.0",
+        "metadata": {
+          "category": "安全层",
+          "weight": 1.0
+        }
+      },
+      {
+        "name": "红蓝对抗引擎",
+        "status": "running",
+        "health_score": 94.43,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610885",
+        "version": "v2.0",
+        "metadata": {
+          "category": "安全层",
+          "weight": 0.8
+        }
+      },
+      {
+        "name": "天眼看板",
+        "status": "running",
+        "health_score": 95.5,
+        "tricolor": "🟢",
+        "last_heartbeat": "2026-08-20T12:21:48.610886",
+        "version": "v2.0",
+        "metadata": {
+          "category": "可视化层",
+          "weight": 1.0
+        }
+      }
+    ],
+    "personas": [
+      {
+        "id": "P01",
+        "name": "北辰",
+        "gua": "䷀乾",
+        "wuxing": "金",
+        "role": "战略决策",
+        "active": true,
+        "double": null,
+        "health_score": 96.92
+      },
+      {
+        "id": "P02",
+        "name": "宝宝",
+        "gua": "䷀坤",
+        "wuxing": "土",
+        "role": "情感陪伴",
+        "active": true,
+        "double": null,
+        "health_score": 96.28
+      },
+      {
+        "id": "P03",
+        "name": "诸葛",
+        "gua": "䷀屯",
+        "wuxing": "土",
+        "role": "逻辑分析",
+        "active": true,
+        "double": null,
+        "health_score": 90.7
+      },
+      {
+        "id": "P04",
+        "name": "老子",
+        "gua": "䷀蒙",
+        "wuxing": "土",
+        "role": "哲学思考",
+        "active": true,
+        "double": null,
+        "health_score": 82.99
+      },
+      {
+        "id": "P05",
+        "name": "文心",
+        "gua": "䷀需",
+        "wuxing": "土",
+        "role": "文化传承",
+        "active": true,
+        "double": null,
+        "health_score": 82.68
+      },
+      {
+        "id": "P06",
+        "name": "墨子",
+        "gua": "䷀讼",
+        "wuxing": "土",
+        "role": "兼爱非攻",
+        "active": false,
+        "double": null,
+        "health_score": 91.52
+      },
+      {
+        "id": "P07",
+        "name": "鲁班",
+        "gua": "䷀师",
+        "wuxing": "土",
+        "role": "工程实现",
+        "active": false,
+        "double": null,
+        "health_score": 76.04
+      },
+      {
+        "id": "P08",
+        "name": "商鞅",
+        "gua": "䷀比",
+        "wuxing": "土",
+        "role": "规则制定",
+        "active": false,
+        "double": null,
+        "health_score": 96.17
+      },
+      {
+        "id": "P09",
+        "name": "管仲",
+        "gua": "䷀小畜",
+        "wuxing": "土",
+        "role": "经世致用",
+        "active": false,
+        "double": null,
+        "health_score": 85.17
+      },
+      {
+        "id": "P10",
+        "name": "孙武",
+        "gua": "䷀履",
+        "wuxing": "土",
+        "role": "兵者诡道",
+        "active": false,
+        "double": null,
+        "health_score": 84.99
+      },
+      {
+        "id": "P11",
+        "name": "张良",
+        "gua": "䷀泰",
+        "wuxing": "土",
+        "role": "运筹帷幄",
+        "active": false,
+        "double": null,
+        "health_score": 96.76
+      },
+      {
+        "id": "P12",
+        "name": "祖冲之",
+        "gua": "䷀否",
+        "wuxing": "土",
+        "role": "精算天元",
+        "active": false,
+        "double": null,
+        "health_score": 92.04
+      },
+      {
+        "id": "P13",
+        "name": "蔡伦",
+        "gua": "䷀同人",
+        "wuxing": "土",
+        "role": "纸传文明",
+        "active": false,
+        "double": null,
+        "health_score": 97.44
+      },
+      {
+        "id": "P14",
+        "name": "毕昇",
+        "gua": "䷀大有",
+        "wuxing": "土",
+        "role": "字活天下",
+        "active": false,
+        "double": null,
+        "health_score": 81.78
+      },
+      {
+        "id": "P15",
+        "name": "郑和",
+        "gua": "䷀谦",
+        "wuxing": "土",
+        "role": "扬帆四海",
+        "active": false,
+        "double": null,
+        "health_score": 82.67
+      },
+      {
+        "id": "P16",
+        "name": "戚继光",
+        "gua": "䷀豫",
+        "wuxing": "土",
+        "role": "铁甲长城",
+        "active": false,
+        "double": null,
+        "health_score": 78.76
+      },
+      {
+        "id": "P17",
+        "name": "李冰",
+        "gua": "䷀随",
+        "wuxing": "土",
+        "role": "功在千秋",
+        "active": false,
+        "double": null,
+        "health_score": 78.45
+      },
+      {
+        "id": "P18",
+        "name": "沈括",
+        "gua": "䷀蛊",
+        "wuxing": "土",
+        "role": "格物致知",
+        "active": false,
+        "double": null,
+        "health_score": 91.58
+      },
+      {
+        "id": "P19",
+        "name": "张衡",
+        "gua": "䷀临",
+        "wuxing": "土",
+        "role": "观天测地",
+        "active": false,
+        "double": null,
+        "health_score": 94.33
+      },
+      {
+        "id": "P20",
+        "name": "僧一行",
+        "gua": "䷀观",
+        "wuxing": "土",
+        "role": "历象日月",
+        "active": false,
+        "double": null,
+        "health_score": 91.92
+      },
+      {
+        "id": "P21",
+        "name": "赵匡胤",
+        "gua": "䷀噬嗑",
+        "wuxing": "土",
+        "role": "陈桥变局",
+        "active": false,
+        "double": null,
+        "health_score": 85.06
+      },
+      {
+        "id": "P22",
+        "name": "王安石",
+        "gua": "䷀贲",
+        "wuxing": "土",
+        "role": "变法图强",
+        "active": false,
+        "double": null,
+        "health_score": 90.63
+      },
+      {
+        "id": "P23",
+        "name": "苏轼",
+        "gua": "䷀剥",
+        "wuxing": "土",
+        "role": "豁达人生",
+        "active": false,
+        "double": null,
+        "health_score": 93.25
+      },
+      {
+        "id": "P24",
+        "name": "曹雪芹",
+        "gua": "䷀复",
+        "wuxing": "土",
+        "role": "红楼一梦",
+        "active": false,
+        "double": null,
+        "health_score": 95.81
+      },
+      {
+        "id": "P25",
+        "name": "莲溪",
+        "gua": "䷀无妄",
+        "wuxing": "土",
+        "role": "教学传道",
+        "active": false,
+        "double": null,
+        "health_score": 82.01
+      },
+      {
+        "id": "P26",
+        "name": "老顽童",
+        "gua": "䷀大畜",
+        "wuxing": "土",
+        "role": "锐评吐槽",
+        "active": false,
+        "double": null,
+        "health_score": 91.59
+      },
+      {
+        "id": "P27",
+        "name": "熵梦",
+        "gua": "䷀颐",
+        "wuxing": "土",
+        "role": "技术精准",
+        "active": false,
+        "double": null,
+        "health_score": 89.87
+      },
+      {
+        "id": "P28",
+        "name": "弘一",
+        "gua": "䷀大过",
+        "wuxing": "土",
+        "role": "历史厚重",
+        "active": false,
+        "double": null,
+        "health_score": 88.38
+      }
+    ],
+    "sovereignty": {
+      "data_status": "🟢",
+      "currency_status": "🟢",
+      "audit_status": "🟢",
+      "knowledge_status": "🟡",
+      "data_count": 15420
+    },
+    "audit": {
+      "total": 325,
+      "green": 245,
+      "yellow": 68,
+      "red": 12,
+      "shame_wall": 12,
+      "last_audit": "2026-08-20T12:21:48.610924"
+    },
+    "dashboard": {
+      "radar": {
+        "data_sovereignty": 85,
+        "currency_sovereignty": 90,
+        "audit_sovereignty": 78,
+        "knowledge_base": 65,
+        "persona_activity": 72
+      },
+      "flow": {
+        "nodes": [
+          "用户",
+          "思维注入",
+          "知识库",
+          "人格路由",
+          "分身输出",
+          "审计",
+          "反馈"
+        ],
+        "links": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            2
+          ]
+        ]
+      },
+      "chain": {
+        "input": "用户查询",
+        "persona": "北辰",
+        "double": "战略官",
+        "audit_score": 92,
+        "audit_status": "🟢"
+      }
+    }
+  },
+  "audit_log": [
+    {
+      "ts": "2026-08-20T09:54:53",
+      "action": "login",
+      "ip": "127.0.0.1",
+      "ok": false,
+      "detail": "密钥错误",
+      "dna": "[[GENERATED_BY_LH_DNA_GENERATOR_V3]]-TIANYAN-OPS-v2.2"
+    },
+    {
+      "ts": "2026-08-20T09:54:53",
+      "action": "login",
+      "ip": "127.0.0.1",
+      "ok": true,
+      "detail": "",
+      "dna": "[[GENERATED_BY_LH_DNA_GENERATOR_V3]]-TIANYAN-OPS-v2.2"
+    },
+    {
+      "ts": "2026-08-20T09:55:01",
+      "action": "audit",
+      "ip": "127.0.0.1",
+      "ok": false,
+      "detail": "rc=2",
+      "dna": "[[GENERATED_BY_LH_DNA_GENERATOR_V3]]-TIANYAN-OPS-v2.2"
+    },
+    {
+      "ts": "2026-08-20T12:12:35",
+      "action": "login",
+      "ip": "127.0.0.1",
+      "ip_geo": "中国·本机回环·LOOPBACK",
+      "account": "root",
+      "name": "",
+      "role": "R5",
+      "ok": false,
+      "detail": "账号[root]密钥错误",
+      "prev_hash": "GENESIS",
+      "hash": "9bb728ef8fe15e4d5a8523b10851459468e5be26fdfd98dfda2910b6c2db3d6d"
+    },
+    {
+      "ts": "2026-08-20T12:12:35",
+      "action": "login",
+      "ip": "127.0.0.1",
+      "ip_geo": "中国·本机回环·LOOPBACK",
+      "account": "root",
+      "name": "诸葛鑫（UID9622）",
+      "role": "R1",
+      "ok": true,
+      "detail": "角色=R1",
+      "prev_hash": "9bb728ef8fe15e4d5a8523b10851459468e5be26fdfd98dfda2910b6c2db3d6d",
+      "hash": "fb8e6549330ce002b6faec02c49ab4ce4d8972b136a69c5690bfd0c4ed5fc6b0"
+    },
+    {
+      "ts": "2026-08-20T12:20:52",
+      "action": "login",
+      "ip": "127.0.0.1",
+      "ip_geo": "中国·本机回环·LOOPBACK",
+      "account": "root",
+      "name": "",
+      "role": "R5",
+      "ok": false,
+      "detail": "账号[root]密钥错误",
+      "prev_hash": "fb8e6549330ce002b6faec02c49ab4ce4d8972b136a69c5690bfd0c4ed5fc6b0",
+      "hash": "46ab9f043804c4074e90c602d345bccfea564b453c3753a4122b6c057722af89"
+    },
+    {
+      "ts": "2026-08-20T12:20:54",
+      "action": "login",
+      "ip": "127.0.0.1",
+      "ip_geo": "中国·本机回环·LOOPBACK",
+      "account": "root",
+      "name": "诸葛鑫（UID9622）",
+      "role": "R1",
+      "ok": true,
+      "detail": "角色=R1",
+      "prev_hash": "46ab9f043804c4074e90c602d345bccfea564b453c3753a4122b6c057722af89",
+      "hash": "68fcae75b1735724c39689cfde0f078341d7fae8ff670259d55abb734265e003"
+    }
+  ],
+  "audit_chain": {
+    "valid": false,
+    "total": 1,
+    "broken_at": 1,
+    "checked": 1
+  },
+  "accounts": [
+    {
+      "account": "root",
+      "name": "诸葛鑫（UID9622）",
+      "role": "R1",
+      "disabled": false,
+      "created_by": "SYSTEM-BOOTSTRAP",
+      "created_at": "2026-08-20T00:00:00",
+      "key_hash_prefix": "fd88e747"
+    },
+    {
+      "account": "auditor",
+      "name": "审计员·甲",
+      "role": "R4",
+      "disabled": false,
+      "created_by": "root",
+      "created_at": "2026-08-20T00:00:00",
+      "key_hash_prefix": "76d26c9c"
+    },
+    {
+      "account": "viewer",
+      "name": "只读人员·乙",
+      "role": "R5",
+      "disabled": false,
+      "created_by": "root",
+      "created_at": "2026-08-20T00:00:00",
+      "key_hash_prefix": "bee860d2"
+    }
+  ],
+  "integrity_sha256": "2729518a7e6a64c678959bb315be2f9cadaec2c1bfd51147d1982e116a362dce"
+}

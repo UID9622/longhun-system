@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 鸿蒙 API 交付标准模板 v1.0
 
-> DNA: `#龍芯⚡️2026-07-08-HARMONYOS-API-STANDARD-TEMPLATE-v1.0`
+> DNA: `#龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-HARMONYOS-API-STANDARD-TEMPLATE-v1.0`
 > **适用范围**: 所有面向华为鸿蒙设备的 API/模块/应用交付
 > **铁律**: 交出去的代码必须能在鸿蒙设备上直接跑通，不缺权限、不缺配置、不缺适配
 
@@ -683,4 +683,4 @@ project/
 ---
 
 > **这是最低标准，不是最高标准。交付 = 能跑通 = 权限配齐 + 报错不白屏 + 换设备不崩。**
-> DNA: `#龍芯⚡️2026-07-08-HARMONYOS-API-STANDARD-TEMPLATE-v1.0-B4F1A2D8`
+> DNA: `#龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-HARMONYOS-API-STANDARD-TEMPLATE-v1.0-B4F1A2D8`

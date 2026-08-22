@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·丙申·戊申·䷗复-DAODEJING-ENGINE-v2.0-UID9622
+# DNA: #龍芯⚡️丙午·丙申·戊申·戊午·䷗复-DAODEJING-ENGINE-v2.0-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # CREATOR: 诸葛鑫 (UID9622)
@@ -46,7 +46,7 @@ from collections import Counter, defaultdict
 
 # ── 龍魂底座常量 ──────────────────────────────────
 ROOT = Path(__file__).resolve().parent.parent
-DNA = "#龍芯⚡️丙午·丙申·戊申·䷗复-DAODEJING-ENGINE-v2.0-UID9622"
+DNA = "#龍芯⚡️丙午·丙申·戊申·戊午·䷗复-DAODEJING-ENGINE-v2.0-UID9622"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 GPG_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 VERSION = "v2.0"

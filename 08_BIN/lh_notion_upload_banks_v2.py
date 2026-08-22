@@ -6,10 +6,11 @@ DNA: #龍芯⚡️丙午·甲申·壬子·亥时·䷗复-INTERVIEW-BANKS-NOTION-
 License: MulanPSL v2
 策略: 每文件创建页面 → 全文作为一个段落块的大文本 → 快速稳定
 """
+import os
 import json, os, time, sys
 import urllib.request, urllib.error
 
-TOKEN = "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"
+TOKEN = os.environ.get("NOTION_TOKEN", "")
 BANKS_DIR = "/Users/zuimeidedeyihan/_work/interview-question-banks"
 NOTION = "https://api.notion.com/v1"
 HEADERS = {"Authorization": f"Bearer {TOKEN}", "Notion-Version": "2022-06-28", "Content-Type": "application/json"}

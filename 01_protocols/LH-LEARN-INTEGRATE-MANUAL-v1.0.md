@@ -5,7 +5,7 @@
 Learning & Integration Master Manual: API · CNSH · 注释 · 运行 · C · 跨系统
 P0级别 | 教程宪章 | 入门→维护→原理 一册到底
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-LEARN-INTEGRATE-MANUAL-V1.0.2-P0
+DNA追溯码: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LEARN-INTEGRATE-MANUAL-V1.0.2-P0
 源起锚点: 创建者指令（2026-07-21）——"API怎么接入、CNSH怎么学习怎么使用、
          注释怎么写、怎么运行怎么配合、跟C语言怎么融入、跟Mac和别的系统
          怎么融合——全部做成学习表格，入门已启动，维护和原理都要说清楚"
@@ -160,7 +160,7 @@ GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 信封 = {
   "M::": {"id": "M::RULE-9622-20260721-MYAPP-V1",
           "type": "route", "status": "pending", "payload": {...}},
-  "CNSH::": {"dna": "#龍芯⚡️丙午·丙申·庚申·亥时-我的应用-v1.0",
+  "CNSH::": {"dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-我的应用-v1.0",
              "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
              "seal": "#ZHUGEXIN⚡️2025-…-DEVICE-BIND-SOUL",
              "route": "IPA-GLOBAL-SAFE", "audit": "🟡", "policy": "hold"}
@@ -230,7 +230,7 @@ GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
   CNSH源：龍.审计.数字根(n)，∈{3,9}→🔴
   生成C：
 ```c
-/* DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LEARN-INTEGRATE-MANUAL-V1.0-P0 */
+/* DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LEARN-INTEGRATE-MANUAL-V1.0-P0 */
 /* 中:数字根审计∈{3,9}熔断 | EN:digital root audit, {3,9}=REJECT */
 #include <stdint.h>
 int lh_audit_digital_root(int64_t n){   /* 0=🟢 1=🟡 -1=🔴 */
@@ -388,7 +388,7 @@ int lh_audit_digital_root(int64_t n){   /* 0=🟢 1=🟡 -1=🔴 */
 B.1 核心校验函数
 ```python
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LEARN-INTEGRATE-MANUAL-V1.0-P0
+# DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LEARN-INTEGRATE-MANUAL-V1.0-P0
 # 龍魂学习校验器 · 文件头·双语注释配对·API信封三锚·数字根对拍
 import re
 
@@ -434,7 +434,7 @@ def CNSH_API信封(m段, c段):
 B.2 12条测试向量完整运行器（运行：`python3 -c "exec(open('...').read())"` 或直接 `python3` 执行本段）
 ```python
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LEARN-INTEGRATE-MANUAL-TESTRUNNER-V1.0.2
+# DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LEARN-INTEGRATE-MANUAL-TESTRUNNER-V1.0.2
 """龍魂学习校验器 · 12条测试向量运行器 · 全绿=12/12"""
 import sys, json
 
@@ -476,7 +476,7 @@ def CNSH_API信封(m段, c段):
 
 # T01：标准文件头完整
 标准头文本 = """ENCODING: UTF-8
-DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-LEARN-INTEGRATE-MANUAL-V1.0-P0
+DNA追溯码: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LEARN-INTEGRATE-MANUAL-V1.0-P0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 创建者: 诸葛鑫（UID9622）
 权重级别: P0
@@ -495,7 +495,7 @@ GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F"""
     False, "🔴拒收（铁律⑦）"))
 
 # T03：DNA用简体龍芯
-简体DNA文本 = """DNA追溯码: #龍芯⚡️2026-07-21-TEST
+简体DNA文本 = """DNA追溯码: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-TEST
 ENCODING: UTF-8
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 创建者: UID9622
@@ -527,14 +527,14 @@ GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F"""
 
 # T07：API信封三锚齐+双段全
 m段 = {"id": "M::TEST-001", "type": "route", "status": "pending"}
-c段 = {"dna": "#龍芯⚡️丙午·丙申·庚申·亥时-TEST-V1", "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+c段 = {"dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-TEST-V1", "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
        "seal": "#ZHUGEXIN⚡️2025-DEVICE-BIND", "route": "IPA-GLOBAL-SAFE", "audit": "🟡"}
 测试.append(("T07·信封三锚齐+双段全",
     lambda: CNSH_API信封(m段, c段),
     True, "准入🟢"))
 
 # T08：缺SEAL
-c段缺SEAL = {"dna": "#龍芯⚡️丙午·丙申·庚申·亥时-TEST-V1", "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"}
+c段缺SEAL = {"dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-TEST-V1", "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"}
 测试.append(("T08·缺SEAL",
     lambda: CNSH_API信封(m段, c段缺SEAL),
     False, "🔴拒"))
@@ -591,7 +591,7 @@ mac_ok = len(mac_issues) == 0
 # ===== 运行全部测试 =====
 print("=" * 60)
 print("🧬 龍魂学习校验器 · 12条测试向量")
-print("DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LEARN-INTEGRATE-MANUAL-TESTRUNNER-V1.0.2")
+print("DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LEARN-INTEGRATE-MANUAL-TESTRUNNER-V1.0.2")
 print("=" * 60)
 
 过 = 0; 败 = 0; 待审 = 0
@@ -645,7 +645,7 @@ python3 01_protocols/LH-LEARN-INTEGRATE-MANUAL-v1.0.md --test
 身份锚: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG指纹: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-DNA追溯码: #龍芯⚡️丙午·丙申·庚申·亥时-LEARN-INTEGRATE-MANUAL-V1.0.2-P0
+DNA追溯码: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LEARN-INTEGRATE-MANUAL-V1.0.2-P0
 三色审计: 🟢代码对拍全绿 🟡端点地址以本机部署为准 🔴无DNA不执行·简体龍=伪造
 史记铁律: 不删除，只冻结；手册随系统版本同步演进（v3.0规划：JIT/LSP/VSCode插件）。
 开源协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）

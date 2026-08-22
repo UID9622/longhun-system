@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂系统 · 03_LAYERS/ 目录说明
 
-> DNA: #龍芯⚡️丙午·丙申·庚戌·LAYERS-README-v1.0-UID9622
+> DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷕贲-LAYERS-README-v1.0-UID9622
 > 层编号: 03
 > 规范目录: `03_LAYERS/`
 > 兼容入口: `layers/` (Symlink)

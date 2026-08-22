@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·小畜-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷈小畜-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # ╔═══════════════════════════════════════════════════════════════════════════╗
@@ -479,7 +480,7 @@ class 统一路由器:
       龍魂家族花名册(93人格) > persona_registry.json > ipa_executor.py > AGENTS.md
     """
 
-    DNA = "#龍芯⚡️2026-07-07-IPA-UNIFIED-ROUTER-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-IPA-UNIFIED-ROUTER-v1.0"
 
     def __init__(self, 技能引擎: Any = None, persona_registry_path: Optional[Path] = None):
         self.技能引擎 = 技能引擎
@@ -958,7 +959,7 @@ class 统一路由器:
             "英文": "Master Control Panel",
             "文件": "L5_服务层/services/dashboard/web/longhun-master-control.html",
             "职责": "路由矩阵·统一入口·导航中枢",
-            "DNA": "#龍芯⚡️2026-06-08-ROUTER-MATRIX-v1.0",
+            "DNA": "#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-ROUTER-MATRIX-v1.0",
             "禁止别名": ["操作台", "总控台", "控制台", "流场总控"],
             "说明": "唯一主控台入口，所有子系统从主控台进入。操作台、流场总控为其子模块入口。",
         },
@@ -967,7 +968,7 @@ class 统一路由器:
             "英文": "Operations Console",
             "文件": "L5_服务层/services/dashboard/web/p0-controls/main-console.html",
             "职责": "实际操作面板·记忆压缩·DNA存证·资产扫描·统计分析",
-            "DNA": "#龍芯⚡️2026-03-03-MAIN-CONSOLE-UID9622",
+            "DNA": "#龍芯⚡️丙午·庚寅·丙子·甲午·䷙大畜-MAIN-CONSOLE-UID9622",
             "禁止别名": ["主控台", "总控台"],
             "说明": "深度操作工具，从主控台进入，非独立入口。原名'主控台'已废弃。",
         },

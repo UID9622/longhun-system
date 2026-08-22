@@ -1,0 +1,76 @@
+{
+  "scenario_id": "AGRI-001",
+  "version": "1.1",
+  "region": "Nile Delta, Egypt",
+  "region_local": "دلتا النيل، مصر",
+  "date": "2026-08-12",
+  "data_source": "simulated_for_demo",
+  "fields": [
+    {
+      "field_id": "EG-ND-001",
+      "location": [31.2357, 30.0444],
+      "location_name": "Kafr El-Sheikh Governorate",
+      "crop_type": "cotton",
+      "crop_type_local": "قطن",
+      "soil_moisture": 18.5,
+      "soil_type": "clay_loam",
+      "field_area_hectares": 2.5,
+      "last_irrigation": "2026-08-10T06:00:00Z",
+      "irrigation_method": "flood",
+      "crop_stage": "flowering"
+    },
+    {
+      "field_id": "EG-ND-002",
+      "location": [31.2400, 30.0500],
+      "location_name": "Dakahlia Governorate",
+      "crop_type": "wheat",
+      "crop_type_local": "قمح",
+      "soil_moisture": 35.2,
+      "soil_type": "sandy_loam",
+      "field_area_hectares": 1.8,
+      "last_irrigation": "2026-08-11T05:30:00Z",
+      "irrigation_method": "drip",
+      "crop_stage": "grain_filling"
+    },
+    {
+      "field_id": "EG-ND-003",
+      "location": [31.1800, 30.1000],
+      "location_name": "Gharbia Governorate",
+      "crop_type": "rice",
+      "crop_type_local": "أرز",
+      "soil_moisture": 65.0,
+      "soil_type": "heavy_clay",
+      "field_area_hectares": 3.2,
+      "last_irrigation": "2026-08-12T04:00:00Z",
+      "irrigation_method": "flood",
+      "crop_stage": "panicle_initiation"
+    }
+  ],
+  "water_level": {
+    "value": 4.2,
+    "unit": "meters",
+    "station": "Nile Delta Monitoring Station #3",
+    "measured_at": "2026-08-12T05:00:00Z",
+    "trend": "stable",
+    "forecast_24h": 4.1
+  },
+  "weather_forecast": {
+    "date": "2026-08-12",
+    "temperature_c": {
+      "min": 28,
+      "max": 38,
+      "avg": 33
+    },
+    "humidity_percent": 45,
+    "precipitation_mm": 0,
+    "wind_speed_ms": 3.5,
+    "uv_index": 9,
+    "evaporation_rate_mm_day": 6.2
+  },
+  "constraints": {
+    "water_quota_m3": 5000,
+    "priority_fields": ["EG-ND-001"],
+    "forbidden_hours": ["12:00-15:00"],
+    "max_simultaneous_irrigation": 2
+  }
+}

@@ -529,7 +529,7 @@ class Visualizer:
 def main():
     logger.info("=" * 60)
     logger.info("龍魂系统 · 关联矩阵扫描器 v1.0")
-    logger.info("DNA: #龍芯⚡️2026-07-01-RELATION-MATRIX-v1.0")
+    logger.info("DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-RELATION-MATRIX-v1.0")
     logger.info("=" * 60)
 
     # 扫描

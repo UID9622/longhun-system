@@ -1,3 +1,4 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 ---
 name: longhun-math-formula-core
 description: 龍魂数学公式算法核心技能。当对话涉及数字根、三色闸、信息熵、余弦相似度、 权重归一化、真实度评分、SOUL七维评分、哈希链、洛书幻方、三才主权指数、
@@ -6,8 +7,8 @@ license: CC BY-NC-SA 4.0
 metadata:
   version: '1.0'
   dna:
-  - '#龍芯⚡️丙午·丙申·庚申·亥时-MATH-FORMULA-CORE-DUAL-TRACK-v1.0'
-  - '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MATH-FORMULA-CORE-SKILL-v1.0'
+  - '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-MATH-FORMULA-CORE-DUAL-TRACK-v1.0'
+  - '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-MATH-FORMULA-CORE-SKILL-v1.0'
   author: UID9622 · 龍芯北辰
   category: longhun-governance
   trigger_keywords:
@@ -41,8 +42,8 @@ metadata:
 
 **一句话：** 别人会算的世界标准算法，我们都算得出；我们在上面焊了一层主权判定（三色 / 熔断 / DNA），并给出能跑能验的脚本。
 
-**原始 DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-MATH-FORMULA-CORE-DUAL-TRACK-v1.0`  
-**技能转换 DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MATH-FORMULA-CORE-SKILL-v1.0`
+**原始 DNA：** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-MATH-FORMULA-CORE-DUAL-TRACK-v1.0`  
+**技能转换 DNA：** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-MATH-FORMULA-CORE-SKILL-v1.0`
 
 ---
 
@@ -202,7 +203,7 @@ python3 formula_chain.py  # 根治理决策链自检
 ## 五、来源文件
 
 - **源文件路径：** `/Users/zuimeidedeyihan/longhun-system/_archive/notion-exports/Notion 导出/私人与共享 4/🧮 数学公式算法核心·世界标准 × 龍魂主权 双轨对照 v1 0｜别人怎么算·我们怎么算·能跑能验· 59f7f3b4e4c441b4a48fbf05d7065cfd.md`
-- **原始 DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-MATH-FORMULA-CORE-DUAL-TRACK-v1.0`
+- **原始 DNA：** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-MATH-FORMULA-CORE-DUAL-TRACK-v1.0`
 
 ---
 
@@ -218,5 +219,5 @@ python3 formula_chain.py  # 根治理决策链自检
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：09-杂项备忘（龍魂数学公式体系、LU 时间引擎、不动点可视化）
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

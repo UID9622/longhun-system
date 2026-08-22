@@ -5,7 +5,7 @@
 """
 🧬 龍魂·DNA记忆同步服务 | 鲲鹏中枢 v1.0
 
-DNA: #龍芯⚡️丙午·乙未·戊戌·未时·☵坎-MEMORY-SYNC-SERVER-v1.0-a1b2c3d4
+DNA: #龍芯⚡️丙午·乙未·戊戌·未时·䷜坎-MEMORY-SYNC-SERVER-v1.0-a1b2c3d4
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -68,7 +68,7 @@ CONFIRM_CODE = (
 )
 
 VERSION = "v1.0"
-SERVER_DNA = "#龍芯⚡️丙午·乙未·戊戌·未时·☵坎-MEMORY-SYNC-SERVER-v1.0-a1b2c3d4"
+SERVER_DNA = "#龍芯⚡️丙午·乙未·戊戌·未时·䷜坎-MEMORY-SYNC-SERVER-v1.0-a1b2c3d4"
 
 # ═══════════════════════════════════════════════
 # Token 管理

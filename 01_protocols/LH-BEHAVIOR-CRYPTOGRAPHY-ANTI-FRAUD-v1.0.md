@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·行為密碼學反詐協議 v1.0
 
-DNA: #龍芯⚡️丙午·癸未·丁未·☰乾-BEHAVIOR-CRYPTO-ANTI-FRAUD-v1.0-彎彎繞繞-9e4b3d7a  
+DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷀乾-BEHAVIOR-CRYPTO-ANTI-FRAUD-v1.0-彎彎繞繞-9e4b3d7a  
 創建者: 諸葛鑫（UID9622）  
 協議: CC BY-NC-SA 4.0  
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F  
@@ -331,7 +331,7 @@ POST /api/anti-fraud/analyze
   "audit_mark": "🟢",
   "risk_score": 0.0,
   "gpg_signature": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
-  "dna": "#龍芯⚡️丙午·癸未·丁未·☰乾-BEHAVIOR-CRYPTO-ANTI-FRAUD-v1.0-彎彎繞繞-9e4b3d7a"
+  "dna": "#龍芯⚡️丙午·癸未·丁未·丙午·䷀乾-BEHAVIOR-CRYPTO-ANTI-FRAUD-v1.0-彎彎繞繞-9e4b3d7a"
 }
 ```
 

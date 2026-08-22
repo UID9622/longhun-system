@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂执行模板系统 v1.0
-DNA: #龍芯⚡️2026-07-06-EXEC-TEMPLATES-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-EXEC-TEMPLATES-v1.0
 
 提供标准化的执行模板，所有操作统一格式。
 """
@@ -28,7 +29,7 @@ def generate_dna(module: str, action: str) -> str:
 DECISION_AUDIT_TEMPLATE = {
     "template_id": "T-001",
     "name": "决策审计",
-    "dna": "#龍芯⚡️2026-07-06-TEMPLATE-DECISION-AUDIT",
+    "dna": "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-TEMPLATE-DECISION-AUDIT",
     "fields": {
         "timestamp": "ISO 8601",
         "action": "操作描述",

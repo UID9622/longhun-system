@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂·视频工坊 v5.0 — AI画面 + 云端TTS + 专业合成
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-VIDEO-STUDIO-V5.0-AI-IMAGES-ed8f2a1c
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-VIDEO-STUDIO-V5.0-AI-IMAGES-ed8f2a1c
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 

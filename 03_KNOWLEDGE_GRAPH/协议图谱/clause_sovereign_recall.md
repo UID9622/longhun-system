@@ -5,7 +5,7 @@ id: clause_sovereign_recall
 type: clause
 title: 主权撤回（随时插停）
 layer: L2
-dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C"
+dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·䷍大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C"
 owner: UID9622 · 诸葛鑫（Lucky）
 claim: 贡献者随时可一键插停；系统停止新分发并标记撤回，已结算不追回，撤回不追责不降权。
 based_on: [data_sovereignty_in_user, dragon_vein_trace]
@@ -31,4 +31,4 @@ created: 丙午·辛未·乙酉
 
 **为什么**：老大原话"创作者可以随时插停，你说不奉献了"——主权必须可逆，否则叫征用。
 
-> DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C
+> DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·䷍大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C

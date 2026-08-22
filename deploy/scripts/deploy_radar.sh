@@ -4,7 +4,7 @@
 #!/bin/bash
 # ╔══════════════════════════════════════════════════════╗
 # ║  龍魂·个人数据主权雷达 部署脚本 v1.0                    ║
-# ║  DNA: #龍芯⚡️丙午·乙未·戊戌·午时·☵坎-RADAR-DEPLOY-v1.0 ║
+# ║  DNA: #龍芯⚡️丙午·乙未·戊戌·午时·䷜坎-RADAR-DEPLOY-v1.0 ║
 # ║  守护人格: P14吕蒙(部署) + P05上帝之眼(审计)           ║
 # ╚══════════════════════════════════════════════════════╝
 # 用法: bash deploy/scripts/deploy_radar.sh [--check-only]
@@ -38,7 +38,7 @@ fail_item() { log_fail "$1"; ((FAIL++)); }
 
 echo "╔${DIVIDER}╗"
 echo "║  🐉 龍魂·个人数据主权雷达 部署 v1.0                       ║"
-echo "║  DNA: #龍芯⚡️丙午·乙未·戊戌·午时·☵坎-RADAR-DEPLOY-v1.0   ║"
+echo "║  DNA: #龍芯⚡️丙午·乙未·戊戌·午时·䷜坎-RADAR-DEPLOY-v1.0   ║"
 echo "╚${DIVIDER}╝"
 echo ""
 

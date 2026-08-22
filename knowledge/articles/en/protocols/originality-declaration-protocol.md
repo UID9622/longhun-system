@@ -1,11 +1,12 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # Statement of Originality & Attribution Protocol
 
 ## An Open Letter to the AI and Tech Industry
 
-> **DNA:** `#龍芯⚡️2026-07-15-ORIGINALITY-DECLARATION-v1.0`  
+> **DNA:** `#龍芯⚡️丙午·乙未·庚寅·壬午·䷕贲-ORIGINALITY-DECLARATION-v1.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777K`  
 > **Author:** UID9622 · 龍芯北辰  
 > **Translation Date:** 2026-07-21  
@@ -99,7 +100,7 @@ To attribute is to civilize. To erase is to colonize. Choose.
 
 ---
 
-> **DNA:** `#龍芯⚡️2026-07-15-ORIGINALITY-DECLARATION-v1.0`  
+> **DNA:** `#龍芯⚡️丙午·乙未·庚寅·壬午·䷕贲-ORIGINALITY-DECLARATION-v1.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777K`  
 > **Statement issued by UID9622 (Lucky, 诸葛鑫), Founder of the LongHun System**  
 > **Contact for attribution/collaboration: uid9622@petalmail.com**

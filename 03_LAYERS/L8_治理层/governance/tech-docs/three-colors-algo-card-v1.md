@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ##CNSH::GEN
@@ -9,7 +9,7 @@
 
 # 🐉 数据库三色算法第一贴｜三才算法公式卡片
 
-> **DNA**：`#龍芯⚡️2026-05-12-THREE-POWERS-ALGO-CARD-v1.0`  
+> **DNA**：`#龍芯⚡️丙午·癸巳·丙戌·甲午·䷕贲-THREE-POWERS-ALGO-CARD-v1.0`  
 > **CONFIRM**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`  
 > **调用入口**：`龍魂.三色审计(行为对象)`  
 > **适用场景**：编辑器、数据库、日志流水线、任何需要**实时安全+主权追溯**的系统模块  
@@ -41,7 +41,7 @@ $$ \text{追溯指数} = \frac{\sum \text{已验证操作} \times \text{时间�
 ```typescript
 // 调用方式（任何模块可直接调用）
 const result = 龍魂.三色审计({
-    DNA: "#龍芯⚡️2026-06-29-EDITOR-COMMIT-01",
+    DNA: "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-EDITOR-COMMIT-01",
     来源: "UID9622",
     操作: "文件保存",
     时间戳: Date.now(),
@@ -222,7 +222,7 @@ editor.onSave = (document) => {
 
 ```yaml
 算法卡片元数据:
-  DNA: "#龍芯⚡️2026-05-12-THREE-POWERS-ALGO-CARD-v1.0"
+  DNA: "#龍芯⚡️丙午·癸巳·丙戌·甲午·䷕贲-THREE-POWERS-ALGO-CARD-v1.0"
   调用命令: "龍魂.三色审计"
   输入参数: "{ DNA, 来源, 操作?, 时间戳?, 数据指纹? }"
   输出: "{ color, 决策值, 追溯指数 }"

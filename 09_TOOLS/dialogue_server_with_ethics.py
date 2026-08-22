@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂對話系統 · L0 道德經倫理錨定包裝器 v1.0
@@ -13,7 +14,7 @@
   - 提供瀏覽器對話界面：GET /
 
 端口：9635
-DNA: #龍芯⚡️2026-07-05-LONGHUN-DIALOGUE-ETHICS-WRAPPER-v1.0
+DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-LONGHUN-DIALOGUE-ETHICS-WRAPPER-v1.0
 """
 from __future__ import annotations
 
@@ -248,5 +249,5 @@ if __name__ == "__main__":
     import uvicorn
     port = int(os.environ.get("LONGHUN_DIALOGUE_PORT", "9635"))
     print(f"🐉 龍魂對話系統（L0 倫理錨定）· http://127.0.0.1:{port}")
-    print(f"   DNA: #龍芯⚡️2026-07-05-LONGHUN-DIALOGUE-ETHICS-WRAPPER-v1.0")
+    print(f"   DNA: #龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-LONGHUN-DIALOGUE-ETHICS-WRAPPER-v1.0")
     uvicorn.run(app, host="127.0.0.1", port=port)

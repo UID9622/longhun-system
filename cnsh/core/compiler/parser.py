@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 CNSH语法分析器（Parser）
 
-DNA:#龍芯⚡️2026-06-03-PARSER-FILE1-v1.0-FROM-JS
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-PARSER-FILE1-v1.0-FROM-JS
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 将Token流转换为抽象语法树（AST）
@@ -450,5 +451,5 @@ class Parser:
 
 __version__ = "1.0.0"
 __author__ = "UID9622 · 诸葛鑫 · 龍芯北辰"
-__dna__ = "#龍芯⚡️2026-06-03-PARSER-v1.0-FROM-JS"
+__dna__ = "#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-PARSER-v1.0-FROM-JS"
 __responsibility__ = "UID9622·不免责"

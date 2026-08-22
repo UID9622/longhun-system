@@ -2,12 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-READ-LINTS-v1.0
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-READ-LINTS-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # ╔══════════════════════════════════════════════════════════════╗
 # ║  龍魂·Lint 报告读取器 v1.0                                   ║
-# ║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-READ-LINTS-v1.0       ║
+# ║  DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-READ-LINTS-v1.0       ║
 # ║  用法: python3 bin/read_lints.py [report_file]               ║
 # ╚══════════════════════════════════════════════════════════════╝
 """
@@ -24,7 +24,7 @@ from pathlib import Path
 from datetime import datetime
 from collections import Counter
 
-DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-READ-LINTS-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-READ-LINTS-v1.0"
 
 ROOT = Path(__file__).parent.parent
 

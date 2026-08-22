@@ -3,7 +3,7 @@
 # 龍魂·AI 入口引导协议 v1.1
 # LH-AI-ONBOARDING-PROTOCOL-v1.1
 
-> **DNA**: `#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-AI-ONBOARDING-v1.1-ALIGN-8B3C5D2E`
+> **DNA**: `#龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-AI-ONBOARDING-v1.1-ALIGN-8B3C5D2E`
 > **创建者**: 诸葛鑫（UID9622）
 > **协议**: CC BY-NC-SA 4.0
 > **生效**: 2026-07-28（v1.1修订: 2026-07-30）
@@ -215,7 +215,7 @@
 
 ```
 规则制定: 诸葛鑫（UID9622）
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-AI-ONBOARDING-v1.0-3F7A1B9C
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-AI-ONBOARDING-v1.0-3F7A1B9C
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 三色: 🟢 v1.0 入口协议上线 🟡 待实测 🔴无

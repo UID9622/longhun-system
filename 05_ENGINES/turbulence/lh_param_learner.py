@@ -14,7 +14,7 @@
   Re_s = v·L / μ_s
   Re_s < Re_{s,c} 层流态（可推演）/ Re_s ≥ Re_{s,c} 湍流态（降级）
 
-DNA: #龍芯⚡️丙午·乙未·辛酉·井-PARAM-LEARNER-V1.0
+DNA: #龍芯⚡️丙午·乙未·辛酉·甲午·䷯井-PARAM-LEARNER-V1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 """

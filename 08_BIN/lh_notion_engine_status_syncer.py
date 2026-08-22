@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · Notion 引擎状态同步器 v2.0
-DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·临-NOTION-ENGINE-STATUS-SYNCER-v2.0-7D5E8F9A
+DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-NOTION-ENGINE-STATUS-SYNCER-v2.0-7D5E8F9A
 创建者: 诸葛鑫 (UID9622)
 协议: CC BY-NC-SA 4.0
 
@@ -34,7 +34,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 CST = timezone(timedelta(hours=8))
 
-DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·临-NOTION-ENGINE-STATUS-SYNCER-v2.0-7D5E8F9A"
+DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-NOTION-ENGINE-STATUS-SYNCER-v2.0-7D5E8F9A"
 SCHEMA_VERSION = "2.0.1"
 
 ROOT = Path(__file__).resolve().parent.parent

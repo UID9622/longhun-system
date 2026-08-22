@@ -5,6 +5,7 @@
 # ║  文明基因图谱 → 历史重演 + 预言 + H武器投影 发布到 www        ║
 # ╚══════════════════════════════════════════════════════════════╝
 # DNA: #龍芯⚡️丙午·丙申·戊午·未时·䷐随-CALENDAR-SCAN-CRON-v1.1-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # License: MulanPSL v2 · 部署位置: /opt/longhun/calendar/bin/run_scan.sh
 
 set -u

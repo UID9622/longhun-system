@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂声纹本地加密模块
@@ -13,7 +14,7 @@ LongHun Voice Local Encryption
   - 声纹特征向量加密 + HMAC-SHA256 完整性校验
   - 不依赖外部服务，不联网传输
 
-DNA: #龍芯⚡️20260628-VOICE-CRYPTO-v1.0
+DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-VOICE-CRYPTO-v1.0
 """
 
 import os

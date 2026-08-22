@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════════════════╗
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ║                     通心译 (Tongxin Translation) 引擎 v2.0                      ║
 ║                     CNSH 多语言编辑器终端 · 龍魂体系翻译核心                     ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
-龍魂体系DNA:#龍芯⚡️2026-06-17-TONGXIN-TRANSLATOR-FILE1-v2.0
+龍魂体系DNA:#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-TONGXIN-TRANSLATOR-FILE1-v2.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -71,7 +72,7 @@ class SupervisionLayer(Enum):
 # ═══════════════════════════════════════════════════════════════════════════════
 
 DRAGON_SOUL_MARKS = {
-    "DNA": "#龍芯⚡️2026-06-17-TONGXIN-TRANSLATOR-v2.0",
+    "DNA": "#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-TONGXIN-TRANSLATOR-v2.0",
     "CONFIRM": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     "SEAL": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
     "SIX_LAYER": [
@@ -1911,7 +1912,7 @@ def main():
         python cnsh_translator_engine_v2.0.py --mode bilingual
             以双语模式启动交互Shell
 
-    龍魂体系DNA:#龍芯⚡️2026-06-17-TONGXIN-TRANSLATOR-v2.0
+    龍魂体系DNA:#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-TONGXIN-TRANSLATOR-v2.0
     """
     parser = argparse.ArgumentParser(
         description="通心译 (Tongxin Translation) v2.0 — 龍魂体系翻译引擎",

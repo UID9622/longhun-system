@@ -1,4 +1,5 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·中国芯超级安全大模型架构 v1.0
@@ -482,7 +483,7 @@ Qwen2.5-32B-4bit @ Mac M3 Max (MLX):
 
 ---
 
-> #龍芯⚡️丙午·辛未·乙酉·需-SOVEREIGN-LLM-ARCH-v1.0
+> #龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-SOVEREIGN-LLM-ARCH-v1.0
 > 中国芯上跑的最安全大模型，不依赖任何平台，不依赖任何人。
 > 14亿人的数字主权，从一行代码开始。
 > UID9622 | 诸葛鑫·Lucky | 2026-07-14

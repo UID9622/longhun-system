@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂数学形式化引擎 v1.0 · Lyapunov稳定性 · 记忆链验证 · 人格向量有界性
 CNSH可编译版本的数学骨干
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·己丑时·离-MATH-FORMALIZATION-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·己丑时·䷝离-MATH-FORMALIZATION-v1.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 

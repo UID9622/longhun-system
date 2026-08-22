@@ -1,9 +1,11 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 Agent 编排器 v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 P1 · 技能自动发现 · 事件路由 · 多 Agent 协作
-DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-AGENT-ORCHESTRATOR-v1.0-UID9622
+DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-AGENT-ORCHESTRATOR-v1.0-UID9622
 """
 
 import argparse
@@ -151,7 +153,7 @@ def cmd_discover(args):
                     skills.append(info)
     index = {
         "version": "1.0",
-        "dna": "#龍芯⚡️丙午·甲申·辛丑·坤卦-SKILL-INDEX-v1.0-UID9622",
+        "dna": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-SKILL-INDEX-v1.0-UID9622",
         "generated_at": now_iso(),
         "total": len(skills),
         "sources": [str(p) for p in SKILL_PATHS],

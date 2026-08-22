@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·小畜-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷈小畜-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -313,7 +313,7 @@ def add_cors(response):
 def health():
     return jsonify({
         "status": "ok",
-        "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-ACTIVATION-API-v1.0-9E1D4C7B",
+        "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-ACTIVATION-API-v1.0-9E1D4C7B",
         "confirm": P0_CONFIG["confirm"],
     })
 
@@ -880,6 +880,6 @@ if __name__ == "__main__":
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=9656)
     args = parser.parse_args()
-    print("#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-ACTIVATION-API-v1.0-9E1D4C7B")
+    print("#龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-ACTIVATION-API-v1.0-9E1D4C7B")
     print(f"🎫 龍魂激活经济舱 API 启动: http://{args.host}:{args.port}")
     app.run(host=args.host, port=args.port, threaded=True)

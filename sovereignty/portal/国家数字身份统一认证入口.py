@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 中国国家数字身份统一认证入口 v2.0
@@ -10,7 +11,7 @@ China National Digital Identity Unified Authentication Portal v2.0
 核心原则：人民数据主权 · 平台服务降级
 技术底座：龍芯 × 华为 × CNSH 融合
 
-DNA:#龍芯⚡️2026-06-20-CHINA-DIGITAL-IDENTITY-PORTAL-v2.0
+DNA:#龍芯⚡️丙午·甲午·乙丑·壬午·䷨损-CHINA-DIGITAL-IDENTITY-PORTAL-v2.0
 """
 
 import json
@@ -50,7 +51,7 @@ class 魂灵ID:
             "过期时间": (datetime.now() + timedelta(hours=有效期小时)).isoformat(),
             "签发机构": "中国国家数字身份认证中心",
             "适用范围": "中华人民共和国境内所有接入服务商",
-            "DNA": "#龍芯⚡️2026-06-20-CHINA-HUNLING-ID-TOKEN-v2.0"
+            "DNA": "#龍芯⚡️丙午·甲午·乙丑·壬午·䷨损-CHINA-HUNLING-ID-TOKEN-v2.0"
         }
         # 令牌签名（模拟国家链签名）
         签名数据 = json.dumps(令牌, sort_keys=True, ensure_ascii=False)
@@ -135,7 +136,7 @@ class 国家数字身份统一认证中心:
 
     def __init__(self):
         self.名称 = "中国国家数字身份统一认证中心"
-        self.DNA = "#龍芯⚡️2026-06-20-CHINA-DIGITAL-IDENTITY-CENTER-v2.0"
+        self.DNA = "#龍芯⚡️丙午·甲午·乙丑·壬午·䷨损-CHINA-DIGITAL-IDENTITY-CENTER-v2.0"
         self.技术栈 = {
             "芯片": ["龍芯", "鲲鹏"],
             "系统": ["鸿蒙双系统", "微内核调度"],

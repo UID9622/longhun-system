@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 Claude 运行时包装器单元测试
-DNA: #龍芯⚡️2026-06-29-CLAUDE-RUNTIME-TEST-v1-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CLAUDE-RUNTIME-TEST-v1-UID9622
 """
 
 import json

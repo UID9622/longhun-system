@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂系统 · v2.0 渗透日志反馈闭环 v1.0
@@ -42,7 +43,7 @@ from pathlib import Path
 from typing import Any
 
 # ============ 龍魂 DNA 锚定 ============
-DNA_ANCHOR = "#龍芯⚡️丙午·辛未·乙酉-v2.0-PENETRATION-FEEDBACK-LOOP"
+DNA_ANCHOR = "#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-v2.0-PENETRATION-FEEDBACK-LOOP"
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 # ============ 路径配置 ============

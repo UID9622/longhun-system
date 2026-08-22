@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️2026-07-21-SUMMARY-CRAWLER-SPLIT-V1.0-P0-TEST
+# DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-SUMMARY-CRAWLER-SPLIT-V1.0-P0-TEST
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # 模块: 龍魂摘要爬虫 · 12条测试向量（协议第九章）
@@ -49,7 +49,7 @@ def run_all():
 
     print("=" * 60)
     print("  龍魂摘要爬虫 · 12条测试向量")
-    print(f"  DNA: #龍芯⚡️2026-07-21-SUMMARY-CRAWLER-SPLIT-V1.0-P0-TEST")
+    print(f"  DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-SUMMARY-CRAWLER-SPLIT-V1.0-P0-TEST")
     print("=" * 60)
 
     # ==========================================

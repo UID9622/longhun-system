@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂·五行计算器API入口 v3.2
 FastAPI统一路由·连接五行计算器核心
-DNA:#龍芯⚡️2026-06-04-API-WUXING-FILE1-v3.2
+DNA:#龍芯⚡️丙午·癸巳·己酉·庚午·䷨损-API-WUXING-FILE1-v3.2
 """
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware  # type: ignore[import-untyped]
@@ -94,7 +95,7 @@ async def 四柱分析(输入: 四柱输入):
             "状态": "🟢 成功",
             "数据": 结果,
             "时间戳": datetime.now().isoformat(),
-            "DNA": "#龍芯⚡️2026-06-04-API-SIZU-v3.2"
+            "DNA": "#龍芯⚡️丙午·癸巳·己酉·庚午·䷨损-API-SIZU-v3.2"
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"计算错误: {str(e)}")
@@ -113,7 +114,7 @@ async def 生成流场节点(输入: 文本输入):
             "状态": "🟢 成功",
             "节点": 节点,
             "时间戳": datetime.now().isoformat(),
-            "DNA": "#龍芯⚡️2026-06-04-API-NODE-v3.2"
+            "DNA": "#龍芯⚡️丙午·癸巳·己酉·庚午·䷨损-API-NODE-v3.2"
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"生成错误: {str(e)}")
@@ -203,7 +204,7 @@ async def 对冲指数分析(得分数据: Dict[str, Any]):
             "分项": result["分项"],
             "权重": result["权重"],
             "时间戳": datetime.now().isoformat(),
-            "DNA": "#龍芯⚡️2026-06-26-API-HEDGE-v3.3",
+            "DNA": "#龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-API-HEDGE-v3.3",
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"计算错误: {str(e)}")
@@ -224,7 +225,7 @@ async def 文档():
             "POST /analyze/circuit": "链路分析",
             "POST /analyze/hedge": "五行对冲指数 H（自学习权重）"
         },
-        "DNA": "#龍芯⚡️2026-06-26-API-WUXING-v3.3",
+        "DNA": "#龍芯⚡️丙午·甲午·辛未·甲午·䷖剥-API-WUXING-v3.3",
         "版本": "3.3"
     }
 

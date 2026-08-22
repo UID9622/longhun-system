@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🧬 龍魂神经网络·智能体桥接器 v1.0
 
 这是神经网络和agents系统之间的真正桥梁。
@@ -13,7 +14,7 @@
 3. 基于神经网络拓扑的智能体路由
 4. 双向反馈：agent执行结果反哺神经网络
 
-DNA: #龍芯⚡️2026-07-06-NEURAL-AGENT-BRIDGE-v1.0
+DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-NEURAL-AGENT-BRIDGE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 """
@@ -34,7 +35,7 @@ ROOT = HOME / "longhun-system"
 SYMBIOTE_URL = "http://127.0.0.1:9627"
 MANIFEST_PATH = ROOT / "agents" / "manifest.json"
 
-DNA = "#龍芯⚡️2026-07-06-NEURAL-AGENT-BRIDGE-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-NEURAL-AGENT-BRIDGE-v1.0"
 
 # ═══════════════════════════════════════════════════════════════
 # 一、五行 ↔ Agent 类型映射表

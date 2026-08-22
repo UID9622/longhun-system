@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 · 本地法律引擎 API 服务
-DNA: #龍芯⚡️2026-06-29-LONGHUN-LEGAL-ENGINE-API-v1.0
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-LEGAL-ENGINE-API-v1.0
 
 本地服务，端口 9634。其他模块可以通过 HTTP 或 import 引用。
 """
@@ -58,7 +59,7 @@ def list_laws():
 
 @app.route("/health", methods=["GET"])
 def health():
-    return jsonify({"status": "ok", "dna": "#龍芯⚡️2026-06-29-LONGHUN-LEGAL-ENGINE-API-v1.0"})
+    return jsonify({"status": "ok", "dna": "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-LEGAL-ENGINE-API-v1.0"})
 
 
 def 启动服务(端口: int = 9634):

@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 人格治理引擎 v2.0
-DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-PERSONA-GOVERNANCE-v2.0-UID9622
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-PERSONA-GOVERNANCE-v2.0-UID9622
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -466,7 +467,7 @@ def main():
         description="🐉 龍魂 · 人格治理引擎 v2.1",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=f"""
-DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-PERSONA-GOVERNANCE-v2.1
+DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-PERSONA-GOVERNANCE-v2.1
 CONFIRM: {CONFIRM}
 GPG: {GPG}
 示例:

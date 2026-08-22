@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ═══════════════════════════════════════════════════════════════════════════════
 
 ⚖️ 三色审计·龍魂系统集成模块 v1.0
@@ -13,7 +14,7 @@ Three-Color Audit System Integration with LongHun Ecosystem
 Author:      Claude Haiku 4.5
 Authorized:  UID9622 (DragonCore North Star)
 
-DNA:  #龍芯⚡️2026-06-08-AUDIT-INTEGRATION-LONGHUN-FILE1_3DFA-v1.0
+DNA:  #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-AUDIT-INTEGRATION-LONGHUN-FILE1_3DFA-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -550,7 +551,7 @@ def demo_full_integration():
     # 示例响应
     response = """
     龍魂系统的身份验证链完整。
-    DNA: #龍芯⚡️2026-06-08-DEMO
+    DNA: #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-DEMO
     CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
     """
 

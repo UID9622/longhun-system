@@ -2,13 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ╔══════════════════════════════════════════════════════════════════╗
 ║      龍魂执行时间表和自动化规则 / Execution Schedule             ║
 ║                                                                  ║
 ║  什么时候同步、什么时候触发、什么时候自动化                       ║
 ║  L0-L4分层的执行时间表和触发规则                                 ║
 ║                                                                  ║
-║  DNA:#龍芯⚡️2026-06-03-EXECUTION-SCHEDULE-FILE1-v1.0                ║
+║  DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-EXECUTION-SCHEDULE-FILE1-v1.0                ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓              ║
 ║                                                                  ║
 ║  来源: 龍魂系统架构                                              ║

@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · bin/ 脚本目录说明
 
-> DNA: #龍芯⚡️202607182315-STRUCT-REVIEW-BIN-INDEX
+> DNA: #龍芯⚡️丙午·乙未·癸巳·戊午·䷃蒙-STRUCT-REVIEW-BIN-INDEX
 > 本文件由 Kimi 整理生成，用于给 AI 和开发者一个清晰的入口地图。
 
 ## 总览

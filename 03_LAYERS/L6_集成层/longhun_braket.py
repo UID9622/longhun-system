@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 
 # ╔═══════════════════════════════════════════════════════════════════════════╗
@@ -126,19 +127,13 @@ class 演化态:
         self.engine = engine
         self.state = state
 
-    def 协作概率(self) -> List[SimpleNamespace]:
-        return [self.engine._概率对象(p) for p in self.engine.协作概率(self.state)]
 
-    def 三色审计(self) -> SimpleNamespace:
-        probs = self.engine.协作概率(self.state)
-        audit = self.engine.三色审计(probs)
-        return self.engine._审计对象(audit)
 
 
 class 龍魂BraKet引擎:
     """龍芯量子人格协作系统"""
 
-    DNA = "#龍芯⚡️2026-07-05-LONGHUN-BRAKET-v1.0"
+    DNA = "#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-LONGHUN-BRAKET-v1.0"
     CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
     # Bra-Ket 页面定义的 8 个基态人格（P00-P07）

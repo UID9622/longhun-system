@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · Notion 引擎标签归类器 v1.0
-DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·临-NOTION-ENGINE-LABELER-v1.0-2C681225
+DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-NOTION-ENGINE-LABELER-v1.0-2C681225
 创建者: 诸葛鑫 (UID9622)
 协议: CC BY-NC-SA 4.0
 """
@@ -22,7 +22,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 CST = timezone(timedelta(hours=8))
 
-DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·临-NOTION-ENGINE-LABELER-v1.0-2C681225"
+DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-NOTION-ENGINE-LABELER-v1.0-2C681225"
 SCHEMA_VERSION = "1.0.0"
 
 ROOT = Path(__file__).resolve().parent.parent

@@ -2,7 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """🐉 方法论结构化引擎 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲寅·申时·师-P01-METHODOLOGIES-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+DNA: #龍芯⚡️丙午·乙未·甲寅·申时·䷆师-P01-METHODOLOGIES-v1.0
 
 职责: 将P01知识图谱中的方法论（九转金丹诀、16维决策链等）结构化，
      生成H武器可直接消费的深度推演参数包。
@@ -322,4 +323,4 @@ if __name__ == "__main__":
     print(f"  DNA: {feed['dna']}")
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·观-CONFIRM-SEAL-methodologies-F081528B
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷓观-CONFIRM-SEAL-methodologies-F081528B

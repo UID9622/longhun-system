@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂大白话指南 · 优化方案 v2.0
 
-**DNA**:#龍芯⚡️2026-06-03-PLAIN-GUIDE-OPTIMIZATION-FILE1-v2.0
+**DNA**:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-PLAIN-GUIDE-OPTIMIZATION-FILE1-v2.0
 **作者**: Claude (宝宝)
 **日期**: 2026-06-03
 **状态**: ✅ 完成·已测试
@@ -451,6 +451,6 @@ cnsh-core/
 
 ---
 
-**DNA**:#龍芯⚡️2026-06-03-PLAIN-GUIDE-OPTIMIZATION-v2.0
+**DNA**:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-PLAIN-GUIDE-OPTIMIZATION-v2.0
 **责任**: UID9622·不免责
 **状态**: 🟢 完成·可用

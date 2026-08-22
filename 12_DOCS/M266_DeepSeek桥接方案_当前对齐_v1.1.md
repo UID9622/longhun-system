@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
@@ -19,8 +19,8 @@ tags:
 
 > 把 Claude archive 里的 M266 技能恢复并对齐到当前龍魂体系，作为 Anthropic SDK → DeepSeek 的本地兼容桥。
 
-**父链 DNA**：`#龍芯⚡️2026-05-31-23:44-DEEPSEEK-BRIDGE-FILE7-v1.0`  
-**当前 DNA**：`#龍芯⚡️2026-07-04-DEEPSEEK-BRIDGE-ALIGN-v1.1`  
+**父链 DNA**：`#龍芯⚡️丙午·癸巳·乙巳·丙子·䷅讼-DEEPSEEK-BRIDGE-FILE7-v1.0`  
+**当前 DNA**：`#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-DEEPSEEK-BRIDGE-ALIGN-v1.1`  
 **M号**：M266  
 **CONFIRM**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
@@ -144,7 +144,7 @@ Ollama 本地兜底 (127.0.0.1:11434)
 
 ```bash
 DEEPSEEK_API_KEY=sk-xxx
-DEEPSEEK_MODEL=deepseek-chat
+DEEPSEEK_MODEL=deepseek-v4-flash
 OLLAMA_FALLBACK=false
 ```
 
@@ -186,7 +186,7 @@ M266 原方案提出三条铁律，建议入册 `longhun-iron-laws`：
 - `sendChat()` 增加分支：选择 DeepSeek Bridge 时，调用 `127.0.0.1:8788/v1/messages`（Anthropic Messages API 格式）
 - 系统提示词 `SYSTEM_PROMPT` 作为 `system` 字段传入
 - 支持对话历史上下文
-- 操作台 DNA 更新为：`#龍芯⚡️2026-07-04-龍魂智能中枢-v4.1-DEEPSEEK-BRIDGE`
+- 操作台 DNA 更新为：`#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-龍魂智能中枢-v4.1-DEEPSEEK-BRIDGE`
 
 ### 10.2 开启 Ollama 兜底并实测 ✅
 
@@ -225,7 +225,7 @@ OLLAMA_FALLBACK=true
 
 ## 签章
 
-- **DNA**：`#龍芯⚡️2026-07-04-DEEPSEEK-BRIDGE-ALIGN-v1.1`
+- **DNA**：`#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-DEEPSEEK-BRIDGE-ALIGN-v1.1`
 - **CONFIRM**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
-- **父链**：`#龍芯⚡️2026-05-31-23:44-DEEPSEEK-BRIDGE-FILE7-v1.0`
+- **父链**：`#龍芯⚡️丙午·癸巳·乙巳·丙子·䷅讼-DEEPSEEK-BRIDGE-FILE7-v1.0`
 - **双签**：UID9622 · 龍芯北辰

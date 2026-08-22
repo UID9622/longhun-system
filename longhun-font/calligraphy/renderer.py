@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·坎-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷜坎-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# #龍芯⚡️20260624010825157-AUTO-DNA-F43722E7 自动注入·分层治理自愈引擎 · 来源可查
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# #龍芯⚡️丙午·甲午·己巳·乙丑·䷮困-AUTO-DNA-F43722E7 自动注入·分层治理自愈引擎 · 来源可查
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️2026-06-23-LONGHUN-FONT-RENDERER-v1.0
+# DNA追溯码:#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-FONT-RENDERER-v1.0
 """
 书法渲染引擎
 
@@ -25,7 +26,7 @@ from .work_id import generate_work_id
 from .watermark import add_visible_watermark, add_frequency_watermark
 from .seal_generator import generate_seal
 
-DNA = "#龍芯⚡️2026-06-23-LONGHUN-FONT-RENDERER-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-FONT-RENDERER-v1.0"
 
 BASE_DIR = Path(__file__).parent.parent
 OUTPUT_DIR = BASE_DIR / "output" / "calligraphy"

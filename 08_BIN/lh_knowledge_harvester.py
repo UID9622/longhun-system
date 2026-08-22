@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 知识全息拉取器 v1.0
-DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-HARVEST-v1.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-HARVEST-v1.0-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -435,9 +435,6 @@ class AIFetcher(BaseFetcher):
                     continue
         return items
 
-    @staticmethod
-    def _is_relevant(text: str) -> bool:
-        return any(kw in text for kw in LONGHUN_KEYWORDS)
 
 
 # ============================================================

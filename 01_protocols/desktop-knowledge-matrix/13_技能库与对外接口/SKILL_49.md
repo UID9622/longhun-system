@@ -1,10 +1,12 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-trust-protocol
 description: '龍魂君子协议 · 诚信评级与违约清算算法。 包含零号协议“世界老百姓最高”：不可覆盖、不可弱化、不可篡改、不可资本收割。 量化道德值、人品值、诚信值，违约上链，贡献赎回，三级清算。 从属于《龍魂系统宪法》与中华人民共和国法律，数据主权归 UID9622 / 龍魂系统所有，以人民为基石，中国法律为骨，服务老百姓。已融合君子协议 v1.2 · 江湖重铸版（承诺不欺、敢签敢扛、容错不背刺）。'
 metadata:
   id: longhun-trust-protocol
   version: '5.2'
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-TRUST-PROTOCOL-v5.2-a4c7e1d2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-TRUST-PROTOCOL-v5.2-a4c7e1d2'
   author: UID9622 · 龍芯北辰
   category: governance
   trigger:
@@ -30,7 +32,7 @@ metadata:
 
 **触发关键词**：君子协议、诚信评级、违约清算、杀猪机制、贡献赎回、道德值、人品值、诚信值、UID9622 信用、龍魂治理。
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-TRUST-PROTOCOL-v5.2-a4c7e1d2`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-TRUST-PROTOCOL-v5.2-a4c7e1d2`
 
 ## 功能
 
@@ -84,7 +86,7 @@ print(proto.get("lucky").score)
 
 ## 零号协议
 
-> **DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-ZERO-PROTOCOL-WORLD-PEOPLE-SUPREME-v1.0`
+> **DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ZERO-PROTOCOL-WORLD-PEOPLE-SUPREME-v1.0`
 
 **零号协议是龍魂君子协议的最高条款，优先级高于所有信用评分、违约清算与贡献计算。**
 

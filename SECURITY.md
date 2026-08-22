@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 安全策略 / Security Policy
 
-> DNA: #龍芯⚡️2026-07-30-LONGHUN-SECURITY-POLICY-v1.0  
+> DNA: #龍芯⚡️丙午·乙未·乙巳·壬午·䷃蒙-LONGHUN-SECURITY-POLICY-v1.0  
 > 项目: 龍魂系统 / LongHun System  
 > 维护者: UID9622  
 > 适用范围: 所有公开仓库、`longhun-system` 主仓库及其子模块

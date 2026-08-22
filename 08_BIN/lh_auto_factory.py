@@ -93,8 +93,6 @@ class BuildArtifact:
     created_at: str
     dna: str
 
-    def to_dict(self) -> Dict:
-        return asdict(self)
 
 
 @dataclass
@@ -112,8 +110,6 @@ class TestReport:
     timestamp: str
     details: List[Dict]
 
-    def to_dict(self) -> Dict:
-        return asdict(self)
 
 
 # ============================================================

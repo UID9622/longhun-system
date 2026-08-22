@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 B8 · DNA追溯脑区 → P01 诸葛亮
@@ -9,7 +10,7 @@ B8 · DNA追溯脑区 → P01 诸葛亮
 DNA检测、生成、簽名验证。
 对接现有 hetu_luoshu_dna.py DNA生成系统。
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·未时·需-BRAIN-B8-DNA-TRACER-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·未时·䷄需-BRAIN-B8-DNA-TRACER-v1.0
 """
 
 import re

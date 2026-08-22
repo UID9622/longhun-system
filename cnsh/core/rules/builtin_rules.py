@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════╗
@@ -9,7 +10,7 @@
 ║                                                                  ║
 ║  P1-2 规则引擎·内置规则库                                        ║
 ║                                                                  ║
-║  DNA:#龍芯⚡️2026-06-03-BUILTIN-RULES-FILE1-v1.0                     ║
+║  DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-BUILTIN-RULES-FILE1-v1.0                     ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                 ║
 ║                                                                  ║
 ║  理论指导: 曾仕强·道德经第六十六章 (古之善战者·先为不可胜)      ║
@@ -66,7 +67,7 @@ def get_builtin_rules() -> List, Any[Rule]:
             condition="'score' in context",
             action="three_color_judgment",
             priority=RulePriority.HIGH,  # 优先级 21-40
-            dna="#龍芯⚡️2026-06-03-THREE-COLOR-AUDIT-v1.0",
+            dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-THREE-COLOR-AUDIT-v1.0",
             layer="L1_SEASONAL",
             description="三色审计规则：根据 score 进行三色判定。🟢通过(≥80) / 🟡待审(50-80) / 🔴阻断(<50)",
             tags=["audit", "three-color", "core"],
@@ -91,7 +92,7 @@ def get_builtin_rules() -> List, Any[Rule]:
             condition="context.get('operation') in ['密钥', 'sudo', 'rm', 'push --force', 'token', '私钥', '.env', '删除', '覆盖']",
             action="veto_block",
             priority=RulePriority.CRITICAL,  # 优先级 1-20（最高）
-            dna="#龍芯⚡️2026-06-03-VETO-ALERT-v1.0",
+            dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-VETO-ALERT-v1.0",
             layer="L0_ETERNAL",
             description="一票否决规则：高危操作必须明确确认。触发词：密钥、sudo、rm、push --force、token、私钥、.env 等。",
             tags=["veto", "security", "high-risk", "core"],
@@ -119,7 +120,7 @@ def get_builtin_rules() -> List, Any[Rule]:
             condition="'value' in context",
             action="dr_gate_check",
             priority=RulePriority.MEDIUM,  # 优先级 41-70
-            dna="#龍芯⚡️2026-06-03-DR-GATE-v1.0",
+            dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-DR-GATE-v1.0",
             layer="L1_SEASONAL",
             description="数字根判定规则：基于数字根 (Digital Root) 的决策逻辑。dr∈{3,9}→🔴 / dr=6→🟡 / 其他→🟢",
             tags=["formula", "digital-root", "mathematics"],
@@ -146,7 +147,7 @@ def get_builtin_rules() -> List, Any[Rule]:
             condition="'age_days' in context",
             action="time_decay_check",
             priority=RulePriority.MEDIUM,  # 优先级 41-70
-            dna="#龍芯⚡️2026-06-03-TIME-DECAY-v1.0",
+            dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-TIME-DECAY-v1.0",
             layer="L2_DECENNIAL",
             description="时间衰减规则：基于时间衰减公式 L = L₀ * T^(-α_τ) 的生命周期评估。判断内容是否过期。",
             tags=["formula", "time-decay", "lifecycle"],

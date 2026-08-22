@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 from __future__ import annotations
 """
 龍魂系统 · 分布式注册中心 v2.0
-DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·讼-LH-REGISTRY-v2.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·卯时·䷅讼-LH-REGISTRY-v2.0
 
 功能：
 - 接收各节点心跳（只存用量，不存内容）
@@ -33,7 +34,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 from collections import defaultdict, OrderedDict
 
 # ============ 龍魂DNA锚定 ============
-DNA_ANCHOR = "#龍芯⚡️丙午·辛未·乙酉·卯时·讼-TRAIN-DATA-SOURCES-v2.0"
+DNA_ANCHOR = "#龍芯⚡️丙午·辛未·乙酉·卯时·䷅讼-TRAIN-DATA-SOURCES-v2.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 CST = timezone(timedelta(hours=8))
 

@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 P07 管仲 · 资源调度执行器
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 Guan Zhong · Resource Scheduler Executor
 
-DNA: #龍芯⚡️丙午·辛未·乙酉·亥时·需-P07-GUANZHONG-v1.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·亥时·䷄需-P07-GUANZHONG-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 

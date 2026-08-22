@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂行为密码学 · Behavioral Cryptography for LongHun
@@ -15,7 +16,7 @@
   - 权限等级决定 AI 能做什么、对谁做、做到什么程度
   - 所有行为写入本地审计链，不上传第三方
 
-DNA:#龍芯⚡️2026-06-20-LONGHUN-BEHAVIORAL-CRYPTO-FILE1-v1.0
+DNA:#龍芯⚡️丙午·甲午·乙丑·壬午·䷨损-LONGHUN-BEHAVIORAL-CRYPTO-FILE1-v1.0
 """
 
 import hashlib

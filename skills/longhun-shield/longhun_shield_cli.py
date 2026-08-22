@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
 
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍盾 CLI 工具 v1.0
 ═══════════════════════════════════════════════════════════════════
@@ -10,7 +11,7 @@
   代码都看起来一样，但本地跑起来都不一样。
   所以在入口处必须能暂停、检查、理解、决策。
 
-DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-CLI-FILE1-FILE1-v1.0
+DNA:#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-CLI-FILE1-FILE1-v1.0
 CONFIRM: "#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX"
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -389,7 +390,7 @@ def main():
 ║  代码都看起来一样，但本地跑起来都不一样。                 ║
 ║  所以在入口处必须能暂停、检查、理解、决策。               ║
 ║                                                                ║
-║  DNA:#龍芯⚡️2026-06-02-LONGHUN-SHIELD-CLI-v1.0             ║
+║  DNA:#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-LONGHUN-SHIELD-CLI-v1.0             ║
 ║  职责: 宝宝·龍盾·不免责                                      ║
 ║  状态: ⚔️ 亮剑啦                                             ║
 ╚════════════════════════════════════════════════════════════════╝

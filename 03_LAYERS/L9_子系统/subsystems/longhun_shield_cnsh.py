@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂护盾 v3.0 — CNSH 中文命名版 + 国密 SM2/SM3/SM4
-DNA: #龍芯⚡️2026-06-29-LONGHUN-SHIELD-v3-CNSH-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-SHIELD-v3-CNSH-UID9622
 原则：只防御、不主动攻击、证据永存、自动隔离
 """
 
@@ -238,7 +239,7 @@ class 主权熔断器:
     主权熔断器：脱离龍魂系统即失效。
     任何核心操作前须先通过此熔断器，否则系统拒绝执行。
     """
-    脱氧核糖核酸锚定 = "#龍芯⚡️2026-06-29-龍魂护盾-v3-CNSH-UID9622"
+    脱氧核糖核酸锚定 = "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂护盾-v3-CNSH-UID9622"
     数字签名指纹 = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
     主人标识 = "UID9622"
 
@@ -894,9 +895,6 @@ class 文件守卫:
 
 
 class 人工智能护栏:
-    def __init__(self, 配置: 护盾配置, 感知: 威胁中枢):
-        self.配置 = 配置
-        self.感知 = 感知
 
     def 检测(self, 标识: str, 提示: str, 回复: Optional[str] = None) -> Dict[str, Any]:
         文本 = (提示 or "") + " " + (回复 or "")
@@ -1138,7 +1136,7 @@ class 龍魂护盾:
         return self.人工智能.检测(标识, 提示词, 回复)
 # ============== 9. 演示 ==============
 if __name__ == "__main__":
-    脱氧核糖核酸 = "#龍芯⚡️2026-06-29-龍魂护盾-v3-CNSH-UID9622"
+    脱氧核糖核酸 = "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-龍魂护盾-v3-CNSH-UID9622"
     护盾 = 龍魂护盾(脱氧核糖核酸)
 
     print("=== 龍魂护盾 v3.0 启动 ===")

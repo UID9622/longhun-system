@@ -4,7 +4,7 @@
 """
 🧬 龍魂 DNA 音频水印引擎 v2.0 · QIM-LSB 方案
 
-DNA: #龍芯⚡️丙午·乙未·己卯·午时·☰乾-TTS-DNA-WATERMARK-v2.0-QIM-a9b0c1d2
+DNA: #龍芯⚡️丙午·乙未·己卯·午时·䷀乾-TTS-DNA-WATERMARK-v2.0-QIM-a9b0c1d2
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0

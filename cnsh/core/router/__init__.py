@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂系统·路由模块 (Router Module)
 
 【核心功能】
@@ -9,7 +10,7 @@
 - PersonaRouter: 人格路由系统 (虚伪词汇阻挡+加权人格决策)
 
 【龍魂系统坐标】
-DNA:#龍芯⚡️2026-06-03-ROUTER-MODULE-FILE1-v1.0
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-ROUTER-MODULE-FILE1-v1.0
 层级: L1·季节性路由
 
 【责任声明】

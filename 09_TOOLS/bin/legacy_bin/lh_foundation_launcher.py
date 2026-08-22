@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 ═══════════════════════════════════════════════════════════════════════════════
   龍魂系統底座啟動台 v2.0 — LongHun Foundation Launcher
 ═══════════════════════════════════════════════════════════════════════════════
 
-  DNA簽名    : #龍芯⚡️2026-06-17-FOUNDATION-LAUNCHER-v2.0
+  DNA簽名    : #龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-FOUNDATION-LAUNCHER-v2.0
   CONFIRM標記: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
   SEAL標記   : #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -59,7 +60,7 @@ from typing import Any, Dict, List, Optional, Tuple
 # 全局常量 — 龍魂體系標識
 # ═══════════════════════════════════════════════════════════════════════════════
 
-DNA_SIGNATURE = "#龍芯⚡️2026-06-17-FOUNDATION-LAUNCHER-v2.0"
+DNA_SIGNATURE = "#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-FOUNDATION-LAUNCHER-v2.0"
 CONFIRM_MARK = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SEAL_MARK = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 VERSION = "v2.0"

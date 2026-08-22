@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂·开源项目发布模板生成器 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-模板生成-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-模板生成-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -48,7 +48,7 @@ DEFAULT_CONFIG = {
     "year": "2026",
     "version": "1.0.0",
     "python_version": "3.10+",
-    "dna": "#龍芯⚡️丙午·乙未·甲辰·离为火-模板生成-v1.0",
+    "dna": "#龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-模板生成-v1.0",
     "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 }
 

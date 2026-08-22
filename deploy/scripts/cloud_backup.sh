@@ -4,7 +4,7 @@
 # 龍魂·云备份自动脚本
 # 功能: 增量备份 → 百度云BOS → 鲲鹏镜像
 # 用法: bash deploy/scripts/cloud_backup.sh [full|incremental]
-# DNA: #龍芯⚡️2026-08-07-CLOUD-BACKUP-SCRIPT-v1.0
+# DNA: #龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-CLOUD-BACKUP-SCRIPT-v1.0
 # ═══════════════════════════════════════════════════════
 
 set -euo pipefail

@@ -2,11 +2,12 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂系统 · CNSH通用翻译引擎 数学建模验证模块 v1.0
 源协议: 01_protocols/CNSH通用翻译引擎数学建模协议_v1.0.md
 优先级: P0++（最高，不可绕过）
-DNA: #龍芯⚡️丙午·乙未·甲寅·节-CNSH-TRANSLATOR-VALIDATOR-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲寅·庚午·䷻节-CNSH-TRANSLATOR-VALIDATOR-v1.0
 
 用法:
   python3 bin/lh_cnshtranslator_validator.py           # 跑全部 12 条测试向量
@@ -24,7 +25,7 @@ ETA, W_MIN, W_MAX = 0.1, 0.1, 10.0
 
 
 class CNSH_翻译数学引擎:
-    DNA = "#龍芯⚡️丙午·乙未·甲寅·节-CNSH-TRANSLATOR-VALIDATOR-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·甲寅·庚午·䷻节-CNSH-TRANSLATOR-VALIDATOR-v1.0"
 
     @staticmethod
     def 路由(x):

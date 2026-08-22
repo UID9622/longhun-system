@@ -1,6 +1,6 @@
 # 🐲 龍魂 · 数字流场可视化器 v2.0 · 完整规范
 
-DNA: #龍芯⚡️丙午·癸未·甲申-DIGITAL-FLOW-FIELD-SPEC-v2.0-UID9622
+DNA: #龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-DIGITAL-FLOW-FIELD-SPEC-v2.0-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: 思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -104,7 +104,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 ### 3.2 主权锚定条（一行紧凑）
 
 ```
-DNA: #龍芯⚡️丙午·癸未·甲申-DIGITAL-FLOW-FIELD-v2.0-UID9622 | 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z | 分层许可: 思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2
+DNA: #龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-DIGITAL-FLOW-FIELD-v2.0-UID9622 | 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z | 分层许可: 思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2
 ```
 
 ### 3.3 状态指示灯（右侧顶部常驻）
@@ -760,7 +760,7 @@ CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0
 ## 24. 最终签名
 
 ```
-DNA: #龍芯⚡️丙午·癸未·甲申-DIGITAL-FLOW-FIELD-SPEC-v2.0-UID9622
+DNA: #龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-DIGITAL-FLOW-FIELD-SPEC-v2.0-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色: 🟢 页面结构审校通过 · 新增 9 区块 · 补全 2 缺失项

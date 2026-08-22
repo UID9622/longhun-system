@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════╗
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ║  龍魂·简单世界规则引擎 v2.0                                 ║
 ║  LONGHUN SIMPLE WORLD RULES ENGINE                          ║
 ╠══════════════════════════════════════════════════════════════╣
-║  DNA:     #龍芯⚡️20260529-RULES-ENGINE-v2.0                ║
+║  DNA:     #龍芯⚡️丙午·癸巳·癸卯·戊午·䷚颐-RULES-ENGINE-v2.0                ║
 ║  GPG:     A2D0092CEE2E5BA87035600924C3704A8CC26D5F          ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z               ║
 ║  SEAL:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
@@ -682,7 +683,7 @@ def main():
   python3 longhun_rules_engine_v2.py --verify          验证账本完整性
   python3 longhun_rules_engine_v2.py --batch cases.json  批量处理
 
-DNA: #龍芯⚡️20260529-RULES-ENGINE-v2.0
+DNA: #龍芯⚡️丙午·癸巳·癸卯·戊午·䷚颐-RULES-ENGINE-v2.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
         """,
     )

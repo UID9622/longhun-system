@@ -2,13 +2,14 @@
 # -*- coding: utf-8 -*-
 """
 龍魂黎曼猜想观察性框架 · 数值实验代码
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 重要声明：
   本文档是一个观察性框架（observational framework），不是数学证明。
   数值验证部分仅展示现象，不构成逻辑证明。
   我们没有证明黎曼猜想。
 
-DNA: #龍芯⚡️2026-06-08-Riemann-Dragonhood-Framework-v1.1
+DNA: #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-Riemann-Dragonhood-Framework-v1.1
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """

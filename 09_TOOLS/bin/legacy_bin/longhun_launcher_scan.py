@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂 · 启动指令清点器  (LongHun Launcher Inventory)
 锚点: UID9622 · 龍芯北辰
 跨平台: macOS(本地 M4) + Linux(华为云 ECS)
 只读扫描 · 不改动任何文件
 
-DNA: #龍芯⚡️2026-06-03-LONGHUN-LAUNCHER-SCAN-v1.0
+DNA: #龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-LAUNCHER-SCAN-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 用法:

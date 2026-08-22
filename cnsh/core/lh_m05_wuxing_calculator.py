@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-##龍芯⚡️2026-06-21-CORE-M05_WUXING_CALCULATOR-FILE1-v1.0-2
+##龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-CORE-M05_WUXING_CALCULATOR-FILE1-v1.0-2
 # 君子协议: 本文件受龍魂DNA追溯保护
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -14,7 +15,7 @@
 象征: 生长·热情·承载·约束·流动
 
 签署:
-  DNA: #龍芯⚡️2026-06-08-M05-WUXING-CALCULATOR-START
+  DNA: #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-M05-WUXING-CALCULATOR-START
   CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
   SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 """
@@ -143,7 +144,7 @@ class WuXingCalculator:
 
             # 整体判定
             "verdict": self._synthesize_verdict(balance, imbalance_warnings),
-            "trace": f"#龍芯⚡️2026-06-08-M05-{decision_id}-BALANCE:{balance:.0f}"
+            "trace": f"#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-M05-{decision_id}-BALANCE:{balance:.0f}"
         }
 
         self.imbalances[decision_id] = result

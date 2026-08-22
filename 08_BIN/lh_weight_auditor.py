@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂系統 · 權重參數審計工具 v1.1
-DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-WEIGHT-AUDIT-V1.1-UID9622
+DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-WEIGHT-AUDIT-V1.1-UID9622
 確認碼: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 License: 思想層 CC BY-NC-SA 4.0 · 工程層 MulanPSL v2
 變更: 新增全組Σ校验 / 動態範圍越界檢測 / JSON導出 / 進程退出碼
@@ -99,7 +99,7 @@ def generate_report(as_json=False):
     total_errors = sum(len(v) for v in checks.values())
     status = "🟢" if total_errors == 0 else ("🟡" if total_errors <= 2 else "🔴")
     result = {
-        "dna": "#龍芯⚡️丙午·甲申·辛丑·坤卦-WEIGHT-AUDIT-V1.1-UID9622",
+        "dna": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-WEIGHT-AUDIT-V1.1-UID9622",
         "audit_time": datetime.now().isoformat(),
         "status": status,
         "stats": {"总权重项": 102, "P0焊死": 5, "归一校验组": 14},

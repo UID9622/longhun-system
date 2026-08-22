@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ╔══════════════════════════════════════════════════════════════╗
 ║  龍魂·自适应微调参数系统 v2.0                                ║
-║  DNA: #龍芯⚡️丙午·乙未·己未·亥时·履-ADAPTIVE-TUNER-v2.0     ║
+║  DNA: #龍芯⚡️丙午·乙未·己未·亥时·䷉履-ADAPTIVE-TUNER-v2.0     ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F               ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║

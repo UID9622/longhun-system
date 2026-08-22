@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 """
@@ -12,7 +13,7 @@ from __future__ import annotations
   - dragon_knowledge.db 代码收割记录检索
   - 公开知识图谱节点/边/一跳查询
 
-DNA:#龍芯⚡️2026-06-19-LONGHUN-KNOWLEDGE-GRAPH-v1.0
+DNA:#龍芯⚡️丙午·甲午·甲子·庚午·䷙大畜-LONGHUN-KNOWLEDGE-GRAPH-v1.0
 """
 
 import json

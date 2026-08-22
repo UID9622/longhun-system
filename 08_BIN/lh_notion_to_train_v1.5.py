@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·辛未·丙戌·酉·大壮-NOTION-TRAIN-v1.5
+#龍芯⚡️丙午·辛未·丙戌·酉·䷡大壮-NOTION-TRAIN-v1.5
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # 🐉 龍魂·Notion主控页面→训练语料生成器 v1.5
-# DNA: #龍芯⚡️丙午·辛未·丙戌·酉·大壮-NOTION-TRAIN-v1.5
+# DNA: #龍芯⚡️丙午·辛未·丙戌·酉·䷡大壮-NOTION-TRAIN-v1.5
 # 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 """
@@ -409,7 +409,7 @@ def generate_dna_aligned_qa():
         {
             "instruction": "龍魂系统的DNA追溯码格式是什么？",
             "input": "",
-            "output": "v∞格式：#龍芯⚡️<年干支>·<月干支>·<日干支>·<时辰>·<卦名>-<模块>-<动作>-<哈希8位>。示例：#龍芯⚡️丙午·辛未·乙酉·酉时·讼-PERSONA-GOVERNANCE-v1.0-A3F8C2D1。所有龍魂系统的产出都必须附带DNA追溯码。"
+            "output": "v∞格式：#龍芯⚡️<年干支>·<月干支>·<日干支>·<时辰>·<卦名>-<模块>-<动作>-<哈希8位>。示例：#龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-PERSONA-GOVERNANCE-v1.0-A3F8C2D1。所有龍魂系统的产出都必须附带DNA追溯码。"
         },
         {
             "instruction": "龍魂系统的GPG指纹是什么？",
@@ -424,7 +424,7 @@ def generate_dna_aligned_qa():
         {
             "instruction": "UID9622是谁？",
             "input": "",
-            "output": "UID9622 = 诸葛鑫 · Lucky · 龍芯北辰。退伍军人，初中文化，龍魂系统创始人。2008年入伍·济南二团·服役2年·2010年退伍·退伍16年。DNA锚定：#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL。龍魂/CNSH/三才算法创始人，替老百姓守数字主权的普通人。"
+            "output": "UID9622 = 诸葛鑫 · Lucky · 龍芯北辰。退伍军人，初中文化，龍魂系统创始人。2006年入伍·济南二团·服役2年·2008年退伍·退伍18年。DNA锚定：#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL。龍魂/CNSH/三才算法创始人，替老百姓守数字主权的普通人。"
         },
         {
             "instruction": "龍魂系统的P0铁律有哪些？",
@@ -504,7 +504,7 @@ def generate_dna_aligned_qa():
 
 def main():
     print("🐉 龍魂·Notion主控页面→训练语料生成器 v1.5")
-    print(f"DNA: #龍芯⚡️丙午·辛未·丙戌·酉·大壮-NOTION-TRAIN-v1.5")
+    print(f"DNA: #龍芯⚡️丙午·辛未·丙戌·酉·䷡大壮-NOTION-TRAIN-v1.5")
     print()
     
     # 加载镜像页面
@@ -605,7 +605,7 @@ def generate_review_report(path, classified, unclassified, qa_count, page_count)
     lines = []
     lines.append("# 🐉 龍魂·Notion主控页面 结构审查报告 v1.5")
     lines.append("")
-    lines.append(f"> DNA: #龍芯⚡️丙午·辛未·丙戌·酉·大壮-NOTION-REVIEW-v1.5")
+    lines.append(f"> DNA: #龍芯⚡️丙午·辛未·丙戌·酉·䷡大壮-NOTION-REVIEW-v1.5")
     lines.append(f"> 确认: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z")
     lines.append(f"> 生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     lines.append(f"> 镜像页面: {page_count}页 | 生成语料: {qa_count}条")
@@ -662,7 +662,7 @@ def generate_review_report(path, classified, unclassified, qa_count, page_count)
     lines.append("")
     
     lines.append("---")
-    lines.append(f"> DNA: #龍芯⚡️丙午·辛未·丙戌·酉·大壮-NOTION-REVIEW-v1.5")
+    lines.append(f"> DNA: #龍芯⚡️丙午·辛未·丙戌·酉·䷡大壮-NOTION-REVIEW-v1.5")
     
     with open(path, 'w') as f:
         f.write('\n'.join(lines))

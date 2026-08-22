@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 CNSH神经脑区模块包
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·未时·需-CNSH-BRAIN-REGIONS-PKG-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·未时·䷄需-CNSH-BRAIN-REGIONS-PKG-v1.0
 """
 
 __version__ = "1.0.0"

@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 # Author: 原作者
 # Copyright (c) 2025
-# #龍芯⚡️2026-06-01-ORIGINAL-ABC123-UID9622
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# #龍芯⚡️丙午·癸巳·丙午·甲午·䷳艮为山-ORIGINAL-ABC123-UID9622
 
 import yaml
 import requests
@@ -28,7 +29,7 @@ print("龍魂系统启动")
 # 原文件: ./demo_vulnerable.py
 # 原文件 SM3 哈希: 7f996051fd936c5555303a983fc4604a9abebdae3e089765bb75beecb14ad053
 # 修复原则: 只修复安全漏洞，不删除原水印、版权、作者、DNA
-# 引擎 DNA: #龍芯⚡️2026-06-29-CNSH-AUDIT-ENGINE-v2-UID9622
-# #龍芯⚡️2026-08-09-CNSH-AUDIT-REPAIR-3A9773D1EFD223A4-ENTROPY78B6D9C7-UID9622-REPAIR
+# 引擎 DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-AUDIT-ENGINE-v2-UID9622
+# #龍芯⚡️丙午·丙申·乙卯·壬午·䷚颐-CNSH-AUDIT-REPAIR-3A9773D1EFD223A4-ENTROPY78B6D9C7-UID9622-REPAIR
 # ============================================================
 

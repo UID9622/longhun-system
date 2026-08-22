@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·噬嗑-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷔噬嗑-FIX_DNA-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
-"""#龍芯⚡️2026-06-18-CNSH-TERMINOLOGY-BANK-FILE2-v5.0
+"""#龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-CNSH-TERMINOLOGY-BANK-FILE2-v5.0
 # 🟢 审计通过: 中央藏经阁完整实现
 # 🔒 AI Truth Protocol: 所有声明均为真实
 # 🤝 君子协议: CC BY-NC-SA 4.0 · UID9622 · 龍芯北辰 · 诸葛鑫
@@ -60,7 +60,7 @@ class 中央藏经阁:
     支持向量搜索 + 关系查询 + 术语管理
     """
 
-    DNA追溯 = "#龍芯⚡️2026-06-18-CNSH-TERMINOLOGY-BANK-v5.0"
+    DNA追溯 = "#龍芯⚡️丙午·甲午·癸亥·戊午·䷚颐-CNSH-TERMINOLOGY-BANK-v5.0"
 
     def __init__(self, chroma_path: str | None = None, sqlite_path: str | None = None):
         """

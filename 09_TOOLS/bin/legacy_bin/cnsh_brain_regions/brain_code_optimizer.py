@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 B6 · 代码优化脑区 → P02 龍芯修复师
@@ -9,7 +10,7 @@ B6 · 代码优化脑区 → P02 龍芯修复师
 算法优化、结构优化、性能改进。
 最小修复原则：只改必要的，不改正确的。
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·未时·需-BRAIN-B6-CODE-OPTIMIZER-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·未时·䷄需-BRAIN-B6-CODE-OPTIMIZER-v1.0
 """
 
 import re

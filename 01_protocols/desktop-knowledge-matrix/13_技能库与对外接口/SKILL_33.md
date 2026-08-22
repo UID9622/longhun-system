@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-behavior-engine
 description: '龍魂民生行为密码学引擎 v5.2 — 为人民服务、为老百姓办实事、为国家繁荣昌盛而努力蜕变的行为记录与社区自治激励框架。
@@ -7,7 +9,7 @@ description: '龍魂民生行为密码学引擎 v5.2 — 为人民服务、为�
 metadata:
   id: longhun-behavior-engine
   version: '5.2'
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BEHAVIOR-ENGINE-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-BEHAVIOR-ENGINE-v5.2'
   trigger:
     keywords:
     - behaviorengine
@@ -54,7 +56,7 @@ metadata:
 
 # 龍魂民生行为密码学引擎 (longhun-behavior-engine) · v5.2
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BEHAVIOR-ENGINE-v5.2`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-BEHAVIOR-ENGINE-v5.2`
 
 ## 核心思想
 
@@ -209,11 +211,11 @@ LBC v5.2 在 v5.1 基础上进一步对齐国家与人民利益：
 **中央来源**：`/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂治理与行为密码学`
 
 **文件清单**：
-- `龍魂档案_民生行为密码学_v2.0.md` → DNA `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-LBC-v2.0`
-- `民生行为密码学理论框架_v2.0.md` → DNA `#龍芯⚡️丙午·丙申·庚申·亥时-BEHAVIOR-CRYPTO-THEORY-v2.0`
-- `民生行为密码学引擎_v2.0.py` → DNA `#龍芯⚡️丙午·丙申·庚申·亥时-BEHAVIOR-CRYPTO-ENGINE-v2.0`
+- `龍魂档案_民生行为密码学_v2.0.md` → DNA `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-ARCHIVE-LBC-v2.0`
+- `民生行为密码学理论框架_v2.0.md` → DNA `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-BEHAVIOR-CRYPTO-THEORY-v2.0`
+- `民生行为密码学引擎_v2.0.py` → DNA `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-BEHAVIOR-CRYPTO-ENGINE-v2.0`
 
-**整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-BEHAVIOR-CRYPTO-v5.1`
+**整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-BEHAVIOR-CRYPTO-v5.1`
 
 > 整合原则：理论框架 + 可执行引擎 + 案例详解 + 边界声明，全部嵌入本技能。
 > 为人民服务，为国家繁荣昌盛而努力蜕变。

@@ -1,13 +1,15 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 龍魂系统底座启动台 v1.1 (自动版)
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 LongHun System Foundation Launcher v1.1 (Auto Mode)
 
 所有系统的统一入口。
 非交互式，用于自动化任务执行。
 
-DNA:#龍芯⚡️2026-06-05-LONGHUN-FOUNDATION-LAUNCHER-AUTO-FILE1-v1.1
+DNA:#龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-LONGHUN-FOUNDATION-LAUNCHER-AUTO-FILE1-v1.1
 """
 
 import sys

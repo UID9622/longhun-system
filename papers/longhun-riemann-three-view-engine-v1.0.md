@@ -4,7 +4,7 @@
 
 **Paper Type:** LongHun System · Mathematical Observation Layer Whitepaper
 
-**DNA:** `#龍芯⚡️2026-08-04-RIEMANN-CLOSED-LOOP-v1.0-UID9622`
+**DNA:** `#龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-RIEMANN-CLOSED-LOOP-v1.0-UID9622`
 
 **Confirmation Code:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
@@ -153,7 +153,7 @@ lemma h_luoshu_to_zeta (h : luoshu_conserved) :
 # -*- coding: utf-8 -*-
 """
 LongHun · Riemann Hypothesis Three-View Engine v1.0
-DNA: #龍芯⚡️2026-07-21-RIEMANN-ZETA-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-RIEMANN-ZETA-ENGINE-v1.0
 Creator: Zhuge Xin (UID9622)
 License: Idea Layer CC BY-NC-SA 4.0 · Engineering Layer MulanPSL v2
 
@@ -163,7 +163,7 @@ Complete three-view implementation + triangular interlock verification
 import sys, math, cmath
 from pathlib import Path
 
-DNA = "#龍芯⚡️2026-07-21-RIEMANN-ZETA-ENGINE-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-RIEMANN-ZETA-ENGINE-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -611,7 +611,7 @@ theorem tri_perspective_equivalence :
 ## 🔐 Final Signature
 
 ```
-DNA: #龍芯⚡️2026-08-04-RIEMANN-CLOSED-LOOP-v1.0-UID9622
+DNA: #龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-RIEMANN-CLOSED-LOOP-v1.0-UID9622
 Confirmation Code: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 Three-Color Audit: 🟢 PASS

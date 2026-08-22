@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# #龍芯⚡️20260624010825157-AUTO-DNA-A0E5EEB9 自动注入·分层治理自愈引擎 · 来源可查
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# #龍芯⚡️丙午·甲午·己巳·乙丑·䷮困-AUTO-DNA-A0E5EEB9 自动注入·分层治理自愈引擎 · 来源可查
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️2026-06-23-LONGHUN-FONT-WORK-ID-v1.0
+# DNA追溯码:#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-FONT-WORK-ID-v1.0
 """
 书法作品编号系统
 
@@ -19,7 +20,7 @@ import os
 from datetime import datetime
 from pathlib import Path
 
-DNA = "#龍芯⚡️2026-06-23-LONGHUN-FONT-WORK-ID-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-LONGHUN-FONT-WORK-ID-v1.0"
 
 COUNTER_FILE = Path(__file__).parent / ".work_counter.json"
 

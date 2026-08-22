@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-3core-opt
 description: LongHun 3-Core Optimizer v5.2 - Five-module performance optimization
@@ -8,7 +10,7 @@ metadata:
   version: 5.2.0
   category: system-optimization
   author: LongHun Architecture Team
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-3CORE-OPT-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-3CORE-OPT-v5.2'
   language: zh-CN
   trigger:
     keywords:
@@ -30,7 +32,7 @@ metadata:
 | **Name** | `longhun-3core-opt` |
 | **Version** | `5.2.0` |
 | **Category** | System Optimization / Performance |
-| **DNA** | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-3CORE-OPT-v5.2` |
+| **DNA** | `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-3CORE-OPT-v5.2` |
 | **Author** | LongHun Architecture Team |
 | **Created** | 2026-06-19 |
 | **Updated** | 2026-06-19 |
@@ -480,7 +482,7 @@ $ python3 scripts/快速启动检查.py
 
 ### DNA追溯
 
-所有輸出數據均包含DNA標識: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-3CORE-OPT-v5.2`
+所有輸出數據均包含DNA標識: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-3CORE-OPT-v5.2`
 通過DNA可追溯數據來源、版本和創建時間。
 
 ### 性能基準

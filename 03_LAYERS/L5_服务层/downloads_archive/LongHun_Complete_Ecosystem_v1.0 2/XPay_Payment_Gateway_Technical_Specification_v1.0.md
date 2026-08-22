@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # XPay 支付网关 · 技术完整档案 v1.0
@@ -26,7 +26,7 @@ Point-to-point, clean, traceable, tamper-proof.
 | **文档名** | XPay支付网关技术完整档案 |
 | **版本** | v1.0 |
 | **发布日期** | 2026-06-05 |
-| **DNA签名** | #龍芯⚡️2026-06-05-XPAY-SPEC-v1.0 |
+| **DNA签名** | #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-XPAY-SPEC-v1.0 |
 | **作者确认** | #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅ |
 | **最高权限确认** | #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅ |
 
@@ -646,7 +646,7 @@ POST /transactions
   "success": true,
   "transaction_id": "TXN-2026060512000001",
   "status": "completed",
-  "dna_signature": "#龍芯⚡️20260605120000-TXN-2026060512000001-DR7-8E7C9D33",
+  "dna_signature": "#龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-TXN-2026060512000001-DR7-8E7C9D33",
   "eternal_record_id": "ETERNAL-2026060512000001",
   "timestamp": "2026-06-05T12:00:00Z",
   "fee": "0.00",
@@ -721,7 +721,7 @@ POST /transactions
 § 生态保管创作，不霸占创作
 
 【DNA签名】
-#龍芯⚡️2026-06-05-XPAY-SPEC-v1.0
+#龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-XPAY-SPEC-v1.0
 #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 ```

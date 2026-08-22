@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·Notion 引擎知识数据库 v1.0
 
-> DNA: #龍芯⚡️丙午·乙未·辛亥·酉时·☰乾-NOTION-ENGINE-DB-v1.0-7f3a2e1d
+> DNA: #龍芯⚡️丙午·乙未·辛亥·酉时·䷀乾-NOTION-ENGINE-DB-v1.0-7f3a2e1d
 > 创建者: 诸葛鑫（UID9622）
 > 协议: CC BY-NC-SA 4.0
 > GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -857,7 +857,7 @@
 
 ```
 规则制定: 诸葛鑫（UID9622） × CodeBuddy AI
-DNA: #龍芯⚡️丙午·乙未·辛亥·酉时·☰乾-NOTION-ENGINE-DB-v1.0-7f3a2e1d
+DNA: #龍芯⚡️丙午·乙未·辛亥·酉时·䷀乾-NOTION-ENGINE-DB-v1.0-7f3a2e1d
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 三色: 🟢 v1.0·8大类·21子类·140+引擎·10管道·全量归档
 关联协议: LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md

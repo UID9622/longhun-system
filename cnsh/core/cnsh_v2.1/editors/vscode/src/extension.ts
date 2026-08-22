@@ -1,5 +1,5 @@
 // CNSH v2.1 VS Code / Cursor 插件
-// DNA:#龍芯⚡️2026-06-29-CNSH-VSCODE-FILE1-v0.1.0
+// DNA:#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-VSCODE-FILE1-v0.1.0
 
 import * as vscode from 'vscode';
 import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from 'vscode-languageclient/node';

@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂 · 伦理防御 Python 桥接引擎
 =================================
@@ -13,7 +14,7 @@
   3. 熔断控制器 → 硬件熔断联动
   4. 审计日志 → 统一审计链
 
-DNA: #龍芯⚡️丙午·辛未·丙戌·ETHICAL-DEFENSE-BRIDGE-v1.0
+DNA: #龍芯⚡️丙午·辛未·丙戌·甲午·䷕贲-ETHICAL-DEFENSE-BRIDGE-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
@@ -28,7 +29,7 @@ from datetime import datetime
 from dataclasses import dataclass, asdict
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-DNA = "#龍芯⚡️丙午·辛未·丙戌·ETHICAL-DEFENSE-BRIDGE-v1.0"
+DNA = "#龍芯⚡️丙午·辛未·丙戌·甲午·䷕贲-ETHICAL-DEFENSE-BRIDGE-v1.0"
 
 
 # ================================================================

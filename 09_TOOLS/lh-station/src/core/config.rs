@@ -1,5 +1,5 @@
 // 龍魂中转站配置管理
-// DNA: #龍芯⚡️丙午·癸未·乙酉·坤卦-CONFIG-v1.0
+// DNA: #龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-CONFIG-v1.0
 
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;

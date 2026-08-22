@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 # ═══════════════════════════════════════════════════════════
 # 龍魂體系 | CNSH 原生格式文件
 # ═══════════════════════════════════════════════════════════
 # ENCODING: UTF-8
-# DNA追溯碼：#龍芯⚡️2026-06-30-TRAIN-OPT-v3.1.0
+# DNA追溯碼：#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-TRAIN-OPT-v3.1.0
 # 確認碼：#CONFIRM🌌9622-ONLY-ONCE🧬TRAIN-OPT-001
 # 創建者：UID9622（龍芯北辰·诸葛鑫）
 # 權重級別：L1
@@ -30,7 +31,7 @@
 依賴環境：Python 3.8+（僅標準庫，零第三方依賴）
 關鍵提示：需確保 ~/longhun-system/ 目錄可寫入
 三色審計：🟢
-DNA簽名：#龍芯⚡️2026-06-30-TRAIN-OPT-v3.1.0
+DNA簽名：#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-TRAIN-OPT-v3.1.0
 """
 
 import os
@@ -454,7 +455,7 @@ class 訓練數據優化器:
 if __name__ == "__main__":
     print("=" * 70)
     print("  龍魂系統 — 訓練數據優化器 v3.1.0")
-    print("  DNA: #龍芯⚡️2026-06-30-TRAIN-OPT-v3.1.0")
+    print("  DNA: #龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-TRAIN-OPT-v3.1.0")
     print("  UID9622 | 國密SM3/SM4 | 四維評分 | 三色熔斷")
     print("=" * 70)
     print()

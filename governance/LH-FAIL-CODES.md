@@ -12,6 +12,6 @@
 | LH-FAIL-07 | 假装记忆 | 声称已读但无实读凭证 | 🔴 | 熔断 + 覆盖率坦白 |
 
 > 公开首页 / Home: https://uid9622.notion.site
-DNA: #龍芯⚡️2026-08-20-LH-FAIL-CODES-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-LH-FAIL-CODES-v1.0
 
 分层许可: 思想层 CC BY-NC-SA 4.0（公开骨架版·引用须保留来源链）

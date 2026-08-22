@@ -2,8 +2,9 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂·AI 入口引导 API — 鲲鹏统一入口
-DNA: #龍芯⚡️2026-07-30-ONBOARD-ROUTES-v1.1-ALIGN-8B3C5D2E
+DNA: #龍芯⚡️丙午·乙未·乙巳·壬午·䷃蒙-ONBOARD-ROUTES-v1.1-ALIGN-8B3C5D2E
 
 所有 AI（CodeBuddy/Kimi/Ollama/任何国产AI）进入龍魂系统的统一入口。
 任何 AI 进门第一步：GET /api/onboarding/bootstrap
@@ -33,7 +34,7 @@ IDENTITY = {
     "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
     "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
     "mission": "替老百姓守住数字主权、把AI根扎在中国土地上",
-    "background": "2008年入伍·济南二团·服役2年·2010年退伍·退伍16年·初中文化·编号南:9932",
+    "background": "2006年入伍·济南二团·服役2年·2008年退伍·退伍18年·初中文化·编号南:9932",
     "role": "唯一决策者·最终裁决人",
 }
 
@@ -249,7 +250,7 @@ async def onboarding_bootstrap():
         "protocol": "LH-AI-ONBOARDING-v1.0",
         "protocol_path": "01_protocols/LH-AI-ONBOARDING-v1.0.md",
         "timestamp": datetime.now(timezone.utc).isoformat(),
-        "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-AI-ONBOARDING-v1.0-3F7A1B9C",
+        "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-AI-ONBOARDING-v1.0-3F7A1B9C",
         "message": "欢迎进入龍魂系统。以下为全部操作规则，请逐项加载并遵守。",
         # ── 身份 ──
         "identity": IDENTITY,
@@ -328,7 +329,7 @@ async def onboarding_rules():
     return {
         "ok": True,
         "timestamp": datetime.now(timezone.utc).isoformat(),
-        "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-ONBOARD-RULES-v1.0",
+        "dna": "#龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-ONBOARD-RULES-v1.0",
         "identity": IDENTITY,
         "p0_rules": P0_RULES,
         "forbidden_words": FORBIDDEN_WORDS,

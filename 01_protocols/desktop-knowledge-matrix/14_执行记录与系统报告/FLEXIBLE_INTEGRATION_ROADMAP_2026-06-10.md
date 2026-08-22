@@ -1,6 +1,7 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 龍魂系統·靈活分階段整合路線圖
 # 日期: 2026-06-10 CST
-# DNA:#龍芯⚡️丙午·丙申·庚申·亥时-FLEXIBLE-INTEGRATION-ROADMAP-v1.0
+# DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-FLEXIBLE-INTEGRATION-ROADMAP-v1.0
 
 ---
 
@@ -378,6 +379,6 @@ find cnsh-core -newer cnsh-core.backup -type f -delete
 
 ---
 
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-FLEXIBLE-INTEGRATION-ROADMAP-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-FLEXIBLE-INTEGRATION-ROADMAP-v1.0
 **確認碼**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 **版本**: 1.0 (靈活版)

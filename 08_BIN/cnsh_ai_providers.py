@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # DNA: #龍芯⚡️丙午·丙酉·癸亥·巳时·䷫姤-CNSH-AI-PROVIDERS-v1.0-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 🐉 CNSH IDE · 国产 AI 多厂商路由
@@ -24,10 +25,9 @@
 
 import os
 import json
-import re
 from datetime import datetime
 from abc import ABC, abstractmethod
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Optional, Callable
 
@@ -36,7 +36,11 @@ try:
     import requests
     HAS_REQUESTS = True
 except ImportError:
+    requests = None  # type: ignore[assignment]
     HAS_REQUESTS = False
+
+# 请求异常类型（requests 缺失时降级为 Exception，避免 except 子句引用未绑定模块）
+HTTP_EXCEPTIONS = requests.exceptions.RequestException if HAS_REQUESTS else Exception  # type: ignore[union-attr]
 
 
 # ═══════════════════════════════════════════════════════
@@ -50,7 +54,7 @@ class AIProviderConfig:
     base_url: str = ""
     model: str = ""
     enabled: bool = False
-    extra: Dict = None
+    extra: Optional[Dict] = None
 
     def __post_init__(self):
         if self.extra is None:
@@ -122,7 +126,9 @@ class OpenAICompatibleProvider(BaseAIProvider):
             "temperature": temperature,
         }
 
+        resp = None
         try:
+            assert requests is not None  # HAS_REQUESTS=True 时 import 必成功
             resp = requests.post(
                 f"{self.config.base_url.rstrip('/')}/chat/completions",
                 headers=headers,
@@ -132,7 +138,7 @@ class OpenAICompatibleProvider(BaseAIProvider):
             resp.raise_for_status()
             data = resp.json()
             return data["choices"][0]["message"]["content"]
-        except requests.exceptions.RequestException as e:
+        except HTTP_EXCEPTIONS as e:
             return f"[AI 请求失败] {type(e).__name__}: {e}"
         except (KeyError, IndexError) as e:
             return f"[AI 响应解析失败] {e}: {getattr(resp, 'text', '')[:200]}"
@@ -151,13 +157,17 @@ class OllamaProvider(BaseAIProvider):
         if not HAS_REQUESTS:
             return False
         try:
+            assert requests is not None  # HAS_REQUESTS=True 时 import 必成功
             resp = requests.get(f"{self.config.base_url.rstrip('/')}/api/tags", timeout=5)
             return resp.status_code == 200
         except Exception:
             return False
 
     def _has_model(self, model_name: str) -> bool:
+        if not HAS_REQUESTS:
+            return False
         try:
+            assert requests is not None  # HAS_REQUESTS=True 时 import 必成功
             resp = requests.get(f"{self.config.base_url.rstrip('/')}/api/tags", timeout=5)
             data = resp.json()
             available = [m.get("name", "") for m in data.get("models", [])]
@@ -196,7 +206,9 @@ class OllamaProvider(BaseAIProvider):
             "options": {"temperature": temperature},
         }
 
+        resp = None
         try:
+            assert requests is not None  # HAS_REQUESTS=True 时 import 必成功
             resp = requests.post(
                 f"{self.config.base_url.rstrip('/')}/api/generate",
                 json=payload,
@@ -205,7 +217,7 @@ class OllamaProvider(BaseAIProvider):
             resp.raise_for_status()
             data = resp.json()
             return data.get("response", "[错误] Ollama 返回为空")
-        except requests.exceptions.RequestException as e:
+        except HTTP_EXCEPTIONS as e:
             return f"[本地模型请求失败] {type(e).__name__}: {e}"
         except (KeyError, json.JSONDecodeError) as e:
             return f"[本地模型响应解析失败] {e}: {getattr(resp, 'text', '')[:200]}"
@@ -229,7 +241,7 @@ PROVIDER_PRESETS: Dict[str, Dict] = {
     "deepseek": {
         "name": "DeepSeek",
         "base_url": "https://api.deepseek.com/v1",
-        "model": "deepseek-chat",
+        "model": "deepseek-v4-flash",
     },
     "zhipu": {
         "name": "智谱 AI",

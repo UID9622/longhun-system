@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂哲学方法论引擎 v1.0
-DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-PHILOSOPHY-ENGINE-v1.0
+DNA: #龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-PHILOSOPHY-ENGINE-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（君子协议，来源链不可切断）
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -475,7 +475,7 @@ class PhilosophyEngine:
         self.laws: List[PhilosophyLaw] = [PhilosophyLaw(**data) for data in LAWS_DATA]
         self.audit_log: List[Dict] = []
         self.session_start = datetime.datetime.now()
-        self.dna = "#龍芯⚡️丙午·乙巳·癸酉·亥时·☰乾-PHILOSOPHY-ENGINE-v1.0"
+        self.dna = "#龍芯⚡️丙午·乙巳·癸酉·亥时·䷀乾-PHILOSOPHY-ENGINE-v1.0"
 
         # 构建名称索引
         self._name_index: Dict[str, PhilosophyLaw] = {}

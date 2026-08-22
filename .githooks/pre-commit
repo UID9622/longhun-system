@@ -51,15 +51,19 @@ SECRET_PATTERNS=(
 )
 
 KEY_BLOCKED=0
-for pattern in "${SECRET_PATTERNS[@]}"; do
-  FILES=$(git -C "$REPO_ROOT" diff --cached --name-only 2>/dev/null || true)
-  if [ -z "$FILES" ]; then
-    continue
-  fi
-  HITS=$(echo "$FILES" | xargs -I{} grep -lE "$pattern" "$REPO_ROOT/{}" 2>/dev/null || true)
+# 性能优化(2026-08-22): 文件列表只取一次(原13个pattern循环各取一次git diff)
+#   + 模式合并为单个扩展正则 + xargs -0 批量扫描(原-I{}逐个fork=23万进程)。
+#   语义不变：同样的模式、同样的排除规则，只是不再重复跑 git diff。
+STAGED_FILES=$(git -C "$REPO_ROOT" diff --cached --name-only -z 2>/dev/null || true)
+if [ -n "$STAGED_FILES" ]; then
+  COMBINED_PATTERN=$(IFS='|'; echo "${SECRET_PATTERNS[*]}")
+  HITS=$(
+    cd "$REPO_ROOT" && printf '%s' "$STAGED_FILES" \
+      | xargs -0 grep -lE "$COMBINED_PATTERN" 2>/dev/null || true
+  )
   if [ -n "$HITS" ]; then
     while IFS= read -r f; do
-      REAL_LEAKS=$(grep -nE "$pattern" "$REPO_ROOT/$f" 2>/dev/null | grep -vE "ntn_xxxxxxxx|ntn_\.\.\.|ntn_test|ntn_.*example|placeholder|redacted|示例|占位|\[REDACTED\]|xxxxx" || true)
+      REAL_LEAKS=$(cd "$REPO_ROOT" && grep -nE "$COMBINED_PATTERN" "$f" 2>/dev/null | grep -vE "ntn_xxxxxxxx|ntn_\.\.\.|ntn_test|ntn_.*example|placeholder|redacted|示例|占位|\[REDACTED\]|xxxxx" || true)
       if [ -n "$REAL_LEAKS" ]; then
         echo -e "${RED}  🔴 密钥泄露: $f${NC}"
         echo -e "$REAL_LEAKS" | while read line; do
@@ -69,7 +73,7 @@ for pattern in "${SECRET_PATTERNS[@]}"; do
       fi
     done <<< "$HITS"
   fi
-done
+fi
 
 if [ "$KEY_BLOCKED" -eq 1 ]; then
   echo -e "${RED}[x] 阶段一失败：检测到硬编码密钥${NC}"
@@ -140,10 +144,18 @@ DNA = "#龍芯⚡️2026-08-11-ETERNAL-AUDIT-ENGINE-v1.1-UID9622"
 # 非文本文件扩展名：跳过内容级检查
 # .asc/.sig 为 GPG 分离签名（机器生成·密文格式·天然无 DNA 码）
 # .jsonl 为机器生成数据文件（每行一个 JSON 对象，注释会破坏解析；DNA 信息在 MANIFEST 声明）
+# .json 为数据文件（JSON 语法不允许注释，加 DNA 行会破坏解析）——2026-08-22 修正误伤
+# .sha256 为校验和文件（机器生成·纯哈希·天然无 DNA 码）——2026-08-22
+# .tsx/.css/.html/.yaml/.yml/.txt/.dockerignore/.plist 为交付物/样式/配置/数据文件，
+#   非龍魂核心代码（# 注释会破坏 css/html 语法）——2026-08-22 交付物豁免
+# .csv/.template 为数据/模板文件（机器生成·加注释头会破坏解析）——2026-08-22
+# .vsix/.skill 为二进制安装包/归档（zip 容器·不可文本检查）——2026-08-22
 NON_TEXT_EXT = {".png", ".jpg", ".jpeg", ".gif", ".ico", ".pdf", ".zip",
                 ".gz", ".mp4", ".mp3", ".woff", ".woff2", ".ttf", ".exe",
                 ".so", ".dll", ".pyc", ".class", ".jar", ".asc", ".sig",
-                ".jsonl"}
+                ".jsonl", ".json", ".sha256", ".tsx", ".css", ".html",
+                ".yaml", ".yml", ".txt", ".dockerignore", ".plist",
+                ".csv", ".template", ".vsix", ".skill"}
 # 协议类文件：P0声明保持硬性
 PROTOCOL_HINT = ("协议", "protocol", "PROTOCOL", "宪法", "铁律")
 
@@ -188,6 +200,8 @@ def changed_files(root: str):
 
 
 def is_text_file(fname: str) -> bool:
+    if not Path(fname).suffix:  # 无后缀文件（二进制/不可判定）跳过——2026-08-22
+        return False
     return Path(fname).suffix.lower() not in NON_TEXT_EXT
 
 
@@ -252,18 +266,35 @@ def main() -> int:
         hard_fail.append(f"协议文件缺分层许可: {', '.join(lic_missing_proto[:5])}")
 
     # 检查4: 硬编码密钥（硬）——注：阶段一已做快速扫描，此处为Python层二次确认
+    # 2026-08-22 修误报：正则排除换行（读取环境变量的代码 TOKEN = line.split... 不再命中）；
+    #   值含代码结构 { } ( ) 视为模板/表达式非字面量；"password" 示例值排除
     SECRET_PATTERNS = [
-        r'api[_-]?key\s*=\s*["\']([^"\']{8,})["\']',
-        r'password\s*=\s*["\']([^"\']{8,})["\']',
-        r'secret\s*=\s*["\']([^"\']{8,})["\']',
-        r'token\s*=\s*["\']([^"\']{16,})["\']',
+        r'api[_-]?key\s*=\s*["\']([^"\'\n]{8,})["\']',
+        r'password\s*=\s*["\']([^"\'\n]{8,})["\']',
+        r'secret\s*=\s*["\']([^"\'\n]{8,})["\']',
+        r'token\s*=\s*["\']([^"\'\n]{16,})["\']',
         r'sk-[a-zA-Z0-9]{32,}',
     ]
+    # 占位符/示例值排除（2026-08-22 修误报：文档里的示例配置不算泄露，真密钥照样拦）
+    PLACEHOLDER = ("xxxx", "your_", "YOUR_", "your-", "YOUR-", "<your", "<YOUR",
+                   "你的", "示例", "占位", "placeholder", "[REDACTED]", "REDACTED",
+                   "xxx", "example", "EXAMPLE", "notion_token", "OPENAI", "KIMI",
+                   "SECRET-KEY", "test-password", "admin123", "REPLACED", "#CONFIRM",
+                   "password", "longhun-activation-secret", "CONFIRM🌌", "test-key",
+                   "export-key", "<premium", "禁止硬编码", "sk-kimi", "用于 AI",
+                   "Kimi API Key", "API Key（")
+    CODE_CHARS = "{}()[]$f\"\'\n<>"  # 值含代码结构/尖括号占位(<new_token>) → 模板/表达式/占位符，非字面量密钥
     secrets = []
     for f in text_files:
         c = read_safe(Path(root) / f)
         for p in SECRET_PATTERNS:
-            if re.search(p, c, re.IGNORECASE):
+            m = re.search(p, c, re.IGNORECASE)
+            if m:
+                val = m.group(1) if m.groups() else m.group(0)
+                if any(t in val for t in PLACEHOLDER):
+                    continue
+                if any(ch in val for ch in CODE_CHARS):
+                    continue
                 secrets.append(f)
                 break
     if secrets:

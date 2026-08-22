@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🤖 AI 系统一键同步操作指南
@@ -12,12 +12,12 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️2026-06-21-DOC-AI_F25C-v1.0`  
+**DNA**: `#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-DOC-AI_F25C-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
-<!--#龍芯⚡️2026-06-21-DOC-AI_F25C-v1.0 -->
+<!--#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-DOC-AI_F25C-v1.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # 🤖 AI 系统一键同步操作指南
@@ -901,7 +901,7 @@ python -c "from classify_and_sync import classify_and_sync_one; classify_and_syn
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️2026-06-22-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -924,6 +924,6 @@ python -c "from classify_and_sync import classify_and_sync_one; classify_and_syn
 ## DNA 签名
 
 ```
-#龍芯⚡️2026-06-21-DOC-AI_F25C-v1.0
+#龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-DOC-AI_F25C-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-06-29-CNSH-BASE-TYPES-UID9622
+#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-BASE-TYPES-UID9622
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -18,7 +18,7 @@ if _module_dir not in _sys.path:
 """
 CNSH 基础类型模块
 共享枚举与数据结构，避免循环导入。
-DNA: #龍芯⚡️2026-06-29-CNSH-BASE-TYPES-UID9622
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-BASE-TYPES-UID9622
 """
 
 from dataclasses import dataclass, field

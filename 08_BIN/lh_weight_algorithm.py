@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂权重算法·太极易经数学大师联动系统 v1.0
-DNA: #龍芯⚡️丙午·乙未·甲辰·离为火-权重算法-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-权重算法-v1.0
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -286,8 +286,6 @@ class 输出契约:
     操作ID: str = field(default_factory=lambda: str(uuid.uuid4()))
     时间戳: str = field(default_factory=lambda: datetime.datetime.now().isoformat())
 
-    def to_dict(self) -> Dict:
-        return asdict(self)
 
     def to_json(self) -> str:
         return json.dumps(self.to_dict(), ensure_ascii=False, indent=2)
@@ -413,8 +411,6 @@ class 龍魂决策报告:
             "审计条目": self.审计条目
         }
 
-    def to_json(self) -> str:
-        return json.dumps(self.to_dict(), ensure_ascii=False, indent=2)
 
     def 打印报告(self):
         """打印彩色决策报告"""

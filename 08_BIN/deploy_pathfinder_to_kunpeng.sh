@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ============================================================
 # 龍魂 · 路径规划引擎 · 生产级鲲鹏部署
-# DNA: #龍芯⚡️丙午·癸未·丁未·离为火-DEPLOY-PATHFINDER-PROD-v4.1.5
+# DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷝离为火-DEPLOY-PATHFINDER-PROD-v4.1.5
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 目标: 119.13.90.27 (华为云 / 鲲鹏节点)
 # 功能: 部署路径规划 REST API，含 systemd + logrotate + 监控 + 灰度
@@ -10,7 +10,7 @@
 
 set -euo pipefail
 
-DNA="#龍芯⚡️丙午·癸未·丁未·离为火-DEPLOY-PATHFINDER-PROD-v4.1.5"
+DNA="#龍芯⚡️丙午·癸未·丁未·丙午·䷝离为火-DEPLOY-PATHFINDER-PROD-v4.1.5"
 SERVER="root@119.13.90.27"
 SSH_KEY="${HOME}/.ssh/longhun_kunpeng_ed25519"
 REMOTE_ROOT="/opt/longhun-pathfinder"

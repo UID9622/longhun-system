@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 
 """
@@ -11,7 +12,7 @@ PersonaRouter + F4因子·完整集成测试
 验证PersonaRouter与F4·人格路由因子的无缝集成
 测试虚伪词汇检测、人格权重、F4验证得分的完整流程
 
-【DNA】#龍芯⚡️2026-06-03-PERSONA-ROUTER-F4-INTEGRATION-TEST-FILE1-v1.0
+【DNA】#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-PERSONA-ROUTER-F4-INTEGRATION-TEST-FILE1-v1.0
 """
 
 import json
@@ -303,7 +304,7 @@ def run_all_tests():
     print("""
 ╭─────────────────────────────────────────────────────────╮
 │  PersonaRouter + F4因子·完整集成测试                    │
-│  DNA: #龍芯⚡️2026-06-03-PERSONA-ROUTER-F4-INTEGRATION  │
+│  DNA: #龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-PERSONA-ROUTER-F4-INTEGRATION  │
 ╰─────────────────────────────────────────────────────────╯
     """)
 

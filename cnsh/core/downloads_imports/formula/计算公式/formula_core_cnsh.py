@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🧮 数学公式核心 · CNSH 双视角封装层 v2.1
 ═══════════════════════════════════════════════════════════════════════════
 
@@ -13,7 +14,7 @@
     result = dr_gate_cnsh(20260603)
     # result == {"M::": {...}, "CNSH::": {...}}
 
-DNA：    #龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-v2.1-DUAL-PERSPECTIVE
+DNA：    #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-v2.1-DUAL-PERSPECTIVE
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 GPG:     A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -346,7 +347,7 @@ def selftest() -> None:
     r7 = decision_chain_cnsh(
         20260603, [0.05, 0.05], [1, 1],
         tian=0.9, di=0.9, ren=0.9,
-        dna="#龍芯⚡️2026-06-29-DECISION-CNSH-TEST"
+        dna="#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-DECISION-CNSH-TEST"
     )
     assert r7["M::"]["status"] == "pass"
     assert r7["CNSH::"]["audit"] == "🟢"
@@ -354,7 +355,7 @@ def selftest() -> None:
 
     print("=" * 80)
     print("🟢 CNSH 双视角封装层自检通过")
-    print("   DNA: #龍芯⚡️2026-06-29-MATH-FORMULA-CORE-CNSH-v2.1-DUAL-PERSPECTIVE")
+    print("   DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-FORMULA-CORE-CNSH-v2.1-DUAL-PERSPECTIVE")
     print("=" * 80)
 
 

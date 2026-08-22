@@ -1,6 +1,8 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂系统变更日志
 
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CHANGELOG-v1.2
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-CHANGELOG-v1.2
 
 ## 2026-07-04
 
@@ -9,7 +11,7 @@ DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CHANGELOG-v1.2
 - 修复章节卷轴覆盖层 DOM 嵌套错误：将 `#chapter-overlay` 从 `#detail` 内部移出为 body 直接子元素，确保全屏居中显示。
 - 优化图例显示：文化模式下图例展示「玺/简/璧/鼎/☯」符号，简化模式下展示几何符号。
 - 验证通过：默认文化视觉、简化几何模式、色盲模式切换正常；章节覆盖层打开、朗读、跳转独立页功能正常。
-- 本次升级 DNA：#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-MATRIX-CULTURAL-VISUALS-v1.0
+- 本次升级 DNA：#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-MATRIX-CULTURAL-VISUALS-v1.0
 
 ## 2026-06-28
 
@@ -18,7 +20,7 @@ DNA: #龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-CHANGELOG-v1.2
 - `lh` 命令注册表新增：全局索引、公式对准表、notion 同步、主干自我迭代。
 - 体检脚本纳入主干自我迭代检查项。
 - 通心译门 v1.1 升级：引入五行向量与人性偏移评分，新增 `tongxinyi_wuxing_dict.json`。
-- 本次部署 DNA：#龍芯⚡️丙午·丙申·庚申·亥时-SELF-UPDATE-INTEGRATION-DEPLOY-v1.0
+- 本次部署 DNA：#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-SELF-UPDATE-INTEGRATION-DEPLOY-v1.0
 
 ## 2026-06-22
 

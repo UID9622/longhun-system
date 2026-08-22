@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # 1 道统层 Dao           : 曾仕强老师
 # 2 精神层 Spirit        : Steve Jobs
@@ -9,7 +10,7 @@
 # 4 技术层 Technology    : Open Source
 # 5 系统层 System        : UID9622
 # 6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
-# DNA追溯码:#龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1-v2.0-1
+# DNA追溯码:#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1-v2.0-1
 # 铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
 # 文件: cnsh_font_engine.py | 标记时间: 2026-06-03T07:46:00+0800
 # -*- coding: utf-8 -*-
@@ -20,7 +21,7 @@
 # FONT-INDEPENDENT: YES
 # NO PROPRIETARY TOKENS
 # ═══════════════════════════════════════════════════════════
-# DNA追溯码：#龍芯⚡️2026-02-05-CNSH_E826-v1.0
+# DNA追溯码：#龍芯⚡️丙午·庚寅·庚戌·壬午·䷕贲-CNSH_E826-v1.0
 # GPG指纹：A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # 创建者：💎 龍芯北辰｜UID9622
 # 确认码：#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -141,7 +142,7 @@ class CNSH字体引擎:
         Args:
             字元库路径: 字元库JSON文件路径，默认使用内置基础字元库
         """
-        self.DNA追溯码 = "#龍芯⚡️2026-02-05-CNSH_92D5-v1.0"
+        self.DNA追溯码 = "#龍芯⚡️丙午·庚寅·庚戌·壬午·䷕贲-CNSH_92D5-v1.0"
         self.配置 = 字体配置(
             名称="CNSH字元引擎",
             版本="1.0.0",
@@ -387,7 +388,7 @@ if __name__ == "__main__":
     print("=" * 70)
     print("🐉 CNSH字体系统 | 中文原生字体引擎")
     print("=" * 70)
-    print(f"DNA追溯码:#龍芯⚡️2026-02-05-CNSH_92D5-v1.0")
+    print(f"DNA追溯码:#龍芯⚡️丙午·庚寅·庚戌·壬午·䷕贲-CNSH_92D5-v1.0")
     print(f"许可证: OCSL v1.0 (开放文化主权许可证)")
     print("=" * 70)
     

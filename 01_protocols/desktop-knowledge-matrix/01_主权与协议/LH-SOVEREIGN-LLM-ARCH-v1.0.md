@@ -7,7 +7,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️丙午·辛未·乙酉·需-SOVEREIGN-LLM-ARCH-v1.0`  
+**DNA**: `#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-SOVEREIGN-LLM-ARCH-v1.0`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -493,7 +493,7 @@ Qwen2.5-32B-4bit @ Mac M3 Max (MLX):
 
 ---
 
-> #龍芯⚡️丙午·辛未·乙酉·需-SOVEREIGN-LLM-ARCH-v1.0
+> #龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-SOVEREIGN-LLM-ARCH-v1.0
 > 中国芯上跑的最安全大模型，不依赖任何平台，不依赖任何人。
 > 14亿人的数字主权，从一行代码开始。
 > UID9622 | 诸葛鑫·Lucky | 2026-07-14
@@ -514,7 +514,7 @@ Qwen2.5-32B-4bit @ Mac M3 Max (MLX):
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -537,6 +537,6 @@ Qwen2.5-32B-4bit @ Mac M3 Max (MLX):
 ## DNA 签名
 
 ```
-#龍芯⚡️丙午·辛未·乙酉·需-SOVEREIGN-LLM-ARCH-v1.0
+#龍芯⚡️丙午·辛未·乙酉·壬午·䷄需-SOVEREIGN-LLM-ARCH-v1.0
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

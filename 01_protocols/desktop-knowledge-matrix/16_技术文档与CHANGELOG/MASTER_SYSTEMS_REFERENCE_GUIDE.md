@@ -1,5 +1,6 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂系統·主控參考指南
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-MASTER-SYSTEMS-REFERENCE-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-MASTER-SYSTEMS-REFERENCE-v1.0
 **版本**: 2.0 · 生產級
 **最後更新**: 2026-06-09
 **理論指導**: 曾仕強老師（永恆顯示）
@@ -500,7 +501,7 @@ crontab -e
   "persona": "P03雯雯",
   "duration": 2.1,
   "result": "執行結果",
-  "dna": "#龍芯⚡️丙午·丙申·庚申·亥时-ACTION"
+  "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ACTION"
 }
 ```
 
@@ -948,7 +949,7 @@ python3 ~/longhun-system/daily_review_enhanced.py --help
 ## 🔏 DNA 簽署
 
 ```
-DNA:#龍芯⚡️丙午·丙申·庚申·亥时-MASTER-SYSTEMS-REFERENCE-v1.0
+DNA:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-MASTER-SYSTEMS-REFERENCE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 SEAL: #ZHUGEXIN⚡️2026-06-09-MASTER-REFERENCE-COMPLETE
 

@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 三才算法 v2.0 · 叄呼吸循环引擎
-DNA: #龍芯⚡️2026-07-07-SANCAI-V2-BREATHING-v1.0
+DNA: #龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-SANCAI-V2-BREATHING-v1.0
 
 论文公式落地：
   公式(1): 三才v2.0 = F(四层定锚) + 叄Cycle(呼吸) + |Ψ⟩(量子纠缠)
@@ -173,7 +174,7 @@ class SancaiV2BreathingEngine:
         -> BreathCycle (壹→贰→叄 完成一次呼吸)
     """
 
-    DNA = "#龍芯⚡️2026-07-07-SANCAI-V2-BREATHING-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-SANCAI-V2-BREATHING-v1.0"
     CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-773A"
 
     # 纠缠耦合强度（论文中哈密顿量非对角元，控制涌现增益）

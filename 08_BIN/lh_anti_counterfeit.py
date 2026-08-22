@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_ANTI_COUNTERFEIT-v1.0-2a5ce56d
+#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH_ANTI_COUNTERFEIT-v1.0-2a5ce56d
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -685,4 +685,4 @@ if __name__ == "__main__":
         sys.exit(1)
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬AK7X-339P
-# DNA: #龍芯⚡️丙午·乙未·丙辰·午时·乾-ANTI-COUNTERFEIT-v1.0-8F3A2C17
+# DNA: #龍芯⚡️丙午·乙未·丙辰·午时·䷀乾-ANTI-COUNTERFEIT-v1.0-8F3A2C17

@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 v4.0.6 部署验证脚本
-DNA: #龍芯⚡️丙午·乙未·甲寅·未时·乾-V406-VALIDATION-REPORT-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲寅·未时·䷀乾-V406-VALIDATION-REPORT-v1.0
 """
 
 import json, requests, time, sys, re
@@ -187,7 +188,7 @@ def generate_report(recall, failed, drift_score, history, loss_audit, total_samp
     md = f"""# 龍魂 v4.0.6 部署验证报告
 
 > 生成时间: {now}
-> DNA: `#龍芯⚡️丙午·乙未·甲寅·未时·乾-V406-VALIDATION-REPORT-v1.0`
+> DNA: `#龍芯⚡️丙午·乙未·甲寅·未时·䷀乾-V406-VALIDATION-REPORT-v1.0`
 
 ---
 

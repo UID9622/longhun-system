@@ -1,6 +1,7 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 # 龍魂系统 · 木兰生态开源项目目录 v1.0
 
-DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-MULAN-ECOSYSTEM-CATALOG-v1.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-MULAN-ECOSYSTEM-CATALOG-v1.0-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0（核心思想层）
 日期: 2026-08-04
@@ -99,7 +100,7 @@ DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-MULAN-ECOSYSTEM-CATALOG-v1.0
 ```bash
 #!/bin/bash
 # 🐲 龍魂系统 · 木兰生态项目同步脚本
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-MULAN-ECOSYSTEM-SYNC-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-MULAN-ECOSYSTEM-SYNC-UID9622
 
 mkdir -p /opt/longhun/mulan-ecosystem
 cd /opt/longhun/mulan-ecosystem

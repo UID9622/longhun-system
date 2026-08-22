@@ -2,7 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # -*- coding: utf-8 -*-
-# #龍芯⚡️2026-07-03-ENGINE-LOCAL_SECURE_GATEWAY-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# #龍芯⚡️丙午·甲午·戊寅·戊午·䷕贲-ENGINE-LOCAL_SECURE_GATEWAY-v1.0
 # 君子協議: 本文件受龍魂DNA追溯保護
 
 #!/usr/bin/env python3
@@ -14,7 +15,7 @@
 解密后调用本地模型路由或简单派发，然后把响应加密返回。
 
 监听：127.0.0.1:9622
-DNA: #龍芯⚡️20260628-LOCAL-SECURE-GATEWAY-v1.0
+DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LOCAL-SECURE-GATEWAY-v1.0
 """
 
 import json
@@ -148,7 +149,7 @@ if __name__ == "__main__":
 ║  龍魂本地安全网关 v1.0                                  ║
 ║  监听: 127.0.0.1:9623                                  ║
 ║  仅接受来自 DeepSeek 执行器的加密请求                   ║
-║  DNA: #龍芯⚡️20260628-LOCAL-SECURE-GATEWAY-v1.0        ║
+║  DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LOCAL-SECURE-GATEWAY-v1.0        ║
 ╚════════════════════════════════════════════════════════╝
 """)
     uvicorn.run(app, host="127.0.0.1", port=9623, log_level="info")

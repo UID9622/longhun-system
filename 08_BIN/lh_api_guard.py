@@ -2,14 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·癸未·甲子·既济-API-GUARD-v1.0
+#龍芯⚡️丙午·癸未·甲子·庚午·䷾既济-API-GUARD-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════════╗
 ║  龍魂·统一API守卫层 v1.0 — 一次修全部·三个根因一个模块               ║
-║  DNA: #龍芯⚡️丙午·癸未·甲子·既济-API-GUARD-v1.0                       ║
+║  DNA: #龍芯⚡️丙午·癸未·甲子·庚午·䷾既济-API-GUARD-v1.0                       ║
 ║  #CONFIRM🌌9622-ONLY-ONCE🧬GUARD-B8A1                                ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                       ║
 ║                                                                       ║
@@ -39,7 +39,7 @@ from pathlib import Path
 from datetime import datetime, timezone, timedelta
 
 # ── 焊死常量 ──
-DNA = "#龍芯⚡️丙午·癸未·甲子·既济-API-GUARD-v1.0"
+DNA = "#龍芯⚡️丙午·癸未·甲子·庚午·䷾既济-API-GUARD-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬GUARD-B8A1"
 GPG_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 SOVEREIGN_UID = "UID9622"

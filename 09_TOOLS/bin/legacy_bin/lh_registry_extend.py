@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """龍魂注册表扩展 v1.3 — 将 L6/L8/L9 层纳入依赖图
-DNA: #龍芯⚡️丙午·乙未·甲寅·申时·师-REGISTRY-EXTEND-v1.3
+DNA: #龍芯⚡️丙午·乙未·甲寅·申时·䷆师-REGISTRY-EXTEND-v1.3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 import json
 from pathlib import Path
@@ -71,7 +72,7 @@ def main():
 
     reg['_meta']['version'] = 'v1.3'
     reg['_meta']['last_updated'] = '丙午·乙未·甲寅·申时'
-    reg['_meta']['dna'] = '#龍芯⚡️丙午·乙未·甲寅·申时·师-PERSONA-KNOWLEDGE-REGISTRY-v1.3'
+    reg['_meta']['dna'] = '#龍芯⚡️丙午·乙未·甲寅·申时·䷆师-PERSONA-KNOWLEDGE-REGISTRY-v1.3'
     reg['_meta']['covered_layers'] = ['L1','L2','L5','L6','L7','L8','L9']
 
     reg_path.write_text(json.dumps(reg, ensure_ascii=False, indent=2), encoding='utf-8')
@@ -86,4 +87,4 @@ if __name__ == '__main__':
     exit(main())
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·观-CONFIRM-SEAL-lh_registry_extend-8D83BF2C
+# DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷓观-CONFIRM-SEAL-lh_registry_extend-8D83BF2C

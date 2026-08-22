@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 🐉 龍魂 · 主动观察引擎 v2.0 (Active Observation Engine)
 ==========================================================
 从被动响应升级为主动观察——不等指令，自己看、自己判断、自己动手。
@@ -22,7 +23,7 @@
   - 对接 lh_regulatory_daemon（复用文件快照逻辑）
   - 对接 lh_resident_registry（常驻任务自动触发）
 
-DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·需-ACTIVE-OBSERVATION-v2.0
+DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·䷄需-ACTIVE-OBSERVATION-v2.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
@@ -52,7 +53,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from bin.lh_event_bus_engine import EventBus, EventType, Event  # noqa: E402
 
 # ── 常量 ──
-DNA = "#龍芯⚡️丙午·辛未·丙戌·亥时·需-ACTIVE-OBSERVATION-v2.0"
+DNA = "#龍芯⚡️丙午·辛未·丙戌·亥时·䷄需-ACTIVE-OBSERVATION-v2.0"
 VERSION = "2.0.0"
 OBS_DIR = PROJECT_ROOT / "data" / "active_observation"
 OBS_DIR.mkdir(parents=True, exist_ok=True)

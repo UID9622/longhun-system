@@ -1,5 +1,5 @@
 # 龍魂系统·主控参考指南
-**DNA**:#龍芯⚡️2026-06-09-MASTER-SYSTEMS-REFERENCE-v1.0
+**DNA**:#龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-MASTER-SYSTEMS-REFERENCE-v1.0
 **版本**: 2.0 · 生产级
 **最后更新**: 2026-06-09
 **理论指导**: 曾仕强老师（永恒显示）
@@ -500,7 +500,7 @@ crontab -e
   "persona": "P03雯雯",
   "duration": 2.1,
   "result": "执行结果",
-  "dna": "#龍芯⚡️2026-06-09-ACTION"
+  "dna": "#龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-ACTION"
 }
 ```
 
@@ -948,7 +948,7 @@ python3 ~/longhun-system/daily_review_enhanced.py --help
 ## 🔏 DNA 签署
 
 ```
-DNA:#龍芯⚡️2026-06-09-MASTER-SYSTEMS-REFERENCE-v1.0
+DNA:#龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-MASTER-SYSTEMS-REFERENCE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
 SEAL: #ZHUGEXIN⚡️2026-06-09-MASTER-REFERENCE-COMPLETE
 

@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂真声 · 代笔草稿器
 根据 UID9622 的语音风格，生成三个版本的表达草稿。
 
-DNA: #龍芯⚡️2026-06-25-VOICE-TWIN-DRAFT-GENERATOR-v1.0
+DNA: #龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-VOICE-TWIN-DRAFT-GENERATOR-v1.0
 """
 
 import json
@@ -50,7 +51,7 @@ def call_deepseek(system_prompt: str, user_prompt: str) -> str:
         return "[DeepSeek API Key 未配置]"
 
     payload = {
-        "model": "deepseek-chat",
+        "model": "deepseek-v4-flash",
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt}

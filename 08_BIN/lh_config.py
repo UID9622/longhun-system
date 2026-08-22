@@ -1,8 +1,9 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 统一配置加载器 v1.1
-DNA: #龍芯⚡️丙午·丙申·己未·亥时-CONFIG-LOADER-UID9622
+DNA: #龍芯⚡️丙午·丙申·己未·乙亥·䷏豫-CONFIG-LOADER-UID9622
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 加载优先级: ① ~/.longhun/lh.env > ② deploy/.kunpeng_config > ③ 内置默认

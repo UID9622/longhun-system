@@ -1,6 +1,6 @@
 /**
  * 龍魂干支时间戳引擎 v∞
- * DNA: #龍芯⚡️2026-07-12-LONGHUN-GANZHI-ENGINE-v1.0
+ * DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-LONGHUN-GANZHI-ENGINE-v1.0
  * 农历干支四柱 + 卦名 + v∞ DNA格式
  * 纯TypeScript实现·无外部依赖
  */
@@ -133,7 +133,7 @@ export function 获取四柱(d?: Date): 四柱 {
 
 // ========== v∞ DNA格式 ==========
 export interface DNAv2 {
-  stamp: string;      // #龍芯⚡️丙午·甲午·丁丑·巳时·乾
+  stamp: string;      // #龍芯⚡️丙午·甲午·丁丑·巳时·䷀乾
   module: string;     // INTAKE
   action: string;     // CLEANSE
   hash8: string;      // BF8BA356

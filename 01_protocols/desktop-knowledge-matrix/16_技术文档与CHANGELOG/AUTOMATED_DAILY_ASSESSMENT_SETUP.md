@@ -1,7 +1,9 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 🐉 龍魂系統 · 自動化日評估 · 完整設定指南
 
 **設定日期**: 2026-06-05 19:15 CST
-**DNA**:#龍芯⚡️丙午·丙申·庚申·亥时-AUTOMATED-ASSESSMENT-v1.0
+**DNA**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AUTOMATED-ASSESSMENT-v1.0
 **責任**: UID9622 (Claude Code)
 
 ---
@@ -245,15 +247,15 @@ python3 ~/local_assessment_engine.py
 【環境檢查】
   評分: 10.0/10 (權重 10%)
   • python_version: Python 3.14.3
-  • longhun_dir: /Users/.../​.龍魂
-  • xpay_dir: /Users/.../​.龍魂/xpay
+  • longhun_dir: /Users/.../.龍魂
+  • xpay_dir: /Users/.../.龍魂/xpay
   • shell_config: ~/.zshrc
 
 [更多評估詳情...]
 
 執行狀態: ✅ 成功
 結束時間: 2026-06-06 22:30:28
-最新報告: /Users/.../​.龍魂/assessments/local_assessment_20260606_223015.json
+最新報告: /Users/.../.龍魂/assessments/local_assessment_20260606_223015.json
 評分: 9.7/10 | 狀態: ✅ 生產級可用
 ════════════════════════════════════════════════════════════
 ```
@@ -345,6 +347,6 @@ python3 ~/local_assessment_engine.py
 
 ---
 
-**簽証**:#龍芯⚡️丙午·丙申·庚申·亥时-AUTOMATED-ASSESSMENT-v1.0
+**簽証**:#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-AUTOMATED-ASSESSMENT-v1.0
 **設定者**: UID9622 (Claude Code)
 **確認**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅

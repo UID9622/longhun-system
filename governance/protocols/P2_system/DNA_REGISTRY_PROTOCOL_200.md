@@ -1,8 +1,9 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # §200 有痕开源 DNA 登记协议 v1.0
 
 > 龍魂·人物行为DNA不动点切割协议 §11 候补清单⑥ — 联动钩子
-> DNA: `#龍芯⚡️丙午·乙未·癸未·辰时-DNA-REGISTRY-200-v1.0`
+> DNA: `#龍芯⚡️丙午·乙未·癸未·丙辰·䷓观-DNA-REGISTRY-200-v1.0`
 
 ## 一句话定盘
 
@@ -75,7 +76,7 @@ P13 姜子牙 → 触发 §200 联动钩子 → 通知所有订阅方
 
 ```bash
 # 查询指定 DNA
-python3 bin/lh_dna_registry.py --query "#龍芯⚡️2026-07-08"
+python3 bin/lh_dna_registry.py --query "#龍芯⚡️丙午·乙未·癸未·戊午·䷖剥"
 
 # 查询最近 N 条
 python3 bin/lh_dna_registry.py --recent 10
@@ -126,7 +127,7 @@ dna_链 = 桥.生成DNA链("操作文本", "EVENT-CODE")
 ## §208 DNA
 
 ```
-DNA:     #龍芯⚡️丙午·乙未·癸未·辰时-DNA-REGISTRY-200-v1.0
+DNA:     #龍芯⚡️丙午·乙未·癸未·丙辰·䷓观-DNA-REGISTRY-200-v1.0
 协议:    §200 A Traceable Open-Source DNA Registry Protocol v1.0
 父协议:  人物行为DNA不动点切割协议 v1.0 §11 候补清单⑥
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

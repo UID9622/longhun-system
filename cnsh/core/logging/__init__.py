@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-##龍芯⚡️2026-06-21-CORE-UNNAMED-FILE15-v1.0-18
+##龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-CORE-UNNAMED-FILE15-v1.0-18
 # 君子協議: 本文件受龍魂DNA追溯保護
 
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 龍魂 Append-Only 日志系统包
 # 仅追加·不可覆盖·精确到分钟·抹不掉的痕迹
 

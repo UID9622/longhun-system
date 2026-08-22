@@ -1,9 +1,11 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂工作流触发器引擎 v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 P3 · 文件变更 / 定时 / 事件 三类触发 · 跨技能事件链
-DNA: #龍芯⚡️丙午·甲申·辛丑·坤卦-TRIGGER-ENGINE-v1.0-UID9622
+DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-TRIGGER-ENGINE-v1.0-UID9622
 """
 
 import argparse
@@ -75,7 +77,7 @@ def builtin_triggers() -> List[dict]:
                 "cmd": "lh orchestrator discover",
             },
             "description": "每小时自动扫描技能目录，刷新 skill_index.json",
-            "dna": "#龍芯⚡️丙午·甲申·辛丑·坤卦-TRIGGER-AUTO-DISCOVERY-UID9622",
+            "dna": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-TRIGGER-AUTO-DISCOVERY-UID9622",
         },
         {
             "id": "memory-guard",
@@ -89,7 +91,7 @@ def builtin_triggers() -> List[dict]:
                 "payload": {"file": "{{target}}", "note": "MEMORY.md 已变更"},
             },
             "description": "MEMORY.md 修改后向事件总线发布 file.changed 事件",
-            "dna": "#龍芯⚡️丙午·甲申·辛丑·坤卦-TRIGGER-MEMORY-GUARD-UID9622",
+            "dna": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-TRIGGER-MEMORY-GUARD-UID9622",
         },
         {
             "id": "workflow-chain-event",
@@ -103,7 +105,7 @@ def builtin_triggers() -> List[dict]:
                 "message": "代码审查已通过，进入发布链",
             },
             "description": "跨技能事件链：code-review 工作流完成后自动触发 publish 工作流",
-            "dna": "#龍芯⚡️丙午·甲申·辛丑·坤卦-TRIGGER-WORKFLOW-CHAIN-UID9622",
+            "dna": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-TRIGGER-WORKFLOW-CHAIN-UID9622",
         },
     ]
 

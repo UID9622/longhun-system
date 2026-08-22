@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # DNA: #龍芯⚡️丙午·丙酉·癸亥·子时·䷮困-NOTION-CMD-REGISTRY-v2.0-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 🐉 龍魂 · Notion 指令注册表同步工具 v2.0
@@ -77,7 +78,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "查看报告：24 场景 / ✅15 / ⚠️9 / 通过率 62.5%",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-ASI-SEMANTIC-LANG-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-ASI-SEMANTIC-LANG-UID9622",
         "备注": "分布式开关：执行 Phase A。⚠️ 条目为模型语义不确定项，需随模型迭代重跑。",
     },
     {
@@ -91,7 +92,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "检查报告文件是否存在且包含 LANG 明细",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-ASI-LANG-REPORT-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-ASI-LANG-REPORT-UID9622",
         "备注": "分布式开关：执行 Phase A。可与 A1 联动执行。",
     },
     {
@@ -105,7 +106,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "报告输出 89/63/0/0（总/通过/警告/失败）",
         "状态": "已落地",
         "适用环境": ["鲲鹏"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-ASI-WATCHDOG-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-ASI-WATCHDOG-UID9622",
         "备注": "分布式开关：执行 Phase B。鲲鹏 cron 每 6 小时自动触发一次。",
     },
     {
@@ -119,7 +120,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "巡检模块列表包含 compliance-watchdog",
         "状态": "已落地",
         "适用环境": ["本地", "鲲鹏"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-ASI-REGISTER-WATCHDOG-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-ASI-REGISTER-WATCHDOG-UID9622",
         "备注": "分布式开关：执行 Phase B。注册后 B1/B3 才能正确识别模块身份。",
     },
     {
@@ -133,7 +134,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "systemctl 日志或 cron 日志显示定时执行",
         "状态": "已落地",
         "适用环境": ["鲲鹏"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-ASI-CRON-WATCHDOG-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-ASI-CRON-WATCHDOG-UID9622",
         "备注": "手动项：crontab -e 是交互式编辑，不能一键自动执行。如需非交互安装，告诉我写 install 脚本。",
     },
     {
@@ -147,7 +148,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "输出 🟢 哈希链完整",
         "状态": "已落地",
         "适用环境": ["本地", "鲲鹏"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-CIV-ARCHIVE-VERIFY-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-CIV-ARCHIVE-VERIFY-UID9622",
         "备注": "总开关：一键体检。本地 67 条 / 鲲鹏 68 条均验证通过。",
     },
     {
@@ -161,7 +162,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "报告含 entry 总数、哈希样例、完整性结论",
         "状态": "已落地",
         "适用环境": ["本地", "鲲鹏"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-CIV-ARCHIVE-REPORT-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-CIV-ARCHIVE-REPORT-UID9622",
         "备注": "分布式开关：执行 Phase C。可与 C1 联动执行。",
     },
     {
@@ -175,7 +176,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "文件存在且 GPG 加密，大小与本地 DB 相近",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-CIV-ARCHIVE-BACKUP-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-CIV-ARCHIVE-BACKUP-UID9622",
         "备注": "分布式开关：执行 Phase C。鲲鹏暂存 /backup/guizhou_archive/，需二次同步到贵州云。",
     },
     {
@@ -189,7 +190,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "HTTP 200，返回 JSON 含 persona/result/rating",
         "状态": "已落地",
         "适用环境": ["鲲鹏"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-API-COMPLIANCE-CHECK-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-API-COMPLIANCE-CHECK-UID9622",
         "备注": "总开关：一键体检。119.13.90.27 为鲲鹏外网 IP。",
     },
     {
@@ -203,7 +204,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "前 4 次 200，第 5 次 429，响应头含 X-RateLimit-*",
         "状态": "已落地",
         "适用环境": ["鲲鹏"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-API-RATE-LIMIT-TEST-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-API-RATE-LIMIT-TEST-UID9622",
         "备注": "总开关：一键体检。默认 100 请求 / 60 秒 / IP / 端点。",
     },
     {
@@ -217,7 +218,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "Active: active (running)",
         "状态": "已落地",
         "适用环境": ["鲲鹏"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-KUNPENG-SERVICE-CHECK-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-KUNPENG-SERVICE-CHECK-UID9622",
         "备注": "总开关：一键体检。服务异常时执行 restart。",
     },
     {
@@ -231,7 +232,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "页面可访问，AI 接口/providers/config 正常",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-LOCAL-IDE-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-LOCAL-IDE-UID9622",
         "备注": "手动项：会调起浏览器。鲲鹏外网版：http://119.13.90.27:8080/cnsh/",
     },
     {
@@ -259,7 +260,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "http://uid9622.cn/calendar/ 200；H 武器收敛分 7.6/PATH-07",
         "状态": "已落地",
         "适用环境": ["本地", "鲲鹏"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-CALENDAR-DEPLOY-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-CALENDAR-DEPLOY-UID9622",
         "备注": "手动项：会改鲲鹏 nginx 配置并部署。订阅源动态适配 location.origin。",
     },
     {
@@ -357,7 +358,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "lh orchestrator stats 显示技能总数 > 0；索引含 name/description/keywords/scope 字段",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-AGENT-ORCHESTRATOR-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-AGENT-ORCHESTRATOR-v1.0-UID9622",
         "备注": "P1 落地项。技能索引是自动路由与多 Agent 协作的前提。",
     },
     {
@@ -371,7 +372,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "输出技能 id + scope + 描述摘要",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-AGENT-ORCHESTRATOR-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-AGENT-ORCHESTRATOR-v1.0-UID9622",
         "备注": "分布式开关：索引只读查询，安全。",
     },
     {
@@ -385,7 +386,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "命中 longhun-creator / longhun-cloud-deploy 等技能，并推荐 P04 鲁班等人格",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-AGENT-ORCHESTRATOR-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-AGENT-ORCHESTRATOR-v1.0-UID9622",
         "备注": "分布式开关：只读路由，不执行。结果追加到 route_log.jsonl。",
     },
     {
@@ -399,7 +400,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "生成 governed_exec 审计归档并向事件总线发布 skill.execution 事件",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-AGENT-ORCHESTRATOR-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-AGENT-ORCHESTRATOR-v1.0-UID9622",
         "备注": "分布式开关：执行前先用 --dry-run 查看将要执行的命令。",
     },
     {
@@ -413,7 +414,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "发布事件后，route_log.jsonl 出现 auto:true 的自动路由记录",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-AGENT-ORCHESTRATOR-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-AGENT-ORCHESTRATOR-v1.0-UID9622",
         "备注": "手动项：常驻前台，可用 systemd/nohup 守护。未来接入 cron 或 daemon。",
     },
     {
@@ -427,7 +428,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "输出 total_skills / scope_counts / total_routes",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-AGENT-ORCHESTRATOR-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-AGENT-ORCHESTRATOR-v1.0-UID9622",
         "备注": "总开关：一键体检。适合排查索引是否过期、路由是否活跃。",
     },
     {
@@ -441,7 +442,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "lh agent-daemon status 显示 🟢 运行中；发布事件后 route_log.jsonl 出现 auto:true 记录",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-AGENT-DAEMON-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-AGENT-DAEMON-v1.0-UID9622",
         "备注": "P2 落地项。支持 macOS launchd / Linux systemd-user 安装。",
     },
     {
@@ -455,7 +456,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "status 输出 PID 与最近日志；stop 后 PID 文件清理",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-AGENT-DAEMON-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-AGENT-DAEMON-v1.0-UID9622",
         "备注": "分布式开关：管理 daemon 生命周期。",
     },
     {
@@ -469,7 +470,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "lh workflow-chain list 显示 3 个内置工作流",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-WORKFLOW-ENGINE-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-WORKFLOW-ENGINE-v1.0-UID9622",
         "备注": "P2 落地项。每个工作流含 DNA、人格分工、on_fail 中止策略。",
     },
     {
@@ -483,7 +484,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "dry-run 打印每步命令；正式运行生成 ~/.longhun/workflow_runs/*.json 审计日志",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-WORKFLOW-ENGINE-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-WORKFLOW-ENGINE-v1.0-UID9622",
         "备注": "分布式开关：生产环境先去 --dry-run 确认再执行。",
     },
     {
@@ -497,7 +498,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "输出 run_id / status / started_at / 步骤数",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-WORKFLOW-ENGINE-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-WORKFLOW-ENGINE-v1.0-UID9622",
         "备注": "总开关：一键体检。排查工作流是否按预期执行。",
     },
     {
@@ -511,7 +512,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "lh trigger list 显示 3 个触发器：auto-discovery / memory-guard / workflow-chain-event",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-TRIGGER-ENGINE-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-TRIGGER-ENGINE-v1.0-UID9622",
         "备注": "P3 落地项。触发器是事件链自动化的起点。",
     },
     {
@@ -525,7 +526,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "发布 workflow.code_review.completed 事件后，~/.longhun/workflow_runs/ 出现 publish_* 新记录",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-TRIGGER-ENGINE-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-TRIGGER-ENGINE-v1.0-UID9622",
         "备注": "P3 落地项。daemon 会消费匹配的事件并标记为 delivered。",
     },
     {
@@ -539,7 +540,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "status 输出 PID；stop 后状态变为未运行",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-TRIGGER-ENGINE-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-TRIGGER-ENGINE-v1.0-UID9622",
         "备注": "分布式开关：进程管理。",
     },
     {
@@ -553,7 +554,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "workflow-chain-event 在有 pending 的 workflow.code_review.completed 事件时触发 publish 工作流",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-TRIGGER-ENGINE-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-TRIGGER-ENGINE-v1.0-UID9622",
         "备注": "分布式开关：测试事件链时先用 --dry-run。",
     },
     {
@@ -567,7 +568,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "workflow_runs 目录新增 publish_* 记录，事件状态变为 delivered",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-TRIGGER-ENGINE-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-TRIGGER-ENGINE-v1.0-UID9622",
         "备注": "总开关：一键体检。验证事件链端到端是否通畅。",
     },
     {
@@ -581,7 +582,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "打开 http://127.0.0.1:9600 能看到 6 个卡片；/api/health 返回 ok",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-DASHBOARD-WEB-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-DASHBOARD-WEB-v1.0-UID9622",
         "备注": "P4 落地项。前端每 10 秒自动刷新，支持暗金主题。",
     },
     {
@@ -595,7 +596,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "health/event-stats/skill-stats 三端点任一存活端口均返回 JSON",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-DASHBOARD-WEB-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-DASHBOARD-WEB-v1.0-UID9622",
         "备注": "总开关：一键体检。2026-08-13 修复端口漂移(实际9602/9603)，容错探测三端口任一全通即过。",
     },
     {
@@ -609,7 +610,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "部署完成后访问 http://119.13.90.27:8080/system-dashboard/api/health 返回 ok",
         "状态": "已落地",
         "适用环境": ["本地", "鲲鹏"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-DASHBOARD-DEPLOY-KUNPENG-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-DASHBOARD-DEPLOY-KUNPENG-v1.0-UID9622",
         "备注": "P5 落地项。路径用 /system-dashboard/ 避免与旧 /dashboard/ 静态入口冲突。依赖 ~/.ssh/longhun_kunpeng_ed25519 密钥。",
     },
     {
@@ -623,7 +624,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "鲲鹏仪表盘展示的数据与本地一致",
         "状态": "已落地",
         "适用环境": ["本地", "鲲鹏"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-DASHBOARD-DEPLOY-KUNPENG-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-DASHBOARD-DEPLOY-KUNPENG-v1.0-UID9622",
         "备注": "P5 落地项。目前复用 deploy_dashboard_kunpeng.py 的 sync_data 逻辑。",
     },
     {
@@ -637,7 +638,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "页面加载出 6 大监控卡片",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-DASHBOARD-DEPLOY-KUNPENG-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-DASHBOARD-DEPLOY-KUNPENG-v1.0-UID9622",
         "备注": "手动项。部署成功后访问。",
     },
     {
@@ -651,7 +652,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "服务 active，nginx test successful",
         "状态": "已落地",
         "适用环境": ["鲲鹏"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-DASHBOARD-DEPLOY-KUNPENG-v1.0-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-DASHBOARD-DEPLOY-KUNPENG-v1.0-UID9622",
         "备注": "分布式开关：服务巡检。",
     },
     {
@@ -665,7 +666,7 @@ COMMAND_ROWS: List[Dict[str, Any]] = [
         "验证方式": "lh sancai-compress -v output.lhdc --verify-sig；解压后 diff 原始文件一致",
         "状态": "已落地",
         "适用环境": ["本地"],
-        "DNA": "#龍芯⚡️丙午·甲申·辛丑·坤卦-SANCAI-DNA-COMPRESS-v2.0-PARALLEL-UID9622",
+        "DNA": "#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-SANCAI-DNA-COMPRESS-v2.0-PARALLEL-UID9622",
         "备注": "P5 落地项。并行优化实测：log 75.96x 压缩率从 0.53s→0.10s（5.46x 加速），JSON 5.00x 从 4.70s→0.95s（4.97x），RULES.md 3.50x 从 7.47s→1.82s（4.10x）。21/21 单元测试通过。",
     },
 ]

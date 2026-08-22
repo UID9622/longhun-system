@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # ============================================================
-# DNA: #龍芯⚡️丙午·乙未·辛亥·巳时·☰乾-TEST-V38-V2
+# DNA: #龍芯⚡️丙午·乙未·辛亥·巳时·䷀乾-TEST-V38-V2
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
@@ -247,7 +247,7 @@ def main():
     print(f"  龍魂 验证测试 v2.0")
     print(f"  Backend: {args.backend}")
     print(f"  Model: {args.model}")
-    print(f"  DNA: #龍芯⚡️丙午·乙未·辛亥·巳时·☰乾-TEST-V38")
+    print(f"  DNA: #龍芯⚡️丙午·乙未·辛亥·巳时·䷀乾-TEST-V38")
     print("=" * 60)
 
     # 测试 Ollama 连通性

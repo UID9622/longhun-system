@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════════╗
 ║     龍魂核心系统启动器 / LongHun Core System Launcher           ║
@@ -9,8 +10,8 @@
 ║  集成所有P0模块：配置·身份·权限·DNA·日志·调度                      ║
 ║  完整的系统初始化和运行                                           ║
 ║                                                                  ║
-║  DNA v1.0:#龍芯⚡️2026-06-03-CORE-SYSTEM-LAUNCHER-FILE1-v1.0         ║
-║  DNA v1.1: #龍芯⚡️2026-06-07-LAUNCHER-CORE-v1.0 (P0 对齐)      ║
+║  DNA v1.0:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-CORE-SYSTEM-LAUNCHER-FILE1-v1.0         ║
+║  DNA v1.1: #龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-LAUNCHER-CORE-v1.0 (P0 对齐)      ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓              ║
 ║                                                                  ║
 ║  来源: 五个Notion核心宣言                                        ║
@@ -422,7 +423,7 @@ class LongHunCoreSystem:
                 status=NodeStatus.ACTIVE,
                 local_path="cnsh_core.compiler",
                 entry_point="get_cnsh_compiler",
-                dna="#龍芯⚡️2026-06-03-CNSH-COMPILER-v1.0",
+                dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-CNSH-COMPILER-v1.0",
                 layer="L1_SEASONAL",
                 description="CNSH编译器·计算逻辑赋能层·可参数化编译",
                 tags=["L1", "compiler", "cnsh", "calculation"],
@@ -455,7 +456,7 @@ class LongHunCoreSystem:
                 status=NodeStatus.ACTIVE,
                 local_path="cnsh_core.rules",
                 entry_point="get_rule_engine",
-                dna="#龍芯⚡️2026-06-03-RULE-ENGINE-v1.0",
+                dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-RULE-ENGINE-v1.0",
                 layer="L1_SEASONAL",
                 description="规则引擎·守门人·业务规则执行器",
                 tags=["L1", "rules", "gate", "decision"],
@@ -492,7 +493,7 @@ class LongHunCoreSystem:
                     status=NodeStatus.ACTIVE,
                     local_path="cnsh_core.constitution",
                     entry_point="get_system_config",
-                    dna="#龍芯⚡️2026-06-03-LAUNCHER-CONSTITUTION-v1.0",
+                    dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LAUNCHER-CONSTITUTION-v1.0",
                     layer="L0_ETERNAL",
                     description="系统宪法和基础配置",
                     tags=["L0", "config", "foundation"],
@@ -505,7 +506,7 @@ class LongHunCoreSystem:
                     status=NodeStatus.ACTIVE,
                     local_path="cnsh_core.identity",
                     entry_point="generate_identity_proof",
-                    dna="#龍芯⚡️2026-06-03-IDENTITY-v1.0",
+                    dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-IDENTITY-v1.0",
                     layer="L0_ETERNAL",
                     description="三重身份验证系统",
                     tags=["L0", "security", "authentication"],
@@ -518,7 +519,7 @@ class LongHunCoreSystem:
                     status=NodeStatus.ACTIVE,
                     local_path="cnsh_core.permissions",
                     entry_point="get_rbac_system",
-                    dna="#龍芯⚡️2026-06-03-PERMISSIONS-v1.0",
+                    dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-PERMISSIONS-v1.0",
                     layer="L0_ETERNAL",
                     description="RBAC权限控制系统",
                     tags=["L0", "security", "governance"],
@@ -531,7 +532,7 @@ class LongHunCoreSystem:
                     status=NodeStatus.ACTIVE,
                     local_path="cnsh_core.dna",
                     entry_point="get_dna_generator",
-                    dna="#龍芯⚡️2026-06-03-DNA-v1.0",
+                    dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-DNA-v1.0",
                     layer="L0_ETERNAL",
                     description="DNA追溯码生成和验证",
                     tags=["L0", "traceability", "identity"],
@@ -544,7 +545,7 @@ class LongHunCoreSystem:
                     status=NodeStatus.ACTIVE,
                     local_path="cnsh_core.logging",
                     entry_point="get_system_log",
-                    dna="#龍芯⚡️2026-06-03-LOGGING-v1.0",
+                    dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LOGGING-v1.0",
                     layer="L0_ETERNAL",
                     description="Append-Only日志系统",
                     tags=["L0", "audit", "storage"],
@@ -557,7 +558,7 @@ class LongHunCoreSystem:
                     status=NodeStatus.ACTIVE,
                     local_path="cnsh_core.mathematics",
                     entry_point="get_formula_executor",
-                    dna="#龍芯⚡️2026-06-03-MATHEMATICS-v1.0",
+                    dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-MATHEMATICS-v1.0",
                     layer="L0_ETERNAL",
                     description="数学公式和算法核心",
                     tags=["L0", "algorithm", "logic"],
@@ -570,7 +571,7 @@ class LongHunCoreSystem:
                     status=NodeStatus.ACTIVE,
                     local_path="cnsh_core.scheduler",
                     entry_point="get_scheduler",
-                    dna="#龍芯⚡️2026-06-03-SCHEDULER-v1.0",
+                    dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-SCHEDULER-v1.0",
                     layer="L1_SEASONAL",
                     description="执行调度和任务管理",
                     tags=["L1", "scheduling", "automation"],
@@ -659,7 +660,7 @@ def main():
   4. 启动CNSH IDE
 
 DNA标记:
-  #龍芯⚡️2026-06-03-CORE-SYSTEM-LAUNCHER-v1.0
+  #龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-CORE-SYSTEM-LAUNCHER-v1.0
         """)
 
         return 0

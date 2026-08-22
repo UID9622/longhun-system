@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 P13 姜子牙 · 封神榜权限执行器
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 Enlistment & Permission Engine
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-P13-JIANG-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P13-JIANG-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -70,7 +71,7 @@ class P13Jiang:
 """
 
     def __init__(self):
-        self.dna = "#龍芯⚡️丙午·丙申·丙辰·亥时·需-P13-JIANG-v1.0"
+        self.dna = "#龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P13-JIANG-v1.0"
         self.system_root = SYSTEM_ROOT
         self.capabilities = [
             "enlist_module",       # 模块注册

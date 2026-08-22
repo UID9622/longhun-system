@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · API 文档
 
-> DNA: `#龍芯⚡️20260731-API-DOCS-v1.0-UID9622`
+> DNA: `#龍芯⚡️丙午·乙未·丙午·甲午·䷳艮为山-API-DOCS-v1.0-UID9622`
 > 最后更新: 2026-07-31
 > API 版本: v2.0.0
 > 基础 URL: `https://uid9622.cn` | `http://localhost:9622`
@@ -59,7 +59,7 @@ curl -X POST http://localhost:9622/run \
 {
   "status": "ok",
   "version": "2.0.0",
-  "dna": "#龍芯⚡️20260731-API-a1b2c3d4",
+  "dna": "#龍芯⚡️丙午·乙未·丙午·甲午·䷳艮为山-API-a1b2c3d4",
   "redis": false,
   "db": false,
   "async_supported": false
@@ -86,7 +86,7 @@ curl -X POST http://localhost:9622/run \
   "stderr": "",
   "duration": 0.045,
   "exit_code": 0,
-  "dna": "#龍芯⚡️20260731-API-a1b2c3d4"
+  "dna": "#龍芯⚡️丙午·乙未·丙午·甲午·䷳艮为山-API-a1b2c3d4"
 }
 ```
 

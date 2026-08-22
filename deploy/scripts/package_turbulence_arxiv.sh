@@ -1,7 +1,7 @@
 #!/bin/bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂湍流治理框架 · arXiv 一键打包脚本
-# DNA: #龍芯⚡️丙午·乙未·辛酉·井-TURBULENCE-PACKAGE-v1.0
+# DNA: #龍芯⚡️丙午·乙未·辛酉·甲午·䷯井-TURBULENCE-PACKAGE-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 set -e
@@ -12,7 +12,7 @@ DIST_DIR="$PROJECT_ROOT/dist"
 ZIP_NAME="turbulence-longhun-v3.1-arxiv.zip"
 
 echo "=== 龍魂湍流治理框架 · arXiv 打包 ==="
-echo "DNA: #龍芯⚡️丙午·乙未·辛酉·井-TURBULENCE-PACKAGE-v1.0"
+echo "DNA: #龍芯⚡️丙午·乙未·辛酉·甲午·䷯井-TURBULENCE-PACKAGE-v1.0"
 
 # 检查源文件
 if [ ! -f "$SRC_DIR/turbulence-longhun-v3.1.tex" ]; then

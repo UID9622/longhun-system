@@ -1,7 +1,8 @@
-# #龍芯⚡️20260721143752-AUTO-DNA-LUBAN-INIT
+# #龍芯⚡️丙午·乙未·丙申·乙未·䷊泰-AUTO-DNA-LUBAN-INIT
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️2026-07-21-LUBAN-UNIVERSAL-CALLIGRAPHY-v1.0
+# DNA追溯码:#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-LUBAN-UNIVERSAL-CALLIGRAPHY-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 鲁班大师 · 万字体书法渲染引擎
 
@@ -14,7 +15,7 @@ P05 上帝之眼三色审计 · P03 雯雯结构归档 · P14 吕蒙快速成长
 
 from pathlib import Path
 
-DNA = "#龍芯⚡️2026-07-21-LUBAN-UNIVERSAL-CALLIGRAPHY-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-LUBAN-UNIVERSAL-CALLIGRAPHY-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 BASE_DIR = Path(__file__).parent.parent

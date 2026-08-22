@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂系统 · HTML交互工具启动指南
@@ -47,7 +47,7 @@
 - **文件路径**: `/mnt/agents/.user/skills/longhun-system/assets/skill-1-algorithmic-art.html`
 - **文件大小**: 约 420 行 HTML/CSS/JavaScript
 - **外部依赖**: p5.js 1.4.0 (CDN: `https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js`)
-- **DNA标识**: `#龍芯⚡️2026-06-07-ALGORITHMIC-ART-FILE1-FILE1-v1.0-1`
+- **DNA标识**: `#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-ALGORITHMIC-ART-FILE1-FILE1-v1.0-1`
 
 ### 启动步骤
 
@@ -98,7 +98,7 @@
 - **文件路径**: `/mnt/agents/.user/skills/longhun-system/assets/skill-2-brand-guidelines.html`
 - **文件大小**: 约 350 行 HTML/CSS
 - **外部依赖**: 无（纯HTML/CSS，零依赖）
-- **DNA标识**: `#龍芯⚡️2026-06-07-BRAND-GUIDELINES-v1.0`
+- **DNA标识**: `#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-BRAND-GUIDELINES-v1.0`
 
 ### 启动步骤
 
@@ -264,7 +264,7 @@
 - **文件路径**: `/mnt/agents/.user/skills/longhun-system/assets/skill-5-internal-comms.html`
 - **文件大小**: 约 380 行 HTML/CSS/JavaScript
 - **外部依赖**: 无（纯HTML/CSS/JavaScript，零依赖）
-- **DNA标识**: `#龍芯⚡️2026-06-07-INTERNAL-COMMS-v1.0`
+- **DNA标识**: `#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-INTERNAL-COMMS-v1.0`
 
 ### 启动步骤
 

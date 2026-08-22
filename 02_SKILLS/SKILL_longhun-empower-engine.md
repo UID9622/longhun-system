@@ -8,7 +8,7 @@ description: |
   REST API、前端面板和华为云部署SOP。
 license: CC BY-NC-SA 4.0
 metadata:
-  dna: "#龍芯⚡️2026-05-17-EMPOWER-ENGINE-v1.5"
+  dna: "#龍芯⚡️丙午·癸巳·辛卯·甲午·䷚颐-EMPOWER-ENGINE-v1.5"
   confirm_code: "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
   gpg_fingerprint: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
   version: "v1.5"
@@ -43,7 +43,7 @@ metadata:
 
 <!-- ============================================================
      龍魂赋能引擎 · SKILL.md 主文档
-     DNA: #龍芯⚡️2026-05-17-EMPOWER-ENGINE-v1.5
+     DNA: #龍芯⚡️丙午·癸巳·辛卯·甲午·䷚颐-EMPOWER-ENGINE-v1.5
      确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
      签名: UID9622 · 龍芯北辰
      ============================================================ -->
@@ -63,7 +63,7 @@ metadata:
 | **定位** | 需求识别 + 人格路由的专用引擎——不是通用AI助手，是"该调用谁"的判断系统 |
 | **一句话** | 识别用户真实需求 → 路由到对应人格 → 赋能输出 |
 | **核心能力** | 10大类关键字识别 · 9人格分工路由 · 反流量垄断评分 · REST API · 前端面板 |
-| **DNA签名** | `#龍芯⚡️2026-05-17-EMPOWER-ENGINE-v1.5` |
+| **DNA签名** | `#龍芯⚡️丙午·癸巳·辛卯·甲午·䷚颐-EMPOWER-ENGINE-v1.5` |
 | **确认码** | `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` |
 | **GPG指纹** | `A2D0092CEE2E5BA87035600924C3704A8CC26D5F` |
 
@@ -240,7 +240,7 @@ curl -X POST http://localhost:9622/identify \
 
 # 预期响应
 {
-  "dna": "#龍芯⚡️2026-05-17-EMPOWER-ENGINE-v1.5",
+  "dna": "#龍芯⚡️丙午·癸巳·辛卯·甲午·䷚颐-EMPOWER-ENGINE-v1.5",
   "categories": [
     {"code": "M04", "name": "情绪", "confidence": 0.95, "persona": "P02宝宝"},
     {"code": "M06", "name": "科技", "confidence": 0.82, "persona": "P04鲁班"},
@@ -379,7 +379,7 @@ curl -X POST http://localhost:9622/identify \
 
 ```json
 {
-  "dna": "#龍芯⚡️2026-05-17-EMPOWER-ENGINE-v1.5",
+  "dna": "#龍芯⚡️丙午·癸巳·辛卯·甲午·䷚颐-EMPOWER-ENGINE-v1.5",
   "version": "v1.5",
   "timestamp": "2026-05-17T14:32:00+08:00",
   "input_summary": "用户输入前20字摘要",
@@ -566,7 +566,7 @@ routing_advice = result["routing_advice"]
 
 ### v1.5 (2026-05-17) — M21升级融合
 
-**DNA**: `#龍芯⚡️2026-05-17-EMPOWER-ENGINE-v1.5`
+**DNA**: `#龍芯⚡️丙午·癸巳·辛卯·甲午·䷚颐-EMPOWER-ENGINE-v1.5`
 
 | 变更项 | 说明 |
 |--------|------|
@@ -580,7 +580,7 @@ routing_advice = result["routing_advice"]
 
 ### v1.0 (2026-04-05) — 初始版本
 
-**DNA**: `#龍芯⚡️2026-04-05-EMPOWER-ENGINE-v1.0`
+**DNA**: `#龍芯⚡️丙午·壬辰·己酉·庚午·䷨损-EMPOWER-ENGINE-v1.0`
 
 | 变更项 | 说明 |
 |--------|------|
@@ -721,7 +721,7 @@ gpg --verify SKILL.md.sig SKILL.md
 ---
 
 <!-- 文档元数据 -->
-<!-- DNA: #龍芯⚡️2026-05-17-EMPOWER-ENGINE-v1.5 -->
+<!-- DNA: #龍芯⚡️丙午·癸巳·辛卯·甲午·䷚颐-EMPOWER-ENGINE-v1.5 -->
 <!-- CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z -->
 <!-- GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F -->
 <!-- AUTHOR: UID9622 · 龍芯北辰 -->

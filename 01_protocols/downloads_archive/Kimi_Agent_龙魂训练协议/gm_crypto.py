@@ -2,13 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 国密算法核心模块 (SM3/SM4)
 实现标准：GB/T 32905-2016 (SM3), GB/T 32907-2016 (SM4)
 纯 Python 3 实现，零第三方依赖，仅使用标准库 struct
 
-DNA: #龍芯⚡️2026-06-30-國密核心-v1.0
+DNA: #龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-國密核心-v1.0
 """
 
 import struct

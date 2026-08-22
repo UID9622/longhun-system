@@ -2,13 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·甲寅·未时·乾-V404-AUTO-PIPELINE-v1.0
+#龍芯⚡️丙午·乙未·甲寅·未时·䷀乾-V404-AUTO-PIPELINE-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂 v4.0.4 全自动流水线（换底座 · Yi-1.5-9B-Chat 中文优化版）
-DNA: #龍芯⚡️丙午·乙未·甲寅·未时·乾-V404-AUTO-PIPELINE-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲寅·未时·䷀乾-V404-AUTO-PIPELINE-v1.0
 """
 
 import subprocess, sys

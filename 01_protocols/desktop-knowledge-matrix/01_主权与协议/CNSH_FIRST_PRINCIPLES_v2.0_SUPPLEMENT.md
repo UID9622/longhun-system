@@ -9,7 +9,7 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-cnsh-first-principles-v20-supplement`  
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-cnsh-first-principles-v20-supplement`  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
@@ -416,7 +416,7 @@ SI 公式 (F18 主权指数):
 ================================================================
 
 VERSION:     v2.0 + §19-§24 补全版
-DNA:         #龍芯⚡️丙午·丙申·庚申·亥时-CNSH-FIRST-PRINCIPLES-SUPPLEMENT-v1.0
+DNA:         #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-FIRST-PRINCIPLES-SUPPLEMENT-v1.0
 PARENT:      CNSH 第一性原理总纲 v2.0 (老大母稿·18 节)
 CONFIRM:     #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL:        #ZHUGEXIN⚡2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
@@ -467,7 +467,7 @@ EXT-3-5 老实坦白
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -490,6 +490,6 @@ EXT-3-5 老实坦白
 ## DNA 签名
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-cnsh-first-principles-v20-supplement
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-cnsh-first-principles-v20-supplement
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

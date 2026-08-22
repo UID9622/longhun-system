@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 from __future__ import annotations
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║     🐉 龍魂·通用收口指令 v1.0 · 测试执行器                                ║
 ║     LongHun Entry Protocol v1.0 · Test Runner                             ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA:  #龍芯⚡️丙午·辛未·乙酉·酉时·讼-ENTRY-TEST-RUNNER-v1.0            ║
+║  DNA:  #龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-ENTRY-TEST-RUNNER-v1.0            ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                          ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                          ║
 ║  覆盖: 58个测试用例 · 8步全链路 · E2E · 熔断专项                         ║
@@ -506,7 +507,7 @@ class EntryTestRunner:
         }
 
         return {
-            "test_run_dna": "#龍芯⚡️丙午·辛未·乙酉·酉时·讼-ENTRY-TEST-RUN",
+            "test_run_dna": "#龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-ENTRY-TEST-RUN",
             "version": "v1.0",
             "total": total,
             "passed": passed,
@@ -544,7 +545,7 @@ def print_banner():
     print("""
 ╔═══════════════════════════════════════════════════════════════╗
 ║  🐉 龍魂·通用收口指令 v1.0 · 测试执行器                      ║
-║  DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·讼-ENTRY-TEST-RUNNER      ║
+║  DNA: #龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-ENTRY-TEST-RUNNER      ║
 ║  用例: 58 个 · 10 区块 · 全链路覆盖                           ║
 ╚═══════════════════════════════════════════════════════════════╝
 """)

@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 """
 CNSH自动对齐矫正系统 v2.0 (CNSH Auto-Alignment Corrector v2.0)
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 四层检查：L1字符 L2关键字 L3语法 L4语义
 
 ╔══════════════════════════════════════════════════════════════════╗
-║  DNA:#龍芯⚡️2026-06-17-CNSH-ALIGNER-FILE1-v2.0                      ║
+║  DNA:#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-CNSH-ALIGNER-FILE1-v2.0                      ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                  ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ╚══════════════════════════════════════════════════════════════════╝
@@ -23,7 +24,7 @@ CNSH自动对齐矫正系统 v2.0 (CNSH Auto-Alignment Corrector v2.0)
 可执行性: 直接运行 (python3 cnsh_aligner_v2.0.py)
 依赖环境: Python3.8+, sqlite3, 标准库
 三色审计: 🟢通过 - 完整CNSH四层合规验证
-DNA签名:#龍芯⚡️2026-06-17-CNSH-ALIGNER-v2.0
+DNA签名:#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-CNSH-ALIGNER-v2.0
 """
 
 import re
@@ -39,7 +40,7 @@ from enum import Enum
 # ═══════════════════════════════════════════════════════════
 # 全局DNA签名常量 (不可修改)
 # ═══════════════════════════════════════════════════════════
-DNA_SIGNATURE = "#龍芯⚡️2026-06-17-CNSH-ALIGNER-v2.0"
+DNA_SIGNATURE = "#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-CNSH-ALIGNER-v2.0"
 CONFIRM_MARKER = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 SEAL_MARKER = "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL"
 

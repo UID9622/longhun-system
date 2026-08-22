@@ -1,0 +1,109 @@
+{
+  "dna": "#龍芯⚡️2026-08-19-BAD-EP01-E05-STORYBOARD-v1.0-UID9622",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+  "title": "坏蛋项目 · EP01-E05「雪没停」分镜表",
+  "source_event": "EP01-E05",
+  "total_duration_sec": 20,
+  "note": "受《坏蛋是怎样炼成的》人物关系启发，原创剧情。K3主创意，本地模型辅助格式化。",
+  "shots": [
+    {
+      "shot_id": "E05-S01",
+      "duration_sec": 5,
+      "shot_type": "中景",
+      "camera": "门外跟拍",
+      "visual": "四人走出录像厅。雪比刚才更大。没人说话。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼",
+        "HD-003-高强",
+        "HD-004-李爽"
+      ],
+      "props": [],
+      "audio": "风声、脚踩雪声",
+      "dialogue": "",
+      "emotion": "沉默的约定",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E05-S02",
+      "duration_sec": 4,
+      "shot_type": "特写",
+      "camera": "仰拍",
+      "visual": "路灯下，四人的影子被拉得很长。谢文东的影子在中间。",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼",
+        "HD-003-高强",
+        "HD-004-李爽"
+      ],
+      "props": [],
+      "audio": "龍慧慧旁白起",
+      "dialogue": "旁白：那一晚雪下得很大。",
+      "emotion": "命运感",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E05-S03",
+      "duration_sec": 5,
+      "shot_type": "双人近景",
+      "camera": "侧拍",
+      "visual": "三眼看谢文东，第一次露出认可的表情。",
+      "characters": [
+        "HD-002-三眼",
+        "HD-001-少年谢文东"
+      ],
+      "props": [],
+      "audio": "旁白继续",
+      "dialogue": "三眼：谢文东，以后有事，喊我。\n谢文东：会有事的。",
+      "emotion": "结盟确认",
+      "asset_refs": [
+        "HD-002_三眼_锚点图.png",
+        "HD-001_谢文东_少年锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E05-S04",
+      "duration_sec": 4,
+      "shot_type": "近景",
+      "camera": "正面",
+      "visual": "李爽搓手哈气，高强难得笑了一下。",
+      "characters": [
+        "HD-004-李爽",
+        "HD-003-高强"
+      ],
+      "props": [],
+      "audio": "李爽笑声",
+      "dialogue": "李爽：行了行了，冻死我了，找地儿喝酒去！\n高强：（嘴角微扬）走。",
+      "emotion": "兄弟雏形",
+      "asset_refs": [
+        "HD-004_李爽_锚点图.png",
+        "HD-003_高强_锚点图.png"
+      ],
+      "check": "🟢"
+    },
+    {
+      "shot_id": "E05-S05",
+      "duration_sec": 2,
+      "shot_type": "空镜",
+      "camera": "航拍升起",
+      "visual": "四人背影渐渐变小，消失在雪夜街道尽头。",
+      "characters": [],
+      "props": [],
+      "audio": "旁白收尾",
+      "dialogue": "旁白：没有人看见，东北未来的格局，就在一个录像厅门口，被四个年轻人重新写了。",
+      "emotion": "少年豪图",
+      "asset_refs": [
+        "ENV-02_老街雨夜.png"
+      ],
+      "check": "🟢"
+    }
+  ]
+}

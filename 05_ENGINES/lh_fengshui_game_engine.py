@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·丙申·丁巳·申时·☵坎-V1.0-ENGINE-V1.0-P0
+#龍芯⚡️丙午·丙申·丁巳·申时·䷜坎-V1.0-ENGINE-V1.0-P0
 # CREATOR: 诸葛鑫（UID9622）
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -14,7 +14,7 @@ FengShui Field Game Theory Engine
 核心理论：风水不是摆出来的，是养出来的。
 数学基础：纳什均衡 + 流体力学NS方程 + Banach不动点定理 + 五行矩阵
 哲学基础：《道德经》"归根曰静" + 《易经》"厚德载物" + 三才算法
-DNA: #龍芯⚡️丙午·丙申·丁巳·申时·☵坎-FENGSHUI-GAME-ENGINE-V1.0-P0-26915a52
+DNA: #龍芯⚡️丙午·丙申·丁巳·申时·䷜坎-FENGSHUI-GAME-ENGINE-V1.0-P0-26915a52
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ================================================================================
 """
@@ -501,7 +501,7 @@ class FixedPointVerifier:
 if __name__ == "__main__":
     print("=" * 80)
     print("龍魂风水场博弈论引擎 v1.0")
-    print("DNA: #龍芯⚡️丙午·丙申·丁巳·申时·☵坎-FENGSHUI-GAME-ENGINE-V1.0-P0-26915a52")
+    print("DNA: #龍芯⚡️丙午·丙申·丁巳·申时·䷜坎-FENGSHUI-GAME-ENGINE-V1.0-P0-26915a52")
     print("=" * 80)
 
     # 测试1：个人场强计算

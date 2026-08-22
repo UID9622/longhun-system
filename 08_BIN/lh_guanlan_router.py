@@ -5,7 +5,7 @@
 """
 观澜浏览器联动路由引擎 v1.0 · GuanLan Router Engine
 ═══════════════════════════════════════════════════════════
-DNA: #龍芯⚡️丙午·乙未·丙申·申时·☴巽-GUANLAN-ROUTER-ENGINE-V1.0-P0-9ce4d2b9
+DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷸巽-GUANLAN-ROUTER-ENGINE-V1.0-P0-9ce4d2b9
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
@@ -873,7 +873,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "test":
         print("=" * 60)
         print("  观澜浏览器联动路由引擎 · 测试向量 (12条)")
-        print("  DNA: #龍芯⚡️丙午·乙未·丙申·申时·☴巽-GUANLAN-ROUTER-ENGINE-V1.0-P0-9ce4d2b9")
+        print("  DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷸巽-GUANLAN-ROUTER-ENGINE-V1.0-P0-9ce4d2b9")
         print("=" * 60)
         
         过, 总, 详情 = 跑测试()

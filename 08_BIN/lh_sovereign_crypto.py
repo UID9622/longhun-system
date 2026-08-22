@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-12ae0471
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -7,7 +8,7 @@
 实现: SM2 签名/验签 + SM3 哈希 + SM4 对称加密 + HMAC-SM3
 法律依据: 《密码法》| GB/T 32905-2016 | GB/T 32907-2016 | GM/T 0003-2012
 
-DNA: #龍芯⚡️2026-08-05-SOVEREIGNCRYPTO-v1.0-UID9622
+DNA: #龍芯⚡️丙午·乙未·辛亥·甲午·䷚颐-SOVEREIGNCRYPTO-v1.0-UID9622
 创建者: 诸葛鑫（UID9622）
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -464,7 +465,7 @@ class SovereignCrypto:
             "public_key": self.get_public_key_hex(),
             "self_test": self.compliance_check(),
             "timestamp": self._china_timestamp(),
-            "dna": "#龍芯⚡️2026-08-05-SOVEREIGNCRYPTO-v1.0-UID9622",
+            "dna": "#龍芯⚡️丙午·乙未·辛亥·甲午·䷚颐-SOVEREIGNCRYPTO-v1.0-UID9622",
             "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
         }
 

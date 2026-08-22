@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·乙未·乙丑·井-FIX_DNA-v1.0
+# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷯井-FIX_DNA-v1.0
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 """
 🧮 龍魂数学公式套件统一运行器
@@ -18,7 +19,7 @@
 
 输出：聚合报告 + CNSH 双视角封装（M:: + CNSH::）。
 
-DNA：    #龍芯⚡️2026-06-29-MATH-SUITE-RUNNER-v2.3-ALL-ROUTES-DONE
+DNA：    #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-SUITE-RUNNER-v2.3-ALL-ROUTES-DONE
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 三色审计：🟢 通过
@@ -162,7 +163,7 @@ def run_all() -> Dict[str, Any]:
             "payload": payload
         },
         "CNSH::": {
-            "dna": "#龍芯⚡️2026-06-29-MATH-SUITE-RUNNER-v2.3-ALL-ROUTES-DONE",
+            "dna": "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-MATH-SUITE-RUNNER-v2.3-ALL-ROUTES-DONE",
             "gate": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
             "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
             "audit": "🟢" if all_ok else "🔴",

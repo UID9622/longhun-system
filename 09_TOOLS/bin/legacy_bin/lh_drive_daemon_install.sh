@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂 · 硬盘备份守护安装脚本
-# DNA: #龍芯⚡️2026-07-12-DRIVE-BACKUP-INSTALL-v1.0
+# DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-DRIVE-BACKUP-INSTALL-v1.0
 set -euo pipefail
 
 GREEN='\033[0;32m'; CYAN='\033[0;36m'; RED='\033[0;31m'; NC='\033[0m'

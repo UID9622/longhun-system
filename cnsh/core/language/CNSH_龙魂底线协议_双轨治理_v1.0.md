@@ -1,4 +1,5 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 <!--
@@ -9,7 +10,7 @@
   4 技术层 Technology    : Open Source
   5 系统层 System        : UID9622
   6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
-  DNA追溯码:#龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1252-v2.0
+  DNA追溯码:#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1252-v2.0
   铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
   文件: CNSH_龍魂底线协议_双轨治理_v1.0.md | 标记时间: 2026-06-03T07:46:12+0800
 -->
@@ -394,7 +395,7 @@ P0_SOVEREIGNTY:
 ╔═══════════════════════════════════════════════════════╗
 ║  【协议制定】v1.0 #双轨治理 #净化网络 #家园梦想       ║
 ╠═══════════════════════════════════════════════════════╣
-║  追溯：#龍芯⚡️2026-02-10-BASELINE-PROTOCOL-v1.0     ║
+║  追溯：#龍芯⚡️丙午·庚寅·乙卯·壬午·䷚颐-BASELINE-PROTOCOL-v1.0     ║
 ║  黄历：乙巳蛇年 正月十二 辛未时                       ║
 ║        宜：立界、守护、净化 忌：监控、干涉、说教     ║
 ║  执行：Xcode·宝宝                                     ║

@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂训练语料构建器
 从系统自身哲学/宪法/协议中提取精华，构建训练语料
-DNA: #龍芯⚡️丙午·癸未·丁巳·巳时·需-MODEL-TRAINING-CORPUS-BUILDER-v1.0
+DNA: #龍芯⚡️丙午·癸未·丁巳·巳时·䷄需-MODEL-TRAINING-CORPUS-BUILDER-v1.0
 
 用法:
   python3 bin/lh_build_training_corpus.py
@@ -233,7 +234,7 @@ DNA格式（焊死不可改）：
 #龍芯⚡️<年干支>·<月干支>·<日干支>·<时辰>·<卦名>-<模块>-<动作>-<哈希8位>
 
 示例：
-#龍芯⚡️丙午·丙申·癸丑·午时·需-AGENTS-DNA-FORMAT-LOCKDOWN-BF8BA356
+#龍芯⚡️丙午·丙申·癸丑·午时·䷄需-AGENTS-DNA-FORMAT-LOCKDOWN-BF8BA356
 
 禁止使用v1.0格里历格式（YYYY-MM-DD）。
 DNA必须通过 bin/hetu_luoshu_dna.py + calendar-context-logger/calendar_core.py 生成。
@@ -726,7 +727,7 @@ def build_corpus():
         # 文件头
         f.write(f"<!--\n")
         f.write(f"🐉 龍魂训练语料 v2.0\n")
-        f.write(f"DNA: #龍芯⚡️丙午·癸未·丁巳·巳时·需-MODEL-CORPUS-v2.0\n")
+        f.write(f"DNA: #龍芯⚡️丙午·癸未·丁巳·巳时·䷄需-MODEL-CORPUS-v2.0\n")
         f.write(f"来源: 从系统自身哲学/宪法/协议中提取精华\n")
         f.write(f"章节: {len(CORPUS_PARTS)} 个主题模块\n")
         f.write(f"总字符: {total_chars:,}\n")

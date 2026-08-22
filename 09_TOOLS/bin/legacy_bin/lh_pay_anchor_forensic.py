@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║     🧬 龍魂·支付锚定取证引擎 v1.0 — 五层咬合                               ║
 ║     Pay → Anchor → Forensic · 每笔支付激活都焊死在硬件底座上               ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️2026-07-12-PAY-ANCHOR-FORENSIC-v1.0                        ║
+║  DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-PAY-ANCHOR-FORENSIC-v1.0                        ║
 ║  哲学: 支付即锚定·DNA即存根·硬件即底座·取证即还原                           ║
 ║  铁律:                                                                   ║
 ║    L0 支付存根 — 每笔支付一条DNA存根·不可删除                               ║
@@ -751,7 +752,7 @@ def serve_api(port: int = 9623, data_dir: str = ""):
                     "status": "healthy",
                     "service": "longhun-pay-anchor",
                     "version": "v1.0",
-                    "dna": "#龍芯⚡️2026-07-12-PAY-ANCHOR-FORENSIC-v1.0",
+                    "dna": "#龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-PAY-ANCHOR-FORENSIC-v1.0",
                     "storage": str(ANCHOR_DIR),
                     "obs_backup": OBS_BACKUP_ENABLED,
                     "immutable": True,
@@ -1196,4 +1197,4 @@ if __name__ == "__main__":
     main()
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·乙卯·辰时·临-PAY-ANCHOR-FORENSIC-v1.0
+# DNA: #龍芯⚡️丙午·丙申·乙卯·辰时·䷒临-PAY-ANCHOR-FORENSIC-v1.0

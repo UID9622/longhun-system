@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂系统 · 05_ENGINES/ 目录说明
 
-> DNA: #龍芯⚡️丙午·丙申·庚戌·ENGINES-README-v1.0-UID9622
+> DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷕贲-ENGINES-README-v1.0-UID9622
 > 层编号: 05
 > 规范目录: `05_ENGINES/`
 > 兼容入口: `engines/` (Symlink)

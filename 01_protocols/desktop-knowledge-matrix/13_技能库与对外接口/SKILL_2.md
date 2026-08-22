@@ -1,3 +1,5 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: longhun-harmonyos
 description: 龍魂体系鸿蒙HarmonyOS端技能 - 数据根留在中国，S4安全级别锁死云端出境，SM4国密端侧加密，RdbObserver毫秒级监听
@@ -9,7 +11,7 @@ metadata:
   id: longhun-harmonyos
   version: v5.3
   category: local
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-HARMONYOS-v5.3'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-HARMONYOS-v5.3'
   tribute: '#致敬⚡️SteveJobs+Concept·龍魂HarmonyOS端'
   tech_stack: HarmonyOS 6.1, ETS/TypeScript, relationalStore, SM4
   author: 龍魂体系
@@ -34,7 +36,7 @@ metadata:
 名称: 龍魂鸿蒙端
 版本: v5.3
 分类: local
-DNA: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-HARMONYOS-v5.3'
+DNA: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-HARMONYOS-v5.3'
 致敬: '#致敬⚡️SteveJobs+Concept·龍魂HarmonyOS端'
 技术栈: HarmonyOS 6.1, ETS/TypeScript, relationalStore, SM4
 作者: 龍魂体系
@@ -305,7 +307,7 @@ const 追溯结果 = await 龍魂.安全查询('audit_log', `dna_tag LIKE '%${dn
 ```typescript
 // 在系统初始化时，自动记录君子协议签署记录
 const 协议记录 = {
-  dna_tag: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-HARMONYOS-v5.3',
+  dna_tag: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-HARMONYOS-v5.3',
   timestamp: Date.now(),
   action_type: 'PROTOCOL_ACCEPT',
   content_hash: await sm4引擎.计算哈希('君子协议'),
@@ -324,7 +326,7 @@ const 状态报告 = 龍魂.获取状态报告()
 
 // 返回示例：
 {
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-HARMONYOS-v5.3',
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-HARMONYOS-v5.3',
   tribute: '#致敬⚡️SteveJobs+Concept·龍魂HarmonyOS端',
   version: 'v5.3',
   initialized: true,

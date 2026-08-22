@@ -4,7 +4,7 @@
 id: dragon_vein_trace
 type: belief
 title: 龍脉留痕 · 留痕即主权
-dna: "#龍芯⚡️2026-04-22-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0"
+dna: "#龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0"
 owner: UID9622 · 诸葛鑫（Lucky）
 claim: 每一次触碰都是不可撤销的证明；画布是一本账本，永不清零，痕迹即主权的物质形式。
 based_on:
@@ -43,4 +43,4 @@ created: 丙午·辛未·乙酉
 **为什么**
 痕迹就是主权的物质形式；一年认知压缩凝结成可感知的视觉现实。
 
-> DNA: #龍芯⚡️2026-04-22-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0
+> DNA: #龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-LONGHUN-IMMUTABLE-PHILOSOPHY-v1.0

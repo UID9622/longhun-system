@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂引擎主控 · 定时任务调度器 v1.0
-DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·临-LH-CTL-SCHEDULER-v1.0-B2C3D4E5
+DNA: #龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH-CTL-SCHEDULER-v1.0-B2C3D4E5
 创建者: 诸葛鑫 (UID9622)
 协议: CC BY-NC-SA 4.0
 
@@ -42,7 +42,7 @@ except ImportError:
     HAS_APSCHEDULER = False
 
 CST = timezone(timedelta(hours=8))
-DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH-CTL-SCHEDULER-v1.0-B2C3D4E5"
+DNA = "#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH-CTL-SCHEDULER-v1.0-B2C3D4E5"
 PID_FILE = Path.home() / ".longhun" / "state" / "scheduler.pid"
 
 

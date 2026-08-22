@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂 longhun-v4.1.0 LoRA 微调器（自定义训练循环 · 抗过拟合版）
 底模: 01-ai/Yi-1.5-9B-Chat (MLX)
@@ -10,7 +11,7 @@
        通过自定义训练循环支持 AdamW + weight_decay、cosine warmup、更高 LoRA dropout、
        val 平台期 early stop，并从 v4.0.8-iter1900 golden checkpoint（Val 0.767）恢复。
 
-DNA: #龍芯⚡️2026-07-20-MODEL-LORA-TRAINER-v4.1.0
+DNA: #龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-MODEL-LORA-TRAINER-v4.1.0
 
 用法:
   python3 bin/lh_lora_trainer_v410.py setup    # 复用/转换 Yi-1.5-9B-Chat MLX

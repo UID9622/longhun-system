@@ -1,5 +1,5 @@
 // 龍魂 Overlay 状态管理
-// DNA:#龍芯⚡️2026-06-04-OVERLAY-STORE-v1.0
+// DNA:#龍芯⚡️丙午·癸巳·己酉·庚午·䷨损-OVERLAY-STORE-v1.0
 
 import { create } from 'zustand'
 

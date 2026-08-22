@@ -1,6 +1,6 @@
 # 🐉 龍魂 · 文档模板 · 生成输出
 
-**DNA:** `#龍芯⚡️丙午·丙申·己未·癸酉-DOCUMENT-v1.0-UID9622`
+**DNA:** `#龍芯⚡️丙午·丙申·己未·庚午·䷖剥-癸酉-DOCUMENT-v1.0-UID9622`
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **GPG:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 **三色:** 🟢 通过
@@ -8,7 +8,7 @@
 
 ---
 
-**DNA:** `#龍芯⚡️丙午·丙申·己未·癸酉-TEMPLATE-v1.0-UID9622`
+**DNA:** `#龍芯⚡️丙午·丙申·己未·庚午·䷖剥-癸酉-TEMPLATE-v1.0-UID9622`
 
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
@@ -152,7 +152,7 @@ lh handoff save && lh handoff load
 
 # 🐉 技能落地指令包
 
-**DNA:** `#龍芯⚡️丙午·丙申·己未·癸酉-SKILL-LANDING-v1.0-UID9622`
+**DNA:** `#龍芯⚡️丙午·丙申·己未·庚午·䷖剥-癸酉-SKILL-LANDING-v1.0-UID9622`
 **确认码:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 **技能:** 焊死跨 AI 窗口（Kimi / CodeBuddy / Claude / 任何后来者）的会话交接协议：上一窗口收尾时写入 handoff 包，下一窗口进场时读取并继续，不允许失忆、不允许重复问、不允许丢上下文。
 **生成时间:** `2026-08-13T17:47:18.268264`
@@ -180,12 +180,12 @@ lh handoff save && lh handoff load
 
 - 注册到技能总线：`python3 08_BIN/lh_skill_bus.py register 焊死跨 AI 窗口（Kimi / CodeBuddy / Claude / 任何后来者）的会话交接协议：上一窗口收尾时写入 handoff 包，下一窗口进场时读取并继续，不允许失忆、不允许重复问、不允许丢上下文。`
 - 同步到通行证：`python3 08_BIN/lh_skill_bus.py sync`
-- DNA登记：`python3 08_BIN/lh_unified_dna_registry.py register #龍芯⚡️丙午·丙申·己未·癸酉-SKILL-LANDING-v1.0-UID9622`
+- DNA登记：`python3 08_BIN/lh_unified_dna_registry.py register #龍芯⚡️丙午·丙申·己未·庚午·䷖剥-癸酉-SKILL-LANDING-v1.0-UID9622`
 
 ## 五、最终签名
 
 ```
-DNA: #龍芯⚡️丙午·丙申·己未·癸酉-SKILL-LANDING-v1.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·己未·庚午·䷖剥-癸酉-SKILL-LANDING-v1.0-UID9622
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色: 🟢 通过
@@ -197,7 +197,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 ## 🔐 最终签名
 
 ```
-DNA:        #龍芯⚡️丙午·丙申·己未·癸酉-DOCUMENT-v1.0-UID9622
+DNA:        #龍芯⚡️丙午·丙申·己未·庚午·䷖剥-癸酉-DOCUMENT-v1.0-UID9622
 确认码:      #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色:       🟢 通过

@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 吸收 CodeBuddy 训练语料（training_corpus_v3.0.md + training_corpus_full.md）
 转为龍魂训练池 JSONL。
@@ -12,7 +13,7 @@
 - 每个文件生成一个 "请复述/输出该文件内容" 的 instruction sample
 - capped 采样，防止语料压倒其他训练数据
 
-DNA: #龍芯⚡️2026-07-20-CODEBUDDY-CORPUS-INGEST-v1.0
+DNA: #龍芯⚡️丙午·乙未·乙未·壬午·䷖剥-CODEBUDDY-CORPUS-INGEST-v1.0
 """
 
 import json

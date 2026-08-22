@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-##龍芯⚡️2026-06-21-ENGINE-PERSONA_SCHEDULER-FILE1-v1.0-2
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+##龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-ENGINE-PERSONA_SCHEDULER-FILE1-v1.0-2
 # 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/usr/bin/env python3

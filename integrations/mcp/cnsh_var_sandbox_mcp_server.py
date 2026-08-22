@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════════╗
 ║        CNSH 变量沙箱 MCP Server v1.0 — 统一变量管理 + 隔离执行        ║
-║  DNA: #龍芯⚡️2026-07-06-CNSH-VAR-SANDBOX-MCP-v1.0                  ║
+║  DNA: #龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-VAR-SANDBOX-MCP-v1.0                  ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F                     ║
 ║  创建者: UID9622（诸葛鑫·Lucky）                                     ║
 ║  三色审计: 🟢 通过                                                   ║
@@ -589,7 +590,7 @@ def _健康检查(args: dict[str, object]) -> dict[str, object]:  # pyright: ign
         "通过": validate["通过"],
         "服务": "cnsh-var-sandbox",
         "版本": "1.0.0",
-        "DNA": "#龍芯⚡️2026-07-06-CNSH-VAR-SANDBOX-MCP-v1.0",
+        "DNA": "#龍芯⚡️丙午·甲午·辛巳·甲午·䷃蒙-CNSH-VAR-SANDBOX-MCP-v1.0",
         "沙箱状态": {
             "沙箱名": _默认沙箱.沙箱名,
             "变量数": len(_默认沙箱.变量表),

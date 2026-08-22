@@ -5,7 +5,7 @@
 🐉 龍魂低算力内核 · 基准测试脚本
 复现实测数据 · 纯标准库 · 零网络依赖
 
-DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-BENCHMARK-UID9622
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-BENCHMARK-UID9622
 License: MulanPSL v2
 
 运行: python3 tools/benchmark_lowpower.py
@@ -65,7 +65,7 @@ def main():
     print(f"平台:  {platform.platform()}")
     print(f"Python: {sys.version.split()[0]}")
     print(f"时间:  {datetime.now().isoformat()}")
-    print(f"DNA:   #龍芯⚡️丙午·丙申·丁巳·恒卦-BENCH-UID9622")
+    print(f"DNA:   #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-BENCH-UID9622")
     print(DIVIDER)
     print()
 
@@ -144,7 +144,7 @@ def main():
         "timestamp": datetime.now().isoformat(),
         "platform": platform.platform(),
         "python_version": sys.version.split()[0],
-        "dna": "#龍芯⚡️丙午·丙申·丁巳·恒卦-BENCH-UID9622",
+        "dna": "#龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-BENCH-UID9622",
         "results": results,
         "network_dependency": "零（纯标准库·断网可跑）",
         "source_code_size": "~10KB (压缩后)",

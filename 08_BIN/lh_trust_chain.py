@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 龍魂 · 信任链统一入口 v1.2.0
-DNA: #龍芯⚡️丙午·丙申·己未·癸酉-TRUST-CHAIN-ENTRY-v1.2-UID9622
+DNA: #龍芯⚡️丙午·丙申·己未·庚午·䷖剥-癸酉-TRUST-CHAIN-ENTRY-v1.2-UID9622
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -30,7 +30,7 @@ PROTOCOL = ROOT / "01_protocols" / "LH-TRUST-CHAIN-DELIVERY-v1.2.md"
 PORTAL = ROOT / "10_PORTAL" / "trust-chain.html"
 
 VERSION = "v1.2.0"
-DNA = "#龍芯⚡️丙午·丙申·己未·癸酉-TRUST-CHAIN-ENTRY-v1.2-UID9622"
+DNA = "#龍芯⚡️丙午·丙申·己未·庚午·䷖剥-癸酉-TRUST-CHAIN-ENTRY-v1.2-UID9622"
 GPG_KEY = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 
 

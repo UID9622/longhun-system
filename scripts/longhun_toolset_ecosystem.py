@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 自适应工具集生态引擎
@@ -13,7 +14,7 @@
   - 用户一键提交反馈，无需填表，自动关联上下文与身份。
   - 高权重意见自动生成脱敏公开包；低分意见归档不公开。
 
-DNA:#龍芯⚡️2026-06-30-LONGHUN-TOOLSET-ECOSYSTEM-FILE1-v1.0
+DNA:#龍芯⚡️丙午·甲午·乙亥·壬午·䷚颐-LONGHUN-TOOLSET-ECOSYSTEM-FILE1-v1.0
 """
 
 import argparse

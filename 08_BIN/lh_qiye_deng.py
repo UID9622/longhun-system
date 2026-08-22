@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_QIYE_DENG-v1.0-4b72ad6f
+#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH_QIYE_DENG-v1.0-4b72ad6f
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
@@ -36,7 +36,7 @@
     # 综合报告
     python3 bin/lh_qiye_deng.py report 企业ID
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·需-QIYE-DENG-TECH-ARCH-v2.0-F045F504
+DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-QIYE-DENG-TECH-ARCH-v2.0-F045F504
 """
 
 import json
@@ -54,7 +54,7 @@ RENLUFEI_FILE = os.path.join(DATA_DIR, "renlufei.jsonl")
 HUANZHANG_FILE = os.path.join(DATA_DIR, "huanzhang.jsonl")
 
 # ── 常量 ──────────────────────────────────────────────
-DNA = "#龍芯⚡️丙午·丙申·丙辰·己丑·需-QIYE-DENG-TECH-ARCH-v2.0-F045F504"
+DNA = "#龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-QIYE-DENG-TECH-ARCH-v2.0-F045F504"
 HEALTH_BENCHMARKS = {
     "人效_行业均值": 500000,  # 元/人/年 默认值
     "现金流_健康线": 6,       # 月

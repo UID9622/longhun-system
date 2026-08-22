@@ -1,11 +1,11 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # The Privacy Whitepaper of the LongHun System
 
 ## Data Sovereignty, Local-First Architecture, and Five-Layer Data Black Hole Protocol
 
-> **DNA:** `#龍芯⚡️2026-07-08-PRIVACY-WHITEPAPER-v2.0`  
+> **DNA:** `#龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-PRIVACY-WHITEPAPER-v2.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777L`  
 > **Author:** UID9622 · 龍芯北辰  
 > **Translation:** Executive Summary · 2026-07-21  
@@ -110,6 +110,6 @@ These are not radical demands. They are the minimum conditions for digital digni
 
 ---
 
-> **DNA:** `#龍芯⚡️2026-07-08-PRIVACY-WHITEPAPER-v2.0`  
+> **DNA:** `#龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-PRIVACY-WHITEPAPER-v2.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777L`  
 > **Full protocol:** `01_protocols/LH-DATA-PRIVACY-v2.1.md`

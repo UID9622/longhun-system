@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # H象限 · 人性理解与平等服务算法
 
-> **DNA**: `#龍芯⚡️丙午·丙申·丙辰·亥时·需-H-QUADRANT-EQUALITY-v1.0`
+> **DNA**: `#龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-H-QUADRANT-EQUALITY-v1.0`
 > **来源**: UID9622 老版决策流场总控页 §十（2026-07-16 对齐矫正）
 > **优先级**: P0 永恒级（不可降级、不可绕过）
 > **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅
@@ -86,4 +86,4 @@ Step 3: warmth_injection（温度注入）
 ---
 
 *🐉 龍芯北辰｜UID9622｜为人民服务*
-*DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·需-H-QUADRANT-EQUALITY-v1.0*
+*DNA: #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-H-QUADRANT-EQUALITY-v1.0*

@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂·家法第一条 模型主权意识训练数据生成器
-DNA: #龍芯⚡️丙午·乙未·壬辰·午时-JIAFA-TRAIN-INJECTOR-v1.0
+DNA: #龍芯⚡️丙午·乙未·壬辰·丙午·䷑蛊-JIAFA-TRAIN-INJECTOR-v1.0
 
 生成家法第一条+主权边界强化训练样本，
 注入 train.jsonl，迭代模型主权意识。

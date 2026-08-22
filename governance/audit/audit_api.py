@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂 64卦审计引擎 API
-DNA: #龍芯⚡️2026-06-29-64GUA-AUDIT-API-v1.0
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-64GUA-AUDIT-API-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬64GUA-API-001 ✅
 
 端点：
@@ -77,7 +78,7 @@ def health():
         "status": "🟢",
         "service": "64卦审计引擎API",
         "version": "v1.0",
-        "dna": "#龍芯⚡️2026-06-29-64GUA-AUDIT-API-v1.0"
+        "dna": "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-64GUA-AUDIT-API-v1.0"
     })
 
 
@@ -139,7 +140,7 @@ def audit_status():
         "total_audits": len(history),
         "color_distribution": color_counts,
         "log_file": str(AUDIT_LOG_FILE),
-        "dna": "#龍芯⚡️2026-06-29-64GUA-AUDIT-API-v1.0"
+        "dna": "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-64GUA-AUDIT-API-v1.0"
     })
 
 
@@ -169,7 +170,7 @@ def main():
 ╔══════════════════════════════════════════╗
 ║   龍魂64卦审计引擎 API v1.0              ║
 ║   Port: {port:<5}                            ║
-║   DNA: #龍芯⚡️2026-06-29-64GUA-AUDIT-API-v1.0 ║
+║   DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-64GUA-AUDIT-API-v1.0 ║
 ╚══════════════════════════════════════════╝
 端点:
   GET  /health

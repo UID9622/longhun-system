@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 三才 v2.0 · 量子纠缠协作桥接层
-DNA: #龍芯⚡️2026-07-07-SANCAI-V2-ENTANGLEMENT-v1.0
+DNA: #龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-SANCAI-V2-ENTANGLEMENT-v1.0
 
 论文公式落地：
   公式(8): |Ψ⟩ = Σ α_ij |m_i⟩ ⊗ |m_j⟩,  Σ|α_ij|² = 1
@@ -94,7 +95,7 @@ class SancaiEntanglementEngine:
         output = engine.collaborate(task, modules)  # 协作坍缩
     """
 
-    DNA = "#龍芯⚡️2026-07-07-SANCAI-V2-ENTANGLEMENT-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·壬午·丙午·䷳艮为山-SANCAI-V2-ENTANGLEMENT-v1.0"
     CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-773B"
 
     # 协作耦合强度（论文中的哈密顿量非对角元）

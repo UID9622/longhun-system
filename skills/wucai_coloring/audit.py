@@ -2,13 +2,14 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂五色审计引擎 v1.0
 
 把 UID9622 的「五色」直觉固化为可执行代码：
 看到颜色就知道要做什么。
 
-DNA: #龍芯⚡️2026-06-23-WUCAI-AUDIT-v1.0
+DNA: #龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-WUCAI-AUDIT-v1.0
 CONFIRM: "#CONFIRM🌌YOUR-UID-ONLY-ONCE🧬XXXX-XXXX"
 """
 from __future__ import annotations

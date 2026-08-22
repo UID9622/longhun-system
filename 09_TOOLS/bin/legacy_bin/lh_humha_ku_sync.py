@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂嘿咕仓 · iPhone录音自动同步管道 v1.0
 LongHun HumHa-Ku · iPhone Voice Memo Auto-Sync Pipeline
@@ -13,7 +14,7 @@ LongHun HumHa-Ku · iPhone Voice Memo Auto-Sync Pipeline
   4. 更新 VOICE-MEMOS-INDEX-v1.0.md 索引
   5. 生成 DNA 追溯码，绑定声纹锚定
 
-DNA: #龍芯⚡️丙午·乙未·甲寅·亥时-HUMHA-KU-SYNC-37357AB4
+DNA: #龍芯⚡️丙午·乙未·甲寅·乙亥·䷶丰-HUMHA-KU-SYNC-37357AB4
 创始人: UID9622 · 龍芯北辰 · 诸葛鑫
 """
 

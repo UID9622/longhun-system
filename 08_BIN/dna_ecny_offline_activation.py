@@ -4,7 +4,7 @@
 """🐉 龍魂引擎：dna_ecny_offline_activation
 路径：bin/dna_ecny_offline_activation.py
 TODO：请补充详细功能说明（不少于20字）。"""
-# DNA: #龍芯⚡️2026-07-21-迁移-dna_ecny_offline_activation-v1.0
+# DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-迁移-dna_ecny_offline_activation-v1.0
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # 来源: 龍魂待整理/03-身份安全-DNA/浏览器字体包/dna_ecny_offline_activation.py

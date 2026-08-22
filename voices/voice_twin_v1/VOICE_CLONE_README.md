@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂真声 · 语音克隆训练说明
 
-DNA: #龍芯⚡️2026-06-25-VOICE-CLONE-UID9622-README
+DNA: #龍芯⚡️丙午·甲午·庚午·壬午·䷳艮为山-VOICE-CLONE-UID9622-README
 
 ## 伦理边界
 

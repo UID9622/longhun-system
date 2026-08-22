@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂·产物推送至 Notion
-DNA: #龍芯⚡️丙午·癸未·丁未-NOTION-PUSH-ARTIFACTS-v1.0
+DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-NOTION-PUSH-ARTIFACTS-v1.0
 功能：把最新产物清单推送到指定 Notion 页面，保持信息不断裂。
 """
 
@@ -18,7 +19,7 @@ from pathlib import Path
 
 import requests
 
-DNA = "#龍芯⚡️丙午·癸未·丁未-NOTION-PUSH-ARTIFACTS-v1.0"
+DNA = "#龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-NOTION-PUSH-ARTIFACTS-v1.0"
 
 
 def load_token() -> str:

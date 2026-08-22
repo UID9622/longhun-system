@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂能力与训练自动迭代系统 · 人格矩阵
-DNA: #龍芯⚡️2026-06-28-LONGHUN-CAPABILITY-PERSONA-MATRIX-v1.0
+DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-CAPABILITY-PERSONA-MATRIX-v1.0
 
 读取现有人格注册表，实现任务路由、人格组合、左右互搏。
 """
@@ -25,7 +26,7 @@ class PersonaMatrix:
     def __init__(self, registry_path=None):
         self.registry_path = Path(registry_path) if registry_path else PERSONA_REGISTRY
         self.registry = self._load_registry()
-        self.dna = "#龍芯⚡️2026-06-28-LONGHUN-CAPABILITY-PERSONA-MATRIX-v1.0"
+        self.dna = "#龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-CAPABILITY-PERSONA-MATRIX-v1.0"
 
     def _load_registry(self):
         if not self.registry_path.exists():

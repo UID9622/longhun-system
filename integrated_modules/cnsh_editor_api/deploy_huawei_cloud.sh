@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂 CNSH Editor API · 华为云/鲲鹏部署脚本
-# DNA: #龍芯⚡️2026-07-04-CNSH-API-DEPLOY-HUAWEI-v1.0
+# DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-CNSH-API-DEPLOY-HUAWEI-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 set -euo pipefail
 
@@ -84,4 +84,4 @@ echo ""
 echo "✅ 部署完成。访问地址："
 echo "   编辑器: http://${HW_ECS_IP}:8000/editor"
 echo "   API 文档: http://${HW_ECS_IP}:8000/docs"
-echo "   DNA: #龍芯⚡️2026-07-04-CNSH-API-DEPLOY-HUAWEI-v1.0"
+echo "   DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-CNSH-API-DEPLOY-HUAWEI-v1.0"

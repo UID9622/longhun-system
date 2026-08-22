@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂道引器 · lh_daoyin.py v2.0
 
@@ -25,7 +26,7 @@ v2.0 新增：
   lh_daoyin query <hash>
   lh_daoyin verify <hash>
 
-DNA: #龍芯⚡️2026-07-10-LONGHUN-DAOYIN-v2.0
+DNA: #龍芯⚡️丙午·乙未·乙酉·壬午·䷨损-LONGHUN-DAOYIN-v2.0
 """
 
 from __future__ import annotations

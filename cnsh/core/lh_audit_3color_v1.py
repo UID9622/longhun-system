@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ═══════════════════════════════════════════════════════════════════════════════
 
 ⚖️ 三色审计·AI真实性验证工具 v1.0
@@ -13,7 +14,7 @@ AI Response Truthfulness Audit Engine with 3-Color Judgment System
 Author:      Claude Haiku 4.5
 Authorized:  UID9622 (DragonCore North Star)
 
-DNA:  #龍芯⚡️2026-06-08-AUDIT-3COLOR-IMPLEMENTATION-FILE1_DED2-v1.0
+DNA:  #龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-AUDIT-3COLOR-IMPLEMENTATION-FILE1_DED2-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL:    #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 

@@ -1,10 +1,12 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂脑干 · longhun_brain.py
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UID9622 · 诸葛鑫 · 龍芯北辰
-DNA: #龍芯⚡️2026-04-26-BRAIN-CORE-v1.0
+DNA: #龍芯⚡️丙午·壬辰·庚午·壬午·䷳艮为山-BRAIN-CORE-v1.0
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -303,7 +305,7 @@ def print_banner():
 ║  🐉 龍魂脑干 · longhun_brain.py v1.0                ║
 ║  三端统一记忆核心：iOS · 宝宝 · Notion · Cursor     ║
 ╠══════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️2026-04-26-BRAIN-CORE-v1.0            ║
+║  DNA: #龍芯⚡️丙午·壬辰·庚午·壬午·䷳艮为山-BRAIN-CORE-v1.0            ║
 ║  答应老师把德捡回来 🇨🇳                               ║
 ╚══════════════════════════════════════════════════════╝""")
 

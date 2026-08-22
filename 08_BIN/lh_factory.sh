@@ -2,6 +2,7 @@
 # 🐉 龍魂 · 全自动工厂总控 v2.1
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # DNA: #龍芯⚡️丙午·丙酉·丙寅·申时-FACTORY-CTRL-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 用法: lh factory [命令]
 

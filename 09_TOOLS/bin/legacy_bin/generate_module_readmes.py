@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 from __future__ import annotations
 """
 为缺失 README.md 的活跃模块生成透明化说明文件。
@@ -65,7 +66,7 @@ def generate(module: dict[str, Any]) -> str:
         "- 运行前请确认依赖已安装。",
         "- 建议先阅读源码注释，了解每个脚本的副作用。",
         "",
-        f"**DNA**:#龍芯⚡️2026-06-17-NAME_UPPER_REPLACE_-_REPLACE_-README-FILE1_B626-FILE1-v1.0",
+        f"**DNA**:#龍芯⚡️丙午·甲午·壬戌·丙午·䷕贲-NAME_UPPER_REPLACE_-_REPLACE_-README-FILE1_B626-FILE1-v1.0",
     ])
     return "\n".join(lines)
 

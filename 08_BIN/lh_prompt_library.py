@@ -2,14 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·辛未·乙酉·PROMPT-LIBRARY-LOADER-v1.0
+#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-PROMPT-LIBRARY-LOADER-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂·提示词库查询加载器 v1.0
 ===========================
-DNA: #龍芯⚡️丙午·辛未·乙酉·PROMPT-LIBRARY-LOADER-v1.0
+DNA: #龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-PROMPT-LIBRARY-LOADER-v1.0
 用途: 供 lh_claude_bridge / 语义注册表 / 任意 AI 助手在对话时直接调用提示词库。
       加载 L7_数据层/notion_prompt_library/library_v2.json，提供按助手/关键词检索。
 

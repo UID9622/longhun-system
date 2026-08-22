@@ -2,9 +2,10 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 from __future__ import annotations
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂统一监管API · 核心服务层
-DNA: #龍芯⚡️2026-07-12-REGULATORY-SERVICE-v2.0 · 三层透明模型
+DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-REGULATORY-SERVICE-v2.0 · 三层透明模型
 
 统一监管服务:
 - 文件系统扫描与文档注册（含主权分级）

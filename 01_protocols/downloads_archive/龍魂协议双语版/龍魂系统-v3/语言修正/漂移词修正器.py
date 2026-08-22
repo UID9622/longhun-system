@@ -1,12 +1,14 @@
+# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════╗
 ║  龍魂·CNSH 修正器 v1.0                                      ║
-║  DNA: #龍芯⚡️20260529-CNSH-CORRECTOR-v1.0                  ║
+║  DNA: #龍芯⚡️丙午·癸巳·癸卯·戊午·䷚颐-CNSH-CORRECTOR-v1.0                  ║
 ╚══════════════════════════════════════════════════════════════╝
 
 alias kimi 指向这里。

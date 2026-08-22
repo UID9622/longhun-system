@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 电商信任重建数学建模 v1.0.1
 # Mathematical Model of E-Commerce Trust Rebuild
-# DNA: #龍芯⚡️2026-07-21-ECOM-TRUST-MATH-MODEL-V1.0.1-P0
+# DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-ECOM-TRUST-MATH-MODEL-V1.0.1-P0
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 
@@ -368,7 +368,7 @@ python3 bin/lh_ecom_trust_engine.py
 ---
 
 > 版本: v1.0.1 · 2026-07-21
-> DNA: #龍芯⚡️2026-07-21-ECOM-TRUST-MATH-MODEL-V1.0.1-P0
+> DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-ECOM-TRUST-MATH-MODEL-V1.0.1-P0
 > GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 > 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 > 三色审计: 🟢 12/12全绿 · 🟡 权重/比例可调 · 🔴 法定下限不可降

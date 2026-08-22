@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂视角下的黎曼猜想·视角 C：三才和谐原理验证代码
 Numerical Verification Code for Perspective C: Three-Talent Harmony Principle
 
-DNA:#龍芯⚡️2026-06-08-C_BBAA-v1.0
+DNA:#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-C_BBAA-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -446,7 +447,7 @@ if __name__ == "__main__":
 ║        龍魂视角下的黎曼猜想·视角 C：三才和谐原理验证程序                    ║
 ║   Numerical Verification of Perspective C: Three-Talent Harmony Principle   ║
 ║                                                                             ║
-║  DNA:#龍芯⚡️2026-06-08-C_0BBF-v1.0                        ║
+║  DNA:#龍芯⚡️丙午·甲午·癸丑·戊午·䷨损-C_0BBF-v1.0                        ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅                          ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ✅       ║
 ║                                                                             ║

@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ╔══════════════════════════════════════════════════════════════════════════╗
 ║       龍魂统一DNA登记册 · 严格审计人格 v1.0                             ║
 ║       LongHun Unified DNA Registry · Strict Auditor Persona             ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  DNA: #龍芯⚡️丙午·丙申·甲寅·壬申-UNIFIED-DNA-AUDITOR-v1.0              ║
+║  DNA: #龍芯⚡️丙午·丙申·甲寅·庚午·䷕贲-壬申-UNIFIED-DNA-AUDITOR-v1.0              ║
 ║  执行人格: P06 镜像审计者 · P07 开源守门人 · P03 墨子                   ║
 ║  铁律: 先审后写 · 明文不入库 · 身份只存哈希 · 异常熔断                 ║
 ║  📇 身份 · 联系 · 支持 → assets/PUBLIC_IDENTITY.md                      ║
@@ -327,4 +328,4 @@ if __name__ == "__main__":
     sys.exit(main())
 
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# DNA: #龍芯⚡️丙午·丙申·甲寅·壬申·临-UNIFIED-DNA-AUDITOR-v1.0-9F3E2D1C
+# DNA: #龍芯⚡️丙午·丙申·甲寅·壬申·䷒临-UNIFIED-DNA-AUDITOR-v1.0-9F3E2D1C

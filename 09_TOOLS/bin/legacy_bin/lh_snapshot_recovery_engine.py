@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
 🐉 龍魂 · 快照恢复引擎 v1.0 (Snapshot & Recovery Engine)
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 =========================================================
 投喂落地：CNSH Runtime Governance Mathematics · Snapshot Recovery + Timeline
 
@@ -11,7 +12,7 @@
   - 时间轴事件记录
   - 回滚恢复
 
-DNA: #龍芯⚡️丙午·乙未·己未·申时·履-SNAPSHOT-RECOVERY-v1.0-Q5R6S7T8
+DNA: #龍芯⚡️丙午·乙未·己未·申时·䷉履-SNAPSHOT-RECOVERY-v1.0-Q5R6S7T8
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
@@ -418,7 +419,7 @@ def demo():
     # 创建快照
     snap1 = engine.create_snapshot(
         state={"phase": "after_audit", "status": "green"},
-        dna_trace="#龍芯⚡️丙午·乙未·己未·申时·履-TEST",
+        dna_trace="#龍芯⚡️丙午·乙未·己未·申时·䷉履-TEST",
     )
     print(f"\n📸 快照1: {snap1.snapshot_id}")
     print(f"   哈希: {snap1.hash_value[:16]}...")
@@ -429,7 +430,7 @@ def demo():
     # 模拟状态变更后再快照
     snap2 = engine.create_snapshot(
         state={"phase": "after_execution", "status": "completed"},
-        dna_trace="#龍芯⚡️丙午·乙未·己未·申时·履-TEST2",
+        dna_trace="#龍芯⚡️丙午·乙未·己未·申时·䷉履-TEST2",
     )
     print(f"\n📸 快照2: {snap2.snapshot_id}")
     print(f"   哈希: {snap2.hash_value[:16]}...")

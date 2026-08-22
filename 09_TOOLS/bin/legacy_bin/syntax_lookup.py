@@ -2,9 +2,10 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂·语法库查询工具 v1.0
-DNA: #龍芯⚡️2026-07-08-SYNTAX-LOOKUP-v1.0
+DNA: #龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-SYNTAX-LOOKUP-v1.0
 
 用法:
   python3 bin/syntax_lookup.py "打印"              # 查单个中文关键字
@@ -19,7 +20,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-DNA = "#龍芯⚡️2026-07-08-SYNTAX-LOOKUP-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-SYNTAX-LOOKUP-v1.0"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 LIB_PATH = PROJECT_ROOT / "03_compiler" / "mappings" / "syntax_library.json"
 

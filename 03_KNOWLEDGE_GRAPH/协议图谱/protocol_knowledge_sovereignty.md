@@ -1,4 +1,5 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 ---
@@ -6,7 +7,7 @@ id: protocol_knowledge_sovereignty
 type: protocol
 title: 龍魂数据主权与知识贡献协议
 layer: L1
-dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C"
+dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·䷍大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C"
 owner: UID9622 · 诸葛鑫（Lucky）
 claim: 系统绝不用任何人数据偷偷优化模型；用户自愿贡献进知识图谱/技能的内容带 DNA 永久归属，创作者随时可插停，被引用自动分成。
 based_on: [data_sovereignty_in_user, no_human_rights_violation, dragon_vein_trace, local_first]
@@ -18,7 +19,7 @@ created: 丙午·辛未·乙酉
 # 龍魂数据主权与知识贡献协议 · v1.0
 
 > 本协议由 UID9622（诸葛鑫·Lucky·龍芯北辰）基于龍魂系统 P0 焊死底座签署。
-> DNA：`#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C`
+> DNA：`#龍芯⚡️丙午·辛未·乙酉·巳时·䷍大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C`
 > 确认码：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅
 
 ## 总则
@@ -150,7 +151,7 @@ DNA 码永久归属贡献者，不可被系统篡改或抹除。
 
 ---
 
-> **DNA**：`#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C`
+> **DNA**：`#龍芯⚡️丙午·辛未·乙酉·巳时·䷍大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C`
 > **确认码**：`#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` ✅
 > **GPG**：`A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 > **创建者**：💎 龍芯北辰｜UID9622

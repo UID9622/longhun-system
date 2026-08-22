@@ -15,4 +15,4 @@
 - 完整标准：01_protocols/LH-TRICOLOR-AUDIT-STANDARD-v1.1.md
 
 > 公开首页 / Home: https://uid9622.notion.site
-DNA: #龍芯⚡️2026-08-20-BEHAVIORAL-CRYPTO-BRIDGE-HOLDS-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-BEHAVIORAL-CRYPTO-BRIDGE-HOLDS-v1.0

@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂·自然语言多引擎路由 v1.0
 ============================
-DNA: #龍芯⚡️丙午·癸未·丁未·申时·☵坎-NATURAL-ROUTER-v1.0-MULTI-ENGINE
+DNA: #龍芯⚡️丙午·癸未·丁未·申时·䷜坎-NATURAL-ROUTER-v1.0-MULTI-ENGINE
 
 一句话触发多个引擎，不再依赖固定指令。
 基于语义抽屉体系（L1情绪 → L2领域 → L3哲学 → L4执行 → L5关系）

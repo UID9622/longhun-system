@@ -2,14 +2,14 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️2026-07-19-BAGUA-PARAM-REGRESSION-v1.0
+#龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-BAGUA-PARAM-REGRESSION-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
 龍魂 · 八卦阵参数回归框架 v1.0
 目标：从实测数据回归地利 G(x)、人和 H(p)、水军检测的权重与阈值。
-DNA: #龍芯⚡️2026-07-19-BAGUA-PARAM-REGRESSION-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-BAGUA-PARAM-REGRESSION-v1.0
 """
 
 import json
@@ -231,7 +231,7 @@ def main():
 
     # 保存结果
     result = {
-        "DNA": "#龍芯⚡️2026-07-19-BAGUA-PARAM-REGRESSION-v1.0",
+        "DNA": "#龍芯⚡️丙午·乙未·甲午·庚午·䷳艮为山-BAGUA-PARAM-REGRESSION-v1.0",
         "note": "合成数据演示，真实数据替换后可得 deployable 参数",
         "G_weights": g_w,
         "G_correlation": g_corr,

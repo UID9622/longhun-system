@@ -1,7 +1,7 @@
 #!/bin/bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·踪迹复原引擎 — 鲲鹏部署脚本 v1.0
-# DNA: #龍芯⚡️丙午·乙未·壬寅·巳时·☰乾-TRACE-DEPLOY-V1.0
+# DNA: #龍芯⚡️丙午·乙未·壬寅·巳时·䷀乾-TRACE-DEPLOY-V1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 用法: bash deploy/scripts/trace_reconstructor_deploy.sh
 set -euo pipefail

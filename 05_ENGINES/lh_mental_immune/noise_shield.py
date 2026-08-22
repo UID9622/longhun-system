@@ -8,7 +8,7 @@
 根据焦虑检测结果，自动生成降噪建议。
 所有建议本地生成，不上传云端。
 
-DNA: #龍芯⚡️丙午·乙未·丁酉·MENTAL-IMMUNE-NOISE-SHIELD-v1.0-f2b3c4d5
+DNA: #龍芯⚡️丙午·乙未·丁酉·丙午·䷨损-MENTAL-IMMUNE-NOISE-SHIELD-v1.0-f2b3c4d5
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 """

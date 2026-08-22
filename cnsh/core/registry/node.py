@@ -2,6 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 ╔══════════════════════════════════════════════════════════════════╗
 ║     龍魂路由节点数据模型 / LongHun Route Node Model             ║
@@ -9,7 +10,7 @@
 ║  定义路由注册表中的节点结构                                     ║
 ║  支持O(1)查找·三色状态·DNA追溯                                  ║
 ║                                                                  ║
-║  DNA:#龍芯⚡️2026-06-03-ROUTE-NODE-MODEL-FILE1-v1.0                 ║
+║  DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-ROUTE-NODE-MODEL-FILE1-v1.0                 ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✓              ║
 ║                                                                  ║
 ║  来源: IPA路由注册表设计规范                                    ║
@@ -71,7 +72,7 @@ class RouteNode:
             status=NodeStatus.ACTIVE,
             local_path="cnsh_core.constitution",
             entry_point="get_system_config",
-            dna="#龍芯⚡️2026-06-03-CONSTITUTION-v1.0",
+            dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-CONSTITUTION-v1.0",
             layer="L0_ETERNAL",
             description="系统宪法和基础配置",
             tags=["L0", "config"],
@@ -267,7 +268,7 @@ if __name__ == "__main__":
         status=NodeStatus.ACTIVE,
         local_path="cnsh_core.constitution",
         entry_point="get_system_config",
-        dna="#龍芯⚡️2026-06-03-CONSTITUTION-v1.0",
+        dna="#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-CONSTITUTION-v1.0",
         layer="L0_ETERNAL",
         description="系统宪法和基础配置",
         tags=["L0", "config", "foundation"],

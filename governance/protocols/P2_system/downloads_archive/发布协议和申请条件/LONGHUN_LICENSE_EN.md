@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # LongHun License v1.0 · English Edition
@@ -6,7 +6,7 @@
 **© UID9622 · Zhuge Xin · LongHun Creator**  
 **GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F**  
 **Effective Date: 2026-06-03**  
-**DNA Marker: #龍芯⚡️2026-06-03-LONGHUN-LICENSE-EN-OFFICIAL**
+**DNA Marker: #龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-LICENSE-EN-OFFICIAL**
 
 ---
 
@@ -327,7 +327,7 @@ You have 48 hours to:
 
 **Effective Date**: 2026-06-03  
 **Version**: v1.0  
-**DNA Marker**: #龍芯⚡️2026-06-03-LONGHUN-LICENSE-EN-OFFICIAL  
+**DNA Marker**: #龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-LICENSE-EN-OFFICIAL  
 **GPG Signature**: A2D0092CEE2E5BA87035600924C3704A8CC26D5F  
 **CONFIRM**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z  
 

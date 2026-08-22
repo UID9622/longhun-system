@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════╗
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 ║      龍魂人格編排調度器 / Persona Orchestrator v1.0              ║
 ║                                                                  ║
 ║  意圖解析 → 人格路由 → 執行 → 10道閘口審計 → DNA追溯            ║
 ║                                                                  ║
-║  DNA:  #龍芯⚡️丙午·乙未·甲寅·酉时·需-ORCHESTRATOR-v1.0       ║
+║  DNA:  #龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-ORCHESTRATOR-v1.0       ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                  ║
 ║  SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL ║
 ║                                                                  ║
@@ -119,7 +120,7 @@ class PersonaOrchestrator:
     """人格編排調度器"""
 
     def __init__(self):
-        self.dna = "#龍芯⚡️丙午·乙未·甲寅·酉时·需-ORCHESTRATOR-v1.0"
+        self.dna = "#龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-ORCHESTRATOR-v1.0"
         self.system_root = SYSTEM_ROOT
         self.trace: List[Dict[str, Any]] = []
         self.persona_executors = {}

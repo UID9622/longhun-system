@@ -2,12 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·甲子·未时·讼-BLOCK-LOGGER-v1.0
+#龍芯⚡️丙午·乙未·甲子·未时·䷅讼-BLOCK-LOGGER-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 """
 龍魂·平台异常阻断日志器 v1.0 · 自动截图+状态码+日志生成
-DNA: #龍芯⚡️丙午·乙未·甲子·未时·讼-BLOCK-LOGGER-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲子·未时·䷅讼-BLOCK-LOGGER-v1.0
 
 用途: 当平台"太监"（拦截/删帖/shadowban）时，一键生成完整证据链日志。
 联动: lh_browser 守护进程（127.0.0.1:19862）提供截图/导航/JS执行
@@ -45,7 +45,7 @@ TZ = timezone(timedelta(hours=8))
 BROWSER_HOST = "127.0.0.1"
 BROWSER_PORT = 19862
 BASE_URL = f"http://{BROWSER_HOST}:{BROWSER_PORT}"
-DNA = "#龍芯⚡️丙午·乙未·甲子·未时·讼-BLOCK-LOGGER-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·甲子·未时·䷅讼-BLOCK-LOGGER-v1.0"
 OUTPUT_DIR = Path(__file__).parent.parent / "reports" / "block_logs"
 
 

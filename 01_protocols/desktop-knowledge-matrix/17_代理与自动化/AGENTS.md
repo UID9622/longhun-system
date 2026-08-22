@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂系统 · AI 操作手册
 
 > 本文件告诉 AI Agent 如何正确操作龍魂系统。
@@ -127,8 +128,8 @@ python3 bin/lh_anti_tamper.py scan "<外部AI给出的文本>"
 
 ## 追溯
 
-- DNA: `#龍芯⚡️丙午·丙申·癸丑·午时·需-AGENTS-DNA-FORMAT-LOCKDOWN-BF8BA356`
-- 引擎: `#龍芯⚡️丙午·丙申·庚申·亥时-LAYERED-GOVERNANCE-ENGINE-v1.0`
+- DNA: `#龍芯⚡️丙午·丙申·癸丑·午时·䷄需-AGENTS-DNA-FORMAT-LOCKDOWN-BF8BA356`
+- 引擎: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LAYERED-GOVERNANCE-ENGINE-v1.0`
 - 更新: `2026-07-08` — **DNA格式焊死v∞干支卦 + 农历时间戳铁律** · 类型检查工作流·语义路由·人格分发·祖传底座锚定
 
 ---

@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-IDENTITY-SERVER-v2.0-BRIDGE
+#龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-IDENTITY-SERVER-v2.0-BRIDGE
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -10,7 +10,7 @@
 龍魂·主权身份验证服务（鲲鹏端）
 FastAPI 服务，接收主权人格广播信号并验证。
 
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·☰乾-IDENTITY-SERVER-v2.0-BRIDGE
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥时·䷀乾-IDENTITY-SERVER-v2.0-BRIDGE
 """
 import hmac
 import os

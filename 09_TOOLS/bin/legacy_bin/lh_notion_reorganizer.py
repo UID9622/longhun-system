@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂 · Notion 全面整理引擎 v1.0
 
@@ -17,7 +18,7 @@
   python3 bin/lh_notion_reorganizer.py --report      # 生成整理报告
   python3 bin/lh_notion_reorganizer.py --reorganize  # 执行整理（需确认）
 
-DNA: #龍芯⚡️2026-07-14-NOTION-REORGANIZER-v1.0
+DNA: #龍芯⚡️丙午·乙未·己丑·庚午·䷨损-NOTION-REORGANIZER-v1.0
 """
 from __future__ import annotations
 

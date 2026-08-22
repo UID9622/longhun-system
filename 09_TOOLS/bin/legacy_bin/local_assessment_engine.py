@@ -2,10 +2,11 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 🐉 龍魂系统 · 本地完整评估引擎 v1.0
 
-DNA: #龍芯⚡️2026-06-05-LOCAL-ASSESSMENT-v1.0
+DNA: #龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-LOCAL-ASSESSMENT-v1.0
 作者: UID9622 (Claude Code)
 评估内容: 环境·代码·数据·可运行·文档·安全
 """
@@ -423,7 +424,7 @@ def main():
     # 生成JSON报告
     report = {
         "timestamp": TIMESTAMP,
-        "dna": "#龍芯⚡️2026-06-05-LOCAL-ASSESSMENT-v1.0",
+        "dna": "#龍芯⚡️丙午·癸巳·庚戌·壬午·䷕贲-LOCAL-ASSESSMENT-v1.0",
         "assessments": assessments,
         "total_score": round(total_score, 1),
         "max_score": 10.0,

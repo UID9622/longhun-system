@@ -104,7 +104,7 @@ export default function Founder() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 + 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            2010 年退伍老兵（服役 2 年） · CNSH 发起人 · 三才算法奠基者
+            2008 年退伍老兵（服役 2 年） · CNSH 发起人 · 三才算法奠基者
           </motion.p>
         </div>
 

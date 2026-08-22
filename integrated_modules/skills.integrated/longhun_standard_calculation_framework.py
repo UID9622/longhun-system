@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂系统 · 标准化计算框架（统一入口 shim）
 Canonical 实现位于 skills/core/longhun_standard_calculation_framework.py
 
-DNA:#龍芯⚡️2026-06-23-STANDARD-CALCULATION-FRAMEWORK-SHIM-FILE1-v1.0
+DNA:#龍芯⚡️丙午·甲午·戊辰·戊午·䷑蛊-STANDARD-CALCULATION-FRAMEWORK-SHIM-FILE1-v1.0
 """
 import sys
 from pathlib import Path
@@ -168,4 +169,4 @@ if __name__ == "__main__":
         print("✅ 所有部分都已包含！")
 
     print("\n✅ 完成！Skill 已符合龍魂系统标准。")
-    print(f"DNA:#龍芯⚡️2026-06-07-STANDARD-CALCULATION-FRAMEWORK-v1.0")
+    print(f"DNA:#龍芯⚡️丙午·甲午·壬子·丙午·䷙大畜-STANDARD-CALCULATION-FRAMEWORK-v1.0")

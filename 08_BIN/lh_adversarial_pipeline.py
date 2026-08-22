@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_ADVERSARIAL_PIPELINE-v1.0-6d2f9dd6
+#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH_ADVERSARIAL_PIPELINE-v1.0-6d2f9dd6
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -34,7 +34,7 @@ from datetime import datetime
 from pathlib import Path
 
 # ============ 龍魂 DNA 锚定 ============
-DNA_ANCHOR = "#龍芯⚡️丙午·辛未·乙酉-v1.2-ADVERSARIAL-PIPELINE"
+DNA_ANCHOR = "#龍芯⚡️丙午·辛未·乙酉·壬午·䷨损-v1.2-ADVERSARIAL-PIPELINE"
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 # ============ 路径配置 ============

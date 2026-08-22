@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-f34d3773
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -7,7 +8,7 @@
 龍魂·不可篡改历史引擎 v1.0
 LongHun Immutable History Engine
 
-DNA: #龍芯⚡️丙午·乙未·丁酉·午时·既济-IMMUTABLE-HISTORY-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·午时·䷾既济-IMMUTABLE-HISTORY-v1.0
 创建者: UID9622 · 龍芯北辰
 协议: CC BY-NC-SA 4.0
 
@@ -50,7 +51,7 @@ from enum import Enum
 # ═══════════════════════════════════════════════════════
 
 VERSION = "1.0.0"
-DNA = "#龍芯⚡️丙午·乙未·丁酉·午时·既济-IMMUTABLE-HISTORY-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丁酉·午时·䷾既济-IMMUTABLE-HISTORY-v1.0"
 GPG_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 
 LEDGER_DIR = Path(os.environ.get("LH_LEDGER_DIR", Path.home() / ".longhun" / "ledger"))
@@ -389,15 +390,6 @@ class ImmutableHistory:
                 return None
             return json.loads(lines[-1])
 
-    def _last_record(self) -> Optional[Dict[str, Any]]:
-        """读取最后一条记录"""
-        if LEDGER_FILE.stat().st_size == 0:
-            return None
-        with LEDGER_FILE.open("r", encoding="utf-8") as f:
-            lines = f.readlines()
-            if not lines:
-                return None
-            return json.loads(lines[-1])
 
     def _last_hash(self) -> str:
         """获取最后一条记录的哈希，空账本返回创世哈希"""

@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·多模态实时交互接入路线图 v1.0
 
-> DNA: #龍芯⚡️丙午·乙未·甲辰·火雷噬嗑-LIVE-MULTIMODAL-ROADMAP-v1.0
+> DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷔噬-LIVE-MULTIMODAL-ROADMAP-v1.0
 > 目标：让语音、视觉、实时流都能走统一的龍魂审计流水线，数据根留本地。
 
 ---

@@ -7,14 +7,14 @@
 > 平台：本地
 > 审核状态：草稿
 
-**DNA**: `#龍芯⚡️丙午·丙申·癸丑·午时·需-IPA-DICT-DECISION-CHAIN-7F99378B``  
+**DNA**: `#龍芯⚡️丙午·丙申·癸丑·午时·䷄需-IPA-DICT-DECISION-CHAIN-7F99378B``  
 **CONFIRM**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 
 ---
 
 # 🕐 循环触发·五行流转决策链
 
-> DNA(v∞): `#龍芯⚡️丙午·丙申·癸丑·午时·需-IPA-DICT-DECISION-CHAIN-7F99378B`
+> DNA(v∞): `#龍芯⚡️丙午·丙申·癸丑·午时·䷄需-IPA-DICT-DECISION-CHAIN-7F99378B`
 > 旧 DNA(v1.0): `#龍芯⚡️丙午·丙申·庚申·亥时-循环触发五行流转-v1.0`（已废弃·仅供追溯）
 > 确认码: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅`
 > GPG: `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
@@ -152,7 +152,7 @@ flowchart TD
 ## DNA 签名
 
 ```
-#龍芯⚡️丙午·丙申·癸丑·午时·需-IPA-DICT-DECISION-CHAIN-7F99378B
+#龍芯⚡️丙午·丙申·癸丑·午时·䷄需-IPA-DICT-DECISION-CHAIN-7F99378B
 #龍芯⚡️丙午·丙申·庚申·亥时-循环触发五行流转-v1.0（旧版·已废弃·仅追溯）
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```
@@ -173,7 +173,7 @@ flowchart TD
 - 本文档引用或参考了以下来源：
   - [1] （请填写）
 - 相关龍魂系统文档：
-  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
+  - 《龍魂文档标准模板 v1.0》(#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-DOCUMENT-STANDARD-TEMPLATE-v1.0)
 
 ## 诚实局限
 
@@ -196,6 +196,6 @@ flowchart TD
 ## DNA 签名
 
 ```
-#龍芯⚡️丙午·丙申·癸丑·午时·需-IPA-DICT-DECISION-CHAIN-7F99378B`
+#龍芯⚡️丙午·丙申·癸丑·午时·䷄需-IPA-DICT-DECISION-CHAIN-7F99378B`
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```

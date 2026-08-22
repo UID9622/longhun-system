@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 🐉 龍芯·ASI 系统建设器 v1.0
-# DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-ASI-SYSTEM-BUILDER-v1.0-UID9622
+# DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-ASI-SYSTEM-BUILDER-v1.0-UID9622
 #
 # 目标：自然语言 → 人格科技公司 → 系统落地
 # 约束：ASI 即天花板，禁止向 ASI+ 演进
@@ -22,7 +23,7 @@ ROOT = Path(__file__).resolve().parent.parent
 REGISTRY = ROOT / "20_CONFIG" / "persona-registry.yaml"
 CEILING_PROTOCOL = ROOT / "01_protocols" / "LH-ASI-CEILING-PROTOCOL-v1.0.md"
 
-DNA = "#龍芯⚡️丙午·丙申·丁巳·恒卦-ASI-SYSTEM-BUILDER-v1.0-UID9622"
+DNA = "#龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-ASI-SYSTEM-BUILDER-v1.0-UID9622"
 
 
 def _stamp() -> str:

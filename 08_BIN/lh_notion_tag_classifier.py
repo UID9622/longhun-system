@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · Notion 标签自动归类器 v1.0
-DNA: #龍芯⚡️丙午·乙未·乙未·申时·☰乾-NOTION-TAG-CLASSIFIER-v1.0
+DNA: #龍芯⚡️丙午·乙未·乙未·申时·䷀乾-NOTION-TAG-CLASSIFIER-v1.0
 创建者: 诸葛鑫 (UID9622)
 协议: CC BY-NC-SA 4.0
 
@@ -30,7 +30,7 @@ from typing import Any, Dict, List, Optional, Set, Tuple
 
 CST = timezone(timedelta(hours=8))
 
-DNA = "#龍芯⚡️丙午·乙未·乙未·申时·☰乾-NOTION-TAG-CLASSIFIER-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·乙未·申时·䷀乾-NOTION-TAG-CLASSIFIER-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 ROOT = Path(__file__).resolve().parent.parent

@@ -4,7 +4,7 @@ description: "龍魂知识图谱正规化升级方案——引入图数据库(Ne
 license: CC BY-NC-SA 4.0
 metadata:
   version: "1.0.0"
-  dna: "#龍芯⚡️丙午·丙申·庚申·亥时-KG-UPGRADE-v1.0"
+  dna: "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-KG-UPGRADE-v1.0"
   author: "UID9622"
   language: zh-CN
   triggers:
@@ -34,9 +34,9 @@ metadata:
 # 龍魂知识图谱正规化升级方案 · v1.0
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-KG-UPGRADE-v1.0
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-KG-UPGRADE-v1.0
 三色审计: 🟢 全模块语法通过
-DNA: #龍芯⚡️丙午·丙申·庚申·亥时-KG-UPGRADE-v1.0
+DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-KG-UPGRADE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ```
 
@@ -279,7 +279,7 @@ python3 kg_main.py audit
 ### 12.1 DNA签名规范
 ```
 格式: #龍芯⚡️{YYYY-MM-DD}-{项目}-{模块}-{版本}
-示例: #龍芯⚡️丙午·丙申·庚申·亥时-KG-UPGRADE-v1.0
+示例: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-KG-UPGRADE-v1.0
 ```
 
 ### 12.2 文件清单
@@ -314,7 +314,7 @@ longhun-kg-upgrade/
 
 ---
 
-*DNA: #龍芯⚡️丙午·丙申·庚申·亥时-KG-UPGRADE-v1.0*
+*DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-KG-UPGRADE-v1.0*
 *CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z*
 *SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL*
 *三色审计: 🟢🟢🟢🟢🟢🟢🟢*

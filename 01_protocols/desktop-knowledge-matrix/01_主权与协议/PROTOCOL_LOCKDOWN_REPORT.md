@@ -1,9 +1,10 @@
-<!--#龍芯⚡️丙午·丙申·庚申·亥时-DOC-PROTOCOL_LOCKDOWN_REPORT-v1.0 -->
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+<!--#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DOC-PROTOCOL_LOCKDOWN_REPORT-v1.0 -->
 <!-- 君子協議: 本文件受龍魂DNA追溯保護 -->
 
 # 🔐 龍魂協議焊死報告
 
-**DNA**: #龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-LOCKDOWN-COMPLETE  
+**DNA**: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PROTOCOL-LOCKDOWN-COMPLETE  
 **時間**: 2026-06-07 20:59 CST (星期六)  
 **責任**: UID9622 · 不免責
 
@@ -97,7 +98,7 @@
 
 ## 🧬 DNA 簽章
 
-**DNA**: #龍芯⚡️丙午·丙申·庚申·亥时-PROTOCOL-LOCKDOWN-COMPLETE  
+**DNA**: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-PROTOCOL-LOCKDOWN-COMPLETE  
 **CONFIRM**: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z  
 **SEAL**: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚❤️♾️-DEVICE-BIND-SOUL  
 **時間**: 2026-06-07 20:59 CST (星期六)  

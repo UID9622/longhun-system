@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·乙未·丙辰·亥时·需-THINK-PIPELINE-v1.0
+#龍芯⚡️丙午·乙未·丙辰·亥时·䷄需-THINK-PIPELINE-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -19,7 +19,7 @@
 ║    → 🟢入库 / 🟡标记待审 / 🔴驳回(附依据)                            ║
 ║    → 生成决策卡 → 追加决策链 → 返回完整审计轨迹                      ║
 ║                                                                      ║
-║  DNA: #龍芯⚡️丙午·乙未·丙辰·亥时·需-THINK-PIPELINE-v1.0          ║
+║  DNA: #龍芯⚡️丙午·乙未·丙辰·亥时·䷄需-THINK-PIPELINE-v1.0          ║
 ║  CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                      ║
 ║                                                                      ║
 ║  用法:                                                               ║

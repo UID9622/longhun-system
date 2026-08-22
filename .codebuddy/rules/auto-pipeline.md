@@ -230,7 +230,7 @@ python3 bin/lh_delivery_checklist.py --path <产出目录> --type <类型>
 > v1.4 · 2026-07-31 · 新增内容自动分类吸收引擎（不做加法·优先合并·12分类·三重匹配）
 > v1.3 · 2026-07-24 · 报告铁律·新三件套·交付标准
 > 🔥 v1.7 · 2026-08-11 · 全仓修复流水线焊死（五步法·单一真相源·共享排除配置）
-> DNA: #龍芯⚡️丙午·甲申·丁巳·䷖剥-AUTO-PIPELINE-v1.7-SCAN-EXCLUSIONS-SHARED
+> DNA: #龍芯⚡️丙午·甲申·丁巳·丙午·䷖剥-AUTO-PIPELINE-v1.7-SCAN-EXCLUSIONS-SHARED
 
 ---
 

@@ -2,19 +2,20 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂 · 中国文化视觉占位素材生成器
 因当前网络无法访问 Wikimedia Commons，先生成高保真 SVG 占位图。
 所有占位图均标注「待替换为真实公开版权图像」，并写入改动日志。
-DNA: #龍芯⚡️2026-07-04-LONGHUN-CULTURAL-PLACEHOLDER-v1.0
+DNA: #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-CULTURAL-PLACEHOLDER-v1.0
 """
 
 import json
 import time
 from pathlib import Path
 
-DNA = "#龍芯⚡️2026-07-04-LONGHUN-CULTURAL-PLACEHOLDER-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-CULTURAL-PLACEHOLDER-v1.0"
 BASE_DIR = Path(__file__).resolve().parent.parent
 ASSET_DIR = BASE_DIR / "assets" / "cultural"
 REGISTRY = ASSET_DIR / "cultural_assets_registry.json"

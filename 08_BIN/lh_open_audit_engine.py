@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🔐 多方主权下的AI开放审计模型
 ——基于龍魂系统的可验证治理架构
 
 白皮书版本: v2.0（完整推演版）
-DNA追溯码: #龍芯⚡️2026-08-03-OPEN-AUDIT-ENGINE-v2.0-UID9622
+DNA追溯码: #龍芯⚡️丙午·乙未·己酉·庚午·䷨损-OPEN-AUDIT-ENGINE-v2.0-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG签名: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
@@ -61,7 +62,7 @@ import pandas as pd
 # 固定锚点
 # ============================================================
 
-DNA = "#龍芯⚡️2026-08-03-OPEN-AUDIT-ENGINE-v2.0-UID9622"
+DNA = "#龍芯⚡️丙午·乙未·己酉·庚午·䷨损-OPEN-AUDIT-ENGINE-v2.0-UID9622"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 GPG_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent

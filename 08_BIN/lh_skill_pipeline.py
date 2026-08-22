@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️2026-08-13-SKILL-PIPELINE-ENGINE-3F9C21D7-UID9622
+# DNA: #龍芯⚡️丙午·丙申·己未·庚午·䷖剥-SKILL-PIPELINE-ENGINE-3F9C21D7-UID9622
 # 创建者: 诸葛鑫（UID9622）
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -491,7 +491,7 @@ def cmd_status(name: str) -> int:
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="🐉 龍魂 · 技能全生命周期自动化流水线 v1.1",
-        epilog=f"CONFIRM: {CONFIRM_CODE}\nDNA: #龍芯⚡️2026-08-13-SKILL-PIPELINE-ENGINE-3F9C21D7-UID9622",
+        epilog=f"CONFIRM: {CONFIRM_CODE}\nDNA: #龍芯⚡️丙午·丙申·己未·庚午·䷖剥-SKILL-PIPELINE-ENGINE-3F9C21D7-UID9622",
     )
     sub = parser.add_subparsers(dest="cmd", required=True)
 

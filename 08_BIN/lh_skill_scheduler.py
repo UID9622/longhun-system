@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-cbe902b9
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -18,7 +20,7 @@ Skill Scheduler — 技能"遥控器"
   lh skill autosleep    # 自动休眠超过阈值未用的技能
   lh skill stats        # 调度统计（唤醒/休眠次数·CPU估算）
 
-DNA: #龍芯⚡️丙午·丙申·壬戌·巳时-SKILL-SCHEDULER-v1.0
+DNA: #龍芯⚡️丙午·丙申·壬戌·乙巳·䷾既济-SKILL-SCHEDULER-v1.0
 协议: CC BY-NC-SA 4.0（核心思想层）· 工程实现 MulanPSL v2
 创建者: 诸葛鑫（UID9622）
 """

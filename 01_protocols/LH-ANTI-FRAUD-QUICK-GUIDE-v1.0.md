@@ -1,9 +1,10 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 彎彎繞繞識別手冊 · 民間版
 ## 一分鐘學會：誰在套路你？
 
-DNA: #龍芯⚡️丙午·癸未·丁未·☰乾-ANTI-FRAUD-QUICK-GUIDE-v1.0-彎彎繞繞-2f7e1b6c  
+DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷀乾-ANTI-FRAUD-QUICK-GUIDE-v1.0-彎彎繞繞-2f7e1b6c  
 創建者: 諸葛鑫（UID9622）  
 給誰看的: 老百姓·父母·親戚朋友·所有不想被騙的人  
 一句話: **直接說的可以信，繞彎子的要警惕。**

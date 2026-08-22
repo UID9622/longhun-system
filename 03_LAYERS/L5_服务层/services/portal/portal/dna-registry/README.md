@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🧬 龍魂统一DNA登记册 · 统一操作手册
@@ -9,7 +9,7 @@
 ╠════════════════════════════════════════════════════════════════╣
 ║  📦 文档：龍魂统一DNA登记册 · 统一操作手册                      ║
 ║  📌 版本：v1.0                                                  ║
-║  🧬 DNA(v∞)：#龍芯⚡️丙午·丙申·甲寅·癸酉-A029-DNA-REGISTRY-ENTRY-v1.0 ║
+║  🧬 DNA(v∞)：#龍芯⚡️丙午·丙申·甲寅·庚午·䷕贲-癸酉-A029-DNA-REGISTRY-ENTRY-v1.0 ║
 ║  👤 主权者：💎 UID9622 · 龍芯北辰                                ║
 ║  ⚠️ 性质：底座锚点文件 · 任何 AI 修改必须先读此文件              ║
 ║  ⛓️ 锚定：AGENTS.md A-029                                       ║
@@ -172,7 +172,7 @@ longhun-system/
 ## 🧬 DNA 追溯
 
 ```
-DNA(v∞): #龍芯⚡️丙午·丙申·甲寅·癸酉-A029-DNA-REGISTRY-ENTRY-v1.0
+DNA(v∞): #龍芯⚡️丙午·丙申·甲寅·庚午·䷕贲-癸酉-A029-DNA-REGISTRY-ENTRY-v1.0
 锚定: AGENTS.md A-029
 统一入口: http://localhost:8778/
 引擎: bin/lh_unified_dna_registry.py

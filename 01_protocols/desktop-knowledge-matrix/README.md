@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂系统 · 统一知识矩阵
 
 生成时间：2026-07-15T12:23:24.451474+00:00
@@ -713,7 +714,7 @@
 - `⚠️ 系统名称和标识混淆检测.md` ← `docs/longhun-tech/audit/⚠️ 系统名称和标识混淆检测.md`
 - `⚡ Human→System Translation OS v1 1｜龍魂回复触发引擎·12层处理· 5b78e744c8c54d18b56719e5d14a51c6.md` ← `docs/dragon-soul-open-hub/intent-recognition/⚡ Human→System Translation OS v1 1｜龍魂回复触发引擎·12层处理· 5b78e744c8c54d18b56719e5d14a51c6.md`
 - `⚡ 智能工作流引擎.md` ← `docs/longhun-tech/operations/⚡ 智能工作流引擎.md`
-- `✅ 插件模板脚本（⁠ plugin_template sh ⁠）.md` ← `docs/longhun-tech/integration/✅ 插件模板脚本（⁠ plugin_template sh ⁠）.md`
+- `✅ 插件模板脚本（ plugin_template sh ）.md` ← `docs/longhun-tech/integration/✅ 插件模板脚本（ plugin_template sh ）.md`
 - `三层监督系统代码库-P0永恒级.md` ← `docs/private-shared-imports/security-audit/三层监督系统代码库-P0永恒级.md`
 - `三层隔离架构完整技术规范.md` ← `docs/private-shared-imports/architecture/三层隔离架构完整技术规范.md`
 - `上帝之眼 - 全域监管官 3ad370393b2f40f0b10189d3cc9e1fb0.md` ← `docs/private-shared-imports/persona-tools/上帝之眼 - 全域监管官 3ad370393b2f40f0b10189d3cc9e1fb0.md`

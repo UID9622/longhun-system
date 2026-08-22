@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- 龍魂·韬定律用量采集器 - macOS launchd 守护进程示例 -->
+    <!-- DNA: #龍芯⚡️丙午·乙未·辛酉·姤-TAO-LAW-INTEGRATED-v2.2 -->
+    
+    <key>Label</key>
+    <string>com.longhun.tao.collector</string>
+    
+    <!-- 程序入口 -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/python3</string>
+        <string>/usr/local/longhun/scripts/tao_usage_collect.py</string>
+    </array>
+    
+    <!-- 作为守护进程持续运行 -->
+    <key>KeepAlive</key>
+    <true/>
+    
+    <!-- 崩溃后 10 秒重启，防止日志风暴 -->
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+    
+    <!-- 标准输出/错误重定向到统一日志，便于 Console.app 查看 -->
+    <key>StandardOutPath</key>
+    <string>/var/log/longhun/tao_collector.out</string>
+    <key>StandardErrorPath</key>
+    <string>/var/log/longhun/tao_collector.err</string>
+    
+    <!-- 工作目录 -->
+    <key>WorkingDirectory</key>
+    <string>/usr/local/longhun</string>
+    
+    <!-- 环境变量：指定日志路径（可选） -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>TAO_USAGE_LOG</key>
+        <string>/var/log/longhun/tao_usage.log</string>
+    </dict>
+    
+    <!-- 以 root 运行，才能访问 powermetrics 与写入 /var/log -->
+    <key>UserName</key>
+    <string>root</string>
+</dict>
+</plist>

@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 lh_public_expression_audit — 龍魂公开表述审计引擎 v1.0
 
@@ -9,7 +10,7 @@ lh_public_expression_audit — 龍魂公开表述审计引擎 v1.0
 检测是否存在"好人=穷""奉献=苦""英雄=死"等寒心叙事。
 
 来源: UID9622《别再加戏了》《地道战与"地道战"》
-DNA: #龍芯⚡️丙午·乙未·庚戌·巳时·需-PUBLIC-EXPRESSION-AUDIT-v1.0
+DNA: #龍芯⚡️丙午·乙未·庚戌·巳时·䷄需-PUBLIC-EXPRESSION-AUDIT-v1.0
 
 用法:
   python3 bin/lh_public_expression_audit.py scan         # 扫描所有公开内容
@@ -207,7 +208,7 @@ class PublicExpressionAuditor:
         lines.append("=" * 60)
         lines.append("  🐉 龍魂公开表述审计报告")
         lines.append("  离火运底线3: 不让付出者寒心")
-        lines.append("  DNA: #龍芯⚡️丙午·乙未·庚戌·巳时·需-PUBLIC-EXPR-v1.0")
+        lines.append("  DNA: #龍芯⚡️丙午·乙未·庚戌·巳时·䷄需-PUBLIC-EXPR-v1.0")
         lines.append("=" * 60)
         lines.append("")
 

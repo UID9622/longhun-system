@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 CNSH 剪贴板翻译 · 鸿蒙原子化服务 v2.0
 
-> DNA: `#龍芯⚡️2026-07-08-HARMONYOS-CLIPBOARD-v2.0-PROD`
+> DNA: `#龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-HARMONYOS-CLIPBOARD-v2.0-PROD`
 > **最低要求**: HarmonyOS 3.0+ / OpenHarmony 4.0+ / API 9+
 > **通过标准**: DevEco Studio 编译零 ERROR → 真机运行通过 → 交付
 
@@ -1062,7 +1062,7 @@ struct Settings {
           .fontColor('#8a8a9a')
           .width('100%')
 
-        Text('CNSH 剪贴板翻译 v2.0\nDNA: #龍芯⚡️2026-07-08-HARMONYOS-CLIPBOARD-v2.0-PROD\nUID9622 · 诸葛鑫 · Lucky\n数据主权归集本地·不传云端')
+        Text('CNSH 剪贴板翻译 v2.0\nDNA: #龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-HARMONYOS-CLIPBOARD-v2.0-PROD\nUID9622 · 诸葛鑫 · Lucky\n数据主权归集本地·不传云端')
           .fontSize(ScreenAdapter.fp2px(11))
           .fontColor('#666')
           .lineHeight(20)
@@ -1242,4 +1242,4 @@ struct ClipboardWidget {
 ---
 
 > **铁律**: 交付前 8 项必须全绿。缺任何一项 = 不可交付。
-> DNA: `#龍芯⚡️2026-07-08-HARMONYOS-CLIPBOARD-v2.0-PROD-E5C8A1F2`
+> DNA: `#龍芯⚡️丙午·乙未·癸未·戊午·䷖剥-HARMONYOS-CLIPBOARD-v2.0-PROD-E5C8A1F2`

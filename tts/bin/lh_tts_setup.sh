@@ -1,7 +1,7 @@
 #!/bin/bash
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🧬 龍魂 TTS 引擎部署脚本 v1.0
-# DNA: #龍芯⚡️丙午·乙未·己卯·巳时·☰乾-TTS-SETUP-v1.0-g1h2i3j4
+# DNA: #龍芯⚡️丙午·乙未·己卯·巳时·䷀乾-TTS-SETUP-v1.0-g1h2i3j4
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 
 # 用法: bash tts/bin/lh_tts_setup.sh [--with-models]

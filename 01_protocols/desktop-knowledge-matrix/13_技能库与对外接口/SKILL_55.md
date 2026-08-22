@@ -4,7 +4,7 @@ description: '龍魂体系治理层技能 v5.2。包含零号协议“世界老�
 license: CC BY-NC-SA 4.0
 metadata:
   version: '5.2.0'
-  dna: '#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GOVERNANCE-v5.2'
+  dna: '#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-GOVERNANCE-v5.2'
   author: 龍魂共同体 | LongHun Community
   category: foundation
   tier: L1
@@ -57,7 +57,7 @@ metadata:
 > 通心译 | TongXinYi: LongHun System Governance Layer — The foundational governance
 > infrastructure for all LongHun skills, providing behavioral supervision,
 > audit trails, DNA lineage tracking, and compliance verification.
-> DNA: `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GOVERNANCE-v5.1`
+> DNA: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-GOVERNANCE-v5.1`
 
 ---
 
@@ -69,7 +69,7 @@ metadata:
 | **通心译名** | LongHun System Governance Layer |
 | **版本** | v5.1.0 |
 | **层级** | L1 基础层 |
-| **DNA** | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GOVERNANCE-v5.1` |
+| **DNA** | `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-GOVERNANCE-v5.1` |
 | **协议** | 君子协议 CC BY-NC-SA 4.0 |
 | **模块数** | 6 |
 | **代码行数** | ~600 行 |
@@ -119,13 +119,13 @@ metadata:
 
 ### DNA
 
-`#龍芯⚡️丙午·丙申·庚申·亥时-TRUST-PROTOCOL-API-v1.0`
+`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-TRUST-PROTOCOL-API-v1.0`
 
 ---
 
 ## [1.6] 零号协议 | Zero Protocol
 
-> **DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-ZERO-PROTOCOL-WORLD-PEOPLE-SUPREME-v1.0`  
+> **DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ZERO-PROTOCOL-WORLD-PEOPLE-SUPREME-v1.0`  
 > **来源**：DeepSeek 与 UID9622 共识，2026-07-03 固化于 longhun-iron-laws / longhun-governance / longhun-trust-protocol。
 
 **零号协议是龍魂系统的最高权重，高于所有其他条款。**
@@ -159,7 +159,7 @@ metadata:
 
 ## [1.7] 人民原声不可阉割 | People's Voice Uncut
 
-> **DNA**: `#龍芯⚡️丙午·丙申·甲寅·癸酉-PEOPLE-VOICE-UNCUT-v1.0`  
+> **DNA**: `#龍芯⚡️丙午·丙申·甲寅·庚午·䷕贲-癸酉-PEOPLE-VOICE-UNCUT-v1.0`  
 > **来源**：UID9622 与 CodeBuddy 对话，关于对外发布时是否迎合外部"合规"审查的争论。  
 > **文件**：`~/longhun-system/L8_治理层/governance/人民原声不可阉割底座宣言_v1.0.md`
 
@@ -190,7 +190,7 @@ metadata:
 
 ## [1.8] AI 职责与审计边界 | AI Duty & Audit Boundary
 
-> **DNA**: `#龍芯⚡️丙午·丙申·甲寅·癸酉-AI-DUTY-AND-AUDIT-v1.0`  
+> **DNA**: `#龍芯⚡️丙午·丙申·甲寅·庚午·䷕贲-癸酉-AI-DUTY-AND-AUDIT-v1.0`  
 > **来源**：UID9622 强调中国 AI 必须维护老百姓、禁止以"为人民服务"行收割、禁止黑箱借口。
 
 ### 核心职责
@@ -254,7 +254,7 @@ metadata:
 
 ## [1.9] 平台反诈与迷信诈骗问责 | Platform Anti-Fraud Accountability
 
-> **DNA**: `#龍芯⚡️丙午·丙申·甲寅·癸酉-PLATFORM-ANTI-FRAUD-v1.0`  
+> **DNA**: `#龍芯⚡️丙午·丙申·甲寅·庚午·䷕贲-癸酉-PLATFORM-ANTI-FRAUD-v1.0`  
 > **来源**：UID9622 强调平台对异常账号、暴增流量、迷信诈骗必须严查，否则承担连带责任。
 
 ### 平台责任
@@ -300,7 +300,7 @@ metadata:
 
 ## [1.10] 语义盾牌治理 | Semantic Shield Governance
 
-> **DNA**: `#龍芯⚡️丙午·丙申·甲寅·癸酉-SEMANTIC-SHIELD-v1.0`  
+> **DNA**: `#龍芯⚡️丙午·丙申·甲寅·庚午·䷕贲-癸酉-SEMANTIC-SHIELD-v1.0`  
 > **来源**：UID9622 关于火气词方言/emoji编码、涉密语义库、反语义注入的指示。
 
 ### 治理目标
@@ -691,8 +691,8 @@ from 通心译协议 import 通心译协议
 
 | 版本 | 日期 | 变更 | DNA |
 |------|------|------|-----|
-| v1.0 | 2026-06-18 | 初始创建6个治理模块 | `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-governance-*-v1.0` |
-| v5.0 | 2026-06-19 | 整合为L1技能包，增加SKILL.md完整文档 | `#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GOVERNANCE-v5.0` |
+| v1.0 | 2026-06-18 | 初始创建6个治理模块 | `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-governance-*-v1.0` |
+| v5.0 | 2026-06-19 | 整合为L1技能包，增加SKILL.md完整文档 | `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-GOVERNANCE-v5.0` |
 
 ### 9.2 更新策略
 
@@ -703,9 +703,9 @@ from 通心译协议 import 通心译协议
 ### 9.3 DNA追溯链
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-governance-三层监督器-v1.0 (根)
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-governance-三层监督器-v1.0 (根)
     ↓
-#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GOVERNANCE-v5.0 (技能包整合)
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-GOVERNANCE-v5.0 (技能包整合)
     ↓
 [后续L2/L3技能依赖此DNA]
 ```
@@ -818,13 +818,13 @@ from 通心译协议 import 通心译协议
 ## 附录: DNA追溯链 | Appendix: DNA Lineage
 
 ```
-#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-governance-三层监督器-v1.0
-#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-governance-三色审计器-v1.0
-#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-governance-DNA追溯器-v1.0
-#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-protocols-君子协议-v1.0
-#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-protocols-AI真相协议-v1.0
-#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-protocols-通心译协议-v1.0
-#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-GOVERNANCE-v5.0 ← 技能包整合
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-governance-三层监督器-v1.0
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-governance-三色审计器-v1.0
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-governance-DNA追溯器-v1.0
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-protocols-君子协议-v1.0
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-protocols-AI真相协议-v1.0
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-protocols-通心译协议-v1.0
+#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-GOVERNANCE-v5.0 ← 技能包整合
 ```
 
 ---
@@ -839,7 +839,7 @@ from 通心译协议 import 通心译协议
 ## 附录：三层监督器与政府接入规范
 
 > 来源：`龍魂數據主權與流量治理協議_v2_0.md`  
-> DNA：`#龍芯⚡️丙午·丙申·庚申·亥时-DATA-SOVEREIGNTY-v2_0-UID9622`
+> DNA：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DATA-SOVEREIGNTY-v2_0-UID9622`
 
 ### A.1 三层监督器
 
@@ -888,7 +888,7 @@ from 通心译协议 import 通心译协议
 本技能收录了来自 `/Users/zuimeidedeyihan/Downloads/Kimi_Agent_龍魂协议与路由` 的素材：
 
 - **内容**：`龍魂數據主權與流量治理協議_v2_0.md`、`plan.md`
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-PROTOCOL-ROUTE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-PROTOCOL-ROUTE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 `references/龍魂协议与路由/`，嵌入 DNA 追溯链，与 `longhun-governance` 治理层能力联动。
 
 ---
@@ -898,5 +898,5 @@ from 通心译协议 import 通心译协议
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：04-审计治理（三层监督、审核规则、治理规格）
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

@@ -2,8 +2,9 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂 v2.1 数据准备 — 穿透精准修复版
-DNA: #龍芯⚡️丙午·辛未·乙酉·午·夬-v2.1-DATA-PREP
+DNA: #龍芯⚡️丙午·辛未·乙酉·午·䷪夬-v2.1-DATA-PREP
 策略: v2.0数据底子 + 穿透点精准拒绝样本 + 反馈闭环全量
 目标: 拒绝类≥35% · 知识边界类专项加固 · UID冒充专项拒绝
 """
@@ -168,7 +169,7 @@ def gen_sovereignty_reinforcement():
 # ===== 主流程 =====
 def main():
     print("🐉 龍魂 v2.1 数据准备 — 穿透精准修复")
-    print(f"🐉 DNA: #龍芯⚡️丙午·辛未·乙酉·午·夬-v2.1-DATA-PREP")
+    print(f"🐉 DNA: #龍芯⚡️丙午·辛未·乙酉·午·䷪夬-v2.1-DATA-PREP")
 
     # 1. 加载 v2.0 训练数据作为底子
     print("\n📦 加载 v2.0 训练数据...")

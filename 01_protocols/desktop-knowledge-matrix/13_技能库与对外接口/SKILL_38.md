@@ -1,8 +1,9 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 # 龍魂德者永生殿技能
 
 **路径**: `/Users/zuimeidedeyihan/longhun-system/persona/德者永生殿_v2.0.py`
 
-**DNA**: `#龍芯⚡️丙午·丙申·庚申·亥时-路由回流协议-v2.0`
+**DNA**: `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-路由回流协议-v2.0`
 
 **授权**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅`
 

@@ -1,0 +1,188 @@
+{
+  "dna": "#龍芯⚡️2026-08-19-BAD-EP01-EVENT-MAP-v1.0-UID9622",
+  "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
+  "seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
+  "title": "坏蛋项目 · 试播集 EP01「雪夜初见」事件图谱",
+  "note": "受《坏蛋是怎样炼成的》人物关系启发，原创剧情，不抄原文。",
+  "events": [
+    {
+      "event_id": "EP01-E01",
+      "act": "第一幕·引子",
+      "title": "东北雪夜",
+      "scene_id": "ENV-01",
+      "scene_name": "东北校园",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-101-向问天（画外）"
+      ],
+      "props": [],
+      "trigger": "放学铃响，雪越下越大",
+      "conflict": "谢文东被同龄人排挤，但他只是安静地笑",
+      "outcome": "确立「不像坏人的坏蛋」底色",
+      "emotional_beat": "压抑中的阴柔",
+      "visual_ref": "HD-001_谢文东_少年锚点图.png",
+      "audio_ref": "龍慧慧旁白",
+      "dialogue_snippet": "旁白：那一年雪很大，没人注意这个笑得很浅的少年。",
+      "duration_sec": 25
+    },
+    {
+      "event_id": "EP01-E02",
+      "act": "第二幕·相遇",
+      "title": "录像厅门口",
+      "scene_id": "ENV-02",
+      "scene_name": "老街雨夜/雪夜",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼"
+      ],
+      "props": [
+        "B-S_打火机_大哥大_金链.png",
+        "S-01-01-001_金刀"
+      ],
+      "trigger": "谢文东被小混混堵在录像厅门口",
+      "conflict": "三眼本可旁观，却挡在谢文东面前；眉心疤在怒气中泛红",
+      "outcome": "两人第一次对视，命运线交织",
+      "emotional_beat": "忠义烈火点燃",
+      "visual_ref": "HD-002_三眼_雨夜持刀.png",
+      "audio_ref": "三眼年轻激昂男声",
+      "dialogue_snippet": "三眼：道上混这么久，头一回有人叫我本名。谢文东：钱买不来平安，人才行。",
+      "duration_sec": 45
+    },
+    {
+      "event_id": "EP01-E03",
+      "act": "第三幕·结盟",
+      "title": "录像厅内",
+      "scene_id": "ENV-02",
+      "scene_name": "老街雨夜/雪夜",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼",
+        "HD-003-高强",
+        "HD-004-李爽"
+      ],
+      "props": [
+        "B-S_打火机_大哥大_金链.png"
+      ],
+      "trigger": "两人进屋取暖，高强李爽在等三眼",
+      "conflict": "高强质疑谢文东凭什么入局；李爽哈哈一笑打圆场",
+      "outcome": "四人第一次坐在一起，文东会雏形",
+      "emotional_beat": "信任试探与豪爽破冰",
+      "visual_ref": "HD-003_高强_锚点图.png, HD-004_李爽_锚点图.png",
+      "audio_ref": "李爽爽朗男声",
+      "dialogue_snippet": "李爽：坐！都是自己人！高强：（冷冷）是不是自己人，得看事儿。",
+      "duration_sec": 40
+    },
+    {
+      "event_id": "EP01-E04",
+      "act": "第四幕·转折",
+      "title": "金刀出鞘",
+      "scene_id": "ENV-02",
+      "scene_name": "老街雨夜/雪夜",
+      "characters": [
+        "HD-001-少年谢文东"
+      ],
+      "props": [
+        "S-01-01-001_金刀"
+      ],
+      "trigger": "门外混混卷土重来，人数翻倍",
+      "conflict": "谢文东第一次握住金刀，手不抖、笑还在",
+      "outcome": "「静水深流」的狠劲首次外显",
+      "emotional_beat": "阴柔中的杀伐",
+      "visual_ref": "S-01-01-001_金刀_谢文东.png",
+      "audio_ref": "龍慧慧旁白+金刀出鞘音效",
+      "dialogue_snippet": "谢文东：（轻声）我不想伤人。但你们，别逼我。",
+      "duration_sec": 30
+    },
+    {
+      "event_id": "EP01-E05",
+      "act": "第五幕·收束",
+      "title": "雪没停",
+      "scene_id": "ENV-02",
+      "scene_name": "老街雨夜/雪夜",
+      "characters": [
+        "HD-001-少年谢文东",
+        "HD-002-三眼",
+        "HD-003-高强",
+        "HD-004-李爽"
+      ],
+      "props": [],
+      "trigger": "事件平息，四人站在录像厅门口",
+      "conflict": "没有冲突，只有沉默的约定",
+      "outcome": "第一集落点：四个年轻人重新写了东北未来的格局",
+      "emotional_beat": "少年豪图的起点",
+      "visual_ref": "ENV-02_老街雨夜.png",
+      "audio_ref": "龍慧慧旁白",
+      "dialogue_snippet": "旁白：那一晚雪下得很大。没有人看见，东北未来的格局，就在一个录像厅门口，被四个年轻人重新写了。",
+      "duration_sec": 20
+    }
+  ],
+  "total_duration_sec": 160,
+  "cast_checklist": [
+    {
+      "id": "HD-001",
+      "name": "谢文东",
+      "status": "已出库",
+      "assets": [
+        "HD-001_谢文东_少年锚点图.png",
+        "HD-001_谢文东_成年锚点图.png"
+      ]
+    },
+    {
+      "id": "HD-002",
+      "name": "三眼",
+      "status": "已出库",
+      "assets": [
+        "HD-002_三眼_锚点图.png",
+        "HD-002_三眼_雨夜持刀.png",
+        "HD-002_三眼_侧面.png",
+        "HD-002_三眼_全身.png"
+      ]
+    },
+    {
+      "id": "HD-003",
+      "name": "高强",
+      "status": "已出库",
+      "assets": [
+        "HD-003_高强_锚点图.png"
+      ]
+    },
+    {
+      "id": "HD-004",
+      "name": "李爽",
+      "status": "已出库",
+      "assets": [
+        "HD-004_李爽_锚点图.png"
+      ]
+    },
+    {
+      "id": "HD-101",
+      "name": "向问天",
+      "status": "画外音",
+      "assets": [
+        "HD-101_向问天_锚点图.png"
+      ]
+    }
+  ],
+  "asset_checklist": [
+    {
+      "id": "ENV-01",
+      "name": "东北校园",
+      "status": "已出库"
+    },
+    {
+      "id": "ENV-02",
+      "name": "老街雨夜",
+      "status": "已出库"
+    },
+    {
+      "id": "S-01-01-001",
+      "name": "金刀",
+      "status": "已出库"
+    },
+    {
+      "id": "B-S",
+      "name": "打火机/大哥大/金链",
+      "status": "已出库"
+    }
+  ]
+}

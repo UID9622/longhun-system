@@ -2,7 +2,7 @@
 
 > **鸿蒙座舱DNA引擎** · 国产车机灵魂操作系统  
 > License: MulanPSL v2  
-> DNA: #龍芯⚡️丙午·甲申·癸卯·坤卦-CAR-SYSTEM-V2.0-UID9622  
+> DNA: #龍芯⚡️丙午·甲申·癸卯·戊午·䷁坤-CAR-SYSTEM-V2.0-UID9622  
 > 原文: https://blog.csdn.net/UID9622/article/details/163655614
 
 ## 项目简介
@@ -83,7 +83,7 @@ python3 index_server.py
 ```
 ═══════════════════════════════════════════════════
 🐉 龍魂车载系统 v2.0 · 完整代码 · 最终签名
-DNA: #龍芯⚡️丙午·甲申·癸卯·坤卦-CAR-SYSTEM-V2.0-FULL-UID9622
+DNA: #龍芯⚡️丙午·甲申·癸卯·戊午·䷁坤-CAR-SYSTEM-V2.0-FULL-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 代码量: 2500+ 行 · 模块数: 15 个

@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-ef7233cc
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -18,7 +19,7 @@ Sovereign Identity Fusion Popup Engine
     # 方式3：lh 命令
     lh identity-popup
 
-DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-IDENTITY-POPUP-v1.0
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-IDENTITY-POPUP-v1.0
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 

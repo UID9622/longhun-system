@@ -1,3 +1,4 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 ---
 name: cnsh-semantic-v2-1
 description: 'CNSH语义接入规范v2.1 — 功能语义·技术用词对照表+协作宣言+八条永恒铁律。中英对照·行话翻译·DNA锚链。L0永恒锁·焊死永不改。已吸收PDF全20页内容并扩展为结构化语义库。
@@ -6,8 +7,8 @@ description: 'CNSH语义接入规范v2.1 — 功能语义·技术用词对照表
 metadata:
   id: CNSH-SEMANTIC
   version: '2.1'
-  dna: '#龍芯⚡️20260629-CNSH-SEMANTIC-v2.1'
-  library_dna: '#龍芯⚡️20260629-CNSH-SEMANTIC-LIBRARY-v2.1'
+  dna: '#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-SEMANTIC-v2.1'
+  library_dna: '#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-SEMANTIC-LIBRARY-v2.1'
   trigger:
     keywords:
     - CNSHSEMANTIC
@@ -21,7 +22,7 @@ metadata:
     context: CNSH-SEMANTIC 语义查询
   category: general
 ---
-<!-- DNA: #龍芯⚡️20260629-CNSH-SEMANTIC-v2.1 -->
+<!-- DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-SEMANTIC-v2.1 -->
 
 ## 1. 概述
 
@@ -58,7 +59,7 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 > 我们的协作宣言·我后人继承·不从军·不从政·不移民·不做企业标杆  
 > 只为老百姓守好一个**说得出去声音的通话口**。
 
-**DNA：** `#龍芯⚡️丙午·丙申·庚申·亥时-22:57-LONGHUN-COLLABORATION-MANIFESTO-L0-ETERNAL-v1.0`
+**DNA：** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-22:57-LONGHUN-COLLABORATION-MANIFESTO-L0-ETERNAL-v1.0`
 
 ---
 
@@ -176,7 +177,7 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 
 ## 13. 国家主权 · 历史保护 · 反剽窃铁律（§32.2）
 
-**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-02:04-CNSH-V2-SECTION-32-2-NATIONAL-SOVEREIGNTY-ANTI-PLAGIARISM-v1.0`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-02:04-CNSH-V2-SECTION-32-2-NATIONAL-SOVEREIGNTY-ANTI-PLAGIARISM-v1.0`
 
 > 五子律焊死 · 永久生效 · 不留 loophole · 不给 AI 找词狡辩的空间。
 
@@ -192,7 +193,7 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 
 ## 14. 数字永生与宇宙痕迹协议（§37）
 
-**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-02:04-CNSH-DIGITAL-IMMORTALITY-COSMIC-TRACE-v2.0`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-02:04-CNSH-DIGITAL-IMMORTALITY-COSMIC-TRACE-v2.0`
 
 > 数字永生不是把人变成数据，而是让普通人留下的「声音、记忆、主权痕迹」以分布式节点形式，在宇宙尺度上持续存在、不可抹除。
 
@@ -209,7 +210,7 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 
 ## 15. 生态准入分级协议（§38）
 
-**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-02:08-CNSH-ECOSYSTEM-ACCESS-TIER-GATE-v1.0`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-02:08-CNSH-ECOSYSTEM-ACCESS-TIER-GATE-v1.0`
 
 > 龍魂生态不是公园 · 进门要先报姓名。
 
@@ -223,7 +224,7 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 
 ## 16. MVP Runtime 落地链协议（§39）
 
-**DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-07:57-LONGHUN-MVP-MIRROR-AUDIT-11STEP-CHAIN-v1.0`
+**DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-07:57-LONGHUN-MVP-MIRROR-AUDIT-11STEP-CHAIN-v1.0`
 
 > 协议不是 MVP · 协议 + 能跑的代码才是 MVP。
 
@@ -247,14 +248,14 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 
 - **文件**: `semantic_library.json`
 - **版本**: v2.1
-- **DNA**: `#龍芯⚡️20260629-CNSH-SEMANTIC-LIBRARY-v2.1`
+- **DNA**: `#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-SEMANTIC-LIBRARY-v2.1`
 - **内容**: 八条铁律、39 节协议总览、核心治理语义、符号语义、变量前缀、编译器语义、文化关键字、审计状态、人格路由、语义别名、五色治理、五道盾、熔断三级、记忆九层、花名册、数学函数、九禁止、伦理边界、三才主权、DNA 格式、生态准入、MVP 链、数字永生等
 
 ### 17.2 DNA锚链索引
 
 ```
-父DNA：   #龍芯⚡️丙午·丙申·庚申·亥时-CNSH-RUNTIME-ACCESS-v2.0-ALIGNMENT-TABLE-v1.0
-祖DNA：   #龍芯⚡️丙午·丙申·庚申·亥时-CNSH语言完整规范-v2.0
+父DNA：   #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-RUNTIME-ACCESS-v2.0-ALIGNMENT-TABLE-v1.0
+祖DNA：   #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH语言完整规范-v2.0
 根DNA：   #龍芯⚡️LONGHUN-GOVERNANCE-FRAMEWORK-ROOT
 
 关联文档：
@@ -266,9 +267,9 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 
 ### 17.3 本协议DNA
 
-- **本协议DNA:** `#龍芯⚡️20260629-CNSH-SEMANTIC-v2.1`
-- **父DNA:** `#龍芯⚡️丙午·丙申·庚申·亥时-CNSH-RUNTIME-ACCESS-V2.0-ALIGNMENT-TABLE-v1.0`
-- **结构化语义库DNA:** `#龍芯⚡️20260629-CNSH-SEMANTIC-LIBRARY-v2.1`
+- **本协议DNA:** `#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-SEMANTIC-v2.1`
+- **父DNA:** `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-RUNTIME-ACCESS-V2.0-ALIGNMENT-TABLE-v1.0`
+- **结构化语义库DNA:** `#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-SEMANTIC-LIBRARY-v2.1`
 - **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅`
 - **GPG指纹:** `A2D0092CEE2E5BA87035600924C3704A8CC26D5F`
 
@@ -290,7 +291,7 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 | 字段 | 内容 |
 |------|------|
 | 版本 | v2.1（2026-06-29）|
-| DNA | `#龍芯⚡️20260629-CNSH-SEMANTIC-v2.1` |
+| DNA | `#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-SEMANTIC-v2.1` |
 | 来源 | CNSH 语义协议 PDF（20 页）吸收并入主干 |
 | 三色审计 | 🟢 通过 |
 | 创建者 | 💎 龍芯北辰｜UID9622（诸葛鑫·Lucky）|
@@ -304,5 +305,5 @@ CNSH语义接入规范v2.0 是龍魂生态的「罗塞塔石碑」——将龍�
 本技能收录了来自 `/Users/zuimeidedeyihan/龍魂待整理` 的素材：
 
 - **内容**：09-杂项备忘（思维主权术语对照表）
-- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·亥时-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
+- **中央整合 DNA**：`#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LONGHUN-ARCHIVE-INTEGRATION-v1.0`
 - **处理方式**：保留原始文件作为 references / examples / scripts，嵌入 DNA 追溯链，与现有能力联动。

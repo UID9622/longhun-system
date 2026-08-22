@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·丙申·癸丑-LH-LEARN-ENGINE-V1.0
+# DNA: #龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-LH-LEARN-ENGINE-V1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """

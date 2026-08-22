@@ -3,7 +3,7 @@
 """
 🐉 龍魂 · 中英双语命令路由器 v1.0
 # 层级: L1_引擎层
-# DNA: #龍芯⚡️丙午·丙申·丁酉·卯时-BILINGUAL-ROUTER-UID9622
+# DNA: #龍芯⚡️丙午·丙申·丁酉·癸卯·䷵归妹-BILINGUAL-ROUTER-UID9622
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # License: MulanPSL v2
@@ -30,7 +30,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_MAP_PATH = PROJECT_ROOT / "config" / "bilingual_command_map.json"
 ENV_VAR = "LH_BILINGUAL_CMD_FILE"
 
-DNA = "#龍芯⚡️丙午·丙申·丁酉·卯时-BILINGUAL-ROUTER-UID9622"
+DNA = "#龍芯⚡️丙午·丙申·丁酉·癸卯·䷵归妹-BILINGUAL-ROUTER-UID9622"
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 GPG_KEY = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 

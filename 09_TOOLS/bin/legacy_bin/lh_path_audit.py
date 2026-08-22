@@ -2,13 +2,14 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 lh_path_audit — 龍魂路径审计引擎 v1.0
 
 扫描项目中所有文件，检查是否遵守路径铁律 §3.16。
 标志散落在错误位置的文件，标记孤立、重复、命名不规范的文件。
 
-DNA: #龍芯⚡️丙午·乙未·庚戌·巳时·需-PATH-AUDIT-v1.0
+DNA: #龍芯⚡️丙午·乙未·庚戌·巳时·䷄需-PATH-AUDIT-v1.0
 
 用法:
   python3 bin/lh_path_audit.py scan          # 扫描整个项目
@@ -343,7 +344,7 @@ class PathAuditor:
         lines = []
         lines.append("=" * 60)
         lines.append("  🐉 龍魂路径审计报告")
-        lines.append("  DNA: #龍芯⚡️丙午·乙未·庚戌·巳时·需-PATH-AUDIT-v1.0")
+        lines.append("  DNA: #龍芯⚡️丙午·乙未·庚戌·巳时·䷄需-PATH-AUDIT-v1.0")
         lines.append("=" * 60)
         lines.append("")
 

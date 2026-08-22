@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️2026-07-21-SUMMARY-CRAWLER-SPLIT-V1.0-P0
+# DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-SUMMARY-CRAWLER-SPLIT-V1.0-P0
 # 创建者: 诸葛鑫（UID9622）
 # 协议: CC BY-NC-SA 4.0
 # 模块: 龍魂礼貌爬虫 · 摘要只取·全文人工·人机分账·诚实自报
@@ -574,7 +574,7 @@ class 龍魂礼貌爬虫:
 def 演示():
     """交互式演示：不触网，用模拟数据展示全链路"""
     print("龍魂礼貌爬虫 v1.0 · 沙盒演示")
-    print("DNA: #龍芯⚡️2026-07-21-SUMMARY-CRAWLER-SPLIT-V1.0-P0")
+    print("DNA: #龍芯⚡️丙午·乙未·丙申·甲午·䷙大畜-SUMMARY-CRAWLER-SPLIT-V1.0-P0")
     print()
 
     bot = 龍魂礼貌爬虫()

@@ -2,6 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 lh_regulatory_pipeline — 龍魂监管透明API管道 v1.0
 
 管道流程：
@@ -12,7 +13,7 @@ lh_regulatory_pipeline — 龍魂监管透明API管道 v1.0
   python3 bin/lh_regulatory_pipeline.py batch --dir data/ --output compliance.jsonl
   python3 bin/lh_regulatory_pipeline.py summary --hours 24
 
-DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·需-REGULATORY-PIPELINE-v1.0
+DNA: #龍芯⚡️丙午·丙申·丙辰·己丑·䷄需-REGULATORY-PIPELINE-v1.0
 📇 项目身份 · 联系 · 支持 → assets/PUBLIC_IDENTITY.md
 """
 

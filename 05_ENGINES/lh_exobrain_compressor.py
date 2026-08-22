@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️2026-07-25-EXOBRAIN-COMPRESSOR-v2.0
+#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-EXOBRAIN-COMPRESSOR-v2.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -8,7 +8,7 @@
 # ═══════════════════════════════════════════
 # 龍魂体系 | 外脑压缩引擎 v2.0
 # ═══════════════════════════════════════════
-# DNA: #龍芯⚡️2026-07-25-EXOBRAIN-COMPRESSOR-v2.0
+# DNA: #龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-EXOBRAIN-COMPRESSOR-v2.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: UID9622（诸葛鑫·Lucky）
 # 三色审计: 🟢 通过
@@ -120,7 +120,7 @@ def hamming_distance(a: int, b: int) -> int:
 class SmartSummarizer:
     """本地智能摘要 — 提取核心决策、关键结论"""
 
-    DNA = "#龍芯⚡️2026-07-25-SMART-SUMMARIZER-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-SMART-SUMMARIZER-v1.0"
 
     @staticmethod
     def summarize(text: str, max_len: int = 200) -> Dict[str, Any]:
@@ -184,7 +184,7 @@ class SmartSummarizer:
 class RedundancyDeduplicator:
     """检测重复规矩/教训，自动合并，旧版归档"""
 
-    DNA = "#龍芯⚡️2026-07-25-REDUNDANCY-DEDUP-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-REDUNDANCY-DEDUP-v1.0"
     SIM_THRESHOLD = 3  # SimHash汉明距离阈值（≤3视为相似）
 
     def __init__(self):
@@ -260,7 +260,7 @@ class RedundancyDeduplicator:
 class TimeDecayer:
     """非核心记忆按时间衰减权重，永不完全归零"""
 
-    DNA = "#龍芯⚡️2026-07-25-TIME-DECAYER-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-TIME-DECAYER-v1.0"
 
     @staticmethod
     def compute_decay(entry_date: str, importance: float, tier: str = "常规") -> Dict[str, Any]:
@@ -349,7 +349,7 @@ class TimeDecayer:
 class KnowledgeGraphBuilder:
     """构建记忆之间的关联图谱"""
 
-    DNA = "#龍芯⚡️2026-07-25-KNOWLEDGE-GRAPH-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-KNOWLEDGE-GRAPH-v1.0"
 
     def __init__(self):
         self.graph = self._load_graph()
@@ -465,7 +465,7 @@ class KnowledgeGraphBuilder:
 class CompressReporter:
     """生成压缩率报告"""
 
-    DNA = "#龍芯⚡️2026-07-25-COMPRESS-REPORTER-v1.0"
+    DNA = "#龍芯⚡️丙午·乙未·庚子·壬午·䷙大畜-COMPRESS-REPORTER-v1.0"
 
     @staticmethod
     def generate_report() -> Dict[str, Any]:

@@ -1,3 +1,4 @@
+> **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 # 🐉 龍魂 · 审计积压批量归类脚本 v1.0
 
 **DNA:** `#龍芯⚡️丙午·丙酉·壬戌·亥时·䷬萃-AUDIT-BACKLOG-CLASSIFIER-v1.0-UID9622-2970C690`  
@@ -243,7 +244,7 @@ from lh_audit_backlog_classifier import classify_record, CONFIRM_MARK
 
 class TestClassifier(unittest.TestCase):
     def test_normal(self):
-        dna = "#龍芯⚡️丙午·丙申·丁巳·恒卦-TEST-A1B2C3D4"
+        dna = "#龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-TEST-A1B2C3D4"
         vtype, sev, _, _ = classify_record(f"{{'confirm':'{CONFIRM_MARK}'}}", dna)
         self.assertEqual(vtype, "正常")
         self.assertEqual(sev, "🟢")
@@ -254,7 +255,7 @@ class TestClassifier(unittest.TestCase):
         self.assertEqual(sev, "🔴")
 
     def test_duplicate(self):
-        dna = "#龍芯⚡️丙午·丙申·丁巳·恒卦-TEST-A1B2C3D4"
+        dna = "#龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-TEST-A1B2C3D4"
         content = f"{{'confirm':'{CONFIRM_MARK}','note':'DUPLICATE'}}"
         vtype, sev, auto, _ = classify_record(content, dna)
         self.assertEqual(vtype, "重复记录")

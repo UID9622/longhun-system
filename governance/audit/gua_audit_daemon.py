@@ -2,8 +2,9 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 👁️ 上帝之眼 · 64卦审计守护进程
-DNA:#龍芯⚡️2026-06-29-64GUA-AUDIT-DAEMON-FILE1-v1.0
+DNA:#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-64GUA-AUDIT-DAEMON-FILE1-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬64GUA-DAEMON-001 ✅
 
 功能：
@@ -246,7 +247,7 @@ def main():
 ║   API Port: {PORT:<5}                        ║
 ║   高频巡检: 每5分钟                       ║
 ║   全量审计: 每天 {DAILY_HOUR:02d}:{DAILY_MINUTE:02d}                    ║
-║   DNA: #龍芯⚡️2026-06-29-64GUA-AUDIT-DAEMON-v1.0 ║
+║   DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-64GUA-AUDIT-DAEMON-v1.0 ║
 ╚══════════════════════════════════════════╝
 """)
 

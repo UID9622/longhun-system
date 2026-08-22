@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂 · 飞书通知网关 v1.0 — 统一推送中枢
-DNA: #龍芯⚡️2026-07-26-NOTIFY-GATEWAY-v1.0
+DNA: #龍芯⚡️丙午·乙未·辛丑·甲午·䷨损-NOTIFY-GATEWAY-v1.0
 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0
 人格: 乔前辈（P15·签章守护）— 通知分发·通道仲裁
 铁律: P0三通道立即推送·每条带DNA·七因子加密焊死·飞书只收密文
@@ -31,7 +31,7 @@ from typing import Any, Dict, List, Optional, Tuple
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 # ─── DNA常量 ───
-DNA = "#龍芯⚡️2026-07-26-NOTIFY-GATEWAY-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·辛丑·甲午·䷨损-NOTIFY-GATEWAY-v1.0"
 CREATOR = "诸葛鑫（UID9622）"
 PROTOCOL = "CC BY-NC-SA 4.0"
 GPGFP = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"

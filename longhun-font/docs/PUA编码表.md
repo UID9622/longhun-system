@@ -1,9 +1,9 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # LonghunFont PUA 编码表
 
-**DNA追溯码**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-PUA-TABLE-v3.0`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-PUA-TABLE-v3.0`
 
 > 本字体使用 Unicode Private Use Area（PUA）承载中国文化主权符号。
 > PUA 字符仅在安装了 LonghunFont 的系统上可见，需配合本编码表使用。
@@ -291,4 +291,4 @@
 
 ---
 
-**DNA追溯码**: `#龍芯⚡️2026-06-22-LONGHUN-FONT-PUA-TABLE-v3.0`
+**DNA追溯码**: `#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-PUA-TABLE-v3.0`

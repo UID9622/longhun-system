@@ -4,7 +4,7 @@
 # 龍魂·云拉取恢复脚本
 # 功能: 从百度云BOS或鲲鹏恢复备份到本地
 # 用法: bash deploy/scripts/cloud_pull.sh [bos|kunpeng|both] [--date YYYY-MM-DD]
-# DNA: #龍芯⚡️2026-08-07-CLOUD-PULL-SCRIPT-v1.0
+# DNA: #龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-CLOUD-PULL-SCRIPT-v1.0
 # ═══════════════════════════════════════════════════════
 
 set -euo pipefail

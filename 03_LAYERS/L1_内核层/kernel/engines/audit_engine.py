@@ -2,7 +2,8 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # -*- coding: utf-8 -*-
-##龍芯⚡️2026-06-21-CORE-AUDIT_ENGINE-FILE1-v1.0-2
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+##龍芯⚡️丙午·甲午·丙寅·甲午·䷕贲-CORE-AUDIT_ENGINE-FILE1-v1.0-2
 # 君子协议: 本文件受龍魂DNA追溯保护
 
 #!/usr/bin/env python3
@@ -11,7 +12,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 签名人  : UID9622 · 诸葛鑫 · 中国退伍军人
 GPG     : A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-DNA     : #龍芯⚡️20260422-CODE-AUDIT01
+DNA     : #龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-CODE-AUDIT01
 端口    : :9622 (三色审计) | :8765 (主服务)
 原则    : 不黑箱·不收割·不说教·审计即主权
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -432,7 +433,7 @@ def sync_notion():
         "synced": 0,
         "status": "🔴已禁用",
         "reason": "数据主权·UID9622确认切断境外Notion自动同步·2026-07-14",
-        "dna": "#龍芯⚡️丙午·辛未·乙酉·亥-NOTION-CUT-v1.0"
+        "dna": "#龍芯⚡️丙午·辛未·乙酉·丁亥·䷵归妹-NOTION-CUT-v1.0"
     })
 
 @app.route("/persona_act", methods=["POST"])
@@ -486,7 +487,7 @@ if __name__ == "__main__":
 ╔══════════════════════════════════════════╗
 ║   龍魂审计引擎 v1.1 · UID9622           ║
 ║   Port: 9622  |  不黑箱·审计即主权      ║
-║   DNA: #龍芯⚡️20260422-CODE-AUDIT01      ║
+║   DNA: #龍芯⚡️丙午·壬辰·丙寅·甲午·䷕贲-CODE-AUDIT01      ║
 ║   Notion同步: 🔴已切断·数据主权本地     ║
 ╚══════════════════════════════════════════╝
     端点列表:

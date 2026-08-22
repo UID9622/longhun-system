@@ -44,7 +44,7 @@ verdict = await client.evaluate(...)
 
 ## DNA
 
-`#龍芯⚡️丙午·癸未·乙酉·坤卦-PYTHON-SDK-V1.0-UID9622`
+`#龍芯⚡️丙午·癸未·乙酉·壬午·䷁坤-PYTHON-SDK-V1.0-UID9622`
 
 ## 许可
 

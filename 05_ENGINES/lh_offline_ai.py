@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂 · 离线AI开关 v3.0 · 三后端架构
-DNA: #龍芯⚡️丙午·乙未·戊戌·亥时·☰乾-OFFLINE-AI-v3.0-TRIPLE-BACKEND
+DNA: #龍芯⚡️丙午·乙未·戊戌·亥时·䷀乾-OFFLINE-AI-v3.0-TRIPLE-BACKEND
 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0
 人格: P04鲁班（工程执行）+ P05上帝之眼（审计）
 铁律: 本地优先·数据不出设备·云端需明确授权·七因子加密焊死
@@ -17,20 +17,21 @@ import os
 import platform
 import subprocess
 import time
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import List, Optional
 
 try:
     import httpx
     HTTPX_AVAILABLE = True
 except ImportError:
+    httpx = None  # type: ignore[assignment]
     HTTPX_AVAILABLE = False
 
 # ═══ 常量 ═══
-DNA = "#龍芯⚡️丙午·乙未·戊戌·亥时·☰乾-OFFLINE-AI-v3.0-TRIPLE-BACKEND"
+DNA = "#龍芯⚡️丙午·乙未·戊戌·亥时·䷀乾-OFFLINE-AI-v3.0-TRIPLE-BACKEND"
 CREATOR = "诸葛鑫（UID9622）"
 PROTOCOL = "CC BY-NC-SA 4.0"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -40,13 +41,14 @@ MODELS_DIR = PROJECT_ROOT / "models"
 
 # 已知本地模型（按推荐优先级）
 LOCAL_MODELS = [
+    {"name": "deepseek-r1:7b", "display": "DeepSeek-R1-7B（本地·免费）", "size_gb": 4.7, "status": "unknown"},
     {"name": "longhun-v4.1.1", "display": "龍魂-v4.1.1（推荐）", "size_gb": 5.2, "status": "unknown"},
     {"name": "longhun-v4.1.4", "display": "龍魂-v4.1.4（备用）", "size_gb": 5.2, "status": "unknown"},
     {"name": "qwen2.5:1.5b", "display": "Qwen2.5-1.5B（兜底）", "size_gb": 0.9, "status": "unknown"},
 ]
 # 模型降级链：当前模型不行就按这个顺序依次尝试
-# v4.1.x(Yi-9B GGUF)已知推理退化，标记为跳过
-MODEL_FALLBACK_CHAIN = ["qwen2.5:1.5b"]  # 龍魂模型恢复后再把 v4.1.1 放回来
+# deepseek-r1:7b 本地免费推理优先；v4.1.x(Yi-9B GGUF)已知推理退化，标记为跳过
+MODEL_FALLBACK_CHAIN = ["deepseek-r1:7b", "qwen2.5:1.5b"]  # 龍魂模型恢复后再把 v4.1.1 放回来
 MODEL_SKIP_LIST = ["longhun-v4.1.4", "longhun-v4.1.1"]  # 已知退化模型
 
 
@@ -216,7 +218,7 @@ class OfflineAISwitch:
         hash8 = hashlib.sha256(ts.encode()).hexdigest()[:8]
         return f"#龍芯⚡️{now.strftime('%Y-%m-%d')}-AI-CHAT-{hash8}"
 
-    async def _chat_ollama(self, message: str, context: list = None) -> Optional[dict]:
+    async def _chat_ollama(self, message: str, context: Optional[list] = None) -> Optional[dict]:
         """本地Ollama推理——带模型降级链"""
         if not HTTPX_AVAILABLE:
             print("[Ollama] httpx不可用", flush=True)
@@ -240,6 +242,7 @@ class OfflineAISwitch:
                     messages.extend(context)
                 messages.append({"role": "user", "content": message})
 
+                assert httpx is not None  # HTTPX_AVAILABLE=True 时 import 必成功
                 async with httpx.AsyncClient(timeout=60.0) as client:
                     resp = await client.post(
                         "http://localhost:11434/api/chat",
@@ -309,24 +312,8 @@ class OfflineAISwitch:
         if len(cleaned) < 20:
             return False
         return True
-        """检测模型输出是否乱码/无用"""
-        if not text or len(text) < 5:
-            return True
-        cleaned = ''.join(c for c in text if not c.isspace())
-        if not cleaned:
-            return True
-        # 如果回复中包含大量英文元数据（name:, description:, license: 等）→ 无效
-        metadata_markers = ['name:', 'description:', 'license:', 'metadata:', 'dna_signature:',
-                           'compatibility:', 'metadata_version:', 'reliability_level:']
-        marker_count = sum(1 for m in metadata_markers if m in text[:500])
-        if marker_count >= 3:
-            return True
-        # 有效字符（中英文+标点）占比 < 30% 视为乱码
-        valid = sum(1 for c in cleaned if c.isalpha() or '\u4e00' <= c <= '\u9fff' or c in '，。！？；：""''（）【】《》、…—·')
-        ratio = valid / len(cleaned) if cleaned else 0
-        return ratio < 0.3
 
-    async def _chat_kimi(self, message: str, context: list = None) -> Optional[dict]:
+    async def _chat_kimi(self, message: str, context: Optional[list] = None) -> Optional[dict]:
         """云端Kimi推理"""
         kimi_key = os.getenv("KIMI_API_KEY", "")
         if not kimi_key:
@@ -340,6 +327,7 @@ class OfflineAISwitch:
                     messages.append({"role": msg.get("role", "user"), "content": msg.get("content", "")})
             messages.append({"role": "user", "content": message})
 
+            assert httpx is not None  # HTTPX_AVAILABLE=True 时 import 必成功
             async with httpx.AsyncClient(timeout=30.0) as client:
                 resp = await client.post(
                     "https://api.moonshot.cn/v1/chat/completions",
@@ -360,10 +348,10 @@ class OfflineAISwitch:
                 if "#龍芯" not in reply:
                     reply += f"\n\nDNA: {self._generate_dna()}"
                 return {"reply": reply, "model": "kimi-latest", "source": "cloud:kimi"}
-        except Exception as e:
+        except Exception:
             return None
 
-    async def _chat_deepseek(self, message: str, context: list = None) -> Optional[dict]:
+    async def _chat_deepseek(self, message: str, context: Optional[list] = None) -> Optional[dict]:
         """云端DeepSeek推理"""
         ds_key = os.getenv("DEEPSEEK_API_KEY", "")
         if not ds_key:
@@ -377,6 +365,7 @@ class OfflineAISwitch:
                     messages.append({"role": msg.get("role", "user"), "content": msg.get("content", "")})
             messages.append({"role": "user", "content": message})
 
+            assert httpx is not None  # HTTPX_AVAILABLE=True 时 import 必成功
             async with httpx.AsyncClient(timeout=60.0) as client:
                 resp = await client.post(
                     "https://api.deepseek.com/v1/chat/completions",
@@ -385,7 +374,7 @@ class OfflineAISwitch:
                         "Content-Type": "application/json",
                     },
                     json={
-                        "model": "deepseek-chat",
+                        "model": "deepseek-v4-flash",
                         "messages": messages,
                         "temperature": 0.7,
                         "max_tokens": 2048,
@@ -396,15 +385,17 @@ class OfflineAISwitch:
                 reply = data["choices"][0]["message"]["content"]
                 if "#龍芯" not in reply:
                     reply += f"\n\nDNA: {self._generate_dna()}"
-                return {"reply": reply, "model": "deepseek-chat", "source": "cloud:deepseek"}
+                return {"reply": reply, "model": "deepseek-v4-flash", "source": "cloud:deepseek"}
         except Exception as e:
-            return None
+            # 欠费(402)等云端异常：给调用方明确信号，便于降级提示
+            return {"reply": f"（云端DeepSeek不可用: {e}）", "model": "deepseek-v4-flash", "source": "cloud:deepseek", "error": str(e)}
 
     async def _check_ollama_health(self) -> bool:
         """检查Ollama是否可用"""
         if not HTTPX_AVAILABLE:
             return False
         try:
+            assert httpx is not None  # HTTPX_AVAILABLE=True 时 import 必成功
             async with httpx.AsyncClient(timeout=2.0) as client:
                 resp = await client.get("http://localhost:11434/api/tags")
                 return resp.status_code == 200
@@ -417,6 +408,7 @@ class OfflineAISwitch:
         if not kimi_key or not HTTPX_AVAILABLE:
             return False
         try:
+            assert httpx is not None  # HTTPX_AVAILABLE=True 时 import 必成功
             async with httpx.AsyncClient(timeout=5.0) as client:
                 resp = await client.get(
                     "https://api.moonshot.cn/v1/models",
@@ -427,17 +419,26 @@ class OfflineAISwitch:
             return False
 
     async def _check_deepseek_health(self) -> bool:
-        """检查DeepSeek是否可用"""
+        """检查DeepSeek是否可用（余额检测·欠费即不可用）"""
         ds_key = os.getenv("DEEPSEEK_API_KEY", "")
         if not ds_key or not HTTPX_AVAILABLE:
             return False
         try:
+            assert httpx is not None  # HTTPX_AVAILABLE=True 时 import 必成功
             async with httpx.AsyncClient(timeout=5.0) as client:
+                # 官方余额接口：is_available=false 即欠费冻结，API通但调用必402
                 resp = await client.get(
-                    "https://api.deepseek.com/v1/models",
+                    "https://api.deepseek.com/user/balance",
                     headers={"Authorization": f"Bearer {ds_key}"},
                 )
-                return resp.status_code == 200
+                if resp.status_code != 200:
+                    return False
+                data = resp.json()
+                if not data.get("is_available"):
+                    return False
+                balances = data.get("balance_infos", [])
+                # 多币种账户: is_available 仅在顶层(账户总开关); 任一币种余额>0 即可(实测 balance_infos 无 is_available 字段)
+                return any(float(b.get("total_balance", 0) or 0) > 0 for b in balances)
         except Exception:
             return False
 
@@ -452,7 +453,7 @@ class OfflineAISwitch:
         # auto: 本地优先
         return "auto"
 
-    def chat_sync(self, user_input: str, backend: str = "auto", context: list = None) -> dict:
+    def chat_sync(self, user_input: str, backend: str = "auto", context: Optional[list] = None) -> dict:
         """同步包装器（给现有API用）"""
         import asyncio
         loop = asyncio.new_event_loop()
@@ -461,7 +462,7 @@ class OfflineAISwitch:
         finally:
             loop.close()
 
-    async def chat(self, user_input: str, backend: str = "auto", context: list = None) -> dict:
+    async def chat(self, user_input: str, backend: str = "auto", context: Optional[list] = None) -> dict:
         """真实AI对话——Ollama→Kimi→DeepSeek三后端降级
 
         Args:
@@ -546,7 +547,7 @@ class OfflineAISwitch:
 
         return self._fallback_chat(user_input, input_hash, start, f"未知后端: {backend}")
 
-    def _format_chat_response(self, user_input: str, input_hash: str,
+    def _format_chat_response(self, _user_input: str, input_hash: str,
                                result: dict, source: str, latency_ms: float,
                                data_leaked: bool) -> dict:
         """格式化对话响应"""
@@ -572,8 +573,8 @@ class OfflineAISwitch:
             "dna": self._generate_dna(),
         }
 
-    def _fallback_chat(self, user_input: str, input_hash: str,
-                        start_time: float, reason: str) -> dict:
+    def _fallback_chat(self, _user_input: str, input_hash: str,
+                        _start_time: float, reason: str) -> dict:
         """降级回复（三后端都不通时）"""
         record = ChatRecord(
             timestamp=datetime.now(timezone.utc).isoformat(),
@@ -618,7 +619,7 @@ class OfflineAISwitch:
             "kimi": "up" if kimi_ok else "down",
             "kimi_model": "kimi-latest" if kimi_ok else None,
             "deepseek": "up" if ds_ok else "down",
-            "deepseek_model": "deepseek-chat" if ds_ok else None,
+            "deepseek_model": "deepseek-v4-flash" if ds_ok else None,
             "preferred": "local" if local_ok else ("kimi" if kimi_ok else ("deepseek" if ds_ok else "none")),
             "status": "ok" if (local_ok or kimi_ok or ds_ok) else "degraded",
             "dna": self._generate_dna(),

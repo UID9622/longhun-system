@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂·Mac 身体翻译官
-DNA: #龍芯⚡️丙午·癸未·丁未-MAC-PULSE-TRANSLATOR-v1.0
+DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-MAC-PULSE-TRANSLATOR-v1.0
 功能：把 Mac 系统监控数据（CPU/内存/磁盘/网络/电池/进程/定时器）
       翻译成普通人能看懂的大白话，同时保留技术原始值。
 """
@@ -19,7 +20,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-DNA = "#龍芯⚡️丙午·癸未·丁未-MAC-PULSE-TRANSLATOR-v1.0"
+DNA = "#龍芯⚡️丙午·癸未·丁未·丙午·䷖剥-MAC-PULSE-TRANSLATOR-v1.0"
 
 
 def run(cmd: List[str], timeout: int = 5) -> str:

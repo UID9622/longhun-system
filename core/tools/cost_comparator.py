@@ -5,7 +5,7 @@
 🐉 龍魂低算力内核 · 成本对比器
 复现算力成本对比 · 证明低算力 ≠ 低智能
 
-DNA: #龍芯⚡️丙午·丙申·丁巳·恒卦-COST-COMPARE-UID9622
+DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-COST-COMPARE-UID9622
 License: MulanPSL v2
 
 运行: python3 tools/cost_comparator.py
@@ -160,7 +160,7 @@ def main():
 
     print()
     print("🟢 结论: 算力≠智能。算法效率的革命不在堆硬件，在把不该花的算力省下来。")
-    print(f"🐉 #龍芯⚡️丙午·丙申·丁巳·恒卦-COST-COMPARE-UID9622")
+    print(f"🐉 #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-COST-COMPARE-UID9622")
     print()
 
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·乙未·丁酉·亥時·☰乾-BAO-GUI-v1.0
+#龍芯⚡️丙午·乙未·丁酉·亥時·䷀乾-BAO-GUI-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -9,7 +9,7 @@
 龍魂·宝柜 (BaoGui) · 本地加密保险柜引擎 v1.0
 对应协议: 01_protocols/LH-CODE-NAMING-STANDARD-v1.0.md
 内部命名: vault → bao_gui
-DNA: #龍芯⚡️丙午·乙未·丁酉·亥時·☰乾-BAO-GUI-v1.0
+DNA: #龍芯⚡️丙午·乙未·丁酉·亥時·䷀乾-BAO-GUI-v1.0
 """
 
 import argparse
@@ -39,7 +39,7 @@ HOME = Path.home()
 BAOGUI_DIR = HOME / ".longhun" / "baogui"
 DATA_DIR = BAOGUI_DIR / "data"
 AUDIT_LOG = BAOGUI_DIR / "audit.jsonl"
-DNA = "#龍芯⚡️丙午·乙未·丁酉·亥時·☰乾-BAO-GUI-v1.0"
+DNA = "#龍芯⚡️丙午·乙未·丁酉·亥時·䷀乾-BAO-GUI-v1.0"
 CONFIRM = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
 
 CST = timezone(timedelta(hours=8))

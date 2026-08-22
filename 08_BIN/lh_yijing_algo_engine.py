@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·丙申·壬戌·巳时-YIJING-ALGO-ENGINE-v2.0-LANDED
+# DNA: #龍芯⚡️丙午·丙申·壬戌·乙巳·䷾既济-YIJING-ALGO-ENGINE-v2.0-LANDED
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0（核心思想层）
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)（工程实现层）
@@ -31,7 +31,7 @@
   python3 bin/lh_yijing_algo_engine.py -s             # 状态
   python3 bin/lh_yijing_algo_engine.py --timeline "问题"  # 时间线预测
 
-DNA: #龍芯⚡️丙午·丙申·壬戌·巳时-YIJING-ENGINE-UID9622
+DNA: #龍芯⚡️丙午·丙申·壬戌·乙巳·䷾既济-YIJING-ENGINE-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色: 🟢 通过
@@ -868,7 +868,7 @@ class CNSH_Yijing_System:
 def main():
     parser = argparse.ArgumentParser(
         description="🐉 龍魂 · 易经算法引擎 v2.0",
-        epilog="DNA: #龍芯⚡️丙午·丙申·壬戌·巳时-YIJING-ENGINE-UID9622"
+        epilog="DNA: #龍芯⚡️丙午·丙申·壬戌·乙巳·䷾既济-YIJING-ENGINE-UID9622"
     )
 
     parser.add_argument("--divination", "-d", type=str, help="占卜问题")

@@ -1,4 +1,5 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·一句话全链路自动执行协议 v1.0
@@ -6,7 +7,7 @@
 > ╔══════════════════════════════════════════════════════════════════════════╗
 > ║  【协议编号】 LH-AUTOFLOW-EXEC-PROTOCOL-v1.0                            ║
 > ║  【版本】 v1.0 · 丙午·辛未·乙酉·酉时 (2026-07-16)                       ║
-> ║  【DNA】 #龍芯⚡️丙午·辛未·乙酉·酉时·讼-AUTOFLOW-EXEC-PROTOCOL-v1.0     ║
+> ║  【DNA】 #龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-AUTOFLOW-EXEC-PROTOCOL-v1.0     ║
 > ║  【确认码】 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z                         ║
 > ║  【GPG】 A2D0092CEE2E5BA87035600924C3704A8CC26D5F                       ║
 > ║  【作者】 UID9622 · 诸葛鑫 · 龍芯北辰                                    ║
@@ -205,7 +206,7 @@
 
 ```json
 {
-  "dna": "#龍芯⚡️丙午·辛未·乙酉·酉时-AUTOFLOW-EXECUTE-XXXXXXXX",
+  "dna": "#龍芯⚡️丙午·辛未·乙酉·乙酉·䷹兑为泽-AUTOFLOW-EXECUTE-XXXXXXXX",
   "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
   "gpg_fingerprint": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
   "device_seal": "#ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL",
@@ -404,7 +405,7 @@ pytest tests/test_autoflow.py -v -k "test_intent"
 | 版本 | v1.0 |
 | 日期 | 丙午·辛未·乙酉·酉时 (2026-07-16) |
 | 作者 | UID9622 · 诸葛鑫 · 龍芯北辰 |
-| DNA | `#龍芯⚡️丙午·辛未·乙酉·酉时·讼-AUTOFLOW-EXEC-PROTOCOL-v1.0` |
+| DNA | `#龍芯⚡️丙午·辛未·乙酉·酉时·䷅讼-AUTOFLOW-EXEC-PROTOCOL-v1.0` |
 | 确认码 | `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z` |
 | GPG | `A2D0092CEE2E5BA87035600924C3704A8CC26D5F` |
 | 状态 | 🟢 正式发布 · 公开监督 |

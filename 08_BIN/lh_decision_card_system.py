@@ -3,7 +3,7 @@
 """
 ╔══════════════════════════════════════════════════════════════╗
 ║  🔧 工程落地执行型 — 龍魂·责任卡/决策卡片系统 v2.0              ║
-║  DNA: #龍芯⚡️丙午·乙未·庚申·亥时·乾-DECISION-CARD-v2.0     ║
+║  DNA: #龍芯⚡️丙午·乙未·庚申·亥时·䷀乾-DECISION-CARD-v2.0     ║
 ║  场景: 重要决策留痕·责任归属审计·备选方案对比·DNA追溯链         ║
 ║  GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F               ║
 ╚══════════════════════════════════════════════════════════════╝
@@ -14,7 +14,7 @@
 
 ROOT_CARD:
   ID: uid9622
-  DNA: #龍芯⚡️丙午·乙未·庚申·亥时·乾-DECISION-CARD-v2.0
+  DNA: #龍芯⚡️丙午·乙未·庚申·亥时·䷀乾-DECISION-CARD-v2.0
   GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
   CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
   SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
@@ -364,7 +364,7 @@ class DecisionCardSystem:
 # -*- coding: utf-8 -*-
 """
 UID9622 龍芯北辰｜责任卡生成引擎 v2.0
-DNA: #龍芯⚡️丙午·乙未·庚申·亥时-ENGINE-v2.0
+DNA: #龍芯⚡️丙午·乙未·庚申·丁亥·䷡大壮-ENGINE-v2.0
 """
 
 import sys
@@ -631,7 +631,7 @@ def route_card_type(text: str, force: str = "") -> str:
 
     def create_anchor(self) -> bool:
         anchor_id = "ANCHOR-DEC-20260508-RESPCARD-V2"
-        dna = "#龍芯⚡️20260508-DEC-RESPCARD-V2"
+        dna = "#龍芯⚡️丙午·癸巳·壬午·丙午·䷳艮为山-DEC-RESPCARD-V2"
 
         registry_data = {
             "system": "UID9622 龍芯北辰",
@@ -697,7 +697,7 @@ GPG: "{GPG_FINGERPRINT}"
         card_content = f"""# 🃏 UID9622 龍芯北辰 · RESPONSIBILITY DECISION CARD
 
 ```yaml
-DNA: "#龍芯⚡️20260508-DEC-RESPCARD-V2"
+DNA: "#龍芯⚡️丙午·癸巳·壬午·丙午·䷳艮为山-DEC-RESPCARD-V2"
 版本: "v2.0"
 时间: "2026-05-08"
 决策等级: "L1 工程级"
@@ -814,7 +814,7 @@ C. 写模板 + 接 decision 命令 + 生成第一锚
 本机审计：/cnsh/决策卡片/db/decision_cards.sqlite
 本机文件：/cnsh/决策卡片/cards/major/RESPONSIBILITY_CARD_20260508_L1_RESPCARD_V2.md
 不动点锚：ANCHOR-DEC-20260508-RESPCARD-V2
-关联DNA：#龍芯⚡️20260508-DEC-RESPCARD-V2
+关联DNA：#龍芯⚡️丙午·癸巳·壬午·丙午·䷳艮为山-DEC-RESPCARD-V2
 五行签名：
 * 金：规则结构
 * 木：后续扩展
@@ -836,7 +836,7 @@ C. 写模板 + 接 decision 命令 + 生成第一锚
         cmd_path = bin_dir / "decision"
         cmd_path.write_text(
             f"#!/bin/zsh\n"
-            f"# DNA: #龍芯⚡️丙午·乙未·庚申-DEC-ENTRY-v2.0\n"
+            f"# DNA: #龍芯⚡️丙午·乙未·庚申·壬午·䷙大畜-DEC-ENTRY-v2.0\n"
             f"python3 {PROJECT_ROOT}/bin/lh_decision_card_system.py \"$@\"\n",
             encoding="utf-8",
         )

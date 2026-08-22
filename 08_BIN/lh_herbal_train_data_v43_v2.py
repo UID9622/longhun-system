@@ -2,11 +2,12 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
-#龍芯⚡️丙午·癸未·丁未·坤为地-V43-HERBAL-TRAIN-DATA-v2
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+#龍芯⚡️丙午·癸未·丁未·丙午·䷁坤为地-V43-HERBAL-TRAIN-DATA-v2
 """
 龍魂v4.3 · 本草知识库增强版训练数据生成
 策略：每味药更多变体 + 答案更聚焦 + 去污染system prompt
-DNA: #龍芯⚡️丙午·癸未·丁未·坤为地-V43-HERBAL-TRAIN-DATA-v2
+DNA: #龍芯⚡️丙午·癸未·丁未·丙午·䷁坤为地-V43-HERBAL-TRAIN-DATA-v2
 """
 
 import json, re, random, sys

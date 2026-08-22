@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 """
 🐉 龍魂 · 统一控制台 v1.0
-DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·☴巽-UNIFIED-CONSOLE-v1.0-UID9622
+DNA: #龍芯⚡️丙午·丙申·乙巳·辛巳·䷸巽-UNIFIED-CONSOLE-v1.0-UID9622
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 功能: Web仪表盘（暗色龍魂金主题） + CLI状态汇总 + API端点

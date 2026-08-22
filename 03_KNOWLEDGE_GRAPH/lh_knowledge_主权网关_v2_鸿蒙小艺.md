@@ -5,7 +5,7 @@
 > 作者：龍芯北辰·UID9622
 > 发布时间：2026-08-15
 > 来源：longhun-system/08_BIN/lh_sovereign_gateway.py
-> 入库DNA：#龍芯⚡️丙午·丁酉·辛卯·丙申-SOVEREIGN-GATEWAY-v2.0-UID9622
+> 入库DNA：#龍芯⚡️丙午·丁酉·辛卯·甲午·䷚颐-丙申-SOVEREIGN-GATEWAY-v2.0-UID9622
 
 ---
 
@@ -94,7 +94,7 @@ curl -X POST http://127.0.0.1:8766/api/xiaoyi/session/start \
 
 ```
 #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-#龍芯⚡️丙午·丁酉·辛卯·丙申-SOVEREIGN-GATEWAY-v2.0-UID9622
+#龍芯⚡️丙午·丁酉·辛卯·甲午·䷚颐-丙申-SOVEREIGN-GATEWAY-v2.0-UID9622
 ```
 
 ---

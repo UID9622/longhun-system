@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-#龍芯⚡️丙午·丙申·癸酉·庚申·临-LH_PERSONA_AUTO_SWITCH-v1.0-bfe0f438
+#龍芯⚡️丙午·丙申·癸酉·庚申·䷒临-LH_PERSONA_AUTO_SWITCH-v1.0-bfe0f438
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
@@ -27,7 +27,7 @@
   - 对接 lh_event_bus_engine.EventBus
   - 对接 lh_persona_orchestrator (任务分发)
 
-DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·需-PERSONA-AUTO-SWITCH-v2.0
+DNA: #龍芯⚡️丙午·辛未·丙戌·亥时·䷄需-PERSONA-AUTO-SWITCH-v2.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """
 
@@ -50,7 +50,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from bin.lh_event_bus_engine import EventBus, EventType, Event  # noqa: E402
 
 # ── 常量 ──
-DNA = "#龍芯⚡️丙午·辛未·丙戌·亥时·需-PERSONA-AUTO-SWITCH-v2.0"
+DNA = "#龍芯⚡️丙午·辛未·丙戌·亥时·䷄需-PERSONA-AUTO-SWITCH-v2.0"
 VERSION = "2.0.0"
 SWITCH_DIR = PROJECT_ROOT / "data" / "persona_switch"
 SWITCH_DIR.mkdir(parents=True, exist_ok=True)

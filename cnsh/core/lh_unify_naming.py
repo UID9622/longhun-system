@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂命名统一工具
-DNA: #龍芯⚡️2026-06-29-LONGHUN-UNIFY-NAMING-v1.0
+DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-LONGHUN-UNIFY-NAMING-v1.0
 
 把全机龍魂相关路径里的简化字、中英混用目录名，通过“重命名 + 符号链接”方式统一成 CNSH 规范。
 只做本地路径层级的统一，不动代码内部变量名（避免破坏运行）。

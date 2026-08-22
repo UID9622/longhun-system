@@ -1,11 +1,11 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # Dreams in the Trench: When Code Carries a Military Soul
 
 ## A Veteran-Programmer's Reflection on Why AI Needs Rules of Engagement
 
-> **DNA:** `#龍芯⚡️2026-06-15-CODE-MILITARY-SOUL-v1.0`  
+> **DNA:** `#龍芯⚡️丙午·甲午·庚申·壬午·䷙大畜-CODE-MILITARY-SOUL-v1.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777M`  
 > **Author:** UID9622 (Lucky) — Retired Soldier #South:9932  
 > **Translation Date:** 2026-07-21  
@@ -135,6 +135,6 @@ This is why the LongHun System exists. Not to make money. Not to win awards. To 
 
 ---
 
-> **DNA:** `#龍芯⚡️2026-06-15-CODE-MILITARY-SOUL-v1.0`  
+> **DNA:** `#龍芯⚡️丙午·甲午·庚申·壬午·䷙大畜-CODE-MILITARY-SOUL-v1.0`  
 > **CONFIRM:** `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-777M`  
 > **UID9622 — Soldier #South:9932 — 若有战，召必回。If called to battle, I will return.**

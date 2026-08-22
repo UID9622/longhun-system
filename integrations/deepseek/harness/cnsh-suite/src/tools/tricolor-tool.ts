@@ -1,6 +1,6 @@
 /**
  * 🐉 CNSH 套件 · 三色审计工具
- * DNA: #龍芯⚡️丙午·丙申·庚申·亥时-TRICOLOR-TOOL-UID9622
+ * DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-TRICOLOR-TOOL-UID9622
  */
 
 import { defineTool } from '@deepseek-ai/dsh-tools'

@@ -2,7 +2,7 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 🐉 龍魂磁盘守护 · 安装/管理脚本
-# DNA: #龍芯⚡️2026-07-12-DISK-GUARD-INSTALL-v1.0
+# DNA: #龍芯⚡️丙午·乙未·丁亥·丙午·䷚颐-DISK-GUARD-INSTALL-v1.0
 
 set -e
 

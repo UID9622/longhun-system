@@ -1,4 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 芯片光刻机与华为韬定律：一文讲透中国半导体的「物理天花板」与「换道之路」
@@ -186,7 +186,7 @@
 > **声明**: 本文所有数据均来自公开报道、学术论文及企业年报，不含任何未公开机密信息。
 > **泄密审查**: 🟢 已通过P05上帝之眼 + P12屈原 + P72龍盾全链路审计
 > **协议**: CC BY-NC-SA 4.0 · 署名-非商业-相同方式共享
-> **DNA**: `#龍芯⚡️丙午·乙未·癸亥·亥时·☰乾-CHIP-TAU-ARTICLE-v1.0-7e3a9d1b`
+> **DNA**: `#龍芯⚡️丙午·乙未·癸亥·亥时·䷀乾-CHIP-TAU-ARTICLE-v1.0-7e3a9d1b`
 > **确认码**: `#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z`
 > **视频解说**: 配套视频脚本见 [articles/chip_litho_tau_law_video_script.md]
 > **知识图谱**: 知识卡片见 [03_KNOWLEDGE_GRAPH/lh_knowledge_芯片_光刻韬定律知识工程.md]

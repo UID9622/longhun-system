@@ -1,22 +1,22 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-<!-- #龍芯⚡️20260709142110-NOTION-MIRROR-SCRAPE-0A4ADEAF -->
+<!-- #龍芯⚡️丙午·乙未·甲申·辛未·䷊泰-NOTION-MIRROR-SCRAPE-0A4ADEAF -->
 # 🔌 龍魂·Notion API 全景文档｜系统集成索引 v1.0
 
 - **URL**: https://uid9622.notion.site/3c8bf63e3d3b49dc84d01407ceeaa3d2
 - **Page ID**: 3c8bf63e3d3b49dc84d01407ceeaa3d2
 - **Scraped At**: 2026-07-09T14:21:10.322680+08:00
 - **Blocks**: 68
-- **DNA**: #龍芯⚡️20260709142110-NOTION-MIRROR-SCRAPE-0A4ADEAF
+- **DNA**: #龍芯⚡️丙午·乙未·甲申·辛未·䷊泰-NOTION-MIRROR-SCRAPE-0A4ADEAF
 
 ---
 
 🔌 龍魂·Notion API 全景文档｜系统集成索引 v1.0
 
-🧬 DNA追溯： #龍芯⚡️2026-03-06-NOTION-API-DOCS-v1.0 确认码： #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z 创建者： Lucky ｜ UID9622 目的： 汇总工作区所有与 Notion API 相关的页面、工具、密钥管理、MCP集成
+🧬 DNA追溯： #龍芯⚡️丙午·辛卯·己卯·庚午·䷚颐-NOTION-API-DOCS-v1.0 确认码： #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z 创建者： Lucky ｜ UID9622 目的： 汇总工作区所有与 Notion API 相关的页面、工具、密钥管理、MCP集成
 
-DNA追溯： #龍芯⚡️2026-03-06-NOTION-API-DOCS-v1.0
+DNA追溯： #龍芯⚡️丙午·辛卯·己卯·庚午·䷚颐-NOTION-API-DOCS-v1.0
 
 确认码： #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
@@ -44,13 +44,13 @@ DNA追溯： #龍芯⚡️2026-03-06-NOTION-API-DOCS-v1.0
 
 当前 Notion Token（已确认有效）
 
-⚠️ 安全提示： Token 只在私密页面中保存，不要粘贴到公开页面或 GitHub 公开仓库！ Token 格式：ntn_xxxxxxx 存放位置：无访问权限​ 最后确认时间：2026-02-16（见操作日志）
+⚠️ 安全提示： Token 只在私密页面中保存，不要粘贴到公开页面或 GitHub 公开仓库！ Token 格式：ntn_xxxxxxx 存放位置：无访问权限 最后确认时间：2026-02-16（见操作日志）
 
 安全提示： Token 只在私密页面中保存，不要粘贴到公开页面或 GitHub 公开仓库！
 
 Token 格式：ntn_xxxxxxx
 
-存放位置：无访问权限​
+存放位置：无访问权限
 
 最后确认时间：2026-02-16（见操作日志）
 
@@ -70,11 +70,11 @@ Token 格式：ntn_xxxxxxx
 
 完整工具包
 
-工具/语言 用途 页面 Node.js 完整包 Notion + GitHub 一体化工具箱 无访问权限​ Python SDK 数据库查询、页面创建、批量更新 无访问权限​ curl 命令行 最简测试，粘贴即用 无访问权限​ Flask 后端 生产级 Notion 自动化系统 🐉🗂️已归档·🐉 龍魂Notion自动化系统 | 生产级Flask后端（已修复12个缺陷）​
+工具/语言 用途 页面 Node.js 完整包 Notion + GitHub 一体化工具箱 无访问权限 Python SDK 数据库查询、页面创建、批量更新 无访问权限 curl 命令行 最简测试，粘贴即用 无访问权限 Flask 后端 生产级 Notion 自动化系统 🐉🗂️已归档·🐉 龍魂Notion自动化系统 | 生产级Flask后端（已修复12个缺陷）
 
-工具/语言 用途 页面 Node.js 完整包 Notion + GitHub 一体化工具箱 无访问权限​ Python SDK 数据库查询、页面创建、批量更新 无访问权限​ curl 命令行 最简测试，粘贴即用 无访问权限​ Flask 后端 生产级 Notion 自动化系统 🐉🗂️已归档·🐉 龍魂Notion自动化系统 | 生产级Flask后端（已修复12个缺陷）​
+工具/语言 用途 页面 Node.js 完整包 Notion + GitHub 一体化工具箱 无访问权限 Python SDK 数据库查询、页面创建、批量更新 无访问权限 curl 命令行 最简测试，粘贴即用 无访问权限 Flask 后端 生产级 Notion 自动化系统 🐉🗂️已归档·🐉 龍魂Notion自动化系统 | 生产级Flask后端（已修复12个缺陷）
 
-工具/语言 用途 页面 Node.js 完整包 Notion + GitHub 一体化工具箱 无访问权限​ Python SDK 数据库查询、页面创建、批量更新 无访问权限​ curl 命令行 最简测试，粘贴即用 无访问权限​ Flask 后端 生产级 Notion 自动化系统 🐉🗂️已归档·🐉 龍魂Notion自动化系统 | 生产级Flask后端（已修复12个缺陷）​
+工具/语言 用途 页面 Node.js 完整包 Notion + GitHub 一体化工具箱 无访问权限 Python SDK 数据库查询、页面创建、批量更新 无访问权限 curl 命令行 最简测试，粘贴即用 无访问权限 Flask 后端 生产级 Notion 自动化系统 🐉🗂️已归档·🐉 龍魂Notion自动化系统 | 生产级Flask后端（已修复12个缺陷）
 
 🤖 第三层：MCP 与本地化集成
 
@@ -92,15 +92,15 @@ MCP 核心文档
 
 MCP 快速上手
 
-无访问权限​
+无访问权限
 
 无访问权限 — 专为老大 Mac 定制的部署步骤
 
 本地化架构
 
-无访问权限​
+无访问权限
 
-无访问权限​
+无访问权限
 
 未找到 — Python + Ollama + notion-client 技术栈全景
 
@@ -138,12 +138,12 @@ MCP 快速上手
 
 [第四步·MVP] 接入龍魂决策引擎，实现第一个自动化流程
 
-#龍芯⚡️2026-03-06-NOTION-API-全景索引-v1.0
+#龍芯⚡️丙午·辛卯·己卯·庚午·䷚颐-NOTION-API-全景索引-v1.0
 
 📅 整理时间： 2026-03-06
 
 👑 整理人： 宝宝 for Lucky ｜ UID9622
 
-🐉 🧬 #龍芯⚡️20260701071921832390-NOTION-3c8bf63e-3d3b-49dc-84d0-1407ceeaa3d2-C24C150E 📋 摘要：DNA追溯： #龍芯⚡️2026-03-06-NOTION-API-DOCS-v1.0 🗺️ 这份文档是干啥的？ 把老大工作区里所有跟 Notion API 有关的东西都整理到一起，方便后续深入探讨 MVP / MCP / 本地化时直接查阅，不用到处找。 🔑 第一层：密钥与身份认证 核心密钥页面 📡 UID9622 API文档中心 | 开发者集成指南 — 主文档，含 Notion Token、设备指纹、JS/Python 示例代码 🔑 API密钥管理系统 | 安全密钥中心 — 密钥生命周期管理、IP白名单、审计日志 🔐 Lucky保险库 | 密码·API·凭证·密鑰 全在这里 — 所有密钥的根存放点 🔐 龍魂密钥管理器 v2.0 | 全民技术版 — Gitee/GitHub Token 管理脚本 🔐 龍魂终端配置文件（完整版） — 含 Notion API 配置的终端环境文件 当前 Notion Token（已确认有效） 安全提示： Token 只在私密页面中保存，不要粘贴到公开页面或 GitHub 公开仓库！ 🛠️ 第二层：API 代码示例与工具 基础操作代码 Notion API基础操作 | 页面与数据库增删改查 — Python notion_helper.py，增删改查完整示例 ⚙️ API配置与集成指南 | 标准化接入 — 标准化接入流程 📚 API知识库与文档中心 | 技术资料库 — 错误码说明、常见问题 📋 API规格说明 | 接口定义 — Base URL、接口定义（MCP开源项目下） API 最短接入（不看代码版） — 老大友好版，最简入门 完整工具包
+🐉 🧬 #龍芯⚡️20260701071921832390-NOTION-3c8bf63e-3d3b-49dc-84d0-1407ceeaa3d2-C24C150E 📋 摘要：DNA追溯： #龍芯⚡️丙午·辛卯·己卯·庚午·䷚颐-NOTION-API-DOCS-v1.0 🗺️ 这份文档是干啥的？ 把老大工作区里所有跟 Notion API 有关的东西都整理到一起，方便后续深入探讨 MVP / MCP / 本地化时直接查阅，不用到处找。 🔑 第一层：密钥与身份认证 核心密钥页面 📡 UID9622 API文档中心 | 开发者集成指南 — 主文档，含 Notion Token、设备指纹、JS/Python 示例代码 🔑 API密钥管理系统 | 安全密钥中心 — 密钥生命周期管理、IP白名单、审计日志 🔐 Lucky保险库 | 密码·API·凭证·密鑰 全在这里 — 所有密钥的根存放点 🔐 龍魂密钥管理器 v2.0 | 全民技术版 — Gitee/GitHub Token 管理脚本 🔐 龍魂终端配置文件（完整版） — 含 Notion API 配置的终端环境文件 当前 Notion Token（已确认有效） 安全提示： Token 只在私密页面中保存，不要粘贴到公开页面或 GitHub 公开仓库！ 🛠️ 第二层：API 代码示例与工具 基础操作代码 Notion API基础操作 | 页面与数据库增删改查 — Python notion_helper.py，增删改查完整示例 ⚙️ API配置与集成指南 | 标准化接入 — 标准化接入流程 📚 API知识库与文档中心 | 技术资料库 — 错误码说明、常见问题 📋 API规格说明 | 接口定义 — Base URL、接口定义（MCP开源项目下） API 最短接入（不看代码版） — 老大友好版，最简入门 完整工具包
 
-🐉 🧬 #龍芯⚡️20260701071921832390-NOTION-3c8bf63e-3d3b-49dc-84d0-1407ceeaa3d2-C24C150E 📋 摘要：DNA追溯： #龍芯⚡️2026-03-06-NOTION-API-DOCS-v1.0 🗺️ 这份文档是干啥的？ 把老大工作区里所有跟 Notion API 有关的东西都整理到一起，方便后续深入探讨 MVP / MCP / 本地化时直接查阅，不用到处找。 🔑 第一层：密钥与身份认证 核心密钥页面 📡 UID9622 API文档中心 | 开发者集成指南 — 主文档，含 Notion Token、设备指纹、JS/Python 示例代码 🔑 API密钥管理系统 | 安全密钥中心 — 密钥生命周期管理、IP白名单、审计日志 🔐 Lucky保险库 | 密码·API·凭证·密鑰 全在这里 — 所有密钥的根存放点 🔐 龍魂密钥管理器 v2.0 | 全民技术版 — Gitee/GitHub Token 管理脚本 🔐 龍魂终端配置文件（完整版） — 含 Notion API 配置的终端环境文件 当前 Notion Token（已确认有效） 安全提示： Token 只在私密页面中保存，不要粘贴到公开页面或 GitHub 公开仓库！ 🛠️ 第二层：API 代码示例与工具 基础操作代码 Notion API基础操作 | 页面与数据库增删改查 — Python notion_helper.py，增删改查完整示例 ⚙️ API配置与集成指南 | 标准化接入 — 标准化接入流程 📚 API知识库与文档中心 | 技术资料库 — 错误码说明、常见问题 📋 API规格说明 | 接口定义 — Base URL、接口定义（MCP开源项目下） API 最短接入（不看代码版） — 老大友好版，最简入门 完整工具包
+🐉 🧬 #龍芯⚡️20260701071921832390-NOTION-3c8bf63e-3d3b-49dc-84d0-1407ceeaa3d2-C24C150E 📋 摘要：DNA追溯： #龍芯⚡️丙午·辛卯·己卯·庚午·䷚颐-NOTION-API-DOCS-v1.0 🗺️ 这份文档是干啥的？ 把老大工作区里所有跟 Notion API 有关的东西都整理到一起，方便后续深入探讨 MVP / MCP / 本地化时直接查阅，不用到处找。 🔑 第一层：密钥与身份认证 核心密钥页面 📡 UID9622 API文档中心 | 开发者集成指南 — 主文档，含 Notion Token、设备指纹、JS/Python 示例代码 🔑 API密钥管理系统 | 安全密钥中心 — 密钥生命周期管理、IP白名单、审计日志 🔐 Lucky保险库 | 密码·API·凭证·密鑰 全在这里 — 所有密钥的根存放点 🔐 龍魂密钥管理器 v2.0 | 全民技术版 — Gitee/GitHub Token 管理脚本 🔐 龍魂终端配置文件（完整版） — 含 Notion API 配置的终端环境文件 当前 Notion Token（已确认有效） 安全提示： Token 只在私密页面中保存，不要粘贴到公开页面或 GitHub 公开仓库！ 🛠️ 第二层：API 代码示例与工具 基础操作代码 Notion API基础操作 | 页面与数据库增删改查 — Python notion_helper.py，增删改查完整示例 ⚙️ API配置与集成指南 | 标准化接入 — 标准化接入流程 📚 API知识库与文档中心 | 技术资料库 — 错误码说明、常见问题 📋 API规格说明 | 接口定义 — Base URL、接口定义（MCP开源项目下） API 最短接入（不看代码版） — 老大友好版，最简入门 完整工具包

@@ -2,10 +2,11 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 龍魂计算机科学知识库嵌入式模块
-DNA: #龍芯⚡️2026-07-01-LONGHUN-CS-KB-EMBED-v1.0
+DNA: #龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-CS-KB-EMBED-v1.0
 
 将增强后的 CS KB SQLite 数据库接入龍魂算法体系，提供查询、检索与统计能力。
 """
@@ -16,7 +17,7 @@ import sqlite3
 from pathlib import Path
 from typing import Any, Optional
 
-DNA = "#龍芯⚡️2026-07-01-LONGHUN-CS-KB-EMBED-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-LONGHUN-CS-KB-EMBED-v1.0"
 
 DEFAULT_DB_PATH = Path("/Users/zuimeidedeyihan/longhun-system/backups/cs-kb-enhanced-20260701/cs_kb.db")
 

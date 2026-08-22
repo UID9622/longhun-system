@@ -1,12 +1,14 @@
+# DNA: #龍芯⚡️丙午·丙申·甲子·癸酉·䷪夬-CODE-补DNA-ab83eb88
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 🐉 上下文复盘模块
 获取会话历史、项目状态、用户偏好，关联输入到当前任务链
 
-DNA: #龍芯⚡️丙午·丙申·壬戌·辰时-CONTEXT-REVIEW-UID9622
+DNA: #龍芯⚡️丙午·丙申·壬戌·甲辰·䷤家人-CONTEXT-REVIEW-UID9622
 """
 
 import json

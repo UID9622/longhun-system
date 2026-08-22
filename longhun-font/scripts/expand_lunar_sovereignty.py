@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 #!/usr/bin/env python3
 # 龍魂·农历主权扩展 / LongHun Lunar Sovereignty Expansion
-# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-LUNAR-SOVEREIGNTY-v1.0
+# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-LUNAR-SOVEREIGNTY-v1.0
 
 """
 LonghunFont 农历主权扩展
@@ -20,7 +21,7 @@ import math
 from pathlib import Path
 from datetime import datetime
 
-DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-LUNAR-SOVEREIGNTY-v1.0"
+DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-LUNAR-SOVEREIGNTY-v1.0"
 
 
 def stroke_move(x, y):

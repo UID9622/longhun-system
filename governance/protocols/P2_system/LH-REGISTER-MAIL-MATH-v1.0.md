@@ -2,7 +2,7 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂注册双轨邮箱数学建模增补 v1.0
 
-DNA: #龍芯⚡️丙午·乙未·丙申·申时·☵坎-REGISTER-MAIL-MATH-V1.0-84e13841
+DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷜坎-REGISTER-MAIL-MATH-V1.0-84e13841
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 上游: 注册双轨邮箱与通知协议 v1.0
@@ -338,5 +338,5 @@ python3 bin/lh_register_mail_engine.py
 ---
 
 > 签署: 诸葛鑫（UID9622）· #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-> DNA: #龍芯⚡️丙午·乙未·丙申·申时·☵坎-REGISTER-MAIL-MATH-V1.0-84e13841
+> DNA: #龍芯⚡️丙午·乙未·丙申·申时·䷜坎-REGISTER-MAIL-MATH-V1.0-84e13841
 > 三色: 🟢引擎17/17全绿 🟡白名单/额度为当前快照·改表走修宪 🔴一次性邮箱永不准入·凭证永不明文

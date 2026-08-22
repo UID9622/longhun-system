@@ -5,7 +5,7 @@ id: clause_knowledge_pricing
 type: clause
 title: 知识定价与段位分成
 layer: L2
-dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C"
+dna: "#龍芯⚡️丙午·辛未·乙酉·巳时·䷍大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C"
 owner: UID9622 · 诸葛鑫（Lucky）
 claim: 引用即付费，按段位（青铜→传说）自动分成，创作者100%到手，平台零抽成，不强制申请专利。
 based_on: [dragon_vein_trace, data_sovereignty_in_user]
@@ -31,4 +31,4 @@ created: 丙午·辛未·乙酉
 
 **为什么**：老大原话"创作权就是勇士的……你需要多少钱，你用啊，给多少钱是什么段位"。尊重创作者，但不挡人用。
 
-> DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C
+> DNA: #龍芯⚡️丙午·辛未·乙酉·巳时·䷍大有-LONGHUN-PROTOCOL-KNOWLEDGE-7F3A2B9C

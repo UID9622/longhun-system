@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # 1 道统层 Dao           : 曾仕强老师
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 2 精神层 Spirit        : Steve Jobs
 # 3 设备层 Device        : Apple
 # 4 技术层 Technology    : Open Source
 # 5 系统层 System        : UID9622
 # 6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
-# DNA追溯码:#龍芯⚡️2026-06-02-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1234-v2.0
+# DNA追溯码:#龍芯⚡️丙午·癸巳·丁未·丙午·䷖剥-CNSH-SOVEREIGN-PUBLISH-METADATA-FILE1234-v2.0
 # 铁律: 来源不可删 · 影响不可覆 · 贡献不可抹 (rule_01 来源必标)
 # 文件: longhun_instruction_executor.py | 标记时间: 2026-06-03T07:46:12+0800
 # -*- coding: utf-8 -*-
@@ -19,7 +20,7 @@ LongHun Instruction Executor · DNA-Based Protocol
 基于DNA，不基于文件名。
 指令永不失效。
 
-DNA:#龍芯⚡️2026-06-03-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
 用法:
@@ -109,7 +110,7 @@ class LongHunInstructionExecutor:
     def __init__(self):
         self.registry = LongHunInstructionRegistry()
         self.audit_log = Path.home() / '.龍魂' / 'instruction_execution.log'
-        self.dna = "#龍芯⚡️2026-06-03-LONGHUN-INSTRUCTION-EXECUTOR-v1.0"
+        self.dna = "#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-INSTRUCTION-EXECUTOR-v1.0"
 
     def _log(self, level: str, message: str):
         """记录到审计日志"""
@@ -190,7 +191,7 @@ class LongHunInstructionExecutor:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-DNA:#龍芯⚡️2026-06-03-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
 理论指导: 曾仕强老师（永恒显示）
 创作者: UID9622 · 诸葛鑫 · 龍芯北辰
 """
@@ -286,7 +287,7 @@ DNA:#龍芯⚡️2026-06-03-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-DNA:#龍芯⚡️2026-06-03-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
 理论指导: 曾仕强老师（永恒显示）
 """
         self._log("INFO", "✅ @arch.deepreview 执行完成")
@@ -347,7 +348,7 @@ DNA证书:    105,215 个
 🟡 待审      - 部分缺失或需要人工确认
 🔴 熔断      - 缺少关键要素、不可信任
 
-DNA:#龍芯⚡️2026-06-03-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
 """
         self._log("INFO", "✅ @arch.reference 执行完成")
         return report
@@ -399,7 +400,7 @@ DNA:#龍芯⚡️2026-06-03-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
             report += f"""
 评级: {tricolor} ({passed}/{total})
 
-DNA:#龍芯⚡️2026-06-03-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
 """
             self._log("INFO", f"✅ @shield.check {path} → {tricolor}")
             return report
@@ -473,7 +474,7 @@ DNA:#龍芯⚡️2026-06-03-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
 
             analysis += f"""
 
-DNA:#龍芯⚡️2026-06-03-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
 """
             self._log("INFO", f"✅ @shield.analyze {path} 完成")
             return analysis
@@ -546,7 +547,7 @@ DNA:#龍芯⚡️2026-06-03-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
   • 自动识别文件改动
   • 自动更新关联关系
 
-DNA:#龍芯⚡️2026-06-03-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
+DNA:#龍芯⚡️丙午·癸巳·戊申·戊午·䷙大畜-LONGHUN-INSTRUCTION-EXECUTOR-v1.0
 """
         self._log("INFO", "✅ list 执行完成")
         return output

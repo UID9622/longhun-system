@@ -2,12 +2,13 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 CNSH 中文语法库底层引擎 v1.0
 
 提供：词法分析、语法分析（AST）、DNA 校验、三色审计、CNSH→Python 转译。
-DNA:#龍芯⚡️2026-06-29-CNSH-GRAMMAR-ENGINE-FILE1-v1-UID9622
+DNA:#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-GRAMMAR-ENGINE-FILE1-v1-UID9622
 """
 from __future__ import annotations
 
@@ -25,7 +26,7 @@ from typing import Any, Dict, List, Optional, Tuple
 # ═══════════════════════════════════════════════════════════════════════════
 # 常量
 # ═══════════════════════════════════════════════════════════════════════════
-DNA = "#龍芯⚡️2026-06-29-CNSH-GRAMMAR-ENGINE-v1-UID9622"
+DNA = "#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-GRAMMAR-ENGINE-v1-UID9622"
 
 DNA_PATTERN = re.compile(
     r"#龍芯⚡️\d{4}-\d{2}-\d{2}-[A-Za-z0-9_\-]+"

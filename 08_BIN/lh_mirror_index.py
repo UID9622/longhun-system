@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 """
 智能是使用者的镜像 —— 系统自检工具
-DNA: #龍芯⚡️丙午·乙未·甲辰·離為火-MIRROR-INDEX-v1.0-a3f7b1d2
+DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷑蛊-離為火-MIRROR-INDEX-v1.0-a3f7b1d2
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z-MIRROR
@@ -342,7 +342,7 @@ class MirrorIndexScanner:
         for rec in result.recommendations:
             lines.append(f"   {rec}")
         lines.append("=" * 72)
-        lines.append(f"DNA: #龍芯⚡️丙午·乙未·甲辰·離為火-MIRROR-INDEX-v1.0-a3f7b1d2")
+        lines.append(f"DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷑蛊-離為火-MIRROR-INDEX-v1.0-a3f7b1d2")
         return "\n".join(lines)
 
     def export_json(self, result: MirrorScanResult) -> str:

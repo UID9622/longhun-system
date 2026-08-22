@@ -4,7 +4,7 @@
 #!/usr/bin/env python3
 """
 龍魂 · 个人数据主权雷达 API v3.0
-DNA: #龍芯⚡️丙午·乙未·戊戌·亥时·☰乾-DATA-RADAR-API-v3.0-TRIPLE-AI
+DNA: #龍芯⚡️丙午·乙未·戊戌·亥时·䷀乾-DATA-RADAR-API-v3.0-TRIPLE-AI
 创建者: 诸葛鑫（UID9622）· 协议: CC BY-NC-SA 4.0
 端口: 8788
 端点:
@@ -44,7 +44,7 @@ from engines.lh_privacy_breaker import PrivacyCircuitBreaker, DNA as BREAKER_DNA
 from engines.lh_offline_ai import OfflineAISwitch, DNA as AI_DNA
 
 # ═══ 常量 ═══
-DNA = "#龍芯⚡️丙午·乙未·戊戌·亥时·☰乾-DATA-RADAR-API-v3.0-TRIPLE-AI"
+DNA = "#龍芯⚡️丙午·乙未·戊戌·亥时·䷀乾-DATA-RADAR-API-v3.0-TRIPLE-AI"
 CREATOR = "诸葛鑫（UID9622）"
 PORT = 8788
 
