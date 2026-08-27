@@ -1,3 +1,4 @@
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 # 🐲 龍魂 · 视频扩散引擎 · longhun-video-diffusion
 
 **DNA:** `#龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-LONGHUN-VIDEO-DIFFUSION-v1.0`  

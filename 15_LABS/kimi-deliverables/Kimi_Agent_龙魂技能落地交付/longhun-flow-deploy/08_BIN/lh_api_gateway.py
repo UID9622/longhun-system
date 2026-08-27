@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 #龍芯⚡️丙午·丙申·己未·乙亥时·䷞旅-API-GATEWAY-v1.0-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F

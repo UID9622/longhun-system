@@ -81,6 +81,40 @@ DEFAULT_PATTERNS = ["*.md", "*.py", "*.sh", "*.json", "*.yaml", "*.toml", "*.dar
 EXCLUDE_DIRS = ("__pycache__", "node_modules", "venv", ".venv", "dist", "build",
                 "site-packages", ".git", ".idea", ".DS_Store")
 
+# 修正 (2026-08-27): 单一真相源焊死（repair-pipeline v1.1 铁律1）
+#   排除目录不再各自硬编码 —— 从 .codebuddy/rules/scan-exclusions.json 加载 excluded_dirs，
+#   改一次配置所有扫描脚本同时生效。browser_profile 等浏览器运行时数据由此纳入排除。
+EXCLUSIONS_CFG = Path(__file__).resolve().parent.parent / ".codebuddy" / "rules" / "scan-exclusions.json"
+
+
+def _load_shared_exclusions() -> tuple:
+    """加载 scan-exclusions.json 的 excluded_dirs（全部分类拉平）"""
+    prefixes = []
+    try:
+        data = json.loads(EXCLUSIONS_CFG.read_text(encoding="utf-8"))
+        for category in data.get("excluded_dirs", {}).values():
+            if isinstance(category, list):
+                for d in category:
+                    d = str(d).strip("/")
+                    if d:
+                        prefixes.append(d)
+    except Exception:
+        pass
+    return tuple(sorted(set(prefixes)))
+
+
+EXCLUDE_PREFIXES = _load_shared_exclusions()
+
+
+def _is_excluded(fstr: str) -> bool:
+    """排除判定: 硬编码段名匹配 或 共享配置前缀匹配"""
+    if any(seg in EXCLUDE_DIRS for seg in Path(fstr).parts):
+        return True
+    for p in EXCLUDE_PREFIXES:
+        if fstr == p or fstr.startswith(p + os.sep):
+            return True
+    return False
+
 
 def find_all_signable(directory: str, patterns=None) -> list:
     """目录下全部可签名文件（含已签名，供 --force 全量重签）"""
@@ -92,7 +126,7 @@ def find_all_signable(directory: str, patterns=None) -> list:
             fstr = str(f)
             if ".asc" in fstr or "__pycache__" in fstr or "node_modules" in fstr:
                 continue
-            if any(seg in EXCLUDE_DIRS for seg in Path(fstr).parts):
+            if _is_excluded(fstr):
                 continue
             files.append(fstr)
     return sorted(set(files))
@@ -103,10 +137,26 @@ def find_unsigned(directory: str, patterns=None) -> list:
     return [f for f in find_all_signable(directory, patterns) if not os.path.exists(f + ".asc")]
 
 
-def scan_report(paths: list) -> dict:
+# 修正 (2026-08-27): scan 增加孤儿签名检测（批次3 焊死建议）
+#   孤儿签名 = 存在 .asc 但源文件 (f[:-4]) 已不存在。
+#   处置铁律: 不删只冻结 → archive/frozen/ 保留清单可追溯。
+def find_orphan_asc(directory: str) -> list:
+    """扫描目录下孤儿 .asc 签名（源文件已删除/迁移）"""
+    orphans = []
+    for f in Path(directory).rglob("*.asc"):
+        fstr = str(f)
+        if _is_excluded(fstr):
+            continue
+        if not os.path.exists(fstr[:-4]):
+            orphans.append(fstr)
+    return sorted(orphans)
+
+
+def scan_report(paths: list, orphans: bool = False) -> dict:
     """扫描目录返回签名统计"""
     total, signed, unsigned = 0, 0, 0
     unsigned_list = []
+    orphan_list = []
     for p in paths:
         if os.path.isfile(p):
             if p.endswith(".asc"):
@@ -122,7 +172,13 @@ def scan_report(paths: list) -> dict:
                 total += 1
                 unsigned += 1
                 unsigned_list.append(f)
-    return {"total": total, "signed": signed, "unsigned": unsigned, "unsigned_list": unsigned_list}
+            if orphans:
+                orphan_list.extend(find_orphan_asc(p))
+    report = {"total": total, "signed": signed, "unsigned": unsigned, "unsigned_list": unsigned_list}
+    if orphans:
+        report["orphans"] = len(orphan_list)
+        report["orphan_list"] = orphan_list
+    return report
 
 
 def main():
@@ -140,9 +196,10 @@ def main():
     p_verify.add_argument("paths", nargs="+", help="文件或目录路径")
 
     # scan
-    p_scan = sub.add_parser("scan", help="扫描未签名文件")
+    p_scan = sub.add_parser("scan", help="扫描未签名/孤儿签名文件")
     p_scan.add_argument("paths", nargs="+", help="目录路径")
     p_scan.add_argument("--json", action="store_true", help="JSON输出")
+    p_scan.add_argument("--orphans", action="store_true", help="额外检测孤儿签名（.asc 存在但源文件缺失）")
 
     args = parser.parse_args()
 
@@ -184,7 +241,7 @@ def main():
             print(f"{icon} {r['file']}")
 
     elif args.cmd == "scan":
-        report = scan_report(args.paths)
+        report = scan_report(args.paths, orphans=args.orphans)
         if args.json:
             import json
             print(json.dumps(report, indent=2, ensure_ascii=False))
@@ -194,6 +251,10 @@ def main():
                 print(f"\n未签名文件 ({report['unsigned']}):")
                 for f in report['unsigned_list']:
                     print(f"  🔴 {f}")
+            if args.orphans and report.get("orphans", 0) > 0:
+                print(f"\n孤儿签名 ({report['orphans']}) — 源文件缺失，按铁律冻结 archive/frozen/:")
+                for f in report["orphan_list"]:
+                    print(f"  ⚠️ {f}")
 
 
 if __name__ == "__main__":

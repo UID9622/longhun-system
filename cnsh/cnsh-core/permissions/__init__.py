@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 CNSH 核心模块 · cnsh/cnsh-core/permissions/__init__.py
 #龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-GOVERNANCE-FIX-v1.0

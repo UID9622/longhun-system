@@ -1,31 +1,52 @@
-/**
- * 龙魂·统一日志工具
- * License: MulanPSL v2
- */
+// 🐉 统一日志工具
+// DNA: #龍芯⚡️2026-08-06-LOGGER-V2.0-UID9622
+// License: MulanPSL v2
+
 import hilog from '@ohos.hilog';
+import { DNAGenerator } from '../core/DNAGenerator';
+
+const DOMAIN: number = 0xFF10;
+
+export enum LogLevel { DEBUG = 0, INFO = 1, WARN = 2, ERROR = 3, FATAL = 4 }
 
 export class Logger {
-  private static readonly DOMAIN: number = 0x4C48; // 'LH'
-  private static readonly TAG: string = 'LonghunTricolor';
+  private static currentLevel: LogLevel = LogLevel.INFO;
 
-  static debug(msg: string): void {
-    hilog.debug(Logger.DOMAIN, Logger.TAG, `[DEBUG] ${msg}`);
+  static setLevel(level: LogLevel): void {
+    this.currentLevel = level;
   }
 
-  static info(msg: string): void {
-    hilog.info(Logger.DOMAIN, Logger.TAG, `[INFO] ${msg}`);
+  static debug(tag: string, message: string): void {
+    if (this.currentLevel <= LogLevel.DEBUG) {
+      hilog.debug(DOMAIN, tag, `🔍 ${message}`);
+    }
   }
 
-  static warn(msg: string): void {
-    hilog.warn(Logger.DOMAIN, Logger.TAG, `[WARN] ${msg}`);
+  static info(tag: string, message: string): void {
+    if (this.currentLevel <= LogLevel.INFO) {
+      hilog.info(DOMAIN, tag, `ℹ️ ${message}`);
+    }
   }
 
-  static error(msg: string): void {
-    hilog.error(Logger.DOMAIN, Logger.TAG, `[ERROR] ${msg}`);
+  static warn(tag: string, message: string): void {
+    if (this.currentLevel <= LogLevel.WARN) {
+      hilog.warn(DOMAIN, tag, `⚠️ ${message}`);
+    }
   }
 
-  static audit(action: string, dna: string, result: string): void {
-    hilog.info(Logger.DOMAIN, Logger.TAG, `[AUDIT] ${action} | ${dna} | ${result}`);
-    // 不记录敏感内容，仅哈希
+  static error(tag: string, message: string): void {
+    if (this.currentLevel <= LogLevel.ERROR) {
+      hilog.error(DOMAIN, tag, `❌ ${message}`);
+    }
+  }
+
+  static fatal(tag: string, message: string): void {
+    if (this.currentLevel <= LogLevel.FATAL) {
+      hilog.fatal(DOMAIN, tag, `💀 ${message}`);
+    }
+  }
+
+  static withDNA(tag: string, message: string): void {
+    this.info(tag, `${message} | DNA: ${DNAGenerator.generate('LOG')}`);
   }
 }

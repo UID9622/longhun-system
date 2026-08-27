@@ -1,43 +1,43 @@
-# 龍魂·uid9622.cn 三入口门户 Makefile
-# DNA: #龍芯⚡️丙午·甲申·丁未·离为火-Makefile-v1.0
+# 龍魂·六层来源链 / LongHun Six-Layer Source Chain
+# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-MAKEFILE-v1.0
 
-.PHONY: help local start stop sync deploy status
+GLYPHS = glyphs/龍魂字元库_v0019_龍纹书法版.json
+OTF = output/LonghunFont-Regular.otf
+COLOR_OTF = output/LonghunFont-WuwuColor.otf
+SVG_DIR = output/all_glyphs_v0019
+SAMPLE = output/sample_v0019.html
 
-SERVER_IP ?= 119.13.90.27
-SSH_KEY ?= $(HOME)/.ssh/longhun_kunpeng_ed25519
+.PHONY: all build build-v3 render check release install demo demo-color clean
 
-help:
-	@echo "🐉 龍魂·三入口门户命令"
-	@echo ""
-	@echo "  make local    本地启动 (localhost:8899)"
-	@echo "  make start    同 local"
-	@echo "  make stop     停止本地服务"
-	@echo "  make sync     同步到服务器"
-	@echo "  make deploy   服务器一键部署 (Nginx + SSL)"
-	@echo "  make status   查看状态"
-	@echo ""
+all: build render check
 
-local start:
-	@bash scripts/deploy-local.sh
+build:
+	python3 scripts/build_font.py $(GLYPHS) $(OTF)
 
-stop:
-	@bash -c '[[ -f /tmp/longhun-portal.pid ]] && kill $$(cat /tmp/longhun-portal.pid) 2>/dev/null || true; echo "已停止"'
+build-v3:
+	python3 scripts/build_font_v3.py $(GLYPHS) output/LonghunFont-Regular-v3.otf
 
-sync:
-	@SERVER_IP=$(SERVER_IP) bash scripts/sync-to-server.sh
+render:
+	python3 scripts/batch_render.py $(GLYPHS) $(SVG_DIR) $(SAMPLE)
 
-deploy:
-	@scp -i $(SSH_KEY) -r portal/ scripts/ nginx/ configs/ root@$(SERVER_IP):/root/longhun-portal-deploy/
-	@ssh -i $(SSH_KEY) root@$(SERVER_IP) "cd /root/longhun-portal-deploy && bash scripts/deploy-server.sh"
+check:
+	python3 scripts/check_font.py $(GLYPHS)
 
-status:
-	@echo "🐉 龍魂门户状态"
-	@if [[ -f /tmp/longhun-portal.pid ]] && kill -0 $$(cat /tmp/longhun-portal.pid) 2>/dev/null; then \
-		echo "  本地: 运行中 (PID: $$(cat /tmp/longhun-portal.pid))"; \
-	else \
-		echo "  本地: 未运行"; \
-	fi
-	@echo "  地址: http://localhost:8899"
-	@echo "  普通者: http://localhost:8899/index.html"
-	@echo "  无障碍: http://localhost:8899/accessible.html"
-	@echo "  开发者: http://localhost:8899/developer.html"
+release:
+	./scripts/release.sh
+
+install:
+	./install_macos.sh
+
+demo:
+	@echo "用浏览器打开 output/demo.html"
+
+demo-color:
+	python3 scripts/build_wuwu_color_font.py $(GLYPHS) $(COLOR_OTF)
+
+clean:
+	rm -rf output/all_glyphs_v0019
+	rm -f output/sample_v0019.html
+	rm -f $(OTF)
+	rm -f $(COLOR_OTF)
+	rm -f output/LonghunFont-Regular-v3.otf

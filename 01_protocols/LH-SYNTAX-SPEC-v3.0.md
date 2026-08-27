@@ -177,7 +177,6 @@ DNA: #龍芯⚡️YYYY-MM-DD-REPORT-类型-UID9622
 DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-MEMORY-A7F3C2B1-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 主权锚定: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 ```
 
 ### 3.4 空格规则
@@ -199,7 +198,6 @@ DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-MEMORY-A7F3C2B1-UID9
 **格式（文件头第四条强制行）：**
 
 ```yaml
-归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 ```
 
 | 部分 | 必填 | 示例 |
@@ -307,7 +305,6 @@ DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-MEMORY-A7F3C2B1-UID9
 DNA: #龍芯⚡️YYYY-MM-DD-描述-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 主权锚定: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 描述: 一句话功能描述
 """
 ```

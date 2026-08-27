@@ -1,4 +1,5 @@
 #!/bin/bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # 龍魂·韬定律进阶破解之法 v2.1 —— 脚本与 DNA 一致性自检
 # DNA: #龍芯⚡️丙午·乙未·辛酉·甲午·䷂屯-TAO-LAW-CRACK-v2.1
 # 用法: bash scripts/tao_validate.sh

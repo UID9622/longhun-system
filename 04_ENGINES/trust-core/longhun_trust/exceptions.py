@@ -1,3 +1,4 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # DNA: #龍芯⚡️丙午·丙申·甲子·甲戌·䷍大有-CODE-补DNA-a8a5fdc0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """龍魂信任核心 · 异常定义。"""

@@ -1,4 +1,5 @@
 #!/bin/bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # 🐉 龍魂 · 透明看板一键启动
 # DNA: #龍芯⚡️丙午·丙申·丁酉·甲辰·䷼中孚-TRANSPARENT-DASHBOARD-STARTER-UID9622
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

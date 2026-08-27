@@ -5,6 +5,7 @@
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂·协议头部补齐引擎 v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 
 功能：批量给协议文件补齐 P0 声明 + 分层许可头部行（统一标准落地·只加不改）。
 

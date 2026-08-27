@@ -1,8 +1,7 @@
-#龍芯⚡️丙午·丙申·己未·乙亥时·䷞旅-DEPS-LOCK-v1.0-UID9622
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
-# SPDX-License-Identifier: MulanPSL-2.0
-# 兼容 Python 3.10（Ubuntu 22.04 默认）/ 3.11+；venv 安装（PEP668 安全）
-fastapi==0.110.3
-uvicorn[standard]==0.29.0
-httpx==0.27.2
+# 龍魂 CNSH Editor API 依赖
+# DNA: #龍芯⚡️2026-07-04-CNSH-API-REQUIREMENTS-v1.0
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.0.0
+# longhun-chinese-editor 请通过本地路径安装：
+#   pip install -e ../../dev-env/chinese-editor

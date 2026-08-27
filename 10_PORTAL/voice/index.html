@@ -1,0 +1,207 @@
+<!-- DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f -->
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>龍魂 CNSH 在线编辑器</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --accent: #58a6ff;
+      --green: #3fb950;
+      --yellow: #d29922;
+      --red: #f85149;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "LongHun Font", "Noto Sans SC", "PingFang SC", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 { margin: 0; font-size: 18px; }
+    .tier-badge {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      background: var(--border);
+    }
+    .tier-badge.paid { background: #238636; color: white; }
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+    .panel {
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+    }
+    .panel-header {
+      padding: 10px 16px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .panel-header span { font-weight: 600; }
+    textarea, pre {
+      flex: 1;
+      margin: 0;
+      padding: 16px;
+      border: none;
+      outline: none;
+      resize: none;
+      font-family: "LongHun Mono", "JetBrains Mono", "SF Mono", monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      overflow: auto;
+    }
+    pre { white-space: pre-wrap; }
+    .toolbar {
+      padding: 10px 16px;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover { opacity: 0.9; }
+    button.secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    #status {
+      padding: 8px 16px;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: #8b949e;
+    }
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🐉 龍魂 CNSH 在线编辑器</h1>
+    <div>
+      <span id="tierBadge" class="tier-badge">检测中...</span>
+      <a href="/docs" target="_blank" style="margin-left:10px;color:var(--accent);text-decoration:none;font-size:13px;">API 文档</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="panel">
+      <div class="panel-header"><span>CNSH 源码</span></div>
+      <textarea id="source" spellcheck="false" placeholder="# 在此输入 CNSH 中文脚本
+函数 主函数() {
+    打印 "你好，龍魂"
+}
+主函数()"># 在此输入 CNSH 中文脚本
+函数 主函数() {
+    打印 "你好，龍魂"
+}
+主函数()</textarea>
+      <div class="toolbar">
+        <button onclick="runCode()">▶ 运行</button>
+        <button class="secondary" onclick="checkCode()">检查语法</button>
+        <button class="secondary" onclick="compileCode()">编译为 Python</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header"><span>输出 / 编译结果</span></div>
+      <pre id="output">点击「运行」查看结果...</pre>
+    </div>
+  </main>
+
+  <div id="status">就绪</div>
+
+  <script>
+    async function api(path, body) {
+      const res = await fetch(`/api/v1${path}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      return res.json();
+    }
+
+    async function loadTier() {
+      const res = await fetch('/api/v1/tier');
+      const tier = await res.json();
+      const badge = document.getElementById('tierBadge');
+      badge.textContent = tier.name === 'paid' ? '龍魂云完整版' : '本地免费版';
+      badge.classList.toggle('paid', tier.name === 'paid');
+      document.getElementById('status').textContent =
+        `当前 tier: ${tier.description} | 代码长度限制: ${tier.max_source_chars} 字符 | 执行超时: ${tier.max_execution_time_ms}ms`;
+    }
+
+    async function runCode() {
+      const source = document.getElementById('source').value;
+      const out = document.getElementById('output');
+      out.textContent = '运行中...';
+      const data = await api('/run', { source });
+      let text = '';
+      if (data.stdout) text += `[标准输出]\n${data.stdout}\n`;
+      if (data.stderr) text += `[标准错误]\n${data.stderr}\n`;
+      if (data.namespace && Object.keys(data.namespace).length) {
+        text += `[命名空间]\n${JSON.stringify(data.namespace, null, 2)}\n`;
+      }
+      text += `[状态] ${data.message}`;
+      out.textContent = text;
+    }
+
+    async function checkCode() {
+      const source = document.getElementById('source').value;
+      const out = document.getElementById('output');
+      out.textContent = '检查中...';
+      const data = await api('/check', { source });
+      out.textContent = data.message;
+    }
+
+    async function compileCode() {
+      const source = document.getElementById('source').value;
+      const out = document.getElementById('output');
+      out.textContent = '编译中...';
+      const data = await api('/compile', { source });
+      out.textContent = data.success ? data.python_code : data.message;
+    }
+
+    loadTier();
+  </script>
+</body>
+</html>

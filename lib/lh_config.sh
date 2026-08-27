@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # 🐉 龍魂 · Bash 统一配置加载器 v1.1
 # DNA: #龍芯⚡️丙午·丙申·己未·乙亥·䷏豫-CONFIG-SH-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

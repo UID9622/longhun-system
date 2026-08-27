@@ -1,4 +1,5 @@
 #!/bin/bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # 龍魂·实时采集+全景报告联动 (com.longhun.realtime-panorama)
 # DNA: #龍芯⚡️丙午·丙申·REALTIME-PANORAMA-CRON-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

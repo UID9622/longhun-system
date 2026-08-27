@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # DNA: #龍芯⚡️丙午·丙申·#龍芯⚡️丙午·丙申·POSTAUDIT-LH_SYNC_GUIDE_TO_NOT-152C0245
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """

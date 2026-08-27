@@ -1,33 +1,34 @@
-# 龍魂体系 · 待融入包监控容器
-# DNA:#龍芯⚡️2026-06-16-PACKAGE-WATCHER-CONTAINER-v1.0
+# 龍魂 CNSH Editor API · Dockerfile
+# DNA: #龍芯⚡️2026-07-04-CNSH-API-DOCKER-v1.0
+#
+# 构建（x86）：
+#   docker build -t cnsh-editor-api:latest -f Dockerfile ../..
+# 构建（华为鲲鹏 ARM64）：
+#   docker buildx build --platform linux/arm64 -t cnsh-editor-api:arm64 -f Dockerfile ../..
+#
+FROM python:3.12-slim
 
-FROM python:3.13-slim
-
-LABEL maintainer="UID9622"
-LABEL description="Longhun pending integration package watcher & classifier"
-
-# 安装基本工具（jq 用于报告查询）
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    jq \
-    && rm -rf /var/lib/apt/lists/*
-
-# 创建应用目录
 WORKDIR /app
 
-# 复制监控脚本
-COPY bin/package-watcher.py /app/package-watcher.py
-RUN chmod +x /app/package-watcher.py
+# 安装系统依赖
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
 
-# 创建输出目录
-RUN mkdir -p /app/output
+# 复制 CNSH 编辑器后端包与 API 服务
+COPY dev-env/chinese-editor /app/chinese-editor
+COPY integrated-modules/cnsh_editor_api /app/cnsh_editor_api
 
-# 容器以非 root 用户运行（可选，但挂载 home 时可能需要 uid 映射）
-# 此处保留 root 以便读取挂载卷；生产环境建议配合 user namespaces
+# 安装 Python 依赖
+RUN pip install --no-cache-dir -e /app/chinese-editor \
+    && pip install --no-cache-dir fastapi uvicorn pydantic
 
-# 默认命令：循环监控，每 5 分钟扫描一次
-CMD ["python3", "/app/package-watcher.py", \
-     "--watch-dir", "/host/Downloads", \
-     "--watch-dir", "/host/home", \
-     "--output-dir", "/app/output", \
-     "--interval", "300", \
-     "--prune"]
+# 默认免费 tier；华为云完整版请在运行容器时设置为 paid
+ENV CNSH_API_TIER=free
+ENV CNSH_API_HOST=0.0.0.0
+ENV CNSH_API_PORT=8000
+ENV PYTHONPATH=/app
+
+EXPOSE 8000
+
+CMD ["python3", "-m", "cnsh_editor_api.main"]

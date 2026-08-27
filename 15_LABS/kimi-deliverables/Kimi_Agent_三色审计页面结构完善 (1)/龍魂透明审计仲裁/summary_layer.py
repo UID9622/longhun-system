@@ -5,6 +5,7 @@
 输入：arbiter_v2 仲裁报告 + 路由层原始回答
 输出：共识清单 / 分歧点卡片 / Token明细 / 一句话结论
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 from typing import Dict, List
 from collections import defaultdict

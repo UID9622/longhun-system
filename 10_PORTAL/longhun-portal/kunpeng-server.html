@@ -1,0 +1,111 @@
+<!-- DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f -->
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鲲鹏服务器 · 龍魂系统</title>
+<meta name="description" content="龙魂系统鲲鹏原生部署方案 — 代码进中国管道，走中国芯片，盖中国主权章。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐧</text></svg>">
+<link rel="stylesheet" href="css/longhun-theme.css">
+<style>
+.chip-roadmap { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin:40px 0; }
+.chip-item {
+  padding:16px 24px; background:var(--bg-card); border:1px solid var(--border-subtle);
+  border-radius:var(--radius-sm); text-align:center; min-width:140px;
+  transition: all var(--duration-fast) ease;
+}
+.chip-item:hover { border-color:var(--gold-primary); transform:translateY(-2px); }
+.chip-item .chip-name { font-size:0.95rem; color:var(--text-primary); font-weight:500; }
+.chip-item .chip-arch { font-size:0.75rem; color:var(--text-muted); margin-top:4px; }
+</style>
+</head>
+<body>
+<div id="particle-bg"></div>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo"><span class="dragon">🐉</span> 龍魂系统</a>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="national-soul.html">民族魂</a></li>
+      <li><a href="kunpeng-server.html" class="active">鲲鹏服务器</a></li>
+      <li><a href="downloads.html">下载资源</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section style="padding-top:140px">
+  <div class="text-center" style="margin-bottom:60px">
+    <div style="font-size:4rem; margin-bottom:16px">🐧</div>
+    <h1 class="section-title" style="margin-bottom:8px">鲲鹏原生部署</h1>
+    <p class="section-subtitle">代码进中国管道 · 走中国芯片 · 盖中国主权章</p>
+  </div>
+
+  <!-- 芯片矩阵 -->
+  <h2 class="section-title" style="font-size:1.5rem; margin-bottom:24px">中国芯片适配</h2>
+  <div class="chip-roadmap">
+    <div class="chip-item"><div class="chip-name">鲲鹏 920</div><div class="chip-arch">ARM64 · 🟢 已验证</div></div>
+    <div class="chip-item"><div class="chip-name">昇腾 310/910</div><div class="chip-arch">Ascend · 🟢 适配就绪</div></div>
+    <div class="chip-item"><div class="chip-name">飞腾 S2500</div><div class="chip-arch">ARM64 · 🟢 适配就绪</div></div>
+    <div class="chip-item"><div class="chip-name">龙芯 3A5000</div><div class="chip-arch">LoongArch · 🟢 适配就绪</div></div>
+    <div class="chip-item"><div class="chip-name">申威 SW26010</div><div class="chip-arch">SW_64 · 🟢 适配就绪</div></div>
+  </div>
+
+  <!-- 部署方式 -->
+  <div class="card-grid" style="margin-top:60px">
+    <div class="card">
+      <span class="card-icon">🐳</span>
+      <h3>Docker 一键部署</h3>
+      <p>预构建鲲鹏 ARM64 Docker 镜像。一键拉取、零配置启动、自带 lh-station 8 步管道。</p>
+      <div class="card-meta"><code>docker pull longhun/kunpeng:latest</code></div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🏗️</span>
+      <h3>交叉编译</h3>
+      <p>在 x86 开发机上编译鲲鹏 aarch64 目标。lh-station transform --chip kunpeng 自动处理。</p>
+      <div class="card-meta">rustup target add aarch64-unknown-linux-gnu</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🎯</span>
+      <h3>性能优化</h3>
+      <p>-march=armv8.2-a+fp16+rcpc+dotprod · 鲲鹏 920 指令集原生优化 · 吞吐量 14,000+ 文件/秒</p>
+      <div class="card-meta">lh-station transform --chip kunpeng</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 下载资源 -->
+<section>
+  <h2 class="section-title">鲲鹏资源</h2>
+  <div class="download-list" style="max-width:600px">
+    <div class="download-item">
+      <div class="download-info">
+        <span class="file-icon">🐳</span>
+        <div><div class="file-name">kunpeng.Dockerfile</div><div class="file-size">鲲鹏 Docker 构建文件</div></div>
+      </div>
+      <a href="downloads/kunpeng/kunpeng.Dockerfile" class="btn btn-outline" style="padding:6px 16px;font-size:0.85rem">下载</a>
+    </div>
+    <div class="download-item">
+      <div class="download-info">
+        <span class="file-icon">🐍</span>
+        <div><div class="file-name">kunpeng_adapter.py</div><div class="file-size">鲲鹏硬件适配模块</div></div>
+      </div>
+      <a href="downloads/kunpeng/kunpeng_adapter.py" class="btn btn-outline" style="padding:6px 16px;font-size:0.85rem">下载</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-col"><h4>🐉 龍魂系统</h4><a href="index.html">首页</a><a href="national-soul.html">不朽·民族魂</a></div>
+    <div class="footer-col"><h4>部署</h4><a href="downloads.html">Dockerfile</a><a href="downloads.html">适配器</a></div>
+  </div>
+  <div class="footer-dna">#龍芯⚡️丙午·癸未·乙酉·坤卦-KUNPENG-V1.0-UID9622</div>
+</footer>
+</body>
+</html>

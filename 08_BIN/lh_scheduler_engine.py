@@ -45,14 +45,19 @@ class SchedulerEngine:
             try:
                 data = json.loads(self._task_file.read_text(encoding="utf-8"))
                 for t in data:
-                    t["next_run"] = self._calc_next(t["cron"]) if croniter else None
+                    # v1.0.1(P04): 保留落盘的 next_run，仅当缺失或已过期才重算
+                    nxt = t.get("next_run")
+                    if not nxt or (croniter and nxt < datetime.now().isoformat()):
+                        nxt = self._calc_next(t["cron"]) if croniter else None
+                    t["next_run"] = nxt
                     self.tasks[t["id"]] = t
             except Exception:
                 pass
 
     def _save(self):
         data = [{"id": t["id"], "cron": t["cron"], "command": t["command"],
-                 "description": t.get("description", ""), "status": t.get("status", "active")}
+                 "description": t.get("description", ""), "status": t.get("status", "active"),
+                 "next_run": t.get("next_run"), "last_run": t.get("last_run")}
                 for t in self.tasks.values()]
         self._task_file.parent.mkdir(parents=True, exist_ok=True)
         self._task_file.write_text(json.dumps(data, ensure_ascii=False, indent=2))

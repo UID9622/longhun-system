@@ -1,10 +1,7 @@
-##龍芯⚡️2026-06-21-MOBILE-REQUIREMENTS-v1.0
-# 君子协议: 本文件受龍魂DNA追溯保护
-
-fastapi==0.136.3
-pydantic==2.13.4
-pydantic-settings==2.14.2
-pydantic_core==2.46.4
-python-dotenv==1.2.2
-python-multipart==0.0.32
-uvicorn==0.49.0
+# 龍魂 CNSH Editor API 依赖
+# DNA: #龍芯⚡️2026-07-04-CNSH-API-REQUIREMENTS-v1.0
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.0.0
+# longhun-chinese-editor 请通过本地路径安装：
+#   pip install -e ../../dev-env/chinese-editor

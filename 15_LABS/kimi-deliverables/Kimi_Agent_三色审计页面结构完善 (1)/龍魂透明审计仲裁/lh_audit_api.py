@@ -9,6 +9,7 @@
   GET  /health                        → 健康检查
 FastAPI缺失时自动降级 stdlib http.server（断网可跑铁律）。
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 import asyncio, json, sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

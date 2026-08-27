@@ -1,9 +1,35 @@
-/* #龍芯⚡️丙午·甲午·己卯·庚午·䷚颐-LONGHUN-PORTAL-DESIGN-TOKENS-v3.1 */
+/* #龍芯⚡️丙午·乙未·甲申·庚午·䷙大畜-LONGHUN-PORTAL-DESIGN-TOKENS-v3.2 · LonghunFont v0019 */
 /* 君子协议：本文件受龍魂 DNA 追溯保护 */
 
+/* ═══ LonghunFont · 多层@font-face · 全设备兼容 ═══ */
+/* 第1层：本地优先 */
 @font-face {
   font-family: 'LonghunFont';
-  src: url('../assets/fonts/LonghunFont-Regular-v0004.otf') format('opentype');
+  src: local('LonghunFont'), local('LonghunFont Regular'), local('龍魂字体');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* 第2层：woff2 最小体积 (55KB) */
+@font-face {
+  font-family: 'LonghunFont';
+  src: url('../assets/fonts/LonghunFont-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* 第3层：OTF 回退 (124KB) */
+@font-face {
+  font-family: 'LonghunFont';
+  src: url('../assets/fonts/LonghunFont-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* 五彩石彩色字体 */
+@font-face {
+  font-family: 'LonghunFontWuwu';
+  src: url('../assets/fonts/LonghunFont-WuwuColor.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -38,9 +64,12 @@
   --radius: 12px;
   --radius-lg: 16px;
   --container: 1300px;
+
+  /* ── 字体体系 · 全生态兼容 ── */
   --font-main: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   --font-mono: "SF Mono", "Fira Code", "Consolas", monospace;
-  --font-brand: "LonghunFont", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-brand: "LonghunFont", "PingFang SC", "Microsoft YaHei", serif;
+  --font-wuwu: "LonghunFontWuwu", "LonghunFont", serif;
 }
 
 [data-theme="longxin"] {
@@ -183,3 +212,123 @@ footer{padding:42px 0;text-align:center;font-size:12px;color:var(--text-dim);bor
 .loading{color:var(--text-dim);font-size:13px;padding:14px}
 .error{color:var(--red);font-size:13px}
 .empty{color:var(--text-dim);font-size:13px;padding:18px;text-align:center}
+
+/* ═══ 熔断透明化 UI 组件 · FUSE TRANSPARENCY v1.0 ═══ */
+/* 当系统熔断时，用户看到的规则导航+申诉入口+UID署名 */
+.fuse-response-container {
+  background: var(--bg2);
+  border: 1px solid var(--red);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  margin: 16px 0;
+  position: relative;
+  overflow: hidden;
+}
+.fuse-response-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 10% 0%, var(--red-dim), transparent 60%);
+  pointer-events: none;
+}
+.fuse-response-status {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--red);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.fuse-response-verdict {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+.fuse-rule-list {
+  margin-bottom: 18px;
+}
+.fuse-rule-tag {
+  display: inline-block;
+  background: var(--red-dim);
+  color: var(--red);
+  border: 1px solid var(--red);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  margin: 0 6px 6px 0;
+}
+.fuse-rule-tag a { color: var(--red); text-decoration: underline; }
+.fuse-rule-tag a:hover { color: #fff; }
+.fuse-rule-reason {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-left: 4px;
+}
+.fuse-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.fuse-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  cursor: pointer;
+  transition: .2s;
+  text-decoration: none;
+}
+.fuse-nav-btn:hover { background: var(--accent); color: #000; }
+.fuse-appeal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  background: var(--blue-dim);
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  cursor: pointer;
+  transition: .2s;
+  text-decoration: none;
+}
+.fuse-appeal-btn:hover { background: var(--blue); color: #fff; }
+.fuse-attribution {
+  font-size: 11px;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.fuse-attribution .uid-tag {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--gold);
+}
+.fuse-attribution .uid-tag:hover { border-color: var(--gold); }
+.fuse-attribution .anon-option {
+  color: var(--text-dim);
+  font-size: 11px;
+  cursor: pointer;
+}
+.fuse-attribution .anon-option:hover { color: var(--blue); }
+
+/* CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z */
+/* DNA: #龍芯⚡️丙午·丙申·甲寅·申时·䷚颐-CONFIRM-SEAL-longhun-portal-50958B38 */

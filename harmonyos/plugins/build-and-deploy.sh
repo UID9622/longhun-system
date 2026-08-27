@@ -1,4 +1,5 @@
 #!/bin/bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # DNA: #龍芯⚡️丙午·丙申·壬子·丑时·䷖剥-BUILD-DEPLOY-HARMONY-v1.0-UID9622
 # 確認碼: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 分層許可: 工程層 MulanPSL v2

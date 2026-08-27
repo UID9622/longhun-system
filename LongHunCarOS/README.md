@@ -85,6 +85,7 @@ python3 index_server.py
 🐉 龍魂车载系统 v2.0 · 完整代码 · 最终签名
 DNA: #龍芯⚡️丙午·甲申·癸卯·戊午·䷁坤-CAR-SYSTEM-V2.0-FULL-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 代码量: 2500+ 行 · 模块数: 15 个
 覆盖车型: 华为系(P0) + 国产全矩阵(P1)

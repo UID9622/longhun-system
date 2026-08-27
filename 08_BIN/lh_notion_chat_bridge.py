@@ -154,7 +154,27 @@ SYNC_DB = DATA_DIR / "notion_sync.db"
 CHAT_HISTORY_DB = DATA_DIR / "notion_chat_history.db"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-NOTION_TOKEN = os.environ.get("NOTION_API_KEY", "")
+def _load_env_token() -> str:
+    """从 ~/.env 兜底读取 Notion token（launchd 环境不含此变量时生效）"""
+    _env_path = Path.home() / ".env"
+    try:
+        for _line in _env_path.read_text(encoding="utf-8").splitlines():
+            _line = _line.strip()
+            if not _line or _line.startswith("#") or "=" not in _line:
+                continue
+            _k, _, _v = _line.partition("=")
+            if _k.strip() in ("NOTION_TOKEN", "NOTION_API_KEY") and _v.strip():
+                return _v.strip()
+    except (OSError, UnicodeDecodeError):
+        pass
+    return ""
+
+
+NOTION_TOKEN = (
+    os.environ.get("NOTION_TOKEN")
+    or os.environ.get("NOTION_API_KEY")
+    or _load_env_token()
+)
 NOTION_VERSION = "2022-06-28"
 OLLAMA_HOST = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
 DEFAULT_MODEL = os.environ.get("NOTION_CHAT_MODEL", "longhun-v4.0")

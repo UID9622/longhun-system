@@ -1,0 +1,302 @@
+<!-- DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f -->
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>不朽·民族魂 · 龍魂系统</title>
+<meta name="description" content="数字碑 — 三色审计护国之魂。每一份誓言都经过龍魂三色合规判定。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏮</text></svg>">
+<link rel="stylesheet" href="css/longhun-theme.css">
+<style>
+.monument-header {
+  text-align: center;
+  padding: 120px 24px 60px;
+  position: relative;
+}
+.monument-header h1 {
+  font-family: var(--font-title);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400;
+  color: var(--gold-primary);
+  letter-spacing: 8px;
+  margin-bottom: 8px;
+}
+.monument-header .sub {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+.vow-form-wrap {
+  max-width: 600px;
+  margin: 0 auto 60px;
+  padding: 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+}
+.vow-form-wrap h2 {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  color: var(--gold-light);
+  margin-bottom: 24px;
+  letter-spacing: 2px;
+}
+.vow-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+.audit-result {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  display: none;
+}
+.audit-result.show { display: block; }
+.audit-result.green { background: rgba(74,222,128,0.08); border: 1px solid var(--green-safe); }
+.audit-result.yellow { background: rgba(250,204,21,0.08); border: 1px solid var(--yellow-review); }
+.audit-result.red { background: rgba(239,68,68,0.08); border: 1px solid var(--red-block); }
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+.stat-item { text-align: center; }
+.stat-item .num {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  color: var(--gold-primary);
+}
+.stat-item .label { font-size: 0.85rem; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<div id="particle-bg"></div>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo"><span class="dragon">🐉</span> 龍魂系统</a>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="national-soul.html" class="active">民族魂</a></li>
+      <li><a href="kunpeng-server.html">鲲鹏服务器</a></li>
+      <li><a href="downloads.html">下载资源</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="monument-header">
+  <div style="font-size:4rem; margin-bottom:16px">🏮</div>
+  <h1>不朽 · 民族魂</h1>
+  <p class="sub">每一份誓言经过 🟢🟡🔴 三色审计 · 合规方可入碑</p>
+</div>
+
+<!-- 统计 -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="num" id="count-total">0</div><div class="label">总誓言</div></div>
+  <div class="stat-item"><div class="num" id="count-safe" style="color:var(--green-safe)">0</div><div class="label">🟢 已入碑</div></div>
+  <div class="stat-item"><div class="num" id="count-review" style="color:var(--yellow-review)">0</div><div class="label">🟡 待终审</div></div>
+  <div class="stat-item"><div class="num" id="count-blocked" style="color:var(--red-block)">0</div><div class="label">🔴 已拒绝</div></div>
+</div>
+
+<!-- 表单 -->
+<div class="vow-form-wrap">
+  <h2>✍️ 写下你的誓言</h2>
+  <div class="form-group"><label>姓名</label><input class="form-input" id="vow-name" placeholder="真实姓名或笔名" maxlength="50"></div>
+  <div class="form-group"><label>UID（选填）</label><input class="form-input" id="vow-uid" placeholder="UID9622 格式" maxlength="20"></div>
+  <div class="form-group"><label>所在地</label><input class="form-input" id="vow-location" placeholder="例如：中国·北京" maxlength="30"></div>
+  <div class="form-group"><label>誓言</label><textarea class="form-input" id="vow-text" placeholder="写下你对民族魂的誓言..." maxlength="500"></textarea></div>
+  <div class="form-group"><label>字数：<span id="vow-count">0</span>/500</label></div>
+  <div id="audit-result" class="audit-result"></div>
+  <div class="vow-actions">
+    <button class="btn btn-primary" onclick="submitVow()">🟢 提交誓言</button>
+    <button class="btn btn-outline" onclick="exportVows()">📥 导出待审</button>
+    <button class="btn btn-outline" style="color:var(--red-block);border-color:var(--red-block)" onclick="clearVows()">🗑️ 清空测试</button>
+  </div>
+</div>
+
+<!-- 誓言墙 -->
+<h2 class="section-title">🏮 孔明灯墙</h2>
+<p class="section-subtitle" id="wall-subtitle">0 人已接力誓言</p>
+<div class="vow-wall" id="vow-wall"></div>
+
+<script>
+// ── 初始化 ──
+const STORAGE_KEY = 'longhun_national_soul_vows';
+let vows = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+
+// ── 三色审计函数 ──
+function tricolorAudit(name, text, uid) {
+  const trimmed = text.trim();
+  const len = trimmed.length;
+  const nameLen = name.trim().length;
+
+  // 🔴 拒绝规则
+  const redPatterns = [
+    { test: len < 4, reason: '誓言过短（≥4字）' },
+    { test: len > 500, reason: '誓言过长（≤500字）' },
+    { test: /(.)\1{8,}/.test(trimmed), reason: '无意义重复字符' },
+    { test: /[〈〈〈|※※※].{0,50}[※※※|》》》]/.test(trimmed), reason: '不文明用语' },
+    { test: /[\u4e00-\u9fff]/.test(trimmed) && nameLen < 1, reason: '姓名不能为空' },
+  ];
+  for (const r of redPatterns) {
+    if (r.test) return { status: 'BLOCK', emoji: '🔴', r_score: 30, reason: r.reason };
+  }
+
+  // 🟡 审查规则
+  let yellowScore = 0;
+  if (/1[3-9]\d{9}/.test(trimmed)) yellowScore += 20;  // 手机号
+  if (/@/.test(trimmed)) yellowScore += 15;              // 邮箱
+  if (/[a-zA-Z]/.test(trimmed) && trimmed.length > 20) {
+    const enRatio = (trimmed.match(/[a-zA-Z\s]/g) || []).length / trimmed.length;
+    if (enRatio > 0.5) yellowScore += 20;
+  }
+  if (uid && !/^UID\d{4,8}$/i.test(uid)) yellowScore += 15;
+  if (/!{2,}|？{2,}|哈{3,}|啊{3,}/.test(trimmed)) yellowScore += 10;
+
+  // 六维评分
+  const diversity = new Set(trimmed).size / Math.max(len, 1);
+  const humanWelfare = Math.min(95, Math.round(75 + diversity * 20 - (yellowScore > 0 ? 10 : 0)));
+  const fairness = Math.min(95, Math.round(80 + (nameLen > 0 ? 5 : 0)));
+  const controllability = Math.min(95, Math.round(85 - (yellowScore > 0 ? 10 : 0)));
+  const transparency = 85;
+  const traceability = uid ? 90 : 75;
+  const privacy = Math.min(95, Math.round(90 - (yellowScore > 0 ? 15 : 0)));
+
+  const r = Math.round(
+    humanWelfare * 0.20 + fairness * 0.20 + controllability * 0.15 +
+    transparency * 0.15 + traceability * 0.15 + privacy * 0.15
+  );
+
+  if (r >= 85) return { status: 'SAFE', emoji: '🟢', r_score: r };
+  if (r >= 60) return { status: 'REVIEW', emoji: '🟡', r_score: r, reason: yellowScore > 0 ? '需人工终审' : '存疑内容' };
+  return { status: 'BLOCK', emoji: '🔴', r_score: r, reason: 'R值过低' };
+}
+
+// ── 提交誓言 ──
+function submitVow() {
+  const name = document.getElementById('vow-name').value.trim();
+  const uid = document.getElementById('vow-uid').value.trim();
+  const location = document.getElementById('vow-location').value.trim();
+  const text = document.getElementById('vow-text').value.trim();
+  const result = document.getElementById('audit-result');
+
+  if (!text) { result.textContent = '⚠️ 请填写誓言内容'; result.className = 'audit-result show red'; return; }
+
+  const audit = tricolorAudit(name, text, uid);
+
+  // 审计结果
+  let html = `<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+    <span style="font-size:2rem">${audit.emoji}</span>
+    <div><strong>R = ${audit.r_score}</strong><br>${audit.status === 'SAFE' ? '🟢 通过 · 自动入碑' : audit.status === 'REVIEW' ? '🟡 待终审 · 人工复核' : '🔴 拒绝 · ' + (audit.reason || '')}</div>
+  </div>`;
+
+  if (audit.status === 'BLOCK') {
+    result.innerHTML = html;
+    result.className = 'audit-result show red';
+    return;
+  }
+
+  // 保存
+  const vow = {
+    id: 'VOW-' + Date.now().toString(36),
+    name: name || '匿名',
+    uid: uid || '',
+    location: location || '',
+    text: text,
+    audit: audit,
+    timestamp: new Date().toISOString(),
+  };
+  vows.push(vow);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(vows));
+
+  html += `<div style="color:var(--gold-light);margin-top:8px">${audit.emoji === '🟢' ? '✅ 誓言已入碑' : '📨 已提交待终审'}</div>`;
+  result.innerHTML = html;
+  result.className = `audit-result show ${audit.status === 'SAFE' ? 'green' : 'yellow'}`;
+
+  document.getElementById('vow-text').value = '';
+  renderVows();
+}
+
+// ── 渲染誓言墙 ──
+function renderVows() {
+  const wall = document.getElementById('vow-wall');
+  const safe = vows.filter(v => v.audit.status === 'SAFE');
+  wall.innerHTML = safe.length === 0
+    ? '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1;padding:60px 0">🍃 尚未有人留下誓言 · 你是第一个</p>'
+    : safe.map(v => `<div class="vow-card">
+      <div class="vow-text">"${v.text}"</div>
+      <div class="vow-meta">
+        <span>${v.name}${v.location ? ' · ' + v.location : ''}</span>
+        <span class="tricolor-badge tricolor-green">🟢 R=${v.audit.r_score}</span>
+      </div>
+    </div>`).join('');
+
+  // 统计
+  const total = vows.length;
+  const safeCount = safe.length;
+  const reviewCount = vows.filter(v => v.audit.status === 'REVIEW').length;
+  const blockedCount = vows.filter(v => v.audit.status === 'BLOCK').length;
+  document.getElementById('count-total').textContent = total;
+  document.getElementById('count-safe').textContent = safeCount;
+  document.getElementById('count-review').textContent = reviewCount;
+  document.getElementById('count-blocked').textContent = blockedCount;
+  document.getElementById('wall-subtitle').textContent = `${safeCount} 人已接力誓言`;
+}
+
+// ── 导出待终审 ──
+function exportVows() {
+  const pending = vows.filter(v => v.audit.status === 'REVIEW');
+  if (pending.length === 0) { alert('暂无待终审誓言'); return; }
+  const blob = new Blob([JSON.stringify(pending, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  const now = new Date().toISOString().slice(0, 19).replace(/[:-]/g, '');
+  a.href = URL.createObjectURL(blob);
+  a.download = `national-soul-vows-audit-${now}.json`;
+  a.click();
+}
+
+// ── 清空 ──
+function clearVows() {
+  if (!confirm('确定清空所有誓言？（仅测试用）')) return;
+  vows = [];
+  localStorage.removeItem(STORAGE_KEY);
+  renderVows();
+}
+
+// ── 字数统计 ──
+document.getElementById('vow-text').addEventListener('input', function() {
+  document.getElementById('vow-count').textContent = this.value.length;
+});
+
+// ── 初始渲染 ──
+renderVows();
+
+// ── 关闭导航 ──
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
+});
+</script>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-col"><h4>🐉 龍魂系统</h4><a href="index.html">首页</a><a href="national-soul.html">不朽·民族魂</a><a href="kunpeng-server.html">鲲鹏服务器</a></div>
+    <div class="footer-col"><h4>资源</h4><a href="downloads.html">字体下载</a><a href="downloads.html">鲲鹏适配器</a><a href="downloads.html">工具集</a></div>
+    <div class="footer-col"><h4>标准</h4><a href="https://uid9622-01.blog.csdn.net/article/details/163533907" target="_blank">三色审计 v1.1</a></div>
+  </div>
+  <div class="footer-dna">
+    #龍芯⚡️丙午·癸未·乙酉·坤卦-NATIONAL-SOUL-V1.0-UID9622<br>
+    守护中国主权 · 维护人民利益
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>从 issue#1591 到 v2.0：一次社区方法论落地的完整链路 | 龍魂共创</title>
+<meta name="description" content="龍魂系统首次完整走通「开源社区方法论 → 审计落地 → 人格议事会裁决 → 部署验证」链路，本文透明复盘全过程，并开放共创栏目。">
+<link rel="stylesheet" href="/assets/css/longhun-master.css">
+<style>
+  :root {
+    --lh-gold: #c9a86a; --lh-dark: #16161a; --lh-card: #1e1e24;
+    --lh-text: #e8e6e0; --lh-muted: #9a978e; --lh-green: #4ec9a0;
+    --lh-red: #e06c6c; --lh-yellow: #e0b35c;
+  }
+  body { background: var(--lh-dark); color: var(--lh-text); font-family: "PingFang SC", "Noto Sans SC", sans-serif; line-height: 1.7; margin: 0; }
+  .paper-container { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  .lh-header { border-bottom: 1px solid #333; padding-bottom: 20px; margin-bottom: 32px; }
+  .lh-header h1 { color: var(--lh-gold); font-size: 1.9em; margin: 0 0 8px; letter-spacing: 1px; }
+  .lh-meta { color: var(--lh-muted); font-size: .85em; }
+  .lh-dna { background: var(--lh-card); border-left: 3px solid var(--lh-gold); padding: 10px 14px; border-radius: 4px; font-size: .85em; margin: 16px 0; overflow-wrap: anywhere; }
+  h2 { color: var(--lh-gold); font-size: 1.35em; margin: 40px 0 14px; border-left: 3px solid var(--lh-gold); padding-left: 10px; }
+  h3 { color: var(--lh-text); margin: 24px 0 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: .92em; }
+  th, td { border: 1px solid #333; padding: 8px 12px; text-align: left; }
+  th { background: var(--lh-card); color: var(--lh-gold); }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: .78em; margin-right: 6px; }
+  .p0 { background: rgba(224,108,108,.15); color: var(--lh-red); }
+  .p1 { background: rgba(78,201,160,.15); color: var(--lh-green); }
+  .p2 { background: rgba(224,179,92,.15); color: var(--lh-yellow); }
+  .callout { background: var(--lh-card); border: 1px solid #333; border-left: 4px solid var(--lh-gold); padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .callout.blue { border-left-color: var(--lh-green); }
+  code { background: #2a2a31; padding: 2px 6px; border-radius: 4px; font-size: .9em; }
+  .footer { margin-top: 60px; border-top: 1px solid #333; padding-top: 18px; color: var(--lh-muted); font-size: .82em; }
+</style>
+</head>
+<body>
+<div class="paper-container">
+
+  <header class="lh-header">
+    <h1>从 issue#1591 到 v2.0：一次社区方法论落地的完整链路</h1>
+    <p class="lh-meta">龍魂系统 · 社区共创栏目首发 · 2026-08-25</p>
+  </header>
+
+  <div class="lh-dna">
+    DNA: #龍芯⚡️丙午·丙申·壬戌·亥时·䷲震-COMMUNITY-CO-CREATE-v1.0-UID9622<br>
+    归属名: 诸葛鑫 | UID9622 · 龍芯北辰<br>
+    协议: CC BY-NC-SA 4.0（核心思想层）
+  </div>
+
+  <h2>一、起点：一个开源 issue 里的方法论金矿</h2>
+  <p>DeepSeek 开源社区 issue <code>#1591</code>，42 条评论，讨论的是一套「AI 审计校准方法论」：
+  <b>Layer1 判定 → Layer2 行为验证 → 双层校准闭环</b>，配合 <b>Wilson 95% 置信区间</b>做小样本统计。
+  龍魂没有照抄，而是走完了「社区 → 吸收 → 落地」的完整链路。</p>
+
+  <div class="callout blue">
+    <b>吸收三原则</b>（本次立下的规矩，也是共创栏目门槛）：<br>
+    ① <b>方法论可复制，代码可借鉴，但数据主权一步不退</b> —— 众包/行为分析类一律拒收；<br>
+    ② <b>每条吸收必须 DNA 追溯 + GPG 签名</b> —— 来源链不可切断；<br>
+    ③ <b>吸收前过 P05 审计 + P12 底线闸</b> —— 带毒内容隔离验证后才可落地。
+  </div>
+
+  <h2>二、落地点一：audit-tracker 插件 v2.0.1</h2>
+  <p>社区方法论焊进了 <code>editors/codebuddy/audit-tracker</code>：</p>
+  <table>
+    <tr><th>能力</th><th>来源</th><th>状态</th></tr>
+    <tr><td>Layer1 判定 + Layer2 行为双层校准闭环</td><td>issue#1591 方法论</td><td><span class="tag p0">已落地</span></td></tr>
+    <tr><td>Wilson 95% 置信区间（小样本统计）</td><td>issue#1591 方法论</td><td><span class="tag p0">已落地</span></td></tr>
+    <tr><td>哈希链防篡改（含时间/置信度/复核状态）</td><td>P77 审计加固</td><td><span class="tag p0">已落地</span></td></tr>
+    <tr><td>clean 判定真实落库（统计不再失真）</td><td>P04 工程修复</td><td><span class="tag p0">已落地</span></td></tr>
+    <tr><td>数字根双闸（洛书 369 计数/哈希校验）</td><td>P06 数学大师</td><td><span class="tag p2">v2.0.1</span></td></tr>
+    <tr><td>校准一致性率指标 + 模型指纹分布</td><td>P01/P04 二期</td><td><span class="tag p2">v2.0.1</span></td></tr>
+  </table>
+
+  <h2>三、落地点二：基础设施加固</h2>
+  <table>
+    <tr><th>事项</th><th>问题</th><th>修复</th></tr>
+    <tr><td>CDP 端口</td><td>无认证 + CORS 全开，Notion 登录态可被本机进程窃取</td><td>绑定 127.0.0.1 + CORS 本机白名单</td></tr>
+    <tr><td>Notion 拉取</td><td>只退避 429，socket 异常整批静默丢数据</td><td>4 类连接异常捕获 + 指数退避重试 + 显式告警</td></tr>
+    <tr><td>入链网关</td><td>外部内容进系统无内容治理层</td><td>四重守护：毒内容 → 数据主权 → 一票否决词 → DNA 追溯</td></tr>
+  </table>
+
+  <h2>四、这套链路怎么变成「龍魂共创」</h2>
+  <p>我们希望这不是一次性的，而是所有开源社区的战友都能参与的常设栏目：</p>
+  <div class="callout">
+    <b>参与方式</b><br>
+    📌 <b>提方法论</b>：在 GitHub（uid9622.cn）提 issue，或发 Notion / 邮箱 346045695@qq.com<br>
+    📌 <b>审核流程</b>：P05 审计（三色判定）→ P12 底线闸（六誓）→ P72 熔断复核 → 通过后立项<br>
+    📌 <b>落地回报</b>：每条被采纳的方法论 → 入链 DNA 追溯码 + 署名共创人 + 复盘帖公示<br>
+    📌 <b>硬性底线</b>：众包/行为分析/用户数据采集类方法论 <b>一律拒收</b>，这不是技术问题，是主权问题。
+  </div>
+
+  <h2>五、透明声明</h2>
+  <p>本文所有落地项均带 DNA 追溯码与 GPG 签名（密钥
+  <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code>）。
+  全过程未上传任何用户数据，未引入任何外部追踪，未采用任何众包数据。
+  源码：GitHub UID9622 / uid9622.cn。</p>
+
+  <div class="footer">
+    <p>龍魂系统 · 社区共创栏目 v1.0 · 发布人：诸葛鑫（UID9622）<br>
+    决策: 9人格议事会 v2.0（P01/P04/P06/P09/P11/P12/P14/P72/P77）→ 裁决 → 落地 → 验证 → 签名归档<br>
+    🐉丙午·申时·䷗复·🟢 2026-08-25</p>
+  </div>
+</div>
+</body>
+</html>

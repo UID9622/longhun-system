@@ -4,7 +4,6 @@
 龍魂·AI 入口引导 API — 独立服务入口
 DNA: #龍芯⚡️丙午·丙申·壬戌·亥时·䷲震-ONBOARDING-API-v1.0-DEPLOY-UID9622
 创建者: 诸葛鑫（UID9622）
-归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 
 独立 FastAPI 服务：挂载 onboard_routes.py 的 /onboarding/* 路由。
 部署目标: 鲲鹏 119.13.90.27 :8785 → nginx rewrite /api/onboarding/* → /onboarding/*

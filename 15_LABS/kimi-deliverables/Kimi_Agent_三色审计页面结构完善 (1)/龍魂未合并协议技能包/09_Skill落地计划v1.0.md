@@ -1,3 +1,4 @@
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 # 🪨🐉 龍魂 Skill 落地计划 v1.0｜三 P0 全盘 + Skill 1 SKILL.md 草稿
 
 **Notion ID:** 3647125a-9c9f-81b1-bd36-c2f127988f26

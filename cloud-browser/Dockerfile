@@ -1,27 +1,34 @@
-# 龍魂·云浏览器 Dockerfile
-# DNA: #龍芯⚡️丙午-乙巳-癸酉-亥时-☰乾-CLOUD-BROWSER-DOCKER-v1.0-BUILD
-# License: MulanPSL v2
-# 官方 Playwright 镜像自带 Chromium + 全部系统依赖（免编译）
-FROM mcr.microsoft.com/playwright:v1.53.0-jammy
+# 龍魂 CNSH Editor API · Dockerfile
+# DNA: #龍芯⚡️2026-07-04-CNSH-API-DOCKER-v1.0
+#
+# 构建（x86）：
+#   docker build -t cnsh-editor-api:latest -f Dockerfile ../..
+# 构建（华为鲲鹏 ARM64）：
+#   docker buildx build --platform linux/arm64 -t cnsh-editor-api:arm64 -f Dockerfile ../..
+#
+FROM python:3.12-slim
 
 WORKDIR /app
 
-COPY backend/requirements.txt .
-# 官方镜像不带 pip：apt 补装；playwright install chromium 把浏览器固化进镜像层
-# （镜像内置 chromium-1178 完整版，但 1.53.0 的 headless 需 headless_shell-1179 → 补装对齐）
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends python3-pip \
-    && python3 -m pip install --no-cache-dir -r requirements.txt \
-    && python3 -m playwright install chromium \
+# 安装系统依赖
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
     && rm -rf /var/lib/apt/lists/*
 
-COPY backend/ .
+# 复制 CNSH 编辑器后端包与 API 服务
+COPY dev-env/chinese-editor /app/chinese-editor
+COPY integrated-modules/cnsh_editor_api /app/cnsh_editor_api
 
-ENV BROWSER_DATA_DIR=/data/browser
-ENV HEADLESS=1
-ENV BROWSER_API_PORT=8899
-ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+# 安装 Python 依赖
+RUN pip install --no-cache-dir -e /app/chinese-editor \
+    && pip install --no-cache-dir fastapi uvicorn pydantic
 
-EXPOSE 8899
+# 默认免费 tier；华为云完整版请在运行容器时设置为 paid
+ENV CNSH_API_TIER=free
+ENV CNSH_API_HOST=0.0.0.0
+ENV CNSH_API_PORT=8000
+ENV PYTHONPATH=/app
 
-CMD ["python3", "-m", "uvicorn", "browser_service:app", "--host", "0.0.0.0", "--port", "8899"]
+EXPOSE 8000
+
+CMD ["python3", "-m", "cnsh_editor_api.main"]

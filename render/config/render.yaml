@@ -1,0 +1,23 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# M75 渲染引擎配置
+# DNA: #龍芯⚡️2026-08-25-RENDER-ENV-v1.0-UID9622
+# License: MulanPSL v2
+
+uid: UID9622
+version: "1.0.0"
+
+engine:
+  headless: true
+  width: 1920
+  height: 1080
+  render_dir: data/renders
+
+boundary:
+  allow_domains: ["*"]
+  deny_domains: []
+  no_upload: true
+  local_only: true
+
+server:
+  host: 127.0.0.1
+  port: 8972

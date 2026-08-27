@@ -4,7 +4,6 @@
 龍魂视频引擎 · TTS + 字级时间戳流水线 v1.1
 DNA: #龍芯⚡️2026-08-22-TTS-PIPELINE-v1.1
 创建者: 诸葛鑫（UID9622）
-归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 设计原则:
   - TTS: macOS 原生 say 命令（零依赖）→ aiff → ffmpeg 转 wav

@@ -1,12 +1,12 @@
 {
   "_meta": {
-    "version": "v1.0",
+    "version": "v1.1",
     "description": "龍魂全仓扫描共享排除配置 — 单一真相源",
-    "DNA": "#龍芯⚡️丙午·甲申·丁巳·䷖剥-SCAN-EXCLUSIONS-v1.0",
+    "DNA": "#龍芯⚡️丙午·甲申·丁巳·䷖剥-SCAN-EXCLUSIONS-v1.1-BROWSER-RUNTIME",
     "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
-    "updated": "2026-08-11",
+    "updated": "2026-08-27",
     "principle": "防御性代码（检测/审计工具引用敏感词但用途是检测恶行，非实施）不视为违规；第三方/参考/归档目录不参与主系统对齐",
-    "loaded_by": ["lh_deben_audit.py", "lh_align_checker.py"]
+    "loaded_by": ["lh_deben_audit.py", "lh_align_checker.py", "lh_gpg_sign.py"]
   },
 
   "defensive_files": {
@@ -37,11 +37,19 @@
       "bin/lh_personalization_engine.py",
       "bin/lh_platform_block_logger.py",
       "bin/lh_lu_cnsh_map.py",
-      "bin/lh_pathfinder_train_data_v3.py",
       "bin/lh_pathfinder_train_data_v4.py",
       "bin/lh_csdn_to_train.py",
       "deploy/evidence/longhun_privacy.py"
-    ]
+    ],
+    "v2_5_api_guard": [
+      "bin/lh_api_guard.py",
+      "bin/longhun_multiagent_arch_engine.py",
+      "bin/longhun_multiagent_arch_engine (1).py",
+      "bin/longhun_multiagent_arch_engine_v1.py"
+    ],
+    "v2_6_training_freeze": {
+      "_note": "2026-08-27 训练脚本旧版冻结 · pathfinder v3 已移 archive/frozen/training-legacy-20260827/ · 白名单随源迁移移除"
+    }
   },
 
   "excluded_dirs": {
@@ -124,6 +132,9 @@
       "research",
       "experiments",
       "15_LABS"
+    ],
+    "v2_7_runtime_generated": [
+      "08_BIN/browser_profile"
     ]
   },
 

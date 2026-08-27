@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 import { motion } from 'framer-motion'
 import SealTag from '@/components/SealTag'
 import ThreeNames from '@/pages/founder/ThreeNames'
@@ -104,7 +106,7 @@ export default function Founder() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 + 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            2008 退伍老兵 · CNSH 发起人 · 三才算法奠基者
+            2008 年退伍老兵（服役 2 年） · CNSH 发起人 · 三才算法奠基者
           </motion.p>
         </div>
 

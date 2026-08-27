@@ -26,13 +26,24 @@ from pathlib import Path
 from datetime import datetime
 
 ROOT = Path(__file__).resolve().parent.parent
-REGISTRY_PATH = ROOT / "persona" / "persona_registry.json"
+# 🔴 修复 2026-08-24（P04 鲁班商讨结论）：原路径 persona/ 不存在→全人格召回总闸崩溃
+#    实际注册表在 personas/runtime/persona_registry.json（114KB 全量版）
+REGISTRY_PATH = ROOT / "personas" / "runtime" / "persona_registry.json"
 
 
 def load_registry():
-    """加载人格注册表"""
+    """加载人格注册表（剥离 # 注释行·P04 修复）"""
+    global REGISTRY_PATH
+    if not REGISTRY_PATH.exists():
+        # 兜底：按存在性探测，避免硬编码再错
+        for candidate in (ROOT / "personas" / "runtime" / "persona_registry.json",
+                          ROOT / "08_BIN" / "persona_registry.json"):
+            if candidate.exists():
+                REGISTRY_PATH = candidate
+                break
     with open(REGISTRY_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
+        raw = "".join(line for line in f if not line.lstrip().startswith("#"))
+        return json.loads(raw)
 
 
 def get_all_personas():

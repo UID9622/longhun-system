@@ -79,10 +79,20 @@ alias ai-open='open "$AI_OUTPUT_HUB"'
 # ── 自动钩子：每当产出到 longhun-system/output 时自动归集 ──
 # （在 lh 命令中调用，此处声明环境变量）
 
-# ── 欢迎信息 ──
-[[ "$AI_HUB_SILENT" != "1" ]] && {
-    local count=0
-    [[ -f "$AI_INDEX_DIR/master_index.json" ]] && \
-        count=$(python3 -c "import json;d=json.load(open('$AI_INDEX_DIR/master_index.json'));print(d.get('entry_count',0))" 2>/dev/null || echo 0)
+# ── 欢迎信息（v1.1·仅交互式终端显示·计数走缓存·不刷屏不卡终端）──
+# 修复: ①非交互shell(zsh -c/脚本/管道)不再刷横幅 ②12MB索引只在变化后重算一次
+# 彻底静音: export AI_HUB_SILENT=1
+if [[ "$AI_HUB_SILENT" != "1" && "$-" == *i* ]]; then
+    count=0
+    if [[ -f "$AI_INDEX_DIR/master_index.json" ]]; then
+        count_cache="$AI_INDEX_DIR/.count_cache"
+        # 索引没变 → 直接读缓存；变了才重新解析（一次）
+        if [[ -f "$count_cache" && "$AI_INDEX_DIR/master_index.json" -ot "$count_cache" ]]; then
+            count=$(cat "$count_cache" 2>/dev/null || echo 0)
+        else
+            count=$(python3 -c "import json;print(json.load(open('$AI_INDEX_DIR/master_index.json')).get('entry_count',0))" 2>/dev/null || echo 0)
+            echo "$count" > "$count_cache" 2>/dev/null
+        fi
+    fi
     echo "🐉 AI归集Hub就绪 | 索引: ${count:-0} 文件 | 工具: $(ls -d $AI_OUTPUT_HUB/*/ 2>/dev/null | wc -l | tr -d ' ') 个"
-}
+fi

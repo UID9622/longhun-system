@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "version": "1.0",
+    "sovereign": "UID9622",
+    "updated_at": "2026-08-25T21:39:37+08:00",
+    "total": 2
+  },
+  "devices": {
+    "DEV-0AA7FEC3": {
+      "device_id": "DEV-0AA7FEC3",
+      "fingerprint": "sha256:0aa7fec3c97780991e4a4d260ab210e7",
+      "name": "Mac Studio（龍芯北辰）",
+      "holder": "诸葛鑫（UID9622）",
+      "role": "mac-main",
+      "platform": "darwin",
+      "model": "Mac16,5",
+      "host": "LongXinbeichengUID9622.local",
+      "ssh_key_fingerprint": "SHA256:aRo4di6Tcz3mvd7lr+nnksp+UleSGgl93SGS/FAWfLQ",
+      "gpg_key_id": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+      "registered_at": "2026-08-25T21:39:29+08:00",
+      "last_active": "2026-08-25T21:39:29+08:00",
+      "dna": "#龍芯⚡️丙午·丙申·辛未·亥时·䷕贲-DEVICE-DEV-0AA7FEC3-9622-70e4e5aa",
+      "status": "active",
+      "note": ""
+    },
+    "DEV-7B9CA6A3": {
+      "device_id": "DEV-7B9CA6A3",
+      "fingerprint": "sha256:7b9ca6a3c74765c182bdd03c7f036bbc",
+      "name": "鲲鹏服务器（华为云 ECS）",
+      "holder": "诸葛鑫（UID9622）",
+      "role": "kunpeng",
+      "platform": "linux",
+      "model": "OpenStack Nova",
+      "host": "119.13.90.27",
+      "ssh_key_fingerprint": "ssh:SHA256:aRo4di6Tcz3mvd7lr+nnksp+UleSGgl93SGS/FAWfLQ",
+      "gpg_key_id": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
+      "registered_at": "2026-08-25T21:39:37+08:00",
+      "last_active": "2026-08-25T21:39:37+08:00",
+      "dna": "#龍芯⚡️丙午·丙申·辛未·亥时·䷕贲-DEVICE-DEV-7B9CA6A3-9622-390f2c38",
+      "status": "active",
+      "note": "uid9622.cn 生产机"
+    }
+  }
+}

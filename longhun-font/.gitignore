@@ -1,26 +1,8 @@
-# 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-GITIGNORE-v1.0
-
-# Python
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 龍魂双节点同步层 .gitignore
+# 密钥文件不提交
+.dual_node_keys
+*.key
 __pycache__/
-*.py[cod]
-*.egg-info/
-.pytest_cache/
-
-# macOS
-.DS_Store
-
-# Editor
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# Temporary files
-*.tmp
-*.log
-
-# Don't ignore output OTF/HTML/SVG (they are release artifacts)
-# If SVG dirs become too large, uncomment below:
-# output/all_glyphs_v*/
+*.pyc

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 🐉 龍魂 · CNSH 模型路由器 v1.1 · 锚点断言测试
 🟡 mock 测试：不打真实 API（requests 全 mock），仅验证路由/审计/DNA/闸门逻辑

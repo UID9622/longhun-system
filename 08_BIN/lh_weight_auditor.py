@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 🐉 龍魂系統 · 權重參數審計工具 v1.1
 DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-WEIGHT-AUDIT-V1.1-UID9622

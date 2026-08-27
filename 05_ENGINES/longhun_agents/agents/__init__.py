@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # License: MulanPSL v2
 # DNA: #龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-AGENTS-INIT-UID9622
 

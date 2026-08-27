@@ -399,3 +399,16 @@ web/static/layui/
 lh_video_engine/output/*
 !lh_video_engine/output/.gitkeep
 12_DOCS/claude-session-assets/终端保存的输出*.txt
+
+# 第三方库与媒体二进制（8/28 四方同步·禁入git·防 add -A 误加）
+static/ace/
+dist_ide/
+www/vendor/
+web/static/js/echarts.min.js
+10_PORTAL/assets/js/echarts.min.js
+10_PORTAL/warp-lab/vendor/
+voices/kimi-archive/
+experiments/turbulence/output/
+capabilities/daemon.pid
+*.npz
+*.aiff

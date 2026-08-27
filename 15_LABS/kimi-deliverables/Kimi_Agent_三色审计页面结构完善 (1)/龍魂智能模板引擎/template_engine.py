@@ -3,6 +3,7 @@
 """
 🐉 龍魂 · 智能模板引擎 v1.1（焊死输出格式 · 实测落地版）
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 分层许可: 思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2
 

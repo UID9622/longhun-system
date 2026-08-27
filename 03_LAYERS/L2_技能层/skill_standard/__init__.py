@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 龍魂 10 Skill 自动化补全引擎 · 技能层包
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)

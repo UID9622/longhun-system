@@ -3,7 +3,7 @@
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # SPDX-License-Identifier: MulanPSL-2.0
 [Unit]
-Description=龍魂 · 对话桥接 (:18799, Ollama SSE 代理)
+Description=龍魂 · 对话桥接 (:18800, Ollama SSE 代理)
 After=network.target
 
 [Service]

@@ -306,6 +306,7 @@ git commit -m "feat(bridge): 四方对话桥接 MVP · 建立对话层落地物
 
 DNA: #龍芯⚡️丙午·丙申·丙寅·己亥·䷶丰-FOUR-PARTY-DIALOGUE-BRIDGE-MVP-v1.0
 CONFIRM: #CONFIRM🌑9622-ONLY-ONCE🧬LK9X-772Z"
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 
 echo ""
 echo "===== 请把以下两样贴回给宝宝 ====="

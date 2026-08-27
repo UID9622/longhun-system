@@ -4,7 +4,6 @@
 龍魂DNA追溯链 v1.0
 DNA: #龍芯⚡️2026-08-25-DNA-TRACER-v1.0-UID9622
 创建者: 诸葛鑫（UID9622）
-归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 功能：区块链式 DNA 追溯，sha256 prev_hash 链接，支持链完整性验证

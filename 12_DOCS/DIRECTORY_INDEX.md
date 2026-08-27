@@ -69,4 +69,24 @@ longhun-system/
 
 ---
 
+## 双名目录分工对照（🟢 P09 体检 · 2026-08-24 · 勿误删）
+
+> 来源: `04_AUDIT/LH-P09-DIRECTORY-NORMALIZATION-AUDIT-2026-08-24.md`（195 顶层目录 · 38 软链 · 8 组真双名 · 零真重复）
+> 顶层另有 38 个软链别名（`bin→08_BIN` / `docs→12_DOCS` / `engines→05_ENGINES` 等）= 统一入口设计，特性非缺陷，无害。
+
+| 规范仓 | 运行时仓 | 分工 | 处置 |
+|:---|:---|:---|:---|
+| `04_AUDIT` | `07_AUDIT` | 审计流水 vs 审计落库 | 🔴 勿合并（被代码引用 28 处） |
+| `02_SKILLS` | `skills` | 技能文档 vs 技能代码包 | 🔴 勿合并 |
+| `04_ENGINES` | `05_ENGINES` | 引擎规范 vs 引擎实现 | 🔴 勿合并（被代码引用 29 处） |
+| `20_CONFIG` | `config` | 源码级配置 vs 运行时配置 | 🔴 勿合并 |
+| `11_DATA` | `data` | 数据主仓 vs 注册表 | 🔴 勿合并 |
+| `state` | `08_STATE` | 运行时状态 vs 设备状态 | 🔴 勿合并（被代码引用 21 处） |
+| `03_KNOWLEDGE_GRAPH` | `knowledge` | 知识卡片 vs 分类库 | 🔴 勿合并 |
+| `_archive` | `archive` | 系统备份 vs 历史归档 | 🟡 `_archive`(1.8M) 可并入 `archive/` 子目录·冻结不删 |
+
+> 判定原则: 双名被代码深度引用 → 合并=大规模破坏+零收益。新目录统一 `NN_英文名` 规范，存量冻结不强制改名。
+
+---
+
 > #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

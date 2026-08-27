@@ -185,7 +185,8 @@ class SevenFactorEngine:
     def __init__(self):
         self._profiles: Dict[str, EntityProfile] = {}
         self._events: Dict[str, SevenFactorEvent] = {}
-        self._lock = threading.Lock()
+        # RLock 可重入：submit_event 持锁后调 _save()/_save_events() 会再次加锁，Lock 会死锁
+        self._lock = threading.RLock()
         self._device_fingerprint = self._derive_device_fp()
         self._load()
 

@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """🐉 lh asset · 资产管理命令行"""
 import sys, os, json, argparse, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

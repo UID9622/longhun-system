@@ -1,45 +1,34 @@
-# 🐉 龍魂系统 · 容器化底座
-# DNA: #龍芯⚡️丙午·丙酉·壬戌·亥时·䷬萃-LONGHUN-CONTAINER-v1.0-UID9622
-# 用途：把 longhun-system 核心能力打包为可运行容器
-#       完整功能放 /app，不完整/实验性功能放 /app/sandbox
-
+# 龍魂 CNSH Editor API · Dockerfile
+# DNA: #龍芯⚡️2026-07-04-CNSH-API-DOCKER-v1.0
+#
+# 构建（x86）：
+#   docker build -t cnsh-editor-api:latest -f Dockerfile ../..
+# 构建（华为鲲鹏 ARM64）：
+#   docker buildx build --platform linux/arm64 -t cnsh-editor-api:arm64 -f Dockerfile ../..
+#
 FROM python:3.12-slim
 
-LABEL maintainer="UID9622"
-LABEL dna="#龍芯⚡️丙午·丙酉·壬戌·亥时·䷬萃-LONGHUN-CONTAINER-v1.0-UID9622"
-LABEL confirm="#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+WORKDIR /app
 
 # 安装系统依赖
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    gnupg \
-    sqlite3 \
-    curl \
-    ca-certificates \
+    gcc \
     && rm -rf /var/lib/apt/lists/*
 
-# 工作目录
-WORKDIR /app
+# 复制 CNSH 编辑器后端包与 API 服务
+COPY dev-env/chinese-editor /app/chinese-editor
+COPY integrated-modules/cnsh_editor_api /app/cnsh_editor_api
 
-# 先复制依赖清单，利用 Docker 缓存层
-COPY container/requirements.txt /app/container/requirements.txt
-RUN pip install --no-cache-dir -r /app/container/requirements.txt
+# 安装 Python 依赖
+RUN pip install --no-cache-dir -e /app/chinese-editor \
+    && pip install --no-cache-dir fastapi uvicorn pydantic
 
-# 复制核心代码（.dockerignore 控制不复制大目录）
-COPY . /app
-
-# 创建沙盒目录，用于隔离不完整/实验性功能
-RUN mkdir -p /app/sandbox /app/data /app/logs
-
-# 设置环境变量
+# 默认免费 tier；华为云完整版请在运行容器时设置为 paid
+ENV CNSH_API_TIER=free
+ENV CNSH_API_HOST=0.0.0.0
+ENV CNSH_API_PORT=8000
 ENV PYTHONPATH=/app
-ENV LONGHUN_ROOT=/app
-ENV LONGHUN_DATA=/app/data
-ENV LONGHUN_LOGS=/app/logs
-ENV LONGHUN_SANDBOX=/app/sandbox
 
-# 健康检查
-HEALTHCHECK --interval=60s --timeout=10s --start-period=5s --retries=3 \
-    CMD python3 -c "import sys; sys.path.insert(0,'/app'); from core.longhun_core.dna_trace import generate_dna; print(generate_dna('HEALTHCHECK','UID9622'))" || exit 1
+EXPOSE 8000
 
-# 默认入口：展示帮助
-CMD ["python3", "/app/08_BIN/lh_notion.py", "--help"]
+CMD ["python3", "-m", "cnsh_editor_api.main"]

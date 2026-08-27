@@ -368,6 +368,7 @@ class BrowserController:
         """按当前配置构建 Chrome 启动 flags"""
         flags = [
             f"--remote-debugging-port={self._session_port()}",
+            "--remote-debugging-address=127.0.0.1",  # v2.0.1(P77 审计): 显式绑回环·禁止 0.0.0.0 暴露 CDP
             f"--user-data-dir={BROWSER_DIR / 'user_data'}",
             "--no-first-run",
             "--no-default-browser-check",
@@ -736,7 +737,9 @@ def run_http_server(port: int = 9766):
 
     http_app = FastAPI(title="龍魂浏览器控制器 (Mac端)", version="1.0.0",
                        dna="#龍芯⚡️丙午·丙申·辛酉·未时·䷔噬嗑-BROWSER-DEVTOOLS-CTRL-v1.0-9622")
-    http_app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+    # v2.0.1(P77 审计): CORS 白名单收紧——只允许本机回环，防任意网页/进程跨源读取浏览器控制接口
+    http_app.add_middleware(CORSMiddleware, allow_origins=["http://127.0.0.1", "http://localhost"],
+                            allow_methods=["*"], allow_headers=["*"])
     ctrl = BrowserController()
 
     @http_app.get("/")

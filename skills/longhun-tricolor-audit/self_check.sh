@@ -1,4 +1,5 @@
 #!/bin/bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # 🐉 龍魂三色审计自检 v1.1
 # DNA: #龍芯⚡️丙午·丙申·癸亥·戊午·䷚颐-SKILL-TRICOLOR-SELFCHECK-v1.1
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

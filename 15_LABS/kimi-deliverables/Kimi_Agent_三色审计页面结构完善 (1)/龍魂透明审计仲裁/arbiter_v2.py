@@ -3,6 +3,7 @@
 """
 🐉 龍魂 · 冲突仲裁引擎 v2.0（事实级仲裁 · 实测修复版）
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 分层许可: 思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2
 

@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # -*- coding: utf-8 -*-
 """
 龍魂·自动补确认码 v1.0
 DNA: 由 bin/lh_dna_generator.py 生成
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 
 补齐调度器路由表中引用但 v1.0 缺失的修复脚本。
 确认码是固定常量，直接写入即可（无需调用生成器）。

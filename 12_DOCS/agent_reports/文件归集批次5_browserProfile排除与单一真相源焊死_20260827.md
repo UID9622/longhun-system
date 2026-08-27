@@ -45,5 +45,4 @@ claude_bone_retriever / claude_gua_classifier / claude_shield_engine / lh_browse
 
 ---
 【签名】
-归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 三色: 🟢 79→0 · 单一真相源焊死 · browser_profile 排除 · 19 核心脚本补签

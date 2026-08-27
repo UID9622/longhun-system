@@ -113,6 +113,6 @@ Notion页面架构:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-DNA: #龍芯⚡️2026-06-03-DRAGON-MULTICURRENCY-UPGRADE-PLAN-v1.0
+DNA:#龍芯⚡️2026-06-03-DRAGON-MULTICURRENCY-UPGRADE-PLAN-v1.0
 状态: 待审批 · 等点头
 责任: UID9622·不免责

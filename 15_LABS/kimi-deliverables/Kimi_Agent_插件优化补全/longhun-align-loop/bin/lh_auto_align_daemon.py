@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # -*- coding: utf-8 -*-
 """
 龍魂·自动对齐闭环调度器 v2.0
 DNA: 由 bin/lh_dna_generator.py 生成（禁止手写时间戳格式）
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 
 功能：自动执行 检测→路由→修复→验证→归档→通知 闭环
 全部在鲲鹏本地运行，不调用云端。

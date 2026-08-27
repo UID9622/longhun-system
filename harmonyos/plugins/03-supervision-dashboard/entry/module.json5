@@ -1,25 +1,81 @@
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 {
   "module": {
-    "name": "longhun_supervision_dashboard",
+    "name": "entry",
     "type": "entry",
-    "srcEntry": "./ets/pages/Dashboard.ets",
-    "description": "龍魂三层监督仪表盘·环形进度·14人格矩阵·审计时间线",
-    "mainElement": "DashboardAbility",
-    "deviceTypes": ["phone", "tablet", "2in1"],
+    "description": "$string:module_desc",
+    "mainElement": "EntryAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet",
+      "2in1"
+    ],
     "deliveryWithInstall": true,
     "installationFree": false,
     "pages": "$profile:main_pages",
-    "abilities": [{
-      "name": "DashboardAbility",
-      "srcEntry": "./ets/pages/Dashboard.ets",
-      "description": "监督仪表盘主页",
-      "type": "page",
-      "exported": true,
-      "launchType": "singleton"
-    }],
-    "metadata": [
-      { "name": "longhun_dna", "value": "#龍芯⚡️丙午·癸未·乙酉·坤卦-PLUGIN-SUPERVISION-DASHBOARD-UID9622" },
-      { "name": "longhun_confirm", "value": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z" }
+    // 龍魂 Native 库声明
+    "nativeLib": {
+      "filter": {
+        "excludes": ["x86_64"]
+      },
+      "fileName": "liblonghun_native.so"
+    },
+    "abilities": [
+      {
+        "name": "EntryAbility",
+        "srcEntry": "./ets/entryability/EntryAbility.ets",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:app_icon",
+        "label": "$string:EntryAbility_label",
+        "startWindowIcon": "$media:app_icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true,
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ]
+      }
+    ],
+    "requestPermissions": [
+      {
+        "name": "ohos.permission.NOTIFICATION_CONTROLLER",
+        "reason": "$string:notification_permission_reason",
+        "usedScene": {
+          "abilities": ["EntryAbility"],
+          "when": "inuse"
+        }
+      },
+      {
+        "name": "ohos.permission.READ_CALENDAR",
+        "reason": "$string:calendar_permission_reason",
+        "usedScene": {
+          "abilities": ["EntryAbility"],
+          "when": "inuse"
+        }
+      },
+      {
+        "name": "ohos.permission.WRITE_CALENDAR",
+        "reason": "$string:calendar_permission_reason",
+        "usedScene": {
+          "abilities": ["EntryAbility"],
+          "when": "inuse"
+        }
+      },
+      {
+        "name": "ohos.permission.KEEP_BACKGROUND_RUNNING",
+        "reason": "$string:background_permission_reason",
+        "usedScene": {
+          "abilities": ["EntryAbility"],
+          "when": "always"
+        }
+      }
     ]
   }
 }

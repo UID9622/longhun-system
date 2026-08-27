@@ -4,7 +4,6 @@
 龍魂视频引擎 · 口型同步模块 v1.1
 DNA: #龍芯⚡️2026-08-22-LIP-SYNC-v1.1
 创建者: 诸葛鑫（UID9622）
-归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 设计原则:
   口型模型只负责嘴部运动，不重新生成整张脸——不动点优先。

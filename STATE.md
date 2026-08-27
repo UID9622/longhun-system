@@ -21,11 +21,11 @@
 | v4.0.8 黄金checkpoint | 🥇 Val 0.767·iter1900·封存 |
 | v4.1.2 | 🔴 中断·Val 1.2457@iter50·不恢复 |
 | **v4.1.3 训练中** 🔥 | 🔴 中断·无checkpoint·已被v4.1.4替代 |
-| **v4.1.4** ✅ | 🟢 全链路完成·训练(iter800·Val⭐0.9699@200)→fuse(17.7GB)→GGUF(18.2GB)→Ollama注册·冒烟通过·小艺v2已切 |
+| **v4.1.4** | 🔴 **资产丢失·待老大决策**·训练完成(iter800·Val⭐0.9699@200)但 adapter/fuse(17.7GB)/GGUF(18.2GB) 全消失·本地/鲲鹏/ollama 均无·`lora_output_v414/` 目录不存在·重导出原料已无(2026-08-25 复核) |
 | **v4.1.5** | 🔴 已停止·Val退化(0.9841→1.0132)·LR过高·dropout过高·被v4.1.6替代 |
-| **v4.1.6 精修训练中** 🔥 | 🟢 PID 22252·从v4.1.4恢复·45,555条·lr 1e-7·dropout 0.08·batch 4·epochs 3·patience 5·log=`logs/v416_train.log` |
-| **道德经训练数据** 🆕 | ✅ 2,243条·20类QA·81章全覆盖·已合并入v4.1.5训练集 |
-| **鲲鹏同步** 🔥 | 🟡 SCP PID 64227·18.2GB GGUF传输中·预计完成后注册Ollama |
+| **v4.1.6** | 🔴 **未运行**·`logs/v416_train.log` 是7/24旧日志(loss nan@iter2110)·当前无训练进程·8/15曾有adapter(52MB·lora_output_v416/)·从v4.1.4恢复的原料已丢(2026-08-25 复核) |
+| **道德经训练数据** 🆕 | ✅ 2,243条·20类QA·81章全覆盖·已合并入v4.1.5训练集·`data_v415_daodejing/` 随 v414 目录消失·数据源在训练集合并时保留 |
+| **鲲鹏同步** 🔥 | 🔴 **未完成**·无 SCP 进程·鲲鹏 `/opt/longhun/models/` 与 ollama 均无 v4.1.4·本地源 GGUF 亦已消失(2026-08-25 复核) |
 | **Library数据矿场** 🔥 | ✅ `bin/lh_library_miner.py`·P0·五阶段流水线·33应用·84,844可挖文件 |
 | **知识中枢API后端** 🔥 | ✅ `bin/lh_knowledge_hub_api.py`·FastAPI·:8766·7端点·跨平台·systemd保活 |
 | **知识中枢v3.1** 🔥 | ✅ `portal/knowledge/index.html`·全能面板·12区块·**按钮不再死·全API对接** |
@@ -293,6 +293,35 @@ UID:      9622 (诸葛鑫·Lucky·唯一决策者)
 - [x] cnsht碎片目录整合（6目录→cnsh/） + protocols/废弃目录清理（归档→01_protocols/archive/） ✅
 - [x] 🧪 完整测试套件 v1.0 落地 ✅（tests/ 12文件+CI·`lh test`全绿 19passed/4skipped·调度器4阶段✅·报告三色🟢·GPG 17签名·详见记忆8/15第9条）
 - [x] 🏭 全自动工厂 v2.1 落地 ✅（15文件·`lh factory run`全链路7步全绿·质量门禁/回滚/发布/自监控/四级熔断/通知/鲲鹏联动·GPG签名·详见记忆8/15第10条）
+
+### 8/24 全员商讨待办（P01/P04/P06/P09/P11/P72）
+- [x] exchange/ 资金安全加固（P77）✅
+- [x] lh_persona_recall 召回总闸修复（P04）✅
+- [x] P04 统一路径注册中心 `config/paths.py` v1.0.1（自指向误判修复·57软链全绿）✅
+- [x] P09 记忆索引断链检查 `bin/lh_memory_index_check.py`（0断链全绿）✅
+- [x] P11 品牌 slogan「替老百姓守住数字主权」`brand/LH-BRAND-SLOGAN-v1.0.md` ✅
+- [x] P72 三通道统一熔断闸门 `bin/lh_channel_gate.py` + 三通道协议重建 `LH-AI-ASSISTANT-CHANNELS-v1.0.md` ✅
+- [x] P72 P2 开源机器人外接口沙箱 `bin/lh_bot_sandbox.py`（已集成 lh_github_app.py call）✅
+- [x] P06 金维度权重校准（三才算法 v3.0.1·金0.15→0.20·4副本同步）✅
+- [x] P06 数字根镜像审计深化 `bin/lh_dr_mirror_audit.py`（56文件全绿）✅
+- [x] P01 外部验证闭环 ✅ 全闭环: 本地 Playground（CNSH Web IDE :8848 实测运行中·HTTP 200）+ **开源社区反馈渠道已启动**（GitHub `UID9622/cnsh-spec` 建 3 Issue 模板: bug/功能建议/试用反馈 + config.yml + README 反馈章节·数据主权声明）· 剩余: 等社区真实反馈流入
+- [x] **仓库可用性盘点** ✅ `04_AUDIT/LH-REPO-USABILITY-AUDIT-2026-08-24.md`: 30 仓库全 public·全 README·25 开箱即用·0 真产品缺快速开始 · **免费-白菜价策略定版**: 源码永远免费(MulanPSL v2)·收费只收"省事"的钱(托管/私有化/SLA·0.01元/次起)·数据主权不因免费让渡
+- [x] **可收费 API 资产盘点** ✅ `04_AUDIT/LH-MONETIZABLE-API-INVENTORY-2026-08-24.md`: 10 项可收费 API 能力(CNSH编译/通心译/CNSH验证/数字根/DNA/三色审计/BCM/龍智守/搜索/对话桥) · **借船出海定版**: 收费走平台(腾讯/阿里 API 市场+CloudBase)·提现直通银行卡·不做网关不碰牌照 · P0 首批=零成本 4 项(CNSH验证/数字根/DNA/三色审计) · 红线: 只挂工具型 API·内核不谈判·数据主权不因收费让渡
+- [x] P09 目录归一化 ✅（方案A落地）: 体检 `04_AUDIT/LH-P09-DIRECTORY-NORMALIZATION-AUDIT-2026-08-24.md`（195顶层目录·38软链·8真双名·**零真重复**）· `docs/DIRECTORY_INDEX.md` 新增「双名目录分工对照」章节·每对标注分工+勿误删 · 新目录统一 `NN_英文名` 规范
+
+### 8/25 议事会 v2.0（9人格 · 社区方法论吸收 · P0×4+P1+P2×4 全闭环）
+- [x] P0 CDP 加固（P77）: `lh_browser_controller.py` 绑 127.0.0.1 + CORS 收窄 ✅
+- [x] P0 哈希链加固（P77）: audit-tracker chainHash 纳 timestamp/confidence/reviewStatus + genesis 绑 hostname ✅
+- [x] P0 socket 静默丢数据（P09）: notion_targeted_pull 重连重试3次+告警+raise ✅
+- [x] P0 clean 统计失真（P04）: 空证据→clean🟢落库 + Layer1/Layer2 一致性断言 ✅
+- [x] P1 隐私协议数据闸门（P12）: PRIVACY_POLICY 五章「社区方法论吸收数据闸门」✅
+- [x] P2 数字根双闸（P06）: audit-tracker v2.0.1 luoshuRoot 双闸（计数+哈希）+ Wilson CI ✅
+- [x] P2 双层验证二期（P01/P04）: calibFailures 校准一致性率 + 模型来源指纹分布 ✅
+- [x] P2 入链网关四重守护（P72）: lh_api_guard.py InboundGuard ①毒内容②数据主权③一票否决词④DNA追溯 · 冒烟4/4 ✅
+- [x] P2 共创复盘帖（P11）: 10_PORTAL/articles/lh-community-co-create-v1.0.html ✅
+- [x] 8/25 纪要重建: 空文件坑修复（0B→3578B 正文 heredoc 重建 + GPG 重签）✅
+- [x] P04 scheduler next_run/last_run 落盘（重启不丢状态·mock 冒烟 3/3）✅
+- [x] CNSH 示例对齐复测: 主编译器 9/9 全过（legacy v1.0 冻结不动）· 原 🟡 关闭 ✅
 
 ### ✅ 已完成 (7/21+2今日)
 - [x] v4.1.3 corrupt adapter bug 修复 (model.save_weights → mx.save_safetensors LoRA only)

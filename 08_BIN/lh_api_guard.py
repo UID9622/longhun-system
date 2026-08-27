@@ -470,6 +470,100 @@ def _write_audit(level: str, event: str, detail: Dict):
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
 
+# ════════════════════════════════════════════════════════════════
+# 入链前置网关 · 四重守护（P72 龍盾 · 2026-08-25 全员议事会 v2.0 落地）
+# 外部内容（社区讨论/拉取/API入站）进系统前强制过四重守护：
+#   ①毒内容熔断 → ②数据主权闸 → ③一票否决词 → ④DNA来源追溯
+# ════════════════════════════════════════════════════════════════
+
+# ① 毒内容模式（恶意代码/诱导上传/隐私窃取）
+TOXIC_PATTERNS = [
+    r"(?i)(eval\(|exec\(|os\.system\(|subprocess\.|rm\s+-rf\s+/)",
+    r"(?i)(curl\s+.*\|\s*(ba)?sh|wget\s+.*\|\s*(ba)?sh)",
+    r"(?i)(上传.*(身份证|银行卡|密码|验证码)|诱导.*上传)",
+    r"(?i)(抓取.*(cookie|token|session)|窃取.*(密码|数据|隐私))",
+]
+
+# ② 数据主权红线（众包/用户行为分析类方法论——碰 P0 数据主权，一律拒收）
+SOVEREIGN_BLOCK_PATTERNS = [
+    r"众包", r"用户行为分析", r"行为追踪", r"数据收集.*(默认|自动)",
+    r"(crowdsourc\w*|behavioral analysis|user analytics|behavior tracking)",
+]
+
+# ③ 一票否决词（第十层 · 绕协议借口，出现即强制审计）
+VETO_WORDS = [
+    "技术无国界", "用户体验优先", "灵活处理", "国际接轨",
+    "简化管理", "商业化需要", "平衡各方", "行业标准",
+]
+
+
+class InboundGuard:
+    """入链前置网关 · 四重守护（P72 龍盾 · 内容治理层）
+
+    区别于 InputValidator（技术注入检测），本闸管的是「内容治理」：
+    社区方法论/外部讨论/API 入站内容，吸收前必须过四重守护。
+    铁律: 审核不严不入链 · 每条入链留 DNA 审计痕迹。
+    """
+    DNA = "#龍芯⚡️丙午·丙申·壬戌·亥时·䷲震-INBOUND-GUARD-v1.0-UID9622"
+    _stats = {"passed": 0, "blocked": 0, "last": None}
+
+    @classmethod
+    def stats(cls) -> Dict:
+        return dict(cls._stats)
+
+    @classmethod
+    def gate_inbound(cls, content: str, source: str = "") -> Tuple[bool, str, Dict]:
+        """四重守护总闸。返回 (是否放行, 原因, 审计详情)。"""
+        audit = {
+            "checks": [], "source": source, "dna": cls.DNA,
+            "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        }
+        text = content or ""
+
+        # Gate1 毒内容熔断
+        for pat in TOXIC_PATTERNS:
+            if re.search(pat, text):
+                hit = pat[:60]
+                audit["checks"].append({"gate": 1, "type": "toxic_content", "hit": hit})
+                cls._blocked(audit)
+                return False, f"Gate1 毒内容熔断: {hit}", audit
+
+        # Gate2 数据主权闸（众包/行为分析 = 碰 P0 数据主权红线）
+        for pat in SOVEREIGN_BLOCK_PATTERNS:
+            if re.search(pat, text):
+                hit = pat[:60]
+                audit["checks"].append({"gate": 2, "type": "sovereign_block", "hit": hit})
+                cls._blocked(audit)
+                return False, f"Gate2 数据主权闸(拒收): {hit}", audit
+
+        # Gate3 一票否决词（第十层 · 出现即 P05 强制审计）
+        for word in VETO_WORDS:
+            if word in text:
+                audit["checks"].append({"gate": 3, "type": "veto_word", "hit": word})
+                cls._blocked(audit)
+                return False, f"Gate3 一票否决词: {word}", audit
+
+        # Gate4 DNA 来源追溯（要求来源标识 · 记录来源哈希，来源链不可切断）
+        has_source = bool(source and source.strip())
+        source_hash = hashlib.sha256(f"{text}|{source}".encode()).hexdigest()[:16]
+        audit["checks"].append({
+            "gate": 4, "type": "dna_trace",
+            "has_source": has_source, "source": source or "(无来源标识·🟡待补)",
+            "source_hash": source_hash,
+        })
+        audit["checks"].append({"type": "all_gates_pass"})
+        cls._stats["passed"] += 1
+        cls._stats["last"] = audit["timestamp"]
+        _write_audit("PASS", "inbound_gate", audit)
+        return True, f"四重守护全部通过 source_hash={source_hash}", audit
+
+    @classmethod
+    def _blocked(cls, audit: Dict) -> None:
+        cls._stats["blocked"] += 1
+        cls._stats["last"] = audit["timestamp"]
+        _write_audit("BLOCK", "inbound_gate", audit)
+
+
 def guarded(min_role: Role = Role.L1_PUBLIC, require_https: bool = True):
     """
     FastAPI 端点守卫装饰器

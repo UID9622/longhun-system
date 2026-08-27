@@ -4,6 +4,7 @@
 🐉 龍魂 · CNSH 模型路由器 v1.1
 DNA: #龍芯⚡️丙午·丙申·庚申·壬午·䷸巽为风-MODEL-ROUTER-v1.1
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色: 🟡 待实测（沙箱mock测试通过，真实API调用未验）
 分层许可: 思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2

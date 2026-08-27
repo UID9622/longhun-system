@@ -4,6 +4,7 @@
 🐉 龍魂 · 智能模板引擎 v1.0
 DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-TEMPLATE-ENGINE-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色: 🟢 通过
 分层许可: 思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2

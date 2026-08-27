@@ -163,6 +163,7 @@ curl -s http://127.0.0.1:8771/health   # {"status":"🟢 记忆API在线",...}
 ```
 DNA: #龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-PHASE1-INFRA-FIX-v1.0-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 ```
 

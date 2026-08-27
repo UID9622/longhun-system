@@ -1,11 +1,11 @@
 {
-  "path": "tools/bin",
-  "dna": "#龍芯⚡️丙午·乙未·丁酉·CLI·启动脚本-CREATE-b91d6274",
+  "path": "services/api",
+  "dna": "#龍芯⚡️丙午·乙未·丁酉·FastAPI服务-CREATE-e952f285",
   "created": "2026-07-24",
   "last_modified": "2026-07-24",
   "owner": "UID9622",
-  "parent_dna": "#龍芯⚡️丙午·乙未·丁酉·tools-CREATE",
-  "contents_summary": "架构重组v2.1·CLI·启动脚本",
+  "parent_dna": "#龍芯⚡️丙午·乙未·丁酉·services-CREATE",
+  "contents_summary": "架构重组v2.1·FastAPI服务",
   "audit_mark": "🟢",
   "gpg_signature": ""
 }

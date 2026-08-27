@@ -1,31 +1,22 @@
-import Hero from '@/pages/home/Hero'
-import ClockBand from '@/pages/home/ClockBand'
-import Manifesto from '@/pages/home/Manifesto'
-import ProtocolPyramid from '@/pages/home/ProtocolPyramid'
-import MatrixPreview from '@/pages/home/MatrixPreview'
-import WorksRail from '@/pages/home/WorksRail'
-import TimelinePreview from '@/pages/home/TimelinePreview'
-import StatsSection from '@/pages/home/StatsSection'
-import FounderCard from '@/pages/home/FounderCard'
-import FinalCTA from '@/pages/home/FinalCTA'
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+import { useState } from 'react'
+import '../App.css'
 
-/**
- * 首页 `/`（home.md）
- * Hero → 干支时钟带 → 宣言 → 协议五层 → 矩阵预告 → 作品带 → 远征预告 → CSDN 数据 → 创始人卡 → 终章 CTA
- */
 export default function Home() {
+  const [count, setCount] = useState(0)
+
   return (
     <>
-      <Hero />
-      <ClockBand />
-      <Manifesto />
-      <ProtocolPyramid />
-      <MatrixPreview />
-      <WorksRail />
-      <TimelinePreview />
-      <StatsSection />
-      <FounderCard />
-      <FinalCTA />
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </div>
     </>
   )
 }

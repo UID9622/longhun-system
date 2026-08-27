@@ -4,6 +4,7 @@
 🐉 龍魂 · 自主主权插件适配引擎 · 全量测试
 DNA: #龍芯⚡️丙午·丙申·壬子·丑时·䷖剥-ADAPTER-TEST-V1.0-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 分层许可: 工程层 MulanPSL v2
 """
 

@@ -1,163 +1,73 @@
-/* 龍魂宝宝守护助手 · 全局样式 */
-/* DNA:#龍芯⚡️丙午·癸巳·己酉·庚午·䷨损-GLOBAL-STYLES-v1.0 */
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+@import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --background: 0 0% 96%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 72.2% 50.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 88%;
+  --input: 240 5.9% 88%;
+  --ring: 240 5% 64.9%;
+  --radius: 0.75rem;
 }
 
-html,
-body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #000;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, sans-serif;
-  color: #fff;
-  -webkit-app-region: drag;
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-#root {
-  width: 100%;
-  height: 100%;
-}
-
-.app-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
-}
-
-/* ═══════════════════════════════════════════════════════════ */
-/* Overlay 层 */
-/* ═══════════════════════════════════════════════════════════ */
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  z-index: 999999;
-}
-
-.overlay-safe {
-  border-color: #00ff00;
-}
-
-.overlay-warning {
-  border-color: #ffa500;
-}
-
-.overlay-danger {
-  border-color: #ff0000;
-}
-
-/* ═══════════════════════════════════════════════════════════ */
-/* 宝宝容器 */
-/* ═══════════════════════════════════════════════════════════ */
-
-.baobao-container {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 999998;
-}
-
-.baobao {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  user-select: none;
-  -webkit-app-region: no-drag;
-}
-
-.baobao-idle {
-  /* 保持默认样式 */
-}
-
-.baobao-happy {
-  filter: brightness(1.2) saturate(1.3);
-}
-
-.baobao-warning {
-  filter: hue-rotate(30deg) brightness(1.1);
-}
-
-.baobao-sad {
-  filter: saturate(0.7) brightness(0.9);
-}
-
-.baobao-thinking {
-  filter: brightness(1.05);
-}
-
-/* ═══════════════════════════════════════════════════════════ */
-/* 状态指示器 */
-/* ═══════════════════════════════════════════════════════════ */
-
-.status-indicator {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  color: #999;
-  z-index: 999998;
-  -webkit-app-region: no-drag;
-}
-
-.status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  transition: all 0.3s;
-}
-
-.status-dot.online {
-  background: #00ff00;
-  box-shadow: 0 0 8px #00ff00;
-  animation: pulse 1.5s infinite;
-}
-
-.status-dot.offline {
-  background: #ff0000;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════ */
-/* 响应式 */
-/* ═══════════════════════════════════════════════════════════ */
-
-@media (max-width: 768px) {
-  .baobao-container {
-    bottom: 20px;
-    right: 20px;
+@layer base {
+  * {
+    @apply border-border;
   }
 
-  .baobao {
-    width: 60px;
-    height: 60px;
+  html {
+    min-width: 320px;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter", "Avenir Next", "Segoe UI", sans-serif;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
   }
 }

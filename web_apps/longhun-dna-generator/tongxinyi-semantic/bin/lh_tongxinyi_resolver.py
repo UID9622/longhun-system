@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 龍魂 · 通心译引用解析器 v0.1
 输入中文意图 → 抽屉路由 → 词元匹配 → 输出 en/CNSH 映射 + DNA

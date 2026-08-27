@@ -1,282 +1,206 @@
+<!-- DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f -->
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🐉 龍魂 · 全媒体播放器 v1.1</title>
-  <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet">
+  <title>龍魂 CNSH 在线编辑器</title>
   <style>
     :root {
-      --bg: #0a0a0a;
-      --panel: #161616;
-      --accent: #00ff66;
-      --accent2: #00ffff;
-      --text: #eeeeee;
-      --muted: #888888;
-      --danger: #ff4d4d;
+      --bg: #0d1117;
+      --panel: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --accent: #58a6ff;
+      --green: #3fb950;
+      --yellow: #d29922;
+      --red: #f85149;
     }
     * { box-sizing: border-box; }
     body {
+      margin: 0;
+      font-family: "LongHun Font", "Noto Sans SC", "PingFang SC", system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-      margin: 0;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    .container { max-width: 1100px; margin: 0 auto; }
-    header { margin-bottom: 16px; }
-    header h1 { font-size: 1.6rem; margin: 0; color: var(--accent); }
-    header p { margin: 6px 0 0; color: var(--muted); font-size: 0.85rem; }
-    .status-bar {
+      height: 100vh;
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+      flex-direction: column;
+    }
+    header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex;
       align-items: center;
-      margin-bottom: 16px;
-      font-size: 0.78rem;
-      color: var(--muted);
+      justify-content: space-between;
     }
-    .dna {
-      word-break: break-all;
-      font-family: "SF Mono", Consolas, monospace;
-    }
-    .status-badge {
-      padding: 2px 8px;
+    header h1 { margin: 0; font-size: 18px; }
+    .tier-badge {
+      padding: 4px 10px;
       border-radius: 12px;
-      background: #222;
-      color: var(--accent);
-      border: 1px solid #333;
+      font-size: 12px;
+      background: var(--border);
     }
-    .file-input {
-      margin-bottom: 16px;
-      padding: 14px;
-      background: var(--panel);
-      border: 1px dashed #444;
-      border-radius: 10px;
-      text-align: center;
-      cursor: pointer;
-      transition: border-color 0.2s;
+    .tier-badge.paid { background: #238636; color: white; }
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
     }
-    .file-input:hover { border-color: var(--accent); }
-    .file-input input { display: none; }
-    .grid { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
-    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
-    .video-wrap {
-      background: var(--panel);
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #222;
-    }
-    .side-panel { display: flex; flex-direction: column; gap: 16px; }
     .panel {
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+    }
+    .panel-header {
+      padding: 10px 16px;
       background: var(--panel);
-      border-radius: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .panel-header span { font-weight: 600; }
+    textarea, pre {
+      flex: 1;
+      margin: 0;
       padding: 16px;
-      border: 1px solid #222;
-    }
-    .panel h2 { font-size: 1rem; margin: 0 0 12px; color: var(--accent); }
-    .search-box {
-      width: 100%;
-      padding: 8px 10px;
-      margin-bottom: 10px;
-      background: #000;
-      color: var(--text);
-      border: 1px solid #333;
-      border-radius: 6px;
-      font-size: 0.85rem;
-    }
-    .search-box:focus { outline: none; border-color: var(--accent); }
-    .transcript, .ocr-list {
-      max-height: 260px;
-      overflow-y: auto;
-      font-size: 0.85rem;
-    }
-    .transcript-line {
-      padding: 6px 0;
-      border-bottom: 1px solid #222;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-    .transcript-line:hover { background: #1e1e1e; }
-    .transcript-line.hidden { display: none; }
-    .transcript-time {
-      color: var(--accent2);
-      font-size: 0.75rem;
-      margin-right: 8px;
-      font-family: "SF Mono", Consolas, monospace;
-    }
-    .ocr-item { border-bottom: 1px solid #222; padding: 8px 0; }
-    .ocr-item:last-child { border-bottom: none; }
-    .ocr-time { color: var(--accent2); font-size: 0.75rem; }
-    .embed-code {
-      background: #000;
-      padding: 12px;
-      border-radius: 6px;
-      font-family: "SF Mono", Consolas, monospace;
-      font-size: 0.78rem;
-      word-break: break-all;
-      color: #aaa;
-    }
-    .copy-btn {
-      margin-top: 10px;
-      padding: 8px 14px;
-      background: var(--accent);
-      color: #000;
       border: none;
+      outline: none;
+      resize: none;
+      font-family: "LongHun Mono", "JetBrains Mono", "SF Mono", monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      overflow: auto;
+    }
+    pre { white-space: pre-wrap; }
+    .toolbar {
+      padding: 10px 16px;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
       border-radius: 6px;
-      font-size: 0.85rem;
       cursor: pointer;
-      font-weight: 600;
+      font-size: 14px;
     }
-    .copy-btn:hover { background: #00cc52; }
-    .vjs-theme-longhun {
-      --vjs-primary-color: var(--accent);
-      --vjs-secondary-color: #111;
+    button:hover { opacity: 0.9; }
+    button.secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
     }
-    @media (max-width: 640px) {
-      body { padding: 12px; }
-      header h1 { font-size: 1.25rem; }
-      .panel { padding: 12px; }
-      .transcript, .ocr-list { max-height: 220px; }
+    #status {
+      padding: 8px 16px;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: #8b949e;
+    }
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>🐉 龍魂 · 全媒体播放器 v1.1</h1>
-      <p>本地播放 · 语音识别 · 画面文字识别 · 可嵌入网页</p>
-    </header>
-
-    <div class="status-bar">
-      <div class="dna" id="dna-display">DNA: #龍芯⚡️丙午·丙申·辛酉·酉时·䷦蹇-MEDIA-PLAYER-REFINE-V1.1-P0-714d6fd6</div>
-      <span class="status-badge" id="status-display">就绪</span>
+  <header>
+    <h1>🐉 龍魂 CNSH 在线编辑器</h1>
+    <div>
+      <span id="tierBadge" class="tier-badge">检测中...</span>
+      <a href="/docs" target="_blank" style="margin-left:10px;color:var(--accent);text-decoration:none;font-size:13px;">API 文档</a>
     </div>
+  </header>
 
-    <label class="file-input">
-      <input type="file" id="videoInput" accept="video/*">
-      📁 点击或拖拽选择本地视频文件
-    </label>
-
-    <div class="grid">
-      <div class="video-wrap">
-        <video id="longhun-player" class="video-js vjs-theme-longhun vjs-big-play-centered" controls preload="auto" width="100%" height="540" data-setup='{}'>
-          <p class="vjs-no-js">请启用 JavaScript 以使用龍魂播放器</p>
-        </video>
-      </div>
-
-      <div class="side-panel">
-        <div class="panel">
-          <h2>🎙️ 语音文稿</h2>
-          <input type="search" class="search-box" id="asr-search" placeholder="搜索文稿关键字...">
-          <div class="transcript" id="asr-panel">选择视频后，将由后端生成 ASR 文稿。演示模式下点击时间戳可跳转。</div>
-        </div>
-        <div class="panel">
-          <h2>🖼️ 画面文字</h2>
-          <div class="ocr-list" id="ocr-panel">选择视频后，将由后端生成 OCR 结果。</div>
-        </div>
-        <div class="panel">
-          <h2>📎 嵌入代码</h2>
-          <div class="embed-code" id="embed-code">&lt;iframe src="..." width="960" height="720" frameborder="0"&gt;&lt;/iframe&gt;</div>
-          <button class="copy-btn" id="copy-btn">复制嵌入代码</button>
-        </div>
+  <main>
+    <div class="panel">
+      <div class="panel-header"><span>CNSH 源码</span></div>
+      <textarea id="source" spellcheck="false" placeholder="# 在此输入 CNSH 中文脚本
+函数 主函数() {
+    打印 "你好，龍魂"
+}
+主函数()"># 在此输入 CNSH 中文脚本
+函数 主函数() {
+    打印 "你好，龍魂"
+}
+主函数()</textarea>
+      <div class="toolbar">
+        <button onclick="runCode()">▶ 运行</button>
+        <button class="secondary" onclick="checkCode()">检查语法</button>
+        <button class="secondary" onclick="compileCode()">编译为 Python</button>
       </div>
     </div>
-  </div>
 
-  <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
+    <div class="panel">
+      <div class="panel-header"><span>输出 / 编译结果</span></div>
+      <pre id="output">点击「运行」查看结果...</pre>
+    </div>
+  </main>
+
+  <div id="status">就绪</div>
+
   <script>
-    const player = videojs('longhun-player', { fluid: true });
-    const videoInput = document.getElementById('videoInput');
-    const asrPanel = document.getElementById('asr-panel');
-    const asrSearch = document.getElementById('asr-search');
-    const ocrPanel = document.getElementById('ocr-panel');
-    const embedCode = document.getElementById('embed-code');
-    const copyBtn = document.getElementById('copy-btn');
-    const statusDisplay = document.getElementById('status-display');
-
-    function setStatus(text, type) {
-      statusDisplay.textContent = text;
-      statusDisplay.style.color = type === 'ok' ? 'var(--accent)' : (type === 'warn' ? '#ffcc00' : 'var(--danger)');
+    async function api(path, body) {
+      const res = await fetch(`/api/v1${path}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      return res.json();
     }
 
-    function renderTranscript(segments) {
-      asrPanel.innerHTML = '';
-      if (!segments.length) {
-        asrPanel.textContent = '暂无 ASR 结果';
-        return;
+    async function loadTier() {
+      const res = await fetch('/api/v1/tier');
+      const tier = await res.json();
+      const badge = document.getElementById('tierBadge');
+      badge.textContent = tier.name === 'paid' ? '龍魂云完整版' : '本地免费版';
+      badge.classList.toggle('paid', tier.name === 'paid');
+      document.getElementById('status').textContent =
+        `当前 tier: ${tier.description} | 代码长度限制: ${tier.max_source_chars} 字符 | 执行超时: ${tier.max_execution_time_ms}ms`;
+    }
+
+    async function runCode() {
+      const source = document.getElementById('source').value;
+      const out = document.getElementById('output');
+      out.textContent = '运行中...';
+      const data = await api('/run', { source });
+      let text = '';
+      if (data.stdout) text += `[标准输出]\n${data.stdout}\n`;
+      if (data.stderr) text += `[标准错误]\n${data.stderr}\n`;
+      if (data.namespace && Object.keys(data.namespace).length) {
+        text += `[命名空间]\n${JSON.stringify(data.namespace, null, 2)}\n`;
       }
-      segments.forEach(function(seg) {
-        const div = document.createElement('div');
-        div.className = 'transcript-line';
-        div.dataset.text = seg.text.toLowerCase();
-        div.innerHTML = '<span class="transcript-time">[' + seg.start.toFixed(1) + 's]</span>' + escapeHtml(seg.text);
-        div.addEventListener('click', function() {
-          player.currentTime(seg.start);
-          player.play();
-        });
-        asrPanel.appendChild(div);
-      });
+      text += `[状态] ${data.message}`;
+      out.textContent = text;
     }
 
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
+    async function checkCode() {
+      const source = document.getElementById('source').value;
+      const out = document.getElementById('output');
+      out.textContent = '检查中...';
+      const data = await api('/check', { source });
+      out.textContent = data.message;
     }
 
-    function filterTranscript(query) {
-      const q = query.toLowerCase();
-      const lines = asrPanel.querySelectorAll('.transcript-line');
-      lines.forEach(function(line) {
-        line.classList.toggle('hidden', q && (line.dataset.text || '').indexOf(q) === -1);
-      });
+    async function compileCode() {
+      const source = document.getElementById('source').value;
+      const out = document.getElementById('output');
+      out.textContent = '编译中...';
+      const data = await api('/compile', { source });
+      out.textContent = data.success ? data.python_code : data.message;
     }
 
-    asrSearch.addEventListener('input', function() {
-      filterTranscript(this.value);
-    });
-
-    copyBtn.addEventListener('click', function() {
-      const code = embedCode.textContent;
-      navigator.clipboard.writeText(code).then(function() {
-        const original = copyBtn.textContent;
-        copyBtn.textContent = '已复制 ✓';
-        setTimeout(function() { copyBtn.textContent = original; }, 1500);
-      }).catch(function() {
-        copyBtn.textContent = '复制失败';
-      });
-    });
-
-    document.addEventListener('keydown', function(e) {
-      if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-        e.preventDefault();
-        if (player.paused()) { player.play(); } else { player.pause(); }
-      }
-    });
-
-    videoInput.addEventListener('change', function() {
-      const file = this.files[0];
-      if (!file) return;
-
-      setStatus('演示模式', 'warn');
-      const url = URL.createObjectURL(file);
-      player.src({ type: file.type, src: url });
-      player.load();
-
-      // 演示文稿：点击时间戳可跳转
-      const demoSegments = [
-        { start: 0.0, text: '选择视频后，后端将生成 ASR 文稿。' },
-        { start: 5.2, text: '点击左侧时间戳，视频会跳转到对应位置。' },
-        { start: 12.8, text: '使用上方搜索框可过滤文稿内容。' },
-        { start: 20.0, text: '按空格键可播放/暂停（搜索框内除外）。' },
-      ];
-      renderTranscript(demoSegments);
-
-      ocrPanel.innerHTML = '<div class="ocr-item"><div>本地演示模式：后端处理完成后，将在此处显示画面文字。</div></div>';
-      embedCode.textContent = '<iframe src="./' + file.name + '.html" width="960" height="720" frameborder="0"></iframe>';
-    });
+    loadTier();
   </script>
 </body>
 </html>

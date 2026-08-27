@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-龍魂系统 · ASI 万法归一融合引擎 v1.0
-DNA: #龍芯⚡️2026-08-22-ASI-FUSION-v1.0-UID9622
+龍魂系统 · ASI 万法归一融合引擎 v1.1
+DNA: #龍芯⚡️2026-08-23-ASI-FUSION-v1.1-BAGUA-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 创建者: 诸葛鑫（UID9622）
-归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+变更(v1.1): 太极八门深度接入·闸5内容门优先(cnsh_bagua_router)
+           死门/惊门=🔴熔断拒绝·杜门=🟡隐私·景门=🟡留痕
+           时间八门交叉验证·降级兜底保留·鲲鹏0.23s/38KB实测
 
 用途:
   将金字塔兼容协议 v1.1 的七锚（金字塔/蚁群/369/易经/五行/道德经/生死门）
@@ -51,6 +53,8 @@ _TIME_ENGINE = _safe_import("lh_time_engine")
 _DIGITAL_ROOT = _safe_import("lh_digital_root")
 _WUXING = _safe_import("lh_wuxing_core")
 _DAODEJING = _safe_import("lh_daodejing_engine")
+_BAGUA_ROUTER = _safe_import("cnsh_bagua_router")        # 太极八门·内容关键词分类器（死/惊=熔断）
+_8GATE_API = _safe_import("lh_antenna_8gate_api")        # 触角八门 API v2.0（八卦路由→五行调度）
 
 # ------------------------------------------------------------
 # 锚数据表（简化映射·真实引擎优先）
@@ -238,31 +242,54 @@ class FusionEngine:
         note = "放行" if status == "🟢" else "择时·待审"
         return Evidence("易经", status, note, f"降级三才起卦 天{di}地{tian}人{ren}·相位{verdict}", "降级(三才简化)")
 
-    # ---------- 闸5: 生死门（八门·软闸·死/惊/伤=择时警示🟡·不直接拒绝） ----------
-    def gate_bagua(self) -> Evidence:
-        try:
-            if _TIME_ENGINE:
+    # ---------- 闸5: 生死门（太极八门·v1.1: 内容门优先·死/惊=熔断🔴 杜=隐私🟡） ----------
+    # 三级判定：①内容八门(cnsh_bagua_router关键词分类器·最高优先级)
+    #           ②时间八门(lh_time_engine吉平凶·交叉验证)
+    #           ③降级(时辰+数字根简化落位·兜底)
+    def gate_bagua(self, text: str) -> Evidence:
+        c_gate, c_status, c_verdict = None, None, None
+        if _BAGUA_ROUTER:
+            try:
+                c_gate, _reason = _BAGUA_ROUTER.classify_bamen(text)
+                c_status = {"死门": "🔴", "惊门": "🔴", "杜门": "🟡", "伤门": "🟡", "景门": "🟡",
+                            "开门": "🟢", "休门": "🟢", "生门": "🟢"}.get(c_gate, "🟡")
+                c_verdict = {"死门": "拒绝:终止/危险类请求", "惊门": "拒绝:告警/违法/威胁类请求",
+                             "杜门": "待审:隐私/阻塞·数据不出本机", "伤门": "待审:冲突/调试",
+                             "景门": "待审:展示/审计·留痕", "开门": "放行:通达", "休门": "放行:低功耗", "生门": "放行:创作"}.get(c_gate, "待审")
+            except Exception:
+                c_gate, c_status, c_verdict = None, None, None
+
+        t_status, t_note = None, None
+        if _TIME_ENGINE:
+            try:
                 block = _TIME_ENGINE.get_time_block()
                 gate_raw = block.get("八门") or block.get("门") or None
                 if gate_raw:
-                    gate = str(gate_raw).replace("门", "") + "门"
-                    if gate not in EIGHT_GATES:
-                        gate = "生门"
-                    verdict = GATE_VERDICT[gate]
-                    vmap = {"吉": "🟢", "平": "🟡", "凶": "🟡"}
-                    status = vmap[verdict]
-                    note = "放行" if status == "🟢" else ("择时·待审" if verdict == "凶" else "待审")
-                    return Evidence("生死门", status, note, f"{gate}·相位{verdict}", "lh_time_engine")
-        except Exception:
-            pass
-        # 降级：时辰+日数字根 → 八门落位
+                    t_gate = str(gate_raw).replace("门", "") + "门"
+                    if t_gate in EIGHT_GATES:
+                        t_verdict = GATE_VERDICT[t_gate]
+                        t_status = "🟢" if t_verdict == "吉" else "🟡"
+                        t_note = f"时间门:{t_gate}·相位{t_verdict}"
+            except Exception:
+                pass
+
+        # ① 内容门命中 → 直接裁决（死/惊=🔴熔断拒绝）
+        if c_status:
+            detail = f"内容门:{c_gate}·{c_verdict}"
+            if t_note:
+                detail += f" | {t_note}"
+            src = "cnsh_bagua_router(太极八门)" + ("+lh_time_engine" if t_note else "")
+            return Evidence("生死门", c_status, c_verdict, detail, src)
+        # ② 时间门交叉
+        if t_status:
+            return Evidence("生死门", t_status, "放行" if t_status == "🟢" else "待审", t_note, "lh_time_engine(时间八门)")
+        # ③ 降级兜底：时辰+日数字根 → 八门落位
         now = datetime.now()
         idx = (now.hour + _digital_root(now.day)) % 8
         gate = EIGHT_GATES[idx]
         verdict = GATE_VERDICT[gate]
-        vmap = {"吉": "🟢", "平": "🟡", "凶": "🟡"}
-        status = vmap[verdict]
-        note = "放行" if status == "🟢" else ("择时·待审" if verdict == "凶" else "待审")
+        status = "🟢" if verdict == "吉" else "🟡"
+        note = "放行" if status == "🟢" else "待审"
         return Evidence("生死门", status, note, f"{gate}(奇门八门简化落位)·相位{verdict}", "降级(八门简化映射)")
 
     # ---------- 闸6: 道德经锚 ----------
@@ -299,7 +326,7 @@ class FusionEngine:
             self.gate_wuxing(category),
             self.gate_369(input_text),
             self.gate_yijing(),
-            self.gate_bagua(),
+            self.gate_bagua(input_text),
             self.gate_daodejing(input_text),
             self.gate_ant(input_text),
         ]

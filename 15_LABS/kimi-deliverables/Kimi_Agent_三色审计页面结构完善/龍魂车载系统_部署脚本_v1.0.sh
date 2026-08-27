@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # 🐉 龍魂车载系统 · 实战部署脚本 v1.0（鲲鹏/边缘节点）
 # DNA: #龍芯⚡️丙午·丙申·丙辰·甲午·䷑蛊-CAR-DEPLOY-v1.0-UID9622（生成器回填）
 # 用法: sudo ./deploy_car_system.sh [install|upgrade|rollback|status|uninstall]

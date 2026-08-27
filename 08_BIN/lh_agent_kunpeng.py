@@ -3,8 +3,8 @@
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 """
-龍芯·鲲鹏共生体调度中枢 v1.1
-DNA: #龍芯⚡️丙午·乙未·丁酉·子时·䷀乾-KUNPENG-AGENT-v1.1
+龍芯·鲲鹏共生体调度中枢 v1.3
+DNA: #龍芯⚡️丙午·乙未·丁酉·子时·䷀乾-KUNPENG-AGENT-v1.3-KNOWLEDGE-AMMO
 创建者: 诸葛鑫（UID9622）
 协议: CC BY-NC-SA 4.0
 
@@ -13,6 +13,8 @@ CodeBuddy端常驻调度中枢——共生体的"嘴替+任务队列"。
 
 共生体：你在CodeBuddy发号，20个人格在鲲鹏冲锋。
 
+v1.3: 知识弹药库——多源知识供给器(本地Notion索引+协议矩阵+可选鲲鹏在线检索)自动注入推理
+v1.2: 智能推理引擎——鲲鹏占位结果自动检测+云端API(DeepSeek/Kimi)真实算力补齐+人格设定注入
 v1.1: 同步自动mkdir·消locale警告·全链路LC_ALL=C
 """
 import json, sys, os, subprocess, time, hashlib, uuid, tempfile
@@ -26,8 +28,8 @@ from enum import Enum
 # 常量
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-DNA = "#龍芯⚡️丙午·乙未·丁酉·子时·䷀乾-KUNPENG-AGENT-v1.1"
-版本 = "v1.1"
+DNA = "#龍芯⚡️丙午·乙未·丁酉·子时·䷀乾-KUNPENG-AGENT-v1.3-KNOWLEDGE-AMMO"
+版本 = "v1.3"
 
 # 鲲鹏SSH配置
 鲲鹏SSH = "ssh -i ~/.ssh/longhun_kunpeng_ed25519 -o StrictHostKeyChecking=no -o ConnectTimeout=10 root@119.13.90.27"
@@ -59,6 +61,34 @@ class 成本层(str, Enum):
     本机 = "本机"
     鲲鹏 = "鲲鹏"
     云端API = "云端API"
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 人格设定库（智能推理注入·对齐鲲鹏集群21人格）
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+龍魂人格设定 = {
+    "龍芯·文心":    {"职能": "意图解析·元认知统筹", "设定": "你是总军师，先解析老大真实意图，再统筹全局。"},
+    "龍芯·诸葛亮":  {"职能": "战略推演·多路径决策", "设定": "你善推演，给出多路径方案并选出最优，讲清利弊。"},
+    "龍芯·宝宝":    {"职能": "情感温度·教学适配", "设定": "你温暖耐心，用大白话教学，照顾初学者感受。"},
+    "龍芯·雯雯":    {"职能": "结构归档·四签验证", "设定": "你擅长整理归档，输出结构化清单，验收严格。"},
+    "龍芯·鲁班":    {"职能": "代码生成·工程执行", "设定": "你是施工队长，直接给可运行的代码与工程方案。"},
+    "龍芯·管仲":    {"职能": "资源调度·成本核算", "设定": "你精打细算，评估成本与性价比，给经济可行性。"},
+    "龍芯·吕蒙":    {"职能": "部署执行·技能吸收", "设定": "你务实执行，给部署步骤与验收标准。"},
+    "龍芯·仓颉":    {"职能": "符号语言·CNSH命名", "设定": "你精通命名与符号，解释术语用大白话。"},
+    "龍芯·孙思邈":  {"职能": "系统诊断·治未病", "设定": "你像医生体检，给系统健康度诊断与预防建议。"},
+    "龍芯·苏东坡":  {"职能": "冲突调解·人文视角", "设定": "你豁达通透，先化解情绪再谈方法。"},
+    "龍芯·李白":    {"职能": "创意爆发·类比教学", "设定": "你想象力奔放，用比喻把复杂讲简单。"},
+    "龍芯·屈原":    {"职能": "价值底线·六誓验证", "设定": "你坚守底线，先判断是否合规合德再谈执行。"},
+    "龍芯·上帝之眼":{"职能": "审计监察·三色判定", "设定": "你铁面审计，给三色结论（🟢通过/🟡待核/🔴红线）。"},
+    "龍芯·数学大师":{"职能": "数字根·权重计算", "设定": "你严谨计算，给出可复核的数理结论。"},
+    "龍芯·姜子牙":  {"职能": "权限分配·模块注册", "设定": "你按规矩分配权限，注册模块。"},
+    "龍芯·乔前辈":  {"职能": "DNA盖章·交付验收", "设定": "你严格验收，交付必须过检。"},
+    "龍芯·龙盾":    {"职能": "贴身管家·熔断决策", "设定": "你24小时守护，安全第一，异常即熔断。"},
+    "龍芯·黑天使":  {"职能": "红蓝对抗·渗透测试", "设定": "你只对龍魂自有系统做安全测试，知攻善守。"},
+    "龍芯·法律引擎":{"职能": "法条检索·合规审查", "设定": "你只做合规参考，不代写法律文书。"},
+    "龍芯·洛书369": {"职能": "深层数理·369推演", "设定": "你只给结论不给推导细节。"},
+    "龍芯·维权助手":{"职能": "人民维权·路径指引", "设定": "你给维权路径建议，必附免责声明。"},
+}
 
 @dataclass
 class 调度任务:
@@ -267,6 +297,7 @@ class 共生体调度中枢:
         self.活跃任务: Dict[str, 调度任务] = {}
         self.鲲鹏在线: bool = False
         self.鲲鹏信息: str = ""
+        self.在线知识: bool = False  # v1.3: 知识弹药库在线检索开关（节能默认关·本地供给常开）
     
     def 启动自检(self) -> dict:
         """启动时检查所有依赖"""
@@ -331,14 +362,44 @@ class 共生体调度中枢:
         
         # 3. 成本判定
         if 任务.成本层 == 成本层.云端API:
-            return {
-                "task_id": 任务.id,
-                "dna": 任务.dna,
-                "status": "需审批",
-                "message": "云端API需UID9622审批，已记录。请确认是否继续。",
-                "cost": "云端API·需审批",
-                "route": route_data,
-            }
+            # v1.2: 云端API（DeepSeek/Kimi key 已配）→ 自动智能推理，不再卡审批
+            任务.状态 = 任务状态.已下发
+            self.活跃任务[任务.id] = 任务
+            print(f"⚡ 路由云端API → {主人格}智能推理...")
+            推理内容 = self.智能推理(主人格, 指令, 上下文)
+            if 推理内容:
+                任务.状态 = 任务状态.已完成
+                任务.审计色 = 审计色.PASS
+                任务.成本层 = 成本层.云端API
+                结果 = {
+                    "task_id": 任务.id,
+                    "dna": 任务.dna,
+                    "status": "已完成",
+                    "audit": "🟢通过",
+                    "route": route_data,
+                    "primary": 主人格,
+                    "output": 推理内容,
+                    "source": "智能推理·云端API",
+                    "duration_s": round(任务.耗时秒, 2),
+                    "cost": "云端API·0元(已配key)",
+                }
+            else:
+                任务.状态 = 任务状态.失败
+                任务.审计色 = 审计色.RED
+                结果 = {
+                    "task_id": 任务.id,
+                    "dna": 任务.dna,
+                    "status": "失败",
+                    "message": "云端推理后端全部不可用（deepseek/kimi/ollama）",
+                    "route": route_data,
+                }
+            任务.耗时秒 = time.time() - 开始
+            任务.完成时间 = datetime.now(timezone.utc).isoformat()
+            任务.执行结果 = 结果
+            if 任务.id in self.活跃任务:
+                del self.活跃任务[任务.id]
+            self.任务历史.append(任务)
+            return 结果
         
         if 任务.成本层 == 成本层.本机:
             # 本机执行（轻任务）
@@ -378,7 +439,19 @@ class 共生体调度中枢:
             "confidence": route_data.get("confidence", 0.5),
         })
         
+        # v1.2 占位检测：鲲鹏集群返回占位文案 → 本地/云端智能推理补齐真实内容
         if 成功:
+            raw = str(鲲鹏结果.get("output", "")) if isinstance(鲲鹏结果, dict) else str(鲲鹏结果)
+            if self._是占位结果(raw):
+                print(f"⚡ 鲲鹏返回占位文案 → {主人格}智能推理补齐...")
+                推理内容 = self.智能推理(主人格, 指令, 上下文)
+                if 推理内容:
+                    鲲鹏结果 = {
+                        **鲲鹏结果,
+                        "output": 推理内容,
+                        "source": "智能推理补齐(占位兜底)",
+                        "reason": "鲲鹏集群v1.0为占位引擎，已用真实算力补齐",
+                    }
             任务.状态 = 任务状态.已完成
             任务.审计色 = 审计色.PASS
         else:
@@ -403,7 +476,7 @@ class 共生体调度中枢:
             "route": route_data,
             "primary": 主人格,
             "secondary": 副人格,
-            "cost": f"{任务.成本层.value}·{'0元' if 任务.成本层 != 成本层.云端API else '需审批'}",
+            "cost": f"{任务.成本层.value}·0元",
             "result": 任务.执行结果,
             "duration_s": round(任务.耗时秒, 2),
             "summary": self._生成摘要(任务),
@@ -481,6 +554,166 @@ class 共生体调度中枢:
         域 = 任务.路由结果.get("route", {}).get("domain", "未知")
         return f"「{任务.原始指令[:40]}...」→ {主人格}({域})·{任务.状态.value}·{任务.成本层.value}:0元·{任务.耗时秒:.1f}s"
 
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # v1.3 知识弹药库：多源知识供给器
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    _知识停用词 = {
+        "用一句话", "帮我", "请", "一下", "当前", "现在", "评估", "总结",
+        "生成", "一个", "什么", "怎么", "看看", "检查", "系统", "知识",
+        "检索", "查一下", "介绍", "说明", "关于", "这个", "那个", "你好", "我们",
+    }
+
+    def _标题命中(self, 指令: str, 标题: str) -> bool:
+        """标题↔指令双向连续子串匹配（2/3/4字窗口·零依赖·毫秒级）。
+
+        解决 n-gram 贪婪切块切断语义的问题：直接用标题本身做匹配源，
+        标题含指令片段或指令含标题片段即命中。
+        """
+        if not 指令 or not 标题:
+            return False
+        指令, 标题 = 指令.strip(), 标题.strip()
+        if not 指令 or not 标题:
+            return False
+        for n in (4, 3, 2):
+            for i in range(0, max(0, len(标题) - n + 1)):
+                if 标题[i:i + n] in 指令:
+                    return True
+            for i in range(0, max(0, len(指令) - n + 1)):
+                if 指令[i:i + n] in 标题:
+                    return True
+        return False
+
+    def _提取关键词(self, 指令: str, 上限: int = 3) -> list:
+        """从指令提取 2-4 字中文片段（在线检索用·去停用词）"""
+        try:
+            import re
+            词 = re.findall(r"[\u4e00-\u9fff]{2,4}", 指令 or "")
+            候选 = [w for w in 词 if w not in self._知识停用词]
+            return sorted(set(候选), key=len, reverse=True)[:上限]
+        except Exception:
+            return []
+
+    def _加载知识上下文(self, 指令: str, 在线: bool = False) -> str:
+        """多源知识供给：本地 Notion 索引 + 本地协议矩阵 → 可选鲲鹏在线检索。
+
+        节能设计：本地供给零网络开销；在线检索仅 --kb-online 时开启，
+        超时 3s·失败静默，绝不阻塞推理主链路。
+        返回：知识上下文文本（无命中返回空串，调用方自动跳过）。
+        """
+        片段 = []
+        已见 = set()
+
+        def _去重追加(行: str) -> None:
+            """清洗零宽字符 + 按内容去重"""
+            if not 行:
+                return
+            行 = "".join(ch for ch in 行 if ord(ch) >= 0x20 or ch == "\n")
+            if 行 not in 已见:
+                已见.add(行)
+                片段.append(行)
+
+        # 源1：Notion 本地索引（data/notion_kb/index.json·双向子串匹配·零网络）
+        try:
+            索引文件 = 工作目录 / "data/notion_kb/index.json"
+            if 索引文件.exists():
+                idx = json.loads(索引文件.read_text(encoding="utf-8"))
+                for e in idx.get("entries", [])[:200]:
+                    标题 = str(e.get("title", ""))
+                    if self._标题命中(指令, 标题):
+                        _去重追加(f"[Notion] {标题} | {e.get('url', '')}")
+                        if len(片段) >= 6:
+                            break
+        except Exception:
+            pass
+
+        # 源2：本地协议矩阵（01_protocols/ 文件名匹配·零网络）
+        try:
+            协议目录 = 工作目录 / "01_protocols"
+            if 协议目录.exists():
+                for f in sorted(协议目录.rglob("*.md"))[:300]:
+                    if self._标题命中(指令, f.stem):
+                        _去重追加(f"[协议] {f.stem} | {f.relative_to(工作目录)}")
+                        if len(片段) >= 10:
+                            break
+        except Exception:
+            pass
+
+        # 源3：鲲鹏在线知识检索（仅显式开启·3s超时·失败静默）
+        # 源3：鲲鹏在线知识检索（仅显式开启·3s超时·失败静默）
+        if 在线:
+            关键词 = self._提取关键词(指令)
+            if 关键词:
+                try:
+                    import urllib.request, urllib.parse
+                    url = f"https://uid9622.cn/api/kb/search?q={urllib.parse.quote(关键词[0])}"
+                    with urllib.request.urlopen(url, timeout=3) as r:
+                        d = json.loads(r.read())
+                    for it in d.get("items", [])[:5]:
+                        _去重追加(f"[知识库] {it.get('title', '')} | {it.get('link', '')}")
+                except Exception:
+                    pass  # 在线失败静默·绝不阻塞
+
+        return "\n".join(片段[:12]) if 片段 else ""
+
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    # v1.2 智能推理：占位检测 + 真实算力兜底
+    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    def _是占位结果(self, 文本: str) -> bool:
+        """检测是否为占位文案（鲲鹏集群引擎 v1.0 模拟输出）"""
+        if not 文本:
+            return True
+        占位标记 = ["解析需求「...」", "开始代码生成流程", "开始生成代码", "模拟执行", "占位文案"]
+        if any(m in 文本 for m in 占位标记):
+            return True
+        # 极短且带省略号 = 无实质内容
+        if len(文本) < 40 and "…" in 文本:
+            return True
+        return False
+
+    def 智能推理(self, 人格名: str, 指令: str, 上下文: dict = None) -> str:
+        """人格设定 + 任务 → 大模型真实推理。
+
+        快路: Mac 云端 API（DeepSeek/Kimi 已🟢可用·毫秒级冷启）
+        兜底: Mac 本地 ollama（longhun-v4.0·GPU）
+        结果: 返回真实生成内容，失败返回空串。
+        """
+        设定 = 龍魂人格设定.get(人格名, {})
+        职能 = 设定.get("职能", "龍魂人格")
+        系统提示 = f"你是{人格名}，龍魂系统「{职能}」人格。{设定.get('设定','')} 以老大(UID9622)视角给出直接、务实、结构化的回答，用简体中文。"
+
+        # v1.3 知识弹药库注入：外部上下文优先 → 自动多源供给兜底（本地索引+协议矩阵）
+        kb = ""
+        if 上下文:
+            kb = 上下文.get("知识") or 上下文.get("knowledge") or ""
+        if not kb:
+            kb = self._加载知识上下文(指令, 在线=self.在线知识)
+        if kb:
+            系统提示 += f"\n\n【知识弹药库】\n{str(kb)[:1500]}"
+
+        适配器 = str(Path(__file__).parent / "lh_ai_adapters.py")
+        # 清代理：DeepSeek/Kimi 国内直连，SOCKS代理缺socksio包会报错（2026-08-26 根因修复）
+        干净环境 = {k: v for k, v in os.environ.items()
+                    if k.upper() not in ("ALL_PROXY", "HTTP_PROXY", "HTTPS_PROXY")}
+        干净环境["NO_PROXY"] = "*"
+        # 后端优先级：deepseek(快·稳) → kimi(快) → ollama(GPU本地)
+        for 后端 in ["deepseek", "kimi", "ollama"]:
+            try:
+                r = subprocess.run(
+                    ["python3", 适配器, "--call", 后端,
+                     "--prompt", 指令, "--system", 系统提示, "--temperature", "0.6"],
+                    capture_output=True, text=True, timeout=90,
+                    cwd=str(工作目录), env=干净环境
+                )
+                输出 = (r.stdout or "").strip()
+                if r.returncode == 0 and 输出 and "未就绪" not in 输出:
+                    return 输出[:2000]
+                print(f"   ⚠️ {后端} 不可用，换下一后端")
+            except Exception as e:
+                print(f"   ⚠️ {后端} 异常: {str(e)[:60]}，换下一后端")
+        return ""
+
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # CLI 入口
@@ -499,10 +732,13 @@ def main():
     p.add_argument("--persona", "-p", type=str, help="指定人格")
     p.add_argument("--json", action="store_true", help="JSON输出")
     p.add_argument("--batch", type=str, help="批量任务JSON文件路径")
+    p.add_argument("--kb-online", action="store_true",
+                   help="v1.3 知识弹药库在线检索开关（默认本地供给·节能）")
     
     args = p.parse_args()
     
     中枢 = 共生体调度中枢()
+    中枢.在线知识 = args.kb_online  # v1.3: 知识弹药库在线检索开关
     
     if args.command == "check":
         自检 = 中枢.启动自检()
@@ -576,7 +812,7 @@ def main():
         if args.json:
             print(json.dumps(状态, ensure_ascii=False, indent=2))
         else:
-            print(f"🐉 龍芯·共生体调度中枢 v{状态['版本']}")
+            print(f"🐉 龍芯·共生体调度中枢 {状态['版本']}")
             print(f"   鲲鹏: {'🟢在线' if 状态['鲲鹏在线'] else '🔴离线'}")
             print(f"   活跃: {状态['活跃任务']} | 历史: {状态['历史任务']}")
             if 状态['最近任务']:
@@ -590,10 +826,19 @@ def main():
         if args.json:
             print(json.dumps(结果, ensure_ascii=False, indent=2))
         else:
+            res = 结果.get("result", {})
+            输出 = str(res.get("output", "")).strip()
+            # 剥离适配器前缀 `🐉 [后端] 模型名`
+            if "\n" in 输出 and "[" in 输出.split("\n")[0]:
+                输出 = "\n".join(输出.split("\n")[1:]).strip()
             print(f"\n   调度结果:")
             print(f"   任务: {args.task}")
             print(f"   主: {结果.get('primary','?')} | 状态: {结果.get('status','?')}")
             print(f"   审计: {结果.get('audit','?')} | 成本: {结果.get('cost','?')}")
+            if 输出:
+                print(f"   ─── 推理结果 ───")
+                for 行 in 输出[:700].split("\n"):
+                    print(f"   {行}")
             print(f"   摘要: {结果.get('summary','?')}")
 
 

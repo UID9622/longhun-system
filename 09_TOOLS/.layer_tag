@@ -1,10 +1,10 @@
 {
-  "layer_id": "09",
-  "layer_name": "TOOLS",
-  "display_name": "可复用 SDK/工具",
-  "dna": "#龍芯⚡️丙午·丙申·庚戌·TOOLS-LAYER-v1.0-UID9622",
-  "purpose": "独立可复用的工具脚本、SDK、辅助库",
-  "compat_symlink": "tools",
-  "created_at": "2026-08-04T09:18:42.922942+00:00",
+  "layer_id": "04",
+  "layer_name": "SERVICES",
+  "display_name": "API/后端/集成服务",
+  "dna": "#龍芯⚡️丙午·丙申·庚戌·SERVICES-LAYER-v1.0-UID9622",
+  "purpose": "API 网关、后端服务、第三方集成、Systemd 服务定义",
+  "compat_symlink": "services",
+  "created_at": "2026-08-04T09:18:42.921629+00:00",
   "version": "v2.0"
 }

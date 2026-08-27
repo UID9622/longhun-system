@@ -1,4 +1,5 @@
 #!/bin/bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # 🐉 龍魂 · Mac全应用互通引擎 v2.0 · 一键安装
 # DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-INSTALL-UID9622
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)

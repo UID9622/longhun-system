@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 longhun_chinese_editor.compiler - CNSH 完整编译器子包
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)

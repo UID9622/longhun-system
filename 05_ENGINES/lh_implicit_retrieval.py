@@ -4,6 +4,7 @@
 🐉 龍魂 · 无意识检索引擎 (Implicit Retrieval Engine)
 DNA: #龍芯⚡️丙午·丙申·壬戌·乙巳·䷾既济-IMPLICIT-RETRIEVAL-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 License: MulanPSL v2
 

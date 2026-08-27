@@ -1,67 +1,206 @@
+<!-- DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f -->
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>龍魂 · 协作中枢导航</title>
-<style>
-  :root { --gold:#d4af37; --dark:#0d0d0d; --panel:#1a1a1a; --text:#e8e6e3; --dim:#9a958c; --line:#2e2b26; }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:var(--dark); color:var(--text); font-family:"MiSans","PingFang SC","Microsoft YaHei",sans-serif; min-height:100vh; }
-  .wrap { max-width:960px; margin:0 auto; padding:32px 20px 60px; }
-  header { text-align:center; padding:36px 0 28px; border-bottom:1px solid var(--line); margin-bottom:28px; }
-  .dna-badge { display:inline-block; background:var(--panel); border:1px solid var(--line); color:var(--gold); padding:6px 14px; border-radius:20px; font-size:12px; margin-bottom:14px; letter-spacing:1px; }
-  h1 { font-size:30px; letter-spacing:4px; color:var(--gold); }
-  .sub { color:var(--dim); margin-top:8px; font-size:14px; }
-  .grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-  @media (max-width:720px){ .grid{ grid-template-columns:1fr; } }
-  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 20px; }
-  .card h2 { font-size:15px; color:var(--gold); margin-bottom:12px; letter-spacing:1px; border-left:3px solid var(--gold); padding-left:10px; }
-  .card a { display:block; color:var(--text); text-decoration:none; padding:8px 12px; border-radius:8px; font-size:13px; transition:all .15s; }
-  .card a:hover { background:#26221a; color:var(--gold); }
-  .card a .desc { color:var(--dim); font-size:11px; margin-left:6px; }
-  .mono { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12px; background:#121212; border:1px solid var(--line); border-radius:8px; padding:6px 10px; display:inline-block; margin:4px 2px; color:#cfe3cf; }
-  .note { margin-top:28px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 20px; }
-  .note h2 { font-size:15px; color:var(--gold); margin-bottom:10px; }
-  .note li { font-size:13px; color:var(--dim); line-height:1.9; margin-left:18px; }
-  footer { text-align:center; margin-top:36px; color:var(--dim); font-size:12px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>龍魂 CNSH 在线编辑器</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --accent: #58a6ff;
+      --green: #3fb950;
+      --yellow: #d29922;
+      --red: #f85149;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "LongHun Font", "Noto Sans SC", "PingFang SC", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 { margin: 0; font-size: 18px; }
+    .tier-badge {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      background: var(--border);
+    }
+    .tier-badge.paid { background: #238636; color: white; }
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+    .panel {
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+    }
+    .panel-header {
+      padding: 10px 16px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .panel-header span { font-weight: 600; }
+    textarea, pre {
+      flex: 1;
+      margin: 0;
+      padding: 16px;
+      border: none;
+      outline: none;
+      resize: none;
+      font-family: "LongHun Mono", "JetBrains Mono", "SF Mono", monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      overflow: auto;
+    }
+    pre { white-space: pre-wrap; }
+    .toolbar {
+      padding: 10px 16px;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover { opacity: 0.9; }
+    button.secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    #status {
+      padding: 8px 16px;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: #8b949e;
+    }
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
-<div class="wrap">
   <header>
-    <div class="dna-badge">#龍芯⚡️丙午·丙申·己未·酉时-COLLAB-INDEX-v1.0-UID9622</div>
-    <h1>龍魂 · 协作中枢</h1>
-    <div class="sub">所有 AI · 所有设备 · 唯一进门 · 鲲鹏唯一真相来源</div>
+    <h1>🐉 龍魂 CNSH 在线编辑器</h1>
+    <div>
+      <span id="tierBadge" class="tier-badge">检测中...</span>
+      <a href="/docs" target="_blank" style="margin-left:10px;color:var(--accent);text-decoration:none;font-size:13px;">API 文档</a>
+    </div>
   </header>
 
-  <div class="grid">
-    <div class="card">
-      <h2>📄 快速导航</h2>
-      <a href="NAVIGATION.md">🧭 导航地图<span class="desc">三秒找到任何东西</span></a>
-      <a href="DOCUMENT_MATRIX.md">📋 文档统一矩阵<span class="desc">在哪协作/指向/迭代</span></a>
-      <a href="README.md">📍 协作中枢总导航<span class="desc">唯一入口</span></a>
-      <a href="handoffs/">📤 交接包目录<span class="desc">跨AI无缝衔接</span></a>
+  <main>
+    <div class="panel">
+      <div class="panel-header"><span>CNSH 源码</span></div>
+      <textarea id="source" spellcheck="false" placeholder="# 在此输入 CNSH 中文脚本
+函数 主函数() {
+    打印 "你好，龍魂"
+}
+主函数()"># 在此输入 CNSH 中文脚本
+函数 主函数() {
+    打印 "你好，龍魂"
+}
+主函数()</textarea>
+      <div class="toolbar">
+        <button onclick="runCode()">▶ 运行</button>
+        <button class="secondary" onclick="checkCode()">检查语法</button>
+        <button class="secondary" onclick="compileCode()">编译为 Python</button>
+      </div>
     </div>
-    <div class="card">
-      <h2>🔗 云端指向</h2>
-      <a href="https://uid9622.cn/api/cmd/">⚡ 命令总目 API<span class="desc">/api/cmd</span></a>
-      <a href="https://uid9622.cn/">🌐 龍魂官网<span class="desc">uid9622.cn</span></a>
-      <a href="https://uid9622.notion.site">📓 Notion 知识库<span class="desc">367数据库</span></a>
-      <a href="https://uid9622-01.blog.csdn.net">📺 CSDN 博客<span class="desc">技术文章</span></a>
+
+    <div class="panel">
+      <div class="panel-header"><span>输出 / 编译结果</span></div>
+      <pre id="output">点击「运行」查看结果...</pre>
     </div>
-  </div>
+  </main>
 
-  <div class="note">
-    <h2>🚀 进门三步（每个 AI 每个新会话）</h2>
-    <ol>
-      <li><span class="mono">读导航</span> 本页 → 知道有什么</li>
-      <li><span class="mono">lh handoff load --remote</span> → 接上一位的工作</li>
-      <li><span class="mono">bash deploy/sync-collab.sh pull</span> → 拉到最新协作数据</li>
-    </ol>
-  </div>
+  <div id="status">就绪</div>
 
-  <footer>龍魂协作中枢 v1.0 · UID9622 · CC BY-NC-SA 4.0（思想层）· 🐉丙午·丙申·己未·酉时·䷖剥·🟡</footer>
-</div>
+  <script>
+    async function api(path, body) {
+      const res = await fetch(`/api/v1${path}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      return res.json();
+    }
+
+    async function loadTier() {
+      const res = await fetch('/api/v1/tier');
+      const tier = await res.json();
+      const badge = document.getElementById('tierBadge');
+      badge.textContent = tier.name === 'paid' ? '龍魂云完整版' : '本地免费版';
+      badge.classList.toggle('paid', tier.name === 'paid');
+      document.getElementById('status').textContent =
+        `当前 tier: ${tier.description} | 代码长度限制: ${tier.max_source_chars} 字符 | 执行超时: ${tier.max_execution_time_ms}ms`;
+    }
+
+    async function runCode() {
+      const source = document.getElementById('source').value;
+      const out = document.getElementById('output');
+      out.textContent = '运行中...';
+      const data = await api('/run', { source });
+      let text = '';
+      if (data.stdout) text += `[标准输出]\n${data.stdout}\n`;
+      if (data.stderr) text += `[标准错误]\n${data.stderr}\n`;
+      if (data.namespace && Object.keys(data.namespace).length) {
+        text += `[命名空间]\n${JSON.stringify(data.namespace, null, 2)}\n`;
+      }
+      text += `[状态] ${data.message}`;
+      out.textContent = text;
+    }
+
+    async function checkCode() {
+      const source = document.getElementById('source').value;
+      const out = document.getElementById('output');
+      out.textContent = '检查中...';
+      const data = await api('/check', { source });
+      out.textContent = data.message;
+    }
+
+    async function compileCode() {
+      const source = document.getElementById('source').value;
+      const out = document.getElementById('output');
+      out.textContent = '编译中...';
+      const data = await api('/compile', { source });
+      out.textContent = data.success ? data.python_code : data.message;
+    }
+
+    loadTier();
+  </script>
 </body>
 </html>

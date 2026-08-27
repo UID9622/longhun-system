@@ -1,0 +1,152 @@
+<!-- DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f -->
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>UID9622 · 龍魂入口</title>
+<style>
+  html,body{margin:0;background:#050505;height:100%;overflow:hidden}
+  .wrap{display:grid;place-items:center;height:100%}
+  svg{max-width:92vmin}
+  .hint{position:fixed;bottom:16px;left:0;right:0;text-align:center;
+        color:#8b6f2a;font:12px/1.6 monospace;opacity:.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+<svg viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+  <radialGradient id="core">
+    <stop offset="0%" stop-color="#fff4b0"/>
+    <stop offset="45%" stop-color="#d4af37"/>
+    <stop offset="55%" stop-color="#111111"/>
+    <stop offset="100%" stop-color="#000000"/>
+  </radialGradient>
+
+  <linearGradient id="gold">
+    <stop offset="0%" stop-color="#fff5cc"/>
+    <stop offset="50%" stop-color="#ffd700"/>
+    <stop offset="100%" stop-color="#8b6914"/>
+  </linearGradient>
+
+  <linearGradient id="sealRed">
+    <stop offset="0%" stop-color="#5a0000"/>
+    <stop offset="60%" stop-color="#a80000"/>
+    <stop offset="100%" stop-color="#3a0000"/>
+  </linearGradient>
+
+  <!-- 柔和发光 -->
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="2.2" result="b"/>
+    <feMerge>
+      <feMergeNode in="b"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+</defs>
+
+<!-- 背景 -->
+<rect width="500" height="600" fill="#050505"/>
+
+<!-- 五行（极弱呼吸） -->
+<g id="wuxing">
+  <circle cx="250" cy="120" r="100" fill="#ff4444" opacity=".03"/>
+  <circle cx="250" cy="480" r="100" fill="#4444ff" opacity=".03"/>
+  <circle cx="100" cy="300" r="100" fill="#44ff44" opacity=".02"/>
+  <circle cx="400" cy="300" r="100" fill="#ffd700" opacity=".02"/>
+</g>
+
+<!-- 外壳 -->
+<polygon id="shell"
+ points="250,100 380,200 380,400 250,500 120,400 120,200"
+ stroke="url(#gold)" stroke-width="2" fill="none" opacity=".6"/>
+
+<!-- 结构 -->
+<g stroke="#333" stroke-width="1" opacity=".5">
+  <line x1="250" y1="100" x2="250" y2="500"/>
+  <line x1="120" y1="200" x2="380" y2="400"/>
+  <line x1="380" y1="200" x2="120" y2="400"/>
+</g>
+
+<!-- 核心 -->
+<circle id="coreCircle" cx="250" cy="300" r="90" fill="url(#core)" filter="url(#glow)"/>
+
+<!-- 外环 -->
+<circle id="ring" cx="250" cy="300" r="150" stroke="#ffd700" fill="none" opacity=".18"/>
+
+<!-- 主体 -->
+<text x="250" y="320" text-anchor="middle"
+      font-size="70" font-family="KaiTi"
+      fill="url(#gold)" letter-spacing="10">
+  龍魂
+</text>
+
+<!-- 朱砂签 -->
+<text x="250" y="560" text-anchor="middle"
+      font-size="32" font-family="KaiTi"
+      fill="url(#sealRed)">
+  龍芯北辰
+</text>
+
+<!-- UID -->
+<text x="250" y="585" text-anchor="middle"
+      font-size="14" fill="#aa8833" font-family="monospace">
+  UID9622
+</text>
+
+</svg>
+</div>
+
+<div class="hint">移动鼠标靠近中心 · 轻触有回应</div>
+
+<script>
+const core = document.getElementById('coreCircle');
+const ring = document.getElementById('ring');
+const shell = document.getElementById('shell');
+const wx = document.getElementById('wuxing').children;
+
+let t = 0;
+function breathe(){
+  t += 0.02;
+  // 基础呼吸（慢）
+  const base = 90 + Math.sin(t)*2;
+  core.setAttribute('r', base.toFixed(2));
+  ring.setAttribute('r', (150 + Math.sin(t)*3).toFixed(2));
+  shell.setAttribute('opacity', (0.55 + (Math.sin(t)*0.15)).toFixed(2));
+
+  // 五行极弱起伏
+  for(let i=0;i<wx.length;i++){
+    const o = 0.02 + (Math.sin(t + i)*0.02);
+    wx[i].setAttribute('opacity', Math.max(0.01,o).toFixed(3));
+  }
+  requestAnimationFrame(breathe);
+}
+breathe();
+
+// 交互：靠近中心 → 轻增强（不炸）
+window.addEventListener('mousemove', (e)=>{
+  const rect = document.body.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  // 映射到SVG坐标
+  const sx = 500 * (x / window.innerWidth);
+  const sy = 600 * (y / window.innerHeight);
+
+  const dx = sx - 250, dy = sy - 300;
+  const d = Math.sqrt(dx*dx + dy*dy);
+
+  const near = Math.max(0, 1 - d/260); // 越近越强
+  const boost = 1 + near*0.06;
+
+  core.setAttribute('r', (90*boost).toFixed(2));
+  ring.setAttribute('opacity', (0.18 + near*0.12).toFixed(2));
+  shell.setAttribute('stroke-width', (2 + near*0.8).toFixed(2));
+});
+</script>
+</body>
+</html>

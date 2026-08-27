@@ -18,7 +18,16 @@ lh — 龍魂统一交互控制台
     lh --dashboard      # 直接显示人格仪表盘
 """
 
-import json, os, re, sys, time, shlex, subprocess, hashlib
+import contextlib
+import hashlib
+import json
+import os
+import re
+import shlex
+import subprocess
+import sys
+import time
+from datetime import UTC
 from pathlib import Path
 from typing import Any
 
@@ -58,16 +67,16 @@ def _get_master_key() -> bytes:
 
 def _sm4_cbc_encrypt(plaintext: bytes, key: bytes) -> bytes:
     """SM4-CBC 加密：返回 IV || ciphertext。"""
-    SM4 = _load_sm4_class()
+    sm4 = _load_sm4_class()
     import secrets
     iv = secrets.token_bytes(16)
-    padded = SM4._pad(plaintext)
-    rk = SM4._expand_key(key)
+    padded = sm4._pad(plaintext)
+    rk = sm4._expand_key(key)
     ciphertext = b""
     prev = iv
     for i in range(0, len(padded), 16):
-        block = bytes(a ^ b for a, b in zip(padded[i:i + 16], prev))
-        enc = SM4._crypt_block(block, rk)
+        block = bytes(a ^ b for a, b in zip(padded[i:i + 16], prev, strict=False))
+        enc = sm4._crypt_block(block, rk)
         ciphertext += enc
         prev = enc
     return iv + ciphertext
@@ -75,19 +84,19 @@ def _sm4_cbc_encrypt(plaintext: bytes, key: bytes) -> bytes:
 
 def _sm4_cbc_decrypt(ciphertext: bytes, key: bytes) -> bytes:
     """SM4-CBC 解密：输入 IV || ciphertext。"""
-    SM4 = _load_sm4_class()
+    sm4 = _load_sm4_class()
     if len(ciphertext) < 16 or len(ciphertext) % 16 != 0:
         raise ValueError("密文长度无效")
     iv = ciphertext[:16]
     body = ciphertext[16:]
-    rk = SM4._expand_key(key)[::-1]
+    rk = sm4._expand_key(key)[::-1]
     plaintext = b""
     prev = iv
     for i in range(0, len(body), 16):
-        dec = SM4._crypt_block(body[i:i + 16], rk)
-        plaintext += bytes(a ^ b for a, b in zip(dec, prev))
+        dec = sm4._crypt_block(body[i:i + 16], rk)
+        plaintext += bytes(a ^ b for a, b in zip(dec, prev, strict=False))
         prev = body[i:i + 16]
-    return SM4._unpad(plaintext)
+    return sm4._unpad(plaintext)
 
 
 # ===== 证据固化 · Agent审计 + GPG签名 + SM4加密 =====
@@ -607,7 +616,7 @@ def print_header():
     w = _term_width()
     print(f"\n{'='*min(w,100)}")
     print(f"  🐉  龍魂统一控制台 {VERSION}")
-    print(f"  📍 UID9622 · 诸葛鑫 · Lucky")
+    print("  📍 UID9622 · 诸葛鑫 · Lucky")
     print(f"  🧬 {DNA}")
     print(f"  📦 已注册模块: {len(MODULES)}项 · 人格: {len(PERSONAS)}个 · 命令: 120+")
     print(f"{'='*min(w,100)}")
@@ -627,7 +636,7 @@ def print_alive_banner():
         days = f"剩余{days_match.group(1)}天" if days_match else ""
         expiry_match = _re.search(r'到期: (\d{4}-\d{2}-\d{2})', msg)
         expiry = expiry_match.group(1) if expiry_match else ""
-        
+
         w = _term_width()
         print(f"{'─'*min(w,100)}")
         print(f"  🌐 生态准入: {status} {days} 到期:{expiry}  |  续费: lh eco alive heartbeat UID9622")
@@ -637,39 +646,39 @@ def print_alive_banner():
 
 
 def print_menu():
-    print(f"\n  📋 功能模块（输入数字进入）：\n")
+    print("\n  📋 功能模块（输入数字进入）：\n")
     categories = list(MODULES.keys())
     for i, cat in enumerate(categories, 1):
         m = MODULES[cat]
         print(f"  [{i}] {cat}")
         print(f"      {m['desc']}")
-    print(f"\n  [P] 人格仪表盘 — 查看所有人格能力+联动关系")
-    print(f"  [E] 引擎能力表 — 查看引擎11项能力+触发词")
-    print(f"  [W] Web操作台 — 打开可视化网页后台（点一点就能操作）")
-    print(f"  [H] 帮助 + 快捷命令")
-    print(f"  [Q] 退出")
+    print("\n  [P] 人格仪表盘 — 查看所有人格能力+联动关系")
+    print("  [E] 引擎能力表 — 查看引擎11项能力+触发词")
+    print("  [W] Web操作台 — 打开可视化网页后台（点一点就能操作）")
+    print("  [H] 帮助 + 快捷命令")
+    print("  [Q] 退出")
     print()
 
 def print_persona_dashboard():
     clear_screen()
     print_header()
-    print(f"\n  🧠 人格仪表盘（落地状态: 🟢=已落地 🟡=部分落地 🔴=未落地）\n")
+    print("\n  🧠 人格仪表盘（落地状态: 🟢=已落地 🟡=部分落地 🔴=未落地）\n")
     print(f"  {'ID':<6}{'姓名':<12}{'角色':<12}{'状态':<6}能力描述")
     print(f"  {'-'*80}")
     for pid, p in PERSONAS.items():
         print(f"  {pid:<6}{p['emoji']} {p['name']:<9}{p['role']:<12}{p['status']:<6}{p['desc']}")
 
-    print(f"\n  🔗 人格联动关系：")
-    print(f"  ┌─────────────────────────────────────────────────────────────┐")
-    print(f"  │  P00 文心 ←→ P05 上帝之眼  → 铁律解释 + 审计验证          │")
-    print(f"  │  P01 诸葛 ←→ P06 数学大师 → 决策 + 数字根计算             │")
-    print(f"  │  P02 龍芯 ←→ P15 乔前辈   → 执行修复 + 自动化桥接         │")
-    print(f"  │  P05 上帝 ←→ P77 黑天使   → 审计扫描 + 漏洞修复           │")
-    print(f"  │  P13 姜尚 ←→ P01 诸葛     → 任务编排 + 决策评估           │")
-    print(f"  │  P11 韩非 ←→ P00 文心     → 规则判定 + 铁律锚定           │")
-    print(f"  └─────────────────────────────────────────────────────────────┘")
+    print("\n  🔗 人格联动关系：")
+    print("  ┌─────────────────────────────────────────────────────────────┐")
+    print("  │  P00 文心 ←→ P05 上帝之眼  → 铁律解释 + 审计验证          │")
+    print("  │  P01 诸葛 ←→ P06 数学大师 → 决策 + 数字根计算             │")
+    print("  │  P02 龍芯 ←→ P15 乔前辈   → 执行修复 + 自动化桥接         │")
+    print("  │  P05 上帝 ←→ P77 黑天使   → 审计扫描 + 漏洞修复           │")
+    print("  │  P13 姜尚 ←→ P01 诸葛     → 任务编排 + 决策评估           │")
+    print("  │  P11 韩非 ←→ P00 文心     → 规则判定 + 铁律锚定           │")
+    print("  └─────────────────────────────────────────────────────────────┘")
 
-    print(f"\n  📊 意图→人格路由速查：")
+    print("\n  📊 意图→人格路由速查：")
     routes = [
         ("检查/审计/安全吗", "P05 上帝之眼", "三色审计"),
         ("修一下/改好", "P02 龍芯", "执行修复"),
@@ -684,7 +693,7 @@ def print_persona_dashboard():
     for intent, persona, action in routes:
         print(f"  \"{intent}\" → {persona} ({action})")
 
-    input(f"\n  ⏎ 按回车返回主菜单...")
+    input("\n  ⏎ 按回车返回主菜单...")
 
 def print_engine_caps():
     clear_screen()
@@ -695,22 +704,22 @@ def print_engine_caps():
     for i, (cap, persona, triggers) in enumerate(ENGINE_CAPS, 1):
         print(f"  {i:<4}{cap:<16}{persona:<8}{triggers}")
 
-    print(f"\n  🌐 通道状态：")
-    print(f"  ┌──────────┬───────┬─────────────────────────┐")
-    print(f"  │ 通道     │ 端口   │ 状态                    │")
-    print(f"  ├──────────┼───────┼─────────────────────────┤")
-    print(f"  │ 🐦 飞书  │ :9637 │ python3 引擎/launcher.py --feishu │")
-    print(f"  │ 💬 微信  │ :9638 │ python3 引擎/launcher.py --wechat │")
-    print(f"  │ 🌐 Web   │ :9639 │ python3 引擎/launcher.py --web    │")
-    print(f"  │ 💻 CLI   │ 终端   │ python3 引擎/launcher.py --cli    │")
-    print(f"  └──────────┴───────┴─────────────────────────┘")
+    print("\n  🌐 通道状态：")
+    print("  ┌──────────┬───────┬─────────────────────────┐")
+    print("  │ 通道     │ 端口   │ 状态                    │")
+    print("  ├──────────┼───────┼─────────────────────────┤")
+    print("  │ 🐦 飞书  │ :9637 │ python3 引擎/launcher.py --feishu │")
+    print("  │ 💬 微信  │ :9638 │ python3 引擎/launcher.py --wechat │")
+    print("  │ 🌐 Web   │ :9639 │ python3 引擎/launcher.py --web    │")
+    print("  │ 💻 CLI   │ 终端   │ python3 引擎/launcher.py --cli    │")
+    print("  └──────────┴───────┴─────────────────────────┘")
 
-    input(f"\n  ⏎ 按回车返回主菜单...")
+    input("\n  ⏎ 按回车返回主菜单...")
 
 def print_help():
     clear_screen()
     print_header()
-    print(f"""
+    print("""
   🆘 帮助 & 快捷命令
 
   日常最常用的几个命令：
@@ -735,10 +744,10 @@ def print_help():
     lh version          → 查看版本（lh-core 快速响应）
     lh bench            → 跑低算力基准测试
     lh dna "内容"        → 签发 DNA 追溯码
-    lh audit --json '{{}}' → 三色审计
+    lh audit --json '{}' → 三色审计
     lh root 369           → 数字根 + 五行 + 洛书
     lh root --wuxing 2025 → 数字五行属性
-    lh chain write '{{}}' → 年轮链写入
+    lh chain write '{}' → 年轮链写入
     lh flow tricolor    → 流控三色审计
     lh info             → 系统信息
     lh help             → lh-core 独立帮助
@@ -771,7 +780,7 @@ def print_help():
   A: 编辑 bin/lh.py，在 MODULES 字典加条目即可。
 """)
     if sys.stdin.isatty():
-        input(f"  ⏎ 按回车返回主菜单...")
+        input("  ⏎ 按回车返回主菜单...")
 
 def _run_fixed_cmd(cmd: str):
     """执行固定命令（无用户输入），全部走 subprocess.run(shell=False)。"""
@@ -988,6 +997,8 @@ SUB_DISPATCH = {
     '掀黑箱':               ('lh_掀黑箱.py',                  '📦', '掀黑箱审计', ['.']),
     'imprint':              ('lh_digital_imprint.py',        '🧬', '数字人印记'),
     'keys':                 ('lh_keys.py',                   '🔑', '統一密钥出口·list/get/check/mfa·华为MFA二次验证'),
+    'secret-env':           ('lh_secret_env.py',             '🔐', '变量环境·调用macOS密码/钥匙串·操作审计日志', [], 'list'),
+    'render':               ('lh_render.py',                 '👁️', 'M75渲染引擎·CNSH指令·{render.*}变量环境·:8972(status/open/run/batch/server/log)', [], 'status'),
     'notion_full':          ('lh_notion_full_sync.py',       '🔄', 'Notion全量同步'),
     'persona_sync':         ('lh_notion_persona_sync.py',    '🧬', '人格矩阵Notion同步'),
     'persona':              ('lh_persona_runtime.py',         '🧠', '人格矩阵运行时', [], ''),
@@ -1012,6 +1023,8 @@ SUB_DISPATCH = {
     'nl':                   ('lh_natural_language_router.py',  '💬', '中文自然语言路由器·同音字纠错·语义抽屉·意图匹配', [], '-i'),
     'persona-mcp':          ('lh_persona_mcp_registry.py',   '🧬', '人格MCP代理注册中心·93人格·三锚验证·身份证系统', [], '--list'),
     'persona-governance':   ('lh_persona_governance.py',     '⚖️', '人格治理引擎v2.0·冲突检测·继承链·只追加审计', [], '--stats'),
+    'device':               ('lh_device_ledger.py',          '📟', '设备登记台账·指纹↔持有人↔密钥·追溯本源(register/add/list/verify/trace/revoke)', [], 'list'),
+    'browser-net':          ('lh_browser_net.py',            '🌐', '龍魂浏览器标准网络设置·代理/DoH·Chrome同款标配不含翻墙(status/proxy set/clear/doh on/off)', [], 'status'),
     'dct_watermark':        ('lh_dct_watermark.py',          '🔏', 'DCT不可见水印'),
     'face_verify':          ('lh_face_verify.py',            '👤', '人脸验证'),
     'qr_code':              ('lh_qr_code.py',                '📱', '印记二维码'),
@@ -1171,6 +1184,11 @@ def _run_subcommand(script_name: str, extra_args: list[str] | None = None, emoji
     - suppress_header: True 时不打印装饰 header（--json 模式）
     """
     if command_name:
+        # 🔐 机器消费类子命令自动抑制横幅（输出走 eval/管道/JSON 解析）
+        if script_name == 'lh_secret_env.py' and extra_args and extra_args[0] in ('shell', 'run', 'get'):
+            suppress_header = True
+        if script_name == 'lh_render.py' and extra_args and extra_args[0] in ('run', 'status'):
+            suppress_header = True
         # 🔥 人格网关：路由→执行→审计回流
         from lh_persona_gate import get_persona_gate
         gate = get_persona_gate()
@@ -1283,10 +1301,10 @@ def show_category(cat_name):
             print(f"  [{item['id']}] {item['label']}")
             print(f"      {item['desc']}")
 
-        print(f"\n  [B] 返回主菜单")
-        print(f"  [Q] 退出")
+        print("\n  [B] 返回主菜单")
+        print("  [Q] 退出")
 
-        choice = input(f"\n  🎯 选一个 > ").strip().lower()
+        choice = input("\n  🎯 选一个 > ").strip().lower()
 
         if choice == 'q':
             return 'quit'
@@ -1304,10 +1322,10 @@ def show_category(cat_name):
                     print(f"\n  {'='*60}")
                     _run_interactive_item(item)
                     print(f"\n  {'='*60}")
-                    print(f"  ✅ 执行完毕")
+                    print("  ✅ 执行完毕")
                 else:
                     print("  ⏭️ 已跳过")
-                input(f"\n  ⏎ 按回车继续...")
+                input("\n  ⏎ 按回车继续...")
                 break
         else:
             print(f"\n  ❌ 无效选择: {choice}")
@@ -1325,7 +1343,7 @@ def main():
     parser.add_argument('--push', action='store_true', help='一键推送全部远端')
     parser.add_argument('--health', action='store_true', help='引擎健康检查')
     parser.add_argument('--console', action='store_true', help='启动可视化Web操作台')
-    parser.add_argument('--xuanji', type=str, nargs='?', const='--status', 
+    parser.add_argument('--xuanji', type=str, nargs='?', const='--status',
                         help='璇玑记忆推演 (带参数=查询 / 无参数=状态)')
     parser.add_argument('--safeai', type=str, nargs='?', const='--status',
                         help='上下文安全引擎 (带参数=检测文本 / 无参数=状态)')
@@ -1433,6 +1451,7 @@ def main():
     parser.add_argument('--掀黑箱', nargs=argparse.REMAINDER, help='掀黑箱审计 (lh --掀黑箱 [路径] 或 lh --掀黑箱 --json)')
     parser.add_argument('--imprint', nargs=argparse.REMAINDER, help='数字人印记引擎 (lh --imprint create/list/verify/watermark/sync/status)')
     parser.add_argument('--keys', dest='keys', nargs=argparse.REMAINDER, help='統一密钥出口·任何AI可取 (lh keys list/get/check/mfa)')
+    parser.add_argument('--secret-env', dest='secret_env', nargs=argparse.REMAINDER, help='变量环境·调用macOS密码/钥匙串·操作审计日志 (lh --secret-env list/set/get/run/log)')
     parser.add_argument('--notion-full', dest='notion_full', nargs=argparse.REMAINDER, help='Notion全量同步引擎 (lh --notion-full sync/search/status)')
     parser.add_argument('--persona-sync', dest='persona_sync', nargs=argparse.REMAINDER, help='人格矩阵Notion同步 (lh --persona-sync sync/dry-run/cleanup)')
     parser.add_argument('--persona', dest='persona', nargs=argparse.REMAINDER, help='人格矩阵运行时 (lh --persona list/switch/current/chain/status/match/bridge/memory/sync)')
@@ -1532,12 +1551,12 @@ def main():
 
     # === 🏠 老百姓入口 · 数据主权助手 ===
     if args.ask is not None:
-        from datetime import datetime, timezone
+        from datetime import datetime
         question = args.ask.strip() or "你好，龍魂！"
         print_header()
-        print(f"\n  🐉 龍魂正在思考（本地优先·数据主权模式）")
+        print("\n  🐉 龍魂正在思考（本地优先·数据主权模式）")
         print(f"  📝 问题: {question}")
-        print(f"  🔒 数据根留本地 | 不上传境外平台\n")
+        print("  🔒 数据根留本地 | 不上传境外平台\n")
         sys.stdout.flush()
 
         bridge_path = ROOT / "bin" / "lh_notion_chat_bridge.py"
@@ -1662,8 +1681,8 @@ def main():
             print("\n  ⚠️ 未输入任何证据，已取消。")
             return
 
-        from datetime import datetime, timezone
-        ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        from datetime import datetime
+        ts = datetime.now(UTC).strftime("%Y%m%d_%H%M%S")
         content_hash = hashlib.sha256(content.encode("utf-8")).hexdigest()[:16]
         witness_id = f"WITNESS-{ts}-{content_hash}"
 
@@ -1688,7 +1707,7 @@ def main():
 
         evidence_pkg = {
             "witness_id": witness_id,
-            "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+            "timestamp_utc": datetime.now(UTC).isoformat(),
             "dna": "#龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-WITNESS-" + witness_id,
             "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
             "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
@@ -1726,19 +1745,17 @@ def main():
         enc_file.write_bytes(cipher_bytes)
 
         # 明文不落盘；签名文件保留（签名可公开验证）
-        try:
+        with contextlib.suppress(Exception):
             plain_file.unlink()
-        except Exception:
-            pass
 
         print("\n" + "=" * 58)
         print(f"  ✅ 证据已固化并加密: {enc_file.relative_to(ROOT)}")
         print(f"  🆔 证据ID: {witness_id}")
         print(f"  🔐 SHA-256: {evidence_pkg['content_sha256'][:32]}...")
-        print(f"  🔒 加密算法: 国密 SM4-CBC")
+        print("  🔒 加密算法: 国密 SM4-CBC")
         if do_sign:
             print(f"  ✍️  GPG 签章: {asc_file.relative_to(ROOT)}")
-            print(f"  🧩 Agent 审计链: P05→P15→S3")
+            print("  🧩 Agent 审计链: P05→P15→S3")
         print("  📋 下一步:")
         print(f"     1. 解密查看: lh --view-witness {witness_id}")
         print("     2. 导出证据包: lh --export")
@@ -1774,8 +1791,8 @@ def main():
         print_header()
         print("\n  🐉 龍魂·合规证据包导出\n")
 
-        from datetime import datetime, timezone
-        ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        from datetime import datetime
+        ts = datetime.now(UTC).strftime("%Y%m%d_%H%M%S")
         backup_dir = ROOT / "backup"
         backup_dir.mkdir(parents=True, exist_ok=True)
         plain_file = backup_dir / f"evidence_{ts}.json"
@@ -1801,7 +1818,7 @@ def main():
 
         export_pkg = {
             "export_id": f"EXPORT-{ts}",
-            "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+            "timestamp_utc": datetime.now(UTC).isoformat(),
             "dna": "#龍芯⚡️丙午·癸未·甲申·庚午·䷙大畜-EVIDENCE-EXPORT-" + ts,
             "confirm_code": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
             "gpg": "A2D0092CEE2E5BA87035600924C3704A8CC26D5F",
@@ -1817,15 +1834,13 @@ def main():
         enc_file.write_bytes(cipher_bytes)
         # 明文不落盘
         plain_file.write_bytes(plain_bytes)
-        try:
+        with contextlib.suppress(Exception):
             plain_file.unlink()
-        except Exception:
-            pass
 
         print(f"  ✅ 证据包已导出并加密: {enc_file.relative_to(ROOT)}")
         print(f"  📦 包含: {len(witnesses)} 条证据记录")
         print(f"  🔐 系统签名状态: {signed_count} 个脚本已 GPG 签名")
-        print(f"  🔒 加密算法: 国密 SM4-CBC")
+        print("  🔒 加密算法: 国密 SM4-CBC")
         print(f"  🧬 DNA: {export_pkg['dna']}")
         print("\n  建议: 将证据包复制到外部加密介质或打印成纸质备份。")
         return
@@ -1973,35 +1988,35 @@ def main():
         print_header()
         repo_path = ROOT / "bin" / "lh_repo_template.py"
         repo_args = list(args.repo) if args.repo else []
-        print(f"\n  🐉 开源项目模板生成器\n")
+        print("\n  🐉 开源项目模板生成器\n")
         subprocess.run(["python3", str(repo_path)] + repo_args)
         return
     if args.dna is not None:
         print_header()
         dna_path = ROOT / "bin" / "lh_dna_generator.py"
         dna_args = list(args.dna) if args.dna else []
-        print(f"\n  🧬 龍魂DNA生成器\n")
+        print("\n  🧬 龍魂DNA生成器\n")
         subprocess.run(["python3", str(dna_path)] + dna_args)
         return
     if args.know is not None:
         print_header()
         know_path = ROOT / "bin" / "lh_local_knowledge_engine.py"
         know_args = list(args.know) if args.know else ["status"]
-        print(f"\n  📚 龍魂·本地知识引擎\n")
+        print("\n  📚 龍魂·本地知识引擎\n")
         subprocess.run(["python3", str(know_path)] + know_args)
         return
     if args.agent is not None:
         print_header()
         agent_path = ROOT / "bin" / "lh_agent_trainer.py"
         agent_args = list(args.agent) if args.agent else ["status"]
-        print(f"\n  🧠 龍魂·智能体训练框架\n")
+        print("\n  🧠 龍魂·智能体训练框架\n")
         subprocess.run(["python3", str(agent_path)] + agent_args)
         return
     if args.lu is not None:
         print_header()
         lu_path = ROOT / "bin" / "lh_lu_compressor.py"
         lu_args = list(args.lu) if args.lu else ["shortcodes"]
-        print(f"\n  🐉 龍魂·LU压缩引擎\n")
+        print("\n  🐉 龍魂·LU压缩引擎\n")
         subprocess.run(["python3", str(lu_path)] + lu_args)
         return
     if args.compress_memory is not None:
@@ -2021,7 +2036,7 @@ def main():
                 mapped.append(a)
         mapped.append("--input")
         mapped.append(cm_input)
-        print(f"\n  🧠 龍魂·MEMORY.md压缩引擎\n")
+        print("\n  🧠 龍魂·MEMORY.md压缩引擎\n")
         subprocess.run(["python3", str(cm_path)] + mapped)
         return
     if args.compress_all is not None:
@@ -2029,28 +2044,28 @@ def main():
         ca_path = ROOT / "bin" / "compress_all.py"
         ca_mode = args.compress_all if args.compress_all else "run"
         ca_flag = {"audit": ["--audit"], "dry": ["--dry-run"], "run": ["--run"]}[ca_mode]
-        print(f"\n  🧹 龍魂·全库扫描压缩引擎\n")
+        print("\n  🧹 龍魂·全库扫描压缩引擎\n")
         subprocess.run(["python3", str(ca_path)] + ca_flag)
         return
     if args.compress_watch is not None:
         print_header()
         cw_path = ROOT / "bin" / "compress_watchdog.py"
         cw_args = ["--run"] if args.compress_watch == "run" else []
-        print(f"\n  👁️ 龍魂·压缩守护进程（Ctrl+C 退出 / 默认只报告）\n")
+        print("\n  👁️ 龍魂·压缩守护进程（Ctrl+C 退出 / 默认只报告）\n")
         subprocess.run(["python3", str(cw_path)] + cw_args)
         return
     if args.compress_hub is not None:
         print_header()
         ch_path = ROOT / "bin" / "lh_compress_hub.py"
         ch_args = list(args.compress_hub) if args.compress_hub else ["run"]
-        print(f"\n  🧊 龍魂·压缩枢纽引擎（快照→压缩→人格编排→可恢复）\n")
+        print("\n  🧊 龍魂·压缩枢纽引擎（快照→压缩→人格编排→可恢复）\n")
         subprocess.run(["python3", str(ch_path)] + ch_args)
         return
     if args.agent_run is not None:
         print_header()
         la_path = ROOT / "bin" / "local_agent.py"
         task = " ".join(args.agent_run) if args.agent_run else ""
-        print(f"\n  🐣 龍魂·本地宝宝Agent（Ollama 本地推理·零云端）\n")
+        print("\n  🐣 龍魂·本地宝宝Agent（Ollama 本地推理·零云端）\n")
         if task:
             subprocess.run(["python3", str(la_path), task])
         else:
@@ -2059,12 +2074,12 @@ def main():
     if args.agent_i:
         print_header()
         la_path = ROOT / "bin" / "local_agent.py"
-        print(f"\n  🐣 龍魂·本地宝宝Agent 交互模式\n")
+        print("\n  🐣 龍魂·本地宝宝Agent 交互模式\n")
         subprocess.run(["python3", str(la_path), "--interactive"])
         return
     if args.voice_in:
         print_header()
-        print(f"\n  🎤 龍魂·语音输入 → Agent（faster-whisper 本地·零云端）\n")
+        print("\n  🎤 龍魂·语音输入 → Agent（faster-whisper 本地·零云端）\n")
         code = (
             "import sys; sys.path.insert(0, 'bin');"
             "from voice_input import transcribe_audio;"
@@ -2079,13 +2094,13 @@ def main():
         print_header()
         vp = ROOT / "bin" / "vision_input.py"
         v_args = list(args.vision) if args.vision else []
-        print(f"\n  👁 龍魂·视觉识别（Ollama moondream 本地·零云端）\n")
+        print("\n  👁 龍魂·视觉识别（Ollama moondream 本地·零云端）\n")
         subprocess.run(["python3", str(vp)] + v_args)
         return
     if args.screenshot:
         print_header()
         vp = ROOT / "bin" / "vision_input.py"
-        print(f"\n  📸 龍魂·截图分析（Ollama moondream 本地·零云端）\n")
+        print("\n  📸 龍魂·截图分析（Ollama moondream 本地·零云端）\n")
         subprocess.run(["python3", str(vp), "--screenshot"])
         return
     if args.central is not None:
@@ -2095,7 +2110,7 @@ def main():
         # 简写映射: status→--status, tasks→--tasks, commands→--commands
         shortcut_map = {"status": "--status", "tasks": "--tasks", "commands": "--commands"}
         mapped = [shortcut_map.get(a, a) for a in central_args]
-        print(f"\n  🐉 UID9622 系统中枢引擎\n")
+        print("\n  🐉 UID9622 系统中枢引擎\n")
         subprocess.run(["python3", str(central_path)] + mapped)
         return
 
@@ -2254,6 +2269,15 @@ def main():
         subprocess.run(cmd, cwd=str(ROOT))
         return
 
+    # === 🔐 变量环境 · macOS 密码/钥匙串一体化 ===
+    if args.secret_env is not None:
+        se_args = list(args.secret_env) if args.secret_env else ["list"]
+        # 机器消费类子命令（shell/run/get）不打横幅，保证 eval/管道输出纯净
+        if not se_args or se_args[0] not in ("shell", "run", "get"):
+            print_header()
+        subprocess.run([sys.executable, str(ROOT / "bin" / "lh_secret_env.py")] + se_args, cwd=str(ROOT))
+        return
+
     # === 一键启动全部服务 ===
     if args.start_all:
         print_header()
@@ -2364,7 +2388,7 @@ def main():
             print("     ✅ 已打开浏览器\n")
         except Exception as e:
             print(f"     ⚠️ 自动打开失败: {e}")
-            print(f"     请手动执行: python3 control-panel/main.py\n")
+            print("     请手动执行: python3 control-panel/main.py\n")
         return
 
     # === 📄 智能排版引擎 ===
@@ -2498,8 +2522,8 @@ def main():
                     _print_time_stamp()
                     return
             # 兜底：AI 对话（Notion桥 → Ollama）
-            from datetime import datetime, timezone
-            print(f"  🤖 启用AI深度理解...\n")
+            from datetime import datetime
+            print("  🤖 启用AI深度理解...\n")
             # 复用 --ask 管线（本地优先·不上传境外）
             bridge_path = ROOT / "bin" / "lh_notion_chat_bridge.py"
             answer_text = ""
@@ -2520,7 +2544,7 @@ def main():
                         else:
                             answer_lines.append(line)
                     answer_text = "\n".join(line for line in answer_lines if line.strip()).strip()
-            except Exception as e:
+            except Exception:
                 pass
             if not answer_text:
                 try:
@@ -2540,7 +2564,7 @@ def main():
             print(f"  🤖 模型: {meta.get('model', 'local')}")
             print(f"\n  💡 {answer_text}\n")
             print("=" * 58)
-            print(f"  ✅ 对话数据留本地·不上传境外平台")
+            print("  ✅ 对话数据留本地·不上传境外平台")
             print(f"  🧬 DNA: #龍芯⚡️{datetime.now().strftime('%Y%m%d%H%M%S')}-NL-UID9622")
             print("=" * 58)
             _print_time_stamp()
@@ -2552,7 +2576,7 @@ def main():
         print(f"\n  ❌ 未知命令: {subcmd}")
         if suggestions:
             print(f"  💡 你是否想打: {', '.join(suggestions)}")
-        print(f"  📖 lh --help 查看所有命令\n")
+        print("  📖 lh --help 查看所有命令\n")
         return
 
     # 主循环
@@ -2572,18 +2596,18 @@ def main():
         elif choice == 'e':
             print_engine_caps()
         elif choice == 'w':
-            print(f"\n  🖥️ 正在启动 Web 操作台...")
-            print(f"     浏览器打开: http://127.0.0.1:9622/static/index.html")
-            print(f"     快捷命令: lh-console")
+            print("\n  🖥️ 正在启动 Web 操作台...")
+            print("     浏览器打开: http://127.0.0.1:9622/static/index.html")
+            print("     快捷命令: lh-console")
             try:
                 subprocess.Popen(['python3', str(ROOT / 'control-panel' / 'main.py')],
                     cwd=str(ROOT / 'control-panel'), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
                 time.sleep(1)
                 subprocess.Popen(['open', 'http://127.0.0.1:9622/static/index.html'])
-                print(f"     ✅ 已打开浏览器")
+                print("     ✅ 已打开浏览器")
             except Exception as e:
                 print(f"     ⚠️ 自动打开失败: {e}")
-                print(f"     请手动执行: lh-console")
+                print("     请手动执行: lh-console")
         elif choice == 'h':
             print_help()
         elif choice.isdigit():

@@ -1,273 +1,206 @@
-<!doctype html>
+<!-- DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f -->
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+<!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/logo-seal.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <meta name="description" content="龍魂系统 UID9622 —— 中文原生 · 主权人格 · 为人民服务。免费开源，数据主权在民。每一位访客看到的都是此刻真实的干支四柱与当下卦象。" />
-    <meta property="og:title" content="龍魂系统 · UID9622" />
-    <meta property="og:description" content="一部篆刻于黑金之上的活宪法 —— 中文原生 · 主权人格 · 为人民服务" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://uid9622.cn/" />
-    <meta property="og:image" content="/og-cover.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="/og-cover.png" />
-    <title>龍魂系统 · UID9622 — 中文原生 · 主权人格 · 为人民服务</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  <!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
-<style>
-#lh-eco-popup-overlay {
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-}
-#lh-eco-popup-overlay.active { display: flex; }
-.lh-popup-card {
-    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
-    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
-    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
-    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
-}
-.lh-popup-title {
-    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
-    letter-spacing: 2px;
-}
-.lh-popup-subtitle {
-    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
-}
-.lh-status-badge {
-    display: inline-block; padding: 6px 18px; border-radius: 20px;
-    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
-}
-.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
-.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
-.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
-.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
-.lh-popup-btn {
-    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
-    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
-    transition: all 0.2s ease;
-}
-.lh-btn-primary {
-    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
-}
-.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
-.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
-.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
-.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
-.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
-</style>
-
-<div id="lh-eco-popup-overlay">
-    <div class="lh-popup-card">
-        <div class="lh-popup-title">🌐 龍魂生态</div>
-        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
-        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
-        <div class="lh-popup-detail" id="lh-popup-detail"></div>
-        <div>
-            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
-            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
-        </div>
-        <div class="lh-popup-footer">
-            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
-        </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>龍魂 CNSH 在线编辑器</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --accent: #58a6ff;
+      --green: #3fb950;
+      --yellow: #d29922;
+      --red: #f85149;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "LongHun Font", "Noto Sans SC", "PingFang SC", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 { margin: 0; font-size: 18px; }
+    .tier-badge {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      background: var(--border);
+    }
+    .tier-badge.paid { background: #238636; color: white; }
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+    .panel {
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+    }
+    .panel-header {
+      padding: 10px 16px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .panel-header span { font-weight: 600; }
+    textarea, pre {
+      flex: 1;
+      margin: 0;
+      padding: 16px;
+      border: none;
+      outline: none;
+      resize: none;
+      font-family: "LongHun Mono", "JetBrains Mono", "SF Mono", monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      overflow: auto;
+    }
+    pre { white-space: pre-wrap; }
+    .toolbar {
+      padding: 10px 16px;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover { opacity: 0.9; }
+    button.secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    #status {
+      padding: 8px 16px;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: #8b949e;
+    }
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🐉 龍魂 CNSH 在线编辑器</h1>
+    <div>
+      <span id="tierBadge" class="tier-badge">检测中...</span>
+      <a href="/docs" target="_blank" style="margin-left:10px;color:var(--accent);text-decoration:none;font-size:13px;">API 文档</a>
     </div>
-</div>
+  </header>
 
-<script>
-(function() {
-    var API_BASE = '/api/eco';
-    var popup = document.getElementById('lh-eco-popup-overlay');
-    var lastShown = localStorage.getItem('lh_eco_popup_last');
-    var now = Date.now();
-    
-    // 24小时内不重复弹窗
-    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
-    
-    function showPopup() {
-        if (popup) popup.classList.add('active');
-        localStorage.setItem('lh_eco_popup_last', now.toString());
-    }
-    
-    function fetchStatus() {
-        fetch(API_BASE + '/alive-status')
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                var badge = document.getElementById('lh-status-badge');
-                var detail = document.getElementById('lh-popup-detail');
-                if (!badge || !detail) return;
-                
-                if (data.status === 'alive') {
-                    badge.textContent = '🟢 生态内';
-                    badge.className = 'lh-status-badge lh-status-alive';
-                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
-                    // 生态内不弹窗
-                } else if (data.status === 'builder') {
-                    badge.textContent = '⚪ 共建者';
-                    badge.className = 'lh-status-badge lh-status-builder';
-                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
-                } else {
-                    badge.textContent = '🟡 生态外';
-                    badge.className = 'lh-status-badge lh-status-expired';
-                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
-                    showPopup();
-                }
-            })
-            .catch(function() {
-                // API不可达时不弹窗
-            });
-    }
-    
-    // 页面加载后2秒检查
-    setTimeout(fetchStatus, 2000);
-    
-    // 暴露全局函数
-    window.lhEcoRenew = function() {
-        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                if (data.qr_code || data.payment_url) {
-                    window.open(data.payment_url || data.qr_code, '_blank');
-                }
-                if (popup) popup.classList.remove('active');
-                setTimeout(fetchStatus, 3000);
-            });
-    };
-    window.lhEcoClose = function() {
-        if (popup) popup.classList.remove('active');
-    };
-})();
-</script>
-<!-- /龍魂生态准入弹窗 -->
-<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
-<style>
-#lh-eco-popup-overlay {
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  <main>
+    <div class="panel">
+      <div class="panel-header"><span>CNSH 源码</span></div>
+      <textarea id="source" spellcheck="false" placeholder="# 在此输入 CNSH 中文脚本
+函数 主函数() {
+    打印 "你好，龍魂"
 }
-#lh-eco-popup-overlay.active { display: flex; }
-.lh-popup-card {
-    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
-    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
-    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
-    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
+主函数()"># 在此输入 CNSH 中文脚本
+函数 主函数() {
+    打印 "你好，龍魂"
 }
-.lh-popup-title {
-    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
-    letter-spacing: 2px;
-}
-.lh-popup-subtitle {
-    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
-}
-.lh-status-badge {
-    display: inline-block; padding: 6px 18px; border-radius: 20px;
-    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
-}
-.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
-.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
-.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
-.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
-.lh-popup-btn {
-    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
-    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
-    transition: all 0.2s ease;
-}
-.lh-btn-primary {
-    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
-}
-.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
-.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
-.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
-.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
-.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
-</style>
-
-<div id="lh-eco-popup-overlay">
-    <div class="lh-popup-card">
-        <div class="lh-popup-title">🌐 龍魂生态</div>
-        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
-        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
-        <div class="lh-popup-detail" id="lh-popup-detail"></div>
-        <div>
-            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
-            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
-        </div>
-        <div class="lh-popup-footer">
-            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
-        </div>
+主函数()</textarea>
+      <div class="toolbar">
+        <button onclick="runCode()">▶ 运行</button>
+        <button class="secondary" onclick="checkCode()">检查语法</button>
+        <button class="secondary" onclick="compileCode()">编译为 Python</button>
+      </div>
     </div>
-</div>
 
-<script>
-(function() {
-    var API_BASE = '/api/eco';
-    var popup = document.getElementById('lh-eco-popup-overlay');
-    var lastShown = localStorage.getItem('lh_eco_popup_last');
-    var now = Date.now();
-    
-    // 24小时内不重复弹窗
-    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
-    
-    function showPopup() {
-        if (popup) popup.classList.add('active');
-        localStorage.setItem('lh_eco_popup_last', now.toString());
+    <div class="panel">
+      <div class="panel-header"><span>输出 / 编译结果</span></div>
+      <pre id="output">点击「运行」查看结果...</pre>
+    </div>
+  </main>
+
+  <div id="status">就绪</div>
+
+  <script>
+    async function api(path, body) {
+      const res = await fetch(`/api/v1${path}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      return res.json();
     }
-    
-    function fetchStatus() {
-        fetch(API_BASE + '/alive-status')
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                var badge = document.getElementById('lh-status-badge');
-                var detail = document.getElementById('lh-popup-detail');
-                if (!badge || !detail) return;
-                
-                if (data.status === 'alive') {
-                    badge.textContent = '🟢 生态内';
-                    badge.className = 'lh-status-badge lh-status-alive';
-                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
-                    // 生态内不弹窗
-                } else if (data.status === 'builder') {
-                    badge.textContent = '⚪ 共建者';
-                    badge.className = 'lh-status-badge lh-status-builder';
-                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
-                } else {
-                    badge.textContent = '🟡 生态外';
-                    badge.className = 'lh-status-badge lh-status-expired';
-                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
-                    showPopup();
-                }
-            })
-            .catch(function() {
-                // API不可达时不弹窗
-            });
+
+    async function loadTier() {
+      const res = await fetch('/api/v1/tier');
+      const tier = await res.json();
+      const badge = document.getElementById('tierBadge');
+      badge.textContent = tier.name === 'paid' ? '龍魂云完整版' : '本地免费版';
+      badge.classList.toggle('paid', tier.name === 'paid');
+      document.getElementById('status').textContent =
+        `当前 tier: ${tier.description} | 代码长度限制: ${tier.max_source_chars} 字符 | 执行超时: ${tier.max_execution_time_ms}ms`;
     }
-    
-    // 页面加载后2秒检查
-    setTimeout(fetchStatus, 2000);
-    
-    // 暴露全局函数
-    window.lhEcoRenew = function() {
-        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                if (data.qr_code || data.payment_url) {
-                    window.open(data.payment_url || data.qr_code, '_blank');
-                }
-                if (popup) popup.classList.remove('active');
-                setTimeout(fetchStatus, 3000);
-            });
-    };
-    window.lhEcoClose = function() {
-        if (popup) popup.classList.remove('active');
-    };
-})();
-</script>
-<!-- /龍魂生态准入弹窗 -->
+
+    async function runCode() {
+      const source = document.getElementById('source').value;
+      const out = document.getElementById('output');
+      out.textContent = '运行中...';
+      const data = await api('/run', { source });
+      let text = '';
+      if (data.stdout) text += `[标准输出]\n${data.stdout}\n`;
+      if (data.stderr) text += `[标准错误]\n${data.stderr}\n`;
+      if (data.namespace && Object.keys(data.namespace).length) {
+        text += `[命名空间]\n${JSON.stringify(data.namespace, null, 2)}\n`;
+      }
+      text += `[状态] ${data.message}`;
+      out.textContent = text;
+    }
+
+    async function checkCode() {
+      const source = document.getElementById('source').value;
+      const out = document.getElementById('output');
+      out.textContent = '检查中...';
+      const data = await api('/check', { source });
+      out.textContent = data.message;
+    }
+
+    async function compileCode() {
+      const source = document.getElementById('source').value;
+      const out = document.getElementById('output');
+      out.textContent = '编译中...';
+      const data = await api('/compile', { source });
+      out.textContent = data.success ? data.python_code : data.message;
+    }
+
+    loadTier();
+  </script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 import { useState } from 'react'
 import { Link } from 'react-router'
 import { ArrowUpRight, Copy, Check } from 'lucide-react'
@@ -13,13 +15,17 @@ const SITE_LINKS = [
   { to: '/works', label: '作品开源' },
   { to: '/timeline', label: '远征日志' },
   { to: '/founder', label: '创始人' },
+  { to: '/storage', label: '云存储' },
+  { to: '/health', label: '系统健康' },
+  { to: '/api', label: 'API & 开发者' },
 ]
 
 const WORK_LINKS = [
-  { href: 'https://uid9622.cn/', label: 'CNSH 中文原生脚本' },
-  { href: 'https://uid9622.cn/', label: '三才算法' },
-  { href: 'https://uid9622.cn/', label: '开放审计引擎' },
-  { href: 'https://blog.csdn.net/', label: 'CSDN 同步引擎' },
+  { href: 'https://uid9622.cn/', label: '龍魂 官网 · uid9622.cn' },
+  { href: 'https://github.com/UID9622/', label: 'GitHub · 全量开源' },
+  { href: 'https://blog.csdn.net/', label: 'CSDN · 技术博客' },
+  { href: '/api', label: 'API 文档 · SDK 下载' },
+  { href: '/storage', label: '云备份 · 百度云BOS' },
 ]
 
 const HEX_ROW = '䷀䷁䷂䷃䷄䷅䷆䷇'

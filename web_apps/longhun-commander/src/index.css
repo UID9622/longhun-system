@@ -1,109 +1,73 @@
-/* 龍魂主题 · 全局样式 */
-/* DNA: #龍芯⚡️丙午·甲午·癸酉·戊午·䷨损-LONGHUN-HEART-TALK-v1.0 */
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  --background: 0 0% 96%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 72.2% 50.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 88%;
+  --input: 240 5.9% 88%;
+  --ring: 240 5% 64.9%;
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
 
 @layer base {
-  :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 95%;
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 35 60% 45%;
-    --primary-foreground: 0 0% 95%;
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 85%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 55%;
-    --accent: 35 60% 45%;
-    --accent-foreground: 0 0% 95%;
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 95%;
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
-    --ring: 35 60% 45%;
-    --radius: 0.5rem;
-  }
-
-  html, body, #root {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background-color: #09090b;
-    font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
-  }
-
   * {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(63, 63, 70, 0.5) transparent;
+    @apply border-border;
   }
 
-  ::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
+  html {
+    min-width: 320px;
   }
 
-  ::-webkit-scrollbar-track {
-    background: transparent;
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter", "Avenir Next", "Segoe UI", sans-serif;
   }
 
-  ::-webkit-scrollbar-thumb {
-    background: rgba(63, 63, 70, 0.5);
-    border-radius: 2px;
+  button,
+  input,
+  textarea {
+    font: inherit;
   }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(63, 63, 70, 0.8);
-  }
-
-  ::selection {
-    background-color: rgba(217, 162, 60, 0.3);
-    color: #fafafa;
-  }
-}
-
-@layer components {
-  .scrollbar-thin {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(63, 63, 70, 0.4) transparent;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar {
-    width: 3px;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: rgba(63, 63, 70, 0.4);
-    border-radius: 2px;
-  }
-}
-
-/* 终端风格动画 */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-@keyframes slideIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.message-enter {
-  animation: slideIn 0.2s ease-out;
-}
-
-/* 龍魂金色光效 */
-.longhun-glow {
-  box-shadow: 0 0 20px rgba(217, 162, 60, 0.1), 0 0 40px rgba(217, 162, 60, 0.05);
-}
-
-/* DNA码高亮 */
-.dna-highlight {
-  background: linear-gradient(90deg, rgba(217, 162, 60, 0.1), transparent);
-  border-left: 2px solid rgba(217, 162, 60, 0.5);
 }

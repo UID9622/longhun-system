@@ -192,13 +192,25 @@ def cmd_token(args):
 
 def cmd_call(args):
     if len(args) < 2:
-        print("用法: call <METHOD> <path> [json_body]")
+        print("用法: call <METHOD> <path> [json_body] [--allow-delete] [--no-sandbox]")
         sys.exit(1)
     method = args[0].upper()
     path = args[1] if args[1].startswith("/") else "/" + args[1]
     data = None
     if len(args) >= 3:
         data = json.loads(args[2])
+    # ── P72 沙箱拦截（默认开启；--no-sandbox 仅调试用，须审计）──
+    allow_delete = "--allow-delete" in args
+    if "--no-sandbox" not in args:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        from lh_bot_sandbox import check as sandbox_check
+        ok, reason = sandbox_check(method, path, allow_delete)
+        if not ok:
+            print(f"🔴 P2沙箱拦截: {method} {path} · {reason}")
+            print("  如需放行: 显式审查后 --allow-delete / --no-sandbox（须写入审计）")
+            sys.exit(1)
+    else:
+        print("⚠️ --no-sandbox 已启用（调试模式，须人工审计）")
     token = cmd_token_inner()
     code, resp = gh_request(method, path, token=token, data=data)
     if isinstance(resp, dict):

@@ -1,4 +1,5 @@
 #!/bin/bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # 🐉 龍魂 · 卸载脚本（冻结式 · P0天条：不删除只冻结）
 # DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-UNINSTALL-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

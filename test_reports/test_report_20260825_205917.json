@@ -1,0 +1,93 @@
+{
+  "timestamp": "2026-08-25T20:59:17.137794",
+  "dna": "#龍芯⚡️2026-08-25-TEST-REPORT-UID9622",
+  "total": 9,
+  "passed": 7,
+  "failed": 2,
+  "pass_rate": 0.7778,
+  "elapsed": 1.44,
+  "tri_color": "🔴",
+  "results": [
+    {
+      "name": "test_fibonacci",
+      "dna": "DNA: #龍芯⚡️2026-07-30-函数示例-v1.0",
+      "status": "🟢",
+      "tri_color": "green",
+      "output": "斐波那契( 0 ) =  0\n斐波那契( 1 ) =  1\n斐波那契( 2 ) =  1\n斐波那契( 3 ) =  2\n斐波那契( 4 ) =  3\n斐波那契( 5 ) =  5\n斐波那契( 6 ) =  8\n斐波那契( 7 ) =  13\n斐波那契( 8 ) =  21\n斐波那契( 9 ) =  34\n",
+      "error": null,
+      "elapsed": 0.16
+    },
+    {
+      "name": "test_grade",
+      "dna": "DNA: #龍芯⚡️2026-07-30-条件示例-v1.0",
+      "status": "🟢",
+      "tri_color": "green",
+      "output": "分数: 95  等级: 优秀\n分数: 82  等级: 良好\n分数: 67  等级: 及格\n分数: 45  等级: 不及格\n分数: 91  等级: 优秀\n",
+      "error": null,
+      "elapsed": 0.158
+    },
+    {
+      "name": "test_hello",
+      "dna": "DNA: #龍芯⚡️2026-07-30-HelloWorld-v1.0",
+      "status": "🟢",
+      "tri_color": "green",
+      "output": "你好，龍魂！\n",
+      "error": null,
+      "elapsed": 0.173
+    },
+    {
+      "name": "test_minimal",
+      "dna": "DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "status": "🟢",
+      "tri_color": "green",
+      "output": "CNSH编译器最小测试通过\n",
+      "error": null,
+      "elapsed": 0.18
+    },
+    {
+      "name": "test_operators",
+      "dna": "DNA: #龍芯⚡️2026-07-30-运算符测试-v1.0",
+      "status": "🟢",
+      "tri_color": "green",
+      "output": "加法: 13\n减法: 7\n乘法: 30\n除法: 3.3333333333333335\n取余: 1\n幂: 1000\na > b: True\na < b: False\na == b: False\na != b: True\nx 和 y: False\nx 或 y: True\n非 x: False\n",
+      "error": null,
+      "elapsed": 0.181
+    },
+    {
+      "name": "test_七项补全",
+      "dna": "DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "status": "🔴",
+      "tri_color": "red",
+      "output": null,
+      "error": "编译失败: ",
+      "elapsed": 0.116
+    },
+    {
+      "name": "test_反虚伪",
+      "dna": "DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "status": "🔴",
+      "tri_color": "red",
+      "output": null,
+      "error": "编译失败: ",
+      "elapsed": 0.109
+    },
+    {
+      "name": "test_自动简化",
+      "dna": "DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "status": "🟢",
+      "tri_color": "green",
+      "output": "其实你可以试试，我会尽力去做。\n",
+      "error": null,
+      "elapsed": 0.17
+    },
+    {
+      "name": "test_虚伪熔断",
+      "dna": "DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+      "status": "🟢",
+      "tri_color": "green",
+      "output": "我理解你的痛苦，你很勇敢，我会一直陪着你。\n",
+      "error": null,
+      "elapsed": 0.181
+    }
+  ]
+}

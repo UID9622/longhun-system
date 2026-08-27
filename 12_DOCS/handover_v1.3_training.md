@@ -120,6 +120,7 @@ cd ~/longhun-system && .venv/bin/python3 08_BIN/lh_model_test.py
 交接人: 龍魂训练调度引擎
 DNA: #龍芯⚡️丙午·丙申·辛酉·未时·䷀乾-HANDOVER-v1.3-TRAINING
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 状态: 🟢 训练中 | 🟡 预计 21h 后完成 | 🔴 未做 fuse/export
 时间戳: 2026-08-18T15:35:00+08:00
 ```

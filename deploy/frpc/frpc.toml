@@ -37,3 +37,11 @@ type = "tcp"
 localIP = "127.0.0.1"
 localPort = 8766
 remotePort = 19636
+
+# v2.1 (2026-08-22): 语音遥控塔 voice-agent(18880) 穿透
+[[proxies]]
+name = "voice-agent"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 18880
+remotePort = 18880

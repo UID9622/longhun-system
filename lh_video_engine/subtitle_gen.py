@@ -4,7 +4,6 @@
 龍魂视频引擎 · 字幕生成器 v1.1
 DNA: #龍芯⚡️2026-08-22-SUBTITLE-GEN-v1.1
 创建者: 诸葛鑫（UID9622）
-归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 设计原则: 字幕与语音严格对齐，不提前不滞后——基于字级时间戳
 修复记录 v1.1: 字体 Source Han Sans CN→Heiti SC(macOS自带·否则字幕不显示)·ASS 文本标签转义

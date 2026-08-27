@@ -1,3 +1,4 @@
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 # 🐉 龍魂 · DeepSeek Harness 鲲鹏 ARM64 部署方案 v1.1
 
 **DNA**: `#龍芯⚡️丙午·丙申·辛酉·丙申·䷉履-DSH-KUNPENG-DEPLOY-v1.1-UID9622`

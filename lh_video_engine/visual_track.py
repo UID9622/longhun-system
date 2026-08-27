@@ -4,7 +4,6 @@
 龍魂视频引擎 · 画面轨道 v1.2
 DNA: #龍芯⚡️2026-08-22-VISUAL-TRACK-v1.2
 创建者: 诸葛鑫（UID9622）
-归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 设计原则:
   - 截图类: macOS screencapture 命令→稳定处理→将图转为视频片段

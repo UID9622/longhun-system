@@ -1,3 +1,4 @@
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 # 龍魂系统 · 三色审计公开规则 v1.1（骨架版）
 
 > 完整工程接口标准见 `01_protocols/LH-TRICOLOR-AUDIT-STANDARD-v1.1.md`（P2 标准提案级）。

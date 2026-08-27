@@ -1,4 +1,5 @@
 #!/bin/bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # 🐉 龍魂 · 跨设备互通一键启动 (Mac端) v1.2
 # DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CROSS-SERVER-V1.2-UID9622
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

@@ -1,29 +1,26 @@
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 {
-  "app": {
-    "signingConfigs": [],
-    "products": [
-      {
-        "name": "default",
-        "signingConfig": "default",
-        "compatibleSdkVersion": "5.0.0(12)",
-        "runtimeOS": "HarmonyOS",
-        "buildOption": { "strictMode": { "useNormalizedOHMUrl": true } }
+  "apiType": "stageMode",
+  "buildOption": {
+    "arkOptions": {
+      "runtimeOnly": {
+        "packages": [
+          "@ohos.arkui.UIContext"
+        ]
       }
-    ],
-    "buildModeSet": [
-      { "name": "debug" }, { "name": "release" }
-    ]
+    },
+    // 龍魂 Native 并发与高性能计算 · C++ 构建
+    "externalNativeOptions": {
+      "path": "./src/main/cpp/CMakeLists.txt",
+      "arguments": "-DUSE_HUGE_PAGES=OFF -DUSE_NUMA=OFF -DENABLE_PROFILING=OFF",
+      "cppFlags": "-O3 -march=armv8-a+fp+simd",
+      "abiFilters": ["arm64-v8a"]
+    }
   },
-  "modules": [
+  "targets": [
     {
-      "name": "entry",
-      "srcPath": "./entry",
-      "targets": [
-        {
-          "name": "default",
-          "applyToProducts": ["default"]
-        }
-      ]
+      "name": "default"
     }
   ]
 }

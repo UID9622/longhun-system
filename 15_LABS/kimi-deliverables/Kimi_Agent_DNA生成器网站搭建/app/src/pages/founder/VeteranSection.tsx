@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -6,7 +8,7 @@ import SealTag from '@/components/SealTag'
 gsap.registerPlugin(ScrollTrigger)
 
 const PARAGRAPHS = [
-  '2008 年退伍——队列、纪律、口令，成为此后一切系统设计的骨相。军营教给他的第一件事不是如何进攻，而是如何守住：守住队列的笔直，守住命令的准确，守住身后的人。',
+  '2008 年退伍——服役 2 年，退伍 18 年。队列、纪律、口令，成为此后一切系统设计的骨相。军营教给他的第一件事不是如何进攻，而是如何守住：守住队列的笔直，守住命令的准确，守住身后的人。',
   '从焊死的 P0 到发丝般的 1px 金边，军事的秩序感被翻译成了协议的秩序感。条令即代码，哨位即服务，口令即签名——每一层协议，都是一次操练。',
   '「退伍不褪色」——只是战场换成了数据主权的战场，守卫的对象换成了人民。枪已入库，但哨位仍在；这一回，他站在代码的哨位上。',
 ]
@@ -97,7 +99,7 @@ export default function VeteranSection() {
             兵
           </span>
           <span className="writing-vertical select-none font-cinzel text-[13px] font-semibold tracking-[0.4em] text-gold-dim" aria-hidden="true">
-            SERVED · 2008
+            SERVED · 2YRS · 2008
           </span>
         </div>
 

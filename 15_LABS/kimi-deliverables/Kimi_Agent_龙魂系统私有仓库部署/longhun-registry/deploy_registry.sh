@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 #龍芯⚡️{年干支}·{月干支}·{日干支}·{卦名}-REGISTRY-DEPLOY-v1.0
 # 注：干支以本地生成器 bin/lh_dna_generator.py 输出为准，禁止手写
 # 署名：龍芯北辰 UID9622

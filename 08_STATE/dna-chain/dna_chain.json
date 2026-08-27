@@ -1,0 +1,233 @@
+[
+  {
+    "dna": "#龍芯⚡️20260825-守护者启动-UID9622",
+    "hash": "de878a2be6797d7a",
+    "prev_hash": "0000000000000000",
+    "timestamp": "2026-08-25 22:28:20",
+    "event": "守护者启动",
+    "level": "🟢",
+    "service": "DOORKEEPER",
+    "port": 0,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260825-生门-龍魂API网关-UID9622",
+    "hash": "27b8c88753a97e67",
+    "prev_hash": "de878a2be6797d7a",
+    "timestamp": "2026-08-25 22:28:20",
+    "event": "生门-龍魂API网关",
+    "level": "🟢",
+    "service": "龍魂API网关",
+    "port": 9622,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260825-生门-主权网关-UID9622",
+    "hash": "b4a591c0d068e449",
+    "prev_hash": "27b8c88753a97e67",
+    "timestamp": "2026-08-25 22:28:20",
+    "event": "生门-主权网关",
+    "level": "🟢",
+    "service": "主权网关",
+    "port": 8766,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260825-生门-渲染服务M75-UID9622",
+    "hash": "b76beb05ca474dbb",
+    "prev_hash": "b4a591c0d068e449",
+    "timestamp": "2026-08-25 22:28:20",
+    "event": "生门-渲染服务M75",
+    "level": "🟢",
+    "service": "渲染服务M75",
+    "port": 8972,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260825-生门-Ollama模型-UID9622",
+    "hash": "0d8d84aa54574ebd",
+    "prev_hash": "b76beb05ca474dbb",
+    "timestamp": "2026-08-25 22:28:20",
+    "event": "生门-Ollama模型",
+    "level": "🟢",
+    "service": "Ollama模型",
+    "port": 11434,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260825-生门-注册中心-UID9622",
+    "hash": "79dde059e5686f36",
+    "prev_hash": "0d8d84aa54574ebd",
+    "timestamp": "2026-08-25 22:28:20",
+    "event": "生门-注册中心",
+    "level": "🟢",
+    "service": "注册中心",
+    "port": 9623,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260825-生门-Ollama反代-UID9622",
+    "hash": "f383e10da4223bbd",
+    "prev_hash": "79dde059e5686f36",
+    "timestamp": "2026-08-25 22:28:20",
+    "event": "生门-Ollama反代",
+    "level": "🟢",
+    "service": "Ollama反代",
+    "port": 11435,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260826-守护者启动-UID9622",
+    "hash": "7be4fc6b61c3208b",
+    "prev_hash": "f383e10da4223bbd",
+    "timestamp": "2026-08-26 15:34:23",
+    "event": "守护者启动",
+    "level": "🟢",
+    "service": "DOORKEEPER",
+    "port": 0,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260826-生门-龍魂API网关-UID9622",
+    "hash": "18637c5d7ae6dcd8",
+    "prev_hash": "7be4fc6b61c3208b",
+    "timestamp": "2026-08-26 15:34:23",
+    "event": "生门-龍魂API网关",
+    "level": "🟢",
+    "service": "龍魂API网关",
+    "port": 9622,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260826-生门-主权网关-UID9622",
+    "hash": "0dc877b760238500",
+    "prev_hash": "18637c5d7ae6dcd8",
+    "timestamp": "2026-08-26 15:34:23",
+    "event": "生门-主权网关",
+    "level": "🟢",
+    "service": "主权网关",
+    "port": 8766,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260826-生门-渲染服务M75-UID9622",
+    "hash": "199f7dccd77f1acf",
+    "prev_hash": "0dc877b760238500",
+    "timestamp": "2026-08-26 15:34:23",
+    "event": "生门-渲染服务M75",
+    "level": "🟢",
+    "service": "渲染服务M75",
+    "port": 8972,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260826-生门-Ollama模型-UID9622",
+    "hash": "f15bb9530dae9bb1",
+    "prev_hash": "199f7dccd77f1acf",
+    "timestamp": "2026-08-26 15:34:23",
+    "event": "生门-Ollama模型",
+    "level": "🟢",
+    "service": "Ollama模型",
+    "port": 11434,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260826-生门-注册中心-UID9622",
+    "hash": "8056c860d5a5269c",
+    "prev_hash": "f15bb9530dae9bb1",
+    "timestamp": "2026-08-26 15:34:23",
+    "event": "生门-注册中心",
+    "level": "🟢",
+    "service": "注册中心",
+    "port": 9623,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260826-生门-Ollama反代-UID9622",
+    "hash": "7995041ae299d915",
+    "prev_hash": "8056c860d5a5269c",
+    "timestamp": "2026-08-26 15:34:23",
+    "event": "生门-Ollama反代",
+    "level": "🟢",
+    "service": "Ollama反代",
+    "port": 11435,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260826-守护者启动-UID9622",
+    "hash": "13adff1b5fc2c3c3",
+    "prev_hash": "7995041ae299d915",
+    "timestamp": "2026-08-26 15:36:54",
+    "event": "守护者启动",
+    "level": "🟢",
+    "service": "DOORKEEPER",
+    "port": 0,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260826-生门-龍魂API网关-UID9622",
+    "hash": "0df09a17d7ab46c2",
+    "prev_hash": "13adff1b5fc2c3c3",
+    "timestamp": "2026-08-26 15:36:54",
+    "event": "生门-龍魂API网关",
+    "level": "🟢",
+    "service": "龍魂API网关",
+    "port": 9622,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260826-生门-主权网关-UID9622",
+    "hash": "23d652f8ec59e4f4",
+    "prev_hash": "0df09a17d7ab46c2",
+    "timestamp": "2026-08-26 15:36:54",
+    "event": "生门-主权网关",
+    "level": "🟢",
+    "service": "主权网关",
+    "port": 8766,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260826-生门-渲染服务M75-UID9622",
+    "hash": "f1088930935a8800",
+    "prev_hash": "23d652f8ec59e4f4",
+    "timestamp": "2026-08-26 15:36:54",
+    "event": "生门-渲染服务M75",
+    "level": "🟢",
+    "service": "渲染服务M75",
+    "port": 8972,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260826-生门-Ollama模型-UID9622",
+    "hash": "a68ac2f4a064babe",
+    "prev_hash": "f1088930935a8800",
+    "timestamp": "2026-08-26 15:36:54",
+    "event": "生门-Ollama模型",
+    "level": "🟢",
+    "service": "Ollama模型",
+    "port": 11434,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260826-生门-注册中心-UID9622",
+    "hash": "7da2a0b2f5441510",
+    "prev_hash": "a68ac2f4a064babe",
+    "timestamp": "2026-08-26 15:36:54",
+    "event": "生门-注册中心",
+    "level": "🟢",
+    "service": "注册中心",
+    "port": 9623,
+    "uid": "9622"
+  },
+  {
+    "dna": "#龍芯⚡️20260826-生门-Ollama反代-UID9622",
+    "hash": "6ccb6d4eec1b1cd9",
+    "prev_hash": "7da2a0b2f5441510",
+    "timestamp": "2026-08-26 15:36:54",
+    "event": "生门-Ollama反代",
+    "level": "🟢",
+    "service": "Ollama反代",
+    "port": 11435,
+    "uid": "9622"
+  }
+]

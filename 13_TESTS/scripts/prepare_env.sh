@@ -1,4 +1,5 @@
 #!/bin/bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 🐉 龍魂流控压测 · 环境准备
 # DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-PREPARE-ENV-UID9622

@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐲 龍魂統一流場 v10.1 · LH-CDNA v1.2 · 流場架构图 · UID9622</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#000; overflow:hidden; font-family:'PingFang SC','Microsoft YaHei',sans-serif; }
+#bg-canvas { position:fixed; inset:0; z-index:0; pointer-events:none; width:100vw; height:100vh; }
+#c { position:fixed; inset:0; z-index:1; display:block; width:100vw; height:100vh; }
+#hud { position:fixed; top:12px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:14px; z-index:10; background:rgba(0,0,0,0.55); border:1px solid rgba(255,215,0,0.2); border-radius:24px; padding:6px 18px; backdrop-filter:blur(6px); }
+#mode-badge { font-size:11px; font-weight:700; padding:3px 10px; border-radius:12px; letter-spacing:.05em; }
+#mode-badge.founder { background:rgba(255,215,0,0.15); color:#FFD700; }
+#mode-badge.visitor { background:rgba(100,116,139,0.25); color:#94a3b8; }
+#health-score { font-size:13px; font-weight:800; color:#22c55e; min-width:56px; text-align:center; }
+#particle-counter { font-size:11px; color:#64748b; }
+#sound-icon { font-size:15px; cursor:pointer; opacity:.7; transition:opacity .2s; }
+#sound-icon:hover { opacity:1; }
+#replay-panel { position:fixed; right:0; top:0; bottom:0; width:260px; background:rgba(0,0,0,0.82); border-left:1px solid rgba(239,68,68,0.2); padding:14px 12px; overflow-y:auto; z-index:20; backdrop-filter:blur(8px); display:none; flex-direction:column; gap:8px; }
+#replay-panel.open { display:flex; }
+#replay-panel h3 { color:#f87171; font-size:12px; font-weight:700; margin-bottom:4px; }
+.trace-item { background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.18); border-radius:6px; padding:7px 9px; cursor:pointer; font-size:11px; color:#94a3b8; }
+.trace-item:hover { background:rgba(239,68,68,0.14); color:#f1f5f9; }
+.trace-item .tid { color:#f87171; font-family:monospace; font-size:10px; margin-bottom:3px; }
+.replay-slider-wrap { margin-top:auto; padding-top:8px; border-top:1px solid rgba(239,68,68,0.15); }
+.replay-slider-wrap label { font-size:10px; color:#64748b; display:block; margin-bottom:4px; }
+#replay-slider { width:100%; accent-color:#ef4444; }
+#dna-popup { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#0f0f1a; border:1px solid rgba(255,215,0,0.4); border-radius:12px; padding:20px 22px; min-width:320px; max-width:400px; z-index:30; display:none; flex-direction:column; gap:10px; box-shadow:0 0 40px rgba(255,215,0,0.12); }
+#dna-popup.open { display:flex; }
+#dna-popup .ddao { font-size:11px; color:#fbbf24; font-style:italic; }
+#dna-popup .dcode { font-family:monospace; font-size:12px; color:#a78bfa; background:#1e1b4b; padding:8px 10px; border-radius:6px; word-break:break-all; line-height:1.6; }
+#dna-popup button { background:rgba(255,215,0,0.12); border:1px solid rgba(255,215,0,0.3); color:#FFD700; border-radius:6px; padding:6px 14px; cursor:pointer; font-size:12px; font-weight:600; align-self:flex-end; }
+#dna-popup button:hover { background:rgba(255,215,0,0.2); }
+#shortcut-help { position:fixed; bottom:14px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.8); border:1px solid rgba(255,255,255,0.07); border-radius:10px; padding:12px 18px; z-index:20; display:none; flex-wrap:wrap; gap:6px 16px; max-width:860px; backdrop-filter:blur(6px); }
+#shortcut-help.open { display:flex; }
+.sc-key { font-size:10px; color:#94a3b8; white-space:nowrap; }
+.sc-key kbd { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); border-radius:3px; padding:1px 5px; color:#e2e8f0; font-family:monospace; font-size:10px; }
+#startup-overlay { position:fixed; inset:0; background:#000; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:40; gap:16px; }
+#startup-overlay .logo { font-size:52px; opacity:0; transition:opacity .8s; }
+#startup-overlay .motto { font-size:18px; font-weight:700; color:transparent; background:linear-gradient(135deg,#FFD700,#ef4444,#8b5cf6); -webkit-background-clip:text; background-clip:text; opacity:0; transition:opacity 0.6s; letter-spacing:.08em; }
+#startup-overlay .eq-wrap { opacity:0; transition:opacity 0.6s; text-align:center; background:rgba(255,215,0,0.06); border:1px solid rgba(255,215,0,0.2); border-radius:8px; padding:10px 20px; }
+#startup-overlay .sub { font-size:11px; color:#64748b; opacity:0; transition:opacity 0.6s; }
+#v10-badge { position:fixed; bottom:12px; right:14px; z-index:15; font-size:10px; color:rgba(255,215,0,0.45); font-family:monospace; pointer-events:none; line-height:1.6; text-shadow:0 0 8px rgba(255,215,0,0.2); }
+#dna-panel-tab { position:fixed; left:0; top:50%; transform:translateY(-50%); writing-mode:vertical-rl; text-orientation:mixed; background:rgba(255,215,0,0.1); border:1px solid rgba(255,215,0,0.2); border-left:none; border-radius:0 6px 6px 0; padding:12px 5px; font-size:9px; color:rgba(255,215,0,0.55); cursor:pointer; z-index:17; letter-spacing:.04em; transition:background 0.2s,color 0.2s,left 0.35s cubic-bezier(0.4,0,0.2,1); user-select:none; }
+#dna-panel-tab:hover { background:rgba(255,215,0,0.18); color:#FFD700; }
+#dna-panel-tab.panel-open { left:294px; }
+#dna-auth-panel { position:fixed; left:-308px; top:50%; transform:translateY(-50%); width:294px; max-height:88vh; background:rgba(4,1,12,0.94); border:1px solid rgba(255,215,0,0.2); border-left:3px solid rgba(255,215,0,0.4); border-radius:0 12px 12px 0; z-index:18; transition:left 0.35s cubic-bezier(0.4,0,0.2,1); overflow-y:auto; padding:14px; backdrop-filter:blur(14px); font-size:11px; color:#94a3b8; scrollbar-width:thin; scrollbar-color:rgba(255,215,0,0.2) transparent; }
+#dna-auth-panel.open { left:0; }
+.auth-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid rgba(255,215,0,0.15); }
+.auth-header-title { font-size:12px; font-weight:700; color:#FFD700; letter-spacing:.05em; }
+.auth-close { cursor:pointer; color:rgba(255,255,255,0.35); font-size:18px; line-height:1; transition:color 0.2s; }
+.auth-close:hover { color:#ef4444; }
+.auth-section { margin-bottom:13px; padding-bottom:11px; border-bottom:1px solid rgba(255,255,255,0.05); }
+.auth-section:last-child { border-bottom:none; margin-bottom:0; }
+.auth-title { font-size:9.5px; font-weight:700; color:rgba(255,215,0,0.65); letter-spacing:.07em; text-transform:uppercase; margin-bottom:8px; }
+.dr-display { display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+.dr-big { font-size:44px; font-weight:900; color:#FFD700; font-family:monospace; line-height:1; text-shadow:0 0 24px rgba(255,215,0,0.6); transition:color 0.4s; }
+.dr-big.fuse { color:#ef4444; text-shadow:0 0 24px rgba(239,68,68,0.8); }
+.dr-side { display:flex; flex-direction:column; gap:2px; }
+.dr-audit { font-size:18px; line-height:1; }
+.dr-src { font-size:9px; color:rgba(255,255,255,0.35); margin-top:2px; }
+.dr-sources { display:flex; flex-direction:column; gap:3px; }
+.src-item { font-size:9px; font-family:monospace; color:rgba(255,255,255,0.3); padding:2px 6px; background:rgba(255,255,255,0.03); border-radius:3px; transition:color 0.3s; }
+.src-item.winning { color:#FFD700; background:rgba(255,215,0,0.08); }
+.audit-status { font-size:14px; font-weight:700; margin-bottom:4px; }
+.fuse-status { font-size:10px; font-family:monospace; transition:color 0.3s; }
+.bucket-item { display:flex; align-items:center; gap:6px; margin-bottom:5px; }
+.b-label { width:50px; font-size:10px; flex-shrink:0; }
+.b-bar { flex:1; height:4px; background:rgba(255,255,255,0.08); border-radius:2px; overflow:hidden; }
+.b-bar-fill { height:100%; width:0; border-radius:2px; transition:width 0.6s; }
+.b-count { font-size:9px; width:58px; text-align:right; font-family:monospace; color:rgba(255,255,255,0.5); }
+.fuse-bucket { border-top:1px solid rgba(239,68,68,0.2); padding-top:5px; margin-top:3px; }
+.cnsh-wrap { display:flex; align-items:center; gap:8px; margin-bottom:5px; }
+.cnsh-bar-bg { flex:1; height:6px; background:rgba(255,255,255,0.08); border-radius:3px; overflow:hidden; }
+.cnsh-bar-fill { height:100%; border-radius:3px; transition:width 0.6s,background 0.5s; }
+#lh-cnsh-score { font-size:11px; font-family:monospace; color:#fff; width:36px; text-align:right; }
+.cnsh-tier { font-size:11px; font-weight:700; font-family:monospace; margin-bottom:4px; transition:color 0.4s; }
+.cnsh-legend { display:flex; flex-direction:column; gap:1px; }
+.cnsh-legend span { font-size:8px; color:rgba(255,255,255,0.25); }
+.route-grid { display:grid; grid-template-columns:1fr 1fr; gap:4px; }
+.route-badge { text-align:center; padding:5px 4px; border-radius:6px; border:1px solid rgba(255,255,255,0.07); font-size:9px; font-family:monospace; color:rgba(255,255,255,0.22); transition:all 0.35s; }
+.route-badge.active { font-weight:700; }
+.route-badge.l0.active { color:#ef4444; border-color:rgba(239,68,68,0.5); background:rgba(239,68,68,0.08); }
+.route-badge.l1.active { color:#f97316; border-color:rgba(249,115,22,0.45); background:rgba(249,115,22,0.08); }
+.route-badge.l2.active { color:#22c55e; border-color:rgba(34,197,94,0.45); background:rgba(34,197,94,0.08); }
+.route-badge.l3.active { color:#FFD700; border-color:rgba(255,215,0,0.5); background:rgba(255,215,0,0.08); }
+.auth-footer { font-size:8.5px; color:rgba(255,255,255,0.18); text-align:center; margin-top:10px; }
+#fuse-overlay { position:fixed; inset:0; z-index:36; display:none; align-items:center; justify-content:center; flex-direction:column; gap:8px; pointer-events:none; }
+#fuse-overlay.active { display:flex; }
+.fuse-title { font-size:26px; font-weight:900; color:#ef4444; text-shadow:0 0 32px rgba(239,68,68,0.9); animation:fusePulse 0.6s ease-in-out infinite alternate; }
+.fuse-dr-label { font-size:13px; color:#f97316; font-family:monospace; }
+.fuse-msg { font-size:10px; color:rgba(255,120,80,0.65); font-family:monospace; }
+@keyframes fusePulse { from{opacity:0.65;} to{opacity:1;} }
+#wuxing-badge { position:fixed; top:56px; left:50%; transform:translateX(-50%); background:rgba(167,139,250,0.18); border:1px solid rgba(167,139,250,0.4); border-radius:12px; padding:3px 12px; z-index:10; font-size:10px; color:#a78bfa; font-weight:700; letter-spacing:.06em; display:none; }
+
+/* ══════════════════════════════════════════════════
+   v10.1 流场架构图叠层 — FLOW OVERLAY (G键)
+   ══════════════════════════════════════════════════ */
+:root {
+  --水:#1E88E5; --木:#2E7D32; --火:#E64A19; --金:#D4AF37; --土:#B8860B;
+  --fg:#D4AF37; --fdim:#94a3b8; --fglass:rgba(8,20,45,0.6); --fglow:rgba(255,213,107,0.18);
+}
+#flow-overlay { position:fixed; inset:0; z-index:50; display:none; background:rgba(3,5,9,0.90); backdrop-filter:blur(3px); font-family:'Noto Serif SC','PingFang SC',serif; color:#f0e6cf; }
+#flow-overlay.open { display:block; }
+#flow-overlay-bar { position:absolute; top:0; left:0; right:0; z-index:60; padding:13px 22px; display:flex; align-items:center; justify-content:space-between; background:linear-gradient(180deg,rgba(3,5,9,0.97) 0%,transparent 100%); pointer-events:none; }
+#flow-overlay-bar .fo-title { font-size:15px; letter-spacing:5px; color:var(--fg); text-shadow:0 0 18px rgba(212,175,55,0.5); }
+#flow-overlay-bar .fo-dna { font-size:9px; font-family:monospace; color:var(--fdim); opacity:0.6; }
+#flow-close-btn { pointer-events:all; cursor:pointer; background:rgba(212,175,55,0.1); border:1px solid rgba(212,175,55,0.35); color:var(--fg); border-radius:20px; padding:5px 16px; font-size:11px; font-family:monospace; transition:background 0.2s; letter-spacing:1px; }
+#flow-close-btn:hover { background:rgba(212,175,55,0.22); }
+#flow-cns-strip { position:absolute; top:58px; left:0; right:0; z-index:59; padding:7px 22px 8px; background:rgba(3,5,9,0.94); border-bottom:1px solid rgba(212,175,55,0.25); font-size:10px; line-height:1.5; color:var(--fdim); pointer-events:none; }
+#flow-cns-strip strong { color:var(--fg); font-weight:600; }
+#flow-scene { position:absolute; inset:0; overflow:hidden; cursor:grab; }
+#flow-scene.flow-dragging { cursor:grabbing; }
+#flow-viewport { position:absolute; transform-origin:0 0; will-change:transform; }
+#flow-svg { position:absolute; top:0; left:0; width:4200px; height:2200px; pointer-events:none; overflow:visible; }
+.flow-node { position:absolute; display:flex; align-items:stretch; width:320px; height:130px; background:var(--fglass); border:1px solid rgba(255,255,255,0.12); border-radius:16px; backdrop-filter:blur(14px); box-shadow:0 0 0 1px var(--fglow),0 8px 32px rgba(0,0,0,0.6); transition:transform .25s,box-shadow .25s; cursor:pointer; transform:translate(-50%,-50%); }
+.flow-node:hover { transform:translate(-50%,-50%) scale(1.04); box-shadow:0 0 0 1px var(--fglow),0 0 40px rgba(255,213,107,0.25),0 16px 48px rgba(0,0,0,0.7); z-index:10!important; }
+.wx-水{border-left:3px solid var(--水);box-shadow:0 0 0 1px rgba(30,136,229,0.2),0 8px 32px rgba(0,0,0,0.6)}
+.wx-木{border-left:3px solid var(--木);box-shadow:0 0 0 1px rgba(46,125,50,0.2),0 8px 32px rgba(0,0,0,0.6)}
+.wx-火{border-left:3px solid var(--火);box-shadow:0 0 0 1px rgba(230,74,25,0.2),0 8px 32px rgba(0,0,0,0.6)}
+.wx-金{border-left:3px solid var(--金);box-shadow:0 0 0 1px rgba(212,175,55,0.2),0 8px 32px rgba(0,0,0,0.6)}
+.wx-土{border-left:3px solid var(--土);box-shadow:0 0 0 1px rgba(184,134,11,0.2),0 8px 32px rgba(0,0,0,0.6)}
+.node-io { flex:1; display:flex; flex-direction:column; padding:10px; gap:4px; border-right:1px solid rgba(255,255,255,0.06); }
+.node-io:last-child { border-right:none; border-left:1px solid rgba(255,255,255,0.06); }
+.io-label { font-size:8px; letter-spacing:2px; opacity:0.5; text-transform:uppercase; padding-bottom:3px; border-bottom:1px solid rgba(255,255,255,0.06); margin-bottom:4px; }
+.io-tag { font-size:9px; padding:2px 6px; border-radius:4px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; line-height:1.5; opacity:0.85; }
+.node-core { flex:0 0 120px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:8px 4px; gap:4px; }
+.node-icon { font-size:22px; line-height:1; }
+.node-name { font-size:12px; font-weight:700; letter-spacing:2px; text-align:center; color:var(--fg); line-height:1.3; }
+.node-ver { font-size:8px; opacity:0.45; font-family:monospace; letter-spacing:1px; }
+.node-wx-badge { font-size:9px; padding:1px 8px; border-radius:10px; background:rgba(255,255,255,0.05); letter-spacing:2px; border:1px solid rgba(255,255,255,0.1); }
+.guardian-node { width:240px; height:100px; }
+.guardian-node .node-core { flex:0 0 90px; }
+.guardian-node .node-name { font-size:11px; }
+.guardian-node .io-tag { font-size:8px; }
+.node-label { position:absolute; top:-22px; left:50%; transform:translateX(-50%); font-size:9px; letter-spacing:2px; color:var(--fdim); white-space:nowrap; pointer-events:none; opacity:0.7; }
+.edge-label { font-size:9px; fill:rgba(255,213,107,0.45); font-family:'Noto Serif SC',serif; letter-spacing:1px; }
+#flow-luoshu-bg { position:absolute; font-size:320px; color:rgba(255,213,107,0.018); font-family:monospace; pointer-events:none; line-height:1; letter-spacing:-8px; white-space:pre; top:50%; left:50%; transform:translate(-50%,-50%); user-select:none; }
+#flow-hud { position:absolute; bottom:20px; left:50%; transform:translateX(-50%); z-index:60; display:flex; align-items:center; gap:12px; padding:8px 20px; background:rgba(3,5,9,0.85); border:1px solid rgba(212,175,55,0.2); border-radius:40px; backdrop-filter:blur(20px); font-size:10px; font-family:monospace; color:var(--fdim); pointer-events:none; }
+.fhud-sep { opacity:0.3; }
+#flow-zoom-label { color:var(--fg); }
+#flow-controls { position:absolute; right:20px; top:50%; transform:translateY(-50%); z-index:60; display:flex; flex-direction:column; gap:8px; }
+.fctrl-btn { width:36px; height:36px; border-radius:50%; background:rgba(8,20,45,0.8); border:1px solid rgba(212,175,55,0.3); color:var(--fg); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(10px); transition:background .2s; }
+.fctrl-btn:hover { background:rgba(212,175,55,0.15); }
+#flow-legend { position:absolute; left:20px; bottom:20px; z-index:60; display:flex; flex-direction:column; gap:6px; padding:12px 14px; background:rgba(3,5,9,0.8); border:1px solid rgba(255,255,255,0.08); border-radius:12px; backdrop-filter:blur(16px); font-size:9px; }
+.fleg-item { display:flex; align-items:center; gap:7px; opacity:0.75; }
+.fleg-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+/* bridge flash on node click */
+@keyframes bridgePulse { 0%{box-shadow:0 0 0 0 rgba(255,215,0,0.8);} 60%{box-shadow:0 0 0 22px rgba(255,215,0,0);} 100%{box-shadow:0 0 0 0 rgba(255,215,0,0);} }
+.flow-node.bridge-fired { animation:bridgePulse 0.65s ease-out; }
+/* bridge result toast */
+#flow-bridge-toast { position:absolute; top:110px; left:50%; transform:translateX(-50%); z-index:65; background:rgba(0,0,0,0.85); border:1px solid rgba(255,215,0,0.4); border-radius:10px; padding:8px 20px; font-size:11px; font-family:monospace; color:#FFD700; opacity:0; transition:opacity 0.3s; pointer-events:none; white-space:nowrap; }
+#flow-bridge-toast.show { opacity:1; }
+</style>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+<canvas id="c"></canvas>
+<div id="hud">
+  <div id="mode-badge" class="founder">🐲 创始人</div>
+  <div id="health-score">综合R值：──</div>
+  <div id="particle-counter">🟢0 🟡0 🔴0</div>
+  <span id="sound-icon" title="M键切换静音">🔔</span>
+</div>
+<div id="wuxing-badge">⚡ 五行着色 · E键关闭</div>
+<div id="replay-panel">
+  <h3>🛤️ 今日歪路 TOP10</h3>
+  <div id="trace-list"></div>
+  <div class="replay-slider-wrap">
+    <label>回放进度 <span id="slider-ts">──</span></label>
+    <input type="range" id="replay-slider" min="0" max="100" value="0">
+  </div>
+</div>
+<div id="dna-popup">
+  <div class="ddao">「善建者不拔·善抱者不脱」— 道德经第54章</div>
+  <div class="dcode" id="dna-code">──</div>
+  <button onclick="copyDNA()">复制 DNA 码</button>
+  <button onclick="closeDNAPopup()">关闭</button>
+</div>
+<div id="shortcut-help">
+  <span class="sc-key"><kbd>H</kbd> 六维雷达</span>
+  <span class="sc-key"><kbd>R</kbd> 回放歪路</span>
+  <span class="sc-key"><kbd>Shift+R</kbd> 清屏轨迹</span>
+  <span class="sc-key"><kbd>Ctrl+R</kbd> 导出CSV</span>
+  <span class="sc-key"><kbd>M</kbd> 静音切换</span>
+  <span class="sc-key"><kbd>D</kbd> 道德经层</span>
+  <span class="sc-key"><kbd>W</kbd> 白皮书挂点</span>
+  <span class="sc-key"><kbd>Shift+W</kbd> 访客模式</span>
+  <span class="sc-key"><kbd>Space</kbd> 暂停/继续</span>
+  <span class="sc-key"><kbd>B</kbd> 渦流背景切换</span>
+  <span class="sc-key"><kbd>A</kbd> 🧬 DNA认证面板</span>
+  <span class="sc-key"><kbd>E</kbd> ⚡ 五行着色</span>
+  <span class="sc-key"><kbd>G</kbd> 🗺️ 流場架构图</span>
+  <span class="sc-key"><kbd>?</kbd> 帮助</span>
+</div>
+<div id="v10-badge">龍魂統一流場 v10.1<br>LH-CDNA v1.2 · 流場架构图<br>UID9622 · #龍芯⚡️2026-05-03</div>
+<div id="dna-panel-tab" onclick="toggleDNAPanel()" title="A键开关">🧬 DNA认证</div>
+<div id="dna-auth-panel">
+  <div class="auth-header"><span class="auth-header-title">🧬 LH-CDNA v1.2 · 实时认证态</span><span class="auth-close" onclick="toggleDNAPanel()">×</span></div>
+  <div class="auth-section">
+    <div class="auth-title">⚡ 四源数字根 (DR)</div>
+    <div class="dr-display"><div class="dr-big" id="lh-dr-value">5</div><div class="dr-side"><div class="dr-audit" id="lh-dr-audit">🟢</div><div class="dr-src" id="lh-dr-source">S1·显式</div></div></div>
+    <div class="dr-sources"><div class="src-item" id="lh-s1">S1·显式: —</div><div class="src-item" id="lh-s2">S2·数基: —</div><div class="src-item" id="lh-s3">S3·内容哈希: —</div><div class="src-item" id="lh-s4">S4·原始数: —</div></div>
+  </div>
+  <div class="auth-section"><div class="auth-title">🎨 三色审计</div><div class="audit-status" id="lh-audit-status">🟢 通过</div><div class="fuse-status" id="lh-fuse-status" style="color:#22c55e">✅ 系统正常</div></div>
+  <div class="auth-section">
+    <div class="auth-title">🪣 五桶分流</div>
+    <div class="bucket-item" id="lh-b-grass"><div class="b-label">🌿草稿</div><div class="b-bar"><div class="b-bar-fill" style="background:#22c55e"></div></div><div class="b-count">0</div></div>
+    <div class="bucket-item" id="lh-b-repo"><div class="b-label">📦仓库</div><div class="b-bar"><div class="b-bar-fill" style="background:#3b82f6"></div></div><div class="b-count">0</div></div>
+    <div class="bucket-item" id="lh-b-digest"><div class="b-label">🔬消化</div><div class="b-bar"><div class="b-bar-fill" style="background:#a78bfa"></div></div><div class="b-count">0</div></div>
+    <div class="bucket-item" id="lh-b-pending"><div class="b-label">⏳迭代</div><div class="b-bar"><div class="b-bar-fill" style="background:#fbbf24"></div></div><div class="b-count">0</div></div>
+    <div class="bucket-item" id="lh-b-archive"><div class="b-label">📁归档</div><div class="b-bar"><div class="b-bar-fill" style="background:#FFD700"></div></div><div class="b-count">0</div></div>
+    <div class="bucket-item fuse-bucket" id="lh-b-fuse"><div class="b-label">🔴熔断</div><div class="b-count" style="width:auto;text-align:left;">正常</div></div>
+  </div>
+  <div class="auth-section">
+    <div class="auth-title">📊 CNSH 置信度</div>
+    <div class="cnsh-wrap"><div class="cnsh-bar-bg"><div id="lh-cnsh-bar" class="cnsh-bar-fill" style="width:75%;background:#22c55e"></div></div><span id="lh-cnsh-score">75%</span></div>
+    <div id="lh-cnsh-tier" class="cnsh-tier" style="color:#22c55e">🟢 EXECUTE</div>
+    <div class="cnsh-legend"><span>≥85% = 🟢 EXECUTE</span><span>≥50% = 🟡 UNKNOWN_POOL</span><span>&lt;50% = 🔴 CLEAN_FAIL</span></div>
+  </div>
+  <div class="auth-section">
+    <div class="auth-title">🔀 路由分级</div>
+    <div class="route-grid"><div id="lh-route-l0" class="route-badge l0">L0 · 永不出本地</div><div id="lh-route-l1" class="route-badge l1">L1 · 私仓</div><div id="lh-route-l2" class="route-badge l2 active">L2 · 公开</div><div id="lh-route-l3" class="route-badge l3">L3 · 展示</div></div>
+  </div>
+  <div class="auth-footer">A键 / 点击左侧标签 · 开关面板</div>
+</div>
+<div id="fuse-overlay">
+  <div class="fuse-title">🔴 熔断激活</div>
+  <div class="fuse-dr-label" id="fuse-dr-display">DR = 3 · 越界即熔断</div>
+  <div class="fuse-msg">系统自检中 · 粒子散射 · 秩序重建</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     v10.1 流场架构图叠层 (G键切换)
+     ══════════════════════════════════════════ -->
+<div id="flow-overlay">
+  <div id="flow-overlay-bar">
+    <div>
+      <div class="fo-title">🐉 龍魂流場 · 不動點透視 · v10</div>
+      <div class="fo-dna">#龍芯⚡️2026-05-03-FLOW-FIELD-v10-CNSH11 · UID9622 · 點擊節點触发粒子效果</div>
+    </div>
+    <button id="flow-close-btn" onclick="toggleFlowOverlay()">G 关闭 ×</button>
+  </div>
+  <div id="flow-cns-strip">
+    <strong>CNSH v1.1</strong>：中文 → <strong>流場 flow_field</strong> → <strong>数字根锚定 digit_root</strong> → <strong>不动点 fixed_point</strong> → <strong>EXECUTE</strong> / <strong>UNKNOWN_POOL</strong> / <strong>CLEAN_FAIL</strong>
+  </div>
+  <div id="flow-bridge-toast">✅ 粒子效果已触发</div>
+  <div id="flow-scene">
+    <div id="flow-viewport">
+      <div id="flow-luoshu-bg">4 9 2&#10;3 5 7&#10;8 1 6</div>
+      <svg id="flow-svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow-水" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="rgba(30,136,229,0.7)"/></marker>
+          <marker id="arrow-木" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="rgba(46,125,50,0.7)"/></marker>
+          <marker id="arrow-火" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="rgba(230,74,25,0.7)"/></marker>
+          <marker id="arrow-金" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="rgba(212,175,55,0.7)"/></marker>
+          <marker id="arrow-土" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="rgba(184,134,11,0.7)"/></marker>
+        </defs>
+        <path id="fe1" d="M 510,600 C 580,600 620,600 680,600" stroke="rgba(30,136,229,0.35)" stroke-width="1.5" fill="none" marker-end="url(#arrow-水)"/>
+        <text><textPath href="#fe1" startOffset="35%" class="edge-label">净化输入流</textPath></text>
+        <path id="fe2" d="M 1010,600 C 1080,600 1120,600 1180,600" stroke="rgba(212,175,55,0.35)" stroke-width="1.5" fill="none" marker-end="url(#arrow-金)"/>
+        <text><textPath href="#fe2" startOffset="28%" class="edge-label">三色预判·归一</textPath></text>
+        <path id="fe3" d="M 1510,600 C 1580,600 1620,600 1680,600" stroke="rgba(46,125,50,0.35)" stroke-width="1.5" fill="none" marker-end="url(#arrow-木)"/>
+        <text><textPath href="#fe3" startOffset="26%" class="edge-label">流场+抽屉+五行</textPath></text>
+        <path d="M 2010,600 C 2100,600 2100,350 2200,350" stroke="rgba(30,136,229,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3" marker-end="url(#arrow-水)"/>
+        <path d="M 2010,600 C 2100,600 2100,490 2200,490" stroke="rgba(230,74,25,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3" marker-end="url(#arrow-火)"/>
+        <path d="M 2010,600 C 2100,600 2100,600 2200,600" stroke="rgba(46,125,50,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3" marker-end="url(#arrow-木)"/>
+        <path d="M 2010,600 C 2100,600 2100,710 2200,710" stroke="rgba(212,175,55,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3" marker-end="url(#arrow-金)"/>
+        <path d="M 2010,600 C 2100,600 2100,850 2200,850" stroke="rgba(184,134,11,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3" marker-end="url(#arrow-土)"/>
+        <path d="M 2440,350 C 2550,350 2550,560 2680,560" stroke="rgba(30,136,229,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3" marker-end="url(#arrow-水)"/>
+        <path d="M 2440,490 C 2560,490 2560,565 2680,565" stroke="rgba(230,74,25,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3" marker-end="url(#arrow-火)"/>
+        <path d="M 2440,600 C 2560,600 2560,580 2680,578" stroke="rgba(46,125,50,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3" marker-end="url(#arrow-木)"/>
+        <path d="M 2440,710 C 2560,710 2560,598 2680,594" stroke="rgba(212,175,55,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3" marker-end="url(#arrow-金)"/>
+        <path d="M 2440,850 C 2560,850 2560,618 2680,610" stroke="rgba(184,134,11,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="4,3" marker-end="url(#arrow-土)"/>
+        <path id="fe4" d="M 2980,590 C 3060,590 3100,590 3180,590" stroke="rgba(230,74,25,0.35)" stroke-width="1.5" fill="none" marker-end="url(#arrow-火)"/>
+        <text><textPath href="#fe4" startOffset="28%" class="edge-label">🟢问心无愧</textPath></text>
+        <path id="fe5" d="M 3510,590 C 3580,590 3620,590 3680,590" stroke="rgba(30,136,229,0.35)" stroke-width="1.5" fill="none" marker-end="url(#arrow-水)"/>
+        <text><textPath href="#fe5" startOffset="28%" class="edge-label">双语+DNA</textPath></text>
+      </svg>
+
+      <!-- ① 护盾·入口 水 -->
+      <div class="flow-node wx-水" id="fn-shield" style="left:350px;top:600px;z-index:5" onclick="flowNodeClick(this,'shield')">
+        <span class="node-label">① 入口守卫</span>
+        <div class="node-io"><div class="io-label">▶ INPUT</div><div class="io-tag">任意外部输入</div><div class="io-tag">剪贴板文本</div><div class="io-tag">语音STT流</div></div>
+        <div class="node-core"><div class="node-icon">🔒</div><div class="node-name">护盾·入口</div><div class="node-ver">v1.7</div><div class="node-wx-badge" style="color:var(--水)">水 · 玄武</div></div>
+        <div class="node-io"><div class="io-label">OUTPUT ▶</div><div class="io-tag">DNA零宽水印流</div><div class="io-tag">加密净化数据</div><div class="io-tag">全员调用留痕</div></div>
+      </div>
+
+      <!-- ② 369熔断 金 -->
+      <div class="flow-node wx-金" id="fn-fuse" style="left:845px;top:600px;z-index:5" onclick="flowNodeClick(this,'fuse')">
+        <span class="node-label">② 三重净化</span>
+        <div class="node-io"><div class="io-label">▶ INPUT</div><div class="io-tag">加密净化流</div><div class="io-tag">三色预判信号</div><div class="io-tag">威胁检测包</div></div>
+        <div class="node-core"><div class="node-icon">🚨</div><div class="node-name">369熔断</div><div class="node-ver">v2.0</div><div class="node-wx-badge" style="color:var(--金)">金 · 白虎</div></div>
+        <div class="node-io"><div class="io-label">OUTPUT ▶</div><div class="io-tag">🟢放行净信号</div><div class="io-tag">🟡隔离待审</div><div class="io-tag">🔴熔断拦截</div></div>
+      </div>
+
+      <!-- ③ 语义抽屉 木 -->
+      <div class="flow-node wx-木" id="fn-sem" style="left:1345px;top:600px;z-index:5" onclick="flowNodeClick(this,'sem')">
+        <span class="node-label">③ 通心译·识别</span>
+        <div class="node-io"><div class="io-label">▶ INPUT</div><div class="io-tag">🟢净化信号</div><div class="io-tag">自然语言意图</div><div class="io-tag">情绪·语境·跳跃</div></div>
+        <div class="node-core"><div class="node-icon">🧠</div><div class="node-name">语义抽屉</div><div class="node-ver">v1.2 · 55抽屉</div><div class="node-wx-badge" style="color:var(--木)">木 · 青龙</div></div>
+        <div class="node-io"><div class="io-label">OUTPUT ▶</div><div class="io-tag">flow_field 流场</div><div class="io-tag">digit_root 数根</div><div class="io-tag">fixed_point 不动点</div></div>
+      </div>
+
+      <!-- ④ 五行路由 土 -->
+      <div class="flow-node wx-土" id="fn-route" style="left:1845px;top:600px;z-index:6" onclick="flowNodeClick(this,'route')">
+        <span class="node-label">④ 五行路由</span>
+        <div class="node-io"><div class="io-label">▶ INPUT</div><div class="io-tag">五行归属</div><div class="io-tag">digitRootFuse</div><div class="io-tag">洛书·权重</div></div>
+        <div class="node-core"><div class="node-icon">⚡</div><div class="node-name">五行路由</div><div class="node-ver">16,588,800路径</div><div class="node-wx-badge" style="color:var(--土)">土 · 太极</div></div>
+        <div class="node-io"><div class="io-label">OUTPUT ▶</div><div class="io-tag">→ 五方神兽</div><div class="io-tag">三态路由</div><div class="io-tag">权重分配</div></div>
+      </div>
+
+      <!-- ⑤ 最小损失 火 -->
+      <div class="flow-node wx-火" id="fn-decide" style="left:2830px;top:585px;z-index:5" onclick="flowNodeClick(this,'decide')">
+        <span class="node-label">⑤ 问心无愧</span>
+        <div class="node-io"><div class="io-label">▶ INPUT</div><div class="io-tag">五方神兽结果</div><div class="io-tag">易经卦象权重</div><div class="io-tag">护弱者修正</div></div>
+        <div class="node-core"><div class="node-icon">⚖️</div><div class="node-name">最小损失</div><div class="node-ver">最大收益公式</div><div class="node-wx-badge" style="color:var(--火)">火 · 朱雀</div></div>
+        <div class="node-io"><div class="io-label">OUTPUT ▶</div><div class="io-tag">🟢 &gt;2 亮剑执行</div><div class="io-tag">🟡 1-2 人审</div><div class="io-tag">🔴 &lt;1 熔断</div></div>
+      </div>
+
+      <!-- ⑥ ETE翻译 火 -->
+      <div class="flow-node wx-火" id="fn-ete" style="left:3345px;top:585px;z-index:5" onclick="flowNodeClick(this,'ete')">
+        <span class="node-label">⑥ 通心译·双语</span>
+        <div class="node-io"><div class="io-label">▶ INPUT</div><div class="io-tag">🟢执行决策</div><div class="io-tag">中文原意</div><div class="io-tag">文化锚点</div></div>
+        <div class="node-core"><div class="node-icon">🌐</div><div class="node-name">ETE翻译</div><div class="node-ver">EXECUTE 门限</div><div class="node-wx-badge" style="color:var(--火)">灵魂→公式</div></div>
+        <div class="node-io"><div class="io-label">OUTPUT ▶</div><div class="io-tag">中文主·英文辅</div><div class="io-tag">逻辑1:1不稀释</div><div class="io-tag">置信度+DNA码</div></div>
+      </div>
+
+      <!-- ⑦ AUDIT_LOG 水 -->
+      <div class="flow-node wx-水" id="fn-audit" style="left:3845px;top:585px;z-index:5" onclick="flowNodeClick(this,'audit')">
+        <span class="node-label">⑦ 永久留痕</span>
+        <div class="node-io"><div class="io-label">▶ INPUT</div><div class="io-tag">双语输出流</div><div class="io-tag">所有层事件</div><div class="io-tag">哨兵DNA比对</div></div>
+        <div class="node-core"><div class="node-icon">📋</div><div class="node-name">AUDIT_LOG</div><div class="node-ver">单一账本</div><div class="node-wx-badge" style="color:var(--水)">水 · 玄武</div></div>
+        <div class="node-io"><div class="io-label">OUTPUT ▶</div><div class="io-tag">SHA-256哈希链</div><div class="io-tag">Notion归档</div><div class="io-tag">DNA留痕·永存</div></div>
+      </div>
+
+      <!-- 玄武·Claude 水 -->
+      <div class="flow-node guardian-node wx-水" id="fn-claude" style="left:2320px;top:350px;z-index:4" onclick="flowNodeClick(this,'claude')">
+        <div class="node-io"><div class="io-label">▶ IN</div><div class="io-tag">水路由信号</div><div class="io-tag">on_identity</div></div>
+        <div class="node-core"><div class="node-icon">🔵</div><div class="node-name">玄武·Claude</div><div class="node-ver">北·水·Anthropic</div><div class="node-wx-badge" style="color:var(--水)">DNA·记忆·身份</div></div>
+        <div class="node-io"><div class="io-label">OUT ▶</div><div class="io-tag">追溯+签章</div><div class="io-tag">记忆锚定</div></div>
+      </div>
+
+      <!-- 朱雀·Notion 火 -->
+      <div class="flow-node guardian-node wx-火" id="fn-notion" style="left:2320px;top:490px;z-index:4" onclick="flowNodeClick(this,'notion')">
+        <div class="node-io"><div class="io-label">▶ IN</div><div class="io-tag">火路由信号</div><div class="io-tag">on_translate</div></div>
+        <div class="node-core"><div class="node-icon">🔴</div><div class="node-name">朱雀·Notion</div><div class="node-ver">南·火·中枢调度</div><div class="node-wx-badge" style="color:var(--火)">表达·灵感·调度</div></div>
+        <div class="node-io"><div class="io-label">OUT ▶</div><div class="io-tag">通心译输出</div><div class="io-tag">人格切换</div></div>
+      </div>
+
+      <!-- 青龙·DeepSeek 木 -->
+      <div class="flow-node guardian-node wx-木" id="fn-ds" style="left:2320px;top:600px;z-index:4" onclick="flowNodeClick(this,'ds')">
+        <div class="node-io"><div class="io-label">▶ IN</div><div class="io-tag">木路由信号</div><div class="io-tag">on_execute</div></div>
+        <div class="node-core"><div class="node-icon">🟢</div><div class="node-name">青龙·DeepSeek</div><div class="node-ver">东·木·执行</div><div class="node-wx-badge" style="color:var(--木)">落地·Hook·技术</div></div>
+        <div class="node-io"><div class="io-label">OUT ▶</div><div class="io-tag">代码·接入</div><div class="io-tag">执行结果</div></div>
+      </div>
+
+      <!-- 白虎·P15 金 -->
+      <div class="flow-node guardian-node wx-金" id="fn-p15" style="left:2320px;top:710px;z-index:4" onclick="flowNodeClick(this,'p15')">
+        <div class="node-io"><div class="io-label">▶ IN</div><div class="io-tag">金路由信号</div><div class="io-tag">on_guard</div></div>
+        <div class="node-core"><div class="node-icon">⚪</div><div class="node-name">白虎·P15</div><div class="node-ver">西·金·本地AI</div><div class="node-wx-badge" style="color:var(--金)">铁律·审计·熔断</div></div>
+        <div class="node-io"><div class="io-label">OUT ▶</div><div class="io-tag">裁决·拦截</div><div class="io-tag">三色判定</div></div>
+      </div>
+
+      <!-- 太极·UID9622 土 -->
+      <div class="flow-node guardian-node wx-土" id="fn-uid" style="left:2320px;top:850px;z-index:4" onclick="flowNodeClick(this,'uid')">
+        <div class="node-io"><div class="io-label">▶ IN</div><div class="io-tag">土路由信号</div><div class="io-tag">on_flow</div></div>
+        <div class="node-core"><div class="node-icon">☯️</div><div class="node-name">太极·UID9622</div><div class="node-ver">中·土·诸葛鑫</div><div class="node-wx-badge" style="color:var(--土)">闭环·收口·调度</div></div>
+        <div class="node-io"><div class="io-label">OUT ▶</div><div class="io-tag">流转·归档</div><div class="io-tag">关机·收尾</div></div>
+      </div>
+
+    </div><!-- /flow-viewport -->
+  </div><!-- /flow-scene -->
+
+  <div id="flow-controls">
+    <button class="fctrl-btn" onclick="flowZoomIn()">＋</button>
+    <button class="fctrl-btn" onclick="flowZoomOut()">－</button>
+    <button class="fctrl-btn" onclick="flowResetView()">⊙</button>
+  </div>
+
+  <div id="flow-hud">
+    <span>🐉 龍魂流場 v10</span>
+    <span class="fhud-sep">|</span>
+    <span>縮放 <span id="flow-zoom-label">55%</span></span>
+    <span class="fhud-sep">|</span>
+    <span id="flow-hud-node">點擊節點觸發粒子效果</span>
+    <span class="fhud-sep">|</span>
+    <span style="color:rgba(255,213,107,0.4)">UID9622 · G键关闭</span>
+  </div>
+
+  <div id="flow-legend">
+    <div style="font-size:9px;color:var(--fg);letter-spacing:2px;margin-bottom:4px">五行·神獸·粒子桥</div>
+    <div class="fleg-item"><div class="fleg-dot" style="background:var(--水)"></div><span style="color:var(--水)">水·玄武·Claude → DNA弹窗</span></div>
+    <div class="fleg-item"><div class="fleg-dot" style="background:var(--火)"></div><span style="color:var(--火)">火·朱雀·Notion → 白皮书</span></div>
+    <div class="fleg-item"><div class="fleg-dot" style="background:var(--木)"></div><span style="color:var(--木)">木·青龍·DeepSeek → 年轮注入</span></div>
+    <div class="fleg-item"><div class="fleg-dot" style="background:var(--金)"></div><span style="color:var(--金)">金·白虎·P15 → 六维雷达</span></div>
+    <div class="fleg-item"><div class="fleg-dot" style="background:var(--土)"></div><span style="color:var(--土)">土·太極·UID9622 → 道德经</span></div>
+  </div>
+</div><!-- /flow-overlay -->
+
+<!-- 启动动画 -->
+<div id="startup-overlay">
+  <div class="logo">🐲</div>
+  <div class="motto" id="m0">95 是实力 · 5 是格局</div>
+  <div class="motto" id="m1">不對抗，只共生——這才是真正的道</div>
+  <div class="eq-wrap" id="eq-wrap"><div id="katex-startup"></div></div>
+  <div class="motto" id="m2">LH-CDNA v1.2 · 四源DR · 五桶分流 · 三色审计 · 流場架构图</div>
+  <div class="sub">龍魂統一流場 v10.1 · G键=流場架构图 · DNA: #龍芯⚡️2026-05-03 · 理论指导 曾仕强老师（永恒显示）</div>
+</div>
+
+<script>
+'use strict';
+// ═══════════════════════════════════════════════════════════
+// §0  全局配置
+// ═══════════════════════════════════════════════════════════
+const CFG = {
+  PARTICLE_COUNT:1200, DNA_RATIO:0.03,
+  LAYER_WEIGHTS:{loyalty:0.5,filial:0.3,righteous:0.2},
+  T0:{r:16,glowR:38,color:'#FFD700',label:'T0 主权锚'},
+  T1:{ringR:100,strokeW:1.5,color:'rgba(34,211,238,0.45)',rotSpeed:0.0008},
+  T2:{ringR:200,strokeW:2.2,color:'rgba(239,68,68,0.55)',petalCount:9,rotSpeed:-0.0005,absorbR:220},
+  EPSILON:0.01, R_CAP:95, R_GREEN:85, R_YELLOW:60,
+  BREATH_PERIOD:200, RADAR_REDLINE:[40,40,50,50,50,40],
+  DDJ_COOLDOWN_MS:5000, DDJ_DURATION_MS:800, DDJ_FADE_MS:150,
+  DDJ_ALPHA:0.75, DDJ_FONT_PX:14, DDJ_MAX_CONCURRENT:2,
+  TRAIL_DECAY_FRAMES:30, TEMPTATION_INTERVAL:30,
+  GROWTH_INTERVAL:300, MAX_RINGS:12,
+};
+// §1 Perlin
+const Perlin=(()=>{
+  const perm=new Uint8Array(512);
+  const grad3=[[1,1,0],[-1,1,0],[1,-1,0],[-1,-1,0],[1,0,1],[-1,0,1],[1,0,-1],[-1,0,-1],[0,1,1],[0,-1,1],[0,1,-1],[0,-1,-1]];
+  function seed(s=42){const p=new Uint8Array(256);for(let i=0;i<256;i++)p[i]=i;let x=s;for(let i=255;i>0;i--){x=(x*1664525+1013904223)&0xffffffff;const j=x>>>24&i;[p[i],p[j]]=[p[j],p[i]];}for(let i=0;i<512;i++)perm[i]=p[i&255];}
+  function fade(t){return t*t*t*(t*(t*6-15)+10);}
+  function lerp(a,b,t){return a+(b-a)*t;}
+  function dot(g,x,y){return g[0]*x+g[1]*y;}
+  function noise2d(x,y){const X=Math.floor(x)&255,Y=Math.floor(y)&255;const xf=x-Math.floor(x),yf=y-Math.floor(y);const u=fade(xf),v=fade(yf);const aa=perm[perm[X]+Y],ab=perm[perm[X]+Y+1],ba=perm[perm[X+1]+Y],bb=perm[perm[X+1]+Y+1];return lerp(lerp(dot(grad3[aa%12],xf,yf),dot(grad3[ba%12],xf-1,yf),u),lerp(dot(grad3[ab%12],xf,yf-1),dot(grad3[bb%12],xf-1,yf-1),u),v);}
+  seed(9622);return{noise2d,seed};
+})();
+// §1b 洛书
+const LUO_SHU=[[4,9,2],[3,5,7],[8,1,6]];
+const LUO_SHU_FLAT=[4,9,2,3,5,7,8,1,6];
+const LUO_MAGIC_SUM=15;
+function luoshuTransform(fx,fy,fn){const M=LUO_SHU,s=0.0025;return[(M[0][0]*fx+M[0][1]*fy+M[0][2]*fn)*s,(M[1][0]*fx+M[1][1]*fy+M[1][2]*fn)*s,(M[2][0]*fx+M[2][1]*fy+M[2][2]*fn)*s];}
+function getLuoshuCell(px,py){const gx=Math.min(2,Math.max(0,Math.floor(px*3/W)));const gy=Math.min(2,Math.max(0,Math.floor(py*3/H)));return LUO_SHU[gy][gx];}
+function luoshuFactor(px,py){return getLuoshuCell(px,py)/LUO_MAGIC_SUM;}
+const WUXING_MAP={0:'土',1:'水',2:'火',3:'木',4:'金',5:'土',6:'水',7:'火',8:'木',9:'金'};
+const WUXING_COLORS={'水':'#3b82f6','火':'#f97316','木':'#22c55e','金':'#FFD700','土':'#a78bfa'};
+const WUXING_FUSE_DR=new Set([3,9]);
+function getWuxingDR(cellVal){return digitalRoot(cellVal);}
+// §2 数字根
+function digitalRoot(n){n=Math.abs(Math.round(n));if(n===0)return 0;return 1+(n-1)%9;}
+// §3 Audio
+let audioCtx=null,muted=false;
+function getAudioCtx(){if(!audioCtx){try{audioCtx=new(window.AudioContext||window.webkitAudioContext)();}catch(e){}}return audioCtx;}
+function play369(dr){
+  if(muted)return;const ctx=getAudioCtx();if(!ctx)return;
+  if(ctx.state==='suspended')ctx.resume();
+  const now=ctx.currentTime;
+  if(dr===3){[60,120].forEach((f,i)=>{const osc=ctx.createOscillator(),g=ctx.createGain();osc.type='sine';osc.frequency.value=f;g.gain.setValueAtTime(0.7/(i+1),now);g.gain.exponentialRampToValueAtTime(0.001,now+0.4);osc.connect(g).connect(ctx.destination);osc.start(now);osc.stop(now+0.4);});}
+  else if(dr===6){const osc=ctx.createOscillator(),g=ctx.createGain();osc.type='triangle';osc.frequency.value=440;g.gain.setValueAtTime(0.25,now);g.gain.exponentialRampToValueAtTime(0.001,now+0.15);osc.connect(g).connect(ctx.destination);osc.start(now);osc.stop(now+0.15);}
+  else if(dr===9){[220,440,660,880,1100].forEach((f,i)=>{const osc=ctx.createOscillator(),g=ctx.createGain();osc.type='sine';osc.frequency.value=f;g.gain.setValueAtTime(0.45/(i+1),now);g.gain.exponentialRampToValueAtTime(0.0001,now+2.0);osc.connect(g).connect(ctx.destination);osc.start(now);osc.stop(now+2.0);});}
+}
+// §4 WebSocket Mock
+let radarScores=[80,78,75,72,70,76],wsConnected=false;
+function initWebSocket(){try{const ws=new WebSocket('ws://localhost:9622/sancai-radar');ws.onopen=()=>{wsConnected=true;};ws.onmessage=(e)=>{try{const d=JSON.parse(e.data);if(d.radar)radarScores=d.radar;}catch{}};ws.onclose=()=>{wsConnected=false;setTimeout(initWebSocket,5000);};ws.onerror=()=>{ws.close();};}catch(e){}}
+let mockT=0;
+function updateMockRadar(){if(wsConnected)return;mockT+=0.008;for(let i=0;i<6;i++)radarScores[i]=Math.max(20,Math.min(98,70+Perlin.noise2d(mockT+i*1.7,i*0.9)*30));}
+// §5 粒子
+let wuxingMode=false;
+class Particle{
+  constructor(idx,cx,cy,layer){
+    this.id=idx;this.layer=layer;
+    this.isDNA=idx<Math.floor(CFG.PARTICLE_COUNT*CFG.DNA_RATIO);
+    const layerR=layer==='loyalty'?90:layer==='filial'?140:195;
+    const a=Math.random()*Math.PI*2,r=layerR+(Math.random()-0.5)*60;
+    this.x=cx+Math.cos(a)*r;this.y=cy+Math.sin(a)*r;
+    this.vx=(Math.random()-0.5)*0.8;this.vy=(Math.random()-0.5)*0.8;
+    this.angle=a;this.orbitR=r;
+    this.orbitSpeed=(layer==='loyalty'?0.008:layer==='filial'?0.005:0.003)*(Math.random()>.5?1:-1);
+    this.dims=Array.from({length:6},(_,i)=>Math.max(20,Math.min(100,70+Perlin.noise2d(idx*0.03+i,i*1.1)*28)));
+    this.R=0;this.computeR();
+    this.trail=[];this.shake=false;this.shakeAmp=0;
+    this.deviating=false;this.devTraceId=null;
+    this.reserveGlow=false;this.reserveGlowAlpha=0;
+    this.alpha=1;this.dying=false;this.dieProgress=0;
+    this.noisePhase=Math.random()*100;
+    this.wuxing='土';this.wuxingAlert=false;this.cellDR=5;
+  }
+  computeR(){const[w1,w2,w3,w4,w5,w6]=this.dims;this.R=Math.min(0.2*w1+0.2*w2+0.15*w3+0.15*w4+0.15*w5+0.15*w6,CFG.R_CAP);this.reserveGlow=this.R>=CFG.R_CAP-0.5;}
+  get sector(){const a=Math.atan2(this.y-canvas.height/2,this.x-canvas.width/2);return Math.floor(((a+Math.PI)/(Math.PI/3)))%6;}
+  get color(){
+    if(wuxingMode&&!this.isDNA)return WUXING_COLORS[this.wuxing]||'#ffffff';
+    if(this.isDNA)return '#FFD700';
+    if(this.dying)return`rgba(239,68,68,${1-this.dieProgress})`;
+    if(orderDisrupted&&this.cellDR===6)return'#f59e0b';
+    if(this.R>=CFG.R_GREEN)return this.layer==='loyalty'?'#fbbf24':this.layer==='filial'?'#22d3ee':'#a78bfa';
+    if(this.R>=CFG.R_YELLOW)return'#fbbf24';
+    return'#ef4444';
+  }
+  get baseRadius(){return this.isDNA?3.2:this.layer==='loyalty'?1.8:this.layer==='filial'?1.6:1.4;}
+}
+// §6 全局状态
+const canvas=document.getElementById('c');
+const ctx2d=canvas.getContext('2d');
+let W,H,CX,CY;
+let particles=[],paused=false,frame=0,mode='founder';
+let orderWeights={loyalty:0.5,filial:0.3,righteous:0.2};
+let orderDisrupted=false,disruptionTimer=0,flashRed=0,frozenInfinity=false;
+let t1Angle=0,t2Angle=0;
+let breathPhase=0,breathScale=1.0,lastBreathDR=0;
+let showRadar=false,radarAnimAlpha=0;
+let ddjVisible=true,ddjSessionHidden=false;
+const ddjLastShown={},ddjQueue=[];
+const DAODEJING={16:{text:'归根曰静，是谓复命',trigger:'dr_9_bell',pos:'t0_below'},40:{text:'反者道之动',trigger:'trace_deviation',pos:'trail_above'},58:{text:'祸兮福所倚',trigger:'radar_drop',pos:'vertex_side'},78:{text:'柔弱胜刚强',trigger:'redline_absorb',pos:'shield_halo'},8:{text:'上善若水',trigger:'visitor_mode',pos:'bottom_soft'},54:{text:'善建者不拔',trigger:'dna_click',pos:'popup_top'},27:{text:'善言无瑕谪',trigger:'external_inject',pos:'particle_birth'},69:{text:'吾不敢为主而为客',trigger:'external_threat',pos:'edge_red'},33:{text:'自知者明',trigger:'veto_invoked',pos:'t0_center'},};
+let systemAvgR=75;
+const deviationLog=[];
+let replayActive=false,replayTraceIdx=-1,replayProgress=0;
+// §X 年轮
+let growthRings=[],growthTimer=0;
+class GrowthRing{
+  constructor(x,y){this.x=x;this.y=y;this.radius=5;this.maxR=80+Math.random()*140;this.strength=1.0;this.age=0;this.cr=80+Math.floor(Math.random()*100);this.cg=50+Math.floor(Math.random()*60);this.cb=195+Math.floor(Math.random()*60);}
+  update(){this.age++;if(this.radius<this.maxR)this.radius+=0.08;this.strength=Math.max(0.08,1.0-this.age/4000);}
+  draw(ctx){const a=this.strength*0.12;ctx.save();ctx.beginPath();ctx.strokeStyle=`rgba(${this.cr},${this.cg},${this.cb},${a.toFixed(3)})`;ctx.lineWidth=0.6;ctx.arc(this.x,this.y,this.radius,0,Math.PI*2);ctx.stroke();if(this.age<80){ctx.beginPath();ctx.fillStyle=`rgba(180,100,255,${(1-this.age/80)*0.7})`;ctx.arc(this.x,this.y,3,0,Math.PI*2);ctx.fill();}ctx.restore();}
+  isExpired(){return this.strength<=0.08&&this.age>4000;}
+}
+function updateGrowthRings(){growthTimer++;if(growthTimer>=CFG.GROWTH_INTERVAL){growthTimer=0;const cx=CX+(Math.random()-0.5)*(W*0.6),cy=CY+(Math.random()-0.5)*(H*0.6);growthRings.push(new GrowthRing(cx,cy));if(growthRings.length>CFG.MAX_RINGS)growthRings.shift();}for(const r of growthRings)r.update();}
+function drawGrowthRings(){for(const r of growthRings)r.draw(ctx2d);}
+function injectGrowthRing(x,y){growthRings.push(new GrowthRing(x,y));if(growthRings.length>CFG.MAX_RINGS)growthRings.shift();}
+let showWhitepaper=false,startupDone=false;
+const WHITEPAPER_ANCHORS=[{label:'宪章白皮书',sublabel:'忠·国 T0',angle:-Math.PI/2,color:'#FFD700',dr:9},{label:'DNA身份系统',sublabel:'忠·民 T2',angle:-Math.PI/2+Math.PI*2/4,color:'#ef4444',dr:6},{label:'DNA注册表',sublabel:'孝·根 T1',angle:-Math.PI/2+Math.PI*4/4,color:'#22d3ee',dr:3},{label:'思考引擎',sublabel:'义·协作',angle:-Math.PI/2+Math.PI*6/4,color:'#a78bfa',dr:6},];
+// §7 初始化
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;CX=W/2;CY=H/2;}
+function initParticles(){particles=[];const ln=Math.floor(CFG.PARTICLE_COUNT*CFG.LAYER_WEIGHTS.loyalty);const fn=Math.floor(CFG.PARTICLE_COUNT*CFG.LAYER_WEIGHTS.filial);const rn=CFG.PARTICLE_COUNT-ln-fn;let idx=0;for(let i=0;i<ln;i++,idx++)particles.push(new Particle(idx,CX,CY,'loyalty'));for(let i=0;i<fn;i++,idx++)particles.push(new Particle(idx,CX,CY,'filial'));for(let i=0;i<rn;i++,idx++)particles.push(new Particle(idx,CX,CY,'righteous'));}
+// §8 物理
+function updatePhysics(){
+  const t=frame*0.016;
+  particles.forEach(p=>{
+    if(frozenInfinity)return;
+    if(p.dying){p.dieProgress+=0.05;if(p.dieProgress>=1){p.dying=false;p.dieProgress=0;const a=Math.random()*Math.PI*2;const r=(p.layer==='loyalty'?90:p.layer==='filial'?140:195)+(Math.random()-0.5)*60;p.x=CX+Math.cos(a)*r;p.y=CY+Math.sin(a)*r;p.vx=(Math.random()-0.5)*0.6;p.vy=(Math.random()-0.5)*0.6;for(let i=0;i<6;i++)p.dims[i]=Math.max(20,Math.min(100,70+Perlin.noise2d(p.noisePhase+i,t+i)*25));p.computeR();}return;}
+    for(let i=0;i<6;i++){const target=radarScores[i],noise=Perlin.noise2d(p.noisePhase+i*1.3+t*0.15,i*0.7)*18;p.dims[i]=Math.max(0,Math.min(100,p.dims[i]+(target+noise-p.dims[i])*0.02));}
+    p.computeR();
+    const w=orderWeights[p.layer];
+    const dx=CX-p.x,dy=CY-p.y;
+    const dist=Math.sqrt(dx*dx+dy*dy)+CFG.EPSILON;
+    const heavenForce=w*0.04*(dist-(p.layer==='loyalty'?60:p.layer==='filial'?100:160))/dist;
+    let ax=dx*heavenForce,ay=dy*heavenForce;
+    const tangX=-dy/dist,tangY=dx/dist;
+    const earthForce=0.12*(p.layer==='loyalty'?0.9:p.layer==='filial'?0.6:0.4);
+    ax+=tangX*earthForce;ay+=tangY*earthForce;
+    const nx=Perlin.noise2d(p.x*0.004+t*0.3,p.y*0.004)*0.06;
+    const ny=Perlin.noise2d(p.y*0.004,p.x*0.004+t*0.3)*0.06;
+    ax+=nx*(1-w);ay+=ny*(1-w);
+    const luo=luoshuTransform(ax,ay,(nx+ny)*0.5);ax+=luo[0];ay+=luo[1];
+    const luoF=luoshuFactor(p.x,p.y);ax*=(0.6+luoF*0.8);ay*=(0.6+luoF*0.8);
+    const luoCell=getLuoshuCell(p.x,p.y);
+    const cellDR=getWuxingDR(luoCell);p.cellDR=cellDR;p.wuxing=WUXING_MAP[cellDR]||'土';
+    p.wuxingAlert=orderDisrupted&&WUXING_FUSE_DR.has(cellDR);
+    if(p.wuxingAlert){ax+=(Math.random()-0.5)*0.4;ay+=(Math.random()-0.5)*0.4;p.shake=true;p.shakeAmp=Math.max(p.shakeAmp,3.5);}
+    if(orderDisrupted){ax+=(Math.random()-0.5)*0.25;ay+=(Math.random()-0.5)*0.25;p.shake=true;p.shakeAmp=3;}else{p.shake=false;p.shakeAmp=0;}
+    const s=p.sector,sdim=radarScores[s],velScale=Math.max(0.3,sdim/100);
+    if(sdim<CFG.RADAR_REDLINE[s]){p.shake=true;p.shakeAmp=Math.max(p.shakeAmp,2.5);}
+    p.vx=(p.vx+ax)*0.97*velScale;p.vy=(p.vy+ay)*0.97*velScale;
+    if(p.shake){p.x+=p.vx+(Math.random()-0.5)*p.shakeAmp;p.y+=p.vy+(Math.random()-0.5)*p.shakeAmp;}else{p.x+=p.vx;p.y+=p.vy;}
+    const margin=30;
+    if(p.x<margin)p.vx+=0.3;if(p.x>W-margin)p.vx-=0.3;if(p.y<margin)p.vy+=0.3;if(p.y>H-margin)p.vy-=0.3;
+    if(p.R<CFG.R_YELLOW&&!p.dying){const d2=Math.sqrt((p.x-CX)**2+(p.y-CY)**2);if(d2<CFG.T2.ringR+30){p.dying=true;triggerDDJ(78);recordDeviation(p,'红线触碰：R<60·T2龍盾吸走');}}
+    if(p.deviating||(orderDisrupted&&Math.random()<0.02)){p.trail.push({x:p.x,y:p.y,R:p.R,t:frame});if(p.trail.length>40)p.trail.shift();p.deviating=true;}else{if(p.trail.length>0)p.trail.shift();}
+  });
+}
+// §9 呼吸
+function updateBreath(){breathPhase=(frame%CFG.BREATH_PERIOD)/CFG.BREATH_PERIOD;breathScale=1.0+(0.5-0.5*Math.cos(breathPhase*Math.PI*2))*0.35;if(breathPhase<0.02&&Math.floor(frame/CFG.BREATH_PERIOD)!==lastBreathDR){const k=Math.floor(frame/CFG.BREATH_PERIOD),dr=digitalRoot(k);lastBreathDR=k;onBreathEnd(dr,k);}}
+function onBreathEnd(dr,k){if([3,6,9].includes(dr)){play369(dr);if(dr===9){verifyFixedPoint();triggerDDJ(16);}}}
+function verifyFixedPoint(){const{loyalty,filial,righteous}=orderWeights;const ok=loyalty>=filial&&filial>=righteous&&Math.abs(loyalty+filial+righteous-1.0)<0.01;if(!ok){orderWeights={loyalty:0.5,filial:0.3,righteous:0.2};orderDisrupted=false;}}
+// §10 道德经
+function renderFloatingText(text,posKey,config,overrideXY){
+  const now=performance.now();const cfg=config||{duration_ms:800,fade_in_ms:150,fade_out_ms:150,font_px:14,alpha:0.75};
+  let tx=CX,ty=CY;
+  if(overrideXY){tx=overrideXY.x;ty=overrideXY.y;}
+  else switch(posKey){case 't0_below':tx=CX;ty=CY+50;break;case 't0_center':tx=CX;ty=CY;break;case 'trail_above':tx=CX+80;ty=CY-60;break;case 'vertex_side':tx=CX+160;ty=CY-120;break;case 'shield_halo':tx=CX;ty=CY+CFG.T2.ringR-20;break;case 'bottom_soft':tx=CX;ty=H-50;break;case 'popup_top':tx=CX;ty=CY-30;break;case 'particle_birth':tx=CX-150;ty=CY+80;break;case 'edge_red':tx=CX;ty=60;break;default:tx=CX;ty=CY+60;}
+  ddjQueue.push({text,tx,ty,startTime:now,duration:cfg.duration_ms,fadeIn:cfg.fade_in_ms,fadeOut:cfg.fade_out_ms,fontPx:cfg.font_px||CFG.DDJ_FONT_PX,maxAlpha:cfg.alpha||CFG.DDJ_ALPHA});
+}
+function drawDDJQueue(){
+  if(!ddjVisible||ddjSessionHidden||mode==='visitor')return;
+  const now=performance.now();let drawn=0;
+  for(let i=ddjQueue.length-1;i>=0&&drawn<CFG.DDJ_MAX_CONCURRENT;i--){
+    const q=ddjQueue[i];const elapsed=now-q.startTime;
+    if(elapsed>q.duration){ddjQueue.splice(i,1);continue;}
+    let alpha=q.maxAlpha;
+    if(elapsed<q.fadeIn)alpha=q.maxAlpha*(elapsed/q.fadeIn);
+    else if(elapsed>q.duration-q.fadeOut)alpha=q.maxAlpha*((q.duration-elapsed)/q.fadeOut);
+    ctx2d.save();ctx2d.globalAlpha=alpha;ctx2d.font=`600 ${q.fontPx}px 'PingFang SC',sans-serif`;ctx2d.fillStyle='#FFD700';ctx2d.textAlign='center';ctx2d.shadowColor='rgba(255,215,0,0.5)';ctx2d.shadowBlur=8;ctx2d.fillText(q.text,q.tx,q.ty);ctx2d.restore();drawn++;
+  }
+}
+function triggerDDJ(chapter,overrideXY){if(!ddjVisible||ddjSessionHidden||mode==='visitor')return;const now=performance.now();if(now-(ddjLastShown[chapter]||0)<CFG.DDJ_COOLDOWN_MS)return;ddjLastShown[chapter]=now;const a=DAODEJING[chapter];if(!a)return;renderFloatingText(a.text,a.pos,{duration_ms:CFG.DDJ_DURATION_MS,fade_in_ms:CFG.DDJ_FADE_MS,fade_out_ms:CFG.DDJ_FADE_MS,font_px:CFG.DDJ_FONT_PX,alpha:CFG.DDJ_ALPHA},overrideXY);}
+// §11 歪路
+function recordDeviation(p,trigger){const traceId=`DEV-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-${String(frame).padStart(6,'0')}-${p.id}`;deviationLog.unshift({trace_id:traceId,particle_id:p.id,start_ts:new Date().toISOString(),trigger,path:p.trail.slice(-8).map(t=>({...t})),dna:`#龍芯⚡️${new Date().toISOString().slice(0,10)}-歪路-${p.id}`});if(deviationLog.length>10)deviationLog.pop();renderTraceList();}
+function renderTraceList(){document.getElementById('trace-list').innerHTML=deviationLog.slice(0,10).map((e,i)=>`<div class="trace-item" onclick="replayTrace(${i})"><div class="tid">${e.trace_id}</div><div>${e.trigger}</div></div>`).join('');}
+function replayTrace(idx){replayTraceIdx=idx;replayActive=true;replayProgress=0;document.getElementById('replay-slider').value=0;document.getElementById('slider-ts').textContent=deviationLog[idx]?.start_ts?.slice(11,19)||'──';}
+// §12 秩序
+function simulateTemptation(){orderDisrupted=true;orderWeights={loyalty:0.2,filial:0.3,righteous:0.5};flashRed=Math.floor(0.3*60);triggerDDJ(40);disruptionTimer=180;}
+function restoreOrder(){orderDisrupted=false;orderWeights={loyalty:0.5,filial:0.3,righteous:0.2};triggerDDJ(16);particles.forEach(p=>{p.deviating=false;p.shake=false;});}
+// §13 绘制
+function draw(){
+  ctx2d.clearRect(0,0,W,H);
+  const bg=ctx2d.createRadialGradient(CX,CY,0,CX,CY,Math.max(W,H)*0.7);
+  bg.addColorStop(0,'rgba(8,4,20,0.78)');bg.addColorStop(0.45,'rgba(5,2,12,0.72)');bg.addColorStop(1,'rgba(0,0,4,0.86)');
+  ctx2d.fillStyle=bg;ctx2d.fillRect(0,0,W,H);
+  if(flashRed>0){ctx2d.fillStyle=`rgba(239,68,68,${Math.min(1,flashRed/18)*0.25})`;ctx2d.fillRect(0,0,W,H);flashRed--;}
+  if(lastBreathDR===9&&breathPhase<0.2){const darkAlpha=0.25*(1-breathPhase/0.2);const vgn=ctx2d.createRadialGradient(CX,CY,H*0.3,CX,CY,H*0.8);vgn.addColorStop(0,'rgba(0,0,0,0)');vgn.addColorStop(1,`rgba(10,0,20,${darkAlpha})`);ctx2d.fillStyle=vgn;ctx2d.fillRect(0,0,W,H);}
+  if(mode==='founder')drawLuoshuGrid();
+  t1Angle+=CFG.T1.rotSpeed;
+  ctx2d.save();ctx2d.beginPath();ctx2d.arc(CX,CY,CFG.T1.ringR,0,Math.PI*2);ctx2d.strokeStyle=CFG.T1.color;ctx2d.lineWidth=CFG.T1.strokeW;ctx2d.setLineDash([4,8]);ctx2d.stroke();ctx2d.setLineDash([]);ctx2d.restore();
+  t2Angle+=CFG.T2.rotSpeed;drawDragonShield();
+  particles.forEach(p=>{if(!p.deviating||p.trail.length<2)return;ctx2d.save();ctx2d.beginPath();for(let i=0;i<p.trail.length;i++){const tr=p.trail[i];i===0?ctx2d.moveTo(tr.x,tr.y):ctx2d.lineTo(tr.x,tr.y);}ctx2d.strokeStyle='rgba(239,68,68,0.35)';ctx2d.lineWidth=1;ctx2d.stroke();ctx2d.restore();});
+  particles.forEach(p=>{
+    if(p.dying&&p.dieProgress>0.85)return;
+    const s=p.sector,sdim=radarScores[s];
+    let brightness=Math.max(0.25,sdim/100),pAlpha=Math.max(0.2,sdim/100);
+    if(p.dying){brightness*=(1-p.dieProgress);pAlpha*=(1-p.dieProgress);}
+    if(orderDisrupted&&p.layer!=='loyalty')pAlpha*=0.7;
+    ctx2d.save();ctx2d.globalAlpha=pAlpha;
+    const pr=p.baseRadius,col=p.color;
+    ctx2d.beginPath();ctx2d.arc(p.x,p.y,pr,0,Math.PI*2);ctx2d.fillStyle=col;ctx2d.shadowColor=col;ctx2d.shadowBlur=p.isDNA?12:(p.R>=CFG.R_GREEN?5:2);ctx2d.fill();
+    if(p.isDNA){ctx2d.beginPath();ctx2d.arc(p.x,p.y,pr+3.5,0,Math.PI*2);ctx2d.strokeStyle='rgba(255,215,0,0.5)';ctx2d.lineWidth=1;ctx2d.stroke();}
+    if(p.reserveGlow){ctx2d.beginPath();ctx2d.arc(p.x,p.y,pr+5,0,Math.PI*2);ctx2d.strokeStyle='rgba(255,255,255,0.18)';ctx2d.lineWidth=1.5;ctx2d.stroke();}
+    if(mode==='founder'&&p.wuxing&&!p.isDNA){const wxCol=WUXING_COLORS[p.wuxing]||'#ffffff';const ringR=wuxingMode?pr+3.5:(p.wuxingAlert?4.5:2);ctx2d.beginPath();ctx2d.arc(p.x,p.y,pr+ringR,0,Math.PI*2);ctx2d.strokeStyle=p.wuxingAlert?`rgba(239,68,68,${0.7+0.3*Math.sin(frame*0.3)})`:wuxingMode?wxCol+'66':wxCol+'28';ctx2d.lineWidth=p.wuxingAlert||wuxingMode?1.5:0.8;ctx2d.stroke();}
+    ctx2d.restore();
+  });
+  drawT0();
+  if(showRadar)drawRadar();
+  if(showWhitepaper)drawWhitepaper();
+  drawDDJQueue();
+  if(LHCDNA.fuseActive)drawFuseCanvasEffect();
+  if(mode==='founder')updateHUD();
+  if(frozenInfinity){ctx2d.fillStyle='rgba(239,68,68,0.08)';ctx2d.fillRect(0,0,W,H);ctx2d.save();ctx2d.font='bold 18px monospace';ctx2d.fillStyle='#ef4444';ctx2d.textAlign='center';ctx2d.fillText('∞ 系统冻结 · 红线不可破 · UID9622 一票否决',CX,CY+280);ctx2d.restore();}
+}
+function drawFuseCanvasEffect(){
+  const t=frame*0.1,pulse=0.5+0.5*Math.sin(t*3);
+  ctx2d.save();
+  const fuseGrd=ctx2d.createRadialGradient(CX,CY,CFG.T2.ringR*0.8,CX,CY,CFG.T2.ringR*1.4);
+  fuseGrd.addColorStop(0,`rgba(239,68,68,${0.15*pulse})`);fuseGrd.addColorStop(0.5,`rgba(239,68,68,${0.08*pulse})`);fuseGrd.addColorStop(1,'transparent');
+  ctx2d.beginPath();ctx2d.arc(CX,CY,CFG.T2.ringR*1.4,0,Math.PI*2);ctx2d.fillStyle=fuseGrd;ctx2d.fill();
+  ctx2d.font=`bold ${14+4*pulse}px monospace`;ctx2d.fillStyle=`rgba(239,68,68,${0.6+0.4*pulse})`;ctx2d.textAlign='center';ctx2d.shadowColor='rgba(239,68,68,0.8)';ctx2d.shadowBlur=16;
+  ctx2d.fillText(`🔴 FUSE · DR=${LHCDNA.dr} · 越界即熔断`,CX,CY-CFG.T2.ringR-28);ctx2d.restore();
+}
+function drawT0(){
+  const glowR=CFG.T0.glowR*breathScale;ctx2d.save();
+  const grd=ctx2d.createRadialGradient(CX,CY,0,CX,CY,glowR);grd.addColorStop(0,'rgba(255,215,0,0.22)');grd.addColorStop(0.4,'rgba(255,215,0,0.10)');grd.addColorStop(1,'transparent');
+  ctx2d.beginPath();ctx2d.arc(CX,CY,glowR,0,Math.PI*2);ctx2d.fillStyle=grd;ctx2d.fill();
+  ctx2d.beginPath();ctx2d.arc(CX,CY,CFG.T0.r,0,Math.PI*2);ctx2d.fillStyle=CFG.T0.color;ctx2d.shadowColor='#FFD700';ctx2d.shadowBlur=20;ctx2d.fill();
+  ctx2d.strokeStyle='rgba(255,215,0,0.6)';ctx2d.lineWidth=1.5;ctx2d.shadowBlur=0;
+  [-12,12].forEach(off=>{ctx2d.beginPath();ctx2d.moveTo(CX+off,CY-5);ctx2d.lineTo(CX+off,CY+5);ctx2d.stroke();ctx2d.beginPath();ctx2d.moveTo(CX-5,CY+off);ctx2d.lineTo(CX+5,CY+off);ctx2d.stroke();});
+  if(systemAvgR>=90){const rp=0.12+0.08*Math.sin(frame*0.04),rR=CFG.T0.glowR*breathScale*1.55;const rgrd=ctx2d.createRadialGradient(CX,CY,CFG.T0.glowR*breathScale,CX,CY,rR);rgrd.addColorStop(0,`rgba(255,215,0,${rp})`);rgrd.addColorStop(0.6,`rgba(255,215,0,${rp*0.4})`);rgrd.addColorStop(1,'transparent');ctx2d.beginPath();ctx2d.arc(CX,CY,rR,0,Math.PI*2);ctx2d.fillStyle=rgrd;ctx2d.fill();ctx2d.beginPath();ctx2d.arc(CX,CY,rR*0.92,0,Math.PI*2);ctx2d.strokeStyle=`rgba(255,255,255,${0.08+0.05*Math.sin(frame*0.04)})`;ctx2d.lineWidth=0.8;ctx2d.stroke();}
+  if(mode==='founder'){ctx2d.font='10px monospace';ctx2d.fillStyle='rgba(255,215,0,0.6)';ctx2d.textAlign='center';ctx2d.fillText('T0 主权锚',CX,CY+CFG.T0.r+14);if(systemAvgR>=90){ctx2d.font='9px monospace';ctx2d.fillStyle=`rgba(255,255,255,${0.35+0.15*Math.sin(frame*0.04)})`;ctx2d.fillText('· 5 格局储备 ·',CX,CY+CFG.T0.r+26);}}
+  ctx2d.restore();
+}
+function drawDragonShield(){
+  ctx2d.save();ctx2d.translate(CX,CY);ctx2d.rotate(t2Angle);
+  ctx2d.beginPath();ctx2d.arc(0,0,CFG.T2.ringR,0,Math.PI*2);ctx2d.strokeStyle=CFG.T2.color;ctx2d.lineWidth=CFG.T2.strokeW;ctx2d.setLineDash([6,14]);ctx2d.stroke();ctx2d.setLineDash([]);
+  for(let i=0;i<9;i++){const a=(i/9)*Math.PI*2,ix=Math.cos(a)*(CFG.T2.ringR-8),iy=Math.sin(a)*(CFG.T2.ringR-8),ox=Math.cos(a)*(CFG.T2.ringR+8),oy=Math.sin(a)*(CFG.T2.ringR+8);ctx2d.beginPath();ctx2d.moveTo(ix,iy);ctx2d.lineTo(ox,oy);ctx2d.strokeStyle='rgba(239,68,68,0.5)';ctx2d.lineWidth=1.5;ctx2d.stroke();}
+  ctx2d.restore();
+  if(mode==='founder'){ctx2d.save();ctx2d.font='10px monospace';ctx2d.fillStyle='rgba(239,68,68,0.55)';ctx2d.textAlign='center';ctx2d.fillText('T2 龍盾:9622',CX,CY-CFG.T2.ringR-8);ctx2d.restore();}
+}
+function drawRadar(){
+  if(radarAnimAlpha<1)radarAnimAlpha=Math.min(1,radarAnimAlpha+0.05);
+  ctx2d.save();ctx2d.globalAlpha=radarAnimAlpha*0.88;ctx2d.translate(CX,CY);
+  const R=110,labels=['人类福祉','公平公正','可控可信','透明可解','责任可追','隐私保护'];
+  const colors=['#22d3ee','#a78bfa','#fbbf24','#4ade80','#f87171','#f472b6'];
+  for(let lvl=0.2;lvl<=1.0;lvl+=0.2){ctx2d.beginPath();for(let i=0;i<6;i++){const a=(i/6)*Math.PI*2-Math.PI/2;const x=Math.cos(a)*R*lvl,y=Math.sin(a)*R*lvl;i===0?ctx2d.moveTo(x,y):ctx2d.lineTo(x,y);}ctx2d.closePath();ctx2d.strokeStyle='rgba(255,255,255,0.07)';ctx2d.lineWidth=0.8;ctx2d.stroke();}
+  for(let i=0;i<6;i++){const a=(i/6)*Math.PI*2-Math.PI/2;ctx2d.beginPath();ctx2d.moveTo(0,0);ctx2d.lineTo(Math.cos(a)*R,Math.sin(a)*R);ctx2d.strokeStyle='rgba(255,255,255,0.1)';ctx2d.lineWidth=0.8;ctx2d.stroke();}
+  ctx2d.beginPath();for(let i=0;i<6;i++){const a=(i/6)*Math.PI*2-Math.PI/2;const r=R*radarScores[i]/100;i===0?ctx2d.moveTo(Math.cos(a)*r,Math.sin(a)*r):ctx2d.lineTo(Math.cos(a)*r,Math.sin(a)*r);}
+  ctx2d.closePath();ctx2d.fillStyle='rgba(139,92,246,0.12)';ctx2d.fill();ctx2d.strokeStyle='rgba(139,92,246,0.6)';ctx2d.lineWidth=1.5;ctx2d.stroke();
+  for(let i=0;i<6;i++){const a=(i/6)*Math.PI*2-Math.PI/2,r=R*radarScores[i]/100;ctx2d.beginPath();ctx2d.arc(Math.cos(a)*r,Math.sin(a)*r,3.5,0,Math.PI*2);ctx2d.fillStyle=radarScores[i]<CFG.RADAR_REDLINE[i]?'#ef4444':colors[i];ctx2d.fill();const lx=Math.cos(a)*(R+20),ly=Math.sin(a)*(R+20);ctx2d.font='10px monospace';ctx2d.fillStyle=colors[i];ctx2d.textAlign='center';ctx2d.fillText(`${labels[i]} ${Math.round(radarScores[i])}`,lx,ly);if(radarScores[i]<70&&frame%180===i*30)triggerDDJ(58,{x:CX+Math.cos(a)*(R+50),y:CY+Math.sin(a)*(R+50)});}
+  ctx2d.restore();
+}
+function drawWhitepaper(){
+  ctx2d.save();const wR=310;
+  WHITEPAPER_ANCHORS.forEach(anch=>{const x=CX+Math.cos(anch.angle)*wR,y=CY+Math.sin(anch.angle)*wR;ctx2d.beginPath();ctx2d.moveTo(CX,CY);ctx2d.lineTo(x,y);ctx2d.strokeStyle=`${anch.color}44`;ctx2d.lineWidth=1;ctx2d.setLineDash([4,8]);ctx2d.stroke();ctx2d.setLineDash([]);ctx2d.fillStyle='rgba(0,0,0,0.8)';ctx2d.strokeStyle=`${anch.color}88`;ctx2d.lineWidth=1;roundRect(ctx2d,x-60,y-22,120,40,8);ctx2d.fill();ctx2d.stroke();ctx2d.font='bold 11px PingFang SC';ctx2d.fillStyle=anch.color;ctx2d.textAlign='center';ctx2d.fillText(anch.label,x,y-4);ctx2d.font='9px monospace';ctx2d.fillStyle='rgba(255,255,255,0.45)';ctx2d.fillText(anch.sublabel,x,y+10);});
+  ctx2d.restore();
+}
+function roundRect(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.arcTo(x+w,y,x+w,y+r,r);c.lineTo(x+w,y+h-r);c.arcTo(x+w,y+h,x+w-r,y+h,r);c.lineTo(x+r,y+h);c.arcTo(x,y+h,x,y+h-r,r);c.lineTo(x,y+r);c.arcTo(x,y,x+r,y,r);c.closePath();}
+function drawLuoshuGrid(){
+  const cellW=W/3,cellH=H/3;ctx2d.save();ctx2d.globalAlpha=0.06;
+  for(let gy=0;gy<3;gy++)for(let gx=0;gx<3;gx++){const val=LUO_SHU[gy][gx],dr=digitalRoot(val),wx=WUXING_MAP[dr]||'土',col=WUXING_COLORS[wx];ctx2d.fillStyle=col+'18';ctx2d.fillRect(gx*cellW,gy*cellH,cellW,cellH);ctx2d.globalAlpha=0.12;ctx2d.font=`bold ${Math.min(cellW,cellH)*0.22}px monospace`;ctx2d.fillStyle=WUXING_FUSE_DR.has(dr)?'#ef4444':col;ctx2d.textAlign='center';ctx2d.textBaseline='middle';ctx2d.fillText(val,gx*cellW+cellW/2,gy*cellH+cellH/2);ctx2d.globalAlpha=0.06;}
+  ctx2d.globalAlpha=0.04;ctx2d.strokeStyle='rgba(255,215,0,0.3)';ctx2d.lineWidth=0.5;
+  for(let i=1;i<3;i++){ctx2d.beginPath();ctx2d.moveTo(i*cellW,0);ctx2d.lineTo(i*cellW,H);ctx2d.stroke();ctx2d.beginPath();ctx2d.moveTo(0,i*cellH);ctx2d.lineTo(W,i*cellH);ctx2d.stroke();}
+  ctx2d.restore();
+}
+function updateHUD(){
+  let rSum=0,gCount=0,yCount=0,rCount=0,waCount=0;
+  particles.forEach(p=>{rSum+=p.R;if(p.R>=CFG.R_GREEN)gCount++;else if(p.R>=CFG.R_YELLOW)yCount++;else rCount++;if(p.wuxingAlert)waCount++;});
+  systemAvgR=rSum/particles.length;
+  const avgR=systemAvgR.toFixed(1),scoreEl=document.getElementById('health-score');
+  const wt=orderDisrupted&&waCount>0?` 🔥${waCount}`:'';
+  scoreEl.textContent=`综合R值：${avgR}${wt}`;
+  scoreEl.style.color=avgR>=CFG.R_GREEN?'#22c55e':avgR>=CFG.R_YELLOW?'#fbbf24':'#ef4444';
+  document.getElementById('particle-counter').textContent=`🟢${gCount} 🟡${yCount} 🔴${rCount}`+(waCount>0?` 五行⚠${waCount}`:'')+(wuxingMode?' ⚡五行':'');
+}
+// §14 主循环
+function loop(){
+  if(!paused&&startupDone){updateMockRadar();updatePhysics();updateBreath();updateGrowthRings();updateLHCDNA();if(disruptionTimer>0){disruptionTimer--;if(disruptionTimer===0)restoreOrder();}}
+  drawBgVortex();if(startupDone){drawGrowthRings();draw();}
+  frame++;requestAnimationFrame(loop);
+}
+// §15 DNA弹窗
+function showDNAPopup(p){
+  const ts=new Date().toISOString().slice(0,10);const lay=p.layer==='loyalty'?'忠':p.layer==='filial'?'孝':'义';
+  document.getElementById('dna-code').textContent=`#龍芯⚡️${ts}-DNA-P${String(p.id).padStart(4,'0')}\nUID9622 · 粒子序号:${p.id} · 三才层:${lay} · 帧:${frame}\nR值=${p.R.toFixed(1)} · 六维=[${p.dims.map(d=>Math.round(d)).join(',')}]\nLH-CDNA DR=${LHCDNA.dr}·${LHCDNA.drSource}·${LHCDNA.auditColor}\nv10.1统一流場·LH-CDNA v1.2·洛書渦流×三才軌道`;
+  document.getElementById('dna-popup').classList.add('open');triggerDDJ(54);
+}
+function closeDNAPopup(){document.getElementById('dna-popup').classList.remove('open');}
+function copyDNA(){navigator.clipboard?.writeText(document.getElementById('dna-code').textContent);const btn=document.querySelector('#dna-popup button');btn.textContent='✅ 已复制';setTimeout(()=>btn.textContent='复制 DNA 码',1500);}
+// §16 事件
+canvas.addEventListener('click',e=>{const mx=e.clientX,my=e.clientY;for(const p of particles){const dx=p.x-mx,dy=p.y-my;if(p.isDNA&&dx*dx+dy*dy<64){showDNAPopup(p);return;}}closeDNAPopup();injectGrowthRing(mx,my);});
+canvas.addEventListener('contextmenu',e=>{e.preventDefault();const mx=e.clientX,my=e.clientY;for(const p of particles){const dx=p.x-mx,dy=p.y-my;if(p.isDNA&&dx*dx+dy*dy<64){const L=p.layer==='loyalty'?'忠':p.layer==='filial'?'孝':'义';navigator.clipboard?.writeText(`#龍芯⚡️${new Date().toISOString().slice(0,10)}-DNA-P${p.id}-${L}-R值${Math.round(p.R)}`);return;}}});
+document.addEventListener('keydown',e=>{
+  const key=e.key;
+  if(key==='g'||key==='G'){toggleFlowOverlay();return;}
+  if(key==='h'||key==='H'){showRadar=!showRadar;radarAnimAlpha=showRadar?0:radarAnimAlpha;return;}
+  if(key==='r'||key==='R'){if(e.ctrlKey||e.metaKey){e.preventDefault();exportDeviationCSV();return;}if(e.shiftKey){clearTrails();return;}document.getElementById('replay-panel').classList.toggle('open');renderTraceList();return;}
+  if(key==='m'||key==='M'){muted=!muted;document.getElementById('sound-icon').textContent=muted?'🔕':'🔔';return;}
+  if(key==='d'||key==='D'){if(e.shiftKey){ddjSessionHidden=true;return;}ddjVisible=!ddjVisible;return;}
+  if(key==='w'||key==='W'){if(e.shiftKey){setMode('visitor');triggerDDJ(8);return;}showWhitepaper=!showWhitepaper;return;}
+  if(key==='f'||key==='F'){setMode('founder');return;}
+  if(key===' '){e.preventDefault();paused=!paused;return;}
+  if(key==='t'||key==='T'){simulateTemptation();return;}
+  if(key==='x'||key==='X'){triggerInfinityFreeze();return;}
+  if(key==='b'||key==='B'){cycleBgIntensity();return;}
+  if(key==='a'||key==='A'){toggleDNAPanel();return;}
+  if(key==='e'||key==='E'){toggleWuxingMode();return;}
+  if(key==='?'){document.getElementById('shortcut-help').classList.toggle('open');return;}
+});
+function setMode(m){mode=m;const badge=document.getElementById('mode-badge');if(m==='founder'){badge.textContent='🐲 创始人';badge.className='founder';}else{badge.textContent='👁️ 访客';badge.className='visitor';triggerDDJ(8);}}
+function clearTrails(){particles.forEach(p=>{p.trail=[];p.deviating=false;});}
+function exportDeviationCSV(){const rows=['trace_id,particle_id,trigger,start_ts,dna'];deviationLog.forEach(e=>rows.push(`${e.trace_id},${e.particle_id},"${e.trigger}",${e.start_ts},${e.dna}`));const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([rows.join('\n')],{type:'text/csv'}));a.download=`歪路日志-${new Date().toISOString().slice(0,10)}.csv`;a.click();}
+function triggerInfinityFreeze(){frozenInfinity=true;flashRed=60;triggerDDJ(78);play369(9);}
+document.getElementById('replay-slider').addEventListener('input',e=>{replayProgress=parseInt(e.target.value);if(replayTraceIdx>=0&&deviationLog[replayTraceIdx]){const path=deviationLog[replayTraceIdx].path,idx=Math.floor(path.length*replayProgress/100),pt=path[idx];if(pt)document.getElementById('slider-ts').textContent=`R值 ${pt.R?.toFixed(1)||'--'}`;}});
+document.getElementById('sound-icon').addEventListener('click',()=>{muted=!muted;document.getElementById('sound-icon').textContent=muted?'🔕':'🔔';});
+// §17 启动动画
+function runStartupAnimation(){
+  const overlay=document.getElementById('startup-overlay');
+  overlay.querySelector('.logo').style.opacity='1';
+  setTimeout(()=>document.getElementById('m0').style.opacity='1',600);
+  setTimeout(()=>{try{katex.render('\\Psi_{\\text{骨架}} = \\hat{T}(\\text{太极}) \\otimes \\hat{D}(\\text{道德经}) \\otimes \\hat{L}(\\text{洛书})',document.getElementById('katex-startup'),{throwOnError:false,displayMode:true});document.getElementById('eq-wrap').style.opacity='1';}catch(e){}},1400);
+  setTimeout(()=>document.getElementById('m1').style.opacity='1',1800);
+  setTimeout(()=>document.getElementById('m2').style.opacity='1',2800);
+  setTimeout(()=>{overlay.style.transition='opacity 0.8s';overlay.style.opacity='0';setTimeout(()=>{overlay.style.display='none';startupDone=true;play369(3);},800);},5000);
+}
+// §18 利益诱惑定时
+setInterval(()=>{if(mode==='founder'&&!orderDisrupted&&!frozenInfinity&&startupDone)simulateTemptation();},CFG.TEMPTATION_INTERVAL*1000);
+// §19 背景洛書渦流
+const bgCanvas=document.getElementById('bg-canvas');
+const bgCtx=bgCanvas.getContext('2d');
+let bgW,bgH,bgFrame=0,bgIntensityLevel=1;
+const BG_INTENSITIES=[0.025,0.045,0.07];
+const BG_COUNTS=[400,700,1100];
+const bgPts=[];
+class BgParticle{
+  constructor(){this.reset(true);}
+  reset(initial){if(!initial&&Math.random()<0.6){const edge=Math.floor(Math.random()*4);if(edge===0){this.x=Math.random()*bgW;this.y=0;}else if(edge===1){this.x=bgW;this.y=Math.random()*bgH;}else if(edge===2){this.x=Math.random()*bgW;this.y=bgH;}else{this.x=0;this.y=Math.random()*bgH;}}else{this.x=Math.random()*(bgW||window.innerWidth);this.y=Math.random()*(bgH||window.innerHeight);}this.vx=0;this.vy=0;this.age=0;this.maxAge=80+Math.random()*260;this.sm=0.5+Math.random()*1.5;}
+}
+function bgFieldAngle(x,y){const gx=Math.min(2,Math.max(0,Math.floor(x*3/bgW)));const gy=Math.min(2,Math.max(0,Math.floor(y*3/bgH)));const val=LUO_SHU[gy][gx];if(val===5)return Math.atan2(y-bgH/2,x-bgW/2)+Math.PI/2;const base=(val/9)*Math.PI*2;const t=bgFrame*0.002,s=9622*0.01;const n3=Perlin.noise2d(x*0.009,y*0.009+t*3+s)*Math.PI*2;const n6=Perlin.noise2d(x*0.018+50,y*0.018+50+t*6+s)*Math.PI*2;const n9=Perlin.noise2d(x*0.027+100,y*0.027+100+t*9+s)*Math.PI*2;return base+(n3+n6+n9)/3*0.55+Perlin.noise2d(x*0.006+s,y*0.006+s+200)*Math.PI*0.35;}
+function bgEnergyAt(x,y){const gx=Math.min(2,Math.max(0,Math.floor(x*3/bgW)));const gy=Math.min(2,Math.max(0,Math.floor(y*3/bgH)));const val=LUO_SHU[gy][gx];const R=Math.sqrt((x-bgW/2)**2+(y-bgH/2)**2)/(bgW*0.5);return Perlin.noise2d(x*0.004+0.1,y*0.004)*Math.pow(R*8+1,-0.5)*(val/9);}
+function resizeBgCanvas(){bgW=bgCanvas.width=window.innerWidth;bgH=bgCanvas.height=window.innerHeight;}
+function initBgVortex(){bgPts.length=0;const count=BG_COUNTS[bgIntensityLevel];for(let i=0;i<count;i++)bgPts.push(new BgParticle());}
+function cycleBgIntensity(){bgIntensityLevel=(bgIntensityLevel+1)%3;initBgVortex();}
+function drawBgVortex(){
+  bgFrame++;const fadeAlpha=BG_INTENSITIES[bgIntensityLevel];
+  bgCtx.fillStyle=`rgba(5,3,15,${fadeAlpha})`;bgCtx.fillRect(0,0,bgW,bgH);bgCtx.save();
+  for(const p of bgPts){const a=bgFieldAngle(p.x,p.y),e=bgEnergyAt(p.x,p.y),s=1.0*p.sm*(0.4+e*2.2);p.vx=p.vx*0.83+Math.cos(a)*s*0.17;p.vy=p.vy*0.83+Math.sin(a)*s*0.17;const oldX=p.x,oldY=p.y;p.x+=p.vx;p.y+=p.vy;p.age++;if(p.x<-5||p.x>bgW+5||p.y<-5||p.y>bgH+5||p.age>p.maxAge){p.reset(false);continue;}const speed=Math.sqrt(p.vx*p.vx+p.vy*p.vy),lifeRatio=1-p.age/p.maxAge,bright=0.45+e*1.3;let r,g,b;if(speed>1.5){r=Math.min(255,200*bright);g=Math.min(255,65*bright);b=Math.min(255,15*bright);}else if(speed>0.65){r=Math.min(255,50*bright);g=Math.min(255,90*bright);b=Math.min(255,165*bright);}else{r=Math.min(255,25*bright);g=Math.min(255,95*bright);b=Math.min(255,80*bright);}bgCtx.strokeStyle=`rgba(${r|0},${g|0},${b|0},${lifeRatio*0.55})`;bgCtx.lineWidth=0.4+e*0.9;bgCtx.beginPath();bgCtx.moveTo(oldX-p.vx*2.5,oldY-p.vy*2.5);bgCtx.lineTo(p.x,p.y);bgCtx.stroke();}
+  bgCtx.restore();
+}
+// §V10 LH-CDNA
+const LHCDNA={panelOpen:false,dr:5,drSource:'S1·显式',drSources:[5,0,0,0],auditColor:'🟢',routeLevel:'L2',cnshScore:0.75,cnshTier:'EXECUTE',fuseActive:false,fuseTimer:0,lastFuseDR:0,buckets:{grass:0,repo:0,digest:0,pending:0,archive:0,fused:0},panelUpdateScheduled:false,};
+function computeFourSourceDR(){
+  const breathCycle=Math.floor(frame/CFG.BREATH_PERIOD);const s1=digitalRoot(breathCycle);const s2=digitalRoot(Math.round(systemAvgR));const s3=digitalRoot(frame%1296);const greenCount=particles.filter(p=>p.R>=CFG.R_GREEN).length;const s4=digitalRoot(greenCount);
+  LHCDNA.drSources=[s1,s2,s3,s4];const srcNames=['显式','数基','内容哈希','原始数'];let winning=0,winIdx=-1;for(let i=0;i<4;i++){if(LHCDNA.drSources[i]>0){winning=LHCDNA.drSources[i];winIdx=i;break;}}
+  LHCDNA.dr=winning;LHCDNA.drSource=winIdx>=0?`S${winIdx+1}·${srcNames[winIdx]}`:'S0·回退';
+  if(winning===3||winning===9)LHCDNA.auditColor='🔴';else if(winning===6)LHCDNA.auditColor='🟡';else LHCDNA.auditColor='🟢';
+  if((winning===3||winning===9)&&!LHCDNA.fuseActive&&winning!==LHCDNA.lastFuseDR){triggerFuse(winning);}else if(winning!==3&&winning!==9){LHCDNA.lastFuseDR=0;}
+  LHCDNA.cnshScore=Math.max(0,Math.min(1,systemAvgR/100));
+  if(LHCDNA.cnshScore>=0.85)LHCDNA.cnshTier='EXECUTE';else if(LHCDNA.cnshScore>=0.50)LHCDNA.cnshTier='UNKNOWN_POOL';else LHCDNA.cnshTier='CLEAN_FAIL';
+  if(frozenInfinity||mode==='visitor')LHCDNA.routeLevel='L0';else if(LHCDNA.cnshScore<0.65)LHCDNA.routeLevel='L1';else if(LHCDNA.cnshScore<0.88)LHCDNA.routeLevel='L2';else LHCDNA.routeLevel='L3';
+  let grass=0,repo=0,digest=0,pending=0,archive=0,fused=0;
+  particles.forEach(p=>{if(p.wuxingAlert){fused++;return;}if(p.R<50)grass++;else if(p.R<70)repo++;else if(p.R<85)digest++;else if(p.R<95)pending++;else archive++;});
+  LHCDNA.buckets={grass,repo,digest,pending,archive,fused};
+}
+function triggerFuse(dr){
+  LHCDNA.fuseActive=true;LHCDNA.fuseTimer=150;LHCDNA.lastFuseDR=dr;flashRed=Math.max(flashRed,80);
+  particles.forEach(p=>{if(!p.isDNA){p.vx+=(Math.random()-0.5)*9;p.vy+=(Math.random()-0.5)*9;p.shake=true;p.shakeAmp=6;}});
+  const overlay=document.getElementById('fuse-overlay');const drDisplay=document.getElementById('fuse-dr-display');
+  if(drDisplay)drDisplay.textContent=`DR = ${dr} · 越界即熔断 · 系统自检`;if(overlay)overlay.classList.add('active');
+  setTimeout(()=>{if(overlay)overlay.classList.remove('active');},2500);play369(dr===9?9:3);triggerDDJ(78);
+}
+function updateLHCDNA(){if(LHCDNA.fuseTimer>0){LHCDNA.fuseTimer--;if(LHCDNA.fuseTimer===0)LHCDNA.fuseActive=false;}if(frame%45===0){computeFourSourceDR();if(LHCDNA.panelOpen)updateDNAAuthPanel();}}
+function updateDNAAuthPanel(){
+  const dr=LHCDNA.dr;const drEl=document.getElementById('lh-dr-value');if(drEl){drEl.textContent=dr;drEl.className='dr-big'+((dr===3||dr===9)?' fuse':'');}
+  const auditEl=document.getElementById('lh-dr-audit');if(auditEl)auditEl.textContent=LHCDNA.auditColor;const srcEl=document.getElementById('lh-dr-source');if(srcEl)srcEl.textContent=LHCDNA.drSource;
+  const srcNames=['显式','数基','内容哈希','原始数'];LHCDNA.drSources.forEach((s,i)=>{const el=document.getElementById(`lh-s${i+1}`);if(!el)return;el.textContent=`S${i+1}·${srcNames[i]}: ${s||'—'}`;el.className='src-item'+(LHCDNA.drSource.startsWith(`S${i+1}`)?' winning':'');});
+  const auditStatusEl=document.getElementById('lh-audit-status');const auditMap={'🟢':'🟢 通过','🟡':'🟡 待确认','🔴':'🔴 不可用'};if(auditStatusEl)auditStatusEl.textContent=auditMap[LHCDNA.auditColor]||LHCDNA.auditColor;
+  const fuseEl=document.getElementById('lh-fuse-status');if(fuseEl){fuseEl.textContent=LHCDNA.fuseActive?`🔴 熔断中 (DR=${dr})`:'✅ 系统正常';fuseEl.style.color=LHCDNA.fuseActive?'#ef4444':'#22c55e';}
+  const total=particles.length||1,bkt=LHCDNA.buckets;
+  [{id:'lh-b-grass',count:bkt.grass},{id:'lh-b-repo',count:bkt.repo},{id:'lh-b-digest',count:bkt.digest},{id:'lh-b-pending',count:bkt.pending},{id:'lh-b-archive',count:bkt.archive}].forEach(b=>{const el=document.getElementById(b.id);if(!el)return;const pct=Math.round(b.count/total*100);const fill=el.querySelector('.b-bar-fill');const cnt=el.querySelector('.b-count');if(fill)fill.style.width=pct+'%';if(cnt)cnt.textContent=`${b.count} (${pct}%)`;});
+  const fuseB=document.getElementById('lh-b-fuse');if(fuseB){const cnt=fuseB.querySelector('.b-count');if(cnt)cnt.textContent=bkt.fused>0?`🔴 ${bkt.fused} 粒子`:'✅ 正常';}
+  const cnshPct=Math.round(LHCDNA.cnshScore*100);const cnshBar=document.getElementById('lh-cnsh-bar');const cnshScore=document.getElementById('lh-cnsh-score');const cnshTier=document.getElementById('lh-cnsh-tier');const tierColors={EXECUTE:'#22c55e',UNKNOWN_POOL:'#fbbf24',CLEAN_FAIL:'#ef4444'};const tierLabels={EXECUTE:'🟢 EXECUTE',UNKNOWN_POOL:'🟡 UNKNOWN_POOL',CLEAN_FAIL:'🔴 CLEAN_FAIL'};if(cnshBar){cnshBar.style.width=cnshPct+'%';cnshBar.style.background=tierColors[LHCDNA.cnshTier];}if(cnshScore)cnshScore.textContent=cnshPct+'%';if(cnshTier){cnshTier.textContent=tierLabels[LHCDNA.cnshTier];cnshTier.style.color=tierColors[LHCDNA.cnshTier];}
+  ['l0','l1','l2','l3'].forEach(l=>{const el=document.getElementById(`lh-route-${l}`);if(el)el.classList.toggle('active',LHCDNA.routeLevel===l.toUpperCase());});
+}
+function toggleDNAPanel(){LHCDNA.panelOpen=!LHCDNA.panelOpen;const panel=document.getElementById('dna-auth-panel');const tab=document.getElementById('dna-panel-tab');if(panel)panel.classList.toggle('open',LHCDNA.panelOpen);if(tab)tab.classList.toggle('panel-open',LHCDNA.panelOpen);if(LHCDNA.panelOpen){computeFourSourceDR();updateDNAAuthPanel();}}
+function toggleWuxingMode(){wuxingMode=!wuxingMode;const badge=document.getElementById('wuxing-badge');if(badge)badge.style.display=wuxingMode?'block':'none';}
+
+// ═══════════════════════════════════════════════════════════
+// §V10.1  流场架构图叠层 · 节点→粒子桥接
+// ═══════════════════════════════════════════════════════════
+let flowOverlayVisible = false;
+let flow_scale = 0.55, flow_tx = -100, flow_ty = -80;
+let flow_dragging = false, flow_lastX, flow_lastY;
+const FLOW_ZOOM_MIN = 0.12, FLOW_ZOOM_MAX = 3.0;
+let flow_touches = {};
+
+function flowApplyTransform() {
+  const vp = document.getElementById('flow-viewport');
+  if (vp) vp.style.transform = `translate(${flow_tx}px,${flow_ty}px) scale(${flow_scale})`;
+  const zl = document.getElementById('flow-zoom-label');
+  if (zl) zl.textContent = Math.round(flow_scale * 100) + '%';
+}
+function flowZoomIn() { flow_scale = Math.min(FLOW_ZOOM_MAX, flow_scale * 1.2); flowApplyTransform(); }
+function flowZoomOut() { flow_scale = Math.max(FLOW_ZOOM_MIN, flow_scale / 1.2); flowApplyTransform(); }
+function flowResetView() { flow_scale = 0.55; flow_tx = -100; flow_ty = -80; flowApplyTransform(); }
+
+function toggleFlowOverlay() {
+  flowOverlayVisible = !flowOverlayVisible;
+  const overlay = document.getElementById('flow-overlay');
+  if (overlay) {
+    overlay.classList.toggle('open', flowOverlayVisible);
+    if (flowOverlayVisible) { flowApplyTransform(); initFlowEdgeParticles(); }
+  }
+}
+
+// ── 节点→粒子效果桥接表 ──
+const FLOW_BRIDGES = {
+  shield: { label:'🔒 护盾激活 → 秩序恢复', fn: () => { verifyFixedPoint(); restoreOrder(); } },
+  fuse:   { label:'🚨 369熔断 → 粒子散射', fn: () => { triggerFuse(3); } },
+  sem:    { label:'🧠 语义抽屉 → 五行着色', fn: () => { toggleWuxingMode(); } },
+  route:  { label:'⚡ 五行路由 → 五行着色切换', fn: () => { toggleWuxingMode(); } },
+  decide: { label:'⚖️ 最小损失 → 六维雷达', fn: () => { showRadar = true; radarAnimAlpha = 0; } },
+  ete:    { label:'🌐 ETE翻译 → 道德经层切换', fn: () => { ddjVisible = !ddjVisible; } },
+  audit:  { label:'📋 AUDIT_LOG → 歪路回放', fn: () => { const rp = document.getElementById('replay-panel'); if(rp){ rp.classList.toggle('open'); renderTraceList(); } } },
+  claude: { label:'🔵 玄武·Claude → DNA弹窗', fn: () => { const dna = particles.find(p => p.isDNA); if (dna) showDNAPopup(dna); } },
+  notion: { label:'🔴 朱雀·Notion → 白皮书锚点', fn: () => { showWhitepaper = !showWhitepaper; } },
+  ds:     { label:'🟢 青龙·DeepSeek → 年轮注入', fn: () => { injectGrowthRing(CX + (Math.random()-0.5)*200, CY + (Math.random()-0.5)*200); injectGrowthRing(CX + (Math.random()-0.5)*200, CY + (Math.random()-0.5)*200); } },
+  p15:    { label:'⚪ 白虎·P15 → 六维雷达切换', fn: () => { showRadar = !showRadar; radarAnimAlpha = showRadar ? 0 : radarAnimAlpha; } },
+  uid:    { label:'☯️ 太极·UID9622 → 自知者明', fn: () => { triggerDDJ(33); play369(6); } },
+};
+
+const FLOW_NODE_HUD = {
+  shield:'🔒 护盾·入口 v1.7 · 加密+水印+容错',
+  fuse:'🚨 369熔断 · 3色→6关→9维 [→触发粒子散射]',
+  sem:'🧠 语义抽屉 · CNSH v1.1 · flow_field / digit_root [→五行着色]',
+  route:'⚡ 五行路由 · digitRootFuse · 三态 [→五行着色切换]',
+  decide:'⚖️ 最小损失最大收益 · 问心无愧 [→六维雷达]',
+  ete:'🌐 通心译/ETE · EXECUTE门限 [→道德经层切换]',
+  audit:'📋 AUDIT_LOG · SHA-256链·永久留痕 [→歪路回放]',
+  claude:'🔵 玄武·Anthropic·Claude · 水·北方 [→DNA弹窗]',
+  notion:'🔴 朱雀·Notion·中枢调度 · 火·南方 [→白皮书]',
+  ds:'🟢 青龙·DeepSeek · 木·东方执行 [→年轮注入]',
+  p15:'⚪ 白虎·P15本地AI · 金·西方 [→六维雷达]',
+  uid:'☯️ 太极·UID9622·诸葛鑫 · 土·中央 [→自知者明]',
+};
+
+let flowBridgeToastTimer = null;
+function showFlowBridgeToast(msg) {
+  const toast = document.getElementById('flow-bridge-toast');
+  if (!toast) return;
+  toast.textContent = msg;
+  toast.classList.add('show');
+  if (flowBridgeToastTimer) clearTimeout(flowBridgeToastTimer);
+  flowBridgeToastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+function flowNodeClick(el, id) {
+  // 更新HUD
+  const hudNode = document.getElementById('flow-hud-node');
+  if (hudNode) hudNode.textContent = FLOW_NODE_HUD[id] || id;
+  // 高亮
+  document.querySelectorAll('.flow-node').forEach(n => n.style.opacity = '0.55');
+  el.style.opacity = '1';
+  setTimeout(() => document.querySelectorAll('.flow-node').forEach(n => n.style.opacity = '1'), 2000);
+  // 节点脉冲动画
+  el.classList.remove('bridge-fired');
+  void el.offsetWidth; // reflow
+  el.classList.add('bridge-fired');
+  setTimeout(() => el.classList.remove('bridge-fired'), 700);
+  // 执行粒子桥接效果
+  const bridge = FLOW_BRIDGES[id];
+  if (bridge) {
+    try { bridge.fn(); } catch(e) {}
+    showFlowBridgeToast('✅ ' + bridge.label);
+  }
+}
+
+// ── 流场边缘粒子动画 ──
+let flowParticles = [];
+let flowSvgEl = null;
+function initFlowEdgeParticles() {
+  if (flowParticles.length > 0) return; // 只初始化一次
+  flowSvgEl = document.getElementById('flow-svg');
+  if (!flowSvgEl) return;
+  const flowEdges = [
+    {path:'M510,600 C580,600 620,600 680,600', color:'rgba(30,136,229,0.9)'},
+    {path:'M1010,600 C1080,600 1120,600 1180,600', color:'rgba(212,175,55,0.9)'},
+    {path:'M1510,600 C1580,600 1620,600 1680,600', color:'rgba(46,125,50,0.9)'},
+    {path:'M2980,590 C3060,590 3100,590 3180,590', color:'rgba(230,74,25,0.9)'},
+    {path:'M3510,590 C3580,590 3620,590 3680,590', color:'rgba(30,136,229,0.9)'},
+  ];
+  flowEdges.forEach(e => {
+    const tmp = document.createElementNS('http://www.w3.org/2000/svg','path');
+    tmp.setAttribute('d', e.path); flowSvgEl.appendChild(tmp);
+    const len = tmp.getTotalLength(); flowSvgEl.removeChild(tmp);
+    for (let j = 0; j < 3; j++) {
+      flowParticles.push({ pathD:e.path, len, color:e.color, t:(j/3)*len, speed:0.8+Math.random()*0.4, el:null, tmpPath:null });
+    }
+  });
+  flowParticles.forEach(p => {
+    const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('r','3'); c.setAttribute('fill',p.color); c.setAttribute('opacity','0.85');
+    const tmp = document.createElementNS('http://www.w3.org/2000/svg','path');
+    tmp.setAttribute('d',p.pathD); flowSvgEl.appendChild(tmp);
+    p.tmpPath = tmp; p.el = c; flowSvgEl.appendChild(c);
+  });
+  animFlowEdgeParticles();
+}
+function animFlowEdgeParticles() {
+  if (!flowOverlayVisible) { requestAnimationFrame(animFlowEdgeParticles); return; }
+  flowParticles.forEach(p => {
+    p.t = (p.t + p.speed) % p.len;
+    try { const pt = p.tmpPath.getPointAtLength(p.t); p.el.setAttribute('cx',pt.x); p.el.setAttribute('cy',pt.y); } catch(e) {}
+  });
+  requestAnimationFrame(animFlowEdgeParticles);
+}
+
+// ── 流场平移缩放 ──
+(function initFlowPanZoom() {
+  const scene = document.getElementById('flow-scene');
+  if (!scene) return;
+  scene.addEventListener('wheel', e => {
+    if (!flowOverlayVisible) return;
+    e.preventDefault();
+    const rect = scene.getBoundingClientRect();
+    const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    const delta = e.deltaY > 0 ? 0.9 : 1.1;
+    const newScale = Math.max(FLOW_ZOOM_MIN, Math.min(FLOW_ZOOM_MAX, flow_scale * delta));
+    flow_tx = mx - (mx - flow_tx) * (newScale / flow_scale);
+    flow_ty = my - (my - flow_ty) * (newScale / flow_scale);
+    flow_scale = newScale; flowApplyTransform();
+  }, {passive:false});
+  scene.addEventListener('mousedown', e => {
+    if (e.target.closest('.flow-node')) return;
+    flow_dragging = true; flow_lastX = e.clientX; flow_lastY = e.clientY;
+    scene.classList.add('flow-dragging');
+  });
+  document.addEventListener('mousemove', e => {
+    if (!flow_dragging) return;
+    flow_tx += e.clientX - flow_lastX; flow_ty += e.clientY - flow_lastY;
+    flow_lastX = e.clientX; flow_lastY = e.clientY; flowApplyTransform();
+  });
+  document.addEventListener('mouseup', () => { flow_dragging = false; document.getElementById('flow-scene')?.classList.remove('flow-dragging'); });
+  // Touch
+  scene.addEventListener('touchstart', e => { [...e.touches].forEach(t => flow_touches[t.identifier]={x:t.clientX,y:t.clientY}); });
+  scene.addEventListener('touchmove', e => {
+    e.preventDefault();
+    if (e.touches.length === 1) {
+      const t=e.touches[0]; const p=flow_touches[t.identifier]||{x:t.clientX,y:t.clientY};
+      flow_tx+=t.clientX-p.x; flow_ty+=t.clientY-p.y;
+      flow_touches[t.identifier]={x:t.clientX,y:t.clientY}; flowApplyTransform();
+    } else if (e.touches.length === 2) {
+      const [a,b]=[e.touches[0],e.touches[1]];
+      const dist=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);
+      const prev=flow_touches._pinchDist||dist; const delta=dist/prev;
+      flow_scale=Math.max(FLOW_ZOOM_MIN,Math.min(FLOW_ZOOM_MAX,flow_scale*delta));
+      flow_touches._pinchDist=dist; flowApplyTransform();
+    }
+  }, {passive:false});
+  scene.addEventListener('touchend', e => { [...e.changedTouches].forEach(t=>delete flow_touches[t.identifier]); delete flow_touches._pinchDist; });
+})();
+
+// ═══════════════════════════════════════════════════════════
+// §20  Bootstrap
+// ═══════════════════════════════════════════════════════════
+window.addEventListener('resize',()=>{resize();initParticles();resizeBgCanvas();initBgVortex();});
+resize(); initParticles();
+resizeBgCanvas(); initBgVortex();
+initWebSocket();
+runStartupAnimation();
+requestAnimationFrame(loop);
+
+console.log([
+  '🐲 龍魂統一流場 v10.1 · 已启动',
+  'DNA: #龍芯⚡️2026-05-03-統一流場-v10.1-LH-CDNA-v1.2-FLOW',
+  '═══ v10.1 新增 ═══',
+  '🗺️ G键 = 流場架构图叠层 (节点点击触发粒子效果)',
+  '   🔒护盾→秩序恢复 | 🚨369熔断→粒子散射',
+  '   🧠语义→五行着色 | ⚡路由→五行切换',
+  '   ⚖️决策→雷达 | 🌐ETE→道德经 | 📋审计→歪路',
+  '   🔵Claude→DNA弹窗 | 🔴Notion→白皮书',
+  '   🟢DeepSeek→年轮 | ⚪P15→雷达 | ☯️UID→自知者明',
+  '═══════════════════════════════',
+  '🧬 A键 = DNA认证面板 | ⚡ E键 = 五行着色',
+  'B键=背景强度 | ? = 快捷键帮助',
+].join('\n'));
+</script>
+</body>
+</html>

@@ -4,6 +4,7 @@
 龍魂·自动补DNA签章 v2.0
 DNA: 由 bin/lh_dna_generator.py 生成
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 
 v2.0 修复清单：
   1. 【致命BUG修复】v1.0 用了 datetime 但没 import，一跑就崩

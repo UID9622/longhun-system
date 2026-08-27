@@ -1,8 +1,9 @@
-// integrations/harmonyos/longhun-bridge/LongHunBridge.ets
+// integrations/harmonyos/longhun-bridge/src/main/ets/LongHunBridge.ets
 // 🐉 龍魂 · 鸿蒙端接入模块 v1.0
 // DNA: #龍芯⚡️丙午·丙申·庚申·亥时-HARMONY-BRIDGE-UID9622
 // 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 // GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+// 分层许可: 思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2
 
 import http from '@ohos.net.http';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -70,8 +71,9 @@ export class LongHunBridge {
     model: 'longhun-v4.1.4:latest'
   };
   private macIP: string = '';
-  private syncPort: number = 19622;
-  private chatPort: number = 18799;
+  private syncPort: number = 19622;    // TCP 加密同步端口（A路径）
+  private httpPort: number = 19623;    // HTTP REST 同步端口（B路径）
+  private chatPort: number = 18799;    // 对话桥接端口
   private memory: MemoryDigest | null = null;
   private isConnected: boolean = false;
   private syncTimer: number | null = null;
@@ -152,7 +154,9 @@ export class LongHunBridge {
   }
 
   private async discoverViaMDNS(): Promise<string> {
+    // 鸿蒙端mDNS实现 (需要ohos.net.mdns权限)
     try {
+      // 使用鸿蒙的mdns模块
       const mdns = await import('@ohos.net.mdns');
       const services = await mdns.discoverServices('_longhun._tcp.local.', 3000);
 
@@ -163,15 +167,20 @@ export class LongHunBridge {
       }
       return '';
     } catch (e) {
+      // mDNS不可用，静默降级
       return '';
     }
   }
 
   private async scanNetwork(): Promise<string> {
+    // 简化版网络扫描 (实际应实现ARP扫描)
+    // 这里假设用户在同一个网段，尝试常见的IP
     try {
+      // 获取本机IP网段
       const localIP = await this.getLocalIP();
       const subnet = localIP.substring(0, localIP.lastIndexOf('.'));
 
+      // 扫描几个常见IP (实际应全量扫描)
       for (let i = 1; i <= 20; i++) {
         const testIP = `${subnet}.${i}`;
         const ok = await this.testConnection(testIP);
@@ -189,7 +198,7 @@ export class LongHunBridge {
     try {
       const httpRequest = http.createHttp();
       const resp = await httpRequest.request(
-        `http://${ip}:19622/health`,
+        `http://${ip}:${this.httpPort}/health`,
         { method: http.RequestMethod.GET, connectTimeout: 2000, readTimeout: 2000 }
       );
       return resp.responseCode === 200;
@@ -199,7 +208,12 @@ export class LongHunBridge {
   }
 
   private async getLocalIP(): Promise<string> {
+    // 获取本机局域网IP
+    // 鸿蒙实际实现应通过wifiManager或connection模块获取
     try {
+      // @ts-ignore
+      const wifiManager = await import('@ohos.wifiManager');
+      // 实际API可能不同，这里保留占位
       return '192.168.1.100';
     } catch {
       return '192.168.1.100';
@@ -208,7 +222,8 @@ export class LongHunBridge {
 
   private async getCachedIP(): Promise<string> {
     try {
-      const prefs = await preferences.getPreferences(getContext(), 'longhun_bridge');
+      const ctx = getContext();
+      const prefs = await preferences.getPreferences(ctx, 'longhun_bridge');
       return prefs.getSync('mac_ip', '') as string;
     } catch {
       return '';
@@ -217,7 +232,8 @@ export class LongHunBridge {
 
   private async saveCachedIP(ip: string): Promise<void> {
     try {
-      const prefs = await preferences.getPreferences(getContext(), 'longhun_bridge');
+      const ctx = getContext();
+      const prefs = await preferences.getPreferences(ctx, 'longhun_bridge');
       await prefs.put('mac_ip', ip);
       await prefs.flush();
     } catch (e) {
@@ -240,17 +256,23 @@ export class LongHunBridge {
 
     try {
       const httpRequest = http.createHttp();
+      const dna = generateDNA();
       const resp = await httpRequest.request(
-        `http://${this.macIP}:${this.syncPort}/sync/memory`,
+        `http://${this.macIP}:${this.httpPort}/sync/memory`,
         {
           method: http.RequestMethod.GET,
+          header: {
+            'X-LongHun-Confirm': CONFIRM,
+            'X-Dragon-DNA': dna
+          },
           connectTimeout: this.config.timeout! * 1000,
           readTimeout: this.config.timeout! * 1000
         }
       );
 
       if (resp.responseCode === 200) {
-        const data = JSON.parse(resp.result as string) as MemoryDigest;
+        const wrapper = JSON.parse(resp.result as string);
+        const data = wrapper.payload as MemoryDigest;
         this.memory = data;
         await this.saveMemoryCache(data);
         console.info('✅ 记忆同步成功');
@@ -270,16 +292,20 @@ export class LongHunBridge {
   // ============================================================
 
   public async chat(prompt: string): Promise<ChatResponse> {
+    // 1. 确保连接
     if (!this.macIP) {
       await this.discover();
     }
 
+    // 2. 确保记忆已加载
     if (!this.memory) {
       await this.syncMemory();
     }
 
+    // 3. 构建上下文
     const systemContext = this.buildContext(prompt);
 
+    // 4. 发送请求
     try {
       const httpRequest = http.createHttp();
       const dna = generateDNA();
@@ -307,9 +333,11 @@ export class LongHunBridge {
         const data = JSON.parse(resp.result as string);
         const reply = data.reply || data.response || data.result || '';
 
+        // 5. 更新对话上下文
         this.context.push({ role: 'user', content: prompt });
         this.context.push({ role: 'assistant', content: reply });
 
+        // 6. 保存到本地记忆
         await this.appendMemory(prompt, reply);
 
         return {
@@ -320,6 +348,7 @@ export class LongHunBridge {
           tricolor: '🟢'
         };
       } else {
+        // 降级: 使用本地记忆回答
         return this.fallbackChat(prompt);
       }
     } catch (e) {
@@ -372,6 +401,7 @@ export class LongHunBridge {
       );
 
       if (resp.responseCode === 200) {
+        // 处理SSE流
         const text = resp.result as string;
         const lines = text.split('\n');
         let fullReply = '';
@@ -393,6 +423,7 @@ export class LongHunBridge {
           }
         }
 
+        // 更新上下文
         this.context.push({ role: 'user', content: prompt });
         this.context.push({ role: 'assistant', content: fullReply });
         await this.appendMemory(prompt, fullReply);
@@ -416,6 +447,7 @@ export class LongHunBridge {
       ctx += `## 龙魂记忆摘要\n${this.memory.digest}\n\n`;
     }
 
+    // 最近5条对话历史
     const recent = this.context.slice(-10);
     if (recent.length > 0) {
       ctx += '## 对话历史\n';
@@ -430,7 +462,8 @@ export class LongHunBridge {
 
   private async loadCachedMemory(): Promise<void> {
     try {
-      const prefs = await preferences.getPreferences(getContext(), 'longhun_memory');
+      const ctx = getContext();
+      const prefs = await preferences.getPreferences(ctx, 'longhun_memory');
       const data = prefs.getSync('memory_data', '') as string;
       if (data) {
         this.memory = JSON.parse(data);
@@ -442,7 +475,8 @@ export class LongHunBridge {
 
   private async saveMemoryCache(data: MemoryDigest): Promise<void> {
     try {
-      const prefs = await preferences.getPreferences(getContext(), 'longhun_memory');
+      const ctx = getContext();
+      const prefs = await preferences.getPreferences(ctx, 'longhun_memory');
       await prefs.put('memory_data', JSON.stringify(data));
       await prefs.flush();
     } catch (e) {
@@ -467,6 +501,7 @@ export class LongHunBridge {
       content: assistantMsg,
       time: new Date().toISOString()
     });
+    // 更新摘要(取最后几条)
     const lastFew = this.memory.entries.slice(-10);
     this.memory.digest = lastFew.map(e => `${e.role}: ${e.content.substring(0, 50)}...`).join('\n');
     this.memory.timestamp = new Date().toISOString();
@@ -484,6 +519,7 @@ export class LongHunBridge {
   }
 
   private async fallbackChat(prompt: string): Promise<ChatResponse> {
+    // 降级: 使用本地记忆生成回答
     const context = this.buildContext(prompt);
     const reply = `[离线模式] 基于本地记忆:\n${context}\n请检查Mac是否在线。`;
     return {
@@ -503,6 +539,7 @@ export class LongHunBridge {
     connected: boolean;
     macIP: string;
     syncPort: number;
+    httpPort: number;
     chatPort: number;
     memorySize: number;
     contextLength: number;
@@ -511,6 +548,7 @@ export class LongHunBridge {
       connected: this.isConnected,
       macIP: this.macIP,
       syncPort: this.syncPort,
+      httpPort: this.httpPort,
       chatPort: this.chatPort,
       memorySize: this.memory?.entries?.length || 0,
       contextLength: this.context.length
@@ -523,9 +561,10 @@ export class LongHunBridge {
     this.saveCachedIP(ip);
   }
 
-  public setPorts(sync: number = 19622, chat: number = 18799): void {
+  public setPorts(sync: number = 19622, chat: number = 18799, http: number = 19623): void {
     this.syncPort = sync;
     this.chatPort = chat;
+    this.httpPort = http;
   }
 
   public destroy(): void {

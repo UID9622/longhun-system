@@ -1,0 +1,420 @@
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>龍魂沙盒分拣台 v1.2（本地页）</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #141b32;
+      --line: #25304f;
+      --text: #e8ecff;
+      --muted: #9aa6cf;
+      --gold: #f0c040;
+      --ok: #2ecc71;
+      --warn: #f39c12;
+      --danger: #e74c3c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .wrap { max-width: 1240px; margin: 0 auto; }
+    h1 { margin: 0 0 8px; color: var(--gold); }
+    .dna { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+    a { color: #89c2ff; }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      margin-right: 6px;
+    }
+    .b-ok { background: #1f3f2b; color: #a6f7c7; border: 1px solid #2d5f41; }
+    .b-warn { background: #4a3518; color: #ffd59a; border: 1px solid #6f4e22; }
+    .b-danger { background: #4f2020; color: #ffb1b1; border: 1px solid #7b3030; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px;
+      vertical-align: top;
+    }
+    th { background: #10172b; color: #bfcaf0; text-align: left; }
+    input, select, textarea, button {
+      background: #0f162b;
+      color: var(--text);
+      border: 1px solid #2a365b;
+      border-radius: 8px;
+      padding: 8px;
+      font: inherit;
+    }
+    textarea { width: 100%; min-height: 72px; resize: vertical; }
+    button { cursor: pointer; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+    .small { color: var(--muted); font-size: 12px; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    details summary { cursor: pointer; color: #d5ddff; }
+    .kvs { margin: 0; padding-left: 18px; }
+    .kvs li { margin: 4px 0; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>🚪 龍魂沙盒分拣台 v1.2（本地入口）</h1>
+    <div class="dna">
+      DNA：<span class="mono">#龍芯⚡️2026-04-23-沙盒分拣台-v1.0</span> ·
+      GPG：<span class="mono">A2D0092CEE2E5BA87035600924C3704A8CC26D5F</span> ·
+      确认码：<span class="mono">#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</span>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">🧭 固定入口启动协议（每次打开先读）</h3>
+      <ul class="kvs">
+        <li><strong>入口文件：</strong><span class="mono">longhun-sandbox-dropzone-v1.2-local.html</span></li>
+        <li><strong>用途：</strong>统一收口工作内容、计划、分拣去向、审计留痕</li>
+        <li><strong>AI读取约定：</strong>优先读取本页底部 <span class="mono">#ai-context</span> JSON 区块</li>
+        <li><strong>投喂口令：</strong><span class="mono">/投喂</span> 后全部视为“待落位内容”，由系统自动归档到正确协议位置</li>
+        <li><strong>通心译前置：</strong>任何外部沟通（文本/语法/代码）必须先过通心译，再输出到对外渠道</li>
+        <li><strong>语法基线：</strong>Apple 设备优先 + C/C++ 兼容命名/时间/编码约定</li>
+        <li><strong>初始化宣言：</strong><a href="./TECH_LONGHUN_SYSTEM_INITIALIZATION_MANIFESTO_2026-04-28.md" target="_blank" rel="noopener">TECH龍魂系统初始化宣言（本地）</a></li>
+        <li><strong>工作台对齐单：</strong><a href="./LONGHUN_WORKBENCH_ALIGNMENT.md" target="_blank" rel="noopener">路径·三层·Qwen/Xcode 占位·模型路由</a>（与下方 #ai-context 同步）</li>
+      </ul>
+      <div class="row">
+        <button id="copyStartupBriefBtn">复制启动摘要（给任意AI）</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <strong>唯一入口说明：</strong>
+      所有东西先粘到本页「今日粘贴入口」，一行一条；复盘时只扫这一页。
+      <div class="small">本地保存：浏览器 LocalStorage（仅当前机器当前浏览器）。</div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">🌟 导航卡（下游只读）</h3>
+      <div class="grid">
+        <div><a href="https://www.notion.so/v3-0-DNA-3367125a9c9f81948ee3d103effbf950?pvs=21" target="_blank" rel="noopener">🚪 第一闸门 v3.0</a></div>
+        <div><a href="https://www.notion.so/UID9622-3287125a9c9f81a0b477ea420e7402d2?pvs=21" target="_blank" rel="noopener">🧩 碎片库（只读）</a></div>
+        <div><a href="https://www.notion.so/v1-3-6c03f9adafd94ce8bf98f8439eb9dbbf?pvs=21" target="_blank" rel="noopener">⚡ 主指令/人格调度</a></div>
+        <div><a href="https://www.notion.so/AI-2d87125a9c9f802889e2e18002f7cf4f?pvs=21" target="_blank" rel="noopener">🧠 回复流程 R1-R10</a></div>
+        <div><a href="https://www.notion.so/DNA-v1-0-bba94d34c22341feb3d5e88c0a084918?pvs=21" target="_blank" rel="noopener">🧬 DNA 身份系统</a></div>
+        <div><a href="https://www.notion.so/b35faf462bc042aa9de5192520180728?pvs=21" target="_blank" rel="noopener">📜 操作草日志</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">📥 今日粘贴入口（Drop Zone）</h3>
+      <div class="row">
+        <textarea id="inputText" placeholder="粘贴内容（原话/链接/片段），一条一条来。"></textarea>
+      </div>
+      <div class="row">
+        <button id="addBtn">+ 添加一条</button>
+        <button id="exportBtn">导出 JSON</button>
+        <button id="importBtn">导入 JSON</button>
+        <button id="clearBtn">清空全部（慎用）</button>
+      </div>
+      <div class="small">建议口令：粘 → 扫 → 信。铁律：本页先乱后齐。</div>
+    </div>
+
+    <div class="card">
+      <table id="dropTable">
+        <thead>
+          <tr>
+            <th style="width: 64px;">序号</th>
+            <th style="width: 132px;">时间</th>
+            <th>粘贴内容</th>
+            <th style="width: 220px;">评估（层级/五行/三色/贡献）</th>
+            <th style="width: 168px;">去向</th>
+            <th style="width: 100px;">操作</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">🚦 五桶去向（快速标签）</h3>
+      <span class="badge b-ok">桶1 推草日志</span>
+      <span class="badge b-ok">桶2 入库</span>
+      <span class="badge b-warn">桶3 内部消化</span>
+      <span class="badge b-warn">桶4 待迭代</span>
+      <span class="badge b-ok">桶5 归档旧链接</span>
+      <span class="badge b-danger">特殊 熔断</span>
+    </div>
+
+    <div class="card">
+      <details>
+        <summary>📦 原文封存（本地折叠）</summary>
+        <p class="small">
+          已将你这份「沙盒分拣台 v1.2 + 第一到第五单」作为本地入口页的执行蓝本。
+          这页负责“先粘先收”，复杂长文继续在 Notion 主页维护，避免本地页面过重。
+        </p>
+      </details>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">🧩 Notion 页面补全对齐（待补区）</h3>
+      <p class="small">目标页面：<a href="https://www.notion.so/uid9622/v1-0-UID9622-8c8a3a79375542c2a3353cf482b3d9c8?source=copy_link" target="_blank" rel="noopener">v1.0 UID9622 页面</a></p>
+      <ul class="kvs small">
+        <li>补齐「固定入口」说明：入口路径、使用口令（粘/扫/信）、分拣五桶。</li>
+        <li>补齐「可还原机制」说明：DNA 只做索引，密文才可还原（压缩+加密+验真）。</li>
+        <li>补齐「每用户独立表单」字段：UserID / DNA_ID / CipherText / Version / Status。</li>
+        <li>补齐「MCP回调流程」：submit_text / restore_text / verify_dna / audit_log。</li>
+      </ul>
+    </div>
+  </div>
+
+  <script id="ai-context" type="application/json">
+{
+  "paths": {
+    "repo_root": "/Users/zuimeidedeyihan/longhun-system",
+    "steel_shield": "/Users/zuimeidedeyihan/longhun-system/steel-shield",
+    "workbench_alignment_md": "/Users/zuimeidedeyihan/longhun-system/LONGHUN_WORKBENCH_ALIGNMENT.md",
+    "shell_cd_steel_shield": "cd /Users/zuimeidedeyihan/longhun-system/steel-shield"
+  },
+  "model_router": {
+    "note": "人格/模型切换写在上层路由配置，不绑在 steel-shield 内",
+    "placeholder_file": "longhun-workbench/model-router.local.json",
+    "tricolor_source": "steel-shield/src/index.ts 与 godViewAuditMap / steelShieldEngine",
+    "auto_green": "业务定义：可重复证据+哈希锚点齐备→GREEN，由路由层调用而非改内核"
+  },
+  "workbench_layers": {
+    "L1_domestic": "各国/域内规则与复核（各国自安排）",
+    "L2_trade": "外贸履约与合规路由",
+    "L2_culture_tourism": "文化交流与旅游缓冲层",
+    "L3_international_notice": "国际矛盾公告层；系统+主权侧一对一人工审计留痕，非社区投票"
+  },
+  "expression_protocols": {
+    "loudness_arena": "可比表达强度，不可比伤害能力；同场地同规则同审计全程留痕",
+    "soft_blade_audit": "不骂人不网暴；持续追问证据锚点/时间线/权限链/Decision DNA",
+    "red_lines": ["privacy_leak", "threat", "mob_attack", "evidence_tampering", "rumor_fabrication"]
+  },
+  "entry_file": "longhun-sandbox-dropzone-v1.2-local.html",
+  "boot_protocol": {
+    "language": "zh-CN",
+    "workflow": ["粘", "扫", "信"],
+    "feed_command": "/投喂",
+    "mandatory_tongxinyi": true,
+    "tongxinyi_scope": ["external_text", "external_grammar", "external_code"],
+    "phantom_syntax": {
+      "five_color_risk_lights": true,
+      "underscore_cooling": "_",
+      "comments_as_human_stop": true,
+      "rescue_before_publish": "rescue_ai_output",
+      "chain": "国家规则→通心译→人物画像→三色审计→Decision DNA"
+    },
+    "steel_shield": {
+      "version": "2.0",
+      "v1_archive_tar_gz": "/Users/zuimeidedeyihan/longhun-system/archives/steel-shield-v1-2026-04-29.tar.gz",
+      "v1_archive_registry_db": "/Users/zuimeidedeyihan/longhun-system/archives/longhun_archive_registry.db",
+      "code_path": "steel-shield/",
+      "ethics": ["NO_VIGILANTISM", "BEHAVIOR_NOT_PERSON", "AUDIT_OVER_MOB"],
+      "modules": [
+        "GodViewAuditMap",
+        "SteelShieldEngine",
+        "HonestPeopleGuardian",
+        "HookDetector",
+        "NoVigilantismGuard",
+        "PublicReviewQueue"
+      ],
+      "one_liner": "删证/暗钩/逃责不能一句对不起结束：留证、显影、熔断、DNA、复核",
+      "v2_governance": "三层DOMESTIC/CROSS_BORDER/INTERNATIONAL+routePersona+scientificReleaseGate+权限内工作间"
+    },
+    "primary_goal": "统一入口收敛、分拣、审计、升级",
+    "do_not_break": ["双签章", "本地优先", "不看明细只看状态"]
+  },
+  "current_plan": {
+    "p1": "固定入口启动：所有AI先读取本页协议",
+    "p2": "加载初始化宣言：TECH_LONGHUN_SYSTEM_INITIALIZATION_MANIFESTO_2026-04-28.md",
+    "p3": "Notion页面补全对齐：补齐缺失模块并统一字段",
+    "p4": "小程序接入：DNA索引 + 密文可还原 + MCP回调"
+  },
+  "apple_cpp_compat": {
+    "encoding": "UTF-8",
+    "newline": "\\n",
+    "timezone": "Asia/Shanghai",
+    "timestamp_format": "YYYY-MM-DD HH:mm",
+    "naming_style": "snake_case_for_keys, UpperCamelCase_for_types",
+    "portable_types": ["int32_t", "int64_t", "uint8_t", "size_t", "std::string"],
+    "avoid": ["platform_specific_macros", "non_utf8_text", "locale_dependent_parse"]
+  }
+}
+  </script>
+
+  <script>
+    const KEY = "longhun_dropzone_v1_2_records";
+    const tbody = document.querySelector("#dropTable tbody");
+    const input = document.getElementById("inputText");
+    const startupBrief = [
+      "【龍魂固定入口启动摘要】",
+      "入口文件: longhun-sandbox-dropzone-v1.2-local.html",
+      "工作流: 粘 -> 扫 -> 信",
+      "外部沟通强制前置: 先过通心译(文本/语法/代码)再输出",
+      "五色神石+打捞: 颜色=风险灯 命令=刹车 _=冷静区 注释=喊停 错路必RESCUE",
+      "钢铁护盾: 盾非刀 行为显影人格脱敏 代码包 steel-shield/ NoVigilantismGuard",
+      "表达协议: 嗓门擂台(同规同审计) + 软刃审计(不骂人,只开证据灯)",
+      "当前计划: 1) 固定入口 2) Notion补全 3) 小程序DNA+密文还原+MCP回调",
+      "语法基线: Apple设备优先 + C/C++兼容(UTF-8, int32_t/int64_t, snake_case键名)",
+      "注意: DNA是索引与验真, 可还原载体是压缩加密密文",
+      "steel-shield路径: cd /Users/zuimeidedeyihan/longhun-system/steel-shield && npm test",
+      "对齐单: LONGHUN_WORKBENCH_ALIGNMENT.md（千问/Xcode/三层工作台/路由占位）",
+      "steel-shield v1 快照: archives/steel-shield-v1-2026-04-29.tar.gz + longhun_archive_registry.db"
+    ].join("\n");
+
+    function now() {
+      const d = new Date();
+      const p = (n) => String(n).padStart(2, "0");
+      return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
+    }
+
+    function load() {
+      try {
+        return JSON.parse(localStorage.getItem(KEY) || "[]");
+      } catch (_) {
+        return [];
+      }
+    }
+
+    function save(rows) {
+      localStorage.setItem(KEY, JSON.stringify(rows));
+    }
+
+    function render() {
+      const rows = load();
+      tbody.innerHTML = "";
+      rows.forEach((r, idx) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${String(idx + 1).padStart(3, "0")}</td>
+          <td>${r.time}</td>
+          <td>${escapeHtml(r.content)}</td>
+          <td>
+            <input data-i="${idx}" data-k="eval" value="${escapeAttr(r.eval || "")}" placeholder="例如：L3 / 金(dr=4) / 🟢 / 7" style="width:100%">
+          </td>
+          <td>
+            <select data-i="${idx}" data-k="route" style="width:100%">
+              ${routeOptions(r.route)}
+            </select>
+          </td>
+          <td><button data-del="${idx}">删除</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      tbody.querySelectorAll("input[data-k], select[data-k]").forEach(el => {
+        el.addEventListener("change", (e) => {
+          const i = Number(e.target.dataset.i);
+          const k = e.target.dataset.k;
+          const rows = load();
+          rows[i][k] = e.target.value;
+          save(rows);
+        });
+      });
+      tbody.querySelectorAll("button[data-del]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const i = Number(btn.dataset.del);
+          const rows = load();
+          rows.splice(i, 1);
+          save(rows);
+          render();
+        });
+      });
+    }
+
+    function routeOptions(current) {
+      const opts = [
+        "桶1 推草日志",
+        "桶2 入库",
+        "桶3 内部消化",
+        "桶4 待迭代",
+        "桶5 归档旧链接",
+        "特殊 熔断"
+      ];
+      return opts.map(x => `<option ${x===current?"selected":""}>${x}</option>`).join("");
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", "\"":"&quot;" }[c]));
+    }
+
+    function escapeAttr(s) { return escapeHtml(s); }
+
+    document.getElementById("addBtn").addEventListener("click", () => {
+      const text = input.value.trim();
+      if (!text) return;
+      const rows = load();
+      rows.push({
+        time: now(),
+        content: text,
+        eval: "",
+        route: "桶4 待迭代"
+      });
+      save(rows);
+      input.value = "";
+      render();
+    });
+
+    document.getElementById("clearBtn").addEventListener("click", () => {
+      if (!confirm("确定清空本地全部记录吗？此操作不可恢复。")) return;
+      save([]);
+      render();
+    });
+
+    document.getElementById("exportBtn").addEventListener("click", () => {
+      const data = JSON.stringify(load(), null, 2);
+      const blob = new Blob([data], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `dropzone-${new Date().toISOString().slice(0,10)}.json`;
+      a.click();
+    });
+
+    document.getElementById("importBtn").addEventListener("click", async () => {
+      const txt = prompt("粘贴 JSON 内容（会覆盖当前记录）：");
+      if (!txt) return;
+      try {
+        const rows = JSON.parse(txt);
+        if (!Array.isArray(rows)) throw new Error("格式错误");
+        save(rows);
+        render();
+      } catch (e) {
+        alert("导入失败：" + e.message);
+      }
+    });
+
+    document.getElementById("copyStartupBriefBtn").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(startupBrief);
+        alert("已复制启动摘要，可直接粘给任意AI。");
+      } catch (_) {
+        alert("复制失败，请手动复制。");
+      }
+    });
+
+    render();
+  </script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 // #龍芯⚡️丙午·丙申·乙卯·丙戌·䷷旅-CNSH-VSCODE-EXTENSION-v1.0
 // CNSH 编辑器避坑插件 · VS Code Extension
 // 提供：语法高亮、关键字补全、变量命名审计、编译入口

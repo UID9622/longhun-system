@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """🐉 P02 张衡 · 数学引擎 v1.0
 DNA: #龍芯⚡️丙午·乙未·甲寅·申时·䷼中孚-P02-MATH-ENGINE-v1.0
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)

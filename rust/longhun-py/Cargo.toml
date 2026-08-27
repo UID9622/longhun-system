@@ -16,4 +16,4 @@ crate-type = ["cdylib"]
 
 [dependencies]
 lhcore = { package = "longhun-core", path = "../longhun-core" }
-pyo3 = { version = "0.24", features = ["extension-module"] }
+pyo3 = { version = "0.29", features = ["extension-module"] }

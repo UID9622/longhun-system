@@ -1,556 +1,206 @@
+<!-- DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f -->
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>⚙️ 龍魂 · 管理后台</title>
-<style>
-:root {
-  --bg: #0a0e14; --surface: #12171d; --surface2: #181e26;
-  --border: #2a3340; --border-hover: #3d5998;
-  --text: #c9d1d9; --text2: #7d8796;
-  --gold: #ffd60a; --primary: #1f6feb; --green: #2ea043; --orange: #d29922; --red: #f85149;
-  --radius: 12px;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-.container { max-width: 900px; margin: 0 auto; padding: 24px 20px; }
-
-/* Login */
-.login-box { max-width: 380px; margin: 120px auto; padding: 40px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); text-align: center; }
-.login-box h1 { color: var(--gold); margin-bottom: 24px; }
-.login-box input { width: 100%; padding: 12px; margin-bottom: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 0.9em; outline: none; }
-.login-box input:focus { border-color: var(--primary); }
-.login-box button { width: 100%; padding: 12px; background: var(--primary); color: #fff; border: none; border-radius: 8px; font-size: 0.9em; font-weight: 600; cursor: pointer; }
-.login-box .err { color: var(--red); margin-top: 8px; font-size: 0.8em; }
-
-/* Header */
-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
-header h1 { color: var(--gold); font-size: 1.3em; display: flex; align-items: center; gap: 8px; }
-header button { padding: 8px 16px; background: var(--surface2); color: var(--text2); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 0.8em; }
-
-/* Tabs */
-.tabs { display: flex; gap: 2px; margin-bottom: 20px; border-bottom: 2px solid var(--border); }
-.tab { padding: 10px 20px; background: none; border: none; color: var(--text2); cursor: pointer; font-size: 0.85em; font-weight: 600; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all .2s; }
-.tab.active { color: var(--gold); border-bottom-color: var(--gold); }
-.tab:hover { color: var(--text); }
-
-/* Cards */
-.panel { padding: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 16px; }
-.panel h3 { font-size: 1em; color: var(--gold); margin-bottom: 14px; }
-input, textarea, select { width: 100%; padding: 10px 12px; margin-bottom: 10px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 0.85em; outline: none; font-family: inherit; }
-input:focus, textarea:focus, select:focus { border-color: var(--primary); }
-textarea { min-height: 80px; resize: vertical; }
-label { font-size: 0.78em; color: var(--text2); display: block; margin-bottom: 4px; margin-top: 8px; }
-
-.btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-size: 0.85em; font-weight: 600; transition: all .15s; }
-.btn.primary { background: var(--primary); color: #fff; }
-.btn.primary:hover { background: #1a5fc7; }
-.btn.danger { background: var(--red); color: #fff; }
-.btn.success { background: var(--green); color: #fff; }
-.btn.sm { padding: 5px 12px; font-size: 0.75em; }
-
-/* Announce list */
-.ann-list .ann-item { padding: 14px 16px; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-.ann-list .ann-info { flex: 1; min-width: 200px; }
-.ann-list .ann-info .ann-title { font-weight: 600; font-size: 0.9em; }
-.ann-list .ann-info .ann-meta { font-size: 0.7em; color: var(--text2); margin-top: 3px; }
-.ann-list .ann-actions { display: flex; gap: 6px; flex-shrink: 0; }
-.tag { display: inline-block; padding: 2px 8px; font-size: 0.65em; border-radius: 10px; font-weight: 600; margin-right: 6px; }
-.tag.update { background: rgba(31,111,235,0.2); color: var(--primary); }
-.tag.feature { background: rgba(46,160,67,0.2); color: var(--green); }
-.tag.maintenance { background: rgba(210,153,34,0.2); color: var(--orange); }
-.tag.security { background: rgba(248,81,73,0.2); color: var(--red); }
-
-/* Engine status table */
-.engine-table { width: 100%; border-collapse: collapse; font-size: 0.82em; }
-.engine-table th { text-align: left; padding: 10px 12px; color: var(--text2); font-weight: 600; border-bottom: 1px solid var(--border); font-size: 0.75em; }
-.engine-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
-.engine-table .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
-.engine-table .dot.online { background: var(--green); box-shadow: 0 0 6px var(--green); }
-.engine-table .dot.offline { background: var(--red); }
-
-.toast { position: fixed; bottom: 24px; right: 24px; padding: 12px 16px; border-radius: 10px; background: var(--surface); border: 1px solid var(--border); font-size: 0.8em; z-index: 200; display: none; max-width: 360px; }
-.toast.show { display: block; }
-.toast.ok { border-color: var(--green); color: var(--green); }
-.toast.err { border-color: var(--red); color: var(--red); }
-
-@media (max-width: 640px) {
-  .login-box { margin: 60px auto; padding: 24px; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>龍魂 CNSH 在线编辑器</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --accent: #58a6ff;
+      --green: #3fb950;
+      --yellow: #d29922;
+      --red: #f85149;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "LongHun Font", "Noto Sans SC", "PingFang SC", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 { margin: 0; font-size: 18px; }
+    .tier-badge {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      background: var(--border);
+    }
+    .tier-badge.paid { background: #238636; color: white; }
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+    .panel {
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+    }
+    .panel-header {
+      padding: 10px 16px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .panel-header span { font-weight: 600; }
+    textarea, pre {
+      flex: 1;
+      margin: 0;
+      padding: 16px;
+      border: none;
+      outline: none;
+      resize: none;
+      font-family: "LongHun Mono", "JetBrains Mono", "SF Mono", monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      overflow: auto;
+    }
+    pre { white-space: pre-wrap; }
+    .toolbar {
+      padding: 10px 16px;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover { opacity: 0.9; }
+    button.secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    #status {
+      padding: 8px 16px;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: #8b949e;
+    }
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
-
-<!-- Login Screen -->
-<div id="loginScreen" class="login-box">
-  <h1>🐉 管理后台</h1>
-  <input type="password" id="pwdInput" placeholder="输入管理密码" onkeydown="if(event.key==='Enter')login()">
-  <button onclick="login()">🔐 登录</button>
-  <div class="err" id="loginErr"></div>
-</div>
-
-<!-- Main Dashboard -->
-<div id="mainPanel" style="display:none">
-  <div class="container">
-    <header>
-      <h1>⚙️ 龍魂管理后台</h1>
-      <button onclick="logout()">🚪 退出</button>
-    </header>
-
-    <div class="tabs">
-      <button class="tab active" onclick="switchTab('announce')">📋 公告管理</button>
-      <button class="tab" onclick="switchTab('engines')">⚡ 引擎监控</button>
-      <button class="tab" onclick="switchTab('new-announce')">✏️ 新建公告</button>
+  <header>
+    <h1>🐉 龍魂 CNSH 在线编辑器</h1>
+    <div>
+      <span id="tierBadge" class="tier-badge">检测中...</span>
+      <a href="/docs" target="_blank" style="margin-left:10px;color:var(--accent);text-decoration:none;font-size:13px;">API 文档</a>
     </div>
+  </header>
 
-    <!-- 公告列表 -->
-    <div id="tab-announce">
-      <div class="panel">
-        <h3>📋 所有公告</h3>
-        <div class="ann-list" id="annListAll">加载中...</div>
+  <main>
+    <div class="panel">
+      <div class="panel-header"><span>CNSH 源码</span></div>
+      <textarea id="source" spellcheck="false" placeholder="# 在此输入 CNSH 中文脚本
+函数 主函数() {
+    打印 "你好，龍魂"
+}
+主函数()"># 在此输入 CNSH 中文脚本
+函数 主函数() {
+    打印 "你好，龍魂"
+}
+主函数()</textarea>
+      <div class="toolbar">
+        <button onclick="runCode()">▶ 运行</button>
+        <button class="secondary" onclick="checkCode()">检查语法</button>
+        <button class="secondary" onclick="compileCode()">编译为 Python</button>
       </div>
     </div>
 
-    <!-- 引擎监控 -->
-    <div id="tab-engines" style="display:none">
-      <div class="panel">
-        <h3>⚡ 引擎实时状态</h3>
-        <table class="engine-table" id="engineTable">
-          <thead><tr><th>引擎</th><th>端口</th><th>状态</th><th>说明</th></tr></thead>
-          <tbody id="engineBody">检查中...</tbody>
-        </table>
-        <button class="btn primary" onclick="refreshEngines()" style="margin-top:14px">🔄 刷新状态</button>
-      </div>
+    <div class="panel">
+      <div class="panel-header"><span>输出 / 编译结果</span></div>
+      <pre id="output">点击「运行」查看结果...</pre>
     </div>
+  </main>
 
-    <!-- 新建公告 -->
-    <div id="tab-new-announce" style="display:none">
-      <div class="panel">
-        <h3>✏️ 发布新公告</h3>
-        <label>类型</label>
-        <select id="annTag">
-          <option value="update">🔄 更新 (update)</option>
-          <option value="feature">✨ 新功能 (feature)</option>
-          <option value="maintenance">🔧 维护 (maintenance)</option>
-          <option value="security">🔐 安全 (security)</option>
-          <option value="announcement">📢 公告 (announcement)</option>
-        </select>
-        <label>标题</label>
-        <input type="text" id="annTitle" placeholder="公告标题...">
-        <label>内容</label>
-        <textarea id="annBody" placeholder="公告正文..."></textarea>
-        <button class="btn success" onclick="createAnnounce()">📢 发布公告</button>
-        <div id="createMsg" style="margin-top:10px;font-size:0.82em;"></div>
-      </div>
-    </div>
-  </div>
-</div>
+  <div id="status">就绪</div>
 
-<div class="toast" id="toast"></div>
-
-<script>
-const ADMIN_PWD = 'longhun-admin-9622';
-let token = localStorage.getItem('lh_admin_token');
-
-// ==================== Auth ====================
-function login() {
-  const pwd = document.getElementById('pwdInput').value;
-  if (pwd === ADMIN_PWD) {
-    token = btoa('admin:' + Date.now());
-    localStorage.setItem('lh_admin_token', token);
-    showMain();
-  } else {
-    document.getElementById('loginErr').textContent = '密码错误';
-  }
-}
-
-function logout() {
-  localStorage.removeItem('lh_admin_token');
-  token = null;
-  location.reload();
-}
-
-function showMain() {
-  document.getElementById('loginScreen').style.display = 'none';
-  document.getElementById('mainPanel').style.display = 'block';
-  loadAnnouncements();
-  refreshEngines();
-}
-
-// Auto-check token
-if (token) {
-  showMain();
-}
-
-// ==================== Tabs ====================
-function switchTab(name) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelector(`.tab[onclick*="${name}"]`).classList.add('active');
-  ['announce', 'engines', 'new-announce'].forEach(n => {
-    document.getElementById('tab-' + n).style.display = n === name ? 'block' : 'none';
-  });
-  if (name === 'announce') loadAnnouncements();
-  if (name === 'engines') refreshEngines();
-}
-
-// ==================== Announcements ====================
-async function loadAnnouncements() {
-  try {
-    const resp = await fetch('/api/admin/announcements?all=1', { headers: { 'X-Admin-Token': token } });
-    const data = await resp.json();
-    if (!data.items || data.items.length === 0) {
-      document.getElementById('annListAll').innerHTML = '<p style="color:var(--text2)">暂无公告</p>';
-      return;
+  <script>
+    async function api(path, body) {
+      const res = await fetch(`/api/v1${path}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      return res.json();
     }
-    document.getElementById('annListAll').innerHTML = data.items.map((a, i) => `
-      <div class="ann-item">
-        <div class="ann-info">
-          <div class="ann-title"><span class="tag ${a.tag}">${tagLabel(a.tag)}</span>${esc(a.title)}</div>
-          <div class="ann-meta">${a.date} · ID: ${a.id || i}</div>
-        </div>
-        <div class="ann-actions">
-          <button class="btn danger sm" onclick="deleteAnnounce(${a.id || i})">🗑 删除</button>
-        </div>
-      </div>
-    `).join('');
-  } catch(e) {
-    document.getElementById('annListAll').innerHTML = '<p style="color:var(--red)">加载失败: ' + esc(e.message) + '</p>';
-  }
-}
 
-async function createAnnounce() {
-  const tag = document.getElementById('annTag').value;
-  const title = document.getElementById('annTitle').value.trim();
-  const body = document.getElementById('annBody').value.trim();
-  if (!title || !body) { showToast('标题和内容不能为空', 'err'); return; }
-
-  try {
-    const resp = await fetch('/api/admin/announcements', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-Admin-Token': token },
-      body: JSON.stringify({ tag, title, body })
-    });
-    const data = await resp.json();
-    if (data.ok) {
-      showToast('✅ 公告已发布', 'ok');
-      document.getElementById('annTitle').value = '';
-      document.getElementById('annBody').value = '';
-      switchTab('announce');
-      loadAnnouncements();
-    } else {
-      showToast(data.error || '发布失败', 'err');
+    async function loadTier() {
+      const res = await fetch('/api/v1/tier');
+      const tier = await res.json();
+      const badge = document.getElementById('tierBadge');
+      badge.textContent = tier.name === 'paid' ? '龍魂云完整版' : '本地免费版';
+      badge.classList.toggle('paid', tier.name === 'paid');
+      document.getElementById('status').textContent =
+        `当前 tier: ${tier.description} | 代码长度限制: ${tier.max_source_chars} 字符 | 执行超时: ${tier.max_execution_time_ms}ms`;
     }
-  } catch(e) {
-    showToast('发布失败: ' + e.message, 'err');
-  }
-}
 
-async function deleteAnnounce(id) {
-  if (!confirm('确定删除此公告？')) return;
-  try {
-    const resp = await fetch(`/api/admin/announcements/${id}`, {
-      method: 'DELETE',
-      headers: { 'X-Admin-Token': token }
-    });
-    const data = await resp.json();
-    if (data.ok) { showToast('✅ 已删除', 'ok'); loadAnnouncements(); }
-    else showToast(data.error || '删除失败', 'err');
-  } catch(e) { showToast('删除失败: ' + e.message, 'err'); }
-}
-
-// ==================== Engines ====================
-async function refreshEngines() {
-  const engines = [
-    { name: '行为密码学 (BCM)', port: 8775 },
-    { name: '三色审计', port: 8771 },
-    { name: '知识中枢', port: 8766 },
-    { name: '流场融合 (API网关)', port: 8777 },
-    { name: '统一记忆', port: 8773 },
-    { name: '龍智守 (飞书)', port: 8783 },
-    { name: '量子卦象', port: 9000 },
-    { name: '多源搜索', port: 9631 },
-    { name: '支付锚定', port: 19623 },
-    { name: 'Dashboard (本站)', port: 9627 },
-  ];
-
-  const results = await Promise.allSettled(engines.map(async e => {
-    try {
-      const resp = await fetch(`https://uid9622.cn/api/proxy?port=${e.port}&path=/health`, { signal: AbortSignal.timeout(3000) });
-      return { ...e, online: resp.ok, time: resp.ok ? (e.port === 9627 ? 'now' : 'ok') : 'error' };
-    } catch { return { ...e, online: false, time: 'timeout' }; }
-  }));
-
-  const statuses = results.map(r => r.status === 'fulfilled' ? r.value : { online: false });
-
-  document.getElementById('engineBody').innerHTML = statuses.map(e => `
-    <tr>
-      <td><span class="dot ${e.online ? 'online' : 'offline'}"></span>${e.name}</td>
-      <td style="font-family:monospace;font-size:0.8em">:${e.port}</td>
-      <td style="color:${e.online ? 'var(--green)' : 'var(--red)'}">${e.online ? '🟢 在线' : '🔴 离线'}</td>
-      <td style="font-size:0.75em;color:var(--text2)">${e.time || '-'}</td>
-    </tr>
-  `).join('');
-}
-
-// ==================== Helpers ====================
-function tagLabel(t) { const m = { update: '更新', feature: '新功能', maintenance: '维护', security: '安全', announcement: '公告' }; return m[t] || '公告'; }
-function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
-function showToast(msg, type) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.className = 'toast show ' + (type || '');
-  setTimeout(() => { t.className = 'toast'; }, 3000);
-}
-</script>
-<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
-<style>
-#lh-eco-popup-overlay {
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-}
-#lh-eco-popup-overlay.active { display: flex; }
-.lh-popup-card {
-    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
-    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
-    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
-    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
-}
-.lh-popup-title {
-    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
-    letter-spacing: 2px;
-}
-.lh-popup-subtitle {
-    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
-}
-.lh-status-badge {
-    display: inline-block; padding: 6px 18px; border-radius: 20px;
-    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
-}
-.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
-.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
-.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
-.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
-.lh-popup-btn {
-    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
-    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
-    transition: all 0.2s ease;
-}
-.lh-btn-primary {
-    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
-}
-.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
-.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
-.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
-.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
-.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
-</style>
-
-<div id="lh-eco-popup-overlay">
-    <div class="lh-popup-card">
-        <div class="lh-popup-title">🌐 龍魂生态</div>
-        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
-        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
-        <div class="lh-popup-detail" id="lh-popup-detail"></div>
-        <div>
-            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
-            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
-        </div>
-        <div class="lh-popup-footer">
-            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
-        </div>
-    </div>
-</div>
-
-<script>
-(function() {
-    var API_BASE = '/api/eco';
-    var popup = document.getElementById('lh-eco-popup-overlay');
-    var lastShown = localStorage.getItem('lh_eco_popup_last');
-    var now = Date.now();
-    
-    // 24小时内不重复弹窗
-    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
-    
-    function showPopup() {
-        if (popup) popup.classList.add('active');
-        localStorage.setItem('lh_eco_popup_last', now.toString());
+    async function runCode() {
+      const source = document.getElementById('source').value;
+      const out = document.getElementById('output');
+      out.textContent = '运行中...';
+      const data = await api('/run', { source });
+      let text = '';
+      if (data.stdout) text += `[标准输出]\n${data.stdout}\n`;
+      if (data.stderr) text += `[标准错误]\n${data.stderr}\n`;
+      if (data.namespace && Object.keys(data.namespace).length) {
+        text += `[命名空间]\n${JSON.stringify(data.namespace, null, 2)}\n`;
+      }
+      text += `[状态] ${data.message}`;
+      out.textContent = text;
     }
-    
-    function fetchStatus() {
-        fetch(API_BASE + '/alive-status')
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                var badge = document.getElementById('lh-status-badge');
-                var detail = document.getElementById('lh-popup-detail');
-                if (!badge || !detail) return;
-                
-                if (data.status === 'alive') {
-                    badge.textContent = '🟢 生态内';
-                    badge.className = 'lh-status-badge lh-status-alive';
-                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
-                    // 生态内不弹窗
-                } else if (data.status === 'builder') {
-                    badge.textContent = '⚪ 共建者';
-                    badge.className = 'lh-status-badge lh-status-builder';
-                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
-                } else {
-                    badge.textContent = '🟡 生态外';
-                    badge.className = 'lh-status-badge lh-status-expired';
-                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
-                    showPopup();
-                }
-            })
-            .catch(function() {
-                // API不可达时不弹窗
-            });
-    }
-    
-    // 页面加载后2秒检查
-    setTimeout(fetchStatus, 2000);
-    
-    // 暴露全局函数
-    window.lhEcoRenew = function() {
-        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                if (data.qr_code || data.payment_url) {
-                    window.open(data.payment_url || data.qr_code, '_blank');
-                }
-                if (popup) popup.classList.remove('active');
-                setTimeout(fetchStatus, 3000);
-            });
-    };
-    window.lhEcoClose = function() {
-        if (popup) popup.classList.remove('active');
-    };
-})();
-</script>
-<!-- /龍魂生态准入弹窗 -->
-<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
-<style>
-#lh-eco-popup-overlay {
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-}
-#lh-eco-popup-overlay.active { display: flex; }
-.lh-popup-card {
-    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
-    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
-    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
-    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
-}
-.lh-popup-title {
-    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
-    letter-spacing: 2px;
-}
-.lh-popup-subtitle {
-    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
-}
-.lh-status-badge {
-    display: inline-block; padding: 6px 18px; border-radius: 20px;
-    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
-}
-.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
-.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
-.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
-.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
-.lh-popup-btn {
-    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
-    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
-    transition: all 0.2s ease;
-}
-.lh-btn-primary {
-    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
-}
-.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
-.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
-.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
-.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
-.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
-</style>
 
-<div id="lh-eco-popup-overlay">
-    <div class="lh-popup-card">
-        <div class="lh-popup-title">🌐 龍魂生态</div>
-        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
-        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
-        <div class="lh-popup-detail" id="lh-popup-detail"></div>
-        <div>
-            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
-            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
-        </div>
-        <div class="lh-popup-footer">
-            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
-        </div>
-    </div>
-</div>
+    async function checkCode() {
+      const source = document.getElementById('source').value;
+      const out = document.getElementById('output');
+      out.textContent = '检查中...';
+      const data = await api('/check', { source });
+      out.textContent = data.message;
+    }
 
-<script>
-(function() {
-    var API_BASE = '/api/eco';
-    var popup = document.getElementById('lh-eco-popup-overlay');
-    var lastShown = localStorage.getItem('lh_eco_popup_last');
-    var now = Date.now();
-    
-    // 24小时内不重复弹窗
-    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
-    
-    function showPopup() {
-        if (popup) popup.classList.add('active');
-        localStorage.setItem('lh_eco_popup_last', now.toString());
+    async function compileCode() {
+      const source = document.getElementById('source').value;
+      const out = document.getElementById('output');
+      out.textContent = '编译中...';
+      const data = await api('/compile', { source });
+      out.textContent = data.success ? data.python_code : data.message;
     }
-    
-    function fetchStatus() {
-        fetch(API_BASE + '/alive-status')
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                var badge = document.getElementById('lh-status-badge');
-                var detail = document.getElementById('lh-popup-detail');
-                if (!badge || !detail) return;
-                
-                if (data.status === 'alive') {
-                    badge.textContent = '🟢 生态内';
-                    badge.className = 'lh-status-badge lh-status-alive';
-                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
-                    // 生态内不弹窗
-                } else if (data.status === 'builder') {
-                    badge.textContent = '⚪ 共建者';
-                    badge.className = 'lh-status-badge lh-status-builder';
-                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
-                } else {
-                    badge.textContent = '🟡 生态外';
-                    badge.className = 'lh-status-badge lh-status-expired';
-                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
-                    showPopup();
-                }
-            })
-            .catch(function() {
-                // API不可达时不弹窗
-            });
-    }
-    
-    // 页面加载后2秒检查
-    setTimeout(fetchStatus, 2000);
-    
-    // 暴露全局函数
-    window.lhEcoRenew = function() {
-        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                if (data.qr_code || data.payment_url) {
-                    window.open(data.payment_url || data.qr_code, '_blank');
-                }
-                if (popup) popup.classList.remove('active');
-                setTimeout(fetchStatus, 3000);
-            });
-    };
-    window.lhEcoClose = function() {
-        if (popup) popup.classList.remove('active');
-    };
-})();
-</script>
-<!-- /龍魂生态准入弹窗 -->
+
+    loadTier();
+  </script>
 </body>
 </html>

@@ -117,7 +117,12 @@ def patch_file(p: Path, dry_run: bool):
     frozen = FROZEN_DIR / f"{p.name}.{ts}.attribution.frozen"
     shutil.copy2(p, frozen)
 
-    p.write_text(new_src, encoding="utf-8")
+    try:
+        p.write_text(new_src, encoding="utf-8")
+    except PermissionError:
+        return {"file": str(p), "status": "⏭️ 只读跳过（无写权限）"}
+    except OSError as e:
+        return {"file": str(p), "status": f"🔴 写入失败 {e}"}
     # 验证：内容只增不减
     after = p.read_text(encoding="utf-8", errors="replace")
     if len(after) < len(src):

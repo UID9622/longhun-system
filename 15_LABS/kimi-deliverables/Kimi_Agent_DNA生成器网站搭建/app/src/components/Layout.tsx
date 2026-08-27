@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 import { useEffect } from 'react'
 import { useLocation, useOutlet } from 'react-router'
 import Lenis from 'lenis'
@@ -6,6 +8,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { LaunchAIProvider } from '@/ai/useLaunchAI'
+import LaunchAIButton from '@/components/launchai/LaunchAIButton'
+import LaunchAIConsole from '@/components/launchai/LaunchAIConsole'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -42,23 +47,28 @@ export default function Layout() {
   }, [location.pathname])
 
   return (
-    <div className="flex min-h-[100dvh] flex-col bg-ink text-paper">
-      <Navbar />
-      {/* fixed nav 高度 72px → 内容槽顶距；全幅 hero 页内 -mt-[72px] 豁免 */}
-      <main className="flex-1 pt-[72px]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={location.pathname}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12, transition: { duration: 0.25 } }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          >
-            {outlet}
-          </motion.div>
-        </AnimatePresence>
-      </main>
-      <Footer />
-    </div>
+    <LaunchAIProvider>
+      <div className="flex min-h-[100dvh] flex-col bg-ink text-paper">
+        <Navbar />
+        {/* fixed nav 高度 72px → 内容槽顶距；全幅 hero 页内 -mt-[72px] 豁免 */}
+        <main className="flex-1 pt-[72px]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={location.pathname}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12, transition: { duration: 0.25 } }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {outlet}
+            </motion.div>
+          </AnimatePresence>
+        </main>
+        <Footer />
+        {/* 啟動AI：全站可达的作战指挥台（Cmd/Ctrl+K 开合） */}
+        <LaunchAIButton />
+        <LaunchAIConsole />
+      </div>
+    </LaunchAIProvider>
   )
 }

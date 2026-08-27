@@ -1,51 +1,43 @@
-# 🐉 龍魂 · DeepSeek Harness 鲲鹏部署 Makefile
-# DNA: #龍芯⚡️丙午·丙申·辛酉·丙申·䷉履-DSH-KUNPENG-MAKEFILE-UID9622
+# 龍魂·六层来源链 / LongHun Six-Layer Source Chain
+# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-MAKEFILE-v1.0
 
-.PHONY: help deploy status tunnel stop logs setup-mac validate
+GLYPHS = glyphs/龍魂字元库_v0019_龍纹书法版.json
+OTF = output/LonghunFont-Regular.otf
+COLOR_OTF = output/LonghunFont-WuwuColor.otf
+SVG_DIR = output/all_glyphs_v0019
+SAMPLE = output/sample_v0019.html
 
-KUNPENG_IP ?= $(shell cat ~/.longhun/configs/kunpeng-ip.txt 2>/dev/null || echo "")
-DEPLOY_DIR ?= /opt/deepseek-harness-kunpeng
-# 鲲鹏专用密钥（P0: SSH 密钥-only，禁止密码登录）
-KEY ?= $(HOME)/.ssh/longhun_kunpeng_ed25519
-SSH_OPTS = -i $(KEY) -o StrictHostKeyChecking=accept-new
+.PHONY: all build build-v3 render check release install demo demo-color clean
 
-help:
-	@echo "🐉 龍魂 · DeepSeek Harness 鲲鹏部署"
-	@echo ""
-	@echo "  make deploy KUNPENG_IP=xxx    上传到鲲鹏并一键部署"
-	@echo "  make status                   查看鲲鹏上容器状态"
-	@echo "  make tunnel                   建立本地 SSH 隧道"
-	@echo "  make stop                     停止鲲鹏容器"
-	@echo "  make logs                     查看 dsh 日志"
-	@echo "  make setup-mac IP=xxx         初始化 Mac 本地 lh-dsh 命令"
-	@echo "  make validate                 本地校验 Docker Compose 语法"
+all: build render check
 
-validate:
-	docker compose -f docker-compose.kunpeng.yml config > /dev/null && echo "✅ compose 语法通过"
+build:
+	python3 scripts/build_font.py $(GLYPHS) $(OTF)
 
-deploy:
-	@if [ -z "$(KUNPENG_IP)" ]; then echo "❌ 请设置 KUNPENG_IP"; exit 1; fi
-	@if [ ! -f "$(KEY)" ]; then echo "❌ SSH 密钥不存在: $(KEY)"; exit 1; fi
-	ssh $(SSH_OPTS) root@$(KUNPENG_IP) "mkdir -p $(DEPLOY_DIR)"
-	scp -i $(KEY) -r . root@$(KUNPENG_IP):$(DEPLOY_DIR)
-	ssh $(SSH_OPTS) root@$(KUNPENG_IP) "cd $(DEPLOY_DIR) && chmod +x scripts/*.sh && ./scripts/deploy-kunpeng.sh"
+build-v3:
+	python3 scripts/build_font_v3.py $(GLYPHS) output/LonghunFont-Regular-v3.otf
 
-status:
-	@if [ -z "$(KUNPENG_IP)" ]; then echo "❌ 请设置 KUNPENG_IP"; exit 1; fi
-	ssh $(SSH_OPTS) root@$(KUNPENG_IP) "cd $(DEPLOY_DIR) && docker compose ps"
+render:
+	python3 scripts/batch_render.py $(GLYPHS) $(SVG_DIR) $(SAMPLE)
 
-stop:
-	@if [ -z "$(KUNPENG_IP)" ]; then echo "❌ 请设置 KUNPENG_IP"; exit 1; fi
-	ssh $(SSH_OPTS) root@$(KUNPENG_IP) "cd $(DEPLOY_DIR) && docker compose down"
+check:
+	python3 scripts/check_font.py $(GLYPHS)
 
-logs:
-	@if [ -z "$(KUNPENG_IP)" ]; then echo "❌ 请设置 KUNPENG_IP"; exit 1; fi
-	ssh $(SSH_OPTS) root@$(KUNPENG_IP) "cd $(DEPLOY_DIR) && docker compose logs -f dsh"
+release:
+	./scripts/release.sh
 
-tunnel:
-	@if [ -z "$(KUNPENG_IP)" ]; then echo "❌ 请设置 KUNPENG_IP"; exit 1; fi
-	ssh $(SSH_OPTS) -N -L 127.0.0.1:2283:127.0.0.1:2283 -L 127.0.0.1:2284:127.0.0.1:2284 -L 127.0.0.1:11434:127.0.0.1:11434 root@$(KUNPENG_IP)
+install:
+	./install_macos.sh
 
-setup-mac:
-	@if [ -z "$(IP)" ]; then echo "❌ 请设置 IP=xxx"; exit 1; fi
-	./scripts/local-mac-setup.sh $(IP)
+demo:
+	@echo "用浏览器打开 output/demo.html"
+
+demo-color:
+	python3 scripts/build_wuwu_color_font.py $(GLYPHS) $(COLOR_OTF)
+
+clean:
+	rm -rf output/all_glyphs_v0019
+	rm -f output/sample_v0019.html
+	rm -f $(OTF)
+	rm -f $(COLOR_OTF)
+	rm -f output/LonghunFont-Regular-v3.otf

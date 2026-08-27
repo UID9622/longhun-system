@@ -1,3 +1,4 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """test_dna.py — DNA 生成与确认码闸门测试（锚点5、锚点6）。"""
 
 from __future__ import annotations

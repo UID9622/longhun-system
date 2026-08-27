@@ -4,7 +4,6 @@
 龍魂插件沙箱 · 能力门控 v1.0
 DNA: #龍芯⚡️2026-08-22-CAPABILITY-GATE-v1.0
 创建者: 诸葛鑫（UID9622）
-归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 

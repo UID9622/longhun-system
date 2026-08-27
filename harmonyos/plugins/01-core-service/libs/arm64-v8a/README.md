@@ -1,3 +1,4 @@
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 # 🐉 龍魂·Rust 核心库 · ARM64 二进制
 
 > 占位文件。待 `longhun-core` Rust 项目编译 aarch64-linux-android 目标后替换。

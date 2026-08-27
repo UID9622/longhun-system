@@ -1,4 +1,5 @@
 #!/bin/bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # 🐉 龍魂 · 故事工厂 · 开源工具链一键安装脚本
 # DNA: #龍芯⚡️丙午·丙申·辛酉·巳时·䷀乾-STORY-TOOLS-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

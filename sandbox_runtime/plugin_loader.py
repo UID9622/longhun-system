@@ -60,7 +60,9 @@ _OS_DANGEROUS = (
 )
 
 # builtins 中被替换为拒绝桩的危险入口（文件/代码执行走能力 API）
-_BUILTINS_DANGEROUS = ("open", "exec", "eval", "compile", "input", "__import__")
+# 注意：__import__ 不在此列 —— 由 install_import_guard 的 _guarded_import 单独包装
+# （带黑名单过滤），若在此一并替换成 _denied 会导致 guard 后一切 import 全崩。
+_BUILTINS_DANGEROUS = ("open", "exec", "eval", "compile", "input")
 
 
 def _denied(*args, **kwargs):

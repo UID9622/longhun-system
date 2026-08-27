@@ -222,6 +222,10 @@ ROOT_LEVEL_WHITELIST = {
     # 已冻结(2026-08-22) → 保留历史记录,文件已在 archive/frozen/
     #   code_with_dna_1785506239.py / 1785820178.py / 1785852438.py
     #   demo_vulnerable.py
+    # 🔥 2026-08-26 人格精修·遗留根级合法文件补齐
+    ".editorconfig", ".editorconfig.asc",
+    "MEMORY.md",
+    "setup_test_chain.sh", "setup_test_chain.sh.asc",
 }
 
 # 需要忽略的目录
@@ -248,7 +252,7 @@ SCATTERED_PATTERNS = [
 class PathAuditor:
     """路径审计器"""
 
-    def __init__(self, project_root: Path = None):
+    def __init__(self, project_root: Optional[Path] = None):
         self.root = project_root or PROJECT_ROOT
         self.violations: List[Dict[str, Any]] = []
         self.scattered: List[Dict[str, Any]] = []

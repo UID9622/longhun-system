@@ -1,4 +1,5 @@
 #!/bin/bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # 龍魂 · 一带一路入门包 · 一键部署脚本 v1.1
 # DNA: #龍芯⚡️丙午·丙申·戊午·戊午·䷱鼎-BELT-ROAD-PACK-UID9622
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

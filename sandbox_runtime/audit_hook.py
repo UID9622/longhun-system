@@ -4,7 +4,6 @@
 龍魂插件沙箱 · 审计钩子 v1.1
 DNA: #龍芯⚡️2026-08-22-AUDIT-HOOK-v1.1
 创建者: 诸葛鑫（UID9622）
-归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 审计钩子 · 所有沙箱操作必须经过此钩子记录 · append-only 不可篡改

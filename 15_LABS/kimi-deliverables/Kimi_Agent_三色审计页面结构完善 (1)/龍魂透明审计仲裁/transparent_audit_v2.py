@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # -*- coding: utf-8 -*-
 """🐉 龍魂·透明审计与冲突仲裁引擎 v2.0
 复用 v1.1 的 路由/仓库/引擎 骨架，仲裁层整体替换为事实级仲裁（arbiter_v2）。
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 import asyncio, time, sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 🐉 诸葛亮 · 战略推演知识库 v1.0
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)

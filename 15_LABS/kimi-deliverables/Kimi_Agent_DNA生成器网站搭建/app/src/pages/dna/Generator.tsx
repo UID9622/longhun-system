@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState, useCallback } from 'react'
+<!-- DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f -->
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Check, ChevronDown, Copy, Download, Trash2, Share2 } from 'lucide-react'
+import { Check, ChevronDown, Copy, Download, Trash2 } from 'lucide-react'
 import SectionHeading from '@/components/SectionHeading'
 import OutlineButton from '@/components/OutlineButton'
-import { getGanzhi, hexagramSymbol, formatCountdown, msToNextShichen } from '@/lib/ganzhi'
+import { hexagramSymbol } from '@/lib/ganzhi'
 import {
   ACTIONS,
   forgeDna,
@@ -80,26 +81,7 @@ export default function Generator() {
   const [spinIdx, setSpinIdx] = useState(0)
   const [history, setHistory] = useState<DnaRecord[]>([])
   const [copied, setCopied] = useState(false)
-  const [host, setHost] = useState('')
   const timersRef = useRef<number[]>([])
-
-  // 实时干支时钟（每 10s 刷新）
-  const [liveGanzhi, setLiveGanzhi] = useState(() => getGanzhi())
-  const [nextShichen, setNextShichen] = useState('')
-
-  useEffect(() => {
-    const tick = () => {
-      setLiveGanzhi(getGanzhi(new Date()))
-      setNextShichen(formatCountdown(msToNextShichen(new Date())))
-    }
-    tick()
-    const t = window.setInterval(tick, 10_000)
-    return () => window.clearInterval(t)
-  }, [])
-
-  useEffect(() => {
-    setHost(typeof window !== 'undefined' ? window.location.origin : '')
-  }, [])
 
   useEffect(() => {
     setHistory(loadHistory())
@@ -175,25 +157,6 @@ export default function Generator() {
     window.setTimeout(() => setCopied(false), 1500)
   }
 
-  const shareResult = useCallback(async () => {
-    if (!result) return
-    const link = `${host}/dna?code=${encodeURIComponent(result.code)}`
-    try {
-      await navigator.clipboard.writeText(link)
-      setCopySuccess(true)
-      window.setTimeout(() => setCopySuccess(false), 2000)
-    } catch {
-      // 兜底：打开分享面板
-      if (navigator.share) {
-        try {
-          await navigator.share({ title: result.code, url: link })
-        } catch {
-          /* 用户取消 */
-        }
-      }
-    }
-  }, [result, host])
-
   const spinning = phase === 'spinning'
   const forging = spinning || phase === 'revealing'
 
@@ -208,22 +171,6 @@ export default function Generator() {
           title="生成你的 DNA"
           subtitle="免费、开源、永不收费。生成即拥有。"
         />
-
-        {/* 实时干支时钟 */}
-        <div className="mt-8 flex items-center justify-center gap-3">
-          <span className="font-mono text-[13px] text-paper-dim tracking-[0.06em]">
-            此刻 ·
-          </span>
-          <span className="font-serif text-[16px] font-bold text-gold tracking-[0.06em]">
-            {liveGanzhi.year}{liveGanzhi.month}{liveGanzhi.day}{liveGanzhi.hour}
-          </span>
-          <span className="inline-flex h-1.5 w-1.5 animate-pulse rounded-full bg-gold" aria-hidden="true" />
-          {nextShichen ? (
-            <span className="font-mono text-[11px] text-paper-faint">
-              下一个时辰 {nextShichen}
-            </span>
-          ) : null}
-        </div>
 
         <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-12">
           {/* 左 5 列：表单面板 */}
@@ -328,9 +275,6 @@ export default function Generator() {
                 >
                   ䷀
                 </span>
-                <span className="mt-4 font-serif text-[14px] text-paper-dim">
-                  {liveGanzhi.year}年{liveGanzhi.month}月{liveGanzhi.day}日{liveGanzhi.hour}
-                </span>
                 <span className="absolute bottom-6 font-mono text-[12px] tracking-[0.3em] text-paper-faint">
                   待铸造
                 </span>
@@ -355,26 +299,15 @@ export default function Generator() {
                   phase === 'done' ? 'dna-pulse-once' : ''
                 }`}
               >
-                <div className="absolute right-3 top-3 flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={shareResult}
-                    aria-label="复制分享链接"
-                    className="inline-flex items-center gap-1.5 border border-line px-2 py-1 font-mono text-[11px] text-paper-dim transition-colors duration-200 hover:border-gold hover:text-gold"
-                  >
-                    {copySuccess ? <Check size={12} className="text-gold" /> : <Share2 size={12} />}
-                    {copySuccess ? '已复制链接' : '分享'}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => copyCode(result.code)}
-                    aria-label="复制 DNA 码"
-                    className="inline-flex items-center gap-1.5 border border-line px-2 py-1 font-mono text-[11px] text-paper-dim transition-colors duration-200 hover:border-gold hover:text-gold"
-                  >
-                    {copied ? <Check size={12} className="text-gold" /> : <Copy size={12} />}
-                    {copied ? '已录入' : '复制'}
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  onClick={() => copyCode(result.code)}
+                  aria-label="复制 DNA 码"
+                  className="absolute right-3 top-3 inline-flex items-center gap-1.5 border border-line px-2 py-1 font-mono text-[11px] text-paper-dim transition-colors duration-200 hover:border-gold hover:text-gold"
+                >
+                  {copied ? <Check size={12} className="text-gold" /> : <Copy size={12} />}
+                  {copied ? '已录入' : '复制'}
+                </button>
                 <code className="block break-all font-mono text-[clamp(14px,1.9vw,20px)] leading-[2.1] tracking-[0.04em] text-paper">
                   <span>#龍芯⚡️</span>
                   {step >= 1 ? (

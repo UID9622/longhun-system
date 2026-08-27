@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # DNA: #龍芯⚡️丙午·丙酉·壬戌·戌时·䷬萃-AVS3_ENCODER-UID9622-161D9F9B
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """龍魂·AVS3视频编码器 v1.0 — 中国自主知识产权视频编码标准

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 🐉 龍魂·國際編程語言筆試題庫引擎 v1.0
 DNA: #龍芯⚡️丙午·丁酉·丙戌·戊子·䷐隨-EXAM-ENGINE-v1.0-UID9622

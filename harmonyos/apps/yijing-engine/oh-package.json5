@@ -1,9 +1,11 @@
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 {
-  "modelVersion": "5.0.0",
-  "description": "龙魂·鸿蒙易经推演引擎 v1.0",
-  "dependencies": {},
-  "devDependencies": {
-    "@ohos/hvigor-ohos-plugin": "5.0.0",
-    "@ohos/hvigor": "5.0.0"
-  }
+  "name": "entry",
+  "version": "2.0.0",
+  "description": "龍魂生日提醒 · 人格联动模块",
+  "main": "",
+  "author": "UID9622",
+  "license": "LongHun-Sovereign",
+  "dependencies": {}
 }

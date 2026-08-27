@@ -309,6 +309,7 @@ python3 08_BIN/lh_cnsh_plugin.py -i 文档.txt -o 文档.json
 ═══════════════════════════════════════════════════
 DNA:        #龍芯⚡️丙午·丙申·己未·癸酉·䷬萃-CNSH-STAMP-PLUGIN-v1.1-UID9622
 确认码:      #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色:       🟢 通过（已本地实测）
 核心修正:   路径探测 / 真实目录 / LU-Time干支 / 死代码 / 数字根统一 / 故障自愈

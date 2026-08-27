@@ -5,6 +5,7 @@
 🐉 龍魂 · AI身份标识与互认协议引擎 v2.0
 DNA: [[GENERATED_BY_LH_DNA_GENERATOR_V3]]-AI-IDENTITY-v2.0
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 AI内容强制标识 · 互认拦截 · 本地主权豁免 · 配置化规则 · 审计归档

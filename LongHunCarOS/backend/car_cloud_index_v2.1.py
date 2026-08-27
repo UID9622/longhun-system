@@ -5,6 +5,7 @@
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-CAR-INDEX-v2.1-UID9622
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 合并：v2.0 完整表结构（vehicles/navigation_records/dna_chain/wall_of_shame/road_tiles）

@@ -5,6 +5,7 @@
 🐲 龍魂·多智能体统一入口 v2.0
 DNA: #龍芯⚡️丙午·乙未·庚戌·壬午·䷕贲-MULTI-AGENT-ENTRY-UID9622
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 
 用法:
   python3 run.py --demo                  # 演示模式

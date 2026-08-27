@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 🐉 龍魂 · DNA 追溯码生成器 (rizhu v3.0 算法口径)
 锚点验证:

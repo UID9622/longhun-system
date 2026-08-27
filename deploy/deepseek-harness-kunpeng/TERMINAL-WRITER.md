@@ -215,6 +215,7 @@ sqlite3 .state/terminal_writer/writer.sqlite \
 ```
 DNA:        #龍芯⚡️丙午·丙申·丁酉·庚子·䷉履-TERMINAL-WRITER-DEPLOY-UID9622
 确认码:      #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 GPG:        A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 三色:       🟢 通过
 状态:       可执行 · 鲲鹏就绪 · v1.2（看板三件套）

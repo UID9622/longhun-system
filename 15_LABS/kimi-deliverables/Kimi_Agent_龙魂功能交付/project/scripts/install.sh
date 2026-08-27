@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # 龍魂自愈引擎 · macOS launchd 一键部署脚本。
 # 幂等可重入；$HOME 动态展开，禁硬编码用户名；仅 macOS 真机可验证 launchctl（🟡）。
 set -euo pipefail

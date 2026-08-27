@@ -1,44 +1,68 @@
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 {
-  // ==========================================================================
-  // 通心译 — 模块配置 ✅ 检查项#1 权限声明
-  // DNA:#龍芯⚡️丙午·丙申·癸丑·午时·需-TONGXINYI-MODULE-v1.0
-  // ==========================================================================
   "module": {
     "name": "entry",
     "type": "entry",
-    "srcEntry": "./ets/entryability/EntryAbility.ets",
     "description": "$string:module_desc",
     "mainElement": "EntryAbility",
     "deviceTypes": [
       "phone",
       "tablet",
-      "2in1",
-      "car"
+      "2in1"
     ],
     "deliveryWithInstall": true,
     "installationFree": false,
-
-    // ===== 权限声明 ✅ 检查项#1 =====
+    "pages": "$profile:main_pages",
+    // 龍魂 Native 库声明
+    "nativeLib": {
+      "filter": {
+        "excludes": ["x86_64"]
+      },
+      "fileName": "liblonghun_native.so"
+    },
+    "abilities": [
+      {
+        "name": "EntryAbility",
+        "srcEntry": "./ets/entryability/EntryAbility.ets",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:app_icon",
+        "label": "$string:EntryAbility_label",
+        "startWindowIcon": "$media:app_icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true,
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ]
+      }
+    ],
     "requestPermissions": [
       {
-        "name": "ohos.permission.INTERNET",
-        "reason": "$string:internet_reason",
-        "usedScene": {
-          "abilities": ["EntryAbility"],
-          "when": "always"
-        }
-      },
-      {
-        "name": "ohos.permission.GET_NETWORK_INFO",
-        "reason": "$string:network_reason",
+        "name": "ohos.permission.NOTIFICATION_CONTROLLER",
+        "reason": "$string:notification_permission_reason",
         "usedScene": {
           "abilities": ["EntryAbility"],
           "when": "inuse"
         }
       },
       {
-        "name": "ohos.permission.READ_PASTEBOARD",
-        "reason": "$string:pasteboard_reason",
+        "name": "ohos.permission.READ_CALENDAR",
+        "reason": "$string:calendar_permission_reason",
+        "usedScene": {
+          "abilities": ["EntryAbility"],
+          "when": "inuse"
+        }
+      },
+      {
+        "name": "ohos.permission.WRITE_CALENDAR",
+        "reason": "$string:calendar_permission_reason",
         "usedScene": {
           "abilities": ["EntryAbility"],
           "when": "inuse"
@@ -46,54 +70,11 @@
       },
       {
         "name": "ohos.permission.KEEP_BACKGROUND_RUNNING",
-        "reason": "$string:background_reason",
+        "reason": "$string:background_permission_reason",
         "usedScene": {
           "abilities": ["EntryAbility"],
-          "when": "inuse"
+          "when": "always"
         }
-      }
-    ],
-
-    // ===== 能力声明 =====
-    "abilities": [
-      {
-        "name": "EntryAbility",
-        "srcEntry": "./ets/entryability/EntryAbility.ets",
-        "description": "$string:EntryAbility_desc",
-        "icon": "$media:icon",
-        "label": "$string:EntryAbility_label",
-        "startWindowIcon": "$media:startIcon",
-        "startWindowBackground": "$color:start_window_bg",
-        "exported": true,
-        "launchType": "singleton",
-        "orientation": "auto_rotation",
-        "supportWindowMode": ["fullscreen", "split", "floating"],
-        "minWindowWidth": 360,
-        "minWindowHeight": 640,
-        "skills": [
-          {
-            "entities": ["entity.system.home"],
-            "actions": ["action.system.home"]
-          }
-        ]
-      }
-    ],
-
-    // ===== 页面路由 =====
-    "pages": "$profile:main_pages",
-
-    // ===== 元数据 =====
-    "metadata": [
-      {
-        "name": "TongxinYi_DNA",
-        "value": "#龍芯⚡️丙午·丙申·癸丑·午时·需-TONGXINYI-HARMONYOS-v1.0"
-      }
-    ],
-
-    // ===== 依赖 =====
-    "dependencies": [
-      {
-        "bundleName": "com.huawei.hmscore"
       }
     ]
   }

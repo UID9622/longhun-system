@@ -1,3 +1,4 @@
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 # 🇨🇳 中国科技自主创新专栏 · 知识图谱
 
 **DNA**: `#龍芯⚡️丙午·丙申·庚申·酉时·䷼中孚-KNOWLEDGE-GRAPH-CN-INNOVATION-BUILD-V1.0-P1-38bb8b6e`

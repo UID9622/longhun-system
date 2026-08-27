@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # DNA: #龍芯⚡️丙午·丙酉·壬戌·戌时·䷬萃-VVC_ENCODER-UID9622-C16961E4
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 """龍魂·VVC视频编码器 v1.0 — H.266/VVC Fraunhofer开源实现

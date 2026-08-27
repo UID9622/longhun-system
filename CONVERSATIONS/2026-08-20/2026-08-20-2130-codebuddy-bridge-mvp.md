@@ -1,3 +1,4 @@
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 ---
 session_id: 2026-08-20-2130-codebuddy-bridge-mvp
 agent: codebuddy

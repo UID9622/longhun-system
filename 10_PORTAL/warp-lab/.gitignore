@@ -1,24 +1,8 @@
-# 构建产物
-dist/
-build/
-*.min.js
-
-# 系统文件
-.DS_Store
-Thumbs.db
-*.swp
-*.swo
-*~
-
-# IDE
-.vscode/
-.idea/
-
-# 依赖（vendor 目录保留，但更新忽略）
-node_modules/
-package-lock.json
-yarn.lock
-
-# 临时文件
-*.log
-*.tmp
+# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 龍魂双节点同步层 .gitignore
+# 密钥文件不提交
+.dual_node_keys
+*.key
+__pycache__/
+*.pyc

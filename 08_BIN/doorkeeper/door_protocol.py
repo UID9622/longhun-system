@@ -5,7 +5,6 @@
 龍魂五行八门协议 v1.0
 DNA: #龍芯⚡️2026-08-25-DOOR-PROTOCOL-v1.0-UID9622
 创建者: 诸葛鑫（UID9622）
-归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 修正：惊门枚举值 jingmen_alert，避免与景门 jingmen 混淆

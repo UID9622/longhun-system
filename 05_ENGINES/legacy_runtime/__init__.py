@@ -7,6 +7,7 @@
 
 DNA: #龍芯⚡️丙午·乙未·甲子·申时·䷄需-ENGINE-CORE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 
 from .engine_core import LonghunEngine

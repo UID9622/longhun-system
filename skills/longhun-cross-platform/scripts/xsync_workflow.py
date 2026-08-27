@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 龍魂跨平台同步工作流 — 端到端可执行脚本 v2.0
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)

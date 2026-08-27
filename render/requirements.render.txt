@@ -1,0 +1,16 @@
+<!-- DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f -->
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+<!-- 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+playwright==1.44.0
+fastapi==0.111.0
+uvicorn==0.30.1
+pydantic>=2.0
+pillow>=10.0.0
+# numpy 锁定 1.24.4：paddlepaddle 2.6.x 需 numpy<1.25（1.26+ ABI 不兼容）
+numpy==1.24.4
+opencv-python-headless==4.9.0.80
+# 桌面自动化（可选·macOS 需辅助功能授权）
+pyautogui==0.9.54
+# OCR（可选层·在 Dockerfile 第二个 RUN 单独装，源=官方 pypi）
+# 组合: paddlepaddle==2.6.2 + paddleocr==2.7.3 + pyclipper==1.3.0.post4(post3 仅 sdist 需编译·slim 无 g++ 会失败)
+# 注意：基础镜像须为 python:3.11-slim-bookworm（trixie 的 zlib ABI 与 paddle 不兼容 → zlib error）

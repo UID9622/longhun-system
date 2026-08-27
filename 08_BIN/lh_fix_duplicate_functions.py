@@ -5,6 +5,7 @@
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂·重复函数合并引擎 v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 
 功能：扫描 .py 文件，用 AST 精确检测"同文件内重复定义"函数，
       分层处理——只对 100% 安全的自动去重，其余只报告不动文件。
