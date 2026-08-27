@@ -1,3 +1,5 @@
+> DNA: #龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # 龍魂操作日誌系統·完整使用指南
 **DNA**:#龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-ACTION-LOG-GUIDE-v1.0
 
@@ -400,6 +402,7 @@ if __name__ == "__main__":
 ```
 DNA:#龍芯⚡️丙午·甲午·甲寅·庚午·䷕贲-ACTION-LOG-GUIDE-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 ```
 
 **立即開始**: `python3 ~/longhun-system/action_logger.py stats`

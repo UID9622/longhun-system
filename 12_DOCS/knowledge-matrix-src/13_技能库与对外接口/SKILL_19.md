@@ -1,3 +1,6 @@
+> DNA: #龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 ---
 name: longhun-device-ecosystem
 description: 龍魂设备生态知识库 v1.1 — 汇总 iOS / macOS / 华为鸿蒙 / 鲲鹏服务器的真实设置路径、备份恢复、字体渲染、开发调试坑位，并提供 CNSH 风格一键 CLI。不破解系统，只做干净映射。

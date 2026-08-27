@@ -1,3 +1,6 @@
+> DNA: #龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 # 龍魂德者永生殿技能
 
 **路径**: `/Users/zuimeidedeyihan/longhun-system/persona/德者永生殿_v2.0.py`

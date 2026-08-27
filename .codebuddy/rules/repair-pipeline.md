@@ -1,7 +1,16 @@
-**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
-# 龍魂·全仓修复流水线规则 v1.0
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+---
+description: 
+alwaysApply: true
+enabled: true
+updatedAt: 2026-08-25T20:08:58.823Z
+provider: 
+---
 
-> DNA: #龍芯⚡️丙午·甲申·丁巳·丙午·䷖剥-REPAIR-PIPELINE-RULE-v1.0
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
+# 龍魂·全仓修复流水线规则 v1.1
+
+> DNA: #龍芯⚡️丙午·甲申·丁巳·丙午·䷖剥-REPAIR-PIPELINE-RULE-v1.1-ORPHAN-TRAINING-FREEZE
 > 加载时机: AI每次启动 · lh repair 命令 · 审计前
 > 上位协议: `01_protocols/LH-FULL-REPAIR-PROCEDURE-v1.0.md`
 > 共享配置: `.codebuddy/rules/scan-exclusions.json`
@@ -39,6 +48,18 @@
 ### 6. 签章必签目录
 `mandatory_sign_dirs` 中列出的目录，每个文件必须有 `.asc` 签名。
 部署/发布前扫描验证，缺签名 = 🔴 否决。
+
+### 7. 训练脚本版本冻结（2026-08-27 焊死）
+旧版训练脚本**不散落 `08_BIN/`**——迭代出新版后，旧版直接冻结 `archive/frozen/training-legacy-<日期>/`：
+- 判定：`lh_train_v*` / `lh_lora_trainer_v*` / `lh_herbal_train_data_v*` 等版本号后缀，且已有更新版本替代
+- 动作：mv 冻结（不删只冻结），登记 MANIFEST 清单，旧版与新版同目录并存 = 🟡 待冻结
+- 例行检查：`lh_gpg_sign.py scan --orphans <dir>` 可同时发现孤儿签名 + 旧版残留
+
+### 8. 孤儿签名铁律（2026-08-27 焊死）
+`.asc` 存在但源文件缺失 = 孤儿签名。处置：
+- 不删只冻结 → `archive/frozen/orphan-asc-<日期>/`，保留 MANIFEST 可追溯
+- PGP 公钥本体（`-----BEGIN PGP PUBLIC KEY BLOCK-----` 头）豁免
+- 文件名含转义字符（`\ `）的源存在时 find 可能误报 → 先 Python 字节级比对再判定
 
 ---
 

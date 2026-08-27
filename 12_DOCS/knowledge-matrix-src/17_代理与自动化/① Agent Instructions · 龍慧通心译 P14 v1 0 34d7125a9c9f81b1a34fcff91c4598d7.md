@@ -1,3 +1,5 @@
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 # ① Agent Instructions · 龍慧通心译 P14 v1.0
 
 **DNA:**#龍芯⚡️丙午·壬辰·庚午·壬午·䷳艮为山-P14-AGENT-INSTRUCTIONS_3B46-v1.0

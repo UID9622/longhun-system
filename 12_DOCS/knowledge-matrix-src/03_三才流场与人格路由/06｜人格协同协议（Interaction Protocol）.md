@@ -1,3 +1,6 @@
+> DNA: #龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 > **P0焊死**: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
 # 06｜人格协同协议（Interaction Protocol）
 

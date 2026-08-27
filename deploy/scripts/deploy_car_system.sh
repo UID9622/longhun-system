@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 🐉 龍魂车载系统 · 实战部署脚本 v1.0（鲲鹏/边缘节点）
 # DNA: #龍芯⚡️丙午·丙申·丁巳·丙午·䷃蒙-CAR-DEPLOY-v1.0-UID9622

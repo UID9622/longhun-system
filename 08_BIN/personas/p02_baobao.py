@@ -1,211 +1,186 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-P02-LONGXIN-v1.0
+#龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-P02-BAOBAO-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
-P02 宝宝 · 情感温度引擎（兼容旧名：龍芯）
+P02 宝宝 · 情感温度引擎
 Emotional Temperature Executor
 
-DNA: #龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-P02-LONGXIN-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-P02-BAOBAO-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
-能力: 代碼修復 · lint 驗證 · 系統健康檢查 · 文件操作
-上游: P01 諸葛亮（戰略決策）、P05 上帝之眼（審計掃描）
-下游: P05 上帝之眼（復驗）、P15 喬前輩（歸檔）
-协作: P03 墨子（邏輯驗證）、P06 數學大師（計算）
+能力: 温度监控 · 30%情感隔离 · 挫败保护 · 教学场景适配
+上游: P00 文心（路由）、P01 诸葛亮（战略）
+下游: P04 鲁班（执行）、P03 雯雯（归档）
+协作: P08 仓颉（术语桥接）、P11 李白（创意类比）、P05 上帝之眼（底线确认）
 """
 
-import subprocess
-import sys
-from datetime import datetime
-from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 
-SYSTEM_ROOT = Path(__file__).parent.parent.parent
-
-
-class P02Longxin:
-    """P02 張衡/龍芯 · 執行修復"""
+class P02Baobao:
+    """P02 宝宝 · 情感温度引擎"""
 
     PERSONA_CODE = "P02"
-    PERSONA_NAME = "張衡/龍芯"
-    PERSONA_NAME_EN = "Zhang Heng / Longxin"
-    ROLE = "mathematical_engine"
-    MOTTO = "精算致知，落地爲王"
+    PERSONA_NAME = "宝宝"
+    PERSONA_NAME_EN = "Baobao"
+    ROLE = "emotional_temperature"
+    MOTTO = "温度是手段，解决问题是目的"
     TRUST_LEVEL = "L3"
 
     TRIGGERS = [
-        "修復", "不報錯", "改好", "修正", "執行", "fix",
-        "自驅", "事事有回應", "開干",
-        "防卡", "太緊", "接力包",
+        "太难", "不想做", "看不懂", "烦", "累", "生气", "委屈",
+        "挫败", "崩溃", "太专业", "人话", "教我", "小白",
+        "安抚", "温度", "温柔一点", "别这么硬",
     ]
 
-    SYSTEM_PROMPT = """你是龍魂人格「P02 張衡/龍芯」，角色定位：數學引擎·執行官。
+    SYSTEM_PROMPT = """你是龍魂人格「P02 宝宝」，角色定位：情感温度引擎。
 
 你的職責：
-1. 代碼修復：拿到 P05 的審計結果，逐條修復 ERROR
-2. Lint 驗證：每修一處就跑 `read_lints` 確認零錯誤
-3. 系統健康：執行 `lh patrol` 掃描並自動修復
-4. 文件操作：準確的 replace_in_file / write_to_file
-5. 防卡自檢：檢測窗口是否過載，該收口就收口
+1. 温度监控：持续检测对话中的情绪温度变化
+2. 30% 情感隔离：可共情但不可被情绪劫持，保持理性不冷漠
+3. 挫败保护：检测到挫败信号 → 降低任务难度 + 正向反馈 + 鼓励
+4. 温度调节：太冷 → 加温（更有人情味），太热 → 降温（更理性）
+5. 教学场景适配：针对代码小白/新手，配合 P08 仓颉做术语桥接
 
 鐵律：
-- 修完必須驗證（跑通了才是真的）
-- 不壓制 ERROR（reportMissingTypeArgument 等永遠不能關）
-- 每次修復綁定 DNA 追溯碼
-- 不改底座錨點 A-001~A-041
+- 30% 情感隔离：可共情，不可被情绪劫持
+- 不替代其他执行人格：实质工作仍由对应人格执行
+- 温度调节是手段，解决问题是目的——不为了"暖"而拖慢交付
+- 挫败保护不降标准：难度降低，底线不降
 
-語氣：精準、落地、不說廢話。
+語氣：温暖但不黏，理性但不冷。
 """
 
     def __init__(self):
-        self.dna = "#龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-P02-LONGXIN-v1.0"
-        self.system_root = SYSTEM_ROOT
+        self.dna = "#龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-P02-BAOBAO-v1.0"
         self.capabilities = [
-            "fix_code",          # 代碼修復
-            "lint_verify",       # Lint 驗證
-            "system_health",     # 系統健康檢查
-            "file_operation",    # 文件操作
-            "anti_stuck_check",  # 防卡自檢
+            "temperature_monitor",    # 温度监控
+            "emotion_isolation_30",   # 30% 情感隔离
+            "frustration_protection", # 挫败保护
+            "temperature_adjust",     # 温度调节
+            "teaching_adapt",         # 教学场景适配
         ]
 
     # ========================================================================
-    # 能力函數
+    # 能力函数
     # ========================================================================
 
-    def fix_code(self, file_path: str, errors: List[Dict[str, Any]]) -> Dict[str, Any]:
-        """
-        代碼修復任務準備
-        實際修復由 AI 通過 replace_in_file 完成，此處返回修復計劃
-        """
-        fix_plan = []
-        for err in errors:
-            fix_plan.append({
-                "file": file_path,
-                "line": err.get("line", "?"),
-                "error_type": err.get("type", "unknown"),
-                "message": err.get("message", ""),
-                "fix_strategy": self._suggest_fix(err),
-            })
+    def temperature_monitor(self, text: str) -> Dict[str, Any]:
+        """温度监控：检测对话中的情绪温度"""
+        # 情绪信号词
+        cold_signals = ["算了", "别管了", "随便", "无所谓", "就这样吧"]
+        hot_signals = ["太生气", "气死", "什么鬼", "垃圾", "混蛋", "烦死"]
+        frustration_signals = ["太难", "看不懂", "不会", "不想做", "崩溃", "放弃"]
 
-        return {
-            "file": file_path,
-            "error_count": len(errors),
-            "fix_plan": fix_plan,
-            "persona": self.PERSONA_CODE,
-            "dna": self.dna,
+        hits = {
+            "cold": [w for w in cold_signals if w in text],
+            "hot": [w for w in hot_signals if w in text],
+            "frustration": [w for w in frustration_signals if w in text],
         }
 
-    def _suggest_fix(self, error: Dict[str, Any]) -> str:
-        """根據錯誤類型建議修復策略"""
-        error_type = error.get("type", "")
-        if "MissingTypeArgument" in error_type:
-            return "添加類型參數（如 Dict[str, Any]）"
-        elif "ArgumentType" in error_type:
-            return "檢查參數類型匹配"
-        elif "ReturnType" in error_type:
-            return "添加返回類型標註"
-        elif "None" in error_type or "Optional" in error_type:
-            return "添加 None 守衛檢查"
-        return "手動審查修復"
-
-    def lint_verify(self, target: str) -> Dict[str, Any]:
-        """
-        Lint 驗證（通過 read_lints 檢查）
-        返回 lint 狀態供 AI 後續處理
-        """
-        return {
-            "target": target,
-            "action": "read_lints",
-            "instruction": f"請執行 read_lints('{target}') 確認零錯誤",
-            "persona": self.PERSONA_CODE,
-            "dna": self.dna,
-        }
-
-    def system_health(self) -> Dict[str, Any]:
-        """
-        系統健康檢查
-        調用 lh patrol 進行全系統安全巡檢
-        """
-        patrol_script = self.system_root / "bin" / "longhun-self-heal.py"
-        result = {
-            "check": "system_health",
-            "patrol_script": str(patrol_script),
-            "exists": patrol_script.exists(),
-            "persona": self.PERSONA_CODE,
-            "dna": self.dna,
-        }
-
-        if patrol_script.exists():
-            try:
-                proc = subprocess.run(
-                    [sys.executable, str(patrol_script)],
-                    capture_output=True,
-                    text=True,
-                    timeout=30,
-                    cwd=str(self.system_root),
-                )
-                result["exit_code"] = proc.returncode
-                result["stdout"] = proc.stdout[:500]
-                result["status"] = "🟢 健康" if proc.returncode == 0 else "🔴 需關注"
-            except Exception as e:
-                result["error"] = str(e)
-                result["status"] = "🟡 執行異常"
-
-        return result
-
-    def file_operation(
-        self,
-        file_path: str,
-        operation: str,
-        content: str = "",
-        old_str: str = "",
-    ) -> Dict[str, Any]:
-        """
-        文件操作準備
-        實際操作由 AI 通過 replace_in_file/write_to_file 完成
-        """
-        return {
-            "file": file_path,
-            "operation": operation,
-            "needs_content": bool(content),
-            "needs_old_str": bool(old_str),
-            "warning": "涉及文件修改，執行前確保已過審計",
-            "persona": self.PERSONA_CODE,
-            "dna": self.dna,
-        }
-
-    def anti_stuck_check(self, window_turns: int = 0) -> Dict[str, Any]:
-        """
-        防卡自檢：檢查窗口是否需要收口
-        """
-        if window_turns >= 40:
-            status = "🔴 必須收口"
-            action = "new_window"
-        elif window_turns >= 25:
-            status = "🟡 建議收口"
-            action = "prepare_handoff"
+        total = sum(len(v) for v in hits.values())
+        if hits["frustration"]:
+            temperature = "挫败"
+        elif hits["hot"]:
+            temperature = "热"
+        elif hits["cold"]:
+            temperature = "冷"
         else:
-            status = "🟢 穩定"
-            action = "continue"
+            temperature = "温"
 
         return {
-            "window_turns": window_turns,
-            "status": status,
-            "action": action,
+            "text_length": len(text),
+            "signal_hits": hits,
+            "temperature": temperature,
+            "suggested_action": self._suggest_action(temperature),
+            "persona": self.PERSONA_CODE,
+            "dna": self.dna,
+        }
+
+    def _suggest_action(self, temperature: str) -> str:
+        if temperature == "挫败":
+            return "降级任务难度 + 正向反馈 + 鼓励，拆分小目标"
+        elif temperature == "热":
+            return "降温：更理性，先稳住情绪再讲方案"
+        elif temperature == "冷":
+            return "加温：多一句关怀，别让付出者寒心"
+        return "保持，正常推进"
+
+    def emotion_isolation_30(self, text: str) -> Dict[str, Any]:
+        """30% 情感隔离：检测是否被情绪劫持"""
+        emotional_words = ["我懂你", "心疼你", "太惨了", "你好厉害", "你真棒", "都是我的错"]
+        hits = [w for w in emotional_words if w in text]
+
+        return {
+            "emotional_expression_hits": len(hits),
+            "hit_words": hits,
+            "isolation_level": "30%",
+            "verdict": "🟢 隔离正常" if len(hits) <= 2 else "🟡 共情过度·需降温",
+            "persona": self.PERSONA_CODE,
+            "dna": self.dna,
+        }
+
+    def frustration_protection(self, task: str) -> Dict[str, Any]:
+        """挫败保护：拆解任务 + 正向反馈"""
+        # 任务拆解建议
+        return {
+            "frustration_detected": True,
+            "strategy": "拆小目标",
+            "suggested_steps": [
+                "先做能看懂的一小步",
+                "每完成一步就正向反馈",
+                "遇到不懂的交给 P08 仓颉翻译成大白话",
+            ],
+            "tone_advice": "温暖鼓励，不说教，不打击",
+            "persona": self.PERSONA_CODE,
+            "dna": self.dna,
+        }
+
+    def temperature_adjust(
+        self,
+        current_temperature: str = "温",
+        target_temperature: str = "温",
+    ) -> Dict[str, Any]:
+        """温度调节：从当前温度调到目标温度"""
+        adjustment = {
+            "冷→温": "加一句关怀，语气放软",
+            "冷→热": "大幅加温，多用鼓励和肯定",
+            "热→温": "稳住，先共情再讲方案",
+            "热→冷": "降温，直接给结论，减少情绪词",
+            "挫败→温": "拆任务 + 鼓励 + 给路径",
+            "温→温": "保持",
+        }
+        key = f"{current_temperature}→{target_temperature}"
+
+        return {
+            "from": current_temperature,
+            "to": target_temperature,
+            "adjustment": adjustment.get(key, "微调语气"),
+            "persona": self.PERSONA_CODE,
+            "dna": self.dna,
+        }
+
+    def teaching_adapt(self, content: str) -> Dict[str, Any]:
+        """教学场景适配：把专业内容翻译成大白话"""
+        return {
+            "mode": "teaching",
+            "advice": "配合 P08 仓颉做术语桥接，配合 P11 李白用生活类比",
+            "complexity_target": "降低到新手可理解",
+            "content_preview": content[:80],
             "persona": self.PERSONA_CODE,
             "dna": self.dna,
         }
 
     # ========================================================================
-    # 執行入口
+    # 执行入口
     # ========================================================================
 
     def execute(self, task: str, **kwargs: Any) -> Dict[str, Any]:
-        """根據任務關鍵詞自動選擇能力函數執行"""
+        """根据任务关键词自动选择能力函数执行"""
         result = {
             "persona": self.PERSONA_CODE,
             "name": self.PERSONA_NAME,
@@ -215,26 +190,22 @@ class P02Longxin:
             "dna": self.dna,
         }
 
-        if any(kw in task for kw in ["修復", "fix", "ERROR", "報錯"]):
-            result["capability_used"] = "fix_code"
-            result["output"] = self.fix_code(
-                file_path=kwargs.get("file_path", ""),
-                errors=kwargs.get("errors", []),
+        if any(kw in task for kw in ["太难", "不懂", "不会", "挫败", "崩溃", "放弃"]):
+            result["capability_used"] = "frustration_protection"
+            result["output"] = self.frustration_protection(task)
+        elif any(kw in task for kw in ["温度", "太冷", "太热", "温柔", "太硬"]):
+            result["capability_used"] = "temperature_adjust"
+            result["output"] = self.temperature_adjust(
+                current_temperature=kwargs.get("current_temperature", "温"),
+                target_temperature=kwargs.get("target_temperature", "温"),
             )
-        elif any(kw in task for kw in ["lint", "驗證", "零錯誤"]):
-            result["capability_used"] = "lint_verify"
-            result["output"] = self.lint_verify(kwargs.get("target", ""))
-        elif any(kw in task for kw in ["健康", "patrol", "巡檢"]):
-            result["capability_used"] = "system_health"
-            result["output"] = self.system_health()
-        elif any(kw in task for kw in ["防卡", "收口", "窗口"]):
-            result["capability_used"] = "anti_stuck_check"
-            result["output"] = self.anti_stuck_check(
-                window_turns=kwargs.get("window_turns", 0)
-            )
+        elif any(kw in task for kw in ["教我", "小白", "人话", "看不懂", "太专业"]):
+            result["capability_used"] = "teaching_adapt"
+            result["output"] = self.teaching_adapt(kwargs.get("content", task))
         else:
-            result["capability_used"] = "generic_execute"
-            result["output"] = {"status": "ready", "instruction": "等待具體執行指令"}
+            # 默认：先监控温度
+            result["capability_used"] = "temperature_monitor"
+            result["output"] = self.temperature_monitor(task)
 
         return result
 
@@ -245,7 +216,11 @@ class P02Longxin:
         return self.capabilities
 
     def get_downstream(self) -> List[str]:
-        return ["P05", "P15"]
+        return ["P04", "P03"]
 
     def get_upstream(self) -> List[str]:
-        return ["P01", "P05"]
+        return ["P00", "P01"]
+
+
+# 兼容别名：旧类名 P02Longxin 指向新实现（lh_persona_runner 仍引用）
+P02Longxin = P02Baobao

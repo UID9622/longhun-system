@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
 龍魂系统 · 统一知识矩阵桌面同步脚本
 DNA: #龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-UNIFIED-KNOWLEDGE-MATRIX-SYNC-v1.0

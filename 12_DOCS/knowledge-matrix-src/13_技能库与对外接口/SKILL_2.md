@@ -1,3 +1,6 @@
+> DNA: #龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 ---
 name: longhun-harmonyos
 description: 龍魂体系鸿蒙HarmonyOS端技能 - 数据根留在中国，S4安全级别锁死云端出境，SM4国密端侧加密，RdbObserver毫秒级监听

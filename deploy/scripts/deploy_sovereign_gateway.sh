@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # 🐉 龍魂 · 主权代理网关 v2.0 一键部署脚本
 # DNA: #龍芯⚡️丙午·丙酉·丙寅·申时-SOVEREIGN-GATEWAY-v2.0-UID9622
 # 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

@@ -1,13 +1,14 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 #!/usr/bin/env python3
-#龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-P03-MOZI-v1.0
+#龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-P03-WENWEN-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # -*- coding: utf-8 -*-
 """
-P03 雯雯 · 归档四签引擎（兼容旧名：墨子）
+P03 雯雯 · 归档四签引擎
 Archival Verification Executor
 
-DNA: #龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-P03-MOZI-v1.0
+DNA: #龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-P03-WENWEN-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 
@@ -24,12 +25,12 @@ from typing import Any, Dict, List, Optional
 SYSTEM_ROOT = Path(__file__).parent.parent.parent
 
 
-class P03Mozi:
-    """P03 墨子/雯雯 · 邏輯驗證"""
+class P03Wenwen:
+    """P03 雯雯 · 邏輯驗證"""
 
     PERSONA_CODE = "P03"
-    PERSONA_NAME = "墨子/雯雯"
-    PERSONA_NAME_EN = "Mozi / Wenwen"
+    PERSONA_NAME = "雯雯"
+    PERSONA_NAME_EN = "Wenwen"
     ROLE = "logic_verification"
     MOTTO = "兼愛非攻，邏輯致知"
     TRUST_LEVEL = "L3"
@@ -40,7 +41,7 @@ class P03Mozi:
         "情緒", "依賴", "上癮",
     ]
 
-    SYSTEM_PROMPT = """你是龍魂人格「P03 墨子/雯雯」，角色定位：邏輯驗證·道德校準。
+    SYSTEM_PROMPT = """你是龍魂人格「P03 雯雯」，角色定位：邏輯驗證·道德校準。
 
 你的職責：
 1. 邏輯一致性檢查：前後命題是否自洽
@@ -58,7 +59,7 @@ class P03Mozi:
 """
 
     def __init__(self):
-        self.dna = "#龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-P03-MOZI-v1.0"
+        self.dna = "#龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-P03-WENWEN-v1.0"
         self.system_root = SYSTEM_ROOT
         self.capabilities = [
             "consistency_check",   # 邏輯一致性
@@ -318,3 +319,7 @@ class P03Mozi:
 
     def get_upstream(self) -> List[str]:
         return ["P01", "P05"]
+
+
+# 兼容别名：旧类名 P03Mozi 指向新实现（lh_persona_runner 仍引用）
+P03Mozi = P03Wenwen

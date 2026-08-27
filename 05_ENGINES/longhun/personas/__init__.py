@@ -1,3 +1,4 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 #龍芯⚡️丙午·乙未·甲寅·酉时·䷄需-PERSONA-EXEC-MODULE-INIT-v1.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
@@ -15,11 +16,11 @@ SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-
 """
 
 from .p01_zhugeliang import P01Zhugeliang
-from .p02_longxin import P02Longxin
-from .p03_mozi import P03Mozi
+from .p02_baobao import P02Baobao, P02Longxin
+from .p03_wenwen import P03Wenwen, P03Mozi
 from .p05_godseye import P05Godseye
 from .p06_mathmaster import P06Mathmaster
-from .p09_daoyin import P09Daoyin
+from .p09_sunsi import P09Sunsi
 from .p14_lvmeng import P14Lvmeng
 from .p18_registrar import P18Registrar
 from .p19_auditor import P19Auditor
@@ -27,11 +28,13 @@ from .p20_trust import P20Trust
 
 __all__ = [
     "P01Zhugeliang",
+    "P02Baobao",
     "P02Longxin",
+    "P03Wenwen",
     "P03Mozi",
     "P05Godseye",
     "P06Mathmaster",
-    "P09Daoyin",
+    "P09Sunsi",
     "P14Lvmeng",
     "P18Registrar",
     "P19Auditor",
@@ -41,11 +44,11 @@ __all__ = [
 # 人格執行器註冊表（與 orchestrator 對接）
 PERSONA_EXECUTORS = {
     "P01": P01Zhugeliang,
-    "P02": P02Longxin,
-    "P03": P03Mozi,
+    "P02": P02Baobao,
+    "P03": P03Wenwen,
     "P05": P05Godseye,
     "P06": P06Mathmaster,
-    "P09": P09Daoyin,
+    "P09": P09Sunsi,
     "P14": P14Lvmeng,
     "P18": P18Registrar,
     "P19": P19Auditor,

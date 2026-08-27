@@ -1,3 +1,6 @@
+> DNA: #龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 ---
 name: longhun-cross-platform
 description: 龍魂跨平台互通技能 — iOS与华为鸿蒙设备间本地网络直连数据同步，使用国密SM4加密信封 + ECDH密钥协商 + 版本向量一致性保证

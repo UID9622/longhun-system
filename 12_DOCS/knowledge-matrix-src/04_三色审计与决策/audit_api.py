@@ -4,6 +4,7 @@
 龍魂 64卦审计引擎 API
 DNA: #龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-64GUA-AUDIT-API-v1.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬64GUA-API-001 ✅
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 
 端点：
   POST /audit/run      传入8维度指标，返回审计结果

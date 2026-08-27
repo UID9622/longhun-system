@@ -1,3 +1,4 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 // CNSH v2.1 VS Code / Cursor 插件
 // DNA:#龍芯⚡️丙午·甲午·甲戌·庚午·䷕贲-CNSH-VSCODE-FILE1-v0.1.0
 

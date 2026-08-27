@@ -1,3 +1,5 @@
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 # 龍魂系統·生產部署指南 (Production Deployment Guide)
 # 日期: 2026-06-10 CST
 # DNA:#龍芯⚡️丙午·甲午·乙卯·壬午·䷚颐-PRODUCTION-DEPLOYMENT-GUIDE-v1.0

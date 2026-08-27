@@ -1,3 +1,6 @@
+> DNA: #龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 ---
 name: longhun-cloud-notion
 description: '龍魂Notion集成 v5.0 — Notion API雙向同步+自動化週報+DNA校驗+訓練進度。 支持周檢查自動化、協議完整性驗證、團隊統計。

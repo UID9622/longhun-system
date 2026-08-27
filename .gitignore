@@ -398,3 +398,4 @@ web/static/layui/
 # 龍魂视频引擎运行时输出（禁入git·运行时目录）
 lh_video_engine/output/*
 !lh_video_engine/output/.gitkeep
+12_DOCS/claude-session-assets/终端保存的输出*.txt

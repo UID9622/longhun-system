@@ -1,3 +1,6 @@
+> DNA: #龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 ---
 name: longhun-cloud-deploy
 description: '龍魂部署引擎 v5.1 — 27步藍綠部署+自動化+零停機切換+回滾+鯤鵬ARM64支持。

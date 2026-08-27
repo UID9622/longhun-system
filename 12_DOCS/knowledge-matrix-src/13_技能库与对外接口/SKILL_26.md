@@ -1,3 +1,6 @@
+> DNA: #龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 ---
 name: longhun-cloud-kimi
 description: '龍魂Kimi集成 v5.2 — Kimi API接入+断路器+故障转移+本地备份推理+Kimi創作記憶檔案。4个集成模式全部正常工作，故障自动转移，API响应低于100ms。API端点:

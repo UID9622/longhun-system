@@ -1,3 +1,4 @@
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 > 本文档按《龍魂文档标准模板 v1.0》整理。
 > 性质：协议 · 未经同行评审（如适用）
 > 版本：v1.0
@@ -143,6 +144,7 @@ DNA:     #龍芯⚡️丙午·乙未·癸未·丙辰·䷓观-DNA-REGISTRY-200-v1
 协议:    §200 A Traceable Open-Source DNA Registry Protocol v1.0
 父协议:  人物行为DNA不动点切割协议 v1.0 §11 候补清单⑥
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 SEAL:    🐉龍魂·有痕开源·DNA登记·不可变·本地主权·Hash可发
 ```
 

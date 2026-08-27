@@ -1,0 +1,77 @@
+# 龍魂五行八门守护配置 · 鲲鹏版 v1.0（按需激活·用完即退）
+# DNA: #龍芯⚡️2026-08-26-DOORKEEPER-KUNPENG-CONFIG-v1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# 用法: python3 longhun_doorkeeper.py --once --config doorkeeper_config.kunpeng.yml
+# 对齐 2026-08-26 鲲鹏实测端口。第一版「只体检不抢重启」：自动重启全 false，
+# 服务拉起交给 systemd(自带 Restart=always)，守护只负责检测+耻辱墙+DNA链。
+
+守护进程:
+  心跳间隔: 60        # 单位：秒（--once 模式只用一次，此值仅常驻时生效）
+  日志级别: INFO
+  DNA链路径: /root/longhun-system/08_STATE/dna-chain/
+  耻辱墙路径: /root/longhun-system/08_STATE/shame-wall/
+
+# 服务清单 = 鲲鹏核心对外 + 龍魂关键服务（2026-08-26 实测端口）
+# 健康检查: 端口存活 + 可选 HTTP 健康路径双重校验
+服务监控:
+  - 名称: 主站nginx
+    端口: 80
+    健康路径: /
+    重启命令: systemctl restart nginx
+    自动重启: false
+    最大重启次数: 3
+
+  - 名称: 主权API
+    端口: 8091
+    健康路径: /
+    重启命令: systemctl restart longhun-sovereignty
+    自动重启: false
+    最大重启次数: 3
+
+  - 名称: API网关
+    端口: 8777
+    健康路径: /
+    重启命令: systemctl restart longhun-api
+    自动重启: false
+    最大重启次数: 3
+
+  - 名称: 主权网关
+    端口: 8766
+    健康路径: /
+    重启命令: systemctl restart longhun-sovereignty
+    自动重启: false
+    最大重启次数: 3
+
+  - 名称: 渲染服务M75
+    端口: 8972
+    健康路径: /render/health
+    重启命令: docker restart longhun-lh-render-1
+    自动重启: false
+    最大重启次数: 3
+
+  - 名称: 搜索引擎
+    端口: 9631
+    健康路径: /
+    重启命令: systemctl restart longhun-search-engine
+    自动重启: false
+    最大重启次数: 3
+
+  - 名称: Ollama模型
+    端口: 11434
+    健康路径: /api/version
+    重启命令: systemctl restart ollama
+    自动重启: false
+    最大重启次数: 3
+
+  - 名称: 注册中心
+    端口: 9623
+    健康路径: /
+    重启命令: systemctl restart longhun-registry
+    自动重启: false
+    最大重启次数: 3
+
+报警配置:
+  公安联动开关: false   # 生产环境改为 true（需法律评估后由 UID9622 拍板）
+  耻辱墙路径: /root/longhun-system/08_STATE/shame-wall/

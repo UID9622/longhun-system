@@ -1,3 +1,5 @@
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 # 🎉 龍魂系統·Task 3 完成報告
 # 任务: 准备生產部署 (Production Deployment Preparation)
 # 日期: 2026-06-10 16:40 CST

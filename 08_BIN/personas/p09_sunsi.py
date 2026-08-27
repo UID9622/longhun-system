@@ -1,3 +1,4 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 #!/usr/bin/env python3
 #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-P09-SUNSI-v1.0
 # CREATOR: 诸葛鑫 (UID9622)

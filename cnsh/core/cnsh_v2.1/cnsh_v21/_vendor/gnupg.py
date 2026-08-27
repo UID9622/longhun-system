@@ -1,3 +1,4 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷔噬嗑-FIX_DNA-v1.0
@@ -897,7 +898,8 @@ class AddSubkey(StatusHandler):
 
     returncode = None
 
-
+    def __nonzero__(self):
+        return self.status == 'ok'
 
     __bool__ = __nonzero__
 

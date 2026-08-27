@@ -1,3 +1,6 @@
+> DNA: #龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D
+> 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+**归属名:** 诸葛鑫 | UID9622 · 龍芯北辰
 ---
 name: longhun-ios
 description: iOS端本地数据治理技能，CoreData本地存储+AES-256端侧加密+Secure Enclave硬件保护，数据根留中国，禁用iCloud同步，与华为鸿蒙端格式互通

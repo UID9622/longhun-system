@@ -1,7 +1,9 @@
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════════╗
@@ -44,6 +46,12 @@ try:
 except ImportError:
     print("❌ 缺少依赖: pip install fastapi uvicorn python-multipart")
     sys.exit(1)
+
+# ── L4 知识库 API（Notion 知识库引用架构·鲲鹏出口）──
+try:
+    from kb_api_router import router as kb_router
+except ImportError:
+    kb_router = None
 
 # ═══════════════════════════════════════════════════════
 # L0 常量 · 焊死 · 不可变
@@ -630,6 +638,11 @@ app = FastAPI(
     description=f"安全加固版 · DNA: {DNA}",
     version="1.0",
 )
+
+# ── L4 知识库 API 挂载（Notion 知识库引用架构·search/page/dna/webhook）──
+if kb_router is not None:
+    app.include_router(kb_router)
+    logger.info("📚 L4 知识库 API 已挂载 /api/kb/*")
 
 # CORS — 内网宽松
 app.add_middleware(
