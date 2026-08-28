@@ -80,8 +80,8 @@ CST = timezone(timedelta(hours=8))
 # Ollama配置
 OLLAMA_BASE = "http://localhost:11434"
 OLLAMA_CHAT_MODEL_PRIORITY = [
-    "longhun-v4.1.5",            # 🔥 训练中·道德经注入
-    "longhun-v4.1.4",            # 🟢 当前主力·Val 0.9699·全链路完成
+    "longhun-v4.1.5",            # 🔴 已停止·退化(0.9841→1.0132)·ollama无此模型·自动跳过
+    "longhun-v4.1.4",            # ✅ 当前主力·Val 0.9699·Ollama 18GB实测可跑(8/28复核)
     "longhun-v4.1.1-bind-antenna",  # 🆕 天线版
     "longhun-v4.1.1-bind",       # 🧬 DNA捆绑
     "longhun-v4.1.1",            # 🥇 Val 0.8097
