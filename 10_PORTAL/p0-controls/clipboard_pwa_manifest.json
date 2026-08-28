@@ -1,0 +1,22 @@
+# DNA: #龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+{
+  "name": "CNSH 剪贴板翻译",
+  "short_name": "CNSH翻译",
+  "description": "贴入→翻译→DNA注入→时间戳锁定 · 少一样不能用",
+  "start_url": "./clipboard_pwa.html",
+  "display": "standalone",
+  "background_color": "#0f0f1a",
+  "theme_color": "#1a1a2e",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐉</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "lang": "zh-CN",
+  "categories": ["utilities", "developer tools"]
+}

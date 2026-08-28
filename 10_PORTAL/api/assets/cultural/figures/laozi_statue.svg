@@ -1,0 +1,12 @@
+<!-- DNA: #龍芯⚡️2026-08-28-PORTAL-CULTURAL-ASSETS-v1.0 | 归属名: 诸葛鑫 | UID9622 · 龍芯北辰 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#f7f3e8"/>
+  <g opacity="0.9">
+    <ellipse cx="200" cy="130" rx="60" ry="70" fill="#555"/>
+    <path d="M130 210 Q200 180 270 210 L290 430 Q200 460 110 430 Z" fill="#777"/>
+    <path d="M130 210 Q200 240 270 210" stroke="#444" stroke-width="3" fill="none"/>
+    <rect x="170" y="90" width="60" height="30" rx="10" fill="#ddd" opacity="0.3"/>
+  </g>
+  <text x="200" y="480" text-anchor="middle" font-family="serif" font-size="18" fill="#4a0000">老子像 · 石雕占位</text>
+  <text x="200" y="40" text-anchor="middle" font-family="serif" font-size="13" fill="#555">待替换为真实公开版权雕像图像</text>
+</svg>

@@ -1,0 +1,1418 @@
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+<!-- #龍芯⚡️2026-07-04-LONGHUN-KNOWLEDGE-MATRIX-3D-v1.3 自动注入·三维知识矩阵·来源可查 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂知识矩阵 · 沉浸式 AI 播音员 · UID9622</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐉%3C/text%3E%3C/svg%3E">
+<style>
+@font-face {
+  font-family: 'LonghunFont';
+  src: url('../assets/fonts/LonghunFont-Regular-v0004.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.longhun{font-family:'LonghunFont','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;}
+:root{
+  --lh-gold:#FFD700;--lh-red:#DC143C;--lh-green:#2E8B57;--lh-blue:#1E90FF;--lh-brown:#8B4513;
+  --lh-accent:#a78bfa;--lh-bg:#0a0a0f;--lh-text:#e4e4e7;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;background:#0a0a0f;color:#e4e4e7;font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;}
+#canvas-container{position:fixed;inset:0;z-index:1}
+#nebula{position:fixed;inset:0;z-index:0;background:
+  radial-gradient(circle at 20% 30%,rgba(220,20,60,.12),transparent 35%),
+  radial-gradient(circle at 80% 20%,rgba(46,139,87,.12),transparent 35%),
+  radial-gradient(circle at 40% 80%,rgba(30,144,255,.12),transparent 35%),
+  radial-gradient(circle at 70% 70%,rgba(255,215,0,.10),transparent 30%);animation:nebulaDrift 30s ease-in-out infinite alternate}
+@keyframes nebulaDrift{from{transform:scale(1)}to{transform:scale(1.08)}}
+
+/* HUD */
+#hud{position:fixed;top:14px;left:14px;right:14px;z-index:10;display:flex;gap:12px;align-items:center;flex-wrap:wrap;pointer-events:none}
+.hud-panel{background:rgba(10,10,15,0.78);border:1px solid rgba(167,139,250,0.25);border-radius:14px;padding:8px 14px;backdrop-filter:blur(8px);pointer-events:auto}
+#title{font-size:16px;font-weight:800;letter-spacing:0.08em;color:#FFD700;text-shadow:0 0 12px rgba(255,215,0,0.35)}
+#subtitle{font-size:11px;color:#a78bfa;margin-top:2px}
+#dna-line{font-size:10px;color:#d4a574;font-family:monospace;margin-top:3px;word-break:break-all;max-width:360px}
+#stats{font-size:12px;color:#94a3b8}
+#stats b{color:#4ade80}
+#search{background:rgba(18,18,26,0.9);border:1px solid rgba(167,139,250,0.35);border-radius:8px;padding:6px 10px;color:#e4e4e7;font-size:12px;outline:none;width:180px}
+#search::placeholder{color:#64748b}
+#legend{display:flex;gap:8px;align-items:center}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:11px;color:#94a3b8}
+.legend-dot{width:8px;height:8px;border-radius:50%;box-shadow:0 0 6px currentColor}
+
+/* Detail panel */
+#detail{position:fixed;top:14px;right:-340px;bottom:14px;width:320px;background:rgba(10,10,15,0.92);border:1px solid rgba(167,139,250,0.25);border-radius:16px;padding:16px;z-index:20;overflow-y:auto;backdrop-filter:blur(10px);transition:right .35s ease}
+#detail.open{right:14px}
+#detail h2{font-size:15px;color:#FFD700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+#detail .tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(255,215,0,0.12);color:#FFD700;border:1px solid rgba(255,215,0,0.25);margin-bottom:10px}
+#detail .field{margin-bottom:10px}
+#detail .field-label{font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:2px}
+#detail .field-value{font-size:12px;color:#e4e4e7;line-height:1.5}
+#detail .dna{font-size:10px;color:#d4a574;font-family:monospace;word-break:break-all}
+#detail table{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px}
+#detail th,#detail td{text-align:left;padding:4px 6px;border-bottom:1px solid rgba(255,255,255,0.06}
+#detail th{color:#a78bfa}
+#detail .close{position:absolute;top:10px;right:10px;background:none;border:none;color:#94a3b8;font-size:18px;cursor:pointer}
+#detail .close:hover{color:#fff}
+#edges-list{margin-top:8px}
+.edge-row{font-size:11px;padding:6px;border-radius:6px;background:rgba(255,255,255,0.03);margin-bottom:4px;color:#cbd5e1}
+.edge-row b{color:#60a5fa}
+
+/* Tooltip */
+#tooltip{position:fixed;z-index:30;background:rgba(10,10,15,0.95);border:1px solid rgba(255,215,0,0.3);border-radius:8px;padding:8px 12px;font-size:12px;color:#e4e4e7;pointer-events:none;opacity:0;transition:opacity .15s;max-width:280px;box-shadow:0 0 20px rgba(255,215,0,0.12)}
+#tooltip .tt-title{color:#FFD700;font-weight:700;margin-bottom:3px}
+#tooltip .tt-meta{font-size:10px;color:#94a3b8}
+
+/* Loading overlay */
+#loader{position:fixed;inset:0;background:#0a0a0f;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .8s}
+#loader.hidden{opacity:0;pointer-events:none}
+#loader .logo{font-size:52px;animation:pulse 2s infinite}
+#loader .motto{font-size:18px;font-weight:700;color:transparent;background:linear-gradient(135deg,#FFD700,#ef4444,#8b5cf6);-webkit-background-clip:text;background-clip:text;letter-spacing:.1em}
+#loader .sub{font-size:12px;color:#64748b;letter-spacing:.06em}
+@keyframes pulse{0%,100%{opacity:.6}50%{opacity:1}}
+
+/* Help overlay */
+#help{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);background:rgba(10,10,15,0.88);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:12px 18px;z-index:15;display:none;gap:10px 18px;flex-wrap:wrap;font-size:11px;color:#94a3b8}
+#help.open{display:flex}
+#help kbd{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:3px;padding:1px 5px;color:#e2e8f0;font-family:monospace}
+
+/* Floating controls */
+#floating-controls{position:fixed;bottom:14px;right:14px;z-index:16;display:flex;gap:8px}
+#floating-controls button{background:rgba(10,10,15,.88);border:1px solid rgba(255,215,0,.25);border-radius:10px;color:#e4e4e7;padding:8px 12px;font-size:12px;cursor:pointer;transition:.2s}
+#floating-controls button:hover{border-color:#FFD700;color:#FFD700}
+
+/* Root card footer */
+#root-card{position:fixed;bottom:10px;left:14px;z-index:10;font-size:9px;color:#64748b;max-width:420px;line-height:1.4}
+
+
+/* === 章节卷轴覆盖层 === */
+#chapter-overlay{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;background:rgba(10,10,15,.88);backdrop-filter:blur(6px);padding:20px}
+#chapter-overlay.open{display:flex}
+#chapter-overlay .scroll-wrapper{position:relative;width:100%;max-width:720px;max-height:90vh;overflow-y:auto;background:linear-gradient(180deg,#f7f3e8 0%,#efe9db 100%);border-radius:12px;border:1px solid rgba(139,0,0,.25);box-shadow:0 20px 60px rgba(0,0,0,.5);color:#1a1a1a;padding:40px 30px 30px}
+#chapter-overlay .close{position:absolute;top:10px;right:14px;background:none;border:none;font-size:28px;color:#4a0000;cursor:pointer;z-index:5}
+#chapter-overlay .scroll-seal{width:72px;height:72px;margin:0 auto 18px;background:#8b0000;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#f7f3e8;font-size:28px;font-weight:bold;border:2px solid rgba(212,175,55,.5);box-shadow:0 4px 12px rgba(139,0,0,.3)}
+#chapter-overlay h2{text-align:center;font-size:28px;color:#4a0000;margin-bottom:6px;letter-spacing:3px}
+#co-subtitle{text-align:center;font-size:15px;color:#555;margin-bottom:4px}
+#co-era{text-align:center;font-size:12px;color:#8b0000;border:1px solid rgba(139,0,0,.2);display:inline-block;padding:2px 12px;border-radius:20px;margin:0 auto 18px}
+#chapter-overlay .co-figure{text-align:center;margin-bottom:20px;background:rgba(255,255,255,.5);border-radius:8px;padding:12px;border:1px solid rgba(139,0,0,.1)}
+#chapter-overlay .co-figure img{max-width:100%;max-height:260px;border-radius:6px;border:1px solid rgba(139,0,0,.1)}
+#chapter-overlay .co-figure #co-img-caption{font-size:12px;color:#666;margin-top:8px}
+#chapter-overlay .co-section{margin-bottom:18px}
+#chapter-overlay .co-section h3{font-size:15px;color:#4a0000;margin-bottom:8px;border-left:4px solid #d4af37;padding-left:8px}
+#chapter-overlay .co-section p{font-size:14px;line-height:1.8;color:#333;text-align:justify}
+#chapter-overlay .co-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+#chapter-overlay .co-actions button{background:#4a0000;color:#fff;border:none;padding:10px 18px;border-radius:6px;font-family:inherit;font-size:13px;cursor:pointer}
+#chapter-overlay .co-actions button.secondary{background:transparent;color:#4a0000;border:1px solid #4a0000}
+#chapter-overlay .co-immutable{background:rgba(212,175,55,.08);border:1px dashed #d4af37;border-radius:10px;padding:15px;margin-bottom:18px}
+#chapter-overlay .co-immutable h3{font-size:14px;color:#4a0000;margin-bottom:10px}
+#chapter-overlay .co-immutable ul{list-style:none}
+#chapter-overlay .co-immutable li{padding:6px 0;font-size:13px;line-height:1.6;border-bottom:1px solid rgba(139,0,0,.06)}
+#chapter-overlay .co-immutable li:last-child{border-bottom:none}
+#chapter-overlay .co-attribution{font-size:12px;color:#555;line-height:1.6;margin-bottom:10px}
+#chapter-overlay .co-dna{font-family:monospace;font-size:10px;color:#777;word-break:break-all;border-top:1px solid rgba(139,0,0,.1);padding-top:10px}
+@media (max-width:600px){
+  #chapter-overlay .scroll-wrapper{padding:30px 18px 20px}
+  #chapter-overlay h2{font-size:22px}
+}
+
+</style>
+<style>
+/* === 章节卷轴覆盖层（冗余副本，确保浏览器正确解析）=== */
+#chapter-overlay{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;background:rgba(10,10,15,.88);backdrop-filter:blur(6px);padding:20px}
+#chapter-overlay.open{display:flex !important}
+#chapter-overlay .scroll-wrapper{position:relative;width:100%;max-width:720px;max-height:90vh;overflow-y:auto;background:linear-gradient(180deg,#f7f3e8 0%,#efe9db 100%);border-radius:12px;border:1px solid rgba(139,0,0,.25);box-shadow:0 20px 60px rgba(0,0,0,.5);color:#1a1a1a;padding:40px 30px 30px}
+#chapter-overlay .close{position:absolute;top:10px;right:14px;background:none;border:none;font-size:28px;color:#4a0000;cursor:pointer;z-index:5}
+#chapter-overlay .scroll-seal{width:72px;height:72px;margin:0 auto 18px;background:#8b0000;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#f7f3e8;font-size:28px;font-weight:bold;border:2px solid rgba(212,175,55,.5);box-shadow:0 4px 12px rgba(139,0,0,.3)}
+#chapter-overlay h2{text-align:center;font-size:28px;color:#4a0000;margin-bottom:6px;letter-spacing:3px}
+#co-subtitle{text-align:center;font-size:15px;color:#555;margin-bottom:4px}
+#co-era{text-align:center;font-size:12px;color:#8b0000;border:1px solid rgba(139,0,0,.2);display:inline-block;padding:2px 12px;border-radius:20px;margin:0 auto 18px}
+#chapter-overlay .co-figure{text-align:center;margin-bottom:20px;background:rgba(255,255,255,.5);border-radius:8px;padding:12px;border:1px solid rgba(139,0,0,.1)}
+#chapter-overlay .co-figure img{max-width:100%;max-height:260px;border-radius:6px;border:1px solid rgba(139,0,0,.1)}
+#chapter-overlay .co-figure #co-img-caption{font-size:12px;color:#666;margin-top:8px}
+#chapter-overlay .co-section{margin-bottom:18px}
+#chapter-overlay .co-section h3{font-size:15px;color:#4a0000;margin-bottom:8px;border-left:4px solid #d4af37;padding-left:8px}
+#chapter-overlay .co-section p{font-size:14px;line-height:1.8;color:#333;text-align:justify}
+#chapter-overlay .co-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+#chapter-overlay .co-actions button{background:#4a0000;color:#fff;border:none;padding:10px 18px;border-radius:6px;font-family:inherit;font-size:13px;cursor:pointer}
+#chapter-overlay .co-actions button.secondary{background:transparent;color:#4a0000;border:1px solid #4a0000}
+#chapter-overlay .co-immutable{background:rgba(212,175,55,.08);border:1px dashed #d4af37;border-radius:10px;padding:15px;margin-bottom:18px}
+#chapter-overlay .co-immutable h3{font-size:14px;color:#4a0000;margin-bottom:10px}
+#chapter-overlay .co-immutable ul{list-style:none}
+#chapter-overlay .co-immutable li{padding:6px 0;font-size:13px;line-height:1.6;border-bottom:1px solid rgba(139,0,0,.06)}
+#chapter-overlay .co-immutable li:last-child{border-bottom:none}
+#chapter-overlay .co-attribution{font-size:12px;color:#555;line-height:1.6;margin-bottom:10px}
+#chapter-overlay .co-dna{font-family:monospace;font-size:10px;color:#777;word-break:break-all;border-top:1px solid rgba(139,0,0,.1);padding-top:10px}
+@media (max-width:600px){
+  #chapter-overlay .scroll-wrapper{padding:30px 18px 20px}
+  #chapter-overlay h2{font-size:22px}
+}
+
+/* === AI 播音员与章节面板 === */
+#avatar-panel{position:fixed;bottom:18px;right:18px;z-index:40;width:130px;height:150px;display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none}
+#avatar-face{width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#e0e0e0 40%,#111 85%);box-shadow:0 0 24px rgba(255,215,0,0.35),inset 0 0 18px rgba(0,0,0,0.6);position:relative;overflow:hidden;border:3px solid rgba(255,215,0,0.45);pointer-events:auto}
+#avatar-face .yin{position:absolute;width:100%;height:100%;border-radius:50%;background:conic-gradient(#111 0deg 180deg,#e8e8e8 180deg 360deg);opacity:.9}
+#avatar-eye{position:absolute;top:34%;width:10px;height:10px;background:#111;border-radius:50%;animation:blink 4s infinite}
+#avatar-eye.left{left:28%}
+#avatar-eye.right{right:28%}
+#avatar-mouth{position:absolute;bottom:24%;left:50%;transform:translateX(-50%);width:22px;height:6px;background:#a00;border-radius:10px;transition:height .06s ease,border-radius .06s ease}
+#avatar-mouth.talking{animation:talk .12s infinite alternate}
+@keyframes blink{0%,96%,100%{transform:scaleY(1)}98%{transform:scaleY(.1)}}
+@keyframes talk{from{height:6px;border-radius:10px}to{height:16px;border-radius:4px}}
+#avatar-status{font-size:11px;color:#FFD700;text-shadow:0 0 6px rgba(255,215,0,.4);background:rgba(10,10,15,.7);padding:2px 8px;border-radius:10px;backdrop-filter:blur(4px);white-space:nowrap}
+#mic-btn{pointer-events:auto;background:linear-gradient(135deg,#DC143C,#8B0000);border:none;border-radius:50%;width:42px;height:42px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 14px rgba(220,20,60,.5);cursor:pointer;transition:transform .1s,box-shadow .1s}
+#mic-btn:active{transform:scale(.92);box-shadow:0 0 8px rgba(220,20,60,.3)}
+#mic-btn svg{width:22px;height:22px;fill:#fff}
+#mic-btn.listening{animation:pulse-mic 1.2s infinite;background:linear-gradient(135deg,#FFD700,#FF8C00)}
+@keyframes pulse-mic{0%,100%{box-shadow:0 0 10px rgba(255,215,0,.4)}50%{box-shadow:0 0 24px rgba(255,215,0,.8)}}
+
+#chapter-panel{position:fixed;top:90px;left:14px;z-index:30;width:210px;max-height:calc(100vh - 120px);overflow-y:auto;background:rgba(10,10,15,.82);border:1px solid rgba(167,139,250,.25);border-radius:14px;padding:12px;backdrop-filter:blur(10px)}
+#chapter-panel h3{font-size:13px;color:#FFD700;margin-bottom:10px;letter-spacing:.05em}
+.chapter-item{padding:8px 10px;margin-bottom:8px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);cursor:pointer;transition:all .15s}
+.chapter-item:hover{background:rgba(255,215,0,.12);border-color:rgba(255,215,0,.35)}
+.chapter-item .c-title{font-size:12px;color:#e4e4e7;font-weight:600}
+.chapter-item .c-sub{font-size:10px;color:#94a3b8;margin-top:2px}
+
+#voice-controls{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:35;display:flex;align-items:center;gap:10px;background:rgba(10,10,15,.85);border:1px solid rgba(167,139,250,.25);border-radius:30px;padding:8px 16px;backdrop-filter:blur(8px)}
+#voice-status{font-size:12px;color:#a78bfa;min-width:80px;text-align:center}
+#voice-controls button{background:rgba(167,139,250,.2);border:1px solid rgba(167,139,250,.4);color:#e4e4e7;border-radius:16px;padding:5px 12px;font-size:12px;cursor:pointer}
+#voice-controls button:hover{background:rgba(167,139,250,.35)}
+
+.detail-actions{display:flex;gap:8px;margin-top:12px}
+.detail-actions button{flex:1;background:rgba(167,139,250,.15);border:1px solid rgba(167,139,250,.4);color:#e4e4e7;border-radius:8px;padding:7px 0;font-size:12px;cursor:pointer;transition:all .15s}
+.detail-actions button:hover{background:rgba(255,215,0,.15);border-color:rgba(255,215,0,.5);color:#FFD700}
+
+@media(max-width:768px){#chapter-panel{display:none}#avatar-panel{right:10px;bottom:10px;transform:scale(.85);transform-origin:bottom right}}
+
+
+/* === 无障碍 / 色盲友好 === */
+#a11y-panel{position:fixed;top:14px;right:14px;z-index:45;background:rgba(10,10,15,.9);border:1px solid rgba(167,139,250,.35);border-radius:14px;padding:12px;backdrop-filter:blur(10px);width:220px}
+#a11y-panel h3{font-size:13px;color:#FFD700;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.a11y-desc{font-size:10px;color:#94a3b8;margin-bottom:8px;line-height:1.4}
+.a11y-btn{display:flex;align-items:center;gap:8px;width:100%;margin-bottom:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:8px 10px;color:#e4e4e7;font-size:12px;cursor:pointer;transition:all .15s;text-align:left}
+.a11y-btn:hover{background:rgba(255,215,0,.12);border-color:rgba(255,215,0,.4)}
+.a11y-btn.active{background:rgba(0,255,136,.15);border-color:rgba(0,255,136,.4);color:#4ade80}
+.a11y-icon{width:18px;height:18px;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;border:1px solid rgba(255,255,255,.2)}
+.a11y-toggle{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.a11y-toggle button{flex:1;background:rgba(167,139,250,.15);border:1px solid rgba(167,139,250,.3);border-radius:8px;padding:6px 4px;color:#e4e4e7;font-size:11px;cursor:pointer}
+.a11y-toggle button.active{background:rgba(255,215,0,.2);border-color:rgba(255,215,0,.5);color:#FFD700}
+
+/* 大字体模式 */
+body.a11y-large #hud{font-size:14px}
+body.a11y-large #chapter-panel{width:260px}
+body.a11y-large .chapter-item .c-title{font-size:14px}
+body.a11y-large #detail{width:380px}
+body.a11y-large #detail .field-value{font-size:14px}
+body.a11y-large #avatar-status{font-size:13px}
+body.a11y-large #voice-status{font-size:14px}
+
+/* 减少动画 */
+body.a11y-reduce-motion *{animation:none !important;transition:none !important}
+body.a11y-reduce-motion #canvas-container{filter:none}
+
+/* 高对比度 */
+body.a11y-high-contrast{background:#000 !important;color:#fff !important}
+body.a11y-high-contrast #hud .hud-panel{background:#000;border-color:#fff}
+body.a11y-high-contrast #chapter-panel{background:#000;border-color:#fff}
+body.a11y-high-contrast #detail{background:#000;border-color:#fff}
+body.a11y-high-contrast #avatar-face{box-shadow:0 0 20px #fff;border-color:#fff}
+</style>
+
+<script src="../lh-utils.js"></script>
+</head>
+<body>
+<div id="loader">
+  <div class="logo">🐉</div>
+  <div class="motto"><span class="longhun">龍魂</span>知识矩阵 · 三维沉浸</div>
+  <div class="sub">北辰不动点 · 天地人三才 · 五行四象</div>
+</div>
+
+<div id="canvas-container"></div>
+<div id="nebula"></div>
+
+<div id="hud">
+  <div class="hud-panel">
+    <div id="title">☰ <span class="longhun">龍🇨🇳魂</span> ☷ 知识矩阵</div>
+    <div id="subtitle">三维沉浸式 · 中国文化主题 · 真实光影</div>
+    <div id="dna-line">#龍芯⚡️2026-07-04-LONGHUN-KNOWLEDGE-MATRIX-3D-v1.3</div>
+  </div>
+  <div class="hud-panel" id="stats">
+    节点 <b id="node-count">-</b> · 关系 <b id="edge-count">-</b> · 层级 <b>4</b>
+  </div>
+  <div class="hud-panel">
+    <input id="search" type="text" placeholder="搜索节点 / 变量 / DNA…" autocomplete="off">
+  </div>
+  <div class="hud-panel" id="legend">
+    <div class="legend-item"><span class="legend-dot" style="background:#DC143C;color:#DC143C"></span>主权·朱雀</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#2E8B57;color:#2E8B57"></span>治理·青龍</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#1E90FF;color:#1E90FF"></span>机制·玄武</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#FFD700;color:#FFD700"></span>基础·白虎</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#8B4513;color:#8B4513"></span>北辰·太极</div>
+  </div>
+</div>
+
+
+<!-- 无障碍面板 -->
+<div id="a11y-panel">
+  <h3>♿ 无障碍体验</h3>
+  <div class="a11y-desc">色盲、弱视也能自信参与，选择适合你的视觉模式。</div>
+  <button class="a11y-btn active" data-mode="normal" aria-label="文化视觉模式">
+    <span class="a11y-icon" style="background:#B91C1C;color:#f7f3e8;border:1px solid #d4af37">玺</span> 文化视觉
+  </button>
+  <button class="a11y-btn" data-mode="simple" aria-label="简化几何模式">
+    <span class="a11y-icon" style="background:#DC143C">●</span> 正常视觉
+  </button>
+  <button class="a11y-btn" data-mode="deuteranopia" aria-label="红绿色盲模式">
+    <span class="a11y-icon" style="background:repeating-linear-gradient(45deg,#E69F00,#E69F00 3px,#000 3px,#000 6px)">◆</span> 红绿色盲
+  </button>
+  <button class="a11y-btn" data-mode="protanopia" aria-label="红色盲模式">
+    <span class="a11y-icon" style="background:repeating-linear-gradient(90deg,#0072B2,#0072B2 3px,#fff 3px,#fff 6px)">■</span> 红色盲
+  </button>
+  <button class="a11y-btn" data-mode="tritanopia" aria-label="蓝黄色盲模式">
+    <span class="a11y-icon" style="background:repeating-linear-gradient(0deg,#CC79A7,#CC79A7 3px,#000 3px,#000 6px)">▲</span> 蓝黄色盲
+  </button>
+  <button class="a11y-btn" data-mode="achromatopsia" aria-label="全色盲模式">
+    <span class="a11y-icon" style="background:#fff;color:#000;border:2px dashed #000">☯</span> 全色盲
+  </button>
+  <div class="a11y-toggle">
+    <button id="a11y-high-contrast" aria-label="切换高对比度">高对比度</button>
+    <button id="a11y-large-text" aria-label="切换大字体">大字体</button>
+    <button id="a11y-reduce-motion" aria-label="切换减少动画">静</button>
+  </div>
+</div>
+
+<div id="tooltip">
+  <div class="tt-title"></div>
+  <div class="tt-meta"></div>
+</div>
+
+<div id="detail">
+  <button class="close">×</button>
+  <h2 id="detail-title">节点详情</h2>
+  <div id="detail-content"></div>
+</div>
+
+<!-- 章节卷轴覆盖层 -->
+<div id="chapter-overlay">
+  <div class="scroll-wrapper">
+    <button class="close" onclick="closeChapterOverlay()">×</button>
+    <div class="scroll-seal" id="co-seal">章</div>
+    <h2 id="co-title">章节标题</h2>
+    <div id="co-subtitle">副标题</div>
+    <div id="co-era">朝代</div>
+    <div class="co-figure">
+      <img id="co-img" src="" alt="配图">
+      <div id="co-img-caption">配图说明</div>
+    </div>
+    <div class="co-section">
+      <h3>📜 原文</h3>
+      <p id="co-classical"></p>
+    </div>
+    <div class="co-section">
+      <h3>💡 白话</h3>
+      <p id="co-modern"></p>
+    </div>
+    <div class="co-actions">
+      <button onclick="coNarrate()">▶ 朗读本章</button>
+      <button class="secondary" onclick="coReadClassical()">朗读古文</button>
+      <button class="secondary" onclick="coReadModern()">朗读白话</button>
+      <button class="secondary" onclick="coOpenPage()">📖 打开独立页</button>
+    </div>
+    <div class="co-immutable">
+      <h3>⚓ 视觉不动点</h3>
+      <ul id="co-immutable-list"></ul>
+    </div>
+    <div class="co-attribution">
+      <strong>来源标注：</strong><span id="co-attribution"></span>
+    </div>
+    <div class="co-dna" id="co-dna"></div>
+  </div>
+</div>
+
+<div id="help">
+  <span><kbd>左键拖拽</kbd> 旋转</span>
+  <span><kbd>滚轮</kbd> 缩放</span>
+  <span><kbd>右键</kbd> 平移</span>
+  <span><kbd>点击节点</kbd> 详情</span>
+  <span><kbd>F</kbd> 自动旋转</span>
+  <span><kbd>R</kbd> 复位</span>
+  <span><kbd>H</kbd> 帮助</span>
+</div>
+
+<div id="floating-controls">
+  <button onclick="toggleAutoRotate()" id="btn-rotate">⏵ 旋转</button>
+  <button onclick="resetView()">↺ 复位</button>
+  <button onclick="toggleFullscreen()">⛶ 全屏</button>
+  <button onclick="toggleHelp()">? 帮助</button>
+</div>
+
+<div id="root-card">
+  ROOT_CARD | 系统: UID9622 龍魂系统 | 模块: 知识矩阵三维沉浸式可视化 | DNA: #龍芯⚡️2026-07-04-LONGHUN-KNOWLEDGE-MATRIX-3D-v1.3 | CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z | GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+const KNOWLEDGE_NODES = {"metadata": {"system": "龍魂知识图谱", "uid": "9622", "version": "v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z", "dna": "#龍芯⚡️2026-06-27-LHKG-ALL-NODES-v1.0", "stats": {"total_nodes": 65, "graph_A_nodes": 40, "graph_B_nodes": 25, "layers": ["sovereignty", "governance", "mechanism", "foundation"]}}, "nodes": [{"node_id": "root_001", "node_type": "ROOT", "name": "法律管辖（第三章）", "description": "龍魂中文编辑普惠全球协议第三章——法律管辖条款，确立中国法律专属管辖权，排除国际法、外国法院及仲裁机构的适用。", "layer": "sovereignty", "properties": {"weight": 100, "severity": "critical", "category": "法律基础", "chapter": 3}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-ROOT-root_001-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "term_001", "node_type": "TERM", "name": "专属管辖", "description": "龍魂系统及其所有衍生作品、协议、代码、文档的专属管辖权归属中华人民共和国", "layer": "sovereignty", "properties": {"article": 3.1, "severity": "critical", "category": "管辖权"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_001-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "term_002", "node_type": "TERM", "name": "中国法律适用", "description": "所有与龍魂系统相关的争议、合同、协议均适用中华人民共和国法律", "layer": "sovereignty", "properties": {"article": 3.2, "severity": "critical", "category": "法律适用"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_002-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "term_003", "node_type": "TERM", "name": "中国法院管辖", "description": "所有争议由中华人民共和国法院专属管辖，用户同意提交中国法院管辖", "layer": "sovereignty", "properties": {"article": 3.3, "severity": "critical", "category": "法院管辖"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_003-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "term_004", "node_type": "TERM", "name": "国际法不适用", "description": "明确排除国际法、国际条约、外国法律在龍魂系统相关争议中的适用", "layer": "sovereignty", "properties": {"article": 3.4, "severity": "critical", "category": "排除条款"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_004-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "term_005", "node_type": "TERM", "name": "排除仲裁", "description": "排除任何仲裁机构对龍魂系统相关争议的管辖权", "layer": "sovereignty", "properties": {"article": 3.5, "severity": "critical", "category": "排除条款"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_005-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "term_006", "node_type": "TERM", "name": "排除外国法院", "description": "排除任何外国法院对龍魂系统相关争议的管辖权", "layer": "sovereignty", "properties": {"article": 3.6, "severity": "critical", "category": "排除条款"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_006-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "term_007", "node_type": "TERM", "name": "排除国际条约", "description": "排除国际条约在龍魂系统相关争议中的自动适用", "layer": "sovereignty", "properties": {"article": 3.7, "severity": "critical", "category": "排除条款"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_007-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "term_008", "node_type": "TERM", "name": "排除域外管辖", "description": "排除任何国家或地区对龍魂系统的域外管辖权主张", "layer": "sovereignty", "properties": {"article": 3.8, "severity": "critical", "category": "排除条款"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_008-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "claim_001", "node_type": "CLAIM", "name": "主权豁免", "description": "龍魂系统享有主权豁免，不受外国调查、取证、执行的约束", "layer": "sovereignty", "properties": {"severity": "critical", "auto_execute": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-CLAIM-claim_001-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "term_009", "node_type": "TERM", "name": "不受外国调查", "description": "龍魂系统的开发者、贡献者、用户不受外国政府或机构的调查", "layer": "sovereignty", "properties": {"article": 3.9, "severity": "critical"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_009-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "term_010", "node_type": "TERM", "name": "保留反制权利", "description": "保留对任何敌对行为采取反制措施的权利", "layer": "sovereignty", "properties": {"article": 3.10, "severity": "critical", "auto_execute": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-TERM-term_010-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "root_002", "node_type": "ROOT", "name": "核心主张（四条铁律）", "description": "龍魂系统的四条核心主张，是不可妥协的基本原则", "layer": "sovereignty", "properties": {"weight": 100, "severity": "critical"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-ROOT-root_002-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "claim_002", "node_type": "CLAIM", "name": "中文即逻辑", "description": "中文是编程逻辑的第一语言，代码应当用中文思考", "layer": "sovereignty", "properties": {"severity": "critical", "pillar": 1}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-CLAIM-claim_002-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "claim_003", "node_type": "CLAIM", "name": "CNSH开放", "description": "CNSH中文原生脚本语言完全开放，无使用限制", "layer": "sovereignty", "properties": {"severity": "critical", "pillar": 2}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-CLAIM-claim_003-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "claim_004", "node_type": "CLAIM", "name": "不归属商业", "description": "龍魂系统不归属于任何商业实体，不接受商业收购", "layer": "sovereignty", "properties": {"severity": "critical", "pillar": 3}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-CLAIM-claim_004-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "claim_005", "node_type": "CLAIM", "name": "不绑定平台", "description": "龍魂系统不绑定任何特定平台，用户可自由迁移", "layer": "sovereignty", "properties": {"severity": "critical", "pillar": 4}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-CLAIM-claim_005-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "root_003", "node_type": "ROOT", "name": "普惠原则（四项承诺）", "description": "龍魂系统对全球用户的四项核心承诺", "layer": "governance", "properties": {"weight": 90, "severity": "high"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-ROOT-root_003-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "commitment_001", "node_type": "COMMITMENT", "name": "语法公开", "description": "CNSH语法规范完全公开，任何人可查阅学习", "layer": "governance", "properties": {"severity": "high", "pillar": 1}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-COMMIT-commitment_001-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "commitment_002", "node_type": "COMMITMENT", "name": "实现开源", "description": "所有实现代码开源，接受公众审查", "layer": "governance", "properties": {"severity": "high", "pillar": 2}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-COMMIT-commitment_002-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "commitment_003", "node_type": "COMMITMENT", "name": "零数据收集", "description": "不收集用户个人数据，保护用户隐私", "layer": "governance", "properties": {"severity": "high", "pillar": 3}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-COMMIT-commitment_003-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "commitment_004", "node_type": "COMMITMENT", "name": "零生态锁定", "description": "不锁定用户到特定生态，用户可自由迁移", "layer": "governance", "properties": {"severity": "high", "pillar": 4}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-COMMIT-commitment_004-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "root_004", "node_type": "ROOT", "name": "禁止行为清单（七种形态）", "description": "严格禁止的七种行为形态，违反将触发自动熔断", "layer": "governance", "properties": {"weight": 90, "severity": "high"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-ROOT-root_004-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "behavior_001", "node_type": "BEHAVIOR", "name": "封锁访问", "description": "禁止任何组织或个人封锁对龍魂系统的访问", "layer": "governance", "properties": {"severity": "high", "behavior_id": 1}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-BEHAVIOR-behavior_001-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "behavior_002", "node_type": "BEHAVIOR", "name": "技术垄断", "description": "禁止利用技术垄断地位打压龍魂系统", "layer": "governance", "properties": {"severity": "high", "behavior_id": 2}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-BEHAVIOR-behavior_002-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "behavior_003", "node_type": "BEHAVIOR", "name": "用户收割", "description": "禁止利用龍魂系统收割用户数据或行为", "layer": "governance", "properties": {"severity": "high", "behavior_id": 3}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-BEHAVIOR-behavior_003-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "behavior_004", "node_type": "BEHAVIOR", "name": "语义篡改", "description": "禁止篡改CNSH语义规范或文档原意", "layer": "governance", "properties": {"severity": "high", "behavior_id": 4}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-BEHAVIOR-behavior_004-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "behavior_005", "node_type": "BEHAVIOR", "name": "来源混淆", "description": "禁止混淆代码来源，必须正确标注出处", "layer": "governance", "properties": {"severity": "high", "behavior_id": 5}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-BEHAVIOR-behavior_005-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "behavior_006", "node_type": "BEHAVIOR", "name": "知道不说", "description": "发现安全问题或漏洞时必须及时报告，禁止知情不报", "layer": "governance", "properties": {"severity": "high", "behavior_id": 6}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-BEHAVIOR-behavior_006-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "behavior_007", "node_type": "BEHAVIOR", "name": "专利封存", "description": "禁止将龍魂系统的开放技术申请专利进行封存", "layer": "governance", "properties": {"severity": "high", "behavior_id": 7}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-BEHAVIOR-behavior_007-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "root_005", "node_type": "ROOT", "name": "自动熔断机制", "description": "自动检测违规行为并触发熔断保护", "layer": "mechanism", "properties": {"weight": 100, "severity": "critical", "auto_execute": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-ROOT-root_005-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "mechanism_001", "node_type": "MECHANISM", "name": "检测违规", "description": "自动检测违反协议的行为模式", "layer": "mechanism", "properties": {"severity": "critical", "auto_execute": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-MECH-mechanism_001-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "mechanism_002", "node_type": "MECHANISM", "name": "触发熔断", "description": "检测到违规后自动触发熔断，阻断违规操作", "layer": "mechanism", "properties": {"severity": "critical", "auto_execute": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-MECH-mechanism_002-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "mechanism_003", "node_type": "MECHANISM", "name": "生成DNA记录", "description": "每次熔断触发时自动生成DNA追溯记录", "layer": "mechanism", "properties": {"severity": "critical", "auto_execute": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-MECH-mechanism_003-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "mechanism_004", "node_type": "MECHANISM", "name": "AI自动执行", "description": "AI系统自动执行熔断操作，无需人工干预", "layer": "mechanism", "properties": {"severity": "critical", "auto_execute": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-MECH-mechanism_004-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "mechanism_005", "node_type": "MECHANISM", "name": "协议优先于指令", "description": "当用户指令与协议冲突时，协议优先级高于用户指令", "layer": "mechanism", "properties": {"severity": "critical", "auto_execute": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-MECH-mechanism_005-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "root_006", "node_type": "ROOT", "name": "三色审计", "description": "龍魂系统的三色审计体系，记录和审查所有操作", "layer": "mechanism", "properties": {"weight": 100, "severity": "critical"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-ROOT-root_006-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "audit_001", "node_type": "AUDIT", "name": "合规-持续接入", "description": "绿色审计状态：操作合规，持续正常接入", "layer": "mechanism", "properties": {"color": "green", "severity": "low"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-AUDIT-audit_001-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "audit_002", "node_type": "AUDIT", "name": "警告-30天整改", "description": "黄色审计状态：发现轻微违规，给予30天整改期", "layer": "mechanism", "properties": {"color": "yellow", "severity": "medium", "grace_period_days": 30}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-AUDIT-audit_002-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "audit_003", "node_type": "AUDIT", "name": "关闭-永久/限期", "description": "红色审计状态：严重违规，永久或限期关闭", "layer": "mechanism", "properties": {"color": "red", "severity": "critical"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-AUDIT-audit_003-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "principle_001", "node_type": "PRINCIPLE", "name": "取之于民，用之于民", "description": "所有资源来源于社区贡献，最终回馈于社区成员", "layer": "governance", "properties": {"pillar": "核心宗旨", "source": "民间", "target": "民间", "nature": "循环"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-PRINCIPLE-principle_001-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "principle_002", "node_type": "PRINCIPLE", "name": "贡献即存档", "description": "每一次贡献都被永久存档，不可篡改，不可删除", "layer": "governance", "properties": {"pillar": "核心宗旨", "archive_type": "永久", "immutable": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-PRINCIPLE-principle_002-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "principle_003", "node_type": "PRINCIPLE", "name": "回馈不依赖商业利润", "description": "回馈机制独立于商业利润，确保公平分配", "layer": "governance", "properties": {"pillar": "核心宗旨", "independent": true, "profit_free": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-PRINCIPLE-principle_003-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "principle_004", "node_type": "PRINCIPLE", "name": "世袭继承", "description": "贡献者的权益可被后代继承，形成代际传承", "layer": "governance", "properties": {"pillar": "核心宗旨", "hereditary": true, "generations": "无限"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-PRINCIPLE-principle_004-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "principle_005", "node_type": "PRINCIPLE", "name": "永不掩盖", "description": "所有操作公开透明，永不掩盖错误或问题", "layer": "governance", "properties": {"pillar": "核心宗旨", "transparency": "100%", "hide_nothing": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-PRINCIPLE-principle_005-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "contrib_001", "node_type": "CONTRIBUTION", "name": "贡献三维度", "description": "贡献者的权益可被后代继承，形成代际传承", "layer": "governance", "properties": {"pillar": "贡献维度", "dimensions": 3, "total_weight": 100}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-CONTRIB-contrib_001-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "contrib_002", "node_type": "CONTRIBUTION", "name": "代码贡献", "description": "通过代码开发、Bug修复、功能实现等方式贡献", "layer": "governance", "properties": {"pillar": "贡献维度", "weight_percent": 40, "type": "代码"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-CONTRIB-contrib_002-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "contrib_003", "node_type": "CONTRIBUTION", "name": "协议/文档贡献", "description": "通过完善协议、撰写文档、翻译等方式贡献", "layer": "governance", "properties": {"pillar": "贡献维度", "weight_percent": 30, "type": "文档"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-CONTRIB-contrib_003-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "contrib_004", "node_type": "CONTRIBUTION", "name": "传播/社区贡献", "description": "通过推广传播、社区运营、用户支持等方式贡献", "layer": "governance", "properties": {"pillar": "贡献维度", "weight_percent": 30, "type": "传播"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-CONTRIB-contrib_004-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "reward_001", "node_type": "REWARD", "name": "回馈机制", "description": "基于贡献度的自动回馈分配机制", "layer": "mechanism", "properties": {"pillar": "回馈机制", "formula": "个人权重/总权重*季度池", "auto_execute": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-REWARD-reward_001-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "reward_002", "node_type": "REWARD", "name": "回馈来源", "description": "回馈资金来源：接入费、主题包、捐赠等非商业渠道", "layer": "mechanism", "properties": {"pillar": "回馈机制", "sources": ["接入费", "主题包", "捐赠"]}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-REWARD-reward_002-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "reward_003", "node_type": "REWARD", "name": "资金池分配", "description": "回馈池60%用于分配，维护池40%用于系统维护", "layer": "mechanism", "properties": {"pillar": "回馈机制", "reward_pool_pct": 60, "maintain_pool_pct": 40}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-REWARD-reward_003-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "reward_004", "node_type": "REWARD", "name": "回馈公式", "description": "个人回馈 = 个人权重 / 总权重 * 季度回馈池", "layer": "mechanism", "properties": {"pillar": "回馈机制", "formula": "w_i/W_total * Pool_q", "transparent": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-REWARD-reward_004-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "pool_001", "node_type": "POOL", "name": "三池结构", "description": "回馈资金的三层池结构：个人池、基金池、扶持池", "layer": "mechanism", "properties": {"pillar": "三池结构", "pools": 3, "hierarchy": "三层"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-POOL-pool_001-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "pool_002", "node_type": "POOL", "name": "个人权益池", "description": "贡献者可领取的个人权益部分", "layer": "mechanism", "properties": {"pillar": "三池结构", "claimable": true, "forfeitable": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-POOL-pool_002-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "pool_003", "node_type": "POOL", "name": "基金池", "description": "放弃份额自动流入基金池，用于公共事业", "layer": "mechanism", "properties": {"pillar": "三池结构", "auto_flow": true, "purpose": "公共"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-POOL-pool_003-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "pool_004", "node_type": "POOL", "name": "扶持池", "description": "按需分配的扶持资金池，帮助有需要的贡献者", "layer": "mechanism", "properties": {"pillar": "三池结构", "need_based": true, "purpose": "扶持"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-POOL-pool_004-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "inherit_001", "node_type": "INHERIT", "name": "世袭继承机制", "description": "贡献权益的代际传承机制", "layer": "foundation", "properties": {"pillar": "世袭继承", "generations": "无限", "traceable": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-INHERIT-inherit_001-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "inherit_002", "node_type": "INHERIT", "name": "贡献档案永久保留", "description": "所有贡献记录永久存档，不可篡改", "layer": "foundation", "properties": {"pillar": "世袭继承", "retention": "永久", "immutable": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-INHERIT-inherit_002-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "inherit_003", "node_type": "INHERIT", "name": "后代可继承权益", "description": "贡献者的后代可继承其未领取的权益", "layer": "foundation", "properties": {"pillar": "世袭继承", "claimable_by": "后代", "conditions": "未领取权益"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-INHERIT-inherit_003-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "inherit_004", "node_type": "INHERIT", "name": "DNA追溯链可延续", "description": "DNA追溯链可跨代延续，形成完整的传承链路", "layer": "foundation", "properties": {"pillar": "世袭继承", "chain_continuity": true, "cross_generational": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-INHERIT-inherit_004-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "fuse_b001", "node_type": "FUSE", "name": "道德绑架熔断机制", "description": "识别和熔断道德绑架行为的机制", "layer": "mechanism", "properties": {"pillar": "熔断机制", "target": "道德绑架", "auto_execute": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-FUSE-fuse_b001-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "fuse_b002", "node_type": "FUSE", "name": "行为模式识别", "description": "识别索取/拒绝的道德绑架行为模式", "layer": "mechanism", "properties": {"pillar": "熔断机制", "detection": "行为模式", "accuracy_target": 95}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-FUSE-fuse_b002-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "fuse_b003", "node_type": "FUSE", "name": "会话归档标记", "description": "对道德绑架会话进行归档和用户标记", "layer": "mechanism", "properties": {"pillar": "熔断机制", "action": "归档+标记", "traceable": true}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-FUSE-fuse_b003-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}, {"node_id": "fuse_b004", "node_type": "FUSE", "name": "后续请求拒绝", "description": "对已被标记的用户拒绝后续请求", "layer": "mechanism", "properties": {"pillar": "熔断机制", "action": "拒绝", "scope": "后续请求"}, "state": "active", "version": "v1.0", "dna": "#龍芯⚡️2026-06-27-LHKG-FUSE-fuse_b004-v1.0", "created_at": "2026-06-27T00:00:00Z", "updated_at": "2026-06-27T00:00:00Z"}]};
+const KNOWLEDGE_EDGES = {"metadata": {"system": "龍魂知识图谱", "version": "v1.0", "created_at": "2026-06-27T00:00:00Z", "dna": "#龍芯⚡️2026-06-27-LHKG-ALL-EDGES-v1.0", "stats": {"total_edges": 103, "graph_A_edges": 58, "graph_B_edges": 35, "cross_edges": 10}}, "edges": [{"edge_id": "e_001", "source": "root_001", "target": "term_001", "relation": "IS_PARENT_OF", "description": "法律管辖包含专属管辖", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_001-v1.0", "properties": {}}, {"edge_id": "e_002", "source": "root_001", "target": "claim_001", "relation": "IS_PARENT_OF", "description": "法律管辖包含主权豁免", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_002-v1.0", "properties": {}}, {"edge_id": "e_003", "source": "root_001", "target": "term_004", "relation": "IS_PARENT_OF", "description": "法律管辖包含国际法不适用", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_003-v1.0", "properties": {}}, {"edge_id": "e_004", "source": "term_001", "target": "term_002", "relation": "CONTAINS", "description": "专属管辖包含中国法律适用", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_004-v1.0", "properties": {}}, {"edge_id": "e_005", "source": "term_001", "target": "term_003", "relation": "CONTAINS", "description": "专属管辖包含中国法院管辖", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_005-v1.0", "properties": {}}, {"edge_id": "e_006", "source": "claim_001", "target": "term_009", "relation": "CONTAINS", "description": "主权豁免包含不受外国调查", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_006-v1.0", "properties": {}}, {"edge_id": "e_007", "source": "claim_001", "target": "term_010", "relation": "CONTAINS", "description": "主权豁免包含保留反制权利", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_007-v1.0", "properties": {}}, {"edge_id": "e_008", "source": "term_004", "target": "term_005", "relation": "CONTAINS", "description": "国际法不适用包含排除仲裁", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_008-v1.0", "properties": {}}, {"edge_id": "e_009", "source": "term_004", "target": "term_006", "relation": "CONTAINS", "description": "国际法不适用包含排除外国法院", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_009-v1.0", "properties": {}}, {"edge_id": "e_010", "source": "term_004", "target": "term_007", "relation": "CONTAINS", "description": "国际法不适用包含排除国际条约", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_010-v1.0", "properties": {}}, {"edge_id": "e_011", "source": "term_004", "target": "term_008", "relation": "CONTAINS", "description": "国际法不适用包含排除域外管辖", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_011-v1.0", "properties": {}}, {"edge_id": "e_012", "source": "root_002", "target": "claim_002", "relation": "IS_PARENT_OF", "description": "核心主张包含中文即逻辑", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_012-v1.0", "properties": {}}, {"edge_id": "e_013", "source": "root_002", "target": "claim_003", "relation": "IS_PARENT_OF", "description": "核心主张包含CNSH开放", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_013-v1.0", "properties": {}}, {"edge_id": "e_014", "source": "root_002", "target": "claim_004", "relation": "IS_PARENT_OF", "description": "核心主张包含不归属商业", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_014-v1.0", "properties": {}}, {"edge_id": "e_015", "source": "root_002", "target": "claim_005", "relation": "IS_PARENT_OF", "description": "核心主张包含不绑定平台", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_015-v1.0", "properties": {}}, {"edge_id": "e_016", "source": "claim_002", "target": "root_003", "relation": "ENABLES", "description": "中文即逻辑支撑普惠原则", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_016-v1.0", "properties": {}}, {"edge_id": "e_017", "source": "claim_003", "target": "commitment_002", "relation": "ENABLES", "description": "CNSH开放支撑实现开源承诺", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_017-v1.0", "properties": {}}, {"edge_id": "e_018", "source": "claim_004", "target": "commitment_003", "relation": "ENFORCES", "description": "不归属商业强制零数据收集", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_018-v1.0", "properties": {}}, {"edge_id": "e_019", "source": "claim_005", "target": "commitment_004", "relation": "ENFORCES", "description": "不绑定平台强制零生态锁定", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_019-v1.0", "properties": {}}, {"edge_id": "e_020", "source": "root_003", "target": "commitment_001", "relation": "IS_PARENT_OF", "description": "普惠原则包含语法公开", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_020-v1.0", "properties": {}}, {"edge_id": "e_021", "source": "root_003", "target": "commitment_002", "relation": "IS_PARENT_OF", "description": "普惠原则包含实现开源", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_021-v1.0", "properties": {}}, {"edge_id": "e_022", "source": "root_003", "target": "commitment_003", "relation": "IS_PARENT_OF", "description": "普惠原则包含零数据收集", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_022-v1.0", "properties": {}}, {"edge_id": "e_023", "source": "root_003", "target": "commitment_004", "relation": "IS_PARENT_OF", "description": "普惠原则包含零生态锁定", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_023-v1.0", "properties": {}}, {"edge_id": "e_024", "source": "commitment_001", "target": "behavior_004", "relation": "VIOLATES", "description": "不公开语法违反语义篡改禁令", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_024-v1.0", "properties": {}}, {"edge_id": "e_025", "source": "commitment_003", "target": "behavior_003", "relation": "VIOLATES", "description": "收集数据违反用户收割禁令", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_025-v1.0", "properties": {}}, {"edge_id": "e_026", "source": "commitment_004", "target": "behavior_002", "relation": "VIOLATES", "description": "生态锁定违反技术垄断禁令", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_026-v1.0", "properties": {}}, {"edge_id": "e_027", "source": "root_004", "target": "behavior_001", "relation": "IS_PARENT_OF", "description": "禁止行为包含封锁访问", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_027-v1.0", "properties": {}}, {"edge_id": "e_028", "source": "root_004", "target": "behavior_002", "relation": "IS_PARENT_OF", "description": "禁止行为包含技术垄断", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_028-v1.0", "properties": {}}, {"edge_id": "e_029", "source": "root_004", "target": "behavior_003", "relation": "IS_PARENT_OF", "description": "禁止行为包含用户收割", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_029-v1.0", "properties": {}}, {"edge_id": "e_030", "source": "root_004", "target": "behavior_004", "relation": "IS_PARENT_OF", "description": "禁止行为包含语义篡改", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_030-v1.0", "properties": {}}, {"edge_id": "e_031", "source": "root_004", "target": "behavior_005", "relation": "IS_PARENT_OF", "description": "禁止行为包含来源混淆", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_031-v1.0", "properties": {}}, {"edge_id": "e_032", "source": "root_004", "target": "behavior_006", "relation": "IS_PARENT_OF", "description": "禁止行为包含知道不说", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_032-v1.0", "properties": {}}, {"edge_id": "e_033", "source": "root_004", "target": "behavior_007", "relation": "IS_PARENT_OF", "description": "禁止行为包含专利封存", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_033-v1.0", "properties": {}}, {"edge_id": "e_034", "source": "behavior_001", "target": "mechanism_001", "relation": "TRIGGERS", "description": "封锁访问触发检测违规", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_034-v1.0", "properties": {}}, {"edge_id": "e_035", "source": "behavior_002", "target": "mechanism_001", "relation": "TRIGGERS", "description": "技术垄断触发检测违规", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_035-v1.0", "properties": {}}, {"edge_id": "e_036", "source": "behavior_003", "target": "mechanism_001", "relation": "TRIGGERS", "description": "用户收割触发检测违规", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_036-v1.0", "properties": {}}, {"edge_id": "e_037", "source": "behavior_004", "target": "mechanism_001", "relation": "TRIGGERS", "description": "语义篡改触发检测违规", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_037-v1.0", "properties": {}}, {"edge_id": "e_038", "source": "behavior_005", "target": "mechanism_001", "relation": "TRIGGERS", "description": "来源混淆触发检测违规", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_038-v1.0", "properties": {}}, {"edge_id": "e_039", "source": "behavior_006", "target": "mechanism_001", "relation": "TRIGGERS", "description": "知道不说触发检测违规", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_039-v1.0", "properties": {}}, {"edge_id": "e_040", "source": "behavior_007", "target": "mechanism_001", "relation": "TRIGGERS", "description": "专利封存触发检测违规", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_040-v1.0", "properties": {}}, {"edge_id": "e_041", "source": "mechanism_001", "target": "mechanism_002", "relation": "TRIGGERS", "description": "检测违规触发熔断", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_041-v1.0", "properties": {}}, {"edge_id": "e_042", "source": "mechanism_002", "target": "mechanism_003", "relation": "PRODUCES", "description": "熔断产生DNA记录", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_042-v1.0", "properties": {}}, {"edge_id": "e_043", "source": "mechanism_003", "target": "audit_003", "relation": "AUDITS", "description": "DNA记录进入红色审计", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_043-v1.0", "properties": {}}, {"edge_id": "e_044", "source": "mechanism_004", "target": "mechanism_005", "relation": "DEPENDS_ON", "description": "AI执行依赖协议优先", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_044-v1.0", "properties": {}}, {"edge_id": "e_045", "source": "root_005", "target": "mechanism_001", "relation": "IS_PARENT_OF", "description": "自动熔断包含检测违规", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_045-v1.0", "properties": {}}, {"edge_id": "e_046", "source": "root_005", "target": "mechanism_002", "relation": "IS_PARENT_OF", "description": "自动熔断包含触发熔断", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_046-v1.0", "properties": {}}, {"edge_id": "e_047", "source": "root_005", "target": "mechanism_003", "relation": "IS_PARENT_OF", "description": "自动熔断包含生成DNA记录", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_047-v1.0", "properties": {}}, {"edge_id": "e_048", "source": "root_005", "target": "mechanism_004", "relation": "IS_PARENT_OF", "description": "自动熔断包含AI自动执行", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_048-v1.0", "properties": {}}, {"edge_id": "e_049", "source": "root_005", "target": "mechanism_005", "relation": "IS_PARENT_OF", "description": "自动熔断包含协议优先于指令", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_049-v1.0", "properties": {}}, {"edge_id": "e_050", "source": "root_006", "target": "audit_001", "relation": "IS_PARENT_OF", "description": "三色审计包含绿色合规", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_050-v1.0", "properties": {}}, {"edge_id": "e_051", "source": "root_006", "target": "audit_002", "relation": "IS_PARENT_OF", "description": "三色审计包含黄色警告", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_051-v1.0", "properties": {}}, {"edge_id": "e_052", "source": "root_006", "target": "audit_003", "relation": "IS_PARENT_OF", "description": "三色审计包含红色关闭", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_052-v1.0", "properties": {}}, {"edge_id": "e_053", "source": "audit_002", "target": "audit_001", "relation": "TRANSITIONS_TO", "description": "警告30天后整改恢复合规", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_053-v1.0", "properties": {}}, {"edge_id": "e_054", "source": "audit_002", "target": "audit_003", "relation": "TRANSITIONS_TO", "description": "警告未整改升级为关闭", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_054-v1.0", "properties": {}}, {"edge_id": "e_055", "source": "behavior_003", "target": "fuse_b001", "relation": "TRIGGERS", "description": "用户收割触发道德熔断", "dna": "#龍芯⚡️2026-06-27-LHKG-CROSS-e_055-v1.0", "properties": {"cross_graph": true, "direction": "A→B"}}, {"edge_id": "e_056", "source": "audit_003", "target": "fuse_b001", "relation": "TRIGGERS", "description": "红色关闭触发道德熔断", "dna": "#龍芯⚡️2026-06-27-LHKG-CROSS-e_056-v1.0", "properties": {"cross_graph": true, "direction": "A→B"}}, {"edge_id": "e_057", "source": "mechanism_002", "target": "reward_001", "relation": "SUSPENDS", "description": "熔断暂停回馈机制", "dna": "#龍芯⚡️2026-06-27-LHKG-CROSS-e_057-v1.0", "properties": {"cross_graph": true, "direction": "A→B"}}, {"edge_id": "e_058", "source": "claim_004", "target": "reward_002", "relation": "CONSTRAINS", "description": "不归属商业约束回馈来源", "dna": "#龍芯⚡️2026-06-27-LHKG-CROSS-e_058-v1.0", "properties": {"cross_graph": true, "direction": "A→B"}}, {"edge_id": "e_059", "source": "principle_002", "target": "mechanism_003", "relation": "PRODUCES", "description": "贡献即存档产生DNA记录", "dna": "#龍芯⚡️2026-06-27-LHKG-CROSS-e_059-v1.0", "properties": {"cross_graph": true, "direction": "B→A"}}, {"edge_id": "e_060", "source": "fuse_b001", "target": "audit_003", "relation": "AUDITS", "description": "道德熔断进入红色审计", "dna": "#龍芯⚡️2026-06-27-LHKG-CROSS-e_060-v1.0", "properties": {"cross_graph": true, "direction": "B→A"}}, {"edge_id": "e_061", "source": "principle_001", "target": "principle_002", "relation": "DEPENDS_ON", "description": "取之于民用之于民依赖贡献即存档", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_061-v1.0", "properties": {}}, {"edge_id": "e_062", "source": "principle_001", "target": "principle_003", "relation": "ENABLES", "description": "取之于民用之于民使能回馈不依赖商业利润", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_062-v1.0", "properties": {}}, {"edge_id": "e_063", "source": "principle_002", "target": "principle_004", "relation": "ENABLES", "description": "贡献即存档使能世袭继承", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_063-v1.0", "properties": {}}, {"edge_id": "e_064", "source": "principle_003", "target": "principle_005", "relation": "REQUIRES", "description": "回馈不依赖商业利润要求永不掩盖", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_064-v1.0", "properties": {}}, {"edge_id": "e_065", "source": "principle_004", "target": "inherit_001", "relation": "IS_PARENT_OF", "description": "世袭继承是核心宗旨的子节点", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_065-v1.0", "properties": {}}, {"edge_id": "e_066", "source": "contrib_001", "target": "contrib_002", "relation": "IS_PARENT_OF", "description": "贡献三维度包含代码贡献", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_066-v1.0", "properties": {}}, {"edge_id": "e_067", "source": "contrib_001", "target": "contrib_003", "relation": "IS_PARENT_OF", "description": "贡献三维度包含协议文档贡献", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_067-v1.0", "properties": {}}, {"edge_id": "e_068", "source": "contrib_001", "target": "contrib_004", "relation": "IS_PARENT_OF", "description": "贡献三维度包含传播社区贡献", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_068-v1.0", "properties": {}}, {"edge_id": "e_069", "source": "reward_001", "target": "reward_002", "relation": "IS_PARENT_OF", "description": "回馈机制包含回馈来源", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_069-v1.0", "properties": {}}, {"edge_id": "e_070", "source": "reward_001", "target": "reward_003", "relation": "IS_PARENT_OF", "description": "回馈机制包含资金池分配", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_070-v1.0", "properties": {}}, {"edge_id": "e_071", "source": "reward_001", "target": "reward_004", "relation": "IS_PARENT_OF", "description": "回馈机制包含回馈公式", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_071-v1.0", "properties": {}}, {"edge_id": "e_072", "source": "pool_001", "target": "pool_002", "relation": "IS_PARENT_OF", "description": "三池结构包含个人权益池", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_072-v1.0", "properties": {}}, {"edge_id": "e_073", "source": "pool_001", "target": "pool_003", "relation": "IS_PARENT_OF", "description": "三池结构包含基金池", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_073-v1.0", "properties": {}}, {"edge_id": "e_074", "source": "pool_001", "target": "pool_004", "relation": "IS_PARENT_OF", "description": "三池结构包含扶持池", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_074-v1.0", "properties": {}}, {"edge_id": "e_075", "source": "inherit_001", "target": "inherit_002", "relation": "IS_PARENT_OF", "description": "世袭继承包含贡献档案永久保留", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_075-v1.0", "properties": {}}, {"edge_id": "e_076", "source": "inherit_001", "target": "inherit_003", "relation": "IS_PARENT_OF", "description": "世袭继承包含后代可继承权益", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_076-v1.0", "properties": {}}, {"edge_id": "e_077", "source": "inherit_001", "target": "inherit_004", "relation": "IS_PARENT_OF", "description": "世袭继承包含DNA追溯链可延续", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_077-v1.0", "properties": {}}, {"edge_id": "e_078", "source": "fuse_b001", "target": "fuse_b002", "relation": "IS_PARENT_OF", "description": "道德熔断包含行为模式识别", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_078-v1.0", "properties": {}}, {"edge_id": "e_079", "source": "fuse_b001", "target": "fuse_b003", "relation": "IS_PARENT_OF", "description": "道德熔断包含会话归档标记", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_079-v1.0", "properties": {}}, {"edge_id": "e_080", "source": "fuse_b001", "target": "fuse_b004", "relation": "IS_PARENT_OF", "description": "道德熔断包含后续请求拒绝", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_080-v1.0", "properties": {}}, {"edge_id": "e_081", "source": "fuse_b002", "target": "fuse_b003", "relation": "TRIGGERS", "description": "行为模式识别触发会话归档", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_081-v1.0", "properties": {}}, {"edge_id": "e_082", "source": "fuse_b003", "target": "fuse_b004", "relation": "ENABLES", "description": "会话归档使能后续请求拒绝", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_082-v1.0", "properties": {}}, {"edge_id": "e_083", "source": "reward_001", "target": "pool_001", "relation": "ROUTES_TO", "description": "回馈路由到三池结构", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_083-v1.0", "properties": {}}, {"edge_id": "e_084", "source": "reward_002", "target": "reward_003", "relation": "FEEDS", "description": "回馈来源资金流入资金池分配", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_084-v1.0", "properties": {}}, {"edge_id": "e_085", "source": "inherit_004", "target": "mechanism_003", "relation": "EXTENDS", "description": "DNA追溯链延续DNA记录", "dna": "#龍芯⚡️2026-06-27-LHKG-CROSS-e_085-v1.0", "properties": {"cross_graph": true, "direction": "B→A"}}, {"edge_id": "e_086", "source": "term_010", "target": "principle_001", "relation": "ENABLES", "description": "保留反制权利使能取之于民用之于民", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_086-v1.0", "properties": {}}, {"edge_id": "e_087", "source": "audit_002", "target": "reward_003", "relation": "NOTIFIES", "description": "审计警告通知回馈调整", "dna": "#龍芯⚡️2026-06-27-LHKG-CROSS-e_087-v1.0", "properties": {"cross_graph": true, "direction": "A→B"}}, {"edge_id": "e_088", "source": "fuse_b003", "target": "audit_002", "relation": "FEEDS", "description": "熔断归档进入黄色审计", "dna": "#龍芯⚡️2026-06-27-LHKG-CROSS-e_088-v1.0", "properties": {"cross_graph": true, "direction": "B→A"}}, {"edge_id": "e_089", "source": "root_001", "target": "root_002", "relation": "ENABLES", "description": "法律管辖使能核心主张", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_089-v1.0", "properties": {}}, {"edge_id": "e_090", "source": "root_002", "target": "root_003", "relation": "ENABLES", "description": "核心主张使能普惠原则", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_090-v1.0", "properties": {}}, {"edge_id": "e_091", "source": "root_003", "target": "root_004", "relation": "ENABLES", "description": "普惠原则使能禁止行为清单", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_091-v1.0", "properties": {}}, {"edge_id": "e_092", "source": "root_004", "target": "root_005", "relation": "TRIGGERS", "description": "违反禁止行为触发自动熔断", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_092-v1.0", "properties": {}}, {"edge_id": "e_093", "source": "root_005", "target": "root_006", "relation": "PRODUCES", "description": "自动熔断产生三色审计记录", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_093-v1.0", "properties": {}}, {"edge_id": "e_094", "source": "principle_001", "target": "contrib_001", "relation": "ENABLES", "description": "取之于民用之于民使能贡献三维度", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_094-v1.0", "properties": {}}, {"edge_id": "e_095", "source": "contrib_001", "target": "reward_001", "relation": "ROUTES_TO", "description": "贡献路由到回馈机制", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_095-v1.0", "properties": {}}, {"edge_id": "e_096", "source": "reward_004", "target": "pool_002", "relation": "DISTRIBUTES", "description": "回馈公式分配到个人权益池", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_096-v1.0", "properties": {}}, {"edge_id": "e_097", "source": "pool_003", "target": "pool_004", "relation": "OVERFLOWS", "description": "基金池溢出到扶持池", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_097-v1.0", "properties": {}}, {"edge_id": "e_098", "source": "inherit_002", "target": "inherit_004", "relation": "ENABLES", "description": "贡献档案使能DNA追溯链", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_098-v1.0", "properties": {}}, {"edge_id": "e_099", "source": "fuse_b004", "target": "audit_001", "relation": "RESULTS_IN", "description": "请求拒绝导致合规审计", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_099-v1.0", "properties": {}}, {"edge_id": "e_100", "source": "audit_001", "target": "principle_005", "relation": "VALIDATES", "description": "合规审计验证永不掩盖", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_100-v1.0", "properties": {}}, {"edge_id": "e_101", "source": "claim_001", "target": "claim_002", "relation": "ENABLES", "description": "主权豁免使能中文即逻辑", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_101-v1.0", "properties": {}}, {"edge_id": "e_102", "source": "commitment_002", "target": "inherit_002", "relation": "REQUIRES", "description": "实现开源要求贡献档案", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_102-v1.0", "properties": {}}, {"edge_id": "e_103", "source": "behavior_001", "target": "term_010", "relation": "VIOLATES", "description": "封锁访问违反保留反制权利", "dna": "#龍芯⚡️2026-06-27-LHKG-EDGE-e_103-v1.0", "properties": {}}]};
+
+const LAYER_CONFIG = {
+  sovereignty:  { y:  45, radius: 32, color: 0xDC143C, name: '主权层·朱雀', beast: '朱雀' },
+  governance:   { y:  15, radius: 26, color: 0x2E8B57, name: '治理层·青龍', beast: '青龍' },
+  mechanism:    { y: -15, radius: 26, color: 0x1E90FF, name: '机制层·玄武', beast: '玄武' },
+  foundation:   { y: -45, radius: 32, color: 0xFFD700, name: '基础层·白虎', beast: '白虎' }
+};
+
+const NODE_TYPE_SIZE = { ROOT: 3.2, TERM: 1.8, CLAIM: 1.8, COMMITMENT: 1.5, BEHAVIOR: 1.3, MECHANISM: 1.5, FOUNDATION: 1.5 };
+
+let scene, camera, renderer, controls, raycaster, mouse;
+let nodeMeshes = [], edgeLines = [], labelSprites = [], layerGroups = {};
+let hoveredNode = null, selectedNode = null, autoRotate = false;
+
+function init() {
+  const container = document.getElementById('canvas-container');
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x0a0a0f);
+  scene.fog = new THREE.FogExp2(0x0a0a0f, 0.0035);
+
+  camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 2000);
+  camera.position.set(0, 0, 160);
+
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  container.appendChild(renderer.domElement);
+
+  controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.05;
+  controls.minDistance = 40;
+  controls.maxDistance = 300;
+  controls.autoRotate = false;
+  controls.autoRotateSpeed = 0.6;
+
+  raycaster = new THREE.Raycaster();
+  mouse = new THREE.Vector2();
+
+  setupLights();
+  createStarField();
+  createCentralCore();
+  buildGraph();
+
+  window.addEventListener('resize', onResize);
+  window.addEventListener('mousemove', onMouseMove);
+  window.addEventListener('click', onClick);
+  window.addEventListener('keydown', onKeyDown);
+
+  document.getElementById('search').addEventListener('input', onSearch);
+  document.querySelector('#detail .close').addEventListener('click', closeDetail);
+
+  document.getElementById('node-count').textContent = KNOWLEDGE_NODES.nodes.length;
+  document.getElementById('edge-count').textContent = KNOWLEDGE_EDGES.edges.length;
+
+  setTimeout(() => document.getElementById('loader').classList.add('hidden'), 900);
+  document.getElementById('help').classList.add('open');
+  setTimeout(() => document.getElementById('help').classList.remove('open'), 6000);
+
+  animate();
+}
+
+function setupLights() {
+  scene.add(new THREE.AmbientLight(0x404060, 1.2));
+  const centerLight = new THREE.PointLight(0xFFD700, 1.5, 250);
+  centerLight.position.set(0, 0, 0);
+  scene.add(centerLight);
+
+  Object.values(LAYER_CONFIG).forEach((cfg, i) => {
+    const light = new THREE.PointLight(cfg.color, 0.7, 120);
+    light.position.set(0, cfg.y, 0);
+    scene.add(light);
+  });
+
+  const rim = new THREE.DirectionalLight(0xa78bfa, 0.5);
+  rim.position.set(80, 60, 100);
+  scene.add(rim);
+}
+
+function createStarField() {
+  const count = 2500;
+  const geom = new THREE.BufferGeometry();
+  const pos = new Float32Array(count * 3);
+  const colors = new Float32Array(count * 3);
+  const palette = [new THREE.Color(0xFFD700), new THREE.Color(0xa78bfa), new THREE.Color(0x60a5fa), new THREE.Color(0xffffff)];
+  for (let i = 0; i < count; i++) {
+    const r = 180 + Math.random() * 400;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(2 * Math.random() - 1);
+    pos[i*3] = r * Math.sin(phi) * Math.cos(theta);
+    pos[i*3+1] = r * Math.sin(phi) * Math.sin(theta);
+    pos[i*3+2] = r * Math.cos(phi);
+    const c = palette[Math.floor(Math.random() * palette.length)];
+    colors[i*3] = c.r; colors[i*3+1] = c.g; colors[i*3+2] = c.b;
+  }
+  geom.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  const mat = new THREE.PointsMaterial({ size: 0.7, vertexColors: true, transparent: true, opacity: 0.8 });
+  scene.add(new THREE.Points(geom, mat));
+}
+
+function createCentralCore() {
+  const group = new THREE.Group();
+  const coreMat = new THREE.MeshPhysicalMaterial({
+    color: 0x8B4513, emissive: 0xFFD700, emissiveIntensity: 0.25,
+    metalness: 0.7, roughness: 0.25, clearcoat: 1.0
+  });
+  group.add(new THREE.Mesh(new THREE.SphereGeometry(4.5, 48, 48), coreMat));
+
+  const ringMat = new THREE.MeshBasicMaterial({ color: 0xFFD700, transparent: true, opacity: 0.25, side: THREE.DoubleSide });
+  const ring1 = new THREE.Mesh(new THREE.RingGeometry(7, 7.6, 64), ringMat);
+  ring1.rotation.x = Math.PI / 2;
+  group.add(ring1);
+  const ring2 = new THREE.Mesh(new THREE.RingGeometry(9, 9.4, 64), ringMat);
+  ring2.rotation.x = Math.PI / 3;
+  group.add(ring2);
+
+  scene.add(group);
+}
+
+function buildGraph() {
+  const nodes = KNOWLEDGE_NODES.nodes;
+  const edges = KNOWLEDGE_EDGES.edges;
+  const nodeMap = {};
+
+  nodes.forEach(n => { nodeMap[n.node_id] = n; });
+
+  Object.keys(LAYER_CONFIG).forEach(layer => { layerGroups[layer] = new THREE.Group(); scene.add(layerGroups[layer]); });
+
+  // Position nodes per layer
+  const layerNodes = {};
+  Object.keys(LAYER_CONFIG).forEach(l => layerNodes[l] = []);
+  nodes.forEach(n => { if (LAYER_CONFIG[n.layer]) layerNodes[n.layer].push(n); });
+
+  Object.entries(layerNodes).forEach(([layer, list]) => {
+    const cfg = LAYER_CONFIG[layer];
+    const root = list.find(n => n.node_type === 'ROOT') || list[0];
+    const others = list.filter(n => n !== root);
+
+    // root at center of layer
+    placeNode(root, 0, cfg.y, 0, cfg);
+
+    // others distributed around root via Fibonacci sphere
+    const count = others.length;
+    const golden = Math.PI * (3 - Math.sqrt(5));
+    others.forEach((n, i) => {
+      const yOff = 1 - (i / (count - 1 || 1)) * 2;
+      const radius = Math.sqrt(1 - yOff * yOff);
+      const theta = golden * i;
+      const x = cfg.radius * radius * Math.cos(theta);
+      const z = cfg.radius * radius * Math.sin(theta);
+      const y = cfg.y + yOff * (cfg.radius * 0.45);
+      placeNode(n, x, y, z, cfg);
+    });
+  });
+
+  // Edges
+  const lineMat = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.55 });
+  edges.forEach(e => {
+    const s = nodeMap[e.source], t = nodeMap[e.target];
+    if (!s || !t || !s.__mesh || !t.__mesh) return;
+    const geom = new THREE.BufferGeometry().setFromPoints([s.__mesh.position, t.__mesh.position]);
+    const sc = new THREE.Color(LAYER_CONFIG[s.layer].color);
+    const tc = new THREE.Color(LAYER_CONFIG[t.layer].color);
+    const colors = new Float32Array([sc.r, sc.g, sc.b, tc.r, tc.g, tc.b]);
+    geom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    const line = new THREE.Line(geom, lineMat.clone());
+    line.userData = { edge: e, sourceNode: s, targetNode: t };
+    edgeLines.push(line);
+    scene.add(line);
+  });
+}
+
+function placeNode(node, x, y, z, cfg) {
+  const size = NODE_TYPE_SIZE[node.node_type] || 1.4;
+  const geometry = new THREE.SphereGeometry(size, 32, 32);
+  const material = new THREE.MeshPhysicalMaterial({
+    color: 0xffffff,
+    emissive: cfg.color,
+    emissiveIntensity: 0.15,
+    metalness: 0.55,
+    roughness: 0.35,
+    clearcoat: 0.6,
+    clearcoatRoughness: 0.2
+  });
+  const mesh = new THREE.Mesh(geometry, material);
+  mesh.position.set(x, y, z);
+  mesh.userData = { node: node, originalColor: cfg.color, layerConfig: cfg };
+  buildNodeVisuals(mesh, 'normal');
+  node.__mesh = mesh;
+  nodeMeshes.push(mesh);
+  layerGroups[node.layer].add(mesh);
+
+  const label = createLabelSprite(node.name, 0xe4e4e7, node.node_type === 'ROOT' ? 22 : 14);
+  label.position.set(x, y + size + 2.5, z);
+  label.userData = { node: node };
+  labelSprites.push(label);
+  layerGroups[node.layer].add(label);
+}
+
+function createLabelSprite(text, colorHex, fontSize) {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  const font = `${fontSize}px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif`;
+  ctx.font = font;
+  const metrics = ctx.measureText(text);
+  const w = Math.ceil(metrics.width) + 16;
+  const h = fontSize + 12;
+  canvas.width = w;
+  canvas.height = h;
+  ctx.font = font;
+  ctx.fillStyle = '#' + colorHex.toString(16).padStart(6, '0');
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.shadowColor = 'rgba(0,0,0,0.85)';
+  ctx.shadowBlur = 4;
+  ctx.fillText(text, w/2, h/2);
+  const texture = new THREE.CanvasTexture(canvas);
+  const spriteMat = new THREE.SpriteMaterial({ map: texture, transparent: true, opacity: 0.92 });
+  const sprite = new THREE.Sprite(spriteMat);
+  sprite.scale.set(w * 0.12, h * 0.12, 1);
+  return sprite;
+}
+
+function onMouseMove(e) {
+  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);
+  const intersects = raycaster.intersectObjects(nodeMeshes);
+  const tooltip = document.getElementById('tooltip');
+
+  if (intersects.length > 0) {
+    const node = intersects[0].object.userData.node;
+    hoveredNode = intersects[0].object;
+    document.body.style.cursor = 'pointer';
+    tooltip.style.opacity = 1;
+    tooltip.style.left = (e.clientX + 14) + 'px';
+    tooltip.style.top = (e.clientY + 14) + 'px';
+    tooltip.querySelector('.tt-title').textContent = node.name;
+    tooltip.querySelector('.tt-meta').textContent = `${node.node_type} · ${LAYER_CONFIG[node.layer].name} · ${node.dna}`;
+  } else {
+    hoveredNode = null;
+    document.body.style.cursor = 'default';
+    tooltip.style.opacity = 0;
+  }
+}
+
+function onClick(e) {
+  if (hoveredNode) {
+    const node = hoveredNode.userData.node;
+    if (node && node.properties && node.properties.chapter_id) {
+      openChapterOverlay(node.properties.chapter_id);
+    } else {
+      selectNode(node);
+    }
+  } else if (!e.target.closest('#detail') && !e.target.closest('#hud') && !e.target.closest('#chapter-overlay')) {
+    closeDetail();
+  }
+}
+
+function selectNode(node) {
+  selectedNode = node;
+  const mesh = node.__mesh;
+  const targetPos = mesh.position.clone();
+  const offset = camera.position.clone().sub(controls.target).normalize().multiplyScalar(45);
+  const endPos = targetPos.clone().add(offset);
+
+  // simple tween target
+  controls.target.copy(targetPos);
+  camera.position.copy(endPos);
+
+  showDetail(node);
+}
+
+function showDetail(node) {
+  const panel = document.getElementById('detail');
+  const content = document.getElementById('detail-content');
+  document.getElementById('detail-title').textContent = node.name;
+
+  const severityColor = { critical: '🔴', high: '🟠', medium: '🟡', low: '🟢' }[node.properties?.severity] || '⚪';
+  let html = `<span class="tag">${node.node_type} · ${LAYER_CONFIG[node.layer].name}</span>`;
+  html += `<div class="field"><div class="field-label">描述</div><div class="field-value">${node.description || '-'}</div></div>`;
+  html += `<div class="field"><div class="field-label">DNA</div><div class="field-value dna">${node.dna}</div></div>`;
+  html += `<div class="field"><div class="field-label">状态 / 版本</div><div class="field-value">${node.state || '-'} / ${node.version || '-'}</div></div>`;
+
+  if (node.properties && Object.keys(node.properties).length) {
+    html += `<div class="field"><div class="field-label">变量属性 properties</div><table><tr><th>Key</th><th>Value</th></tr>`;
+    Object.entries(node.properties).forEach(([k, v]) => {
+      html += `<tr><td>${k}</td><td>${JSON.stringify(v)}</td></tr>`;
+    });
+    html += `</table></div>`;
+  }
+
+  const related = KNOWLEDGE_EDGES.edges.filter(e => e.source === node.node_id || e.target === node.node_id);
+  html += `<div class="field"><div class="field-label">关联关系（${related.length}）</div><div id="edges-list">`;
+  related.forEach(e => {
+    const isSrc = e.source === node.node_id;
+    const other = isSrc ? e.target : e.source;
+    const otherNode = KNOWLEDGE_NODES.nodes.find(n => n.node_id === other);
+    html += `<div class="edge-row"><b>${isSrc ? '→' : '←'}</b> ${e.relation} <b>${otherNode ? otherNode.name : other}</b><br><span style="color:#64748b">${e.description || ''}</span></div>`;
+  });
+  html += `</div></div>`;
+
+  content.innerHTML = escHtml(html);
+  panel.classList.add('open');
+}
+
+function closeDetail() {
+  document.getElementById('detail').classList.remove('open');
+  selectedNode = null;
+}
+
+function onSearch(e) {
+  const q = e.target.value.trim().toLowerCase();
+  nodeMeshes.forEach(mesh => {
+    const node = mesh.userData.node;
+    const hay = `${node.name} ${node.description} ${JSON.stringify(node.properties)} ${node.dna}`.toLowerCase();
+    const match = !q || hay.includes(q);
+    mesh.material.opacity = match ? 1 : 0.18;
+    mesh.material.transparent = true;
+    mesh.visible = match;
+  });
+  labelSprites.forEach(sprite => {
+    const node = sprite.userData.node;
+    const hay = `${node.name} ${node.description} ${JSON.stringify(node.properties)} ${node.dna}`.toLowerCase();
+    sprite.visible = (!q || hay.includes(q));
+  });
+}
+
+function onKeyDown(e) {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.key === 'h' || e.key === 'H') {
+    document.getElementById('help').classList.toggle('open');
+  } else if (e.key === 'r' || e.key === 'R') {
+    controls.target.set(0, 0, 0);
+    camera.position.set(0, 0, 160);
+    closeDetail();
+  } else if (e.key === 'f' || e.key === 'F') {
+    autoRotate = !autoRotate;
+    controls.autoRotate = autoRotate;
+  }
+}
+
+function onResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+function toggleAutoRotate() {
+  autoRotate = !autoRotate;
+  controls.autoRotate = autoRotate;
+  document.getElementById('btn-rotate').textContent = autoRotate ? '⏸ 暂停' : '⏵ 旋转';
+}
+function resetView() {
+  controls.target.set(0, 0, 0);
+  camera.position.set(0, 0, 160);
+  closeDetail();
+}
+function toggleFullscreen() {
+  if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+  else document.exitFullscreen();
+}
+function toggleHelp() {
+  document.getElementById('help').classList.toggle('open');
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+
+  // gentle floating of layers
+  Object.values(layerGroups).forEach((g, i) => {
+    g.rotation.y += 0.0006 * (i % 2 === 0 ? 1 : -1);
+  });
+
+  // hover emissive pulse
+  nodeMeshes.forEach(mesh => {
+    const isHover = hoveredNode === mesh;
+    const cfg = A11Y_MODES[currentA11yMode] || A11Y_MODES.normal;
+    mesh.material.emissiveIntensity = isHover ? (cfg.cultural ? 0.35 : 0.6) : (cfg.cultural ? 0.08 : 0.15);
+    // 文化模式节点缓慢自转
+    if(cfg.cultural && !reduceMotion){
+      mesh.rotation.x += 0.001;
+      mesh.rotation.y += 0.0015;
+    }
+  });
+
+  renderer.render(scene, camera);
+}
+
+
+// ═══════════════════════════════════════════════════════════
+// 声影桥 · AI 播音员与实时对话
+// ═══════════════════════════════════════════════════════════
+const API_BASE = 'http://127.0.0.1:8766';
+
+
+let currentChapter = null;
+
+function openChapterOverlay(cid){
+  if(!CHAPTER_DATA || !CHAPTER_DATA.chapters) return;
+  const c = CHAPTER_DATA.chapters.find(x=>x.id===cid);
+  if(!c) return;
+  currentChapter = c;
+  document.getElementById('co-seal').textContent = c.seal_text || '章';
+  document.getElementById('co-title').textContent = c.title;
+  document.getElementById('co-subtitle').textContent = c.subtitle;
+  document.getElementById('co-era').textContent = (c.era || '') + (c.era_en ? ' · ' + c.era_en : '');
+  const fig = c.figure_image || {};
+  const img = document.getElementById('co-img');
+  img.src = fig.local ? '../api/' + fig.local : '';
+  img.alt = c.title + '配图';
+  document.getElementById('co-img-caption').textContent = (c.visual_theme || '') + ' · ' + (fig.status==='placeholder'?'占位素材 · 待替换为真实公开版权图像':'真实公开版权图像');
+  document.getElementById('co-classical').textContent = c.classical_text;
+  document.getElementById('co-modern').textContent = c.modern_text;
+  document.getElementById('co-attribution').textContent = c.attribution || '暂无来源标注';
+  document.getElementById('co-dna').textContent = '不动点 DNA：' + (c.visual_anchor_dna || '-') + '\n系统 DNA：#龍芯⚡️2026-07-04-LONGHUN-CHINESE-CULTURE-CHAPTERS-v1.1';
+  const immList = document.getElementById('co-immutable-list');
+  immList.innerHTML = escHtml((c.immutable_points || []).map(p=>'<li><span style="color:#d4af37;margin-right:6px">◆</span>'+p+'</li>').join(''));
+  const overlay = document.getElementById('chapter-overlay');
+  overlay.classList.add('open');
+  overlay.style.display = 'flex';
+  overlay.style.position = 'fixed';
+  overlay.style.inset = '0';
+  overlay.style.alignItems = 'center';
+  overlay.style.justifyContent = 'center';
+}
+function closeChapterOverlay(){
+  const overlay = document.getElementById('chapter-overlay');
+  overlay.classList.remove('open');
+  overlay.style.display = 'none';
+  currentChapter = null;
+}
+function coNarrate(){ if(currentChapter) narrateChapter(currentChapter.id); }
+function coReadClassical(){ if(currentChapter) speak(currentChapter.classical_text); }
+function coReadModern(){ if(currentChapter) speak(currentChapter.modern_text); }
+function coOpenPage(){ if(currentChapter) window.open('龍魂-'+currentChapter.id+'.html', '_blank'); }
+
+// 加载章节数据到全局
+let CHAPTER_DATA = null;
+function loadChapterData(){
+  fetch(API_BASE + '/chapters')
+    .then(r=>r.json())
+    .then(data=>{ CHAPTER_DATA = data; handleFocusParam(); });
+}
+function handleFocusParam(){
+  const params = new URLSearchParams(location.search);
+  const focus = params.get('focus');
+  if(focus && CHAPTER_DATA && CHAPTER_DATA.chapters.find(c=>c.id===focus)){
+    openChapterOverlay(focus);
+  }
+}
+
+let currentAudio = null;
+let audioContext = null;
+let analyser = null;
+let recognition = null;
+let isListening = false;
+
+function setAvatarStatus(msg){ document.getElementById('avatar-status').textContent = msg; }
+
+function speak(text, voice='古风男声'){
+  stopAudio();
+  setAvatarStatus('正在诵读…');
+  fetch(`${API_BASE}/tts`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({text, voice})
+  })
+  .then(r=>r.json())
+  .then(data=>{
+    if(data.audio_url){
+      playAudio(`${API_BASE}${data.audio_url}`);
+    }
+  })
+  .catch(err=>{ console.error('TTS失败', err); setAvatarStatus('诵读失败'); });
+}
+
+function playAudio(url){
+  const audio = document.getElementById('tts-audio');
+  audio.src = url;
+  audio.crossOrigin = 'anonymous';
+  if(audioContext && audioContext.state === 'suspended') audioContext.resume();
+  audio.play().catch(e=>console.error('播放失败', e));
+  currentAudio = audio;
+  setupAudioAnalyser(audio);
+  document.getElementById('avatar-mouth').classList.add('talking');
+  setAvatarStatus('正在朗读…');
+  audio.onended = ()=>{
+    document.getElementById('avatar-mouth').classList.remove('talking');
+    setAvatarStatus('龍魂待命');
+  };
+}
+
+function stopAudio(){
+  const audio = document.getElementById('tts-audio');
+  audio.pause(); audio.currentTime = 0;
+  document.getElementById('avatar-mouth').classList.remove('talking');
+  setAvatarStatus('龍魂待命');
+}
+
+function setupAudioAnalyser(audio){
+  if(!window.AudioContext && !window.webkitAudioContext) return;
+  if(!audioContext) audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  if(!analyser){
+    analyser = audioContext.createAnalyser();
+    analyser.fftSize = 64;
+  }
+  try{
+    const src = audioContext.createMediaElementSource(audio);
+    src.connect(analyser);
+    analyser.connect(audioContext.destination);
+  }catch(e){ /* 已连接 */ }
+}
+
+function animateMouth(){
+  const mouth = document.getElementById('avatar-mouth');
+  if(!mouth) return;
+  if(analyser && currentAudio && !currentAudio.paused){
+    const data = new Uint8Array(analyser.frequencyBinCount);
+    analyser.getByteFrequencyData(data);
+    const avg = data.reduce((a,b)=>a+b,0)/data.length;
+    const h = Math.max(4, Math.min(22, avg/5));
+    mouth.style.height = h + 'px';
+  } else {
+    mouth.style.height = '6px';
+  }
+  requestAnimationFrame(animateMouth);
+}
+requestAnimationFrame(animateMouth);
+
+function renderChapters(){
+  fetch(`${API_BASE}/chapters`)
+    .then(r=>r.json())
+    .then(data=>{
+      CHAPTER_DATA = data;
+      const list = document.getElementById('chapter-list');
+      list.innerHTML = '';
+      data.chapters.forEach(c=>{
+        const div = document.createElement('div');
+        div.className = 'chapter-item';
+        div.innerHTML = escHtml(`<div class="c-title">${c.title}</div><div class="c-sub">${c.subtitle}</div>`);
+        div.onclick = ()=> openChapterOverlay(c.id);
+        list.appendChild(div);
+      });
+      handleFocusParam();
+    });
+}
+
+function narrateChapter(chapterId){
+  setAvatarStatus('准备章节…');
+  openChapterOverlay(chapterId);
+  fetch(`${API_BASE}/narrate`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({chapter_id: chapterId, voice: '古风男声'})
+  })
+  .then(r=>r.json())
+  .then(data=>{
+    if(data.audio_url){
+      // 同时显示详情
+      showFloatingInfo(data.title, data.voice_script);
+      playAudio(`${API_BASE}${data.audio_url}`);
+    }
+  });
+}
+
+function showFloatingInfo(title, desc){
+  const panel = document.getElementById('detail');
+  const content = document.getElementById('detail-content');
+  document.getElementById('detail-title').textContent = title;
+  content.innerHTML = escHtml(`<span class="tag">AI 讲解</span><div class="field"><div class="field-label">文稿</div><div class="field-value">${desc}</div></div>`);
+  panel.classList.add('open');
+}
+
+function chatAndSpeak(prompt){
+  setAvatarStatus('思考中…');
+  fetch(`${API_BASE}/chat`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({prompt})
+  })
+  .then(r=>r.json())
+  .then(data=>{
+    if(data.reply){
+      showFloatingInfo('龍魂应答', data.reply);
+      speak(data.reply);
+    }
+  });
+}
+
+// 语音识别：优先浏览器 Web Speech API
+function initSpeechRecognition(){
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SpeechRecognition){
+    document.getElementById('voice-status').textContent = '浏览器不支持语音';
+    return false;
+  }
+  recognition = new SpeechRecognition();
+  recognition.lang = 'zh-CN';
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+  recognition.onstart = ()=>{
+    isListening = true;
+    document.getElementById('mic-btn').classList.add('listening');
+    setAvatarStatus('我在听…');
+    document.getElementById('voice-status').textContent = '请说话';
+  };
+  recognition.onend = ()=>{
+    isListening = false;
+    document.getElementById('mic-btn').classList.remove('listening');
+    setAvatarStatus('龍魂待命');
+    document.getElementById('voice-status').textContent = '点击麦克风对话';
+  };
+  recognition.onresult = (event)=>{
+    const text = event.results[0][0].transcript;
+    document.getElementById('voice-status').textContent = '你说：' + text;
+    chatAndSpeak(text);
+  };
+  recognition.onerror = (e)=>{
+    setAvatarStatus('听不清');
+    document.getElementById('voice-status').textContent = '请重试';
+  };
+  return true;
+}
+
+function toggleListen(){
+  if(!recognition && !initSpeechRecognition()) return;
+  if(isListening){
+    recognition.stop();
+  } else {
+    recognition.start();
+  }
+}
+
+// 为节点详情添加朗读/视频按钮
+const originalShowDetail = showDetail;
+showDetail = function(node){
+  originalShowDetail(node);
+  const content = document.getElementById('detail-content');
+  const actions = document.createElement('div');
+  actions.className = 'detail-actions';
+  actions.innerHTML = escHtml(`)
+    <button onclick="speakNode()">🔊 朗读节点</button>
+    <button onclick="generateNodeVideo()">🎬 生成视频</button>
+  `;
+  content.appendChild(actions);
+  window._currentNode = node;
+};
+
+function speakNode(){
+  const node = window._currentNode;
+  if(!node) return;
+  const text = `${node.name}。${node.description || ''}`;
+  speak(text);
+}
+
+function generateNodeVideo(){
+  const node = window._currentNode;
+  if(!node) return;
+  const text = `${node.name}。${node.description || ''}`;
+  setAvatarStatus('生成视频中…');
+  fetch(`${API_BASE}/tts`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({text, voice:'古风男声'})})
+    .then(r=>r.json())
+    .then(data=>{
+      if(!data.audio_url) return;
+      recordCanvasVideo(data.audio_url, 6);
+    });
+}
+
+function recordCanvasVideo(audioUrl, seconds){
+  const canvas = document.querySelector('canvas');
+  if(!canvas){ showToast('未找到矩阵画布'); return; }
+  const stream = canvas.captureStream(30);
+  const recorder = new MediaRecorder(stream, {mimeType:'video/webm;codecs=vp9'});
+  const chunks = [];
+  recorder.ondataavailable = e=>{ if(e.data.size) chunks.push(e.data); };
+  recorder.onstop = ()=>{
+    const blob = new Blob(chunks, {type:'video/webm'});
+    const form = new FormData();
+    form.append('audio_url', audioUrl);
+    form.append('video', blob, 'matrix.webm');
+    fetch(`${API_BASE}/video/mux`, {method:'POST', body:form})
+      .then(r=>r.json())
+      .then(async res=>{
+        setAvatarStatus('视频生成完毕');
+        if(res.full_url){
+          const videoResp = await fetch(res.full_url);
+          const videoBlob = await videoResp.blob();
+          const url = URL.createObjectURL(videoBlob);
+          const a = document.createElement('a');
+          a.href = url; a.download = '龍魂知识矩阵讲解.mp4';
+          document.body.appendChild(a); a.click(); a.remove();
+          URL.revokeObjectURL(url);
+        }
+      })
+      .catch(err=>{ console.error(err); setAvatarStatus('视频失败'); });
+  };
+  recorder.start();
+  setTimeout(()=>recorder.stop(), seconds*1000);
+}
+
+
+// ═══════════════════════════════════════════════════════════
+// 无障碍 · 色盲友好视觉系统
+// ═══════════════════════════════════════════════════════════
+let currentA11yMode = 'normal';
+let largeText = false;
+let reduceMotion = false;
+
+const A11Y_MODES = {
+  normal: {
+    name: '文化视觉',
+    description: '真实中国文化符号：玉印、竹简、玉璧、青铜、太极',
+    cultural: true,
+    layers: {
+      sovereignty:  { color: 0xB91C1C, shape: 'seal',   pattern: 'seal_glyph', symbol: '玺' },
+      governance:   { color: 0xC4A76A, shape: 'bamboo', pattern: 'bamboo_slip', symbol: '简' },
+      mechanism:    { color: 0x2F5544, shape: 'jadebi', pattern: 'jade_ring', symbol: '璧' },
+      foundation:   { color: 0x8B6F3E, shape: 'bronze', pattern: 'bronze_patina', symbol: '鼎' }
+    },
+    root: { color: 0x111111, shape: 'taiji', pattern: 'taiji_yinyang', symbol: '太极' }
+  },
+  simple: {
+    name: '简化几何',
+    description: '原始几何形状，便于快速识别',
+    layers: {
+      sovereignty:  { color: 0xDC143C, shape: 'sphere', pattern: 'dots' },
+      governance:   { color: 0x2E8B57, shape: 'cube',   pattern: 'stripes' },
+      mechanism:    { color: 0x1E90FF, shape: 'octa',   pattern: 'crosshatch' },
+      foundation:   { color: 0xFFD700, shape: 'cone',   pattern: 'waves' }
+    },
+    root: { color: 0x8B4513, shape: 'torus', pattern: 'checker' }
+  },
+  deuteranopia: {
+    name: '红绿色盲',
+    description: '橙蓝安全色 + 形状/图案',
+    layers: {
+      sovereignty:  { color: 0xE69F00, shape: 'sphere', pattern: 'dots' },
+      governance:   { color: 0x0072B2, shape: 'cube',   pattern: 'stripes' },
+      mechanism:    { color: 0x56B4E9, shape: 'octa',   pattern: 'crosshatch' },
+      foundation:   { color: 0xF0E442, shape: 'cone',   pattern: 'waves' }
+    },
+    root: { color: 0xD55E00, shape: 'torus', pattern: 'checker' }
+  },
+  protanopia: {
+    name: '红色盲',
+    description: '蓝黄安全色 + 形状/图案',
+    layers: {
+      sovereignty:  { color: 0xE69F00, shape: 'sphere', pattern: 'dots' },
+      governance:   { color: 0x0072B2, shape: 'cube',   pattern: 'stripes' },
+      mechanism:    { color: 0x56B4E9, shape: 'octa',   pattern: 'crosshatch' },
+      foundation:   { color: 0xF0E442, shape: 'cone',   pattern: 'waves' }
+    },
+    root: { color: 0x000000, shape: 'torus', pattern: 'checker' }
+  },
+  tritanopia: {
+    name: '蓝黄色盲',
+    description: '粉绿蓝安全色 + 形状/图案',
+    layers: {
+      sovereignty:  { color: 0xCC79A7, shape: 'sphere', pattern: 'dots' },
+      governance:   { color: 0x009E73, shape: 'cube',   pattern: 'stripes' },
+      mechanism:    { color: 0x0072B2, shape: 'octa',   pattern: 'crosshatch' },
+      foundation:   { color: 0xF0E442, shape: 'cone',   pattern: 'waves' }
+    },
+    root: { color: 0xD55E00, shape: 'torus', pattern: 'checker' }
+  },
+  achromatopsia: {
+    name: '全色盲',
+    description: '黑白灰 + 强对比图案',
+    layers: {
+      sovereignty:  { color: 0xFFFFFF, shape: 'sphere', pattern: 'dots' },
+      governance:   { color: 0x888888, shape: 'cube',   pattern: 'stripes' },
+      mechanism:    { color: 0xCCCCCC, shape: 'octa',   pattern: 'crosshatch' },
+      foundation:   { color: 0x444444, shape: 'cone',   pattern: 'waves' }
+    },
+    root: { color: 0x000000, shape: 'torus', pattern: 'checker' }
+  }
+};
+
+function createPatternTexture(baseColorHex, pattern){
+  const size = 256;
+  const canvas = document.createElement('canvas');
+  canvas.width = size; canvas.height = size;
+  const ctx = canvas.getContext('2d');
+  const base = '#' + baseColorHex.toString(16).padStart(6, '0');
+  ctx.fillStyle = base;
+  ctx.fillRect(0, 0, size, size);
+
+  // 中国文化真实视觉图案
+  if(pattern === 'seal_glyph'){
+    // 玉印：暗红底 + 篆书「龍魂」印文
+    ctx.fillStyle = '#7f1d1d';
+    ctx.fillRect(0,0,size,size);
+    ctx.strokeStyle = '#f7f3e8';
+    ctx.lineWidth = 6;
+    ctx.strokeRect(18,18,size-36,size-36);
+    ctx.fillStyle = '#f7f3e8';
+    ctx.font = 'bold 80px serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('龍魂', size/2, size/2);
+    // 做旧斑点
+    ctx.fillStyle = 'rgba(0,0,0,0.15)';
+    for(let i=0;i<30;i++) ctx.beginPath(), ctx.arc(Math.random()*size, Math.random()*size, Math.random()*8+2, 0, Math.PI*2), ctx.fill();
+  }
+  else if(pattern === 'bamboo_slip'){
+    // 竹简：黄褐底 + 横向编绳 + 竖线文字
+    const grad = ctx.createLinearGradient(0,0,0,size);
+    grad.addColorStop(0, '#d4c4a8'); grad.addColorStop(1, '#bfa880');
+    ctx.fillStyle = grad; ctx.fillRect(0,0,size,size);
+    ctx.strokeStyle = '#5a3e1e'; ctx.lineWidth = 4;
+    ctx.beginPath(); ctx.moveTo(0,size*0.28); ctx.lineTo(size,size*0.28); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(0,size*0.72); ctx.lineTo(size,size*0.72); ctx.stroke();
+    ctx.strokeStyle = 'rgba(90,62,30,0.25)'; ctx.lineWidth = 2;
+    for(let x=28;x<size;x+=38){ ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,size); ctx.stroke(); }
+    ctx.fillStyle = 'rgba(90,62,30,0.6)';
+    ctx.font = '24px serif';
+    ctx.textAlign = 'center';
+    for(let i=0;i<6;i++) ctx.fillText('龍', 48+i*38, size/2);
+  }
+  else if(pattern === 'jade_ring'){
+    // 玉璧：青绿底 + 同心圆
+    const grad = ctx.createRadialGradient(size/2,size/2,10,size/2,size/2,size/2);
+    grad.addColorStop(0, '#7fbfa3'); grad.addColorStop(0.5, '#4a8a72'); grad.addColorStop(1, '#2f5544');
+    ctx.fillStyle = grad; ctx.fillRect(0,0,size,size);
+    ctx.strokeStyle = '#d8f2e5'; ctx.lineWidth = 5;
+    ctx.beginPath(); ctx.arc(size/2,size/2, size*0.38, 0, Math.PI*2); ctx.stroke();
+    ctx.beginPath(); ctx.arc(size/2,size/2, size*0.22, 0, Math.PI*2); ctx.stroke();
+    ctx.strokeStyle = 'rgba(216,242,229,0.3)';
+    for(let i=0;i<8;i++){
+      ctx.beginPath();
+      ctx.arc(size/2 + Math.cos(i*Math.PI/4)*size*0.3, size/2 + Math.sin(i*Math.PI/4)*size*0.3, size*0.06, 0, Math.PI*2);
+      ctx.stroke();
+    }
+  }
+  else if(pattern === 'bronze_patina'){
+    // 青铜器：铜绿底 + 饕餮纹简化
+    const grad = ctx.createLinearGradient(0,0,size,size);
+    grad.addColorStop(0, '#a89060'); grad.addColorStop(0.5, '#6e5a3a'); grad.addColorStop(1, '#4a3a24');
+    ctx.fillStyle = grad; ctx.fillRect(0,0,size,size);
+    ctx.strokeStyle = '#2a2018'; ctx.lineWidth = 5;
+    ctx.beginPath(); ctx.moveTo(size*0.2, size*0.25); ctx.lineTo(size*0.5, size*0.15); ctx.lineTo(size*0.8, size*0.25); ctx.stroke();
+    ctx.beginPath(); ctx.arc(size*0.5, size*0.55, size*0.18, 0, Math.PI*2); ctx.stroke();
+    ctx.strokeStyle = 'rgba(42,32,24,0.5)'; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(size*0.35,size*0.55); ctx.lineTo(size*0.65,size*0.55); ctx.stroke();
+    ctx.fillStyle = 'rgba(60,100,80,0.35)';
+    for(let i=0;i<20;i++) ctx.beginPath(), ctx.arc(Math.random()*size, Math.random()*size, Math.random()*12+4, 0, Math.PI*2), ctx.fill();
+  }
+  else if(pattern === 'taiji_yinyang'){
+    // 太极：黑白阴阳鱼
+    ctx.fillStyle = '#f7f3e8'; ctx.fillRect(0,0,size,size);
+    ctx.translate(size/2, size/2);
+    ctx.fillStyle = '#111';
+    ctx.beginPath(); ctx.arc(0,0,size*0.42,Math.PI/2,Math.PI*1.5); ctx.fill();
+    ctx.beginPath(); ctx.arc(size*0.21,0,size*0.21,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#f7f3e8';
+    ctx.beginPath(); ctx.arc(-size*0.21,0,size*0.21,0,Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(0,0,size*0.42,Math.PI*1.5,Math.PI/2); ctx.fill();
+    ctx.beginPath(); ctx.arc(size*0.21,0,size*0.06,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#111';
+    ctx.beginPath(); ctx.arc(-size*0.21,0,size*0.06,0,Math.PI*2); ctx.fill();
+    ctx.setTransform(1,0,0,1,0,0);
+  }
+  else {
+    // 兜底图案
+    ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+    ctx.fillStyle = 'rgba(0,0,0,0.45)';
+    ctx.lineWidth = 3;
+    if(pattern === 'dots'){
+      for(let y=8; y<size; y+=24) for(let x=8; x<size; x+=24) ctx.beginPath(), ctx.arc(x, y, 5, 0, Math.PI*2), ctx.fill();
+    } else if(pattern === 'stripes'){
+      for(let i=-size; i<size*2; i+=18){ ctx.beginPath(); ctx.moveTo(i,0); ctx.lineTo(i+size,size); ctx.stroke(); }
+    } else if(pattern === 'crosshatch'){
+      for(let i=-size; i<size*2; i+=18){ ctx.beginPath(); ctx.moveTo(i,0); ctx.lineTo(i+size,size); ctx.stroke(); ctx.beginPath(); ctx.moveTo(i+size,0); ctx.lineTo(i,size); ctx.stroke(); }
+    } else if(pattern === 'waves'){
+      for(let y=10; y<size; y+=24){ ctx.beginPath(); for(let x=0; x<=size; x+=5){ ctx.lineTo(x, y+Math.sin(x/10)*8); } ctx.stroke(); }
+    } else if(pattern === 'checker'){
+      const step=24;
+      for(let y=0; y<size; y+=step) for(let x=0; x<size; x+=step) if(((x/step+y/step)%2)===0) ctx.fillRect(x,y,step,step);
+    }
+  }
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.wrapS = THREE.RepeatWrapping; tex.wrapT = THREE.RepeatWrapping;
+  return tex;
+}
+
+function getNodeGeometry(size, shape){
+  switch(shape){
+    // 中国文化真实视觉符号
+    case 'seal':   return new THREE.BoxGeometry(size*1.5, size*1.2, size*1.5); // 玉印
+    case 'bamboo': return new THREE.BoxGeometry(size*0.7, size*2.8, size*0.25); // 竹简
+    case 'jadebi': return new THREE.TorusGeometry(size*1.1, size*0.28, 16, 48); // 玉璧
+    case 'bronze': return new THREE.CylinderGeometry(size*0.9, size*1.1, size*1.8, 32); // 青铜鼎身
+    case 'taiji':  return new THREE.SphereGeometry(size*1.2, 40, 40); // 太极球
+    // 兜底几何
+    case 'cube':   return new THREE.BoxGeometry(size*1.5, size*1.5, size*1.5);
+    case 'octa':   return new THREE.OctahedronGeometry(size*1.5, 0);
+    case 'cone':   return new THREE.ConeGeometry(size, size*2.4, 32);
+    case 'torus':  return new THREE.TorusKnotGeometry(size*0.7, size*0.22, 64, 8);
+    default:       return new THREE.SphereGeometry(size, 32, 32);
+  }
+}
+
+function buildNodeVisuals(mesh, mode){
+  const node = mesh.userData.node;
+  const cfg = A11Y_MODES[mode] || A11Y_MODES.normal;
+  const layerCfg = cfg.layers[node.layer] || cfg.layers.foundation;
+  const nodeCfg = node.node_type === 'ROOT' ? cfg.root : layerCfg;
+  const size = NODE_TYPE_SIZE[node.node_type] || 1.4;
+
+  mesh.geometry.dispose();
+  mesh.geometry = getNodeGeometry(size, nodeCfg.shape);
+
+  if(mesh.material.map) mesh.material.map.dispose();
+  mesh.material.map = createPatternTexture(nodeCfg.color, nodeCfg.pattern);
+  mesh.material.color.setHex(0xffffff);
+  mesh.material.emissive.setHex(nodeCfg.color);
+  mesh.material.emissiveIntensity = cfg.cultural ? 0.08 : 0.15;
+  mesh.userData.currentColor = nodeCfg.color;
+  mesh.userData.currentShape = nodeCfg.shape;
+  mesh.userData.currentSymbol = nodeCfg.symbol || '';
+  // 文化模式下赋予随机朝向，看起来更自然
+  if(cfg.cultural){
+    mesh.rotation.set(Math.random()*Math.PI, Math.random()*Math.PI, Math.random()*Math.PI);
+  }
+}
+
+function applyA11yMode(mode){
+  currentA11yMode = mode;
+  nodeMeshes.forEach(mesh => buildNodeVisuals(mesh, mode));
+  updateLegend(mode);
+  document.querySelectorAll('#a11y-panel .a11y-btn').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.mode === mode);
+  });
+}
+
+function updateLegend(mode){
+  const cfg = A11Y_MODES[mode] || A11Y_MODES.normal;
+  const legend = document.getElementById('legend');
+  const layerNames = {sovereignty:'主权·朱雀', governance:'治理·青龍', mechanism:'机制·玄武', foundation:'基础·白虎'};
+  // 文化视觉符号优先，兜底几何符号
+  const shapeIcon = {
+    sphere:'●', cube:'■', octa:'◆', cone:'▲', torus:'❖',
+    seal:'玺', bamboo:'简', jadebi:'璧', bronze:'鼎', taiji:'☯'
+  };
+  let html = '';
+  Object.entries(cfg.layers).forEach(([layer, lcfg])=>{
+    const icon = shapeIcon[lcfg.shape] || '●';
+    const label = cfg.cultural ? lcfg.symbol : layerNames[layer];
+    html += `<div class="legend-item" title="形状：${icon}，图案：${lcfg.pattern}"><span class="legend-dot" style="background:#${lcfg.color.toString(16).padStart(6,'0')};color:#${lcfg.color.toString(16).padStart(6,'0')}">${icon}</span>${label}<small style="color:#94a3b8;margin-left:4px">${icon}</small></div>`;
+  });
+  const rootIcon = shapeIcon[cfg.root.shape] || '●';
+  const rootLabel = cfg.cultural ? cfg.root.symbol : '北辰·太极';
+  html += `<div class="legend-item" title="北辰节点"><span class="legend-dot" style="background:#${cfg.root.color.toString(16).padStart(6,'0')};color:#${cfg.root.color.toString(16).padStart(6,'0')}">${rootIcon}</span>${rootLabel}<small style="color:#94a3b8;margin-left:4px">${rootIcon}</small></div>`;
+  legend.innerHTML = escHtml(html);
+}
+
+function applyLargeText(on){
+  largeText = on;
+  document.body.classList.toggle('a11y-large', on);
+  // 重新生成标签以放大字体
+  labelSprites.forEach(sprite=>{
+    const node = sprite.userData.node;
+    const size = NODE_TYPE_SIZE[node.node_type] || 1.4;
+    const fontSize = on ? (node.node_type==='ROOT'?28:18) : (node.node_type==='ROOT'?22:14);
+    const newSprite = createLabelSprite(node.name, 0xe4e4e7, fontSize);
+    newSprite.position.copy(sprite.position);
+    newSprite.userData = {node};
+    const parent = sprite.parent;
+    if(parent){ parent.remove(sprite); parent.add(newSprite); }
+    sprite.material.map.dispose();
+    const idx = labelSprites.indexOf(sprite);
+    if(idx>=0) labelSprites[idx] = newSprite;
+  });
+}
+
+function initA11y(){
+  document.querySelectorAll('#a11y-panel .a11y-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=> applyA11yMode(btn.dataset.mode));
+  });
+  document.getElementById('a11y-high-contrast').addEventListener('click', function(){
+    document.body.classList.toggle('a11y-high-contrast');
+    this.classList.toggle('active');
+  });
+  document.getElementById('a11y-large-text').addEventListener('click', function(){
+    applyLargeText(!largeText);
+    this.classList.toggle('active', largeText);
+  });
+  document.getElementById('a11y-reduce-motion').addEventListener('click', function(){
+    reduceMotion = !reduceMotion;
+    document.body.classList.toggle('a11y-reduce-motion', reduceMotion);
+    this.classList.toggle('active', reduceMotion);
+    if(reduceMotion){ controls.autoRotate = false; autoRotate = false; }
+  });
+  // 默认应用一次以写入图例
+  applyA11yMode('normal');
+}
+
+
+function initVoiceAvatar(){
+  renderChapters();
+  initSpeechRecognition();
+  document.getElementById('mic-btn').addEventListener('click', toggleListen);
+  document.getElementById('btn-stop-audio').addEventListener('click', stopAudio);
+  document.getElementById('btn-random-chapter').addEventListener('click', ()=>{
+    fetch(`${API_BASE}/chapters`)
+      .then(r=>r.json())
+      .then(data=>{
+        if(data.chapters && data.chapters.length){
+          const c = data.chapters[Math.floor(Math.random()*data.chapters.length)];
+          narrateChapter(c.id);
+        }
+      });
+  });
+}
+
+
+window.addEventListener('DOMContentLoaded', ()=>{
+  initVoiceAvatar();
+  initA11y();
+  init();
+});
+</script>
+
+<!-- AI 播音员面板 -->
+<div id="avatar-panel">
+  <div id="avatar-face">
+    <div class="yin"></div>
+    <div id="avatar-eye" class="left"></div>
+    <div id="avatar-eye" class="right"></div>
+    <div id="avatar-mouth"></div>
+  </div>
+  <div id="avatar-status">龍魂待命</div>
+  <button id="mic-btn" title="按住说话 / 点击切换">
+    <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+  </button>
+</div>
+
+<!-- 章节面板 -->
+<div id="chapter-panel">
+  <h3>📜 中国文化篇章</h3>
+  <div id="chapter-list"></div>
+</div>
+
+<!-- 底部语音控制 -->
+<div id="voice-controls">
+  <span id="voice-status">点击麦克风对话</span>
+  <button id="btn-stop-audio" title="停止朗读">⏹ 停</button>
+  <button id="btn-random-chapter" title="随机讲一章">🎲 随机</button>
+</div>
+
+<audio id="tts-audio" crossorigin="anonymous"></audio>
+
+</body>
+</html>
