@@ -225,6 +225,7 @@ output/*.mp4
 output/videos/
 videos/
 longhun-font/output/
+10_PORTAL/downloads/fonts/
 papers/*/md2docx_out/
 *.mp3
 *.wav
