@@ -1,3 +1,4 @@
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 /**
  * 龍魂容器收入口 · Drop Zone
  * DNA: #龍芯⚡️2026-07-12-LONGHUN-INTAKE-DROPZONE-v1.0

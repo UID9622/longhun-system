@@ -649,8 +649,8 @@ def main():
     engine = TripleSovereigntyEngine(password=args.password)
 
     if args.server:
-        print(f"🐉 三重主权引擎 API 启动: http://0.0.0.0:{args.port}")
-        app.run(host="0.0.0.0", port=args.port, threaded=True)
+        print(f"🐉 三重主权引擎 API 启动: http://127.0.0.1:{args.port}")
+        app.run(host="127.0.0.1", port=args.port, threaded=True)
         return
 
     if args.status:

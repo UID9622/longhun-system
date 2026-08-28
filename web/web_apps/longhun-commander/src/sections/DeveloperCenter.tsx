@@ -1,3 +1,4 @@
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 // 开发者接入中心 · API/MCP/SDK/文档
 // DNA: #龍芯⚡️2026-06-28-LONGHUN-HEART-TALK-v2.0
 
