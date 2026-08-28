@@ -1,12 +1,6 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
-#!/usr/bin/env python3
-from __future__ import annotations
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-CHECK-v1.0
+# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-CHECK-v1.0
 
 """
 LonghunFont 字元库校验器 v1.0
@@ -19,7 +13,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-CHECK-v1.0"
+DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-CHECK-v1.0"
 
 REQUIRED_TOP_KEYS = ["DNA追溯码", "元数据", "三色审计_cnsh9622", "字符集_cnsh9622"]
 REQUIRED_GLYPH_KEYS = ["unicode", "笔画数", "结构", "风格参数", "笔画路径_cnsh9622"]
@@ -55,16 +49,18 @@ def load_library(path: Path):
         return json.load(f)
 
 
-def validate_structure(data: dict[str, Any], errors: list[Any]):
+def validate_structure(data: dict, errors: list):
     """校验顶层结构"""
     for key in REQUIRED_TOP_KEYS:
         if key not in data:
             errors.append(f"缺少顶层键: {key}")
 
 
-def validate_glyphs(data: dict[str, Any], errors: list[Any]):
+def validate_glyphs(data: dict, errors: list):
     """校验每个字元条目"""
     glyphs = data.get("字符集_cnsh9622", {})
+    if not glyphs:
+        return
     if not isinstance(glyphs, dict):
         errors.append("字符集_cnsh9622 必须是字典")
         return
@@ -107,7 +103,7 @@ def validate_glyphs(data: dict[str, Any], errors: list[Any]):
             )
 
 
-def count_categories(glyphs: dict[str, Any]):
+def count_categories(glyphs: dict):
     """分类统计字元"""
     chinese = 0
     latin = 0

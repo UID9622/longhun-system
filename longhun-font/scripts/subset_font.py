@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷇比-FIX_DNA-v1.0
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
-#!/usr/bin/env python3
-# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-SUBSET-v1.0
+# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-SUBSET-v1.0
 
 """
 LonghunFont 字体子集生成器 v1.0
@@ -19,7 +14,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-SUBSET-v1.0"
+DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-SUBSET-v1.0"
 
 # 尝试复用 build_font.py 的 build_otf 函数；失败时退化为子进程调用
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -33,12 +28,12 @@ except Exception:
     HAS_BUILD_OTF_IMPORT = False
 
 
-def load_glyph_library(path: str) -> dict[str, Any]:
+def load_glyph_library(path: str) -> dict:
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
-def collect_wanted_chars(args) -> set[str]:
+def collect_wanted_chars(args) -> set:
     wanted = set()
 
     if args.text:
@@ -60,7 +55,7 @@ def collect_wanted_chars(args) -> set[str]:
     return wanted
 
 
-def build_subset_library(full_data: dict[str, Any], wanted: set[str]) -> dict[str, Any]:
+def build_subset_library(full_data: dict, wanted: set) -> dict:
     full_chars = full_data.get("字符集_cnsh9622", {})
     subset_chars = {}
     missing = set()
@@ -92,7 +87,7 @@ def build_subset_library(full_data: dict[str, Any], wanted: set[str]) -> dict[st
     return subset_data, missing
 
 
-def write_json(data: dict[str, Any], output_path: str) -> str:
+def write_json(data: dict, output_path: str) -> str:
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)

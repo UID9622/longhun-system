@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
-#!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-FRAGMENT-EXTRA-SOVEREIGNTY-v1.0
+# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-FRAGMENT-EXTRA-SOVEREIGNTY-v1.0
 
 """
 LonghunFont 扩展：20 枚中华文化主权图标碎片
@@ -17,7 +12,7 @@ import math
 from pathlib import Path
 from datetime import datetime
 
-DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-FRAGMENT-EXTRA-SOVEREIGNTY-v1.0"
+DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-FRAGMENT-EXTRA-SOVEREIGNTY-v1.0"
 
 
 def stroke_move(x, y):
@@ -81,9 +76,9 @@ SOVEREIGNTY_ICONS = [
         + star(500, 360, 14, 6)
     ),
 
-    # 2. 青龍
+    # 2. 青龙
     (
-        "青龍",
+        "青龙",
         polyline([
             (160, 420), (200, 340), (180, 280), (260, 240), (360, 260),
             (420, 220), (480, 260), (440, 320), (360, 360), (300, 420),

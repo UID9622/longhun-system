@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷇比-FIX_DNA-v1.0
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
-#!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-EXPAND-1000-v1.0
+# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-EXPAND-1000-v1.0
 
 """
 LonghunFont 扩展至 1000 字
@@ -20,7 +15,7 @@ from datetime import datetime
 sys.path.insert(0, str(Path(__file__).parent))
 from glyph_generator import generate_skeleton, structure_of, stroke_count_of
 
-DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-EXPAND-1000-v1.0"
+DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-EXPAND-1000-v1.0"
 
 # 约 1000 个常用汉字（去重后目标 1000）
 EXTRA_CHARS = (
@@ -35,7 +30,7 @@ EXTRA_CHARS = (
     "加家假价架间简见件建剑讲交教较接街节结解姐介今金进近尽京经"
     "惊京静境九久酒旧就居举句决军开看考科可渴克客课肯空口苦块快"
     "款况困拉来兰老乐类冷离里理力历立利例连脸练凉两了列林领留六"
-    "龍楼路旅绿乱妈马码吗买卖满慢忙毛么没每美妹们门梦米面民明名"
+    "龙楼路旅绿乱妈马码吗买卖满慢忙毛么没每美妹们门梦米面民明名"
     "命母木目拿哪那男南难脑内能你年念鸟您牛农女暖爬怕排牌派盘旁"
     "胖跑朋片漂票品平评苹凭破七期其奇起气汽千前钱强墙桥且亲青轻"
     "清情请秋求区取去趣全权却确然让热人认识日容如入三赛色山商上"

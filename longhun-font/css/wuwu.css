@@ -1,5 +1,5 @@
 /* 龍魂·六层来源链 / LongHun Six-Layer Source Chain */
-/* DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-WUWU-CSS-v1.0 */
+/* DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-WUWU-CSS-v1.0 */
 
 /*
  * 女娲五彩石渲染层 —— 跨平台文化主权标识
@@ -9,8 +9,9 @@
  */
 
 @font-face {
-  font-family: 'LonghunFont';
-  src: url('../output/LonghunFont-Regular.otf') format('opentype');
+  font-family: '龙魂字体';
+  src: url('../output/龙魂字体-Regular.woff2') format('woff2'),
+       url('../output/龙魂字体-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -18,7 +19,7 @@
 
 .wuwu-font,
 [data-wuwu="true"] {
-  font-family: 'LonghunFont', 'Noto Serif CJK SC', 'Source Han Serif SC', serif;
+  font-family: '龙魂字体', 'LonghunFont', 'Noto Serif CJK SC', 'Source Han Serif SC', serif;
   font-size: 24px;
   line-height: 1.8;
   /* 白色石需要深色底或描边才可见 */

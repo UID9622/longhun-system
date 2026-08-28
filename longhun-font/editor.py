@@ -1,10 +1,4 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
-# #龍芯⚡️丙午·甲午·己巳·乙丑·䷮困-AUTO-DNA-CAA4000F 自动注入·分层治理自愈引擎 · 来源可查
-#!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # 1 道统层 Dao           : 曾仕强老师
 # 2 精神层 Spirit        : Steve Jobs
@@ -12,7 +6,7 @@
 # 4 技术层 Technology    : Open Source
 # 5 系统层 System        : UID9622
 # 6 生命层 Life          : CNSH · LongHun (诸葛鑫 / 龍芯北辰)
-# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-EDITOR-v1.0
+# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-EDITOR-v1.0
 # 铁律: 来源不可删 · 影响不可覆 · 贡献不可抹
 
 """
@@ -33,9 +27,9 @@ from cnsh_font_engine_uid9622 import CNSH字元基础引擎_UID9622
 
 
 class LonghunFontEditor:
-    DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-EDITOR-v1.0"
+    DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-EDITOR-v1.0"
 
-    def __init__(self, glyph_path: str | None = None):
+    def __init__(self, glyph_path: str = None):
         self.base_dir = Path(__file__).parent
         self.glyph_path = Path(glyph_path) if glyph_path else self.base_dir / "glyphs" / "龍魂字元库_v0001.json"
         self.output_dir = self.base_dir / "output"
@@ -50,7 +44,7 @@ class LonghunFontEditor:
     # ═══════════════════════════════════════════════════════════
     # 关键字搜索
     # ═══════════════════════════════════════════════════════════
-    def search(self, keyword: str | None = None, unicode_prefix: str | None = None, structure: str | None = None):
+    def search(self, keyword: str = None, unicode_prefix: str = None, structure: str = None):
         """按关键字、Unicode 前缀或结构搜索字元"""
         results = []
         for char, data in self.engine.字元集_cnsh9622.items():
@@ -74,7 +68,7 @@ class LonghunFontEditor:
     # ═══════════════════════════════════════════════════════════
     # 渲染
     # ═══════════════════════════════════════════════════════════
-    def render_char(self, char: str, filename: str | None = None):
+    def render_char(self, char: str, filename: str = None):
         """渲染单个字元到 SVG"""
         if char not in self.engine.字元集_cnsh9622:
             print(f"❌ 字元库中不存在: {char}")
@@ -109,7 +103,7 @@ class LonghunFontEditor:
         for idx, stroke in enumerate(strokes):
             print(f"[{idx:02d}] {stroke['类型']}: {stroke}")
 
-    def add_stroke(self, char: str, stroke: dict[str, Any]):
+    def add_stroke(self, char: str, stroke: dict):
         """为字元添加笔画"""
         if char not in self.engine.字元集_cnsh9622:
             print(f"❌ 字元不存在: {char}")
@@ -118,7 +112,7 @@ class LonghunFontEditor:
         print(f"✅ 已为 {char} 添加笔画")
         return True
 
-    def update_stroke(self, char: str, index: int, stroke: dict[str, Any]):
+    def update_stroke(self, char: str, index: int, stroke: dict):
         """更新指定笔画"""
         if char not in self.engine.字元集_cnsh9622:
             print(f"❌ 字元不存在: {char}")
@@ -147,7 +141,7 @@ class LonghunFontEditor:
     # ═══════════════════════════════════════════════════════════
     # 保存与审计
     # ═══════════════════════════════════════════════════════════
-    def save(self, path: str | None = None):
+    def save(self, path: str = None):
         """保存字元库"""
         save_path = Path(path) if path else self.glyph_path
         data = {

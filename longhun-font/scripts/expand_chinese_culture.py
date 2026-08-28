@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷇比-FIX_DNA-v1.0
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
-#!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-CULTURE-EMOJI-v1.0
+# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-CULTURE-EMOJI-v1.0
 
 """
 LonghunFont 道德经/文言文关键字 + 中国风表情扩展
@@ -18,7 +13,7 @@ import math
 from pathlib import Path
 from datetime import datetime
 
-DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-CULTURE-EMOJI-v1.0"
+DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-CULTURE-EMOJI-v1.0"
 
 
 def stroke_move(x, y):
@@ -69,7 +64,7 @@ def rect(x1, y1, x2, y2):
 # ============================================================
 CULTURE_ICONS = {
     # 神兽祥瑞
-    "龍纹": polyline([
+    "龙纹": polyline([
         (160, 340), (220, 260), (320, 240), (420, 280), (460, 360),
         (400, 440), (300, 460), (200, 420), (160, 340)
     ]) + circle(260, 300, 20, segments=8) + polyline([(420, 280), (440, 220)]),

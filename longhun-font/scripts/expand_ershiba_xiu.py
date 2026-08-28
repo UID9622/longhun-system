@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
-#!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-FRAGMENT-ERSHIBA_XIU-v1.0
+# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-FRAGMENT-ERSHIBA_XIU-v1.0
 
 """
 LonghunFont 二十八宿（lunar mansions）字元片段生成器
@@ -18,7 +13,7 @@ import math
 from pathlib import Path
 from datetime import datetime
 
-DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-FRAGMENT-ERSHIBA_XIU-v1.0"
+DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-FRAGMENT-ERSHIBA_XIU-v1.0"
 
 NAME = "ershiba_xiu"
 DESCRIPTION = "二十八宿 lunar mansions"
@@ -82,26 +77,26 @@ def star(cx, cy, r, points=5):
 # 二十八宿简化符号：星点 + 简笔动物 / 器物组合
 # ============================================================
 ERSHIBA_XIU = {
-    # 东方青龍七宿
+    # 东方青龙七宿
     "角": (
-        # 龍角：分叉向上的角
+        # 龙角：分叉向上的角
         polyline([(260, 420), (260, 280), (200, 180)]) +
         polyline([(340, 420), (340, 280), (400, 180)]) +
         polyline([(220, 320), (380, 320)])
     ),
     "亢": (
-        # 龍颈：弯曲的颈部
+        # 龙颈：弯曲的颈部
         arc(300, 300, 120, math.pi, 2 * math.pi, segments=16) +
         polyline([(180, 300), (180, 420)]) + polyline([(420, 300), (420, 420)])
     ),
     "氐": (
-        # 龍根/胸：根基 + 分叉
+        # 龙根/胸：根基 + 分叉
         vline(300, 160, 440) +
         polyline([(300, 280), (220, 200)]) + polyline([(300, 280), (380, 200)]) +
         polyline([(220, 440), (300, 360), (380, 440)])
     ),
     "房": (
-        # 龍房/腹：房屋轮廓
+        # 龙房/腹：房屋轮廓
         polyline([(200, 440), (200, 240), (300, 160), (400, 240), (400, 440)]) +
         rect(240, 280, 360, 440)
     ),

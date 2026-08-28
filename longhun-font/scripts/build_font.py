@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷇比-FIX_DNA-v1.0
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
-#!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-BUILD-v2.0
+# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-BUILD-v2.0
 
 """
 LonghunFont 字体构建器 v2.0
@@ -26,7 +21,7 @@ from fontTools.pens.recordingPen import RecordingPen
 from fontTools.pens.transformPen import TransformPen
 from fontTools.misc.transform import Identity
 
-DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-BUILD-v2.0"
+DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-BUILD-v2.0"
 
 # 字框参数
 UNITS_PER_EM = 1000
@@ -131,7 +126,7 @@ def build_otf(glyph_path: str, output_path: str):
     with open(glyph_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    chars = data["字符集_cnsh9622"]
+    chars = data.get("字符集_cnsh9622", {})
     scale = UNITS_PER_EM / VIEWBOX
 
     cmap = {}

@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷜坎-FIX_DNA-v1.0
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
-#!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-GLYPH-GENERATOR-v2.0
+# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-GLYPH-GENERATOR-v2.0
 # 用途: 批量生成 LonghunFont 初始字元骨架 v2.0
 
 """
@@ -18,10 +13,9 @@ LonghunFont 字元批量生成器 v2.0
 import json
 from pathlib import Path
 from datetime import datetime
-from typing import Any
 
 
-DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-GLYPH-GENERATOR-v2.0"
+DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-GLYPH-GENERATOR-v2.0"
 
 # 常用汉字列表（200字）
 CORE_CHARS = (
@@ -35,7 +29,7 @@ CORE_CHARS = (
     "工农科技智慧学问思考"
     "创新团结奋斗强盛贵望"
     "信爱真善美德道理法将"
-    "王皇帝龍魂中华民芯"
+    "王皇帝龙魂中华民芯"
     "制造产业机器电脑软件"
     "系统网络安全数据云端"
     "智能硬件芯片材料能源"
@@ -134,7 +128,7 @@ def stroke_count_of(char: str) -> int:
         "工": 3, "农": 6, "科": 9, "技": 7, "智": 12, "慧": 15, "学": 8, "问": 6, "思": 9, "考": 6,
         "创": 12, "新": 13, "团": 6, "结": 9, "奋": 8, "斗": 4, "盛": 11, "贵": 9, "望": 11, "信": 9,
         "爱": 10, "真": 10, "善": 12, "美": 9, "德": 15, "道": 12, "理": 11, "法": 8, "将": 9, "王": 4,
-        "皇": 9, "帝": 9, "龍": 5, "魂": 13, "中": 4, "华": 6, "民": 5, "芯": 7,
+        "皇": 9, "帝": 9, "龙": 5, "魂": 13, "中": 4, "华": 6, "民": 5, "芯": 7,
         "制": 8, "造": 10, "产": 6, "业": 5, "机": 6, "器": 16, "电": 5, "脑": 10, "软": 8, "件": 6,
         "系": 7, "络": 9, "安": 6, "全": 6, "数": 13, "据": 11, "云": 4, "端": 14,
         "汽": 7, "车": 4, "飞": 3, "铁": 10, "路": 13, "桥": 10, "梁": 11, "建": 8, "筑": 12,
@@ -189,7 +183,7 @@ def _box_with_cross(x1, y1, x2, y2):
 # 按结构生成骨架
 # ---------------------------------------------------------------------------
 
-def generate_skeleton(char: str) -> list[Any]:
+def generate_skeleton(char: str) -> list:
     """根据结构生成参数化笔画骨架"""
     structure = structure_of(char)
 
@@ -284,7 +278,7 @@ def generate_skeleton(char: str) -> list[Any]:
     return _box_with_cross(100, 100, 500, 500)
 
 
-def generate_glyph_library(chars: str = CORE_CHARS, output_path: str | None = None):
+def generate_glyph_library(chars: str = CORE_CHARS, output_path: str = None):
     """生成字元库 JSON"""
     base_dir = Path(__file__).parent.parent
     output_path = Path(output_path) if output_path else base_dir / "glyphs" / "龍魂字元库_v0002_扩展.json"

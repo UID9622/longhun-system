@@ -1,0 +1,26 @@
+/*
+ * DNA追溯码:#龍芯⚡️2026-07-25-LONGHUN-FONT-CSS-v2.0
+ * 创建者: 诸葛鑫（UID9622）
+ * 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+ * 龙魂字体 Web Font Face
+ * 优先使用 WOFF2（2.46 MB，适合网页），回退到 OTF
+ */
+
+@font-face {
+  font-family: '龙魂字体';
+  src: url('../output/龙魂字体-Regular.woff2') format('woff2'),
+       url('../output/龙魂字体-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.龙魂字体 {
+  font-family: '龙魂字体', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* 兼容性：旧英文类名仍然可用 */
+.longhun-font,
+.LonghunFont {
+  font-family: '龙魂字体', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}

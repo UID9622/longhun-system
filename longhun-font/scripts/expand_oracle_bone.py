@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-# DNA: #龍芯⚡️丙午·乙未·乙丑·壬午·䷇比-FIX_DNA-v1.0
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
-#!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
-# DNA追溯码:#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-ORACLE-BONE-v1.0
+# DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-ORACLE-BONE-v1.0
 
 """
 LonghunFont 甲骨文字符扩展
@@ -19,7 +14,7 @@ import math
 from pathlib import Path
 from datetime import datetime
 
-DNA = "#龍芯⚡️丙午·甲午·丁卯·丙午·䷚颐-LONGHUN-FONT-ORACLE-BONE-v1.0"
+DNA = "#龍芯⚡️2026-06-22-LONGHUN-FONT-ORACLE-BONE-v1.0"
 
 
 def stroke_move(x, y):
@@ -135,7 +130,7 @@ ORACLE_BONE = {
           polyline([(200, 340), (160, 300)]),
     "虎": polyline([(200, 340), (260, 220), (340, 220), (400, 340), (340, 460), (260, 460), (200, 340)]) +
           polyline([(260, 280), (340, 280)]) + polyline([(260, 360), (340, 360)]),
-    "龍": polyline([(160, 340), (220, 240), (320, 220), (420, 260), (440, 360), (380, 440), (280, 460), (180, 420), (160, 340)]) +
+    "龙": polyline([(160, 340), (220, 240), (320, 220), (420, 260), (440, 360), (380, 440), (280, 460), (180, 420), (160, 340)]) +
           circle(260, 300, 20, segments=8),
     "凤": polyline([(220, 380), (260, 260), (340, 260), (380, 380), (340, 460), (260, 460), (220, 380)]) +
           polyline([(340, 260), (380, 180)]) + polyline([(300, 460), (300, 500)]),
