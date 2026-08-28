@@ -295,6 +295,9 @@ class OpenSourceGovernanceSubsystem:
     name = "open_source"
     pain_point = "开源生态被饿死"
 
+    def __init__(self, conn: sqlite3.Connection):
+        self.conn = conn
+
 
     def honor(self, contributor: str, contribution: str, evidence: str = "") -> Dict[str, Any]:
         dna = generate_dna("HONOR")
@@ -362,6 +365,9 @@ class RuleEngineSubsystem:
     name = "rule_engine"
     pain_point = "AI治理规则碎片化"
 
+    def __init__(self, conn: sqlite3.Connection):
+        self.conn = conn
+
 
     def shame(self, pain_point: str, actor: str, reason: str, evidence: str = "") -> Dict[str, Any]:
         dna = generate_dna("SHAME")
@@ -399,6 +405,9 @@ class ShadowAISubsystem:
 
     name = "shadow_ai"
     pain_point = "影子AI横行"
+
+    def __init__(self, conn: sqlite3.Connection):
+        self.conn = conn
 
 
     def detect(self, tool_name: str, user: str, evidence: str = "") -> Dict[str, Any]:

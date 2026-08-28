@@ -350,7 +350,15 @@ class MemoryArchive:
 
     def _load_stats(self) -> Dict:
         if self.stats_file.exists():
-            return json.loads(self.stats_file.read_text(encoding="utf-8"))
+            raw = self.stats_file.read_text(encoding="utf-8")
+            # 🔥 兼容 script-manager 注入的 DNA/CONFIRM/SEAL 注释头（# 开头行）
+            lines = [ln for ln in raw.splitlines() if not ln.strip().startswith("#")]
+            raw = "\n".join(lines)
+            if raw.strip():
+                try:
+                    return json.loads(raw)
+                except json.JSONDecodeError:
+                    pass
         return {"archived_count": 0, "pending_count": 0, "quarantined_count": 0, "bytes_saved": 0}
 
     # ---------- 查询 ----------

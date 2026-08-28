@@ -21,6 +21,7 @@ import json
 import hashlib
 import time
 import sys
+import argparse
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Optional
@@ -66,6 +67,9 @@ class Storyboard:
     total_duration: int
     dna: str = field(default_factory=lambda: generate_dna("STORYBOARD"))
 
+    def to_dict(self) -> Dict:
+        return asdict(self)
+
 
 
 @dataclass
@@ -75,6 +79,9 @@ class EditPlan:
     transitions: List[str]
     music: str
     dna: str = field(default_factory=lambda: generate_dna("EDIT-PLAN"))
+
+    def to_dict(self) -> Dict:
+        return asdict(self)
 
 
 

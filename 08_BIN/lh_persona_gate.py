@@ -401,6 +401,9 @@ class PersonaGate:
             sys.stdout.flush()  # 🔥 强制刷新，确保头部先于子进程输出
 
         # ── 4. 执行命令 ──
+        # 🔥 修复 v2.0 (2026-08-28): SUB_DISPATCH 中 '../' 相对路径解析（71处 ../05_ENGINES/ 等引擎）
+        #    '../' 相对 bin/ 目录: bin/../05_ENGINES/x.py = 项目根/05_ENGINES/x.py
+        #    统一拼接后交给 subprocess 以 ROOT 为 cwd 解析，与 lh.py 旧路径行为一致
         script_path = SYSTEM_ROOT / "bin" / script_name
         args_list = [sys.executable, str(script_path)]
 
