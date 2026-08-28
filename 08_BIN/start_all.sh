@@ -52,9 +52,9 @@ case "$MODE" in
 
         sleep 2
 
-        # 启动 Web 门户
+        # 启动 Web 门户（绝对路径·单一真相源 08_BIN/，防同名歧义）
         echo "   🚀 启动 Web 门户 (端口 8777)..."
-        python3 web_server.py > logs/web.log 2>&1 &
+        python3 "$PROJECT_ROOT/08_BIN/web_server.py" > "$PROJECT_ROOT/logs/web.log" 2>&1 &
         WEB_PID=$!
         echo "   ✅ Web 门户 PID: $WEB_PID"
 

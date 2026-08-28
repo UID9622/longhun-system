@@ -413,3 +413,13 @@ experiments/turbulence/output/
 capabilities/daemon.pid
 *.npz
 *.aiff
+
+# 2026-08-28 复盘清理·二进制/运行时/误纳源（防 add -A 误加·Claude资产不入库）
+12_DOCS/claude-session-assets/
+12_DOCS/tech/downloads_archive/
+core/valuation/*.xlsx
+exchange/api.pid
+papers/**/*.docx
+research/**/*.pdf
+skills/longhun-deployment-ready/docs/DEPLOYMENT_READY_CHECKLIST_2026-06-10.md
+skills/longhun-deployment-ready/docs/DEPLOYMENT_READY_CHECKLIST_2026-06-10.md.asc

@@ -116,7 +116,7 @@ SCRIPTS=(
     "bin/lh_anti_tamper.py"
     "bin/hetu_luoshu_dna.py"
     "backend/main.py"
-    "web_server.py"
+    "08_BIN/web_server.py"
 )
 for script in "${SCRIPTS[@]}"; do
     if [ -f "$script" ]; then
@@ -131,7 +131,7 @@ echo "🐉 ========================================"
 echo "   🟢 开发环境搭建完成！"
 echo ""
 echo "   启动后端:   python backend/main.py"
-echo "   启动门户:   python web_server.py"
+echo "   启动门户:   python3 08_BIN/web_server.py"
 echo "   一键启动:   bash bin/start_all.sh"
 echo "   Docker:     docker compose up -d"
 echo ""

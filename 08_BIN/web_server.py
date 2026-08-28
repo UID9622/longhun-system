@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-#!/usr/bin/env python3
 #龍芯⚡️丙午·丙申·丙辰·巳时·䷄需-WEB-SERVER-v2.0
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
@@ -18,15 +17,17 @@ DNA: #龍芯⚡️丙午·丙申·丙辰·巳时·䷄需-WEB-SERVER-v2.0
 - WebSocket 代理
 """
 
+import logging
 import os
-import sys
 from pathlib import Path
 
-from fastapi import FastAPI, Request
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
-from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
+
+logger = logging.getLogger("longhun.web_server")
 
 # 项目根路径（本脚本位于 08_BIN/ 下，向上两级为项目根）
 ROOT = Path(__file__).resolve().parent.parent
@@ -107,7 +108,7 @@ async def health():
 
 
 @app.get("/api/{path:path}")
-async def proxy_api(path: str, request: Request):
+async def proxy_api(path: str):
     """API 代理说明（实际由 Nginx 反向代理处理）"""
     return JSONResponse({
         "ok": True,
@@ -125,12 +126,12 @@ if __name__ == "__main__":
     port = int(os.environ.get("LONGHUN_WEB_PORT", "8777"))
     host = os.environ.get("LONGHUN_WEB_HOST", "0.0.0.0")
 
-    print(f"🐉 龍魂 Web 门户 v2.0 启动")
-    print(f"   地址: http://{host}:{port}")
-    print(f"   后端: {API_URL}")
-    print(f"   门户: {PORTAL_DIR}")
-    print(f"   Web:  {WEB_DIR}")
-    print(f"   报告: {REPORTS_DIR}")
+    logger.info("🐉 龍魂 Web 门户 v2.0 启动")
+    logger.info("   地址: http://%s:%s", host, port)
+    logger.info("   后端: %s", API_URL)
+    logger.info("   门户: %s", PORTAL_DIR)
+    logger.info("   Web:  %s", WEB_DIR)
+    logger.info("   报告: %s", REPORTS_DIR)
 
     uvicorn.run(
         app,

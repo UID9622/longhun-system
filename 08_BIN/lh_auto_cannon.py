@@ -480,11 +480,18 @@ class AutoCannon:
             log_print("INFO", f"🔧 修复中: {r.name}...")
             fix_result = self._fix_item(r)
             if fix_result:
-                r.status = StatusCode.OK
-                r.message = "已自动修复"
-                r.fix_action = fix_result
-                self.fix_count += 1
-                log_print("OK", f"✅ {r.name} 修复完成")
+                if fix_result.startswith("创建占位"):
+                    # 占位 ≠ 修复：标 WARNING，不冒充 ✅（防假启动/误导巡检）
+                    r.status = StatusCode.WARNING
+                    r.message = "已生成占位，待补充实现"
+                    r.fix_action = fix_result
+                    log_print("WARN", f"⚠️ {r.name} 仅占位修复，需手动补充")
+                else:
+                    r.status = StatusCode.OK
+                    r.message = "已自动修复"
+                    r.fix_action = fix_result
+                    self.fix_count += 1
+                    log_print("OK", f"✅ {r.name} 修复完成")
             else:
                 log_print("ERROR", f"❌ {r.name} 修复失败，需手动处理")
 

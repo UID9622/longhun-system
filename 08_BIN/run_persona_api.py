@@ -31,13 +31,13 @@ if __name__ == "__main__":
     print("")
     print(f"🚀 启动龍魂人格 API (端口 9001)...")
     print(f"📊 API 文档: http://localhost:9001/docs")
-    print(f"🔄 自动重载: 启用")
+    print(f"🔄 自动重载: 禁用(生产)")
     print("")
 
     uvicorn.run(
         "cnsh.flow_decision.persona_api:app",
         host="127.0.0.1",
         port=9001,
-        reload=True,
+        reload=False,
         log_level="info"
     )

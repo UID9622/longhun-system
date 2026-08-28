@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+# ⛔ FROZEN(2026-08-28): 本文件已冻结 · 单一真相源 08_BIN/web_server.py · 禁止运行/修改
 """
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
-龍魂 Web 门户服务器 v2.0
+龍魂 Web 门户服务器 v2.0（已冻结）
 DNA: #龍芯⚡️丙午·丙申·丙辰·巳时·䷄需-WEB-SERVER-v2.0
 
 功能：
@@ -119,20 +120,8 @@ async def proxy_api(path: str, request: Request):
 # ═══════════════════════════
 
 if __name__ == "__main__":
-    port = int(os.environ.get("LONGHUN_WEB_PORT", "8777"))
-    host = os.environ.get("LONGHUN_WEB_HOST", "0.0.0.0")
-
-    print(f"🐉 龍魂 Web 门户 v2.0 启动")
-    print(f"   地址: http://{host}:{port}")
-    print(f"   后端: {API_URL}")
-    print(f"   门户: {PORTAL_DIR}")
-    print(f"   Web:  {WEB_DIR}")
-    print(f"   报告: {REPORTS_DIR}")
-
-    uvicorn.run(
-        "web_server:app",
-        host=host,
-        port=port,
-        reload=True,
-        log_level="info",
-    )
+    print("⛔ legacy_bin/web_server.py 已冻结(2026-08-28)，禁止启动")
+    print("   单一真相源: 08_BIN/web_server.py")
+    print("   根目录 web_server.py 为薄转发壳（兼容入口）")
+    print("   旧版含 reload=True 生产隐患，运行请用 08_BIN/web_server.py")
+    sys.exit(1)
