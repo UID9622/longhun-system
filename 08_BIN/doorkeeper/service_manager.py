@@ -10,7 +10,7 @@ License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 对齐修正（vs M77 原稿）：
   - 服务列表全部替换为 longhun-system 真实存在的服务（原稿 hash_api.py /
     longhun_backup.py / api_gateway.py 均不存在）
-  - :8766 实为「主权网关」（非渲染）· 渲染真身 :8972（lh_render.py server）
+  - :8766 实为「主权网关」（非渲染）· 渲染真身 :8788（lh_render.py server·原8972被流场引擎占用）
   - :9623 实为「注册中心 registry_server」（非龍魂备控）
   - launchd 托管服务用 launchctl kickstart 重启（不抢守护职责·避免重复守护打架）
   - 新增熔断：重启超上限 → 不再重启，耻辱墙记录
@@ -64,7 +64,7 @@ class ServiceManager:
             ),
             服务配置(
                 名称="渲染服务M75",
-                端口=8972,
+                端口=8788,
                 重启命令=f"python3 {_BIN_DIR}/lh_render.py server",
                 健康路径="/render/health",
             ),

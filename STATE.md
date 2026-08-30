@@ -1,3 +1,4 @@
+> DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-ff47d029
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·统一入口 STATE.md
@@ -15,7 +16,7 @@
 
 | 项目 | 状态 |
 |:---|:---:|
-| v3.7 主力模型 | 🟡 Val 0.194·1273条·**Ollama未注册**·仅历史记录·实际主力=v4.1.4 |
+| v3.7 主力模型 | 🟡 Val 0.194·1273条·**Ollama未注册**(2026-08-28复核·Ollama仅有v3.8/v3.8-expanded·v3.7已被取代)·仅历史记录·实际主力=v4.1.4 |
 | v4.1.1 🥇 | ✅ Val 0.8097·iter 200·早停·Ollama已注册 |
 | **v4.1.1-bind** 🧬 | ✅ Val 0.9659@iter150·早停@iter300·fused·GGUF·Ollama注册·3/3实测通过 |
 | v4.0.8 黄金checkpoint | 🥇 Val 0.767·iter1900·封存 |
@@ -25,7 +26,7 @@
 | **v4.1.5** | 🔴 已停止·Val退化(0.9841→1.0132)·LR过高·dropout过高·被v4.1.6替代 |
 | **v4.1.6** | 🔴 **未运行**·`logs/v416_train.log` 是7/24旧日志(loss nan@iter2110)·当前无训练进程(2026-08-28 复核)·8/15曾有adapter(52MB·lora_output_v416/)·从v4.1.4恢复的原料已丢(2026-08-25 复核) |
 | **道德经训练数据** 🆕 | ✅ 2,243条·20类QA·81章全覆盖·已合并入v4.1.5训练集·`data_v415_daodejing/` 随 v414 目录消失·数据源在训练集合并时保留 |
-| **鲲鹏同步** 🔥 | 🟡 **未完成**·鲲鹏 `/opt/longhun/models/` 无 v4.1.4·本地 Ollama **有** v4.1.4(18GB)·GGUF 源文件已消失(2026-08-25 复核) |
+| **鲲鹏同步** ✅ | **v4.1.4 已上鲲鹏(2026-08-30)**·`longhun-v4.1.4:latest` 18GB 已注册(manifest+blob 全就位)·**磁盘 19G 可用** · 方案A=留盘作异地备份(老大接受)·⚠️ **跑不动**: 内存仅 7.4G/CPU 仅 2 核·模型需 16.3G → 待华为云升配(当前 AKSK 管不到鲲鹏·鲲鹏实为 ap-southeast-1 新加坡区域·需主账号凭据) |
 | **Library数据矿场** 🔥 | ✅ `bin/lh_library_miner.py`·P0·五阶段流水线·33应用·84,844可挖文件 |
 | **知识中枢API后端** 🔥 | ✅ `bin/lh_knowledge_hub_api.py`·FastAPI·:8766·7端点·跨平台·systemd保活 |
 | **知识中枢v3.1** 🔥 | ✅ `portal/knowledge/index.html`·全能面板·12区块·**按钮不再死·全API对接** |
@@ -117,8 +118,8 @@
 | 🔍 **CodeBuddy 路径统一审计 v1.0** 🆕 | ✅ `07_AUDIT/codebuddy-path-audit-20260810.md`·三色审计·`ai-outputs/codebuddy/` 迁往 `11_DATA/codebuddy-outputs/`·`longhun-release/` 同名路径改为符号链接 + 备份·联动健康度 95/100 |
 | 🌐 **GitHub 仓库三色审计与整改 v1.0** 🆕 | ✅ `07_AUDIT/github-repo-audit-20260810.md`·审计 24 个仓库·LICENSE 100%·README 100%·徽章 100%·消除全部 🔴 项·为 7 个空 README 仓库新建门面·为 16 个仓库补齐徽章·GPG 签名提交 |
 | 🌐 **GitHub 审计整改推送 v1.0** 🆕 | ✅ UID9622 Profile README · longhun-system 12_DOCS/DIRECTORY_MAP.md · 多仓库 LICENSE · longhun-identity-system/README · onghun-system/README · longhun-network-neural 新仓 + LICENSE · ai-truth-protocol LICENSE（GPG 签名提交）|
-| 🧪 **代码对齐闭环** | 🟡 DNA✅·确认码45残留·重复31K·相似30对（无自动修复·标记为已知） |
-| 🤖 **Claude桥** | 🔴 已死·403 Forbidden·全量Ollama兜底 |
+| 🧪 **代码对齐闭环** | 🟡 **确认码 172 已全修**(2026-08-28·`lh align fix` 闭环)·DNA✅·重复 3849 组=**软链双名双扫**(engines→05_ENGINES·P09审计零真重复·无害)·相似 30 对待人工·归属名核心层 76 文件已全补 |
+| 🤖 **Claude桥** | 🔴 已死·403 Forbidden·Ollama 兜底正常(v4.1.4 18GB 实测可跑·2026-08-28) |
 | 🌌 **璇玑引擎·多源记忆接入** 🆕 | ✅ `engines/lh_xuanji_engine.py`·local/notion/log 三源聚合·每条记忆带 source/timestamp·`--memory-source` 参数已可用 |
 | 🗑️ **_archive/ 归档清理** 🆕 | ✅ 16GB 旧归档已备份至 `~/longhun-system-backup_archive_20260730.tar.gz`·本地 `_archive/` 已删除·释放空间·消除 Dependabot torch/transformers critical 告警源 |
 | 🎯 **不动点记忆归档引擎** 🆕 | ✅ `engines/lh_fixed_point_memory_archive.py`·v1.0·统一压缩/不动点/归档三条线·一次哈希复用·不到不动点不入库·轻量字典压缩·GOLD/GREEN归档·YELLOW缓冲·RED/BLACK隔离 |

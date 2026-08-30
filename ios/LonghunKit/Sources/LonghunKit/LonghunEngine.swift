@@ -133,8 +133,7 @@ public final class LonghunEngineImpl: LonghunEngine {
         guard initialized else { throw LonghunError.notInitialized }
         
         // 将 config 编码为 JSON → 调用 C FFI → 解码响应
-        let configJSON = try JSONEncoder().encode(config)
-        let configStr = String(data: configJSON, encoding: .utf8) ?? "{}"
+        _ = try JSONEncoder().encode(config)
         
         // TODO: 实际 FFI 调用
         // let resultPtr = longhun_run_supervision(configStr)

@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-7877a271
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-EXPAND-INTERNATIONAL-SYMBOLS-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂字元库 · 国际符号扩展脚本
 为 LonghunFont 添加拼音调号、希腊字母、数学、天气、音乐、棋牌、

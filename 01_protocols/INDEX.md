@@ -233,7 +233,7 @@
 | `LH-TRUST-CHAIN-DELIVERY-v1.1.md` | `#龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-TRUST-CHAIN-DELIVERY-UID9622` |
 | `LH-TRUST-CHAIN-DELIVERY-v1.2.md` | `#龍芯⚡️丙午·丙申·己未·庚午·䷖剥-癸酉-TRUST-CHAIN-DELIVERY-v1.2-UID9622` |
 | `LH-UID9622-龍芯⚡️丙午·癸未·甲子·既济-AI-Traceability-Audit-Protocol-v1.0.md` | `#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622` |
-| `LH-UID9622-龍芯⚡️丙午·癸未·甲子·既济-猎手计划-CodeBuddy执行任务书-v1.0.md` | `#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622` |
+| ~~LH-UID9622·猎手计划-CodeBuddy执行任务书-v1.0~~ | 已移出至 00_main_control/（2026-08-29·非协议归位） |
 | `LH-UNIFIED-VISUAL-COLOR-PROTOCOL-v1.0.md` | `#龍芯⚡️丙午·乙未·庚戌·壬午·䷫姤-UNIFIED-VISUAL-COLOR-v1.0` |
 | `LH-UNIVERSAL-AUDIT-TEMPLATE-v1.0.md` | `#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622` |
 | `LH-VIDEO-PRODUCTION-v1.0.md` | `#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622` |
@@ -279,10 +279,64 @@
 | `龍魂数据安全架构.md` | `#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622` |
 | `龍魂数据战后整顿与回头是岸协议_v1.0.md` | `#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-ETHICS-DEMOB-REDEMPTION-V1.0-P0` |
 
+| `CSDN_龙魂语法规范全集_v2.0.md` | `龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f` |
+| `DNA_CLEAN_REPORT_20260814.md` | `龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DNA-CLEAN-REPORT-UID9622` |
+| `INDEX.md` | `龍芯⚡️丙午·丙申·庚申·壬午·䷙大畜-PROTOCOL-INDEX-UID9622` |
+| `LH-ADS-SELF-DESCRIBING-v4.0.md` | `龍芯⚡️丙午·丙申·丙寅·乙未·䷣明夷-SELF-DESCRIBING-SYSTEM-v4.0-UID9622-0D08D17D` |
+| `LH-AI-ASSISTANT-CHANNELS-v1.0.md` | `龍芯⚡️丙午·丙申·戊辰·亥时·䷳艮-AI-ASSISTANT-CHANNELS-v1.0-CHANNEL-WELD` |
+| `LH-AI-IDENTITY-INTEROP-PROTOCOL-v3.0.md` | `龍芯⚡️丙午·丙申·戊申·亥时·䷗复-AI-IDENTITY-INTEROP-v3.0-INTEGRATED` |
+| `LH-AI-MESH-BUS-v1.0.md` | `龍芯⚡️丙午·丙申·壬戌·戊申·䷌同人-AI-MESH-BUS-v1.0-UID9622` |
+| `LH-ASI-FUSION-PROTOCOL-v1.0.md` | `龍芯⚡️2026-08-22-ASI-FUSION-PROTOCOL-v1.0-UID9622` |
+| `LH-AUDIT-CALIBRATION-STANDARD-v1.0.md` | `龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D` |
+| `LH-AUTHENTICITY-VISUAL-PROTOCOL-v1.0.md` | `龍芯⚡️丙午·乙未·丁未·丙午·䷫姤-真实性协议-V1.0` |
+| `LH-AUTO-FACTORY-v2.1.md` | `龍芯⚡️丙午·丙酉·丙寅·申时-AUTO-FACTORY-v2.1-UID9622` |
+| `LH-CNSH-HARNESS-ARCH-v1.0.md` | `龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-HARNESS-ARCH-UID9622` |
+| `LH-CNSH-HARNESS-v1.0.md` | `龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-CNSH-HARNESS-v1.0-UID9622` |
+| `LH-COGNITIVE-INDEX-v1.0.md` | `龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-COGNITIVE-INDEX-PROTOCOL-v1.0-UID9622` |
+| `LH-CONTROL-GATE-HANDBOOK-v1.0.md` | `龍芯⚡️丙午·丙申·己酉·甲子·䷉履-QUOTA-OPERATOR-GATEWAY-HANDBOOK-v1.0` |
+| `LH-DATA-RADAR-v1.0.md` | `龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D` |
+| `LH-DEVELOPER-FEE-CONVENTION-v1.0.md` | `龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-DEV-FEE-UID9622` |
+| `LH-DNA-CALC-ALIGNMENT-v1.0.md` | `龍芯⚡️丙午·丙申·丁卯·丁未·䷗复-DNA-CALC-ALIGNMENT-v1.0-UID9622` |
+| `LH-EMOTION-CORRECTION-ENGINE-v1.1.md` | `龍芯⚡️丙午·丙申·壬戌·甲辰·䷤家人-EMOTION-CORRECTION-UID9622` |
+| `LH-EXECUTION-COMMANDS-v1.0.md` | `龍芯⚡️丙午·丙申·丁卯·亥时-EXECUTION-COMMANDS-v1.1-UID9622` |
+| `LH-FILE-SCRIPT-IDENTITY-PROTOCOL-v1.0.md` | `龍芯⚡️丙午·丙申·甲戌·子时·䷒临-FILE-SCRIPT-IDENTITY-PROTOCOL-v1.0` |
+| `LH-FILE-SCRIPT-IDENTITY-PROTOCOL-v1.1.md` | `龍芯⚡️丙午·丙申·甲戌·子时·䷒临-FILE-SCRIPT-IDENTITY-PROTOCOL-v1.1-IOS-HARMONY-DUAL-END` |
+| `LH-FIXED-POINT-REGISTRY-v2.0.md` | `龍芯⚡️丙午·丙申·甲子·庚午·䷙大畜-REGISTRY-FIXED-POINT-v2.0` |
+| `LH-HARNESS-FUSION-v1.0.md` | `龍芯⚡️丙午·丙申·壬戌·亥时·䷏豫-HARNESS-FUSION-v1.0-7d3f1a2b` |
+| `LH-HUAWEI-MFA-PROTOCOL-v1.1.md` | `龍芯⚡️丙午·丙申·癸亥·戊午·䷚颐-MFA-PROTOCOL-UID9622-v1.1` |
+| `LH-INDEX-PHILOSOPHY-v2.0.md` | `龍芯⚡️丙午·丙申·壬戌·乙巳·䷾既济-INDEX-PHILOSOPHY-V2-UID9622` |
+| `LH-KEY-TIERING-v1.0.md` | `龍芯⚡️20260828-KEY-TIERING-v1.0-VAULT-GOVERNANCE` |
+| `LH-LANDING-PROTOCOL-v1.0.md` | `龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-LANDING-PROTOCOL-UID9622` |
+| `LH-LOGICAL-PROVENANCE-v2.0.md` | `龍芯⚡️丙午·丙申·丙寅·乙未·䷣明夷-协议-LOGICAL-PROVENANCE-v2.0` |
+| `LH-MILITARY-ORDER-v1.0.md` | `龍芯⚡️丙午·丙申·壬戌·乙巳·䷾既济-MILITARY-ORDER-v1.0` |
+| `LH-MODULE-AUDIT-GATE-v1.0.md` | `龍芯⚡️丙午·丙申·戊申·亥时·䷗复-MODULE-AUDIT-GATE-v1.0-UID9622` |
+| `LH-NAMING-STANDARD-v1.1.md` | `龍芯⚡️丙午·丙申·辛酉·丙申·䷉履-NAMING-STANDARD-eecd89d8` |
+| `LH-NATIVE-TRINITY-v1.0.md` | `龍芯⚡️丙午·丙申·癸丑·酉时·䷜坎-NATIVE-TRINITY-v1.0-DE-WELD` |
+| `LH-NOTION-KB-API-GUIDE-v1.0.md` | `龍芯⚡️丙午·丙申·丁丑·己卯·䷭升-KB-API-GUIDE-v1.0-7f4e9c2a` |
+| `LH-NOTION-KB-REFERENCE-ARCHITECTURE-v1.0.md` | `龍芯⚡️丙午·丙申·辛未·戊戌·䷢晋-KB-REFERENCE-ARCHITECTURE-v1.0-d9f8e2c1` |
+| `LH-P0-AUTOMATION-v1.0.md` | `龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-P0-AUTOMATION-PROTOCOL-v1.0-UID9622` |
+| `LH-PERSONA-ROUTING-MAP-v1.0.md` | `龍芯⚡️丙午·甲申·癸巳·申时·䷣明夷-PERSONA-ROUTING-MAP-v1.0-UID9622` |
+| `LH-P0-COMPUTER-OPERATIONS-DESIGN-v2.0.md` | `龍芯⚡️丙午·丙申·丁卯·庚戌·䷔噬嗑-P0-COMPUTER-OPERATIONS-DESIGN-v2.0-9622` |
+| `LH-P0-CONSTITUTION-v2.0.md` | `龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D` |
+| `LH-PLATFORM-INDEX-v1.0.md` | `龍芯⚡️丙午·丙申·壬戌·解卦-平台-v1.0-UID9622` |
+| `LH-PYRAMID-COMPATIBILITY-PROTOCOL-v1.1.md` | `龍芯⚡️2026-08-22-PYRAMID-PROTOCOL-v1.1-UID9622` |
+| `LH-ROOT-DECLARATION-v1.0.md` | `龍芯⚡️丙午·丙申·戊辰·丁巳·䷯井-CODE-补DNA-0c968dc3` |
+| `LH-SAFE-AI-PROTOCOL-v1.1.md` | `` |
+| `LH-SECRET-LEAK-PREVENTION-v1.0.md` | `龍芯⚡️丙午·丙申·癸亥·未时·䷕贲-SECRET-LEAK-PREVENTION-v1.0-UID9622` |
+| `LH-TAO-CHIP-v2.0.md` | `龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D` |
+| `LH-VIDEO-ECOSYSTEM-v1.0.md` | `龍芯⚡️丙午·丙酉·丙寅·申时-VIDEO-ECOSYSTEM-v1.0-UID9622` |
+| `LH-YIN-YU-FA-v1.0.md` | `龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D` |
+| `LH-数学建模路径规划-v4.1.5.md` | `龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D` |
+| `LH-璇玑引擎协议-v4.1.5.md` | `龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D` |
+| `LH-纳米视觉引擎协议-v4.1.5.md` | `龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D` |
+| `P0_根目录注册表.md` | `龍芯⚡️丙午·丙申·辛酉·丙申·䷉履-ROOT-REGISTRY-24958ae1` |
+| `TOP_PROTOCOL_DEDUP_AUDIT_20260814.md` | `龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-TOP-PROTOCOL-AUDIT-UID9622` |
+| `龍魂多Agent协同架构白皮书_v1.0_CSDN_Mermaid版.md` | `龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D` |
+| `龍魂风水场博弈论白皮书_v1.0_CSDN_Mermaid版.md` | `龍芯⚡️丙午·壬辰·乙亥·壬午·䷚颐-SYNC-COMPLIANCE-20260827-7A2C9F3D` |
 ---
 
-**总计:** P0 10 + P1 4 + P2 5 + 历史顶层 228 = 247 个协议文件
+**总计:** P0 10 + P1 4 + P2 5 + 历史顶层 231 = 250 个协议文件
 
 **主权锚定:** UID9622 · 中国法律为准 · 数据不出境
 
-**更新日期:** 2026-08-14
+**更新日期:** 2026-08-29

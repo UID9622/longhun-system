@@ -1,5 +1,5 @@
-# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
-# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-1c3a815b
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 import { useEffect, useRef, useState } from 'react'
 import {
   AudioLines,
@@ -631,13 +631,13 @@ function App() {
   )
 
   return (
-    <main className="min-h-screen bg-zinc-50">
+    <main className="min-h-screen bg-muted">
       <div className="mx-auto max-w-[1600px] px-3 py-3 sm:px-4 lg:px-5">
         <div className="grid gap-4 xl:h-[calc(100vh-1.5rem)] xl:grid-cols-[minmax(0,1fr)_460px]">
           <section className="grid gap-4 xl:min-h-0 xl:grid-rows-[minmax(0,1fr)_auto]">
-            <Card className="rounded-xl border-zinc-200 bg-white shadow-none xl:min-h-0 xl:flex xl:flex-col">
-              <CardHeader className="space-y-1 border-b border-zinc-100 px-4 py-4">
-                <div className="flex items-center gap-2 text-zinc-700">
+            <Card className="rounded-xl border-border bg-card shadow-sm xl:min-h-0 xl:flex xl:flex-col">
+              <CardHeader className="space-y-1 border-b border-border/70 px-4 py-4">
+                <div className="flex items-center gap-2 text-foreground">
                   <FileText className="size-4" />
                   <CardTitle>Input</CardTitle>
                 </div>
@@ -653,16 +653,16 @@ function App() {
                     value={inputText}
                     onChange={(event) => setInputText(event.target.value)}
                     placeholder="Enter text to synthesize"
-                    className="min-h-[220px] resize-y rounded-xl border-zinc-200 bg-white p-3 text-sm shadow-none focus-visible:ring-zinc-300 xl:min-h-[260px]"
+                    className="min-h-[220px] resize-y rounded-xl border-border bg-card p-3 text-sm shadow-sm focus-visible:ring-ring xl:min-h-[260px]"
                   />
                 </div>
 
                 <Collapsible open={isRequestPreviewOpen} onOpenChange={setIsRequestPreviewOpen}>
-                  <div className="rounded-xl border border-zinc-200 bg-zinc-50">
+                  <div className="rounded-xl border border-border bg-muted">
                     <div className="flex flex-col gap-2 p-3 sm:flex-row sm:items-center sm:justify-between">
                       <div>
-                        <div className="text-sm font-medium text-zinc-900">Request Preview</div>
-                        <div className="text-xs text-zinc-500">
+                        <div className="text-sm font-medium text-foreground">Request Preview</div>
+                        <div className="text-xs text-muted-foreground">
                           Live snapshot of the payload sent to the backend.
                         </div>
                       </div>
@@ -671,7 +671,7 @@ function App() {
                           type="button"
                           variant="ghost"
                           size="sm"
-                          className="border border-zinc-200 bg-white text-zinc-700 hover:bg-zinc-100"
+                          className="border border-border bg-card text-foreground hover:bg-accent"
                           onClick={copyRequestPreview}
                         >
                           <Copy className="size-3.5" />
@@ -682,7 +682,7 @@ function App() {
                             type="button"
                             variant="ghost"
                             size="sm"
-                            className="border border-zinc-200 bg-white text-zinc-700 hover:bg-zinc-100"
+                            className="border border-border bg-card text-foreground hover:bg-accent"
                           >
                             {isRequestPreviewOpen ? 'Collapse' : 'Expand'}
                             <ChevronDown
@@ -695,10 +695,10 @@ function App() {
                       </div>
                     </div>
                     <CollapsibleContent>
-                      <Separator className="bg-zinc-200" />
+                      <Separator className="bg-border" />
                       <div className="p-3 pt-3">
-                        <ScrollArea className="h-56 min-w-0 rounded-lg border border-zinc-200 bg-white">
-                          <pre className="max-w-full whitespace-pre-wrap break-all p-3 text-xs leading-5 text-zinc-700">
+                        <ScrollArea className="h-56 min-w-0 rounded-lg border border-border bg-card">
+                          <pre className="max-w-full whitespace-pre-wrap break-all p-3 text-xs leading-5 text-foreground">
                             {requestPreview}
                           </pre>
                         </ScrollArea>
@@ -711,7 +711,7 @@ function App() {
                   <Button
                     type="button"
                     size="lg"
-                    className="h-11 rounded-lg bg-zinc-900 text-white hover:bg-zinc-800"
+                    className="h-11 rounded-lg bg-primary text-primary-foreground shadow-sm hover:bg-primary/90"
                     onClick={handleGenerateAudio}
                     disabled={isGenerating}
                   >
@@ -747,9 +747,9 @@ function App() {
               </CardContent>
             </Card>
 
-            <Card className="rounded-xl border-zinc-200 bg-white shadow-none">
-              <CardHeader className="space-y-1 border-b border-zinc-100 px-4 py-4">
-                <div className="flex items-center gap-2 text-zinc-700">
+            <Card className="rounded-xl border-border bg-card shadow-sm">
+              <CardHeader className="space-y-1 border-b border-border/70 px-4 py-4">
+                <div className="flex items-center gap-2 text-foreground">
                   <AudioLines className="size-4" />
                   <CardTitle>Output</CardTitle>
                 </div>
@@ -761,24 +761,24 @@ function App() {
                 <audio
                   ref={audioRef}
                   controls
-                  className="w-full rounded-lg border border-zinc-200 bg-white"
+                  className="w-full rounded-lg border border-border bg-card"
                 />
 
                 <div className="flex flex-wrap gap-2">
                   {metrics ? (
                     <>
-                      <Badge variant="outline" className="border-zinc-200 bg-white text-zinc-700">
+                      <Badge variant="outline" className="border-border bg-card text-foreground">
                         Text length: {metrics.textLength}
                       </Badge>
-                      <Badge variant="outline" className="border-zinc-200 bg-white text-zinc-700">
+                      <Badge variant="outline" className="border-border bg-card text-foreground">
                         TTFT: {metrics.ttftMs.toFixed(2)} ms
                       </Badge>
-                      <Badge variant="outline" className="border-zinc-200 bg-white text-zinc-700">
+                      <Badge variant="outline" className="border-border bg-card text-foreground">
                         Received: {metrics.receivedKb} KB
                       </Badge>
                     </>
                   ) : (
-                    <Badge variant="outline" className="border-zinc-200 bg-white text-zinc-500">
+                    <Badge variant="outline" className="border-border bg-card text-muted-foreground">
                       No output yet
                     </Badge>
                   )}
@@ -789,7 +789,7 @@ function App() {
                     <Button
                       asChild
                       variant="outline"
-                      className="border-zinc-200 bg-white text-zinc-800 hover:bg-zinc-100"
+                      className="border-border bg-card text-foreground hover:bg-accent"
                     >
                       <a href={downloadUrl} download={downloadName}>
                         <Download className="size-4" />
@@ -803,9 +803,9 @@ function App() {
           </section>
 
           <aside className="grid gap-4 xl:min-h-0 xl:grid-rows-[minmax(0,1fr)_auto]">
-            <Card className="rounded-xl border-zinc-200 bg-white shadow-none xl:min-h-0 xl:flex xl:flex-col">
-              <CardHeader className="space-y-1 border-b border-zinc-100 px-4 py-4">
-                <div className="flex items-center gap-2 text-zinc-700">
+            <Card className="rounded-xl border-border bg-card shadow-sm xl:min-h-0 xl:flex xl:flex-col">
+              <CardHeader className="space-y-1 border-b border-border/70 px-4 py-4">
+                <div className="flex items-center gap-2 text-foreground">
                   <Upload className="size-4" />
                   <CardTitle>Reference Audio</CardTitle>
                 </div>
@@ -815,14 +815,14 @@ function App() {
               </CardHeader>
               <CardContent className="space-y-3 px-4 pt-4 xl:min-h-0 xl:flex xl:flex-1 xl:flex-col">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div className="flex items-center text-sm text-zinc-500">
+                  <div className="flex items-center text-sm text-muted-foreground">
                     {speakerGroups.length} speaker{speakerGroups.length === 1 ? '' : 's'} /{' '}
                     {totalReferenceCount} reference{totalReferenceCount === 1 ? '' : 's'}
                   </div>
                   <Button
                     type="button"
                     variant="outline"
-                    className="border-zinc-200 bg-white hover:bg-zinc-100"
+                    className="border-border bg-card hover:bg-accent"
                     onClick={addSpeaker}
                   >
                     <Plus className="size-4" />
@@ -854,13 +854,13 @@ function App() {
                             )
                           }}
                         >
-                          <div className="rounded-lg border border-zinc-200 bg-white">
+                          <div className="rounded-lg border border-border bg-card">
                             <div className="flex flex-col gap-2 px-3 py-3 sm:flex-row sm:items-center sm:justify-between">
                               <div className="min-w-0">
-                                <div className="text-sm font-medium text-zinc-900">
+                                <div className="text-sm font-medium text-foreground">
                                   Speaker {speakerIndex}
                                 </div>
-                                <div className="text-xs text-zinc-500">
+                                <div className="text-xs text-muted-foreground">
                                   {speakerGroup.references.length} reference
                                   {speakerGroup.references.length === 1 ? '' : 's'}
                                 </div>
@@ -870,7 +870,7 @@ function App() {
                                   type="button"
                                   variant="outline"
                                   size="sm"
-                                  className="h-8 border-zinc-200 bg-white px-2.5 hover:bg-zinc-100"
+                                  className="h-8 border-border bg-card px-2.5 hover:bg-accent"
                                   onClick={() => {
                                     uploadTargetSpeakerIdRef.current = speakerGroup.id
                                     fileInputRef.current?.click()
@@ -884,7 +884,7 @@ function App() {
                                     type="button"
                                     variant="ghost"
                                     size="sm"
-                                    className="h-8 px-2.5 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900"
+                                    className="h-8 px-2.5 text-muted-foreground hover:bg-accent hover:text-foreground"
                                     onClick={() => removeSpeaker(speakerGroup.id)}
                                   >
                                     Remove
@@ -895,7 +895,7 @@ function App() {
                                     type="button"
                                     variant="ghost"
                                     size="sm"
-                                    className="h-8 px-2 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900"
+                                    className="h-8 px-2 text-muted-foreground hover:bg-accent hover:text-foreground"
                                   >
                                     <ChevronDown
                                       className={`size-4 transition-transform ${
@@ -908,25 +908,25 @@ function App() {
                             </div>
 
                             <CollapsibleContent>
-                              <Separator className="bg-zinc-200" />
+                              <Separator className="bg-border" />
                               <div className="space-y-2 px-3 py-2.5">
                                 {speakerGroup.references.length > 0 ? (
                                   speakerGroup.references.map((reference) => (
                                     <div
                                       key={reference.id}
-                                      className="flex flex-col gap-2 rounded-md border border-zinc-200 bg-zinc-50 p-2 sm:flex-row sm:items-center"
+                                      className="flex flex-col gap-2 rounded-md border border-border bg-muted p-2 sm:flex-row sm:items-center"
                                     >
                                       <audio
                                         controls
                                         src={reference.previewUrl}
-                                        className="h-9 w-full min-w-0 rounded-md border border-zinc-200 bg-white sm:flex-1"
+                                        className="h-9 w-full min-w-0 rounded-md border border-border bg-card sm:flex-1"
                                       />
                                       <div className="flex gap-2 sm:shrink-0">
                                         <Button
                                           type="button"
                                           variant="ghost"
                                           size="sm"
-                                          className="h-8 border border-zinc-200 bg-white px-2.5 text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900"
+                                          className="h-8 border border-border bg-card px-2.5 text-muted-foreground hover:bg-accent hover:text-foreground"
                                           onClick={() =>
                                             setPendingReference({
                                               mode: 'edit',
@@ -943,7 +943,7 @@ function App() {
                                           type="button"
                                           variant="ghost"
                                           size="sm"
-                                          className="h-8 border border-zinc-200 bg-white px-2.5 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900"
+                                          className="h-8 border border-border bg-card px-2.5 text-muted-foreground hover:bg-accent hover:text-foreground"
                                           onClick={() =>
                                             removeReference(speakerGroup.id, reference.id)
                                           }
@@ -954,7 +954,7 @@ function App() {
                                     </div>
                                   ))
                                 ) : (
-                                  <div className="px-1 py-3 text-sm text-zinc-500">
+                                  <div className="px-1 py-3 text-sm text-muted-foreground">
                                     No references yet.
                                   </div>
                                 )}
@@ -964,7 +964,7 @@ function App() {
                         </Collapsible>
                       ))
                     ) : (
-                      <div className="rounded-lg border border-dashed border-zinc-300 bg-white p-4 text-sm text-zinc-500">
+                      <div className="rounded-lg border border-dashed border-border bg-card p-4 text-sm text-muted-foreground">
                         No speaker groups configured yet.
                       </div>
                     )}
@@ -973,9 +973,9 @@ function App() {
               </CardContent>
             </Card>
 
-            <Card className="rounded-xl border-zinc-200 bg-white shadow-none">
-              <CardHeader className="space-y-1 border-b border-zinc-100 px-4 py-4">
-                <div className="flex items-center gap-2 text-zinc-700">
+            <Card className="rounded-xl border-border bg-card shadow-sm">
+              <CardHeader className="space-y-1 border-b border-border/70 px-4 py-4">
+                <div className="flex items-center gap-2 text-foreground">
                   <Settings2 className="size-4" />
                   <CardTitle>Generation Settings</CardTitle>
                 </div>
@@ -1004,7 +1004,7 @@ function App() {
                       normal
                     </ToggleGroupItem>
                   </ToggleGroup>
-                  <p className="text-xs text-zinc-500">
+                  <p className="text-xs text-muted-foreground">
                     Low uses incremental local decode for faster first audio. Normal waits for the
                     full LLM result, then decodes once.
                   </p>
@@ -1040,10 +1040,10 @@ function App() {
                   </ToggleGroup>
                 </div>
 
-                <div className="flex items-center justify-between rounded-lg border border-zinc-200 bg-zinc-50 px-3 py-2.5">
+                <div className="flex items-center justify-between rounded-lg border border-border bg-muted px-3 py-2.5">
                   <div className="space-y-1">
                     <Label htmlFor="normalize">Normalize</Label>
-                    <p className="text-xs text-zinc-500">
+                    <p className="text-xs text-muted-foreground">
                       Normalize text before synthesis to keep input formatting consistent.
                     </p>
                   </div>
@@ -1059,7 +1059,7 @@ function App() {
                   />
                 </div>
 
-                <Separator className="bg-zinc-200" />
+                <Separator className="bg-border" />
 
                 <SettingSlider
                   label="Chunk Length"
@@ -1134,7 +1134,7 @@ function App() {
       </div>
 
       <Dialog open={pendingReference !== null} onOpenChange={(open) => !open && setPendingReference(null)}>
-        <DialogContent className="border-zinc-200 bg-white">
+        <DialogContent className="border-border bg-card">
           <DialogHeader>
             <DialogTitle>
               {pendingReference?.mode === 'create' ? 'Save Reference Text' : 'Edit Reference Text'}
@@ -1148,7 +1148,7 @@ function App() {
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-3">
-            <div className="text-sm font-medium text-zinc-900">{pendingReference?.name}</div>
+            <div className="text-sm font-medium text-foreground">{pendingReference?.name}</div>
             <Textarea
               value={pendingReference?.text ?? ''}
               onChange={(event) =>
@@ -1162,7 +1162,7 @@ function App() {
                 )
               }
               placeholder="Enter reference text"
-              className="min-h-40 rounded-lg border-zinc-200 bg-white shadow-none focus-visible:ring-zinc-300"
+              className="min-h-40 rounded-lg border-border bg-card shadow-sm focus-visible:ring-ring"
             />
           </div>
           <DialogFooter>
@@ -1172,7 +1172,7 @@ function App() {
             <Button
               type="button"
               variant="outline"
-              className="border-zinc-200 bg-white hover:bg-zinc-100"
+              className="border-border bg-card hover:bg-accent"
               onClick={savePendingReference}
             >
               Save

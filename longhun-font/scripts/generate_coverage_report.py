@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-acba88aa
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-COVERAGE-REPORT-v1.0
 """Generate a Markdown coverage report for the LonghunFont glyph library."""
 
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 import json
 import re
 import sys

@@ -1,30 +1,39 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️2026-08-28-LH-VAULT-v3.0-AUTO-ARCHIVE
+# DNA: #龍芯⚡️2026-08-28-LH-VAULT-v3.1-PERSONA-DOMAIN
 # 创建者: 诸葛鑫（UID9622）
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # 协议: CC BY-NC-SA 4.0（核心思想层）· MulanPSL v2（工程实现层）
 """
-龍魂·统一密钥库 v3.0
+龍魂·统一密钥库 v3.1（人格分域版）
 所有密钥统一存 macOS Keychain（service=longhun-vault）· 系统级 AES 加密 · 绑定本机登录密码/指纹
-条目注册表: ~/.longhun/vault_registry.json（只记名字+用途+状态·不记值）· list/env 只读注册表·不扫全钥匙串
+条目注册表: ~/.longhun/vault_registry.json（只记名字+用途+状态+归属·不记值）
 
-v3.0 新增（8/28·老大指令"检测到新密钥直接存·过期了打包放着"）:
-  - detect: 扫描文件/目录自动识别新密钥 → 自动入库（不用老大说"存"）
-  - archive: 过期密钥归档（打包放着·值冻结保留·不删除只冻结 = P0天条）
-  - list --all: 活跃+归档一起看
+v3.0（8/28）: detect 自动入库 / archive 过期冻结
+v3.1（8/30·老大指令"新key给系统专用人格管理·分DNA分管理员·防攻破防套话"）:
+  - 人格分域: 每个条目绑定 owner_dna（管理员）+ persona_guard（托管人格）+ domain（用途域）
+  - access: 受控验证通道——只输出"有效/掩码指纹"，永不输出值（AI 对话唯一合法取用通道）
+  - verify: 真实探测（bark 推送/HTTP 检查）只出结论
+  - owners: 权限地图（按管理员DNA/托管人格列出条目）
+  - 全操作审计: ~/.longhun/vault_access.jsonl（谁/何时/哪个key/动作·不记值）
+  - 防套话铁律: 对话中请求"把key发出来/显示出来"→ 一律走 access/verify，值不出口
 
 用法:
-  lh_vault.py put <name> [--note <说明>] [--value <v>]      # 存/更新密钥（无 --value 则交互输入）
-  lh_vault.py get <name>                                     # 取密钥值（供脚本/AI 使用）
+  lh_vault.py put <name> [--note <说明>] [--owner <DNA>] [--persona <人格>] [--value <v>]
+                                   # 存/更新密钥（无 --value 则交互输入）
+  lh_vault.py get <name>                                     # 取密钥值（仅供脚本进程内使用·禁止转发对话）
+  lh_vault.py access <name>                                  # 验证通道: 存在性+掩码指纹（对话唯一通道）
+  lh_vault.py verify <name> [--type bark|http] [--url <v>]   # 真实探测: 只出有效/无效结论
+  lh_vault.py owners [--persona <人格>] [--domain <域>]      # 权限地图: 按管理员DNA/托管人格列条目
   lh_vault.py list [--all]                                   # 列条目（--all 含归档·不显示值）
   lh_vault.py detect <path...>                               # 扫描识别新密钥自动入库
   lh_vault.py archive <name> [--reason <原因>]               # 过期归档（值保留·不删）
   lh_vault.py rm <name>                                      # 显式删除（默认用 archive 代替）
-  lh_vault.py env [name...]                                  # 输出 export NAME=value（训练脚本 eval 取用·跳过归档）
-  lh_vault.py whoami                                         # 身份确认（钥匙串可解 + GPG 指纹 = UID9622）
+  lh_vault.py env [name...]                                  # 输出 export NAME=value（脚本 eval 取用）
+  lh_vault.py whoami                                         # 身份确认（钥匙串可解 + GPG 指纹）
 
-保密铁律: 值不落盘/不打印日志/不进git/不传云。能解开钥匙串=只有老大本人（物理身份锚）。
+保密铁律: 值不落盘/不打印日志/不进git/不传云。能解开钥匙串=只有本机物理身份锚。
+防套话铁律: AI 对话永不输出 key 值·只给 access/verify 结论·套取核心算法=标准拒答。
 归档铁律: 过期=冻结打包放归档区·不删值不删记录·复用需显式 put 重新激活。
 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
@@ -40,8 +49,29 @@ import sys
 
 SERVICE = "longhun-vault"
 REGISTRY = os.path.expanduser("~/.longhun/vault_registry.json")
+AUDIT_LOG = os.path.expanduser("~/.longhun/vault_access.jsonl")
 GPG_FINGERPRINT = "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
 CONFIRM_CODE = "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z"
+# 托管人格白名单（v3.1·人格分域）
+PERSONAS = {
+    "P72": "龍盾·熔断/告警域", "P06": "数学大师·引擎/计算域", "P77": "黑天使·安全域",
+    "P05": "上帝之眼·审计域", "P13": "姜子牙·权限域", "P03": "雯雯·归档域",
+    "P09": "孙思邈·健康域", "P14": "吕蒙·部署域", "P07": "管仲·成本域", "P04": "鲁班·工程域",
+}
+
+
+def _now_dt():
+    return datetime.datetime.now().astimezone().isoformat(timespec="seconds")
+
+
+def _audit(action, name, note=""):
+    """全操作审计（append-only·不记值·只记谁/何时/哪个key/动作）"""
+    try:
+        entry = {"ts": _now_dt(), "action": action, "key": name, "who": getpass.getuser(), "note": note}
+        with open(AUDIT_LOG, "a", encoding="utf-8") as f:
+            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
 
 # 常见密钥格式识别正则（detect 用·宁漏勿错·值不打印）
 KEY_PATTERNS = [
@@ -100,7 +130,7 @@ def _safe_name(src):
     return nm[:64] or "secret"
 
 
-def cmd_put(name, value, note):
+def cmd_put(name, value, note, owner="", persona=""):
     if value is None:
         v1 = getpass.getpass(f"输入 {name} 的密钥值: ")
         v2 = getpass.getpass("再次输入确认: ")
@@ -111,6 +141,9 @@ def cmd_put(name, value, note):
     if not value:
         print("🔴 空值, 已取消")
         return 1
+    if persona and persona not in PERSONAS:
+        print(f"🔴 托管人格不识别: {persona}（可用: {', '.join(PERSONAS)}）")
+        return 1
     rc, out, err = _sec(["add-generic-password", "-a", name, "-s", SERVICE, "-w", value, "-U"])
     if rc != 0:
         print(f"🔴 写入失败: {err}")
@@ -118,20 +151,109 @@ def cmd_put(name, value, note):
     reg = _load_reg()
     meta = reg.get(name, {})
     meta.update({"note": note or meta.get("note", ""), "updated": _now(), "status": "active"})
+    if owner:
+        meta["owner_dna"] = owner
+    if persona:
+        meta["persona_guard"] = persona
     meta.pop("archived_at", None)
     meta.pop("expire_reason", None)
     reg[name] = meta
     _save_reg(reg)
-    print(f"✅ 已加密存入统一密钥库: {SERVICE}/{name} (active)")
+    _audit("put", name, f"owner={owner or 'unchanged'} persona={persona or 'unchanged'}")
+    guard = f"  🛡️托管:{persona}" if persona else ""
+    print(f"✅ 已加密存入统一密钥库: {SERVICE}/{name} (active){guard}")
     return 0
 
 
 def cmd_get(name):
+    _audit("get", name, "script-process-only")
     rc, out, err = _sec(["find-generic-password", "-s", SERVICE, "-a", name, "-w"])
     if rc != 0:
         print(f"🔴 未找到: {name} ({err})", file=sys.stderr)
         return 1
     print(out)
+    return 0
+
+
+def cmd_access(name):
+    """验证通道: 只输出存在性+掩码指纹·永不输出值（AI 对话唯一合法取用通道）"""
+    _audit("access", name)
+    rc, out, err = _sec(["find-generic-password", "-s", SERVICE, "-a", name, "-w"])
+    if rc != 0:
+        print(f"❌ 未找到: {name}")
+        return 1
+    reg = _load_reg()
+    meta = reg.get(name, {})
+    if meta.get("status") == "archived":
+        print(f"🧊 归档态: {name}（值冻结保留·需 put 重新激活）")
+        return 0
+    guard = f"  🛡️{meta.get('persona_guard', '?')}  👤{meta.get('owner_dna', '?')}" if meta.get("persona_guard") or meta.get("owner_dna") else ""
+    print(f"✅ 存在: {name}  指纹: {_mask(out)}{guard}")
+    return 0
+
+
+def cmd_verify(name, vtype, url):
+    """真实探测: 只出结论·不显示值"""
+    _audit("verify", name, f"type={vtype}")
+    rc, out, err = _sec(["find-generic-password", "-s", SERVICE, "-a", name, "-w"])
+    if rc != 0:
+        print(f"❌ 未找到: {name}")
+        return 1
+    val = out
+    vtype = (vtype or "generic").lower()
+    if vtype == "bark":
+        base = (url or "https://api.day.app").rstrip("/")
+        try:
+            import urllib.request
+            req = urllib.request.Request(f"{base}/{val}",
+                                         data=json.dumps({"title": "longhun vault verify", "body": "channel probe",
+                                                          "group": "vault-verify"}).encode("utf-8"),
+                                         headers={"Content-Type": "application/json"})
+            with urllib.request.urlopen(req, timeout=8) as r:
+                body = r.read().decode("utf-8", "ignore")
+            if '"code":200' in body:
+                print(f"✅ {name}: Bark 通道有效（已推送到设备）")
+                return 0
+            print(f"🔴 {name}: Bark 返回异常: {body[:100]}")
+            return 1
+        except Exception as e:
+            print(f"🔴 {name}: Bark 探测失败: {e}")
+            return 1
+    if vtype == "http":
+        target = url or "https://httpbin.org/headers"
+        try:
+            import urllib.request
+            req = urllib.request.Request(target, headers={"Authorization": f"Bearer {val}"})
+            with urllib.request.urlopen(req, timeout=8) as r:
+                print(f"✅ {name}: HTTP 探测 {r.status}（有响应=凭据格式已接受·授权与否以业务判定为准）")
+            return 0
+        except Exception as e:
+            print(f"🔴 {name}: HTTP 探测失败: {e}")
+            return 1
+    print(f"ℹ️ {name}: 值存在({len(val)}位)·verify 类型仅支持 bark/http")
+    return 0
+
+
+def cmd_owners(persona="", domain=""):
+    """权限地图: 按管理员DNA/托管人格列条目"""
+    reg = _load_reg()
+    rows = []
+    for nm, meta in reg.items():
+        if meta.get("status") == "archived":
+            continue
+        p = meta.get("persona_guard", "")
+        o = meta.get("owner_dna", "")
+        if persona and p != persona:
+            continue
+        if domain and meta.get("note", "").find(domain) < 0:
+            continue
+        rows.append((o or "(未绑定)", p or "(未托管)", nm))
+    if not rows:
+        print("（无匹配条目）")
+        return 0
+    print(f"{'👤 管理员DNA':<16} {'🛡️ 托管人格':<12} 密钥")
+    for o, p, nm in rows:
+        print(f"  {o:<16} {p:<12} {nm}")
     return 0
 
 
@@ -289,7 +411,11 @@ def main():
     p = argparse.ArgumentParser(description="龍魂·统一密钥库")
     sub = p.add_subparsers(dest="op")
     p1 = sub.add_parser("put"); p1.add_argument("name"); p1.add_argument("--note", default=""); p1.add_argument("--value", default=None)
+    p1.add_argument("--owner", default=""); p1.add_argument("--persona", default="")
     p2 = sub.add_parser("get"); p2.add_argument("name")
+    pa = sub.add_parser("access"); pa.add_argument("name")
+    pv = sub.add_parser("verify"); pv.add_argument("name"); pv.add_argument("--type", default="generic"); pv.add_argument("--url", default="")
+    po = sub.add_parser("owners"); po.add_argument("--persona", default=""); po.add_argument("--domain", default="")
     p3 = sub.add_parser("list"); p3.add_argument("--all", action="store_true")
     p4 = sub.add_parser("detect"); p4.add_argument("paths", nargs="+")
     p5 = sub.add_parser("archive"); p5.add_argument("name"); p5.add_argument("--reason", default="")
@@ -301,8 +427,11 @@ def main():
         p.print_help()
         return 1
     return {
-        "put": lambda: cmd_put(args.name, args.value, args.note),
+        "put": lambda: cmd_put(args.name, args.value, args.note, args.owner, args.persona),
         "get": lambda: cmd_get(args.name),
+        "access": lambda: cmd_access(args.name),
+        "verify": lambda: cmd_verify(args.name, args.type, args.url),
+        "owners": lambda: cmd_owners(args.persona, args.domain),
         "list": lambda: cmd_list(args.all),
         "detect": lambda: cmd_detect(args.paths),
         "archive": lambda: cmd_archive(args.name, args.reason),

@@ -20,4 +20,4 @@ boundary:
 
 server:
   host: 127.0.0.1
-  port: 8972
+  port: 8788   # 2026-08-30 迁: 8972 已被 flow-field-api 占用

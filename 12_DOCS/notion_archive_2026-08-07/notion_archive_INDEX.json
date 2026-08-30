@@ -1,0 +1,813 @@
+{
+  "schema_version": "1.0.0",
+  "source": "12_DOCS/notion_archive_2026-08-07",
+  "built_at": "2026-08-30T16:24:20",
+  "stats": {
+    "domains": 11,
+    "docs": 56,
+    "lines": 9193,
+    "dna_coverage": "56/56"
+  },
+  "domains": [
+    {
+      "domain": "CNSH与工程实现",
+      "docs": [
+        {
+          "title": "CNSH工具集本地网页模板",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 125,
+          "excerpt": "- **URL**: https://uid9622.notion.site/16399c8440fa4d1aad5cad3aa8cb5ffe",
+          "keywords": [
+            "CNSH工具集本地网页模板"
+          ],
+          "file": "CNSH与工程实现/CNSH工具集本地网页模板.md",
+          "domain": "CNSH与工程实现"
+        },
+        {
+          "title": "📁 开源文件模板系统 | CNSH-Editor v1.0",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 195,
+          "excerpt": "- **URL**: https://uid9622.notion.site/e3d22f7e5d854dbf8c138e72274afd23",
+          "keywords": [
+            "📁",
+            "开源文件模板系统",
+            "CNSH",
+            "Editor",
+            "v1.0"
+          ],
+          "file": "CNSH与工程实现/开源文件模板系统·CNSH-Editor_v1_0.md",
+          "domain": "CNSH与工程实现"
+        },
+        {
+          "title": "🀄 CNSH 数字甲骨文字元立碑工程·总系统 v1.0｜字元→引擎→OS→生态→文明层·UID9622",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 185,
+          "excerpt": "- **URL**: https://uid9622.notion.site/ca83c2fd3cd94adabe10159417f2ec67",
+          "keywords": [
+            "🀄",
+            "CNSH",
+            "数字甲骨文字元立碑工程",
+            "总系统",
+            "v1.0",
+            "字元→引擎→OS→生态→文明层"
+          ],
+          "file": "CNSH与工程实现/数字甲骨文字元立碑工程·总系统_v1_0.md",
+          "domain": "CNSH与工程实现"
+        },
+        {
+          "title": "📘 📘 龍芯家族花名册·设备主人主权铁律 v1.0｜L0全开闸 + L1+赋能层 + 多维转变｜UID9622 | Notion",
+          "dna": "#龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-NOTION-ARCHIVE-P0-be34e95c",
+          "lines": 337,
+          "excerpt": "DNA: #龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-NOTION-ARCHIVE-P0-be34e95c",
+          "keywords": [
+            "📘",
+            "龍芯家族花名册",
+            "设备主人主权铁律",
+            "v1.0",
+            "L0全开闸",
+            "+"
+          ],
+          "file": "CNSH与工程实现/龍芯家族花名册·设备主人主权铁律_v1_0.md",
+          "domain": "CNSH与工程实现"
+        }
+      ],
+      "count": 4,
+      "lines": 842
+    },
+    {
+      "domain": "DNA与身份架构",
+      "docs": [
+        {
+          "title": "DNA分层安全设计_v4_0",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 121,
+          "excerpt": "- **URL**: https://uid9622.notion.site/c10baabe55694bbcb0f4e5d5377c634e",
+          "keywords": [
+            "DNA分层安全设计",
+            "v4",
+            "0"
+          ],
+          "file": "DNA与身份架构/DNA分层安全设计_v4_0.md",
+          "domain": "DNA与身份架构"
+        },
+        {
+          "title": "DNA時間軸L5分層架構_v1_4",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 157,
+          "excerpt": "- **URL**: https://uid9622.notion.site/1dd88844789e4185a0efbb43017f3e74",
+          "keywords": [
+            "DNA時間軸L5分層架構",
+            "v1",
+            "4"
+          ],
+          "file": "DNA与身份架构/DNA時間軸L5分層架構_v1_4.md",
+          "domain": "DNA与身份架构"
+        },
+        {
+          "title": "DNA時間軸L5分層架構白皮書_v2_1",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 165,
+          "excerpt": "- **URL**: https://uid9622.notion.site/77106ff9282f4db6b3ffb65f83f97c21",
+          "keywords": [
+            "DNA時間軸L5分層架構白皮書",
+            "v2",
+            "1"
+          ],
+          "file": "DNA与身份架构/DNA時間軸L5分層架構白皮書_v2_1.md",
+          "domain": "DNA与身份架构"
+        },
+        {
+          "title": "統一DNA變量對照表_v1_0_已封存_",
+          "dna": "#龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-NOTION-ARCHIVE-P0-4d5a7ce4",
+          "lines": 155,
+          "excerpt": "DNA: #龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-NOTION-ARCHIVE-P0-4d5a7ce4",
+          "keywords": [
+            "統一DNA變量對照表",
+            "v1",
+            "0",
+            "已封存"
+          ],
+          "file": "DNA与身份架构/統一DNA變量對照表_v1_0_已封存_.md",
+          "domain": "DNA与身份架构"
+        }
+      ],
+      "count": 4,
+      "lines": 598
+    },
+    {
+      "domain": "协作与未来",
+      "docs": [
+        {
+          "title": "待办",
+          "dna": "#龍芯⚡️丙午·乙未·甲申·辛未·䷊泰-NOTION-MIRROR-SCRAPE-6EBD77A0",
+          "lines": 318,
+          "excerpt": "- **URL**: https://uid9622.notion.site/34f7125a9c9f80b9951cee661375dd09",
+          "keywords": [
+            "待办"
+          ],
+          "file": "协作与未来/待办.md",
+          "domain": "协作与未来"
+        },
+        {
+          "title": "🌌 【龍魂系统】曾老师智慧算法：用量子力学重构AI人格协作（Bra-Ket完整版）",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 383,
+          "excerpt": "- **URL**: https://uid9622.notion.site/3664bb869a0841478008c6c111b9289d",
+          "keywords": [
+            "🌌",
+            "Ket完整版）"
+          ],
+          "file": "协作与未来/曾老师智慧算法·量子力学重构.md",
+          "domain": "协作与未来"
+        },
+        {
+          "title": "自动化对话档案系统",
+          "dna": "#龍芯⚡️丙午·乙未·甲申·辛未·䷊泰-NOTION-MIRROR-SCRAPE-56A62DCD",
+          "lines": 334,
+          "excerpt": "- **URL**: https://uid9622.notion.site/dabb25dd74594ecb8de94457be6e1b68",
+          "keywords": [
+            "自动化对话档案系统"
+          ],
+          "file": "协作与未来/自动化对话档案系统.md",
+          "domain": "协作与未来"
+        }
+      ],
+      "count": 3,
+      "lines": 1035
+    },
+    {
+      "domain": "哲学与数学基础",
+      "docs": [
+        {
+          "title": "64卦维度",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-64卦维度-v1.0-7a9b3c1f",
+          "lines": 80,
+          "excerpt": "64卦 = 八卦两两相重（8×8=64），构成完整的符号编码与决策空间。",
+          "keywords": [
+            "64卦维度"
+          ],
+          "file": "哲学与数学基础/64卦维度.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "CNSH三才校验公式",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-CNSH三才校验-v1.0-f9e2a4c0",
+          "lines": 82,
+          "excerpt": "三才 = 天·地·人，是CNSH语言的三大语义维度校验框架。",
+          "keywords": [
+            "CNSH三才校验公式"
+          ],
+          "file": "哲学与数学基础/CNSH三才校验公式.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "CNSH原点能量场公式",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-CNSH原点能量场-v1.0-4d7516b3",
+          "lines": 73,
+          "excerpt": "CNSH原点能量场 = 系统语义空间中以「369·洛书·f(x)=x」为不动点的能量分布函数。",
+          "keywords": [
+            "CNSH原点能量场公式"
+          ],
+          "file": "哲学与数学基础/CNSH原点能量场公式.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "CNSH路由公式",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-CNSH路由公式-v1.0-13a8b5f7",
+          "lines": 97,
+          "excerpt": "CNSH路由公式 = 基于意图语义向量·八卦映射·人格权重的统一路由决策函数。",
+          "keywords": [
+            "CNSH路由公式"
+          ],
+          "file": "哲学与数学基础/CNSH路由公式.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "三才向量合成",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-三才向量合成-v1.0-2fe45b87",
+          "lines": 100,
+          "excerpt": "三才向量合成 = 将天·地·人三个维度的语义向量在CNSH空间中合成为一个统一表征。",
+          "keywords": [
+            "三才向量合成"
+          ],
+          "file": "哲学与数学基础/三才向量合成.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "五行生克算法",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-五行生克-v1.0-c81d2e9a",
+          "lines": 104,
+          "excerpt": "五行生克算法 = 基于中国五行（金木水火土）相生相克关系的权重调制算法，用于深度学习中的数据配比、注意力调节和多模块协同。",
+          "keywords": [
+            "五行生克算法"
+          ],
+          "file": "哲学与数学基础/五行生克算法.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "信息论",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-信息论-v1.0-2b9d4f36",
+          "lines": 70,
+          "excerpt": "信息论（香农1948）是深度学习的信息瓶颈理论的基础，也是CNSH语义压缩的理论支撑。",
+          "keywords": [
+            "信息论"
+          ],
+          "file": "哲学与数学基础/信息论.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "傅里叶变换",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-傅里叶变换-v1.0-6e1a5f73",
+          "lines": 74,
+          "excerpt": "$$",
+          "keywords": [
+            "傅里叶变换"
+          ],
+          "file": "哲学与数学基础/傅里叶变换.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "八卦维度",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-八卦维度-v1.0-5c1e38d4",
+          "lines": 68,
+          "excerpt": "八卦 = $\\{\\text{☰乾}, \\text{☱兑}, \\text{☲离}, \\text{☳震}, \\text{☴巽}, \\text{☵坎}, \\text{☶艮}, \\text{☷坤}\\}$",
+          "keywords": [
+            "八卦维度"
+          ],
+          "file": "哲学与数学基础/八卦维度.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "天干地支维度",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-天干地支-v1.0-8d3f2e9b",
+          "lines": 82,
+          "excerpt": "- **十天干**: 甲·乙·丙·丁·戊·己·庚·辛·壬·癸",
+          "keywords": [
+            "天干地支维度"
+          ],
+          "file": "哲学与数学基础/天干地支维度.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "数值方法",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-数值方法-v1.0-4b8e7d16",
+          "lines": 89,
+          "excerpt": "数值方法 = 用离散近似求解连续数学问题的算法集合，是深度学习训练的数学底层。",
+          "keywords": [
+            "数值方法"
+          ],
+          "file": "哲学与数学基础/数值方法.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "数字根·洛书369",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-数字根洛书369-v1.0-62a3d8f1",
+          "lines": 86,
+          "excerpt": "数字根（Digital Root）= 一个整数的各位数字反复相加，直到得到一位数。",
+          "keywords": [
+            "数字根",
+            "洛书369"
+          ],
+          "file": "哲学与数学基础/数字根·洛书369.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "河洛图维度",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-河洛图维度-v1.0-1a5f67c2",
+          "lines": 109,
+          "excerpt": "- **河图**: 十数图·天五地五·五行生成数",
+          "keywords": [
+            "河洛图维度"
+          ],
+          "file": "哲学与数学基础/河洛图维度.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "渲染几何",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-渲染几何-v1.0-578061ae",
+          "lines": 79,
+          "excerpt": "渲染几何 = 3D图形渲染中的几何处理管线·向量变换·投影·光栅化·",
+          "keywords": [
+            "渲染几何"
+          ],
+          "file": "哲学与数学基础/渲染几何.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "自动微分",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-自动微分-v1.0-9c4e1a85",
+          "lines": 89,
+          "excerpt": "自动微分（Automatic Differentiation, AD）= 基于链式法则的程序化导数计算。深度学习训练的核心。",
+          "keywords": [
+            "自动微分"
+          ],
+          "file": "哲学与数学基础/自动微分.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "通心译翻译引擎·总纲",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-通心译总纲-v1.0-2a4f6d81",
+          "lines": 104,
+          "excerpt": "通心译 = 语义翻译而非字面翻译。不是\"把A语言翻译成B语言\"，而是\"把A想表达的意思，用B理解的方式传达\"。",
+          "keywords": [
+            "通心译翻译引擎",
+            "总纲"
+          ],
+          "file": "哲学与数学基础/通心译翻译引擎·总纲.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "采样定理",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-采样定理-v1.0-3f7c8d42",
+          "lines": 79,
+          "excerpt": "$$",
+          "keywords": [
+            "采样定理"
+          ],
+          "file": "哲学与数学基础/采样定理.md",
+          "domain": "哲学与数学基础"
+        },
+        {
+          "title": "量子计算抽象层",
+          "dna": "#龍芯⚡️丙午·乙未·戊戌·戊午·䷕贲-TOPIC-量子计算抽象-v1.0-5d9e3f47",
+          "lines": 97,
+          "excerpt": "量子计算抽象层 = 龍魂系统中为未来量子-经典混合计算预留的抽象接口层。",
+          "keywords": [
+            "量子计算抽象层"
+          ],
+          "file": "哲学与数学基础/量子计算抽象层.md",
+          "domain": "哲学与数学基础"
+        }
+      ],
+      "count": 18,
+      "lines": 1562
+    },
+    {
+      "domain": "大脑与智能路由",
+      "docs": [
+        {
+          "title": "🔀 AI自动路由系统 | 老大说话AI自动分配",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 191,
+          "excerpt": "- **URL**: https://uid9622.notion.site/4566044476014326803e907f7a926ab2",
+          "keywords": [
+            "🔀",
+            "AI自动路由系统",
+            "老大说话AI自动分配"
+          ],
+          "file": "大脑与智能路由/AI自动路由系统.md",
+          "domain": "大脑与智能路由"
+        },
+        {
+          "title": "沉浸式复交启动页_v1_0",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 197,
+          "excerpt": "- **URL**: https://uid9622.notion.site/0d0af05b0b95484182a344f25eaeedc2",
+          "keywords": [
+            "沉浸式复交启动页",
+            "v1",
+            "0"
+          ],
+          "file": "大脑与智能路由/沉浸式复交启动页_v1_0.md",
+          "domain": "大脑与智能路由"
+        },
+        {
+          "title": "🤖 龍魂自动路由系统 | 宝宝智能管家 v1.0",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 359,
+          "excerpt": "- **URL**: https://uid9622.notion.site/bec1e986ff4c427999dcc9943b2b0d87",
+          "keywords": [
+            "🤖",
+            "龍魂自动路由系统",
+            "宝宝智能管家",
+            "v1.0"
+          ],
+          "file": "大脑与智能路由/龙魂自动路由系统·宝宝智能管家.md",
+          "domain": "大脑与智能路由"
+        },
+        {
+          "title": "龙魂记忆中枢·DNA永生记忆",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 83,
+          "excerpt": "- **URL**: https://uid9622.notion.site/b53160a0479947a98c002179fc1dc298",
+          "keywords": [
+            "龙魂记忆中枢",
+            "DNA永生记忆"
+          ],
+          "file": "大脑与智能路由/龙魂记忆中枢·DNA永生记忆.md",
+          "domain": "大脑与智能路由"
+        }
+      ],
+      "count": 4,
+      "lines": 830
+    },
+    {
+      "domain": "安全与认证",
+      "docs": [
+        {
+          "title": "🔐 CNSH代码变量隔离系统 | 中文语义天然防窃取机制",
+          "dna": "#龍芯⚡️丙午·乙未·甲申·辛未·䷊泰-NOTION-MIRROR-SCRAPE-9267ABAF",
+          "lines": 172,
+          "excerpt": "- **URL**: https://uid9622.notion.site/f894aca6671348ad8ca5c0c9a186f495",
+          "keywords": [
+            "🔐",
+            "CNSH代码变量隔离系统",
+            "中文语义天然防窃取机制"
+          ],
+          "file": "安全与认证/CNSH代码变量隔离系统.md",
+          "domain": "安全与认证"
+        },
+        {
+          "title": "Service_DNA_接入规范_v0_2",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 193,
+          "excerpt": "- **URL**: https://uid9622.notion.site/141f146e598a4bdcb3cb7dcb8e673560",
+          "keywords": [
+            "Service",
+            "DNA",
+            "接入规范",
+            "v0",
+            "2"
+          ],
+          "file": "安全与认证/Service_DNA_接入规范_v0_2.md",
+          "domain": "安全与认证"
+        },
+        {
+          "title": "龙魂数据安全架构",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 181,
+          "excerpt": "- **URL**: https://uid9622.notion.site/2b525f18ec4f4e78a68edb3cac47b899",
+          "keywords": [
+            "龙魂数据安全架构"
+          ],
+          "file": "安全与认证/龙魂数据安全架构.md",
+          "domain": "安全与认证"
+        }
+      ],
+      "count": 3,
+      "lines": 546
+    },
+    {
+      "domain": "审计与质量保障",
+      "docs": [
+        {
+          "title": "三色审计·AI回复真实性验证协议_v1_0",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 141,
+          "excerpt": "- **URL**: https://uid9622.notion.site/2fef05eeb41a4e0e9beff239289678b8",
+          "keywords": [
+            "三色审计",
+            "AI回复真实性验证协议",
+            "v1",
+            "0"
+          ],
+          "file": "审计与质量保障/三色审计·AI回复真实性验证协议_v1_0.md",
+          "domain": "审计与质量保障"
+        },
+        {
+          "title": "⚖️ 龍芯北辰·三色审计前置评估机制 | 执行前决策系统",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 259,
+          "excerpt": "- **URL**: https://uid9622.notion.site/de14987164d7414d95d6add1138f8492",
+          "keywords": [
+            "⚖️",
+            "龍芯北辰",
+            "三色审计前置评估机制",
+            "执行前决策系统"
+          ],
+          "file": "审计与质量保障/三色审计前置评估机制.md",
+          "domain": "审计与质量保障"
+        },
+        {
+          "title": "📋 龍魂系统·今日审计日报 | 2026-03-20 | 201次操作全绿",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 75,
+          "excerpt": "- **URL**: https://uid9622.notion.site/3297125a9c9f81329819fb69b3dc907e",
+          "keywords": [
+            "📋",
+            "龍魂系统",
+            "今日审计日报",
+            "2026",
+            "03",
+            "20"
+          ],
+          "file": "审计与质量保障/审计日报_2026-03-20.md",
+          "domain": "审计与质量保障"
+        },
+        {
+          "title": "宪法合规审计报告 | Constitution Compliance Audit",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 180,
+          "excerpt": "- **URL**: https://uid9622.notion.site/e0d66f81b4de49698497e349c328d883",
+          "keywords": [
+            "宪法合规审计报告",
+            "Constitution",
+            "Compliance",
+            "Audit"
+          ],
+          "file": "审计与质量保障/宪法合规审计报告.md",
+          "domain": "审计与质量保障"
+        },
+        {
+          "title": "🚀 龍魂系统发布验收完整方案（AI永不遗忘版）",
+          "dna": "#龍芯⚡️丙午·乙未·甲申·辛未·䷊泰-NOTION-MIRROR-SCRAPE-5E37F382",
+          "lines": 128,
+          "excerpt": "- **URL**: https://uid9622.notion.site/e6e50ba19da645ac9f95d83c39e8bc34",
+          "keywords": [
+            "🚀"
+          ],
+          "file": "审计与质量保障/龙魂系统发布验收完整方案.md",
+          "domain": "审计与质量保障"
+        }
+      ],
+      "count": 5,
+      "lines": 783
+    },
+    {
+      "domain": "宪法与治理层",
+      "docs": [
+        {
+          "title": "⚖️ 龍魂全球文化主权与维权宪法 v2.0｜文化根脉不可译·一国一微调·维权到底",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 307,
+          "excerpt": "- **URL**: https://uid9622.notion.site/a267c3af2ba74da2a379a18572656cf1",
+          "keywords": [
+            "⚖️",
+            "龍魂全球文化主权与维权宪法",
+            "v2.0",
+            "文化根脉不可译",
+            "一国一微调",
+            "维权到底"
+          ],
+          "file": "宪法与治理层/全球文化主权与维权宪法_v2_0.md",
+          "domain": "宪法与治理层"
+        },
+        {
+          "title": "动态AI协议入口",
+          "dna": "#龍芯⚡️丙午·乙未·甲申·辛未·䷊泰-NOTION-MIRROR-SCRAPE-88A5A25F",
+          "lines": 215,
+          "excerpt": "- **URL**: https://uid9622.notion.site/19a8289545b74cae8b3b873c0e4bce68",
+          "keywords": [
+            "动态AI协议入口"
+          ],
+          "file": "宪法与治理层/动态AI协议入口.md",
+          "domain": "宪法与治理层"
+        },
+        {
+          "title": "北辰协议·原文存档_L0-012_",
+          "dna": "#龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-NOTION-ARCHIVE-P0-d94c9480",
+          "lines": 227,
+          "excerpt": "DNA: #龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-NOTION-ARCHIVE-P0-d94c9480",
+          "keywords": [
+            "北辰协议",
+            "原文存档",
+            "L0",
+            "012"
+          ],
+          "file": "宪法与治理层/北辰协议·原文存档_L0-012_.md",
+          "domain": "宪法与治理层"
+        },
+        {
+          "title": "💎 老大初心宣言·灵魂档案归集 v1.0｜L0永恒·L1百年·L2十年三层归集·M18焊点",
+          "dna": "#龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-NOTION-ARCHIVE-P0-b003cb79",
+          "lines": 193,
+          "excerpt": "DNA: #龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-NOTION-ARCHIVE-P0-b003cb79",
+          "keywords": [
+            "💎",
+            "老大初心宣言",
+            "灵魂档案归集",
+            "v1.0",
+            "L0永恒",
+            "L1百年"
+          ],
+          "file": "宪法与治理层/老大初心宣言·灵魂档案归集_v1_0.md",
+          "domain": "宪法与治理层"
+        },
+        {
+          "title": "⚖️ 龍魂系统宪法 v1.0 | CNSH Constitution",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 167,
+          "excerpt": "- **URL**: https://uid9622.notion.site/8ad36909a4504f0aae24cbaea3c4ea9f",
+          "keywords": [
+            "⚖️",
+            "龍魂系统宪法",
+            "v1.0",
+            "CNSH",
+            "Constitution"
+          ],
+          "file": "宪法与治理层/龍魂系统宪法_v1_0.md",
+          "domain": "宪法与治理层"
+        }
+      ],
+      "count": 5,
+      "lines": 1109
+    },
+    {
+      "domain": "治理与组织",
+      "docs": [
+        {
+          "title": "龍魂系统｜主控仪表盘（L0）",
+          "dna": "#龍芯⚡️丙午·乙未·甲申·辛未·䷊泰-NOTION-MIRROR-SCRAPE-1FDDBC0C",
+          "lines": 142,
+          "excerpt": "- **URL**: https://uid9622.notion.site/2e67125a9c9f80eb8b9ff857bea1846a",
+          "keywords": [
+            "龍魂系统",
+            "主控仪表盘（L0）"
+          ],
+          "file": "治理与组织/主控仪表盘_L0_.md",
+          "domain": "治理与组织"
+        },
+        {
+          "title": "关键词归集索引",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 165,
+          "excerpt": "- **URL**: https://uid9622.notion.site/a3ca7dc0068c42b2ba23cdbb7dd45361",
+          "keywords": [
+            "关键词归集索引"
+          ],
+          "file": "治理与组织/关键词归集索引.md",
+          "domain": "治理与组织"
+        },
+        {
+          "title": "龍魂七維AI治理×數字主權執行表·設計規範 v1.0｜君子協議·Notion即登記所｜UID9622",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 275,
+          "excerpt": "- **URL**: https://uid9622.notion.site/84daa1d2030447318ade20e12b1fdb36",
+          "keywords": [
+            "龍魂七維AI治理×數字主權執行表",
+            "設計規範",
+            "v1.0",
+            "君子協議",
+            "Notion即登記所",
+            "UID9622"
+          ],
+          "file": "治理与组织/龍魂七維AI治理×數字主權執行表_v1_0.md",
+          "domain": "治理与组织"
+        }
+      ],
+      "count": 3,
+      "lines": 582
+    },
+    {
+      "domain": "知识与学习体系",
+      "docs": [
+        {
+          "title": "AI算法史·NodeCard时间轴｜1943–2025·四件套·龍魂知识库 v1.0",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 365,
+          "excerpt": "- **URL**: https://uid9622.notion.site/4419a93e11174045a9fc0ac0b3f7e4a5",
+          "keywords": [
+            "AI算法史",
+            "NodeCard时间轴",
+            "1943–2025",
+            "四件套",
+            "龍魂知识库",
+            "v1.0"
+          ],
+          "file": "知识与学习体系/AI算法史·NodeCard时间轴_1943-2025_v1_0.md",
+          "domain": "知识与学习体系"
+        },
+        {
+          "title": "📡 CSDN占位稿｜双账号单向架构·龍魂系统设计思想",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 131,
+          "excerpt": "- **URL**: https://uid9622.notion.site/fdb1b46b581a4c159d6842bd03e909a8",
+          "keywords": [
+            "📡",
+            "CSDN占位稿",
+            "双账号单向架构",
+            "龍魂系统设计思想"
+          ],
+          "file": "知识与学习体系/CSDN占稿·双账号单向架构.md",
+          "domain": "知识与学习体系"
+        },
+        {
+          "title": "北辰协议_原文存档_L2-021_L1-031_",
+          "dna": "#龍芯⚡️丙午·乙未·甲申·辛未·䷊泰-NOTION-MIRROR-SCRAPE-02E6A9E4",
+          "lines": 196,
+          "excerpt": "- **URL**: https://uid9622.notion.site/837a3b763b7541ab8f681defe3ac7362",
+          "keywords": [
+            "北辰协议",
+            "原文存档",
+            "L2",
+            "021",
+            "L1",
+            "031"
+          ],
+          "file": "知识与学习体系/北辰协议_原文存档_L2-021_L1-031_.md",
+          "domain": "知识与学习体系"
+        },
+        {
+          "title": "📚 龍魂知识库·论文 & 白皮书总部 v1.0",
+          "dna": "#龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-NOTION-ARCHIVE-L1-f6aa3a31",
+          "lines": 121,
+          "excerpt": "DNA: #龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-NOTION-ARCHIVE-L1-f6aa3a31",
+          "keywords": [
+            "📚",
+            "龍魂知识库",
+            "论文",
+            "&",
+            "白皮书总部",
+            "v1.0"
+          ],
+          "file": "知识与学习体系/龍魂知识库·论文_白皮书总部_v1_0.md",
+          "domain": "知识与学习体系"
+        }
+      ],
+      "count": 4,
+      "lines": 813
+    },
+    {
+      "domain": "通心译与人机交互",
+      "docs": [
+        {
+          "title": "Notion AI龍魂代理宝宝系统 v1.2｜快捷指令+模糊表达增强版",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 177,
+          "excerpt": "- **URL**: https://uid9622.notion.site/346e0c1babd6475baabb09654fb1efe0",
+          "keywords": [
+            "Notion",
+            "AI龍魂代理宝宝系统",
+            "v1.2",
+            "快捷指令+模糊表达增强版"
+          ],
+          "file": "通心译与人机交互/Notion_AI龍魂代理宝宝系统_v1_2.md",
+          "domain": "通心译与人机交互"
+        },
+        {
+          "title": "通心译执行手册·老大说人话→系统技术语言 v1.0｜本地Claude专用｜UID9622",
+          "dna": "#龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-NOTION-ARCHIVE-L1-9c99f1d3",
+          "lines": 167,
+          "excerpt": "DNA: #龍芯⚡️丙午·丙申·癸丑·戊午·䷨损-NOTION-ARCHIVE-L1-9c99f1d3",
+          "keywords": [
+            "通心译执行手册",
+            "老大说人话→系统技术语言",
+            "v1.0",
+            "本地Claude专用",
+            "UID9622"
+          ],
+          "file": "通心译与人机交互/通心译执行手册_v1_0.md",
+          "domain": "通心译与人机交互"
+        },
+        {
+          "title": "🔌 龍魂·Notion API 全景文档｜系统集成索引 v1.0",
+          "dna": "#龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622",
+          "lines": 149,
+          "excerpt": "- **URL**: https://uid9622.notion.site/3c8bf63e3d3b49dc84d01407ceeaa3d2",
+          "keywords": [
+            "🔌",
+            "龍魂",
+            "Notion",
+            "API",
+            "全景文档",
+            "系统集成索引"
+          ],
+          "file": "通心译与人机交互/龍魂·Notion_API_全景文档.md",
+          "domain": "通心译与人机交互"
+        }
+      ],
+      "count": 3,
+      "lines": 493
+    }
+  ]
+}

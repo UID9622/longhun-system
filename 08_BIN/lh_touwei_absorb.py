@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-16469710
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -937,6 +938,15 @@ def main():
     if args.text:
         text = args.text
     elif args.file:
+        # 🔴 三关判定(2026-08-30·文件身份协议v1.1): 前8KB含NUL→二进制拒绝
+        try:
+            with open(args.file, "rb") as f:
+                if b"\x00" in f.read(8192):
+                    print(f"❌ 疑似二进制文件，拒绝吸收: {args.file}")
+                    sys.exit(1)
+        except OSError:
+            print(f"❌ 文件读取失败: {args.file}")
+            sys.exit(1)
         text = Path(args.file).read_text(encoding="utf-8")
     elif args.stdin or not sys.stdin.isatty():
         text = sys.stdin.read()

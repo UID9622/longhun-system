@@ -91,6 +91,23 @@ REASONING_PATTERNS = [
     r'理由[：:]\s*(.+?)(?=\n|$)',
 ]
 
+
+def distill_similarity(msgs: list) -> float:
+    """蒸馏度度量：输出与输入的序列相似度。
+    过高(>0.55) = 照搬未蒸馏（保主权：不搬运原文表达）；
+    低于阈值 = 真正蒸馏（保留推理链而非原文）。
+    """
+    try:
+        from difflib import SequenceMatcher
+        user = "".join(m.get("content", "") for m in msgs if m.get("role") == "user")
+        assis = "".join(m.get("content", "") for m in msgs if m.get("role") == "assistant")
+        if not user or not assis:
+            return 0.0
+        return SequenceMatcher(None, user, assis).ratio()
+    except Exception:
+        return 0.0
+
+
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 数据结构
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -119,6 +136,7 @@ class DistillReport:
     total_candidates: int = 0
     passed_quality: int = 0
     after_dedup: int = 0
+    rejected_count: int = 0
     domains: Dict[str, int] = field(default_factory=dict)
     avg_quality: float = 0.0
     reasoning_samples: int = 0
@@ -402,9 +420,15 @@ class DeepSeekDistiller:
             samples = self._fallback_distill(max_samples, report)
             report.total_candidates = len(samples)
         
-        # 质量闸门
+        # 质量闸门 + 蒸馏度闸（相似度>0.55=照搬未蒸馏·退回）
         passed = [s for s in samples if s.quality_score >= QUALITY_GATE]
-        report.passed_quality = len(passed)
+        _sim_filtered = [
+            s for s in passed
+            if distill_similarity(getattr(s, "messages", [])) <= 0.55
+        ]
+        report.rejected_count = len(passed) - len(_sim_filtered)
+        report.passed_quality = len(_sim_filtered)
+        passed = _sim_filtered
         
         # 去重
         dedup = Deduplicator()
@@ -506,7 +530,7 @@ class DeepSeekDistiller:
             score += 0.05
         
         return min(score, 1.0)
-    
+
     def _classify(self, text: str) -> str:
         """领域分类"""
         for domain, words in ANCHOR_WORDS.items():
@@ -560,9 +584,15 @@ class KimiDistiller:
         samples = samples[:max_samples]
         report.total_candidates = len(samples)
         
-        # 质量闸门
+        # 质量闸门 + 蒸馏度闸（相似度>0.55=照搬未蒸馏·退回）
         passed = [s for s in samples if s.quality_score >= QUALITY_GATE]
-        report.passed_quality = len(passed)
+        _sim_filtered = [
+            s for s in passed
+            if distill_similarity(getattr(s, "messages", [])) <= 0.55
+        ]
+        report.rejected_count = len(passed) - len(_sim_filtered)
+        report.passed_quality = len(_sim_filtered)
+        passed = _sim_filtered
         
         # 去重
         dedup = Deduplicator()
@@ -1117,7 +1147,20 @@ class DistillOrchestrator:
         return sources
     
     def distill_source(self, source: str, max_samples: int = 500) -> Tuple[List[DistillSample], DistillReport]:
-        """蒸馏单个源"""
+        """蒸馏单个源（L1 合规闸前置钩子：开源白名单/自有源放行，未知源拒绝）"""
+        # ── L1 合规闸（LH-ASI-DISTILLER-DESIGN-v1.0 §三） ──
+        try:
+            from lh_compliance_gate import compliance_check
+            _src_type = {"deepseek": "open", "kimi": "self", "xiaomi": "self"}.get(source, "unknown")
+            _lic = "Apache-2.0" if source == "deepseek" else ("MulanPSL-2.0" if _src_type == "self" else "")
+            gate = compliance_check(source=_src_type, license=_lic, url=f"source:{source}")
+            if gate["color"] == "🔴":
+                raise PermissionError(
+                    f"L1 合规闸拦截: 蒸馏源 '{source}' 不合法（{gate['reason']}）· 对齐 LH-ASI-DISTILLER-DESIGN §三"
+                )
+        except ImportError:
+            pass  # 合规闸未部署时跳过（不阻塞既有链路）
+
         if source == "deepseek":
             samples, report = self.deepseek.distill(max_samples=max_samples)
         elif source == "kimi":

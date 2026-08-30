@@ -1,3 +1,5 @@
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-c6ed20e5
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 /**
  * 啟動AI · 全局状态（React context，Layout 层挂载）
  * 对话仅存内存：不落盘、刷新即焚。

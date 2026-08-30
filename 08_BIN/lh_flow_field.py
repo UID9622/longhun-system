@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-# DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-FLOW-FIELD-ENGINE-v1.0-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-FLOW-FIELD-ENGINE-v2.0-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # CREATOR: 诸葛鑫 (UID9622)
 # PROTOCOL: CC BY-NC-SA 4.0
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # -*- coding: utf-8 -*-
 """
-龍魂 · 流场拓扑引擎 v1.0
+龍魂 · 流场拓扑引擎 v2.0（融合升级版）
 ============================================================
 把整个龍魂系统变成一张"活"的流场图：
   - 每个字节从哪里来、经过谁、到哪里去、被谁审计
@@ -14,6 +14,13 @@
   - 实时端口探测 → 节点状态动态变色
   - 实时日志 tail → 每个节点日志可见
   - HTTP API :8972 → 前端 flow-field.html 消费
+
+v2.0 融合升级（2026-08-30 · 复盘后归一）：
+  1. /inject 事件注入端点 — 吸收 E3 lh_flow_fusion_bridge 融合映射矩阵
+     （引擎事件 → 流场扰动：source/force/vortex/pressure/shockwave）
+  2. 节点透明度评分 — 吸收 E7 CNSH 流场可视化（transparency 0~1·全链路可审计）
+  3. 节点扰动指标 — 吸收 E2 lh_flow_engine 物理映射（热力/压力/涡旋）
+  4. CLI --json 结构化输出 — 供前端与其他引擎消费
 
 数据源：
   1. .codebuddy/longhun_neural_net.json（系统拓扑·引擎·技能·边）
@@ -23,25 +30,59 @@
 
 用法：
   python3 08_BIN/lh_flow_field.py status        # 终端打印流场总览
+  python3 08_BIN/lh_flow_field.py status --json # JSON 结构化输出
   python3 08_BIN/lh_flow_field.py node <id>     # 单节点详情
   python3 08_BIN/lh_flow_field.py api [--port 8972]  # 启动常驻 API
   python3 08_BIN/lh_flow_field.py trigger <id>  # 触发节点动作（记审计）
+  curl -X POST '127.0.0.1:8972/inject' -d '{"source":"audit","event":"trip","intensity":0.9}'
 """
+import contextlib
 import json
+import os
+import secrets
 import socket
-import time
 import threading
+import time
 from collections import deque
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import parse_qs, urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
 TOPO = ROOT / ".codebuddy" / "longhun_neural_net.json"
 LOGS = ROOT / "logs"
 PORT = 8972
 TZ = timezone(timedelta(hours=8))
+
+# v2.1 加固：注入鉴权 token（本地回环防护·P05 审计待核项）
+TOKEN_FILE = ROOT / "data" / "flow_field_token"
+
+def _load_token() -> str:
+    """读取或生成注入鉴权 token（chmod 600·启动时生成一次）。"""
+    try:
+        if TOKEN_FILE.exists():
+            tok = TOKEN_FILE.read_text(encoding="utf-8").strip()
+            if tok:
+                return tok
+        TOKEN_FILE.parent.mkdir(parents=True, exist_ok=True)
+        tok = secrets.token_hex(16)
+        TOKEN_FILE.write_text(tok, encoding="utf-8")
+        with contextlib.suppress(Exception):
+            os.chmod(TOKEN_FILE, 0o600)
+        return tok
+    except Exception:
+        return "local-only"  # 兜底：环境受限时仍可本地使用
+
+FLOW_TOKEN = _load_token()
+
+# v2.1 加固：/log 日志源白名单（仅允许 logs/ 目录·防任意文件 tail·P05 审计待核项）
+def _log_whitelisted(p: str) -> bool:
+    """日志路径白名单：仅接受 logs/ 下的相对路径，拒绝绝对路径与 .. 穿越。"""
+    p = (p or "").strip().replace("\\", "/")
+    if not p or p.startswith("/") or ".." in p.split("/"):
+        return False
+    return p == "logs" or p.startswith("logs/")
 
 # ============================================================
 # 1. 算法公式库 —— 每个节点都有公式
@@ -79,7 +120,7 @@ def _build_nodes():
     topo = _load_topo()
     engines = topo.get("engines", {}).get("highlights", {})
     edges = topo.get("edges", [])
-    NODES = [
+    node_list = [
         # ---------- L0 边界接入层 ----------
         {"id": "nginx", "name": "nginx 统一入口", "layer": "L0边界接入", "type": "网关",
          "port": 80, "formula": FORMULAS["ngx_limit"], "extra": FORMULAS["ngx_dna"],
@@ -242,7 +283,7 @@ def _build_nodes():
          "log": [],
          "status_key": "harmony"},
     ]
-    return NODES, edges, engines
+    return node_list, edges, engines
 
 # ============================================================
 # 3. 动态探测
@@ -298,14 +339,16 @@ probe = Probe()
 # 4. 日志读取
 # ============================================================
 def read_log(paths: list, n: int = 60) -> list:
-    """读取多个日志文件尾部，返回最近 n 行（带时间戳）。"""
+    """读取多个日志文件尾部，返回最近 n 行（带时间戳）。仅接受 logs/ 白名单内路径。"""
     lines = []
     for p in paths:
-        fp = ROOT / p if not Path(p).is_absolute() else Path(p)
+        if not _log_whitelisted(p):
+            continue
+        fp = ROOT / p
         if not fp.exists():
             continue
         try:
-            with open(fp, "r", encoding="utf-8", errors="replace") as f:
+            with open(fp, encoding="utf-8", errors="replace") as f:
                 tail = deque(f, maxlen=n)
             for ln in tail:
                 lines.append({"source": fp.name, "line": ln.rstrip()[:500]})
@@ -331,6 +374,61 @@ def audit(action: str, target: str, result: str, risk: int = 0):
     return entry
 
 # ============================================================
+# 5.5 事件注入（v2.0 融合 E3 lh_flow_fusion_bridge 融合映射矩阵）
+# ============================================================
+INJECT_LOG = ROOT / "logs" / "lh_flow_injections.jsonl"
+INJECTED = deque(maxlen=200)
+
+# 融合映射矩阵：引擎事件类型 → 流场扰动（吸收 E3 11 类映射的精简 8 类）
+FUSION_MATRIX = {
+    "self-audit":  {"effect": "source",     "label": "源头重构",   "risk": 0},
+    "audit":       {"effect": "source",     "label": "审计扰动",   "risk": 0},
+    "health":      {"effect": "pressure",   "label": "压力注入",   "risk": 1},
+    "resource":    {"effect": "force",      "label": "力量扰动",   "risk": 1},
+    "trip":        {"effect": "shockwave",  "label": "熔断冲击波", "risk": 3},
+    "error":       {"effect": "vortex",     "label": "涡旋异常",   "risk": 2},
+    "anomaly":     {"effect": "vortex",     "label": "涡旋异常",   "risk": 2},
+    "info":        {"effect": "ripple",     "label": "涟漪信息",   "risk": 0},
+}
+
+def inject_event(source: str, event: str, intensity: float = 0.5, detail: str = ""):
+    """接收引擎事件 → 翻译为流场扰动 → 落审计日志 → 入注入队列。"""
+    m = FUSION_MATRIX.get(event, {"effect": "ripple", "label": "涟漪信息", "risk": 0})
+    entry = {
+        "time": datetime.now(TZ).isoformat(timespec="seconds"),
+        "source": source, "event": event,
+        "intensity": round(min(max(float(intensity), 0.0), 1.0), 3),
+        "effect": m["effect"], "label": m["label"],
+        "risk_score": m["risk"], "detail": detail,
+        "tricolor": "🟢" if m["risk"] == 0 else ("🟡" if m["risk"] < 3 else "🔴"),
+    }
+    INJECTED.appendleft(entry)
+    try:
+        INJECT_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with open(INJECT_LOG, "a", encoding="utf-8") as f:
+            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+    audit("inject", f"{source}:{event}", f"{m['label']}·强度{entry['intensity']}", m["risk"])
+    return entry
+
+def node_transparency(node_id: str) -> float:
+    """节点透明度评分：默认 1.0，近期负面注入按风险衰减（吸收 E7 透明审计）。"""
+    decay = sum(0.15 * e.get("risk_score", 0) for e in list(INJECTED)[:20]
+                if e.get("source") == node_id)
+    return round(max(0.05, min(1.0, 1.0 - decay)), 3)
+
+def node_perturbation(node_id: str) -> dict:
+    """节点扰动指标：热力/压力/涡旋（吸收 E2 lh_flow_engine 物理映射概念）。"""
+    recent = [e for e in list(INJECTED)[:20] if e.get("source") == node_id]
+    if not recent:
+        return {"heat": 0.0, "pressure": 0.0, "vortex": 0.0, "hits": 0}
+    heat = round(sum(e["intensity"] for e in recent) / len(recent), 3)
+    pressure = round(heat * 0.6, 3)
+    vortex = round(sum(1 for e in recent if e["effect"] == "vortex") / len(recent), 3)
+    return {"heat": heat, "pressure": pressure, "vortex": vortex, "hits": len(recent)}
+
+# ============================================================
 # 6. 拓扑聚合
 # ============================================================
 def build_topology(with_status=True):
@@ -341,6 +439,8 @@ def build_topology(with_status=True):
         node = dict(nd)
         node["status"] = st
         node["up"] = st["up"]
+        node["transparency"] = node_transparency(nd["id"])   # v2.0 透明审计
+        node["perturbation"] = node_perturbation(nd["id"])   # v2.0 物理扰动
         node_map[nd["id"]] = node
     # 边：节点协作关系（来源=真实拓扑edges + 补充链路）
     edge_list = [
@@ -440,9 +540,19 @@ class _Handler(BaseHTTPRequestHandler):
             elif url.path == "/log":
                 src = q.get("source", [""])[0]
                 n = int(q.get("n", [60])[0])
+                if not _log_whitelisted(src):
+                    self._send(400, {"error": "source must be under logs/"})
+                    return
                 self._send(200, {"logs": read_log([src] if src else [], n)})
             elif url.path == "/audit-log":
                 self._send(200, {"logs": read_log(["logs/lh_flow_field.log"], int(q.get("n", [80])[0]))})
+            elif url.path == "/events":
+                n = int(q.get("n", [50])[0])
+                self._send(200, {"events": list(INJECTED)[:n],
+                                 "count": len(INJECTED)})
+            elif url.path == "/token":
+                # v2.1 加固：前端注入鉴权凭证（本地回环·仅本机可达）
+                self._send(200, {"token": FLOW_TOKEN})
             else:
                 self._send(404, {"error": "not found"})
         except Exception as e:
@@ -456,12 +566,30 @@ class _Handler(BaseHTTPRequestHandler):
                 nid = q.get("id", [""])[0]
                 entry = audit("trigger", nid, "已触发·见节点日志", risk=0)
                 self._send(200, {"ok": True, "audit": entry})
+            elif url.path == "/inject":
+                # v2.1 加固：token 鉴权（防本地任意进程伪造注入污染可视化）
+                got = self.headers.get("X-LH-Token") or q.get("token", [""])[0]
+                if got != FLOW_TOKEN:
+                    self._send(401, {"error": "unauthorized: X-LH-Token required"})
+                    return
+                length = int(self.headers.get("Content-Length", 0) or 0)
+                raw = self.rfile.read(length).decode("utf-8", "replace") if length else "{}"
+                try:
+                    data = json.loads(raw) if raw.strip() else {}
+                except Exception:
+                    data = {}
+                source = str(data.get("source", q.get("source", [""])[0]) or "unknown")
+                event = str(data.get("event", q.get("event", ["info"])[0]) or "info")
+                intensity = float(data.get("intensity", q.get("intensity", ["0.5"])[0] or 0.5))
+                detail = str(data.get("detail", "") or "")
+                entry = inject_event(source, event, intensity, detail)
+                self._send(200, {"ok": True, "injection": entry})
             else:
                 self._send(404, {"error": "not found"})
         except Exception as e:
             self._send(500, {"error": str(e)})
 
-    def log_message(self, fmt, *args):
+    def log_message(self, format, *args):
         pass  # 静默，避免刷屏
 
 def run_api(port: int = PORT):
@@ -473,8 +601,11 @@ def run_api(port: int = PORT):
 # ============================================================
 # 8. CLI
 # ============================================================
-def cli_status():
+def cli_status(json_out: bool = False):
     topo = build_topology(with_status=True)
+    if json_out:
+        print(json.dumps(topo, ensure_ascii=False, indent=2))
+        return
     layers = {}
     for nd in topo["nodes"]:
         layers.setdefault(nd["layer"], []).append(nd)
@@ -487,7 +618,8 @@ def cli_status():
         for nd in nodes:
             st = "●" if nd["up"] else "○"
             port = f" :{nd['port']}" if nd.get("port") else ""
-            print(f"   {st} {nd['name']}{port}  [{nd['id']}]")
+            tr = f" 透:{nd.get('transparency', 1.0)}" if nd.get("transparency", 1.0) < 1.0 else ""
+            print(f"   {st} {nd['name']}{port}  [{nd['id']}]{tr}")
 
 def cli_node(nid: str):
     topo = build_topology(with_status=True)
@@ -510,10 +642,14 @@ def cli_node(nid: str):
 
 def main():
     import argparse
-    ap = argparse.ArgumentParser(description="龍魂流场拓扑引擎")
-    ap.add_argument("action", nargs="?", default="status", choices=["status", "node", "api", "trigger"])
+    ap = argparse.ArgumentParser(description="龍魂流场拓扑引擎 v2.0")
+    ap.add_argument("action", nargs="?", default="status",
+                    choices=["status", "node", "api", "trigger", "inject", "events"])
     ap.add_argument("target", nargs="?", default="")
     ap.add_argument("--port", type=int, default=PORT)
+    ap.add_argument("--json", action="store_true", help="结构化 JSON 输出")
+    ap.add_argument("--event", default="info", help="注入事件类型")
+    ap.add_argument("--intensity", type=float, default=0.5, help="注入强度 0~1")
     args = ap.parse_args()
     if args.action == "api":
         run_api(args.port)
@@ -522,8 +658,14 @@ def main():
     elif args.action == "trigger":
         entry = audit("trigger", args.target, "已触发", 0)
         print(json.dumps(entry, ensure_ascii=False, indent=2))
+    elif args.action == "inject":
+        entry = inject_event(args.target or "cli", args.event, args.intensity)
+        print(json.dumps(entry, ensure_ascii=False, indent=2))
+    elif args.action == "events":
+        print(json.dumps({"events": list(INJECTED), "count": len(INJECTED)},
+                          ensure_ascii=False, indent=2))
     else:
-        cli_status()
+        cli_status(json_out=args.json)
 
 if __name__ == "__main__":
     main()

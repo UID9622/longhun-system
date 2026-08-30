@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-338c4358
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -149,7 +150,7 @@ class BrowserManager:
     
     def _do_start(self):
         self.playwright = sync_playwright().start()
-        self.browser = self.playwright.chromium.launch(
+        launch_kwargs = dict(
             headless=HEADLESS,
             args=[
                 "--no-sandbox",
@@ -158,6 +159,12 @@ class BrowserManager:
                 "--ignore-certificate-errors",  # 内网自签名证书
             ]
         )
+        try:
+            # 优先内置 chromium；未安装则回退系统 Chrome（macOS 必有）
+            self.browser = self.playwright.chromium.launch(**launch_kwargs)
+        except Exception:
+            launch_kwargs["channel"] = "chrome"
+            self.browser = self.playwright.chromium.launch(**launch_kwargs)
         storage_state = SESSION_DIR / "browser_state.json"
         if storage_state.exists():
             self.context = self.browser.new_context(

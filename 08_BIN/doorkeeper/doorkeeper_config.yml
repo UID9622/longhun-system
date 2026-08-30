@@ -27,7 +27,7 @@
     最大重启次数: 3
 
   - 名称: 渲染服务M75
-    端口: 8972
+    端口: 8788
     健康路径: /render/health
     重启命令: python3 ~/longhun-system/08_BIN/lh_render.py server
     自动重启: true

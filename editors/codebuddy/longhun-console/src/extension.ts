@@ -1,4 +1,3 @@
-# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 /**
  * 龍魂控制台 · CodeBuddy 侧边栏插件 v1.1.0
  * DNA: #龍芯⚡️丙午·辛未·CODEBUDDY-LONGHUN-CONSOLE-v1.1

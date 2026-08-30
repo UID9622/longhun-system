@@ -2,11 +2,12 @@
 # ═══════════════════════════════════════════════════════════════
 # M75 渲染引擎部署脚本 · 本机 / 鲲鹏 双模式
 # DNA: #龍芯⚡️2026-08-25-RENDER-DEPLOY-v1.0-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 用法: bash deploy_render.sh [local|kunpeng]
-#   本机: 后台启动 lh render server (127.0.0.1:8972)
+#   本机: 后台启动 lh render server (127.0.0.1:8788 · 8972 已被 flow-field-api 占用)
 #   鲲鹏: rsync → docker compose build → up → 健康检查
 # ═══════════════════════════════════════════════════════════════
 set -euo pipefail
@@ -38,19 +39,19 @@ kunpeng() {
   echo "==> [4/4] 健康检查"
   sleep 8
   ssh -i "$SSH_KEY" "$HOST" \
-    "curl -s --max-time 10 http://127.0.0.1:8972/render/health || echo '健康检查失败：容器可能还在启动'" || true
+    "curl -s --max-time 10 http://127.0.0.1:8788/render/health || echo '健康检查失败：容器可能还在启动'" || true
 }
 
 local_start() {
   echo "==> 本机模式"
-  if lsof -i :8972 -P -n >/dev/null 2>&1; then
-    echo "  渲染服务已在运行 (127.0.0.1:8972)"
-    curl -s --max-time 5 http://127.0.0.1:8972/render/health
+  if lsof -i :8788 -P -n >/dev/null 2>&1; then
+    echo "  渲染服务已在运行 (127.0.0.1:8788)"
+    curl -s --max-time 5 http://127.0.0.1:8788/render/health
   else
     cd "$ROOT" && nohup python3 08_BIN/lh_render.py server > logs/render_server.log 2>&1 &
     echo "  已后台启动 PID=$!"
     sleep 3
-    curl -s --max-time 5 http://127.0.0.1:8972/render/health
+    curl -s --max-time 5 http://127.0.0.1:8788/render/health
   fi
 }
 

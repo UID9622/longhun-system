@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-7eb2b848
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-EMBED-WATERMARK-v1.0
 """
 龍魂字元库 · 龍纹水印嵌入脚本
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 将 U+E200（龙纹）图标以 0.15 倍缩放后，嵌入到除源图标外所有字形的右下角 (520,520)。
 """
 import json

@@ -1,6 +1,4 @@
-# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
-# DNA: #龍芯⚡️丙午·丙申·戊辰·丁巳·䷯井-CODE-补DNA-5e0e3aa3
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-699a5825
 /**
  * 干支算法 —— 与 dna.md / design.md 5.8 规范逐行同构
  * 年柱 (year-4) · 月柱 五虎遁（正月建寅，按公历月近似）· 日柱 JDN 锚定 2000-01-01=戊午

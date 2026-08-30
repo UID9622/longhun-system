@@ -1,3 +1,5 @@
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-0a450457
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 import { useRef, useState } from 'react'
 import { AnimatePresence, motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { X } from 'lucide-react'

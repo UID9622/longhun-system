@@ -10,7 +10,7 @@ services:
       dockerfile: render/Dockerfile.render
     platform: linux/amd64   # 鲲鹏实测 x86_64 (Intel Xeon 6348)
     ports:
-      - "8972:8972"
+      - "8788:8788"   # 2026-08-30 同步迁移: 8972 已被本机 flow-field-api 占用
     volumes:
       - ./data/renders:/app/data/renders
       - ./render/templates:/app/render/templates

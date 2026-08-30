@@ -1,9 +1,13 @@
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-b4edc55e -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🐉 龍魂 · 流场拓扑图</title>
+<meta name="description" content="龍魂系统流场拓扑图 · 全系统引擎/人格/服务实时状态可视化面板 · 龙魂·诸葛鑫 UID9622">
+<meta name="keywords" content="龍魂系统,流场拓扑,引擎状态,人格矩阵,服务监控,UID9622,诸葛鑫">
+<meta name="author" content="诸葛鑫 | UID9622 · 龍芯北辰">
 <style>
 :root{
   --bg:#0a0a0f; --panel:#12121c; --card:#1c1c2a;
@@ -85,7 +89,7 @@ select:focus{outline:none;border-color:var(--gold)}
 </head>
 <body>
 <header>
-  <h1>🐉 龍魂 · 流场拓扑图 <span style="font-size:12px;color:var(--muted)">v1.0 · 动态执行流场</span></h1>
+  <h1>🐉 龍魂 · 流场拓扑图 <span style="font-size:12px;color:var(--muted)">v2.0 · 融合升级（注入+透明度+扰动）</span></h1>
   <div class="status">
     <span id="api-text">API 未连接</span>
     <div id="api-dot" class="dot"></div>
@@ -100,6 +104,18 @@ select:focus{outline:none;border-color:var(--gold)}
     <select id="layer-filter" onchange="applyLayer(this.value)">
       <option value="">全部层级</option>
     </select>
+    <select id="inject-node">
+      <option value="">选择注入节点…</option>
+    </select>
+    <select id="inject-event">
+      <option value="audit">审计扰动</option>
+      <option value="health">压力注入</option>
+      <option value="resource">力量扰动</option>
+      <option value="trip">熔断冲击波</option>
+      <option value="anomaly">涡旋异常</option>
+      <option value="info">涟漪信息</option>
+    </select>
+    <button onclick="doInject()" title="v2.0 事件注入">⚡ 注入</button>
     <span class="hint" style="margin-left:auto">点击任意节点 → 右侧查看公式/备注/日志 · 自动刷新 5s</span>
   </div>
 
@@ -109,6 +125,8 @@ select:focus{outline:none;border-color:var(--gold)}
     <div class="stat off"><div class="num" id="st-down">0</div><div class="label">离线节点</div></div>
     <div class="stat cyan"><div class="num" id="st-edge">0</div><div class="label">协作链路</div></div>
     <div class="stat gold"><div class="num" id="st-layer">0</div><div class="label">分层</div></div>
+    <div class="stat cyan"><div class="num" id="st-events">0</div><div class="label">注入事件</div></div>
+    <div class="stat gold"><div class="num" id="st-pert">0</div><div class="label">扰动节点</div></div>
   </div>
 
   <div class="layout">
@@ -135,6 +153,10 @@ select:focus{outline:none;border-color:var(--gold)}
     <div class="detail-panel">
       <div class="detail" id="detail">
         <div class="empty">点击左侧任意节点<br>查看 算法公式 · 详细备注 · 触发条件 · 实时日志</div>
+      </div>
+      <div class="detail" style="margin-top:14px">
+        <h3>⚡ 事件注入流 <span class="badge" id="ev-count">0</span></h3>
+        <div class="log" id="event-log" style="height:150px"><div class="empty">暂无注入事件</div></div>
       </div>
     </div>
   </div>
@@ -275,6 +297,27 @@ function render(){
     c.setAttribute('stroke',nd.up?'#ffffff':'#555');c.setAttribute('opacity',nd.up?0.95:0.6);
     if(nd.up)c.style.filter='url(#glow)';
     g.appendChild(c);
+    // v2.0 扰动/透明度可视化
+    const pert=nd.perturbation||{hits:0,heat:0,pressure:0,vortex:0};
+    const tr=nd.transparency;
+    if(pert.hits>0){
+      const ring=document.createElementNS(NS,'circle');
+      const r=24+Math.min(10,pert.hits*3);
+      ring.setAttribute('r',r);ring.setAttribute('fill','none');
+      ring.setAttribute('stroke',pert.vortex>0?'var(--red)':'var(--orange)');
+      ring.setAttribute('stroke-width',1.5);ring.setAttribute('opacity',0.6+pert.heat*0.4);
+      ring.style.animation='pulse 1.2s ease-in-out infinite';
+      g.appendChild(ring);
+    }
+    if(tr!==undefined&&tr<1.0){
+      c.setAttribute('opacity',Math.max(0.35,0.95*tr));
+      const tBadge=document.createElementNS(NS,'text');
+      tBadge.setAttribute('x',24);tBadge.setAttribute('y',-10);
+      tBadge.setAttribute('fill',tr<0.5?'var(--red)':'var(--yellow)');
+      tBadge.setAttribute('font-size',9);tBadge.setAttribute('text-anchor','middle');
+      tBadge.textContent='透:'+tr.toFixed(2);
+      g.appendChild(tBadge);
+    }
     const dot=document.createElementNS(NS,'circle');
     dot.setAttribute('cx',16);dot.setAttribute('cy',-16);dot.setAttribute('r',5);
     dot.setAttribute('class',nd.up?'up-dot':'down-dot');
@@ -311,6 +354,14 @@ async function selectNode(id){
     if(nd.extra) html+=`<div class="block"><div class="bh">➕ 附加公式</div><div class="formula">${esc(nd.extra)}</div></div>`;
     html+=`<div class="block"><div class="bh">📝 详细备注</div><div class="desc">${esc(nd.desc)}</div></div>`;
     html+=`<div class="block"><div class="bh">⚡ 触发条件</div><div class="trigger">${esc(nd.trigger)}</div></div>`;
+    const pert=nd.perturbation||{};
+    if(pert.hits!==undefined){
+      html+=`<div class="block"><div class="bh">🔆 v2.0 扰动指标</div><div class="formula">热力 ${pert.heat||0} · 压力 ${pert.pressure||0} · 涡旋 ${pert.vortex||0} · 命中 ${pert.hits||0} 次</div></div>`;
+    }
+    if(nd.transparency!==undefined){
+      const tcol=nd.transparency<0.5?'var(--red)':(nd.transparency<1?'var(--yellow)':'var(--green)');
+      html+=`<div class="block"><div class="bh">👁 透明度审计</div><div class="desc" style="color:${tcol}">${nd.transparency.toFixed(3)} / 1.000（负面注入按风险衰减）</div></div>`;
+    }
     html+=`<div class="block"><div class="bh">📜 实时日志</div><div class="log">${logs.length?logs.map(l=>`<div class="line">[${esc(l.source)}] ${esc(l.line)}</div>`).join(''):'<div class="empty">该节点无日志源</div>'}</div></div>`;
     document.getElementById('detail').innerHTML=html;
   }catch(e){toast('节点详情加载失败：'+e.message,'err');}
@@ -345,10 +396,40 @@ function renderTerms(){
   document.getElementById('terms').innerHTML=TERMS.map(t=>`<div class="term"><div class="t">${esc(t.t)}</div><div class="d">${esc(t.d)}</div></div>`).join('');
 }
 
+async function doInject(){
+  const node=document.getElementById('inject-node').value;
+  if(!node){toast('请先选择注入节点','err');return;}
+  const event=document.getElementById('inject-event').value;
+  try{
+    let tok='';
+    try{const t=await api('/token');tok=t.token||'';}catch(e){}
+    const r=await api('/inject',{method:'POST',headers:{'Content-Type':'application/json','X-LH-Token':tok},body:JSON.stringify({source:node,event:event,intensity:0.8})});
+    toast(`⚡ ${r.injection.label} → ${node}（${r.injection.tricolor}）`);
+    refreshEvents();refreshAll();
+  }catch(e){toast('注入失败：'+e.message,'err');}
+}
+
+async function refreshEvents(){
+  try{
+    const r=await api('/events?n=12');
+    const evs=r.events||[];
+    document.getElementById('ev-count').textContent=r.count||0;
+    const el=document.getElementById('event-log');
+    if(!evs.length){el.innerHTML='<div class="empty">暂无注入事件</div>';return;}
+    el.innerHTML=evs.map(e=>`<div class="line" style="color:${e.tricolor==='🔴'?'var(--red)':e.tricolor==='🟡'?'var(--yellow)':'var(--green)'}">[${esc(e.time.slice(11,19))}] ${esc(e.effect)} · ${esc(e.label)} → ${esc(e.source)} (${e.intensity})</div>`).join('');
+  }catch(e){}
+}
+
 async function refreshAll(){
   try{
     const data=await api('/topology');
     allNodes=data.nodes||[];allEdges=data.edges||[];
+    const injectSel=document.getElementById('inject-node');
+    if(injectSel.options.length<=1){
+      allNodes.forEach(n=>{const o=document.createElement('option');o.value=n.id;o.textContent=n.name;injectSel.appendChild(o);});
+    }
+    const pertCount=allNodes.filter(n=>(n.perturbation||{}).hits>0).length;
+    document.getElementById('st-pert').textContent=pertCount;
     // 统计
     const up=allNodes.filter(n=>n.up).length;
     document.getElementById('st-total').textContent=allNodes.length;
@@ -375,7 +456,9 @@ async function refreshAll(){
 
 renderTerms();
 refreshAll();
+refreshEvents();
 setInterval(refreshAll,5000);
+setInterval(refreshEvents,3000);
 </script>
 </body>
 </html>

@@ -41,7 +41,7 @@ import secrets
 import base64
 import time
 import threading
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from collections import deque
@@ -380,6 +380,25 @@ class AuthHandler(BaseHTTPRequestHandler):
             resp = do_me(username)
             self._send(200 if resp["ok"] else 404, resp)
             return
+        if path == "/api/auth/glass" or path == "/glass":
+            # 公开玻璃墙·无需登录·只含脱敏聚合（P0 透明不黑箱）
+            self._send(200, _glass_snapshot())
+            return
+        if path == "/api/auth/audit" or path == "/audit":
+            # 审计查询·需登录·IP 脱敏·读取本身记审计
+            token = self._bearer()
+            username = verify_token(token)
+            if not username:
+                self._send(401, {"ok": False, "error": "登录已失效·请重新登录"})
+                return
+            try:
+                limit = int(self.path.split("limit=", 1)[1].split("&", 1)[0]) if "limit=" in self.path else 50
+            except Exception:
+                limit = 50
+            limit = max(1, min(limit, 500))
+            _audit(ip, "audit.view", username, "ok", f"limit={limit}")
+            self._send(200, {"ok": True, "data": {"records": _audit_recent(limit), "count": len(_audit_recent(limit))}})
+            return
         self._send(404, {"ok": False, "error": "not found"})
 
     def do_POST(self):
@@ -420,6 +439,141 @@ def _user_count() -> int:
             conn.close()
     except Exception:
         return 0
+
+
+# ═══════════════════════════════════════════════════════════════
+# 开放玻璃墙（P0 无后台主权协议的正面实现·透明不黑箱）
+#   - /api/auth/glass  公开快照·无需登录·只含脱敏聚合统计
+#   - /api/auth/audit  审计查询·需登录·IP 脱敏·读取本身记审计
+# ═══════════════════════════════════════════════════════════════
+def _mask_ip(ip: str) -> str:
+    """IP 脱敏: 末段打码，防公开泄露定位"""
+    try:
+        if ":" in ip:                      # IPv6 → 保留前 4 段
+            parts = ip.split(":")
+            return ":".join(parts[:4]) + ":****"
+        parts = ip.split(".")
+        if len(parts) == 4:
+            return ".".join(parts[:3]) + ".*"
+    except Exception:
+        pass
+    return "***"
+
+
+def _audit_stats() -> dict:
+    """审计聚合统计（不暴露任何原文）"""
+    stats = {"total": 0, "login_ok": 0, "login_failed": 0, "locked": 0, "register": 0, "logout": 0, "other": 0}
+    if not LOG_PATH.exists():
+        return stats
+    try:
+        with open(LOG_PATH, "r", encoding="utf-8") as f:
+            for line in f:
+                try:
+                    ev = json.loads(line)
+                except Exception:
+                    continue
+                stats["total"] += 1
+                a = ev.get("a", "")
+                if a == "login" and ev.get("r") == "ok":
+                    stats["login_ok"] += 1
+                elif a == "login" and ev.get("r") in ("failed", "denied", "locked"):
+                    stats["login_failed"] += 1
+                elif a == "register":
+                    stats["register"] += 1
+                elif a == "logout":
+                    stats["logout"] += 1
+                else:
+                    stats["other"] += 1
+        return stats
+    except Exception:
+        return stats
+
+
+def _audit_trend(days: int = 14) -> list:
+    """审计趋势时间序列（走势图数据源）·按 UTC 日聚合·不含任何敏感原文"""
+    buckets = {}
+    if LOG_PATH.exists():
+        try:
+            with open(LOG_PATH, "r", encoding="utf-8") as f:
+                for line in f:
+                    try:
+                        ev = json.loads(line)
+                    except Exception:
+                        continue
+                    day = (ev.get("t", "") or "")[:10]
+                    if len(day) != 10:
+                        continue
+                    b = buckets.setdefault(day, {"date": day, "login_ok": 0, "login_failed": 0, "register": 0, "locked": 0})
+                    a, r = ev.get("a", ""), ev.get("r", "")
+                    if a == "login" and r == "ok":
+                        b["login_ok"] += 1
+                    elif a == "login" and r in ("failed", "denied", "locked"):
+                        b["login_failed"] += 1
+                    elif a == "register":
+                        b["register"] += 1
+                    elif a == "login" and r == "locked":
+                        b["locked"] += 1
+        except Exception:
+            pass
+    # 补齐近 days 天空档（走势图连续性）
+    out, seen = [], set(buckets)
+    now = datetime.now(timezone.utc)
+    for i in range(days - 1, -1, -1):
+        d = (now - timedelta(days=i)).strftime("%Y-%m-%d")
+        out.append(buckets.get(d, {"date": d, "login_ok": 0, "login_failed": 0, "register": 0, "locked": 0}))
+    return out
+
+
+def _glass_snapshot() -> dict:
+    """公开玻璃墙快照 · P0 合规：不存用户数据·只含聚合/状态"""
+    return {
+        "ok": True,
+        "data": {
+            "service": "web-auth",
+            "version": "v1.0",
+            "alive": True,
+            "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "protocol": {
+                "name": "龍魂·无后台主权协议 v2.0",
+                "level": "P0",
+                "status": "焊死",
+                "claims": [
+                    "服务器不存储用户数据·只存不可逆哈希(PBKDF2-SHA256)",
+                    "无管理员后门·无追踪脚本·无隐藏修改",
+                    "审计日志 append-only·只冻结不删除",
+                    "所有代码开源·任何人都可审查",
+                ],
+            },
+            "audit": _audit_stats(),
+            "users_total": _user_count(),
+            "trend": _audit_trend(),
+        },
+    }
+
+
+def _audit_recent(limit: int) -> list:
+    """最近审计记录（IP 脱敏·供登录用户查询）"""
+    out = []
+    if not LOG_PATH.exists():
+        return out
+    try:
+        with open(LOG_PATH, "r", encoding="utf-8") as f:
+            for line in f:
+                try:
+                    ev = json.loads(line)
+                except Exception:
+                    continue
+                out.append({
+                    "t": ev.get("t", ""),
+                    "a": ev.get("a", ""),
+                    "u": ev.get("u", "***"),
+                    "r": ev.get("r", ""),
+                    "x": ev.get("x", ""),
+                    "ip": _mask_ip(ev.get("ip", "")),
+                })
+        return out[-limit:]
+    except Exception:
+        return out
 
 
 def main():

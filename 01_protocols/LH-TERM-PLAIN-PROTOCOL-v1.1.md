@@ -1,4 +1,5 @@
 <!--
+  ⛔ 已废弃: 本版 v1.1 已被 v1.2 取代，新引用请用 LH-TERM-PLAIN-PROTOCOL-v1.2.md
   # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
   DNA: #龍芯⚡️丙午·癸未·丙戌·甲午·䷀乾-TERM-PLAIN-PROTOCOL-V1.1-UID9622
   确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

@@ -1,6 +1,7 @@
 #!/bin/bash
 # 龍魂插件沙箱 · 部署验证 v1.1
 # DNA: #龍芯⚡️2026-08-22-SANDBOX-VERIFY-v1.1
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）| 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # License: MulanPSL v2
 # 用法: bash scripts/sandbox_verify.sh [plugin_id]

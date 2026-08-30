@@ -1,3 +1,5 @@
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-add30eba
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"

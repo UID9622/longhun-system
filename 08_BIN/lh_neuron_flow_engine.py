@@ -21,7 +21,8 @@ ROOT_CARD:
   人场(human)  → 五大人格协同路由·激活阈值·意图分发
   龍盾(P72)    → 宫格5不动点·熔断守护·能量锚定
 
-五大人格协同（按龍魂家族标准·20人格矩阵）:
+六大人格协同（按龍魂家族标准·20人格矩阵）:
+  P23神经元     → 神经架构·突触调优·涌现智能（激活阈值 0.5）
   P03雯雯       → 结构归档·记忆巩固（激活阈值 0.6）
   P04鲁班       → 技术执行·架构构建（激活阈值 0.8）
   P05上帝之眼   → 三色审计·闸口检查（始终激活·守护层）
@@ -162,7 +163,7 @@ class Persona:
     color: str = "🟢"
     priority: int = 3             # 优先级 1(最高)-5(最低)
 
-# 五大人格（神经元流场场景·从20人格矩阵选取）
+# 六大人格（神经元流场场景·从20人格矩阵选取）
 PERSONAS: Dict[str, Persona] = OrderedDict({
     "p03_wenwen": Persona(
         name="雯雯P03",
@@ -211,6 +212,33 @@ PERSONAS: Dict[str, Persona] = OrderedDict({
         color="🔍",
         priority=2
     ),
+    "p23_neuron": Persona(
+        name="神经元P23",
+        code="p23_neuron",
+        layer="认知层",
+        role="神经架构专家·枢纽神经元·突触权重调优·涌现智能",
+        activation_threshold=0.5,
+        color="🧬",
+        priority=2
+    ),
+    "p24_sancai": Persona(
+        name="三才算法官P24",
+        code="p24_sancai",
+        layer="算法宪法层",
+        role="三才算法判定·P0-ETERNAL宪法执行·四层定锚·1→2→3循环·量子纠缠协作",
+        activation_threshold=0.5,
+        color="☯",
+        priority=2
+    ),
+    "p25_sovereignty": Persona(
+        name="数字主权官P25",
+        code="p25_sovereignty",
+        layer="主权守护层",
+        role="三重主权守护·数据/算法/平台主权·主权审计·白皮书执行",
+        activation_threshold=0.5,
+        color="🐉",
+        priority=2
+    ),
 })
 
 # 人格勘误修正记录（v4.0 关键修正）
@@ -218,6 +246,8 @@ PERSONA_CORRECTION_LOG = [
     {"version": "v3.0", "issue": "上帝之眼被误标为'宝宝P72·龍盾'", "fix": "分离P02宝宝(情感)与P72龍盾(熔断)，上帝之眼=P05审计"},
     {"version": "v4.0", "issue": "侦察兵/架构师/同步官非标准20人格名称", "fix": "替换为P04鲁班(架构)·P05上帝之眼(审计)·P77明天使(巡逻)"},
     {"version": "v4.0", "issue": "缺失执行层技术执行人格", "fix": "新增P04鲁班·神经架构搜索→技术执行"},
+    {"version": "v4.1", "issue": "缺失认知层枢纽神经元人格", "fix": "新增P23神经元·神经架构专家·突触调优·涌现智能·阈值0.5"},
+    {"version": "v4.2", "issue": "缺失算法宪法与主权守护人格", "fix": "新增P24三才算法官(宪法执行)·P25数字主权官(三重主权守护)"},
 ]
 
 # ============================================================
@@ -285,7 +315,7 @@ class NeuronFlowEngine:
         """引擎初始化·自检"""
         logger.info(f"神经元-流场引擎 {VERSION} 初始化完成")
         logger.info(f"DNA: {self.dna}")
-        logger.info(f"五大人格就绪: {', '.join(p.name for p in PERSONAS.values())}")
+        logger.info(f"六大人格就绪: {', '.join(p.name for p in PERSONAS.values())}")
 
     # ─── 地场计算 ─────────────────────────────────────
 
@@ -514,6 +544,10 @@ class NeuronFlowEngine:
             intent_map = {
                 "整理": "p03_wenwen", "归档": "p03_wenwen", "验收": "p03_wenwen",
                 "架构": "p04_luban", "构建": "p04_luban", "设计": "p04_luban",
+                "神经": "p23_neuron", "认知": "p23_neuron", "突触": "p23_neuron",
+                "涌现": "p23_neuron", "模型": "p23_neuron",
+                "三才": "p24_sancai", "天地人": "p24_sancai", "算法宪法": "p24_sancai", "量子纠缠": "p24_sancai",
+                "主权": "p25_sovereignty", "主权审计": "p25_sovereignty", "白皮书": "p25_sovereignty", "数据黑箱": "p25_sovereignty",
                 "审计": "p05_god_eye", "检查": "p05_god_eye", "闸口": "p05_god_eye",
                 "熔断": "p72_dragon_shield", "停止": "p72_dragon_shield",
                 "巡逻": "p77_bright_angel", "异常": "p77_bright_angel", "信噪比": "p77_bright_angel",
@@ -661,7 +695,7 @@ class NeuronFlowEngine:
             },
             "five_personas_standard": {
                 "status": "✅",
-                "detail": "五大人格对齐20人格矩阵: P03雯雯·P04鲁班·P05上帝之眼·P72龍盾·P77明天使"
+                "detail": "六大人格对齐20人格矩阵: P23神经元·P03雯雯·P04鲁班·P05上帝之眼·P72龍盾·P77明天使"
             },
             "p72_always_active": {
                 "status": "✅",
@@ -901,7 +935,7 @@ def format_markdown_output(trinity: TrinityMap) -> str:
 
 def print_persona_matrix(density: float, active_codes: List[str]):
     """打印人格激活矩阵"""
-    cprint("\n┌─ 🧬 五大人格激活矩阵 ──────────────────┐", Colors.BOLD)
+    cprint("\n┌─ 🧬 六大人格激活矩阵 ──────────────────┐", Colors.BOLD)
     cprint(f"│ 当前密度: {density:.3f}", Colors.CYAN)
     cprint("├──────┬────────────┬────────┬────────┬──────┤", Colors.DIM)
 
@@ -1345,8 +1379,8 @@ def main():
         cprint(f"DNA: {result['dna']}", Colors.DIM)
         cprint(f"状态: {result['status']}", Colors.CYAN)
         cprint(f"  人格修正: ✅ GodEye→P05·宝宝P02独立·龍盾P72独立", Colors.GREEN)
-        cprint(f"  五大人格: P03雯雯·P04鲁班·P05上帝之眼·P72龍盾·P77明天使", Colors.CYAN)
-        cprint(f"  三才映射: 地场(Merkle)·天场(Hopfield+审计)·人场(五人格路由)", Colors.CYAN)
+        cprint(f"  六大人格: P23神经元·P03雯雯·P04鲁班·P05上帝之眼·P72龍盾·P77明天使", Colors.CYAN)
+        cprint(f"  三才映射: 地场(Merkle)·天场(Hopfield+审计)·人场(六大人格路由)", Colors.CYAN)
         cprint(f"  审计统计: 🟢{result['audit_stats']['🟢']} 🟡{result['audit_stats']['🟡']} 🔴{result['audit_stats']['🔴']}", Colors.CYAN)
         cprint(f"  快照: {result['snapshot_count']} 个", Colors.DIM)
         if not any([args.self_audit, args.dual_brain, args.density, args.hopfield,

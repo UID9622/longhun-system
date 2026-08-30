@@ -1,6 +1,4 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
+<!-- DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-81a6bfa1 -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -16,6 +14,17 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://uid9622.cn/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐉%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "龍魂 · uid9622.cn | 中国自主数字主权系统",
+  "url": "https://uid9622.cn/",
+  "inLanguage": "zh-CN",
+  "description": "中国自主可控数字主权系统 · CNSH 中文原生脚本 · 数据根留中国",
+  "author": { "@type": "Person", "name": "诸葛鑫", "alternateName": "UID9622" }
+}
+</script>
 <style>
 :root {
   --bg: #05070a;
@@ -26,6 +35,7 @@
   --text: #e6edf3;
   --text-secondary: #7d8590;
   --accent: #ffd60a;
+  --gold: #ffd60a;
   --primary: #58a6ff;
   --primary-hover: #79b8ff;
   --success: #2ea043;
@@ -351,6 +361,139 @@ a:hover { color: var(--primary-hover); }
 .arch-card li:last-child { border-bottom: none; }
 .arch-card li::before { content: "✓"; color: var(--success); font-weight: 700; }
 
+/* About */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.about-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: all .2s;
+}
+.about-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+.about-card .icon { font-size: 2rem; margin-bottom: 14px; }
+.about-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+.about-card p { color: var(--text-secondary); font-size: .92rem; line-height: 1.7; }
+
+/* Knowledge / Projects */
+.knowledge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 18px;
+}
+.kb-card, .proj-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  transition: all .15s;
+}
+.kb-card:hover, .proj-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+.kb-card .icon, .proj-card .icon { font-size: 1.7rem; margin-bottom: 12px; }
+.kb-card h3, .proj-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.kb-card p, .proj-card p { color: var(--text-secondary); font-size: .85rem; line-height: 1.65; flex: 1; }
+.kb-card .meta {
+  margin-top: 14px;
+  font-size: .72rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+.kb-card .link, .proj-card .link {
+  margin-top: 14px;
+  font-size: .85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Contact */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px;
+}
+.contact-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  transition: all .15s;
+}
+.contact-card:hover { border-color: var(--primary); }
+.contact-card h3 { font-size: .95rem; margin-bottom: 10px; color: var(--text); }
+.contact-card a {
+  color: var(--primary);
+  font-size: .88rem;
+  word-break: break-all;
+}
+.contact-card a:hover { color: var(--primary-hover); }
+
+/* Automation pipeline */
+.auto-pipeline {
+  margin-top: 44px;
+  background: linear-gradient(90deg, var(--surface2), var(--surface));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+}
+.auto-pipeline h3 { font-size: 1rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.auto-steps {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.auto-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: .82rem;
+  color: var(--text-secondary);
+}
+.auto-step .n {
+  width: 20px; height: 20px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-size: .7rem;
+  font-weight: 700;
+}
+.auto-step.arrow { border: none; background: none; padding: 0; color: var(--border-light); }
+.auto-step .done { color: var(--success); }
+
+/* Hero mission */
+.hero-mission {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto 30px;
+  width: fit-content;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid rgba(255,214,10,.25);
+  color: var(--accent);
+  font-size: .9rem;
+  font-weight: 500;
+}
+
 /* Footer */
 .footer {
   background: var(--surface);
@@ -385,11 +528,29 @@ a:hover { color: var(--primary-hover); }
 @media (max-width: 960px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .pillars-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
   .arch-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .auto-steps { flex-direction: column; align-items: flex-start; }
+  .auto-step.arrow { transform: rotate(90deg); }
 }
 @media (max-width: 640px) {
-  .nav { display: none; }
+  .nav {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    background: rgba(13,17,23,.98);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 16px;
+  }
+  .nav.open { display: flex; }
+  .nav a { padding: 12px 14px; border-radius: var(--radius-sm); }
+  .nav .btn-primary { text-align: center; }
   .mobile-menu { display: block; }
   .hero { padding: 80px 0 60px; }
   .stats-grid { grid-template-columns: 1fr; }
@@ -407,9 +568,13 @@ a:hover { color: var(--primary-hover); }
       龍魂 <span class="accent">·</span> uid9622.cn
     </a>
     <nav class="nav">
-      <a href="#pillars">核心能力</a>
-      <a href="#services">子系统</a>
+      <a href="#about">关于</a>
+      <a href="#knowledge">知识库</a>
+      <a href="#protocols">协议</a>
+      <a href="#projects">项目</a>
+      <a href="#contact">联系</a>
       <a href="#architecture">架构</a>
+      <a href="/tongxinyi/">语义</a>
       <a href="/notion-bridge/" class="btn-primary">进入玄機閣</a>
     </nav>
     <button class="mobile-menu" aria-label="菜单">☰</button>
@@ -431,9 +596,13 @@ a:hover { color: var(--primary-hover); }
       融合本地模型、自训练模型与合规 API，构建数据根留中国、协议可追溯的 AI 协作生态。
       <br><em style="color:var(--gold);font-style:normal;">三才为经 · 洛书为纬 · DNA 为锚</em>
     </p>
+    <div class="hero-mission">
+      🎯 使命：让每个人在数字宇宙留下痕迹 · 让数据主权回归人民 · 让 AI 根扎中国
+    </div>
     <div class="hero-actions">
       <a href="/notion-bridge/" class="btn btn-primary">🚀 进入玄機閣对话</a>
       <a href="/dashboard/" class="btn btn-secondary">📊 Dashboard 控制台</a>
+      <a href="/tongxinyi/" class="btn btn-secondary">🧠 通心译 · 语义中心</a>
     </div>
   </div>
 </section>
@@ -466,6 +635,32 @@ a:hover { color: var(--primary-hover); }
         <div class="icon">🔐</div>
         <div class="value">DNA</div>
         <div class="label">全链路追溯</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <h2 class="section-title">🇨🇳 关于龍魂系统</h2>
+    <p class="section-subtitle">
+      龍魂（LongHun）—— 中国自主主导、为人民数据主权而生的数字基础设施。
+    </p>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="icon">🌐</div>
+        <h3>是什么</h3>
+        <p>以 CNSH 中文原生脚本为底座，融合本地模型、自训练模型与合规 API 的 AI 协作生态。三才为经、洛书为纬、DNA 为锚，协议可追溯、数据可核验。</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">🧭</div>
+        <h3>创始人</h3>
+        <p>诸葛鑫（UID9622 · 龍芯北辰）。退役军人 · 数字主权卫士 · CNSH 中文编程语言创始人。GPG 公钥全程签名验证。</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">🎯</div>
+        <h3>使命</h3>
+        <p>让每个人在数字宇宙留下痕迹 · 让数据主权回归人民 · 让人人成为开发者 · 让 AI 根扎中国。</p>
       </div>
     </div>
   </div>
@@ -507,6 +702,95 @@ a:hover { color: var(--primary-hover); }
           <span class="tag">DNA 追溯</span>
           <span class="tag">GPG 签名</span>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="knowledge">
+  <div class="container">
+    <h2 class="section-title">🧬 公开知识库</h2>
+    <p class="section-subtitle">
+      核心思想层协议与知识图谱对外公开，全程 DNA 追溯 · GPG 签名 · CC BY-NC-SA 4.0 授权。Notion 门户自动同步。
+    </p>
+    <div class="knowledge-grid">
+      <div class="kb-card">
+        <div class="icon">🧬</div>
+        <h3>Knowledge DNA · 知识基因库</h3>
+        <p>系统知识、协议、图谱的 DNA 编码索引，全生命周期可追溯、可核验。</p>
+        <div class="meta">#Knowledge-DNA · Notion 知识基因库</div>
+      </div>
+      <div class="kb-card">
+        <div class="icon">🐉</div>
+        <h3>LU 全链路逻辑总表 · CNSH 操作台 v2.0</h3>
+        <p>CNSH 中文原生脚本全链路逻辑总表与操作台规范，编译 · 校验 · 翻译一条龙。</p>
+        <div class="meta">#LU-总表 · CNSH-v2.0</div>
+      </div>
+      <div class="kb-card">
+        <div class="icon">🐲</div>
+        <h3>思维主权系统 · 完整应用交付包 v1.0</h3>
+        <p>思维主权体系的完整应用交付包，含协议、工具链与验收清单。</p>
+        <div class="meta">#思维主权 · v1.0</div>
+        <a class="link" href="https://uid9622.notion.site/v1-0-d249ac21408645c588b95ad4421facc6" target="_blank" rel="noopener">查看交付包 →</a>
+      </div>
+      <div class="kb-card">
+        <div class="icon">🧠</div>
+        <h3>龍魂知识索引 · 内核脑</h3>
+        <p>知识中枢内核脑，每日自动归档，多源搜索与长期记忆。</p>
+        <div class="meta">#知识索引 · 每日归档</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="protocols">
+  <div class="container">
+    <h2 class="section-title">📜 公开协议与白皮书</h2>
+    <p class="section-subtitle">
+      核心思想层协议与白皮书在 Notion 全文公开，P0-ETERNAL 宪法永久封存 · DNA 追溯 · GPG 签名 · CC BY-NC-SA 4.0。
+    </p>
+    <div class="knowledge-grid">
+      <div class="kb-card">
+        <div class="icon">🐉</div>
+        <h3>数字主权技术白皮书 v2.0</h3>
+        <p>三大核心原则 · 三位一体数字主权架构 · 7 大核心模块 · AI 自动追溯层。</p>
+        <div class="meta">#白皮书 · v2.0</div>
+        <a class="link" href="https://uid9622.notion.site/ce9425a5b6be48ef8e6ac91324f4ae24" target="_blank" rel="noopener">查看原文 →</a>
+      </div>
+      <div class="kb-card">
+        <div class="icon">🌍</div>
+        <h3>CNSH 全球治理协议 · 第一宣言</h3>
+        <p>龍魂系统全球治理第一宣言，中文神经符号语言全球协作的治理底座。</p>
+        <div class="meta">#全球治理 · 第一宣言</div>
+        <a class="link" href="https://uid9622.notion.site/8fcb405fde45474a9ef21dd63d5e1c15" target="_blank" rel="noopener">查看原文 →</a>
+      </div>
+      <div class="kb-card">
+        <div class="icon">☯</div>
+        <h3>三才算法 · P0-ETERNAL 算法宪法 v2.0</h3>
+        <p>四层定锚 · 1→2→3 循环生态 · 量子纠缠态协作，永久封存只叠加不覆盖。</p>
+        <div class="meta">#P0-ETERNAL · v2.0 · 🔒永久封存</div>
+        <a class="link" href="https://uid9622.notion.site/31807171724281879226f018cd3dac58" target="_blank" rel="noopener">查看原文 →</a>
+      </div>
+      <div class="kb-card">
+        <div class="icon">☯</div>
+        <h3>三才算法 · P0-ETERNAL 算法宪法 v1.0</h3>
+        <p>三才结构 · 五大核心原则 · 冲气以为和演化逻辑，老大钦定永恒冻结。</p>
+        <div class="meta">#P0-ETERNAL · v1.0 · 🔒永久封存</div>
+        <a class="link" href="https://uid9622.notion.site/31807171724281b38becdfe036b46f5f" target="_blank" rel="noopener">查看原文 →</a>
+      </div>
+      <div class="kb-card">
+        <div class="icon">🏛️</div>
+        <h3>算法生态总控台 · 五库导航</h3>
+        <p>算法模块 / 版本追踪 / 审计记录 / 人格权重 / 归档封存，1→2→3→万物。</p>
+        <div class="meta">#算法生态 · 总控台</div>
+        <a class="link" href="https://uid9622.notion.site/fc14ef9e9cb04e33b5e57103a7b027d1" target="_blank" rel="noopener">查看原文 →</a>
+      </div>
+      <div class="kb-card">
+        <div class="icon">📖</div>
+        <h3>龍魂知识库 · 介绍与接入指南</h3>
+        <p>六道净化关卡 · DNA 注入归档 · CNSH 搜索 · 浏览器插件 · 开发路线图 v0.1→v4.0。</p>
+        <div class="meta">#知识库 · 接入指南</div>
+        <a class="link" href="https://uid9622.notion.site/ec7c651535e5432d92233461480c2166" target="_blank" rel="noopener">查看原文 →</a>
       </div>
     </div>
   </div>
@@ -577,6 +861,53 @@ a:hover { color: var(--primary-hover); }
   </div>
 </section>
 
+<section class="section" id="projects">
+  <div class="container">
+    <h2 class="section-title">🚀 公开项目</h2>
+    <p class="section-subtitle">
+      从编译器到视频引擎，龍魂生态已落地的一批公开项目，全部遵循「数据主权 · 透明审计 · 工程层 MulanPSL v2 可商用」。
+    </p>
+    <div class="knowledge-grid">
+      <div class="proj-card">
+        <div class="icon">🛠️</div>
+        <h3>CNSH 中文编程语言</h3>
+        <p>中文神经符号混合语言：编译器 · 校验器 · 词典 · 通心译，让中文直接编程。</p>
+        <a href="/cnsh-validator/" class="link">进入工具 →</a>
+      </div>
+      <div class="proj-card">
+        <div class="icon">🧬</div>
+        <h3>DNA 身份与追溯</h3>
+        <p>DNA 生成器 · 注册 · 身份追溯 · 七因子身份识别，全链路资产归属可验。</p>
+        <a href="/dna-generator/" class="link">进入 →</a>
+      </div>
+      <div class="proj-card">
+        <div class="icon">🛡️</div>
+        <h3>审计对抗工坊</h3>
+        <p>红蓝对抗 · 三色审计 · 十道闸口 · 前后端联动，交付前逐道过闸。</p>
+        <a href="/audit-battle-hub/" class="link">进入 →</a>
+      </div>
+      <div class="proj-card">
+        <div class="icon">🎬</div>
+        <h3>视频工坊</h3>
+        <p>素材管理 · 视频指标 · 发布流水线，内容生产全流程自动化。</p>
+        <a href="/video-studio/" class="link">进入 →</a>
+      </div>
+      <div class="proj-card">
+        <div class="icon">🗺️</div>
+        <h3>路径规划实验室</h3>
+        <p>数学建模 · 路径规划 · 多方案推演，算法透明可备案（A-BOM）。</p>
+        <a href="/pathfinder-lab/" class="link">进入 →</a>
+      </div>
+      <div class="proj-card">
+        <div class="icon">🧪</div>
+        <h3>激活实验室</h3>
+        <p>新能力激活 · 实验性子系统孵化 · 月度生态准入验证。</p>
+        <a href="/activation-lab/" class="link">进入 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="architecture">
   <div class="container">
     <h2 class="section-title">🏗️ 部署架构</h2>
@@ -606,6 +937,55 @@ a:hover { color: var(--primary-hover); }
   </div>
 </section>
 
+<section class="section services" id="contact">
+  <div class="container">
+    <h2 class="section-title">🤝 联系与合作</h2>
+    <p class="section-subtitle">
+      对外公开窗口 · 技术合作 / 交流共建 / 生态准入。平台矩阵：GitHub P0 · Notion / Gitee P1 · CSDN P2。
+    </p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>📧 邮箱</h3>
+        <a href="mailto:uid9622@uid9622.cn">uid9622@uid9622.cn</a>
+      </div>
+      <div class="contact-card">
+        <h3>🐙 GitHub（P0）</h3>
+        <a href="https://github.com/UID9622" target="_blank" rel="noopener">github.com/UID9622</a>
+      </div>
+      <div class="contact-card">
+        <h3>📓 Notion 公开站（P1）</h3>
+        <a href="https://uid9622.notion.site" target="_blank" rel="noopener">uid9622.notion.site</a>
+      </div>
+      <div class="contact-card">
+        <h3>🇨🇳 Gitee（P1）</h3>
+        <a href="https://gitee.com/uid9622" target="_blank" rel="noopener">gitee.com/uid9622</a>
+      </div>
+      <div class="contact-card">
+        <h3>📝 CSDN（P2）</h3>
+        <a href="https://blog.csdn.net/UID9622" target="_blank" rel="noopener">blog.csdn.net/UID9622</a>
+      </div>
+      <div class="contact-card">
+        <h3>🌐 longhun888.com</h3>
+        <a href="https://longhun888.com" target="_blank" rel="noopener">境外触达站点</a>
+      </div>
+    </div>
+    <div class="auto-pipeline">
+      <h3>⚙️ 自动化管线 · 龍魂AI 自动同步</h3>
+      <div class="auto-steps">
+        <span class="auto-step"><span class="n">1</span> Notion 门户自动同步</span>
+        <span class="auto-step arrow">→</span>
+        <span class="auto-step"><span class="n">2</span> 代码自动落地</span>
+        <span class="auto-step arrow">→</span>
+        <span class="auto-step"><span class="n">3</span> 自动健康检查</span>
+        <span class="auto-step arrow">→</span>
+        <span class="auto-step"><span class="n">4</span> GPG 签名 · 三色审计</span>
+        <span class="auto-step arrow">→</span>
+        <span class="auto-step"><span class="n">5</span> 归档留档 · DNA 追溯</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -626,6 +1006,7 @@ a:hover { color: var(--primary-hover); }
           <li><a href="/video-studio/">视频工坊</a></li>
           <li><a href="/pathfinder-lab/">路径规划</a></li>
           <li><a href="/audit-battle-hub/">审计对抗</a></li>
+          <li><a href="/tongxinyi/">通心译·语义中心</a></li>
         </ul>
       </div>
       <div>
@@ -637,16 +1018,19 @@ a:hover { color: var(--primary-hover); }
         </ul>
       </div>
       <div>
-        <h4>联系</h4>
+        <h4>平台矩阵</h4>
         <ul>
-          <li><a href="mailto:uid9622@uid9622.cn">uid9622@uid9622.cn</a></li>
-          <li><a href="https://github.com/zuimeidedeyihan">GitHub</a></li>
+          <li><a href="mailto:uid9622@uid9622.cn">📧 uid9622@uid9622.cn</a></li>
+          <li><a href="https://github.com/UID9622" target="_blank" rel="noopener">🐙 GitHub · P0</a></li>
+          <li><a href="https://uid9622.notion.site" target="_blank" rel="noopener">📓 Notion · P1</a></li>
+          <li><a href="https://gitee.com/uid9622" target="_blank" rel="noopener">🇨🇳 Gitee · P1</a></li>
+          <li><a href="https://blog.csdn.net/UID9622" target="_blank" rel="noopener">📝 CSDN · P2</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 诸葛鑫（UID9622）· CC BY-NC-SA 4.0</span>
-      <span>🟢 系统运行正常 · 数据主权归 UID9622 所有</span>
+      <span>© 2026 诸葛鑫（UID9622）· CC BY-NC-SA 4.0 · GPG A2D0…C26D5F</span>
+      <span>🟢 自动化守护 · 每小时健康检查 · 三色审计 · 数据主权归 UID9622</span>
     </div>
   </div>
 </footer>
@@ -674,132 +1058,22 @@ a:hover { color: var(--primary-hover); }
     dot.style.background = 'var(--warning)';
   }
 })();
-</script>
-<!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
-<style>
-#lh-eco-popup-overlay {
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-}
-#lh-eco-popup-overlay.active { display: flex; }
-.lh-popup-card {
-    background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
-    border: 1px solid #c9a54b; border-radius: 12px; padding: 32px 40px;
-    max-width: 480px; width: 90%; text-align: center; color: #e0d5c1;
-    box-shadow: 0 0 60px rgba(201, 165, 75, 0.15), 0 8px 32px rgba(0,0,0,0.6);
-}
-.lh-popup-title {
-    font-size: 28px; font-weight: 700; color: #c9a54b; margin-bottom: 8px;
-    letter-spacing: 2px;
-}
-.lh-popup-subtitle {
-    font-size: 14px; color: #8a7a5a; margin-bottom: 24px;
-}
-.lh-status-badge {
-    display: inline-block; padding: 6px 18px; border-radius: 20px;
-    font-size: 13px; font-weight: 600; margin: 16px 0; letter-spacing: 1px;
-}
-.lh-status-alive { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
-.lh-status-expired { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.3); }
-.lh-status-builder { background: rgba(201, 165, 75, 0.15); color: #c9a54b; border: 1px solid rgba(201, 165, 75, 0.3); }
-.lh-popup-detail { font-size: 13px; color: #8a8a8a; line-height: 1.8; margin: 16px 0; }
-.lh-popup-btn {
-    display: inline-block; margin: 6px; padding: 10px 24px; border-radius: 6px;
-    font-size: 14px; font-weight: 600; cursor: pointer; border: none; letter-spacing: 1px;
-    transition: all 0.2s ease;
-}
-.lh-btn-primary {
-    background: linear-gradient(135deg, #c9a54b, #e2c87a); color: #0a0a0f;
-}
-.lh-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,165,75,0.4); }
-.lh-btn-secondary { background: transparent; color: #c9a54b; border: 1px solid #c9a54b; }
-.lh-btn-secondary:hover { background: rgba(201,165,75,0.1); }
-.lh-popup-footer { font-size: 11px; color: #5a5a5a; margin-top: 20px; }
-.lh-popup-footer a { color: #c9a54b; text-decoration: none; }
-</style>
 
-<div id="lh-eco-popup-overlay">
-    <div class="lh-popup-card">
-        <div class="lh-popup-title">🌐 龍魂生态</div>
-        <div class="lh-popup-subtitle">月度活人验证 · 生态准入关</div>
-        <div id="lh-status-badge" class="lh-status-badge">加载中...</div>
-        <div class="lh-popup-detail" id="lh-popup-detail"></div>
-        <div>
-            <button class="lh-popup-btn lh-btn-primary" onclick="lhEcoRenew()">💓 续费心跳 ¥1/月</button>
-            <button class="lh-popup-btn lh-btn-secondary" onclick="lhEcoClose()">稍后再说</button>
-        </div>
-        <div class="lh-popup-footer">
-            每月1元证明你是活人 · 数据永远归你 · <a href="https://uid9622.cn/protocol" target="_blank">协议全文</a>
-        </div>
-    </div>
-</div>
-
-<script>
+// 移动端菜单
 (function() {
-    var API_BASE = '/api/eco';
-    var popup = document.getElementById('lh-eco-popup-overlay');
-    var lastShown = localStorage.getItem('lh_eco_popup_last');
-    var now = Date.now();
-    
-    // 24小时内不重复弹窗
-    if (lastShown && (now - parseInt(lastShown)) < 86400000) return;
-    
-    function showPopup() {
-        if (popup) popup.classList.add('active');
-        localStorage.setItem('lh_eco_popup_last', now.toString());
-    }
-    
-    function fetchStatus() {
-        fetch(API_BASE + '/alive-status')
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                var badge = document.getElementById('lh-status-badge');
-                var detail = document.getElementById('lh-popup-detail');
-                if (!badge || !detail) return;
-                
-                if (data.status === 'alive') {
-                    badge.textContent = '🟢 生态内';
-                    badge.className = 'lh-status-badge lh-status-alive';
-                    detail.innerHTML = '验证有效 · 到期: ' + (data.expiry || '—') + '<br>剩余: ' + (data.days_left || 0) + '天';
-                    // 生态内不弹窗
-                } else if (data.status === 'builder') {
-                    badge.textContent = '⚪ 共建者';
-                    badge.className = 'lh-status-badge lh-status-builder';
-                    detail.innerHTML = '连续12月+ · 生态内全功能 + 治理投票';
-                } else {
-                    badge.textContent = '🟡 生态外';
-                    badge.className = 'lh-status-badge lh-status-expired';
-                    detail.innerHTML = '月度验证已过期<br>数据保留·可导出·不锁功能<br>续费1元即刻回归生态内';
-                    showPopup();
-                }
-            })
-            .catch(function() {
-                // API不可达时不弹窗
-            });
-    }
-    
-    // 页面加载后2秒检查
-    setTimeout(fetchStatus, 2000);
-    
-    // 暴露全局函数
-    window.lhEcoRenew = function() {
-        fetch(API_BASE + '/renew', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({uid: 'UID9622'}) })
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                if (data.qr_code || data.payment_url) {
-                    window.open(data.payment_url || data.qr_code, '_blank');
-                }
-                if (popup) popup.classList.remove('active');
-                setTimeout(fetchStatus, 3000);
-            });
-    };
-    window.lhEcoClose = function() {
-        if (popup) popup.classList.remove('active');
-    };
+  var toggle = document.querySelector('.mobile-menu');
+  var nav = document.querySelector('.nav');
+  if (!toggle || !nav) return;
+  toggle.addEventListener('click', function() {
+    nav.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      nav.classList.remove('open');
+    });
+  });
 })();
 </script>
-<!-- /龍魂生态准入弹窗 -->
 <!-- 龍魂生态准入弹窗 · 自动注入 · 勿手动修改 -->
 <style>
 #lh-eco-popup-overlay {

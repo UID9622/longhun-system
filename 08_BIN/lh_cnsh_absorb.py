@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-bea1d786
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 #龍芯⚡️丙午·丙申·丙辰·亥时·䷄需-CNSH-ABSORB-v1.0
@@ -371,6 +372,14 @@ def 吸收代码(
     filepath = os.path.abspath(filepath)
     if not os.path.exists(filepath):
         return False, f"❌ 文件不存在: {filepath}", None
+
+    # 🔴 三关判定(2026-08-30·文件身份协议v1.1): 前8KB含NUL→二进制拒绝(防污染副本与可执行文件)
+    try:
+        with open(filepath, "rb") as f:
+            if b"\x00" in f.read(8192):
+                return False, f"❌ 疑似二进制文件，拒绝吸收: {filepath}", None
+    except OSError:
+        return False, f"❌ 文件读取失败: {filepath}", None
 
     # 读取原始代码
     try:

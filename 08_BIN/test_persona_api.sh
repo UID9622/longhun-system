@@ -10,7 +10,8 @@
 # DNA: #龍芯⚇️2026-06-09-PERSONA-API-TEST-v1.0
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 
-set -e
+set +e
+# 注: 不启用 set -e —— ((PASS++))/((FAIL++)) 从 0 递增时退出码为 1 会中断整脚本(仅第1项可跑)
 
 API_URL="http://localhost:9001"
 PASS=0

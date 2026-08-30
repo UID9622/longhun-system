@@ -298,6 +298,7 @@ section .container{position:relative}
     <div class="nav-actions">
       <a href="/apps/apps.html" class="nav-apps-btn">🧭 全部应用</a>
       <!-- 龍魂账号系统 · 加密注册/登录 (2026-08-17) -->
+      <a class="nav-auth-btn nav-master-btn" id="navMasterBtn" href="/apps/console/main-p0.html" style="display:none">🛰️ 主控</a>
       <a class="nav-auth-btn" id="navAuthBtn" href="javascript:void(0)" onclick="window.lhAuth&&lhAuth.open()">🔐 登录</a>
       <button class="nav-chat-btn" onclick="document.getElementById('cwBubble')?.click()">
         <span class="nav-chat-dot"></span> AI对话
@@ -440,6 +441,11 @@ section .container{position:relative}
     <h2 class="section-heading">🖥️ 控制台</h2>
     <p class="section-desc">龍魂系统的各个控制入口</p>
     <div class="console-grid">
+      <a href="/topology/" class="card-hover">
+        <span class="ci-icon">🌌</span>
+        <div class="ci-title">3D 银河拓扑</div>
+        <div class="ci-desc">主力引擎 · 14星域全景 · 拖拽旋转 · 星爆</div>
+      </a>
       <a href="/apps/apps.html" class="card-hover">
         <span class="ci-icon">🎛️</span>
         <div class="ci-title">主控台</div>
@@ -1572,6 +1578,10 @@ console.log('🐉 龍魂官网门户 v4.0 已就绪 · 术语白话化v1.2·鸿�
 }
 .nav-auth-btn:hover { background: rgba(201,165,75,0.12); color: #e2c87a; }
 .nav-auth-btn.logged { color: #2ecc71; border-color: rgba(46,204,113,0.4); }
+.nav-master-btn { color: #ffd166; border-color: rgba(255,209,102,0.5); }
+.nav-master-btn:hover { background: rgba(255,209,102,0.12); color: #ffe08a; }
+.lh-auth-master { display: block; margin-top: 10px; color: #ffd166; text-decoration: none; font-size: 12px; letter-spacing: 2px; }
+.lh-auth-master:hover { color: #ffe08a; text-decoration: underline; }
 </style>
 
 <div id="lh-auth-overlay">
@@ -1602,7 +1612,8 @@ console.log('🐉 龍魂官网门户 v4.0 已就绪 · 术语白话化v1.2·鸿�
 
     <div class="lh-auth-foot">
       密码 <b>PBKDF2-SHA256</b> 加密存储 · 不存明文 · 连续错5次锁15分钟<br>
-      数据主权归你 · 与终端 lh keys 加密体系同源
+      数据主权归你 · 与终端 lh keys 加密体系同源<br>
+      <a class="lh-auth-master" href="/apps/console/main-p0.html" onclick="return lhAuth.guardMaster(event)">🛰️ 分布式管理入口 →</a>
     </div>
   </div>
 </div>
@@ -1616,6 +1627,7 @@ console.log('🐉 龍魂官网门户 v4.0 已就绪 · 术语白话化v1.2·鸿�
   var overlay = document.getElementById('lh-auth-overlay');
   var navBtn = document.getElementById('navAuthBtn');
   var curUser = null;
+  var curRole = null;
 
   function api(path, method, body, token) {
     var headers = { 'Content-Type': 'application/json' };
@@ -1633,6 +1645,8 @@ console.log('🐉 龍魂官网门户 v4.0 已就绪 · 术语白话化v1.2·鸿�
   }
 
   function updateNav() {
+    var masterBtn = document.getElementById('navMasterBtn');
+    var isMaster = curRole === 'admin' || /^(uid9622|admin)$/.test(curUser || '');
     if (curUser) {
       navBtn.textContent = '👤 ' + curUser;
       navBtn.classList.add('logged');
@@ -1644,6 +1658,7 @@ console.log('🐉 龍魂官网门户 v4.0 已就绪 · 术语白话化v1.2·鸿�
       navBtn.onclick = function() { lhAuth.open(); };
       navBtn.title = '登录/注册';
     }
+    if (masterBtn) masterBtn.style.display = isMaster ? '' : 'none';
   }
 
   window.lhAuth = {
@@ -1659,6 +1674,14 @@ console.log('🐉 龍魂官网门户 v4.0 已就绪 · 术语白话化v1.2·鸿�
       document.getElementById('lhAuthLogin').classList.toggle('active', tab === 'login');
       document.getElementById('lhAuthRegister').classList.toggle('active', tab === 'register');
     },
+    /* 分布式管理入口：已登录放行，未登录先提示登录 */
+    guardMaster: function(e) {
+      if (curUser) return true;
+      if (e && e.preventDefault) e.preventDefault();
+      lhAuth.open();
+      setMsg(document.getElementById('lhAuthLoginMsg'), '请先登录 · UID9622 主控身份进入分布式管理', false);
+      return false;
+    },
     login: function(e) {
       e.preventDefault();
       var f = e.target;
@@ -1673,9 +1696,14 @@ console.log('🐉 龍魂官网门户 v4.0 已就绪 · 术语白话化v1.2·鸿�
           if (res.ok) {
             localStorage.setItem(TOKEN_KEY, res.data.token);
             curUser = res.data.user.username;
-            setMsg(msg, '✅ 登录成功，欢迎回来 ' + curUser, true);
+            curRole = res.data.user.role || 'user';
+            var isMaster = curRole === 'admin' || /^(uid9622|admin)$/.test(curUser);
+            setMsg(msg, isMaster ? '✅ 身份确认 · 正在进入分布式管理…' : '✅ 登录成功，欢迎回来 ' + curUser, true);
             updateNav();
-            setTimeout(function(){ lhAuth.close(); }, 600);
+            setTimeout(function(){
+              lhAuth.close();
+              if (isMaster) window.location.href = '/apps/console/main-p0.html';
+            }, 700);
           } else {
             setMsg(msg, '❌ ' + (res.error || '登录失败'));
             btn.disabled = false;
@@ -1713,6 +1741,7 @@ console.log('🐉 龍魂官网门户 v4.0 已就绪 · 术语白话化v1.2·鸿�
       if (token) api('/logout', 'POST', null, token).catch(function(){});
       localStorage.removeItem(TOKEN_KEY);
       curUser = null;
+      curRole = null;
       updateNav();
       if (overlay) overlay.classList.remove('active');
     },
@@ -1724,6 +1753,7 @@ console.log('🐉 龍魂官网门户 v4.0 已就绪 · 术语白话化v1.2·鸿�
         .then(function(res) {
           if (res.ok) {
             curUser = res.data.user.username;
+            curRole = res.data.user.role || 'user';
             updateNav();
           } else {
             localStorage.removeItem(TOKEN_KEY);

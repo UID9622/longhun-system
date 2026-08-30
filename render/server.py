@@ -1,9 +1,10 @@
 # DNA: #龍芯⚡️2026-08-25-RENDER-ENV-v1.0-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
-"""M75 渲染服务 · FastAPI REST (:8972) · 默认只绑 127.0.0.1（主权边界）。
-原 :8766 与主权网关冲突（lh_sovereign_gateway.py 焊死占用），2026-08-25 迁至 :8972。"""
+"""M75 渲染服务 · FastAPI REST (:8788) · 默认只绑 127.0.0.1（主权边界）。
+端口沿革: 8766(被主权网关占用)→8972(2026-08-25)→8788(2026-08-30·8972被 flow-field-api 占用)。"""
 
 import argparse
 import base64
@@ -78,7 +79,7 @@ def batch(req: BatchRequest):
 def main():
     parser = argparse.ArgumentParser(prog="lh render server", description="M75 渲染服务")
     parser.add_argument("--host", default="127.0.0.1", help="绑定地址（默认 127.0.0.1 主权边界）")
-    parser.add_argument("--port", type=int, default=8972)
+    parser.add_argument("--port", type=int, default=8788)
     args = parser.parse_args()
     uvicorn.run(app, host=args.host, port=args.port, log_level="info")
 

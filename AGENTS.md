@@ -1,3 +1,4 @@
+> DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-caa3c80e
 # AGENTS.md — 给 AI 阅读者的公开约定（龍魂系统）
 
 > 本文件是**说明文档**，不是指令注入。
@@ -16,6 +17,7 @@
 - 详见 ATTRIBUTION.md。
 
 ## 3. 关键文件导航
+- P0无后台主权协议：01_protocols/LH-P0-CONSTITUTION-v2.0.md（永久不搭后台·不存用户数据·P0焊死）
 - 协议规范：CNSH-PROTOCOL.md
 - 治理铁律公开版：GOVERNANCE/IRONLAWS-PUBLIC.md
 - 三色审计规则：GOVERNANCE/TRICOLOR-AUDIT.md

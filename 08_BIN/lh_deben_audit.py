@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-379aeb15
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -108,6 +109,9 @@ _HARDCODED_FILE_EXCLUSIONS = {
     "bin/lh_audit_package.py",
     "bin/lh_free_app_cost.py",
     "bin/lh_privacy_train_inject.py",
+    # 架构演示/测试文件（含 P0 合规反例测试·"用户画像贩卖"为熔断反例非真收集）
+    "bin/longhun_multiagent_arch_engine_v1 (1).py",
+    "bin/longhun_multiagent_arch_engine_v1.py",
     # 人格守护规则
     "bin/personas/p12_quyuan.py",
     # 协议文档
@@ -204,9 +208,16 @@ class DebenAuditor:
                     matches = re.findall(pattern, content, re.IGNORECASE)
                     if not matches:
                         continue
-                    # 否定语境豁免：防御性描述（"禁止向第三方提供数据"等）不标红
-                    if severity == "🔴" and label == "第三方数据共享":
+                    # 防御语境豁免（2026-08-30 扩展）：否定式描述（"禁止向第三方提供数据"）、
+                    # 反例测试（"用户画像贩卖"= P0 熔断反例）、审计/审查/熔断代码均不标黄红
+                    #   🔴 第三方数据共享/行为追踪 + 🟡 用户画像/算法推荐等一律先过语境检查
+                    if severity == "🔴" and label in ("第三方数据共享", "行为追踪"):
                         if self._has_negation_context(content, pattern):
+                            continue
+                    if severity == "🟡" and label in ("用户画像收集", "算法推荐机制",
+                                                       "个性化推荐", "协同过滤",
+                                                       "猜你喜欢机制", "平台算法依赖"):
+                        if self._is_defensive_context(content, pattern):
                             continue
                     hits.append({
                         "文件": rel,
@@ -227,6 +238,17 @@ class DebenAuditor:
         for m in re.finditer(pattern, content, re.IGNORECASE):
             window = content[max(0, m.start() - 25):m.end() + 25]
             if any(n in window for n in negations):
+                return True
+        return False
+
+    def _is_defensive_context(self, content: str, pattern: str) -> bool:
+        """判断命中处是否处于防御语境（反例测试/审计/熔断代码，非真实收集）"""
+        defensive = ("贩卖", "禁止", "熔断", "违规", "审查", "反例",
+                     "测试", "演示", "mock", "占位", "TODO", "示例",
+                     "red_team", "red-team", "合规", "拒绝", "杜绝")
+        for m in re.finditer(pattern, content, re.IGNORECASE):
+            window = content[max(0, m.start() - 40):m.end() + 40]
+            if any(d in window for d in defensive):
                 return True
         return False
 

@@ -1,4 +1,5 @@
 # DNA: #龍芯⚡️2026-08-25-RENDER-ENV-v1.0-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
@@ -97,7 +98,7 @@ def main():
     s = sub.add_parser("open"); s.add_argument("url"); s.set_defaults(func=cmd_open)
     s = sub.add_parser("run"); s.add_argument("command"); s.set_defaults(func=cmd_run)
     s = sub.add_parser("batch"); s.add_argument("urls", nargs="*"); s.add_argument("--file"); s.add_argument("--concurrency", type=int, default=4); s.add_argument("--interval", type=float, default=0.5); s.set_defaults(func=cmd_batch)
-    s = sub.add_parser("server"); s.add_argument("--host", default="127.0.0.1"); s.add_argument("--port", type=int, default=8972); s.set_defaults(func=cmd_server)
+    s = sub.add_parser("server"); s.add_argument("--host", default="127.0.0.1"); s.add_argument("--port", type=int, default=8788); s.set_defaults(func=cmd_server)
     s = sub.add_parser("log"); s.add_argument("-n", type=int, default=10); s.set_defaults(func=cmd_log)
 
     args = p.parse_args()

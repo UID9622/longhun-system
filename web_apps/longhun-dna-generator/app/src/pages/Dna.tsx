@@ -1,3 +1,5 @@
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-4a05d632
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 import LiveDashboard from '@/pages/dna/LiveDashboard'
 import FormatAnatomy from '@/pages/dna/FormatAnatomy'
 import Generator from '@/pages/dna/Generator'

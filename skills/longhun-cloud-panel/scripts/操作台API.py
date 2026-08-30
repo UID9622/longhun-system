@@ -1,6 +1,8 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 龍魂操作台 v5.0 — FastAPI 统一 API 网关 + Web UI
 統一入口·十項 Skill 聯動·底座能力集成

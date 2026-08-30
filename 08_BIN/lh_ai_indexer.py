@@ -107,6 +107,13 @@ def scan_directory(tool_dir: Path, tool_name: str) -> list:
 
             # 文本文件才提取标题和标签
             if filepath.suffix.lower() in TEXT_EXTS:
+                # 🔴 三关判定(2026-08-30·文件身份协议v1.1): 前8KB含NUL→二进制跳过(后缀白名单不可靠)
+                try:
+                    with open(filepath, 'rb') as f:
+                        if b"\x00" in f.read(8192):
+                            continue
+                except OSError:
+                    continue
                 try:
                     content = filepath.read_text(encoding='utf-8', errors='ignore')[:50000]
                     entry['title'] = extract_title(content, filepath)

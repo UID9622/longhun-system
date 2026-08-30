@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-2ce292c6
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # 龍魂·六层来源链 / LongHun Six-Layer Source Chain
 # 1 道统层 Dao           : 曾仕强老师
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 2 精神层 Spirit        : Steve Jobs
 # 3 设备层 Device        : Apple
 # 4 技术层 Technology    : Open Source

@@ -1,4 +1,3 @@
-# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 // 🐉 龍魂 · DeepSeek 对话采集器 content.js v1.0
 // DNA: #龍芯⚡️丙午·丙申·辛酉·未时·䷔噬嗑-CAPTURE-EXT-CONTENT-UID9622
 // 注入 DeepSeek 网页版，采集对话消息 → 本地采集服务(8769)；离线时暂存 chrome.storage

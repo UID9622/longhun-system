@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-fbe9bb00
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -310,12 +311,17 @@ class PathAuditor:
             self.stats["合规文件"] += 1
             return None
 
-        # 根级豁免（2026-08-22 归集补齐）：
-        #   *.glyph-backup = 跟随源文件的备份（源文件在白名单即合法）
+        # 根级豁免（2026-08-22 归集补齐 + 2026-08-30 伴生文件修复）：
+        #   *.glyph-backup / *.glyph-backup.asc = 跟随源文件的备份（源文件在白名单即合法）
+        #   *.asc = GPG 分离签名（规则 6.8 强制与源文件同目录），源文件在白名单即合法
         #   软链 = 兼容层（物理文件已归位标准目录，根软链保老路径）
-        if "/" not in rel and (filepath.name.endswith(".glyph-backup") or filepath.is_symlink()):
-            self.stats["合规文件"] += 1
-            return None
+        if "/" not in rel:
+            name = filepath.name
+            if (name.endswith(".glyph-backup") or ".glyph-backup" in name
+                    or filepath.is_symlink()
+                    or (name.endswith(".asc") and name[: -4] in ROOT_LEVEL_WHITELIST)):
+                self.stats["合规文件"] += 1
+                return None
 
         # 根级文件不在白名单 → 标记为孤立文件（🟡）
         if "/" not in rel:
@@ -343,6 +349,9 @@ class PathAuditor:
             dirs[:] = [d for d in dirs if d not in IGNORE_DIRS and not d.startswith(".")]
 
             for fname in files:
+                # 文件级过滤 IGNORE_DIRS（.DS_Store 等系统伴生文件·2026-08-30 修复）
+                if fname in IGNORE_DIRS:
+                    continue
                 fpath = Path(root) / fname
                 violation = self.check_path(fpath)
                 if violation:

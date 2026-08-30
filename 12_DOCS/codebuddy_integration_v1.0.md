@@ -21,8 +21,8 @@ License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 |:---:|:---|:---|:---:|
 | 1 | M73 = `08_BIN/hash_engine.py` + `hash_api.py` · :9622 | M73 = `render/core/hash_registry.py`（类库·无 HTTP API）· :9622 = **龍魂API网关** `~/.longhun/scripts/longhun-api-gateway.py` | 🔴 |
 | 2 | M74 = `verification_framework/` 6模块 | **不存在·纯虚构** | 🔴 |
-| 3 | M75 = :8766 | :8766 = **主权网关** `08_BIN/lh_sovereign_gateway.py` · **渲染真身 :8972** `08_BIN/lh_render.py server` | 🔴 |
-| 4 | `/render` 指令 `curl :8766/render/health` | 真实 = `curl :8972/render/health` → 200 | 🔴 |
+| 3 | M75 = :8766 | :8766 = **主权网关** `08_BIN/lh_sovereign_gateway.py` · **渲染真身 :8788** `08_BIN/lh_render.py server` | 🔴 |
+| 4 | `/render` 指令 `curl :8766/render/health` | 真实 = `curl :8788/render/health` → 200 | 🔴 |
 | 5 | `/m76` 用 `bin/cnsh_lint.py --check-all` | `cnsh_lint.py` **不存在** · 真实工具 = `bin/cnsh_editor.py` | 🔴 |
 | 6 | `08_BIN/lh_audit.py` | 不存在 · 真实 = `08_BIN/code_audit.py` + `08_BIN/audit_engine.py` + `07_AUDIT/audit_api.py` | 🔴 |
 | 7 | `08_BIN/lh_dna_core.py` | 不存在 · 真实 = `08_BIN/dna_helper.py` + `dna_validate.py` + `render/core/dna.py` | 🔴 |
@@ -30,7 +30,7 @@ License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 | 9 | `/hash` POST `:9622/hash/register` | M73 无 HTTP API · 注册走本地类库 `HashRegistry.register_file()` | 🔴 |
 | 10 | doorkeeper「已落地」+ 默认服务 `longhun_backup.py`/`api_gateway.py` | 全部不存在 · :9623 实为 `deploy/longhun-registry/registry_server.py` | 🔴 |
 
-**核实无误（保留）**：✅ M76 工具链 6 文件全真（`bin/cnsh_test_runner.py`/`cnsh_dna_check.py`/`cnsh_coverage.py`/`include/CNSH_TestSuite.h`/`setup_test_chain.sh`/`.github/workflows/cnsh_test.yml`）· ✅ `bin/cnsh_compiler.py` · ✅ `render/docker-compose.render.yml` · ✅ 鲲鹏 Ollama `119.13.90.27:11434` → **0.24.0 可达** · ✅ Mac 本地 ollama :11434 + 反代 :11435 · ✅ 渲染健康端点 `:8972/render/health`。
+**核实无误（保留）**：✅ M76 工具链 6 文件全真（`bin/cnsh_test_runner.py`/`cnsh_dna_check.py`/`cnsh_coverage.py`/`include/CNSH_TestSuite.h`/`setup_test_chain.sh`/`.github/workflows/cnsh_test.yml`）· ✅ `bin/cnsh_compiler.py` · ✅ `render/docker-compose.render.yml` · ✅ 鲲鹏 Ollama `119.13.90.27:11434` → **0.24.0 可达** · ✅ Mac 本地 ollama :11434 + 反代 :11435 · ✅ 渲染健康端点 `:8788/render/health`。
 
 ---
 
@@ -40,7 +40,7 @@ License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 |:---|:---|:---|:---:|
 | 代码读改 | CodeBuddy 内嵌 AI | `08_BIN/code_audit.py` / `audit_engine.py` | 🟢 |
 | 本地模型 | 鲲鹏 Ollama :11434（0.24.0） | DeepSeek/Qwen 本地推理 | 🟢 已连通 |
-| 渲染调试 | M75 `lh_render.py` | `:8972`（`/render/health`） | 🟢 已连通 |
+| 渲染调试 | M75 `lh_render.py` | `:8788`（`/render/health`） | 🟢 已连通 |
 | 快速操作 | 自定义斜杠指令 | `/audit` `/dna` `/m76` `/render` `/hash` `/deploy` `/doorkeeper` | 🟢 本页焊死 |
 
 ---
@@ -79,9 +79,9 @@ License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 curl http://127.0.0.1:9222/json/version   # 🟡 当前未开，用时拉起
 ```
 
-> M75 渲染调试优先走既有 `lh render`（:8972），DevTools MCP 用于需要真实浏览器 DOM 的场景。
+> M75 渲染调试优先走既有 `lh render`（:8788），DevTools MCP 用于需要真实浏览器 DOM 的场景。
 > `render/mcp_server.py` 尚未创建（🟡 待 CodeBuddy 对齐任务落地），接口约定：
-> `{"render": {"open": ..., "extract": ..., "click": ..., "screenshot": ...}}` · 端口 8972 · DNA 前缀 `#龍芯⚡️`。
+> `{"render": {"open": ..., "extract": ..., "click": ..., "screenshot": ...}}` · 端口 8788 · DNA 前缀 `#龍芯⚡️`。
 
 ---
 
@@ -92,9 +92,9 @@ curl http://127.0.0.1:9222/json/version   # 🟡 当前未开，用时拉起
 | `/audit` | 三色审计 | `对当前选中代码执行龍魂三色审计。调用 ~/longhun-system/08_BIN/code_audit.py（轻量扫描）或 07_AUDIT/audit_api.py（:9623 完整审计）。红色=数据主权风险/违反P0，黄色=合规风险/需人工确认，绿色=安全可提交。输出三色判定 + DNA码 + 修改建议。` |
 | `/dna` | 生成DNA码 | `为当前代码块生成龍魂DNA追溯码。格式：#龍芯⚡️YYYY-MM-DD-{模块名大写}-v{版本}-UID9622。调用 ~/longhun-system/08_BIN/dna_helper.py 或 dna_validate.py 校验。输出可直接粘贴的注释行。` |
 | `/m76` | 运行测试工具链 | `在 ~/longhun-system 依次执行：python3 bin/cnsh_dna_check.py → python3 bin/cnsh_editor.py --check-all（注意：cnsh_lint.py 已废弃不存在）→ python3 bin/cnsh_test_runner.py --verbose → python3 bin/cnsh_coverage.py。输出三色汇总。` |
-| `/render` | 渲染冒烟测试 | `检查 M75 渲染服务：curl http://127.0.0.1:8972/render/health（端口 8972 非 8766，8766 是主权网关）。未启动则执行：python3 ~/longhun-system/08_BIN/lh_render.py server。然后发送渲染测试请求验证。` |
+| `/render` | 渲染冒烟测试 | `检查 M75 渲染服务：curl http://127.0.0.1:8788/render/health（端口 8788 非 8766/8972，8766 是主权网关·8972 是流场引擎）。未启动则执行：python3 ~/longhun-system/08_BIN/lh_render.py server。然后发送渲染测试请求验证。` |
 | `/hash` | 哈希产权注册 | `向 M73 哈希引擎注册当前文件。调用本地类库：python3 -c "import sys; sys.path.insert(0,'~/longhun-system/render/core'); from hash_registry import HashRegistry; HashRegistry().register_file('{文件路径}', '{DNA}')"。注意：M73 无 HTTP API，不走 POST。` |
-| `/deploy` | 部署检查 | `检查龍魂系统部署状态：验证 API网关(:9622)/主权网关(:8766)/渲染(:8972)/Ollama(:11434)/注册中心(:9623)/反代(:11435)·GitHub push 状态·鲲鹏 ollama。列出所有🟡🔴项和解决方案。` |
+| `/deploy` | 部署检查 | `检查龍魂系统部署状态：验证 API网关(:9622)/主权网关(:8766)/渲染(:8788)/Ollama(:11434)/注册中心(:9623)/反代(:11435)·GitHub push 状态·鲲鹏 ollama。列出所有🟡🔴项和解决方案。` |
 | `/doorkeeper` | 守护状态 | `查看龍魂五行八门守护状态：python3 ~/longhun-system/08_BIN/doorkeeper/longhun_doorkeeper.py --once。列出 6 服务端口存活、DNA链最新5条、耻辱墙记录、三色等级。` |
 | `/fuse-reset` | 熔断重置 | `对指定服务执行熔断重置：调用 service_mgr.reset_fuse()（08_BIN/doorkeeper/service_manager.py），并生成 DNA 追溯码。` |
 
@@ -106,9 +106,9 @@ curl http://127.0.0.1:9222/json/version   # 🟡 当前未开，用时拉起
 你好 CodeBuddy，请先读取并对齐当前 ~/longhun-system 目录的实际状态，然后执行以下任务：
 
 【系统真实状态（2026-08-25 实测·勿用旧文档臆造）】
-- 端口实况: :9622=龍魂API网关(~/.longhun/scripts/longhun-api-gateway.py) · :8766=主权网关(08_BIN/lh_sovereign_gateway.py) · :8972=渲染M75(08_BIN/lh_render.py server·健康端点/render/health) · :11434=Ollama · :9623=注册中心(deploy/longhun-registry/registry_server.py) · :11435=Ollama反代(tools/ollama_host_proxy.py)
+- 端口实况: :9622=龍魂API网关(~/.longhun/scripts/longhun-api-gateway.py) · :8766=主权网关(08_BIN/lh_sovereign_gateway.py) · :8788=渲染M75(08_BIN/lh_render.py server·健康端点/render/health) · :8972=流场引擎(08_BIN/lh_flow_field.py api) · :11434=Ollama · :9623=注册中心(deploy/longhun-registry/registry_server.py) · :11435=Ollama反代(tools/ollama_host_proxy.py)
 - M73 哈希产权引擎: render/core/hash_registry.py（类库无HTTP API·register_file 走本地调用）
-- M75 渲染环境: render/ 目录 + 08_BIN/lh_render.py，端口 8972
+- M75 渲染环境: render/ 目录 + 08_BIN/lh_render.py，端口 8788
 - M76 CNSH测试工具链: bin/cnsh_test_runner.py + cnsh_dna_check.py + cnsh_coverage.py + include/CNSH_TestSuite.h + setup_test_chain.sh + .github/workflows/cnsh_test.yml（cnsh_lint.py 已废弃不存在，真实工具 cnsh_editor.py）
 - 五行八门守护: 08_BIN/doorkeeper/（7文件已落地·冒烟全绿·心跳一轮 6/6 生门·DNA链完整）
 - DNA格式: #龍芯⚡️YYYY-MM-DD-{模块}-v{版本}-UID9622
@@ -171,7 +171,7 @@ DNA: #龍芯⚡️2026-08-25-CODEBUDDY-ALIGN-TASK-v1.1-UID9622
 | 问题 | 原因 | 解决方案 |
 |:---|:---|:---|
 | CodeBuddy 连不上 Chrome | 调试端口未开 | `curl http://127.0.0.1:9222/json/version` 验证；按 §4 启动 |
-| `/render` 连不上 | 端口写错 8766 | 渲染=**:8972**（8766 是主权网关）· `curl :8972/render/health` |
+| `/render` 连不上 | 端口写错 8766 | 渲染=**:8788**（8766 是主权网关·8972 是流场引擎）· `curl :8788/render/health` |
 | `/m76` 报错 cnsh_lint 不存在 | 工具已废弃 | 用 `cnsh_editor.py --check-all`（真实工具） |
 | `/hash` POST 失败 | M73 无 HTTP API | 改本地类库 `HashRegistry().register_file()` |
 | M73 注册路径 | 引擎是类库 | `python3 -c "import sys; sys.path.insert(0,'render/core'); from hash_registry import HashRegistry"` |
@@ -189,7 +189,7 @@ DNA: #龍芯⚡️2026-08-25-CODEBUDDY-ALIGN-TASK-v1.1-UID9622
 | 3 | 6 服务端口全活 | `lsof -iTCP -sTCP:LISTEN \| grep -E ':(9622\|8766\|8972\|11434\|9623\|11435)'` | 🟢 |
 | 4 | 鲲鹏 Ollama 可达 | `curl -s http://119.13.90.27:11434/api/version` → 0.24.0 | 🟢 |
 | 5 | M76 工具链 | `bash setup_test_chain.sh && python3 bin/cnsh_dna_check.py` | 🟢 |
-| 6 | M75 渲染健康 | `curl http://127.0.0.1:8972/render/health` → 200 | 🟢 |
+| 6 | M75 渲染健康 | `curl http://127.0.0.1:8788/render/health` → 200 | 🟢 |
 | 7 | render/mcp_server.py 待建 | `ls render/mcp_server.py` | 🟡 |
 | 8 | Chrome 9222 待启 | `curl http://127.0.0.1:9222/json/version` | 🟡 |
 | 9 | M74 重建立项 | `ls -d verification_framework/` | 🔴 |

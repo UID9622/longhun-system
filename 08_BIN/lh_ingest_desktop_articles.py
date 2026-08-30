@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-e85c1c62
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -23,6 +24,26 @@ from collections import Counter
 PROJECT = Path(__file__).resolve().parent.parent
 OUT = PROJECT / "models" / "longhun-v1.0" / "desktop_ingested_data_v407"
 OUT.mkdir(parents=True, exist_ok=True)
+
+
+def is_text_file(p: Path) -> bool:
+    """三关判定(2026-08-30·文件身份协议v1.1): 后缀黑名单→前8KB NUL→UTF-8替换率>2%→二进制"""
+    if p.suffix.lower() in {".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip", ".gz",
+                            ".mp4", ".mp3", ".wav", ".woff", ".woff2", ".ttf",
+                            ".exe", ".so", ".dylib", ".pyc", ".db", ".sqlite3",
+                            ".sqlite3-wal", ".sqlite3-shm", ".asc", ".sig", ".glyph-backup"}:
+        return False
+    try:
+        with open(p, "rb") as f:
+            head = f.read(8192)
+        if b"\x00" in head:
+            return False
+        decoded = head.decode("utf-8", errors="replace")
+        if decoded.count("\ufffd") > len(head) * 0.02:
+            return False
+    except OSError:
+        return False
+    return True
 
 DESKTOP = Path.home() / "Desktop"
 LONGHUN_ROOT = PROJECT.resolve()
@@ -207,6 +228,8 @@ def main():
         for f in files_list:
             path = Path(root) / f
             if path.suffix.lower() not in {".md", ".txt"}:
+                continue
+            if not is_text_file(path):
                 continue
             if should_skip(path):
                 continue

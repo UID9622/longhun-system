@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # 功能: 龍魂 P2 GitHub 开源机器人外接口沙箱隔离 v1.0（P72 龍盾）
 # DNA: #龍芯⚡️丙午·丙申·戊辰·亥时·䷳艮-BOT-SANDBOX-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)

@@ -17,7 +17,7 @@
 | 8 | DNA 每次渲染自动生成唯一标识 | 🟢 | `#龍芯⚡️2026-08-25-RENDER-XXXX-UID9622` 实测（本地+鲲鹏） |
 | 9 | 鲲鹏 Docker `docker compose up` 无报错 | 🟢 | 实测: 镜像 `longhun-lh-render` 构建+容器运行+真实渲染 gov.cn 🟢（截图 940KB·DNA 生成）· **鲲鹏实为 x86_64**(Intel Xeon 6348)，非 ARM64 |
 | 10 | 批量渲染 10 URL · 全部成功 | 🟢 | 实测: gov/people/xinhua/qq/baidu/163/csdn/cnblogs/bilibili/zhihu 10/10 ok · 115s(轻量模式) · audit 3🟢+7🟡 |
-| 11 | REST API `/render/execute` 返回变量环境 | 🟢 | 实测: 本地+鲲鹏 execute `渲染.打开(url=...)` 均返回 title/audit/dna/截图 · :8972(原:8766被主权网关占用已迁) |
+| 11 | REST API `/render/execute` 返回变量环境 | 🟢 | 实测: 本地+鲲鹏 execute `渲染.打开(url=...)` 均返回 title/audit/dna/截图 · :8788(原:8766被主权网关占用→8972→2026-08-30迁8788·8972被flow-field-api占用) |
 | 12 | 截图 + DNA 注册哈希引擎 M73 打通 | 🟢 | `render/core/hash_registry.py` 落地: 截图 SHA-256 + DNA 绑定 + Merkle 链式注册表(append-only `data/renders/hash_registry.jsonl`) · 渲染/截图自动登记 · CNSH `渲染.注册哈希/验证哈希` · 测试 T7 全过 |
 
 ## 已实测链路
@@ -27,7 +27,7 @@ lh render status                       🟢 引擎状态
 lh render open <url>                   🟢 打开+全量提取（标题/文本/链接/表单/表格/截图/审计/DNA）
 lh render run '渲染.打开("url"); 渲染.提取文本(选择器="h1")'   🟢 CNSH 多指令会话
 python3 render/tests/test_render.py    🟢 冒烟测试 24/24（T1-T6 + T7 M73哈希产权）
-lh render server                       🟢 REST 服务 :8972 后台常驻（原:8766被主权网关占用已迁走）
+lh render server                       🟢 REST 服务 :8788 后台常驻（原:8766→8972→8788）
 curl POST /render/batch 10 URL         🟢 批量轻量模式 10/10 ok · 115s
 curl POST /render/execute              🟢 本地+鲲鹏真实渲染（title/audit🟢/DNA/截图）
 视觉模板匹配样例                        🟢 gov 正例 score=1.0 · baidu 反例 0.1295
@@ -38,7 +38,7 @@ bash render/deploy_render.sh kunpeng   🟢 鲲鹏部署（rsync+Docker·x86_64 
 
 ## 2026-08-25 部署实测要点（端口/架构/依赖焊死）
 
-- **端口**: 8766 被主权网关 `lh_sovereign_gateway.py` 焊死占用 → 迁移 **:8972**（7 文件同步修改）
+- **端口**: 8766 被主权网关 `lh_sovereign_gateway.py` 焊死占用 → 迁移 **:8972**（7 文件同步修改）→ **2026-08-30 再迁 :8788**（8972 被 flow-field-api 占用·8 文件同步）
 - **架构**: 鲲鹏实测 `uname -m` = **x86_64**（Intel Xeon Gold 6348），非 ARM64 → 基镜像用 `python:3.11-slim-bookworm`，compose `platform: linux/amd64`
 - **依赖坑**: numpy 锁 1.24.4（paddle 2.6 需 <1.25）· libgomp1（paddle 运行库）· pyclipper 1.3.0.post3 · pip 用清华源
 - **构建坑**: trixie(deb13) 的 zlib ABI 与 paddle 不兼容 → 必须 bookworm 基镜像

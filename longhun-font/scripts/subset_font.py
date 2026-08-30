@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-b5ce4002
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-SUBSET-v1.0
 
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 """
 LonghunFont 字体子集生成器 v1.0
 根据文本/字符列表从稳定字元库中提取子集，并生成子集 OTF 字体。

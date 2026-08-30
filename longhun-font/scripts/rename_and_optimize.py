@@ -1,6 +1,9 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-f8da85a6
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # DNA追溯码:#龍芯⚡️2026-07-25-LONGHUN-FONT-RENAME-OPT-v1.0
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 创建者: 诸葛鑫（UID9622）
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """

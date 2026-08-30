@@ -288,6 +288,13 @@ class LocalFetcher(BaseFetcher):
                 rel_path = str(file_path.relative_to(self.root))
                 if not force and self._is_cached(rel_path):
                     continue
+                # 🔴 三关判定(2026-08-30·文件身份协议v1.1): 前8KB含NUL→二进制跳过
+                try:
+                    with open(file_path, "rb") as f:
+                        if b"\x00" in f.read(8192):
+                            continue
+                except OSError:
+                    continue
                 try:
                     content = file_path.read_text(encoding="utf-8", errors="ignore")
                     if not self._is_relevant(content):
@@ -407,6 +414,13 @@ class AIFetcher(BaseFetcher):
             if not log_dir.exists():
                 continue
             for log_file in log_dir.rglob("*.jsonl"):
+                # 🔴 三关判定(2026-08-30·文件身份协议v1.1): 前8KB含NUL→二进制跳过
+                try:
+                    with open(log_file, "rb") as f:
+                        if b"\x00" in f.read(8192):
+                            continue
+                except OSError:
+                    continue
                 try:
                     for line in log_file.read_text(encoding="utf-8", errors="ignore").split("\n"):
                         if not line.strip():

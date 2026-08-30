@@ -1,7 +1,5 @@
-# P0焊死: 本文件为龍魂体系P0级文档·不可修改·不可绕过（上位文档 LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md）
-# License: CC BY-NC-SA 4.0（核心思想层·代码层为 MulanPSL v2·详见 LH-LAYERED-LICENSE-v1.0）
 {
-  "dna": #龍芯⚡️2026-06-20-LONGHUN-CREATOR-PROTECTION-FILE2-v1.0",
+  "dna": "#龍芯⚡️2026-06-20-LONGHUN-CREATOR-PROTECTION-FILE2-v1.0",
   "protocol_sha256": "ee1f862e9eb1aea50f8a650a24116719d1275cfc8aa2f9ad45a3feab2a04b0f7",
   "generated_at": "2026-06-21T21:41:16.603380",
   "layer2": {

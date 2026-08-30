@@ -1,5 +1,6 @@
 #!/bin/bash
 # DNA: #龍芯⚡️2026-08-28-LH-HCLOUD-v1.1-UNIFIED-VAULT
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 龍魂·华为云 hcloud 包装器 v1.1
 # 从统一密钥库(longhun-vault/hcloud-aksk)读取 AK/SK·自动配置·无需老大提供
 # 用法: lh_hcloud.sh <Service> <Operation> [--region=...] [--param=value]

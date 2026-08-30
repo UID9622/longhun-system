@@ -1,6 +1,8 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂审计修复系统
 功能: Agent修复追踪 / 根因分析 / 验证流程 / 审计日志
 DNA: #龍芯⚡️2026-06-19-LONGHUN-AUDIT-v5.1

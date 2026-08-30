@@ -815,6 +815,10 @@ SUB_DISPATCH = {
     'search':               ('lh_search_engine.py',           '🔍', '搜索引擎', [], 'search'),
     # 💤 技能调度器 v1.0 — 技能用完即休·用时即唤·不常驻省算力（2026-08-16）
     'skill':                ('lh_skill_scheduler.py',         '💤', '技能调度·list/wake/sleep/autosleep/stats（用完休眠·用前唤醒·省CPU）', [], 'status'),
+    # 🧬 人格按任务触发+经验累积引擎 v1.0 — 能力对标全球大模型·按需唤醒人格·经验沉淀越练越聪明（2026-08-30）
+    'evolve':               ('lh_persona_evolve.py',          '🧬', '人格按任务触发路由+经验累积（对标全球大模型能力·按需唤醒·越练越聪明）', [], ''),
+    # 🧠 记忆分层架构 v1.0 — 工作/长期/档案三级记忆+蒸馏巩固（MemGPT思路·2026-08-30）
+    'memory':               ('lh_memory_arch.py',             '🧠', '记忆分层·working/longterm/archive读写+distill蒸馏巩固', [], 'status'),
     'skill-list':           ('lh_skill_scheduler.py',         '📋', '技能调度·清单', [], 'list'),
     'skill-wake':           ('lh_skill_scheduler.py',         '✅', '技能调度·唤醒', [], 'wake'),
     'skill-sleep':          ('lh_skill_scheduler.py',         '💤', '技能调度·休眠', [], 'sleep'),
@@ -1012,7 +1016,7 @@ SUB_DISPATCH = {
     'imprint':              ('lh_digital_imprint.py',        '🧬', '数字人印记'),
     'keys':                 ('lh_keys.py',                   '🔑', '統一密钥出口·list/get/check/mfa·华为MFA二次验证'),
     'secret-env':           ('lh_secret_env.py',             '🔐', '变量环境·调用macOS密码/钥匙串·操作审计日志', [], 'list'),
-    'render':               ('lh_render.py',                 '👁️', 'M75渲染引擎·CNSH指令·{render.*}变量环境·:8972(status/open/run/batch/server/log)', [], 'status'),
+    'render':               ('lh_render.py',                 '👁️', 'M75渲染引擎·CNSH指令·{render.*}变量环境·:8788(status/open/run/batch/server/log)', [], 'status'),
     'notion_full':          ('lh_notion_full_sync.py',       '🔄', 'Notion全量同步'),
     'persona_sync':         ('lh_notion_persona_sync.py',    '🧬', '人格矩阵Notion同步'),
     'persona':              ('lh_persona_runtime.py',         '🧠', '人格矩阵运行时', [], ''),
@@ -1095,7 +1099,7 @@ SUB_DISPATCH = {
     # 🛠️ launchd 服务生命周期控制台 — 冻结/唤醒/状态/日志 · 可视化按钮
     'service-control':      ('lh_service_control.py',         '🛠️', '服务控制台·status/freeze/wake/api', [], 'status'),
     # 🌊 流场拓扑引擎 — 全系统节点/协作链路/算法公式/实时日志 · 可视化流场图
-    'flow-field':           ('lh_flow_field.py',              '🌊', '流场拓扑·status/node/api', [], 'status'),
+    'flow-field':           ('lh_flow_field.py',              '🌊', '流场拓扑v2.0·status/node/api/inject/events·--json', [], 'status'),
     # 🧠 会话自动上下文引擎 — 分工矩阵+最近记忆+待办 一键打包 · AI进门必读
     'auto-context':         ('lh_auto_context.py',            '🧠', '会话自动上下文·--days/--json', [], ''),
     # 🏦 数据保险柜引擎 — 个人数据压缩归档·全量存鲲鹏 · P07管仲

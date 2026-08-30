@@ -1,6 +1,7 @@
 #!/bin/bash
 # 🐉 CNSH 测试工具链 · 一键安装
 # DNA: #龍芯⚡️丙午·丙申·戊申·亥时·䷗复-CNSH-TEST-SETUP-v1.0-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)  ← 工程实现层
 

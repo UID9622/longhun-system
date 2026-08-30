@@ -4,6 +4,7 @@
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # 龍魂 ollama Host 头反代 v1.0
 # DNA: #龍芯⚡️2026-08-25-OLLAMA-HOST-PROXY-v1.0
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 作用: 隧道 ollama.longhun888.com → 127.0.0.1:11435 → 转发 127.0.0.1:11434
 #       发往上游时 Host 头自动为 127.0.0.1:11434，绕开 ollama DNS-rebinding 防护(403)
 # 支持: 流式 SSE（/api/generate /api/chat 的 stream 模式）

@@ -1,57 +1,91 @@
-# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
-# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
-@import "tailwindcss";
-
-:root {
-  --background: 0 0% 96%;
-  --foreground: 240 10% 3.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 240 10% 3.9%;
-  --primary: 240 5.9% 10%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 240 4.8% 95.9%;
-  --secondary-foreground: 240 5.9% 10%;
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
-  --destructive: 0 72.2% 50.6%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 5.9% 88%;
-  --input: 240 5.9% 88%;
-  --ring: 240 5% 64.9%;
-  --radius: 0.75rem;
-}
-
-@theme inline {
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-}
+/* DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-f1ab40d5 */
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
+  :root {
+    /* 龍魂品牌亮色 · 冷白基底 + 青主色 */
+    --background: 220 33% 98%;
+    --foreground: 220 25% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 12%;
+    --primary: 195 85% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 96%;
+    --secondary-foreground: 220 25% 12%;
+    --muted: 220 20% 96%;
+    --muted-foreground: 220 10% 42%;
+    --accent: 195 85% 94%;
+    --accent-foreground: 195 85% 25%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 152 60% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 80% 15%;
+    --border: 220 15% 90%;
+    --input: 220 15% 88%;
+    --ring: 195 85% 45%;
+    --chart-1: 195 85% 45%;
+    --chart-2: 152 60% 40%;
+    --chart-3: 221 83% 53%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 270 65% 58%;
+    --radius: 0.625rem;
+    --sidebar: 220 33% 98%;
+    --sidebar-foreground: 220 25% 12%;
+    --sidebar-primary: 195 85% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 195 85% 94%;
+    --sidebar-accent-foreground: 195 85% 25%;
+    --sidebar-border: 220 15% 90%;
+    --sidebar-ring: 195 85% 45%;
+  }
+
+  .dark {
+    /* 龍魂品牌暗色 · 深蓝黑基底（对齐 portal #0a0a12） */
+    --background: 235 30% 7%;
+    --foreground: 220 20% 92%;
+    --card: 235 25% 11%;
+    --card-foreground: 220 20% 92%;
+    --popover: 235 25% 11%;
+    --popover-foreground: 220 20% 92%;
+    --primary: 195 90% 60%;
+    --primary-foreground: 235 30% 8%;
+    --secondary: 235 20% 17%;
+    --secondary-foreground: 220 20% 92%;
+    --muted: 235 20% 17%;
+    --muted-foreground: 220 12% 60%;
+    --accent: 195 60% 22%;
+    --accent-foreground: 195 90% 85%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 152 60% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 55%;
+    --warning-foreground: 38 80% 12%;
+    --border: 235 20% 20%;
+    --input: 235 20% 24%;
+    --ring: 195 90% 60%;
+    --chart-1: 195 90% 60%;
+    --chart-2: 152 60% 50%;
+    --chart-3: 221 83% 60%;
+    --chart-4: 38 92% 55%;
+    --chart-5: 270 65% 65%;
+    --sidebar: 235 30% 7%;
+    --sidebar-foreground: 220 20% 92%;
+    --sidebar-primary: 195 90% 60%;
+    --sidebar-primary-foreground: 235 30% 8%;
+    --sidebar-accent: 235 20% 17%;
+    --sidebar-accent-foreground: 195 90% 85%;
+    --sidebar-border: 235 20% 20%;
+    --sidebar-ring: 195 90% 60%;
+  }
+
   * {
     @apply border-border;
   }
@@ -62,12 +96,39 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: "Inter", "Avenir Next", "Segoe UI", sans-serif;
+    font-family: "Inter", "PingFang SC", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
   }
 
   button,
   input,
-  textarea {
+  textarea,
+  select {
     font: inherit;
+  }
+}
+
+@layer utilities {
+  /* 动效规范：浮层与交互过渡 */
+  .animate-in {
+    animation-duration: 0.2s;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* 细滚动条（产品级） */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: hsl(var(--border));
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
   }
 }

@@ -21,6 +21,12 @@
 | `mappings/operators.json` | 中文运算符→多目标语言映射 (历史·已合并到语法库) |
 | `mappings/stdlib.json` | 中文标准库→多目标语言映射 (历史·已合并到语法库) |
 | `COMPILE-REGISTRY.local.jsonl` | 编译任务注册表 (Append-Only) |
+| `cnsh_compiler.py` | 现行 CNSH 编译器（多语言目标） |
+| `cnsh_cleaner.py` | CNSH 源码清洗器（自 UID9622_脑子 提取融合 · 2026-08-30） |
+| `cnsh_parser.py` | CNSH 源码解析器（自 UID9622_脑子 提取融合 · 2026-08-30） |
+| `cnsh_font_engine.py` | CNSH 字体引擎（自 UID9622_脑子 提取融合 · 2026-08-30） |
+
+> 🆕 2026-08-30：`cnsh_cleaner.py` / `cnsh_parser.py` / `cnsh_font_engine.py` 三脚本自历史工程提取融合入本目录，与现行编译器同栈运行，来源详见 `data/sources/downloads_20260717_absorb/UID9622_脑子/删除记录-DELETION-LOG-20260830.md`
 
 ## 入口脚本
 

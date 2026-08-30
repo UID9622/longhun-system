@@ -280,6 +280,9 @@ def build_provider(key: str, config: AIProviderConfig) -> BaseAIProvider:
     """根据 key 创建对应 provider 实例"""
     if key == "local":
         return OllamaProvider(config)
+    if key == "ascend":
+        from lh_ascend_infer import AscendProvider  # 昇腾 NPU · 三层算力调度
+        return AscendProvider(config)
     if key in ("kimi", "tongyi", "deepseek", "zhipu", "doubao"):
         return OpenAICompatibleProvider(config)
     if key in ("wenxin", "xinghuo", "hunyuan"):

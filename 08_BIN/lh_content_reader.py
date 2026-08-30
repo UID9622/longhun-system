@@ -261,6 +261,13 @@ def scan_files(root: Path, layer_filter: Optional[str] = None) -> List[Path]:
             continue
         if path.suffix.lower() not in TEXT_EXTS:
             continue
+        # 🔴 三关判定(2026-08-30·文件身份协议v1.1): 前8KB含NUL→二进制跳过(防污染/防误读)
+        try:
+            with open(path, "rb") as f:
+                if b"\x00" in f.read(8192):
+                    continue
+        except OSError:
+            continue
         rel = path.relative_to(root)
         layer = classify_layer(str(rel))
         if layer_filter and layer != layer_filter:

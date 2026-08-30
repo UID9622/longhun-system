@@ -423,3 +423,6 @@ papers/**/*.docx
 research/**/*.pdf
 skills/longhun-deployment-ready/docs/DEPLOYMENT_READY_CHECKLIST_2026-06-10.md
 skills/longhun-deployment-ready/docs/DEPLOYMENT_READY_CHECKLIST_2026-06-10.md.asc
+
+# SwiftPM构建缓存（8/30修复：禁止入库）
+ios/LonghunKit/.build/

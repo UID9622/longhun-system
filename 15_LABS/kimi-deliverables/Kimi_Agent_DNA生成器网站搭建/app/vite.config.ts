@@ -1,6 +1,4 @@
-# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
-# DNA: #龍芯⚡️丙午·丙申·戊辰·丁巳·䷯井-CODE-补DNA-c473fba0
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-a2f26a67
 import path from "path"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"

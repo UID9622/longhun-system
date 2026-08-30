@@ -127,6 +127,7 @@ Claude Code 启动会自动读 CLAUDE.md · 终端宝宝立即知道:
 VERSION:    v1.0
 DNA:        #SYNC-PACK-v1.0-2026-05-18
 CONFIRM:    #CONFIRM_9622-ONLY-ONCE_LK9X-772Z
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 AUTHOR:     UID9622 + 网页宝宝 + 终端宝宝
 LOCAL_TEST: 待老大本机跑 install_sync_pack.sh 验证
 

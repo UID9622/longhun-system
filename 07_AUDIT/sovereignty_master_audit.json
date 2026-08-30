@@ -49,4 +49,7 @@
     {
       "name": "sovereignty_score",
       "desc": "主权评分·7维度0-100分",
-      "verdict": 
+      "verdict":  null
+    }
+  ]
+}

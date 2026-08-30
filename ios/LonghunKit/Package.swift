@@ -20,8 +20,18 @@ let package = Package(
         ),
     ],
     targets: [
+        // 龍魂国密底座（纯 C99 · 与鸿蒙 harmonyos-universe 同源 · 三端同一加密内核）
+        .target(
+            name: "CGuomi",
+            path: "Sources/CGuomi",
+            publicHeadersPath: ".",
+            cSettings: [
+                .headerSearchPath(".")
+            ]
+        ),
         .target(
             name: "LonghunKit",
+            dependencies: ["CGuomi"],
             path: "Sources/LonghunKit",
             resources: [
                 .process("Resources")

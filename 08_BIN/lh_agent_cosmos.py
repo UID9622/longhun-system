@@ -149,6 +149,21 @@ class CosmosReport:
     event_chain: List[Dict[str, Any]]
     summary: str
 
+    def to_dict(self) -> Dict[str, Any]:
+        """序列化为 JSON 可导 dict（save_report 落盘用）"""
+        return {
+            "dna": self.dna,
+            "started_at": self.started_at,
+            "completed_at": self.completed_at,
+            "steps": self.steps,
+            "events_count": self.events_count,
+            "personas": self.personas,
+            "gate_distribution": self.gate_distribution,
+            "tricolor_distribution": self.tricolor_distribution,
+            "wuxing_distribution": self.wuxing_distribution,
+            "event_chain": self.event_chain,
+            "summary": self.summary,
+        }
 
 
 # ═══════════════════════════════════════════════════════

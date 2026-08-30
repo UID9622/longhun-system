@@ -1,5 +1,7 @@
 # 🐉 龍魂 · 信任链 · 完整落地执行包
 
+> ⛔ **已废弃**：v1.0 已被 `LH-TRUST-CHAIN-DELIVERY-v1.2.md` 取代（2026-08-13），新引用请用 v1.2。
+
 DNA: #龍芯⚡️丙午·甲申·辛丑·甲午·䷁坤-TRUST-CHAIN-DELIVERY-UID9622
 创建者: 诸葛鑫（UID9622）
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z

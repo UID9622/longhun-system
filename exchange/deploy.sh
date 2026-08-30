@@ -1,6 +1,7 @@
 #!/bin/bash
 # deploy.sh · 龍魂审计链 · 数字人民币跨境结算桥 · 一键部署
 # DNA: #龍芯⚡️2026-08-23-ECNY-DEPLOY-v1.0-UID9622
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)

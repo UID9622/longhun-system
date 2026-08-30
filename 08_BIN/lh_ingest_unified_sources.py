@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-347789f7
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -117,6 +118,13 @@ def read_text_files(root: Path, max_size=500_000):
         if p.suffix.lower() not in exts:
             continue
         if p.stat().st_size > max_size:
+            continue
+        # 🔴 三关判定(2026-08-30·文件身份协议v1.1): 前8KB含NUL→二进制跳过
+        try:
+            with open(p, "rb") as f:
+                if b"\x00" in f.read(8192):
+                    continue
+        except OSError:
             continue
         try:
             content = p.read_text(encoding="utf-8")

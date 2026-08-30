@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-6c72f36c
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -266,7 +267,7 @@ def _更新索引(dna: str, 消息类型: str, 标题: str, 文件路径: str):
 
 
 def 发送Bark(标题: str, 内容: str, 审计色: str, dna: str) -> bool:
-    """通过Bark API推送到iPhone"""
+    """通过Bark API推送到iPhone（强制绕过本机代理：Bark必须可靠送达，不依赖代理链路）"""
     短DNA = dna.split("-")[-1][:8] if "-" in dna else dna[:8]
     审计图标 = {"red": "🔴", "yellow": "🟡", "green": "🟢"}.get(审计色, "🟢")
 
@@ -287,13 +288,19 @@ def 发送Bark(标题: str, 内容: str, 审计色: str, dna: str) -> bool:
     }, ensure_ascii=False).encode("utf-8")
 
     try:
+        # 强制绕过代理：Bark 走直连（api.day.app 在国内直连可用，代理反而掐连接）
+        for k in ("HTTP_PROXY", "HTTPS_PROXY", "http_proxy", "https_proxy",
+                  "ALL_PROXY", "all_proxy"):
+            os.environ.pop(k, None)
+        no_proxy_handler = urllib.request.ProxyHandler({})
+        opener = urllib.request.build_opener(no_proxy_handler)
         req = urllib.request.Request(
             BARK_URL,
             data=payload,
             headers={"Content-Type": "application/json; charset=utf-8"},
             method="POST",
         )
-        with urllib.request.urlopen(req, timeout=10) as resp:
+        with opener.open(req, timeout=10) as resp:
             result = json.loads(resp.read().decode("utf-8"))
             if result.get("code") == 200:
                 return True

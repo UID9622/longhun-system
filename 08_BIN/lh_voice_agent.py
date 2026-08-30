@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # DNA: #龍芯⚡️丙午·丁酉·戊寅·亥时·䷇比-LH-VOICE-AGENT-v1.0-START
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 创建者: 诸葛鑫（UID9622）
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)

@@ -1,6 +1,8 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/usr/bin/env python3
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂公式系統 - 基準測試引擎
 Benchmark Engine for Longhun Formula System
 

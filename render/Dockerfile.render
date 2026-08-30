@@ -32,6 +32,6 @@ ENV LH_UID=UID9622 \
     LH_LOCAL_ONLY=true \
     PYTHONUNBUFFERED=1
 
-EXPOSE 8972
+EXPOSE 8788
 
-CMD ["python", "-m", "uvicorn", "render.server:app", "--host", "0.0.0.0", "--port", "8972"]
+CMD ["python", "-m", "uvicorn", "render.server:app", "--host", "0.0.0.0", "--port", "8788"]

@@ -93,8 +93,8 @@ def _prepare_v419_data():
     cfg = ConfigV419
     cfg.data_dir.mkdir(parents=True, exist_ok=True)
 
-    # 源数据
-    v418_data = PROJECT / "models" / "longhun-v1.0" / "lora_output_v414" / "data_v415_daodejing"
+    # 源数据 (2026-08-30修复: v414已归档删除, 改用v409完整数据27013条)
+    v418_data = PROJECT / "models" / "longhun-v1.0" / "lora_output_v409" / "data_v409_ready"
     new_corpus_sources = [
         PROJECT / "data" / "reorganize" / "cnsh_corpus" / f"cnsh_training_corpus_{time.strftime('%Y%m%d')}.jsonl",
         PROJECT / "data" / "reorganize" / "concept_relations" / f"concept_relations_{time.strftime('%Y%m%d')}.jsonl",
@@ -106,7 +106,7 @@ def _prepare_v419_data():
     train_out = cfg.data_dir / "train.jsonl"
     valid_out = cfg.data_dir / "valid.jsonl"
 
-    def _append_jsonl(src: Path, out_f, max_lines: int = None):
+    def _append_jsonl(src: Path, out_f, max_lines: int = None, max_chars: int = 12000):
         if not src.exists():
             return 0
         count = 0
@@ -117,6 +117,9 @@ def _prepare_v419_data():
                     continue
                 if max_lines and count >= max_lines:
                     break
+                # 🔴 2026-08-30: 超长序列剔除(>12000字符·曾导致loss nan)
+                if len(line) > max_chars:
+                    continue
                 # 简单去重
                 h = hash(line) & 0xFFFFFFFF
                 if h in seen:
@@ -126,14 +129,16 @@ def _prepare_v419_data():
                 count += 1
         return count
 
-    # 复制 v4.1.8 的 train/valid 作为基础
+    # 复制 v4.1.8 的 train/valid 作为基础（🔴 走 _append_jsonl 带超长过滤·防 loss nan）
     if v418_data.exists():
         src_train = v418_data / "train.jsonl"
         src_valid = v418_data / "valid.jsonl"
-        if src_train.exists():
-            shutil.copy2(src_train, train_out)
-        if src_valid.exists():
-            shutil.copy2(src_valid, valid_out)
+        with open(train_out, 'w', encoding='utf-8') as f:
+            if src_train.exists():
+                _append_jsonl(src_train, f)
+        with open(valid_out, 'w', encoding='utf-8') as f:
+            if src_valid.exists():
+                _append_jsonl(src_valid, f)
 
     # 追加新语料到 train
     with open(train_out, 'a', encoding='utf-8') as f:

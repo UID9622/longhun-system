@@ -1,6 +1,6 @@
 {
   "dna": "#龍芯⚡️2026-08-27-丙午·丙申·戊子·癸亥-LHAE-REDBLUE-100K-v1.0-UID9622",
-  "timestamp": "2026-08-27T22:22:26.065330",
+  "timestamp": "2026-08-30T12:48:27.669883",
   "confirm": "#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z",
   "attack_vectors": [
     {
@@ -347,7 +347,7 @@
   "main_battle": {
     "n_sims": 100000,
     "n_steps": 200,
-    "elapsed_s": 0.63,
+    "elapsed_s": 0.68,
     "H_star_mean": 0.9483,
     "H_star_stats": {
       "mean": 0.9483,

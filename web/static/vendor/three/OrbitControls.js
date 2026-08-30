@@ -1,6 +1,5 @@
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-2f2cb9df
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
-# DNA: #龍芯⚡️丙午·丙申·戊辰·丁巳·䷯井-CODE-补DNA-9587d29f
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 ( function () {
 
 	// Unlike TrackballControls, it maintains the "up" direction object.up (+Y by default).

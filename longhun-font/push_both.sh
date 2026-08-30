@@ -1,3 +1,5 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-e3e8b1ff
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 #!/bin/bash
 # 龍魂·双仓推送脚本
 # DNA追溯码:#龍芯⚡️2026-06-22-LONGHUN-FONT-PUSH-BOTH-v1.0

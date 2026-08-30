@@ -1,6 +1,4 @@
-# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
-# DNA: #龍芯⚡️丙午·丙申·戊辰·丁巳·䷯井-CODE-补DNA-52b3ff55
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-2b6eabcb
 /**
  * 十六人格名表 —— 以军事 / 谋略意象命名（白皮书 v1.4 占位，保持庄重）
  * 五维序：MIL 军事 · HIS 历史 · PHI 哲学 · ECO 经济 · POL 政治

@@ -1,6 +1,8 @@
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 #龍芯⚡️2026-06-20-LONGHUN-BEHAVIOR-ENGINE-v1.0
 """
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 龍魂公民画像引擎 — 真实行为·真诚评估·自主亮灯
 
 核心：记录小行为→积累真实分数→用户自主展现

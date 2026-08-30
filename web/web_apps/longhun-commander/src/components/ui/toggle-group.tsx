@@ -1,5 +1,5 @@
-# DNA: #龍芯⚡️丙午·丙申·甲戌·卯时·䷐随-QUAD-SYNC-v1.0-ATTRIBUTION-8c26d5f
-# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-0c65adf7
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 import * as React from 'react'
 import * as ToggleGroupPrimitive from '@radix-ui/react-toggle-group'
 import { cva, type VariantProps } from 'class-variance-authority'

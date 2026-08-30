@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-28fe7040
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -143,8 +144,16 @@ def ingest_personas():
         if not root.exists():
             continue
         for p in root.rglob("*"):
-            if p.is_file() and p.suffix in (".md", ".mdc", ".py", ".txt"):
-                persona_files.append(p)
+            if not (p.is_file() and p.suffix in (".md", ".mdc", ".py", ".txt")):
+                continue
+            # 🔴 三关判定(2026-08-30·文件身份协议v1.1): 前8KB含NUL→二进制跳过
+            try:
+                with open(p, "rb") as f:
+                    if b"\x00" in f.read(8192):
+                        continue
+            except OSError:
+                continue
+            persona_files.append(p)
 
     print(f"🎭 发现 {len(persona_files)} 个人格文件")
 

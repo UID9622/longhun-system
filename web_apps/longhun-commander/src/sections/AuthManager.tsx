@@ -1,3 +1,4 @@
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 // 授权管理中心 · 七因子信任等级 · 与 longhun888 官网身份打通
 // DNA: #龍芯⚡️2026-06-28-LONGHUN-7FACTOR-AUTH-OFFICIAL-v1.0
 

@@ -308,6 +308,13 @@ class FileCollector:
         ext = file_path.suffix.lower()
         if ext in self.BINARY_EXTS:
             return None
+        # 🔴 三关判定(2026-08-30·文件身份协议v1.1): 前8KB含NUL→二进制跳过(后缀黑名单不覆盖未知后缀)
+        try:
+            with open(file_path, 'rb') as f:
+                if b"\x00" in f.read(8192):
+                    return None
+        except OSError:
+            return None
         try:
             size = file_path.stat().st_size
             read_size = min(size, max_size)

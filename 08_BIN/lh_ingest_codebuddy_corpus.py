@@ -1,3 +1,4 @@
+# DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-9ba0e433
 #!/usr/bin/env python3
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
@@ -129,6 +130,14 @@ def dedup(samples):
 
 def ingest_corpus(path: Path, max_samples: int, label: str):
     print(f"🍽️  摄入 {label}: {path}")
+    # 🔴 三关判定(2026-08-30·文件身份协议v1.1): 前8KB含NUL→二进制拒绝
+    try:
+        with open(path, "rb") as f:
+            if b"\x00" in f.read(8192):
+                print(f"   ⚠️ 跳过(疑似二进制): {path}")
+                return []
+    except OSError:
+        return []
     if label == "v3.0":
         sections = split_by_file_markers(path)
     else:

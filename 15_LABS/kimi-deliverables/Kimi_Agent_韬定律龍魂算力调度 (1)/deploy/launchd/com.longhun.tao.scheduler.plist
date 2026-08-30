@@ -1,4 +1,3 @@
-# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -9,7 +8,7 @@
     <key>Label</key>
     <string>com.longhun.tao.scheduler</string>
 
-    <!-- 程序入口：默认 Unix socket；如需 TCP 改为 --host 127.0.0.1 --port 8788 -->
+    <!-- 程序入口：默认 Unix socket；如需 TCP 改为 -host 127.0.0.1 -port 8788 -->
     <key>ProgramArguments</key>
     <array>
         <string>/usr/local/bin/python3</string>

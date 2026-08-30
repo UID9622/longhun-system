@@ -64,7 +64,23 @@ CONFIRM_KEYWORDS = ("确认码:", "CONFIRM:", "确认码：", "CONFIRM：")
 
 
 def is_text_file(p: Path) -> bool:
-    return p.suffix.lower() not in NON_TEXT_EXT
+    if p.suffix.lower() in NON_TEXT_EXT:
+        return False
+    # 🔴 防误伤加固(2026-08-28): 仅查后缀会误伤无扩展名/怪异后缀二进制
+    #   (实测 /opt/homebrew/.../python3.14 后缀=.14 被误判文本→头部写入归属名→Mach-O损坏)
+    #   判据组合: ① 前 8KB 含 NUL → 二进制  ② UTF-8 解码替换字符率 >2% → 二进制
+    #   注意: 尾部可能截断多字节字符，不可用 strict 解码（否则误伤大文本文件）。
+    try:
+        with open(p, "rb") as f:
+            head = f.read(8192)
+        if b"\x00" in head:
+            return False
+        decoded = head.decode("utf-8", errors="replace")
+        if decoded.count("\ufffd") > len(head) * 0.02:
+            return False
+    except OSError:
+        return False
+    return True
 
 
 def has_attribution(src: str) -> bool:
@@ -172,6 +188,13 @@ def main():
     args = parser.parse_args()
 
     target = Path(args.dir)
+    # 🔴 防误伤加固(2026-08-28): 禁止扫描系统目录，杜绝再污染 /opt/homebrew 等
+    SYSTEM_PREFIXES = ("/opt/homebrew", "/usr", "/bin", "/sbin", "/etc", "/var",
+                       "/Library", "/System", "/private", "/Applications")
+    tstr = str(target.resolve())
+    if any(tstr == p or tstr.startswith(p + "/") for p in SYSTEM_PREFIXES):
+        print(f"🔴 拒绝扫描系统目录: {target}（防误伤保护）")
+        return 2
     files = collect_files(target, core_only=args.core)
     results = []
     n_patch = n_have = 0

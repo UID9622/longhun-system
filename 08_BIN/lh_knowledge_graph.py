@@ -117,6 +117,13 @@ class KnowledgeGraph:
         for py_file in root.rglob("*.py"):
             if py_file.name.startswith("test_"):
                 continue
+            # 🔴 三关判定(2026-08-30·文件身份协议v1.1): 前8KB含NUL→二进制跳过
+            try:
+                with open(py_file, "rb") as f:
+                    if b"\x00" in f.read(8192):
+                        continue
+            except OSError:
+                continue
             try:
                 content = py_file.read_text(encoding="utf-8", errors="ignore")
                 for match in re.finditer(r'def\s+(\w+)\s*\([^)]*\):', content):
@@ -129,6 +136,13 @@ class KnowledgeGraph:
                 pass
         # 扫描 .md 文件提取标题
         for md_file in root.rglob("*.md"):
+            # 🔴 三关判定(2026-08-30): 前8KB含NUL→二进制跳过
+            try:
+                with open(md_file, "rb") as f:
+                    if b"\x00" in f.read(8192):
+                        continue
+            except OSError:
+                continue
             try:
                 content = md_file.read_text(encoding="utf-8", errors="ignore")
                 for line in content.split("\n"):

@@ -1,6 +1,4 @@
-# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
-# DNA: #龍芯⚡️丙午·丙申·戊辰·丁巳·䷯井-CODE-补DNA-b855f3a2
-# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+// DNA: #龍芯⚡️丙午·甲申·丁未·亥时·䷎谦-DNA-COMPLETION-aeca44c6
 /**
  * 啟動AI · 外部索引（快速链接形式，禁止裸露原始 URL）
  * label 即芯片文案；hint 为检索提示（title/aria 描述）。

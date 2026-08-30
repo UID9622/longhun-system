@@ -2,6 +2,8 @@
 # SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
 # 龍魂·鸿蒙兼容性白皮书 v1.0
 
+> ⛔ **已废弃**：已被 v1.1 取代（含 3.4 数据主权不变原则·端侧能力修正），新引用请用 `LH-HARMONYOS-COMPAT-WHITEPAPER-v1.1.md`。
+
 > DNA: #龍芯⚡️丙午·癸未·甲子·庚午·䷾既济-鸿蒙兼容-v1.0
 > 创建者: 诸葛鑫（UID9622）
 > 协议: CC BY-NC-SA 4.0
