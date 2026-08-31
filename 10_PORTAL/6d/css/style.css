@@ -1,0 +1,362 @@
+> 协议: CC BY-NC-SA 4.0（核心思想层·分层许可·详见 LH-LAYERED-LICENSE-v1.0）
+> CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+/* 🐉 龍魂六堆 · 全局样式 v1.0 */
+/* DNA: #龍芯⚡️2026-08-31-6D-STYLE-v1.0-UID9622 */
+
+:root {
+    --bg: #0d0d1a;
+    --surface: #13132b;
+    --card: #1a1a35;
+    --border: rgba(139,92,246,0.25);
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+
+    /* 六色 */
+    --color-root: #F0C040;
+    --color-persona: #A78BFA;
+    --color-data: #34D399;
+    --color-engine: #60A5FA;
+    --color-audit: #F87171;
+    --color-portal: #FB923C;
+    --color-executor: #94A3B8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'SF Pro Text', 'PingFang SC', sans-serif;
+    font-size: 14px;
+    padding: 1rem;
+    min-height: 100vh;
+}
+
+/* DNA签章 */
+#dna-badge {
+    position: fixed;
+    top: 8px;
+    right: 12px;
+    font-size: 10px;
+    color: var(--muted);
+    text-align: right;
+    opacity: 0.6;
+    z-index: 100;
+    line-height: 1.6;
+    pointer-events: none;
+}
+#dna-badge .dna { color: var(--color-root); }
+#dna-badge .confirm { color: var(--color-data); }
+#dna-badge .tri-color { font-size: 16px; }
+
+/* 头部 */
+header {
+    text-align: center;
+    padding: 1.5rem 0 2rem;
+}
+header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-root);
+    letter-spacing: 2px;
+}
+header .sub {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+    letter-spacing: 4px;
+}
+header .sub2 {
+    color: var(--color-persona);
+    font-size: 0.75rem;
+    margin-top: 0.1rem;
+}
+
+/* 六堆网格 */
+#six-stacks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 单个堆 */
+.stack {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s;
+    min-height: 280px;
+}
+.stack:hover {
+    border-color: rgba(139,92,246,0.5);
+    box-shadow: 0 0 30px rgba(139,92,246,0.05);
+}
+
+.stack-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1rem;
+    background: rgba(0,0,0,0.3);
+    border-bottom: 1px solid var(--border);
+}
+.stack-icon { font-size: 1.2rem; }
+.stack-name {
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex: 1;
+}
+.stack-status { font-size: 0.9rem; }
+
+/* 堆专属色 */
+#stack0 .stack-name { color: var(--color-root); }
+#stack1 .stack-name { color: var(--color-persona); }
+#stack2 .stack-name { color: var(--color-data); }
+#stack3 .stack-name { color: var(--color-engine); }
+#stack4 .stack-name { color: var(--color-audit); }
+#stack5 .stack-name { color: var(--color-portal); }
+.stack-executor .stack-name { color: var(--color-executor); }
+
+.stack-body {
+    padding: 0.8rem 1rem;
+    min-height: 200px;
+    position: relative;
+}
+
+/* 堆0：根堆 */
+.root-totem {
+    font-size: 3.5rem;
+    text-align: center;
+    line-height: 1.2;
+    color: var(--color-root);
+}
+.root-ring {
+    width: 120px;
+    height: 120px;
+    border: 2px solid var(--color-root);
+    border-radius: 50%;
+    margin: 0.3rem auto;
+    position: relative;
+    animation: pulse-ring 3s ease-in-out infinite;
+}
+@keyframes pulse-ring {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+.root-info {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.8;
+    text-align: center;
+}
+.root-item { font-size: 11px; }
+#root-protocol { color: var(--color-root); }
+#root-killswitch { color: var(--color-audit); }
+
+/* 堆1：人格堆（30星） */
+.persona-galaxy {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 0.3rem 0;
+    min-height: 80px;
+}
+.persona-star {
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.4;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: var(--text);
+}
+.persona-star:hover {
+    transform: scale(1.4);
+    box-shadow: 0 0 20px rgba(167,139,250,0.3);
+    z-index: 10;
+}
+.persona-star.active { box-shadow: 0 0 12px rgba(167,139,250,0.2); }
+.persona-star.inactive { opacity: 0.25; filter: grayscale(0.8); }
+.persona-star.p00 {
+    background: radial-gradient(circle, rgba(240,192,64,0.9), rgba(240,192,64,0.3));
+    border: 2px solid var(--color-root);
+    box-shadow: 0 0 20px rgba(240,192,64,0.5);
+    animation: star-pulse 2s ease-in-out infinite;
+}
+.persona-star.guardian {
+    border: 2px dashed rgba(248,113,113,0.6);
+}
+@keyframes star-pulse {
+    0%, 100% { box-shadow: 0 0 12px rgba(240,192,64,0.3); }
+    50% { box-shadow: 0 0 26px rgba(240,192,64,0.7); }
+}
+.persona-stats {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 0.3rem;
+    flex-wrap: wrap;
+}
+#persona-p00 { color: var(--color-root); font-weight: 600; }
+
+/* 堆2：数据堆 */
+.data-tree {
+    min-height: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    padding: 0.2rem 0;
+}
+.data-node {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 9px;
+    background: rgba(52,211,153,0.1);
+    border: 1px solid rgba(52,211,153,0.2);
+    color: var(--color-data);
+}
+.data-node .count { color: var(--muted); font-size: 8px; }
+.data-stats {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 0.3rem;
+    flex-wrap: wrap;
+}
+
+/* 堆3：引擎堆 */
+.engine-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+.engine-gear {
+    text-align: center;
+    padding: 0.4rem;
+    border-radius: 8px;
+    background: rgba(96,165,250,0.05);
+    border: 1px solid rgba(96,165,250,0.15);
+    transition: all 0.3s;
+}
+.engine-gear .port { font-size: 10px; color: var(--muted); }
+.engine-gear .name { font-size: 11px; font-weight: 600; color: var(--color-engine); }
+.engine-gear .latency { font-size: 9px; color: var(--muted); }
+.engine-gear.up { border-color: rgba(52,211,153,0.4); }
+.engine-gear.down { border-color: rgba(248,113,113,0.4); background: rgba(248,113,113,0.05); }
+.engine-gear .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 4px; }
+.engine-gear .dot.green { background: var(--color-data); }
+.engine-gear .dot.red { background: var(--color-audit); }
+
+/* 堆4：审计堆 */
+.audit-ring {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+}
+.audit-ring .ring {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 3px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    background: rgba(0,0,0,0.3);
+    opacity: 0.35;
+    transition: opacity 0.5s;
+}
+.ring.green { border-color: #34D399; color: #34D399; }
+.ring.yellow { border-color: #FBBF24; color: #FBBF24; }
+.ring.red { border-color: #F87171; color: #F87171; }
+.audit-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    font-size: 11px;
+    color: var(--muted);
+}
+#audit-tri { font-size: 1.2rem; }
+
+/* 堆5：门户堆 */
+.portal-tunnel {
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.portal-page {
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    background: rgba(251,146,60,0.08);
+    border: 1px solid rgba(251,146,60,0.2);
+    color: var(--color-portal);
+    transition: all 0.3s;
+    text-decoration: none;
+}
+.portal-page:hover { background: rgba(251,146,60,0.15); transform: scale(1.05); }
+.portal-stats {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 0.3rem;
+}
+
+/* 执行者：北辰 */
+.executor-body { display: flex; align-items: center; justify-content: center; }
+.executor-note {
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 2;
+    border: 1px dashed rgba(148,163,184,0.4);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+}
+
+/* 底部 */
+footer {
+    max-width: 1200px;
+    margin: 1.5rem auto 0;
+    padding: 1rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+.global-status {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 12px;
+    color: var(--muted);
+    flex-wrap: wrap;
+}
+.global-status span { display: inline-flex; align-items: center; gap: 0.3rem; }
+
+/* 响应式 */
+@media (max-width: 900px) {
+    #six-stacks { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    #six-stacks { grid-template-columns: 1fr; }
+    .global-status { flex-direction: column; gap: 0.3rem; }
+}

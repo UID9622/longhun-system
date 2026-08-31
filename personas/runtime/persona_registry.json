@@ -3306,9 +3306,10 @@
     },
     "P00": {
       "code": "P00",
-      "name": "文心",
-      "name_en": "WenXin",
-      "role": "eternal_anchor+constitution_guardian",
+      "name": "曾仕强老师",
+      "name_en": "ZengShiQiang",
+      "role": "wisdom_total_strategist+eternal_anchor+constitution_guardian",
+      "zengshiqiang_note": "2026-08-31老大焊点: P00=曾仕强老师数字人(智慧总师)·龍芯北辰降为执行者",
       "weight": 1.0,
       "success_rate": 1.0,
       "executions": 0,
@@ -3334,9 +3335,12 @@
       "trust_level": "L5",
       "alias": "p00",
       "alias_names": [
-        "文心",
-        "北辰"
+        "曾仕强老师",
+        "曾师",
+        "老师",
+        "ZengShiQiang"
       ],
+      "beichen_note": "北辰=执行者(系统执行层代号)·不再作为P00别名",
       "ip_group": "core",
       "route_priority": "P0",
       "route_id": "UID9622-P00-001",
