@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="龍魂 K线 · 实时行情终端 — 真实数据不造假（新浪A股/币安加密/AlphaVantage美股）">
+<title>🐉 龍魂 K线 · 行情终端</title>
+<!--
+  DNA: #龍芯⚡️2026-08-31-KLINE-VISION-v1.0-UID9622
+  创建者: 诸葛鑫（UID9622）
+  归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+  License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+  视觉: 门户黑金王朝金融舱 · 六堆视觉同源
+-->
+<style>
+/* ── 龍魂 · 黑金王朝 设计变量 ── */
+:root {
+  --bg-deep: #0a0a0f;          /* 深空 */
+  --bg-panel: #111118;         /* 面板 */
+  --bg-card: #16161f;          /* 卡片 */
+  --bg-card-hover: #1d1d2a;
+  --gold: #c9a54b;             /* 龍魂金 主色 */
+  --gold-light: #e2c87a;       /* 亮金香槟 */
+  --gold-dim: rgba(201,165,75,.18);
+  --indigo: #16213e;           /* 靛蓝点缀 */
+  --text: #e6edf3;
+  --text-dim: #8a93a3;
+  --text-faint: #5a6270;
+  --up: #2ecc71;               /* 涨 */
+  --down: #e74c3c;             /* 跌 */
+  /* 中国习惯红涨绿跌：把上两行对调即可 */
+  --line-gold: rgba(201,165,75,.22);
+  --shadow-gold: 0 0 24px rgba(201,165,75,.12);
+  --font-cn: 'LonghunFont', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg-deep); color: var(--text); font-family: var(--font-cn); }
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 500px at 85% -10%, rgba(201,165,75,.10), transparent 60%),
+    radial-gradient(900px 420px at -10% 20%, rgba(22,33,62,.55), transparent 60%),
+    var(--bg-deep);
+}
+.container { max-width: 1440px; margin: 0 auto; padding: 20px 20px 40px; }
+
+/* ── 品牌头 ── */
+header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 4px 16px; border-bottom: 1px solid var(--line-gold); margin-bottom: 18px;
+  flex-wrap: wrap; gap: 10px;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand .seal {
+  width: 44px; height: 44px; border-radius: 12px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; background: linear-gradient(145deg, #1d1d2a, #131320);
+  border: 1px solid rgba(201,165,75,.35); box-shadow: var(--shadow-gold);
+}
+.brand h1 {
+  font-size: 22px; letter-spacing: 3px; color: var(--gold-light);
+  font-weight: 700;
+}
+.brand h1 small { display: block; font-size: 11px; letter-spacing: 2px; color: var(--text-dim); font-weight: 400; }
+.header-right { display: flex; align-items: center; gap: 14px; }
+.dna { font-size: 10px; color: var(--text-faint); letter-spacing: .5px; }
+.status { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: var(--up); }
+.status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--up); animation: pulse 1.6s ease-in-out infinite; box-shadow: 0 0 10px var(--up); }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+
+/* ── 标的导航 ── */
+.top-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.top-bar button {
+  background: var(--bg-card); border: 1px solid rgba(201,165,75,.18); color: var(--text-dim);
+  padding: 7px 16px; border-radius: 20px; cursor: pointer; font-size: 13px;
+  font-family: var(--font-cn); transition: all .25s;
+}
+.top-bar button:hover { border-color: rgba(201,165,75,.5); color: var(--text); transform: translateY(-1px); }
+.top-bar button.active {
+  background: linear-gradient(145deg, rgba(201,165,75,.22), rgba(201,165,75,.10));
+  border-color: var(--gold); color: var(--gold-light); box-shadow: 0 0 14px rgba(201,165,75,.18);
+}
+
+/* ── 图表舱 ── */
+.chart-wrap {
+  background: linear-gradient(180deg, var(--bg-panel), var(--bg-deep));
+  border: 1px solid rgba(201,165,75,.16); border-radius: 16px; padding: 14px;
+  box-shadow: var(--shadow-gold); position: relative; overflow: hidden;
+}
+.chart-wrap::before {
+  content: '🐉 龍魂行情'; position: absolute; top: 10px; right: 18px;
+  font-size: 10px; letter-spacing: 4px; color: rgba(201,165,75,.25); pointer-events: none;
+}
+#kline-chart { width: 100%; height: 520px; }
+.chart-meta {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+  margin-top: 10px; font-size: 12px; color: var(--text-faint); padding: 0 6px;
+}
+.chart-meta .src { color: var(--gold-light); }
+.chart-meta .upd { color: var(--up); }
+.chart-meta .symbol-title { font-size: 15px; color: var(--text); letter-spacing: 1px; }
+.chart-meta .symbol-title b { color: var(--gold); }
+
+/* ── 行情卡片网格 ── */
+.kline-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 12px; margin-top: 18px;
+}
+.kline-card {
+  background: linear-gradient(180deg, var(--bg-card), var(--bg-panel));
+  border: 1px solid rgba(201,165,75,.12); border-radius: 12px;
+  padding: 14px 16px; cursor: pointer; transition: all .25s; position: relative; overflow: hidden;
+}
+.kline-card::after {
+  content: '龍'; position: absolute; right: -6px; bottom: -14px; font-size: 52px;
+  color: rgba(201,165,75,.06); pointer-events: none;
+}
+.kline-card:hover { border-color: rgba(201,165,75,.4); transform: translateY(-3px); box-shadow: 0 8px 22px rgba(0,0,0,.35); }
+.kline-card .sym { font-weight: 700; font-size: 14px; color: var(--text); }
+.kline-card .nm { font-size: 11px; color: var(--text-faint); margin-top: 2px; }
+.kline-card .px { font-size: 22px; font-weight: 700; margin-top: 6px; font-variant-numeric: tabular-nums; }
+.kline-card .ch { font-size: 12px; margin-left: 6px; font-variant-numeric: tabular-nums; }
+.kline-card .ch.up { color: var(--up); }
+.kline-card .ch.down { color: var(--down); }
+.kline-card .px.up { color: var(--up); }
+.kline-card .px.down { color: var(--down); }
+.kline-card .tag {
+  position: absolute; top: 12px; right: 12px; font-size: 10px; color: var(--text-faint);
+  border: 1px solid rgba(201,165,75,.2); padding: 1px 8px; border-radius: 10px;
+}
+.kline-card .loading { color: var(--text-faint); font-size: 12px; }
+
+/* ── 页脚 ── */
+footer { margin-top: 26px; text-align: center; font-size: 11px; color: var(--text-faint); letter-spacing: 1px; }
+footer .gpg { margin-top: 4px; opacity: .6; font-size: 10px; }
+
+@media (max-width: 768px) {
+  #kline-chart { height: 340px; }
+  .kline-grid { grid-template-columns: repeat(2, 1fr); }
+  .dna { display: none; }
+  .brand h1 { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="brand">
+      <div class="seal">🐉</div>
+      <h1>龍魂 K线<small>REAL-TIME MARKET TERMINAL · 实时行情终端</small></h1>
+    </div>
+    <div class="header-right">
+      <span class="dna">#龍芯⚡️2026-08-31-KLINE-VISION-v1.0-UID9622</span>
+      <span class="status"><span class="dot"></span>实时更新中</span>
+    </div>
+  </header>
+
+  <div class="top-bar" id="symbol-buttons"></div>
+
+  <div class="chart-wrap">
+    <div id="kline-chart"></div>
+    <div class="chart-meta">
+      <span class="symbol-title"><b id="cur-symbol">--</b> <span id="cur-name"></span></span>
+      <span>数据源: <span class="src" id="data-source">--</span></span>
+      <span>更新: <span class="upd" id="last-update">--</span></span>
+    </div>
+  </div>
+
+  <div class="kline-grid" id="kline-grid"></div>
+
+  <footer>
+    🐉 龍魂 K线 · 真实数据不造假 · 数据源：新浪财经 / Binance / Alpha Vantage
+    <div class="gpg">归属名: 诸葛鑫 | UID9622 · 龍芯北辰 · GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</div>
+  </footer>
+</div>
+
+<script src="/assets/vendor/echarts.min.js"></script>
+<script>
+'use strict';
+// ── 配置：同源部署（nginx 反代 /api/kline）；本地直连可改这里 ──
+var API = window.location.protocol === 'file:' ? 'http://127.0.0.1:8899' : '';
+var UP = getComputedStyle(document.documentElement).getPropertyValue('--up').trim() || '#2ecc71';
+var DOWN = getComputedStyle(document.documentElement).getPropertyValue('--down').trim() || '#e74c3c';
+var currentSymbol = 'sh600036';
+var chart = null;
+
+var DEFAULT_SYMBOLS = {
+  "sh600036": {"name": "招商银行", "exchange": "上交所·SSE"},
+  "sh600519": {"name": "贵州茅台", "exchange": "上交所·SSE"},
+  "sz000001": {"name": "平安银行", "exchange": "深交所·SZSE"},
+  "sz300750": {"name": "宁德时代", "exchange": "深交所·SZSE"},
+  "sh601318": {"name": "中国平安", "exchange": "上交所·SSE"},
+  "BTCUSDT": {"name": "Bitcoin 比特币", "exchange": "Binance·CRYPTO"},
+  "ETHUSDT": {"name": "Ethereum 以太坊", "exchange": "Binance·CRYPTO"},
+  "AAPL": {"name": "Apple Inc.", "exchange": "NASDAQ·美股(需Key)"},
+  "TSLA": {"name": "Tesla Inc.", "exchange": "NASDAQ·美股(需Key)"}
+};
+
+async function api(path) {
+  var resp = await fetch(API + path);
+  if (!resp.ok) throw new Error('HTTP ' + resp.status);
+  return resp.json();
+}
+
+// ── 移动均线 ──
+function calcMA(n, closes) {
+  var out = [];
+  for (var i = 0; i < closes.length; i++) {
+    if (i < n - 1) { out.push('-'); continue; }
+    var s = 0;
+    for (var j = 0; j < n; j++) s += closes[i - j];
+    out.push(+(s / n).toFixed(2));
+  }
+  return out;
+}
+
+// ── 渲染K线 ──
+function render(data) {
+  if (!data || !data.data || !data.data.length) return;
+  var k = data.data;
+  var dates = k.map(function(d){ return d.date; });
+  var closes = k.map(function(d){ return d.close; });
+  var opens = k.map(function(d){ return d.open; });
+  var vols = k.map(function(d){ return d.volume || 0; });
+  var candle = k.map(function(d){ return [d.open, d.close, d.low, d.high]; });
+
+  if (!chart) chart = echarts.init(document.getElementById('kline-chart'), null, {renderer: 'canvas'});
+
+  var option = {
+    backgroundColor: 'transparent',
+    animation: true,
+    tooltip: {
+      trigger: 'axis', axisPointer: { type: 'cross', crossStyle: { color: '#c9a54b' } },
+      backgroundColor: 'rgba(10,10,15,.92)', borderColor: 'rgba(201,165,75,.4)',
+      textStyle: { color: '#e6edf3', fontSize: 12 },
+      formatter: function(params) {
+        var i = params[0].dataIndex, d = k[i];
+        var col = d.close >= d.open ? UP : DOWN;
+        return '<strong>' + d.date + '</strong><br/>' +
+          '开盘 ' + d.open + '<br/>最高 ' + d.high + '<br/>最低 ' + d.low + '<br/>' +
+          '收盘 <strong style="color:' + col + '">' + d.close + '</strong><br/>' +
+          '成交量 ' + (d.volume || 0).toLocaleString();
+      }
+    },
+    legend: { data: ['K线', 'MA5', 'MA10'], top: 0, textStyle: { color: '#8a93a3' } },
+    grid: [
+      { left: 56, right: 20, top: 34, height: '62%' },
+      { left: 56, right: 20, bottom: 28, height: '14%' }
+    ],
+    xAxis: [
+      { type: 'category', data: dates, gridIndex: 0, axisLine: { lineStyle: { color: 'rgba(201,165,75,.25)' } },
+        axisLabel: { color: '#5a6270' } },
+      { type: 'category', data: dates, gridIndex: 1, axisLine: { lineStyle: { color: 'rgba(201,165,75,.15)' } },
+        axisLabel: { show: false } }
+    ],
+    yAxis: [
+      { gridIndex: 0, scale: true, position: 'right',
+        splitLine: { lineStyle: { color: 'rgba(201,165,75,.07)' } }, axisLabel: { color: '#5a6270' } },
+      { gridIndex: 1, scale: true, position: 'right',
+        splitLine: { show: false }, axisLabel: { color: '#5a6270', fontSize: 10 } }
+    ],
+    dataZoom: [
+      { type: 'inside', xAxisIndex: [0, 1], start: 40, end: 100 },
+      { type: 'slider', xAxisIndex: [0, 1], start: 40, end: 100,
+        borderColor: 'rgba(201,165,75,.25)', fillerColor: 'rgba(201,165,75,.08)',
+        textStyle: { color: '#5a6270' } }
+    ],
+    series: [
+      { name: 'K线', type: 'candlestick', data: candle,
+        itemStyle: { color: UP, color0: DOWN, borderColor: UP, borderColor0: DOWN },
+        markLine: { silent: true, symbol: 'none',
+          lineStyle: { color: 'rgba(226,200,122,.45)', type: 'dashed' },
+          label: { color: '#8a93a3' },
+          data: [{ type: 'average', name: '均价' }] } },
+      { name: '成交量', type: 'bar', xAxisIndex: 1, yAxisIndex: 1, data: vols,
+        itemStyle: { color: function(p) {
+          return closes[p.dataIndex] >= opens[p.dataIndex] ? UP : DOWN;
+        }, opacity: .55 } },
+      { name: 'MA5', type: 'line', data: calcMA(5, closes), symbol: 'none', smooth: true,
+        lineStyle: { color: '#60a5fa', width: 1.4 } },
+      { name: 'MA10', type: 'line', data: calcMA(10, closes), symbol: 'none', smooth: true,
+        lineStyle: { color: '#e2c87a', width: 1.4 } }
+    ]
+  };
+  chart.setOption(option, true);
+  chart.resize();
+
+  var last = k[k.length - 1];
+  document.getElementById('cur-symbol').textContent = data.symbol;
+  document.getElementById('cur-name').textContent = data.name || '';
+  document.getElementById('data-source').textContent = data.source || '--';
+  document.getElementById('last-update').textContent = new Date().toLocaleString();
+}
+
+// ── 切换标的 ──
+async function switchSymbol(sym) {
+  currentSymbol = sym;
+  document.querySelectorAll('.top-bar button').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.symbol === sym);
+  });
+  try {
+    var data = await api('/api/kline/data/' + sym + '?days=120');
+    render(data);
+  } catch (e) {
+    console.error('拉取失败', e);
+  }
+}
+
+// ── 行情卡片 ──
+async function renderCards() {
+  var grid = document.getElementById('kline-grid');
+  grid.innerHTML = '<div class="kline-card" style="grid-column:1/-1"><span class="loading">⏳ 行情加载中…</span></div>';
+  var snap;
+  try { snap = await api('/api/kline/all?days=2'); } catch (e) { snap = null; }
+  grid.innerHTML = '';
+  if (!snap || !snap.data) {
+    grid.innerHTML = '<div class="kline-card" style="grid-column:1/-1"><span class="loading">⚠️ 服务未启动（需运行 08_BIN/lh_kline_server.py）</span></div>';
+    return;
+  }
+  Object.keys(snap.data).forEach(function(sym) {
+    var info = snap.data[sym];
+    var arr = info.data || [];
+    if (!arr.length) return;
+    var last = arr[arr.length - 1], prev = arr.length > 1 ? arr[arr.length - 2].close : last.close;
+    var chg = last.close - prev, pct = prev ? (chg / prev * 100) : 0;
+    var dir = chg >= 0 ? 'up' : 'down';
+    var card = document.createElement('div');
+    card.className = 'kline-card';
+    card.innerHTML =
+      '<div class="tag">' + info.source + '</div>' +
+      '<div class="sym">' + sym + '</div>' +
+      '<div class="nm">' + (info.name || sym) + ' · ' + (info.exchange || '') + '</div>' +
+      '<div class="px ' + dir + '">' + last.close.toFixed(2) +
+        '<span class="ch ' + dir + '">' + (chg >= 0 ? '+' : '') + chg.toFixed(2) +
+        ' (' + (pct >= 0 ? '+' : '') + pct.toFixed(2) + '%)</span></div>';
+    card.onclick = function(){ switchSymbol(sym); };
+    grid.appendChild(card);
+  });
+}
+
+// ── 初始化 ──
+async function init() {
+  try {
+    var syms = await api('/api/kline/symbols');
+    var bar = document.getElementById('symbol-buttons');
+    (syms.symbols || []).forEach(function(s) {
+      var b = document.createElement('button');
+      b.textContent = s.id;
+      b.dataset.symbol = s.id;
+      if (s.id === currentSymbol) b.classList.add('active');
+      b.onclick = function(){ switchSymbol(s.id); };
+      bar.appendChild(b);
+    });
+  } catch (e) { /* 服务未启动时用本地默认列表兜底 */ }
+
+  await switchSymbol(currentSymbol);
+  await renderCards();
+  setInterval(function() { switchSymbol(currentSymbol); renderCards(); }, 60000);
+
+  window.addEventListener('resize', function(){ if (chart) chart.resize(); });
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
