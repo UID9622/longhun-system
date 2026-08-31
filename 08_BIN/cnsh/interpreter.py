@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🐉 CNSH 解释器 v1.2
-DNA: #龍芯⚡️2026-08-31-CNSH-INTERPRETER-v1.2-UID9622
+🐉 CNSH 解释器 v1.3
+DNA: #龍芯⚡️2026-08-31-CNSH-INTERPRETER-v1.3-UID9622
 创建者: 诸葛鑫（UID9622）
 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 功能: 执行 CNSH 代码，支持任意符号变量 + 中文运算符 + 作用域
 v1.2 新增(对照评估): 未定义变量抛异常·环境变量调优·AST缓存·stats监控
+v1.3 新增: DeepSeek参考版API兼容(--config yaml·cnsh run语法)·环境变量只填缺省键(显式config优先)
 """
 
 import os
@@ -88,22 +89,27 @@ def load_config_from_yaml(path: str) -> Dict:
 
 
 def load_config_from_env(config: Optional[Dict] = None) -> Dict:
-    """读取环境变量覆盖配置（兼容 CNSSH_ENV_* 与 CNSH_ENV_* 双前缀）"""
+    """合并环境变量配置（兼容 CNSSH_ENV_* 与 CNSH_ENV_* 双前缀）
+
+    优先级: 显式传入 config > 环境变量 > 默认值。
+    环境变量只填充未显式指定的键，避免全局变量（如 ~/.zshrc 的
+    CNSH_STRICT_DNA=true）意外覆盖调用方显式配置。
+    """
     base = dict(config or {})
     allow = os.environ.get('CNSSH_ENV_ALLOW_SYMBOLS') or os.environ.get('CNSH_ENV_ALLOW_SYMBOLS')
     strict = os.environ.get('CNSSH_ENV_STRICT_DNA') or os.environ.get('CNSH_STRICT_DNA')
     cache = os.environ.get('CNSSH_ENV_CACHE_SIZE') or os.environ.get('CNSH_ENV_CACHE_SIZE')
     maxv = os.environ.get('CNSSH_ENV_MAX_VARS') or os.environ.get('CNSH_ENV_MAX_VARS')
     dbg = os.environ.get('CNSSH_ENV_DEBUG') or os.environ.get('CNSH_ENV_DEBUG')
-    if allow is not None:
+    if 'allow_symbols' not in base and allow is not None:
         base['allow_symbols'] = _env_bool(allow, True)
-    if strict is not None:
+    if 'strict_dna' not in base and strict is not None:
         base['strict_dna'] = _env_bool(strict, True)
-    if cache is not None:
+    if 'cache_size' not in base and cache is not None:
         base['cache_size'] = _env_int(cache, 64)
-    if maxv is not None:
+    if 'max_vars' not in base and maxv is not None:
         base['max_vars'] = _env_int(maxv, None)
-    if dbg is not None:
+    if 'debug' not in base and dbg is not None:
         base['debug'] = _env_bool(dbg, False)
     return base
 

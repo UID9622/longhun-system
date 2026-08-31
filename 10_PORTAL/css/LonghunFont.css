@@ -1,0 +1,29 @@
+/* 龍魂字体 · LonghunFont @font-face（portal 网页资产）
+   DNA: #龍芯⚡️2026-08-31-PORTAL-FONT-v1.0-UID9622
+   创建者: 诸葛鑫（UID9622）
+   归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+   License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+   来源: longhun-font v0019（28957字元·CJK全BMP）· 全量 woff2 2.46MB */
+@font-face {
+  font-family: 'LonghunFont';
+  src: url('/assets/fonts/LonghunFont-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'LonghunFont Wuwu';
+  src: url('/assets/fonts/LonghunFont-WuwuColor.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* === 辅助类 === */
+.longhun-font { font-family: 'LonghunFont', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+.longhun-wuwu { font-family: 'LonghunFont Wuwu', 'LonghunFont', sans-serif; }
+
+/* === 门户字体栈（可选全局） === */
+body.longhun-theme, .longhun-theme body {
+  font-family: 'LonghunFont', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
