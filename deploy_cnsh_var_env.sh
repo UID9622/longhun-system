@@ -1,14 +1,15 @@
 #!/bin/bash
-# 🐉 CNSH 通用符号变量环境 · 一键部署 v1.1
-# DNA: #龍芯⚡️2026-08-31-CNSH-DEPLOY-v1.1-UID9622
+# 🐉 CNSH 通用符号变量环境 · 一键部署 v1.2
+# DNA: #龍芯⚡️2026-08-31-CNSH-DEPLOY-v1.2-UID9622
 # 创建者: 诸葛鑫（UID9622）
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
+# v1.2: 兼容 DeepSeek 参考版 API（CNSSHLexer 别名·eval_expr·OP_MAP）·lh cnsh-var 入口
 
 set -e
 
-echo "🐉 CNSH 通用符号变量环境 · 集成部署 v1.1"
+echo "🐉 CNSH 通用符号变量环境 · 集成部署 v1.2"
 echo "确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z ✅"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
@@ -26,15 +27,15 @@ echo "[2/5] 检查模块入口..."
 if [ ! -f "$CNSH_BIN/__init__.py" ]; then
     cat > $CNSH_BIN/__init__.py << 'PYEOF'
 # 🐉 CNSH 模块入口
-# DNA: #龍芯⚡️2026-08-31-CNSH-INIT-v1.1-UID9622
-from .lexer import CNSHLexer
+# DNA: #龍芯⚡️2026-08-31-CNSH-INIT-v1.3-UID9622
+from .lexer import CNSHLexer, CNSSHLexer, CNSHToken
 from .var_env import CNSHVarEnv
 from .interpreter import CNSHInterpreter
 from .dna_verify import verify_dna_header, verify_dna_file, batch_verify
 
-__version__ = '1.1'
-__dna__ = '#龍芯⚡️2026-08-31-CNSH-INIT-v1.1-UID9622'
-__all__ = ['CNSHLexer', 'CNSHVarEnv', 'CNSHInterpreter',
+__version__ = '1.3'
+__dna__ = '#龍芯⚡️2026-08-31-CNSH-INIT-v1.3-UID9622'
+__all__ = ['CNSHLexer', 'CNSSHLexer', 'CNSHVarEnv', 'CNSHInterpreter',
            'verify_dna_header', 'verify_dna_file', 'batch_verify']
 PYEOF
     echo "  ✅ 已生成 __init__.py"
@@ -89,14 +90,15 @@ cd $LONGHUN_ROOT
 python3 - << 'PYEOF'
 import sys
 sys.path.insert(0, '08_BIN')
-from cnsh import CNSHLexer, CNSHVarEnv, CNSHInterpreter, verify_dna_header
+from cnsh import CNSHLexer, CNSSHLexer, CNSHVarEnv, CNSHInterpreter, verify_dna_header
 
-# 测试1: 词法分析
+# 测试1: 词法分析（含 DeepSeek 参考版三S别名）
 lex = CNSHLexer('$#var = 100')
 toks = lex.tokenize()
 var_names = [t.value for t in toks if t.type == 'VAR']
 assert '#var' in var_names, '词法分析失败'
-print('✅ 词法分析通过')
+assert CNSSHLexer is CNSHLexer, 'CNSSHLexer 别名兼容失败'
+print('✅ 词法分析通过（含 CNSSHLexer 别名）')
 
 # 测试2: 变量环境
 interp = CNSHInterpreter({'strict_dna': False})
@@ -108,6 +110,12 @@ print('✅ 变量环境通过')
 interp.execute('$a = 10\n$b = 5\n$c = $a 加 $b')
 assert interp.env.get_var('c') == 15
 print('✅ 中文运算符通过')
+
+# 测试3b: 参考版 eval_expr 兼容 API
+val, _ = interp.env.eval_expr([('NUMBER', '10'), ('PLUS', '加'), ('NUMBER', '5')])
+assert val == 15, 'eval_expr 兼容失败'
+assert '加' in CNSHVarEnv.OP_MAP, 'OP_MAP 兼容失败'
+print('✅ eval_expr/OP_MAP 兼容通过')
 
 # 测试4: DNA验证
 assert verify_dna_header('// #龍芯⚡️2026-08-31-TEST-v1.0-UID9622')
@@ -123,6 +131,7 @@ echo ""
 echo "运行测试:    python3 $LONGHUN_ROOT/13_TESTS/test_cnsh_var_env.py"
 echo "交互模式:    python3 $LONGHUN_ROOT/08_BIN/cnsh/interpreter.py"
 echo "DNA批量验证: python3 $LONGHUN_ROOT/08_BIN/cnsh/dna_verify.py $LONGHUN_ROOT --suffix .py"
+echo "主系统入口:  lh cnsh-var run <文件.cnsh>   (已集成到 lh 主命令)"
 echo ""
-echo "DNA:   #龍芯⚡️2026-08-31-CNSH-DEPLOY-v1.1-UID9622"
+echo "DNA:   #龍芯⚡️2026-08-31-CNSH-DEPLOY-v1.2-UID9622"
 echo "三色:  🟢 全部通过 · 🟡 0 · 🔴 0"

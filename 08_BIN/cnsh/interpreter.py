@@ -44,6 +44,49 @@ def _env_int(raw: Optional[str], default: int) -> int:
         return default
 
 
+def load_config_from_yaml(path: str) -> Dict:
+    """读取 yaml 配置（对齐 20_CONFIG/cnsh_config.yaml 结构，兼容 DeepSeek 参考版）
+
+    支持的映射:
+      cnsh.variables.allow_any_symbols    → allow_symbols
+      cnsh.variables.allow_chinese_operators → allow_chinese_operators
+      cnsh.variables.scope_stack          → scope_stack
+      cnsh.dna.strict_mode                → strict_dna
+      cnsh.comments.line/block            → 注释符号（供词法层读取）
+      cnsh.debug                          → debug
+      cnsh.performance.ast_cache_size     → cache_size
+      cnsh.performance.max_vars           → max_vars
+    """
+    try:
+        import yaml  # 按需导入（依赖最小化）
+    except ImportError:
+        raise ImportError("加载 yaml 配置需先安装 PyYAML: pip3 install pyyaml")
+    with open(path, 'r', encoding='utf-8') as f:
+        raw = yaml.safe_load(f) or {}
+    c = raw.get('cnsh', raw) if isinstance(raw, dict) else {}
+    if not isinstance(c, dict):
+        return {}
+    cfg = {}
+    vars_cfg = c.get('variables') or {}
+    if 'allow_any_symbols' in vars_cfg:
+        cfg['allow_symbols'] = bool(vars_cfg['allow_any_symbols'])
+    if 'allow_chinese_operators' in vars_cfg:
+        cfg['allow_chinese_operators'] = bool(vars_cfg['allow_chinese_operators'])
+    if 'scope_stack' in vars_cfg:
+        cfg['scope_stack'] = bool(vars_cfg['scope_stack'])
+    dna_cfg = c.get('dna') or {}
+    if 'strict_mode' in dna_cfg:
+        cfg['strict_dna'] = bool(dna_cfg['strict_mode'])
+    if 'debug' in c:
+        cfg['debug'] = bool(c['debug'])
+    perf = c.get('performance') or {}
+    if 'ast_cache_size' in perf:
+        cfg['cache_size'] = int(perf['ast_cache_size'])
+    if 'max_vars' in perf and perf['max_vars'] is not None:
+        cfg['max_vars'] = int(perf['max_vars'])
+    return cfg
+
+
 def load_config_from_env(config: Optional[Dict] = None) -> Dict:
     """读取环境变量覆盖配置（兼容 CNSSH_ENV_* 与 CNSH_ENV_* 双前缀）"""
     base = dict(config or {})
@@ -247,15 +290,36 @@ class CNSHInterpreter:
 if __name__ == '__main__':
     import argparse
     import json
-    parser = argparse.ArgumentParser(description='🐉 CNSH 解释器 v1.2')
+    parser = argparse.ArgumentParser(description='🐉 CNSH 解释器 v1.3')
     parser.add_argument('file', nargs='?', help='要执行的 .cnsh 文件')
     parser.add_argument('--debug', action='store_true')
     parser.add_argument('--code', type=str, help='直接执行代码字符串')
     parser.add_argument('--no-strict-dna', action='store_true', help='关闭DNA校验（开发模式）')
     parser.add_argument('--stats', action='store_true', help='执行后输出监控统计')
     parser.add_argument('--cache-size', type=int, help='AST缓存大小(环境变量 CNSSH_ENV_CACHE_SIZE 可覆盖)')
-    args = parser.parse_args()
+    parser.add_argument('--config', type=str, help='yaml配置文件(20_CONFIG/cnsh_config.yaml)')
+    import sys as _sys
+    # 兼容 `cnsh run file.cnsh` 语法（DeepSeek 参考版）：仅删除首个非flag参数位置的
+    # run 子命令词；跳过 --code/--config/--cache-size 等带值 flag，防误删其值。
+    argv = _sys.argv[1:]
+    _value_flags = ('--code', '--config', '--cache-size')
+    _skip_next = False
+    for _idx, _a in enumerate(argv):
+        if _skip_next:
+            _skip_next = False
+            continue
+        if _a in _value_flags:
+            _skip_next = True
+            continue
+        if not _a.startswith('-'):
+            if _a == 'run':
+                argv = argv[:_idx] + argv[_idx + 1:]
+            break
+    args = parser.parse_args(argv)
     config = {'debug': args.debug, 'strict_dna': not args.no_strict_dna}
+    if args.config:
+        # yaml 配置为基底，CLI 显式参数覆盖
+        config = {**load_config_from_yaml(args.config), **config}
     if args.cache_size is not None:
         config['cache_size'] = args.cache_size
     interp = CNSHInterpreter(config)
@@ -265,7 +329,7 @@ if __name__ == '__main__':
         elif args.file:
             interp.execute_file(args.file)
         else:
-            print('🐉 CNSH 交互模式 v1.2 | 输入 Ctrl+D 退出')
+            print('🐉 CNSH 交互模式 v1.3 | 输入 Ctrl+D 退出')
             while True:
                 try:
                     line = input('>> ')

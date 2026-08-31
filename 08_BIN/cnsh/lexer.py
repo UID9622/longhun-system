@@ -245,6 +245,11 @@ class CNSHLexer:
         return self.tokens
 
 
+# ── DeepSeek 参考版 API 兼容别名（三S命名）──────────
+# 参考文档使用 CNSSHLexer，与本实现 CNSHLexer 完全等价
+CNSSHLexer = CNSHLexer
+
+
 if __name__ == '__main__':
     code = '''
     // 测试通用符号变量

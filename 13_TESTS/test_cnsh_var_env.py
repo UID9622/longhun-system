@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🐉 CNSH 变量环境测试 v1.2
-DNA: #龍芯⚡️2026-08-31-CNSH-TEST-v1.2-UID9622
+🐉 CNSH 变量环境测试 v1.3
+DNA: #龍芯⚡️2026-08-31-CNSH-TEST-v1.3-UID9622
 创建者: 诸葛鑫（UID9622）
 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
@@ -182,6 +182,47 @@ class TestCache(unittest.TestCase):
         interp.execute(code)
         interp.execute(code)
         self.assertEqual(interp.stats['cache_hits'], 0)
+
+
+class TestDeepSeekCompat(unittest.TestCase):
+    """DeepSeek 参考版 API 兼容（深度集成验收）"""
+
+    def test_cnssh_lexer_alias(self):
+        """三S类名 CNSSHLexer 与 CNSHLexer 等价"""
+        from cnsh import CNSSHLexer
+        self.assertIs(CNSSHLexer, CNSHLexer)
+        code = '''
+        $#var = 100
+        $@data = "hello"
+        ${#special!} = 3.14
+        '''
+        lexer = CNSSHLexer(code)
+        var_names = [t.value for t in lexer.tokenize() if t.type == 'VAR']
+        self.assertIn('#var', var_names)
+        self.assertIn('@data', var_names)
+        self.assertIn('#special!', var_names)
+
+    def test_eval_expr_compat(self):
+        """参考版 eval_expr API（tuple 列表形态）"""
+        env = CNSHVarEnv()
+        env.set_var('#a', 10)
+        env.set_var('#b', 5)
+        val, _ = env.eval_expr([('VAR', '#a'), ('PLUS', '加'), ('VAR', '#b')])
+        self.assertEqual(val, 15)
+
+    def test_op_map_compat(self):
+        """参考版 OP_MAP 属性（中文+ASCII 合并）"""
+        self.assertIn('加', CNSHVarEnv.OP_MAP)
+        self.assertIn('+', CNSHVarEnv.OP_MAP)
+
+    def test_interp_eval_expr_compat(self):
+        """参考版解释器用 eval_expr 求值（文档§3.2 调用形态）"""
+        interp = CNSHInterpreter({'strict_dna': False})
+        interp.execute('$#a = 10\n$#b = 5')
+        lexer = CNSHLexer('$#a 加 $#b')
+        tokens = [(t.type, t.value) for t in lexer.tokenize() if t.type != 'NEWLINE']
+        val, _ = interp.env.eval_expr(tokens)
+        self.assertEqual(val, 15)
 
 
 class TestDNAVerify(unittest.TestCase):

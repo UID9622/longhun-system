@@ -969,6 +969,8 @@ SUB_DISPATCH = {
     'browser-gw':           ('../08_BIN/lh_browser_gateway.py', '🌐', '浏览器指令网关(鲲鹏端·通心译·转发Mac·史官·--status看配置)', ['--status']),
     'browser-gw-serve':     ('../08_BIN/lh_browser_gateway.py', '🚀', '启动浏览器指令网关(:8768)', ['--serve']),
     'cnsh':                 ('cnsh_compiler.py',              '🀄', 'CNSH编译器'),
+    # 🐉 CNSH 通用符号变量环境（08_BIN/cnsh · 任意符号变量+中文运算符+DNA校验 · run/--stats/--debug）
+    'cnsh-var':             ('../08_BIN/cnsh/interpreter.py',  '🐉', 'CNSH通用符号变量环境·run <文件.cnsh>/--code/--stats/--debug', [], '--stats'),
     'cnsh_runtime':         ('lh_cnsh_runtime_math.py',        '⚡', 'CNSH运行时数学', [], 'status'),
     'cnsh_complete':        ('cnsh_complete.py',              '☯️', 'CNSH完整版', [], '--interactive'),
     'cnsh_editor':          ('cnsh_editor.py',                '✏️', 'CNSH编辑器'),
@@ -1437,6 +1439,7 @@ def main():
     parser.add_argument('--gametheory', nargs=argparse.REMAINDER, help='博弈论报告 (lh --gametheory summary/open)')
     parser.add_argument('--proto-serve', dest='proto_serve', nargs=argparse.REMAINDER, help='协议动态索引服务 (lh --proto-serve --port 8910)')
     parser.add_argument('--cnsh', nargs=argparse.REMAINDER, help='CNSH编译器 (lh --cnsh -i test.cnsh --run)')
+    parser.add_argument('--cnsh-var', dest='cnsh_var', nargs=argparse.REMAINDER, help='CNSH通用符号变量环境 (lh cnsh-var run test.cnsh / lh cnsh-var --code "$a=1" --stats)')
     parser.add_argument('--cnsh-runtime', dest='cnsh_runtime', nargs=argparse.REMAINDER, help='CNSH运行时 (lh --cnsh-runtime status)')
     parser.add_argument('--cnsh-complete', dest='cnsh_complete', nargs=argparse.REMAINDER, help='CNSH完整版 (lh --cnsh-complete --interactive)')
     parser.add_argument('--cnsh-editor', dest='cnsh_editor', nargs=argparse.REMAINDER, help='CNSH编辑器 (lh --cnsh-editor -f input.txt)')
