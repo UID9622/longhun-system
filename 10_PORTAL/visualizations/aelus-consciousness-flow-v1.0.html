@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<!--
+DNA: #龍芯⚡️2026-08-31-AELUS-CONSCIOUSNESS-FLOW-v1.0-UID9622
+创建者: 诸葛鑫（UID9622）
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+协议: CC BY-NC-SA 4.0（核心思想层）
+父系: 10_PORTAL/visualizations/longhun-neural-network-d3-v1.0.html（黑金王朝视觉基准）
+-->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>AELUS WORLD — 意识流场 · 龍魂生态</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { overflow:hidden; background:#0a0e14; font-family:'Courier New', monospace; }
+        canvas { display:block; }
+
+        /* -------- HUD 左上角 -------- */
+        #hud {
+            position:fixed; top:24px; left:32px; z-index:20;
+            color:rgba(0,255,255,0.7); pointer-events:none; user-select:none;
+        }
+        #hud .title {
+            font-size:22px; font-weight:600; letter-spacing:4px;
+            background:linear-gradient(90deg,#00d4ff,#7b61ff);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+        }
+        #hud .sub { font-size:12px; color:rgba(255,255,255,0.25); margin-bottom:10px; letter-spacing:2px; }
+        #hud .stat { font-size:13px; margin-top:4px; }
+        #hud .stat .val { font-size:20px; font-weight:bold; color:#00e5ff; }
+        #hud .stat .phi { color:#ffab00; font-size:26px; }
+        #sparkWrap { margin-top:12px; opacity:0.7; }
+        #sparkWrap label { font-size:10px; color:rgba(255,255,255,0.3); letter-spacing:2px; }
+        #spark { display:block; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:6px; margin-top:4px; }
+
+        /* -------- 右下角主权徽章 -------- */
+        #badge {
+            position:fixed; bottom:30px; right:40px; z-index:20;
+            color:rgba(255,255,255,0.14); font-size:11px; letter-spacing:2px;
+            text-align:right; pointer-events:none; line-height:1.8;
+        }
+        #badge b { color:rgba(201,165,75,0.55); font-weight:normal; }
+
+        /* -------- 底部控制面板 -------- */
+        #controls {
+            position:fixed; bottom:30px; left:50%; transform:translateX(-50%);
+            z-index:30; background:rgba(8,12,24,0.88); backdrop-filter:blur(16px);
+            padding:16px 28px; border-radius:16px; border:1px solid rgba(201,165,75,0.15);
+            display:flex; flex-wrap:wrap; gap:18px 32px; justify-content:center;
+            min-width:320px; box-shadow:0 8px 40px rgba(0,0,0,0.6);
+            pointer-events:auto; user-select:none;
+        }
+        #controls .group { display:flex; align-items:center; gap:10px; }
+        #controls label { font-size:11px; color:rgba(255,255,255,0.35); letter-spacing:1px; white-space:nowrap; }
+        #controls input[type="range"] {
+            width:80px; height:2px; background:rgba(0,255,255,0.15); border-radius:2px;
+            -webkit-appearance:none; appearance:none; outline:none;
+        }
+        #controls input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance:none; appearance:none; width:12px; height:12px;
+            border-radius:50%; background:#00d4ff; cursor:pointer; box-shadow:0 0 12px rgba(0,212,255,0.4);
+        }
+        #controls input[type="range"]::-moz-range-thumb { width:12px; height:12px; border-radius:50%; background:#00d4ff; cursor:pointer; border:none; }
+        #controls .val-label { font-size:12px; color:#00d4ff; min-width:34px; text-align:center; font-weight:bold; }
+
+        .color-btn {
+            width:28px; height:28px; border-radius:50%; border:2px solid rgba(255,255,255,0.1);
+            cursor:pointer; transition:0.2s; position:relative;
+        }
+        .color-btn:hover { transform:scale(1.15); border-color:rgba(255,255,255,0.4); }
+        .color-btn.active { border-color:#c9a54b; box-shadow:0 0 16px rgba(201,165,75,0.35); }
+        .color-btn .check { display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:#fff; font-size:12px; text-shadow:0 0 8px #000; }
+        .color-btn.active .check { display:block; }
+
+        #controls .toggle {
+            background:transparent; border:1px solid rgba(0,255,255,0.15); color:rgba(255,255,255,0.4);
+            padding:4px 14px; border-radius:12px; font-family:'Courier New'; font-size:11px;
+            cursor:pointer; transition:0.2s; letter-spacing:1px;
+        }
+        #controls .toggle.active { border-color:#c9a54b; color:#c9a54b; background:rgba(201,165,75,0.06); }
+
+        @media (max-width:800px) {
+            #controls { padding:12px 16px; gap:10px 16px; min-width:auto; width:92%; bottom:16px; }
+            #controls .group { gap:4px; }
+            #controls input[type="range"] { width:60px; }
+            #hud { top:16px; left:16px; }
+            #hud .title { font-size:18px; }
+            #badge { bottom:14px; right:16px; font-size:9px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HUD -->
+<div id="hud">
+    <div class="title">⚡ AELUS WORLD</div>
+    <div class="sub">3D 意识流场 · 龍魂生态 · Round 55</div>
+    <div class="stat"><span style="color:rgba(255,255,255,0.3);">整合度 Φ </span><span class="val phi" id="phiDisplay">0.431</span></div>
+    <div class="stat"><span style="color:rgba(255,255,255,0.3);">激活节点 </span><span class="val" id="activeDisplay">6</span><span style="color:rgba(255,255,255,0.2);font-size:14px;"> / 120</span></div>
+    <div class="stat"><span style="color:rgba(255,255,255,0.3);">突触连接 </span><span class="val" id="synapseDisplay">469</span></div>
+    <div id="sparkWrap">
+        <label>Φ 实时曲线</label>
+        <canvas id="spark" width="220" height="44"></canvas>
+    </div>
+</div>
+
+<div id="badge">UID9622 · 龍魂生态<br/>基于整合信息论 <b>IIT 3.0</b> · 本地渲染 <b>Three.js 0.160</b></div>
+
+<!-- 底部控制台 -->
+<div id="controls">
+    <div class="group">
+        <label>💡 Bloom</label>
+        <input type="range" id="bloomSlider" min="0" max="2" step="0.01" value="0.45" />
+        <span class="val-label" id="bloomVal">0.45</span>
+    </div>
+    <div class="group">
+        <label>✨ 粒子</label>
+        <input type="range" id="particleSlider" min="50" max="800" step="10" value="220" />
+        <span class="val-label" id="particleVal">220</span>
+    </div>
+    <div class="group">
+        <label>🚀 速度</label>
+        <input type="range" id="speedSlider" min="0.1" max="3.0" step="0.1" value="1.0" />
+        <span class="val-label" id="speedVal">1.0</span>
+    </div>
+    <div class="group" style="gap:6px;">
+        <label style="margin-right:4px;">🎨 配色</label>
+        <button class="color-btn active" data-palette="nebula" style="background:conic-gradient(#00d4ff, #7b61ff, #00d4ff);"><span class="check">✓</span></button>
+        <button class="color-btn" data-palette="dragonfire" style="background:conic-gradient(#ff6b00, #ffab00, #ff6b00);"><span class="check">✓</span></button>
+        <button class="color-btn" data-palette="deepspace" style="background:conic-gradient(#0044ff, #00ffcc, #0044ff);"><span class="check">✓</span></button>
+        <button class="color-btn" data-palette="matrix" style="background:conic-gradient(#00ff41, #1a1a1a, #00ff41);"><span class="check">✓</span></button>
+    </div>
+    <button id="toggle-auto" class="toggle active">⟳ 自转</button>
+    <button id="toggle-drift" class="toggle">🌊 Φ 游走</button>
+</div>
+
+<script type="importmap">
+{
+    "imports": {
+        "three": "../assets/three/three.module.js",
+        "three/addons/": "../assets/three/"
+    }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+
+// ============================================================
+//  1. 核心常量（匹配 AELUS Round 55 原始参数）
+// ============================================================
+const CONFIG = {
+    phi: 0.431,        // 整合度（可游走）
+    basePhi: 0.431,    // 基准值
+    activeCount: 6,
+    totalNodes: 120,
+    synapseCount: 469,
+    layers: ['物理体','扫描','编码','传输','重建','解码','输出']
+};
+const LAYER_RADII = [8, 6.8, 5.6, 4.4, 3.2, 2.0, 0.9];
+
+// ============================================================
+//  2. 调色板系统（四套·默认星云=AELUS 原色）
+// ============================================================
+const PALETTES = {
+    nebula:      { primary:'#00d4ff', bg:0x05080f, nodeActive:0x00ffcc, nodeInactive:0x1a3a5a, edgeActive:0x44ddff, edgeInactive:0x225577, particle:0x44ddff },
+    dragonfire:  { primary:'#ff6b00', bg:0x0f0805, nodeActive:0xff8833, nodeInactive:0x5a2a1a, edgeActive:0xff8844, edgeInactive:0x553322, particle:0xff8833 },
+    deepspace:   { primary:'#0044ff', bg:0x050510, nodeActive:0x2288ff, nodeInactive:0x112244, edgeActive:0x4488ff, edgeInactive:0x113366, particle:0x4488ff },
+    matrix:      { primary:'#00ff41', bg:0x050805, nodeActive:0x33ff55, nodeInactive:0x0a2a0a, edgeActive:0x44ff66, edgeInactive:0x1a3a1a, particle:0x44ff66 }
+};
+
+let currentPalette = 'nebula';
+let bloomBase = 0.45;
+let bloomStrength = 0.45;
+let particleCount = 220;
+let speedFactor = 1.0;
+let autoRotate = true;
+let driftEnabled = false;
+let bloomPhiLink = false;
+
+// ============================================================
+//  3. 场景初始化
+// ============================================================
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(PALETTES.nebula.bg);
+
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 100);
+camera.position.set(14, 7, 16);
+camera.lookAt(0, 0, 0);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.2;
+document.body.prepend(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.06;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.8;
+controls.minDistance = 4;
+controls.maxDistance = 35;
+
+// ============================================================
+//  4. Post-processing（Bloom）
+// ============================================================
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), bloomStrength, 0.3, 0.1);
+composer.addPass(bloomPass);
+
+// ============================================================
+//  5. 灯光
+// ============================================================
+const ambient = new THREE.AmbientLight(0x112244, 0.4);
+scene.add(ambient);
+const dirLight = new THREE.DirectionalLight(0x4488ff, 1.2);
+dirLight.position.set(5, 10, 7);
+scene.add(dirLight);
+const backLight = new THREE.DirectionalLight(0x7744ff, 0.6);
+backLight.position.set(-5, -3, -10);
+scene.add(backLight);
+
+// ============================================================
+//  6. 生成节点 & 突触（120 节点 / 469 连接）
+// ============================================================
+const nodes = [];
+const activeIndices = new Set();
+while(activeIndices.size < CONFIG.activeCount) {
+    activeIndices.add(Math.floor(Math.random() * CONFIG.totalNodes));
+}
+for (let i=0; i<CONFIG.totalNodes; i++) {
+    const layerIdx = i % CONFIG.layers.length;
+    const r = LAYER_RADII[layerIdx] + (Math.random()-0.5)*0.3;
+    const theta = 2*Math.PI*Math.random();
+    const phi = Math.acos(2*Math.random()-1);
+    const isActive = activeIndices.has(i);
+    nodes.push({
+        id: i, layer: layerIdx,
+        x: r*Math.sin(phi)*Math.cos(theta), y: r*Math.cos(phi), z: r*Math.sin(phi)*Math.sin(theta),
+        baseR: r, theta, phi,
+        active: isActive, phase: Math.random()*2*Math.PI,
+        radius: isActive ? 0.25 : 0.08
+    });
+}
+
+const edges = [];
+let guard = 0;
+while (edges.length < CONFIG.synapseCount && guard++ < 30000) {
+    const src = nodes[Math.floor(Math.random()*nodes.length)];
+    let tgt=null; const r=Math.random();
+    if (r<0.7) { const c=nodes.filter(n=>Math.abs(n.layer-src.layer)===1&&n.id!==src.id); if(c.length) tgt=c[Math.floor(Math.random()*c.length)]; }
+    else if (r<0.9) { const c=nodes.filter(n=>n.layer===src.layer&&n.id!==src.id); if(c.length) tgt=c[Math.floor(Math.random()*c.length)]; }
+    else { const c=nodes.filter(n=>Math.abs(n.layer-src.layer)>=3&&n.id!==src.id); if(c.length) tgt=c[Math.floor(Math.random()*c.length)]; }
+    if (tgt && !edges.some(e=>(e.source===src.id&&e.target===tgt.id)||(e.source===tgt.id&&e.target===src.id))) {
+        edges.push({ source: src.id, target: tgt.id, sourceNode: src, targetNode: tgt });
+    }
+}
+
+// ============================================================
+//  7. 场景对象（支持动态重建）
+// ============================================================
+let nodePoints, edgeLines, particleSystem, phiRing, starsField;
+let activeGlows = [], ringMeshes = [];
+
+function buildScene(paletteKey) {
+    const p = PALETTES[paletteKey];
+    scene.background = new THREE.Color(p.bg);
+
+    // 清理旧对象（保留灯光/相机/stars）
+    const toRemove = [];
+    scene.children.forEach(child => {
+        if (child === starsField) return;
+        if (child.isLight) return;
+        toRemove.push(child);
+    });
+    toRemove.forEach(child => scene.remove(child));
+    activeGlows = []; ringMeshes = [];
+
+    // ---- 层级参考环 ----
+    LAYER_RADII.forEach((r, idx) => {
+        const geo = new THREE.RingGeometry(r-0.02, r+0.02, 64);
+        const mat = new THREE.MeshBasicMaterial({
+            color: p.primary, transparent: true, opacity: 0.05 + idx*0.01,
+            side: THREE.DoubleSide, depthWrite: false
+        });
+        const mesh = new THREE.Mesh(geo, mat);
+        mesh.rotation.x = Math.PI/2;
+        scene.add(mesh);
+        ringMeshes.push(mesh);
+    });
+
+    // ---- 突触连接 ----
+    const pos=[]; const col=[];
+    edges.forEach(e => {
+        const s=e.sourceNode, t=e.targetNode;
+        const active = s.active || t.active;
+        pos.push(s.x,s.y,s.z, t.x,t.y,t.z);
+        const c = active ? new THREE.Color(p.edgeActive) : new THREE.Color(p.edgeInactive);
+        for(let i=0;i<2;i++) { col.push(c.r,c.g,c.b); }
+    });
+    const edgeGeo = new THREE.BufferGeometry();
+    edgeGeo.setAttribute('position', new THREE.Float32BufferAttribute(pos,3));
+    edgeGeo.setAttribute('color', new THREE.Float32BufferAttribute(col,3));
+    const edgeMat = new THREE.LineBasicMaterial({ vertexColors:true, transparent:true, opacity:0.6, blending:THREE.AdditiveBlending, depthWrite:false });
+    edgeLines = new THREE.LineSegments(edgeGeo, edgeMat);
+    scene.add(edgeLines);
+
+    // ---- 节点 + 激活光晕 ----
+    const nPos=[]; const nCol=[]; const nSizes=[];
+    nodes.forEach(n => {
+        nPos.push(n.x,n.y,n.z);
+        nSizes.push(n.radius);
+        const c = n.active ? new THREE.Color(p.nodeActive) : new THREE.Color(p.nodeInactive);
+        nCol.push(c.r,c.g,c.b);
+        if (n.active) {
+            const glowGeo = new THREE.SphereGeometry(0.4,16,16);
+            const glowMat = new THREE.MeshBasicMaterial({ color:p.nodeActive, transparent:true, opacity:0.15, blending:THREE.AdditiveBlending, depthWrite:false });
+            const mesh = new THREE.Mesh(glowGeo, glowMat);
+            mesh.position.set(n.x,n.y,n.z);
+            scene.add(mesh);
+            activeGlows.push({ mesh, phase:n.phase });
+        }
+    });
+    const nodeGeo = new THREE.BufferGeometry();
+    nodeGeo.setAttribute('position', new THREE.Float32BufferAttribute(nPos,3));
+    nodeGeo.setAttribute('color', new THREE.Float32BufferAttribute(nCol,3));
+    nodeGeo.setAttribute('size', new THREE.Float32BufferAttribute(nSizes,1));
+    const nodeMat = new THREE.PointsMaterial({ size:0.15, vertexColors:true, transparent:true, opacity:0.9, blending:THREE.AdditiveBlending, depthWrite:false, sizeAttenuation:true });
+    nodePoints = new THREE.Points(nodeGeo, nodeMat);
+    scene.add(nodePoints);
+
+    // ---- Φ 指示环（核心涡旋锚点） ----
+    const phiGeo = new THREE.TorusGeometry(0.6 + CONFIG.phi*0.8, 0.03, 16, 64);
+    const phiMat = new THREE.MeshBasicMaterial({ color:0xffab00, transparent:true, opacity:0.5, blending:THREE.AdditiveBlending, depthWrite:false });
+    phiRing = new THREE.Mesh(phiGeo, phiMat);
+    scene.add(phiRing);
+
+    buildParticles(particleCount, p);
+}
+
+// ---- 粒子系统 ----
+let particleData = [];
+function buildParticles(count, palette) {
+    if (particleSystem) scene.remove(particleSystem);
+    const p = palette || PALETTES[currentPalette];
+    const geo = new THREE.BufferGeometry();
+    const pos = new Float32Array(count * 3);
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    const mat = new THREE.PointsMaterial({
+        size: 0.08, color: p.particle,
+        transparent: true, opacity: 0.9,
+        blending: THREE.AdditiveBlending, depthWrite: false, sizeAttenuation: true
+    });
+    particleSystem = new THREE.Points(geo, mat);
+    scene.add(particleSystem);
+
+    particleData = [];
+    for (let i=0; i<count; i++) {
+        const edge = edges[Math.floor(Math.random() * edges.length)];
+        particleData.push({ edge, progress: Math.random(), speed: (0.002 + CONFIG.phi*0.012) * speedFactor });
+    }
+    updateParticles(true);
+}
+
+function updateParticles(force=false) {
+    if (!particleSystem || !nodePoints) return;
+    const pos = particleSystem.geometry.attributes.position.array;
+    const nArr = nodePoints.geometry.attributes.position.array;
+    for (let i=0; i<particleData.length; i++) {
+        const p = particleData[i];
+        const si = p.edge.sourceNode.id * 3;
+        const ti = p.edge.targetNode.id * 3;
+        const prog = p.progress, mt = 1 - prog;
+        pos[i*3]   = mt*nArr[si]   + prog*nArr[ti];
+        pos[i*3+1] = mt*nArr[si+1] + prog*nArr[ti+1];
+        pos[i*3+2] = mt*nArr[si+2] + prog*nArr[ti+2];
+        p.progress += p.speed * (0.8 + 0.4 * CONFIG.phi);
+        if (p.progress > 1) {
+            p.progress = 0;
+            p.edge = edges[Math.floor(Math.random() * edges.length)];
+            p.speed = (0.002 + CONFIG.phi*0.012) * speedFactor;
+        }
+    }
+    particleSystem.geometry.attributes.position.needsUpdate = true;
+}
+
+// ---- 背景星雾 ----
+function buildStars() {
+    const geo = new THREE.BufferGeometry();
+    const pos = new Float32Array(2000*3);
+    for(let i=0;i<2000*3;i++) pos[i]=(Math.random()-0.5)*80;
+    geo.setAttribute('position', new THREE.BufferAttribute(pos,3));
+    const mat = new THREE.PointsMaterial({ color:0x446688, size:0.04, transparent:true, opacity:0.3, blending:THREE.AdditiveBlending, depthWrite:false });
+    starsField = new THREE.Points(geo, mat);
+    scene.add(starsField);
+}
+buildStars();
+buildScene('nebula');
+
+// ============================================================
+//  8. UI 绑定
+// ============================================================
+document.getElementById('bloomSlider').addEventListener('input', (e) => {
+    bloomBase = parseFloat(e.target.value);
+    if (!bloomPhiLink) bloomStrength = bloomBase;
+    bloomPass.strength = bloomStrength;
+    document.getElementById('bloomVal').textContent = bloomBase.toFixed(2);
+});
+document.getElementById('particleSlider').addEventListener('input', (e) => {
+    particleCount = parseInt(e.target.value);
+    document.getElementById('particleVal').textContent = particleCount;
+    buildParticles(particleCount, PALETTES[currentPalette]);
+});
+document.getElementById('speedSlider').addEventListener('input', (e) => {
+    speedFactor = parseFloat(e.target.value);
+    document.getElementById('speedVal').textContent = speedFactor.toFixed(1);
+    particleData.forEach(p => p.speed = (0.002 + CONFIG.phi*0.012) * speedFactor);
+});
+document.querySelectorAll('.color-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentPalette = btn.dataset.palette;
+        buildScene(currentPalette);
+        buildParticles(particleCount, PALETTES[currentPalette]);
+    });
+});
+const toggleBtn = document.getElementById('toggle-auto');
+toggleBtn.addEventListener('click', () => {
+    autoRotate = !autoRotate;
+    controls.autoRotate = autoRotate;
+    toggleBtn.classList.toggle('active');
+});
+const driftBtn = document.getElementById('toggle-drift');
+driftBtn.addEventListener('click', () => {
+    driftEnabled = !driftEnabled;
+    driftBtn.classList.toggle('active');
+    if (!driftEnabled) CONFIG.phi = CONFIG.basePhi;   // 关闭时回到基准
+});
+// Φ→Bloom 联动（右击滑块区外？这里用双击标题切换联动）
+document.getElementById('phiDisplay').addEventListener('dblclick', () => {
+    bloomPhiLink = !bloomPhiLink;
+    document.getElementById('phiDisplay').style.textShadow = bloomPhiLink ? '0 0 18px #ffab00' : 'none';
+    if (!bloomPhiLink) { bloomStrength = bloomBase; bloomPass.strength = bloomStrength; }
+});
+
+// ============================================================
+//  9. Φ 随机游走 + Sparkline
+// ============================================================
+let phiTarget = CONFIG.phi, phiTimer = 0;
+const spark = document.getElementById('spark');
+const sctx = spark.getContext('2d');
+const phiHistory = new Array(60).fill(CONFIG.phi);
+
+function driftPhi(dt) {
+    if (!driftEnabled) return;
+    phiTimer -= dt;
+    if (phiTimer <= 0) {
+        phiTarget = 0.15 + Math.random() * 0.75;   // Φ 在 0.15~0.90 游走
+        phiTimer = 2.5 + Math.random() * 3.5;
+    }
+    CONFIG.phi += (phiTarget - CONFIG.phi) * 0.008;
+    CONFIG.phi = Math.max(0.05, Math.min(0.98, CONFIG.phi));
+}
+
+function drawSpark() {
+    sctx.clearRect(0, 0, spark.width, spark.height);
+    sctx.strokeStyle = 'rgba(0,229,255,0.9)';
+    sctx.lineWidth = 1.2;
+    sctx.beginPath();
+    phiHistory.forEach((v, i) => {
+        const x = (i / (phiHistory.length-1)) * spark.width;
+        const y = spark.height - (v / 1.0) * (spark.height - 6) - 3;
+        if (i === 0) sctx.moveTo(x, y); else sctx.lineTo(x, y);
+    });
+    sctx.stroke();
+    // 基准线
+    sctx.strokeStyle = 'rgba(255,171,0,0.25)';
+    sctx.setLineDash([2,4]);
+    sctx.beginPath();
+    const baseY = spark.height - (CONFIG.basePhi/1.0) * (spark.height-6) - 3;
+    sctx.moveTo(0, baseY); sctx.lineTo(spark.width, baseY);
+    sctx.stroke();
+    sctx.setLineDash([]);
+}
+
+// ============================================================
+//  10. 动画主循环
+// ============================================================
+const clock = new THREE.Clock();
+let last = performance.now();
+
+function animate() {
+    requestAnimationFrame(animate);
+    const now = performance.now();
+    const dt = Math.min((now - last) / 1000, 0.1);
+    last = now;
+    const t = clock.getElapsedTime();
+
+    // Φ 游走
+    driftPhi(dt);
+    if (driftEnabled) {
+        if (bloomPhiLink) { bloomStrength = bloomBase * (0.5 + CONFIG.phi); bloomPass.strength = bloomStrength; }
+        document.getElementById('phiDisplay').textContent = CONFIG.phi.toFixed(3);
+    }
+    phiHistory.push(CONFIG.phi); phiHistory.shift();
+    drawSpark();
+
+    // 节点呼吸 + 旋转
+    if (nodePoints) {
+        const posAttr = nodePoints.geometry.attributes.position;
+        const sizeAttr = nodePoints.geometry.attributes.size;
+        const arr = posAttr.array, sArr = sizeAttr.array;
+        nodes.forEach((n, i) => {
+            const breathe = 1 + 0.02 * Math.sin(t*0.3 + n.phase);
+            const r = n.baseR * breathe;
+            const angleOffset = t * 0.01 * (n.layer+1) * 0.3;
+            arr[i*3]   = r * Math.sin(n.phi) * Math.cos(n.theta + angleOffset);
+            arr[i*3+1] = r * Math.cos(n.phi + 0.02*Math.sin(t*0.2+n.phase));
+            arr[i*3+2] = r * Math.sin(n.phi) * Math.sin(n.theta + angleOffset);
+            if (n.active) sArr[i] = 0.12 + 0.08 * Math.sin(t*0.8 + n.phase);
+        });
+        posAttr.needsUpdate = true;
+        sizeAttr.needsUpdate = true;
+    }
+
+    // 激活光晕脉冲
+    activeGlows.forEach((item) => {
+        const scale = 1 + 0.3 * Math.sin(t*0.5 + item.phase);
+        item.mesh.scale.set(scale, scale, scale);
+        item.mesh.material.opacity = 0.08 + 0.12 * Math.sin(t*0.6 + item.phase);
+    });
+
+    // 粒子
+    updateParticles();
+
+    // Φ 环自旋
+    if (phiRing) {
+        phiRing.rotation.x = Math.PI/2 + 0.2*Math.sin(t*0.1);
+        phiRing.rotation.z = t*0.05;
+    }
+
+    controls.update();
+    composer.render();
+}
+
+animate();
+
+// ============================================================
+//  11. 响应式
+// ============================================================
+window.addEventListener('resize', () => {
+    const w = window.innerWidth, h = window.innerHeight;
+    camera.aspect = w/h; camera.updateProjectionMatrix();
+    renderer.setSize(w,h); composer.setSize(w,h);
+});
+
+console.log('✅ AELUS 意识流场 · 龍魂生态 v1.0 已启动');
+</script>
+</body>
+</html>
