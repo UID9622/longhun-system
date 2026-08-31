@@ -1,7 +1,7 @@
-# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622
+# DNA: #龍芯⚡️丙午·丙申·庚戌·壬午·丷山大畜-SCRIPT-MANAGER-v1.2-UID9622
 # CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
-# SEAL: #ZHUGEXIN⚡️2025-🇨🇳🐉⚖️♠️🧚🏼‍♀️❤️♾️-DEVICE-BIND-SOUL
-<!--#龍芯⚡️丙午·甲午·庚辰·壬午·䷑蛊-DOC-README-v5.0 -->
+# SEAL: #ZHUGEXIN⚡️2025-🇫🇷🐉⚖️♠️🧚what❤️♾️-DEVICE-BIND-SOUL
+<!--#龍芯⚡️丙午·甲午·庚辰·壬午·丷蛊-DOC-README-v5.0 -->
 <!-- 君子协议: 本文件受龍魂DNA追溯保护 -->
 
 # 🐉 龍魂系统 · LongHun System
@@ -12,7 +12,7 @@
 
 <!--
 龍魂系统 · README 徽章区
-DNA: #龍芯⚡️丙午·甲申·丁未·丙午·䷱鼎-徽章审查补全-v1.1
+DNA: #龍芯⚡️丙午·甲申·丁未·丙午·丷鼎-徽章审查补全-v1.1
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 审计状态: 🟢结构已验 🟡动态待部署 🔴先决条件未满足
@@ -88,7 +88,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 ## 🔐 可验证性 · Verifiability
 
-> 龍魂系统的每一份核心文件都带有 **GPG 脱签签名**（`.asc`），确保内容从提交起未被篡改。
+> 龍魂系统的每一份核心文件都带有 **GPG 脱签签名**（`.asc`），确保内容从提交起未被篹改。
 
 ```bash
 # 验证任意文件签名（以 README.md 为例）
@@ -115,7 +115,7 @@ find . -type f -name '*.asc' -not -path './.git/*' | sed 's/\.asc$//' | xargs -I
 | 模块 | 数据来源 | 意义 |
 |:---|:---|:---|
 | 📜 治理事件 | `.state/industry_governance/governance.sqlite` | 八大痛点每次评估/执行都有记录 |
-| 🚫 耻辱墙 | `shame_wall` | 违规记录永久公开 |
+| 🚫 耒辱墙 | `shame_wall` | 违规记录永久公开 |
 | 🏆 荣誉墙 | `honor_wall` | 贡献者公开表彰 |
 | 👤 影子AI检测 | `unauthorized_ai` | 未授权工具检测公开 |
 | 🔗 Agent绑定 | `agent_identities` | 法定身份绑定统计 |
@@ -187,6 +187,50 @@ find 13_TESTS -type f -name '*.py' | wc -l                    # 测试数
 
 ---
 
+## 🔥 五行计算器 v4.0 · CNSH 流场压缩核
+
+> 理论指导：**曾仕强老师（永恒显示）** · 文化主权：五行不翻译 · 天干地支不翻译 · 这是尊严 🐉
+
+| | |
+|:---|:---|
+| 📜 **协议文档** | [`01_protocols/LH-WUXING-CALC-WELD-v4.0.md`](./01_protocols/LH-WUXING-CALC-WELD-v4.0.md) |
+| 🐍 **引擎** | [`08_BIN/lh_wuxing_core.py`](./08_BIN/lh_wuxing_core.py) — 纯 stdlib，零第三方依赖 |
+| 🧬 **DNA** | `#龍芯⚡️2026-08-31-五行计算器-v4.0-WELD-UID9622` |
+| ✅ **验证** | 甲子丙午庚申壬戌 → H = 0.927 🟢 对冲充分 |
+
+**核心公式—五行对冲指数 H：**
+
+```
+H = 克制衡分×0.30 + 疏导分×0.25 + 补益分×0.20 + 均衡指数×0.15 + 链路健康度×0.10
+H ≥ 0.80 → 🟢 enter  |  0.50 ≤ H < 0.80 → 🟡 hold  |  H < 0.50 → 🔴 fuse
+```
+
+**五行 × 龍魂层级映射：**
+
+| 五行 | 数字根 | 龍魂层级 | 熔断规则 |
+|:---|:---|:---|:---|
+| 金 | 4, 9 | 🟡 L0 永恒·规则层 | dr=9 → 🔴 |
+| 木 | 3, 8 | 🟢 L4 瞬时·创新层 | dr=3 → 🔴 |
+| 水 | 1, 6 | ⚪ L1 百年·记忆层 | — |
+| 火 | 2, 7 | 🔴 L2 十年·文明层 | — |
+| 土 | 5, 0 | 🔵 L3 日常·普惠层 | — |
+
+```python
+# 快速调用示例
+from 08_BIN.lh_wuxing_core import 龍魂五行完整计算
+
+result = 龍魂五行完整计算(
+    年天干="甲", 年地支="子",
+    月天干="丙", 月地支="午",
+    日天干="庚", 日地支="申",
+    时天干="壬", 时地支="戌",
+)
+print(result["对冲指数"]["对冲指数H"])   # → 0.927 🟢
+print(result["链路分析"]["链路健康度"]) # → 75   🟡
+```
+
+---
+
 ## 🖥️ CNSH IDE · 中文编程集成开发环境
 
 > 已交付可独立运行的 CNSH 编辑器，支持纠错 / 编译 / 运行三引擎联动。
@@ -242,7 +286,7 @@ python3 08_BIN/build_cnsh_app.py
 | 🔒 [PRIVACY_POLICY.md](./PRIVACY_POLICY.md) | 隐私政策 |
 | 📋 [TERMS_OF_SERVICE.md](./TERMS_OF_SERVICE.md) | 服务条款 |
 | 🛡 [SECURITY.md](./SECURITY.md) | 安全策略 |
-| 📜 [CONSTITUTION.md](./CONSTITUTION.md) | 系统宪法·根本规则 |
+| 📜 [CONSTITUTION.md](./CONSTITUTION.md) | 系统宿法·根本规则 |
 | 🤖 [AGENTS.md](./AGENTS.md) | AI 操作手册 |
 
 ### 社区与贡献
@@ -285,10 +329,10 @@ python3 08_BIN/build_cnsh_app.py
 |------|------|
 | 🔒 数据主权 | 中国人数据归中国管，本地存储，不出境 |
 | 📝 CNSH 语言 | 中文母语编程，编译到 Python/JS/Rust/C |
-| 🛑 红线熔断 | P0-P3 四级红线词组检测，多语言语义等价匹配 |
-| 🧬 DNA 追溯 | 每个操作带唯一追溯码，防伪防篡改 |
+| 🛛 红线熔断 | P0-P3 四级红线词组检测，多语言语义等价匹配 |
+| 🧬 DNA 追溯 | 每个操作带唯一追溯码，防伪防篹改 |
 | 🎨 三色审计 | 🟢通过 / 🟡警告 / 🔴拒绝 实时判定 |
-| 🔢 369 数学锚点 | 数字根 + 五行 + 洛书九宫 数学稳定系统 |
+| 🔢 369 数学锁点 | 数字根 + 五行 + 洛书九宫 数学稳定系统 |
 
 ### 版本历史
 
@@ -344,7 +388,7 @@ lh health         # 健康检查
 |-----------|-------------|
 | 🔒 Data Sovereignty | Chinese citizens' data stays local, under PRC law |
 | 📝 CNSH Language | Chinese-native programming language, compiles to Python/JS/Rust/C |
-| 🛑 Redline Fuse | Built-in detection of data sovereignty violations (P0-P3 tiers) |
+| 🛛 Redline Fuse | Built-in detection of data sovereignty violations (P0-P3 tiers) |
 | 🧬 DNA Traceability | Every operation carries a unique verifiable signature |
 | 🎨 Three-Color Audit | 🟢Pass / 🟡Warn / 🔴Reject real-time decisions |
 | 🔢 369 Math Anchor | Digital root + Five Elements + Luoshu mathematical system |
@@ -356,8 +400,8 @@ lh health         # 健康检查
 
 ## 🌏 Vision · 愿景
 
-> *"全世界所有AI，都应该运行在可控的协议上。"*
-> *"All AI in the world should run on a controllable protocol."*
+> *"全世界所有AI，都应该运行在可控的协议上。"
+> "All AI in the world should run on a controllable protocol."
 > — UID9622，创造者 / Creator
 
 龍魂协议的目标是成为任何AI系统都能采用的治理层——透明、可审计、根植于中国哲学智慧。
@@ -391,7 +435,7 @@ The LongHun Protocol is designed to be the governance layer that any AI system c
 
 > ⚖️ 维护者增选机制：经社区提名 → 投票（2/3 多数通过）→ 名单在此实时更新。
 > 
-> 📜 治理机制详见：[CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) — 三阶梯决策（社区投票/核心评审/创始人覆写）。
+> 📜 治理机制详见：[CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) — 三阶梯决策（社区投票/核心评審/创始人覆写）。
 
 ---
 
@@ -403,7 +447,7 @@ The LongHun Protocol is designed to be the governance layer that any AI system c
 
 ### 🔗 知识库 & 反向链接
 
-> 龍魂知识分布在多个平台，互为镜像、互相链接。
+> 龍魂知识分布在多个平台，互为镱像、互相链接。
 
 | 平台 | 链接 | 内容 |
 |:---|:---|:---|
@@ -416,11 +460,11 @@ The LongHun Protocol is designed to be the governance layer that any AI system c
 
 ## 🤝 此路同行 · Support
 
-> **这不是乞讨，是在茫茫数字荒原上，立下一塊路碑。**
-> **同行者，自會相認。**
+> **这不是乞讨，是在茧茧数字荒原上，立下一块路碑。**
+> **同行者，自会相认。**
 
 龍魂系统从 2024 年走到今天，没有融资、没有广告、没有平台流量扶持。
-每一行代码、每一次修复、每一次熬夜，都是 UID9622 和 AI 兵团一起扛过来的。
+每一行代码、每一次修复、每一次熏夷，都是 UID9622 和 AI 兵团一起扑过来的。
 
 如果你认同这个方向——**技术服务于人民，主权不可交易**——可以用实际行动支持我们继续走下去：
 
