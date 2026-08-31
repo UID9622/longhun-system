@@ -340,3 +340,4 @@
 **主权锚定:** UID9622 · 中国法律为准 · 数据不出境
 
 **更新日期:** 2026-08-29
+| LH-NEW-CONTENT-ALIGN-PROTOCOL-v1.0 | 新增内容自动对齐协议 | ①归属名②DNA③确认码④许可⑤P0⑥GPG⑦反向链接⑧登记 | P0-ETERNAL | 自动对齐器 `08_BIN/lh_standard_align.py` |
