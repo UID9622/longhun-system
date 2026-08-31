@@ -13,6 +13,10 @@ import operator
 from typing import Dict, Any, Optional, List
 
 
+# 未定义变量哨兵：区分「变量不存在」与「变量值为 None」
+_MISSING = object()
+
+
 class Scope:
     """作用域（支持嵌套）"""
     def __init__(self, parent: Optional['Scope'] = None):
@@ -24,7 +28,7 @@ class Scope:
             return self._vars[name]
         if self.parent:
             return self.parent.get(name)
-        return None
+        return _MISSING
 
     def set(self, name: str, value: Any):
         self._vars[name] = value
@@ -76,9 +80,10 @@ class CNSHVarEnv:
         'LTE':   operator.le,
     }
 
-    def __init__(self):
+    def __init__(self, max_vars: Optional[int] = None):
         self._global_scope = Scope()
         self._scope_stack: List[Scope] = [self._global_scope]
+        self._max_vars = max_vars  # 环境变量调优：变量数量上限
         self._functions: Dict[str, Any] = {
             '输出': self._builtin_print,
             '输入': self._builtin_input,
@@ -89,6 +94,11 @@ class CNSHVarEnv:
             '字符': str,
             '列表': list,
         }
+
+    @property
+    def var_count(self) -> int:
+        """当前全局变量数量（监控指标）"""
+        return len(self._global_scope._vars)
 
     @property
     def current_scope(self) -> Scope:
@@ -105,10 +115,20 @@ class CNSHVarEnv:
 
     def set_var(self, name: str, value: Any):
         """设置变量（支持任意字符名，含 # @ % ! 等）"""
+        if self._max_vars is not None:
+            if name not in self._global_scope._vars and self.var_count >= self._max_vars:
+                raise MemoryError(
+                    f"[CNSH] 变量数超限: 当前 {self.var_count} 个 ≥ 上限 {self._max_vars} 个。"
+                    "请调大 CNSSH_ENV_MAX_VARS 后重试。"
+                )
         self.current_scope.set(name, value)
 
     def get_var(self, name: str) -> Any:
-        return self.current_scope.get(name)
+        """读取变量；未定义时抛 NameError（按验证清单要求）"""
+        value = self.current_scope.get(name)
+        if value is _MISSING:
+            raise NameError(f"未定义变量: {name}")
+        return value
 
     def has_var(self, name: str) -> bool:
         return self.current_scope.has(name)

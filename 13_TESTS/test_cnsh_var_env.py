@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🐉 CNSH 变量环境测试 v1.1
-DNA: #龍芯⚡️2026-08-31-CNSH-TEST-v1.1-UID9622
+🐉 CNSH 变量环境测试 v1.2
+DNA: #龍芯⚡️2026-08-31-CNSH-TEST-v1.2-UID9622
 创建者: 诸葛鑫（UID9622）
 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 """
 
+import os
 import sys
 import unittest
 from pathlib import Path
@@ -16,7 +17,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / '08_BIN'))
 from cnsh.lexer import CNSHLexer
 from cnsh.var_env import CNSHVarEnv
-from cnsh.interpreter import CNSHInterpreter
+from cnsh.interpreter import CNSHInterpreter, load_config_from_env
 from cnsh.dna_verify import verify_dna_header, verify_dna_file
 
 DNA_PREFIX = """#!/usr/bin/env cnsh
@@ -106,6 +107,81 @@ class TestInterpreter(unittest.TestCase):
         with redirect_stdout(buf):
             interp.execute('输出($#var)')
         self.assertIn('100', buf.getvalue())
+
+
+class TestUndefinedVar(unittest.TestCase):
+    """验证清单：未定义变量引用抛出异常"""
+
+    def test_undefined_var_raises(self):
+        interp = CNSHInterpreter({'strict_dna': False})
+        with self.assertRaises(NameError):
+            interp.execute('$y = $#not_defined')
+        with self.assertRaises(NameError):
+            interp.execute('$a = 1\n$b = $a 加 $missing')
+
+    def test_defined_var_ok(self):
+        interp = CNSHInterpreter({'strict_dna': False})
+        interp.execute('$#defined = 42')
+        self.assertEqual(interp.env.get_var('#defined'), 42)
+
+
+class TestEnvConfig(unittest.TestCase):
+    """环境变量调优参数（文档§四-3）"""
+
+    def setUp(self):
+        self._saved = {k: os.environ.get(k) for k in (
+            'CNSSH_ENV_ALLOW_SYMBOLS', 'CNSSH_ENV_STRICT_DNA',
+            'CNSSH_ENV_CACHE_SIZE', 'CNSSH_ENV_MAX_VARS',
+        )}
+
+    def tearDown(self):
+        for k, v in self._saved.items():
+            if v is None:
+                os.environ.pop(k, None)
+            else:
+                os.environ[k] = v
+
+    def test_env_bool(self):
+        os.environ['CNSSH_ENV_STRICT_DNA'] = 'false'
+        cfg = load_config_from_env({})
+        self.assertFalse(cfg['strict_dna'])
+
+    def test_env_cache_size(self):
+        os.environ['CNSSH_ENV_CACHE_SIZE'] = '8'
+        cfg = load_config_from_env({})
+        self.assertEqual(cfg['cache_size'], 8)
+
+    def test_env_max_vars(self):
+        os.environ['CNSSH_ENV_MAX_VARS'] = '3'
+        interp = CNSHInterpreter({'strict_dna': False})
+        interp.execute('$a = 1\n$b = 2\n$c = 3')
+        with self.assertRaises(MemoryError):
+            interp.execute('$d = 4')
+
+    def test_legacy_prefix(self):
+        """兼容 CNSH_ENV_* 旧前缀"""
+        os.environ['CNSH_ENV_ALLOW_SYMBOLS'] = 'true'
+        cfg = load_config_from_env({})
+        self.assertTrue(cfg['allow_symbols'])
+
+
+class TestCache(unittest.TestCase):
+    """AST缓存（文档§三-3 优化方向）"""
+
+    def test_cache_hit(self):
+        interp = CNSHInterpreter({'strict_dna': False, 'cache_size': 8})
+        code = '$#x = 1\n$#y = 2'
+        interp.execute(code)
+        interp.execute(code)  # 第二次应命中缓存
+        self.assertEqual(interp.stats['parse_count'], 1)
+        self.assertEqual(interp.stats['cache_hits'], 1)
+
+    def test_cache_disabled(self):
+        interp = CNSHInterpreter({'strict_dna': False, 'cache_size': 0})
+        code = '$#x = 1'
+        interp.execute(code)
+        interp.execute(code)
+        self.assertEqual(interp.stats['cache_hits'], 0)
 
 
 class TestDNAVerify(unittest.TestCase):

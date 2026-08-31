@@ -38,13 +38,30 @@ cnsh:
     - 字符
     - 列表
 
+  # ── 性能调优（对照评估§三-3·文档§四-3）────────────
+  performance:
+    ast_cache_size: 64            # AST缓存大小（CNSSH_ENV_CACHE_SIZE 可覆盖；0=关闭）
+    max_vars: null                # 变量数量上限（CNSSH_ENV_MAX_VARS 可覆盖；null=不限）
+    use_regex_precompile: false   # 词法已手写扫描器，无需正则预编译
+
+  # ── 监控（对照评估§四-4）──────────────────────
+  monitoring:
+    track_vars: true              # 变量数峰值
+    track_time: true              # 语句执行耗时
+    track_cache_hit: true         # AST缓存命中率
+    track_errors: true            # 解析失败率
+    prometheus_exporter: false    # 默认关闭（轻量优先·按需开启）
+
   # ── 调试 ─────────────────────────────────────
   debug: false
   log_level: info
 
   # ── 系统环境变量注入 ──────────────────────────
   env_inject:
-    CNSH_ENV_ALLOW_SYMBOLS: "true"
+    CNSSH_ENV_ALLOW_SYMBOLS: "true"
+    CNSSH_ENV_STRICT_DNA: "true"
+    CNSSH_ENV_CACHE_SIZE: "64"
+    CNSH_ENV_ALLOW_SYMBOLS: "true"   # 旧前缀兼容
     CNSH_STRICT_DNA: "true"
     CNSH_UID: "UID9622"
     CNSH_GPG: "A2D0092CEE2E5BA87035600924C3704A8CC26D5F"
