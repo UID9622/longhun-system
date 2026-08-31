@@ -80,29 +80,42 @@ curl -s http://127.0.0.1:$KLINE_PORT/api/kline/health && echo ''
 
   echo "[鲲鹏] 配置 nginx 反代 /api/kline → $KLINE_PORT…"
   ssh -i "$SSH_KEY" "$REMOTE" "
-CFG=/etc/nginx/conf.d/nginx-uid9622.cn.conf
-if ! grep -q 'api/kline' \$CFG 2>/dev/null; then
-  python3 - << PY
-p = '$CFG'
+    export KLINE_PORT=$KLINE_PORT
+    CFG=/etc/nginx/conf.d/nginx-uid9622.cn.conf
+    python3 - << 'PY'
+import os, re
+p = '/etc/nginx/conf.d/nginx-uid9622.cn.conf'
+port = os.environ.get('KLINE_PORT', '8895')
 s = open(p).read()
-kline_block = '''
-        location /api/kline/ {
-            proxy_pass http://127.0.0.1:$KLINE_PORT/api/kline/;
-            proxy_set_header Host \\\$host;
-            proxy_set_header X-Real-IP \\\$remote_addr;
+# 1. 清除所有现存 api/kline 块（含坏块）→ 统一重建
+s = re.sub(r'\n?[ \t]*location /api/kline/ \{.*?\n[ \t]*\}', '', s, flags=re.S)
+block = f'''
+        location /api/kline/ {{
+            proxy_pass http://127.0.0.1:{port}/api/kline/;
+            proxy_set_header Host \$host;
+            proxy_set_header X-Real-IP \$remote_addr;
             proxy_read_timeout 10s;
-        }
+        }}
 '''
-if 'location /api/kline/' not in s:
-    s = s.replace('location /', kline_block + '\n        location /', 1)
+changed = False
+anchor80 = '        location / {\n'
+anchor443 = '    ssl_certificate /etc/letsencrypt/live/uid9622.cn/fullchain.pem;'
+if anchor80 in s:
+    idx = s.index(anchor80)
+    if 'api/kline' not in s[max(0, idx - 400):idx]:
+        s = s.replace(anchor80, block + '\n' + anchor80, 1)
+        changed = True
+if anchor443 in s:
+    idx = s.index(anchor443)
+    if 'api/kline' not in s[idx:idx + 200]:
+        s = s.replace(anchor443, block + '\n' + anchor443, 1)
+        changed = True
+if changed:
     open(p, 'w').write(s)
-    print('已注入反代段到 ' + p)
+    print('已重建反代段(80+443)到 ' + p)
 PY
-  nginx -t && systemctl reload nginx
-else
-  echo 'nginx 已含 /api/kline 反代'
-fi
-"
+    nginx -t 2>&1 | tail -1 && systemctl reload nginx && echo NGINX_OK
+  "
 
   echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo "✅ 部署完成 → https://uid9622.cn/kline.html"
