@@ -280,7 +280,7 @@ jobs:
 
       - name: PR 评论 · 三色审计
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const auditOk = '${{ needs.audit.result }}' === 'success';
