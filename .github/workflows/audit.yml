@@ -55,7 +55,7 @@ jobs:
 
       - name: PR 评论（失败时）
         if: failure()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const prNumber = context.payload.pull_request?.number;
