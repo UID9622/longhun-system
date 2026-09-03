@@ -302,6 +302,106 @@ def serve(port: int):
     srv.serve_forever()
 
 
+# ============================================================
+# v1.4 CodeQL 自动响应分派（2026-09-03 · CodeQL 闭环任务2）
+# 问题类型 → 数字人 → 职责 分派规则表（老大设计·焊死）
+# ============================================================
+CODEQL_ROUTES = {
+    # 类型: (ipa, 职责说明)
+    "security":    ("ASI-005", "审计漏洞根因，给出修复方案（critical/high 优先处理）"),
+    "code_style":  ("DH-010",  "按 CNSH 规范调整代码格式（命名/格式/风格）"),
+    "logic":       ("DH-011",  "修复逻辑错误，确保边界条件正确"),
+    "performance": ("DH-016",  "优化代码性能，减少资源消耗"),
+    "dependency":  ("DH-012",  "更新依赖版本，消除已知漏洞"),
+    "docs":        ("DH-013",  "补充文档和注释"),
+    "test":        ("DH-014",  "补充测试用例"),
+}
+
+# CodeQL rule 特征 → 问题类型（按优先级匹配 tags / rule_id）
+CODEQL_TYPE_RULES = [
+    (("performance",), "performance"),
+    (("maintainability", "style", "naming", "format"), "code_style"),
+    (("correctness", "logical", "range", "bound"), "logic"),
+    (("documentation", "doc"), "docs"),
+    (("test", "testing"), "test"),
+    (("dependencies", "supply-chain", "library"), "dependency"),
+    (("security",), "security"),
+]
+
+
+def classify_codeql_issue(issue: dict) -> str:
+    """CodeQL issue → 问题类型。判定顺序: 显式 tags → security 兜底高判 → rule_id → 默认 logic"""
+    tags = [str(t).lower() for t in (issue.get("tags") or [])]
+    rule_id = str(issue.get("rule_id") or "").lower()
+    severity = str(issue.get("severity") or "").lower()
+    desc = str(issue.get("description") or "").lower()
+    # 1) 安全: critical/high 或 tags/rule 明确安全语义
+    if severity in ("critical", "high", "error"):
+        return "security"
+    if any("security" in t or "cwe" in t for t in tags):
+        return "security"
+    if "security" in rule_id or rule_id.startswith(("py/", "js/", "cpp/")):
+        pass  # 规则前缀不直接定性，继续看 tags
+    # 2) tags 精确匹配
+    for keys, kind in CODEQL_TYPE_RULES:
+        if any(any(k in t for k in keys) for t in tags):
+            return kind
+    # 3) rule_id / desc 启发
+    if any(k in rule_id or k in desc for k in ("eval", "unsafe", "xss", "sqli", "path", "inject", "deserial", "weak", "hardcoded", "credential", "crypto")):
+        return "security"
+    if any(k in rule_id or k in desc for k in ("performance", "time-complex", "inefficient")):
+        return "performance"
+    if any(k in rule_id for k in ("naming", "syntax", "style", "unused", "dead")):
+        return "code_style"
+    if any(k in rule_id or k in desc for k in ("todo", "fixme", "comment", "doc")):
+        return "docs"
+    return "logic"  # CodeQL 语义级问题默认归逻辑修复
+
+
+def codeql_dispatch(issue: dict) -> dict:
+    """单个 CodeQL issue → 数字人分派单
+    issue 字段: rule_id / severity / description / file / line / tags(可选)
+    返回: {type, dh_ipa, dh_name, persona, priority, task}"""
+    kind = classify_codeql_issue(issue)
+    ipa, duty = CODEQL_ROUTES.get(kind, CODEQL_ROUTES["logic"])
+    reg = load_registry()
+    dh = reg["digital_humans"].get(ipa, {})
+    name = dh.get("name", ipa)
+    persona = dh.get("metadata", {}).get("persona", "")
+    sev = str(issue.get("severity") or "unknown")
+    priority = "P0" if sev.lower() in ("critical", "high", "error") else "P1"
+    file = issue.get("file", "?")
+    line = issue.get("line", "?")
+    task = (
+        f"修复 CodeQL 扫描告警（{priority}·{sev}）：\n"
+        f"  规则: {issue.get('rule_id', '?')}\n"
+        f"  位置: {file}:{line}\n"
+        f"  描述: {issue.get('description', '?')}\n"
+        f"  职责: {duty}\n"
+        f"  输出: 若可自动修复请给出针对该文件的最小修改 diff；"
+        f"若需人工确认请明确说明原因与建议方案。禁止改动 .github/ 下任何 CI 配置。"
+    )
+    return {"type": kind, "dh_ipa": ipa, "dh_name": name, "persona": persona,
+            "priority": priority, "task": task, "duty": duty}
+
+
+def codeql_repair(issue: dict) -> dict:
+    """按分派单唤起数字人修复（v1.4·CodeQL 闭环）。
+    成功 → {mode:'dh', response}
+    API 不可用 → {mode:'fallback', detail: 唤起指令}"""
+    ticket = codeql_dispatch(issue)
+    reg = load_registry()
+    dh = reg["digital_humans"].get(ticket["dh_ipa"])
+    if not dh:
+        return {"mode": "error", "detail": f"数字人 {ticket['dh_ipa']} 不在册"}
+    messages = build_system(dh, ticket["task"])
+    resp = try_deepseek(messages)
+    if isinstance(resp, tuple):
+        return {"mode": "fallback", "ticket": ticket,
+                "detail": fallback_instruction(dh, ticket["task"])}
+    return {"mode": "dh", "ticket": ticket, "response": resp}
+
+
 def main():
     ap = argparse.ArgumentParser(description="龍魂·数字人调动引擎 v1.0")
     ap.add_argument("text", nargs="*", help='自然语言, 如 "字靈 设计字体" 或 "DH-011 任务"')

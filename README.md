@@ -302,6 +302,32 @@ curl -X POST http://localhost:8761/dh/dispatch \
 
 ---
 
+## 🔬 CodeQL 自动响应闭环
+
+> GitHub CodeQL 扫描 → 数字人自动分派修复 → 熔断保护 → PR 闭环，全程 GPG 签名。
+> 引擎: `lh_codeql_listener.py`（监听·webhook :9786）· `lh_codeql_autofix.py`（修复+PR）· `lh_dh_dispatch.py` v1.4（数字人分派）
+
+```bash
+lh codeql status                 # 最新 CodeQL 扫描状态
+lh codeql fetch                  # 拉取 open alerts（按 severity 分类）
+lh codeql-autofix autofix        # 触发修复流程（默认 dry-run 演练）
+lh codeql-autofix autofix --apply  # 真修：备份→修复→health/topo 验证→开 PR
+lh codeql-dashboard              # 面板：Markdown 表格 + 状态徽章 + GPG 签名
+```
+
+| 安全熔断 | 规则 |
+|:---|:---|
+| 每日修复上限 | 3 次（超出自动暂停，次日恢复） |
+| 修复前备份 | 自动备份至 `~/.longhun/codeql_backup/` |
+| 健康检查 | health / topo 不全绿 → 拒绝修复 |
+| 连续失败 | 3 次 → 耻辱墙暂停 + 通知 |
+| 禁改区 | `.github/` 下 CI 配置禁止自动修改 |
+
+> 数字人分派（`CODEQL_ROUTES`）: 安全类→包青天 · 规范类→字靈 · 性能类→知行
+> 联动 workflow: [`.github/workflows/codeql-trigger.yml`](./.github/workflows/codeql-trigger.yml)（scan 完成后触发通知/降级）
+
+---
+
 ## 📚 文档导航
 
 ### 入门必读
