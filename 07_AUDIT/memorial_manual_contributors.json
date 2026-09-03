@@ -1,0 +1,22 @@
+[
+  {
+    "name": "CodeBuddy",
+    "email": "codebuddy@ai.copilot",
+    "note": "AI编码协作者·2026-08起全面参与系统构建"
+  },
+  {
+    "name": "DeepSeek",
+    "email": "deepseek@data.audit",
+    "note": "跨框架审计数据集来源·Issue #1622被审对象"
+  },
+  {
+    "name": "qingkong66",
+    "email": "qingkong66@community.github",
+    "note": "社区伙伴·Issue #1622审计数据集主入口贡献者"
+  },
+  {
+    "name": "Kimi",
+    "email": "kimi@ai.assistant",
+    "note": "AI协作者·历史构建与文档补全"
+  }
+]

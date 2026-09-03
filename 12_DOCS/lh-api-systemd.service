@@ -1,0 +1,27 @@
+# 🐉 龍魂 CIL API 网关 · Linux systemd 模板
+# DNA: #龍芯⚡️丙午·丁酉·乙亥·巳时·䷝离-LH-API-SYSTEMD-TEMPLATE-v1.0
+# 创建者: 诸葛鑫（UID9622） · 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+#
+# 安装:
+#   sudo cp docs/lh-api-systemd.service /etc/systemd/system/lh-api.service
+#   sudo systemctl daemon-reload && sudo systemctl enable --now lh-api
+# 状态/日志:
+#   sudo systemctl status lh-api && journalctl -u lh-api -f
+
+[Unit]
+Description=LongHun CIL API Gateway (127.0.0.1:9622)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun/longhun-system
+ExecStart=/usr/bin/python3 /opt/longhun/longhun-system/bin/lh_api.py --port 9622
+Restart=always
+RestartSec=5
+StandardOutput=append:/opt/longhun/longhun-system/logs/lh_api.log
+StandardError=append:/opt/longhun/longhun-system/logs/lh_api.log
+
+[Install]
+WantedBy=multi-user.target

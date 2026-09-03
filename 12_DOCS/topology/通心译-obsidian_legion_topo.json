@@ -1,0 +1,50 @@
+{
+  "topo_name": "通心译-obsidian",
+  "display": "🌐 通心译 文档库镜像 · Obsidian",
+  "version": "v1.2",
+  "source_url": "obsidian:///private/tmp/obsidian_vault",
+  "sync_from": "obsidian-local",
+  "source": "obsidian",
+  "groups": [
+    {
+      "name": "🎯核心ASI层",
+      "assets": [
+        {
+          "name": "慧慧-龍慧-智慧传播",
+          "id": "obsidian:🎯核心ASI层/慧慧-龍慧-智慧传播.md",
+          "dna": "#龍芯⚡️2026-03-26-慧慧-龍慧-智慧传播引擎-v1.0",
+          "status": "🟢 活跃",
+          "link": "file:///Users/zuimeidedeyihan/longhun-system/_work/obsidian-src/🎯核心ASI层/慧慧-龍慧-智慧传播.md",
+          "link_origin": "local-file"
+        }
+      ]
+    },
+    {
+      "name": "🗣️技能库",
+      "assets": [
+        {
+          "name": "龍魂-沟通翻译官-P08",
+          "id": "obsidian:🗣️技能库/龍魂-沟通翻译官-P08.md",
+          "dna": "#龍芯⚡️2026-03-28-沟通翻译官-P08-v1.0",
+          "status": "🟢 活跃",
+          "link": "file:///Users/zuimeidedeyihan/longhun-system/_work/obsidian-src/🗣️技能库/龍魂-沟通翻译官-P08.md",
+          "link_origin": "local-file"
+        }
+      ]
+    },
+    {
+      "name": "🤖执行Agent层",
+      "assets": [
+        {
+          "name": "龍慧-通心译-P14",
+          "id": "obsidian:🤖执行Agent层/龍慧-通心译-P14.md",
+          "dna": "#龍芯⚡️2026-04-26-通心译-P14-AGENT-INSTRUCTIONS-v1.0",
+          "status": "🟢 活跃",
+          "link": "file:///Users/zuimeidedeyihan/longhun-system/_work/obsidian-src/🤖执行Agent层/龍慧-通心译-P14.md",
+          "link_origin": "local-file"
+        }
+      ]
+    }
+  ],
+  "last_sync": "2026-09-03T00:04:56+08:00"
+}

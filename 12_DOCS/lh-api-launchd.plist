@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  🐉 龍魂 CIL API 网关 · macOS launchd 模板
+  DNA: #龍芯⚡️丙午·丁酉·乙亥·巳时·䷝离-LH-API-LAUNCHD-TEMPLATE-v1.0
+  创建者: 诸葛鑫（UID9622） · 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+  License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+
+  安装:
+    cp docs/lh-api-launchd.plist ~/Library/LaunchAgents/com.longhun.lh-api.plist
+    launchctl load ~/Library/LaunchAgents/com.longhun.lh-api.plist
+  卸载(冻结·保留文件):
+    launchctl unload ~/Library/LaunchAgents/com.longhun.lh-api.plist
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.longhun.lh-api</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Library/Frameworks/Python.framework/Versions/3.14/bin/python3.14</string>
+        <string>/Users/zuimeidedeyihan/longhun-system/bin/lh_api.py</string>
+        <string>--port</string>
+        <string>9622</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/zuimeidedeyihan/longhun-system</string>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/logs/lh_api.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/logs/lh_api.log</string>
+</dict>
+</plist>

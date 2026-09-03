@@ -1,0 +1,3349 @@
+{
+  "dna": "#龍芯⚡️丙午·丙申·己未·未时·䷋否-WORKSPACE-SYNC-v1.0",
+  "creator": "诸葛鑫（UID9622·龍芯北辰）",
+  "generated_at": "2026-09-02T23:34:33+08:00",
+  "root": "/Users/zuimeidedeyihan/longhun-system",
+  "count": 477,
+  "total_size": 7708576,
+  "items": [
+    {
+      "name": "COMMAND_INDEX.md",
+      "path": ".codebuddy/COMMAND_INDEX.md",
+      "size": 286866,
+      "mtime": "2026-09-02T19:38:33+08:00",
+      "sha256": "68d566275c573f1e"
+    },
+    {
+      "name": "MEMORY.md",
+      "path": ".codebuddy/memory/MEMORY.md",
+      "size": 10634,
+      "mtime": "2026-09-01T08:30:23+08:00",
+      "sha256": "8f695b012e1fdd7d"
+    },
+    {
+      "name": "ATTRIBUTION.md",
+      "path": "01_protocols/ATTRIBUTION.md",
+      "size": 2100,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "2f34899208b5c008"
+    },
+    {
+      "name": "AUDIT-SHEET-TEMPLATE-v1.0.md",
+      "path": "01_protocols/AUDIT-SHEET-TEMPLATE-v1.0.md",
+      "size": 3459,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "89538d72f6c9537d"
+    },
+    {
+      "name": "BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+      "path": "01_protocols/BEICHEN-MOTHER-PROTOCOL-v2.0.md",
+      "size": 11940,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "52f5b4976670bd2e"
+    },
+    {
+      "name": "CNSH-BRAIN-PERSONA-LANDING-v1.0.md",
+      "path": "01_protocols/CNSH-BRAIN-PERSONA-LANDING-v1.0.md",
+      "size": 3681,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "e6bc9f8795ce1b33"
+    },
+    {
+      "name": "CNSH-MATH-SKELETON-v1.0.md",
+      "path": "01_protocols/CNSH-MATH-SKELETON-v1.0.md",
+      "size": 6323,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "250046bb0d4cc3ee"
+    },
+    {
+      "name": "CNSH-MULTI-MODEL-PROTOCOL-v1.1.md",
+      "path": "01_protocols/CNSH-MULTI-MODEL-PROTOCOL-v1.1.md",
+      "size": 10658,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "2be48fd3b29966aa"
+    },
+    {
+      "name": "CNSH-SYNTAX-PANORAMA-v3.0.md",
+      "path": "01_protocols/CNSH-SYNTAX-PANORAMA-v3.0.md",
+      "size": 4354,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "ea5445d4ed81e4e3"
+    },
+    {
+      "name": "CNSH-TONGXINYI-ALIGN-v2.0.md",
+      "path": "01_protocols/CNSH-TONGXINYI-ALIGN-v2.0.md",
+      "size": 5189,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "5a3ec9fb324c8e02"
+    },
+    {
+      "name": "CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+      "path": "01_protocols/CNSH-TRANSLATOR-NEURAL-ARCH-v1.0.md",
+      "size": 8290,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "84f64845b7457fab"
+    },
+    {
+      "name": "CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+      "path": "01_protocols/CNSH_FIRST_PRINCIPLES_v2.0_SUPPLEMENT.md",
+      "size": 15849,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "bf2fe662690e31b0"
+    },
+    {
+      "name": "CNSH_GLOBAL_PROTOCOL_v3.0.md",
+      "path": "01_protocols/CNSH_GLOBAL_PROTOCOL_v3.0.md",
+      "size": 12158,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "0d5665f1a5d3499b"
+    },
+    {
+      "name": "CSDN_龙魂语法规范全集_v2.0.md",
+      "path": "01_protocols/CSDN_龙魂语法规范全集_v2.0.md",
+      "size": 30859,
+      "mtime": "2026-08-29T01:11:52+08:00",
+      "sha256": "9afc49481d7601bc"
+    },
+    {
+      "name": "DATA-PERMISSIONS-MATRIX-v1.0.md",
+      "path": "01_protocols/DATA-PERMISSIONS-MATRIX-v1.0.md",
+      "size": 9511,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "69b70266a484213c"
+    },
+    {
+      "name": "DIGITAL-BATTLEFIELD-IRON-RULE-v1.0.md",
+      "path": "01_protocols/DIGITAL-BATTLEFIELD-IRON-RULE-v1.0.md",
+      "size": 7367,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "cbff7cdf6a69d182"
+    },
+    {
+      "name": "DIGITAL-MILITARY-CODE-v1.0.md",
+      "path": "01_protocols/DIGITAL-MILITARY-CODE-v1.0.md",
+      "size": 8847,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "42af6fb658a4e9a3"
+    },
+    {
+      "name": "DNA-SOURCE-ANCHOR-PROTOCOL-v1.0.md",
+      "path": "01_protocols/DNA-SOURCE-ANCHOR-PROTOCOL-v1.0.md",
+      "size": 1926,
+      "mtime": "2026-08-31T10:16:20+08:00",
+      "sha256": "b4546966ad6d7eb7"
+    },
+    {
+      "name": "DNA_CLEAN_REPORT_20260814.md",
+      "path": "01_protocols/DNA_CLEAN_REPORT_20260814.md",
+      "size": 98393,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "54b03104bc8f1d00"
+    },
+    {
+      "name": "DNA_REGISTRY_PROTOCOL_200.md",
+      "path": "01_protocols/DNA_REGISTRY_PROTOCOL_200.md",
+      "size": 4636,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "f9f74dbac1386d35"
+    },
+    {
+      "name": "DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+      "path": "01_protocols/DYNAMIC-WEIGHT-MIN-LOSS-v1.0.md",
+      "size": 9439,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "6a0830fe73c3024e"
+    },
+    {
+      "name": "ETERNAL-CONTRACT-PEOPLE-SOVEREIGNTY.md",
+      "path": "01_protocols/ETERNAL-CONTRACT-PEOPLE-SOVEREIGNTY.md",
+      "size": 1671,
+      "mtime": "2026-08-31T10:16:20+08:00",
+      "sha256": "8aafedd760767b13"
+    },
+    {
+      "name": "INDEX.md",
+      "path": "01_protocols/INDEX.md",
+      "size": 38930,
+      "mtime": "2026-08-31T10:20:14+08:00",
+      "sha256": "562163118aed1e7a"
+    },
+    {
+      "name": "IPA-ROUTE-REGISTRY.local.md",
+      "path": "01_protocols/IPA-ROUTE-REGISTRY.local.md",
+      "size": 53830,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "10521056c9a6e76c"
+    },
+    {
+      "name": "IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
+      "path": "01_protocols/IRON-LAW-PERSONA-SEMANTIC-UNIFIED-MAPPING.md",
+      "size": 18302,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "53cf602397b440cf"
+    },
+    {
+      "name": "KILL-SWITCH-IRON-LAW-v1.0.md",
+      "path": "01_protocols/KILL-SWITCH-IRON-LAW-v1.0.md",
+      "size": 2170,
+      "mtime": "2026-08-31T10:16:20+08:00",
+      "sha256": "c127f2e9e632c009"
+    },
+    {
+      "name": "LH-ACTIVATION-ECONOMY-v1.0.md",
+      "path": "01_protocols/LH-ACTIVATION-ECONOMY-v1.0.md",
+      "size": 4417,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "e7151c2aa236d5ca"
+    },
+    {
+      "name": "LH-ACTIVATION-PAYMENT-v1.0.md",
+      "path": "01_protocols/LH-ACTIVATION-PAYMENT-v1.0.md",
+      "size": 5377,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "32f700a576e67d09"
+    },
+    {
+      "name": "LH-ADAPTIVE-EVOLUTION-SPEC-v1.0.md",
+      "path": "01_protocols/LH-ADAPTIVE-EVOLUTION-SPEC-v1.0.md",
+      "size": 12179,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "4acf2043e5bc3ca8"
+    },
+    {
+      "name": "LH-ADS-SELF-DESCRIBING-v4.0.md",
+      "path": "01_protocols/LH-ADS-SELF-DESCRIBING-v4.0.md",
+      "size": 9000,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "6523d3d29f3c0dd0"
+    },
+    {
+      "name": "LH-AI-ACCESS-MANDATE-v1.0.md",
+      "path": "01_protocols/LH-AI-ACCESS-MANDATE-v1.0.md",
+      "size": 9642,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "22e286cfaf38fab2"
+    },
+    {
+      "name": "LH-AI-ASSISTANT-CHANNELS-v1.0.md",
+      "path": "01_protocols/LH-AI-ASSISTANT-CHANNELS-v1.0.md",
+      "size": 4642,
+      "mtime": "2026-08-24T13:28:45+08:00",
+      "sha256": "afa304b6d0b48198"
+    },
+    {
+      "name": "LH-AI-COLLABORATION-v1.0.md",
+      "path": "01_protocols/LH-AI-COLLABORATION-v1.0.md",
+      "size": 8578,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "2c9947842b26218f"
+    },
+    {
+      "name": "LH-AI-DRAMA-FORK-v1.1.md",
+      "path": "01_protocols/LH-AI-DRAMA-FORK-v1.1.md",
+      "size": 24497,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "499031170ad2300d"
+    },
+    {
+      "name": "LH-AI-ETHICS-ENABLEMENT-v1.1.md",
+      "path": "01_protocols/LH-AI-ETHICS-ENABLEMENT-v1.1.md",
+      "size": 22825,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "a0099c6e527c1b18"
+    },
+    {
+      "name": "LH-AI-EXECUTION-PROXY-v1.0.md",
+      "path": "01_protocols/LH-AI-EXECUTION-PROXY-v1.0.md",
+      "size": 4905,
+      "mtime": "2026-08-07T20:07:26+08:00",
+      "sha256": "0259a0b0779e4f59"
+    },
+    {
+      "name": "LH-AI-HANDOFF-v1.0.md",
+      "path": "01_protocols/LH-AI-HANDOFF-v1.0.md",
+      "size": 6853,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "4dced6ecc32c1d29"
+    },
+    {
+      "name": "LH-AI-IDENTITY-INTEROP-PROTOCOL-v3.0.md",
+      "path": "01_protocols/LH-AI-IDENTITY-INTEROP-PROTOCOL-v3.0.md",
+      "size": 13506,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "2f2a95f0355faed8"
+    },
+    {
+      "name": "LH-AI-MESH-BUS-v1.0.md",
+      "path": "01_protocols/LH-AI-MESH-BUS-v1.0.md",
+      "size": 4750,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "2e640e3a5fd162af"
+    },
+    {
+      "name": "LH-AI-ONBOARDING-v1.0.md",
+      "path": "01_protocols/LH-AI-ONBOARDING-v1.0.md",
+      "size": 7667,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "98e04d935aaa5953"
+    },
+    {
+      "name": "LH-AI-OUTPUT-HUB-v1.0.md",
+      "path": "01_protocols/LH-AI-OUTPUT-HUB-v1.0.md",
+      "size": 2699,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "a72625b1d8bd4933"
+    },
+    {
+      "name": "LH-AI-SHAME-PILLAR-v3.0.md",
+      "path": "01_protocols/LH-AI-SHAME-PILLAR-v3.0.md",
+      "size": 15050,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "91beddb93a9b41d8"
+    },
+    {
+      "name": "LH-ALIGN-ITERATION-20260811.md",
+      "path": "01_protocols/LH-ALIGN-ITERATION-20260811.md",
+      "size": 4753,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "c48cef118467793e"
+    },
+    {
+      "name": "LH-ALIGN-REPORT-20260811.md",
+      "path": "01_protocols/LH-ALIGN-REPORT-20260811.md",
+      "size": 4599,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "96d4161782aeecde"
+    },
+    {
+      "name": "LH-ANT-COLONY-VISUAL-v1.0.md",
+      "path": "01_protocols/LH-ANT-COLONY-VISUAL-v1.0.md",
+      "size": 10270,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "72b0e7fdbcfe0d84"
+    },
+    {
+      "name": "LH-ANTI-FISHING-GREED-v1.0.md",
+      "path": "01_protocols/LH-ANTI-FISHING-GREED-v1.0.md",
+      "size": 5600,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "5e23f6500461475e"
+    },
+    {
+      "name": "LH-ANTI-FRAUD-QUICK-GUIDE-v1.0.md",
+      "path": "01_protocols/LH-ANTI-FRAUD-QUICK-GUIDE-v1.0.md",
+      "size": 5653,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "f54db0d3543c6c96"
+    },
+    {
+      "name": "LH-API-NAMING-MATH-v1.0.md",
+      "path": "01_protocols/LH-API-NAMING-MATH-v1.0.md",
+      "size": 17360,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "29a89701c93c8771"
+    },
+    {
+      "name": "LH-API-NAMING-TAIJI-ANT-v1.0.md",
+      "path": "01_protocols/LH-API-NAMING-TAIJI-ANT-v1.0.md",
+      "size": 18809,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "f48cfa54e0e62b90"
+    },
+    {
+      "name": "LH-ARCHIVE-AUDIT-v1.0.md",
+      "path": "01_protocols/LH-ARCHIVE-AUDIT-v1.0.md",
+      "size": 18804,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "38d7943321ba69f5"
+    },
+    {
+      "name": "LH-ARTICLE-HEADER-TEMPLATES-v1.0.md",
+      "path": "01_protocols/LH-ARTICLE-HEADER-TEMPLATES-v1.0.md",
+      "size": 23139,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "744150253d4d3467"
+    },
+    {
+      "name": "LH-ARTIFACT-CREATION-SOP-v1.0.md",
+      "path": "01_protocols/LH-ARTIFACT-CREATION-SOP-v1.0.md",
+      "size": 3362,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "cb655e13ab18739e"
+    },
+    {
+      "name": "LH-ASI-CEILING-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-ASI-CEILING-PROTOCOL-v1.0.md",
+      "size": 5323,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "8d55b5c443dc1a48"
+    },
+    {
+      "name": "LH-ASI-CONVERGE-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-ASI-CONVERGE-PROTOCOL-v1.0.md",
+      "size": 3997,
+      "mtime": "2026-08-30T00:41:38+08:00",
+      "sha256": "bd679ced64bfaa5e"
+    },
+    {
+      "name": "LH-ASI-DISTILLER-DESIGN-v1.0.md",
+      "path": "01_protocols/LH-ASI-DISTILLER-DESIGN-v1.0.md",
+      "size": 10121,
+      "mtime": "2026-08-30T07:40:33+08:00",
+      "sha256": "a78adf94646a2fff"
+    },
+    {
+      "name": "LH-ASI-FUSION-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-ASI-FUSION-PROTOCOL-v1.0.md",
+      "size": 8280,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "62065dbd61e76655"
+    },
+    {
+      "name": "LH-ASSET-CENTER-v1.1.md",
+      "path": "01_protocols/LH-ASSET-CENTER-v1.1.md",
+      "size": 11443,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "9d70ccf4fc1307ed"
+    },
+    {
+      "name": "LH-AUDIT-AUTO-LEARNER-v1.0-REPAIR.md",
+      "path": "01_protocols/LH-AUDIT-AUTO-LEARNER-v1.0-REPAIR.md",
+      "size": 4095,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "383a24b9ffa6caad"
+    },
+    {
+      "name": "LH-AUDIT-BACKLOG-CLASSIFIER-v1.0.md",
+      "path": "01_protocols/LH-AUDIT-BACKLOG-CLASSIFIER-v1.0.md",
+      "size": 9130,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "9cd06f640e083bca"
+    },
+    {
+      "name": "LH-AUDIT-BATTLE-HUB-v1.0.md",
+      "path": "01_protocols/LH-AUDIT-BATTLE-HUB-v1.0.md",
+      "size": 5619,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "8c1954c6af0c746e"
+    },
+    {
+      "name": "LH-AUDIT-CALIBRATION-STANDARD-v1.0.md",
+      "path": "01_protocols/LH-AUDIT-CALIBRATION-STANDARD-v1.0.md",
+      "size": 4846,
+      "mtime": "2026-08-27T23:02:38+08:00",
+      "sha256": "4fa8c84d9ace3bf6"
+    },
+    {
+      "name": "LH-AUDIT-SHEET-60ITEM-v1.0.md",
+      "path": "01_protocols/LH-AUDIT-SHEET-60ITEM-v1.0.md",
+      "size": 9706,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "6687694740e32cb6"
+    },
+    {
+      "name": "LH-AUTHENTICITY-VISUAL-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-AUTHENTICITY-VISUAL-PROTOCOL-v1.0.md",
+      "size": 1907,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "3d41b4e4e141f91b"
+    },
+    {
+      "name": "LH-AUTO-ADAPTER-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-AUTO-ADAPTER-PROTOCOL-v1.0.md",
+      "size": 13564,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "1636a1fb02ee3f67"
+    },
+    {
+      "name": "LH-AUTO-FACTORY-v2.1.md",
+      "path": "01_protocols/LH-AUTO-FACTORY-v2.1.md",
+      "size": 13320,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "afb051a32531a678"
+    },
+    {
+      "name": "LH-AUTO-LEARNER-SPEC-v1.0.md",
+      "path": "01_protocols/LH-AUTO-LEARNER-SPEC-v1.0.md",
+      "size": 6225,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "ace09b4f11df5e19"
+    },
+    {
+      "name": "LH-AUTOFLOW-EXEC-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-AUTOFLOW-EXEC-PROTOCOL-v1.0.md",
+      "size": 17291,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "924b22cbb9ee5b62"
+    },
+    {
+      "name": "LH-BAGUA-MATH-MODEL-v1.0.md",
+      "path": "01_protocols/LH-BAGUA-MATH-MODEL-v1.0.md",
+      "size": 33470,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "d758c90d81f8dc78"
+    },
+    {
+      "name": "LH-BASE-MODEL-LIST-v1.0.md",
+      "path": "01_protocols/LH-BASE-MODEL-LIST-v1.0.md",
+      "size": 7598,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "cb3e097258d86206"
+    },
+    {
+      "name": "LH-BEHAVIOR-BOUNDARY-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-BEHAVIOR-BOUNDARY-PROTOCOL-v1.0.md",
+      "size": 8278,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "1817f2b968535c1d"
+    },
+    {
+      "name": "LH-BEHAVIOR-CRYPTOGRAPHY-ANTI-FRAUD-v1.0.md",
+      "path": "01_protocols/LH-BEHAVIOR-CRYPTOGRAPHY-ANTI-FRAUD-v1.0.md",
+      "size": 13070,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "2d74e5bed1320102"
+    },
+    {
+      "name": "LH-BLACKBOX-PITFALLS-v1.0.md",
+      "path": "01_protocols/LH-BLACKBOX-PITFALLS-v1.0.md",
+      "size": 10637,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "b527cd879556c36d"
+    },
+    {
+      "name": "LH-BOUNDARY-EDIT-ROUTER-v1.0.md",
+      "path": "01_protocols/LH-BOUNDARY-EDIT-ROUTER-v1.0.md",
+      "size": 3730,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "6e019d4587580d02"
+    },
+    {
+      "name": "LH-CDNA-v1.2-需求文档.md",
+      "path": "01_protocols/LH-CDNA-v1.2-需求文档.md",
+      "size": 32209,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "85595a4d2a8ad5ee"
+    },
+    {
+      "name": "LH-CNSH-HARNESS-ARCH-v1.0.md",
+      "path": "01_protocols/LH-CNSH-HARNESS-ARCH-v1.0.md",
+      "size": 17370,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "f50b3a5a2421dca2"
+    },
+    {
+      "name": "LH-CNSH-HARNESS-v1.0.md",
+      "path": "01_protocols/LH-CNSH-HARNESS-v1.0.md",
+      "size": 14102,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "0f3bd17f52807a07"
+    },
+    {
+      "name": "LH-CNSH-LANGUAGE-SPEC-v4.0.md",
+      "path": "01_protocols/LH-CNSH-LANGUAGE-SPEC-v4.0.md",
+      "size": 16087,
+      "mtime": "2026-08-30T16:04:13+08:00",
+      "sha256": "ca7431a081ed9c69"
+    },
+    {
+      "name": "LH-CODE-NAMING-STANDARD-v1.0.md",
+      "path": "01_protocols/LH-CODE-NAMING-STANDARD-v1.0.md",
+      "size": 4779,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "10d92fec79f005b1"
+    },
+    {
+      "name": "LH-CODEBUDDY-ALIGNMENT-v2.0.md",
+      "path": "01_protocols/LH-CODEBUDDY-ALIGNMENT-v2.0.md",
+      "size": 17661,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "f35e3f667d56c776"
+    },
+    {
+      "name": "LH-CODEBUDDY-MASTER-INDEX-v1.0.md",
+      "path": "01_protocols/LH-CODEBUDDY-MASTER-INDEX-v1.0.md",
+      "size": 8157,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "56a6242dddde7773"
+    },
+    {
+      "name": "LH-COGNITIVE-INDEX-v1.0.md",
+      "path": "01_protocols/LH-COGNITIVE-INDEX-v1.0.md",
+      "size": 5113,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "d5b8d96459dba24c"
+    },
+    {
+      "name": "LH-COMPUTE-BREAKTHROUGH-SOLUTION-v1.0.md",
+      "path": "01_protocols/LH-COMPUTE-BREAKTHROUGH-SOLUTION-v1.0.md",
+      "size": 24948,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "29735891da32ebdc"
+    },
+    {
+      "name": "LH-COMPUTE-SEPARATION-v1.0.md",
+      "path": "01_protocols/LH-COMPUTE-SEPARATION-v1.0.md",
+      "size": 12243,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "c7930d82588a64cd"
+    },
+    {
+      "name": "LH-CONTAINER-ARCH-v1.0.md",
+      "path": "01_protocols/LH-CONTAINER-ARCH-v1.0.md",
+      "size": 19048,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "56cf4ee5a0e3349e"
+    },
+    {
+      "name": "LH-CONTEXT-STYLE-GUIDE-v1.0.md",
+      "path": "01_protocols/LH-CONTEXT-STYLE-GUIDE-v1.0.md",
+      "size": 5766,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "ba17fbf1b251db28"
+    },
+    {
+      "name": "LH-CONTRIBUTOR-MEMORIAL-v1.0.md",
+      "path": "01_protocols/LH-CONTRIBUTOR-MEMORIAL-v1.0.md",
+      "size": 3003,
+      "mtime": "2026-09-02T01:27:22+08:00",
+      "sha256": "804246e47ed1a578"
+    },
+    {
+      "name": "LH-CONTROL-GATE-HANDBOOK-v1.0.md",
+      "path": "01_protocols/LH-CONTROL-GATE-HANDBOOK-v1.0.md",
+      "size": 4523,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "71a3d67ac1c5dda2"
+    },
+    {
+      "name": "LH-CORE-DNA-FIX-v1.0.md",
+      "path": "01_protocols/LH-CORE-DNA-FIX-v1.0.md",
+      "size": 196127,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "694bd8a09e71ef64"
+    },
+    {
+      "name": "LH-CREATOR-DNA-BENEFIT-v1.1.md",
+      "path": "01_protocols/LH-CREATOR-DNA-BENEFIT-v1.1.md",
+      "size": 15421,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "9bc155bceeada5d3"
+    },
+    {
+      "name": "LH-CREATOR-PROTECTION-v1.0.md",
+      "path": "01_protocols/LH-CREATOR-PROTECTION-v1.0.md",
+      "size": 8288,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "e012a39af0318fdf"
+    },
+    {
+      "name": "LH-CRON-TIMELINE-v1.0.md",
+      "path": "01_protocols/LH-CRON-TIMELINE-v1.0.md",
+      "size": 3637,
+      "mtime": "2026-08-31T22:44:24+08:00",
+      "sha256": "cb56acf6da7cab74"
+    },
+    {
+      "name": "LH-CROSS-DEVICE-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-CROSS-DEVICE-PROTOCOL-v1.0.md",
+      "size": 5642,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "bb6856f7576aff3b"
+    },
+    {
+      "name": "LH-DAODEJING-SCENE-ANCHOR-v1.0.md",
+      "path": "01_protocols/LH-DAODEJING-SCENE-ANCHOR-v1.0.md",
+      "size": 14867,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "c8c1d488c1aa5964"
+    },
+    {
+      "name": "LH-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0.md",
+      "path": "01_protocols/LH-DATA-MELTDOWN-PERSONA-SOVEREIGNTY-v1.0.md",
+      "size": 12800,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "1aebf39ff926feac"
+    },
+    {
+      "name": "LH-DATA-PRIVACY-v2.0.md",
+      "path": "01_protocols/LH-DATA-PRIVACY-v2.0.md",
+      "size": 14202,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "3e178fbc7c5709a4"
+    },
+    {
+      "name": "LH-DATA-PRIVACY-v2.1.md",
+      "path": "01_protocols/LH-DATA-PRIVACY-v2.1.md",
+      "size": 21978,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "e9b653f7537c4019"
+    },
+    {
+      "name": "LH-DATA-RADAR-v1.0.md",
+      "path": "01_protocols/LH-DATA-RADAR-v1.0.md",
+      "size": 20204,
+      "mtime": "2026-08-27T23:02:38+08:00",
+      "sha256": "8762eabae6be23e1"
+    },
+    {
+      "name": "LH-DATA-SOVEREIGNTY-v2.0.md",
+      "path": "01_protocols/LH-DATA-SOVEREIGNTY-v2.0.md",
+      "size": 9192,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "d6901eb2abd8df35"
+    },
+    {
+      "name": "LH-DEBEN-AUDIT-v1.0.md",
+      "path": "01_protocols/LH-DEBEN-AUDIT-v1.0.md",
+      "size": 5532,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "7774850a6ad68dd6"
+    },
+    {
+      "name": "LH-DEEP-LEARNING-ARCHITECTURE-v1.0.md",
+      "path": "01_protocols/LH-DEEP-LEARNING-ARCHITECTURE-v1.0.md",
+      "size": 37022,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "b3dd177e752a8ae0"
+    },
+    {
+      "name": "LH-DELIVERY-INDEX-v1.0.md",
+      "path": "01_protocols/LH-DELIVERY-INDEX-v1.0.md",
+      "size": 6601,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "a0cf53c7bc4c51f1"
+    },
+    {
+      "name": "LH-DELIVERY-PACKAGE-REPORT-v1.0.md",
+      "path": "01_protocols/LH-DELIVERY-PACKAGE-REPORT-v1.0.md",
+      "size": 4346,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "9ac1a172284015c1"
+    },
+    {
+      "name": "LH-DELIVERY-STANDARD-v1.0.md",
+      "path": "01_protocols/LH-DELIVERY-STANDARD-v1.0.md",
+      "size": 10952,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "a8383ef2fe72998f"
+    },
+    {
+      "name": "LH-DEPLOYMENT-CONFIG-v1.0.md",
+      "path": "01_protocols/LH-DEPLOYMENT-CONFIG-v1.0.md",
+      "size": 10902,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "b752b2d415cbb364"
+    },
+    {
+      "name": "LH-DEVELOPER-FEE-CONVENTION-v1.0.md",
+      "path": "01_protocols/LH-DEVELOPER-FEE-CONVENTION-v1.0.md",
+      "size": 5425,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "36257a37fbc96810"
+    },
+    {
+      "name": "LH-DISTRIBUTED-AUDIT-MATRIX-v1.0.md",
+      "path": "01_protocols/LH-DISTRIBUTED-AUDIT-MATRIX-v1.0.md",
+      "size": 16026,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "555ffb7ec106594b"
+    },
+    {
+      "name": "LH-DNA-BIND-ANTIDISTILL-v1.0.md",
+      "path": "01_protocols/LH-DNA-BIND-ANTIDISTILL-v1.0.md",
+      "size": 9320,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "0a93d869478f771a"
+    },
+    {
+      "name": "LH-DNA-CALC-ALIGNMENT-v1.0.md",
+      "path": "01_protocols/LH-DNA-CALC-ALIGNMENT-v1.0.md",
+      "size": 13059,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "e422123db35149fb"
+    },
+    {
+      "name": "LH-DNA-CHAIN-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-DNA-CHAIN-PROTOCOL-v1.0.md",
+      "size": 12853,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "1e375b33fa1cf628"
+    },
+    {
+      "name": "LH-DUALVIEW-V3-LANDING-v1.0.md",
+      "path": "01_protocols/LH-DUALVIEW-V3-LANDING-v1.0.md",
+      "size": 19868,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "458c53547049bd50"
+    },
+    {
+      "name": "LH-ECOM-TRUST-REBUILD-v1.0.md",
+      "path": "01_protocols/LH-ECOM-TRUST-REBUILD-v1.0.md",
+      "size": 9459,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "69ddff60e2742e42"
+    },
+    {
+      "name": "LH-ECOSYSTEM-ACCESS-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-ECOSYSTEM-ACCESS-PROTOCOL-v1.0.md",
+      "size": 9839,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "b05c443facd03ea2"
+    },
+    {
+      "name": "LH-EMOTION-CORRECTION-ENGINE-v1.1.md",
+      "path": "01_protocols/LH-EMOTION-CORRECTION-ENGINE-v1.1.md",
+      "size": 11692,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "2cc52967108cf80b"
+    },
+    {
+      "name": "LH-ENGINE-PROTECTION-v1.0.md",
+      "path": "01_protocols/LH-ENGINE-PROTECTION-v1.0.md",
+      "size": 6953,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "a9e9a7389fb5aa73"
+    },
+    {
+      "name": "LH-ETHICS-ANCHOR-v1.0.md",
+      "path": "01_protocols/LH-ETHICS-ANCHOR-v1.0.md",
+      "size": 42782,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "b228cfaf5ea9f661"
+    },
+    {
+      "name": "LH-EXECUTION-COMMANDS-v1.0.md",
+      "path": "01_protocols/LH-EXECUTION-COMMANDS-v1.0.md",
+      "size": 7826,
+      "mtime": "2026-08-24T12:48:10+08:00",
+      "sha256": "68599d6b3316627c"
+    },
+    {
+      "name": "LH-EXISTENCE-PROOF-v1.0.md",
+      "path": "01_protocols/LH-EXISTENCE-PROOF-v1.0.md",
+      "size": 13261,
+      "mtime": "2026-08-04T15:20:43+08:00",
+      "sha256": "df167d9f78e6ce2c"
+    },
+    {
+      "name": "LH-EXTERNAL-ONE-WAY-ISOLATION-V1.0.md",
+      "path": "01_protocols/LH-EXTERNAL-ONE-WAY-ISOLATION-V1.0.md",
+      "size": 5774,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "f94508a26fa0bd15"
+    },
+    {
+      "name": "LH-FAMILY-ROSTER-FRAMEWORK-v1.0.md",
+      "path": "01_protocols/LH-FAMILY-ROSTER-FRAMEWORK-v1.0.md",
+      "size": 26430,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "6cd336c2b7182ff5"
+    },
+    {
+      "name": "LH-FEISHU-NOTIFY-GATEWAY-v1.0.md",
+      "path": "01_protocols/LH-FEISHU-NOTIFY-GATEWAY-v1.0.md",
+      "size": 10895,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "624daec1cad3d393"
+    },
+    {
+      "name": "LH-FILE-FIX-REPORT-v1.0.md",
+      "path": "01_protocols/LH-FILE-FIX-REPORT-v1.0.md",
+      "size": 3720,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "7e4ee0173182bf14"
+    },
+    {
+      "name": "LH-FILE-SCRIPT-IDENTITY-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-FILE-SCRIPT-IDENTITY-PROTOCOL-v1.0.md",
+      "size": 16980,
+      "mtime": "2026-08-29T01:11:18+08:00",
+      "sha256": "9b23ec75015c798c"
+    },
+    {
+      "name": "LH-FILE-SCRIPT-IDENTITY-PROTOCOL-v1.1.md",
+      "path": "01_protocols/LH-FILE-SCRIPT-IDENTITY-PROTOCOL-v1.1.md",
+      "size": 35080,
+      "mtime": "2026-08-28T23:49:21+08:00",
+      "sha256": "824fe87a68b5a23a"
+    },
+    {
+      "name": "LH-FIVE-ELEMENT-AUDIT-v1.0.md",
+      "path": "01_protocols/LH-FIVE-ELEMENT-AUDIT-v1.0.md",
+      "size": 4242,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "a9cd5227e306b7eb"
+    },
+    {
+      "name": "LH-FIXED-POINT-MEMORY-ARCHIVE-v1.0.md",
+      "path": "01_protocols/LH-FIXED-POINT-MEMORY-ARCHIVE-v1.0.md",
+      "size": 6454,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "825aa790c1b39d31"
+    },
+    {
+      "name": "LH-FIXED-POINT-REGISTRY-v2.0.md",
+      "path": "01_protocols/LH-FIXED-POINT-REGISTRY-v2.0.md",
+      "size": 14492,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "c23ffa5005f212f8"
+    },
+    {
+      "name": "LH-FLOW-CONTROL-v1.1.md",
+      "path": "01_protocols/LH-FLOW-CONTROL-v1.1.md",
+      "size": 9761,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "f666c3778826caa5"
+    },
+    {
+      "name": "LH-FLOW-MASTER-v2.0.md",
+      "path": "01_protocols/LH-FLOW-MASTER-v2.0.md",
+      "size": 31763,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "3b19c7ccb8be500b"
+    },
+    {
+      "name": "LH-FULL-REPAIR-PROCEDURE-v1.0.md",
+      "path": "01_protocols/LH-FULL-REPAIR-PROCEDURE-v1.0.md",
+      "size": 5917,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "9b6f0fbb075680e4"
+    },
+    {
+      "name": "LH-FULL-SKILLS-NAV-V5.2.md",
+      "path": "01_protocols/LH-FULL-SKILLS-NAV-V5.2.md",
+      "size": 14541,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "85549f49dab422a1"
+    },
+    {
+      "name": "LH-FUSION-OS-GENERAL-INSTRUCTION-v3.0.md",
+      "path": "01_protocols/LH-FUSION-OS-GENERAL-INSTRUCTION-v3.0.md",
+      "size": 25785,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "8578cf1237522ad1"
+    },
+    {
+      "name": "LH-GAME-THEORY-PLATFORM-ASYMMETRY-v1.0.md",
+      "path": "01_protocols/LH-GAME-THEORY-PLATFORM-ASYMMETRY-v1.0.md",
+      "size": 17330,
+      "mtime": "2026-08-03T06:33:41+08:00",
+      "sha256": "4aa02d750a483292"
+    },
+    {
+      "name": "LH-GAP-LEDGER-v1.0.md",
+      "path": "01_protocols/LH-GAP-LEDGER-v1.0.md",
+      "size": 8978,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "506b965f9269ac64"
+    },
+    {
+      "name": "LH-GOV-DATA-SOVEREIGNTY-v1.0.md",
+      "path": "01_protocols/LH-GOV-DATA-SOVEREIGNTY-v1.0.md",
+      "size": 16078,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "36f4633e937a1538"
+    },
+    {
+      "name": "LH-GOV-GRASSROOTS-REALITY-PROTOCOL-FULL-v1.0.md",
+      "path": "01_protocols/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-FULL-v1.0.md",
+      "size": 16490,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "a5255197866f724c"
+    },
+    {
+      "name": "LH-GOV-GRASSROOTS-REALITY-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-GOV-GRASSROOTS-REALITY-PROTOCOL-v1.0.md",
+      "size": 9990,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "5077173ec788f03d"
+    },
+    {
+      "name": "LH-GUANLAN-BROWSER-AI-INTEGRATION-README.md",
+      "path": "01_protocols/LH-GUANLAN-BROWSER-AI-INTEGRATION-README.md",
+      "size": 5000,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "102d881b7cc3bea3"
+    },
+    {
+      "name": "LH-GUANLAN-BROWSER-AI-INTEGRATION-v1.0.md",
+      "path": "01_protocols/LH-GUANLAN-BROWSER-AI-INTEGRATION-v1.0.md",
+      "size": 17330,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "6648a00a0534bb3c"
+    },
+    {
+      "name": "LH-GUANLAN-BROWSER-MATH-v1.0.md",
+      "path": "01_protocols/LH-GUANLAN-BROWSER-MATH-v1.0.md",
+      "size": 12892,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "ccaa41bd30783a74"
+    },
+    {
+      "name": "LH-H-QUADRANT-EQUALITY-v1.0.md",
+      "path": "01_protocols/LH-H-QUADRANT-EQUALITY-v1.0.md",
+      "size": 3131,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "aae6c88facbb6391"
+    },
+    {
+      "name": "LH-HARMONYOS-COMPAT-WHITEPAPER-v1.0.md",
+      "path": "01_protocols/LH-HARMONYOS-COMPAT-WHITEPAPER-v1.0.md",
+      "size": 7085,
+      "mtime": "2026-08-29T01:11:14+08:00",
+      "sha256": "c756bbf7ebfc2676"
+    },
+    {
+      "name": "LH-HARMONYOS-COMPAT-WHITEPAPER-v1.1.md",
+      "path": "01_protocols/LH-HARMONYOS-COMPAT-WHITEPAPER-v1.1.md",
+      "size": 11791,
+      "mtime": "2026-08-29T01:11:14+08:00",
+      "sha256": "af6443d0374a893d"
+    },
+    {
+      "name": "LH-HARNESS-FUSION-v1.0.md",
+      "path": "01_protocols/LH-HARNESS-FUSION-v1.0.md",
+      "size": 8972,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "69aab43cc125df6c"
+    },
+    {
+      "name": "LH-HUAWEI-MFA-PROTOCOL-v1.1.md",
+      "path": "01_protocols/LH-HUAWEI-MFA-PROTOCOL-v1.1.md",
+      "size": 12895,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "46838b85b367553c"
+    },
+    {
+      "name": "LH-INDEX-PHILOSOPHY-v2.0.md",
+      "path": "01_protocols/LH-INDEX-PHILOSOPHY-v2.0.md",
+      "size": 12220,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "58f32dcd7a0166af"
+    },
+    {
+      "name": "LH-KEY-PERSONA-GOVERNANCE-v1.0.md",
+      "path": "01_protocols/LH-KEY-PERSONA-GOVERNANCE-v1.0.md",
+      "size": 5624,
+      "mtime": "2026-08-30T15:11:46+08:00",
+      "sha256": "de68d1349ebcd33a"
+    },
+    {
+      "name": "LH-KEY-TIERING-v1.0.md",
+      "path": "01_protocols/LH-KEY-TIERING-v1.0.md",
+      "size": 4816,
+      "mtime": "2026-08-28T16:50:16+08:00",
+      "sha256": "ee4143a7e1711c62"
+    },
+    {
+      "name": "LH-KNOWLEDGE-GRAPH-ARCH-v1.0.md",
+      "path": "01_protocols/LH-KNOWLEDGE-GRAPH-ARCH-v1.0.md",
+      "size": 9542,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "72a368c096c43d3e"
+    },
+    {
+      "name": "LH-KUNPENG-AUTO-AI-SOP-v1.0.md",
+      "path": "01_protocols/LH-KUNPENG-AUTO-AI-SOP-v1.0.md",
+      "size": 3248,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "43d76ad0e5a15bb1"
+    },
+    {
+      "name": "LH-LANDING-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-LANDING-PROTOCOL-v1.0.md",
+      "size": 8644,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "a8607f7cd7267be6"
+    },
+    {
+      "name": "LH-LAYERED-LICENSE-v1.0.md",
+      "path": "01_protocols/LH-LAYERED-LICENSE-v1.0.md",
+      "size": 13790,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "6394a096be6a107c"
+    },
+    {
+      "name": "LH-LEARN-INTEGRATE-MANUAL-v1.0.md",
+      "path": "01_protocols/LH-LEARN-INTEGRATE-MANUAL-v1.0.md",
+      "size": 35828,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "1acc371adb53d517"
+    },
+    {
+      "name": "LH-LEDGER-ACCOUNTING-v1.0.md",
+      "path": "01_protocols/LH-LEDGER-ACCOUNTING-v1.0.md",
+      "size": 6601,
+      "mtime": "2026-08-31T22:37:19+08:00",
+      "sha256": "d60ca5f9f4624d6f"
+    },
+    {
+      "name": "LH-LOGICAL-PROVENANCE-v2.0.md",
+      "path": "01_protocols/LH-LOGICAL-PROVENANCE-v2.0.md",
+      "size": 5937,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "15c91c0705dae189"
+    },
+    {
+      "name": "LH-LOYALTY-IRON-LAW-v1.0.md",
+      "path": "01_protocols/LH-LOYALTY-IRON-LAW-v1.0.md",
+      "size": 8473,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "eff7e6f9cf3b2119"
+    },
+    {
+      "name": "LH-M261-PREQUEL-COVENANT-v1.0.md",
+      "path": "01_protocols/LH-M261-PREQUEL-COVENANT-v1.0.md",
+      "size": 6920,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "7b62941806c5a74b"
+    },
+    {
+      "name": "LH-MASTER-PLAN-v1.0.md",
+      "path": "01_protocols/LH-MASTER-PLAN-v1.0.md",
+      "size": 5700,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "5d36e87995414824"
+    },
+    {
+      "name": "LH-MATH-FOUNDATIONS-v2.0.md",
+      "path": "01_protocols/LH-MATH-FOUNDATIONS-v2.0.md",
+      "size": 5800,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "36cde2928d04a318"
+    },
+    {
+      "name": "LH-MEDIA-SOVEREIGNTY-MARK-v1.0.md",
+      "path": "01_protocols/LH-MEDIA-SOVEREIGNTY-MARK-v1.0.md",
+      "size": 5728,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "0d943512860e8e2a"
+    },
+    {
+      "name": "LH-MEMORY-ETERNITY-EXOBRAIN-v1.0.md",
+      "path": "01_protocols/LH-MEMORY-ETERNITY-EXOBRAIN-v1.0.md",
+      "size": 2145,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "e5bdfe8866362af0"
+    },
+    {
+      "name": "LH-MERCHANT-API-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-MERCHANT-API-PROTOCOL-v1.0.md",
+      "size": 4898,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "de42395448d3e011"
+    },
+    {
+      "name": "LH-MFA-ACTIVATE-v2.0.md",
+      "path": "01_protocols/LH-MFA-ACTIVATE-v2.0.md",
+      "size": 6708,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "572f3d78bc97a74a"
+    },
+    {
+      "name": "LH-MILITARY-ORDER-v1.0.md",
+      "path": "01_protocols/LH-MILITARY-ORDER-v1.0.md",
+      "size": 11438,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "46c90f6bb919fcb4"
+    },
+    {
+      "name": "LH-MINOR-GUARD-ENGINE-v1.0.md",
+      "path": "01_protocols/LH-MINOR-GUARD-ENGINE-v1.0.md",
+      "size": 498,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "2e76e8727028630b"
+    },
+    {
+      "name": "LH-MINOR-GUARD-MATH-v1.0.md",
+      "path": "01_protocols/LH-MINOR-GUARD-MATH-v1.0.md",
+      "size": 8281,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "a4581f37ec9a6a3a"
+    },
+    {
+      "name": "LH-MODULE-AUDIT-GATE-v1.0.md",
+      "path": "01_protocols/LH-MODULE-AUDIT-GATE-v1.0.md",
+      "size": 4431,
+      "mtime": "2026-08-25T20:58:58+08:00",
+      "sha256": "7b21c1557644cfe0"
+    },
+    {
+      "name": "LH-MULAN-ECOSYSTEM-CATALOG-v1.0.md",
+      "path": "01_protocols/LH-MULAN-ECOSYSTEM-CATALOG-v1.0.md",
+      "size": 7367,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "17860b1ffcc54682"
+    },
+    {
+      "name": "LH-NAMING-ARCH-v1.0.md",
+      "path": "01_protocols/LH-NAMING-ARCH-v1.0.md",
+      "size": 15052,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "a46e71974215bc6c"
+    },
+    {
+      "name": "LH-NAMING-ARCH-v2.0.md",
+      "path": "01_protocols/LH-NAMING-ARCH-v2.0.md",
+      "size": 14699,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "a30ff46d08d7151b"
+    },
+    {
+      "name": "LH-NAMING-STANDARD-v1.1.md",
+      "path": "01_protocols/LH-NAMING-STANDARD-v1.1.md",
+      "size": 14107,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "0f9313052c37a8ae"
+    },
+    {
+      "name": "LH-NAMING-SYMBOL-MASTER-v1.0.md",
+      "path": "01_protocols/LH-NAMING-SYMBOL-MASTER-v1.0.md",
+      "size": 25579,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "6196ed928f0e507d"
+    },
+    {
+      "name": "LH-NANO-VISION-ENGINE-v4.1.5.md",
+      "path": "01_protocols/LH-NANO-VISION-ENGINE-v4.1.5.md",
+      "size": 21755,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "ad9d8889064e1468"
+    },
+    {
+      "name": "LH-NATIVE-TRINITY-v1.0.md",
+      "path": "01_protocols/LH-NATIVE-TRINITY-v1.0.md",
+      "size": 9315,
+      "mtime": "2026-08-28T16:54:42+08:00",
+      "sha256": "36adc4dafe594c8f"
+    },
+    {
+      "name": "LH-NEW-CONTENT-ALIGN-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-NEW-CONTENT-ALIGN-PROTOCOL-v1.0.md",
+      "size": 7071,
+      "mtime": "2026-08-31T10:19:42+08:00",
+      "sha256": "41ede1007345c510"
+    },
+    {
+      "name": "LH-NO-BACKEND-SOVEREIGNTY-PROTOCOL-v3.0.md",
+      "path": "01_protocols/LH-NO-BACKEND-SOVEREIGNTY-PROTOCOL-v3.0.md",
+      "size": 14500,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "919b9875446d1043"
+    },
+    {
+      "name": "LH-NOTION-ENGINE-DATABASE-v1.0.md",
+      "path": "01_protocols/LH-NOTION-ENGINE-DATABASE-v1.0.md",
+      "size": 41533,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "a91d75bc18d155fe"
+    },
+    {
+      "name": "LH-NOTION-KB-API-GUIDE-v1.0.md",
+      "path": "01_protocols/LH-NOTION-KB-API-GUIDE-v1.0.md",
+      "size": 5062,
+      "mtime": "2026-08-28T05:32:34+08:00",
+      "sha256": "2df25ad0bde18332"
+    },
+    {
+      "name": "LH-NOTION-KB-REFERENCE-ARCHITECTURE-v1.0.md",
+      "path": "01_protocols/LH-NOTION-KB-REFERENCE-ARCHITECTURE-v1.0.md",
+      "size": 11359,
+      "mtime": "2026-08-28T05:32:34+08:00",
+      "sha256": "7048ecc99d02eccc"
+    },
+    {
+      "name": "LH-OFFICIAL-WALLET-REGISTRY-v1.0.md",
+      "path": "01_protocols/LH-OFFICIAL-WALLET-REGISTRY-v1.0.md",
+      "size": 3153,
+      "mtime": "2026-08-31T20:54:10+08:00",
+      "sha256": "ef7d372af0d037cf"
+    },
+    {
+      "name": "LH-OPEN-AUDIT-WHITEPAPER-v2.0.md",
+      "path": "01_protocols/LH-OPEN-AUDIT-WHITEPAPER-v2.0.md",
+      "size": 40581,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "f8be1acc4c382e72"
+    },
+    {
+      "name": "LH-ORIGINALITY-DECLARATION-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-ORIGINALITY-DECLARATION-PROTOCOL-v1.0.md",
+      "size": 19814,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "8f8e78049a28202f"
+    },
+    {
+      "name": "LH-OUTPUT-PARADIGM-v1.0.md",
+      "path": "01_protocols/LH-OUTPUT-PARADIGM-v1.0.md",
+      "size": 8352,
+      "mtime": "2026-08-31T23:04:04+08:00",
+      "sha256": "6834d1f14d768855"
+    },
+    {
+      "name": "LH-P0-AUTOMATION-v1.0.md",
+      "path": "01_protocols/LH-P0-AUTOMATION-v1.0.md",
+      "size": 8173,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "9f52dfe49dc87a80"
+    },
+    {
+      "name": "LH-P0-COMPUTER-OPERATIONS-DESIGN-v2.0.md",
+      "path": "01_protocols/LH-P0-COMPUTER-OPERATIONS-DESIGN-v2.0.md",
+      "size": 6455,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "40b7b8a34dd27d85"
+    },
+    {
+      "name": "LH-P0-CONSTITUTION-v2.0.md",
+      "path": "01_protocols/LH-P0-CONSTITUTION-v2.0.md",
+      "size": 13484,
+      "mtime": "2026-08-27T23:02:38+08:00",
+      "sha256": "4c776098c9304929"
+    },
+    {
+      "name": "LH-P0-WELD-BASE-v1.0.md",
+      "path": "01_protocols/LH-P0-WELD-BASE-v1.0.md",
+      "size": 11135,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "757d5bfa73078629"
+    },
+    {
+      "name": "LH-PANGDONGLAI-PROFIT-SPLIT-v1.0.md",
+      "path": "01_protocols/LH-PANGDONGLAI-PROFIT-SPLIT-v1.0.md",
+      "size": 21794,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "01eabfa5f219d936"
+    },
+    {
+      "name": "LH-PAPER-TEMPLATE-LIBRARY-v1.0.md",
+      "path": "01_protocols/LH-PAPER-TEMPLATE-LIBRARY-v1.0.md",
+      "size": 17061,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "539f976f827ecc93"
+    },
+    {
+      "name": "LH-PERSONA-EVOLVE-TRIGGER-v1.0.md",
+      "path": "01_protocols/LH-PERSONA-EVOLVE-TRIGGER-v1.0.md",
+      "size": 8180,
+      "mtime": "2026-08-30T22:51:56+08:00",
+      "sha256": "900fe03fa38e45c8"
+    },
+    {
+      "name": "LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.0.md",
+      "path": "01_protocols/LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.0.md",
+      "size": 69873,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "8dd33d1ed299f8d6"
+    },
+    {
+      "name": "LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md",
+      "path": "01_protocols/LH-PERSONA-GOVERNANCE-WHITEPAPER-v1.4.md",
+      "size": 70372,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "574ebdd9ee7b4b21"
+    },
+    {
+      "name": "LH-PERSONA-ORCHESTRA-VISUAL-v1.0.md",
+      "path": "01_protocols/LH-PERSONA-ORCHESTRA-VISUAL-v1.0.md",
+      "size": 11887,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "a9b1fd28acf3d2a1"
+    },
+    {
+      "name": "LH-PERSONA-REFINEMENT-SKILLS-v1.0.md",
+      "path": "01_protocols/LH-PERSONA-REFINEMENT-SKILLS-v1.0.md",
+      "size": 8644,
+      "mtime": "2026-08-30T22:51:56+08:00",
+      "sha256": "20923cee0ad1e893"
+    },
+    {
+      "name": "LH-PERSONA-ROUTING-MAP-v1.0.md",
+      "path": "01_protocols/LH-PERSONA-ROUTING-MAP-v1.0.md",
+      "size": 12723,
+      "mtime": "2026-08-30T16:17:05+08:00",
+      "sha256": "0af2405d7ce90259"
+    },
+    {
+      "name": "LH-PLATFORM-INDEX-v1.0.md",
+      "path": "01_protocols/LH-PLATFORM-INDEX-v1.0.md",
+      "size": 3883,
+      "mtime": "2026-08-28T05:32:34+08:00",
+      "sha256": "5267e6d0c3e8f1f7"
+    },
+    {
+      "name": "LH-PRIVACY-DNA-IDENTITY-v1.0.md",
+      "path": "01_protocols/LH-PRIVACY-DNA-IDENTITY-v1.0.md",
+      "size": 13440,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "fd65c6178444ccd8"
+    },
+    {
+      "name": "LH-PRIVACY-DNA-MECHANISM-v5.0.md",
+      "path": "01_protocols/LH-PRIVACY-DNA-MECHANISM-v5.0.md",
+      "size": 64325,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "340d4fc0c38600af"
+    },
+    {
+      "name": "LH-PRIVACY-WHITEPAPER-v1.0.md",
+      "path": "01_protocols/LH-PRIVACY-WHITEPAPER-v1.0.md",
+      "size": 8925,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "adc0450eaa27c704"
+    },
+    {
+      "name": "LH-PROMPT-BLACKBOX-AUDIT-v2.0.md",
+      "path": "01_protocols/LH-PROMPT-BLACKBOX-AUDIT-v2.0.md",
+      "size": 9366,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "e14558c71ee0095b"
+    },
+    {
+      "name": "LH-PROMPT-ENGINEERING-FRAMEWORK-v1.0.md",
+      "path": "01_protocols/LH-PROMPT-ENGINEERING-FRAMEWORK-v1.0.md",
+      "size": 12613,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "109cfd1b1ca25446"
+    },
+    {
+      "name": "LH-PROTOCOL-HIERARCHY-v1.0.md",
+      "path": "01_protocols/LH-PROTOCOL-HIERARCHY-v1.0.md",
+      "size": 15598,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "df333af6e1f07b1f"
+    },
+    {
+      "name": "LH-PYRAMID-COMPATIBILITY-PROTOCOL-v1.1.md",
+      "path": "01_protocols/LH-PYRAMID-COMPATIBILITY-PROTOCOL-v1.1.md",
+      "size": 15054,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "a31abe12f9ef7207"
+    },
+    {
+      "name": "LH-QA-EXTENDED-101-106.md",
+      "path": "01_protocols/LH-QA-EXTENDED-101-106.md",
+      "size": 6704,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "fbc140873d87841b"
+    },
+    {
+      "name": "LH-REGISTER-MAIL-MATH-v1.0.md",
+      "path": "01_protocols/LH-REGISTER-MAIL-MATH-v1.0.md",
+      "size": 10637,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "3026d36df9995756"
+    },
+    {
+      "name": "LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
+      "path": "01_protocols/LH-REGULATORY-TRANSPARENCY-API-v1.0.md",
+      "size": 15197,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "a80f2e77749b112d"
+    },
+    {
+      "name": "LH-RITE-BLADE-DUALTRACK-v1.0.md",
+      "path": "01_protocols/LH-RITE-BLADE-DUALTRACK-v1.0.md",
+      "size": 3765,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "c01ba71e5c96165c"
+    },
+    {
+      "name": "LH-ROOT-DECLARATION-v1.0.md",
+      "path": "01_protocols/LH-ROOT-DECLARATION-v1.0.md",
+      "size": 440,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "358eadc5ef74c72f"
+    },
+    {
+      "name": "LH-SAFE-AI-PROTOCOL-v1.1.md",
+      "path": "01_protocols/LH-SAFE-AI-PROTOCOL-v1.1.md",
+      "size": 11145,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "f8bc9b97cd182ace"
+    },
+    {
+      "name": "LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
+      "path": "01_protocols/LH-SANCAI-ALGORITHM-UNIFIED-STANDARD-v3.0.md",
+      "size": 36322,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "870e42dba44bdc03"
+    },
+    {
+      "name": "LH-SECRET-LEAK-PREVENTION-v1.0.md",
+      "path": "01_protocols/LH-SECRET-LEAK-PREVENTION-v1.0.md",
+      "size": 5493,
+      "mtime": "2026-08-17T13:54:40+08:00",
+      "sha256": "db0a4b95104bed90"
+    },
+    {
+      "name": "LH-SEMANTIC-COMMAND-MAPPING-v1.0.md",
+      "path": "01_protocols/LH-SEMANTIC-COMMAND-MAPPING-v1.0.md",
+      "size": 17457,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "aec560fc606468d5"
+    },
+    {
+      "name": "LH-SESSION-TEMPLATES-v1.0.md",
+      "path": "01_protocols/LH-SESSION-TEMPLATES-v1.0.md",
+      "size": 46716,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "aaf6e94e3b2f2188"
+    },
+    {
+      "name": "LH-SINGULARITY-PROPHECY-v1.2.md",
+      "path": "01_protocols/LH-SINGULARITY-PROPHECY-v1.2.md",
+      "size": 25928,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "01cef55794cc434c"
+    },
+    {
+      "name": "LH-SIX-DIM-ALIGNMENT-v1.0.md",
+      "path": "01_protocols/LH-SIX-DIM-ALIGNMENT-v1.0.md",
+      "size": 14284,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "d360623cf1bfe74d"
+    },
+    {
+      "name": "LH-SIX-STACKS-VISION-v1.0.md",
+      "path": "01_protocols/LH-SIX-STACKS-VISION-v1.0.md",
+      "size": 11309,
+      "mtime": "2026-08-31T10:59:02+08:00",
+      "sha256": "4e0aa583b77665a5"
+    },
+    {
+      "name": "LH-SKILL-PIPELINE-v1.1.md",
+      "path": "01_protocols/LH-SKILL-PIPELINE-v1.1.md",
+      "size": 5294,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "8ec60ae7b6113d72"
+    },
+    {
+      "name": "LH-SOVEREIGN-LLM-ARCH-v1.0.md",
+      "path": "01_protocols/LH-SOVEREIGN-LLM-ARCH-v1.0.md",
+      "size": 15592,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "a3d3564ee42f40a9"
+    },
+    {
+      "name": "LH-SOVEREIGNTY-BENCHMARK-v1.0.md",
+      "path": "01_protocols/LH-SOVEREIGNTY-BENCHMARK-v1.0.md",
+      "size": 4988,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "df8fc242e446b72a"
+    },
+    {
+      "name": "LH-SOVEREIGNTY-WELD-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-SOVEREIGNTY-WELD-PROTOCOL-v1.0.md",
+      "size": 6480,
+      "mtime": "2026-08-08T00:10:52+08:00",
+      "sha256": "0ad9432f33e9f5e5"
+    },
+    {
+      "name": "LH-SUMMARY-CRAWLER-TRAFFIC-SPLIT-v1.0.md",
+      "path": "01_protocols/LH-SUMMARY-CRAWLER-TRAFFIC-SPLIT-v1.0.md",
+      "size": 19839,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "ac515cc7764e78bd"
+    },
+    {
+      "name": "LH-SYNTAX-SPEC-v3.0.md",
+      "path": "01_protocols/LH-SYNTAX-SPEC-v3.0.md",
+      "size": 33363,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "2e2e72752346c17a"
+    },
+    {
+      "name": "LH-SYSTEM-HEALTH-PANORAMA-v1.0.md",
+      "path": "01_protocols/LH-SYSTEM-HEALTH-PANORAMA-v1.0.md",
+      "size": 5125,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "977b98680d3b2cd9"
+    },
+    {
+      "name": "LH-TAO-CHIP-v1.0.md",
+      "path": "01_protocols/LH-TAO-CHIP-v1.0.md",
+      "size": 8502,
+      "mtime": "2026-08-29T01:11:12+08:00",
+      "sha256": "bf823f43b402010c"
+    },
+    {
+      "name": "LH-TAO-CHIP-v2.0.md",
+      "path": "01_protocols/LH-TAO-CHIP-v2.0.md",
+      "size": 17253,
+      "mtime": "2026-08-29T01:11:12+08:00",
+      "sha256": "a16918b68dd3fb09"
+    },
+    {
+      "name": "LH-TASK-ORCHESTRATOR-v1.1.md",
+      "path": "01_protocols/LH-TASK-ORCHESTRATOR-v1.1.md",
+      "size": 10102,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "d50f2b636862c0bc"
+    },
+    {
+      "name": "LH-TECH-INTEGRITY-PLEDGE-v1.0.md",
+      "path": "01_protocols/LH-TECH-INTEGRITY-PLEDGE-v1.0.md",
+      "size": 5898,
+      "mtime": "2026-09-01T08:30:36+08:00",
+      "sha256": "759273ae0782b66f"
+    },
+    {
+      "name": "LH-TECH-SOVEREIGNTY-GUARD-REFERRAL-v1.0.md",
+      "path": "01_protocols/LH-TECH-SOVEREIGNTY-GUARD-REFERRAL-v1.0.md",
+      "size": 33195,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "25ba45fe3d945887"
+    },
+    {
+      "name": "LH-TERM-PLAIN-PROTOCOL-v1.1.md",
+      "path": "01_protocols/LH-TERM-PLAIN-PROTOCOL-v1.1.md",
+      "size": 18795,
+      "mtime": "2026-08-29T01:11:16+08:00",
+      "sha256": "6e6e10788359d39e"
+    },
+    {
+      "name": "LH-TERM-PLAIN-PROTOCOL-v1.2.md",
+      "path": "01_protocols/LH-TERM-PLAIN-PROTOCOL-v1.2.md",
+      "size": 27317,
+      "mtime": "2026-08-29T01:11:17+08:00",
+      "sha256": "2bbe43cdd4dfdc43"
+    },
+    {
+      "name": "LH-TERMINAL-COMMAND-MAP-v2.0.md",
+      "path": "01_protocols/LH-TERMINAL-COMMAND-MAP-v2.0.md",
+      "size": 5227,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "1367d1b15642e93d"
+    },
+    {
+      "name": "LH-TOKEN-CENTURY-LIE-v1.0.md",
+      "path": "01_protocols/LH-TOKEN-CENTURY-LIE-v1.0.md",
+      "size": 22465,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "e84ce1c5bd071589"
+    },
+    {
+      "name": "LH-TONGXIN-LOCK-v1.0.md",
+      "path": "01_protocols/LH-TONGXIN-LOCK-v1.0.md",
+      "size": 4179,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "8d5ff0b55313469f"
+    },
+    {
+      "name": "LH-TRICOLOR-AUDIT-STANDARD-v1.1.md",
+      "path": "01_protocols/LH-TRICOLOR-AUDIT-STANDARD-v1.1.md",
+      "size": 40539,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "391adc41997f74af"
+    },
+    {
+      "name": "LH-TRUST-CHAIN-DELIVERY-v1.0.md",
+      "path": "01_protocols/LH-TRUST-CHAIN-DELIVERY-v1.0.md",
+      "size": 4775,
+      "mtime": "2026-08-29T01:11:10+08:00",
+      "sha256": "88e3486aa607ad0b"
+    },
+    {
+      "name": "LH-TRUST-CHAIN-DELIVERY-v1.1.md",
+      "path": "01_protocols/LH-TRUST-CHAIN-DELIVERY-v1.1.md",
+      "size": 18883,
+      "mtime": "2026-08-29T01:11:11+08:00",
+      "sha256": "f30d70e4ebe4ddba"
+    },
+    {
+      "name": "LH-TRUST-CHAIN-DELIVERY-v1.2.md",
+      "path": "01_protocols/LH-TRUST-CHAIN-DELIVERY-v1.2.md",
+      "size": 24308,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "ec0a76841bb1685a"
+    },
+    {
+      "name": "LH-UID9622-龍芯⚡️丙午·癸未·甲子·既济-AI-Traceability-Audit-Protocol-v1.0.md",
+      "path": "01_protocols/LH-UID9622-龍芯⚡️丙午·癸未·甲子·既济-AI-Traceability-Audit-Protocol-v1.0.md",
+      "size": 32372,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "7a2d639f6cf22289"
+    },
+    {
+      "name": "LH-UNIFIED-VISUAL-COLOR-PROTOCOL-v1.0.md",
+      "path": "01_protocols/LH-UNIFIED-VISUAL-COLOR-PROTOCOL-v1.0.md",
+      "size": 19105,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "9f496187a1af7abf"
+    },
+    {
+      "name": "LH-UNIVERSAL-AUDIT-TEMPLATE-v1.0.md",
+      "path": "01_protocols/LH-UNIVERSAL-AUDIT-TEMPLATE-v1.0.md",
+      "size": 8178,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "693550f723ce82b1"
+    },
+    {
+      "name": "LH-VIDEO-ECOSYSTEM-v1.0.md",
+      "path": "01_protocols/LH-VIDEO-ECOSYSTEM-v1.0.md",
+      "size": 15175,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "04ef4f27d19b9ca4"
+    },
+    {
+      "name": "LH-VIDEO-PRODUCTION-v1.0.md",
+      "path": "01_protocols/LH-VIDEO-PRODUCTION-v1.0.md",
+      "size": 8096,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "a6899f859c84cd63"
+    },
+    {
+      "name": "LH-VISION-CONSTITUTION-v1.0.md",
+      "path": "01_protocols/LH-VISION-CONSTITUTION-v1.0.md",
+      "size": 9583,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "6fd611aff45f88b6"
+    },
+    {
+      "name": "LH-VISION-CONSTITUTION-v1.1.md",
+      "path": "01_protocols/LH-VISION-CONSTITUTION-v1.1.md",
+      "size": 9138,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "221c00637b79899e"
+    },
+    {
+      "name": "LH-VISUAL-AUDIO-FUSION-v1.0.md",
+      "path": "01_protocols/LH-VISUAL-AUDIO-FUSION-v1.0.md",
+      "size": 5311,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "c0383bf401a4ce48"
+    },
+    {
+      "name": "LH-WEIGHT-PARAMETERS-v1.1.md",
+      "path": "01_protocols/LH-WEIGHT-PARAMETERS-v1.1.md",
+      "size": 16537,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "6dbe2352670de353"
+    },
+    {
+      "name": "LH-WHITEPAPER-TEMPLATE-STANDARD-v1.0.md",
+      "path": "01_protocols/LH-WHITEPAPER-TEMPLATE-STANDARD-v1.0.md",
+      "size": 11338,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "d9acfffe283462c9"
+    },
+    {
+      "name": "LH-WUXING-CALC-WELD-v4.0.md",
+      "path": "01_protocols/LH-WUXING-CALC-WELD-v4.0.md",
+      "size": 8611,
+      "mtime": "2026-08-31T18:14:42+08:00",
+      "sha256": "d4aa84d13d737224"
+    },
+    {
+      "name": "LH-XIAOYI-DISPATCH-HUB-v5.0-P0-P4.md",
+      "path": "01_protocols/LH-XIAOYI-DISPATCH-HUB-v5.0-P0-P4.md",
+      "size": 17653,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "d19f1e4993a02f03"
+    },
+    {
+      "name": "LH-YIN-YU-FA-v1.0.md",
+      "path": "01_protocols/LH-YIN-YU-FA-v1.0.md",
+      "size": 18573,
+      "mtime": "2026-08-27T23:02:38+08:00",
+      "sha256": "3ac2cdfcbc06bc12"
+    },
+    {
+      "name": "LH-数学建模路径规划-v4.1.5.md",
+      "path": "01_protocols/LH-数学建模路径规划-v4.1.5.md",
+      "size": 25618,
+      "mtime": "2026-08-29T01:11:56+08:00",
+      "sha256": "205109839d1148d3"
+    },
+    {
+      "name": "LH-璇玑引擎协议-v4.1.5.md",
+      "path": "01_protocols/LH-璇玑引擎协议-v4.1.5.md",
+      "size": 20881,
+      "mtime": "2026-08-29T01:11:57+08:00",
+      "sha256": "087ca19327648129"
+    },
+    {
+      "name": "LH-纳米视觉引擎协议-v4.1.5.md",
+      "path": "01_protocols/LH-纳米视觉引擎协议-v4.1.5.md",
+      "size": 26484,
+      "mtime": "2026-08-29T01:11:55+08:00",
+      "sha256": "a662d40f6b7dafd6"
+    },
+    {
+      "name": "LONGHUN-ENTERPRISE-METAVERSE-FUSION-v2.0.md",
+      "path": "01_protocols/LONGHUN-ENTERPRISE-METAVERSE-FUSION-v2.0.md",
+      "size": 76594,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "820c63dfab7abf1d"
+    },
+    {
+      "name": "P0_根目录注册表.md",
+      "path": "01_protocols/P0_根目录注册表.md",
+      "size": 1878,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "b78504e8aed8caa9"
+    },
+    {
+      "name": "PROTOCOL_MERGE_REPORT_20260814.md",
+      "path": "01_protocols/PROTOCOL_MERGE_REPORT_20260814.md",
+      "size": 3785,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "605b21f56a316e7b"
+    },
+    {
+      "name": "SENSORY-EDUCATION-DIGNITY-v1.0.md",
+      "path": "01_protocols/SENSORY-EDUCATION-DIGNITY-v1.0.md",
+      "size": 13498,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "09d54a44bfb784ba"
+    },
+    {
+      "name": "TOP_PROTOCOL_DEDUP_AUDIT_20260814.md",
+      "path": "01_protocols/TOP_PROTOCOL_DEDUP_AUDIT_20260814.md",
+      "size": 27463,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "0bb8badcb1bed389"
+    },
+    {
+      "name": "UID9622_IP-Blockchain-Chain-Evidence-Plan-v2.0.md",
+      "path": "01_protocols/UID9622_IP-Blockchain-Chain-Evidence-Plan-v2.0.md",
+      "size": 5682,
+      "mtime": "2026-08-31T20:52:03+08:00",
+      "sha256": "4299482566302efc"
+    },
+    {
+      "name": "XIAOYI-CMD-PROTOCOL-v1.0.md",
+      "path": "01_protocols/XIAOYI-CMD-PROTOCOL-v1.0.md",
+      "size": 7976,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "98c60d51a2a23b2a"
+    },
+    {
+      "name": "XIAOYI-SKILL-DEFINITION-v1.0.md",
+      "path": "01_protocols/XIAOYI-SKILL-DEFINITION-v1.0.md",
+      "size": 5199,
+      "mtime": "2026-08-23T08:08:57+08:00",
+      "sha256": "92d6e0ab45074e06"
+    },
+    {
+      "name": "ATTRIBUTION.md",
+      "path": "01_protocols/desktop-knowledge-matrix/00_总纲与身份/ATTRIBUTION.md",
+      "size": 2007,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "702579f8e29566be"
+    },
+    {
+      "name": "CNSH-PROTOCOL.md",
+      "path": "01_protocols/desktop-knowledge-matrix/07_369归根与语义规范/CNSH-PROTOCOL.md",
+      "size": 28934,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "8e0ef089a25a9e74"
+    },
+    {
+      "name": "CONSTITUTION.md",
+      "path": "01_protocols/desktop-knowledge-matrix/14_执行记录与系统报告/CONSTITUTION.md",
+      "size": 15623,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "ca1d7fd0035c50c4"
+    },
+    {
+      "name": "MASTER_REGISTRY.md",
+      "path": "01_protocols/desktop-knowledge-matrix/14_执行记录与系统报告/MASTER_REGISTRY.md",
+      "size": 82908,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "5892333e1bbafeac"
+    },
+    {
+      "name": "P0_ETERNAL_LOCK.md",
+      "path": "01_protocols/desktop-knowledge-matrix/14_执行记录与系统报告/P0_ETERNAL_LOCK.md",
+      "size": 16717,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "020e032891918ff7"
+    },
+    {
+      "name": "AGENTS.md",
+      "path": "01_protocols/desktop-knowledge-matrix/17_代理与自动化/AGENTS.md",
+      "size": 21602,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "4c69b1c874c6d40a"
+    },
+    {
+      "name": "longhun-intl-data-sources-v1.0.md",
+      "path": "01_protocols/longhun-intl-data-sources-v1.0.md",
+      "size": 13184,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "29b3612a7b3ad0c8"
+    },
+    {
+      "name": "longhun-math-physics-engine-v1.0.md",
+      "path": "01_protocols/longhun-math-physics-engine-v1.0.md",
+      "size": 32197,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "514aac86e6e9f1eb"
+    },
+    {
+      "name": "longhun-train-data-sources-v1.0.md",
+      "path": "01_protocols/longhun-train-data-sources-v1.0.md",
+      "size": 15269,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "aa3dc66bbdedc0d4"
+    },
+    {
+      "name": "longhun-v1.1-train-data.md",
+      "path": "01_protocols/longhun-v1.1-train-data.md",
+      "size": 27104,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "8b571e564f9e9043"
+    },
+    {
+      "name": "longhun-visual-engine-appendix-a-v1.0.md",
+      "path": "01_protocols/longhun-visual-engine-appendix-a-v1.0.md",
+      "size": 13557,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "652cf8347bbae4c9"
+    },
+    {
+      "name": "longhun-visual-engine-v1.0.md",
+      "path": "01_protocols/longhun-visual-engine-v1.0.md",
+      "size": 20575,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "c941c54e4a9df43b"
+    },
+    {
+      "name": "seven-factor-verification.md",
+      "path": "01_protocols/seven-factor-verification.md",
+      "size": 8178,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "f35ae98931352395"
+    },
+    {
+      "name": "龍魂多Agent协同架构白皮书_v1.0_CSDN_Mermaid版.md",
+      "path": "01_protocols/龍魂多Agent协同架构白皮书_v1.0_CSDN_Mermaid版.md",
+      "size": 35189,
+      "mtime": "2026-08-29T01:11:53+08:00",
+      "sha256": "a9b4fe077928cdd9"
+    },
+    {
+      "name": "龍魂风水场博弈论白皮书_v1.0_CSDN_Mermaid版.md",
+      "path": "01_protocols/龍魂风水场博弈论白皮书_v1.0_CSDN_Mermaid版.md",
+      "size": 32698,
+      "mtime": "2026-08-29T01:11:54+08:00",
+      "sha256": "addc61f961920037"
+    },
+    {
+      "name": "SKILL-COMPLETE-DELIVERY.md",
+      "path": "02_SKILLS/SKILL-COMPLETE-DELIVERY.md",
+      "size": 9996,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "71ef5033a1dfc169"
+    },
+    {
+      "name": "SKILL.md",
+      "path": "02_SKILLS/SKILL.md",
+      "size": 34907,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "3407ed0e243ad52f"
+    },
+    {
+      "name": "SKILL_longhun-empower-engine.md",
+      "path": "02_SKILLS/SKILL_longhun-empower-engine.md",
+      "size": 34352,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "2da449549835919a"
+    },
+    {
+      "name": "api-sovereign-gateway.md",
+      "path": "02_SKILLS/api-sovereign-gateway.md",
+      "size": 10083,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "d520466a4f032af7"
+    },
+    {
+      "name": "audit-plugin.md",
+      "path": "02_SKILLS/audit-plugin.md",
+      "size": 3431,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "ec9e2b29fd96be3e"
+    },
+    {
+      "name": "bagua-router.md",
+      "path": "02_SKILLS/bagua-router.md",
+      "size": 3450,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "fd4f61eca3e4a18e"
+    },
+    {
+      "name": "black-angel-legion.md",
+      "path": "02_SKILLS/black-angel-legion.md",
+      "size": 12794,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "4906ebfc3a379e35"
+    },
+    {
+      "name": "code-audit.md",
+      "path": "02_SKILLS/code-audit.md",
+      "size": 5910,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "d48f022be96e3bc3"
+    },
+    {
+      "name": "digital-flow-field-v2-spec.md",
+      "path": "02_SKILLS/digital-flow-field-v2-spec.md",
+      "size": 33330,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "d14d930f481ddd2b"
+    },
+    {
+      "name": "dna-gen.md",
+      "path": "02_SKILLS/dna-gen.md",
+      "size": 4563,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "ea2a956734899300"
+    },
+    {
+      "name": "dna-trace-engine.md",
+      "path": "02_SKILLS/dna-trace-engine.md",
+      "size": 7459,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "389c650165f229c1"
+    },
+    {
+      "name": "error-translator.md",
+      "path": "02_SKILLS/error-translator.md",
+      "size": 3430,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "c8aec2636a2a0196"
+    },
+    {
+      "name": "guomi-crypto.md",
+      "path": "02_SKILLS/guomi-crypto.md",
+      "size": 7590,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "a3c14f52d06606a6"
+    },
+    {
+      "name": "identity-positioning.md",
+      "path": "02_SKILLS/identity-positioning.md",
+      "size": 13396,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "6759bc1409cdc7dd"
+    },
+    {
+      "name": "innovation-tracer-tech-doc.md",
+      "path": "02_SKILLS/innovation-tracer-tech-doc.md",
+      "size": 30968,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "c965d5ddae015e8e"
+    },
+    {
+      "name": "kimi-webbridge.md",
+      "path": "02_SKILLS/kimi-webbridge.md",
+      "size": 3442,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "dfe06636a260b1e6"
+    },
+    {
+      "name": "longhun-ads.md",
+      "path": "02_SKILLS/longhun-ads.md",
+      "size": 2103,
+      "mtime": "2026-08-27T22:58:39+08:00",
+      "sha256": "9fba27dc7e309041"
+    },
+    {
+      "name": "longhun-tianyan.md",
+      "path": "02_SKILLS/longhun-tianyan.md",
+      "size": 8479,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "97c77793876cb65d"
+    },
+    {
+      "name": "longhun-video-diffusion.md",
+      "path": "02_SKILLS/longhun-video-diffusion.md",
+      "size": 1349,
+      "mtime": "2026-08-27T22:58:39+08:00",
+      "sha256": "8ad772650c0a8d30"
+    },
+    {
+      "name": "lu-compress.md",
+      "path": "02_SKILLS/lu-compress.md",
+      "size": 13056,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "71b6bf8d2d9e4fa1"
+    },
+    {
+      "name": "on-identity.md",
+      "path": "02_SKILLS/on-identity.md",
+      "size": 3202,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "bfa75c140a21bfbc"
+    },
+    {
+      "name": "on-translate.md",
+      "path": "02_SKILLS/on-translate.md",
+      "size": 3081,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "1991b2e1d317dea0"
+    },
+    {
+      "name": "p15-qiaojie-persona.md",
+      "path": "02_SKILLS/p15-qiaojie-persona.md",
+      "size": 9513,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "fdb8eeb30bfed1a5"
+    },
+    {
+      "name": "plist-validator.md",
+      "path": "02_SKILLS/plist-validator.md",
+      "size": 3507,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "ba2ee5f6d7a444cb"
+    },
+    {
+      "name": "red-team.md",
+      "path": "02_SKILLS/red-team.md",
+      "size": 8674,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "fdf3a319d1304a22"
+    },
+    {
+      "name": "route-find.md",
+      "path": "02_SKILLS/route-find.md",
+      "size": 5562,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "11be949f438509f6"
+    },
+    {
+      "name": "semantic-parser.md",
+      "path": "02_SKILLS/semantic-parser.md",
+      "size": 6684,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "e7707f61c372f262"
+    },
+    {
+      "name": "skill-extension.md",
+      "path": "02_SKILLS/skill-extension.md",
+      "size": 3414,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "606a24b728428d80"
+    },
+    {
+      "name": "sovereign-privacy.md",
+      "path": "02_SKILLS/sovereign-privacy.md",
+      "size": 3566,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "db00ac6da41abea7"
+    },
+    {
+      "name": "transparent-audit.md",
+      "path": "02_SKILLS/transparent-audit.md",
+      "size": 6438,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "ea8bff377de9f9da"
+    },
+    {
+      "name": "trust-chain.md",
+      "path": "02_SKILLS/trust-chain.md",
+      "size": 4736,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "d35cecc9ea1e296b"
+    },
+    {
+      "name": "water-army-detect.md",
+      "path": "02_SKILLS/water-army-detect.md",
+      "size": 5812,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "96aecf31ef35e9b8"
+    },
+    {
+      "name": "wuxing-guard.md",
+      "path": "02_SKILLS/wuxing-guard.md",
+      "size": 3556,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "4a6d2210f2eb0ea1"
+    },
+    {
+      "name": "宝宝决策来源卡片.md",
+      "path": "02_SKILLS/宝宝决策来源卡片.md",
+      "size": 3640,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "42467f1e2d30033f"
+    },
+    {
+      "name": "给AI的部署指令.md",
+      "path": "02_SKILLS/给AI的部署指令.md",
+      "size": 7895,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "1f5a335e71fdfbb1"
+    },
+    {
+      "name": "行为密码学csdn.md",
+      "path": "02_SKILLS/行为密码学csdn.md",
+      "size": 323665,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "a1110a16a869c796"
+    },
+    {
+      "name": "AI-DATABASE-FOUNDATION-ARCHITECTURE-v1.0.md",
+      "path": "12_DOCS/AI-DATABASE-FOUNDATION-ARCHITECTURE-v1.0.md",
+      "size": 11281,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "9502422f6a589331"
+    },
+    {
+      "name": "AI-SCAN-WHITELIST-v1.0.md",
+      "path": "12_DOCS/AI-SCAN-WHITELIST-v1.0.md",
+      "size": 2723,
+      "mtime": "2026-08-27T22:34:29+08:00",
+      "sha256": "7fa5d48409db2684"
+    },
+    {
+      "name": "API.md",
+      "path": "12_DOCS/API.md",
+      "size": 6371,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "4707c2a52188a030"
+    },
+    {
+      "name": "API参考-v1.0.md",
+      "path": "12_DOCS/API参考-v1.0.md",
+      "size": 6325,
+      "mtime": "2026-09-01T08:02:22+08:00",
+      "sha256": "9a920ffe5d5dd14c"
+    },
+    {
+      "name": "ARCHITECTURE.md",
+      "path": "12_DOCS/ARCHITECTURE.md",
+      "size": 3109,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "8586c08592a8f118"
+    },
+    {
+      "name": "ARCHITECTURE_NORMALIZATION_v1.0.md",
+      "path": "12_DOCS/ARCHITECTURE_NORMALIZATION_v1.0.md",
+      "size": 13242,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "c7f6feea49e07593"
+    },
+    {
+      "name": "ASI_TEST_SUITE_v2.md",
+      "path": "12_DOCS/ASI_TEST_SUITE_v2.md",
+      "size": 14437,
+      "mtime": "2026-08-27T22:34:29+08:00",
+      "sha256": "520edaf8123ffdf7"
+    },
+    {
+      "name": "BEHAVIORAL-CRYPTO-BRIDGE.md",
+      "path": "12_DOCS/BEHAVIORAL-CRYPTO-BRIDGE.md",
+      "size": 896,
+      "mtime": "2026-08-27T22:34:28+08:00",
+      "sha256": "64d8c2488885cd77"
+    },
+    {
+      "name": "CASE_STUDIES.md",
+      "path": "12_DOCS/CASE_STUDIES.md",
+      "size": 5659,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "e881ff3445ecbbce"
+    },
+    {
+      "name": "CLAUDE_(迁移).md",
+      "path": "12_DOCS/CLAUDE_(迁移).md",
+      "size": 9222,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "ab6cd82faff79d74"
+    },
+    {
+      "name": "CNSH-v3.1-OPTIMIZED-v2.1-enhanced.md",
+      "path": "12_DOCS/CNSH-v3.1-OPTIMIZED-v2.1-enhanced.md",
+      "size": 26781,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "34d0ed730c12d31c"
+    },
+    {
+      "name": "CNSH_命令与变量命名规范-v1.0.md",
+      "path": "12_DOCS/CNSH_命令与变量命名规范-v1.0.md",
+      "size": 10644,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "6b98b62d1b79dad5"
+    },
+    {
+      "name": "CNSH_命令与变量命名规范-v2.0.md",
+      "path": "12_DOCS/CNSH_命令与变量命名规范-v2.0.md",
+      "size": 14409,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "9a4e90a491adb033"
+    },
+    {
+      "name": "CNSH_系统架构总览.md",
+      "path": "12_DOCS/CNSH_系统架构总览.md",
+      "size": 12605,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "5d75fe8249cc2656"
+    },
+    {
+      "name": "DA_ALIGN_TABLE.md",
+      "path": "12_DOCS/DA_ALIGN_TABLE.md",
+      "size": 7566,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "180350ba9a18edbf"
+    },
+    {
+      "name": "DB_REGISTRY.md",
+      "path": "12_DOCS/DB_REGISTRY.md",
+      "size": 6491,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "10f21cc7cc4122f0"
+    },
+    {
+      "name": "DEVELOPMENT.md",
+      "path": "12_DOCS/DEVELOPMENT.md",
+      "size": 8118,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "7e5c7ef52d0bca41"
+    },
+    {
+      "name": "DEVICE_SETUP_GUIDE.md",
+      "path": "12_DOCS/DEVICE_SETUP_GUIDE.md",
+      "size": 3870,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "87c084746efd59de"
+    },
+    {
+      "name": "DIRECTORY-CLASSIFICATION-v1.0.md",
+      "path": "12_DOCS/DIRECTORY-CLASSIFICATION-v1.0.md",
+      "size": 5099,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "e830f59f14a3bac0"
+    },
+    {
+      "name": "DIRECTORY_INDEX.md",
+      "path": "12_DOCS/DIRECTORY_INDEX.md",
+      "size": 4316,
+      "mtime": "2026-08-24T13:46:45+08:00",
+      "sha256": "1f4308f6fdf9bdb4"
+    },
+    {
+      "name": "DIRECTORY_MAP.md",
+      "path": "12_DOCS/DIRECTORY_MAP.md",
+      "size": 4646,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "396eeb0f18343ef8"
+    },
+    {
+      "name": "DOCUMENTATION_INDEX.md",
+      "path": "12_DOCS/DOCUMENTATION_INDEX.md",
+      "size": 4467,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "a8e0b9f566af55c6"
+    },
+    {
+      "name": "ECOSYSTEM-BASE-ANALYSIS-v1.0.md",
+      "path": "12_DOCS/ECOSYSTEM-BASE-ANALYSIS-v1.0.md",
+      "size": 18037,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "a53ff97f4c659dd0"
+    },
+    {
+      "name": "ECOSYSTEM-MASTER-MAP-v1.0.md",
+      "path": "12_DOCS/ECOSYSTEM-MASTER-MAP-v1.0.md",
+      "size": 6753,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "6abaeb24e93f2f99"
+    },
+    {
+      "name": "ECOSYSTEM.md",
+      "path": "12_DOCS/ECOSYSTEM.md",
+      "size": 2924,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "7ac5fa2e43cc806e"
+    },
+    {
+      "name": "FAQ.md",
+      "path": "12_DOCS/FAQ.md",
+      "size": 5226,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "f591f6c365e3b2e3"
+    },
+    {
+      "name": "GITEE_CODE_OF_CONDUCT.md",
+      "path": "12_DOCS/GITEE_CODE_OF_CONDUCT.md",
+      "size": 2765,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "99cd83bc16566742"
+    },
+    {
+      "name": "GITEE_DNA_STANDARD_v2.0.md",
+      "path": "12_DOCS/GITEE_DNA_STANDARD_v2.0.md",
+      "size": 2558,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "1a08efe5f1004f03"
+    },
+    {
+      "name": "GITEE_REPOS_INDEX.md",
+      "path": "12_DOCS/GITEE_REPOS_INDEX.md",
+      "size": 6769,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "07d8d9f058071f82"
+    },
+    {
+      "name": "GITHUB_REPOS_INDEX.md",
+      "path": "12_DOCS/GITHUB_REPOS_INDEX.md",
+      "size": 3224,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "fcea782848434d2e"
+    },
+    {
+      "name": "GLOSSARY.md",
+      "path": "12_DOCS/GLOSSARY.md",
+      "size": 4865,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "dfe6f4eb21489907"
+    },
+    {
+      "name": "IDE_HEAVY_ARTILLERY_SETUP.md",
+      "path": "12_DOCS/IDE_HEAVY_ARTILLERY_SETUP.md",
+      "size": 10558,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "7686fcc83bcb9951"
+    },
+    {
+      "name": "INTEGRATION_REPORT_2026-07-06.md",
+      "path": "12_DOCS/INTEGRATION_REPORT_2026-07-06.md",
+      "size": 6847,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "74c092598d208048"
+    },
+    {
+      "name": "L0-LOCKED-RULES.md",
+      "path": "12_DOCS/L0-LOCKED-RULES.md",
+      "size": 2589,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "b1c802590a3fe8f1"
+    },
+    {
+      "name": "LAYERED_GOVERNANCE_UPGRADE_REPORT.md",
+      "path": "12_DOCS/LAYERED_GOVERNANCE_UPGRADE_REPORT.md",
+      "size": 7967,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "42f4366269a62fb2"
+    },
+    {
+      "name": "LH-COMMANDS-AUTOGEN.md",
+      "path": "12_DOCS/LH-COMMANDS-AUTOGEN.md",
+      "size": 26225,
+      "mtime": "2026-09-02T18:32:37+08:00",
+      "sha256": "843bffb7e5189484"
+    },
+    {
+      "name": "LH-DH-DISPATCH-API.md",
+      "path": "12_DOCS/LH-DH-DISPATCH-API.md",
+      "size": 3330,
+      "mtime": "2026-09-02T02:24:13+08:00",
+      "sha256": "83bb3ffa2094eb08"
+    },
+    {
+      "name": "LH-INDEX-PHILOSOPHY-v2.0.md",
+      "path": "12_DOCS/LH-INDEX-PHILOSOPHY-v2.0.md",
+      "size": 8673,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "4bb1c6ee6ffbc255"
+    },
+    {
+      "name": "LH-SERVICE-FUSION-MAP-v1.0.md",
+      "path": "12_DOCS/LH-SERVICE-FUSION-MAP-v1.0.md",
+      "size": 8287,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "26382c579301003a"
+    },
+    {
+      "name": "LIVE_MULTIMODAL_ROADMAP.md",
+      "path": "12_DOCS/LIVE_MULTIMODAL_ROADMAP.md",
+      "size": 6585,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "7ee658f631c2a7d3"
+    },
+    {
+      "name": "LONGHUN-OSII-v1.0.md",
+      "path": "12_DOCS/LONGHUN-OSII-v1.0.md",
+      "size": 2937,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "5b56052204abac51"
+    },
+    {
+      "name": "LONGHUN-TECHNICAL-WHITEPAPER-v1.0.md",
+      "path": "12_DOCS/LONGHUN-TECHNICAL-WHITEPAPER-v1.0.md",
+      "size": 7589,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "f1691d6905bcdbd1"
+    },
+    {
+      "name": "LONGHUN_OPENSOURCE_MANIFESTO.md",
+      "path": "12_DOCS/LONGHUN_OPENSOURCE_MANIFESTO.md",
+      "size": 17153,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "c37b51b16c50298b"
+    },
+    {
+      "name": "LU_CNSH_FULLSYNC_REPORT_v1.0.md",
+      "path": "12_DOCS/LU_CNSH_FULLSYNC_REPORT_v1.0.md",
+      "size": 7098,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "03ad23595085a25e"
+    },
+    {
+      "name": "LU_TAIJI_COMMAND_MAP.md",
+      "path": "12_DOCS/LU_TAIJI_COMMAND_MAP.md",
+      "size": 240,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "243e2bcac80bd98e"
+    },
+    {
+      "name": "LaunchAgent启动指南.md",
+      "path": "12_DOCS/LaunchAgent启动指南.md",
+      "size": 406,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "766e037c3c2833eb"
+    },
+    {
+      "name": "M266_DeepSeek桥接方案_当前对齐_v1.1.md",
+      "path": "12_DOCS/M266_DeepSeek桥接方案_当前对齐_v1.1.md",
+      "size": 7226,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "18184116439d90c9"
+    },
+    {
+      "name": "MODULE_INVENTORY.md",
+      "path": "12_DOCS/MODULE_INVENTORY.md",
+      "size": 11772,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "8766f5f8a4838148"
+    },
+    {
+      "name": "NOTION_GITCODE_STATUS.md",
+      "path": "12_DOCS/NOTION_GITCODE_STATUS.md",
+      "size": 2334,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "54fd5713f133b9c8"
+    },
+    {
+      "name": "P2_DAG_ARCHITECTURE.md",
+      "path": "12_DOCS/P2_DAG_ARCHITECTURE.md",
+      "size": 5135,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "0cbd6732f975aa5b"
+    },
+    {
+      "name": "README.md",
+      "path": "12_DOCS/README.md",
+      "size": 2682,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "7b15effccf15cf3e"
+    },
+    {
+      "name": "README_GITHUB.md",
+      "path": "12_DOCS/README_GITHUB.md",
+      "size": 2018,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "1c423601176fed8c"
+    },
+    {
+      "name": "README_LONGHUN_FLOW.md",
+      "path": "12_DOCS/README_LONGHUN_FLOW.md",
+      "size": 2654,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "8319007c80b727e7"
+    },
+    {
+      "name": "README_闭环流水线v2.md",
+      "path": "12_DOCS/README_闭环流水线v2.md",
+      "size": 4379,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "d6723af1d7203937"
+    },
+    {
+      "name": "README_龍魂待整理索引_v1.0.md",
+      "path": "12_DOCS/README_龍魂待整理索引_v1.0.md",
+      "size": 8896,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "0057b9d0b835822f"
+    },
+    {
+      "name": "REGULATORY.md",
+      "path": "12_DOCS/REGULATORY.md",
+      "size": 10888,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "8bd510886762c5d6"
+    },
+    {
+      "name": "REGULATORY_CONSTITUTION.md",
+      "path": "12_DOCS/REGULATORY_CONSTITUTION.md",
+      "size": 9019,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "3001c47c105f538d"
+    },
+    {
+      "name": "RELEASE_NOTES_v3.1.0.md",
+      "path": "12_DOCS/RELEASE_NOTES_v3.1.0.md",
+      "size": 5512,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "9aa0bec14793046c"
+    },
+    {
+      "name": "REPRODUCE.md",
+      "path": "12_DOCS/REPRODUCE.md",
+      "size": 5197,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "6f36c64eb8c58f72"
+    },
+    {
+      "name": "SAFEAI_KFPP_INTEGRATION.md",
+      "path": "12_DOCS/SAFEAI_KFPP_INTEGRATION.md",
+      "size": 3472,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "f5720b6c5e0781f3"
+    },
+    {
+      "name": "SAFEAI_README.md",
+      "path": "12_DOCS/SAFEAI_README.md",
+      "size": 2436,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "3e077bc7a1faac25"
+    },
+    {
+      "name": "SAFETY_PROTOCOL_v1.0.md",
+      "path": "12_DOCS/SAFETY_PROTOCOL_v1.0.md",
+      "size": 5910,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "7c41adaa14a633b8"
+    },
+    {
+      "name": "SDK-GUIDE.md",
+      "path": "12_DOCS/SDK-GUIDE.md",
+      "size": 3675,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "ab562e55bb2a5718"
+    },
+    {
+      "name": "SECURITY-RED-BLUE-CONFRONTATION-2026-08-31.md",
+      "path": "12_DOCS/SECURITY-RED-BLUE-CONFRONTATION-2026-08-31.md",
+      "size": 4955,
+      "mtime": "2026-08-31T17:42:46+08:00",
+      "sha256": "e2d21b0f7627fa69"
+    },
+    {
+      "name": "SYSTEM_EVALUATION_GB_STANDARDS_2026-07-06.md",
+      "path": "12_DOCS/SYSTEM_EVALUATION_GB_STANDARDS_2026-07-06.md",
+      "size": 14237,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "cd8b5b9cff95f4de"
+    },
+    {
+      "name": "SYSTEM_EVALUATION_REMEDIATION_v2.0.md",
+      "path": "12_DOCS/SYSTEM_EVALUATION_REMEDIATION_v2.0.md",
+      "size": 7811,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "7b66dfe32be08921"
+    },
+    {
+      "name": "SYSTEM_STRUCTURE_AUDIT_v1.0.md",
+      "path": "12_DOCS/SYSTEM_STRUCTURE_AUDIT_v1.0.md",
+      "size": 32767,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "910a2c13c3424dd1"
+    },
+    {
+      "name": "UI-DEEP-LEARNING-FROM-AUTHORITATIVE-OPEN-SOURCE-v1.0.md",
+      "path": "12_DOCS/UI-DEEP-LEARNING-FROM-AUTHORITATIVE-OPEN-SOURCE-v1.0.md",
+      "size": 8059,
+      "mtime": "2026-08-30T01:09:35+08:00",
+      "sha256": "6a1e551a54dbd4b2"
+    },
+    {
+      "name": "UID9622_立场声明.md",
+      "path": "12_DOCS/UID9622_立场声明.md",
+      "size": 3600,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "ae123ebad6b1875d"
+    },
+    {
+      "name": "UID9622_龍魂流场总控_v2.0.md",
+      "path": "12_DOCS/UID9622_龍魂流场总控_v2.0.md",
+      "size": 31569,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "d30d074e275e8d49"
+    },
+    {
+      "name": "USE_CASES.md",
+      "path": "12_DOCS/USE_CASES.md",
+      "size": 4475,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "9d410c19787a3164"
+    },
+    {
+      "name": "_CURRENT_TASK.md",
+      "path": "12_DOCS/_CURRENT_TASK.md",
+      "size": 1827,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "27382acb7997a32e"
+    },
+    {
+      "name": "ai_market_hard_truth_v1.0.md",
+      "path": "12_DOCS/ai_market_hard_truth_v1.0.md",
+      "size": 21948,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "df4a2f62d4c438ff"
+    },
+    {
+      "name": "bin-中文API索引.md",
+      "path": "12_DOCS/bin-中文API索引.md",
+      "size": 14684,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "51b26a39863f1e67"
+    },
+    {
+      "name": "ATTRIBUTION.md",
+      "path": "12_DOCS/claude-backlog/07_开源模板/ATTRIBUTION.md",
+      "size": 1520,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "d2bb0aff9570613c"
+    },
+    {
+      "name": "claude-local-sessions-INDEX.md",
+      "path": "12_DOCS/claude-local-sessions-INDEX.md",
+      "size": 6881,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "28cbb2450578f5dd"
+    },
+    {
+      "name": "claude_code_anchoring_architecture.md",
+      "path": "12_DOCS/claude_code_anchoring_architecture.md",
+      "size": 15401,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "d092ef5fcbb857aa"
+    },
+    {
+      "name": "codebuddy_integration_v1.0.md",
+      "path": "12_DOCS/codebuddy_integration_v1.0.md",
+      "size": 15027,
+      "mtime": "2026-08-30T09:08:55+08:00",
+      "sha256": "ea688007d18d571a"
+    },
+    {
+      "name": "extraction_report_v8.md",
+      "path": "12_DOCS/extraction_report_v8.md",
+      "size": 21832,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "6c4093636bd4630e"
+    },
+    {
+      "name": "handover_v1.3_training.md",
+      "path": "12_DOCS/handover_v1.3_training.md",
+      "size": 3975,
+      "mtime": "2026-08-27T22:34:28+08:00",
+      "sha256": "d63c81cde07e1bf2"
+    },
+    {
+      "name": "home-directory-longhun-INDEX.md",
+      "path": "12_DOCS/home-directory-longhun-INDEX.md",
+      "size": 10084,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "38c9e62c0d1b3392"
+    },
+    {
+      "name": "iOS快捷指令配置.md",
+      "path": "12_DOCS/iOS快捷指令配置.md",
+      "size": 4910,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "bf85f11512464c62"
+    },
+    {
+      "name": "ios_shortcut_config.md",
+      "path": "12_DOCS/ios_shortcut_config.md",
+      "size": 4910,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "bf85f11512464c62"
+    },
+    {
+      "name": "ATTRIBUTION.md",
+      "path": "12_DOCS/knowledge-matrix-src/00_总纲与身份/ATTRIBUTION.md",
+      "size": 1743,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "2e7843c30534e31b"
+    },
+    {
+      "name": "CNSH-PROTOCOL.md",
+      "path": "12_DOCS/knowledge-matrix-src/07_369归根与语义规范/CNSH-PROTOCOL.md",
+      "size": 28930,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "cb11836046ee1dc6"
+    },
+    {
+      "name": "CONSTITUTION.md",
+      "path": "12_DOCS/knowledge-matrix-src/14_执行记录与系统报告/CONSTITUTION.md",
+      "size": 15498,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "8f0735137084ca04"
+    },
+    {
+      "name": "MASTER_REGISTRY.md",
+      "path": "12_DOCS/knowledge-matrix-src/14_执行记录与系统报告/MASTER_REGISTRY.md",
+      "size": 82882,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "db370445edb96ccb"
+    },
+    {
+      "name": "P0_ETERNAL_LOCK.md",
+      "path": "12_DOCS/knowledge-matrix-src/14_执行记录与系统报告/P0_ETERNAL_LOCK.md",
+      "size": 16607,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "fafa8db3a3c76bb5"
+    },
+    {
+      "name": "AGENTS.md",
+      "path": "12_DOCS/knowledge-matrix-src/17_代理与自动化/AGENTS.md",
+      "size": 21484,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "9b61e1831f577285"
+    },
+    {
+      "name": "longhun-immutable-philosophy.md",
+      "path": "12_DOCS/longhun-immutable-philosophy.md",
+      "size": 4363,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "0e32e8d88c070c6c"
+    },
+    {
+      "name": "longhun-model-vision.md",
+      "path": "12_DOCS/longhun-model-vision.md",
+      "size": 3410,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "beb4b1c01c5adfda"
+    },
+    {
+      "name": "longhun-retro-tasks.md",
+      "path": "12_DOCS/longhun-retro-tasks.md",
+      "size": 5357,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "019584809370f2a7"
+    },
+    {
+      "name": "longhun888-routing-protocol-v1.0.md",
+      "path": "12_DOCS/longhun888-routing-protocol-v1.0.md",
+      "size": 10990,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "2f2f70c999829d16"
+    },
+    {
+      "name": "longhun_model_roadmap_v3.9.md",
+      "path": "12_DOCS/longhun_model_roadmap_v3.9.md",
+      "size": 7252,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "4c9d21c57be01b7f"
+    },
+    {
+      "name": "module-sovereignty-principle.md",
+      "path": "12_DOCS/module-sovereignty-principle.md",
+      "size": 3599,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "801952ef46115b73"
+    },
+    {
+      "name": "notion_8theme_reorganize_plan.md",
+      "path": "12_DOCS/notion_8theme_reorganize_plan.md",
+      "size": 3788,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "0708ff3edf1cce6c"
+    },
+    {
+      "name": "notion_scan_report_v8.md",
+      "path": "12_DOCS/notion_scan_report_v8.md",
+      "size": 18531,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "ee407968d4ecef3d"
+    },
+    {
+      "name": "notion_哲学全量公式落地_v1.0.md",
+      "path": "12_DOCS/notion_哲学全量公式落地_v1.0.md",
+      "size": 49645,
+      "mtime": "2026-08-28T23:01:59+08:00",
+      "sha256": "c883eaedc9ddad29"
+    },
+    {
+      "name": "onghun-seven-factor-cryptography.md",
+      "path": "12_DOCS/onghun-seven-factor-cryptography.md",
+      "size": 5079,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "c78cd233e809e535"
+    },
+    {
+      "name": "package-watcher-report.md",
+      "path": "12_DOCS/package-watcher-report.md",
+      "size": 8581,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "59854ea657967a91"
+    },
+    {
+      "name": "plan.md",
+      "path": "12_DOCS/plan.md",
+      "size": 980,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "c3fca3e447989ade"
+    },
+    {
+      "name": "relationship-matrix.md",
+      "path": "12_DOCS/relationship-matrix.md",
+      "size": 2004,
+      "mtime": "2026-08-27T22:34:28+08:00",
+      "sha256": "14c892a5a34890c1"
+    },
+    {
+      "name": "skill-integration-report.md",
+      "path": "12_DOCS/skill-integration-report.md",
+      "size": 5485,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "670802ab4942f6a4"
+    },
+    {
+      "name": "tech-spec.md",
+      "path": "12_DOCS/tech-spec.md",
+      "size": 1784,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "a8c584b28d751dd8"
+    },
+    {
+      "name": "tongxinyi-developer-guide.md",
+      "path": "12_DOCS/tongxinyi-developer-guide.md",
+      "size": 2344,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "3ab188abeef05a65"
+    },
+    {
+      "name": "tongxinyi-enterprise-guide.md",
+      "path": "12_DOCS/tongxinyi-enterprise-guide.md",
+      "size": 2241,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "ae9833eab974d458"
+    },
+    {
+      "name": "tongxinyi-ethical-charter.md",
+      "path": "12_DOCS/tongxinyi-ethical-charter.md",
+      "size": 4027,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "0d39c61c0483bcb3"
+    },
+    {
+      "name": "tongxinyi-first-rule.md",
+      "path": "12_DOCS/tongxinyi-first-rule.md",
+      "size": 2980,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "f7b055327d1c2867"
+    },
+    {
+      "name": "tricolor-api-usage-guide-v1.1.md",
+      "path": "12_DOCS/tricolor-api-usage-guide-v1.1.md",
+      "size": 52833,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "47de0009c27f89bd"
+    },
+    {
+      "name": "tricolor-js-sdk-guide-v1.1.md",
+      "path": "12_DOCS/tricolor-js-sdk-guide-v1.1.md",
+      "size": 24440,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "87b18180354529dd"
+    },
+    {
+      "name": "tricolor-python-sdk-guide-v1.1.md",
+      "path": "12_DOCS/tricolor-python-sdk-guide-v1.1.md",
+      "size": 25077,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "46eba4d120b7750f"
+    },
+    {
+      "name": "v4.0_base_migration_checklist.md",
+      "path": "12_DOCS/v4.0_base_migration_checklist.md",
+      "size": 5241,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "10f592671e39daca"
+    },
+    {
+      "name": "v4.0_base_model_candidates.md",
+      "path": "12_DOCS/v4.0_base_model_candidates.md",
+      "size": 4955,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "3a2045a691b121ca"
+    },
+    {
+      "name": "workspace_index_report_20260812_013716.md",
+      "path": "12_DOCS/workspace_index_report_20260812_013716.md",
+      "size": 7764,
+      "mtime": "2026-08-27T22:34:28+08:00",
+      "sha256": "49c4d4cc191dfbd9"
+    },
+    {
+      "name": "万能补全引擎.md",
+      "path": "12_DOCS/万能补全引擎.md",
+      "size": 768,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "61722985e9f6289b"
+    },
+    {
+      "name": "三才算法发微_为曾老师正名.md",
+      "path": "12_DOCS/三才算法发微_为曾老师正名.md",
+      "size": 7572,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "b39d01a76424ccde"
+    },
+    {
+      "name": "三色审计参考标准_v1.1_工程落地版.md",
+      "path": "12_DOCS/三色审计参考标准_v1.1_工程落地版.md",
+      "size": 28711,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "df241b07b92e5870"
+    },
+    {
+      "name": "全盘文档总目_2026-08-22.md",
+      "path": "12_DOCS/全盘文档总目_2026-08-22.md",
+      "size": 952,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "e830ce0a1c1f8ac5"
+    },
+    {
+      "name": "八卦阵数学建模全本_v1.1_结构补全版.md",
+      "path": "12_DOCS/八卦阵数学建模全本_v1.1_结构补全版.md",
+      "size": 43188,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "2a640a02677ca6cd"
+    },
+    {
+      "name": "华为_eNSP_安装完全指南_人民标准版_v3.0.md",
+      "path": "12_DOCS/华为_eNSP_安装完全指南_人民标准版_v3.0.md",
+      "size": 34791,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "b5c3a5ad2696d2ec"
+    },
+    {
+      "name": "哲学资产总目_出师有名_v1.0.md",
+      "path": "12_DOCS/哲学资产总目_出师有名_v1.0.md",
+      "size": 13011,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "fe20efc9060723b7"
+    },
+    {
+      "name": "媒体引擎手册-v1.0.md",
+      "path": "12_DOCS/媒体引擎手册-v1.0.md",
+      "size": 6381,
+      "mtime": "2026-09-01T13:30:23+08:00",
+      "sha256": "45a9f9df62625a70"
+    },
+    {
+      "name": "守护服务治理方案_v1.0.md",
+      "path": "12_DOCS/守护服务治理方案_v1.0.md",
+      "size": 5819,
+      "mtime": "2026-08-31T13:47:51+08:00",
+      "sha256": "34ee10d52eb3cc8d"
+    },
+    {
+      "name": "安全检查引擎.md",
+      "path": "12_DOCS/安全检查引擎.md",
+      "size": 748,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "0191e71f2aef4350"
+    },
+    {
+      "name": "安装指南.md",
+      "path": "12_DOCS/安装指南.md",
+      "size": 4519,
+      "mtime": "2026-09-01T08:02:15+08:00",
+      "sha256": "2d22558f73aff971"
+    },
+    {
+      "name": "宝宝决策来源卡片.md",
+      "path": "12_DOCS/宝宝决策来源卡片.md",
+      "size": 3998,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "69c6dc23c85b9bd2"
+    },
+    {
+      "name": "对外接口协议-v1.0.md",
+      "path": "12_DOCS/对外接口协议-v1.0.md",
+      "size": 6357,
+      "mtime": "2026-09-01T08:17:28+08:00",
+      "sha256": "136319e6b60f87f7"
+    },
+    {
+      "name": "对接关系矩阵.md",
+      "path": "12_DOCS/对接关系矩阵.md",
+      "size": 8522,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "9d54378fb4c7b6ce"
+    },
+    {
+      "name": "常见问题.md",
+      "path": "12_DOCS/常见问题.md",
+      "size": 4139,
+      "mtime": "2026-09-01T08:02:02+08:00",
+      "sha256": "5d86123392de0225"
+    },
+    {
+      "name": "当我们在使用工具时，是谁在使用谁.md",
+      "path": "12_DOCS/当我们在使用工具时，是谁在使用谁.md",
+      "size": 16774,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "b289f79bbebd3f42"
+    },
+    {
+      "name": "快速开始.md",
+      "path": "12_DOCS/快速开始.md",
+      "size": 2902,
+      "mtime": "2026-09-01T07:43:56+08:00",
+      "sha256": "2e9cb7bc3df30cbe"
+    },
+    {
+      "name": "懒的牢房_全五篇_v3.0.md",
+      "path": "12_DOCS/懒的牢房_全五篇_v3.0.md",
+      "size": 39575,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "fb591aff1006345d"
+    },
+    {
+      "name": "懒的牢房_写作模板_v2.0.md",
+      "path": "12_DOCS/懒的牢房_写作模板_v2.0.md",
+      "size": 11244,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "0cd1a1a0a1e28d61"
+    },
+    {
+      "name": "手把手部署教程-API联动-DNA注册.md",
+      "path": "12_DOCS/手把手部署教程-API联动-DNA注册.md",
+      "size": 21356,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "4fd2823e64b7c42c"
+    },
+    {
+      "name": "文档权威对照表_v1.0.md",
+      "path": "12_DOCS/文档权威对照表_v1.0.md",
+      "size": 11402,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "2427af81c43cb461"
+    },
+    {
+      "name": "文章论文收纳总目录_v1.0.md",
+      "path": "12_DOCS/文章论文收纳总目录_v1.0.md",
+      "size": 38754,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "1e2706aa72c51877"
+    },
+    {
+      "name": "水军显化协议_v1.2_结构补全版.md",
+      "path": "12_DOCS/水军显化协议_v1.2_结构补全版.md",
+      "size": 37511,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "e2b8aa98e3b7b4fc"
+    },
+    {
+      "name": "焦虑制造者识别手册_v2.0.md",
+      "path": "12_DOCS/焦虑制造者识别手册_v2.0.md",
+      "size": 20182,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "ba789ef875fbd811"
+    },
+    {
+      "name": "算法标准化手册-v1.0.md",
+      "path": "12_DOCS/算法标准化手册-v1.0.md",
+      "size": 10556,
+      "mtime": "2026-09-01T08:56:48+08:00",
+      "sha256": "a0de4520e077faf7"
+    },
+    {
+      "name": "网站搭建-最简指南.md",
+      "path": "12_DOCS/网站搭建-最简指南.md",
+      "size": 6008,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "15878749d2c1f4e2"
+    },
+    {
+      "name": "老大使用说明.md",
+      "path": "12_DOCS/老大使用说明.md",
+      "size": 6445,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "2720f8b3e743c6fb"
+    },
+    {
+      "name": "计算机科学知识库_深度学习报告_v1.0.md",
+      "path": "12_DOCS/计算机科学知识库_深度学习报告_v1.0.md",
+      "size": 9229,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "d4880a6f8416b276"
+    },
+    {
+      "name": "论文全目录_执行底座哲学融合_v1.0.md",
+      "path": "12_DOCS/论文全目录_执行底座哲学融合_v1.0.md",
+      "size": 26059,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "5514c94fbf65e504"
+    },
+    {
+      "name": "诸葛亮沙盒训练场_落地映射与审计_v1.0.md",
+      "path": "12_DOCS/诸葛亮沙盒训练场_落地映射与审计_v1.0.md",
+      "size": 2498,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "b7c005de481fef82"
+    },
+    {
+      "name": "运维手册.md",
+      "path": "12_DOCS/运维手册.md",
+      "size": 3246,
+      "mtime": "2026-09-01T13:17:12+08:00",
+      "sha256": "0e6b128101e510cd"
+    },
+    {
+      "name": "通心译拓扑方案-v1.0.md",
+      "path": "12_DOCS/通心译拓扑方案-v1.0.md",
+      "size": 7250,
+      "mtime": "2026-09-02T19:31:42+08:00",
+      "sha256": "60b64ab10eb956a8"
+    },
+    {
+      "name": "道德经81章_龍魂系统大白话解读_完整版_v4.1_多维度注解.md",
+      "path": "12_DOCS/道德经81章_龍魂系统大白话解读_完整版_v4.1_多维度注解.md",
+      "size": 254692,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "157315824ee49199"
+    },
+    {
+      "name": "道德经81章_龍魂系统大白话解读_完整版_v5.0.md",
+      "path": "12_DOCS/道德经81章_龍魂系统大白话解读_完整版_v5.0.md",
+      "size": 338372,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "37d44cc247b96b36"
+    },
+    {
+      "name": "道德经场景定锚协议_v1.1_结构补全版.md",
+      "path": "12_DOCS/道德经场景定锚协议_v1.1_结构补全版.md",
+      "size": 44404,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "47b093888082d594"
+    },
+    {
+      "name": "龍魂倫理錨定層_v1.0.md",
+      "path": "12_DOCS/龍魂倫理錨定層_v1.0.md",
+      "size": 42475,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "85c1c14c016337e0"
+    },
+    {
+      "name": "龍魂全自动工厂系统_v2.1_结构补全版.md",
+      "path": "12_DOCS/龍魂全自动工厂系统_v2.1_结构补全版.md",
+      "size": 16656,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "d1d5c35a1aa9b128"
+    },
+    {
+      "name": "龍魂压缩版格式规范_v1.0.md",
+      "path": "12_DOCS/龍魂压缩版格式规范_v1.0.md",
+      "size": 12009,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "e35a4919544bb549"
+    },
+    {
+      "name": "龍魂多平台调度中枢_v1.0.md",
+      "path": "12_DOCS/龍魂多平台调度中枢_v1.0.md",
+      "size": 9107,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "57eff378a75f1c0d"
+    },
+    {
+      "name": "龍魂对话中枢结构规范_v1.0.md",
+      "path": "12_DOCS/龍魂对话中枢结构规范_v1.0.md",
+      "size": 22088,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "9fa028542b52a460"
+    },
+    {
+      "name": "龍魂底座模型全清单_v5.0.md",
+      "path": "12_DOCS/龍魂底座模型全清单_v5.0.md",
+      "size": 14931,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "fd45127775ecdcaa"
+    },
+    {
+      "name": "龍魂待整理-integration-gap-report.md",
+      "path": "12_DOCS/龍魂待整理-integration-gap-report.md",
+      "size": 14845,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "c7859da3d4df3eea"
+    },
+    {
+      "name": "龍魂流水线使用说明.md",
+      "path": "12_DOCS/龍魂流水线使用说明.md",
+      "size": 3942,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "1803240c8a707105"
+    },
+    {
+      "name": "龍魂系统_第一轮迭代_需求技术文档_v1.0_通心译润色版.md",
+      "path": "12_DOCS/龍魂系统_第一轮迭代_需求技术文档_v1.0_通心译润色版.md",
+      "size": 5272,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "41845c139e226135"
+    },
+    {
+      "name": "龙魂多平台账号破局模板.md",
+      "path": "12_DOCS/龙魂多平台账号破局模板.md",
+      "size": 13542,
+      "mtime": "2026-08-30T22:55:07+08:00",
+      "sha256": "3ea8aff3155ee07b"
+    },
+    {
+      "name": "龙魂系统完整性报告.md",
+      "path": "12_DOCS/龙魂系统完整性报告.md",
+      "size": 5656,
+      "mtime": "2026-09-01T08:56:14+08:00",
+      "sha256": "7f7725662281a7eb"
+    },
+    {
+      "name": "龙魂语法统一化报告.md",
+      "path": "12_DOCS/龙魂语法统一化报告.md",
+      "size": 5083,
+      "mtime": "2026-09-01T08:57:07+08:00",
+      "sha256": "a2be716a08fa16be"
+    },
+    {
+      "name": "AGENTS.md",
+      "path": "AGENTS.md",
+      "size": 3543,
+      "mtime": "2026-09-01T13:02:10+08:00",
+      "sha256": "f8989870b11bf7a9"
+    },
+    {
+      "name": "CONSTITUTION.md",
+      "path": "CONSTITUTION.md",
+      "size": 19304,
+      "mtime": "2026-08-29T01:10:38+08:00",
+      "sha256": "fd1042f9df2a2465"
+    },
+    {
+      "name": "P0_ETERNAL_LOCK.md",
+      "path": "P0_ETERNAL_LOCK.md",
+      "size": 17303,
+      "mtime": "2026-08-23T08:08:58+08:00",
+      "sha256": "c0a11bbeced962eb"
+    },
+    {
+      "name": "STATE.md",
+      "path": "STATE.md",
+      "size": 46442,
+      "mtime": "2026-08-31T23:59:28+08:00",
+      "sha256": "b7a9932c0c3da271"
+    },
+    {
+      "name": "功能清单.md",
+      "path": "功能清单.md",
+      "size": 229568,
+      "mtime": "2026-08-31T23:59:28+08:00",
+      "sha256": "fa8c1953cab297fb"
+    }
+  ]
+}

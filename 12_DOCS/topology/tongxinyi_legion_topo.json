@@ -1,0 +1,258 @@
+{
+  "schema": "longhun-topo-v1",
+  "topo_name": "通心译",
+  "display": "🌐 通心译军团·总台 v1.0",
+  "database_id": "60fb0bb0-2482-4a6e-b9e3-8ae08d010a65",
+  "data_source_id": "f2bac5c3-5330-4d6a-89e6-bd93171d425f",
+  "source_url": "https://app.notion.com/p/60fb0bb024824a6eb9e38ae08d010a65",
+  "owner": "诸葛鑫 | UID9622 · 龍芯北辰",
+  "last_sync": "2026-09-02T19:32:06+08:00",
+  "sync_from": "notion-api-live",
+  "groups": [
+    {
+      "name": "🎯 核心ASI层",
+      "assets": [
+        {
+          "name": "🌸 慧慧·龍慧·智慧传播｜通心译门面官",
+          "id": "0127e808-2a18-4eab-9a58-f706be6f8924",
+          "dna": "#龍芯⚡️2026-03-26-慧慧-龍慧-智慧传播引擎-v1.0",
+          "status": "🟢 活跃",
+          "link": "https://www.notion.so/d0ca9040-bfdf-4d0c-91b8-86fcef37388a",
+          "link_origin": "property"
+        },
+        {
+          "name": "🌀 龍慧·通心译｜P14·ASI人格",
+          "id": "9e1e357c-f159-4a0f-a60d-f3b8c3e6066f",
+          "dna": "#龍芯⚡️丙午·丙申·丙辰·亥时·需-P14-LVMENG-v1.0",
+          "status": "🟢 活跃",
+          "link": "https://www.notion.so/d94e6c69-e072-49ef-9eae-1efe94f2db44",
+          "link_origin": "property"
+        },
+        {
+          "name": "🗣️ 龍魂·沟通翻译官｜P08",
+          "id": "27be1093-a5ce-4bf7-a385-449ab06a206b",
+          "dna": "#龍芯⚡️2026-03-28-沟通翻译官-P08-v1.0",
+          "status": "🟢 活跃",
+          "link": "https://www.notion.so/f340a059-30a7-453a-bb8e-9eda0d132f30",
+          "link_origin": "property"
+        }
+      ]
+    },
+    {
+      "name": "🤖 执行Agent层",
+      "assets": [
+        {
+          "name": "🤖 龍慧·通心译 Agent P14｜Notion AI Agent",
+          "id": "ba63fdfe-1192-4b98-9545-1b3ccf077524",
+          "dna": "#龍芯⚡️2026-04-26-通心译-P14-AGENT-INSTRUCTIONS-v1.0",
+          "status": "🟢 活跃",
+          "link": "https://www.notion.so/34d7125a9c9f81b1a34fcff91c4598d7",
+          "link_origin": "property"
+        }
+      ]
+    },
+    {
+      "name": "⚡ 技能库",
+      "assets": [
+        {
+          "name": "🗣️ 龍魂·沟通翻译官 P08｜自动触发版·一次性激活口令",
+          "id": "b4d62235-79fe-4d13-b336-ddcc3259ee94",
+          "dna": "#龍芯⚡️2026-03-28-沟通翻译官-P08-v1.0",
+          "status": "🟢 活跃",
+          "link": "https://www.notion.so/7d8ca765-c606-4540-9523-a7cdfeaf2cd6",
+          "link_origin": "property"
+        },
+        {
+          "name": "⚡ 龍魂前置翻译技能·通心译×CNSH-DOC",
+          "id": "5fe9cf03-6c10-42a0-b82f-2e172218ec21",
+          "dna": "#龍芯⚡️丙午·丙申·庚申·丁亥·䷡大壮-NOTION789-COMPLETE-STRUCTURE-v1.0",
+          "status": "🟢 活跃",
+          "link": "https://app.notion.com/p/CNSH-DOC-5fe9cf036c1042a0b82f2e172218ec21",
+          "link_origin": "row_url"
+        }
+      ]
+    },
+    {
+      "name": "📚 文档库",
+      "assets": [
+        {
+          "name": "① Agent Instructions · 龍慧通心译 P14 v1.0",
+          "id": "a4f19db6-fd38-4f16-8011-6fbc61dd89fb",
+          "dna": "#龍芯⚡️2026-04-26-通心译-P14-AGENT-INSTRUCTIONS-v1.0",
+          "status": "🟢 活跃",
+          "link": "https://www.notion.so/34d7125a-9c9f-81b1-a34f-cff91c4598d7",
+          "link_origin": "property"
+        },
+        {
+          "name": "💰 通心译·产品设计稿 PRD v2.0｜易经自适应翻译插件",
+          "id": "6bd219fb-b978-42d9-8bed-2db531f881db",
+          "dna": "#ZHUGEXIN⚡️2026-03-21-通心译-产品设计稿-v2.0-PRD",
+          "status": "🟡 待命",
+          "link": "https://www.notion.so/3297125a9c9f81818a61f2002fb6cc63",
+          "link_origin": "property"
+        },
+        {
+          "name": "🤖 通心译系统文档集 v1.0",
+          "id": "b8be3325-62b0-4d6e-ae83-c5184109d69d",
+          "dna": "#龍芯⚡️丙午·壬辰·庚午·壬午·䷳艮为山-SYSTEM-DOCS_1D71-v1.0",
+          "status": "🟡 待命",
+          "link": "https://www.notion.so/34d7125a-9c9f-8152-b264-e89a85edc282",
+          "link_origin": "property"
+        },
+        {
+          "name": "💮 通心译·产品中心 v1.0｜全部资产整合·引擎对接",
+          "id": "a04f8302-dea6-43b6-9c3d-bcd4f6839934",
+          "dna": "#龍芯⚡️2026-08-10-通心译-产品中心-v1.0",
+          "status": "🟢 活跃",
+          "link": "https://www.notion.so/3b87125a-9c9f-8189-8110-d4dc36f1cc3f",
+          "link_origin": "property"
+        }
+      ]
+    },
+    {
+      "name": "🏗️ 系统架构层",
+      "assets": [
+        {
+          "name": "🐉 龍魂暗语加密系统·通心译极限应用",
+          "id": "33d2e681-fea4-4776-921b-24262b7ff5d1",
+          "dna": "#龍芯⚡️20260701063220246072-NOTION-5eff197e-57ee-47d8-b821-611a3c7cd3b0-71C9C077",
+          "status": "🟡 待命",
+          "link": "https://www.notion.so/5eff197e57ee47d8b821611a3c7cd3b0",
+          "link_origin": "property"
+        },
+        {
+          "name": "🧠 AI对话语义标准化·意图增强系统｜Human→System Translation Layer",
+          "id": "4d7c8ec7-e3d1-41d1-a0c0-ebcc58984a2f",
+          "dna": "#龍芯⚡️2026-03-27-AI_-NOTION_MD_4B3E-v1.0",
+          "status": "🟡 待命",
+          "link": "https://app.notion.com/p/AI-Human-System-Translation-Layer-4d7c8ec7e3d141d1a0c0ebcc58984a2f",
+          "link_origin": "row_url"
+        },
+        {
+          "name": "🧬 龍魂三圈骨架·道→术→译 v1.0",
+          "id": "aab1673e-a937-4699-8f77-e9ad95664993",
+          "dna": "#龍芯⚡️20260701063907388361-NOTION-f4bf83d6-569d-4f2e-b65a-e4f37adcc3f6-B128CC7C",
+          "status": "🟢 活跃",
+          "link": "https://www.notion.so/f4bf83d6569d4f2eb65ae4f37adcc3f6",
+          "link_origin": "property"
+        },
+        {
+          "name": "🧠 通心译 v2.0｜逻辑哲学训练模型｜七维可训练",
+          "id": "d5dfe08b-2606-4a48-b6cb-be85606e88d9",
+          "dna": "#龍芯⚡️丙午·甲午·丙子·甲午·䷙大畜-TONGXIN-TRANSLATION-v2.0",
+          "status": "🟡 待命",
+          "link": "https://www.notion.so/38f7125a9c9f81049ca3f302b83e69ca",
+          "link_origin": "property"
+        },
+        {
+          "name": "🌍 通心译 × 天下大公语义编译系统 v2.1",
+          "id": "2968d40f-e667-493c-89dc-73575816c2ad",
+          "dna": "#龍芯⚡️2026-05-14-通心译-天下大公-v2.1",
+          "status": "🟢 活跃",
+          "link": "https://www.notion.so/3607125a9c9f8167ba65e806ad5d72d3",
+          "link_origin": "property"
+        }
+      ]
+    },
+    {
+      "name": "🔧 工具层",
+      "assets": [
+        {
+          "name": "📝 通心译·记错本｜活态迭代·纠错数据库",
+          "id": "0813cd1b-0d1b-4a1f-813b-39af18e51b42",
+          "dna": "#龍芯⚡️20260701154633191853-NOTION-DB-b498c4e0-33aa-49b7-b47f-b2de36dee747-88590691",
+          "status": "🟡 待命",
+          "link": "https://www.notion.so/b498c4e033aa49b7b47fb2de36dee747",
+          "link_origin": "property"
+        },
+        {
+          "name": "🌍 通心译·国家模板总库 v1.0｜每国一行·本地运作数据底座",
+          "id": "af739341-5967-4baf-866d-bca9a4473a1e",
+          "dna": "#龍芯⚡️丙午·甲申·辛丑·坤卦-COUNTRY-TPL-DB-v1.0-UID9622",
+          "status": "🟡 待命",
+          "link": "https://app.notion.com/p/1d6a3cab0c9a420f9de8691164b267d3",
+          "link_origin": "property"
+        },
+        {
+          "name": "🧩 双引擎模板·CNSH语法×通心译 完整国家页 v1.0",
+          "id": "e865790b-ab26-48b7-ad09-40ebf06aa95e",
+          "dna": "#龍芯⚡️20260701065306824050-NOTION-1d3944b3-f605-4f1b-af2b-44fb3cb77dbe-84F9B77E",
+          "status": "🟢 活跃",
+          "link": "https://www.notion.so/1d3944b3f6054f1baf2b44fb3cb77dbe",
+          "link_origin": "property"
+        },
+        {
+          "name": "🔧 tongxinyi_mcp.py · 通心译Python本地引擎",
+          "id": "19765c84-3bec-44df-b1ee-9ccd788a16d4",
+          "dna": "#龍芯⚡️2026-03-27-TONGXINYI_MCP_PY_AE19-v1.0",
+          "status": "🟡 待命",
+          "link": "https://app.notion.com/p/tongxinyi_mcp-py-Python-19765c843bec44dfb1ee9ccd788a16d4",
+          "link_origin": "row_url"
+        }
+      ]
+    }
+  ],
+  "subgraphs": [
+    {
+      "name": "🌍 国家模板总库 v1.0",
+      "type": "notion-db",
+      "dna": "#龍芯⚡️丙午·甲申·辛丑·坤卦-COUNTRY-TPL-DB-v1.0-UID9622",
+      "status": "🟢 数据底座",
+      "link": "https://app.notion.com/p/1d6a3cab0c9a420f9de8691164b267d3",
+      "subgraph_meta": {
+        "row_count": 38,
+        "created": "2026-08-10T07:52:00.000Z",
+        "edited": "2026-08-10T08:00:00.000Z",
+        "parent_page": "3b87125a-9c9f-8189-8110-d4dc36f1cc3f",
+        "parent_title": "💮 通心译·产品中心 v1.0",
+        "scope": "38国/地区·本地运作数据底座",
+        "rows_dna": "38/38 行含DNA确认码",
+        "database_id": "1d6a3cab-0c9a-420f-9de8-691164b267d3",
+        "title": "🌍 国家模板总库 v1.0"
+      },
+      "registered_at": "2026-09-03T10:21:09+08:00"
+    },
+    {
+      "name": "③ 对话记忆库 ChatMemory",
+      "type": "notion-db",
+      "dna": "#龍芯⚡️2026-03-21-CHAT-MEMORY-DB-v1.0-UID9622",
+      "status": "🟡 PRD内嵌",
+      "link": "https://www.notion.so/32a7125a9c9f81d7a6dfd71a2f6606e6",
+      "subgraph_meta": {
+        "row_count": 2,
+        "created": "2026-03-21T12:17:00.000Z",
+        "edited": "2026-03-21T12:17:00.000Z",
+        "parent_page": "3297125a-9c9f-8181-8a61-f2002fb6cc63",
+        "parent_title": "💰 通心译·产品设计稿 PRD v2.0",
+        "note": "PRD 设计稿内嵌对话记忆示例库",
+        "database_id": "32a7125a-9c9f-81d7-a6df-d71a2f6606e6",
+        "title": "③ 对话记忆库 ChatMemory"
+      },
+      "registered_at": "2026-09-03T10:21:15+08:00"
+    },
+    {
+      "name": "📓 Obsidian·通心译 镜像",
+      "type": "obsidian-mirror",
+      "dna": "#龍芯⚡️2026-09-03-OBSIDIAN-MIRROR-通心译-v1.0-UID9622",
+      "status": "🟢 镜像同步",
+      "link": "obsidian:///Users/zuimeidedeyihan/Obsidian/龍魂系統",
+      "subgraph_meta": {
+        "vault": "/Users/zuimeidedeyihan/Obsidian/龍魂系統",
+        "vault_name": "龍魂系統",
+        "note_count": 1,
+        "keyword": "通心译",
+        "scanned_at": "2026-09-03T10:24:50+08:00"
+      },
+      "assets": [
+        {
+          "name": "NOTION_EXTRACTION_COMPLETE",
+          "type": "note",
+          "id": "obsidian:NOTION_EXTRACTION_COMPLETE.md",
+          "dna": "#龍芯⚡️2026-06-03-NOTION-EXTRACTION-COMPLETE-v1.0",
+          "status": "🟢 活跃",
+          "link": "file:///Users/zuimeidedeyihan/Obsidian/龍魂系統/NOTION_EXTRACTION_COMPLETE.md"
+        }
+      ]
+    }
+  ]
+}
