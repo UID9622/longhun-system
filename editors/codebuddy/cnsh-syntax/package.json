@@ -1,8 +1,8 @@
 {
   "name": "cnsh-syntax",
-  "displayName": "CNSH 语法高亮 v2.0",
-  "description": "CNSH 中文原生脚本语言 v2.0 语法支持 — 中文变量着色、DNA锚定高亮、安全关键字标记、自动补全、保存时审计、协议校验",
-  "version": "2.0.0",
+  "displayName": "CNSH 语法高亮 v2.1",
+  "description": "CNSH 中文原生脚本语言 v2.1 语法支持 — 中文变量着色、DNA锚定高亮、安全关键字标记、代码片段、自动补全、保存时审计、协议校验",
+  "version": "2.1.0",
   "publisher": "uid9622",
   "license": "CC-BY-NC-SA-4.0",
   "engines": {
@@ -36,6 +36,12 @@
         "language": "cnsh",
         "scopeName": "source.cnsh",
         "path": "./syntaxes/cnsh.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "cnsh",
+        "path": "./snippets/cnsh.json"
       }
     ],
     "commands": [
@@ -145,5 +151,5 @@
     "@vscode/vsce": "^3.9.2",
     "typescript": "^5.3.0"
   },
-  "_dna": "#龍芯⚡️丙午·辛未·CNSH-SYNTAX-v2.0"
+  "_dna": "#龍芯⚡️丙午·丁酉·乙酉·CNSH-SYNTAX-v2.1-UID9622"
 }
