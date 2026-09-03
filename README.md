@@ -74,7 +74,7 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 | 维度 | 状态 | 验证入口 |
 |:---|:---|:---|
-| 🏷️ **最新版本** | v5.1.0 · 品牌与国际化完善 | [`CHANGELOG.md`](./CHANGELOG.md) |
+| 🏷️ **最新版本** | v5.2.0 · 生态交付三任务 | [`CHANGELOG.md`](./CHANGELOG.md) |
 | 🧬 **默认分支** | `orphan_main` | GitHub 仓库首页 |
 | ✅ **CI 状态** | GitHub Actions 持续集成 | [`.github/workflows/`](./.github/workflows/) |
 | 🔐 **GPG 签名** | 全量文件 `.asc` 脱签验证 | 本仓库任意 `.md.asc` / `.py.asc` |
@@ -389,6 +389,7 @@ curl -X POST http://localhost:8761/dh/dispatch \
 
 | 版本 | 亮点 |
 |------|------|
+| **v5.2.0** | 🌐 生态交付三任务 — 生态验证报告 + 社区响应机制 + 官网首页 + 域名部署指南 + 超级大脑记忆引擎 lh_brain |
 | **v5.0** | 🧬 CNSH MCP Server 上线 — 13 工具完整语法链 + 统一 pyproject.toml + 红线引擎 v2.0 |
 | **v4.2** | 🎛️ 龍魂操作台 MVP v1.1 — 10 项 Skill + 底座能力统一 API |
 | **v4.0** | 📱 移动端监控 — 15层体系，AES-256-GCM加密 |
