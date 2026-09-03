@@ -180,6 +180,13 @@ def 记录剽窃(源名称, 源URL, 指纹类型, 匹配内容, 置信度, 审�
           datetime.now().isoformat(), '待确认', 源类型))
     conn.commit()
     conn.close()
+    # ── v2.2 Webhook 钩子: 新耻辱墙记录 → shamewall 事件推送（失败不影响主流程）
+    try:
+        from lh_webhook import fire_event
+        fire_event("shamewall",
+                   f"新上墙: {源名称} · {指纹类型} · 置信度 {置信度}")
+    except Exception:  # noqa: BLE001
+        pass
 
 
 def 记录扫描(扫描源, 命中数):
