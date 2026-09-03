@@ -195,6 +195,16 @@ def main():
 
     results = run_checks()
 
+    # ── v2.2 Webhook 钩子: 健康检查失败 → health 事件推送（失败不影响主流程）
+    try:
+        fails = [(n, w) for n, ok, d, w in results if not ok]
+        if fails:
+            from lh_webhook import fire_event
+            fire_event("health", f"健康异常 {len(fails)} 项: "
+                       + " · ".join(str(n) for n, _ in fails)[:200])
+    except Exception:  # noqa: BLE001
+        pass
+
     if args.json:
         out = {
             "tool": "lh-health",
