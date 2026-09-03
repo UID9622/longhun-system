@@ -80,6 +80,10 @@ _work/
 
 # --- 进程PID文件 ---
 .longhun/*.pid
+*.pid
+
+# --- Web 渲染镜像产物（html_assets = 全库静态导出副本·不入库）---
+web_apps/html_assets/
 
 # --- 大型镜像/克隆数据 ---
 L7_数据层/daoyin/mirror/

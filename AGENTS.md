@@ -39,6 +39,15 @@ https://uid9622.notion.site
 - 治理文档全集：01_protocols/
 - 命令总目：.codebuddy/COMMAND_INDEX.md
 
+## 6.5 新代码 CNSH 命名闸口（2026-09-01 焊死 · 只补缺不改心血）
+- **任何新增 `.py` 文件必须使用 CNSH 中文命名（文件名含汉字），否则不入库**。存量英文命名脚本（约 3.5 万）不强制改造，只做 A-BOM 备案。
+- **强制钩子**：`.git/hooks/pre-commit` 已装——commit 时自动检查本次新增 .py，违规即拦截（`--no-verify` 显式绕行须 P05 审计留档）。
+- **闸口命令**：`python3 08_BIN/lh_cnsh_gate.py --pre-commit | --repo | --abom | --self-check`
+  - `--pre-commit`：入库瞬间硬拦截（git diff --cached 新增文件）
+  - `--repo`：全仓库巡检（软报告，存量未跟踪文件不误伤）
+  - `--abom`：A-BOM 备案统计存量命名分布
+- **配套**：算法/配置常量统一从 `packaging/longhun_cli/longhun_cli/constants.py` 引用（捆绑规则#4）。
+
 ## 7. 底座锚点（不可变 · 德本审计第五问）
 - **不可变铁律**：P0 天条（为人民服务/数据主权/隐私不传/零黑箱/不删只冻结/诚实不编造）不因环境、版本、需求变化而改变，以 CONSTITUTION.md 与 P0_ETERNAL_LOCK.md 为准。
 - **底座不动**：CNSH 语法体系、DNA 追溯、三色审计、分层许可（思想层 CC BY-NC-SA 4.0 + 工程层 MulanPSL v2）为系统底座，任何重构/归一不得动摇其根基。
