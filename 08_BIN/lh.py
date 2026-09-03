@@ -838,6 +838,8 @@ SUB_DISPATCH = {
     'evolve':               ('lh_persona_evolve.py',          '🧬', '人格按任务触发路由+经验累积（对标全球大模型能力·按需唤醒·越练越聪明）', [], ''),
     # 🧠 记忆分层架构 v1.0 — 工作/长期/档案三级记忆+蒸馏巩固（MemGPT思路·2026-08-30）
     'memory':               ('lh_memory_arch.py',             '🧠', '记忆分层·working/longterm/archive读写+distill蒸馏巩固', [], 'status'),
+    # 🧠 超级大脑记忆引擎 v1.0 — 对话自动加载/保存/检索（2026-09-03 · CodeBuddy超级大脑任务）
+    'brain':                ('lh_brain.py',                    '🧠', '超级大脑记忆·load|save --note|search <kw>|summary|remember|hook|stats (对话记忆自动加载更新·索引~/.longhun/brain/brain_index.json·O(1)召回·零三方)', [], 'stats'),
     'skill-list':           ('lh_skill_scheduler.py',         '📋', '技能调度·清单', [], 'list'),
     'skill-wake':           ('lh_skill_scheduler.py',         '✅', '技能调度·唤醒', [], 'wake'),
     'skill-sleep':          ('lh_skill_scheduler.py',         '💤', '技能调度·休眠', [], 'sleep'),
@@ -1257,6 +1259,53 @@ SUB_DISPATCH = {
 }
 
 
+def _brain_hook_pre(cmd_label: str = ''):
+    """🧠 超级大脑·执行前钩子（静默·<2ms）: 会话轮数自增·超50轮给一行建议。LH_BRAIN_OFF=1 可禁用。"""
+    try:
+        if os.environ.get('LH_BRAIN_OFF') == '1':
+            return
+        import pathlib
+        from datetime import datetime
+        sess_f = pathlib.Path.home() / '.longhun' / 'brain' / 'session.json'
+        sess = {}
+        if sess_f.exists():
+            try:
+                sess = json.loads(sess_f.read_text(encoding='utf-8'))
+            except Exception:
+                sess = {}
+        today = datetime.now().strftime('%Y-%m-%d')
+        if sess.get('date') != today:
+            sess = {'date': today, 'rounds': 0, 'cmds': []}
+        sess['rounds'] = int(sess.get('rounds', 0)) + 1
+        cmds = sess.setdefault('cmds', [])
+        cmds.append({'t': datetime.now().strftime('%H:%M:%S'), 'cmd': cmd_label or ''})
+        if len(cmds) > 200:
+            del cmds[:len(cmds) - 200]
+        sess_f.parent.mkdir(parents=True, exist_ok=True)
+        sess_f.write_text(json.dumps(sess, ensure_ascii=False), encoding='utf-8')
+        if int(sess['rounds']) == 50 and not os.environ.get('LH_BRAIN_QUIET'):
+            print("  🧠 本会话已达 50 轮·建议 `lh brain summary` 沉淀记忆")
+    except Exception:
+        pass  # 钩子永不阻塞主流程
+
+
+def _brain_hook_post():
+    """🧠 超级大脑·执行后钩子（静默）: LH_BRAIN_SAVE=<note> → 自动存盘 · LH_BRAIN_SUMMARY=1 → 自动摘要。"""
+    try:
+        if os.environ.get('LH_BRAIN_OFF') == '1':
+            return
+        note = os.environ.get('LH_BRAIN_SAVE')
+        if note and note.strip():
+            subprocess.run([sys.executable, str(ROOT / 'bin' / 'lh_brain.py'), 'save',
+                            '--note', note.strip(), '--source', 'lh-hook-post', '--silent'],
+                           cwd=str(ROOT), check=False, capture_output=True)
+        if os.environ.get('LH_BRAIN_SUMMARY') == '1':
+            subprocess.run([sys.executable, str(ROOT / 'bin' / 'lh_brain.py'), 'summary', '--silent'],
+                           cwd=str(ROOT), check=False, capture_output=True)
+    except Exception:
+        pass  # 钩子永不阻塞主流程
+
+
 def _run_subcommand(script_name: str, extra_args: list[str] | None = None, emoji: str = '🚀', label: str = '',
                     smart_default: str = '', suppress_header: bool = False,
                     command_name: str = ''):
@@ -1266,6 +1315,7 @@ def _run_subcommand(script_name: str, extra_args: list[str] | None = None, emoji
     - smart_default: 第一个非flag参数自动插入默认子命令
     - suppress_header: True 时不打印装饰 header（--json 模式）
     """
+    _brain_hook_pre(command_name or label)  # 🧠 超级大脑·前置联动
     if command_name:
         # 🔐 机器消费类子命令自动抑制横幅（输出走 eval/管道/JSON 解析）
         if script_name == 'lh_secret_env.py' and extra_args and extra_args[0] in ('shell', 'run', 'get'):
@@ -1275,7 +1325,7 @@ def _run_subcommand(script_name: str, extra_args: list[str] | None = None, emoji
         # 🔥 人格网关：路由→执行→审计回流
         from lh_persona_gate import get_persona_gate
         gate = get_persona_gate()
-        return gate.execute(
+        result = gate.execute(
             command=command_name,
             script_name=script_name,
             extra_args=extra_args or [],
@@ -1284,6 +1334,8 @@ def _run_subcommand(script_name: str, extra_args: list[str] | None = None, emoji
             smart_default=smart_default,
             suppress_header=suppress_header,
         )
+        _brain_hook_post()  # 🧠 超级大脑·后置联动
+        return result
 
     # 旧路径（无命令名的直接调用·向后兼容）
     script_path = ROOT / "bin" / script_name
@@ -1300,6 +1352,7 @@ def _run_subcommand(script_name: str, extra_args: list[str] | None = None, emoji
     result = subprocess.run(args_list, cwd=str(ROOT), check=False)
     if not suppress_header:
         _print_time_stamp()
+    _brain_hook_post()  # 🧠 超级大脑·后置联动
     return result
 
 
@@ -2441,7 +2494,9 @@ def main():
         smart_default = info[4] if len(info) > 4 else ''
         attr = flag.replace('-', '_')
         val = getattr(args, attr, None)
-        if val is not None:
+        # 🔧 store_true flag 默认 False 也非 None → 曾导致未知命令全被 api 兜底劫走(2026-09-03发现·lh_brain 联调)
+        #    改为排除 False：只有显式传入(True)或 REMAINDER 列表(默认 None→[] 仍命中)才算命中。
+        if val not in (None, False):
             # 🔧 特殊处理: setup-all 一键搭建
             if flag == 'setup-all':
                 print_header()
@@ -2580,6 +2635,13 @@ def main():
             # 子进程 flag 重试失败 → 非零退出让父进程继续自然语言路由
             sys.exit(2)
         nl_text = ' '.join(remaining)
+        # 🧠 超级大脑·「记住这个」自然语言触发（lh 记住这个 xxx → 立即存盘·2026-09-03）
+        _rm = re.match(r'^(记住这个|记下来|记住了|记住)[:：]?\s*(.+)$', nl_text, re.S)
+        if _rm and len(_rm.group(2).strip()) >= 2:
+            subprocess.run([sys.executable, str(ROOT / 'bin' / 'lh_brain.py'),
+                            'remember', _rm.group(2).strip()], cwd=str(ROOT), check=False)
+            _print_time_stamp()
+            return
         has_cjk = bool(re.search(r'[\u4e00-\u9fff\u3400-\u4dbf]', nl_text))
         is_long = len(nl_text) > 20 or len(remaining) > 1
         if has_cjk or is_long:

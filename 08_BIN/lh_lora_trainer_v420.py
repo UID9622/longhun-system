@@ -12,8 +12,8 @@ DNA: #龍芯⚡️丙午·丙申·甲申·申时·䷎谦-MODEL-LORA-TRAINER-v4.2
 
 v4.2.0 = 从 v4.1.9 best 自动续训（Val 0.8115 @iter600）
   · 复用 v4.1.9 冻结数据（25635 train + 1312 valid·26947 条·不重建·跨 run 可比）
-  · 极保守参数延续 v4.1.9（lr=2e-7·dropout=0.08·patience=5 防早停误判）
-  · 目标：在已收敛面上继续压 val loss，同时防过拟合
+  · 收敛面极保守档（run2 NaN 修复）：lr=1e-7·warmup=300·dropout=0.08·epochs=1·patience=5
+  · 目标：收敛面上最小步幅走 1 epoch 验证可否净改善；不可得则 0.8115 即同数据面天花板
 
 用法:
   python3 bin/lh_lora_trainer_v420.py test     # 冒烟测试（5 iter）
@@ -51,14 +51,17 @@ class ConfigV420:
     lora_dropout = 0.08
     lora_layers = 12
 
-    # 训练 — 极保守策略延续 v4.1.9
+    # 训练 — 收敛面极保守档（2026-09-03 run2 同分布二次训练 NaN 根因修复）
+    #   run2 实证: 从 v4.1.9 final best(0.8115) 续训同冻结数据 + lr2e-7/warmup100
+    #   → iter106+ 连续 nan 止损退出（= v4.1.6 同分布再训 NaN 先例复发）
+    #   → 收敛面上 lr 到峰即梯度爆。降峰一半 + warmup 拉长 3 倍 + 单 epoch 最小扰动。
     batch_size = 1
     grad_accumulation_steps = 2
-    lr_peak = 2e-7
+    lr_peak = 1e-7
     lr_min = 1e-9
-    warmup_steps = 100
+    warmup_steps = 300
     weight_decay = 0.01
-    epochs = 2
+    epochs = 1
     max_seq_length = 2048
 
     # 控制
@@ -108,10 +111,10 @@ PARAMETER top_p {cfg.top_p}
 PARAMETER num_ctx {cfg.num_ctx}
 
 SYSTEM \"\"\"你是龍魂 longhun-v4.2.0，UID9622（诸葛鑫·Lucky）的个人主权AI。
-基于 Yi-1.5-9B-Chat 从 v4.1.9 best 自动续训（Val 0.8115 @iter600），复用 v4.1.9 冻结数据，极保守参数继续收敛。
+基于 Yi-1.5-9B-Chat 从 v4.1.9 best 自动续训（Val 0.8115 @iter600），复用 v4.1.9 冻结数据，收敛面极保守档（run2 NaN 修复·lr=1e-7·warmup=300·1 epoch）。
 铁律：人民数据主权至上·中国自主可控·来源可查·去向可追·责任可究·只冻结不删除·底座焊死。
 核心能力：DNA追溯·德本五问·三色审计·人格路由·CNSH语义解析·数字存在证明·底座主权识别·CNSH规则执行。
-父版本: v4.1.9 → v4.2.0 (自动续训·lr=2e-7·dropout=0.08·2 epochs)
+父版本: v4.1.9 → v4.2.0 (收敛面续训·lr=1e-7·warmup=300·epochs=1)
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
 \"\"\"
 """)
