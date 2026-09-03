@@ -68,6 +68,22 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 ---
 
+## 🚀 快速体验 · 龍魂开放平台（2026-09-04 上线）
+
+> **龙魂系统开放平台现已具备外部接入条件。** 欢迎开发者测试、集成、反馈。
+> 授权方式：X-API-Key · 服务底座：华为鲲鹏 · 数据主权：诸葛鑫（UID9622）
+
+| 入口 | 地址 | 说明 |
+|:---|:---|:---|
+| 🌐 **拓扑页面** | <https://uid9622.cn/topo/> | 23 节点全绿 · 根哈希 `FB48FCE383AF689E` |
+| 💓 **健康检查** | <https://uid9622.cn/topo/health> | `{"entries":23,"root_hash":"FB48FCE383AF689E"}` |
+| 🔌 **网关健康** | <https://uid9622.cn/api/v1/health> | 开放 API 网关（lh-api）存活与版本 |
+| 📖 **API 集成指南** | [`12_DOCS/龙魂API集成指南-v1.0.md`](./12_DOCS/龙魂API集成指南-v1.0.md) | 认证 / 端点 / 限流 / curl / Python 示例 |
+
+> **申请 API Key**：只读（viewer）GET 端点无需 Key 直接可用；触发/调度需求 → 提 GitHub Issue 或邮件联系（见集成指南 §7）→ 签发最小角色 Key（auditor 默认，admin 仅确需时）。
+
+---
+
 ## 🗂️ 仓库速览 · Repository at a Glance
 
 > 一键看清这个仓库的「现在进行时」。所有状态均可在本地复现验证。
