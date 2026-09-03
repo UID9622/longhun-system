@@ -834,6 +834,8 @@ SUB_DISPATCH = {
     'codeql':               ('lh_codeql_listener.py',          '🔬', 'CodeQL自动响应闭环·listen监听/status状态/fetch拉取(可用--sarif)/autofix修复+dashboard面板转autofix模块·webhook联动端点9786·分派数字人:包青天/字靈/匠心/知行/明鉴/诗仙/蔡侯(2026-09-03)', [], 'status'),
     'codeql-autofix':       ('lh_codeql_autofix.py',           '🤖', 'CodeQL自动修复引擎·autofix [--dry-run|--pr-only|--auto-merge]/dashboard·日上限3次·健康闸·耻辱墙熔断', [], ''),
     'codeql-dashboard':     ('lh_codeql_autofix.py',           '📊', 'CodeQL状态面板·Markdown+GPG签名→~/.longhun/codeql_dashboard.md', [], 'dashboard'),
+    # 📢 统一对外发布工具链 v1.0 — 一句话全渠发布: 模板渲染→GitHub Issue+官网横幅+README→PR→bot approve→merge→rsync（2026-09-04）
+    'publish':              ('lh_publish.py',                 '📢', '对外发布工具链·announce/status/dashboard/rollback/templates（一键多渠分发·自动PR+approve+merge·发布日志~/.longhun/publish_log.json）', [], ''),
     'search':               ('lh_search_engine.py',           '🔍', '搜索引擎', [], 'search'),
     # 💤 技能调度器 v1.0 — 技能用完即休·用时即唤·不常驻省算力（2026-08-16）
     'skill':                ('lh_skill_scheduler.py',         '💤', '技能调度·list/wake/sleep/autosleep/stats（用完休眠·用前唤醒·省CPU）', [], 'status'),
