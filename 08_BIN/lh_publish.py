@@ -499,8 +499,10 @@ def status_line(rel, wide=False):
     t = rel["title"]
     issue_num = (rel.get("issue_url") or "").split("/")[-1] or "-"
     rb = "↩️" if rel.get("rollback") else ""
+    pr = rel.get("pr")
+    pr_s = (f"#{pr['number']}" if isinstance(pr, dict) and pr.get("number") else (pr or "-"))
     if wide:
-        return f"| {rel['id']} | {rel['date']} | {t} | {mark('issue')} | {mark('web')} | {mark('readme')} | {rel.get('pr') or '-'} | {issue_num} | {rb} |"
+        return f"| {rel['id']} | {rel['date']} | {t} | {mark('issue')} | {mark('web')} | {mark('readme')} | {pr_s} | {issue_num} | {rb} |"
     return f"{rel['id']} | {rel['date']} | {t[:36]:<36} | issue:{mark('issue')} web:{mark('web')} readme:{mark('readme')}"
 
 
