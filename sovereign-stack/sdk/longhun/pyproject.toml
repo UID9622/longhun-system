@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "longhun"
+version = "1.0.0"
+description = "🐉 龍魂主权技术栈统一 SDK · DNA追溯 + 三色审计 + 15条国产替代规则 + CNSH桥 · 一个账号走全部服务"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MulanPSL-2.0" }
+authors = [
+  { name = "诸葛鑫（UID9622）· 龍芯北辰", email = "346045695@qq.com" },
+]
+keywords = ["longhun", "dna", "tricolor", "audit", "cnsh", "sovereign", "国产替代"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Libraries",
+]
+dependencies = []
+
+[project.optional-dependencies]
+cnsh = ["cnsh-suite>=1.0"]
+
+[project.scripts]
+longhun = "longhun.cli:main"
+
+[tool.setuptools]
+packages = ["longhun"]
+
+# DNA: #龍芯⚡️2026-08-31-LONGHUN-SDK-V1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)

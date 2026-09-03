@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐉 龍魂 · 开发者文档</title>
+<meta name="description" content="龍魂开发者文档 · CNSH教程 · SDK指南 · API文档 · 快速入门">
+<style>
+:root{
+  --gold:#d4af37; --gold-dim:#a8862f; --bg:#0a0a0c; --bg2:#101014;
+  --card:#15151b; --line:#26262e; --text:#e8e6df; --dim:#9a968a;
+  --green:#3fb950; --yellow:#d29922; --red:#f85149;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:0;z-index:50;background:rgba(10,10,12,.92);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+nav .logo{font-size:18px;font-weight:700}
+nav .logo span{color:var(--gold)}
+header{padding:64px 0 32px}
+header h1{font-size:36px;font-weight:800}
+header p{color:var(--dim);margin-top:8px}
+section{padding:32px 0}
+section h2{font-size:22px;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+.card h3{font-size:16px;margin-bottom:8px}
+.card p{color:var(--dim);font-size:14px;margin-bottom:12px}
+.card ul{list-style:none;font-size:13.5px}
+.card ul li{padding:6px 0;border-top:1px dashed var(--line)}
+.card ul li:first-child{border-top:none}
+.card ul li .tag{display:inline-block;font-size:11px;border-radius:4px;padding:1px 8px;margin-left:8px;vertical-align:middle}
+.tag.g{background:rgba(63,185,80,.12);color:var(--green)}
+.tag.y{background:rgba(210,153,34,.12);color:var(--yellow)}
+footer{padding:40px 0;border-top:1px solid var(--line);color:var(--dim);font-size:12.5px;text-align:center}
+footer .dna{font-family:ui-monospace,Menlo,monospace;color:var(--gold-dim);font-size:12px;margin-top:10px}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap"><div class="logo">🐉 龍<span>魂</span> · 开发者文档</div><a href="index.html">← 返回首页</a></div></nav>
+
+<header>
+  <div class="wrap">
+    <h1>开发者文档</h1>
+    <p>快速入门 · CNSH 教程 · SDK 指南 · API 文档 · 一个入口走全部</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>🚀 快速入门</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>3 行代码开始</h3>
+        <p>装 SDK → 打 DNA → 记审计，10 秒跑通。</p>
+        <ul>
+          <li>安装：<code>pip install longhun</code></li>
+          <li>入门：<code>longhun version</code></li>
+          <li>DNA：<code>longhun dna stamp --module MY-APP</code></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>统一 CLI 速查</h3>
+        <p>一个命令走全部能力。</p>
+        <ul>
+          <li>国产替代扫描：<code>longhun audit &lt;file&gt;</code></li>
+          <li>三色审计：<code>longhun tricolor audit &lt;mod&gt; &lt;evt&gt; &lt;色&gt;</code></li>
+          <li>CNSH：<code>longhun cnsh run &lt;file.cnsh&gt;</code></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>🔤 CNSH · 中文神经符号混合语言</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>入门教程 <span class="tag g">新手友好</span></h3>
+        <ul>
+          <li><a href="https://github.com/UID9622/CNSH">CNSH 母仓库 · GitHub</a></li>
+          <li><a href="https://gitee.com/uid9622/cnsh">CNSH 母仓库 · Gitee 镜像</a></li>
+          <li>规范：BNF 文法 + Schema（docs/cnsh-spec/spec/）</li>
+          <li>示例：hello.cnsh · audit_sample.cnsh · dna_sample.cnsh（docs/cnsh-spec/examples/）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>运行时 <span class="tag g">已就绪</span></h3>
+        <ul>
+          <li>解释器：<code>08_BIN/cnsh/interpreter.py</code></li>
+          <li>编译器：<code>03_compiler/cnsh_compiler.py</code>（CNSH→C）</li>
+          <li>配置：<code>20_CONFIG/cnsh_config.yaml</code></li>
+          <li>运行：<code>python3 08_BIN/cnsh/interpreter.py hello.cnsh</code></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>📦 SDK 指南</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Python SDK <span class="tag g">已发布</span></h3>
+        <ul>
+          <li>统一包：<code>pip install longhun</code></li>
+          <li>追溯包：<code>longhun-tricolor</code>（sdk/python/）</li>
+          <li>指南：docs/tricolor-python-sdk-guide-v1.1.md</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>JavaScript SDK <span class="tag y">指南就绪</span></h3>
+        <ul>
+          <li>包：<code>tricolor-sdk-js</code>（web_apps/）</li>
+          <li>TS 源码 + dist：sdk/javascript/</li>
+          <li>指南：docs/tricolor-js-sdk-guide-v1.1.md</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>API 文档 <span class="tag y">待上线</span></h3>
+        <ul>
+          <li>用法：docs/tricolor-api-usage-guide-v1.1.md</li>
+          <li>网关：api-gateway（Go/Gin · :9000）</li>
+          <li>计费：pricing/meter（:8897）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>⚖️ 主权规则</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>15 条国产替代规则 <span class="tag g">已落地</span></h3>
+        <p>人民币主权 · 能自建不申请 · 确需外部先国产。</p>
+        <ul>
+          <li>规则明细：<code>longhun audit &lt;file&gt;</code> 自动扫描</li>
+          <li>引擎：evaluator/evaluator.py（:5003）</li>
+          <li>全表：落地页「15条规则」章节</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>DNA 追溯 + 三色审计 <span class="tag g">已落地</span></h3>
+        <p>零黑箱可复核 · 每次调用都有身份。</p>
+        <ul>
+          <li>DNA：dna/dna_middleware.py</li>
+          <li>审计：dna/tricolor_audit.py（sqlite · append-only）</li>
+          <li>SBOM：sbom/sbom.py（:5002）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>🐉 龍魂主权技术栈 · 普惠全球 · 去门槛 · 按量计费 · 一个账号走全部服务</p>
+    <p style="margin-top:6px">归属名: 诸葛鑫 | UID9622 · 龍芯北辰 · <a href="https://github.com/UID9622/sovereign-stack">GitHub</a> · <a href="https://gitee.com/uid9622">Gitee</a></p>
+    <p class="dna">#龍芯⚡️2026-08-31-LONGHUN-DOCS-V1.0-UID9622 · #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</p>
+  </div>
+</footer>
+
+</body>
+</html>

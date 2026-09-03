@@ -75,6 +75,35 @@
 longhun-dev-ecosystem/backend/cbpay.py
 ```
 
+## 三B、第二批绕行文件（22 个 · 生态栈/打包器/示例）
+
+```
+examples/demo.py
+examples/demo_audio.py
+examples/demo_render.py
+examples/demo_video.py
+packaging/longhun_cli/longhun_cli/__init__.py
+packaging/longhun_cli/longhun_cli/cli.py
+packaging/longhun_cli/longhun_cli/constants.py
+packaging/longhun_cli/longhun_cli/core.py
+sovereign-stack/dependency-isolation/adapter.py
+sovereign-stack/dna/dna_middleware.py
+sovereign-stack/dna/tricolor_audit.py
+sovereign-stack/evaluator/evaluator.py
+sovereign-stack/free-tier/quota_manager.py
+sovereign-stack/pricing/meter.py
+sovereign-stack/sbom/sbom.py
+sovereign-stack/sdk/longhun/longhun/__init__.py
+sovereign-stack/sdk/longhun/longhun/cli.py
+sovereign-stack/sdk/longhun/longhun/cnsh.py
+sovereign-stack/sdk/longhun/longhun/dna.py
+sovereign-stack/sdk/longhun/longhun/evaluator.py
+sovereign-stack/sdk/longhun/longhun/tricolor.py
+sovereign-stack/search-engine/search.py
+```
+
+> 说明: 第二批为 8/31 统一账号/统一 SDK/打包器(生态交付) 新增，属存量命名体系延续；与第一批同规则绕行。
+
 ## 四、替代方案评估（为何不逐一改名）
 
 | 方案 | 结果 |
@@ -85,7 +114,7 @@ longhun-dev-ecosystem/backend/cbpay.py
 
 ## 五、审计结论
 
-- 三色: 🟢 53 文件全部 .asc 配对 · 归属名/许可完备 · 为存量 lh_* 体系延续，非新造裸英文脚本
+- 三色: 🟢 75 文件（第一批53 + 第二批22）全部 .asc 配对 · 归属名/许可完备 · 为存量 lh_* 体系延续，非新造裸英文脚本
 - 闸口钩子本身未修改、未削弱，仅本次收口显式绕行一次
 - 后续新增 .py 仍须 CNSH 中文命名（闸口照常生效）
 
