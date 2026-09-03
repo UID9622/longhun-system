@@ -68,6 +68,11 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 ---
 
+## 📣 发布公告 · 对外公告
+
+> 最近 10 条 · `lh publish` 自动维护
+
+- 2026-09-04 📢 **🚀 龍魂发布工具链 v1.0 上线** — 对外发布已自动化：一句话发全渠道（GitHub Issue + 官网横幅 + README 公告区），模板三式（版本发布…
 ## 🗂️ 仓库速览 · Repository at a Glance
 
 > 一键看清这个仓库的「现在进行时」。所有状态均可在本地复现验证。
@@ -325,6 +330,24 @@ lh codeql-dashboard              # 面板：Markdown 表格 + 状态徽章 + GPG
 
 > 数字人分派（`CODEQL_ROUTES`）: 安全类→包青天 · 规范类→字靈 · 性能类→知行
 > 联动 workflow: [`.github/workflows/codeql-trigger.yml`](./.github/workflows/codeql-trigger.yml)（scan 完成后触发通知/降级）
+
+---
+
+## 📢 发布工具链 · Open Publish（v1.0 · 2026-09-04）
+
+> 一句话全渠道发布公告。自动完成：模板渲染 → GitHub Issue → 官网横幅 → README 公告区 → git PR → longhun-bot approve → squash merge → rsync 鲲鹏。
+> 引擎: `08_BIN/lh_publish.py` · 发布日志: `~/.longhun/publish_log.json` · 面板: `~/.longhun/publish_dashboard.md`
+
+| 命令 | 说明 |
+|:---|:---|
+| `lh publish announce "标题" "内容" --channels issue,web,readme` | 发布公告（`--template release_announcement/community_update/security_advisory` · `--version` · `--contact` · `--dry-run`） |
+| `lh publish status` | 最近发布摘要 |
+| `lh publish dashboard` | 生成发布面板（Markdown + GPG 签名） |
+| `lh publish rollback <ID>` | 回滚发布（Issue 关闭 + 标记） |
+| `lh publish templates list\|show` | 模板管理（`~/.longhun/publish_templates/` 三模板） |
+
+> 公告自动含 DNA 追溯 · 归属名（诸葛鑫 \| UID9622） · 分层双许可证声明 · GPG 签名。
+> 以后说「发个版本公告 v5.3.0」→ CodeBuddy 调 `lh publish` 全渠道发出，无需手动确认每一步。
 
 ---
 
