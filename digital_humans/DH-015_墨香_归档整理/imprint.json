@@ -1,0 +1,20 @@
+{
+  "dna": "#龍芯⚡️2026-09-02-DH-015-STUDIO-v1.0-UID9622",
+  "name": "墨香·归档整理官",
+  "ipa": "DH-015",
+  "face_hash": "FACE-DH-015-C26D5F",
+  "voiceprint": "VOICE-DH-015-9622",
+  "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-015_墨香_归档整理",
+  "created_at": "2026-09-02T13:00:00.000000",
+  "updated_at": "2026-09-02T13:00:00.000000",
+  "version": 1,
+  "status": "active",
+  "metadata": {
+    "type": "DH",
+    "source": "2026-09-02 老大指令·数字人创作启动·设计生态岗位全补全",
+    "persona": "P03 雯雯",
+    "principle": "结构归档 · 四签验证 · 德字闸",
+    "functions": "成果归档 · 索引更新 · 四签(GPG/DNA/归属/协议) · 验收放行",
+    "team": "设计团流水线: 诗仙灵感→雲錦视觉→字靈字体→匠心代码→蔡侯排版→明鉴验收→墨香归档→知行上线"
+  }
+}

@@ -64,7 +64,10 @@ body { background:var(--bg); color:var(--text); font-family: -apple-system, 'SF 
 .support-title { font-size:1.3rem; color:var(--gold); margin-bottom:1rem; letter-spacing:1px; }
 .support-text { max-width:640px; margin:0 auto 1.5rem; color:var(--text); font-size:.95rem; line-height:1.8; }
 .support-note { color:var(--text-dim); font-size:.8rem; margin-top:1rem; }
-.support-qr { max-width:240px; border-radius:12px; border:1px solid var(--border); margin:0 auto; display:block; }
+.support-qr-row { display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; margin-top:1rem; }
+.support-qr-card { flex:0 0 auto; width:200px; }
+.support-qr { max-width:200px; border-radius:12px; border:1px solid var(--border); margin:0 auto; display:block; }
+.support-label { margin-top:.75rem; color:var(--text-dim); font-size:.8rem; }
 .footer { text-align:center; padding:2rem 0; color:var(--text-dim); font-size:.75rem; border-top:1px solid var(--border); margin-top:2rem; }
 </style>
 </head>
@@ -268,8 +271,22 @@ body { background:var(--bg); color:var(--text); font-family: -apple-system, 'SF 
     金额随意，同行者的心意比数字重要。<br>
     <strong>不同路的人，不必勉强。</strong>
   </div>
-  <img src="support-wechat.jpg" alt="同行者支持 - 微信支付" class="support-qr">
-  <div class="support-note">微信支付 · 龍芯北辰 UID9622 · 自愿同行，非商业交易</div>
+  <div class="support-qr-row">
+    <div class="support-qr-card">
+      <img src="support-wechat.jpg" alt="同行者支持 - 微信支付" class="support-qr">
+      <p class="support-label">微信支付</p>
+    </div>
+    <div class="support-qr-card">
+      <img src="support-alipay-ecny.jpg" alt="同行者支持 - 支付宝 · 数字人民币" class="support-qr">
+      <p class="support-label">支付宝 · 数字人民币</p>
+    </div>
+  </div>
+  <div class="support-note">微信 / 支付宝 · 龍芯北辰 UID9622 · 自愿同行，非商业交易</div>
+  <div style="margin-top:14px;font-size:.8rem;">
+    <span style="color:var(--gold);">国际同行 · USDT(TRC20)：</span>
+    <code style="background:rgba(212,175,55,.08);color:var(--gold);padding:3px 8px;border-radius:4px;border:1px solid rgba(212,175,55,.25);word-break:break-all;">TCMCteHzdduQfpUrAdmmsnHEVH8MFCyXDq</code>
+    <span style="color:var(--text-dim);">链上直达 · 数据不出境</span>
+  </div>
 </div>
 
 <div class="footer">

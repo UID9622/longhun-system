@@ -86,6 +86,24 @@ GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 
 ---
 
+## 🧬 归一审计 · GUIYI Audit（v1.0 · 2026-09-01）
+
+> **调用龍魂 API = 接受审计 = 同意溯源。任何不带龍魂协议的「剽窃」将在溯源时被识别为「未归一」。**
+> 完整协议: [`12_DOCS/对外接口协议-v1.0.md`](./12_DOCS/对外接口协议-v1.0.md) §7
+
+| 能力 | 命令 | 说明 |
+|:---|:---|:---|
+| 🐉 **归一审判官** | `lh judge scan\|view\|clean` | 每日自动抓取 HuggingFace/GitHub/arXiv/PapersWithCode，检测龍魂 DNA 指纹，剽窃者自动上耻辱墙 |
+| 📜 **外部调用记录** | `lh logs [--tail 100] [--json]` | 非本机调用归一审计（`~/.longhun/logs/external_calls.log`） |
+| 🧬 **归一断言** | `lh assert <文本> [--json]` | 检测文本是否含龍魂 DNA 指纹 → 已归一🟢 / 未归一🟡 |
+| 🔎 **反向追溯** | `lh trace <node_id> [--json]` | node_id → 创建时间/数字根/五行/审计/原始输入 |
+| 🗄️ **耻辱墙** | `~/.longhun/shame_wall/shame_wall.html` | 剽窃者公示（HTML+JSON+SQLite）· 每日 02:00 自动更新 |
+
+**铁律（M77 零中间层 + 版本控制权）**: 任何系统只要用了龍魂逻辑，版本控制权自动归龍魂。
+升级得越多，绑得越死。抄走的不是「代码」，是「带了锁的逻辑」。
+
+---
+
 ## 🔐 可验证性 · Verifiability
 
 > 龍魂系统的每一份核心文件都带有 **GPG 脱签签名**（`.asc`），确保内容从提交起未被篹改。
@@ -253,6 +271,37 @@ python3 08_BIN/build_cnsh_app.py
 
 ---
 
+## 🧑 数字人 API · 调动引擎
+
+> 22 位龍魂数字人全自动调动：自然语言点名 / CLI / HTTP API 三通道。
+> 大模型执行走本地 Ollama（`longhun-v4.1.9`）直连，零外部依赖、数据不出机。
+
+```bash
+# 1. 自然语言点名（自动路由到对应数字人）
+lh dh "字靈 设计一套字体规范"        # → 路由到 DH-010 字靈·字体设计官
+lh dh DH-011 "把首页改响应式"        # 编号直调
+
+# 2. 流水线整活（设计团八岗接力：诗仙→雲錦→字靈→匠心→蔡侯→明鉴→墨香→知行）
+lh dh "帮我做个数字人展示网页"
+
+# 3. 对外开放 HTTP 网关（身份闸 X-UID: 9622）
+lh dh-api --daemon                   # 监听 :8761
+curl -H "X-UID: 9622" http://localhost:8761/dh/list                    # 数字人名单
+curl -X POST http://localhost:8761/dh/dispatch \
+  -H "Content-Type: application/json" -H "X-UID: 9622" \
+  -d '{"dh":"DH-011","task":"把首页改成响应式"}'
+```
+
+| 端点 | 说明 |
+|:---|:---|
+| `GET /dh/health` | 健康检查（公开） |
+| `GET /dh/list` | 数字人名单（需 `X-UID: 9622`） |
+| `POST /dh/dispatch` | 调动数字人执行任务（需 `X-UID: 9622`） |
+
+> 📖 完整接口文档: [`docs/LH-DH-DISPATCH-API.md`](./docs/LH-DH-DISPATCH-API.md) · 数字人档案: `digital_humans/registry.json`
+
+---
+
 ## 📚 文档导航
 
 ### 入门必读
@@ -262,6 +311,8 @@ python3 08_BIN/build_cnsh_app.py
 | 🚀 [INSTALL.md](./INSTALL.md) | 安装指南（Linux/macOS/Windows/Docker） |
 | ❓ [docs/FAQ.md](./docs/FAQ.md) | 常见问题 |
 | 📔 [docs/GLOSSARY.md](./docs/GLOSSARY.md) | 术语表 |
+| 📋 [docs/龙魂系统能力清单-2026-09-03.md](./docs/龙魂系统能力清单-2026-09-03.md) | 能力盘点 · 命令/图谱/接口/守护 一表看清 |
+| 🤝 [docs/社区接入指南.md](./docs/社区接入指南.md) | 社区接入 · clone/跑命令/接API/提Issue/验耻辱墙 |
 
 ### 技术文档
 | 文件 | 内容 |
@@ -416,11 +467,44 @@ The LongHun Protocol is designed to be the governance layer that any AI system c
 
 | 贡献者 | 角色 | 贡献 |
 |--------|------|------|
-| [UID9622](https://github.com/UID9622) | 创造者 · 架构师 | 全部核心系统 |
+| [UID9622](https://github.com/UID9622) | 创造者 · 架构师 | 全部核心系统 · 187 次提交 |
+| CodeBuddy | AI 编码协作者 | 2026-08 起全面参与系统构建 |
+| Kimi | AI 协作者 | 历史构建 · 文档补全 |
+| qingkong66 | 社区伙伴 | Issue #1622 审计数据集主入口贡献者 |
+| DeepSeek | 被审计对象 | 跨框架审计数据集来源 |
 
 > 🏷 想上榜？从 [Good First Issue](https://github.com/UID9622/longhun-system/issues?q=label%3A%22good+first+issue%22) 开始！
 > 
 > 💬 有任何问题，来 [Discussions](https://github.com/UID9622/longhun-system/discussions) 聊聊。
+
+### 🏛 贡献者铭碑（Merkle · 防篡改 · 永不吞没）
+
+> **任何人问"谁参与了龍魂"，不用解释——直接给根哈希，他自己验证：**
+> `python3 08_BIN/lh_memorial.py --verify`
+
+```
+🏛 贡献者铭碑根哈希: 66534a848e73062af675911e0cc1db2907b6507bfc86409e1fdf505b66cac908
+📅 建档: 2026-09-02 · 5 位贡献者 · 187 次提交
+🧬 DNA: #龍芯⚡️20260902-CONTRIBUTOR-MEMORIAL-v1.0-9622
+📜 协议: 01_protocols/LH-CONTRIBUTOR-MEMORIAL-v1.0.md
+```
+
+> 铭碑引擎：`08_BIN/lh_memorial.py` · 由 git 提交 + 人工登记双源构成 ·
+> 任何人 clone 仓库后可复算校验，删改任何一条贡献 = 根哈希对不上 = 铁证。
+
+### 🔬 社区审计通道（对外审计窗口）
+
+> **跨框架审计数据集主入口**：[DeepSeek Issue #1622](https://github.com/deepseek-ai/DeepSeek-V3/issues/1622)
+> 本数据集用于跨框架基准审计。欢迎提交审阅意见、引用数据集、或 fork 验证 Merkle 根。
+> 任何 issue/质疑 → 第一反应不是"解释"，而是跑一遍铭碑校验，把根哈希结果贴回去。
+>
+> 📢 **社区反馈请走耻辱墙 Issue 模板**：https://github.com/UID9622/longhun-system/issues/new?template=shame_report.yml （误报申诉 / 剽窃举报 / 记录纠错 / 铭碑质疑）
+
+### 🕒 每日自审（系统自己养自己）
+
+> 每日 03:00 launchd 自动执行：左右互搏审计核心文件 + 健康自检 + 铭碑校验 →
+> 综合分 < 80 自动耻辱墙 + Bark 告警。报告：`~/.longhun/audit/daily/YYYY-MM-DD.json`
+> 引擎：`08_BIN/lh_daily_audit.py` · 手动触发：`python3 08_BIN/lh_daily_audit.py --run`
 
 ---
 

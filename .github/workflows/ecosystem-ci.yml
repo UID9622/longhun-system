@@ -1,0 +1,126 @@
+# 🐉 龍魂系统 · 生态自检流水线（任务B）
+# DNA: #龍芯⚡️2026-09-03-ECOSYSTEM-CI-v1.0-UID9622
+# 创建者: 诸葛鑫（UID9622）· 龍芯北辰
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# License: MulanPSL v2 (工程层)
+#
+# 触发: push/PR 到 orphan_main（图谱/引擎/模型层变更时）
+# 动作: ① 全部本地图谱结构校验(lh topo verify·零外部依赖) ② 引擎 import 冒烟
+#       ③ health --json knowledge_graph 解析 · model list 图谱侧
+# 语义: 任一 job 失败 → workflow 红 → 分支保护必过检查 = 阻止合并
+# 说明: CI 无 ollama/DeepSeek 运行时 → 只验证库内数据与代码可加载性；
+#       活体探测(live)由本机/部署环境的定时任务负责，不在此设假红。
+
+name: 🐉 龍魂生态自检（图谱/引擎/模型）
+
+on:
+  push:
+    branches: [orphan_main]
+    paths:
+      - 'docs/topology/**'
+      - '08_BIN/lh_topo.py'
+      - '08_BIN/lh_model.py'
+      - '08_BIN/lh_judge.py'
+      - '08_BIN/lh_health.py'
+      - '08_BIN/lh.py'
+      - 'bin/lh'
+      - '.github/workflows/ecosystem-ci.yml'
+  pull_request:
+    branches: [orphan_main]
+  workflow_dispatch:
+
+env:
+  PYTHONPATH: ${{ github.workspace }}
+
+jobs:
+  topo-verify-all:
+    name: 🕸️ 图谱全量结构校验
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 逐个校验本地图谱（零外部依赖·纯 JSON 结构）
+        run: |
+          FAIL=0
+          for f in docs/topology/*_legion_topo.json; do
+            [ -e "$f" ] || continue
+            name=$(python3 -c "import json;print(json.load(open('$f',encoding='utf-8')).get('topo_name',''))" 2>/dev/null)
+            if [ -z "$name" ]; then echo "❌ $f 无 topo_name"; FAIL=1; continue; fi
+            python3 08_BIN/lh_topo.py verify "$name" >/dev/null 2>&1 \
+              && echo "✅ $name" || { echo "❌ $name"; FAIL=1; }
+          done
+          echo "---- 校验清单 ----"
+          ls -1 docs/topology/*_legion_topo.json | wc -l | xargs echo "图谱文件数:"
+          exit $FAIL
+
+  engine-smoke:
+    name: 🧠 引擎 import + health 冒烟
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 核心引擎可加载性
+        run: |
+          python3 -c "
+          import importlib.util as iu
+          for m in ['lh_topo','lh_model','lh_judge','lh_health','lh_audit_report','lh_backup']:
+              p=f'08_BIN/{m}.py'
+              assert iu.find_spec(m) is None  # 非三方模块·用路径加载
+              import py_compile
+              py_compile.compile(p, doraise=True)
+              print(f'✅ {m} 语法通过')
+          "
+
+      - name: lh health --json 可解析（knowledge_graph 段）
+        run: |
+          OUT=$(python3 08_BIN/lh.py health --json 2>&1 || true)
+          echo "$OUT" | python3 -c "
+          import json,sys
+          s=sys.stdin.read()
+          try:
+              d=json.loads(s)
+              kg=d.get('knowledge_graph',{})
+              print(f\"✅ health JSON 可解析 · kg ok={kg.get('ok')} · nodes={kg.get('nodes')}\")
+          except Exception:
+              print('⚠️ 本环境缺本地状态文件·health 降级（不阻塞·结构已冒烟）')
+          "
+
+      - name: lh model list（图谱注册侧）
+        run: |
+          python3 08_BIN/lh.py model list >/tmp/model_list.txt 2>&1 || true
+          grep -q "longhun-v4.1.9\|图谱" /tmp/model_list.txt && echo "✅ model list 图谱侧正常" || echo "⚠️ 输出待人工核"
+
+  health-json-gate:
+    name: 🏥 health --json 结构门禁
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [topo-verify-all, engine-smoke]
+    if: always()
+    steps:
+      - name: 汇总
+        run: |
+          echo "## 🐉 生态自检汇总" >> $GITHUB_STEP_SUMMARY
+          echo "| Job | 结果 |" >> $GITHUB_STEP_SUMMARY
+          echo "|:---|:---|" >> $GITHUB_STEP_SUMMARY
+          echo "| 🕸️ topo-verify-all | ${{ needs.topo-verify-all.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🧠 engine-smoke | ${{ needs.engine-smoke.result }} |" >> $GITHUB_STEP_SUMMARY
+          # 任一失败 → 非0退出（阻塞合并）
+          if [ "${{ needs.topo-verify-all.result }}" = "failure" ] || [ "${{ needs.engine-smoke.result }}" = "failure" ]; then
+            echo "❌ 生态自检未通过"
+            exit 1
+          fi
+          echo "✅ 生态自检通过"

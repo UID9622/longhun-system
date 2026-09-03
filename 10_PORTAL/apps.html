@@ -79,6 +79,13 @@ a{color:inherit;text-decoration:none}
 .card .arrow{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--text-faint);font-size:13px;opacity:0;transition:.2s}
 .card:hover .arrow{opacity:1;color:var(--gold)}
 
+/* 产品档案解说角标（JS 注入·避免嵌套链接） */
+.profile-wrap{position:relative}
+.profile-link{position:absolute;right:8px;top:8px;width:26px;height:26px;border-radius:8px;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;opacity:0;transition:.2s;z-index:2}
+.card:hover ~ .profile-link,.profile-link:hover{opacity:1;border-color:var(--gold);box-shadow:var(--glow)}
+.btn-profiles{display:inline-flex;align-items:center;gap:6px;background:var(--gold-dim);border:1px solid var(--border);color:var(--gold);padding:7px 16px;border-radius:10px;font-size:13px;font-weight:600;margin-top:16px;transition:.2s}
+.btn-profiles:hover{background:var(--gold);color:var(--bg);box-shadow:var(--glow)}
+
 /* 空结果 */
 .empty{display:none;text-align:center;padding:60px 0;color:var(--text-faint)}
 .empty .big{font-size:42px;margin-bottom:10px}
@@ -124,6 +131,7 @@ a{color:inherit;text-decoration:none}
       <div><b>192</b>引擎支撑</div>
       <div><b>20</b>人格矩阵</div>
     </div>
+    <div><a class="btn-profiles" href="/apps/profiles/index.html">📚 产品档案总索引（每个产品都有详细解说）</a></div>
   </div>
 </div>
 
@@ -345,8 +353,25 @@ a{color:inherit;text-decoration:none}
 
 <script>
 (function(){
+  // 产品档案解说角标：给每个卡片注入「📄 详细解说」入口（包装容器避免嵌套链接）
+  [].slice.call(document.querySelectorAll('a.card')).forEach(function(card){
+    var href=card.getAttribute('href').replace(/\.html$/,'').replace(/\/$/,'');
+    var slug=href.split('/').pop();
+    if(!slug)return;
+    var wrap=document.createElement('div');
+    wrap.className='profile-wrap';
+    card.parentNode.insertBefore(wrap,card);
+    wrap.appendChild(card);
+    var doc=document.createElement('a');
+    doc.href='/apps/profiles/'+slug+'.html';
+    doc.className='profile-link';
+    doc.title='📄 详细解说';
+    doc.textContent='📄';
+    wrap.appendChild(doc);
+  });
+
   var q=document.getElementById('q'),empty=document.getElementById('empty');
-  var cards=[].slice.call(document.querySelectorAll('.card'));
+  var cards=[].slice.call(document.querySelectorAll('a.card'));
   var groups=[].slice.call(document.querySelectorAll('.group'));
   var allCount=document.getElementById('c-all');
   allCount.textContent=cards.length;
@@ -356,12 +381,11 @@ a{color:inherit;text-decoration:none}
     var visible=0;
     cards.forEach(function(c,i){
       var hit=!kw||keys[i].toLowerCase().indexOf(kw)>-1;
-      c.style.display=hit?'':'none';
+      (c.parentNode||c).style.display=hit?'':'none';
       if(hit)visible++;
     });
     groups.forEach(function(g){
-      var any=g.querySelectorAll('.card').length?false:true;
-      var has=[].some.call(g.querySelectorAll('.card'),function(c){return c.style.display!=='none';});
+      var has=[].some.call(g.querySelectorAll('a.card'),function(c){return (c.parentNode||c).style.display!=='none';});
       g.style.display=has?'':'none';
     });
     empty.style.display=visible?'none':'block';

@@ -1,0 +1,51 @@
+# DNA: #龍芯⚡️2026-09-03-ISSUE-SHAME-REPORT-v1.0-UID9622
+name: 🚫 耻辱墙反馈
+description: 耻辱墙记录申诉 · 剽窃举报 · 误报纠错 · 铭碑质疑
+title: "[Shame] "
+labels: ["shame-wall"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        耻辱墙 = 龍魂系统违规记录**永久公开页**（君子协议可视化 · 每日 02:00 自动更新）。
+        可在此提交：被误上墙的**申诉** / 新剽窃证据的**举报** / 耻辱墙记录的**纠错**。
+        建议先跑铭碑校验再反馈：`python3 08_BIN/lh_memorial.py --verify`
+
+  - type: input
+    id: target
+    attributes:
+      label: 对象
+      description: 耻辱墙记录 ID / 公开页 URL / 相关内容
+      placeholder: "shame_wall 记录 ID · ~/.longhun/shame_wall/ · issue 链接 ..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 反馈类型
+      description: 选择你的反馈属于哪一类
+      options:
+        - 误报申诉（我是被误伤的）
+        - 剽窃举报（发现新的侵权内容）
+        - 记录纠错（数据/链接有误）
+        - 铭碑质疑（贡献者根哈希对不上）
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: 详细说明
+      description: 清晰描述事实与依据（时间 / 来源 / 做了什么）
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 证据
+      description: URL / 截图 / 复现命令输出。跑一遍铭碑校验，把根哈希结果贴回来
+      placeholder: "根哈希: 66534a84... · 复现输出: ..."
+    validations:
+      required: true

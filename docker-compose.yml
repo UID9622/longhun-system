@@ -50,3 +50,64 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+
+  # ═══════════════════════════════════════════════════════════
+  # 🐉 龍魂生态三服务（任务A 容器化交付 · 2026-09-03）
+  # 一键: docker compose up core api topo
+  # ═══════════════════════════════════════════════════════════
+  longhun-core:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: longhun-core
+    environment:
+      - LONGHUN_MODE=container
+    volumes:
+      - longhun-state:/home/longhun/.longhun
+    command: ["python3", "08_BIN/lh.py", "health"]
+    restart: unless-stopped
+
+  longhun-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: longhun-api
+    ports:
+      - "9622:9622"
+    environment:
+      - LONGHUN_MODE=container
+    volumes:
+      - longhun-state:/home/longhun/.longhun
+    command: ["python3", "08_BIN/lh.py", "api", "--host", "0.0.0.0"]
+    depends_on:
+      - longhun-core
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9622/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  longhun-topo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: longhun-topo
+    ports:
+      - "8762:8762"
+    environment:
+      - LONGHUN_MODE=container
+    volumes:
+      - longhun-state:/home/longhun/.longhun
+    command: ["python3", "08_BIN/lh.py", "topo", "serve", "--host", "0.0.0.0"]
+    depends_on:
+      - longhun-core
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8762/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+volumes:
+  longhun-state:

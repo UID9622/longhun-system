@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+DNA: #龍芯⚡️丙午·丁未·癸巳·午时·䷾既济-AGENT-RECOVER-AUTO-v1.0
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+协议: CC BY-NC-SA 4.0（核心思想层）
+任务: 每 5 分钟检测长期任务队列 → 进程被杀自动续跑/重试（断点续跑·38h 无人值守支撑）
+⚠️ 常驻需老大确认后 load（节能协议守护白名单规则 2026-08-22）:
+    launchctl load ~/Library/LaunchAgents/com.longhun.agent-recover.plist
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.longhun.agent-recover</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/zuimeidedeyihan/longhun-system/08_BIN/lh_agent_long.py</string>
+        <string>recover</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/zuimeidedeyihan/longhun-system</string>
+    <key>StartInterval</key>
+    <integer>300</integer>
+    <key>RunAtLoad</key>
+    <false/>
+    <key>StandardOutPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/logs/agent_recover_launchd.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/zuimeidedeyihan/longhun-system/logs/agent_recover_launchd.err.log</string>
+</dict>
+</plist>

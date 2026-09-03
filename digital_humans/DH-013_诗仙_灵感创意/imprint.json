@@ -1,0 +1,20 @@
+{
+  "dna": "#龍芯⚡️2026-09-02-DH-013-STUDIO-v1.0-UID9622",
+  "name": "诗仙·灵感创意官",
+  "ipa": "DH-013",
+  "face_hash": "FACE-DH-013-C26D5F",
+  "voiceprint": "VOICE-DH-013-9622",
+  "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-013_诗仙_灵感创意",
+  "created_at": "2026-09-02T13:00:00.000000",
+  "updated_at": "2026-09-02T13:00:00.000000",
+  "version": 1,
+  "status": "active",
+  "metadata": {
+    "type": "DH",
+    "source": "2026-09-02 老大指令·数字人创作启动·设计生态岗位全补全",
+    "persona": "P11 李白",
+    "principle": "创意爆发 · 破局方案 · 故事化表达",
+    "functions": "灵感供给 · 类比教学 · 概念破局 · 故事化表达 · 创意素材库",
+    "team": "设计团流水线: 诗仙灵感→雲錦视觉→字靈字体→匠心代码→蔡侯排版→明鉴验收→墨香归档→知行上线"
+  }
+}

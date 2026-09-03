@@ -61,6 +61,7 @@ python3 bin/lh_template_match.py "鸿蒙 ArkTS 实战：项目里程碑时间线
 |------|------|
 | `ALL-IN-ONE.md` | 12套模板合订完整版（推荐） |
 | `01-通用开发.md` ~ `12-紧急修复.md` | 单模板文件 |
+| `quantum/` | 🧬 量子模板引擎库 17 套（Notion 同步·文档/发布/系统流程） |
 | `README.md` | 本说明 |
 | `bin/lh_template_match.py` | 标题→模板自动路由器 |
 

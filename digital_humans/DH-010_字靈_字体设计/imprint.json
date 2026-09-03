@@ -1,0 +1,20 @@
+{
+  "dna": "#龍芯⚡️2026-09-02-DH-010-STUDIO-v1.0-UID9622",
+  "name": "字靈·字体设计官",
+  "ipa": "DH-010",
+  "face_hash": "FACE-DH-010-C26D5F",
+  "voiceprint": "VOICE-DH-010-9622",
+  "model_path": "/Users/zuimeidedeyihan/longhun-system/digital_humans/DH-010_字靈_字体设计",
+  "created_at": "2026-09-02T13:00:00.000000",
+  "updated_at": "2026-09-02T13:00:00.000000",
+  "version": 1,
+  "status": "active",
+  "metadata": {
+    "type": "DH",
+    "source": "2026-09-02 老大指令·数字人创作启动·设计生态岗位全补全",
+    "persona": "P08 仓颉",
+    "principle": "字体审美 · 符号语言 · 命名规范",
+    "functions": "龍魂字体维护 · 繁龍焊死 · 命名/符号/CNSH规范 · 字体资产取材(longhun-font)",
+    "team": "设计团流水线: 诗仙灵感→雲錦视觉→字靈字体→匠心代码→蔡侯排版→明鉴验收→墨香归档→知行上线"
+  }
+}
