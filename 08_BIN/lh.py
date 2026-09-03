@@ -831,6 +831,9 @@ SUB_DISPATCH = {
     'github-test-perms':    ('lh_github_perms.py',            '🔍', 'GitHub社区联动·测当前PAT对目标仓库读写权限(默认deepseek-ai/DeepSeek-V3)', [], 'test-perms'),
     'github-token-hint':    ('lh_github_perms.py',            '💡', 'GitHub社区联动·输出缺失权限范围建议', [], 'token-hint'),
     'fork':                 ('lh_fork_tracker.py',            '🍴', 'fork追踪·列出UID9622/longhun-system全部fork/检查新fork (lh fork list|check [--json]·缓存~/.longhun/fork_cache.json)', [], 'list'),
+    'codeql':               ('lh_codeql_listener.py',          '🔬', 'CodeQL自动响应闭环·listen监听/status状态/fetch拉取(可用--sarif)/autofix修复+dashboard面板转autofix模块·webhook联动端点9786·分派数字人:包青天/字靈/匠心/知行/明鉴/诗仙/蔡侯(2026-09-03)', [], 'status'),
+    'codeql-autofix':       ('lh_codeql_autofix.py',           '🤖', 'CodeQL自动修复引擎·autofix [--dry-run|--pr-only|--auto-merge]/dashboard·日上限3次·健康闸·耻辱墙熔断', [], ''),
+    'codeql-dashboard':     ('lh_codeql_autofix.py',           '📊', 'CodeQL状态面板·Markdown+GPG签名→~/.longhun/codeql_dashboard.md', [], 'dashboard'),
     'search':               ('lh_search_engine.py',           '🔍', '搜索引擎', [], 'search'),
     # 💤 技能调度器 v1.0 — 技能用完即休·用时即唤·不常驻省算力（2026-08-16）
     'skill':                ('lh_skill_scheduler.py',         '💤', '技能调度·list/wake/sleep/autosleep/stats（用完休眠·用前唤醒·省CPU）', [], 'status'),
