@@ -358,8 +358,107 @@ def chat() -> Any:
 
 
 # ─── 运行 ───
+# ============================================================
+# 🐉 媒体感官层 · 统一媒体网关 v1.0（2026-09-01 · 感官层四件套）
+#   /v1/render → 女娲五彩石渲染引擎（wuxing/audit/flow/health → png/svg/html）
+#   /v1/speak  → 龍魂声音引擎（TTS → wav/mp3）
+#   /v1/video  → 龍魂视频引擎（文本/图片 → mp4/webm）
+#   全部响应带 X-Longhun-Trace 追溯头
+# ============================================================
+import os as _os
+import json as _json
+import uuid as _uuid
+import tempfile as _tf
+
+from flask import send_file as _send_file
+
+_BIN_DIR = str(Path(__file__).resolve().parent.parent)
+if _BIN_DIR not in sys.path:
+    sys.path.insert(0, _BIN_DIR)
+
+
+@app.after_request
+def _media_trace(resp: Any):
+    """统一注入 X-Longhun-Trace 追溯头"""
+    if "X-Longhun-Trace" not in resp.headers:
+        resp.headers["X-Longhun-Trace"] = f"LH-{_uuid.uuid4().hex[:16]}"
+    return resp
+
+
+@app.route("/v1/render", methods=["POST"])
+def v1_render() -> Any:
+    if not _authed():
+        return jsonify({"error": "Unauthorized"}), 401
+    body = request.get_json(silent=True) or {}
+    类型 = str(body.get("type", "wuxing"))
+    数据 = body.get("data")
+    格式 = str(body.get("format", "png"))
+    if 格式 not in ("png", "svg", "html"):
+        return jsonify({"error": "format must be png/svg/html", "trace": _uuid.uuid4().hex[:16]}), 400
+    try:
+        from wuwu_renderer import 渲染
+        with _tf.TemporaryDirectory() as tmp:
+            payload = _json.dumps(数据, ensure_ascii=False) if isinstance(数据, (dict, list)) else (数据 or None)
+            out = 渲染(类型, payload, 格式, "media_render", 路径目录=Path(tmp))
+            mime = {"png": "image/png", "svg": "image/svg+xml", "html": "text/html"}[格式]
+            return _send_file(out, mimetype=mime, as_attachment=False, download_name=f"wuwu_{类型}.{格式}")
+    except SystemExit as e:
+        return jsonify({"error": str(e)}), 400
+    except Exception as e:  # noqa: BLE001
+        return jsonify({"error": f"render failed: {e}"}), 500
+
+
+@app.route("/v1/speak", methods=["POST"])
+def v1_speak() -> Any:
+    if not _authed():
+        return jsonify({"error": "Unauthorized"}), 401
+    body = request.get_json(silent=True) or {}
+    text = str(body.get("text", "")).strip()
+    if not text:
+        return jsonify({"error": "text required", "trace": _uuid.uuid4().hex[:16]}), 400
+    格式 = str(body.get("format", "wav"))
+    声音 = body.get("voice")
+    引擎 = str(body.get("engine", "say"))
+    if 格式 not in ("wav", "mp3"):
+        return jsonify({"error": "format must be wav/mp3", "trace": _uuid.uuid4().hex[:16]}), 400
+    try:
+        from lh_audio import cmd_speak
+        with _tf.TemporaryDirectory() as tmp:
+            out = cmd_speak(text, voice=声音, fmt=格式, out=_os.path.join(tmp, f"speak.{格式}"), engine=引擎)
+            mime = "audio/wav" if 格式 == "wav" else "audio/mpeg"
+            return _send_file(out, mimetype=mime, as_attachment=False, download_name=f"lh_speak.{格式}")
+    except SystemExit as e:
+        return jsonify({"error": str(e)}), 400
+    except Exception as e:  # noqa: BLE001
+        return jsonify({"error": f"speak failed: {e}"}), 500
+
+
+@app.route("/v1/video", methods=["POST"])
+def v1_video() -> Any:
+    if not _authed():
+        return jsonify({"error": "Unauthorized"}), 401
+    body = request.get_json(silent=True) or {}
+    输入 = body.get("input") or body.get("text")
+    if not 输入:
+        return jsonify({"error": "input/text required", "trace": _uuid.uuid4().hex[:16]}), 400
+    模板 = body.get("template")
+    格式 = str(body.get("format", "mp4"))
+    if 格式 not in ("mp4", "webm"):
+        return jsonify({"error": "format must be mp4/webm", "trace": _uuid.uuid4().hex[:16]}), 400
+    try:
+        from lh_video import cmd_video
+        with _tf.TemporaryDirectory() as tmp:
+            out = cmd_video(str(输入), template=模板, fmt=格式, out=_os.path.join(tmp, f"video.{格式}"))
+            mime = "video/mp4" if 格式 == "mp4" else "video/webm"
+            return _send_file(out, mimetype=mime, as_attachment=False, download_name=f"lh_video.{格式}")
+    except SystemExit as e:
+        return jsonify({"error": str(e)}), 400
+    except Exception as e:  # noqa: BLE001
+        return jsonify({"error": f"video failed: {e}"}), 500
+
+
 if __name__ == "__main__":
-    host = str(config.get("gateway", {}).get("host", "0.0.0.0"))
+    host = str(config.get("gateway", {}).get("host", "127.0.0.1"))
     port = int(config.get("gateway", {}).get("port", 8092))
     debug = bool(config.get("gateway", {}).get("debug", False))
 

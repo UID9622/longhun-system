@@ -280,6 +280,13 @@ class AutoAgent:
 
 
 def main():
+    # 🔥 长任务引擎委托（2026-09-03 · v2.0+）：`lh agent run/status/root-cause/list/cancel/recover/test`
+    # 与现有 flags(--interactive/--auto/--input/--stats) 无冲突 → 第一参数命中即 execv 转发
+    _LONG_TASK_SUB = ("run", "status", "root-cause", "list", "cancel", "recover", "test")
+    if sys.argv[1:] and sys.argv[1] in _LONG_TASK_SUB:
+        long_script = Path(__file__).resolve().parent.parent / "lh_agent_long.py"
+        os.execv(sys.executable, [sys.executable, str(long_script)] + sys.argv[1:])
+
     parser = argparse.ArgumentParser(prog="lh-agent", description="龍魂全自动AI智能体系统 v2.0")
     parser.add_argument("--interactive", action="store_true", help="交互模式")
     parser.add_argument("--auto", type=int, metavar="N", help="自动模式跑 N 轮")

@@ -9,11 +9,12 @@
 CPU/内存/磁盘/网络 四维基准·实机跑分·历史对比
 
 用法:
-    lh benchmark                  # 默认全项基准测试
-    lh benchmark --quick          # 快速基准（仅CPU+内存）
-    lh benchmark --compare        # 对比历史基线
-    lh benchmark --json           # JSON结构化输出
+    lh sys-benchmark              # 默认全项基准测试
+    lh sys-benchmark --quick      # 快速基准（仅CPU+内存）
+    lh sys-benchmark --compare    # 对比历史基线
+    lh sys-benchmark --json       # JSON结构化输出
     python3 bin/lh_system_benchmark.py   # 直接运行
+    # 注: 原 lh benchmark 键已让位给 lh_benchmark.py（排盘/流场/网关QPS·2026-09-01）
 """
 
 import os

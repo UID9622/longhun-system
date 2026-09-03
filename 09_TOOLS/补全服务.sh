@@ -20,18 +20,19 @@ fi
 
 echo "🔧 龍魂核心服务补全开始...（使用 $PY3）"
 
-# 1. 操作台 :9622（用 http.server 托管 web/p0-controls）
-if lsof -Pi :9622 -sTCP:LISTEN -t >/dev/null 2>&1; then
-    echo "✅ 操作台 :9622 已在运行"
+# 1. 操作台 :9662（用 http.server 托管 web/p0-controls）
+# 2026-09-01 修正: 原 :9622 被操作台占用，导致 lh api 网关（协议焊死 127.0.0.1:9622 · api.longhun888.com→:9622）无法自启。操作台挪至 :9662。
+if lsof -Pi :9662 -sTCP:LISTEN -t >/dev/null 2>&1; then
+    echo "✅ 操作台 :9662 已在运行"
 else
-    echo "▶ 启动操作台 :9622（http.server 托管 web/p0-controls）"
+    echo "▶ 启动操作台 :9662（http.server 托管 web/p0-controls）"
     cd "$LONGHUN_ROOT/web/p0-controls"
-    nohup python3 -m http.server 9622 --bind 127.0.0.1 > "$LOG_DIR/console-9622.out.log" 2> "$LOG_DIR/console-9622.err.log" &
+    nohup python3 -m http.server 9662 --bind 127.0.0.1 > "$LOG_DIR/console-9662.out.log" 2> "$LOG_DIR/console-9662.err.log" &
     sleep 1
-    if lsof -Pi :9622 -sTCP:LISTEN -t >/dev/null 2>&1; then
-        echo "✅ 操作台 :9622 已启动 (PID: $(lsof -Pi :9622 -sTCP:LISTEN -t))"
+    if lsof -Pi :9662 -sTCP:LISTEN -t >/dev/null 2>&1; then
+        echo "✅ 操作台 :9662 已启动 (PID: $(lsof -Pi :9662 -sTCP:LISTEN -t))"
     else
-        echo "🔴 操作台 :9622 启动失败，查看 $LOG_DIR/console-9622.err.log"
+        echo "🔴 操作台 :9662 启动失败，查看 $LOG_DIR/console-9662.err.log"
         exit 1
     fi
 fi

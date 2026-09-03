@@ -38,6 +38,11 @@ WECHAT_API_KEY = os.getenv("WECHAT_API_KEY", "")          # APIv3密钥
 ALIPAY_APP_ID = os.getenv("ALIPAY_APP_ID", "")
 ALIPAY_PRIVATE_KEY = os.getenv("ALIPAY_PRIVATE_KEY", "")
 CBPay_MERCHANT_NO = os.getenv("CBPay_MERCHANT_NO", "")
+CBPay_APP_ID = os.getenv("CBPay_APP_ID", "")
+CBPay_API_BASE = os.getenv("CBPay_API_BASE", "")
+CBPay_SIGN_MODE = os.getenv("CBPay_SIGN_MODE", "hmac")   # hmac / rsa / sm2(预留)
+CBPay_API_KEY = os.getenv("CBPay_API_KEY", "")            # hmac=对称密钥 / rsa=商户私钥
+CBPay_PLATFORM_PUBKEY = os.getenv("CBPay_PLATFORM_PUBKEY", "")
 
 # 沙箱验签密钥（仅本地闭环使用·生产切真实通道后废弃）
 SANDBOX_SECRET = os.getenv("SANDBOX_SECRET", "longhun-sandbox-secret-9622")

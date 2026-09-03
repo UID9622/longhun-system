@@ -4,7 +4,7 @@
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 
 gateway:
-  host: 0.0.0.0
+  host: 127.0.0.1
   port: 8092
   debug: false
 

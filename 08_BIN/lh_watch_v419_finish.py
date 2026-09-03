@@ -20,7 +20,7 @@ PROJECT = Path(__file__).resolve().parent.parent
 OUT = PROJECT / "models" / "longhun-v1.0" / "lora_output_v419"
 MERGED = OUT / "merged_v419"
 ADAPTER = OUT / "adapter_v419"
-TRAIN_LOG = OUT / "train_v419_run2.log"
+TRAIN_LOG = OUT / "train_v419_run4.log"
 MAX_WAIT = 22 * 3600  # 22h 上限
 
 

@@ -5,8 +5,12 @@
 DeepSeek-V3 API 调用封装（龍魂适配版）
 DNA: #龍芯⚡️丙午·乙未·甲辰·庚午·䷝离为火-DeepSeek适配-v1.0
 创建者: 诸葛鑫（UID9622）
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 协议: CC BY-NC-SA 4.0
 CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+精修(2026-09-03·深度学习代码精修): 本文件降级为 lh_model.generate 的底层委派库
+  · 调用入口唯一化: lh model run / lh model api（lh.py SUB_DISPATCH 'model'）
+  · 禁止直接 python3 deepseek_api.py 裸调（__main__ 示例已归一移除）· 逻辑不变·向后兼容
 """
 
 import os
@@ -118,21 +122,13 @@ class DeepSeekClient:
         return chinese_chars + int(english_words * 1.33) + 5
 
 
-# ---------- 使用示例 ----------
+# ---------- 统一入口指引（2026-09-03·深度学习代码精修） ----------
+# 本文件为底层委派库，不再提供独立 CLI 示例。调用统一走:
+#   lh model run "<prompt>" --engine deepseek      # DeepSeek 单轮推理
+#   lh model api                                  # 双端状态（deepseek/ollama）
+#   from lh_model import generate                 # Python 层统一推理入口(auto 降级链)
 if __name__ == "__main__":
-    # 初始化客户端
-    client = DeepSeekClient()
-
-    # 1. 同步对话
-    messages = [
-        {"role": "system", "content": "你是龍魂系统的AI助手，回答要直接、真实、不虚伪。"},
-        {"role": "user", "content": "介绍一下DeepSeek-V3的特点"}
-    ]
-    response = client.chat(messages)
-    print(response['choices'][0]['message']['content'])
-
-    # 2. 流式对话
-    print("\n--- 流式输出 ---")
-    for chunk in client.chat_stream(messages):
-        print(chunk, end="", flush=True)
-    print()
+    import sys
+    print("  ⚠️ deepseek_api.py 已归一为 lh_model 底层库（深度学习代码精修 v1.0）")
+    print("     请使用统一入口: lh model run '<prompt>' --engine deepseek  |  lh model api")
+    sys.exit(2)

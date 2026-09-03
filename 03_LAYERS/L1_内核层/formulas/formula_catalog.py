@@ -317,6 +317,61 @@ C_FORMULAS = {
 }
 
 
+# ============ F46-F60 扩展位·已焊死引擎公式收口（v1.0·2026-08-31） ============
+# 规则：新公式只追加编号，不改旧公式。D组正本见 01_protocols/LH-WUXING-CALC-WELD-v4.0.md。
+
+D_FORMULAS = {
+    "F46": Formula(
+        fid="F46", group=FormulaGroup.A_CORE,
+        title="五行计算 v4.0 Five-Element Calc",
+        standard_formula="得分[e]=Σ位置权重×(干支命中e?1:0) · H=克制衡×0.30+疏导×0.25+补益×0.20+均衡×0.15+链路×0.10",
+        standard_source="中华五行/天干地支（文化主权·不翻译）",
+        standard_explanation="四柱八字五行强度 + 对冲指数 H 判定三色动作",
+        longhorn_twist="老大焊死唯一权威·版本 v4.0·禁止漂移",
+        longhorn_explanation="位置权重(年1.0/0.8·月1.5/1.2·日2.0/1.6·时1.2/1.0)·H≥0.80🟢/0.50~0.80🟡/<0.50🔴",
+        canon_page="01_protocols/LH-WUXING-CALC-WELD-v4.0.md",
+        canon_hash="#龍芯⚡️2026-08-31-五行计算器-v4.0-WELD-UID9622",
+        backfill_target="五行计算器·翻译引擎第五维·流场压缩核·Notion KB031",
+        backfill_rule="引用 F46·不另写五行公式·常量只进 lh_wuxing_core.py 常量区",
+        verifiable=True,
+        python_snippet="# 实现: 08_BIN/lh_wuxing_core.py (计算五行/生成节点/三色审计)",
+        test_case={"路径": 6 * 9 * 8 * 64 * 5 * 120, "expected": 16588800}
+    ),
+    "F47": Formula(
+        fid="F47", group=FormulaGroup.A_CORE,
+        title="干支四柱+64卦+梅花易数起卦",
+        standard_formula="年干支=(公元-4)%60 · 起卦=((天干+月)%8)上卦×((地支+日)%8)下卦",
+        standard_source="中华历法·梅花易数（L0焊死·§17）",
+        standard_explanation="时间→干支四柱→卦象→相位判定",
+        longhorn_twist="所有AI输出末尾附时间戳·卦象三色相位",
+        longhorn_explanation="每句回复附 干支+卦+三色（simple格式）·lh命令附full格式",
+        canon_page="bin/lh_time_engine.py",
+        canon_hash="#龍芯⚡️丙午·丙申·壬戌·亥时·䷲震-ALIGNMENT-RULES-V2.5-ATTRIBUTION-WELD",
+        backfill_target="时间引擎·AI输出戳·日志审计",
+        backfill_rule="引用 F47·起卦法封板·不自创起卦",
+        verifiable=True,
+        python_snippet="# 实现: bin/lh_time_engine.py (年干支/月干支/日干支/梅花起卦)",
+        test_case={"base": 4, "expected": "甲子"}
+    ),
+    "F48": Formula(
+        fid="F48", group=FormulaGroup.A_CORE,
+        title="369不动点+数字根引擎",
+        standard_formula="sn=369 · log369=5.911 · perm369=108 · dr=反复求和至一位",
+        standard_source="数论·龍魂底座锚点",
+        standard_explanation="369 为底座数学锚点·数字根全系统入口",
+        longhorn_twist="数字根反复求和（可追溯每层）·369恒为不动点",
+        longhorn_explanation="决策链环1/五行定位/权重得分 均依赖",
+        canon_page="core/longhun_core/digital_root.py",
+        canon_hash="#龍芯⚡️丙午·丙申·丁巳·丙午·䷟恒-DIGITAL-ROOT-UID9622",
+        backfill_target="决策链·审计·DNA校验·权重计算",
+        backfill_rule="引用 F48·数字根统一入口",
+        verifiable=True,
+        python_snippet="# 实现: core/longhun_core/digital_root.py (compute/root_trace/verify_fixed_point)",
+        test_case={"input": 369, "dr": 9, "is_369": True}
+    ),
+}
+
+
 # ============ 完整母册 ============
 
 class FormulaCatalog:
@@ -331,6 +386,7 @@ class FormulaCatalog:
         self.formulas.update(A_FORMULAS)
         self.formulas.update(B_FORMULAS)
         self.formulas.update(C_FORMULAS)
+        self.formulas.update(D_FORMULAS)
     
     def get_by_fid(self, fid: str) -> Optional[Formula]:
         """按 F 编号查公式"""

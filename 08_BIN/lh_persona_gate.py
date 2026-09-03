@@ -407,7 +407,7 @@ class PersonaGate:
         script_path = SYSTEM_ROOT / "bin" / script_name
         args_list = [sys.executable, str(script_path)]
 
-        if smart_default and extra_args and not extra_args[0].startswith('-'):
+        if smart_default and extra_args and not extra_args[0].startswith('-') and extra_args[0] != smart_default:
             args_list.append(smart_default)
         args_list.extend(extra_args)
 

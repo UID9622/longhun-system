@@ -31,7 +31,19 @@ def _run_engine(extra_args):
     return subprocess.call(cmd)
 
 
+def _route_report(argv):
+    """lh audit report → 合规报告引擎（任务E·2026-09-03）
+    透传剩余参数(--out/--pdf)给 lh_audit_report.py"""
+    rpt = os.path.join(HERE, "lh_audit_report.py")
+    if not os.path.exists(rpt):
+        print(f"ERROR: 合规报告引擎缺失 {rpt}")
+        return 1
+    return subprocess.call([sys.executable, rpt] + argv)
+
+
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] == "report":
+        return _route_report(sys.argv[2:])
     parser = argparse.ArgumentParser(description="🐉 龍魂·三色审计 CLI（部署文档入口）")
     parser.add_argument("--tri-color", action="store_true", help="三色审计")
     parser.add_argument("--full", action="store_true", help="全量部署检查")

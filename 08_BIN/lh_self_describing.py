@@ -775,7 +775,7 @@ class APIHandler(BaseHTTPRequestHandler):
 
 def start_api(system: SelfDescribingSystem, port: int = API_PORT):
     APIHandler.system = system
-    server = ThreadingHTTPServer(("0.0.0.0", port), APIHandler)
+    server = ThreadingHTTPServer(("127.0.0.1", port), APIHandler)
     return server
 
 

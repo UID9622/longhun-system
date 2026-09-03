@@ -430,8 +430,8 @@ def engine_health(port):
 # ════════════════════════════════════════════════
 if __name__ == "__main__":
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 9627
-    print(f"🐉 龍魂 Portal 启动: http://0.0.0.0:{port}")
+    print(f"🐉 龍魂 Portal 启动: http://127.0.0.1:{port}")
     print(f"   📋 公告系统: {ANNOUNCEMENTS_FILE} ({len(json.loads(ANNOUNCEMENTS_FILE.read_text('utf-8')))}条)")
     print(f"   🔬 BCM页面: {BCM_DIR}/behavioral-crypto.html")
     print(f"   ⚙️ 管理后台: /admin/")
-    app.run(host="0.0.0.0", port=port, debug=False)
+    app.run(host="127.0.0.1", port=port, debug=False)

@@ -51,18 +51,18 @@ class ConfigV419:
     lora_dropout = 0.08
     lora_layers = 12
 
-    # 训练 — 极保守策略
-    batch_size = 2
+    # 训练 — 极保守策略（2026-08-31 v3.0: warmup 30→100·patience 2→5 防 run3 早停）
+    batch_size = 1
     grad_accumulation_steps = 2
     lr_peak = 2e-7
     lr_min = 1e-9
-    warmup_steps = 30
+    warmup_steps = 100
     weight_decay = 0.01
     epochs = 2
     max_seq_length = 2048
 
     # 控制
-    early_stop_patience = 2
+    early_stop_patience = 5
     val_steps = 200
     save_every = 500
     report_every = 10
@@ -77,9 +77,9 @@ class ConfigV419:
     merged_dir = output_dir / "merged_v419"
     gguf_dir = output_dir / "gguf_v419"
 
-    # v4.1.9: 从 v4.1.8 best 续训
+    # v4.1.9: 从 v4.1.9-preview (iter200) 断点续训（2026-08-30 v2.0 修正）
     resume_adapter_file = str(
-        project_root / "models" / "longhun-v1.0" / "lora_output_v418" / "adapter_v418" / "best_adapters.safetensors"
+        project_root / "weights" / "v4.1.9" / "best_adapters_preview_iter200.safetensors"
     )
 
     # 推理
@@ -88,10 +88,26 @@ class ConfigV419:
     num_ctx = 4096
 
 
-def _prepare_v419_data():
-    """准备 v4.1.9 训练数据：v4.1.8 数据 + 新增 CNSH 语料 + 概念关系 + CNSH场景。"""
+def _prepare_v419_data(force=False):
+    """准备 v4.1.9 训练数据：v4.1.8 数据 + 新增 CNSH 语料 + 概念关系 + CNSH场景。
+
+    🔴 2026-08-31 修复（run3 早停失败根因）:
+      - 数据冻结: train/valid 已存在则复用（不每次重建 → val loss 跨 run 可比）
+      - 超长过滤收紧: max_chars 12000 字符 → 4000 字符
+        （旧线放行了 18918 字节≈6300 字符样本 → 截断 2048 token 时 assistant 被切没
+          → loss 0/0 → nan → 早停；run2/run3 均崩在 ~400 iter 验证此机制）
+      - 强制重建: python3 bin/lh_lora_trainer_v419.py rebuild-data
+    """
     cfg = ConfigV419
     cfg.data_dir.mkdir(parents=True, exist_ok=True)
+    train_out = cfg.data_dir / "train.jsonl"
+    valid_out = cfg.data_dir / "valid.jsonl"
+    if not force and train_out.exists() and valid_out.exists():
+        n_t = sum(1 for _ in open(train_out))
+        n_v = sum(1 for _ in open(valid_out))
+        print(f"✅ 数据已冻结·复用: {cfg.data_dir}")
+        print(f"   train: {n_t} 条 · valid: {n_v} 条")
+        return
 
     # 源数据 (2026-08-30修复: v414已归档删除, 改用v409完整数据27013条)
     v418_data = PROJECT / "models" / "longhun-v1.0" / "lora_output_v409" / "data_v409_ready"
@@ -106,7 +122,8 @@ def _prepare_v419_data():
     train_out = cfg.data_dir / "train.jsonl"
     valid_out = cfg.data_dir / "valid.jsonl"
 
-    def _append_jsonl(src: Path, out_f, max_lines: int = None, max_chars: int = 12000):
+    def _append_jsonl(src: Path, out_f, max_lines: int = None, max_chars: int = 4000):
+        """写入 jsonl。超长样本(>max_chars 字符) 直接剔除，防 2048-token 截断丢 assistant → loss nan。"""
         if not src.exists():
             return 0
         count = 0
@@ -117,7 +134,7 @@ def _prepare_v419_data():
                     continue
                 if max_lines and count >= max_lines:
                     break
-                # 🔴 2026-08-30: 超长序列剔除(>12000字符·曾导致loss nan)
+                # 🔴 2026-08-31: 超长序列剔除(>4000 字符·2048-token 截断会切没 assistant → loss 0/0 → nan)
                 if len(line) > max_chars:
                     continue
                 # 简单去重
@@ -199,12 +216,6 @@ SYSTEM \"\"\"你是龍魂 longhun-v4.1.9，UID9622（诸葛鑫·Lucky）的个�
         print(f"✅ Ollama模型 longhun-v4.1.9 已创建")
 
 
-def train():
-    _prepare_v419_data()
-    v418.Config = ConfigV419
-    v418.train()
-
-
 def fuse():
     v418.Config = ConfigV419
     v418.fuse()
@@ -214,6 +225,18 @@ def export():
     v418.Config = ConfigV419
     v418.export()
     _patch_ollama_name_for_v419()
+
+
+def train():
+    _prepare_v419_data(force=os.environ.get("LH_V419_REBUILD_DATA") == "1")
+    v418.Config = ConfigV419
+    v418.train()
+
+
+def rebuild_data():
+    """🔧 强制重建训练数据（超长样本剔除+冻结更新）。"""
+    _prepare_v419_data(force=True)
+    print("✅ 数据重建完成。如需训练请运行: python3 bin/lh_lora_trainer_v419.py train")
 
 
 def test_quick():
@@ -238,11 +261,11 @@ def all_pipeline():
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser(description="龍魂 v4.1.9 LoRA训练器·从v4.1.8 best自动续训")
-    p.add_argument("action", choices=["train", "fuse", "export", "test", "all"],
+    p.add_argument("action", choices=["train", "fuse", "export", "test", "rebuild-data", "all"],
                    default="train", nargs="?")
     args = p.parse_args()
 
     {
         "train": train, "fuse": fuse, "export": export,
-        "test": test_quick, "all": all_pipeline,
+        "test": test_quick, "rebuild-data": rebuild_data, "all": all_pipeline,
     }[args.action]()

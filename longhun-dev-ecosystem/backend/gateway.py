@@ -172,23 +172,25 @@ class AlipayGateway(PaymentGateway):
 
 
 class CBPayGateway(PaymentGateway):
-    """数字人民币通道（注册位·接入时填 config 商户参数）"""
+    """数字人民币通道（适配层 cbpay.py·接口契约对齐）"""
 
     channel = "cbpay"
 
     def create_prepay(self, order_id: str, amount: float, subject: str, developer_dna: str = "") -> dict:
-        if not CBPay_MERCHANT_NO:
-            return {"success": False, "error": "数字人民币未配置商户参数（CBPay_MERCHANT_NO）"}
-        raise NotImplementedError("数字人民币接入位")
+        from .cbpay import create_cbpay_order
+        return create_cbpay_order(order_id, amount, subject, developer_dna)
 
     def verify_notify(self, params: dict, signature: str) -> bool:
-        raise NotImplementedError("数币验签接入位")
+        from .cbpay import cbpay_verify_notify
+        return cbpay_verify_notify(params, signature)
 
     def parse_notify(self, params: dict) -> dict:
-        raise NotImplementedError("数币回调解析接入位")
+        from .cbpay import cbpay_parse_notify
+        return cbpay_parse_notify(params)
 
     def query_order(self, order_id: str) -> dict:
-        raise NotImplementedError("数币查单接入位")
+        from .cbpay import cbpay_query_order
+        return cbpay_query_order(order_id)
 
 
 _GATEWAYS = {

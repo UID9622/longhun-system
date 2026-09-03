@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-DNA: #龍芯⚡️丙午·丙申·戊午·庚申·䷠遁-ALIGNMENT-RULES-V2.4-LH-WUXING-CLI-v1.0
+DNA: #龍芯⚡️2026-08-31-五行计算器-v4.0-WELD-UID9622
 创建者: 诸葛鑫（UID9622）
+归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 协议: CC BY-NC-SA 4.0（核心思想层）
 License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+上位协议: 01_protocols/LH-WUXING-CALC-WELD-v4.0.md（唯一权威源）
 
-龍魂·五行计算器CLI v1.0 — 四柱干支→五行强度→链路分析→补益建议→对冲指数
+龍魂·五行计算器CLI v4.0（焊死版） — 四柱干支→五行强度→链路分析→补益建议→对冲指数→翻译第五维
 统一命令: lh wuxing 甲子 丙午 庚申 壬戌 | lh wuxing --year 2026
 """
 import argparse
@@ -73,7 +75,7 @@ def main() -> None:
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return
 
-    print(f"🐉 龍魂五行计算器 v3.0")
+    print(f"🐉 龍魂五行计算器 v4.0（焊死版）")
     print("=" * 56)
     print(f"四柱: {年干}{年支} {月干}{月支} {日干}{日支} {时干}{时支}")
     print(f"五行得分: {json.dumps(result['五行强度']['五行得分'], ensure_ascii=False)}")
@@ -81,6 +83,7 @@ def main() -> None:
     print(f"均衡指数: {result['五行强度']['均衡指数']}")
     print(f"链路健康度: {result['链路分析']['链路健康度']}")
     print(f"对冲指数H: {result['对冲指数']['对冲指数H']} · 三色: {result['对冲指数']['三色']}")
+    print(f"翻译第五维: {result['翻译引擎第五维']['状态']} → {result['翻译引擎第五维']['五行定位']} · {result['翻译引擎第五维']['翻译引擎贡献']}")
     print(f"补益建议: {json.dumps(result['补益建议'], ensure_ascii=False)}")
     print("=" * 56)
     print(f"DNA: {result['DNA追溯']}")

@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 """龍魂安全防护深度集成器 — 给全部功能模型(人格agent)注入统一安全标准块并重签
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 DNA: #龍芯⚡️2026-08-31-SECURITY-INTEGRATION-PERSONAS-v1.0-UID9622
 用法: python3 08_BIN/integrate_security_personas.py
 """

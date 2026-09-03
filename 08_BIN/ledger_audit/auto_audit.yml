@@ -1,0 +1,56 @@
+# DNA: #龍芯⚡️2026-08-31-auto_audit-v1.0-UID9622
+# License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
+# CONFIRM: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+name: 🚦 龍魂三色审计自动审批
+
+on:
+  push:
+    paths:
+      - 'data/ledger.json'
+  schedule:
+    - cron: '0 16 * * *'    # 每日 00:00 CST (UTC+8 = UTC+0 16:00)
+    - cron: '0 0 * * 1'     # 每周一 08:00 CST
+  workflow_dispatch:          # 手动触发
+
+env:
+  GREEN_THRESHOLD: 75
+  YELLOW_TIMEOUT_HOURS: 72
+  RED_TIMEOUT_DAYS: 7
+  SOVEREIGN_UID: UID9622
+
+jobs:
+  audit:
+    name: 三色审计引擎
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 📁 准备 reports 目录
+        run: mkdir -p reports
+
+      - name: 🔐 哈希完整性校验
+        run: python scripts/ledger_validator.py data/ledger.json
+
+      - name: 📊 三色评分 + 路由分发
+        run: python scripts/audit_engine.py data/ledger.json
+
+      - name: 📈 健康度指数更新
+        run: python scripts/lhi_calculator.py reports/latest_audit.json || echo 'No audit results yet'
+
+      - name: 📝 提交审计报告
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add reports/ || true
+          git diff --staged --quiet || git commit -m "🚦 audit: 三色审计报告 $(date +'%Y-%m-%d %H:%M CST')"
+          git push || true

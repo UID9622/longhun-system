@@ -41,6 +41,7 @@ v4.1.8策略（保守·精调）:
 
 import argparse
 import json
+import math
 import os
 import sys
 import shutil
@@ -267,20 +268,24 @@ def _train(cfg, smoke, smoke_iters):
     from mlx.nn.utils import average_gradients
     from mlx.utils import tree_flatten, tree_map
 
-    state = [model.state, optimizer.state]
+    def make_step():
+        state = [model.state, optimizer.state]
 
-    @partial(mx.compile, inputs=state, outputs=state)
-    def step(batch, prev_grad, do_update):
-        (lvalue, toks), grad = loss_value_and_grad(model, *batch)
-        if prev_grad is not None:
-            grad = tree_map(lambda x, y: x + y, grad, prev_grad)
-        if do_update:
-            grad = average_gradients(grad)
-            if cfg.grad_accumulation_steps > 1:
-                grad = tree_map(lambda x: x / cfg.grad_accumulation_steps, grad)
-            optimizer.update(model, grad)
-            grad = None
-        return lvalue, toks, grad
+        @partial(mx.compile, inputs=state, outputs=state)
+        def _step(batch, prev_grad, do_update):
+            (lvalue, toks), grad = loss_value_and_grad(model, *batch)
+            if prev_grad is not None:
+                grad = tree_map(lambda x, y: x + y, grad, prev_grad)
+            if do_update:
+                grad = average_gradients(grad)
+                if cfg.grad_accumulation_steps > 1:
+                    grad = tree_map(lambda x: x / cfg.grad_accumulation_steps, grad)
+                optimizer.update(model, grad)
+                grad = None
+            return lvalue, toks, grad
+        return _step, state
+
+    step, state = make_step()
 
     model.train()
 
@@ -296,6 +301,8 @@ def _train(cfg, smoke, smoke_iters):
     grad_accum = None
     trained_tokens = 0
     start_time = time.time()
+    nan_count = 0
+    nan_skip_threshold = 8  # 连续 nan 超过该次数 → 止损退出
 
     it = 0
     for it, batch in zip(
@@ -336,7 +343,34 @@ def _train(cfg, smoke, smoke_iters):
         # Train step
         do_update = (it % cfg.grad_accumulation_steps == 0)
         lvalue, toks, grad_accum = step(batch, grad_accum, do_update)
+        lv = float(lvalue.item())
 
+        # 🔴 2026-08-31: nan 保护 — 检测到 nan 回滚 best 权重+重建优化器
+        if not math.isfinite(lv):
+            nan_count += 1
+            print(f"    ⚠️ iter{it} loss nan ({nan_count}/{nan_skip_threshold}) → 回滚 best checkpoint")
+            grad_accum = None
+            losses = 0.0
+            n_tokens_acc = 0
+            steps_acc = 0
+            bw_path = cfg.adapter_dir / "best_adapters.safetensors"
+            if bw_path.exists():
+                try:
+                    bw = mx.load(str(bw_path))
+                    model.load_weights(bw, strict=False)
+                    print(f"      ↺ 已回滚 best_adapters (val {best_val:.4f} @iter{best_iter})")
+                except Exception as e:
+                    print(f"      ↺ 回滚失败: {e}")
+            # 重建优化器（丢弃被污染的动量状态）
+            optimizer = optim.AdamW(learning_rate=lr_schedule, weight_decay=cfg.weight_decay)
+            step, state = make_step()
+            if nan_count >= nan_skip_threshold:
+                print(f"    🔴 连续 {nan_count} 次 nan → 止损退出")
+                break
+            tic = time.perf_counter()
+            continue
+
+        nan_count = 0
         losses += lvalue
         n_tokens_acc += toks
         steps_acc += 1
@@ -383,8 +417,37 @@ def _train(cfg, smoke, smoke_iters):
     print(f"   下一步: python3 bin/lh_lora_trainer_v418.py fuse")
 
 
+def _patch_adapter_config_top_level(config_path: Path):
+    """mlx_lm.fuse 需要 adapter_config.json 顶层 rank/scale/dropout；
+    若缺失则从 lora_parameters 补齐（scale = alpha）。"""
+    if not config_path.exists():
+        print(f"⚠️ adapter_config.json 不存在: {config_path}，跳过顶层字段补全")
+        return
+    try:
+        cfg = json.loads(config_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        print(f"⚠️ adapter_config.json 解析失败: {e}")
+        return
+    lp = cfg.get("lora_parameters", {})
+    changed = False
+    # mlx_lm load_adapters 传 lora_parameters 给 to_lora，需内部有 scale 键（官方=alpha 别称）
+    if "scale" not in lp and "alpha" in lp:
+        lp["scale"] = lp["alpha"]
+        changed = True
+    # 顶层字段同样补全（兼容其它工具读取）
+    for key, src in (("rank", "rank"), ("scale", "alpha"), ("dropout", "dropout")):
+        if key not in cfg and src in lp:
+            cfg[key] = lp[src]
+            changed = True
+    if changed:
+        config_path.write_text(json.dumps(cfg, ensure_ascii=False, indent=4), encoding="utf-8")
+        print(f"✅ adapter_config.json 已补 LoRA scale 字段 (alpha→scale)")
+
+
 def fuse():
     cfg = Config()
+    # 🔧 mlx_lm.fuse 读顶层 rank/scale/dropout，先补全（v4.1.9 run4 曾 KeyError: 'scale'）
+    _patch_adapter_config_top_level(cfg.adapter_dir / "adapter_config.json")
     adapter_file = cfg.adapter_dir / "best_adapters.safetensors"
     if not adapter_file.exists():
         adapter_file = cfg.adapter_dir / "adapters.safetensors"

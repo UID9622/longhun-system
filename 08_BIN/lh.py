@@ -564,6 +564,19 @@ MODULES = {
             {"id": "5", "label": "📖 阅读ASI天花板协议", "cmd": "cat 01_protocols/LH-ASI-CEILING-PROTOCOL-v1.0.md", "desc": "L0宪法层·ASI即终点·禁止ASI+"},
         ]
     },
+    "🏛 贡献者铭碑": {
+        "desc": "Merkle铭碑·贡献者被牢记·永不吞没·防大厂/学术派吃掉",
+        "items": [
+            {"id": "1", "label": "🏗 构建铭碑", "cmd": "python3 08_BIN/lh_memorial.py --build", "desc": "扫描git贡献者→Merkle树→根哈希存档"},
+            {"id": "2", "label": "🛡 校验铭碑", "cmd": "python3 08_BIN/lh_memorial.py --verify", "desc": "重算根哈希比对→篡改检测"},
+            {"id": "3", "label": "📜 展示铭碑", "cmd": "python3 08_BIN/lh_memorial.py --show", "desc": "贡献者/提交数/占比/节点哈希"},
+            {"id": "4", "label": "🔑 输出根哈希", "cmd": "python3 08_BIN/lh_memorial.py --root", "desc": "供GitHub/Notion发布校验"},
+            {"id": "5", "label": "➕ 登记贡献者", "cmd": "python3 08_BIN/lh_memorial.py --add \"名字:邮箱:备注\"", "desc": "登记非git贡献者(文档/测试/资金)"},
+            {"id": "6", "label": "📖 阅读铭碑协议", "cmd": "cat 01_protocols/LH-CONTRIBUTOR-MEMORIAL-v1.0.md", "desc": "P0·贡献者被牢记·防吞没机制"},
+            {"id": "7", "label": "🕒 每日自审", "cmd": "python3 08_BIN/lh_daily_audit.py --run", "desc": "互搏审计+健康+铭碑→综合分→<80告警"},
+            {"id": "8", "label": "📊 最近审计报告", "cmd": "python3 08_BIN/lh_daily_audit.py --show", "desc": "查看最近每日审计综合分"},
+        ]
+    },
 }
 
 # ===== 人格卡片 =====
@@ -811,7 +824,13 @@ SUB_DISPATCH = {
     # 🧠 Harness 融合内核 v1.1 — 插件契约/EffectScope副作用逆转/四种分发/wrap_legacy存量引擎插件化/AI模型插件化（吸收 DeepSeek Harness·Cordis 哲学）
     'harness':              ('lh_harness_core.py',            '🧠', 'Harness融合内核·插件契约/副作用逆转/四种分发/存量引擎插件化/AI模型插件化', [], '--all'),
     'trajectory':           ('lh_trajectory.py',              '🛤️', 'Trajectory轨迹视图·append-only轨迹检索/分叉/回放(对齐Harness可追溯性)', [], 'show'),
+    'workspace-sync':       ('lh_workspace_sync.py',          '📦', '工作间三端同步·整理清单→Notion镜像→鲲鹏联动 (lh workspace-sync --all)', [], ''),
     'model-gov':            ('lh_model_governance.py',        '🧭', '模型闭环治理·六层(数据主权/训练审计/主权熔断/持续喂养/红蓝对抗/退役)', [], '--health'),
+    # 🐙 GitHub 社区联动权限自检 v1.0 — 社区仓库(deepseek-ai等)发评论/PR 前先检后发·缺权限给补法(2026-09-03)
+    'github':               ('lh_github_perms.py',            '🐙', 'GitHub社区联动·权限自检 test-perms/token-hint(先检后发·缺权限给补法·指南docs/github-pat-setup-guide.md)', [], ''),
+    'github-test-perms':    ('lh_github_perms.py',            '🔍', 'GitHub社区联动·测当前PAT对目标仓库读写权限(默认deepseek-ai/DeepSeek-V3)', [], 'test-perms'),
+    'github-token-hint':    ('lh_github_perms.py',            '💡', 'GitHub社区联动·输出缺失权限范围建议', [], 'token-hint'),
+    'fork':                 ('lh_fork_tracker.py',            '🍴', 'fork追踪·列出UID9622/longhun-system全部fork/检查新fork (lh fork list|check [--json]·缓存~/.longhun/fork_cache.json)', [], 'list'),
     'search':               ('lh_search_engine.py',           '🔍', '搜索引擎', [], 'search'),
     # 💤 技能调度器 v1.0 — 技能用完即休·用时即唤·不常驻省算力（2026-08-16）
     'skill':                ('lh_skill_scheduler.py',         '💤', '技能调度·list/wake/sleep/autosleep/stats（用完休眠·用前唤醒·省CPU）', [], 'status'),
@@ -843,7 +862,7 @@ SUB_DISPATCH = {
     'gate-restart':         ('../bin/lh_gate.py',               '🔄', '操盘网关·重启服务', ['restart']),
     'gate-key':             ('../bin/lh_gate.py',               '🔑', '操盘网关·给新AI发钥匙', ['key']),
     # 🤖 全自动AI智能体 v2.0 — 自动聊天/知识/审计/灵魂三问/红蓝对抗/操盘联动（2026-08-17）
-    'agent':                ('../08_BIN/lh_auto_agent/lh_auto_agent.py', '🤖', '全自动AI智能体·交互/自动/单次/统计', [], '--stats'),
+    'agent':                ('../08_BIN/lh_auto_agent/lh_auto_agent.py', '🤖', 'AI智能体v2.0·交互/自动/单次/统计 + 🔥长任务无人值守 run/status/root-cause/list/cancel/recover(转 lh_agent_long·38h队列·断点续跑·launchd自愈)', [], '--stats'),
     'agent-interactive':    ('../08_BIN/lh_auto_agent/lh_auto_agent.py', '💬', '全自动AI智能体·交互模式', ['--interactive']),
     'agent-auto':           ('../08_BIN/lh_auto_agent/lh_auto_agent.py', '⚙️', '全自动AI智能体·自动模式N轮', ['--auto']),
     'agent-gate':           ('../08_BIN/lh_auto_agent/lh_auto_agent.py', '🎮', '全自动AI智能体·开启操盘联动', ['--gate']),
@@ -936,7 +955,8 @@ SUB_DISPATCH = {
     'unify-backup':         ('../08_BIN/lh_unify.py',          '💾', '互通引擎·手动备份', ['--backup']),
     'unify-daemon':         ('../08_BIN/lh_unify.py',          '👁️', '互通引擎·热加载守护', ['--daemon']),
     'unify-restore':        ('../08_BIN/lh_unify.py',          '🧊', '互通引擎·从冻结恢复', ['--restore']),
-    'video':                ('lh_video_studio.py',            '🎬', '视频工坊'),
+    'video':                ('lh_video.py',                   '🎬', '龍魂视频引擎·帧动画/图文转视频/片头片尾模板(video <文本|图片目录> --template intro|outro --format mp4|webm)·时间戳水印+DNA+GPG签名', ['intro'], 'intro'),
+    'video-studio':         ('lh_video_studio.py',            '🎬', '视频工坊（旧）'),
     'material':             ('lh_material_search.py',          '🎞️', '素材库', [], 'search'),
     'material-scan':        ('lh_material_scanner.py',         '📂', '素材扫描入库'),
     'material-tag':         ('lh_material_tagger.py',          '🏷️', '素材自动打标'),
@@ -1022,7 +1042,11 @@ SUB_DISPATCH = {
     'imprint':              ('lh_digital_imprint.py',        '🧬', '数字人印记'),
     'keys':                 ('lh_keys.py',                   '🔑', '統一密钥出口·list/get/check/mfa·华为MFA二次验证'),
     'secret-env':           ('lh_secret_env.py',             '🔐', '变量环境·调用macOS密码/钥匙串·操作审计日志', [], 'list'),
-    'render':               ('lh_render.py',                 '👁️', 'M75渲染引擎·CNSH指令·{render.*}变量环境·:8788(status/open/run/batch/server/log)', [], 'status'),
+    'render':               ('lh_render.py',                 '👁️', 'M75渲染引擎·CNSH指令·{render.*}变量环境·:8788(status/open/run/batch/server/log)·可视化类型转发女娲引擎(wuxing/audit/flow/health)', [], 'status'),
+    'wuwu':                 ('wuwu_renderer.py',             '👁️', '女娲五彩石渲染引擎·龍魂风格图表(wuxing五行雷达/audit三色仪表盘/flow流场/health健康看板)·PNG/SVG/HTML·联动lh health --json (lh wuwu wuxing \'{"金":80}\')', [], 'wuxing'),
+    'speak':                ('lh_audio.py',                  '🔊', '龍魂声音引擎·TTS合成(speak <文本> --voice/--engine say|tts)·中文语音包缺失自动提示', ['speak'], 'speak'),
+    'fingerprint':          ('lh_audio.py',                  '🔍', '声音引擎·音频指纹提取(fingerprint <音频>)·Goertzel频带指纹·DNA嵌入', ['fingerprint'], 'fingerprint'),
+    'voice-cmp':            ('lh_audio.py',                  '🎙️', '声音引擎·声纹比对(voice-cmp <A> <B>)·汉明相似度', ['compare'], 'compare'),
     'notion_full':          ('lh_notion_full_sync.py',       '🔄', 'Notion全量同步'),
     'persona_sync':         ('lh_notion_persona_sync.py',    '🧬', '人格矩阵Notion同步'),
     'persona':              ('lh_persona_runtime.py',         '🧠', '人格矩阵运行时', [], ''),
@@ -1069,6 +1093,41 @@ SUB_DISPATCH = {
     'root':                 ('lh_root.py',                      '🧮', '洛书369·数字根+五行+生克+洛书宫位+权重 (lh root 369)', [], ''),
     # ☯️ 五行计算器 v3.0 — 四柱干支→五行强度→补益建议→对冲指数
     'wuxing':               ('lh_wuxing.py',                    '☯️', '五行计算·四柱干支→五行强度/补益/对冲 (lh wuxing 甲子 丙午 庚申 壬戌)', [], ''),
+    # 🐉 龍魂CIL v4.0 命令行交互层 — bazi/flow/audit/route/shell · 无参默认进交互终端
+    'cil':                  ('lh_cil.py',                       '🐉', '龍魂CIL·bazi/flow/audit/route/shell交互终端 (lh cil / lh cil shell)', [], ''),
+    'c':                    ('lh_cil.py',                       '🐉', '龍魂CIL(简)·同上 (lh c shell)', [], ''),
+    # 🏥 龍魂系统自检 v1.0 — 核心引擎/GPG签名/命令索引/全局命令·三色状态表·--json 干净可解析
+    'api':                  ('lh_api.py',                       '🌐', '龙魂CIL API网关·POST /v1/lh→调lh.py (lh api [--port 9622] [--daemon])', [], ''),
+    'flow':                 ('lh_flow.py',                      '🌀', '龙魂流场计算·数字根/五行/八卦→Node JSON (lh flow "<文本>" [--json])', [], ''),
+    'bazi':                 ('lh_bazi.py',                      '🔮', '龙魂八字排盘·四柱/五行强度→Node JSON (lh bazi [--date YYYY-MM-DD] [--time HH:MM] [--json])', [], ''),
+    'health':               ('lh_health.py',                    '🏥', '龍魂系统自检·引擎/GPG/索引/全局三色状态表·kg含kb_loaded (lh health [--json])', [], ''),
+    'backup':               ('lh_backup.py',                    '💾', '龍魂状态一键备份→~/backups/longhun·SQLite图谱库/耻辱墙/topo全打包 (lh backup [--keep N]) · 任务C生态(2026-09-03)', [], ''),
+    'audit':                ('lh_audit.py',                     '📋', '三色审计 (lh audit --tri-color) · 合规报告 (lh audit report [--out] [--pdf]) · 任务E生态(2026-09-03)', [], ''),
+    # 🕸️ 知识图谱拓扑引擎 v1.1 — verify/sync/list/serve:8762/kb-status·HTML开放页+数字人知识库（2026-09-02）
+    'topo':                 ('lh_topo.py',                      '🕸️', '知识图谱拓扑·verify/sync/diff/db/list/serve:8762/kb-status/cite/frameworks/register/node (lh topo <verify|sync|diff|db|list|serve|kb-status|cite|frameworks|register|node> [图谱名]·serve=HTML开放页+/dashboard看板·缓存 docs/topology/·sync三源notion/obsidian/yuque·diff变更历史·db SQLite持久化·任务C/D生态2026-09-03)', [], ''),
+    'security':             ('lh_security_check.py',            '🔐', '龍魂安全自检·端口绑定/权限/GPG签名/文件泄露 (lh security [--json] [--scan-dir PATH])', [], ''),
+    'benchmark':            ('lh_benchmark.py',                 '⚡', '龍魂性能基准·排盘/流场/网关QPS (lh benchmark [--iterations 1000] [--json])', [], ''),
+    # 🧬 归一收网 v1.0 — 归一回流头/外部调用审计/归一断言/反向追溯（2026-09-01）
+    'logs':                 ('lh_logs.py',                      '📜', '外部调用记录·非本机调用归一审计 (lh logs [--tail 100] [--json])', [], ''),
+    'assert':               ('lh_assert.py',                    '🧬', '归一断言·检测文本是否含龍魂DNA指纹 (lh assert <文本> [--json])', [], ''),
+    'trace':                ('lh_trace.py',                     '🔎', '反向追溯·按node_id查龍魂来源/创建时间/数字根/五行/审计 (lh trace <node_id> [--json])', [], ''),
+    # 🐉 归一审判官 v2.0 — 自动抓取/审计/耻辱墙公示（2026-09-02·手机端扫描扩展）
+    'judge':                ('lh_judge.py',                     '🐉', '归一审判官·自动抓取公开源检测龍魂DNA·剽窃上耻辱墙 (lh judge scan|view|clean|misreport|confirm <id>|reject <id>|phone-scan[--deep]|phone-report|topo-scan[通心译内容审计])', [], ''),
+    # 📜 科技普惠诚信焊死协议 v1.0 — M78 版本控制权归龍魂（2026-09-01）
+    'pledge':               ('lh_pledge.py',                    '📜', '科技普惠诚信焊死协议·版本控制权自动归龍魂 (lh pledge [--json]|bind <文本>|sovereignty|sys-check)', [], ''),
+    'bind':                 ('lh_pledge.py',                    '🧬', '归属检测·检测任意文本是否含龙魂逻辑 (lh bind <文本> -> 🔴归属龙魂/🟢未检测到)', [], ''),
+    'sys-check':            ('lh_pledge.py',                    '🔍', '零中间层铁律环境检查·Python版本/核心引擎/零依赖 (lh sys-check)', [], 'sys-check'),
+    # 📖 文档自动同步 v1.0 — 从 lh.py SUB_DISPATCH 提取命令表→生成 autogen 清单（不碰 README 正文）
+    'doc-sync':             ('lh_doc_sync.py',                  '📖', '文档同步·提取命令表→docs/LH-COMMANDS-AUTOGEN.md (lh doc-sync [--json|--diff])', [], ''),
+    # 🧑 数字人调动引擎 v1.0 — 自然语言/CLI/HTTP 三通道调动 22 数字人（2026-09-02）
+    'dh':                   ('lh_dh_dispatch.py',              '🧑', '数字人调动·自然语言点名任意数字人·知识库含通心译总台19资产 (lh dh "字靈 设计字体"|DH-011 "任务" [--json])', [], ''),
+    'dh-api':               ('lh_dh_dispatch.py',              '🌐', '数字人调动网关·POST /dh/dispatch GET /dh/list (lh dh-api [--port 8761] [--daemon]·Header X-UID:9622)', [], 'dh-api'),
+    # 🧠 模型命令 v1.0 — 深度学习图谱注册模型·list/status/audit·本地ollama探测（2026-09-03）
+    'model':                ('lh_model.py',                     '🧠', '模型命令v1.1·list/status/audit/run/api/bench/eval/test (lh model list|status <name>|audit <name> [--probe]|run <prompt> --engine auto deepseek ollama|api [--json]·list合并输出图谱∪ollama去重·audit底层接lh_judge指纹比对·bench/eval/test委派既有脚本·深度学习代码精修统一入口)', [], 'list'),
+    # 📊 系统级基准 v1.0 — Terminal-Bench 等价物·本地跑分·GPG签名报告（2026-09-03 · 裁决采纳 D 项）
+    'bench':                ('lh_bench.py',                     '📊', '系统级基准v1.0·topo_verify/health_json/model_list/judge_db耗时·本地可复现零网络·report自动GPG签名 (lh bench run[--include-network]|report|history)', [], 'run'),
+    # 🗄️ 存储优化 v1.0 — 日志>7天gz轮转/耻辱墙gz冻结/大文件报告·P0不删除只冻结（2026-09-03 · 裁决采纳 C 项）
+    'storage':              ('lh_storage.py',                   '🗄️', '存储优化v1.0·~/.longhun 日志轮转+压缩冻结 (lh storage status|optimize[--dry-run]·优化建议)', [], 'status'),
     # 🐉 道德经知识引擎 v2.0 — 可编程·可查询·蚁群定锚·五行生克·DNA全链路
     'ddj':                  ('lh_daodejing_engine.py',         '📖', '道德经引擎·查询/定锚/导出/统计·81章龍魂解读', [], ''),
     'daodejing':            ('lh_daodejing_engine.py',         '📖', '道德经引擎(全写)·同上', [], ''),
@@ -1171,8 +1230,8 @@ SUB_DISPATCH = {
     'think':                ('lh_persona_thought.py',           '🧠', '人格思维·单人/协作/并行/状态·--persona/--collaborate/--parallel/--status', [], '--demo'),
     # 🧬 活人格引擎 v1.0 — 记→学→进→评·士别三日自检·睡死人格雷达
     'persona-life':         ('../08_BIN/lh_persona_life.py',    '🧬', '活人格引擎·record/learn/adapt/evolve/status/hook·人格会学习会成长', [], 'status'),
-    # ⏱️ 系统性能测试 — CPU/内存/磁盘/网络基准·压力测试
-    'benchmark':            ('lh_system_benchmark.py',          '⏱️', '系统性能基准·CPU/内存/磁盘/网络四维跑分·--quick/--compare/--json', [], ''),
+    # ⏱️ 系统性能测试 — CPU/内存/磁盘/网络基准·压力测试（原 benchmark 键让位给新性能基准 v1.0）
+    'sys-benchmark':        ('lh_system_benchmark.py',          '⏱️', '系统四维跑分基准·CPU/内存/磁盘/网络·--quick/--compare/--json (lh sys-benchmark)', [], ''),
     'load-test':            ('lh_load_test.py',                 '🔥', 'HTTP压力测试·并发/QPS/延迟分布·--concurrency/--duration/--endpoint', [], ''),
     # 📤 跨AI窗口交接 — save/load/list·LH-AI-HANDOFF-v1.0 协议 CLI 落地（2026-08-13 修复）
     'handoff':              ('lh_handoff.py',                   '📤', 'AI窗口交接·save/load/list·跨会话无缝衔接不丢上下文', [], 'list'),
@@ -1565,11 +1624,15 @@ def main():
 
     args, remaining = parser.parse_known_args()
 
+    # 🔥 子命令上下文（lh model run ... --engine ollama）时，--engine/--model 属引擎透传参数，
+    # 不触发顶层快捷菜单（否则 lh model run 的显式引擎参数被顶层 store_true 抢注）
+    _sub_ctx = bool(remaining and remaining[0].lstrip('-') in SUB_DISPATCH)
+
     # 快捷模式
-    if args.dashboard:
+    if args.dashboard and not _sub_ctx:
         print_persona_dashboard()
         return
-    if args.engine:
+    if args.engine and not _sub_ctx:
         print_engine_caps()
         return
     if args.show_help or args.show_help_flag:
@@ -2288,8 +2351,8 @@ def main():
         subprocess.run(cmd, cwd=str(ROOT))
         return
 
-    # === 语音网关 ===
-    if args.voice is not None:
+    # === 语音网关（lh speak 的子命令 --voice 豁免 · 避免 REMAINDER 劫持） ===
+    if args.voice is not None and not (args.voice and args.voice[0] == 'speak'):
         print_header()
         voice_args = list(args.voice) if args.voice else []
         cmd = [sys.executable, str(ROOT / "bin" / "lh_voice_gateway.py")] + voice_args
@@ -2350,6 +2413,9 @@ def main():
         # 回收顶层 --health flag（lh <subcmd> --health 语义 → 交给子命令引擎处理）
         if getattr(args, 'health', False):
             extra += ['--health']
+        # 回收顶层 --format 供 lh speak 使用（排版引擎专属 REMAINDER，speak 场景不冲突）
+        if subcmd == 'speak' and getattr(args, 'fmt', None):
+            extra += ['--format'] + list(args.fmt)
         script, emoji, desc, *rest = SUB_DISPATCH[subcmd]
         # 🔧 修正: rest = (default_args, smart_default) — 取最后一个作为 smart_default
         #   例: 'fast-index': (..., [], 'dashboard') → smart_default='dashboard'
@@ -2389,7 +2455,7 @@ def main():
                     subprocess.run(cmd, cwd=str(ROOT), check=False)
                 print("\n  ✅ 搭建完成！\n")
                 return
-            extra = list(val) if val else list(default_args)
+            extra = list(val) if isinstance(val, (list, tuple, str)) else list(default_args)
             # 检测 --json 参数，抑制 header 以避免污染管道输出
             no_header = '--json' in (extra or [])
             # 🔧 别名命令才插入 smart_default（同位置子命令分支逻辑）
@@ -2482,15 +2548,19 @@ def main():
         # 查 SUB_DISPATCH
         if subcmd in SUB_DISPATCH:
             script, emoji, desc, *rest = SUB_DISPATCH[subcmd]
-            smart_default = rest[0] if rest else None
-            if not extra and smart_default and isinstance(smart_default, (list, str)):
-                if isinstance(smart_default, str):
-                    extra = [smart_default]
+            default_args = rest[0] if rest else None
+            smart_default = rest[-1] if rest else None
+            if not extra and default_args and isinstance(default_args, (list, str)):
+                if isinstance(default_args, str):
+                    extra = [default_args]
                 else:
-                    extra = list(smart_default)
+                    extra = list(default_args)
             # 检测 --json 抑制 header（管道输出）
             no_header = '--json' in extra
-            _run_subcommand(script, extra, emoji, desc, suppress_header=no_header, command_name=subcmd)
+            # 别名命令才插入 smart_default（如 lh speak X → lh_audio.py speak X）
+            sd = smart_default if (isinstance(smart_default, str) and smart_default
+                                   and subcmd.endswith(smart_default)) else ''
+            _run_subcommand(script, extra, emoji, desc, sd, suppress_header=no_header, command_name=subcmd)
             return
         # 裸词→自动转 --flag 形式重试（如 lh audit → lh --audit）
         # 递归防护：_LH_NO_REDIRECT 环境变量阻止无限重试
