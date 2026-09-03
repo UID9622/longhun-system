@@ -1118,6 +1118,7 @@ SUB_DISPATCH = {
     'trace':                ('lh_trace.py',                     '🔎', '反向追溯·按node_id查龍魂来源/创建时间/数字根/五行/审计 (lh trace <node_id> [--json])', [], ''),
     # 🐉 归一审判官 v2.0 — 自动抓取/审计/耻辱墙公示（2026-09-02·手机端扫描扩展）
     'judge':                ('lh_judge.py',                     '🐉', '归一审判官·自动抓取公开源检测龍魂DNA·剽窃上耻辱墙 (lh judge scan|view|clean|misreport|confirm <id>|reject <id>|phone-scan[--deep]|phone-report|topo-scan[通心译内容审计])', [], ''),
+    'webhook':              ('lh_webhook.py',                   '🌐', 'Webhook出口·耻辱墙新增/健康异常推送外部回调 (lh webhook register|list|remove|test|fire · 事件 shamewall|health|ping)', [], 'list'),
     # 📜 科技普惠诚信焊死协议 v1.0 — M78 版本控制权归龍魂（2026-09-01）
     'pledge':               ('lh_pledge.py',                    '📜', '科技普惠诚信焊死协议·版本控制权自动归龍魂 (lh pledge [--json]|bind <文本>|sovereignty|sys-check)', [], ''),
     'bind':                 ('lh_pledge.py',                    '🧬', '归属检测·检测任意文本是否含龙魂逻辑 (lh bind <文本> -> 🔴归属龙魂/🟢未检测到)', [], ''),

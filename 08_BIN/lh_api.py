@@ -1,13 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# DNA: #龍芯⚡️丙午·丁酉·乙亥·巳时·䷝离-CIL-API-GATEWAY-V2.1-GUIYI-RETURN
+# DNA: #龍芯⚡️丙午·丁酉·乙亥·巳时·䷝离-CIL-API-GATEWAY-V2.2-OPEN-PLATFORM
 # 创建者: 诸葛鑫（UID9622）
 # 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
 # License: MulanPSL v2 (https://license.coscl.org.cn/MulanPSL2)
 # GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F
 # 协议配套: docs/对外接口协议-v1.0.md（§7 归一审计）
 """
-🐉 龍魂 CIL API 网关 v2.1 — 归一回流（默认只监听 127.0.0.1）
+🐉 龍魂 CIL API 网关 v2.2 — 开放平台（默认只监听 127.0.0.1）
+
+v2.2 开放集成（2026-09-04 · Open Platform）:
+  - 对外前缀 /api/v1/*（nginx 反代 · 后端内部路径归一 /api/v1 → /）
+  - X-API-Key 认证 + 角色分级 viewer < auditor < admin（~/.longhun/api_keys.json）
+  - 新端点: GET /v1/judge/shamewall · GET /v1/memorial/verify
+           POST /v1/judge/scan(auditor+) · POST /v1/dh/dispatch(admin)
+  - keygen: 生成/管理 API Key（lh_api.py keygen --role admin --name <名字>）
+  - 数据镜像: 鲲鹏部署读 ROOT/data/ 只读镜像（shame_wall/contributor_memorial）
+  - 写端点=审计登记式（完整执行在数据主权端 Mac·见 docs/龙魂API集成指南-v1.0.md）
 
 v2.1 归一审计（2026-09-01）:
   - 响应头: X-Longhun-Trace:<node_id> · X-Longhun-DigitalRoot:<dr> · X-Longhun-Audit:<🟢/🟡/🔴>
@@ -61,8 +70,19 @@ EXTERNAL_LOG = LOG_DIR / "external_calls.log"   # 外部调用审计（非本机
 NODES_REG = LH_DIR / "nodes_registry.jsonl"     # 节点注册表（全部调用·供 lh trace）
 PID_FILE = LH_DIR / "gateway.pid"
 
+# ── v2.2 开放平台：API Key + 数据镜像 + 审计登记（2026-09-04）────────
+API_KEYS_FILE = LH_DIR / "api_keys.json"      # {"keys": {key: {role,name,created,note}}}
+ROLE_LEVEL = {"viewer": 1, "auditor": 2, "admin": 3}
+ROLE_CN = {"viewer": "只读", "auditor": "审计可触发", "admin": "全权"}
+# 数据镜像目录：鲲鹏部署 = /apps/lh-api/data（只读快照·Mac rsync 同步）
+DATA_DIR = ROOT / "data"
+SHAME_MIRROR = DATA_DIR / "shame_wall.json"           # 耻辱墙镜像（Mac ~/.longhun/shame_wall）
+MEMORIAL_MIRROR = DATA_DIR / "contributor_memorial.json"  # 铭碑镜像（Mac 07_AUDIT）
+SCAN_REQ_LOG = DATA_DIR / "scan_requests.log"         # judge/scan 登记（append-only）
+DH_REQ_LOG = DATA_DIR / "dh_dispatch.log"             # dh/dispatch 登记（append-only）
+
 HOST = "127.0.0.1"  # 🔒 默认只监听本地 · 永不默认 0.0.0.0
-VERSION = "4.0"
+VERSION = "4.2"
 DNA = "#龍芯⚡️丙午·丁酉·乙亥·巳时·䷝离-CIL-API-GATEWAY-v2.0"
 START_TIME = time.time()
 
@@ -162,6 +182,70 @@ def _append_jsonl(path: Path, rec: dict, max_lines: int = 0) -> None:
             except OSError:
                 pass
         with path.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    except OSError:
+        pass
+
+
+# ── v2.2 API Key 认证（X-API-Key · ~/.longhun/api_keys.json）──────────
+def load_api_keys() -> dict:
+    try:
+        if API_KEYS_FILE.exists():
+            d = json.loads(API_KEYS_FILE.read_text(encoding="utf-8"))
+            if isinstance(d, dict) and isinstance(d.get("keys"), dict):
+                return d
+    except Exception:  # noqa: BLE001
+        pass
+    return {"keys": {}}
+
+
+def save_api_keys(data: dict) -> None:
+    API_KEYS_FILE.parent.mkdir(parents=True, exist_ok=True)
+    API_KEYS_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2),
+                             encoding="utf-8")
+
+
+def gen_api_key(role: str = "viewer", name: str = "", note: str = "") -> str:
+    """生成新 API Key 并登记（唯一管理入口=UID9622 本机执行）。"""
+    import secrets
+    key = secrets.token_hex(12)
+    data = load_api_keys()
+    data.setdefault("keys", {})[key] = {
+        "role": role if role in ROLE_LEVEL else "viewer",
+        "name": name or "unnamed",
+        "created": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
+        "note": note,
+    }
+    save_api_keys(data)
+    return key
+
+
+def check_api_key(raw: str) -> dict | None:
+    """校验 X-API-Key → {"key","role","name"} 或 None（无效/未登记）。"""
+    if not raw:
+        return None
+    info = load_api_keys().get("keys", {}).get(raw.strip())
+    if not info:
+        return None
+    return {"key": raw.strip(), "role": info.get("role", "viewer"),
+            "name": info.get("name", "")}
+
+
+def read_mirror(path: Path) -> dict | None:
+    """读数据镜像 JSON（不存在返回 None）。"""
+    try:
+        if path.exists():
+            return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        pass
+    return None
+
+
+def append_reg(log_path: Path, rec: dict) -> None:
+    """审计登记（append-only JSONL）。"""
+    try:
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+        with log_path.open("a", encoding="utf-8") as f:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
     except OSError:
         pass
@@ -306,46 +390,167 @@ class Handler(BaseHTTPRequestHandler):
         except SystemExit as e:
             self._json({"error": str(e)}, 404, node=_make_node("TOPO-9622-404"))
 
+    # ── 路径归一 v2.2：对外 /api/v1/* → 内部 /v1/*（兼容 nginx 剥或不剥）──
+    def _norm(self, raw_path: str) -> str:
+        p = urllib.parse.unquote(raw_path).rstrip("/") or "/"
+        for pre in ("/api/v1", "/api"):
+            if p.startswith(pre):
+                rest = p[len(pre):]
+                p = rest or "/"
+                break
+        return p
+
+    # 双候选匹配（兼容带 /v1 与不带）──
+    def _m(self, path: str, name: str) -> bool:
+        return path == name or path == "/v1" + name
+
+    def _ms(self, path: str, name: str) -> bool:
+        return (path == name or path.startswith(name + "/")
+                or path == "/v1" + name or path.startswith("/v1" + name + "/"))
+
+    def _as_v1(self, path: str) -> str:
+        """统一成内部 /v1/... 规范路径（_topo 内部契约: /v1/topo/<名>[/html]）。"""
+        return path if path.startswith("/v1") else "/v1" + path
+
+    # ── 耻辱墙只读镜像（v2.2）──────────────────────────────
+    def _shamewall(self):
+        m = read_mirror(SHAME_MIRROR)
+        if m is None:
+            self._json({"tool": "lh-judge-api", "status": "empty",
+                        "note": "耻辱墙镜像未同步（数据主权端 lh judge 生成后 rsync）"},
+                       node=_make_node("SHAMEWALL-9622-EMPTY"))
+            return
+        mtime = ""
+        try:
+            mtime = time.strftime("%Y-%m-%dT%H:%M:%S%z",
+                                  time.localtime(SHAME_MIRROR.stat().st_mtime))
+        except OSError:
+            pass
+        total = len(m.get("records", [])) if isinstance(m, dict) else None
+        self._json({"tool": "lh-judge-api", "mirror": "shame_wall.json",
+                    "mirror_synced_at": mtime, "total": total, "data": m},
+                   node=_make_node("SHAMEWALL-9622-GET"))
+
+    # ── 铭碑验证（只读镜像存档根哈希）────────────────────────
+    def _memorial(self):
+        m = read_mirror(MEMORIAL_MIRROR)
+        if m is None:
+            self._json({"tool": "lh-memorial-api", "status": "empty",
+                        "note": "铭碑镜像未同步（数据主权端 lh memorial --build 后 rsync）"},
+                       node=_make_node("MEMORIAL-9622-EMPTY"))
+            return
+        self._json({
+            "tool": "lh-memorial-api",
+            "root_hash": m.get("merkle_root", ""),
+            "contributor_count": m.get("contributor_count", 0),
+            "total_commits": m.get("total_commits", 0),
+            "generated_at": m.get("generated_at", ""),
+            "verify_note": "存档根哈希只读镜像。完整重算校验在数据主权端: lh memorial --verify",
+        }, node=_make_node("MEMORIAL-9622-VERIFY"))
+
     def do_GET(self):
-        path = urllib.parse.unquote(self.path)
-        if path == "/health":
+        path = self._norm(self.path)
+        if self.logger:
+            self.logger.info("GET %s", path)
+        if self._m(path, "/health"):
             node = _make_node("GATEWAY-9622-HEALTH")
-            if self.logger:
-                self.logger.info("GET /health 200")
             self._json({"status": "ok", "version": f"v{VERSION}",
                         "uptime": _uptime(), "service": "lh-api",
+                        "open": "https://uid9622.cn/api/v1",
+                        "api_keys": len(load_api_keys().get("keys", {})),
                         "dna": DNA}, node=node)
-        elif path.rstrip("/") == "/v1/topo" or path.rstrip("/").startswith("/v1/topo/"):
-            self._topo(path)
+        elif self._ms(path, "/topo"):
+            self._topo(self._as_v1(path))
+        elif self._m(path, "/judge/shamewall"):
+            self._shamewall()
+        elif self._m(path, "/memorial/verify"):
+            self._memorial()
         else:
             if self.logger:
                 self.logger.warning("GET %s 404", self.path)
             self._json({"error": "not found"}, 404, node=_make_node("404"))
 
-    def do_POST(self):
-        if self.path != "/v1/lh":
-            self._json({"error": "not found"}, 404, node=_make_node("404"))
-            return
+    # ── 认证守卫 v2.2：POST 写端点强制 X-API-Key + 角色 ─────────
+    def _require(self, min_role: str):
+        """返回 auth dict 或直接 401/403 响应。"""
+        auth = check_api_key(self.headers.get("X-API-Key", ""))
+        if not auth:
+            self._json({"error": "unauthorized · 缺少或无效 X-API-Key"}, 401,
+                       node=_make_node("401"))
+            return None
+        if ROLE_LEVEL.get(auth["role"], 0) < ROLE_LEVEL[min_role]:
+            self._json({"error": f"forbidden · 角色 {auth['role']}（{ROLE_CN.get(auth['role'], '')}）需 {min_role}+"},
+                       403, node=_make_node("403"))
+            return None
+        return auth
+
+    def _read_json_body(self) -> dict:
         try:
             length = int(self.headers.get("Content-Length", 0))
-            payload = json.loads(self.rfile.read(length).decode("utf-8") or "{}")
+            return json.loads(self.rfile.read(length).decode("utf-8") or "{}")
         except Exception:  # noqa: BLE001
-            self._json({"error": "body 必须是 JSON"}, 400, node=_make_node("400"))
-            return
-        command = str(payload.get("command", "")).strip()
-        if not command:
-            self._json({"error": "缺少 command"}, 400, node=_make_node("400"))
-            return
-        t0 = time.time()
+            return {}
+
+    def do_POST(self):
+        path = self._norm(self.path)
         if self.logger:
-            self.logger.info("POST /v1/lh cmd=%r", command[:120])
-        result = run_lh(command)
-        elapsed_ms = int((time.time() - t0) * 1000)
-        if self.logger and result["code"] != 0:
-            self.logger.warning("cmd 失败 code=%s", result["code"])
-        node = _extract_node(result["stdout"], command)
-        self._record(command, result, node, elapsed_ms)
-        self._json({"command": command, "result": result}, node=node)
+            self.logger.info("POST %s", path)
+
+        if self._m(path, "/lh"):
+            payload = self._read_json_body()
+            command = str(payload.get("command", "")).strip()
+            if not command:
+                self._json({"error": "缺少 command"}, 400, node=_make_node("400"))
+                return
+            t0 = time.time()
+            result = run_lh(command)
+            elapsed_ms = int((time.time() - t0) * 1000)
+            if self.logger and result["code"] != 0:
+                self.logger.warning("cmd 失败 code=%s", result["code"])
+            node = _extract_node(result["stdout"], command)
+            self._record(command, result, node, elapsed_ms)
+            self._json({"command": command, "result": result}, node=node)
+            return
+
+        if self._m(path, "/judge/scan"):
+            auth = self._require("auditor")
+            if not auth:
+                return
+            body = self._read_json_body()
+            ts = time.strftime("%Y-%m-%dT%H:%M:%S%z")
+            append_reg(SCAN_REQ_LOG, {"ts": ts, "actor": auth["name"],
+                                      "role": auth["role"],
+                                      "scope": str(body.get("scope", "default"))[:80],
+                                      "ip": self.client_address[0]})
+            self._json({"status": "accepted", "registered_at": ts,
+                        "actor": auth["name"], "role": auth["role"],
+                        "note": "扫描触发已登记。完整归一扫描在数据主权端执行: lh judge scan"},
+                       status=202, node=_make_node("SCAN-9622-ACCEPT"))
+            return
+
+        if self._m(path, "/dh/dispatch"):
+            auth = self._require("admin")
+            if not auth:
+                return
+            body = self._read_json_body()
+            persona = str(body.get("persona", ""))[:40]
+            task = str(body.get("task", ""))[:120]
+            if not persona or not task:
+                self._json({"error": "需 persona + task"}, 400, node=_make_node("400"))
+                return
+            ts = time.strftime("%Y-%m-%dT%H:%M:%S%z")
+            append_reg(DH_REQ_LOG, {"ts": ts, "actor": auth["name"],
+                                    "role": auth["role"], "persona": persona,
+                                    "task": task, "ip": self.client_address[0]})
+            self._json({"status": "accepted", "registered_at": ts,
+                        "actor": auth["name"], "persona": persona,
+                        "note": "数字人调度请求已登记。实际调度在数据主权端执行: lh dh dispatch"},
+                       status=202, node=_make_node("DH-9622-ACCEPT"))
+            return
+
+        if self.logger:
+            self.logger.warning("POST %s 404", self.path)
+        self._json({"error": "not found"}, 404, node=_make_node("404"))
 
 
 def daemonize() -> None:
@@ -361,7 +566,9 @@ def daemonize() -> None:
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="龍魂 CIL API 网关 v2.1 归一回流 (默认只监听 127.0.0.1)")
+    global DATA_DIR, SHAME_MIRROR, MEMORIAL_MIRROR, SCAN_REQ_LOG, DH_REQ_LOG
+    ap = argparse.ArgumentParser(
+        description="🐉 龍魂 CIL API 网关 v2.2 开放平台 (默认只监听 127.0.0.1)")
     ap.add_argument("--port", type=int, default=9622, help="监听端口 (默认 9622)")
     ap.add_argument("--host", default=HOST,
                     help="监听地址 (默认 127.0.0.1·安全；对外开放显式用 0.0.0.0 且自动开启归一审计)")
@@ -370,7 +577,32 @@ def main() -> None:
                     help=f"日志级别 (默认 info，可选 {','.join(LOG_LEVELS)})")
     ap.add_argument("--pidfile", default=str(PID_FILE),
                     help=f"PID 文件 (默认 {PID_FILE})")
+    ap.add_argument("--data-dir", default="",
+                    help="数据镜像目录 (默认 {DATA_DIR}·鲲鹏 /apps/lh-api/data)")
+    ap.add_argument("--keygen", action="store_true", help="生成 API Key (UID9622 本机)"
+                                                            "· 配合 --role/--name")
+    ap.add_argument("--role", choices=tuple(ROLE_LEVEL), default="viewer",
+                    help="keygen 角色: viewer|auditor|admin")
+    ap.add_argument("--name", default="", help="keygen 持钥人标识")
+    ap.add_argument("--keynote", default="", help="keygen 备注")
     args = ap.parse_args()
+
+    if args.data_dir:
+        DATA_DIR = Path(args.data_dir).expanduser().resolve()
+        SHAME_MIRROR = DATA_DIR / "shame_wall.json"
+        MEMORIAL_MIRROR = DATA_DIR / "contributor_memorial.json"
+        SCAN_REQ_LOG = DATA_DIR / "scan_requests.log"
+        DH_REQ_LOG = DATA_DIR / "dh_dispatch.log"
+        DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+    if args.keygen:
+        key = gen_api_key(args.role, args.name or "UID9622 签发",
+                          args.keynote or "lh api keygen")
+        print(f"🟢 已生成 {args.role} 级 API Key:")
+        print(f"  X-API-Key: {key}")
+        print(f"  持钥人: {args.name or 'UID9622 签发'} · 登记 {API_KEYS_FILE}")
+        print("  ⚠️ 该 Key 仅显示一次 · 妥善保管 · 外发需最小权限")
+        return
 
     logger = setup_logging(args.log_level)
     Handler.logger = logger
