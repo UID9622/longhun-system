@@ -550,6 +550,25 @@ The LongHun Protocol is designed to be the governance layer that any AI system c
 >
 > 📢 **社区反馈请走耻辱墙 Issue 模板**：https://github.com/UID9622/longhun-system/issues/new?template=shame_report.yml （误报申诉 / 剽窃举报 / 记录纠错 / 铭碑质疑）
 
+#### 🎯 社区质疑自动响应（2026-09-04 · 用数据回应不争论）
+
+> 感谢 icophy 在 #1622 指出的两个硬缺口（召回率未测 + 假阳性未测），已制度化为自动闭环。
+> 任何社区质疑都会自动触发：**解析质疑 → 生成验证策略 → 正负样本实测 → 报告 → 回复**。
+
+```bash
+lh challenge parse 1622   # ① 拉取/解析质疑入队列（分类+实体提取）
+lh challenge add "文本"    #    无网时可本地补录
+lh strategy run 1622      # ② 执行验证（复用 lh_judge 指纹检测·纯本地零网络）
+lh strategy report 1622   # ③ 查看完整报告（TPR/FPR/阈值扫描表）
+lh response build 1622    # ④ 生成回复草稿（致谢+摘要+数据+结论+可复现指令）
+lh response wall          # ⑤ 验证事件墙（append-only）
+lh response post 1622     # ⑥ 发布到 GitHub Issue（token: env > Keychain）
+```
+
+> 首发实测（2026-09-04）：**TPR=100% · FPR=0% @ 操作点 0.5**（45 个改写形态正样本全命中 / 8 个无关+近邻干扰负样本零误触）。
+> 阈值扫描同时证明：0.3/0.4 档 FPR=12% → 弱指纹在低阈值确实会误触发，0.5 是安全边界。
+> 数据目录：`~/.longhun/validation/`（issues.jsonl + reports/ + events.jsonl）· 引擎：`08_BIN/lh_*`
+
 ### 🕒 每日自审（系统自己养自己）
 
 > 每日 03:00 launchd 自动执行：左右互搏审计核心文件 + 健康自检 + 铭碑校验 →
@@ -624,3 +643,17 @@ The LongHun Protocol is designed to be the governance layer that any AI system c
 
 *一个人建造。逻辑驱动。AI执行。社区一起看。*
 *Built by one person. Powered by logic. Executed by AI. Watched by community.*
+
+
+---
+
+## 💛 支持龍魂（纯自愿 · 零黑箱）
+
+龍魂的一切免费开放。若你认可「让技术为人、为普通人生长」，可自愿支持——款项仅用于服务器与开发成本，不留一分私账。
+
+- **收款方式**: SOL / USDC（Solana）
+- **实时地址与二维码**: 见官网 [uid9622.cn](https://uid9622.cn) 底部「支持龍魂」区 — 地址由 `lh wallet` 统一管理（公司账户落地后自动切换 · 以官网为准）
+
+> 龍魂不诱导、不施压、不道德绑架。捐与不捐，开放与尊重不变。
+
+<!-- LH-WALLET-SUPPORT -->

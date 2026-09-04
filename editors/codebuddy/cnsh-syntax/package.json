@@ -12,9 +12,6 @@
     "Programming Languages",
     "Linters"
   ],
-  "activationEvents": [
-    "onLanguage:cnsh"
-  ],
   "main": "./out/extension.js",
   "contributes": {
     "languages": [

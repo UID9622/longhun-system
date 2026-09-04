@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>标准库 · CNSH 中文原生编程语言</title>
+<style>
+:root{--gold:#d4af37;--ink:#0e0e12;--card:#17171e;--line:#2a2a35;--fg:#e8e6df;--mut:#9a9688}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--fg);font:16px/1.7 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+header{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#12121a,#0e0e12)}
+.bar{max-width:1080px;margin:0 auto;padding:16px 20px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.brand{font-size:20px;font-weight:700;color:var(--gold);letter-spacing:1px}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:var(--mut);font-size:14px}nav a:hover{color:var(--gold)}
+main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:30px;color:var(--gold);margin:14px 0}h2{font-size:22px;margin:26px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+h3{font-size:18px;margin:20px 0 8px;color:#c9c4b5}h4{font-size:16px;margin:14px 0 6px}
+p{margin:10px 0}ul,ol{margin:10px 0 10px 26px}li{margin:4px 0}
+code{background:#23232e;padding:2px 6px;border-radius:4px;color:#ffd479;font-size:14px}
+pre{background:#101018;border:1px solid var(--line);border-radius:10px;padding:16px;overflow-x:auto;margin:12px 0}
+pre code{background:none;padding:0;color:#e6e0c8;display:block;font-size:13.5px;line-height:1.6}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}th{background:#1a1a24;color:var(--gold)}
+blockquote{border-left:3px solid var(--gold);padding:6px 14px;color:var(--mut);margin:12px 0;background:#14141c}
+.hero{padding:50px 20px;text-align:center;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at top,#1c1c2c 0%,#0e0e12 70%)}
+.hero h1{font-size:44px;margin:6px 0}
+.hero p{color:var(--mut);max-width:760px;margin:10px auto}
+.btn{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:10px 24px;border-radius:30px;margin:14px 6px 0;font-size:15px}
+.btn:hover{background:var(--gold);color:#000;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:22px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h3{margin-top:0;color:var(--gold)}
+.cmd{background:#0c0c12;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-family:monospace;color:#7ee0a3;font-size:14px;margin:6px 0}
+footer{text-align:center;color:#666;padding:26px;font-size:13px;border-top:1px solid var(--line)}
+.toc{background:#12121a;border:1px solid var(--line);padding:14px 20px;border-radius:10px;margin:14px 0;font-size:14px}
+@media(max-width:700px){.hero h1{font-size:32px}}
+</style></head>
+<body><header><div class="bar">
+<span class="brand">🐉 CNSH 语言</span>
+<nav><a href="index.html">首页</a><a href="guide.html">入门教程</a><a href="reference.html">语法参考</a><a href="stdlib.html" style=color:var(--gold)>标准库</a><a href="tools.html">工具链</a><a href="examples.html">示例</a></nav></div></header>
+<main>
+<h1>📦 CNSH 官方标准库 v1.0</h1>
+<p>随 <code>cnsh-stdlib</code> 一起发布 · 零三方依赖（M77 零中间层）· 中文原生。</p>
+<table><thead><tr><th>模块</th><th>功能</th><th>关键 API</th></tr></thead><tbody>
+<tr><td><code>cnsh_std.io</code></td><td>文件读写</td><td>read / write / append / read_json / write_json</td></tr>
+<tr><td><code>cnsh_std.http</code></td><td>网络请求（禁代理直连）</td><td>get / post / get_json</td></tr>
+<tr><td><code>cnsh_std.crypto</code></td><td>哈希 / HMAC / 对称加密</td><td>sha256 / hmac_sha256 / encrypt / decrypt</td></tr>
+<tr><td><code>cnsh_std.time</code></td><td>时间 / 干支四柱</td><td>now_iso / ganzhi_stamp / today</td></tr>
+<tr><td><code>cnsh_std.dna</code></td><td>DNA 追溯码</td><td>generate / validate / extract</td></tr>
+<tr><td><code>cnsh_std.audit</code></td><td>三色审计日志</td><td>verdict / log / read_log</td></tr>
+<tr><td><code>cnsh_std.fuse</code></td><td>P0 熔断</td><td>trip / is_triggered / check</td></tr>
+<tr><td><code>cnsh_std.topo</code></td><td>系统拓扑查询</td><td>layers / engines / snapshot</td></tr>
+<tr><td><code>cnsh_std.memorial</code></td><td>铭碑记录（append-only）</td><td>record / list_records / freeze</td></tr>
+</tbody></table>
+<h2>安装</h2>
+<pre><code>pip install -e packaging/cnsh-stdlib     # 开发安装（workspace 内）
+# 或免安装直接使用：
+import sys; sys.path.insert(0, "packaging/cnsh-stdlib")
+from cnsh_std import io, dna, audit</code></pre>
+<h2>快速上手</h2>
+<pre><code>from cnsh_std import dna, crypto, audit, fuse
+
+code = dna.generate("MY-PACKAGE", "BUILD")     # #龍芯⚡️2026-09-04·MY-PACKAGE-BUILD-xxxx
+audit.log("./audit.jsonl", {"scope": "发布", "verdict": "pass"})
+tok = crypto.encrypt("机密", "口令")
+print(crypto.decrypt(tok, "口令"))             # 机密
+fuse.check("伪造DNA")                          # P0 熔断 → PermissionError</code></pre>
+<h2>自测</h2>
+<div class="cmd">python3 packaging/cnsh-stdlib/tests/test_all.py</div>
+<p>✅ CNSH 标准库自测: 通过 9 | 失败 0（实测 2026-09-04）</p>
+</main>
+<footer>归属名: 诸葛鑫 | UID9622 · 龍芯北辰 &nbsp;·&nbsp; CNSH v2.0 规范 · 标准库 v1.0 · 工具链 v1.0<br>
+GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F · License: MulanPSL v2 / CC BY-NC-SA 4.0</footer>
+</body></html>

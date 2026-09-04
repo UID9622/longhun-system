@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>首页 · CNSH 中文原生编程语言</title>
+<style>
+:root{--gold:#d4af37;--ink:#0e0e12;--card:#17171e;--line:#2a2a35;--fg:#e8e6df;--mut:#9a9688}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--fg);font:16px/1.7 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+header{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#12121a,#0e0e12)}
+.bar{max-width:1080px;margin:0 auto;padding:16px 20px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.brand{font-size:20px;font-weight:700;color:var(--gold);letter-spacing:1px}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:var(--mut);font-size:14px}nav a:hover{color:var(--gold)}
+main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:30px;color:var(--gold);margin:14px 0}h2{font-size:22px;margin:26px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+h3{font-size:18px;margin:20px 0 8px;color:#c9c4b5}h4{font-size:16px;margin:14px 0 6px}
+p{margin:10px 0}ul,ol{margin:10px 0 10px 26px}li{margin:4px 0}
+code{background:#23232e;padding:2px 6px;border-radius:4px;color:#ffd479;font-size:14px}
+pre{background:#101018;border:1px solid var(--line);border-radius:10px;padding:16px;overflow-x:auto;margin:12px 0}
+pre code{background:none;padding:0;color:#e6e0c8;display:block;font-size:13.5px;line-height:1.6}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}th{background:#1a1a24;color:var(--gold)}
+blockquote{border-left:3px solid var(--gold);padding:6px 14px;color:var(--mut);margin:12px 0;background:#14141c}
+.hero{padding:50px 20px;text-align:center;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at top,#1c1c2c 0%,#0e0e12 70%)}
+.hero h1{font-size:44px;margin:6px 0}
+.hero p{color:var(--mut);max-width:760px;margin:10px auto}
+.btn{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:10px 24px;border-radius:30px;margin:14px 6px 0;font-size:15px}
+.btn:hover{background:var(--gold);color:#000;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:22px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h3{margin-top:0;color:var(--gold)}
+.cmd{background:#0c0c12;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-family:monospace;color:#7ee0a3;font-size:14px;margin:6px 0}
+footer{text-align:center;color:#666;padding:26px;font-size:13px;border-top:1px solid var(--line)}
+.toc{background:#12121a;border:1px solid var(--line);padding:14px 20px;border-radius:10px;margin:14px 0;font-size:14px}
+@media(max-width:700px){.hero h1{font-size:32px}}
+</style></head>
+<body><header><div class="bar">
+<span class="brand">🐉 CNSH 语言</span>
+<nav><a href="index.html" style=color:var(--gold)>首页</a><a href="guide.html">入门教程</a><a href="reference.html">语法参考</a><a href="stdlib.html">标准库</a><a href="tools.html">工具链</a><a href="examples.html">示例</a></nav></div></header>
+<main>
+<div class="hero">
+<h1>🐉 CNSH · 中文原生编程语言</h1>
+<p>CNSH（中文神经符号混合语言）—— 说人话写代码。零门槛、可追溯、可执行。
+16 章完整规范 · Python/JS 双目标编译器 · 官方标准库 · VS Code 插件 · 包管理器 · 文档站。</p>
+<a class="btn" href="guide.html">📖 入门教程</a>
+<a class="btn" href="tools.html">🛠 工具链</a>
+<a class="btn" href="stdlib.html">📦 标准库</a>
+</div>
+<div class="grid">
+<div class="card"><h3>✍️ 说人话</h3><p>「打印(你好)」「循环 i 在 范围(10)」——中文语法零门槛，代码即注释。</p></div>
+<div class="card"><h3>🧬 可追溯</h3><p>每个文件可带 DNA 追溯码 + 三色审计 + P0 熔断，龍魂体系原生内建。</p></div>
+<div class="card"><h3>🚀 可执行</h3><p>编译器 CNSH→Python / CNSH→JS 双后端，一处书写、两处运行。</p></div>
+<div class="card"><h3>🧩 有生态</h3><p>官方标准库 9 模块 · 包管理器 cnsh pm · 测试框架 · VS Code 语法高亮与代码片段。</p></div>
+</div>
+<h2>🚀 快速上手</h2>
+<pre><code># 创建并运行第一个 CNSH 程序
+cat &gt; hello.cnsh &lt;&lt;'EOF'
+功能 主() {
+    打印("你好，龍魂！")
+}
+主()
+EOF
+
+cnsh run hello.cnsh          # 编译并执行
+cnsh build hello.cnsh --target python -o hello.py   # 生成 Python
+cnsh build hello.cnsh --target js -o hello.js       # 生成 JavaScript
+cnsh test tests/             # 运行测试
+cnsh pm init                 # 初始化包</code></pre>
+<h2>🔰 从哪开始</h2>
+<table><thead><tr><th>目标</th><th>入口</th></tr></thead><tbody>
+<tr><td>第一次接触 CNSH</td><td><a href="guide.html">入门教程</a>（含 Hello 龍魂 与 DNA 追溯）</td></tr>
+<tr><td>查语法关键字/类型/运算符</td><td><a href="reference.html">语法参考</a>（16 章规范渲染）</td></tr>
+<tr><td>写正式程序</td><td><a href="tools.html">工具链</a>：编译/运行/测试/包管理</td></tr>
+<tr><td>复用官方能力</td><td><a href="stdlib.html">标准库 API</a>（io/http/crypto/dna/audit…）</td></tr>
+</tbody></table>
+</main>
+<footer>归属名: 诸葛鑫 | UID9622 · 龍芯北辰 &nbsp;·&nbsp; CNSH v2.0 规范 · 标准库 v1.0 · 工具链 v1.0<br>
+GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F · License: MulanPSL v2 / CC BY-NC-SA 4.0</footer>
+</body></html>

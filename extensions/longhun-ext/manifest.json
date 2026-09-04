@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "龍魂9622·本地引擎",
+  "version": "2.0.0",
+  "author": "诸葛鑫 | UID9622 · 龍芯北辰",
+  "description": "本地9622引擎触角 · MVP+MCP+Notion+语音 · UID9622 · 中文主权",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "storage",
+    "notifications",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:9622/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16":  "icons/16.png",
+      "48":  "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"],
+    "run_at": "document_idle"
+  }],
+  "icons": {
+    "16":  "icons/16.png",
+    "48":  "icons/48.png",
+    "128": "icons/128.png"
+  }
+}

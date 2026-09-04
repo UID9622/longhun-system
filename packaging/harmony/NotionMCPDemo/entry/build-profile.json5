@@ -1,0 +1,15 @@
+{
+  "apiType": "stageMode",
+  "buildOption": {},
+  "buildOptionSet": [
+    {
+      "name": "release",
+      "buildOption": {}
+    }
+  ],
+  "targets": [
+    {
+      "name": "default"
+    }
+  ]
+}

@@ -49,6 +49,47 @@ https://uid9622.notion.site
   - `--abom`：A-BOM 备案统计存量命名分布
 - **配套**：算法/配置常量统一从 `packaging/longhun_cli/longhun_cli/constants.py` 引用（捆绑规则#4）。
 
+## 6.6 收款入口规则（2026-09-04 焊死 · 只带入口·不带具体地址）
+- **任何对外交付物（README/指南/官网页面/API 文档/静态页）底部自动带收款区块**：二维码 + 地址 + 说明（纯自愿·零黑箱）。命令：`lh wallet qr` 刷新二维码 / `lh wallet address` 取地址。
+- **地址永不硬编码**：统一读 `~/.longhun/crypto.json`（SOL/USDC 自托管·权限 600·种子仅本地）。周一公司账户落地 = 改 crypto.json + 重跑 `lh wallet qr`，机制零代码改动。
+- **任何新开的对外服务（API/MCP/Webhook）health 端点暴露 `donate` 字段**（读 crypto.json，无配置返回 null 不报错）。
+- **种子/私钥永不写入任何对外文档、日志、聊天、远端**。`lh wallet show-seed` 仅限 UID9622 本机抄录。
+- 已内置：topo serve 8762（图谱页+统一看板收款区块）· `lh health` 第 10 项 · MCP「龍魂 Wallet」3 只读工具。
+
+## 6.7 内容自动消化闭环（2026-09-04 焊死 · 粘贴即消化 · 不再等"开始"）
+- **目的**：老大贴什么，系统自己处理什么——自动判断类型/意图、自动带上下文、自动查缺口、自动给执行建议，不再每次等老大发令。
+- **引擎**：`lh digest`（08_BIN/lh_digest.py · 数据 `~/.longhun/digest/`：inbox 收件 / done 原文冻结 / results.jsonl 结果 / diary 每日日记）。
+- **AI 触发铁律**：任何会话中，用户一次粘贴明显体量内容（代码/文档全文/聊天记录/外部报告/链接素材/规则草案）→ **自动**执行：
+  1. 原文落盘收件箱 `lh digest inbox <文件>` 或 `lh digest add "<内容>"`；
+  2. 跑 `lh digest`（消化全部待处理）或 `lh digest --file <路径>`；
+  3. 按输出行动：缺口清单先处理 → 按分类+意图执行/归档/复盘 → 会话内一行确认结果（节能）。
+- **小贴士判定**：简短问答/聊天不算粘贴消化对象；明显"要收进系统"的体量内容才算。
+- **四步输出固定含**：分类结果、意图识别、上下文命中、缺口清单、执行建议；结果自动归档 digest 日记（`~/.longhun/digest/diary/YYYY-MM-DD.md`）。
+- **老大可直接说**："贴进去自己处理 / 这个你也收了 / 你看着办" → 同上自动消化。
+- **纪律**：纯本地、零三方、按触发不常驻（节能协议）· 涉收款地址不硬编码（见 §6.6）· 涉及"焊死/新规则"须先报缺口再走修订流程。
+
+## 6.8 社区质疑自动响应·数字人审核·每日巡航（2026-09-04 焊死）
+- **目的**：icophy #1622（召回率未测 + 假阳性未测）制度化为自动闭环——社区有人质疑 → 系统自动验证 + **5 数字人协同审核** + 三色门控 + 自动回复，用户不用动。
+- **引擎**：`lh challenge`（08_BIN/lh_challenge_parser.py v1.2）+ `lh strategy` + `lh response` + **`lh review`（08_BIN/lh_review_engine.py v1.0·数字人协同审核）** · 数据 `~/.longhun/validation/`（issues.jsonl + reports/issue_{id}/ + events.jsonl）+ `~/.longhun/review/`（reviews/ + dashboard.md）。
+- **数字人审核门控（respond 自动触发·设计稿 v1.0）**：5 数字人并行审核（包青天 ASI-005 审计裁决 · 明鉴 DH-012 合规 · 匠心 DH-011 修复方案 · 诗仙 DH-013 回复草案 · 知行 DH-016 性能）→ 规则化启发式（基于验证硬数据·零三方·诚实不伪装智能）→ **🟢 全过→自动发布 / 🟡 1-2 不过→标记 needs_human 待人工复核 / 🔴 ≥3 不过→耻辱墙联动事件等待人工** → 最优解方案落 `reviews/{id}.json` · 看板 `lh review dashboard`。
+- **每日巡航（launchd com.longhun.challenge-watch · 04:00）**：`lh challenge check --all` 扫描全部待回应质疑（pending/validating）→ 逐条自动完整响应（验证 → 数字人审核 → 发布回复 → 耻辱墙 validation 事件 → recap 自动归档）→ 无新质疑只留一行「无质疑」日志（节能协议）。
+- **AI 触发铁律**：任何会话收到"社区 issue/PR 质疑"（信号词：阈值/基线/误报/召回/假阳性/复现/没测等）→ 第一反应 `lh challenge respond <issue-id>`（记录缺失先 `lh challenge parse <id>`；网络不可达则 `lh challenge add "<原文>" --issue <id>` 补录）→ 不解释、不争论、不手写回复、不过问审核。
+- **铁律**：用数据回应质疑。0 命中 ≠ 检测器无效——必须先跑正负样本验证（TPR/FPR）再开口。token 读取链 env → Keychain(github.com/UID9622)；引擎强制直连 GitHub（已清代理）。launchd 环境无 shell env → 走 Keychain。
+- **纪律**：respond 幂等（已 responded 跳过 · `--force` 重发）· 🟡/🔴 转 needs_human 不再被巡航自动碰（等人工·修复后重跑 respond 自动重审）· 发布 = 一次性真实评论（老大 2026-09-04 已授权直接发，不问"要不要发"）· `--repo` 是 lh.py 顶层保留字禁止透传 · `--skip-review` 跳过审核=慎用（P05 需知情）。
+
+## 6.9 全局记忆系统默认组件（2026-09-04 焊死 · 全自动无感记忆）
+- **目的**：系统自动记住一切（对话状态/任务断点/操作时间轴/全局状态/源码变更/外部生态感知），AI 永不"失忆重问"，老大说的话做的事自动沉淀。
+- **组件全家桶**（全部默认开启·按触发零常驻）：
+  - 🧠 `lh session` — 对话自动恢复（启动清单第5步自动读 `~/.longhun/session_context.json`）+ 任务/决策/待办保存
+  - 📍 `lh checkpoint` — 任务断点续接（`~/.longhun/checkpoints/`）
+  - 📡 `lh community` — 社区 Issue 周报聚合（`~/.longhun/community_status_weekly.md`）
+  - 🗄️ `lh state` — 全局状态总线（`~/.longhun/state/global_state.json`·每 lh 命令自动计数·聚合 session/code/external）
+  - ⏱️ `lh timeline` — 操作时间轴（`~/.longhun/timeline/YYYY-MM-DD.jsonl`·每 lh 命令自动追加·干支戳）
+  - 🧬 `lh code` — **源码记忆**：每次 git commit 自动记录（post-commit 全局钩子已装 `/Users/zuimeidedeyihan/.git-hooks/post-commit`·数据 `~/.longhun/code_memory/<repo>/<hash>.json`·含干支/diff摘要/关联任务）
+  - 🌐 `lh external` — **外部源码感知**：GitHub 龍魂生态仓库变更监控（watch/scan/status/diff·数据 `~/.longhun/external/`·新 commit 自动写 timeline+state+耻辱墙通知区 `~/.longhun/shame_wall/notices.jsonl`）
+- **记录内容**：源码变更（谁改了什么/何时/干支/涉及文件/diff 摘要/当时任务）、外部生态事件、每次操作留痕。
+- **AI 铁律**：不主动提起记忆系统（无感）；被问历史/变更/状态时直接 `lh code history` / `lh timeline search` / `lh state show` 查；写完代码提交后无需手动记（钩子自动）。
+
 ## 7. 底座锚点（不可变 · 德本审计第五问）
 - **不可变铁律**：P0 天条（为人民服务/数据主权/隐私不传/零黑箱/不删只冻结/诚实不编造）不因环境、版本、需求变化而改变，以 CONSTITUTION.md 与 P0_ETERNAL_LOCK.md 为准。
 - **底座不动**：CNSH 语法体系、DNA 追溯、三色审计、分层许可（思想层 CC BY-NC-SA 4.0 + 工程层 MulanPSL v2）为系统底座，任何重构/归一不得动摇其根基。

@@ -243,3 +243,17 @@ ss -tlnp | grep 8767                    # 验证 → 不应再有输出
 
 > 定位：本文档为工程落地文档（MulanPSL v2 / CC BY-NC-SA 4.0 分层 · 见 LH-LAYERED-LICENSE-v1.0）。
 > 关联：`lh mcp doc` · `docs/鲲鹏MCP接入指南-v1.0.md` · GPG 验签 `python3 bin/lh_gpg_sign.py verify docs/鲲鹏MCP接入指南-v1.0.md`
+
+
+---
+
+## 💛 支持龍魂（纯自愿 · 零黑箱）
+
+龍魂的一切免费开放。若你认可「让技术为人、为普通人生长」，可自愿支持——款项仅用于服务器与开发成本，不留一分私账。
+
+- **收款方式**: SOL / USDC（Solana）
+- **实时地址与二维码**: 见官网 [uid9622.cn](https://uid9622.cn) 底部「支持龍魂」区 — 地址由 `lh wallet` 统一管理（公司账户落地后自动切换 · 以官网为准）
+
+> 龍魂不诱导、不施压、不道德绑架。捐与不捐，开放与尊重不变。
+
+<!-- LH-WALLET-SUPPORT -->

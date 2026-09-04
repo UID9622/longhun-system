@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- 龍魂·社区质疑每日巡航 · DNA #龍芯⚡️丙午·丁酉·辛巳·戌时·䷞咸-CHALLENGE-WATCH-PLIST-v1.0
+     每日04:00: lh challenge check --all → 新质疑自动完整响应 / 无质疑留一行日志
+     token: launchd 无 shell env → 引擎走 Keychain(github.com/UID9622) -->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.longhun.challenge-watch</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/zuimeidedeyihan/longhun-system/08_BIN/lh_challenge_parser.py</string>
+        <string>check</string>
+        <string>--all</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/zuimeidedeyihan/longhun-system</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin</string>
+        <key>PYTHONUNBUFFERED</key>
+        <string>1</string>
+        <!-- 显式禁用代理: GitHub API 走强制直连 -->
+        <key>NO_PROXY</key>
+        <string>*</string>
+    </dict>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>4</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>ThrottleInterval</key>
+    <integer>300</integer>
+
+    <key>StandardOutPath</key>
+    <string>/Users/zuimeidedeyihan/.longhun/validation/cruise_04.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/zuimeidedeyihan/.longhun/validation/cruise_04.error.log</string>
+
+    <key>ProcessType</key>
+    <string>Background</string>
+
+    <key>Nice</key>
+    <integer>10</integer>
+</dict>
+</plist>

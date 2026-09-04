@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>入门教程 · CNSH 中文原生编程语言</title>
+<style>
+:root{--gold:#d4af37;--ink:#0e0e12;--card:#17171e;--line:#2a2a35;--fg:#e8e6df;--mut:#9a9688}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--fg);font:16px/1.7 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+header{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#12121a,#0e0e12)}
+.bar{max-width:1080px;margin:0 auto;padding:16px 20px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.brand{font-size:20px;font-weight:700;color:var(--gold);letter-spacing:1px}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:var(--mut);font-size:14px}nav a:hover{color:var(--gold)}
+main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:30px;color:var(--gold);margin:14px 0}h2{font-size:22px;margin:26px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+h3{font-size:18px;margin:20px 0 8px;color:#c9c4b5}h4{font-size:16px;margin:14px 0 6px}
+p{margin:10px 0}ul,ol{margin:10px 0 10px 26px}li{margin:4px 0}
+code{background:#23232e;padding:2px 6px;border-radius:4px;color:#ffd479;font-size:14px}
+pre{background:#101018;border:1px solid var(--line);border-radius:10px;padding:16px;overflow-x:auto;margin:12px 0}
+pre code{background:none;padding:0;color:#e6e0c8;display:block;font-size:13.5px;line-height:1.6}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}th{background:#1a1a24;color:var(--gold)}
+blockquote{border-left:3px solid var(--gold);padding:6px 14px;color:var(--mut);margin:12px 0;background:#14141c}
+.hero{padding:50px 20px;text-align:center;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at top,#1c1c2c 0%,#0e0e12 70%)}
+.hero h1{font-size:44px;margin:6px 0}
+.hero p{color:var(--mut);max-width:760px;margin:10px auto}
+.btn{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:10px 24px;border-radius:30px;margin:14px 6px 0;font-size:15px}
+.btn:hover{background:var(--gold);color:#000;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:22px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h3{margin-top:0;color:var(--gold)}
+.cmd{background:#0c0c12;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-family:monospace;color:#7ee0a3;font-size:14px;margin:6px 0}
+footer{text-align:center;color:#666;padding:26px;font-size:13px;border-top:1px solid var(--line)}
+.toc{background:#12121a;border:1px solid var(--line);padding:14px 20px;border-radius:10px;margin:14px 0;font-size:14px}
+@media(max-width:700px){.hero h1{font-size:32px}}
+</style></head>
+<body><header><div class="bar">
+<span class="brand">🐉 CNSH 语言</span>
+<nav><a href="index.html">首页</a><a href="guide.html" style=color:var(--gold)>入门教程</a><a href="reference.html">语法参考</a><a href="stdlib.html">标准库</a><a href="tools.html">工具链</a><a href="examples.html">示例</a></nav></div></header>
+<main><h1>📖 入门教程</h1><div class="toc"><strong>本页目录</strong><ul><li><a href="#00_what_is_cnsh">第0章：CNSH 是什么，不是什么</a></li><li><a href="#01_hello_longhun">第1章：Hello, 龍魂</a></li><li><a href="#02_basic_syntax">第2章：基本语法单元</a></li><li><a href="#03_first_dna">第3章：第一个 DNA 追溯码</a></li></ul></div><h2 id="00_what_is_cnsh">第0章：CNSH 是什么，不是什么</h2><h1>第0章：CNSH 是什么，不是什么</h1>
+<blockquote><strong>DNA</strong>: <code>#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-CNSH-CHAPTER-00-v1.0</code></blockquote>
+<blockquote><strong>创建者</strong>: 诸葛鑫（UID9622）</blockquote>
+<blockquote><strong>协议</strong>: CC BY-NC-SA 4.0（核心思想层）</blockquote>
+<blockquote><strong>确认码</strong>: <code>#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</code></blockquote>
+<blockquote><strong>三色</strong>: 🟢 已定稿</blockquote>
+<p>---</p>
+<h2>0.1 一句话定义</h2>
+<blockquote><strong>CNSH（Chinese Natural Shell）</strong> 是一种面向人机协作的中文结构化语法，兼具自然语言可读性与机器可解析性，覆盖 <strong>AI 指令、审计追溯、脚本执行</strong> 三个层次。</blockquote>
+<h2>0.2 CNSH 是什么</h2>
+<table><thead><tr><th>特性</th><th>说明</th></tr></thead><tbody><tr><td>中文原生</td><td>关键字、操作符、语法结构全部基于中文自然语言</td></tr><tr><td>结构化</td><td>可被机器解析，可编译为 Python/Shell 执行</td></tr><tr><td>可审计</td><td>每行可追溯 DNA，支持三色判定（🟢 通过 / 🟡 待核 / 🔴 红线）</td></tr><tr><td>零门槛</td><td>会写中文句子就能写 CNSH</td></tr></tbody></table>
+<h2>0.3 CNSH 不是什么</h2>
+<table><thead><tr><th>误解</th><th>纠正</th></tr></thead><tbody><tr><td>提示词工程</td><td>❌ CNSH 是<strong>语法规范</strong>，不是 Prompt 模板</td></tr><tr><td>自然语言处理</td><td>❌ CNSH 是<strong>编程语言规范</strong>，不是 NLP 库</td></tr><tr><td>JSON/YAML 替代品</td><td>❌ CNSH 是<strong>人机协作语言</strong>，互补而非替代</td></tr><tr><td>Python 中文版</td><td>❌ CNSH 是<strong>指令层</strong>，Python 是执行层</td></tr></tbody></table>
+<h2>0.4 设计原则</h2>
+<p>1. <strong>中文第一</strong>：关键字、语法、错误信息全部中文 2. <strong>机器可读</strong>：结构化解析，不依赖语义理解 3. <strong>可追溯</strong>：每行代码可绑定 DNA 4. <strong>零门槛</strong>：会写中文的人 10 分钟上手</p>
+<h2>0.5 体系定位</h2>
+<p>CNSH 在龍魂体系中对应两种扩展名：</p>
+<table><thead><tr><th>语境</th><th>全称</th><th>层次</th></tr></thead><tbody><tr><td>人机交互语法（本规范）</td><td>Chinese <strong>Natural Shell</strong></td><td>对外语法呈现</td></tr><tr><td>数学语义液压（内部论文 v3.1）</td><td>Chinese Native Semantic <strong>Hydraulics</strong></td><td>底层算法内核</td></tr></tbody></table>
+<blockquote>两者同属 CNSH 体系：<strong>Shell 是 Hydraulics 的对外语法层</strong>。本规范只定义 Shell 语法，不涉及内部算法细节。</blockquote>
+<h2>0.6 Hello, 龍魂</h2>
+<pre><code># 第一个 CNSH 程序
+输出 &quot;Hello, 龍魂&quot;
+DNA: #龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-HELLO
+确认: ✅</code></pre>
+<h2>0.7 阅读路线</h2>
+<table><thead><tr><th>读者</th><th>路线</th></tr></thead><tbody><tr><td>第一次接触</td><td>第0章 → 第1章 → 第2章 → 第3章</td></tr><tr><td>想写脚本</td><td>第4-8章 → 第13-16章</td></tr><tr><td>做审计</td><td>第9-12章 → 附录B</td></tr><tr><td>机器对接</td><td>附录D → spec/ 目录</td></tr></tbody></table>
+<h2>0.8 章节导航</h2>
+<ul><li>下一章：<a href="./01_hello_longhun.md">第1章：Hello, 龍魂</a></li><li>目录：<a href="../INDEX.md">INDEX.md</a></li></ul>
+<p>---</p>
+<p><strong>GPG</strong>: <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></p><h2 id="01_hello_longhun">第1章：Hello, 龍魂</h2><h1>第1章：Hello, 龍魂</h1>
+<blockquote><strong>DNA</strong>: <code>#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-CNSH-CHAPTER-01-v1.0</code></blockquote>
+<blockquote><strong>创建者</strong>: 诸葛鑫（UID9622）</blockquote>
+<blockquote><strong>协议</strong>: CC BY-NC-SA 4.0（核心思想层）</blockquote>
+<blockquote><strong>确认码</strong>: <code>#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</code></blockquote>
+<blockquote><strong>三色</strong>: 🟢 已定稿</blockquote>
+<p>---</p>
+<h2>1.1 第一个程序</h2>
+<p>创建一个文件 <code>hello.cnsh</code>，写入：</p>
+<pre><code>输出 &quot;Hello, 龍魂&quot;</code></pre>
+<p>执行：</p>
+<pre><code>lh6 run hello.cnsh</code></pre>
+<p>输出：</p>
+<pre><code>Hello, 龍魂</code></pre>
+<h2>1.2 加一句中文注释</h2>
+<pre><code># 这是注释：以井号开头，会被解析器忽略
+输出 &quot;Hello, 龍魂&quot;
+输出 &quot;欢迎来到 CNSH&quot;</code></pre>
+<h2>1.3 带 DNA 的完整程序</h2>
+<pre><code>DNA: #龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-CNSH-HELLO-v1.0-UID9622-A7B8C9D0
+创建者: 诸葛鑫
+输出 &quot;Hello, 龍魂&quot;
+确认: ✅</code></pre>
+<p><code>lh6 run</code> 执行时校验 DNA 格式合法性（详见第9章）。</p>
+<h2>1.4 三色确认</h2>
+<p>CNSH 程序执行后可以附加三色判定：</p>
+<pre><code>输出 &quot;Hello, 龍魂&quot;
+审计: 🟢 通过</code></pre>
+<table><thead><tr><th>色</th><th>含义</th><th>场景</th></tr></thead><tbody><tr><td>🟢</td><td>通过</td><td>全检查点通过，放行</td></tr><tr><td>🟡</td><td>待核</td><td>推演/待实测，需注明待核什么</td></tr><tr><td>🔴</td><td>红线</td><td>安全风险，立即停止</td></tr></tbody></table>
+<h2>1.5 常见错误</h2>
+<pre><code># 错误：英文关键字不被识别
+print &quot;Hello&quot;     # ❌
+
+# 正确：中文关键字
+输出 &quot;Hello&quot;      # ✅</code></pre>
+<table><thead><tr><th>错误信息</th><th>原因</th></tr></thead><tbody><tr><td><code>未知关键字: print</code></td><td>使用了非 CNSH 关键字</td></tr><tr><td><code>缺少 DNA</code></td><td>文件头缺少 DNA 声明</td></tr><tr><td><code>未闭合字符串</code></td><td>引号不配对</td></tr></tbody></table>
+<h2>1.6 本章小结</h2>
+<ul><li>CNSH 程序 = 中文指令行 + 可选 DNA/注释/审计标记</li><li>用 <code>lh6 run</code> 执行 <code>.cnsh</code> 文件</li><li>三色审计是龍魂体系判定标准，贯穿所有 CNSH 程序</li></ul>
+<h2>1.7 练习</h2>
+<p>1. 修改 <code>hello.cnsh</code> 输出你的名字 2. 给程序加上 DNA 和 🟢 审计标记 3. 故意写错一个英文关键字，观察报错</p>
+<p>---</p>
+<h2>章节导航</h2>
+<ul><li>上一章：<a href="./00_what_is_cnsh.md">第0章：CNSH是什么</a></li><li>下一章：<a href="./02_basic_syntax.md">第2章：基本语法单元</a></li><li>目录：<a href="../INDEX.md">INDEX.md</a></li></ul>
+<p>---</p>
+<p><strong>GPG</strong>: <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></p><h2 id="02_basic_syntax">第2章：基本语法单元</h2><h1>第2章：基本语法单元</h1>
+<blockquote><strong>DNA</strong>: <code>#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-CNSH-CHAPTER-02-v1.0</code></blockquote>
+<blockquote><strong>创建者</strong>: 诸葛鑫（UID9622）</blockquote>
+<blockquote><strong>协议</strong>: CC BY-NC-SA 4.0（核心思想层）</blockquote>
+<blockquote><strong>确认码</strong>: <code>#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</code></blockquote>
+<blockquote><strong>三色</strong>: 🟢 已定稿</blockquote>
+<p>---</p>
+<h2>2.1 语法单元总览</h2>
+<p>CNSH 的基本语法单元共 5 类：</p>
+<table><thead><tr><th>单元</th><th>示例</th><th>用途</th></tr></thead><tbody><tr><td>关键字</td><td><code>输出</code> <code>读取</code> <code>执行</code> <code>审计</code></td><td>固定指令词</td></tr><tr><td>标识符</td><td><code>龍_系统</code> <code>数据_用户</code></td><td>变量/模块名称</td></tr><tr><td>字面量</td><td><code>&quot;字符串&quot;</code> <code>123</code> <code>3.14</code></td><td>值</td></tr><tr><td>操作符</td><td><code>=</code> <code>+</code> <code>如果</code> <code>否则</code></td><td>运算与控制</td></tr><tr><td>分隔符</td><td>空格、换行、<code>:</code>、<code>:</code></td><td>结构切分</td></tr></tbody></table>
+<h2>2.2 注释</h2>
+<pre><code># 单行注释
+# 支持中文注释，说明&quot;为什么&quot;而非&quot;是什么&quot;
+
+# 多行说明用连续 #
+# 关键阈值注明出处（哪条协议哪个公式）</code></pre>
+<h2>2.3 字面量</h2>
+<pre><code>字符串 &quot;龍魂&quot;
+整数 42
+小数 3.14
+布尔 真 / 假
+空值 无</code></pre>
+<h2>2.4 标识符规则</h2>
+<table><thead><tr><th>规则</th><th>示例</th><th>说明</th></tr></thead><tbody><tr><td>系统级前缀</td><td><code>龍_系统</code></td><td>龍魂保留命名空间</td></tr><tr><td>数据级前缀</td><td><code>数据_用户</code></td><td>用户数据处理</td></tr><tr><td>全中文</td><td><code>文件_路径</code></td><td>中文优先</td></tr><tr><td>禁英文缩写</td><td>~~<code>usr_dt</code>~~</td><td>拒绝英文缩写污染</td></tr></tbody></table>
+<blockquote>命名规范对齐 <code>CNSH_命令与变量命名规范-v2.0.md</code>：品牌/核心类名用繁体「龍」，通用工程变量用中文蛇形。</blockquote>
+<h2>2.5 指令行基本结构</h2>
+<pre><code># 结构：[主语] [谓语] [宾语] [修饰语]
+宝宝 输出 &quot;Hello&quot; 在控制台
+系统 审计 本次操作 用三色判定</code></pre>
+<ul><li><strong>主语</strong>：执行主体（可省略，默认 <code>系统</code>）</li><li><strong>谓语</strong>：动作（<code>输出</code> <code>读取</code> <code>执行</code> <code>审计</code>）</li><li><strong>宾语</strong>：操作对象</li><li><strong>修饰语</strong>：条件/参数（<code>在路径下</code> <code>用三色判定</code>）</li></ul>
+<h2>2.6 五行校验（龍魂特色）</h2>
+<pre><code>属性 校验 &quot;木&quot; # 金水木火土</code></pre>
+<table><thead><tr><th>属性</th><th>用途</th><th>映射</th></tr></thead><tbody><tr><td>金</td><td>审计/安全</td><td>巽·坎</td></tr><tr><td>水</td><td>数据/主权</td><td>坎</td></tr><tr><td>木</td><td>成长/扩展</td><td>震</td></tr><tr><td>火</td><td>执行/部署</td><td>离·兑</td></tr><tr><td>土</td><td>稳定/存储</td><td>坤·艮</td></tr></tbody></table>
+<h2>2.7 本章小结</h2>
+<ul><li>5 类基本语法单元：关键字/标识符/字面量/操作符/分隔符</li><li>注释用 <code>#</code>，说明&quot;为什么&quot;</li><li>标识符中文优先，系统级带 <code>龍_</code> 前缀</li><li>指令行 = 主语+谓语+宾语+修饰语</li></ul>
+<h2>2.8 练习</h2>
+<p>1. 声明 5 种不同字面量 2. 给变量命名：一个系统级、一个数据级 3. 写一条带五行校验的指令</p>
+<p>---</p>
+<h2>章节导航</h2>
+<ul><li>上一章：<a href="./01_hello_longhun.md">第1章：Hello, 龍魂</a></li><li>下一章：<a href="./03_first_dna.md">第3章：第一个DNA追溯码</a></li><li>目录：<a href="../INDEX.md">INDEX.md</a></li></ul>
+<p>---</p>
+<p><strong>GPG</strong>: <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></p><h2 id="03_first_dna">第3章：第一个 DNA 追溯码</h2><h1>第3章：第一个 DNA 追溯码</h1>
+<blockquote><strong>DNA</strong>: <code>#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-CNSH-CHAPTER-03-v1.0</code></blockquote>
+<blockquote><strong>创建者</strong>: 诸葛鑫（UID9622）</blockquote>
+<blockquote><strong>协议</strong>: CC BY-NC-SA 4.0（核心思想层）</blockquote>
+<blockquote><strong>确认码</strong>: <code>#CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z</code></blockquote>
+<blockquote><strong>三色</strong>: 🟢 已定稿</blockquote>
+<p>---</p>
+<h2>3.1 为什么需要 DNA</h2>
+<p>龍魂体系的根本要求：<strong>数据主权归用户、零黑箱、可追溯</strong>。</p>
+<p>每一个 CNSH 程序/文档/脚本都要绑定 DNA 追溯码，做到：</p>
+<ul><li>谁创建的（UID9622）</li><li>什么时候创建的（干支四柱/日期时辰）</li><li>属于哪个模块、什么动作</li><li>版本是多少</li><li>哈希指纹（防篡改）</li></ul>
+<h2>3.2 DNA 格式</h2>
+<pre><code>#龍芯⚡️{日期}-{时辰}-{模块}-{动作}-{版本}-{UID}-{哈希8位}</code></pre>
+<table><thead><tr><th>字段</th><th>说明</th><th>示例</th></tr></thead><tbody><tr><td>前缀</td><td>固定标识</td><td><code>#龍芯⚡️</code></td></tr><tr><td>日期</td><td>YYYY-MM-DD</td><td><code>2026-08-21</code></td></tr><tr><td>时辰</td><td>子丑寅卯…</td><td><code>申时</code></td></tr><tr><td>模块</td><td>大写+下划线</td><td><code>CNSH-SPEC</code></td></tr><tr><td>动作</td><td>动作类型</td><td><code>CREATE</code></td></tr><tr><td>版本</td><td>vX.X</td><td><code>v1.0</code></td></tr><tr><td>UID</td><td>固定标识</td><td><code>UID9622</code></td></tr><tr><td>哈希</td><td>十六进制8位</td><td><code>A7B8C9D0</code></td></tr></tbody></table>
+<h2>3.3 生成第一个 DNA</h2>
+<pre><code># 生成 DNA
+生成DNA 模块=&quot;CNSH-SPEC&quot; 动作=&quot;CREATE&quot;
+# 输出: #龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-申时-CNSH-SPEC-CREATE-v1.0-UID9622-A7B8C9D0</code></pre>
+<p>也可以用 <code>lh6</code> 命令：</p>
+<pre><code>lh6 dna 生成 --module CNSH-SPEC --action CREATE</code></pre>
+<h2>3.4 验证 DNA</h2>
+<pre><code>验证DNA &quot;#龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-申时-CNSH-SPEC-CREATE-v1.0-UID9622-A7B8C9D0&quot;
+# 返回：✅ 有效 / ❌ 无效</code></pre>
+<table><thead><tr><th>验证项</th><th>规则</th></tr></thead><tbody><tr><td>前缀</td><td>必须以 <code>#龍芯⚡️</code> 开头</td></tr><tr><td>日期</td><td>必须是有效日期</td></tr><tr><td>时辰</td><td>必须在 12 时辰列表</td></tr><tr><td>哈希</td><td>必须为 8 位十六进制</td></tr><tr><td>UID</td><td>必须匹配 <code>UID9622</code></td></tr></tbody></table>
+<h2>3.5 把 DNA 写进文件头</h2>
+<pre><code>---
+DNA: #龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-申时-CNSH-SPEC-CREATE-v1.0-UID9622-A7B8C9D0
+创建者: 诸葛鑫（UID9622）
+协议: CC BY-NC-SA 4.0
+确认码: #CONFIRM🌌9622-ONLY-ONCE🧬LK9X-772Z
+---</code></pre>
+<h2>3.6 DNA 链追溯</h2>
+<p>一次部署往往跨多个动作，用 DNA 链记录父子关系：</p>
+<pre><code>DNA链:
+  - #龍芯⚡️丙午·丙申·丙寅·甲午·䷕贲-未时-CNSH-DRAFT-v0.1-UID9622-12345678
+  - #龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-申时-CNSH-DEPLOY-v1.0-UID9622-A7B8C9D0
+  - #龍芯⚡️丙午·丙申·丁卯·丙午·䷚颐-酉时-CNSH-PUBLISH-v1.1-UID9622-B8C9D0E1</code></pre>
+<h2>3.7 本章小结</h2>
+<ul><li>DNA 是龍魂体系的追溯身份证，8 字段，缺一不可</li><li>生成用 <code>生成DNA</code> 或 <code>lh6 dna 生成</code></li><li>验证用 <code>验证DNA</code>，伪造会被拒绝</li><li>复杂动作用 DNA 链记录父-子关系</li></ul>
+<h2>3.8 练习</h2>
+<p>1. 为你的第一个 CNSH 程序生成 DNA 2. 验证一个伪造的 DNA（如 <code>#龍芯⚡️2026-99-99-INVALID</code>） 3. 构建一条包含 3 个 DNA 节点的追溯链</p>
+<p>---</p>
+<h2>章节导航</h2>
+<ul><li>上一章：<a href="./02_basic_syntax.md">第2章：基本语法单元</a></li><li>下一章：<a href="../reference/04_value_types.md">第4章：值类型系统</a></li><li>目录：<a href="../INDEX.md">INDEX.md</a></li></ul>
+<p>---</p>
+<p><strong>GPG</strong>: <code>A2D0092CEE2E5BA87035600924C3704A8CC26D5F</code></p></main>
+<footer>归属名: 诸葛鑫 | UID9622 · 龍芯北辰 &nbsp;·&nbsp; CNSH v2.0 规范 · 标准库 v1.0 · 工具链 v1.0<br>
+GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F · License: MulanPSL v2 / CC BY-NC-SA 4.0</footer>
+</body></html>

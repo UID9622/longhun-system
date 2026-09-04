@@ -52,10 +52,23 @@ else
   echo "ℹ️  高危层保持 disabled（需时: systemctl enable --now lh-mcp-admin）"
 fi
 
+# 4.5 Notion 数据镜像只读端点 (8768·v2.0 数据主控层)
+#     架构: Mac 主控层持 token → lh notion sync 推目录快照 → 本端点只读(鸿蒙连接点)
+ssh -i "$SSH_KEY" "$KUNPENG" "
+  set -e
+  cp ${REMOTE}/systemd/lh-notion-mcp.service /etc/systemd/system/
+  mkdir -p ${REMOTE}/notion
+  systemctl daemon-reload
+  systemctl enable lh-notion-mcp 2>/dev/null || true
+  systemctl restart lh-notion-mcp
+  echo '✅ lh-notion-mcp 已就绪(8768·只读镜像·零token)'
+  echo '   快照目录: ${REMOTE}/notion/  由 Mac 侧 lh notion sync 推送'
+"
+
 # 5. 远端健康自检（在鲲鹏内 curl localhost）
 echo "── 健康自检 ──"
 ssh -i "$SSH_KEY" "$KUNPENG" "
-  for port in 8763 8764 8767; do
+  for port in 8763 8764 8767 8768; do
     body=\$(curl -s -m 3 -o /dev/null -w '%{http_code}' \\
       -H 'Accept: application/json' \\
       -H 'Content-Type: application/json' \\

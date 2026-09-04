@@ -85,3 +85,17 @@ curl -X POST http://localhost:8761/dh/dispatch \
 - **多人格编排**：先 `lh dh "帮我做个网页"` 拿流水线岗位序列，再逐岗接力
 
 > 数字人档案全量在 `digital_humans/registry.json` · 岗位数字人注册引擎 `08_BIN/lh_dh_studio_registry.py`
+
+
+---
+
+## 💛 支持龍魂（纯自愿 · 零黑箱）
+
+龍魂的一切免费开放。若你认可「让技术为人、为普通人生长」，可自愿支持——款项仅用于服务器与开发成本，不留一分私账。
+
+- **收款方式**: SOL / USDC（Solana）
+- **实时地址与二维码**: 见官网 [uid9622.cn](https://uid9622.cn) 底部「支持龍魂」区 — 地址由 `lh wallet` 统一管理（公司账户落地后自动切换 · 以官网为准）
+
+> 龍魂不诱导、不施压、不道德绑架。捐与不捐，开放与尊重不变。
+
+<!-- LH-WALLET-SUPPORT -->

@@ -190,6 +190,21 @@
           "link_origin": "row_url"
         }
       ]
+    },
+    {
+      "name": "🛰️ Notion数据主控",
+      "assets": [
+        {
+          "name": "Notion页 2507125a",
+          "type": "notion-page",
+          "dna": "NOTION-2507125a",
+          "status": "🟢 可用",
+          "link": "https://www.notion.so/2507125a9c9f80d2b214c07deced0f0f",
+          "source": "notion",
+          "desc": "Notion页面 Notion页 2507125a",
+          "registered_at": "2026-09-04T11:40:00+08:00"
+        }
+      ]
     }
   ],
   "subgraphs": [

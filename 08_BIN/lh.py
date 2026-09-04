@@ -838,6 +838,8 @@ SUB_DISPATCH = {
     'publish':              ('lh_publish.py',                 '📢', '对外发布工具链·announce/status/dashboard/rollback/templates（一键多渠分发·自动PR+approve+merge·发布日志~/.longhun/publish_log.json）', [], ''),
     'search':               ('lh_search_engine.py',           '🔍', '搜索引擎', [], 'search'),
     'recap':                ('lh_recap.py',                   '🔄', '执行复盘可视化·generate/view/locate/codemark/snapshot/diff/rollback/export/search/timeline/stats/diagnose/suggest/template/config/protect/archive/share/qr（每次执行自动复盘·三图+DNA戳·~/.longhun/recap/）', [], ''),
+    # 📥 内容自动消化闭环 v1.0 — 粘贴即消化: 分类→意图→上下文→缺口→建议→归档（2026-09-04·老大指令:贴什么系统自己处理·不再等"开始"）
+    'digest':               ('lh_digest.py',                  '📥', '内容自动消化·(无参消化inbox)/add <文本>/inbox <文件>/--file <路径>/status/list/view/diary/flush/self-test（粘贴即消化四步闭环·~/.longhun/digest/·归档日记）', [], 'status'),
     # ⚖️ 无后台审批团公开决策引擎 v1.0 — 系统无后台·账号无人可锁: 🟢自动放行/🟡公开升堂/🔴公开重审·提案上链·审批团多签·时间盒超时默认拒绝·append-only哈希链(2026-09-04)
     'council':              ('lh_council.py',                 '⚖️', '无后台审批团公开决策·propose/vote/list/view/ledger/verify/wall/export/status/rotate（三色🟡自动升级提案·机器委员GD无票·超时默认拒绝·公示墙+哈希链·~/.longhun/council/）', [], ''),
     # 🚦 三色治理指挥层 v2.1 — 决策权与声誉绑定×贡献门槛×中国主权红线·薄胶水复用既有引擎(M77零重复): status聚合health/council/耻辱墙·propose/vote/audit转发council·sync扫ledger自动信誉(一致+1/不一致−2/连续±)·score+dr数字根·redline系统主权红线R001-R006(2026-09-04·协议 LH-TRICOLOR-GOVERNANCE-v2.1)
@@ -1065,6 +1067,7 @@ SUB_DISPATCH = {
     'notion-architect':     ('lh_notion_architect.py',        '🏗️', 'Notion架构管理器'),
     'notion-link':          ('lh_notion_autolinker.py',        '🔗', 'Notion自动关联器'),
     'notion-bridge':        ('lh_notion_chat_bridge.py',       '💬', 'Notion对话桥', [], 'serve'),
+    'wallet':               ('lh_wallet.py',                   '💰', '自托管收款钱包·SOL地址·二维码·种子冷备份(init/address/qr/status/show-seed)·读~/.longhun/crypto.json(600)·周一公司账户换地址零代码', [], 'status'),
     'landing':              ('lh_landing_engine.py',           '🛬', '落地焊死引擎·知识→落地→执行(scan/run/dashboard)', [], 'dashboard'),
     'naming':               ('lh_naming_engine.py',            '📛', '统一命名引擎·检查/修复/cnsh映射(check/fix/convert/dashboard)', [], 'dashboard'),
     'portal':               ('lh_portal_api.py',               '🌐', '统一门户官网', [], '--port 8778'),
@@ -1113,11 +1116,15 @@ SUB_DISPATCH = {
     'flow':                 ('lh_flow.py',                      '🌀', '龙魂流场计算·数字根/五行/八卦→Node JSON (lh flow "<文本>" [--json])', [], ''),
     'bazi':                 ('lh_bazi.py',                      '🔮', '龙魂八字排盘·四柱/五行强度→Node JSON (lh bazi [--date YYYY-MM-DD] [--time HH:MM] [--json])', [], ''),
     'health':               ('lh_health.py',                    '🏥', '龍魂系统自检·引擎/GPG/索引/全局三色状态表·kg含kb_loaded (lh health [--json])', [], ''),
+    # 📡 Notion 数据主控镜像 v1.0 — Mac主控层(持token·主权) → 目录级快照 → 鲲鹏8768只读端点(鸿蒙连接点)·只推元数据正文主权留主控 (2026-09-04)
+    'notion':               ('lh_notion_mirror.py',             '📡', 'Notion数据主控镜像·sync推目录快照/status镜像状态(--no-push本地/--topo附推·目标鲲鹏8768·正文留主控)', [], 'status'),
+    # 📱 鸿蒙接入脚手架 v1.0 — ArkTS SDK/Demo 生成·结构自检·真构建需 DevEco Studio (2026-09-04)
+    'harmony':              ('lh_harmony.py',                   '📱', '鸿蒙接入脚手架·init生成SDK+Demo到目录/check结构自检/guide打印指南路径 (lh harmony <init|check|guide> [--out DIR])', [], 'guide'),
     'backup':               ('lh_backup.py',                    '💾', '龍魂状态一键备份→~/backups/longhun·SQLite图谱库/耻辱墙/topo全打包 (lh backup [--keep N]) · 任务C生态(2026-09-03)', [], ''),
     'audit':                ('lh_audit.py',                     '📋', '三色审计 (lh audit --tri-color) · 合规报告 (lh audit report [--out] [--pdf]) · 任务E生态(2026-09-03)', [], ''),
     # 🕸️ 知识图谱拓扑引擎 v1.1 — verify/sync/list/serve:8762/kb-status·HTML开放页+数字人知识库（2026-09-02）
     'topo':                 ('lh_topo.py',                      '🕸️', '知识图谱拓扑·verify/sync/diff/db/list/serve:8762/kb-status/cite/frameworks/register/node (lh topo <verify|sync|diff|db|list|serve|kb-status|cite|frameworks|register|node> [图谱名]·serve=HTML开放页+/dashboard看板·缓存 docs/topology/·sync三源notion/obsidian/yuque·diff变更历史·db SQLite持久化·任务C/D生态2026-09-03)', [], ''),
-    'security':             ('lh_security_check.py',            '🔐', '龍魂安全自检·端口绑定/权限/GPG签名/文件泄露 (lh security [--json] [--scan-dir PATH])', [], ''),
+    'sec-check':            ('lh_security_check.py',            '🔐', '龍魂安全自检·端口绑定/权限/GPG签名/文件泄露 (lh sec-check [--json] [--scan-dir PATH]) · 键名2026-09-04改(security 归侦查审计引擎)', [], ''),
     'benchmark':            ('lh_benchmark.py',                 '⚡', '龍魂性能基准·排盘/流场/网关QPS (lh benchmark [--iterations 1000] [--json])', [], ''),
     # 🧬 归一收网 v1.0 — 归一回流头/外部调用审计/归一断言/反向追溯（2026-09-01）
     'logs':                 ('lh_logs.py',                      '📜', '外部调用记录·非本机调用归一审计 (lh logs [--tail 100] [--json])', [], ''),
@@ -1126,6 +1133,25 @@ SUB_DISPATCH = {
     # 🐉 归一审判官 v2.0 — 自动抓取/审计/耻辱墙公示（2026-09-02·手机端扫描扩展）
     'judge':                ('lh_judge.py',                     '🐉', '归一审判官·自动抓取公开源检测龍魂DNA·剽窃上耻辱墙 (lh judge scan|view|clean|misreport|confirm <id>|reject <id>|phone-scan[--deep]|phone-report|topo-scan[通心译内容审计])', [], ''),
     'webhook':              ('lh_webhook.py',                   '🌐', 'Webhook出口·耻辱墙新增/健康异常推送外部回调 (lh webhook register|list|remove|test|fire · 事件 shamewall|health|ping)', [], 'list'),
+    # 📡 社区质疑自动响应 v1.0 — icophy #1622 制度化为验证闭环: 质疑→策略→验证→报告→回复·用数据说话不争论(2026-09-04)
+    'challenge':            ('lh_challenge_parser.py',          '🎯', '社区质疑自动响应·parse <id>|add <文本>|list|status <id>|respond <id>[--force|--skip-review]|check --all[--dry-run]（respond=质疑→验证→5数字人审核→发布·check=每日04:00巡航·默认deepseek-ai/DeepSeek-V3·数据~/.longhun/validation/·recap钩子自动归档）', [], 'list'),
+    'review':               ('lh_review_engine.py',             '🧑⚖️', '数字人协同审核·evaluate <id>|status <id>|summary <id>|dashboard（5数字人并行: 包青天ASI-005审计裁决/明鉴DH-012合规/匠心DH-011修复/诗仙DH-013回复/知行DH-016性能·三色门控🟢发布/🟡人工复核/🔴耻辱墙·规则化启发式零三方·数据~/.longhun/review/·respond自动触发）', [], 'list'),
+    'strategy':             ('lh_validation_strategy.py',       '🧪', '验证策略引擎·generate|run|report|list|thresholds（召回率/FPR/阈值扫描·复用lh_judge指纹检测·正负样本→TPR/FPR报告）', [], 'list'),
+    'response':             ('lh_response_builder.py',          '📮', '质疑响应生成器·build|post|wall|status（致谢+验证摘要+数据链接+结论+可复现指令·post发GitHub评论·验证事件墙append-only）', [], 'status'),
+    # 🛡️ 安全侦查与审计 v1.0 — DeepSeek 五漏洞侦查·零受害面确认+加固模板（2026-09-04·QVD-2026-57410/CVE-2026-55604/55605/DS-V3#1350/#1307）
+    'security':             ('lh_security.py',                  '🛡️', '安全侦查与审计·status|audit deepseek（五漏洞侦查→~/.longhun/security/*.log append-only·零三方·说真话不伪造修复）', [], 'status'),
+    # 🧠 会话记忆/断点/社区聚合 v1.0 — 老大需求1-3: 对话自动恢复上次状态·断点续接·社区Issue周报（2026-09-04）
+    'session':              ('lh_session.py',                   '🧠', '会话记忆自动恢复·status|save [--task|--note|--decision|--todo]|history|restore --id N|clear（数据~/.longhun/session_context.json+session_history/·每次lh命令自动记last_command·AI每会话首轮读=对话自动恢复）', [], 'status'),
+    'checkpoint':           ('lh_checkpoint.py',                '📍', '任务断点恢复·save <任务> [--step|--next|--artifacts|--ctx]|list [--all]|resume <任务>|done|drop（数据~/.longhun/checkpoints/·中断续接·AI里程碑自动save）', [], 'list'),
+    'community':            ('lh_community.py',                 '📡', '社区Issue状态聚合·status [--live]|weekly [--live]|watch list|add <owner/repo> <id> [--tag]|remove（关注清单~/.longhun/community_watch.json·默认1622/1627/89·weekly→~/.longhun/community_status_weekly.md·live判待响应/闭环）', [], 'status'),
+    # 🗄️ 全局状态总线 v1.0 — 每命令自动更新 global_state.json·聚合session·系统统一状态源（2026-09-04·方案A1）
+    'state':                ('lh_state.py',                      '🗄️', '全局状态总线·show|status|reset（数据~/.longhun/state/global_state.json·聚合session的active_task/pending·每lh命令自动计数·reset需确认码二次确认）', [], 'show'),
+    # ⏱️ 操作时间轴 v1.0 — 全部lh操作按日JSONL·干支戳·可回溯可搜索（2026-09-04·方案A3）
+    'timeline':             ('lh_timeline.py',                   '⏱️', '操作时间轴·show [--today|--date YYYY-MM-DD|--tail N]|search <词>|export [--json]|stats（数据~/.longhun/timeline/YYYY-MM-DD.jsonl·每lh命令自动追加·含干支戳）', [], 'show --today'),
+    # 🧬 源码记忆引擎 v1.0 — git commit 自动留档·可追溯源码历史（2026-09-04·全局记忆A2）
+    'code':                 ('lh_code.py',                       '🧬', '源码记忆·record [--message]|history [--repo]|diff <h1> <h2>|status|install-hooks（post-commit钩子自动触发·数据~/.longhun/code_memory/<repo>/<hash>.json·含干支+diff摘要+关联任务）', [], 'history'),
+    # 🌐 外部源码感知 v1.0 — GitHub龍魂生态变更感知·联动状态总线/时间轴/通知区（2026-09-04·全局记忆A4）
+    'external':             ('lh_external.py',                   '🌐', '外部感知·watch <owner/repo>|unwatch|status|scan [--force]|diff <repo>（数据~/.longhun/external/·新commit→timeline+state+耻辱墙通知区notices.jsonl）', [], 'status'),
     # 📜 科技普惠诚信焊死协议 v1.0 — M78 版本控制权归龍魂（2026-09-01）
     'pledge':               ('lh_pledge.py',                    '📜', '科技普惠诚信焊死协议·版本控制权自动归龍魂 (lh pledge [--json]|bind <文本>|sovereignty|sys-check)', [], ''),
     'bind':                 ('lh_pledge.py',                    '🧬', '归属检测·检测任意文本是否含龙魂逻辑 (lh bind <文本> -> 🔴归属龙魂/🟢未检测到)', [], ''),
@@ -1277,24 +1303,24 @@ def _brain_hook_pre(cmd_label: str = ''):
             return
         import pathlib
         from datetime import datetime
-        sess_f = pathlib.Path.home() / '.longhun' / 'brain' / 'session.json'
-        sess = {}
-        if sess_f.exists():
+        session_f = pathlib.Path.home() / '.longhun' / 'brain' / 'session.json'
+        session = {}
+        if session_f.exists():
             try:
-                sess = json.loads(sess_f.read_text(encoding='utf-8'))
+                session = json.loads(session_f.read_text(encoding='utf-8'))
             except Exception:
-                sess = {}
+                session = {}
         today = datetime.now().strftime('%Y-%m-%d')
-        if sess.get('date') != today:
-            sess = {'date': today, 'rounds': 0, 'cmds': []}
-        sess['rounds'] = int(sess.get('rounds', 0)) + 1
-        cmds = sess.setdefault('cmds', [])
+        if session.get('date') != today:
+            session = {'date': today, 'rounds': 0, 'cmds': []}
+        session['rounds'] = int(session.get('rounds', 0)) + 1
+        cmds = session.setdefault('cmds', [])
         cmds.append({'t': datetime.now().strftime('%H:%M:%S'), 'cmd': cmd_label or ''})
         if len(cmds) > 200:
             del cmds[:len(cmds) - 200]
-        sess_f.parent.mkdir(parents=True, exist_ok=True)
-        sess_f.write_text(json.dumps(sess, ensure_ascii=False), encoding='utf-8')
-        if int(sess['rounds']) == 50 and not os.environ.get('LH_BRAIN_QUIET'):
+        session_f.parent.mkdir(parents=True, exist_ok=True)
+        session_f.write_text(json.dumps(session, ensure_ascii=False), encoding='utf-8')
+        if int(session['rounds']) == 50 and not os.environ.get('LH_BRAIN_QUIET'):
             print("  🧠 本会话已达 50 轮·建议 `lh brain summary` 沉淀记忆")
     except Exception:
         pass  # 钩子永不阻塞主流程
@@ -1315,6 +1341,100 @@ def _brain_hook_post():
                            cwd=str(ROOT), check=False, capture_output=True)
     except Exception:
         pass  # 钩子永不阻塞主流程
+
+
+def _session_auto_save(command_name: str):
+    """🧠 会话记忆·执行后自动记录最后命令(静默·零输出·不覆盖 active_task·2026-09-04)"""
+    try:
+        import json as _json
+        from pathlib import Path as _P
+        from datetime import UTC as _UTC, datetime as _dt
+        _p = _P.home() / ".longhun" / "session_context.json"
+        d = {}
+        if _p.exists():
+            try:
+                d = _json.loads(_p.read_text(encoding="utf-8"))
+            except Exception:
+                d = {}
+        if command_name:
+            d["last_command"] = command_name
+        d["last_ts"] = _dt.now(_UTC).isoformat()
+        _p.parent.mkdir(parents=True, exist_ok=True)
+        _p.write_text(_json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception:
+        pass
+
+
+def _state_hook_post(command_name: str):
+    """🗄️ 全局状态总线+⏱️时间轴·执行后钩子(静默·零输出·不阻塞·2026-09-04):
+    global_state.json 命令计数/last_command + timeline JSONL 追加(含干支戳)"""
+    try:
+        import json as _json
+        from pathlib import Path as _P
+        from datetime import datetime as _dt
+        _d = _P.home() / ".longhun"
+        (_d / "state").mkdir(parents=True, exist_ok=True)
+        _g = _d / "state" / "global_state.json"
+        s = {}
+        if _g.exists():
+            try:
+                s = _json.loads(_g.read_text(encoding="utf-8"))
+            except Exception:
+                s = {}
+        if not isinstance(s, dict):
+            s = {}
+        s.setdefault("system_status", "running")
+        st = s.setdefault("stats", {})
+        if not isinstance(st, dict):
+            st = {}
+            s["stats"] = st
+        st["total_commands"] = int(st.get("total_commands", 0)) + 1
+        if not st.get("since"):
+            st["since"] = _dt.now().astimezone().isoformat()
+        if command_name:
+            s["last_command"] = command_name
+        s["last_ts"] = _dt.now().astimezone().isoformat()
+        s["updated_at"] = s["last_ts"]
+        _g.write_text(_json.dumps(s, ensure_ascii=False, indent=2), encoding="utf-8")
+        # ⏱️ timeline 追加（按日 JSONL·含干支戳）
+        _now = _dt.now().astimezone()
+        (_d / "timeline").mkdir(parents=True, exist_ok=True)
+        rec = {"ts": _now.isoformat(), "ganzhi": _ganzhi_simple(_now),
+               "type": "command", "cmd": command_name or "-",
+               "total": st["total_commands"]}
+        with open(_d / "timeline" / (_now.strftime("%Y-%m-%d") + ".jsonl"), "a", encoding="utf-8") as _fh:
+            _fh.write(_json.dumps(rec, ensure_ascii=False) + "\n")
+    except Exception:
+        pass  # 钩子永不阻塞主流程
+
+
+def _ganzhi_simple(_dt_):
+    """⏱️ 简版干支戳(年60甲子·月简·时2h制23时归子)·完整四柱走 lh te --stamp"""
+    _TG = "甲乙丙丁戊己庚辛壬癸"
+    _DZ = "子丑寅卯辰巳午未申酉戌亥"
+    _y = (_dt_.year - 4) % 60
+    _h = (_dt_.hour + 1) // 2 % 12
+    return f"{_TG[_y % 10]}{_DZ[_y % 12]}年·{_TG[_dt_.month % 10]}{_DZ[_dt_.month % 12]}月·{_DZ[_h]}时"
+
+
+def _session_banner():
+    """🧠 会话记忆·恢复摘要(交互/无参入口一行·不打扰)"""
+    try:
+        import json as _json
+        from pathlib import Path as _P
+        _p = _P.home() / ".longhun" / "session_context.json"
+        if not _p.exists():
+            return
+        d = _json.loads(_p.read_text(encoding="utf-8"))
+        task = d.get("active_task") or ""
+        pend = d.get("pending") or []
+        if not task and not pend:
+            return
+        print(f"\n  🧠 恢复上次会话 · 当前任务: {task[:60] or '(无任务)'}")
+        for p in pend[:3]:
+            print(f"     • 待办: {p[:70]}")
+    except Exception:
+        pass
 
 
 def _recap_hook_post(command_name: str, extra_args, result, t0):
@@ -1395,6 +1515,8 @@ def _run_subcommand(script_name: str, extra_args: list[str] | None = None, emoji
             suppress_header=suppress_header,
         )
         _brain_hook_post()  # 🧠 超级大脑·后置联动
+        _session_auto_save(command_name)  # 🧠 会话记忆·自动记录最后命令
+        _state_hook_post(command_name)  # 🗄️ 全局状态总线+时间轴·自动更新
         _recap_hook_post(command_name, extra_args, result, _t0)  # 🔄 执行复盘·自动触发
         return result
 
@@ -1414,6 +1536,8 @@ def _run_subcommand(script_name: str, extra_args: list[str] | None = None, emoji
     if not suppress_header:
         _print_time_stamp()
     _brain_hook_post()  # 🧠 超级大脑·后置联动
+    _session_auto_save(command_name)  # 🧠 会话记忆·自动记录最后命令
+    _state_hook_post(command_name)  # 🗄️ 全局状态总线+时间轴·自动更新
     _recap_hook_post(command_name, extra_args, result, _t0)  # 🔄 执行复盘·自动触发
     return result
 
@@ -2638,6 +2762,7 @@ def main():
             'detect': '📊 检测 & 分析', 'analyze': '📊 检测 & 分析',
             'sync': '🔗 同步 & 集成', 'git': '🔗 同步 & 集成',
             'notion': '🔗 同步 & 集成',
+            'harmony': '📱 鸿蒙 & 客户端',
             'watermark': '🧬 DNA & 追溯', 'face': '🧬 DNA & 追溯',
             'qr': '🧬 DNA & 追溯', 'voiceprint': '🧬 DNA & 追溯',
             'system': '⚙️ 系统 & 运维', 'ops': '⚙️ 系统 & 运维',
@@ -2805,6 +2930,7 @@ def main():
         clear_screen()
         print_header()
         print_alive_banner()
+        _session_banner()  # 🧠 会话记忆·恢复摘要
         print_menu()
 
         choice = input("  🎯 输入数字/字母 > ").strip().lower()

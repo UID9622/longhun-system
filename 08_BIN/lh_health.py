@@ -44,6 +44,33 @@ def check_asc(script: str) -> tuple:
     return f"{script}.asc", ok, "签名在位" if ok else "缺签名", str(asc.relative_to(ROOT))
 
 
+def _notion_mirror_state() -> dict:
+    """Notion 数据主控镜像状态（目录快照 catalog.json · 无正文主权在主控）"""
+    p = Path.home() / ".longhun" / "notion_mirror" / "catalog.json"
+    s = {"catalog": False, "ok": False, "pages": 0, "synced_at": "", "stale_days": None}
+    if not p.is_file():
+        return s
+    s["catalog"] = True
+    try:
+        d = json.loads(p.read_text(encoding="utf-8"))
+        s["pages"] = int((d.get("meta") or {}).get("pages", 0))
+        s["synced_at"] = (d.get("meta") or {}).get("synced_at", "")
+        s["ok"] = s["pages"] > 0
+        import datetime
+        at = s["synced_at"][:19]
+        for fmt in ("%Y-%m-%dT%H:%M:%S", "%Y-%m-%d %H:%M:%S"):
+            try:
+                dt = datetime.datetime.strptime(at, fmt)
+                days = (datetime.datetime.now() - dt).days
+                s["stale_days"] = days if days > 7 else None
+                break
+            except ValueError:
+                continue
+    except Exception:
+        pass
+    return s
+
+
 def _dh_kb_state() -> dict:
     """数字人知识库挂载状态（lh_dh_dispatch v1.1 落盘 ~/.longhun/dh_kb_state.json）"""
     p = Path.home() / ".longhun" / "dh_kb_state.json"
@@ -167,6 +194,44 @@ def run_checks() -> list:
     else:
         results.append(("知识图谱拓扑", False, "缓存缺失", "docs/topology/ (lh topo sync 通心译)"))
 
+    # ── 9. Notion 数据主控镜像（v1.0·Mac主控→鲲鹏8768·目录级快照·零正文出主控）──
+    nm = _notion_mirror_state()
+    results.append(check_file(BIN / "lh_notion_mirror.py", "引擎 lh_notion_mirror"))
+    if nm["catalog"]:
+        results.append(("Notion 镜像快照", nm["ok"],
+                        f"{nm['pages']} 页 · 同步 {nm['synced_at']}"
+                        f"{(' · 陈旧 '+str(nm['stale_days'])+'天') if nm.get('stale_days') else ''}",
+                        "~/.longhun/notion_mirror/catalog.json"))
+    else:
+        results.append(("Notion 镜像快照", False,
+                        "未同步(先 lh notion sync --no-push)", "~/.longhun/notion_mirror/"))
+    results.append(("Notion 审计链", Path.home().joinpath(
+        ".longhun", "notion_audit.jsonl").is_file(),
+        "append-only 在位" if Path.home().joinpath(
+            ".longhun", "notion_audit.jsonl").is_file() else "缺失",
+        "~/.longhun/notion_audit.jsonl"))
+
+    # ── 10. 收款钱包（lh wallet v1.0·SOL 自托管·crypto.json 权限600·链上余额不造假）──
+    import json as _json
+    _cf = Path.home() / ".longhun" / "crypto.json"
+    _waddr = ""
+    try:
+        if _cf.is_file():
+            _cfg = _json.loads(_cf.read_text(encoding="utf-8"))
+            _waddr = ((_cfg.get("networks") or {}).get("solana") or {}).get("address", "")
+    except Exception:
+        pass
+    _wq = Path.home() / ".longhun" / "static" / "donate.png"
+    results.append(check_file(BIN / "lh_wallet.py", "引擎 lh_wallet"))
+    if _waddr:
+        results.append(("收款钱包(SOL/USDC)", True,
+                        f"{_waddr[:10]}…{_waddr[-6:]} · QR "
+                        f"{'✅' if _wq.is_file() else '未生成(lh wallet qr)'}",
+                        "~/.longhun/crypto.json(600)·种子仅本地永不外传·链上余额需钱包App"))
+    else:
+        results.append(("收款钱包(SOL/USDC)", False,
+                        "未初始化(lh wallet init)", "~/.longhun/crypto.json"))
+
     return results
 
 
@@ -208,7 +273,7 @@ def main():
     if args.json:
         out = {
             "tool": "lh-health",
-            "version": "1.1",
+            "version": "1.2",
             "checks": [
                 {"name": n, "ok": ok, "detail": d, "where": w}
                 for n, ok, d, w in results

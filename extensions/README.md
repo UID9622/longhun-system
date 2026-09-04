@@ -9,6 +9,7 @@
 |------|------|------|------|
 | 龍魂宝宝 · LongHunWidget | `LongHunWidget/` | ✅ 已修复 | MV3 侧边栏 · DNA / 记忆 / 审计 / 五行 / MCP 桥接 |
 | CNSH · 龍魂语法引擎 | `cnsh-chrome-plugin/` | ✅ 已纳入 | MV3 快速入库 · Notion Inbox / DNA / 人心算法 |
+| 龍魂9622·本地引擎触角 | `longhun-ext/` | ✅ 深度集成 v2.0 | MV3 右键菜单 · 语音输入 · Python 本地引擎 · iOS Swift 伴侣（2026-09-04 自 `~/龍魂浏览器插件.zip` 收编·10 文件全标准化头·icons 补齐·922 端口占用已注明） |
 
 ---
 

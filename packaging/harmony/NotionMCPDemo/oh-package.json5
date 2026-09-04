@@ -1,0 +1,9 @@
+{
+  "name": "notion-mcp-demo",
+  "version": "1.0.0",
+  "description": "龍魂 Notion 数据镜像 · 鸿蒙查询 Demo（只读目录秒搜）",
+  "main": "",
+  "author": "诸葛鑫 | UID9622 · 龍芯北辰",
+  "license": "MulanPSL v2",
+  "dependencies": {}
+}

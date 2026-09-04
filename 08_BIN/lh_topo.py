@@ -181,6 +181,26 @@ def load_kb_index(keyword: str = "通心译") -> dict:
             "root_hash": topo_root_hash(data), "source": f"docs/topology/{f.name}"}
 
 
+def _wallet_banner() -> str:
+    """收款区块(可降级): 读 ~/.longhun/crypto.json 的 SOL 地址·二维码走 /donate.png 静态路由。
+    无配置/无地址 → 返回空串,页面不出现收款区块(优雅降级·不显示假收款)。"""
+    try:
+        with open(os.path.expanduser("~/.longhun/crypto.json"), encoding="utf-8") as fh:
+            cfg = json.loads(fh.read())
+        addr = (cfg.get("networks", {}) or {}).get("solana", {}).get("address", "")
+        if not addr:
+            return ""
+    except Exception:
+        return ""
+    esc = html_mod.escape
+    return ('<div class="donate">'
+            '<span class="dh">💛 支持龍魂 · 纯自愿 · 零黑箱 · 款项仅用于服务器与开发</span> '
+            '<img src="/donate.png" alt="支持龍魂二维码" class="dq">'
+            '<span class="da">SOL / USDC: <code>' + esc(addr) + '</code>'
+            '<button type="button" onclick="navigator.clipboard.writeText(\'' + esc(addr) + '\')">复制</button>'
+            '</span></div>')
+
+
 def render_topo_html(keyword: str = "通心译") -> str:
     """生成人类可读拓扑页：6 组树形 + 19 节点（名称/ID/DNA/状态）+ 页脚主权声明与根哈希"""
     f, data = _find_topo_file(keyword)
@@ -188,6 +208,7 @@ def render_topo_html(keyword: str = "通心译") -> str:
     total = green + yellow + neutral
     rh = topo_root_hash(data)
     esc = html_mod.escape
+    donate_html = _wallet_banner()
 
     groups_html = []
     for _gi, g in enumerate(data.get("groups", []), 1):
@@ -273,7 +294,16 @@ li.asset:hover {{ border-left-color:#ffab00; }}
 footer {{ margin-top:28px; border-top:1px solid #21262d; padding:18px 0 8px; text-align:center; font-size:11px; color:#8b949e; line-height:1.9; }}
 footer .sovereign {{ color:#ffab00; letter-spacing:1px; }}
 footer .root {{ color:#7ee787; }}
-@media (max-width:600px) {{ body {{ padding:12px; }} h1 {{ font-size:20px; }} }}
+.donate {{ margin:22px auto 6px; padding:14px 18px; border:1px dashed #ffab00; border-radius:10px;
+           display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap;
+           background:#0d1117; text-align:left; }}
+.donate .dh {{ color:#ffab00; font-size:12px; letter-spacing:1px; }}
+.donate .dq {{ width:84px; height:84px; border-radius:6px; background:#fff; padding:3px; }}
+.donate .da {{ color:#c9d1d9; font-size:12px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }}
+.donate code {{ background:#161b22; color:#7ee787; border-radius:4px; padding:2px 8px; word-break:break-all; font-size:11px; }}
+.donate button {{ background:#ffab00; color:#0a0e17; border:0; border-radius:6px; padding:3px 10px; cursor:pointer; font-size:12px; }}
+.donate button:active {{ opacity:.7; }}
+@media (max-width:600px) {{ body {{ padding:12px; }} h1 {{ font-size:20px; }} .donate {{ justify-content:flex-start; }} }}
 </style>
 </head>
 <body>
@@ -294,6 +324,7 @@ footer .root {{ color:#7ee787; }}
   <div>GPG: A2D0092CEE2E5BA87035600924C3704A8CC26D5F</div>
   <div class="root">根哈希: {rh} · 缓存: docs/topology/{esc(f.name)} · 同步 {esc(str(data.get('last_sync', '?')))}</div>
 </footer>
+{donate_html}
 </div>
 </body>
 </html>
@@ -329,6 +360,12 @@ class TopoHandler(BaseHTTPRequestHandler):
         if path == "/dashboard":
             body = render_dashboard_html().encode("utf-8")
             return self._send(200, body, "text/html; charset=utf-8")
+        if path == "/donate.png":   # 收款二维码静态路由(读 ~/.longhun/static/donate.png)
+            qr = os.path.expanduser("~/.longhun/static/donate.png")
+            if os.path.exists(qr):
+                with open(qr, "rb") as _f:
+                    return self._send(200, _f.read(), "image/png")
+            return self._send(404, b"donate.png not configured", "text/plain; charset=utf-8")
         name = self.keyword
         is_json = False
         if path != "/":
@@ -415,6 +452,7 @@ def render_dashboard_html(refresh: int = 60) -> str:
     live = _live_snapshots()
     shame = _shame_wall_recent(10)
     now = datetime.now().astimezone().isoformat(timespec="seconds")
+    donate_html = _wallet_banner()
     # 服务健康探测（容器友好: 失败不计红·标注离线）
     import shutil as _sh
     import subprocess as _sp
@@ -475,6 +513,11 @@ td{{padding:6px;border-bottom:1px solid #10121f}}
 .health{{display:inline-block;padding:2px 10px;border-radius:10px;font-size:12px;margin:2px}}
 .g{{background:#0f2a1a;color:#44ff88}}.y{{background:#2a210f;color:#ffab00}}
 .r{{background:#2a0f0f;color:#ff4444}}.o{{background:#1a1a2e;color:#888}}
+.donate{{margin:16px 0 4px;padding:10px 14px;border:1px dashed #ffab00;border-radius:8px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;background:#0d111f}}
+.donate .dh{{color:#ffab00;font-size:12px;letter-spacing:1px}}
+.donate img{{width:72px;height:72px;border-radius:4px;background:#fff;padding:2px}}
+.donate code{{color:#7ee787;word-break:break-all}}
+.donate button{{background:#ffab00;color:#000;border:0;border-radius:4px;cursor:pointer;padding:2px 8px}}
 .foot{{color:#555;font-size:11px;text-align:center;margin-top:24px}}
 .box{{background:#0d111f;border:1px solid #1a1a2e;padding:8px 14px;margin:8px 0;border-radius:6px}}
 </style></head><body>
@@ -494,6 +537,7 @@ td{{padding:6px;border-bottom:1px solid #10121f}}
 </div>
 <h2>🧱 耻辱墙 · 最近 {len(shame)} 条</h2>
 <table><tr><th>色</th><th>源名称</th><th>指纹</th><th>发现时间</th><th>匹配</th></tr>{shame_rows}</table>
+{donate_html}
 <div class=foot>M77 零中间层 · 纯标准库 · 分层许可: 思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2<br>
 DNA: #龍芯⚡️2026-09-03-ECOSYSTEM-DASHBOARD-v1.0-UID9622</div>
 </body></html>"""

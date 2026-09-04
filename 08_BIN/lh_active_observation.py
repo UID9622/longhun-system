@@ -62,6 +62,15 @@ OBS_DIR.mkdir(parents=True, exist_ok=True)
 STATE_FILE = OBS_DIR / "observation_state.json"
 RULES_FILE = OBS_DIR / "observation_rules.json"
 
+# ── 聚焦目录 + 忽略名单（治理 2026-09-04 · 防无规则噪音）──
+# 只观察核心层；bin 为软链→08_BIN
+WATCH_DIR_RELS = ["bin", "01_protocols", "12_DOCS", "packaging"]
+IGNORE_GLOBS = [
+    "*.asc", "*.glyph-backup", "*.pyc", "*__pycache__*", "*egg-info*",
+    "*/dist/*", "*/build/*", ".DS_Store",
+]
+SNAPSHOT_FILE = OBS_DIR / "file_snapshots.json"
+
 
 # ═══════════════════════════════════════════════════════════
 # 触发类型
@@ -313,9 +322,11 @@ class ActiveObservationEngine:
         self._lock = threading.Lock()
         self._observers: List[threading.Thread] = []
         self._file_snapshots: Dict[str, Tuple[float, str]] = {}  # path → (mtime, sha256)
+        self._baseline_done = False  # 治理2026-09-04：首轮静默建档=基线
         self._event_bus = event_bus or EventBus()
         self._hourly_counters: Dict[str, int] = {}  # rule_id → 本小时计数
         self._last_counter_reset = time.time()
+        self._load_snapshots()  # 启动恢复磁盘基线→增量对比
 
         # 注册 EventBus 回调
         self._event_bus.register_callback("obs_file_observed", self._on_file_observed)
@@ -395,6 +406,7 @@ class ActiveObservationEngine:
             t.join(timeout=5)
         self._observers.clear()
         self._save_state()
+        self._save_snapshots()
         self._log("🛑 主动观察引擎已停止")
 
     # ═══════════════════════════════════════════════════════
@@ -476,19 +488,52 @@ class ActiveObservationEngine:
     # 检测逻辑
     # ═══════════════════════════════════════════════════════
 
+    def _is_ignored(self, fpath: Path) -> bool:
+        """忽略名单：签名备份/缓存/构建产物不观察"""
+        import fnmatch
+        s = str(fpath)
+        return any(
+            fnmatch.fnmatch(fpath.name, g) or fnmatch.fnmatch(s, g)
+            for g in IGNORE_GLOBS
+        )
+
+    def _load_snapshots(self):
+        """加载持久化文件快照基线（治理2026-09-04·增量对比基础）"""
+        try:
+            if SNAPSHOT_FILE.exists():
+                raw = json.loads(SNAPSHOT_FILE.read_text(encoding="utf-8"))
+                loaded = {
+                    k: (float(v[0]), v[1] if len(v) > 1 else "")
+                    for k, v in raw.items() if isinstance(v, (list, tuple))
+                }
+                if loaded:
+                    self._file_snapshots = loaded
+                    self._baseline_done = True
+                    self._log(f"📂 基线快照已加载: {len(loaded)} 文件")
+        except Exception as e:
+            self._file_snapshots = {}
+            self._log(f"🟡 基线加载失败(冷启动): {e}")
+
+    def _save_snapshots(self):
+        """持久化文件快照基线到磁盘"""
+        try:
+            SNAPSHOT_FILE.write_text(
+                json.dumps(self._file_snapshots, ensure_ascii=False), encoding="utf-8"
+            )
+        except Exception as e:
+            self._log(f"🟡 基线保存失败: {e}")
+
     def _scan_file_changes(self):
-        """扫描文件系统变更（增量快照对比）"""
-        watch_dirs = [
-            PROJECT_ROOT / "bin",
-            PROJECT_ROOT / "config",
-            PROJECT_ROOT / "personas",
-            PROJECT_ROOT / "integrations",
-        ]
+        """扫描文件系统变更（聚焦目录·忽略名单·首轮静默建档为基线）"""
+        first_baseline = not self._baseline_done
+        watch_dirs = [PROJECT_ROOT / d for d in WATCH_DIR_RELS]
         for watch_dir in watch_dirs:
             if not watch_dir.exists():
                 continue
             for fpath in watch_dir.rglob("*"):
                 if not fpath.is_file():
+                    continue
+                if self._is_ignored(fpath):
                     continue
                 key = str(fpath)
                 try:
@@ -498,17 +543,20 @@ class ActiveObservationEngine:
                     continue
 
                 if key not in self._file_snapshots:
-                    # 新文件
+                    # 新文件：首轮只建档不触发（静默建基线），后续轮增量才报
                     self._file_snapshots[key] = (mtime, "")
-                    self._trigger(TriggerType.FILE_CHANGE, str(fpath), {
-                        "event": "created", "file": key, "size": stat.st_size,
-                    })
+                    if not first_baseline:
+                        self._trigger(TriggerType.FILE_CHANGE, str(fpath), {
+                            "event": "created", "file": key, "size": stat.st_size,
+                        })
                 elif self._file_snapshots[key][0] != mtime:
                     # 已修改
                     self._file_snapshots[key] = (mtime, "")
-                    self._trigger(TriggerType.FILE_CHANGE, str(fpath), {
-                        "event": "modified", "file": key, "size": stat.st_size,
-                    })
+                    if not first_baseline:
+                        self._trigger(TriggerType.FILE_CHANGE, str(fpath), {
+                            "event": "modified", "file": key, "size": stat.st_size,
+                        })
+        self._baseline_done = True
 
         # 检测删除
         removed = set(self._file_snapshots.keys()) - {
@@ -893,6 +941,7 @@ def main():
     parser.add_argument("--load-rules", action="store_true", help="从文件加载规则")
     parser.add_argument("--enable", type=str, help="启用指定规则ID")
     parser.add_argument("--disable", type=str, help="禁用指定规则ID")
+    parser.add_argument("--init", action="store_true", help="初始化基线（首轮全量静默建档·持久化快照）")
     args = parser.parse_args()
 
     engine = get_observation_engine()
@@ -927,11 +976,20 @@ def main():
         print(f"🔴 已禁用: {args.disable}")
         return
 
+    if args.init:
+        # 初始化基线：启动→首轮静默建档→停止并持久化
+        engine.start()
+        time.sleep(12)  # 等文件观察器首轮全量建档
+        engine.stop()
+        n = len(engine._file_snapshots)
+        print(f"✅ 观察基线已建立并持久化: {n} 个核心文件快照")
+        return
+
     # 默认：启动运行
     engine.start()
 
     if args.once:
-        time.sleep(5)  # 等一轮扫描
+        time.sleep(12)  # 等一轮扫描（有基线=增量对比；无基线=静默建档）
         engine.stop()
         return
 
