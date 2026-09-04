@@ -857,6 +857,8 @@ SUB_DISPATCH = {
     # 📒 龍魂账法 v1.0 — 底层记账能力·DNA/哈希/见证人格/科目表·每笔交易自动三色审计+耻辱墙+brain·感知识别记账·JSON-RPC（2026-09-04·lh_ledger.py）
     'ledger':               ('lh_ledger.py',                  '📒', '龍魂账法·dna/hash/add/list/verify/balance/export/audit/confirm/wall/scan/rpc（底层记账·自动三色审计+耻辱墙+记忆·数据~/.longhun/ledger/）', [], ''),
     'ledger-wall':          ('lh_ledger.py',                  '📜', '账法·耻辱墙账本事件 (lh ledger wall)', [], 'wall'),
+    # 🧭 穩定執行管線 v1.0 — 接收→执行固定路线·通心译语义深度集成·黑天使左右互搏·实时迭代（2026-09-05·老大白话焊点）
+    'route':                ('lh_route_pipeline.py',         '🧭', '稳定执行管线·意图→通心译语义护照→人格路由(审计语境自动注入P77黑天使左右互搏)→技能映射→三色终裁 (lh route <任意意图> [--duel 强制双审] [--json 护照] [--learn 实时迭代统计] [--reset 清学习层]·同输入同输出·学习层~/.longhun/pipeline/)', [], ''),
     # 💤 技能调度器 v1.0 — 技能用完即休·用时即唤·不常驻省算力（2026-08-16）
     'skill':                ('lh_skill_scheduler.py',         '💤', '技能调度·list/wake/sleep/autosleep/stats（用完休眠·用前唤醒·省CPU）', [], 'status'),
     # 🧬 人格按任务触发+经验累积引擎 v1.0 — 能力对标全球大模型·按需唤醒人格·经验沉淀越练越聪明（2026-08-30）
