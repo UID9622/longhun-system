@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"/>
+<meta name="description" content="龍魂全息可视化 · 拓扑图谱/三色审计/耻辱墙粒子 · 诸葛鑫 UID9622"/>
+<title>龍魂全息 · 拓扑镜像</title>
+<style>
+:root{
+  --bg:#060a14; --panel:rgba(10,16,32,.72); --line:rgba(120,200,255,.18);
+  --green:#22c55e; --yellow:#eab308; --red:#ef4444; --cyan:#38e8ff;
+  --tx:#d7e6ff; --tx2:#8fa8cc;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--tx);
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif}
+#stage{position:fixed;inset:0}
+canvas{display:block}
+.hud{position:fixed;z-index:20;pointer-events:none;user-select:none}
+#top{top:0;left:0;right:0;padding:12px 16px;display:flex;align-items:flex-start;justify-content:space-between;
+  background:linear-gradient(180deg,rgba(4,8,18,.72),transparent)}
+#brand{display:flex;flex-direction:column;gap:3px}
+#brand h1{font-size:17px;font-weight:700;letter-spacing:.06em;text-shadow:0 0 14px rgba(56,232,255,.35)}
+#brand h1 .lh{color:var(--cyan)}
+#brand .sub{font-size:10.5px;color:var(--tx2);letter-spacing:.14em}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-size:11px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);
+  background:var(--panel);backdrop-filter:blur(6px);display:flex;gap:5px;align-items:center}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block}
+#btns{pointer-events:auto;display:flex;gap:8px;align-items:center}
+.btn{font-size:12.5px;color:var(--tx);background:var(--panel);border:1px solid var(--line);
+  border-radius:10px;padding:7px 13px;cursor:pointer;backdrop-filter:blur(6px);
+  transition:all .15s;font-family:inherit;letter-spacing:.03em}
+.btn:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 12px rgba(56,232,255,.25)}
+.btn.primary{border-color:rgba(56,232,255,.5);color:var(--cyan)}
+.btn.wallet{border-color:rgba(234,179,8,.4);color:#ffe08a}
+#foot{bottom:0;left:0;right:0;padding:9px 16px;display:flex;justify-content:space-between;align-items:center;
+  gap:10px;background:linear-gradient(0deg,rgba(4,8,18,.75),transparent);font-size:10.5px;color:var(--tx2)}
+#foot .dna{font-family:ui-monospace,"SF Mono",Menlo,monospace;color:#9fd6ff;word-break:break-all}
+#foot .ts{white-space:nowrap}
+#shame-strip{bottom:34px;left:0;right:0;position:fixed;z-index:15;pointer-events:none;overflow:hidden;
+  height:22px;display:flex;align-items:center;background:linear-gradient(90deg,transparent,rgba(239,68,68,.06),transparent)}
+#shame-strip .track{display:inline-flex;gap:48px;white-space:nowrap;padding-left:100%;
+  animation:shameMove 36s linear infinite;font-size:11px;color:rgba(255,190,190,.75)}
+#shame-strip.empty{display:none}
+@keyframes shameMove{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+#detail{position:fixed;right:14px;top:64px;width:min(330px,86vw);z-index:30;pointer-events:auto;
+  background:rgba(8,14,28,.92);border:1px solid rgba(56,232,255,.28);border-radius:14px;
+  padding:14px;backdrop-filter:blur(10px);box-shadow:0 8px 40px rgba(0,0,0,.5);animation:pop .18s ease}
+@keyframes pop{from{opacity:0;transform:translateY(-6px)}}
+#detail.hidden{display:none}
+#detail .d-close{position:absolute;right:10px;top:8px;border:0;background:none;color:var(--tx2);
+  font-size:16px;cursor:pointer}
+#detail h3{font-size:14px;margin:2px 26px 8px 0;line-height:1.4}
+#detail .kv{font-size:11.5px;color:var(--tx2);display:grid;grid-template-columns:56px 1fr;gap:5px 8px}
+#detail .kv b{color:var(--tx);font-weight:600;word-break:break-all}
+#hint{position:fixed;left:50%;top:56%;transform:translateX(-50%);z-index:12;pointer-events:none;
+  font-size:11px;color:rgba(215,230,255,.4);letter-spacing:.2em;transition:opacity 1.2s}
+#qr{position:fixed;inset:0;z-index:40;display:flex;align-items:center;justify-content:center;
+  background:rgba(2,5,12,.72);backdrop-filter:blur(4px);pointer-events:auto}
+#qr.hidden{display:none}
+#qr .card{background:rgba(10,16,32,.95);border:1px solid rgba(255,224,138,.35);border-radius:16px;
+  padding:20px;text-align:center;min-width:min(300px,84vw)}
+#qr img{width:200px;height:200px;border-radius:10px;background:#fff;padding:6px}
+#qr .t{font-size:13px;color:#ffe08a;margin-top:10px}
+#qr .s{font-size:10.5px;color:var(--tx2);margin-top:4px}
+#qr .x{position:absolute;top:18px;right:18px;font-size:20px;color:var(--tx2);background:none;
+  border:1px solid var(--line);border-radius:50%;width:34px;height:34px;cursor:pointer}
+.loading{position:fixed;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:12px;background:var(--bg);color:var(--tx2);font-size:13px;letter-spacing:.2em}
+.spin{width:34px;height:34px;border-radius:50%;border:2px solid rgba(56,232,255,.2);
+  border-top-color:var(--cyan);animation:rot 1s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+@media(max-width:760px){
+  #top{padding:10px 10px}
+  #brand h1{font-size:14.5px}
+  .chip{font-size:10px;padding:2px 7px}
+  .btn{font-size:12px;padding:8px 11px;border-radius:12px}
+  #foot{flex-direction:column;align-items:flex-start;gap:3px;padding:7px 12px}
+  #detail{right:8px;left:8px;width:auto}
+}
+body.full .hud #btns,body.full #hint{display:none}
+body.full #shame-strip{display:none}
+body.full .chips .chip{margin-top:2px}
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div class="loading" id="loading"><div class="spin"></div><div>龍魂全息初始化…</div></div>
+<header class="hud" id="top">
+  <div id="brand">
+    <h1><span class="lh">龍魂</span>全息 · 拓扑镜像</h1>
+    <div class="sub">TOPOLOGY HOLOGRAM · 三色审计 · 耻辱墙粒子 · UID9622</div>
+    <div class="chips" id="chips">
+      <span class="chip"><i class="dot" style="background:#22c55e"></i><span id="c-green">0</span></span>
+      <span class="chip"><i class="dot" style="background:#eab308"></i><span id="c-yellow">0</span></span>
+      <span class="chip"><i class="dot" style="background:#ef4444"></i><span id="c-red">0</span></span>
+      <span class="chip"><span style="color:#9fd6ff">⚓</span><span id="c-root">…</span></span>
+    </div>
+  </div>
+  <div id="btns">
+    <button class="btn wallet" id="btn-wallet">⚡ 支持</button>
+    <button class="btn" id="btn-full">⛶ 全屏</button>
+    <button class="btn primary hidden" id="btn-vr">🥽 进入沉浸模式</button>
+  </div>
+</header>
+<div id="hint">拖动旋转 · 滚轮缩放 · 点击节点</div>
+<div class="hud" id="shame-strip"><div class="track" id="shame-track"></div></div>
+<footer class="hud" id="foot">
+  <div class="dna" id="foot-dna">#龍芯⚡️…·HOLO-VIEW</div>
+  <div class="ts" id="foot-ts">…</div>
+</footer>
+<aside id="detail" class="hidden"><button class="d-close" id="d-close">✕</button>
+  <h3 id="d-name"></h3><div class="kv" id="d-kv"></div></aside>
+<div id="qr" class="hidden"><button class="x" id="qr-x">✕</button>
+  <div class="card"><img id="qr-img" src="/donate.png" alt="支持龍魂"/>
+    <div class="t">⚡ 支持龍魂 · 自托管 SOL/USDC</div>
+    <div class="s">数据主权 · 知善攻守 · 为人民服务</div></div>
+</div>
+<script src="/holo/vendor/three.min.js"></script>
+<script>
+'use strict';
+/* 龍魂全息 v1.0 · 2026-09-04 · 诸葛鑫 | UID9622 · 龍芯北辰
+ * 数据源: /holo/data(60s轮询) · 耻辱墙粒子瀑布 · 三色球壳 · 23拓扑节点 · WebXR */
+const $=id=>document.getElementById(id);
+const IS_FULL=new URLSearchParams(location.search).has('full');
+const IS_MOBILE=matchMedia('(pointer:coarse)').matches;
+if(IS_FULL)document.body.classList.add('full');
+const C={green:'#22c55e',yellow:'#eab308',red:'#ef4444',gray:'#64748b'};
+const DATA={nodes:[],audit:{green:0,yellow:0,neutral:0,total:0},shame:[],root_hash:'',generated_at:''};
+
+/* ── 干支/卦 时间戳（展示用）── */
+const GAN='甲乙丙丁戊己庚辛壬癸',ZHI='子丑寅卯辰巳午未申酉戌亥';
+const GUA=['䷀乾为天','䷁坤为地','䷂水雷屯','䷃山水蒙','䷄水天需','䷅天水讼','䷆地水师','䷇水地比',
+'䷈风天小畜','䷉天泽履','䷊地天泰','䷋天地否','䷌天火同人','䷍火天大有','䷎地山谦','䷏雷地豫',
+'䷐泽雷随','䷑山风蛊','䷒地泽临','䷓风地观','䷔火雷噬嗑','䷕山火贲','䷖山地剥','䷗地雷复',
+'䷘天雷无妄','䷙山天大畜','䷚山雷颐','䷛泽风大过','䷜坎为水','䷝离为火','䷞泽山咸','䷟雷风恒',
+'䷠天山遁','䷡雷天大壮','䷢火地晋','䷣地火明夷','䷤风火家人','䷥火泽睽','䷦水山蹇','䷧雷水解',
+'䷨山泽损','䷩风雷益','䷪泽天夬','䷫天风姤','䷬泽地萃','䷭地风升','䷮泽水困','䷯水风井',
+'䷰泽火革','䷱火风鼎','䷲震为雷','䷳艮为山','䷴风山渐','䷵雷泽归妹','䷶雷火丰','䷷火山旅',
+'䷸巽为风','䷹兑为泽','䷺风水涣','䷻水泽节','䷼风泽中孚','䷽雷山小过','䷾水火既济','䷿火水未济'];
+function clockStamp(){
+  const d=new Date();
+  const dayIdx=Math.floor((d-Date.UTC(1900,0,31))/86400000)%60; // 1900-01-31=甲子日
+  const gzDay=GAN[dayIdx%10]+ZHI[dayIdx%12];
+  const hr=(Math.floor((d.getHours()+1)/2))%12; // 子时23-1 → idx0
+  const guaIdx=(dayIdx+d.getMonth()+d.getDate()+hr+2026)%64;
+  return {gzDay,hr:ZHI[hr],gua:GUA[guaIdx],iso:d.toISOString()};
+}
+function refreshClock(){
+  const t=clockStamp();
+  $('foot-ts').textContent=`${t.gzDay}·${t.hr}时 ${t.gua} · ${t.iso.replace('T',' ').slice(0,19)}+08:00`;
+  $('foot-dna').textContent=`#龍芯⚡️丙午·丁酉·${t.gzDay}·${t.hr}时·䷟恒-HOLO-VIEW-${(DATA.root_hash||'????????').slice(0,8)}`;
+}
+
+/* ── Three.js 场景 ── */
+let renderer,scene,camera,rig,shells={},nodeItems=[],fallPts,fallGeo,clockSpin=0;
+const S={theta:IS_FULL?0:0.7,phi:1.15,dist:IS_MOBILE?118:92,target:{x:0,y:0,z:0}};
+function initThree(){
+  renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});
+  renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
+  renderer.setSize(innerWidth,innerHeight);
+  renderer.xr.enabled=true;
+  $('stage').appendChild(renderer.domElement);
+  scene=new THREE.Scene();
+  scene.background=new THREE.Color(0x060a14);
+  scene.fog=new THREE.Fog(0x060a14,240,520);
+  camera=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,0.1,1200);
+  rig=new THREE.Group();scene.add(rig);
+  /* 星空 */
+  const starGeo=new THREE.BufferGeometry(),sp=[];const N=900;
+  for(let i=0;i<N;i++)sp.push((Math.random()-.5)*900,(Math.random()-.5)*600,(Math.random()-.5)*900);
+  starGeo.setAttribute('position',new THREE.Float32BufferAttribute(sp,3));
+  scene.add(new THREE.Points(starGeo,new THREE.PointsMaterial({color:0x88bbee,size:1.1,transparent:true,opacity:.7})));
+  /* 中心核 */
+  const core=new THREE.Mesh(new THREE.IcosahedronGeometry(2.2,2),
+    new THREE.MeshBasicMaterial({color:0x38e8ff,wireframe:true,transparent:true,opacity:.85}));
+  rig.add(core);
+  /* 三色球壳 */
+  const defs=[[10,C.green],[15,C.yellow],[20,C.red]];
+  defs.forEach(([r,col])=>{
+    const m=new THREE.Mesh(new THREE.SphereGeometry(r,48,32),
+      new THREE.MeshBasicMaterial({color:col,wireframe:true,transparent:true,opacity:.16,depthWrite:false}));
+    rig.add(m);shells[col]=m.material;
+  });
+  /* 耻辱墙数据瀑布粒子（垂直流动环） */
+  const P=450,pos=[],vel=[];
+  for(let i=0;i<P;i++){
+    const ang=Math.random()*Math.PI*2,rad=23+Math.random()*9;
+    pos.push(Math.cos(ang)*rad, Math.random()*70-35, Math.sin(ang)*rad);
+    vel.push(0.1+Math.random()*0.35);
+  }
+  fallGeo=new THREE.BufferGeometry();
+  fallGeo.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+  fallGeo.setAttribute('color',new THREE.Float32BufferAttribute(new Float32Array(P*3).fill(0.6),3));
+  fallPts=new THREE.Points(fallGeo,new THREE.PointsMaterial({size:.55,vertexColors:true,transparent:true,opacity:.85}));
+  rig.add(fallPts);window.__vel=vel;
+  window.addEventListener('resize',()=>{
+    camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();
+    renderer.setSize(innerWidth,innerHeight);
+  });
+}
+function hexToRgb(h){return [parseInt(h.slice(1,3),16)/255,parseInt(h.slice(3,5),16)/255,parseInt(h.slice(5,7),16)/255];}
+function refreshFallColors(){
+  const a=DATA.audit,g=a.green,y=a.yellow,t=Math.max(1,a.total);
+  const palette=[];
+  for(let i=0;i<g;i++)palette.push(C.green);
+  for(let i=0;i<y;i++)palette.push(C.yellow);
+  for(let i=0;i<(a.shame_red||0);i++)palette.push(C.red);
+  if(!palette.length)palette.push(C.gray);
+  const col=fallGeo.attributes.color.array;
+  for(let i=0;i<fallPts.geometry.attributes.position.count;i++){
+    const rgb=hexToRgb(palette[Math.floor(Math.random()*palette.length)]);
+    col[i*3]=rgb[0];col[i*3+1]=rgb[1];col[i*3+2]=rgb[2];
+  }
+  fallGeo.attributes.color.needsUpdate=true;
+  const ratio=t?g/t:0;
+  shells[C.green].opacity=.10+ratio*.30;
+  shells[C.yellow].opacity=.10+(t?y/t:0)*.30;
+  shells[C.red].opacity=.08+Math.min(1,(a.shame_red||0))*0.06;
+}
+/* ── 节点：fibonacci 球面分布 + 中文标签 ── */
+function stripEmoji(s){return (s||'').replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\uFE0F]/gu,'').replace(/\s+/g,' ').trim();}
+function shortName(n){let s=stripEmoji(n).split('｜')[0].split('|')[0];s=s.split('·').pop().slice(0,9);return s;}
+function labelTex(txt,color){
+  const cv=document.createElement('canvas');cv.width=256;cv.height=84;
+  const x=cv.getContext('2d');
+  x.font='700 40px "PingFang SC","Microsoft YaHei",sans-serif';
+  x.textAlign='center';x.textBaseline='middle';
+  x.shadowColor='rgba(0,0,0,.85)';x.shadowBlur=14;
+  x.fillStyle=color;x.fillText(txt,128,44);
+  return new THREE.CanvasTexture(cv);
+}
+function buildNodes(){
+  DATA.nodes.forEach((n,i)=>{
+    const R=27,f=(1.6180339887),y=1-(i/(Math.max(1,DATA.nodes.length-1)))*2;
+    const rr=Math.sqrt(1-y*y),th=i*f*Math.PI*2;
+    const px=Math.cos(th)*rr*R,py=y*R,pz=Math.sin(th)*rr*R;
+    const grp=new THREE.Group();
+    const sp=new THREE.Mesh(new THREE.SphereGeometry(.62,16,12),
+      new THREE.MeshBasicMaterial({color:n.color||C.gray}));
+    sp.userData={node:n};sp.castShadow=false;
+    const lbl=new THREE.Sprite(new THREE.SpriteMaterial({
+      map:labelTex(shortName(n.name),n.color||C.gray),
+      transparent:true,depthTest:true,sizeAttenuation:true}));
+    lbl.scale.set(5.4,1.78,1);lbl.position.y=1.7;
+    lbl.userData={node:n};
+    grp.add(sp);grp.add(lbl);
+    grp.position.set(px,py,pz);
+    rig.add(grp);nodeItems.push(sp,lbl);
+    grp.userData={node:n,base:px};
+  });
+}
+const RAY=new THREE.Raycaster(),NDC=new THREE.Vector2();
+function pick(ev){
+  NDC.x=(ev.clientX/innerWidth)*2-1;NDC.y=-(ev.clientY/innerHeight)*2+1;
+  RAY.setFromCamera(NDC,camera);
+  const hit=RAY.intersectObjects(nodeItems,false)[0];
+  if(hit&&hit.object.userData.node)showDetail(hit.object.userData.node);
+}
+/* ── 自写轨道控制（拖拽/滚轮/双指）── */
+const pointers=new Map();let dragging=false,lastX=0,lastY=0,pinch=0;
+function setupControls(){
+  const el=renderer.domElement;
+  el.style.touchAction='none';
+  el.addEventListener('pointerdown',e=>{
+    if(IS_FULL)return;pointers.set(e.pointerId,[e.clientX,e.clientY]);
+    dragging=pointers.size===1;lastX=e.clientX;lastY=e.clientY;
+    if(pointers.size===2)pinch=hypo();
+  });
+  el.addEventListener('pointermove',e=>{
+    if(IS_FULL)return;
+    if(pointers.has(e.pointerId))pointers.set(e.pointerId,[e.clientX,e.clientY]);
+    if(pointers.size===1&&dragging){
+      S.theta-=(e.clientX-lastX)*(IS_MOBILE?.006:.005);
+      S.phi=Math.max(.28,Math.min(Math.PI-.28,S.phi-(e.clientY-lastY)*(IS_MOBILE?.006:.005)));
+    }
+    lastX=e.clientX;lastY=e.clientY;
+    if(pointers.size===2){const d=hypo();if(pinch>0){S.dist=Math.max(30,Math.min(240,S.dist*(pinch/d)));}pinch=d;}
+  });
+  const up=e=>{pointers.delete(e.pointerId);dragging=pointers.size===1;if(pointers.size<2)pinch=0;};
+  el.addEventListener('pointerup',up);el.addEventListener('pointercancel',up);
+  el.addEventListener('wheel',e=>{if(IS_FULL)return;e.preventDefault();
+    S.dist=Math.max(30,Math.min(240,S.dist*(1+e.deltaY*.0011)));},{passive:false});
+  el.addEventListener('click',e=>{if(pointers.size===0)pick(e);});
+  el.addEventListener('dblclick',e=>{e.preventDefault();});
+  function hypo(){const p=[...pointers.values()];return Math.hypot(p[0][0]-p[1][0],p[0][1]-p[1][1]);}
+}
+/* ── 耻辱墙文本条 ── */
+function renderShameStrip(){
+  const tr=$('shame-track');
+  if(!DATA.shame||!DATA.shame.length){$('shame-strip').classList.add('empty');return;}
+  $('shame-strip').classList.remove('empty');
+  tr.innerHTML=DATA.shame.map(s=>{
+    const c=(s.color||'').includes('红')?C.red:(s.color||'').includes('黄')?C.yellow:C.green;
+    return `<span><span style="color:${c}">■</span> ${stripEmoji(s.name||'?').slice(0,26)} · ${s.kind||''} · ${(s.ts||'').slice(0,10)}</span>`;
+  }).join('');
+}
+/* ── 详情卡 / UI ── */
+function showDetail(n){
+  $('d-name').textContent=stripEmoji(n.name);$('d-name').style.borderLeft=`3px solid ${n.color||C.gray}`;
+  $('d-name').style.paddingLeft='8px';
+  $('d-kv').innerHTML='';
+  const rows=[['层组',n.group||'—'],['状态',n.status||'—'],['DNA',n.dna||'—']];
+  rows.forEach(([k,v])=>{const b=document.createElement('b');b.textContent=v||'—';
+    const kk=document.createElement('span');kk.textContent=k;
+    $('d-kv').appendChild(kk);$('d-kv').appendChild(b);});
+  $('detail').classList.remove('hidden');
+}
+function renderStats(){
+  $('c-green').textContent=DATA.audit.green||0;
+  $('c-yellow').textContent=DATA.audit.yellow||0;
+  $('c-red').textContent=DATA.audit.shame_red||0;
+  $('c-root').textContent=DATA.root_hash||'…';
+}
+/* ── 数据轮询 60s ── */
+async function fetchData(init){
+  try{
+    const r=await fetch('/holo/data',{cache:'no-store'});
+    const d=await r.json();
+    if(d.error){throw new Error(d.error);}
+    DATA.nodes=d.nodes;DATA.audit=d.audit;DATA.shame=d.shame||[];DATA.root_hash=d.root_hash||'';DATA.generated_at=d.generated_at;
+    renderStats();renderShameStrip();refreshFallColors();refreshClock();
+    if(init){buildNodes();renderer&&renderStats();}
+    $('loading').style.display='none';
+  }catch(e){
+    if(init){$('loading').innerHTML='<div style="color:#f88;letter-spacing:.05em;font-size:13px">数据源不可达 · 请确认 lh topo serve 已启动</div>';}
+  }
+}
+/* ── 动画循环 ── */
+function tick(){
+  if(!renderer.xr.isPresenting){
+    if(!dragging||IS_FULL)S.theta+=(IS_FULL?0.0045:0.0011);
+    const cp=Math.cos(S.phi),sp=Math.sin(S.phi);
+    camera.position.set(S.target.x+S.dist*sp*Math.sin(S.theta),S.target.y+S.dist*Math.cos(S.phi),S.target.z+S.dist*sp*Math.cos(S.theta));
+    camera.lookAt(S.target.x,S.target.y,S.target.z);
+  }
+  /* 瀑布粒子下落循环 */
+  const pos=fallGeo.attributes.position.array,v=window.__vel,cnt=pos.length/3;
+  for(let i=0;i<cnt;i++){
+    pos[i*3+1]-=v[i];if(pos[i*3+1]<-35)pos[i*3+1]=35;
+  }
+  fallGeo.attributes.position.needsUpdate=true;
+  renderer.render(scene,camera);
+}
+/* ── WebXR 沉浸 ── */
+function xrUI(){
+  const b=$('btn-vr');
+  if(!('xr'in navigator)||!navigator.xr){
+    b.textContent='WebXR 不可用';return;
+  }
+  navigator.xr.isSessionSupported('immersive-vr').then(ok=>{
+    if(ok)b.classList.remove('hidden');
+    else{b.textContent='WebXR 需 visionOS/Safari 或 WebXR 设备';b.style.opacity=.55;b.classList.remove('hidden');}
+  });
+  b.addEventListener('click',async()=>{
+    try{
+      const s=await navigator.xr.requestSession('immersive-vr',{optionalFeatures:['local-floor']});
+      renderer.xr.setSession(s);
+      s.addEventListener('end',()=>{renderer.setAnimationLoop(null);loop();});
+    }catch(e){
+      toast('沉浸模式不可用: '+(e&&e.message||'请检查 WebXR 支持'));
+    }
+  });
+}
+function loop(){renderer.setAnimationLoop(tick);}
+function toast(msg){
+  let t=$('toast');if(!t){t=document.createElement('div');
+    t.id='toast';t.style.cssText='position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:60;background:rgba(8,14,28,.92);border:1px solid rgba(239,68,68,.5);color:#fdd;padding:9px 16px;border-radius:10px;font-size:12px;max-width:86vw';
+    document.body.appendChild(t);}
+  t.textContent=msg;t.style.display='block';
+  setTimeout(()=>{t.style.display='none';},4200);
+}
+/* ── 启动 ── */
+window.addEventListener('DOMContentLoaded',async()=>{
+  initThree();setupControls();
+  $('btn-vr').addEventListener('click',()=>{});xrUI();
+  $('d-close').addEventListener('click',()=>$('detail').classList.add('hidden'));
+  $('btn-full').addEventListener('click',async()=>{
+    try{
+      if(!document.fullscreenElement){await document.documentElement.requestFullscreen({navigationUI:'hide'});}
+      else{await document.exitFullscreen();}
+    }catch(e){toast('全屏被浏览器拦截，请允许');}
+  });
+  $('btn-wallet').addEventListener('click',()=>$('qr').classList.remove('hidden'));
+  $('qr-x').addEventListener('click',()=>$('qr').classList.add('hidden'));
+  $('qr').addEventListener('click',e=>{if(e.target.id==='qr')$('qr').classList.add('hidden');});
+  await fetchData(true);
+  refreshClock();setInterval(refreshClock,60000);
+  if(!IS_FULL){setTimeout(()=>{$('hint').style.opacity='0';},6000);}
+  setInterval(()=>{if(document.visibilityState==='visible')fetchData(false);},60000);
+  loop();
+});
+</script>
+</body>
+</html>

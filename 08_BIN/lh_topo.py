@@ -357,6 +357,28 @@ class TopoHandler(BaseHTTPRequestHandler):
                                "topo": kb["topo"], "entries": kb["entries"],
                                "root_hash": kb["root_hash"]}, ensure_ascii=False).encode("utf-8")
             return self._send(200, body, "application/json; charset=utf-8")
+        hdir = find_holo_dir()
+        if path in ("/holo", "/holo/"):
+            if not hdir:
+                return self._send(404, b"holo pages not deployed (10_PORTAL/holo)", "text/plain; charset=utf-8")
+            return self._send(200, (hdir / "index.html").read_bytes(), "text/html; charset=utf-8")
+        if path == "/holo/data":
+            body = json.dumps(holo_data_json(), ensure_ascii=False).encode("utf-8")
+            return self._send(200, body, "application/json; charset=utf-8")
+        if path.startswith("/holo/vendor/"):
+            if not hdir:
+                return self._send(404, b"holo vendor missing", "text/plain; charset=utf-8")
+            rel = path[len("/holo/"):]
+            fp = (hdir / rel).resolve()
+            if not str(fp).startswith(str(hdir.resolve())) or not fp.is_file():
+                return self._send(404, b"holo vendor 404", "text/plain; charset=utf-8")
+            _ctype = {"js": "application/javascript", "png": "image/png",
+                      "css": "text/css; charset=utf-8", "jpg": "image/jpeg",
+                      "svg": "image/svg+xml", "woff2": "font/woff2"}
+            ctype = _ctype.get(fp.suffix.lstrip("."), "application/octet-stream")
+            return self._send(200, fp.read_bytes(), ctype)
+        if path.startswith("/holo"):
+            return self._send(404, b"holo route: /holo /holo/data /holo/vendor/*", "text/plain; charset=utf-8")
         if path == "/dashboard":
             body = render_dashboard_html().encode("utf-8")
             return self._send(200, body, "text/html; charset=utf-8")
@@ -541,6 +563,62 @@ td{{padding:6px;border-bottom:1px solid #10121f}}
 <div class=foot>M77 零中间层 · 纯标准库 · 分层许可: 思想层 CC BY-NC-SA 4.0 · 工程层 MulanPSL v2<br>
 DNA: #龍芯⚡️2026-09-03-ECOSYSTEM-DASHBOARD-v1.0-UID9622</div>
 </body></html>"""
+
+
+# ─────────────────────── 全息可视化 /holo（2026-09-04 · Three.js+WebXR 多端）───────────────────────
+
+_HOLO_TRIES = [
+    ROOT / "10_PORTAL" / "holo",                      # 本地开发(10_PORTAL/holo/)
+    Path(__file__).resolve().parent / "holo",         # 引擎同级(/apps/topo/holo/)
+    Path("/apps/topo/holo"),                          # 鲲鹏部署目录兜底
+]
+
+
+def find_holo_dir():
+    """定位全息页面静态目录(本地/引擎同级/鲲鹏) → 找不到 None"""
+    for _p in _HOLO_TRIES:
+        if (_p / "index.html").is_file():
+            return _p
+    return None
+
+
+def holo_color(status: str) -> str:
+    s = (status or "").strip()
+    if s.startswith("🟢"):
+        return "#22c55e"
+    if s.startswith("🟡"):
+        return "#eab308"
+    if s.startswith("🔴"):
+        return "#ef4444"
+    return "#64748b"
+
+
+def holo_data_json():
+    """/holo/data 聚合: 23 节点+三色审计+耻辱墙+根哈希(前端 60s 轮询数据源)"""
+    try:
+        _f, data = _find_topo_file("通心译")
+    except SystemExit:
+        return {"error": "topo cache missing · lh topo sync 通心译"}
+    green, yellow, neutral = asset_stats(data)
+    nodes = []
+    for g, n in iter_nodes(data):
+        nodes.append({
+            "name": n.get("name", "?"), "group": g,
+            "dna": n.get("dna", ""), "status": (n.get("status") or "").strip(),
+            "color": holo_color(n.get("status")),
+        })
+    shame = _shame_wall_recent(12)
+    shame_red = len([1 for s in shame if "红" in str(s.get("color", ""))])
+    return {
+        "nodes": nodes,
+        "audit": {"green": green, "yellow": yellow, "neutral": neutral,
+                  "shame_red": shame_red, "total": len(nodes)},
+        "shame": shame,
+        "root_hash": topo_root_hash(data),
+        "generated_at": datetime.now().strftime("%Y-%m-%dT%H:%M:%S%z"),
+        "owner": "诸葛鑫 | UID9622 · 龍芯北辰",
+        "service": "lh-topo-serve /holo v1.0",
+    }
 
 
 def cmd_serve(port: int = 8762, host: str = "127.0.0.1", keyword: str = "通心译"):
