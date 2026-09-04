@@ -1,3 +1,0 @@
-{"timestamp": "2026-08-04T16:20:02.384856", "action": "auto_fix", "detail": {"dry_run": false, "fixed": 90064, "failed": 9, "skipped": 70, "deben_passed": true}, "dna": "#龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622"}
-{"timestamp": "2026-08-04T16:20:04.078600", "action": "full_pipeline", "detail": {"scan_total": 29039, "fix_fixed": 90064, "deben_passed": true, "report": "script_align_report_20260804_162003.md"}, "dna": "#龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622"}
-{"timestamp": "2026-08-04T16:21:17.330758", "action": "auto_fix", "detail": {"dry_run": false, "fixed": 44, "failed": 9, "skipped": 21792, "deben_passed": true}, "dna": "#龍芯⚡️丙午·丙申·庚戌·䷙大畜-SCRIPT-MANAGER-v1.2-UID9622"}

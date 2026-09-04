@@ -1,8 +1,0 @@
-#!/bin/bash
-# -*- coding: utf-8 -*-
-# DNA追溯码: #龍芯⚡️2026-06-26-010249-header-UID9622-AFEB15EA
-# 创建者: UID9622
-# 版本: 1.0.0
-# 状态: 🟢 已规范
-echo "运行技术层面..."
-python3 scripts/generate_image.py

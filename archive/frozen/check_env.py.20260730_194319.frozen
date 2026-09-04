@@ -1,7 +1,0 @@
-# -*- coding: utf-8 -*-
-# DNA追溯码: #龍芯⚡️2026-06-26-010248-header-UID9622-EB5DF43F
-# 创建者: UID9622
-# 版本: 1.0.0
-# 状态: 🟢 已规范
-import sys
-print(f"Python版本: {sys.version}")
