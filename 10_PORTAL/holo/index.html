@@ -32,6 +32,8 @@ canvas{display:block}
   border-radius:10px;padding:7px 13px;cursor:pointer;backdrop-filter:blur(6px);
   transition:all .15s;font-family:inherit;letter-spacing:.03em}
 .btn:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 12px rgba(56,232,255,.25)}
+.btn:disabled{opacity:.5;cursor:default}
+.btn:disabled:hover{border-color:var(--line);color:var(--tx);box-shadow:none}
 .btn.primary{border-color:rgba(56,232,255,.5);color:var(--cyan)}
 .btn.wallet{border-color:rgba(234,179,8,.4);color:#ffe08a}
 #foot{bottom:0;left:0;right:0;padding:9px 16px;display:flex;justify-content:space-between;align-items:center;
@@ -343,25 +345,65 @@ function tick(){
   fallGeo.attributes.position.needsUpdate=true;
   renderer.render(scene,camera);
 }
-/* ── WebXR 沉浸 ── */
+/* ── WebXR 沉浸（Vision Pro 适配 v1.1）──
+ * ① 可用性分级提示  ② 参考空间降级链 immersive-vr(local-floor→bounded)→inline
+ * ③ XR 会话 select(注视+捏合/手柄扳机) 凝视拾取节点 → 脉冲高亮+详情
+ * ④ 进入/退出自动切换 HUD 隐藏态 */
 function xrUI(){
   const b=$('btn-vr');
   if(!('xr'in navigator)||!navigator.xr){
-    b.textContent='WebXR 不可用';return;
+    b.textContent='当前浏览器不支持 WebXR';b.style.opacity=.55;b.classList.remove('hidden');return;
   }
   navigator.xr.isSessionSupported('immersive-vr').then(ok=>{
-    if(ok)b.classList.remove('hidden');
-    else{b.textContent='WebXR 需 visionOS/Safari 或 WebXR 设备';b.style.opacity=.55;b.classList.remove('hidden');}
-  });
-  b.addEventListener('click',async()=>{
-    try{
-      const s=await navigator.xr.requestSession('immersive-vr',{optionalFeatures:['local-floor']});
-      renderer.xr.setSession(s);
-      s.addEventListener('end',()=>{renderer.setAnimationLoop(null);loop();});
-    }catch(e){
-      toast('沉浸模式不可用: '+(e&&e.message||'请检查 WebXR 支持'));
+    if(ok){b.classList.remove('hidden');b.textContent='🥽 进入沉浸模式';}
+    else{
+      navigator.xr.isSessionSupported('inline').then(io=>{
+        b.textContent=io?'沉浸需 visionOS Safari 全屏开启 WebXR':'此设备不支持 WebXR';
+        b.style.opacity=.55;b.classList.remove('hidden');
+      });
     }
   });
+  b.addEventListener('click',enterXR);
+}
+async function enterXR(){
+  const b=$('btn-vr');
+  b.disabled=true;b.textContent='进入中…';
+  const tries=[['immersive-vr',{optionalFeatures:['local-floor','bounded-floor','hand-tracking']}],
+               ['immersive-vr',{optionalFeatures:['viewer']}],['inline',{}]];
+  for(const [mode,opt] of tries){
+    try{
+      const s=await navigator.xr.requestSession(mode,opt);
+      setupXRSession(s);return;
+    }catch(e){/* 降级尝试下一参考空间/模式 */}
+  }
+  b.disabled=false;b.textContent='🥽 进入沉浸模式';
+  toast('沉浸模式不可用: 需支持 WebXR 的设备（visionOS Safari / Quest 等）');
+}
+function setupXRSession(s){
+  const b=$('btn-vr');
+  renderer.xr.setSession(s);
+  document.body.classList.add('full');   // 沉浸态隐藏平面 HUD（双保险·DOM 在 XR 内不可见）
+  s.addEventListener('select',e=>{
+    /* 凝视中心拾取：Vision Pro 注视+捏合 / Quest 扳机 */
+    RAY.setFromCamera(new THREE.Vector2(0,0),camera);
+    const hit=RAY.intersectObjects(nodeItems,false)[0];
+    if(hit&&hit.object.userData.node){
+      pulseNode(hit.object);
+      showDetail(hit.object.userData.node);   // 详情卡退出沉浸后可见·VR内反馈=脉冲高亮
+    }
+  });
+  s.addEventListener('end',()=>{
+    document.body.classList.remove('full');
+    b.disabled=false;b.textContent='🥽 进入沉浸模式';
+    renderer.setAnimationLoop(null);loop();
+  });
+}
+function pulseNode(sp){
+  const m=sp.material,base=m.color.getHex();
+  let n=0;const it=setInterval(()=>{
+    m.color.set(n%2?0xffffff:base);
+    if(++n>6){clearInterval(it);m.color.setHex(base);}
+  },120);
 }
 function loop(){renderer.setAnimationLoop(tick);}
 function toast(msg){
