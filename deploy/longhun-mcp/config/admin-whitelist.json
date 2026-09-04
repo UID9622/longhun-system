@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "dna": "#龍芯⚡️2026-09-04-LONGHUN-KUNPENG-MCP-ADMIN-WHITELIST-v1.0-UID9622",
+    "creator": "诸葛鑫（UID9622）",
+    "attribution": "诸葛鑫 | UID9622 · 龍芯北辰",
+    "warning": "本文件为高危白名单：修改必须走 GATE-01~10 + UID9622 确认 + GPG 签名"
+  },
+  "ips": ["127.0.0.1", "::1"],
+  "tools": ["cnsh_build", "cnsh_publish", "topo_sync", "system_reload"],
+  "build_dirs": [
+    "/opt/longhun-system/packaging/cnsh-stdlib"
+  ],
+  "notes": "部署到鲲鹏后 build_dirs 应指向 /opt/longhun-system/packaging/cnsh-stdlib"
+}

@@ -1,0 +1,23 @@
+# 🐉 龍魂 · 鲲鹏 MCP Server · 只读层 (8763)
+# DNA: #龍芯⚡️2026-09-04-LONGHUN-KUNPENG-MCP-READONLY-SERVICE-v1.0-UID9622
+# 归属名: 诸葛鑫 | UID9622 · 龍芯北辰
+# 由 deploy_to_kunpeng.sh 安装 → /etc/systemd/system/
+
+[Unit]
+Description=🐉 Longhun MCP Server - readonly (8763)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/longhun-system
+Environment=LH_ROOT=/opt/longhun-system
+ExecStart=/usr/bin/python3 /opt/longhun-system/deploy/longhun-mcp/lh_mcp_readonly.py --host 127.0.0.1 --port 8763
+Restart=on-failure
+RestartSec=5
+# 只读层：日志落系统日志文件（append-only）
+StandardOutput=append:/var/log/longhun-mcp/readonly.log
+StandardError=append:/var/log/longhun-mcp/readonly.log
+
+[Install]
+WantedBy=multi-user.target

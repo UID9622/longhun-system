@@ -837,6 +837,11 @@ SUB_DISPATCH = {
     # 📢 统一对外发布工具链 v1.0 — 一句话全渠发布: 模板渲染→GitHub Issue+官网横幅+README→PR→bot approve→merge→rsync（2026-09-04）
     'publish':              ('lh_publish.py',                 '📢', '对外发布工具链·announce/status/dashboard/rollback/templates（一键多渠分发·自动PR+approve+merge·发布日志~/.longhun/publish_log.json）', [], ''),
     'search':               ('lh_search_engine.py',           '🔍', '搜索引擎', [], 'search'),
+    'recap':                ('lh_recap.py',                   '🔄', '执行复盘可视化·generate/view/locate/codemark/snapshot/diff/rollback/export/search/timeline/stats/diagnose/suggest/template/config/protect/archive/share/qr（每次执行自动复盘·三图+DNA戳·~/.longhun/recap/）', [], ''),
+    # ⚖️ 无后台审批团公开决策引擎 v1.0 — 系统无后台·账号无人可锁: 🟢自动放行/🟡公开升堂/🔴公开重审·提案上链·审批团多签·时间盒超时默认拒绝·append-only哈希链(2026-09-04)
+    'council':              ('lh_council.py',                 '⚖️', '无后台审批团公开决策·propose/vote/list/view/ledger/verify/wall/export/status/rotate（三色🟡自动升级提案·机器委员GD无票·超时默认拒绝·公示墙+哈希链·~/.longhun/council/）', [], ''),
+    # 🚦 三色治理指挥层 v2.1 — 决策权与声誉绑定×贡献门槛×中国主权红线·薄胶水复用既有引擎(M77零重复): status聚合health/council/耻辱墙·propose/vote/audit转发council·sync扫ledger自动信誉(一致+1/不一致−2/连续±)·score+dr数字根·redline系统主权红线R001-R006(2026-09-04·协议 LH-TRICOLOR-GOVERNANCE-v2.1)
+    'gov':                  ('lh_governance.py',              '🚦', '三色治理指挥层·status/propose/vote/audit/trace/score/score-log/check/trust/sync/leaderboard/redline/dashboard（决策绑定声誉·贡献门槛·主权红线·数据~/.longhun/governance/）', [], 'status'),
     # 💤 技能调度器 v1.0 — 技能用完即休·用时即唤·不常驻省算力（2026-08-16）
     'skill':                ('lh_skill_scheduler.py',         '💤', '技能调度·list/wake/sleep/autosleep/stats（用完休眠·用前唤醒·省CPU）', [], 'status'),
     # 🧬 人格按任务触发+经验累积引擎 v1.0 — 能力对标全球大模型·按需唤醒人格·经验沉淀越练越聪明（2026-08-30）
@@ -1312,6 +1317,54 @@ def _brain_hook_post():
         pass  # 钩子永不阻塞主流程
 
 
+def _recap_hook_post(command_name: str, extra_args, result, t0):
+    """🔄 执行复盘·自动触发钩子（异步后台 Popen·不阻塞主命令）
+    触发规则在 ~/.longhun/recap/config.json：复杂命令(generate_for)自动复盘，
+    简单命令(skip_for)静默；失败(rc≠0)必复盘；太快的成功命令跳过。
+    """
+    try:
+        import json as _j
+        import base64 as _b64
+        import datetime as _dt
+        if os.environ.get('LH_RECAP_OFF') == '1':
+            return
+        if not command_name or command_name == 'recap':
+            return
+        cfg = {}
+        try:
+            cfg = _j.loads((Path.home() / '.longhun' / 'recap' / 'config.json')
+                           .read_text(encoding='utf-8'))
+        except Exception:
+            pass
+        if not cfg.get('enabled', True):
+            return
+        cmd = str(command_name)
+        skip = cfg.get('skip_for', ['health', 'status', 'stats', 'prstate', 'list', 'view', 'help', 'recap'])
+        if any(cmd.startswith(s) for s in skip):
+            return
+        rc = getattr(result, 'returncode', None) if result is not None else None
+        dur_ms = int((time.time() - t0) * 1000) if t0 else 0
+        ok_rc = str(rc) in ('0', 'None', '')
+        in_gen = any(cmd.startswith(g) for g in cfg.get('generate_for', []))
+        # 白名单命令(复杂)=必复盘; 其余成功且太快→静默(节能)
+        if not cfg.get('auto_always', False) and not in_gen and ok_rc and dur_ms < int(cfg.get('min_duration_ms', 800)):
+            return
+        meta = _j.dumps({'dur_ms': dur_ms,
+                         'start_iso': _dt.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')})
+        cmd_list = [sys.executable, str(ROOT / '08_BIN' / 'lh_recap.py'), 'generate',
+                    '--cmd', cmd, '--rc', str(rc if rc is not None else ''),
+                    '--meta-json', _b64.b64encode(meta.encode()).decode(),
+                    '--auto', '--silent']
+        for a in (extra_args or [])[:8]:
+            cmd_list += ['--args', str(a)]
+        env = dict(os.environ)
+        env['LH_RECAP_BYPASS'] = '1'
+        subprocess.Popen(cmd_list, cwd=str(ROOT), env=env,
+                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except Exception:
+        pass
+
+
 def _run_subcommand(script_name: str, extra_args: list[str] | None = None, emoji: str = '🚀', label: str = '',
                     smart_default: str = '', suppress_header: bool = False,
                     command_name: str = ''):
@@ -1322,6 +1375,7 @@ def _run_subcommand(script_name: str, extra_args: list[str] | None = None, emoji
     - suppress_header: True 时不打印装饰 header（--json 模式）
     """
     _brain_hook_pre(command_name or label)  # 🧠 超级大脑·前置联动
+    _t0 = time.time()  # 🔄 复盘钩子计时起点
     if command_name:
         # 🔐 机器消费类子命令自动抑制横幅（输出走 eval/管道/JSON 解析）
         if script_name == 'lh_secret_env.py' and extra_args and extra_args[0] in ('shell', 'run', 'get'):
@@ -1341,6 +1395,7 @@ def _run_subcommand(script_name: str, extra_args: list[str] | None = None, emoji
             suppress_header=suppress_header,
         )
         _brain_hook_post()  # 🧠 超级大脑·后置联动
+        _recap_hook_post(command_name, extra_args, result, _t0)  # 🔄 执行复盘·自动触发
         return result
 
     # 旧路径（无命令名的直接调用·向后兼容）
@@ -1359,6 +1414,7 @@ def _run_subcommand(script_name: str, extra_args: list[str] | None = None, emoji
     if not suppress_header:
         _print_time_stamp()
     _brain_hook_post()  # 🧠 超级大脑·后置联动
+    _recap_hook_post(command_name, extra_args, result, _t0)  # 🔄 执行复盘·自动触发
     return result
 
 
